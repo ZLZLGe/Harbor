@@ -210,7 +210,7 @@ TASK_BUILDER_BRIEF.md
 示例：
 
 ```bash
-export OPENAI_API_KEY="sk-c2db9155da584b5c8242204a0461039ds"
+export OPENAI_API_KEY="your_api_key_here"
 export CODEX_TASK_BUILDER_MODEL=gpt-5.2
 export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 ```
