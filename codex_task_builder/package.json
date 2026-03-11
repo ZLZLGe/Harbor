@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "inventory": "tsx src/cli.ts inventory",
-    "generate-family": "tsx src/cli.ts generate-family",
-    "batch": "tsx src/cli.ts batch",
-    "review": "tsx src/cli.ts review",
+    "inventory": "node --import tsx src/cli.ts inventory",
+    "generate-family": "node --import tsx src/cli.ts generate-family",
+    "batch": "node --import tsx src/cli.ts batch",
+    "review": "node --import tsx src/cli.ts review",
     "check": "tsc --noEmit"
   },
   "dependencies": {

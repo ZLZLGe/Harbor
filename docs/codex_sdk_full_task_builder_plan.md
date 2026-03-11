@@ -428,4 +428,4 @@
 - 完整任务文件由 Codex 直接写到 `drafts/`，结构化 schema 只用于 blueprint 和 reviewer。
 - 不做任何删除操作；已有目标目录只跳过。
 
-## 如果你用codex sdk想要 OPENAI_API_KEY，那么 OPENAI_API_KEY = "sk-c2db9155da584b5c8242204a0461039d"
+## 如果你用 codex sdk 需要 `OPENAI_API_KEY`，请使用你自己的实际密钥，例如 `OPENAI_API_KEY="your_api_key_here"`
