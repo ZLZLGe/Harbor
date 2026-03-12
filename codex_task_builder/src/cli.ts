@@ -1,5 +1,4 @@
 import path from "node:path";
-import { promises as fs } from "node:fs";
 import { CodexTaskBuilderClient } from "./codex.js";
 import { collectEnvironmentAssetPaths, discoverSourceTaskById, discoverSourceTasks, type SourceTask } from "./discovery.js";
 import { appendManifest, writeRunSummary } from "./manifest.js";
@@ -10,6 +9,7 @@ import {
   SOURCE_TASKS_ROOT,
   ensureDir,
   formatIssueList,
+  makeRunId,
   pathExists,
   readText,
   writeJson,
@@ -21,10 +21,14 @@ import {
   type FamilyWorkspace,
 } from "./workspace.js";
 import {
+  collectFamilyObservationIssues,
+  runDockerPreflight,
   runRuntimeValidation,
   validateDraftStatic,
   validateFamilyStructure,
   validateReviewerResult,
+  type DockerPreflightResult,
+  type RuntimeFailureKind,
   type ValidationIssue,
 } from "./validate.js";
 
@@ -35,7 +39,22 @@ type FamilyExecutionResult = {
   runId?: string;
   status: "completed" | "failed" | "skipped";
   issues: string[];
+  familyObservationIssues: string[];
+  publishedTaskIds: string[];
+  skippedTaskIds: string[];
+  failedTaskIds: string[];
   publishedDir?: string;
+};
+
+type TaskExecutionState = {
+  derivedTaskId: string;
+  draftDir: string;
+  reviewerIssues: ValidationIssue[];
+  staticIssues: ValidationIssue[];
+  runtimeIssues: ValidationIssue[];
+  runtimeFailureKind?: RuntimeFailureKind;
+  validateIssues: ValidationIssue[];
+  eligibleForPublish: boolean;
 };
 
 function parseArgs(argv: string[]): { command: string | undefined; options: Options } {
@@ -81,6 +100,14 @@ function sortIssues(issues: ValidationIssue[]): string[] {
   return issues.map((issue) => `${issue.scope}${issue.taskId ? `:${issue.taskId}` : ""} ${issue.message}`);
 }
 
+function collectRuntimeFailureKinds(taskStates: TaskExecutionState[]): Record<string, RuntimeFailureKind> {
+  return Object.fromEntries(
+    taskStates
+      .filter((task) => task.runtimeFailureKind)
+      .map((task) => [task.derivedTaskId, task.runtimeFailureKind as RuntimeFailureKind]),
+  );
+}
+
 async function inventory(sourceRoot: string): Promise<void> {
   const tasks = await discoverSourceTasks(sourceRoot);
   const rows = await Promise.all(
@@ -99,25 +126,8 @@ async function executeFamilyGeneration(
   sourceTask: SourceTask,
   options: {
     outputRoot: string;
-    skipExistingFamily: boolean;
   },
 ): Promise<FamilyExecutionResult> {
-  const targetFamilyDir = path.join(options.outputRoot, sourceTask.sourceTaskId);
-  if (options.skipExistingFamily && (await pathExists(targetFamilyDir))) {
-    await appendManifest({
-      runId: "skipped-existing",
-      sourceTaskId: sourceTask.sourceTaskId,
-      phase: "publish",
-      status: "skipped",
-      issues: ["目标 family 目录已存在，按配置跳过"],
-    });
-    return {
-      sourceTaskId: sourceTask.sourceTaskId,
-      status: "skipped",
-      issues: ["目标 family 目录已存在，按配置跳过"],
-    };
-  }
-
   const workspace = await createFamilyWorkspace(sourceTask);
   await appendManifest({
     runId: workspace.runId,
@@ -130,8 +140,8 @@ async function executeFamilyGeneration(
   const codex = new CodexTaskBuilderClient();
   const familyPlanResult = await codex.planFamily(sourceTask, workspace);
   const familyPlan = familyPlanResult.data;
-  const writerSummaries: WriterSummary[] = [];
-  const validationIssues: ValidationIssue[] = validateFamilyStructure(familyPlan);
+  const writerSummaries = new Map<string, WriterSummary>();
+  const familyObservationIssues = sortIssues(collectFamilyObservationIssues(familyPlan));
   await writeJson(path.join(workspace.artifactsDir, "family-plan.json"), familyPlan);
   await writeJson(path.join(workspace.artifactsDir, "family-plan.raw.json"), {
     threadId: familyPlanResult.threadId,
@@ -146,10 +156,42 @@ async function executeFamilyGeneration(
     threadId: familyPlanResult.threadId,
   });
 
+  const blockingFamilyIssues = validateFamilyStructure(familyPlan);
+  if (blockingFamilyIssues.length > 0) {
+    const issues = sortIssues(blockingFamilyIssues);
+    await appendManifest({
+      runId: workspace.runId,
+      sourceTaskId: sourceTask.sourceTaskId,
+      phase: "validate",
+      status: "failed",
+      issues,
+    });
+    await writeRunSummary(workspace.runId, {
+      sourceTaskId: sourceTask.sourceTaskId,
+      status: "failed",
+      issues,
+      familyObservationIssues,
+      publishedTaskIds: [],
+      skippedTaskIds: [],
+      failedTaskIds: familyPlan.derivedTasks.map((task) => task.derivedTaskId),
+      workspace,
+    });
+    return {
+      sourceTaskId: sourceTask.sourceTaskId,
+      runId: workspace.runId,
+      status: "failed",
+      issues,
+      familyObservationIssues,
+      publishedTaskIds: [],
+      skippedTaskIds: [],
+      failedTaskIds: familyPlan.derivedTasks.map((task) => task.derivedTaskId),
+    };
+  }
+
   for (const plan of familyPlan.derivedTasks) {
     const draftDir = await prepareDraftSkeleton(workspace, sourceTask, plan);
     const writerResult = await codex.writeTask(sourceTask, workspace, plan);
-    writerSummaries.push(writerResult.data);
+    writerSummaries.set(plan.derivedTaskId, writerResult.data);
     await writeJson(path.join(workspace.artifactsDir, `${plan.derivedTaskId}.writer.json`), writerResult.data);
     await writeJson(path.join(workspace.artifactsDir, `${plan.derivedTaskId}.writer.raw.json`), {
       threadId: writerResult.threadId,
@@ -167,7 +209,18 @@ async function executeFamilyGeneration(
   }
 
   const reviewResult = await codex.reviewFamily(sourceTask, workspace, familyPlan);
-  validationIssues.push(...(await validateReviewerResult(reviewResult.data)));
+  const reviewValidation = validateReviewerResult(familyPlan, reviewResult.data);
+  const reviewerTaskFailures = Array.from(reviewValidation.taskIssuesById.values()).flat();
+  const reviewerIssues = sortIssues(reviewerTaskFailures);
+  const mergedFamilyObservationIssues = [
+    ...new Set([...familyObservationIssues, ...sortIssues(reviewValidation.familyObservationIssues)]),
+  ];
+  const reviewerPassedTaskIds = familyPlan.derivedTasks
+    .map((task) => task.derivedTaskId)
+    .filter((taskId) => (reviewValidation.taskIssuesById.get(taskId) ?? []).length === 0);
+  const reviewerFailedTaskIds = familyPlan.derivedTasks
+    .map((task) => task.derivedTaskId)
+    .filter((taskId) => (reviewValidation.taskIssuesById.get(taskId) ?? []).length > 0);
   await writeJson(path.join(workspace.artifactsDir, "review-result.json"), reviewResult.data);
   await writeJson(path.join(workspace.artifactsDir, "review-result.raw.json"), {
     threadId: reviewResult.threadId,
@@ -177,92 +230,270 @@ async function executeFamilyGeneration(
     runId: workspace.runId,
     sourceTaskId: sourceTask.sourceTaskId,
     phase: "reviewer",
-    status: reviewResult.data.pass ? "completed" : "failed",
+    status: "completed",
     threadId: reviewResult.threadId,
-    issues: reviewResult.data.issues,
+    issues: [...reviewerIssues, ...mergedFamilyObservationIssues],
+    metadata: {
+      passedTaskIds: reviewerPassedTaskIds,
+      failedTaskIds: reviewerFailedTaskIds,
+      familyObservationIssues: mergedFamilyObservationIssues,
+    },
   });
 
   for (const plan of familyPlan.derivedTasks) {
-    const writerSummary = writerSummaries.find((summary) => summary.derivedTaskId === plan.derivedTaskId);
+    const taskReviewerIssues = sortIssues(reviewValidation.taskIssuesById.get(plan.derivedTaskId) ?? []);
+    await appendManifest({
+      runId: workspace.runId,
+      sourceTaskId: sourceTask.sourceTaskId,
+      derivedTaskId: plan.derivedTaskId,
+      phase: "reviewer",
+      status: taskReviewerIssues.length > 0 ? "failed" : "completed",
+      threadId: reviewResult.threadId,
+      draftDir: path.join(workspace.draftsDir, plan.derivedTaskId),
+      issues: taskReviewerIssues,
+    });
+  }
+
+  const taskStates: TaskExecutionState[] = [];
+  for (const plan of familyPlan.derivedTasks) {
+    const draftDir = path.join(workspace.draftsDir, plan.derivedTaskId);
+    const writerSummary = writerSummaries.get(plan.derivedTaskId);
+    const reviewerIssuesForTask = reviewValidation.taskIssuesById.get(plan.derivedTaskId) ?? [];
+    const staticIssues: ValidationIssue[] = [];
+
     if (!writerSummary) {
-      validationIssues.push({
+      staticIssues.push({
         scope: "static",
         taskId: plan.derivedTaskId,
         message: "缺少 writer summary",
       });
+    } else {
+      staticIssues.push(...(await validateDraftStatic(draftDir, plan, writerSummary)));
+    }
+
+    const runtimeValidation =
+      reviewerIssuesForTask.length === 0 && staticIssues.length === 0
+        ? await runRuntimeValidation(workspace, plan)
+        : { issues: [] };
+    const runtimeIssues = runtimeValidation.issues;
+    const validateIssues = [...reviewerIssuesForTask, ...staticIssues, ...runtimeIssues];
+    const eligibleForPublish = validateIssues.length === 0;
+
+    taskStates.push({
+      derivedTaskId: plan.derivedTaskId,
+      draftDir,
+      reviewerIssues: reviewerIssuesForTask,
+      staticIssues,
+      runtimeIssues,
+      runtimeFailureKind: runtimeValidation.failureKind,
+      validateIssues,
+      eligibleForPublish,
+    });
+
+    await appendManifest({
+      runId: workspace.runId,
+      sourceTaskId: sourceTask.sourceTaskId,
+      derivedTaskId: plan.derivedTaskId,
+      phase: "validate",
+      status: eligibleForPublish ? "completed" : "failed",
+      draftDir,
+      issues: sortIssues(validateIssues),
+      metadata: runtimeValidation.failureKind ? { runtimeFailureKind: runtimeValidation.failureKind } : undefined,
+    });
+  }
+
+  const failedValidationIssues = taskStates
+    .filter((task) => task.validateIssues.length > 0)
+    .flatMap((task) => sortIssues(task.validateIssues));
+  const runtimeFailureKindsByTaskId = collectRuntimeFailureKinds(taskStates);
+  await appendManifest({
+    runId: workspace.runId,
+    sourceTaskId: sourceTask.sourceTaskId,
+    phase: "validate",
+    status: "completed",
+    issues: failedValidationIssues,
+    metadata: {
+      eligibleTaskIds: taskStates.filter((task) => task.eligibleForPublish).map((task) => task.derivedTaskId),
+      ineligibleTaskIds: taskStates.filter((task) => !task.eligibleForPublish).map((task) => task.derivedTaskId),
+      runtimeFailureKindsByTaskId,
+    },
+  });
+
+  const eligiblePlans = familyPlan.derivedTasks.filter((plan) =>
+    taskStates.some((task) => task.derivedTaskId === plan.derivedTaskId && task.eligibleForPublish),
+  );
+  const publishResult = await publishFamily(workspace, sourceTask.sourceTaskId, eligiblePlans, options.outputRoot);
+  const publishResultsByTaskId = new Map(
+    publishResult.taskResults.map((taskResult) => [taskResult.derivedTaskId, taskResult] as const),
+  );
+
+  const publishedTaskIds: string[] = [];
+  const skippedTaskIds: string[] = [];
+  const failedTaskIds: string[] = [];
+  const publishFailureIssues: string[] = [];
+
+  for (const taskState of taskStates) {
+    if (!taskState.eligibleForPublish) {
+      failedTaskIds.push(taskState.derivedTaskId);
+      await appendManifest({
+        runId: workspace.runId,
+        sourceTaskId: sourceTask.sourceTaskId,
+        derivedTaskId: taskState.derivedTaskId,
+        phase: "publish",
+        status: "failed",
+        draftDir: taskState.draftDir,
+        issues: sortIssues(taskState.validateIssues),
+        metadata: taskState.runtimeFailureKind ? { runtimeFailureKind: taskState.runtimeFailureKind } : undefined,
+      });
       continue;
     }
-    const draftDir = path.join(workspace.draftsDir, plan.derivedTaskId);
-    validationIssues.push(...(await validateDraftStatic(draftDir, plan, writerSummary)));
-  }
 
-  if (validationIssues.length === 0) {
-    for (const plan of familyPlan.derivedTasks) {
-      validationIssues.push(...(await runRuntimeValidation(workspace, plan)));
+    const publishTaskResult = publishResultsByTaskId.get(taskState.derivedTaskId);
+    if (!publishTaskResult) {
+      failedTaskIds.push(taskState.derivedTaskId);
+      publishFailureIssues.push(`publish:${taskState.derivedTaskId} publish 未返回该任务结果`);
+      await appendManifest({
+        runId: workspace.runId,
+        sourceTaskId: sourceTask.sourceTaskId,
+        derivedTaskId: taskState.derivedTaskId,
+        phase: "publish",
+        status: "failed",
+        draftDir: taskState.draftDir,
+        issues: ["publish 未返回该任务结果"],
+        metadata: taskState.runtimeFailureKind ? { runtimeFailureKind: taskState.runtimeFailureKind } : undefined,
+      });
+      continue;
     }
-  }
 
-  if (validationIssues.length > 0) {
-    const issues = sortIssues(validationIssues);
+    if (publishTaskResult.status === "completed") {
+      publishedTaskIds.push(taskState.derivedTaskId);
+      await appendManifest({
+        runId: workspace.runId,
+        sourceTaskId: sourceTask.sourceTaskId,
+        derivedTaskId: taskState.derivedTaskId,
+        phase: "publish",
+        status: "completed",
+        draftDir: taskState.draftDir,
+        publishedDir: publishTaskResult.taskDir,
+      });
+      continue;
+    }
+
+    skippedTaskIds.push(taskState.derivedTaskId);
     await appendManifest({
       runId: workspace.runId,
       sourceTaskId: sourceTask.sourceTaskId,
-      phase: "validate",
-      status: "failed",
-      issues,
-    });
-    await writeRunSummary(workspace.runId, {
-      sourceTaskId: sourceTask.sourceTaskId,
-      status: "failed",
-      issues,
-      workspace,
-    });
-    return {
-      sourceTaskId: sourceTask.sourceTaskId,
-      runId: workspace.runId,
-      status: "failed",
-      issues,
-    };
-  }
-
-  const publishResult = await publishFamily(workspace, familyPlan, options.outputRoot);
-  if (!publishResult.published) {
-    await appendManifest({
-      runId: workspace.runId,
-      sourceTaskId: sourceTask.sourceTaskId,
+      derivedTaskId: taskState.derivedTaskId,
       phase: "publish",
       status: "skipped",
-      issues: [publishResult.reason ?? "发布被跳过"],
+      draftDir: taskState.draftDir,
+      publishedDir: publishTaskResult.taskDir,
+      issues: [publishTaskResult.reason ?? "目标任务目录已存在，按配置跳过发布"],
     });
-    return {
-      sourceTaskId: sourceTask.sourceTaskId,
-      runId: workspace.runId,
-      status: "skipped",
-      issues: [publishResult.reason ?? "发布被跳过"],
-    };
   }
+
+  const finalStatus: FamilyExecutionResult["status"] =
+    publishedTaskIds.length > 0 ? "completed" : failedTaskIds.length > 0 ? "failed" : "skipped";
+  const failedTaskIdSet = new Set(failedTaskIds);
+  const failureIssues = taskStates
+    .filter((task) => failedTaskIdSet.has(task.derivedTaskId))
+    .flatMap((task) => sortIssues(task.validateIssues));
+  const finalIssues = [...failureIssues, ...publishFailureIssues];
 
   await appendManifest({
     runId: workspace.runId,
     sourceTaskId: sourceTask.sourceTaskId,
     phase: "publish",
-    status: "completed",
-    publishedDir: publishResult.familyDir,
+    status: finalStatus,
+    publishedDir:
+      publishedTaskIds.length > 0 || skippedTaskIds.length > 0 ? publishResult.familyDir : undefined,
+    issues: finalIssues,
+    metadata: {
+      publishedTaskIds,
+      skippedTaskIds,
+      failedTaskIds,
+      familyObservationIssues: mergedFamilyObservationIssues,
+      runtimeFailureKindsByTaskId,
+    },
   });
   await writeRunSummary(workspace.runId, {
     sourceTaskId: sourceTask.sourceTaskId,
-    status: "completed",
-    publishedDir: publishResult.familyDir,
+    status: finalStatus,
+    issues: finalIssues,
+    familyObservationIssues: mergedFamilyObservationIssues,
+    publishedDir:
+      publishedTaskIds.length > 0 || skippedTaskIds.length > 0 ? publishResult.familyDir : undefined,
+    publishedTaskIds,
+    skippedTaskIds,
+    failedTaskIds,
+    runtimeFailureKindsByTaskId,
     workspace,
   });
 
   return {
     sourceTaskId: sourceTask.sourceTaskId,
     runId: workspace.runId,
-    status: "completed",
-    issues: [],
-    publishedDir: publishResult.familyDir,
+    status: finalStatus,
+    issues: finalIssues,
+    familyObservationIssues: mergedFamilyObservationIssues,
+    publishedTaskIds,
+    skippedTaskIds,
+    failedTaskIds,
+    publishedDir:
+      publishedTaskIds.length > 0 || skippedTaskIds.length > 0 ? publishResult.familyDir : undefined,
   };
+}
+
+async function buildBatchPreflightFailureResults(
+  sourceTasks: SourceTask[],
+  preflight: DockerPreflightResult,
+): Promise<FamilyExecutionResult[]> {
+  const results: FamilyExecutionResult[] = [];
+
+  for (const sourceTask of sourceTasks) {
+    const runId = makeRunId(`${sourceTask.sourceTaskId}-runtime-preflight`);
+    const issues = [`runtime docker/WSL preflight 失败: ${preflight.summary}`];
+    await appendManifest({
+      runId,
+      sourceTaskId: sourceTask.sourceTaskId,
+      phase: "runtime-preflight",
+      status: "failed",
+      issues,
+      metadata: {
+        dockerPreflight: {
+          passed: false,
+          stderrSummary: preflight.summary,
+          details: preflight.details,
+        },
+      },
+    });
+    await writeRunSummary(runId, {
+      sourceTaskId: sourceTask.sourceTaskId,
+      status: "failed",
+      issues,
+      familyObservationIssues: [],
+      publishedTaskIds: [],
+      skippedTaskIds: [],
+      failedTaskIds: [],
+      dockerPreflight: {
+        passed: false,
+        stderrSummary: preflight.summary,
+        details: preflight.details,
+      },
+    });
+    results.push({
+      sourceTaskId: sourceTask.sourceTaskId,
+      runId,
+      status: "failed",
+      issues,
+      familyObservationIssues: [],
+      publishedTaskIds: [],
+      skippedTaskIds: [],
+      failedTaskIds: [],
+    });
+  }
+
+  return results;
 }
 
 async function reviewLatestRun(sourceTaskId: string, sourceRoot: string): Promise<void> {
@@ -296,6 +527,15 @@ async function batchGenerate(sourceRoot: string, options: Options): Promise<void
     .filter((task) => (match ? new RegExp(match).test(task.sourceTaskId) : true))
     .slice(0, limit);
 
+  if (filtered.length > 0) {
+    const preflight = await runDockerPreflight();
+    if (!preflight.ok) {
+      const results = await buildBatchPreflightFailureResults(filtered, preflight);
+      console.log(JSON.stringify(results, null, 2));
+      return;
+    }
+  }
+
   const results: FamilyExecutionResult[] = [];
   let nextIndex = 0;
 
@@ -307,7 +547,6 @@ async function batchGenerate(sourceRoot: string, options: Options): Promise<void
         results.push(
           await executeFamilyGeneration(current, {
             outputRoot,
-            skipExistingFamily: true,
           }),
         );
       } catch (error) {
@@ -315,6 +554,10 @@ async function batchGenerate(sourceRoot: string, options: Options): Promise<void
           sourceTaskId: current.sourceTaskId,
           status: "failed",
           issues: [error instanceof Error ? error.message : String(error)],
+          familyObservationIssues: [],
+          publishedTaskIds: [],
+          skippedTaskIds: [],
+          failedTaskIds: [],
         });
       }
     }
@@ -345,7 +588,6 @@ async function main(): Promise<void> {
       const sourceTask = await discoverSourceTaskById(sourceTaskId, sourceRoot);
       const result = await executeFamilyGeneration(sourceTask, {
         outputRoot,
-        skipExistingFamily: true,
       });
       console.log(JSON.stringify(result, null, 2));
       if (result.issues.length > 0) {

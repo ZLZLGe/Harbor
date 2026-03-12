@@ -27,19 +27,31 @@ export const writerSummarySchema = z.object({
   summary: z.string().min(1),
 });
 
-export const reviewResultSchema = z.object({
+export const reviewerTaskResultSchema = z.object({
+  derivedTaskId: z.string().min(1),
   pass: z.boolean(),
   issues: z.array(z.string()),
   visibilityPass: z.boolean(),
-  diversityPass: z.boolean(),
-  roleLayoutPass: z.boolean(),
   skillBenefitPass: z.boolean(),
   testabilityPass: z.boolean(),
+});
+
+export const familyObservationsSchema = z.object({
+  issues: z.array(z.string()),
+  diversityPass: z.boolean(),
+  roleLayoutPass: z.boolean(),
+});
+
+export const reviewResultSchema = z.object({
+  taskResults: z.array(reviewerTaskResultSchema).min(1),
+  familyObservations: familyObservationsSchema,
 });
 
 export type DerivedTaskPlan = z.infer<typeof derivedTaskPlanSchema>;
 export type FamilyPlan = z.infer<typeof familyPlanSchema>;
 export type WriterSummary = z.infer<typeof writerSummarySchema>;
+export type ReviewerTaskResult = z.infer<typeof reviewerTaskResultSchema>;
+export type FamilyObservations = z.infer<typeof familyObservationsSchema>;
 export type ReviewResult = z.infer<typeof reviewResultSchema>;
 
 export const familyPlanJsonSchema = {
@@ -101,25 +113,47 @@ export const writerSummaryJsonSchema = {
 export const reviewResultJsonSchema = {
   type: "object",
   additionalProperties: false,
-  required: [
-    "pass",
-    "issues",
-    "visibilityPass",
-    "diversityPass",
-    "roleLayoutPass",
-    "skillBenefitPass",
-    "testabilityPass",
-  ],
+  required: ["taskResults", "familyObservations"],
   properties: {
-    pass: { type: "boolean" },
-    issues: {
+    taskResults: {
       type: "array",
-      items: { type: "string" },
+      minItems: 1,
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: [
+          "derivedTaskId",
+          "pass",
+          "issues",
+          "visibilityPass",
+          "skillBenefitPass",
+          "testabilityPass",
+        ],
+        properties: {
+          derivedTaskId: { type: "string" },
+          pass: { type: "boolean" },
+          issues: {
+            type: "array",
+            items: { type: "string" },
+          },
+          visibilityPass: { type: "boolean" },
+          skillBenefitPass: { type: "boolean" },
+          testabilityPass: { type: "boolean" },
+        },
+      },
     },
-    visibilityPass: { type: "boolean" },
-    diversityPass: { type: "boolean" },
-    roleLayoutPass: { type: "boolean" },
-    skillBenefitPass: { type: "boolean" },
-    testabilityPass: { type: "boolean" },
+    familyObservations: {
+      type: "object",
+      additionalProperties: false,
+      required: ["issues", "diversityPass", "roleLayoutPass"],
+      properties: {
+        issues: {
+          type: "array",
+          items: { type: "string" },
+        },
+        diversityPass: { type: "boolean" },
+        roleLayoutPass: { type: "boolean" },
+      },
+    },
   },
 } as const;

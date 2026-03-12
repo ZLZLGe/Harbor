@@ -73,6 +73,11 @@ npm run batch -- \
   --family-concurrency 2
 ```
 
+说明：
+
+- `batch` 在真正启动 planner 之前，会先做一次 Docker/WSL preflight
+- 如果 preflight 失败，本轮 batch 会直接返回失败结果，不会启动生成
+
 重新执行最近一次 reviewer：
 
 ```bash
@@ -106,7 +111,11 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 - 每次运行会创建 scratch workspace：`/tmp/harbor-codex-task-builder/<run_id>/<source_task_id>/`
 - manifest 会写到：`/home/levi/Harbor/codex_task_builder_runs/manifest.jsonl`
 - 发布成功后会写入：`/home/levi/Harbor/tasks_library/integrated_tasks/<source_task_id>/`
-- 当前实现默认不会覆盖已存在的 family
+- 当前实现按任务验收、按任务发布
+- 已有 `integrated_tasks/<source_task_id>/` 时允许追加新任务
+- 已有同名 `derived_task_id/` 目录时会跳过该任务，不会覆盖
+- runtime 校验会用 `bash /solution/solve.sh && bash /tests/test.sh` 执行脚本
+- Docker/WSL 宿主异常仍会记作 runtime 失败，但会在日志和 metadata 里单独标明
 - 当前实现不会做删除操作
 
 ## 我目前确认到的范围

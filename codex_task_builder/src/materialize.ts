@@ -1,41 +1,60 @@
 import path from "node:path";
-import type { FamilyPlan } from "./schema.js";
+import type { DerivedTaskPlan } from "./schema.js";
 import type { FamilyWorkspace } from "./workspace.js";
-import { INTEGRATED_TASKS_ROOT, copyDir, pathExists } from "./utils.js";
+import { INTEGRATED_TASKS_ROOT, copyDir, ensureDir, pathExists } from "./utils.js";
+
+export type PublishedTaskResult = {
+  derivedTaskId: string;
+  status: "completed" | "skipped-existing-task";
+  taskDir: string;
+  reason?: string;
+};
 
 export type PublishResult = {
-  published: boolean;
   familyDir: string;
-  taskDirs: string[];
-  reason?: string;
+  taskResults: PublishedTaskResult[];
 };
 
 export async function publishFamily(
   workspace: FamilyWorkspace,
-  familyPlan: FamilyPlan,
+  sourceTaskId: string,
+  tasks: DerivedTaskPlan[],
   outputRoot = INTEGRATED_TASKS_ROOT,
 ): Promise<PublishResult> {
-  const familyDir = path.join(outputRoot, familyPlan.sourceTaskId);
-  if (await pathExists(familyDir)) {
+  const familyDir = path.join(outputRoot, sourceTaskId);
+  const taskResults: PublishedTaskResult[] = [];
+
+  if (tasks.length === 0) {
     return {
-      published: false,
       familyDir,
-      taskDirs: [],
-      reason: "目标 family 目录已存在，按配置跳过发布",
+      taskResults,
     };
   }
 
-  const publishedTaskDirs: string[] = [];
-  for (const task of familyPlan.derivedTasks) {
+  await ensureDir(familyDir);
+
+  for (const task of tasks) {
     const sourceDraftDir = path.join(workspace.draftsDir, task.derivedTaskId);
     const targetTaskDir = path.join(familyDir, task.derivedTaskId);
+    if (await pathExists(targetTaskDir)) {
+      taskResults.push({
+        derivedTaskId: task.derivedTaskId,
+        status: "skipped-existing-task",
+        taskDir: targetTaskDir,
+        reason: "目标任务目录已存在，按配置跳过发布",
+      });
+      continue;
+    }
     await copyDir(sourceDraftDir, targetTaskDir);
-    publishedTaskDirs.push(targetTaskDir);
+    taskResults.push({
+      derivedTaskId: task.derivedTaskId,
+      status: "completed",
+      taskDir: targetTaskDir,
+    });
   }
 
   return {
-    published: true,
     familyDir,
-    taskDirs: publishedTaskDirs,
+    taskResults,
   };
 }

@@ -84,7 +84,7 @@
 
 3. `reviewer thread`
    - 联合读取 `drafts/` 下 4 个任务
-   - 做 family 级审查
+   - 输出任务级 verdict 与 family 级观察
 
 ### 4. Prompt 设计
 
@@ -123,13 +123,16 @@
 
 要求 Codex：
 
-- 检查 family 是否满足“1 个 `similar` + 3 个 `transfer`”
-- 检查 3 个 `transfer` 任务是否彼此足够不同
-- 检查 `similar` 任务是否足够接近原任务，能够用于测试技能有效性
-- 检查 `instruction.md` 是否直接明示了技能或具体 skill 名称
-- 检查测试是否可判定
-- 检查任务是否真的能从 shipped skills 受益
-- 给出 `pass/fail` 和问题列表
+- 对每个任务分别检查：
+  - `instruction.md` 是否直接明示了技能或具体 skill 名称
+  - 测试是否可判定
+  - 任务是否真的能从 shipped skills 受益
+  - 该任务是否应通过 reviewer
+- 对 family 整体额外给出观察：
+  - family 是否满足“1 个 `similar` + 3 个 `transfer`”
+  - 3 个 `transfer` 任务是否彼此足够不同
+  - `similar` 任务是否足够接近原任务，能够用于测试技能有效性
+- 任务级 verdict 只阻塞对应任务，不阻塞整组
 
 ### 5. 结构化输出范围
 
@@ -160,13 +163,17 @@
 
 包含：
 
-- `pass`
-- `issues[]`
-- `visibilityPass`
-- `diversityPass`
-- `roleLayoutPass`
-- `skillBenefitPass`
-- `testabilityPass`
+- `taskResults[]`
+  - `derivedTaskId`
+  - `pass`
+  - `issues[]`
+  - `visibilityPass`
+  - `skillBenefitPass`
+  - `testabilityPass`
+- `familyObservations`
+  - `issues[]`
+  - `diversityPass`
+  - `roleLayoutPass`
 
 完整任务文件由 Codex 直接写入 `drafts/`，不走 JSON 承载。
 
@@ -182,10 +189,11 @@
 
 规则：
 
-- 目标目录已存在时，直接跳过
+- 允许向已存在的 `integrated_tasks/<source_task_id>/` 追加任务
+- 同名 `derivedTaskId` 目录已存在时，跳过该任务
 - 不覆盖
 - 不删除
-- 不修改已有 family
+- 不修改已有任务目录
 
 每个任务必须至少包含：
 
@@ -199,7 +207,7 @@
 
 ### 7. 校验阶段
 
-`src/validate.ts` 负责三层校验。
+`src/validate.ts` 负责三层校验，但发布决策改为任务级。
 
 #### 静态校验
 
@@ -212,10 +220,16 @@
 对每个任务执行：
 
 1. build `environment/Dockerfile`
-2. 在容器内运行 `solution/solve.sh`
-3. 在容器内运行 `tests/test.sh`
+2. 在容器内执行 `bash /solution/solve.sh`
+3. 在容器内执行 `bash /tests/test.sh`
 
 任一步失败则该任务不发布。
+
+补充：
+
+- 不再对只读挂载的 `solution/`、`tests/` 做 `chmod`
+- `docker build` 失败与 `solution/test` 失败都继续记为 runtime 失败
+- 但 metadata 中要区分 `docker-preflight` / `docker-build` / `docker-run`
 
 #### family 校验
 
@@ -223,6 +237,13 @@
 
 - `derivedTaskId` 不同
 - `primaryOutputFile` 不同
+
+说明：
+
+- `1 similar + 3 transfer`
+- `derivedTaskId` 中是否包含 `-similar-` / `-transfer-`
+
+不再作为整组发布硬门槛，而是 planner 默认目标与 reviewer/family observation。
 
 
 ### 8. manifest 记录
@@ -254,6 +275,12 @@
 - `draftDir`
 - `publishedDir`
 - `issues`
+
+补充约定：
+
+- source-level `reviewer` / `validate` 记录表示阶段执行完成
+- 若仅部分任务失败，失败信息写入 `issues`，任务分流写入 `metadata`
+- 最终是否发布，以 `publish` phase 和 run summary 为准
 
 ### 9. CLI 设计
 
@@ -288,7 +315,8 @@
 - `plannerRetries = 1`
 - `writerRetries = 1`
 - `reviewRetries = 1`
-- `skipExistingFamily = true`
+- 已存在 family 目录时允许追加新任务
+- 已存在同名任务目录时跳过该任务
 
 ## Generation Flow
 
@@ -301,9 +329,11 @@
 5. 对 4 个 blueprint 分别启动 `task writer thread`
 6. 把完整任务写入 `drafts/<derived_task_id>/`
 7. 启动 `reviewer thread`
-8. 执行本地静态校验
-9. 执行 Docker build + solution run + tests run
-10. 验证通过后复制到 `integrated_tasks/`
+8. reviewer 返回任务级 verdict 与 family 级观察
+9. 对每个任务执行本地静态校验
+10. `batch` 模式在启动生成前先做一次 Docker/WSL preflight
+11. 对通过前置检查的任务执行 Docker build + solution run + tests run
+12. 按任务把通过验收的结果复制到 `integrated_tasks/`
 
 ## Generation Rules
 
@@ -318,6 +348,11 @@
 - 3 个 `transfer` 任务必须彼此明显不同
 - `transfer` 任务应保留 skill 的核心收益点，但在目标、输入组织、输出契约或应用场景上发生迁移
 - `similar` 任务用于测试技能有效性，`transfer` 任务用于测试技能泛化性
+
+说明：
+
+- 上面仍是默认生成目标
+- 后续发布按单任务验收结果决定，不再要求整组都通过才发布
 
 ### 2. instruction 规则
 
@@ -379,22 +414,35 @@
 
 ### 2. reviewer 语义审查测试
 
-对每个生成 family，reviewer 必须给出并通过：
+对每个生成 family，reviewer 必须给出：
 
-- `visibilityPass`
-- `diversityPass`
-- `roleLayoutPass`
-- `skillBenefitPass`
-- `testabilityPass`
+- 每个任务自己的：
+  - `visibilityPass`
+  - `skillBenefitPass`
+  - `testabilityPass`
+  - `pass/fail`
+- family 自己的：
+  - `diversityPass`
+  - `roleLayoutPass`
+
+规则：
+
+- 任务级 `pass=false` 只阻塞对应任务
+- family 级 observation 不阻塞其他任务发布
 
 ### 3. family 结构测试
 
 同一个 family 下：
 
-- 恰好 1 个 `derivedTaskId` 包含 `-similar-`
-- 恰好 3 个 `derivedTaskId` 包含 `-transfer-`
 - 4 个 `derivedTaskId` 不同
 - 4 个 `primaryOutputFile` 不同
+
+其中：
+
+- 恰好 1 个 `derivedTaskId` 包含 `-similar-`
+- 恰好 3 个 `derivedTaskId` 包含 `-transfer-`
+
+改为 reviewer / observation 层面的检查，不再作为整组发布硬门槛。
 
 ### 4. 运行测试
 
@@ -409,16 +457,18 @@
 - planner
 - writer
 - reviewer
-- static validate
-- Docker build
-- solution run
-- tests run
+- 对于准备发布的单个任务：
+  - static validate
+  - Docker build
+  - solution run
+  - tests run
 
 ### 5. 批量测试
 
 - `batch --limit 3` 能连续生成 3 个 family
 - manifest 能记录成功、失败、跳过
-- 已存在 family 再跑时只跳过，不覆盖
+- 已存在 family 再跑时允许追加新任务
+- 已存在同名任务目录时跳过，不覆盖
 
 ## Assumptions
 
