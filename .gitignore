@@ -12,8 +12,20 @@ Thumbs.db
 # 日志与临时文件
 *.log
 *.tmp
+__pycache__/
+*.pyc
 
 # 环境变量（避免误提交密钥）
 .env
 .env.*
 !.env.example
+
+# Skill-to-task pipeline transient outputs
+tasks_library/generated/staging/
+tasks_library/generated/reports/
+tasks_library/generated/**/_jobs/
+
+# Codex task builder
+codex_task_builder/node_modules/
+codex_task_builder/dist/
+codex_task_builder_runs/

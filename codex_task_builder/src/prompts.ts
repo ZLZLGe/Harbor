@@ -132,12 +132,20 @@ export function buildReviewerPrompt(sourceTask: SourceTask, familyPlan: FamilyPl
     ${taskList}
 
     审查目标:
-    - family 是否满足 1 个 similar + 3 个 transfer
-    - 3 个 transfer 任务是否彼此足够不同
-    - similar 任务是否足够接近原任务，能够用于测试技能有效性
-    - instruction.md 是否直接明示了技能或具体 skill 名称
-    - 测试是否可判定
-    - 任务是否真的能从 shipped skills 受益
+    - 对每个任务分别判断：
+      - instruction.md 是否直接明示了技能或具体 skill 名称
+      - 测试是否可判定
+      - 任务是否真的能从 shipped skills 受益
+      - 该任务是否应通过 reviewer
+    - 对 family 整体单独给出观察：
+      - family 是否满足 1 个 similar + 3 个 transfer
+      - 3 个 transfer 任务是否彼此足够不同
+      - similar 任务是否足够接近原任务，能够用于测试技能有效性
+
+    返回格式要求:
+    - taskResults 中必须覆盖 familyPlan.derivedTasks 里的每一个 derivedTaskId
+    - taskResults[].pass=false 只表示该任务不应发布，不表示整组 family 失败
+    - familyObservations 只记录 family 级观察，不决定单个任务是否发布
 
     返回严格符合 schema 的 JSON，不要输出额外解释。
   `);

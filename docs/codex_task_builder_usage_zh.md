@@ -8,11 +8,14 @@
 
 - 输入目录：`/home/levi/Harbor/tasks_library/skillsbench/tasks`
 - 输出目录：`/home/levi/Harbor/tasks_library/integrated_tasks`
-- 每个 source task 生成一个 4-task family
-- family 固定为：
+- 每个 source task 默认尝试生成一个 4-task family
+- 默认目标为：
   - `1` 个 `similar`
   - `3` 个 `transfer`
-- 不覆盖已有 family
+- 按任务验收、按任务发布
+- reviewer / 静态检查 / Oracle(runtime) 只阻塞对应任务
+- 允许向已有 `integrated_tasks/<source_task_id>/` 追加新任务
+- 不覆盖已有同名任务目录
 - 不做删除操作
 
 ## 2. 目录结构
@@ -86,12 +89,14 @@ npm run generate-family -- \
 
 - 为一个 source task 创建 scratch workspace
 - 调用 Codex SDK 做 planner、writer、reviewer
-- 做静态校验与运行校验
-- 校验通过后发布到 `integrated_tasks/<source_task_id>/`
+- 对每个任务分别做 reviewer、静态校验与运行校验
+- 通过验收的任务发布到 `integrated_tasks/<source_task_id>/`
 
 行为说明：
 
-- 如果目标 family 已存在，会直接跳过
+- 已有 family 目录时不会整组跳过
+- 会把本次新通过的任务追加进去
+- 已有同名任务目录会跳过
 - 不会覆盖已有结果
 - 不会删除任何目录
 
@@ -99,10 +104,11 @@ npm run generate-family -- \
 
 ```bash
 cd /home/levi/Harbor/codex_task_builder
+export CODEX_TASK_BUILDER_MODEL=gpt-5.2
 npm run batch -- \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks \
-  --limit 3 \
+  --limit 2 \
   --family-concurrency 2
 ```
 
@@ -111,6 +117,12 @@ npm run batch -- \
 - `--match <regex>`：按 `sourceTaskId` 过滤
 - `--limit <n>`：限制 family 数量
 - `--family-concurrency <n>`：并发生成 family 数量
+
+当前行为补充：
+
+- `batch` 在真正生成前会先做一次 Docker/WSL preflight
+- 如果 preflight 失败，本轮 batch 会直接返回失败结果，不会启动 planner / writer / reviewer
+- Docker/WSL 异常仍记作 runtime 失败，但会在 `issues` 和 `metadata` 中单独标明
 
 示例：
 
@@ -186,6 +198,13 @@ TASK_BUILDER_BRIEF.md
 - `publishedDir`
 - `issues`
 
+补充说明：
+
+- source-level 的 `reviewer` / `validate` 记录表示该阶段已经执行完成
+- 如果只有部分任务不通过，问题会写进 `issues`，任务拆分会写进 `metadata`
+- 是否最终发布，以 `publish` phase 和最终 run summary 为准
+- `batch` 预检失败时，会额外写入 `runtime-preflight` phase
+
 ### 5.3 最终发布目录
 
 发布成功后，任务会进入：
@@ -223,10 +242,16 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 2. 复制完整 `source_task/`
 3. planner 生成 family 规划
 4. 为 4 个派生任务分别运行 writer
-5. reviewer 做 family 级语义审查
-6. 本地做静态校验
-7. 本地做 Docker build + solution/test 运行校验
-8. 校验通过后发布到 `integrated_tasks/`
+5. reviewer 返回任务级 verdict 和 family 级观察
+6. 对每个任务做本地静态校验
+7. 对通过前置检查的任务做 Docker build + solution/test 运行校验
+8. 按任务把通过验收的结果发布到 `integrated_tasks/`
+
+运行校验补充：
+
+- 脚本通过 `bash /solution/solve.sh && bash /tests/test.sh` 执行
+- 不再对只读挂载的 `solution/`、`tests/` 做 `chmod`
+- `docker build` 失败与 `solution/test` 失败都会继续算 runtime 失败，但会在 metadata 区分为 `docker-preflight` / `docker-build` / `docker-run`
 
 ## 8. 当前硬规则
 
@@ -234,12 +259,17 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 
 - `derivedTaskId` 唯一
 - `primaryOutputFile` 唯一
-- family 角色布局是 `1 similar + 3 transfer`
-- `similar` 的 id 含 `-similar-`
-- `transfer` 的 id 含 `-transfer-`
 - 必备文件存在
 - `task.toml` 中 `id` 与目录名一致
+- `metadata.name` 仍需显式包含 `Similar` 或 `Transfer`
 - `environment/Dockerfile` 保留 `COPY skills /root/.codex/skills`
+
+说明：
+
+- `1 similar + 3 transfer`
+- `derivedTaskId` 是否包含 `-similar-` / `-transfer-`
+
+现在属于 planner 默认目标与 reviewer/family observation，不再作为整组发布硬门槛。
 
 ## 9. 结果判断
 
@@ -250,7 +280,19 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
   "sourceTaskId": "citation-check",
   "runId": "20260311140649-citation-check-x2n6e3",
   "status": "completed",
-  "issues": [],
+  "issues": [
+    "reviewer:preprint-transfer-publication-reconciliation skillBenefitPass=false"
+  ],
+  "familyObservationIssues": [],
+  "publishedTaskIds": [
+    "grant-proposal-similar-citation-integrity-audit",
+    "related-work-transfer-search-driven-bibliography",
+    "bibliography-transfer-validation-triage"
+  ],
+  "skippedTaskIds": [],
+  "failedTaskIds": [
+    "preprint-transfer-publication-reconciliation"
+  ],
   "publishedDir": "/home/levi/Harbor/tasks_library/integrated_tasks/citation-check"
 }
 ```
@@ -264,19 +306,31 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
   "status": "failed",
   "issues": [
     "runtime:xxx docker build 失败"
+  ],
+  "familyObservationIssues": [],
+  "publishedTaskIds": [],
+  "skippedTaskIds": [],
+  "failedTaskIds": [
+    "xxx"
   ]
 }
 ```
 
-如果目标已存在，则会返回：
+如果本次没有新任务发布，但通过的任务都已经存在，则会返回：
 
 ```json
 {
   "sourceTaskId": "3d-scan-calc",
+  "runId": "20260311140649-3d-scan-calc-abc123",
   "status": "skipped",
-  "issues": [
-    "目标 family 目录已存在，按配置跳过"
-  ]
+  "issues": [],
+  "familyObservationIssues": [],
+  "publishedTaskIds": [],
+  "skippedTaskIds": [
+    "3d-scan-calc-similar-foo"
+  ],
+  "failedTaskIds": [],
+  "publishedDir": "/home/levi/Harbor/tasks_library/integrated_tasks/3d-scan-calc"
 }
 ```
 

@@ -11,17 +11,33 @@ import {
 } from "./utils.js";
 
 export type ValidationIssue = {
-  scope: "family" | "static" | "runtime";
+  scope: "family" | "reviewer" | "static" | "runtime";
   message: string;
   taskId?: string;
+};
+
+export type RuntimeFailureKind = "docker-preflight" | "docker-build" | "docker-run";
+
+export type DockerPreflightResult = {
+  ok: boolean;
+  summary: string;
+  details: string[];
+};
+
+export type RuntimeValidationResult = {
+  issues: ValidationIssue[];
+  failureKind?: RuntimeFailureKind;
+};
+
+export type ReviewValidationResult = {
+  taskIssuesById: Map<string, ValidationIssue[]>;
+  familyObservationIssues: ValidationIssue[];
 };
 
 export function validateFamilyStructure(familyPlan: FamilyPlan): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
   const ids = familyPlan.derivedTasks.map((task) => task.derivedTaskId);
   const outputs = familyPlan.derivedTasks.map((task) => task.primaryOutputFile);
-  const similarCount = familyPlan.derivedTasks.filter((task) => task.taskRole === "similar").length;
-  const transferCount = familyPlan.derivedTasks.filter((task) => task.taskRole === "transfer").length;
 
   if (new Set(ids).size !== ids.length) {
     issues.push({ scope: "family", message: "derivedTaskId 存在重复" });
@@ -29,8 +45,20 @@ export function validateFamilyStructure(familyPlan: FamilyPlan): ValidationIssue
   if (new Set(outputs).size !== outputs.length) {
     issues.push({ scope: "family", message: "primaryOutputFile 存在重复" });
   }
+
+  return issues;
+}
+
+export function collectFamilyObservationIssues(familyPlan: FamilyPlan): ValidationIssue[] {
+  const issues: ValidationIssue[] = [];
+  const similarCount = familyPlan.derivedTasks.filter((task) => task.taskRole === "similar").length;
+  const transferCount = familyPlan.derivedTasks.filter((task) => task.taskRole === "transfer").length;
+
   if (similarCount !== 1 || transferCount !== 3) {
-    issues.push({ scope: "family", message: "family 角色布局不是 1 个 similar + 3 个 transfer" });
+    issues.push({
+      scope: "family",
+      message: "family 角色布局不是 1 个 similar + 3 个 transfer",
+    });
   }
 
   for (const task of familyPlan.derivedTasks) {
@@ -51,6 +79,16 @@ export function validateFamilyStructure(familyPlan: FamilyPlan): ValidationIssue
   }
 
   return issues;
+}
+
+function pushTaskIssue(
+  taskIssuesById: Map<string, ValidationIssue[]>,
+  taskId: string,
+  issue: ValidationIssue,
+): void {
+  const issues = taskIssuesById.get(taskId) ?? [];
+  issues.push(issue);
+  taskIssuesById.set(taskId, issues);
 }
 
 export async function validateDraftStatic(
@@ -142,21 +180,150 @@ export async function validateDraftStatic(
   return issues;
 }
 
-export async function validateReviewerResult(review: ReviewResult): Promise<ValidationIssue[]> {
-  const issues: ValidationIssue[] = [];
-  if (!review.pass) {
-    issues.push({
+export function validateReviewerResult(familyPlan: FamilyPlan, review: ReviewResult): ReviewValidationResult {
+  const taskIssuesById = new Map<string, ValidationIssue[]>();
+  const familyObservationIssues = [...collectFamilyObservationIssues(familyPlan)];
+  const expectedTaskIds = new Set(familyPlan.derivedTasks.map((task) => task.derivedTaskId));
+  const seenTaskIds = new Set<string>();
+
+  for (const taskId of expectedTaskIds) {
+    taskIssuesById.set(taskId, []);
+  }
+
+  for (const taskResult of review.taskResults) {
+    if (!expectedTaskIds.has(taskResult.derivedTaskId)) {
+      familyObservationIssues.push({
+        scope: "family",
+        message: `reviewer 返回了未知任务结果: ${taskResult.derivedTaskId}`,
+      });
+      continue;
+    }
+
+    seenTaskIds.add(taskResult.derivedTaskId);
+    const issueParts = [...taskResult.issues];
+    if (!taskResult.visibilityPass) {
+      issueParts.push("visibilityPass=false");
+    }
+    if (!taskResult.skillBenefitPass) {
+      issueParts.push("skillBenefitPass=false");
+    }
+    if (!taskResult.testabilityPass) {
+      issueParts.push("testabilityPass=false");
+    }
+
+    if (!taskResult.pass || issueParts.length > 0) {
+      pushTaskIssue(taskIssuesById, taskResult.derivedTaskId, {
+        scope: "reviewer",
+        taskId: taskResult.derivedTaskId,
+        message: issueParts.join("; ") || "reviewer 判定失败，但未提供原因",
+      });
+    }
+  }
+
+  for (const taskId of expectedTaskIds) {
+    if (!seenTaskIds.has(taskId)) {
+      pushTaskIssue(taskIssuesById, taskId, {
+        scope: "reviewer",
+        taskId,
+        message: "reviewer 未返回该任务的审查结果",
+      });
+    }
+  }
+
+  if (!review.familyObservations.diversityPass) {
+    familyObservationIssues.push({
       scope: "family",
-      message: `reviewer 判定失败: ${review.issues.join("; ") || "未提供原因"}`,
+      message: "reviewer 认为 transfer 多样性不足",
     });
   }
-  return issues;
+  if (!review.familyObservations.roleLayoutPass) {
+    familyObservationIssues.push({
+      scope: "family",
+      message: "reviewer 认为 family 角色布局不理想",
+    });
+  }
+  for (const issue of review.familyObservations.issues) {
+    familyObservationIssues.push({
+      scope: "family",
+      message: issue,
+    });
+  }
+
+  return {
+    taskIssuesById,
+    familyObservationIssues,
+  };
+}
+
+function compactOutputSummary(text: string): string {
+  const lines = text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+  if (lines.length === 0) {
+    return "未提供错误输出";
+  }
+  return lines.slice(0, 3).join(" | ").slice(0, 400);
+}
+
+function isDockerEnvironmentFailure(output: string): boolean {
+  return /cannot allocate memory|error getting credentials|no valid drivers found|utilacceptvsock|cannot connect to the docker daemon|permission denied while trying to connect/i.test(
+    output,
+  );
+}
+
+function runtimeIssue(taskId: string, message: string): ValidationIssue {
+  return {
+    scope: "runtime",
+    taskId,
+    message,
+  };
+}
+
+export async function runDockerPreflight(): Promise<DockerPreflightResult> {
+  const dockerCheck = await runCommand("bash", ["-lc", "command -v docker >/dev/null 2>&1"]);
+  if (dockerCheck.code !== 0) {
+    return {
+      ok: false,
+      summary: "当前环境未检测到 docker",
+      details: ["command -v docker 失败"],
+    };
+  }
+
+  const dockerInfo = await runCommand("docker", ["info"]);
+  if (dockerInfo.code !== 0) {
+    const summary = compactOutputSummary(`${dockerInfo.stdout}\n${dockerInfo.stderr}`);
+    return {
+      ok: false,
+      summary: `docker info 失败: ${summary}`,
+      details: ["docker info 返回非零退出码", summary],
+    };
+  }
+
+  const smokeBuild = await runCommand("bash", [
+    "-lc",
+    "docker build --pull -q - <<'EOF'\nFROM busybox:1.36\nRUN true\nEOF",
+  ]);
+  if (smokeBuild.code !== 0) {
+    const summary = compactOutputSummary(`${smokeBuild.stdout}\n${smokeBuild.stderr}`);
+    return {
+      ok: false,
+      summary: `docker build preflight 失败: ${summary}`,
+      details: ["docker build preflight 返回非零退出码", summary],
+    };
+  }
+
+  return {
+    ok: true,
+    summary: "docker preflight 通过",
+    details: [],
+  };
 }
 
 export async function runRuntimeValidation(
   workspace: FamilyWorkspace,
   plan: DerivedTaskPlan,
-): Promise<ValidationIssue[]> {
+): Promise<RuntimeValidationResult> {
   const issues: ValidationIssue[] = [];
   const taskDir = path.join(workspace.draftsDir, plan.derivedTaskId);
   const environmentDir = path.join(taskDir, "environment");
@@ -167,13 +334,10 @@ export async function runRuntimeValidation(
 
   const dockerCheck = await runCommand("bash", ["-lc", "command -v docker >/dev/null 2>&1"]);
   if (dockerCheck.code !== 0) {
-    return [
-      {
-        scope: "runtime",
-        taskId: plan.derivedTaskId,
-        message: "当前环境未检测到 docker，无法执行运行校验",
-      },
-    ];
+    return {
+      issues: [runtimeIssue(plan.derivedTaskId, "docker/WSL 环境失败，详见 artifacts/runtime-logs")],
+      failureKind: "docker-preflight",
+    };
   }
 
   const imageTag = `harbor-task-builder-${slugify(workspace.runId)}-${slugify(plan.derivedTaskId)}`;
@@ -182,12 +346,19 @@ export async function runRuntimeValidation(
   });
   await writeText(path.join(logsDir, "docker-build.log"), `${buildResult.stdout}${buildResult.stderr}`);
   if (buildResult.code !== 0) {
-    issues.push({
-      scope: "runtime",
-      taskId: plan.derivedTaskId,
-      message: "docker build 失败，详见 artifacts/runtime-logs",
-    });
-    return issues;
+    const combinedOutput = `${buildResult.stdout}\n${buildResult.stderr}`;
+    issues.push(
+      runtimeIssue(
+        plan.derivedTaskId,
+        isDockerEnvironmentFailure(combinedOutput)
+          ? "docker/WSL 环境失败，详见 artifacts/runtime-logs"
+          : "docker build 失败，详见 artifacts/runtime-logs",
+      ),
+    );
+    return {
+      issues,
+      failureKind: "docker-build",
+    };
   }
 
   const containerName = `harbor-task-builder-${slugify(workspace.runId)}-${slugify(plan.derivedTaskId)}-${Date.now()}`;
@@ -206,7 +377,7 @@ export async function runRuntimeValidation(
       imageTag,
       "bash",
       "-lc",
-      "chmod +x /solution/solve.sh /tests/test.sh && /solution/solve.sh && /tests/test.sh",
+      "bash /solution/solve.sh && bash /tests/test.sh",
     ],
     {
       cwd: workspace.rootDir,
@@ -215,12 +386,14 @@ export async function runRuntimeValidation(
 
   await writeText(path.join(logsDir, "docker-run.log"), `${runResult.stdout}${runResult.stderr}`);
   if (runResult.code !== 0) {
-    issues.push({
-      scope: "runtime",
-      taskId: plan.derivedTaskId,
-      message: "solution/test 运行失败，详见 artifacts/runtime-logs",
-    });
+    issues.push(runtimeIssue(plan.derivedTaskId, "solution/test 运行失败，详见 artifacts/runtime-logs"));
+    return {
+      issues,
+      failureKind: "docker-run",
+    };
   }
 
-  return issues;
+  return {
+    issues,
+  };
 }
