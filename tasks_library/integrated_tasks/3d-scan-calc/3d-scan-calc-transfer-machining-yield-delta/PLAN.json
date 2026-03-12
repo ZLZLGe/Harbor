@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "3d-scan-calc-transfer-machining-yield-delta",
+  "taskRole": "transfer",
+  "title": "Transfer: Machining Yield Delta",
+  "goal": "Compare pre-machining and post-machining binary STL scans of the same part, isolate the main component in each scan, recover the material ID from attribute bytes, and compute removed mass plus yield percentage in /root/yield_loss_report.json.",
+  "primaryOutputFile": "/root/yield_loss_report.json",
+  "difficulty": "hard",
+  "category": "engineering",
+  "skillBenefitRationale": "Tests whether the mesh-analysis skill generalizes across multiple scan stages by reusing binary STL parsing, debris filtering, and volume extraction to support manufacturing yield analysis rather than single-scan mass estimation."
+}
