@@ -1,0 +1,23 @@
+version = "1.0"
+
+[metadata]
+id = "assembly-balance-transfer-check"
+name = "Transfer - Assembly Balance Check"
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "hard"
+category = "engineering"
+tags = ["binary-parsing", "algorithm", "3d-geometry", "stl", "connected-components", "center-of-mass", "balance-check"]
+primary_output_file = "/root/assembly_balance.json"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

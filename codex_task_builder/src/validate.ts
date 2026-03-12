@@ -1,3 +1,4 @@
+import { promises as fs } from "node:fs";
 import path from "node:path";
 import type { DerivedTaskPlan, FamilyPlan, ReviewResult, WriterSummary } from "./schema.js";
 import type { FamilyWorkspace } from "./workspace.js";
@@ -16,9 +17,9 @@ export type ValidationIssue = {
   taskId?: string;
 };
 
-export type RuntimeFailureKind = "docker-preflight" | "docker-build" | "docker-run";
+export type RuntimeFailureKind = "harbor-preflight" | "harbor-run" | "harbor-reward";
 
-export type DockerPreflightResult = {
+export type RuntimePreflightResult = {
   ok: boolean;
   summary: string;
   details: string[];
@@ -280,7 +281,92 @@ function runtimeIssue(taskId: string, message: string): ValidationIssue {
   };
 }
 
-export async function runDockerPreflight(): Promise<DockerPreflightResult> {
+function shellEscape(value: string): string {
+  return `'${value.replace(/'/g, `'\"'\"'`)}'`;
+}
+
+async function findLatestTrialResultPath(jobDir: string): Promise<string | null> {
+  if (!(await pathExists(jobDir))) {
+    return null;
+  }
+
+  const entries = await fs.readdir(jobDir, { withFileTypes: true });
+  const candidates: Array<{ path: string; mtimeMs: number }> = [];
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+    const resultPath = path.join(jobDir, entry.name, "result.json");
+    if (!(await pathExists(resultPath))) {
+      continue;
+    }
+    const stat = await fs.stat(resultPath);
+    candidates.push({ path: resultPath, mtimeMs: stat.mtimeMs });
+  }
+
+  candidates.sort((a, b) => b.mtimeMs - a.mtimeMs);
+  return candidates[0]?.path ?? null;
+}
+
+function parseFiniteNumber(value: unknown): number | null {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+  if (typeof value === "string") {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  return null;
+}
+
+function extractPrimaryReward(rewards: unknown): number | null {
+  if (!rewards || typeof rewards !== "object") {
+    return null;
+  }
+  const record = rewards as Record<string, unknown>;
+  if ("reward" in record) {
+    return parseFiniteNumber(record.reward);
+  }
+
+  const numericValues: number[] = [];
+  for (const value of Object.values(record)) {
+    const parsed = parseFiniteNumber(value);
+    if (parsed !== null) {
+      numericValues.push(parsed);
+    }
+  }
+
+  if (numericValues.length === 1) {
+    return numericValues[0] ?? null;
+  }
+
+  return null;
+}
+
+export async function runRuntimePreflight(): Promise<RuntimePreflightResult> {
+  const details: string[] = [];
+
+  const harborCheck = await runCommand("bash", ["-lc", "command -v harbor >/dev/null 2>&1"]);
+  if (harborCheck.code !== 0) {
+    return {
+      ok: false,
+      summary: "当前环境未检测到 harbor CLI",
+      details: ["command -v harbor 失败"],
+    };
+  }
+
+  const harborVersion = await runCommand("bash", ["-lc", "harbor --version"]);
+  if (harborVersion.code !== 0) {
+    const summary = compactOutputSummary(`${harborVersion.stdout}\n${harborVersion.stderr}`);
+    return {
+      ok: false,
+      summary: `harbor --version 失败: ${summary}`,
+      details: ["harbor --version 返回非零退出码", summary],
+    };
+  }
+  details.push(`harbor --version: ${compactOutputSummary(`${harborVersion.stdout}\n${harborVersion.stderr}`)}`);
+
   const dockerCheck = await runCommand("bash", ["-lc", "command -v docker >/dev/null 2>&1"]);
   if (dockerCheck.code !== 0) {
     return {
@@ -315,8 +401,8 @@ export async function runDockerPreflight(): Promise<DockerPreflightResult> {
 
   return {
     ok: true,
-    summary: "docker preflight 通过",
-    details: [],
+    summary: "harbor + docker preflight 通过",
+    details,
   };
 }
 
@@ -326,70 +412,110 @@ export async function runRuntimeValidation(
 ): Promise<RuntimeValidationResult> {
   const issues: ValidationIssue[] = [];
   const taskDir = path.join(workspace.draftsDir, plan.derivedTaskId);
-  const environmentDir = path.join(taskDir, "environment");
-  const solutionDir = path.join(taskDir, "solution");
-  const testsDir = path.join(taskDir, "tests");
   const logsDir = path.join(workspace.artifactsDir, "runtime-logs", plan.derivedTaskId);
   await ensureDir(logsDir);
 
+  const harborCheck = await runCommand("bash", ["-lc", "command -v harbor >/dev/null 2>&1"]);
   const dockerCheck = await runCommand("bash", ["-lc", "command -v docker >/dev/null 2>&1"]);
-  if (dockerCheck.code !== 0) {
+  if (harborCheck.code !== 0 || dockerCheck.code !== 0) {
     return {
-      issues: [runtimeIssue(plan.derivedTaskId, "docker/WSL 环境失败，详见 artifacts/runtime-logs")],
-      failureKind: "docker-preflight",
+      issues: [runtimeIssue(plan.derivedTaskId, "harbor/docker 环境失败，详见 artifacts/runtime-logs")],
+      failureKind: "harbor-preflight",
     };
   }
 
-  const imageTag = `harbor-task-builder-${slugify(workspace.runId)}-${slugify(plan.derivedTaskId)}`;
-  const buildResult = await runCommand("docker", ["build", "-t", imageTag, "."], {
-    cwd: environmentDir,
-  });
-  await writeText(path.join(logsDir, "docker-build.log"), `${buildResult.stdout}${buildResult.stderr}`);
-  if (buildResult.code !== 0) {
-    const combinedOutput = `${buildResult.stdout}\n${buildResult.stderr}`;
-    issues.push(
-      runtimeIssue(
-        plan.derivedTaskId,
-        isDockerEnvironmentFailure(combinedOutput)
-          ? "docker/WSL 环境失败，详见 artifacts/runtime-logs"
-          : "docker build 失败，详见 artifacts/runtime-logs",
-      ),
-    );
+  const jobName = `harbor-oracle-${slugify(workspace.runId)}-${slugify(plan.derivedTaskId)}`;
+  const harborCommand = [
+    "harbor",
+    "run",
+    "-p",
+    taskDir,
+    "-a",
+    "oracle",
+    "--force-build",
+    "--jobs-dir",
+    logsDir,
+    "--job-name",
+    jobName,
+  ]
+    .map(shellEscape)
+    .join(" ");
+
+  const runResult = await runCommand("bash", ["-lc", harborCommand], { cwd: workspace.rootDir });
+  await writeText(path.join(logsDir, "harbor-run.log"), `${runResult.stdout}${runResult.stderr}`);
+
+  const jobDir = path.join(logsDir, jobName);
+  const trialResultPath = await findLatestTrialResultPath(jobDir);
+  if (!trialResultPath) {
+    const summary = compactOutputSummary(`${runResult.stdout}\n${runResult.stderr}`);
+    issues.push(runtimeIssue(plan.derivedTaskId, `harbor run 未产出可解析的 trial result.json: ${summary}`));
     return {
       issues,
-      failureKind: "docker-build",
+      failureKind: "harbor-run",
     };
   }
 
-  const containerName = `harbor-task-builder-${slugify(workspace.runId)}-${slugify(plan.derivedTaskId)}-${Date.now()}`;
-  const runResult = await runCommand(
-    "docker",
-    [
-      "run",
-      "--name",
-      containerName,
-      "-v",
-      `${solutionDir}:/solution:ro`,
-      "-v",
-      `${testsDir}:/tests:ro`,
-      "-v",
-      `${logsDir}:/logs`,
-      imageTag,
-      "bash",
-      "-lc",
-      "bash /solution/solve.sh && bash /tests/test.sh",
-    ],
-    {
-      cwd: workspace.rootDir,
-    },
-  );
+  const trialResultRaw = await readText(trialResultPath);
+  let trialResult: unknown;
+  try {
+    trialResult = JSON.parse(trialResultRaw) as unknown;
+  } catch {
+    issues.push(runtimeIssue(plan.derivedTaskId, "harbor trial result.json 解析失败，详见 artifacts/runtime-logs"));
+    return {
+      issues,
+      failureKind: "harbor-run",
+    };
+  }
 
-  await writeText(path.join(logsDir, "docker-run.log"), `${runResult.stdout}${runResult.stderr}`);
+  if (!trialResult || typeof trialResult !== "object") {
+    issues.push(runtimeIssue(plan.derivedTaskId, "harbor trial result.json 结构异常，详见 artifacts/runtime-logs"));
+    return {
+      issues,
+      failureKind: "harbor-run",
+    };
+  }
+
+  const resultRecord = trialResult as Record<string, unknown>;
+  const exceptionInfo = resultRecord.exception_info;
+  if (exceptionInfo && typeof exceptionInfo === "object") {
+    const exception = exceptionInfo as Record<string, unknown>;
+    const exceptionType = typeof exception.exception_type === "string" ? exception.exception_type : "Unknown";
+    const exceptionMessage =
+      typeof exception.exception_message === "string"
+        ? exception.exception_message.slice(0, 200)
+        : "未提供 exception_message";
+    issues.push(runtimeIssue(plan.derivedTaskId, `harbor oracle 运行异常: ${exceptionType}: ${exceptionMessage}`));
+    return {
+      issues,
+      failureKind: "harbor-run",
+    };
+  }
+
+  const verifierResult = resultRecord.verifier_result;
+  const rewards = verifierResult && typeof verifierResult === "object" ? (verifierResult as Record<string, unknown>).rewards : null;
+  const reward = extractPrimaryReward(rewards);
+  if (reward === null) {
+    issues.push(runtimeIssue(plan.derivedTaskId, "harbor verifier 未产出 reward（reward.txt/reward.json），详见 artifacts/runtime-logs"));
+    return {
+      issues,
+      failureKind: "harbor-run",
+    };
+  }
+
+  if (reward < 1.0) {
+    issues.push(runtimeIssue(plan.derivedTaskId, `harbor verifier reward=${reward} < 1.0`));
+    return {
+      issues,
+      failureKind: "harbor-reward",
+    };
+  }
+
   if (runResult.code !== 0) {
-    issues.push(runtimeIssue(plan.derivedTaskId, "solution/test 运行失败，详见 artifacts/runtime-logs"));
+    const summary = compactOutputSummary(`${runResult.stdout}\n${runResult.stderr}`);
+    issues.push(runtimeIssue(plan.derivedTaskId, `harbor run 返回非零退出码: ${summary}`));
     return {
       issues,
-      failureKind: "docker-run",
+      failureKind: "harbor-run",
     };
   }
 

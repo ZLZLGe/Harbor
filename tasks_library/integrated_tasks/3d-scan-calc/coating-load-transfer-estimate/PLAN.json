@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "coating-load-transfer-estimate",
+  "taskRole": "transfer",
+  "title": "Transfer - Coating Load Estimate",
+  "goal": "Inspect one noisy binary STL whose triangle attributes encode coating recipe IDs, isolate the production part, compute its exterior surface area, and estimate coating mass or cost from a process table.",
+  "primaryOutputFile": "/root/coating_estimate.json",
+  "difficulty": "hard",
+  "category": "engineering",
+  "skillBenefitRationale": "This preserves the skill's binary STL parsing, component isolation, and attribute decoding benefits, but transfers the engineering target from volume-based mass to surface-area-based finishing analysis."
+}

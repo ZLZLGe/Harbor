@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "scan-scrap-similar-audit",
+  "taskRole": "similar",
+  "title": "Similar - 3D Scan Scrap Audit",
+  "goal": "Analyze one noisy binary STL, isolate the largest connected component, read its attribute-encoded material ID, compute the main-part mass, and also report discarded debris volume and scrap percentage.",
+  "primaryOutputFile": "/root/part_audit.json",
+  "difficulty": "hard",
+  "category": "engineering",
+  "skillBenefitRationale": "This stays close to the source workflow, so binary STL parsing, connected-component filtering, volume extraction, and attribute lookup remain the core path while adding a richer production-audit output."
+}

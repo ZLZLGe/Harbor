@@ -14,7 +14,7 @@
 - source root: `/home/levi/Harbor/tasks_library/skillsbench/tasks`
 - output root: `/home/levi/Harbor/tasks_library/integrated_tasks`
 - runs root: `/home/levi/Harbor/codex_task_builder_runs`
-- scratch root: `/tmp/harbor-codex-task-builder`
+- scratch root: `/home/levi/Harbor/codex_task_builder_runs/scratch`
 
 ## 前提
 
@@ -24,7 +24,7 @@
 - `npm`
 - 本机可用的 `codex` CLI
 - 有效的模型认证环境变量，例如 `OPENAI_API_KEY`
-- 如果要做运行校验，需要本机有 `docker`
+- 如果要做运行校验，需要本机有 `harbor` CLI 与 `docker`
 
 安装依赖：
 
@@ -75,7 +75,7 @@ npm run batch -- \
 
 说明：
 
-- `batch` 在真正启动 planner 之前，会先做一次 Docker/WSL preflight
+- `batch` 在真正启动 planner 之前，会先做一次运行时 preflight（`harbor` + `docker`）
 - 如果 preflight 失败，本轮 batch 会直接返回失败结果，不会启动生成
 
 重新执行最近一次 reviewer：
@@ -108,14 +108,15 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 
 ## 说明
 
-- 每次运行会创建 scratch workspace：`/tmp/harbor-codex-task-builder/<run_id>/<source_task_id>/`
+- 每次运行会创建 scratch workspace：`/home/levi/Harbor/codex_task_builder_runs/scratch/<run_id>/<source_task_id>/`
 - manifest 会写到：`/home/levi/Harbor/codex_task_builder_runs/manifest.jsonl`
 - 发布成功后会写入：`/home/levi/Harbor/tasks_library/integrated_tasks/<source_task_id>/`
 - 当前实现按任务验收、按任务发布
 - 已有 `integrated_tasks/<source_task_id>/` 时允许追加新任务
 - 已有同名 `derived_task_id/` 目录时会跳过该任务，不会覆盖
-- runtime 校验会用 `bash /solution/solve.sh && bash /tests/test.sh` 执行脚本
-- Docker/WSL 宿主异常仍会记作 runtime 失败，但会在日志和 metadata 里单独标明
+- runtime 校验对齐 Harbor 官方 oracle：调用 `harbor run -a oracle`
+- 如果手动调用 Harbor，`harbor run -p` 应指向 `integrated_tasks/<source_task_id>/` 这一级 family 目录，或更深一层的单任务目录；不能直接指向 `integrated_tasks/` 根目录
+- 运行时宿主异常仍会记作 runtime 失败，但会在日志和 metadata 里单独标明
 - 当前实现不会做删除操作
 
 ## 我目前确认到的范围

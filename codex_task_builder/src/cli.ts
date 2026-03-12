@@ -22,12 +22,12 @@ import {
 } from "./workspace.js";
 import {
   collectFamilyObservationIssues,
-  runDockerPreflight,
+  runRuntimePreflight,
   runRuntimeValidation,
   validateDraftStatic,
   validateFamilyStructure,
   validateReviewerResult,
-  type DockerPreflightResult,
+  type RuntimePreflightResult,
   type RuntimeFailureKind,
   type ValidationIssue,
 } from "./validate.js";
@@ -446,13 +446,13 @@ async function executeFamilyGeneration(
 
 async function buildBatchPreflightFailureResults(
   sourceTasks: SourceTask[],
-  preflight: DockerPreflightResult,
+  preflight: RuntimePreflightResult,
 ): Promise<FamilyExecutionResult[]> {
   const results: FamilyExecutionResult[] = [];
 
   for (const sourceTask of sourceTasks) {
     const runId = makeRunId(`${sourceTask.sourceTaskId}-runtime-preflight`);
-    const issues = [`runtime docker/WSL preflight 失败: ${preflight.summary}`];
+    const issues = [`runtime harbor/docker preflight 失败: ${preflight.summary}`];
     await appendManifest({
       runId,
       sourceTaskId: sourceTask.sourceTaskId,
@@ -460,9 +460,9 @@ async function buildBatchPreflightFailureResults(
       status: "failed",
       issues,
       metadata: {
-        dockerPreflight: {
+        runtimePreflight: {
           passed: false,
-          stderrSummary: preflight.summary,
+          summary: preflight.summary,
           details: preflight.details,
         },
       },
@@ -475,9 +475,9 @@ async function buildBatchPreflightFailureResults(
       publishedTaskIds: [],
       skippedTaskIds: [],
       failedTaskIds: [],
-      dockerPreflight: {
+      runtimePreflight: {
         passed: false,
-        stderrSummary: preflight.summary,
+        summary: preflight.summary,
         details: preflight.details,
       },
     });
@@ -528,7 +528,7 @@ async function batchGenerate(sourceRoot: string, options: Options): Promise<void
     .slice(0, limit);
 
   if (filtered.length > 0) {
-    const preflight = await runDockerPreflight();
+    const preflight = await runRuntimePreflight();
     if (!preflight.ok) {
       const results = await buildBatchPreflightFailureResults(filtered, preflight);
       console.log(JSON.stringify(results, null, 2));

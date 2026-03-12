@@ -15,7 +15,7 @@
 - Node.js 18+ / `npm`
 - 本机可用的 `codex` CLI
 - 模型认证环境变量：`OPENAI_API_KEY`
-- 如需运行校验：Docker（Windows 上通常需要 WSL2 + Docker Desktop）
+- 如需运行校验：`harbor` CLI + Docker（Windows 上通常需要 WSL2 + Docker Desktop）
 
 ### 安装依赖与类型检查
 
@@ -54,9 +54,11 @@ npm run review -- \
 
 补充说明：
 
-- scratch workspace：`/tmp/harbor-codex-task-builder/<run_id>/<source_task_id>/`
+- scratch workspace：`/home/levi/Harbor/codex_task_builder_runs/scratch/<run_id>/<source_task_id>/`
 - 运行记录（manifest）：`codex_task_builder_runs/manifest.jsonl`（已在 `.gitignore` 中）
 - 发布目录：`tasks_library/integrated_tasks/<source_task_id>/<derived_task_id>/`
+- 运行校验：对齐 Harbor 官方 oracle（`harbor run -a oracle`，约定 `reward >= 1.0` 通过）
+- 如果手动运行 Harbor，`-p` 应指向单个 family 目录（如 `tasks_library/integrated_tasks/3d-scan-calc`）或单个 task 目录，不能直接指向 `tasks_library/integrated_tasks/`
 - 工具不会删除任何目录，也不会覆盖已有同名任务目录（只会追加新任务）
 
 > 注意：当前实现默认假设仓库路径为 `/home/levi/Harbor`。如果你把仓库放在其他路径，需要修改 `codex_task_builder/src/utils.ts` 里的 `REPO_ROOT`。
