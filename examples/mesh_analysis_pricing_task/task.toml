@@ -1,0 +1,7 @@
+version = "1.0"
+
+[metadata]
+name = "noisy-part-volume-pricing"
+difficulty = "hard"
+category = "engineering"
+tags = ["binary-parsing", "3d-geometry", "stl", "mesh-analysis"]
