@@ -25,7 +25,17 @@ tasks_library/generated/staging/
 tasks_library/generated/reports/
 tasks_library/generated/**/_jobs/
 
+# Harbor CLI jobs output (默认 jobs/)
+jobs/
+
 # Codex task builder
 codex_task_builder/node_modules/
 codex_task_builder/dist/
 codex_task_builder_runs/
+
+# 本地临时脚本/密钥（避免误提交）
+codex.sh
+testgpt*.py
+
+# Python venv
+.venv/

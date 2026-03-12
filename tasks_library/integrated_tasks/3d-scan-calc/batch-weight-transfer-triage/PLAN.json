@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "batch-weight-transfer-triage",
+  "taskRole": "transfer",
+  "title": "Transfer - Batch Scan Weight Triage",
+  "goal": "Process a directory of noisy binary STL scans, compute the main-part mass for each file from attribute-coded material IDs and a reference table, and output the heaviest acceptable part together with a ranked batch summary.",
+  "primaryOutputFile": "/root/batch_triage.json",
+  "difficulty": "hard",
+  "category": "engineering",
+  "skillBenefitRationale": "The same mesh-analysis skill is still central, but it is transferred to repeated multi-file triage, testing whether binary parsing, debris filtering, and attribute extraction generalize beyond a single scan."
+}

@@ -47,7 +47,7 @@
 每次 run 创建：
 
 ```text
-/tmp/harbor-codex-task-builder/<run_id>/<source_task_id>/
+/home/levi/Harbor/codex_task_builder_runs/scratch/<run_id>/<source_task_id>/
   source_task/
   drafts/
   artifacts/
@@ -219,17 +219,15 @@
 
 对每个任务执行：
 
-1. build `environment/Dockerfile`
-2. 在容器内执行 `bash /solution/solve.sh`
-3. 在容器内执行 `bash /tests/test.sh`
+1. 调用 Harbor CLI 的官方 oracle：`harbor run -p <task_dir> -a oracle --force-build`
+2. 解析 trial 的 `result.json`（`exception_info` / `verifier_result.rewards`）
+3. 约定 `reward >= 1.0` 视为通过，否则该任务不发布
 
 任一步失败则该任务不发布。
 
 补充：
 
-- 不再对只读挂载的 `solution/`、`tests/` 做 `chmod`
-- `docker build` 失败与 `solution/test` 失败都继续记为 runtime 失败
-- 但 metadata 中要区分 `docker-preflight` / `docker-build` / `docker-run`
+- runtime 失败在 metadata 中区分为 `harbor-preflight` / `harbor-run` / `harbor-reward`
 
 #### family 校验
 
@@ -331,8 +329,8 @@
 7. 启动 `reviewer thread`
 8. reviewer 返回任务级 verdict 与 family 级观察
 9. 对每个任务执行本地静态校验
-10. `batch` 模式在启动生成前先做一次 Docker/WSL preflight
-11. 对通过前置检查的任务执行 Docker build + solution run + tests run
+10. `batch` 模式在启动生成前先做一次运行时 preflight（`harbor` + `docker`）
+11. 对通过前置检查的任务执行 Harbor Oracle(runtime) 校验（`harbor run -a oracle --force-build`）
 12. 按任务把通过验收的结果复制到 `integrated_tasks/`
 
 ## Generation Rules
@@ -459,9 +457,7 @@
 - reviewer
 - 对于准备发布的单个任务：
   - static validate
-  - Docker build
-  - solution run
-  - tests run
+  - Harbor Oracle(runtime) 校验（`harbor run -a oracle --force-build`，约定 `reward >= 1.0` 通过）
 
 ### 5. 批量测试
 

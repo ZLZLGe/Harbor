@@ -44,7 +44,7 @@ codex_task_builder/
 - Node.js 18+
 - 本机可用的 `codex` CLI
 - 有效的模型认证环境，例如 `OPENAI_API_KEY`
-- 如果要跑运行校验，需要本机有 `docker`
+- 如果要跑运行校验，需要本机有 `harbor` CLI 与 `docker`
 
 安装依赖：
 
@@ -120,9 +120,9 @@ npm run batch -- \
 
 当前行为补充：
 
-- `batch` 在真正生成前会先做一次 Docker/WSL preflight
+- `batch` 在真正生成前会先做一次运行时 preflight（`harbor` + `docker`）
 - 如果 preflight 失败，本轮 batch 会直接返回失败结果，不会启动 planner / writer / reviewer
-- Docker/WSL 异常仍记作 runtime 失败，但会在 `issues` 和 `metadata` 中单独标明
+- 运行时环境异常会在 `issues` 和 `metadata.runtimePreflight` 中单独标明
 
 示例：
 
@@ -161,7 +161,7 @@ npm run review -- \
 每次运行会创建：
 
 ```text
-/tmp/harbor-codex-task-builder/<run_id>/<source_task_id>/
+/home/levi/Harbor/codex_task_builder_runs/scratch/<run_id>/<source_task_id>/
 ```
 
 里面通常包含：
@@ -213,6 +213,12 @@ TASK_BUILDER_BRIEF.md
 /home/levi/Harbor/tasks_library/integrated_tasks/<source_task_id>/<derived_task_id>/
 ```
 
+补充说明：
+
+- 如果手动用 Harbor 跑整组任务，`harbor run -p` 应指向 `/home/levi/Harbor/tasks_library/integrated_tasks/<source_task_id>/`
+- 如果只跑单个任务，`harbor run -p` 也可以直接指向更深一层的 `<derived_task_id>/`
+- 不应直接把 `-p` 指向 `/home/levi/Harbor/tasks_library/integrated_tasks/` 根目录
+
 ## 6. 环境变量
 
 当前实现会读取以下环境变量：
@@ -230,7 +236,7 @@ TASK_BUILDER_BRIEF.md
 
 ```bash
 export OPENAI_API_KEY="your_api_key_here"
-export CODEX_TASK_BUILDER_MODEL=gpt-5.2
+export CODEX_TASK_BUILDER_MODEL=gpt-5.4
 export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 ```
 
@@ -244,14 +250,14 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 4. 为 4 个派生任务分别运行 writer
 5. reviewer 返回任务级 verdict 和 family 级观察
 6. 对每个任务做本地静态校验
-7. 对通过前置检查的任务做 Docker build + solution/test 运行校验
+7. 对通过前置检查的任务做 Harbor Oracle(runtime) 运行校验（`harbor run -a oracle`）
 8. 按任务把通过验收的结果发布到 `integrated_tasks/`
 
 运行校验补充：
 
-- 脚本通过 `bash /solution/solve.sh && bash /tests/test.sh` 执行
-- 不再对只读挂载的 `solution/`、`tests/` 做 `chmod`
-- `docker build` 失败与 `solution/test` 失败都会继续算 runtime 失败，但会在 metadata 区分为 `docker-preflight` / `docker-build` / `docker-run`
+- 运行校验对齐 Harbor 官方 oracle：调用 `harbor run -p <task_dir> -a oracle --force-build`
+- 结果以 `trial result.json` 中的 `verifier_result.rewards` 为准（约定 `reward >= 1.0` 视为通过）
+- runtime 失败会在 metadata 区分为 `harbor-preflight` / `harbor-run` / `harbor-reward`
 
 ## 8. 当前硬规则
 
@@ -305,7 +311,7 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
   "runId": "20260311140649-citation-check-x2n6e3",
   "status": "failed",
   "issues": [
-    "runtime:xxx docker build 失败"
+    "runtime:xxx harbor verifier reward=0.0 < 1.0"
   ],
   "familyObservationIssues": [],
   "publishedTaskIds": [],
@@ -338,5 +344,5 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 
 - `review` 命令依赖最近一次 workspace 中已有 `family-plan.json`
 - 真实生成耗时可能较长，尤其是 skill 很大、source task 很复杂时
-- 运行校验依赖 `docker`
+- 运行校验依赖 `harbor` 与 `docker`
 - 当前 family 生成是顺序 writer，不是 4 个 writer 并发

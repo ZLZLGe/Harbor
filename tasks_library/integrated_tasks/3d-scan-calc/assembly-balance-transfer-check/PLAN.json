@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "assembly-balance-transfer-check",
+  "taskRole": "transfer",
+  "title": "Transfer - Assembly Balance Check",
+  "goal": "Analyze a noisy binary STL assembly scan with several meaningful connected components, ignore debris, derive each component's mass from attribute-coded material IDs, and report the assembly center of mass plus a balance pass/fail result against a mounting footprint.",
+  "primaryOutputFile": "/root/assembly_balance.json",
+  "difficulty": "hard",
+  "category": "engineering",
+  "skillBenefitRationale": "This keeps the same domain and core mesh benefits while transferring from single-part inspection to assembly-level reasoning that depends on connected-component decomposition, per-component volume, and attribute-driven material properties."
+}

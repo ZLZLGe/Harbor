@@ -5,8 +5,8 @@ import path from "node:path";
 export const REPO_ROOT = "/home/levi/Harbor";
 export const SOURCE_TASKS_ROOT = path.join(REPO_ROOT, "tasks_library", "skillsbench", "tasks");
 export const INTEGRATED_TASKS_ROOT = path.join(REPO_ROOT, "tasks_library", "integrated_tasks");
-export const SCRATCH_ROOT = "/tmp/harbor-codex-task-builder";
 export const RUNS_ROOT = path.join(REPO_ROOT, "codex_task_builder_runs");
+export const SCRATCH_ROOT = path.join(RUNS_ROOT, "scratch");
 
 export type CommandResult = {
   code: number;
