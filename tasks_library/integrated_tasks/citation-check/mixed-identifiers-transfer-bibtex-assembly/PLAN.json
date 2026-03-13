@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "mixed-identifiers-transfer-bibtex-assembly",
+  "taskRole": "transfer",
+  "title": "Transfer: 混合标识符清单转规范 BibTeX",
+  "goal": "根据一份包含 DOI、PMID、arXiv ID 与论文 URL 的混合标识符清单，抽取准确元数据并生成规范、可直接用于 LaTeX 的 BibTeX 文件 `/root/assembled_references.bib`。",
+  "primaryOutputFile": "/root/assembled_references.bib",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "直接覆盖 citation-management 的核心收益点：标识符识别、CrossRef/PubMed/arXiv 元数据抽取、BibTeX 条目生成与基础格式规范化。"
+}

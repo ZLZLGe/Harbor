@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "systematic-review-similar-suspicious-citation-audit",
+  "taskRole": "similar",
+  "title": "Similar: 系统综述附录中的可疑引用核验",
+  "goal": "给定一份用于系统综述附录的混合 BibTeX 参考文献，识别所有伪造、幻觉或无法在主流学术数据库中核实的条目标题，并将按字母序整理后的标题写入 `/root/fake_citation_titles.json`。",
+  "primaryOutputFile": "/root/fake_citation_titles.json",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "延续源任务的引用真伪核验主线，但把输入扩展为期刊、会议、预印本和书籍混合条目，仍然高度依赖 citation-management 的 DOI 校验、标题检索、元数据核对与 BibTeX 文本清洗能力。"
+}

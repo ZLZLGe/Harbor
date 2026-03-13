@@ -104,11 +104,11 @@ npm run generate-family -- \
 
 ```bash
 cd /home/levi/Harbor/codex_task_builder
-export CODEX_TASK_BUILDER_MODEL=gpt-5.2
+export CODEX_TASK_BUILDER_MODEL=gpt-5.4
 npm run batch -- \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks \
-  --limit 2 \
+  --limit 7 \
   --family-concurrency 2
 ```
 

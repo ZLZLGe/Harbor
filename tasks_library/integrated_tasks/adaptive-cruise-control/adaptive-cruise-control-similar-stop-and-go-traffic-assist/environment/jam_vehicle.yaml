@@ -1,0 +1,30 @@
+vehicle:
+  mass: 1620
+  max_acceleration: 2.8
+  max_deceleration: -5.5
+  drag_coefficient: 0.31
+
+jam_assist:
+  set_speed: 22.0
+  time_headway: 1.8
+  min_gap: 8.0
+  emergency_ttc_threshold: 2.2
+  stop_hold_gap_buffer: 2.0
+  restart_speed_threshold: 0.3
+
+comfort:
+  jerk_limit: 2.4
+
+pid_speed:
+  kp: 0.18
+  ki: 0.02
+  kd: 0.00
+
+pid_gap:
+  kp: 0.16
+  ki: 0.02
+  kd: 0.00
+
+simulation:
+  dt: 0.1
+  duration: 180.0

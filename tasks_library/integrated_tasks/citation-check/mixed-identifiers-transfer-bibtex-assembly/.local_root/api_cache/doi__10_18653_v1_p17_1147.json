@@ -1,0 +1,43 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message": {
+    "type": "proceedings-article",
+    "title": [
+      "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension"
+    ],
+    "author": [
+      {
+        "given": "Mandar",
+        "family": "Joshi"
+      },
+      {
+        "given": "Eunsol",
+        "family": "Choi"
+      },
+      {
+        "given": "Daniel",
+        "family": "Weld"
+      },
+      {
+        "given": "Luke",
+        "family": "Zettlemoyer"
+      }
+    ],
+    "container-title": [
+      "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2017,
+          7
+        ]
+      ]
+    },
+    "page": "1601-1611",
+    "publisher": "Association for Computational Linguistics",
+    "DOI": "10.18653/v1/P17-1147",
+    "URL": "https://doi.org/10.18653/v1/P17-1147"
+  }
+}

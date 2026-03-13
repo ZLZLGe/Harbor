@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "civ6-adjacency-optimizer-transfer-two-city-network",
+  "taskRole": "transfer",
+  "title": "Transfer - 双城联动邻接优化",
+  "goal": "在一张原始 `.Civ6Map` 上选择 2 个城市中心并在两城之间分配区划，最大化全局总邻接，同时满足城市间最小距离、人口上限、不可重叠和文明级唯一规则。",
+  "primaryOutputFile": "/output/two_city_empire_plan.json",
+  "difficulty": "hard",
+  "category": "games",
+  "skillBenefitRationale": "把原有解析、六边形距离和区划合法性校验扩展到双城全局优化，能直接检验 civ6lib、hex-grid-spatial 与 map-optimization-strategy 在跨城约束下的迁移能力。"
+}
