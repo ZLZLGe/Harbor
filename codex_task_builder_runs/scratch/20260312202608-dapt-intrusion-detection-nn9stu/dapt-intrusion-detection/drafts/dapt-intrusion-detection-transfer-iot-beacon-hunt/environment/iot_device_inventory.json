@@ -1,0 +1,50 @@
+[
+  {
+    "device_id": "edge-gateway",
+    "role": "gateway",
+    "ip": "10.42.0.1",
+    "mac": "02:42:00:00:00:01"
+  },
+  {
+    "device_id": "controller-core",
+    "role": "controller",
+    "ip": "10.42.0.2",
+    "mac": "02:42:00:00:00:02"
+  },
+  {
+    "device_id": "camera-lobby",
+    "role": "camera",
+    "ip": "10.42.0.10",
+    "mac": "02:42:00:00:00:10"
+  },
+  {
+    "device_id": "speaker-atrium",
+    "role": "speaker",
+    "ip": "10.42.0.21",
+    "mac": "02:42:00:00:00:21"
+  },
+  {
+    "device_id": "badge-reader-east",
+    "role": "badge-reader",
+    "ip": "10.42.0.31",
+    "mac": "02:42:00:00:00:31"
+  },
+  {
+    "device_id": "lighting-gateway",
+    "role": "lighting",
+    "ip": "10.42.0.40",
+    "mac": "02:42:00:00:00:40"
+  },
+  {
+    "device_id": "elevator-panel",
+    "role": "panel",
+    "ip": "10.42.0.48",
+    "mac": "02:42:00:00:00:48"
+  },
+  {
+    "device_id": "thermostat-hvac-7f",
+    "role": "thermostat",
+    "ip": "10.42.0.55",
+    "mac": "02:42:00:00:00:55"
+  }
+]

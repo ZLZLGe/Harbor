@@ -1,0 +1,94 @@
+{
+    "id": "ca1e5eb6-ae3a-4a0f-87f8-ec8d04b144a7",
+    "task_name": "dapt-intrusion-detection-transfer-cloud-lateral-movement",
+    "trial_name": "dapt-intrusion-detection-transfe__FHpWYbi",
+    "trial_uri": "file:///home/levi/Harbor/codex_task_builder_runs/scratch/20260312202608-dapt-intrusion-detection-nn9stu/dapt-intrusion-detection/artifacts/runtime-logs/dapt-intrusion-detection-transfer-cloud-lateral-movement/harbor-oracle-20260312202608-dapt-intrusion-detection-nn9stu-dapt-intrusion-detection-transfer-cloud-lateral-movement/dapt-intrusion-detection-transfe__FHpWYbi",
+    "task_id": {
+        "path": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260312202608-dapt-intrusion-detection-nn9stu/dapt-intrusion-detection/drafts/dapt-intrusion-detection-transfer-cloud-lateral-movement"
+    },
+    "source": null,
+    "task_checksum": "89bbf492c783dee753d7a2bcbc153488fc09149e58f6d2acf5a8e8ff558b66ec",
+    "config": {
+        "task": {
+            "path": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260312202608-dapt-intrusion-detection-nn9stu/dapt-intrusion-detection/drafts/dapt-intrusion-detection-transfer-cloud-lateral-movement",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "dapt-intrusion-detection-transfe__FHpWYbi",
+        "trials_dir": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260312202608-dapt-intrusion-detection-nn9stu/dapt-intrusion-detection/artifacts/runtime-logs/dapt-intrusion-detection-transfer-cloud-lateral-movement/harbor-oracle-20260312202608-dapt-intrusion-detection-nn9stu-dapt-intrusion-detection-transfer-cloud-lateral-movement",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "e27681c6-ed2f-4391-9c9b-4d3ac021134e"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-12T21:54:14.855782Z",
+    "finished_at": "2026-03-12T21:54:32.208189Z",
+    "environment_setup": {
+        "started_at": "2026-03-12T21:54:14.862135Z",
+        "finished_at": "2026-03-12T21:54:28.791442Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-12T21:54:28.791477Z",
+        "finished_at": "2026-03-12T21:54:28.791525Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-12T21:54:28.791556Z",
+        "finished_at": "2026-03-12T21:54:29.794738Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-12T21:54:29.794875Z",
+        "finished_at": "2026-03-12T21:54:30.459434Z"
+    }
+}
