@@ -1,0 +1,38 @@
+version = "1.0"
+
+[metadata]
+id = "civ6-adjacency-optimizer-transfer-coastal-infrastructure"
+name = "Transfer - Coastal Infrastructure Corridor Planning"
+primaryOutputFile = "/output/coastal_corridor_plan.json"
+author_name = "Songlin Li"
+author_email = "vincent.li.9701@gmail.com"
+difficulty = "hard"
+category = "games"
+tags = [
+  "optimization",
+  "constraint-satisfaction",
+  "game-mechanics",
+  "spatial-understanding",
+  "civ6",
+  "transfer",
+  "coastal",
+  "infrastructure",
+]
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

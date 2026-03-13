@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "adaptive-cruise-control-similar-stop-and-go-traffic-assist",
+  "taskRole": "similar",
+  "title": "Similar: Stop-and-Go Traffic Jam Assist Simulation",
+  "goal": "Build a stop-and-go traffic jam assist simulation that cruises at a capped highway speed when the lane is clear, follows a lead vehicle through repeated slowdowns to full stops, and restarts smoothly while meeting gap, comfort, and settling targets from radar CSV data and YAML vehicle settings.",
+  "primaryOutputFile": "jam_assist_report.md",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "Keeps the original longitudinal automotive control structure while shifting to stop-and-go behavior, so the agent still has to load YAML parameters, process time-series CSV sensor data, tune PID loops, simulate vehicle-gap dynamics, and compute control-performance metrics from the run outputs."
+}

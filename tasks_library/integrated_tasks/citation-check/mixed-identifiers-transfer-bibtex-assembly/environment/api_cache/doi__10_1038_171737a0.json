@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "message-type": "work",
+  "message": {
+    "type": "journal-article",
+    "title": [
+      "Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid"
+    ],
+    "author": [
+      {
+        "given": "James D.",
+        "family": "Watson"
+      },
+      {
+        "given": "Francis H. C.",
+        "family": "Crick"
+      }
+    ],
+    "container-title": [
+      "Nature"
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          1953,
+          4,
+          25
+        ]
+      ]
+    },
+    "volume": "171",
+    "issue": "4356",
+    "page": "737-738",
+    "publisher": "Springer Science and Business Media LLC",
+    "DOI": "10.1038/171737a0",
+    "URL": "https://doi.org/10.1038/171737a0"
+  }
+}

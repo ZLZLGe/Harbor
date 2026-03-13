@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "court-form-filling-transfer-federal-civil-cover-sheet",
+  "taskRole": "transfer",
+  "title": "Transfer: 联邦民事案件封面表 PDF 填写",
+  "goal": "根据联邦民事起诉摘要填写 JS-44 Civil Cover Sheet PDF，正确填写案件标题、当事人信息，并勾选管辖依据、诉讼起源、案件性质和陪审团请求，输出到 /root/js44-filled.pdf。",
+  "primaryOutputFile": "/root/js44-filled.pdf",
+  "difficulty": "easy",
+  "category": "document-processing",
+  "skillBenefitRationale": "把原任务的 PDF 表单填充能力迁移到联邦法院封面表，重点测试结构化案件事实到编码型复选框与分类字段的映射能力，同时保持只填必要字段的约束。"
+}
