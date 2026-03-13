@@ -1,0 +1,16 @@
+  1/1 Mean: 0.000 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:06:45 0:00:00Results written to /home/levi/Harbor/codex_task_builder_runs/scratch/20260312202608-dapt-intrusion-detection-nn9stu/dapt-intrusion-detection/artifacts/runtime-logs/dapt-intrusion-detection-similar-branch-segment-audit/harbor-oracle-20260312202608-dapt-intrusion-detection-nn9stu-dapt-intrusion-detection-similar-branch-segment-audit/result.json
+        oracle on adhoc         
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Metric              ┃ Value  ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ Agent               │ oracle │
+│ Dataset             │ adhoc  │
+│ Trials              │ 1      │
+│ Errors              │ 0      │
+│                     │        │
+│ Mean                │ 0.000  │
+│                     │        │
+│ Reward Distribution │        │
+│   reward = 0.0      │ 1      │
+└─────────────────────┴────────┘
+

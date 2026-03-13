@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "dapt-intrusion-detection-transfer-iot-beacon-hunt",
+  "taskRole": "transfer",
+  "title": "Transfer | IoT 回连与噪声设备排查",
+  "goal": "分析智能楼宇 IoT 抓包并生成 `/root/iot_beacon_findings.json`，对设备的广播噪声、服务扩散、周期性回连和异常端口扇出做归因，判断是否存在 beaconing、扫描或 flood-like 行为。",
+  "primaryOutputFile": "/root/iot_beacon_findings.json",
+  "difficulty": "hard",
+  "category": "security",
+  "skillBenefitRationale": "仍然依赖 PCAP 分层解析、端口/地址熵、flow/IAT 统计和严格威胁阈值，但把这些能力迁移到广播极多、背景噪声更重的 IoT 流量里，突出区分正常遥测与恶意回连的收益。"
+}

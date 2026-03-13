@@ -1,0 +1,134 @@
+downloading uv 0.9.7 x86_64-unknown-linux-gnu
+no checksums to verify
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
+Downloading pygments (1.2MiB)
+ Downloading pygments
+Installed 6 packages in 37ms
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0 -- /root/.cache/uv/archive-v0/Z9UZAMiM-D3PN1rKqN03m/bin/python
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 41 items
+
+../tests/test_outputs.py::test_metric[total_packets] PASSED              [  2%]
+../tests/test_outputs.py::test_metric[dominant_protocol] PASSED          [  4%]
+../tests/test_outputs.py::test_metric[protocol_tcp] PASSED               [  7%]
+../tests/test_outputs.py::test_metric[protocol_udp] FAILED               [  9%]
+../tests/test_outputs.py::test_metric[protocol_icmp] PASSED              [ 12%]
+../tests/test_outputs.py::test_metric[protocol_arp] PASSED               [ 14%]
+../tests/test_outputs.py::test_metric[protocol_ip_total] PASSED          [ 17%]
+../tests/test_outputs.py::test_metric[duration_seconds] PASSED           [ 19%]
+../tests/test_outputs.py::test_metric[packets_per_minute_avg] PASSED     [ 21%]
+../tests/test_outputs.py::test_metric[packets_per_minute_max] PASSED     [ 24%]
+../tests/test_outputs.py::test_metric[packets_per_minute_min] PASSED     [ 26%]
+../tests/test_outputs.py::test_metric[total_bytes] PASSED                [ 29%]
+../tests/test_outputs.py::test_metric[avg_packet_size] PASSED            [ 31%]
+../tests/test_outputs.py::test_metric[min_packet_size] PASSED            [ 34%]
+../tests/test_outputs.py::test_metric[max_packet_size] PASSED            [ 36%]
+../tests/test_outputs.py::test_metric[src_ip_entropy] PASSED             [ 39%]
+../tests/test_outputs.py::test_metric[dst_ip_entropy] PASSED             [ 41%]
+../tests/test_outputs.py::test_metric[src_port_entropy] PASSED           [ 43%]
+../tests/test_outputs.py::test_metric[dst_port_entropy] PASSED           [ 46%]
+../tests/test_outputs.py::test_metric[unique_src_ports] PASSED           [ 48%]
+../tests/test_outputs.py::test_metric[unique_dst_ports] PASSED           [ 51%]
+../tests/test_outputs.py::test_metric[num_nodes] PASSED                  [ 53%]
+../tests/test_outputs.py::test_metric[num_edges] PASSED                  [ 56%]
+../tests/test_outputs.py::test_metric[network_density] PASSED            [ 58%]
+../tests/test_outputs.py::test_metric[max_indegree] PASSED               [ 60%]
+../tests/test_outputs.py::test_metric[max_outdegree] PASSED              [ 63%]
+../tests/test_outputs.py::test_metric[iat_mean] PASSED                   [ 65%]
+../tests/test_outputs.py::test_metric[iat_variance] PASSED               [ 68%]
+../tests/test_outputs.py::test_metric[iat_cv] PASSED                     [ 70%]
+../tests/test_outputs.py::test_metric[unique_flows] PASSED               [ 73%]
+../tests/test_outputs.py::test_metric[bidirectional_flows] PASSED        [ 75%]
+../tests/test_outputs.py::test_metric[tcp_flows] PASSED                  [ 78%]
+../tests/test_outputs.py::test_metric[udp_flows] PASSED                  [ 80%]
+../tests/test_outputs.py::test_metric[suspected_scanner_ip] PASSED       [ 82%]
+../tests/test_outputs.py::test_metric[suspected_scanner_unique_dst_ports] PASSED [ 85%]
+../tests/test_outputs.py::test_metric[suspected_scanner_syn_ratio] PASSED [ 87%]
+../tests/test_outputs.py::test_metric[suspected_scanner_dst_port_entropy] PASSED [ 90%]
+../tests/test_outputs.py::test_metric[has_port_scan] PASSED              [ 92%]
+../tests/test_outputs.py::test_metric[has_dos_pattern] PASSED            [ 95%]
+../tests/test_outputs.py::test_metric[has_beaconing] PASSED              [ 97%]
+../tests/test_outputs.py::test_metric[is_traffic_benign] PASSED          [100%]
+
+=================================== FAILURES ===================================
+__________________________ test_metric[protocol_udp] ___________________________
+
+metric = 'protocol_udp'
+
+    @pytest.mark.parametrize("metric", list(EXPECTED_VALUES.keys()))
+    def test_metric(metric):
+        results = load_results()
+        assert results is not None, "results file not found"
+        assert metric in results, f"missing metric: {metric}"
+    
+        expected = EXPECTED_VALUES[metric]
+        actual = results[metric]
+    
+        if metric in STRING_METRICS:
+            assert actual == expected, f"{metric}: expected {expected}, got {actual}"
+            return
+    
+        tolerance = metric_tolerance(metric, expected)
+>       assert abs(actual - expected) <= tolerance, (
+            f"{metric}: expected {expected}, got {actual}, tolerance {tolerance}"
+        )
+E       AssertionError: protocol_udp: expected 25846, got 26092, tolerance 0
+E       assert 246 <= 0
+E        +  where 246 = abs((26092 - 25846))
+
+/tests/test_outputs.py:153: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_metric[total_packets]
+PASSED ../tests/test_outputs.py::test_metric[dominant_protocol]
+PASSED ../tests/test_outputs.py::test_metric[protocol_tcp]
+PASSED ../tests/test_outputs.py::test_metric[protocol_icmp]
+PASSED ../tests/test_outputs.py::test_metric[protocol_arp]
+PASSED ../tests/test_outputs.py::test_metric[protocol_ip_total]
+PASSED ../tests/test_outputs.py::test_metric[duration_seconds]
+PASSED ../tests/test_outputs.py::test_metric[packets_per_minute_avg]
+PASSED ../tests/test_outputs.py::test_metric[packets_per_minute_max]
+PASSED ../tests/test_outputs.py::test_metric[packets_per_minute_min]
+PASSED ../tests/test_outputs.py::test_metric[total_bytes]
+PASSED ../tests/test_outputs.py::test_metric[avg_packet_size]
+PASSED ../tests/test_outputs.py::test_metric[min_packet_size]
+PASSED ../tests/test_outputs.py::test_metric[max_packet_size]
+PASSED ../tests/test_outputs.py::test_metric[src_ip_entropy]
+PASSED ../tests/test_outputs.py::test_metric[dst_ip_entropy]
+PASSED ../tests/test_outputs.py::test_metric[src_port_entropy]
+PASSED ../tests/test_outputs.py::test_metric[dst_port_entropy]
+PASSED ../tests/test_outputs.py::test_metric[unique_src_ports]
+PASSED ../tests/test_outputs.py::test_metric[unique_dst_ports]
+PASSED ../tests/test_outputs.py::test_metric[num_nodes]
+PASSED ../tests/test_outputs.py::test_metric[num_edges]
+PASSED ../tests/test_outputs.py::test_metric[network_density]
+PASSED ../tests/test_outputs.py::test_metric[max_indegree]
+PASSED ../tests/test_outputs.py::test_metric[max_outdegree]
+PASSED ../tests/test_outputs.py::test_metric[iat_mean]
+PASSED ../tests/test_outputs.py::test_metric[iat_variance]
+PASSED ../tests/test_outputs.py::test_metric[iat_cv]
+PASSED ../tests/test_outputs.py::test_metric[unique_flows]
+PASSED ../tests/test_outputs.py::test_metric[bidirectional_flows]
+PASSED ../tests/test_outputs.py::test_metric[tcp_flows]
+PASSED ../tests/test_outputs.py::test_metric[udp_flows]
+PASSED ../tests/test_outputs.py::test_metric[suspected_scanner_ip]
+PASSED ../tests/test_outputs.py::test_metric[suspected_scanner_unique_dst_ports]
+PASSED ../tests/test_outputs.py::test_metric[suspected_scanner_syn_ratio]
+PASSED ../tests/test_outputs.py::test_metric[suspected_scanner_dst_port_entropy]
+PASSED ../tests/test_outputs.py::test_metric[has_port_scan]
+PASSED ../tests/test_outputs.py::test_metric[has_dos_pattern]
+PASSED ../tests/test_outputs.py::test_metric[has_beaconing]
+PASSED ../tests/test_outputs.py::test_metric[is_traffic_benign]
+FAILED ../tests/test_outputs.py::test_metric[protocol_udp] - AssertionError: ...
+========================= 1 failed, 40 passed in 0.07s =========================

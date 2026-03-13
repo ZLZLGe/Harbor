@@ -1,0 +1,30 @@
+version = "1.0"
+
+[metadata]
+id = "dapt-intrusion-detection-transfer-cloud-lateral-movement"
+name = "Transfer | 云内横向移动流量评估"
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "hard"
+category = "security"
+tags = ["security", "network", "pcap", "intrusion-detection", "transfer", "cloud", "east-west"]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+PRIMARY_OUTPUT_FILE = "/root/cloud_lateral_report.csv"
+
+[solution.env]
+PRIMARY_OUTPUT_FILE = "/root/cloud_lateral_report.csv"
