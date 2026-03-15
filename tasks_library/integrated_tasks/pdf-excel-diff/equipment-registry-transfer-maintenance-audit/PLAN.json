@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "equipment-registry-transfer-maintenance-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Equipment Registry Maintenance Audit",
+  "goal": "从 PDF `/root/equipment_inspection_report.pdf` 提取设备巡检台账，与 Excel `/root/equipment_registry.xlsx` 中的当前设备注册表对比，识别已退役设备，以及 `next_inspection_date`、`service_vendor`、`risk_level`、`inspection_interval_days` 等字段的更新；将结果写入 `/root/equipment_registry_changes.json`。",
+  "primaryOutputFile": "/root/equipment_registry_changes.json",
+  "difficulty": "medium",
+  "category": "data-comparison",
+  "skillBenefitRationale": "同样依赖 PDF 表格抽取与 Excel 台账比对，但迁移到设备合规审计场景，强化日期标准化、文本与整数混合字段处理，测试技能在不同业务语义下的泛化。"
+}

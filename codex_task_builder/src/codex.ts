@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { Codex, type ThreadOptions } from "@openai/codex-sdk";
 import { z } from "zod";
-import type { SourceTask } from "./discovery.js";
+import type { GenerationUnit } from "./discovery.js";
 import type { DerivedTaskPlan, FamilyPlan, ReviewResult, WriterSummary } from "./schema.js";
 import {
   familyPlanJsonSchema,
@@ -159,7 +159,7 @@ export class CodexTaskBuilderClient {
       approvalPolicy: "never",
       skipGitRepoCheck: true,
       networkAccessEnabled: process.env.CODEX_TASK_BUILDER_NETWORK_ACCESS === "1",
-      modelReasoningEffort: "xhigh",
+      modelReasoningEffort: "high",
     };
   }
 
@@ -170,9 +170,9 @@ export class CodexTaskBuilderClient {
     });
   }
 
-  async planFamily(sourceTask: SourceTask, workspace: FamilyWorkspace): Promise<StructuredRunResult<FamilyPlan>> {
+  async planFamily(unit: GenerationUnit, workspace: FamilyWorkspace): Promise<StructuredRunResult<FamilyPlan>> {
     const thread = this.makeThread(workspace.rootDir);
-    const turn = await thread.run(buildFamilyPlannerPrompt(sourceTask), {
+    const turn = await thread.run(buildFamilyPlannerPrompt(unit), {
       outputSchema: familyPlanJsonSchema,
     });
     const parsed = familyPlanSchema.parse(parseJsonWithFallback<FamilyPlan>(turn.finalResponse));
@@ -184,12 +184,12 @@ export class CodexTaskBuilderClient {
   }
 
   async writeTask(
-    sourceTask: SourceTask,
+    unit: GenerationUnit,
     workspace: FamilyWorkspace,
     plan: DerivedTaskPlan,
   ): Promise<StructuredRunResult<WriterSummary>> {
     const thread = this.makeThread(workspace.rootDir);
-    const turn = await thread.run(buildTaskWriterPrompt(sourceTask, plan), {
+    const turn = await thread.run(buildTaskWriterPrompt(unit, plan), {
       outputSchema: writerSummaryJsonSchema,
     });
 
@@ -244,12 +244,12 @@ export class CodexTaskBuilderClient {
   }
 
   async reviewFamily(
-    sourceTask: SourceTask,
+    unit: GenerationUnit,
     workspace: FamilyWorkspace,
     familyPlan: FamilyPlan,
   ): Promise<StructuredRunResult<ReviewResult>> {
     const thread = this.makeThread(workspace.rootDir);
-    const turn = await thread.run(buildReviewerPrompt(sourceTask, familyPlan), {
+    const turn = await thread.run(buildReviewerPrompt(unit, familyPlan), {
       outputSchema: reviewResultJsonSchema,
     });
     const parsed = reviewResultSchema.parse(parseJsonWithFallback<ReviewResult>(turn.finalResponse));

@@ -219,7 +219,7 @@
 
 对每个任务执行：
 
-1. 调用 Harbor CLI 的官方 oracle：`harbor run -p <task_dir> -a oracle --force-build`
+1. 调用 Harbor CLI 的官方 oracle：`harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`
 2. 解析 trial 的 `result.json`（`exception_info` / `verifier_result.rewards`）
 3. 约定 `reward >= 1.0` 视为通过，否则该任务不发布
 
@@ -240,6 +240,7 @@
 
 - `1 similar + 3 transfer`
 - `derivedTaskId` 中是否包含 `-similar-` / `-transfer-`
+- `per-skill` 模式下，如果 planner 漏掉目标 skill slug，程序会在落盘前自动补齐后再做 family 校验
 
 不再作为整组发布硬门槛，而是 planner 默认目标与 reviewer/family observation。
 
@@ -330,7 +331,7 @@
 8. reviewer 返回任务级 verdict 与 family 级观察
 9. 对每个任务执行本地静态校验
 10. `batch` 模式在启动生成前先做一次运行时 preflight（`harbor` + `docker`）
-11. 对通过前置检查的任务执行 Harbor Oracle(runtime) 校验（`harbor run -a oracle --force-build`）
+11. 对通过前置检查的任务执行 Harbor Oracle(runtime) 校验（`harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`）
 12. 按任务把通过验收的结果复制到 `integrated_tasks/`
 
 ## Generation Rules
@@ -397,6 +398,7 @@
 - `derivedTaskId` 必须显式包含任务角色：
   - `similar` 任务包含 `-similar-`
   - `transfer` 任务包含 `-transfer-`
+- `per-skill` 模式下，`derivedTaskId` 还应包含目标 skill slug；如果 planner 漏写，CLI 会在落盘前自动补齐
 - `task.toml` 中 `metadata.id` 必须等于目录名
 - `metadata.name` 必须显式标明任务角色，让人一眼看出是 `Similar` 还是 `Transfer`
 - 4 个任务的主输出文件名必须不同
@@ -439,6 +441,7 @@
 
 - 恰好 1 个 `derivedTaskId` 包含 `-similar-`
 - 恰好 3 个 `derivedTaskId` 包含 `-transfer-`
+- `per-skill` family 中每个 `derivedTaskId` 还应包含目标 skill slug
 
 改为 reviewer / observation 层面的检查，不再作为整组发布硬门槛。
 
@@ -457,7 +460,7 @@
 - reviewer
 - 对于准备发布的单个任务：
   - static validate
-  - Harbor Oracle(runtime) 校验（`harbor run -a oracle --force-build`，约定 `reward >= 1.0` 通过）
+  - Harbor Oracle(runtime) 校验（`harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`，约定 `reward >= 1.0` 通过）
 
 ### 5. 批量测试
 

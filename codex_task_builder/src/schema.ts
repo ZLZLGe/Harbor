@@ -1,6 +1,48 @@
 import { z } from "zod";
 
+type JsonSchemaNode = {
+  type?: string;
+  properties?: Record<string, JsonSchemaNode>;
+  required?: readonly string[];
+  items?: JsonSchemaNode | JsonSchemaNode[];
+  anyOf?: readonly JsonSchemaNode[];
+  oneOf?: readonly JsonSchemaNode[];
+  allOf?: readonly JsonSchemaNode[];
+};
+
+function assertStructuredOutputCompatible(schema: JsonSchemaNode, label: string, trail = label): void {
+  if (schema.type === "object" && schema.properties) {
+    const propertyKeys = Object.keys(schema.properties);
+    const requiredKeys = schema.required ?? [];
+    if (requiredKeys.length !== propertyKeys.length || propertyKeys.some((key) => !requiredKeys.includes(key))) {
+      throw new Error(`${trail} 的 required 必须覆盖 properties 中的全部字段: ${propertyKeys.join(", ")}`);
+    }
+
+    for (const [key, value] of Object.entries(schema.properties)) {
+      assertStructuredOutputCompatible(value, label, `${trail}.properties.${key}`);
+    }
+  }
+
+  if (schema.items) {
+    const items = Array.isArray(schema.items) ? schema.items : [schema.items];
+    for (const [index, item] of items.entries()) {
+      assertStructuredOutputCompatible(item, label, `${trail}.items[${index}]`);
+    }
+  }
+
+  for (const [keyword, variants] of [
+    ["anyOf", schema.anyOf],
+    ["oneOf", schema.oneOf],
+    ["allOf", schema.allOf],
+  ] as const) {
+    for (const [index, variant] of (variants ?? []).entries()) {
+      assertStructuredOutputCompatible(variant, label, `${trail}.${keyword}[${index}]`);
+    }
+  }
+}
+
 export const taskRoleSchema = z.enum(["similar", "transfer"]);
+export const skillModeSchema = z.enum(["all", "per-skill"]);
 
 export const derivedTaskPlanSchema = z.object({
   derivedTaskId: z.string().min(1),
@@ -11,10 +53,15 @@ export const derivedTaskPlanSchema = z.object({
   difficulty: z.string().min(1),
   category: z.string().min(1),
   skillBenefitRationale: z.string().min(1),
+  targetSkillDirName: z.string().min(1).optional(),
+  targetSkillName: z.string().min(1).optional(),
 });
 
 export const familyPlanSchema = z.object({
   sourceTaskId: z.string().min(1),
+  skillMode: skillModeSchema.optional(),
+  targetSkillDirName: z.string().min(1).optional(),
+  targetSkillName: z.string().min(1).optional(),
   familyTheme: z.string().min(1),
   derivedTasks: z.array(derivedTaskPlanSchema).length(4),
 });
@@ -157,3 +204,7 @@ export const reviewResultJsonSchema = {
     },
   },
 } as const;
+
+assertStructuredOutputCompatible(familyPlanJsonSchema, "familyPlanJsonSchema");
+assertStructuredOutputCompatible(writerSummaryJsonSchema, "writerSummaryJsonSchema");
+assertStructuredOutputCompatible(reviewResultJsonSchema, "reviewResultJsonSchema");

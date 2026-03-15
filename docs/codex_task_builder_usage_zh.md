@@ -18,6 +18,17 @@
 - 不覆盖已有同名任务目录
 - 不做删除操作
 
+技能作用域模式：
+
+- `all`
+  - 默认模式
+  - 一个 source task 的全部 skills 共同参与一个 family 的设计
+- `per-skill`
+  - 严格单技能模式
+  - 一个多-skill source task 会拆成多个 family
+  - 每个 family 只保留一个 shipped skill
+  - 其他 source task skills 不会作为背景或隐含依赖出现
+
 ## 2. 目录结构
 
 ```text
@@ -81,6 +92,7 @@ npm run inventory -- --source-root /home/levi/Harbor/tasks_library/skillsbench/t
 cd /home/levi/Harbor/codex_task_builder
 npm run generate-family -- \
   --source-task-id citation-check \
+  --skill-mode all \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks
 ```
@@ -100,6 +112,24 @@ npm run generate-family -- \
 - 不会覆盖已有结果
 - 不会删除任何目录
 
+严格单技能模式示例：
+
+```bash
+cd /home/levi/Harbor/codex_task_builder
+npm run generate-family -- \
+  --source-task-id citation-check \
+  --skill-mode per-skill \
+  --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
+  --output-root /home/levi/Harbor/tasks_library/integrated_tasks
+```
+
+补充说明：
+
+- `--skill-mode all`：保留原始 source task 的全部 shipped skills
+- `--skill-mode per-skill`：对 source task 中的每个 skill 分别生成一个 family
+- `per-skill` 模式下，workspace 和 drafts 中只会保留当前目标 skill，其余 skills 不会被复制进去
+- 如果 planner 漏掉目标 skill slug，程序会在落盘前自动把该 slug 补进 `derivedTaskId`，然后再继续做静态校验和运行校验
+
 ### 4.3 批量生成
 
 ```bash
@@ -108,8 +138,9 @@ export CODEX_TASK_BUILDER_MODEL=gpt-5.4
 npm run batch -- \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks \
-  --limit 7 \
-  --family-concurrency 2
+  --skill-mode per-skill \
+  --limit 10 \
+  --family-concurrency 4
 ```
 
 可选参数：
@@ -117,6 +148,7 @@ npm run batch -- \
 - `--match <regex>`：按 `sourceTaskId` 过滤
 - `--limit <n>`：限制 family 数量
 - `--family-concurrency <n>`：并发生成 family 数量
+- `--skill-mode <all|per-skill>`：选择使用全部 skills 还是严格单技能拆分模式
 
 当前行为补充：
 
@@ -236,7 +268,7 @@ TASK_BUILDER_BRIEF.md
 
 ```bash
 export OPENAI_API_KEY="your_api_key_here"
-export CODEX_TASK_BUILDER_MODEL=gpt-5.4
+export CODEX_TASK_BUILDER_MODEL=gpt-5.2
 export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 ```
 
@@ -250,12 +282,12 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 4. 为 4 个派生任务分别运行 writer
 5. reviewer 返回任务级 verdict 和 family 级观察
 6. 对每个任务做本地静态校验
-7. 对通过前置检查的任务做 Harbor Oracle(runtime) 运行校验（`harbor run -a oracle`）
+7. 对通过前置检查的任务做 Harbor Oracle(runtime) 运行校验（`harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`）
 8. 按任务把通过验收的结果发布到 `integrated_tasks/`
 
 运行校验补充：
 
-- 运行校验对齐 Harbor 官方 oracle：调用 `harbor run -p <task_dir> -a oracle --force-build`
+- 运行校验对齐 Harbor 官方 oracle：调用 `harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`
 - 结果以 `trial result.json` 中的 `verifier_result.rewards` 为准（约定 `reward >= 1.0` 视为通过）
 - runtime 失败会在 metadata 区分为 `harbor-preflight` / `harbor-run` / `harbor-reward`
 
@@ -340,7 +372,15 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 }
 ```
 
-## 10. 当前限制
+## 10. 当前验证样例
+
+当前仓库里，`pdf-excel-diff` 已经验证过：
+
+- `--skill-mode all` 可以生成并发布可运行的 family
+- `--skill-mode per-skill` 可以按单技能拆分并发布可运行的 family
+- 对最终发布目录手动运行 Harbor 时，应把 `-p` 指向某个 family 目录，例如 `/home/levi/Harbor/tasks_library/integrated_tasks/pdf-excel-diff/`
+
+## 11. 当前限制
 
 - `review` 命令依赖最近一次 workspace 中已有 `family-plan.json`
 - 真实生成耗时可能较长，尤其是 skill 很大、source task 很复杂时
