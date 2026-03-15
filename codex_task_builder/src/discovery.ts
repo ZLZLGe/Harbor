@@ -17,6 +17,8 @@ export type SkillInfo = {
   skillMdPath: string;
 };
 
+export type SkillMode = "all" | "per-skill";
+
 export type SourceTask = {
   sourceTaskId: string;
   sourceDir: string;
@@ -28,6 +30,14 @@ export type SourceTask = {
   skillsDir: string;
   metadata: TaskMetadata;
   skills: SkillInfo[];
+};
+
+export type GenerationUnit = {
+  sourceTask: SourceTask;
+  skillMode: SkillMode;
+  targetSkill: SkillInfo | null;
+  scopeSlug: string;
+  scopeLabel: string;
 };
 
 function extractTomlValue(text: string, key: string): string | undefined {
@@ -118,6 +128,36 @@ export async function discoverSourceTasks(sourceRoot = SOURCE_TASKS_ROOT): Promi
     tasks.push(await discoverSourceTaskById(sourceTaskId, sourceRoot));
   }
   return tasks;
+}
+
+export function buildGenerationUnits(sourceTask: SourceTask, skillMode: SkillMode): GenerationUnit[] {
+  if (skillMode === "all") {
+    return [
+      {
+        sourceTask,
+        skillMode,
+        targetSkill: null,
+        scopeSlug: "all-skills",
+        scopeLabel: "All skills",
+      },
+    ];
+  }
+
+  if (sourceTask.skills.length === 0) {
+    throw new Error(`source task ${sourceTask.sourceTaskId} 没有可用 skills，无法使用 per-skill 模式`);
+  }
+
+  return sourceTask.skills.map((skill) => ({
+    sourceTask,
+    skillMode,
+    targetSkill: skill,
+    scopeSlug: skill.dirName,
+    scopeLabel: skill.name,
+  }));
+}
+
+export function getVisibleSkills(unit: GenerationUnit): SkillInfo[] {
+  return unit.targetSkill ? [unit.targetSkill] : unit.sourceTask.skills;
 }
 
 export async function collectEnvironmentAssetPaths(sourceTask: SourceTask): Promise<string[]> {

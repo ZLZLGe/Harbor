@@ -47,6 +47,37 @@ export function validateFamilyStructure(familyPlan: FamilyPlan): ValidationIssue
     issues.push({ scope: "family", message: "primaryOutputFile 存在重复" });
   }
 
+  if (familyPlan.skillMode === "per-skill") {
+    if (!familyPlan.targetSkillDirName || !familyPlan.targetSkillName) {
+      issues.push({ scope: "family", message: "per-skill family 缺少 target skill 元数据" });
+    }
+
+    const targetSkillSlug = familyPlan.targetSkillDirName ? slugify(familyPlan.targetSkillDirName) : null;
+    for (const task of familyPlan.derivedTasks) {
+      if (task.targetSkillDirName !== familyPlan.targetSkillDirName) {
+        issues.push({
+          scope: "family",
+          taskId: task.derivedTaskId,
+          message: "derived task 的 targetSkillDirName 与 family 不一致",
+        });
+      }
+      if (task.targetSkillName !== familyPlan.targetSkillName) {
+        issues.push({
+          scope: "family",
+          taskId: task.derivedTaskId,
+          message: "derived task 的 targetSkillName 与 family 不一致",
+        });
+      }
+      if (targetSkillSlug && !task.derivedTaskId.includes(targetSkillSlug)) {
+        issues.push({
+          scope: "family",
+          taskId: task.derivedTaskId,
+          message: `per-skill 任务的 derivedTaskId 未包含目标 skill slug，期望包含 ${targetSkillSlug}`,
+        });
+      }
+    }
+  }
+
   return issues;
 }
 
@@ -98,6 +129,7 @@ export async function validateDraftStatic(
   writerSummary: WriterSummary,
 ): Promise<ValidationIssue[]> {
   const issues: ValidationIssue[] = [];
+  const skillsDir = path.join(draftDir, "environment", "skills");
   const requiredFiles = [
     "task.toml",
     "instruction.md",
@@ -117,12 +149,33 @@ export async function validateDraftStatic(
     }
   }
 
-  if (!(await pathExists(path.join(draftDir, "environment", "skills")))) {
+  if (!(await pathExists(skillsDir))) {
     issues.push({
       scope: "static",
       taskId: plan.derivedTaskId,
       message: "缺少 environment/skills 目录",
     });
+  } else if (plan.targetSkillDirName) {
+    const skillDirNames = (await fs.readdir(skillsDir, { withFileTypes: true }))
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .sort((a, b) => a.localeCompare(b));
+
+    if (skillDirNames.length !== 1) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: `per-skill 任务必须且只能包含 1 个 skill，当前检测到 ${skillDirNames.length} 个`,
+      });
+    }
+
+    if (skillDirNames[0] !== plan.targetSkillDirName) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: `per-skill 任务的唯一 skill 应为 ${plan.targetSkillDirName}，当前为 ${skillDirNames[0] ?? "missing"}`,
+      });
+    }
   }
 
   const taskTomlPath = path.join(draftDir, "task.toml");

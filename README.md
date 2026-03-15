@@ -32,9 +32,17 @@ npm run check
 # 扫描 source task 元信息与 skills
 npm run inventory -- --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks
 
-# 生成单个 source task 的 4-task family（默认 1 similar + 3 transfer）
+# 生成单个 source task 的 family（all 模式）
 npm run generate-family -- \
   --source-task-id 3d-scan-calc \
+  --skill-mode all \
+  --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
+  --output-root /home/levi/Harbor/tasks_library/integrated_tasks
+
+# 严格单技能拆分（per-skill 模式）
+npm run generate-family -- \
+  --source-task-id 3d-scan-calc \
+  --skill-mode per-skill \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks
 
@@ -43,6 +51,7 @@ export CODEX_TASK_BUILDER_MODEL=gpt-5.2
 npm run batch -- \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks \
+  --skill-mode per-skill \
   --limit 2 \
   --family-concurrency 2
 
@@ -57,11 +66,17 @@ npm run review -- \
 - scratch workspace：`/home/levi/Harbor/codex_task_builder_runs/scratch/<run_id>/<source_task_id>/`
 - 运行记录（manifest）：`codex_task_builder_runs/manifest.jsonl`（已在 `.gitignore` 中）
 - 发布目录：`tasks_library/integrated_tasks/<source_task_id>/<derived_task_id>/`
-- 运行校验：对齐 Harbor 官方 oracle（`harbor run -a oracle`，约定 `reward >= 1.0` 通过）
+- 运行校验：对齐 Harbor 官方 oracle（`harbor run -p <task_dir> -a oracle --force-build`，约定 `reward >= 1.0` 通过）
 - 如果手动运行 Harbor，`-p` 应指向单个 family 目录（如 `tasks_library/integrated_tasks/3d-scan-calc`）或单个 task 目录，不能直接指向 `tasks_library/integrated_tasks/`
+- `per-skill` 模式下，如果 planner 漏掉目标 skill slug，程序会在落盘前自动把该 slug 补进 `derivedTaskId`，再继续校验和发布
 - 工具不会删除任何目录，也不会覆盖已有同名任务目录（只会追加新任务）
 
 > 注意：当前实现默认假设仓库路径为 `/home/levi/Harbor`。如果你把仓库放在其他路径，需要修改 `codex_task_builder/src/utils.ts` 里的 `REPO_ROOT`。
+
+当前样例状态：
+
+- `pdf-excel-diff` 已经在 `all` / `per-skill` 两种技能作用域下生成并发布成功
+- 对最终发布结果做 Harbor oracle 校验时，建议按 family 目录逐个运行，不要直接指向 `tasks_library/integrated_tasks/` 根目录
 
 ## 目录结构
 
