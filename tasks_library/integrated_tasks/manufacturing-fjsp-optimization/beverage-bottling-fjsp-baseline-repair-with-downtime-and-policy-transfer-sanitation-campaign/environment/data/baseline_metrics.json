@@ -1,0 +1,10 @@
+{
+  "case_id": "beverage_bottling_campaign_001",
+  "baseline": {
+    "makespan": 24,
+    "downtime_violations": 7
+  },
+  "thresholds": {
+    "max_downtime_violations": 0
+  }
+}

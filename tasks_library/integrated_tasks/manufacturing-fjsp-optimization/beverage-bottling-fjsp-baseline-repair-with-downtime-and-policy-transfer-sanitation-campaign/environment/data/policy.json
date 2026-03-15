@@ -1,0 +1,19 @@
+{
+  "freeze": {
+    "enabled": true,
+    "until": 7,
+    "fields": [
+      "machine",
+      "start",
+      "end"
+    ]
+  },
+  "change_budget": {
+    "max_machine_changes": 2,
+    "max_total_start_shift_L1": 70
+  },
+  "guards": {
+    "require_right_shift_only": true,
+    "max_downtime_violations": 0
+  }
+}

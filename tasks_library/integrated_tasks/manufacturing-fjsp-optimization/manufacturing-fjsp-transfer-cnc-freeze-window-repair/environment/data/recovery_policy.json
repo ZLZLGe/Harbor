@@ -1,0 +1,14 @@
+{
+  "freeze_window": {
+    "freeze_until": 6,
+    "locked_fields": [
+      "machine",
+      "start",
+      "end"
+    ]
+  },
+  "change_budget": {
+    "max_machine_changes": 5,
+    "max_total_start_shift_L1": 120
+  }
+}
