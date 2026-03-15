@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "hr-badge-transfer-clearance-audit",
+  "taskRole": "transfer",
+  "title": "Transfer Employee Badge Clearance Audit",
+  "goal": "Reconcile archived PDF badge-assignment packets with a multi-sheet Excel clearance workbook, then report employees whose badges were removed, whose access zones changed, or whose clearance levels no longer match policy.",
+  "primaryOutputFile": "/root/badge_clearance_audit.json",
+  "difficulty": "medium",
+  "category": "data-comparison",
+  "skillBenefitRationale": "把同一组技能迁移到员工门禁审计场景，仍然需要从分段 PDF 表格中提取记录，并跨多个 Excel 工作表做关联、比对和异常汇总。"
+}

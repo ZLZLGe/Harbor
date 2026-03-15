@@ -380,7 +380,7 @@ async function executeFamilyGeneration(
         message: "缺少 writer summary",
       });
     } else {
-      staticIssues.push(...(await validateDraftStatic(draftDir, plan, writerSummary)));
+      staticIssues.push(...(await validateDraftStatic(draftDir, plan, sourceTask.sourceTaskId, writerSummary)));
     }
 
     const runtimeValidation =

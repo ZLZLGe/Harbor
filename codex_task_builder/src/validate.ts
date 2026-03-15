@@ -123,9 +123,116 @@ function pushTaskIssue(
   taskIssuesById.set(taskId, issues);
 }
 
+type ParsedTaskMetadata = {
+  stringValues: Map<string, string>;
+  arrayValues: Map<string, string[]>;
+};
+
+function extractMetadataSection(taskToml: string): string[] {
+  const lines = taskToml.split(/\r?\n/);
+  const sectionLines: string[] = [];
+  let inMetadata = false;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (/^\[[^\]]+\]$/.test(trimmed)) {
+      if (trimmed === "[metadata]") {
+        inMetadata = true;
+        continue;
+      }
+      if (inMetadata) {
+        break;
+      }
+    }
+
+    if (inMetadata) {
+      sectionLines.push(line);
+    }
+  }
+
+  return sectionLines;
+}
+
+function parseTomlStringArray(rawValue: string): string[] | null {
+  const trimmed = rawValue.trim();
+  if (!trimmed.startsWith("[") || !trimmed.endsWith("]")) {
+    return null;
+  }
+
+  const values: string[] = [];
+  const valuePattern = /"([^"]*)"/g;
+  for (const match of trimmed.matchAll(valuePattern)) {
+    values.push(match[1] ?? "");
+  }
+  return values;
+}
+
+function parseTaskMetadata(taskToml: string): ParsedTaskMetadata {
+  const stringValues = new Map<string, string>();
+  const arrayValues = new Map<string, string[]>();
+  const lines = extractMetadataSection(taskToml);
+
+  let pendingArrayKey: string | null = null;
+  let pendingArrayValue = "";
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    if (pendingArrayKey) {
+      pendingArrayValue += trimmed;
+      if (trimmed.includes("]")) {
+        const parsed = parseTomlStringArray(pendingArrayValue);
+        if (parsed) {
+          arrayValues.set(pendingArrayKey, parsed);
+        }
+        pendingArrayKey = null;
+        pendingArrayValue = "";
+      }
+      continue;
+    }
+
+    const entryMatch = trimmed.match(/^([A-Za-z0-9_]+)\s*=\s*(.+)$/);
+    if (!entryMatch) {
+      continue;
+    }
+
+    const [, key, rawValue] = entryMatch;
+    const value = rawValue.trim();
+
+    if (value.startsWith("\"")) {
+      const stringMatch = value.match(/^"([^"]*)"$/);
+      if (stringMatch) {
+        stringValues.set(key, stringMatch[1] ?? "");
+      }
+      continue;
+    }
+
+    if (value.startsWith("[")) {
+      if (value.includes("]")) {
+        const parsed = parseTomlStringArray(value);
+        if (parsed) {
+          arrayValues.set(key, parsed);
+        }
+      } else {
+        pendingArrayKey = key;
+        pendingArrayValue = value;
+      }
+    }
+  }
+
+  return {
+    stringValues,
+    arrayValues,
+  };
+}
+
 export async function validateDraftStatic(
   draftDir: string,
   plan: DerivedTaskPlan,
+  sourceTaskId: string,
   writerSummary: WriterSummary,
 ): Promise<ValidationIssue[]> {
   const issues: ValidationIssue[] = [];
@@ -181,10 +288,18 @@ export async function validateDraftStatic(
   const taskTomlPath = path.join(draftDir, "task.toml");
   if (await pathExists(taskTomlPath)) {
     const taskToml = await readText(taskTomlPath);
-    const idMatch = taskToml.match(/^\s*id\s*=\s*"([^"]+)"/m);
-    const nameMatch = taskToml.match(/^\s*name\s*=\s*"([^"]+)"/m);
-    const metadataId = idMatch?.[1];
-    const metadataName = nameMatch?.[1] ?? "";
+    const metadata = parseTaskMetadata(taskToml);
+    const metadataId = metadata.stringValues.get("id");
+    const metadataName = metadata.stringValues.get("name") ?? "";
+    const metadataDescription = metadata.stringValues.get("description");
+    const metadataAuthorName = metadata.stringValues.get("author_name");
+    const metadataAuthorEmail = metadata.stringValues.get("author_email");
+    const metadataDifficulty = metadata.stringValues.get("difficulty");
+    const metadataCategory = metadata.stringValues.get("category");
+    const metadataPrimaryOutputFile = metadata.stringValues.get("primary_output_file");
+    const metadataSourceTaskId = metadata.stringValues.get("source_task_id");
+    const metadataTaskRole = metadata.stringValues.get("task_role");
+    const metadataTags = metadata.arrayValues.get("tags");
 
     if (metadataId !== plan.derivedTaskId) {
       issues.push({
@@ -207,6 +322,56 @@ export async function validateDraftStatic(
         scope: "static",
         taskId: plan.derivedTaskId,
         message: "transfer 任务的 metadata.name 未显式包含 Transfer",
+      });
+    }
+
+    const nonEmptyMetadataFields = [
+      ["description", metadataDescription],
+      ["author_name", metadataAuthorName],
+      ["author_email", metadataAuthorEmail],
+      ["difficulty", metadataDifficulty],
+      ["category", metadataCategory],
+    ] as const;
+
+    for (const [fieldName, value] of nonEmptyMetadataFields) {
+      if (!value || value.trim().length === 0) {
+        issues.push({
+          scope: "static",
+          taskId: plan.derivedTaskId,
+          message: `task.toml metadata.${fieldName} 缺失或为空`,
+        });
+      }
+    }
+
+    if (metadataPrimaryOutputFile !== plan.primaryOutputFile) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: `task.toml metadata.primary_output_file=${metadataPrimaryOutputFile ?? "missing"} 与 blueprint 不一致`,
+      });
+    }
+
+    if (metadataSourceTaskId !== sourceTaskId) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: `task.toml metadata.source_task_id=${metadataSourceTaskId ?? "missing"} 与 sourceTaskId 不一致`,
+      });
+    }
+
+    if (metadataTaskRole !== plan.taskRole) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: `task.toml metadata.task_role=${metadataTaskRole ?? "missing"} 与 blueprint 不一致`,
+      });
+    }
+
+    if (!metadataTags || metadataTags.length === 0) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: "task.toml metadata.tags 缺失或为空数组",
       });
     }
   }

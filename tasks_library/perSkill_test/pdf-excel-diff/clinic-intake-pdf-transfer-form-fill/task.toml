@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "clinic-intake-pdf-transfer-form-fill"
+name = "Transfer - 医院入院表填写"
+description = "Use the provided patient JSON and transfer note to complete the hospital intake PDF and save the filled document to /root/completed_intake_form.pdf."
+author_name = "OpenAI Codex"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "form-filling"
+tags = ["pdf", "form-filling", "medical", "json"]
+primary_output_file = "/root/completed_intake_form.pdf"
+source_task_id = "pdf-excel-diff"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
