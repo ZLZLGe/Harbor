@@ -138,6 +138,7 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 - 当前实现按任务验收、按任务发布
 - 已有 `integrated_tasks/<source_task_id>/` 时允许追加新任务
 - 已有同名 `derived_task_id/` 目录时会跳过该任务，不会覆盖
+- `task.toml` 的关键 metadata（如 `description`、`primary_output_file`、`source_task_id`、`task_role`）现在属于 static validate 硬门槛；缺失或不匹配会直接阻止发布
 - runtime 校验对齐 Harbor 官方 oracle：调用 `harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`
 - 如果手动调用 Harbor，`harbor run -p` 应指向 `integrated_tasks/<source_task_id>/` 这一级 family 目录，或更深一层的单任务目录；不能直接指向 `integrated_tasks/` 根目录
 - 运行时宿主异常仍会记作 runtime 失败，但会在日志和 metadata 里单独标明

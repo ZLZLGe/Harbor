@@ -140,7 +140,7 @@ npm run batch -- \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks \
   --skill-mode per-skill \
   --limit 10 \
-  --family-concurrency 4
+  --family-concurrency 2
 ```
 
 可选参数：
@@ -300,6 +300,7 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 - 必备文件存在
 - `task.toml` 中 `id` 与目录名一致
 - `metadata.name` 仍需显式包含 `Similar` 或 `Transfer`
+- `task.toml` 中以下 metadata 必须存在且关键值正确：`description`、`author_name`、`author_email`、`difficulty`、`category`、`tags`、`primary_output_file`、`source_task_id`、`task_role`
 - `environment/Dockerfile` 保留 `COPY skills /root/.codex/skills`
 
 说明：

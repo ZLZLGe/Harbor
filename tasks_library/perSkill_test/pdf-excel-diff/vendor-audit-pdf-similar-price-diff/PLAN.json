@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "vendor-audit-pdf-similar-price-diff",
+  "taskRole": "similar",
+  "title": "Similar - 供应商价目表差异审计",
+  "goal": "从旧版供应商价目表 PDF 中抽取商品表格，并与当前 CSV 采购清单比较，输出已下架 SKU 以及价格或最小起订量发生变化的条目到 JSON。",
+  "primaryOutputFile": "/root/vendor_diff_report.json",
+  "difficulty": "medium",
+  "category": "data-comparison",
+  "skillBenefitRationale": "关键难点是稳定提取多页 PDF 表格并与结构化数据对齐；差异计算本身只是常规脚本处理，因此 pdf 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

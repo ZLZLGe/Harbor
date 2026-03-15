@@ -1,0 +1,38 @@
+{
+  "discontinued_skus": [
+    "VND-1004",
+    "VND-1009"
+  ],
+  "changed_items": [
+    {
+      "sku": "VND-1002",
+      "field": "unit_price",
+      "old_value": 1.25,
+      "new_value": 1.4
+    },
+    {
+      "sku": "VND-1005",
+      "field": "min_order_qty",
+      "old_value": 100,
+      "new_value": 120
+    },
+    {
+      "sku": "VND-1007",
+      "field": "min_order_qty",
+      "old_value": 50,
+      "new_value": 40
+    },
+    {
+      "sku": "VND-1007",
+      "field": "unit_price",
+      "old_value": 2.1,
+      "new_value": 2.35
+    },
+    {
+      "sku": "VND-1011",
+      "field": "unit_price",
+      "old_value": 27.5,
+      "new_value": 29
+    }
+  ]
+}

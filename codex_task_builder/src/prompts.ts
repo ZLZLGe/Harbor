@@ -151,6 +151,19 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     - environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
     - task.toml 中 metadata.id 必须等于 "${plan.derivedTaskId}"。
     - task.toml 中 metadata.name 必须显式包含 "${roleLabel}"。
+    - task.toml 的 [metadata] 至少必须包含这些字段:
+      - id = "${plan.derivedTaskId}"
+      - name = <显式包含 ${roleLabel} 的标题>
+      - description = <非空单句摘要，描述任务目标和输出>
+      - author_name = <非空字符串>
+      - author_email = <非空字符串>
+      - difficulty = <非空字符串>
+      - category = <非空字符串>
+      - tags = <至少 1 个元素的数组>
+      - primary_output_file = "${plan.primaryOutputFile}"
+      - source_task_id = "${sourceTask.sourceTaskId}"
+      - task_role = "${plan.taskRole}"
+    - 如果 task.toml 缺少上述任一 metadata 字段，或者关键字段值不匹配，该任务会在 static validate 阶段直接失败，不能发布。
     - instruction.md 不能直接明示要使用技能，也不能直接点名具体 skill 名称。
     - solution/solve.sh 和 tests/test_outputs.py 必须能验证该任务。
     - primaryOutputFile 必须为 "${plan.primaryOutputFile}"。

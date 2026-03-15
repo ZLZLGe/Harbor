@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "clinic-intake-pdf-transfer-form-fill",
+  "taskRole": "transfer",
+  "title": "Transfer - 医院入院表填写",
+  "goal": "根据给定的患者资料 JSON 和就诊备注，完成一份医院入院表 PDF，并输出填写后的最终 PDF。",
+  "primaryOutputFile": "/root/completed_intake_form.pdf",
+  "difficulty": "medium",
+  "category": "form-filling",
+  "skillBenefitRationale": "任务核心在于判断 PDF 表单是否可填写、提取字段信息或定位非可填写区域并将内容写回 PDF；输入数据已结构化，pdf 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

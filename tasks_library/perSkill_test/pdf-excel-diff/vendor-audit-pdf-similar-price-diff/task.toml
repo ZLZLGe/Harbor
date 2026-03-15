@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "vendor-audit-pdf-similar-price-diff"
+name = "Similar - 供应商价目表差异审计"
+description = "Extract the archived supplier price list from a PDF, compare it against the current CSV procurement list, and write discontinued SKUs plus price or minimum-order changes to /root/vendor_diff_report.json."
+author_name = "OpenAI Codex"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "data-comparison"
+tags = ["pdf", "csv", "data-comparison", "price-audit", "table-extraction"]
+primary_output_file = "/root/vendor_diff_report.json"
+source_task_id = "pdf-excel-diff"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
