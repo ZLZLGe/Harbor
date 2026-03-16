@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "hospital-network-data-reconciliation-transfer-staffing-balance",
+  "taskRole": "transfer",
+  "title": "Transfer | 医院人力编制报表恢复",
+  "goal": "恢复 Excel 文件 `hospital_staffing_incomplete.xlsx` 中标记为 `???` 的缺失数值。需要分析各科室季度编制、招聘与流失变化、FTE 占比以及年度人力概览之间的依赖关系，计算缺失的人员数或比例，并将结果保存为 `hospital_staffing_reconciled.xlsx`。",
+  "primaryOutputFile": "hospital_staffing_reconciled.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet",
+  "skillBenefitRationale": "该任务将技能迁移到医院人力编制报表，数据对象从财务数额变为 FTE 与人员变动，但求解仍依赖跨表总数平衡、环比/同比恢复和占比一致性检查，因此唯一关键技能仍是 data-reconciliation。",
+  "targetSkillDirName": "data-reconciliation",
+  "targetSkillName": "data-reconciliation"
+}

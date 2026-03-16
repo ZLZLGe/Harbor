@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-ops-data-reconciliation-transfer-inventory-audit",
+  "taskRole": "transfer",
+  "title": "Transfer | 仓储库存台账对账恢复",
+  "goal": "恢复 Excel 文件 `warehouse_inventory_incomplete.xlsx` 中所有标记为 `???` 的缺失数值。需要结合库存期初期末、入库出库流水、仓库占比和损耗分析等工作表之间的关系，推导每个缺失的件数或百分比，并保存为 `warehouse_inventory_reconciled.xlsx`。",
+  "primaryOutputFile": "warehouse_inventory_reconciled.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet",
+  "skillBenefitRationale": "该任务把同一技能迁移到仓储盘点场景，重点从预算金额转为库存数量与损耗比率的跨表对账；仍然完全依赖 data-reconciliation 的总量约束、差额恢复和比例校验能力。",
+  "targetSkillDirName": "data-reconciliation",
+  "targetSkillName": "data-reconciliation"
+}

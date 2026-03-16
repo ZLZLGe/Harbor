@@ -1,0 +1,29 @@
+version = "1.0"
+
+[metadata]
+id = "greenhouse-yield-xlsx-transfer-balance"
+name = "Transfer | 温室产量规划工作簿恢复"
+primaryOutputFile = "greenhouse_harvest_rebuilt.xlsx"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "spreadsheet"
+tags = ["excel", "greenhouse-yield", "agri-planning", "cross-sheet-dependencies", "xlsx-recovery"]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

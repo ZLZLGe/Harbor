@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "solar-fleet-data-reconciliation-transfer-generation-rollup",
+  "taskRole": "transfer",
+  "title": "Transfer | 光伏电站发电台账恢复",
+  "goal": "恢复 Excel 文件 `solar_generation_incomplete.xlsx` 中所有标记为 `???` 的缺失数值。需要利用电站月度发电量、停机影响比例、站点贡献占比和年度产能分析等多个工作表之间的约束，推导正确的 MWh 或百分比，并保存为 `solar_generation_reconciled.xlsx`。",
+  "primaryOutputFile": "solar_generation_reconciled.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet",
+  "skillBenefitRationale": "该任务把数据协调技能迁移到新能源发电台账，面对的是产量、停机率和站点贡献等运营指标；求解方式仍然是典型的数据对账与跨表数值恢复，不依赖任何额外 shipped skill。",
+  "targetSkillDirName": "data-reconciliation",
+  "targetSkillName": "data-reconciliation"
+}

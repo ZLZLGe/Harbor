@@ -1,0 +1,29 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-ops-data-reconciliation-transfer-inventory-audit"
+name = "Transfer | 仓储库存台账对账恢复"
+primaryOutputFile = "warehouse_inventory_reconciled.xlsx"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "spreadsheet"
+tags = ["excel", "inventory-reconciliation", "warehouse-ops", "cross-sheet-dependencies", "data-reconciliation"]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]
