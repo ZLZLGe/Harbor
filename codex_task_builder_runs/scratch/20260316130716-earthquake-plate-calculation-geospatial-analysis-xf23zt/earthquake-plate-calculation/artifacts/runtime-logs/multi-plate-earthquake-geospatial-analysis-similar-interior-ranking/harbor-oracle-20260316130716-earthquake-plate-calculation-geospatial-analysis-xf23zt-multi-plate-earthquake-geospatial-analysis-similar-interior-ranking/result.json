@@ -1,0 +1,27 @@
+{
+    "id": "c7db9f2f-c0e3-4fe1-b5ff-bad8b1b0152f",
+    "started_at": "2026-03-16T23:43:32.439051",
+    "finished_at": "2026-03-16T23:43:32.441903",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "multi-plate-earthquake-geospatia__q8bEUcQ"
+                    ]
+                }
+            }
+        }
+    }
+}

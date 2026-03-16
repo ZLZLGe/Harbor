@@ -1,0 +1,39 @@
+Traceback (most recent call last):
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 479, in run
+    await self._setup_environment()
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 212, in _setup_environment
+    await self._start_environment_with_retry()
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 193, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 224, in _start_environment_with_retry
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 238, in start
+    await self._run_docker_compose_command(["build"])
+  File "/home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 219, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment ferry-route-slowzone-geospatial-analysis-transfer-overlap-length. Command: docker compose -p ferry-route-slowzone-geospatial-__ytewynd --project-directory /home/levi/Harbor/codex_task_builder_runs/scratch/20260316130716-earthquake-plate-calculation-geospatial-analysis-xf23zt/earthquake-plate-calculation/drafts/ferry-route-slowzone-geospatial-analysis-transfer-overlap-length/environment -f /home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-base.yaml -f /home/levi/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml build. Return code: 126. Stdout: /mnt/c/Program Files/Docker/Docker/resources/bin/docker: 13: /usr/bin/docker: Input/output error
+. Stderr: None. 
