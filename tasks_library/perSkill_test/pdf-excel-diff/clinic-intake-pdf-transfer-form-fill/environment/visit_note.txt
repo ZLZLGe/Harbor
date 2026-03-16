@@ -1,0 +1,9 @@
+ED-to-floor transfer summary
+Admission date: 2026-02-18
+Attending physician: Alicia Gomez, MD
+Assigned room: 512B
+
+Clinical flags:
+- Use droplet isolation precautions.
+- Mark patient as fall risk because of dizziness on standing.
+- Interpreter requested for Cantonese.

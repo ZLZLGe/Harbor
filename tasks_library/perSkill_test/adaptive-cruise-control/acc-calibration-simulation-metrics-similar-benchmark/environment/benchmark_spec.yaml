@@ -1,0 +1,40 @@
+targets:
+  cruise_speed_mps: 30.0
+  recovery_gap_m: 45.0
+
+phases:
+  cruise_accel:
+    start_time_s: 0.0
+    end_time_s: 30.0
+    signal_column: ego_speed_mps
+    target: 30.0
+    settling_tolerance: 0.02
+    relative_time: false
+  gap_recovery:
+    start_time_s: 40.0
+    end_time_s: 70.0
+    signal_column: distance_m
+    target: 45.0
+    settling_tolerance: 0.05
+    relative_time: true
+
+gates:
+  cruise_rise_time_max_s: 10.0
+  cruise_overshoot_max_pct: 3.0
+  cruise_steady_state_error_max_mps: 0.10
+  cruise_settling_time_max_s: 20.0
+  recovery_rise_time_max_s: 8.0
+  recovery_overshoot_max_pct: 5.0
+  recovery_steady_state_error_max_m: 0.10
+  recovery_settling_time_max_s: 12.0
+  min_distance_min_m: 26.0
+
+score_normalizers:
+  cruise_rise_time_s: 10.0
+  cruise_overshoot_pct: 5.0
+  cruise_steady_state_error_mps: 0.10
+  cruise_settling_time_s: 20.0
+  recovery_rise_time_s: 8.0
+  recovery_overshoot_pct: 5.0
+  recovery_steady_state_error_m: 0.10
+  recovery_settling_time_s: 12.0

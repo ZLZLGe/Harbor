@@ -1,0 +1,31 @@
+{
+  "pickfaces": [
+    [
+      1,
+      1
+    ],
+    [
+      5,
+      3
+    ]
+  ],
+  "buffer": [
+    3,
+    1
+  ],
+  "replenishment": [
+    3,
+    5
+  ],
+  "charger": [
+    1,
+    5
+  ],
+  "capacity_used": 15,
+  "score_breakdown": {
+    "throughput_reward": 122,
+    "handling_cost": 27,
+    "congestion_penalty": 16,
+    "total_score": 79
+  }
+}
