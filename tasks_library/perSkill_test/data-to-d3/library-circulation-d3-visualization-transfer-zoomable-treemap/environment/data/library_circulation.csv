@@ -1,0 +1,21 @@
+branch,neighborhood,genre,audience,annual_checkouts,unique_titles,renewals,avg_wait_days
+Central Library,Civic Center,Fiction,Adult,182400,48620,42100,3.4
+Central Library,Civic Center,Mystery,Adult,136800,35210,31750,2.8
+Central Library,Civic Center,Children,Youth,159600,27410,29890,1.9
+Central Library,Civic Center,Digital Media,All Ages,118200,19340,27110,0.8
+Harbor Point Branch,Waterfront,Fiction,Adult,96400,24180,19640,4.1
+Harbor Point Branch,Waterfront,Mystery,Adult,78850,19840,16710,3.6
+Harbor Point Branch,Waterfront,Children,Youth,112300,18220,20540,2.2
+Harbor Point Branch,Waterfront,Digital Media,All Ages,68400,11650,14990,1.1
+Maple Grove Branch,Northside,Fiction,Adult,85300,22190,17440,4.7
+Maple Grove Branch,Northside,Mystery,Adult,64200,15760,13220,3.9
+Maple Grove Branch,Northside,Children,Youth,121700,20110,23480,2.5
+Maple Grove Branch,Northside,Digital Media,All Ages,57300,10240,11830,1.2
+Eastside Learning Hub,East Market,Fiction,Adult,71400,18880,14670,5.0
+Eastside Learning Hub,East Market,Mystery,Adult,58100,14420,12080,4.4
+Eastside Learning Hub,East Market,Children,Youth,109500,17640,21110,2.8
+Eastside Learning Hub,East Market,Digital Media,All Ages,76100,12490,16540,1.0
+West End Branch,Railyard,Fiction,Adult,79200,20710,16120,4.5
+West End Branch,Railyard,Mystery,Adult,60300,14930,12740,4.0
+West End Branch,Railyard,Children,Youth,101800,16940,19820,2.6
+West End Branch,Railyard,Digital Media,All Ages,54900,9750,11260,1.3

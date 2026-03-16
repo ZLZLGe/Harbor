@@ -1,0 +1,19 @@
+grant_id,university,project_title,sponsor,sponsor_type,award_amount,start_year,status
+GRT-101,North Coast University,Coastal Resilience Modeling,National Science Foundation,Federal,2850000,2024,Active
+GRT-102,North Coast University,Marine Sensor Network Expansion,Ocean Futures Trust,Foundation,1325000,2025,Planned
+GRT-103,Lakeview Institute of Technology,Quantum Materials Prototyping,Helios Microsystems,Corporate,1980000,2023,Active
+GRT-104,Lakeview Institute of Technology,Semiconductor Workforce Lab,State Innovation Office,State,940000,2024,Active
+GRT-105,Redwood State University,Wildfire Risk Analytics,US Department of Energy,Federal,3120000,2022,Active
+GRT-106,Redwood State University,Community Cooling Centers Study,Civic Health Collaborative,Foundation,760000,2023,Completed
+GRT-107,Metro Biomedical College,Cell Therapy Manufacturing Hub,Apex BioLabs,Corporate,2560000,2025,Planned
+GRT-108,Metro Biomedical College,Rural Cancer Screening Access,National Institutes of Health,Federal,2210000,2024,Active
+GRT-109,Prairie Public University,Soil Carbon Dashboard,Heartland Agriculture Council,State,1180000,2023,Active
+GRT-110,Prairie Public University,Regenerative Farming Extension,Green Horizons Foundation,Foundation,880000,2022,Completed
+GRT-111,Harbor City University,Urban Flood Twin,Global Climate Alliance,International,1740000,2024,Active
+GRT-112,Harbor City University,Port Logistics Digital Twin,BlueWave Shipping,Corporate,1495000,2025,Planned
+GRT-113,Summit Engineering School,Grid Storage Demonstrator,Department of Defense,Federal,2680000,2023,Active
+GRT-114,Summit Engineering School,Mountain Water Security Map,World Water Forum,International,1260000,2024,Active
+GRT-115,Eastern Arts and Sciences,Inclusive Arts Therapy Outcomes,Wellbeing Endowment,Foundation,645000,2023,Completed
+GRT-116,Eastern Arts and Sciences,Assistive Media Lab,Lumina Devices,Corporate,1090000,2024,Active
+GRT-117,Canyon Research University,Desert Solar Microgrid,State Energy Commission,State,1675000,2025,Planned
+GRT-118,Canyon Research University,Water Reuse Membrane Pilots,National Science Foundation,Federal,2435000,2022,Active

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "clinic-ops-xlsx-transfer-shift-conflict-audit",
+  "taskRole": "transfer",
+  "title": "XLSX Transfer: Clinic Shift Conflict Audit",
+  "goal": "Analyze a clinic staffing workbook with availability, assigned shifts, and room coverage sheets, then write a JSON report of double-booked staff, unavailable assignments, and uncovered shifts.",
+  "primaryOutputFile": "/root/clinic_shift_conflicts.json",
+  "difficulty": "medium",
+  "category": "operations-analysis",
+  "skillBenefitRationale": "The core work is cross-sheet Excel analysis with date/time cells and structured workbook relationships, making spreadsheet handling the single critical shipped skill.",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

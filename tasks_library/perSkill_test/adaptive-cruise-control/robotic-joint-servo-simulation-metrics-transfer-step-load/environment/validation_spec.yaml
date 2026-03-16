@@ -1,0 +1,36 @@
+target_angle_deg: 60.0
+
+phases:
+  step_response:
+    start_time_s: 0.0
+    end_time_s: 11.0
+    signal_column: joint_angle_deg
+    target: 60.0
+    settling_tolerance: 0.02
+    steady_state_fraction: 0.2
+  load_recovery:
+    start_time_s: 12.0
+    end_time_s: 22.0
+    signal_column: joint_angle_deg
+    settling_tolerance: 0.02
+    steady_state_fraction: 0.2
+
+gates:
+  step_rise_time_max_s: 4.0
+  step_overshoot_max_pct: 5.0
+  step_settling_time_max_s: 6.0
+  step_steady_state_error_max_deg: 0.5
+  load_rise_time_max_s: 3.0
+  load_overshoot_max_pct: 5.0
+  load_settling_time_max_s: 5.0
+  load_steady_state_error_max_deg: 0.3
+
+score_normalizers:
+  step_rise_time_s: 4.0
+  step_overshoot_pct: 5.0
+  step_settling_time_s: 6.0
+  step_steady_state_error_deg: 0.5
+  load_rise_time_s: 3.0
+  load_overshoot_pct: 5.0
+  load_settling_time_s: 5.0
+  load_steady_state_error_deg: 0.3

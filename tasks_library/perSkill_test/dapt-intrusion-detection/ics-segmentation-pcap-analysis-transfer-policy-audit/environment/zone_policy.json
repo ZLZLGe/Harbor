@@ -1,0 +1,55 @@
+{
+  "communication_unit": "(src_ip, dst_ip, protocol)",
+  "audit_scope": {
+    "protocols": ["TCP", "UDP", "ICMP"],
+    "ipv4_only": true,
+    "unicast_only": true,
+    "ignore_addresses": ["0.0.0.0", "255.255.255.255"],
+    "ignore_multicast": true,
+    "require_inventory_match": true
+  },
+  "allowed_rules": [
+    {
+      "rule_id": "R1",
+      "src_zone": "control",
+      "dst_zone": "supervisory",
+      "protocol": "TCP",
+      "description": "Control zone systems may initiate TCP sessions to the supervisory workstation."
+    },
+    {
+      "rule_id": "R2",
+      "src_zone": "supervisory",
+      "dst_zone": "control",
+      "protocol": "TCP",
+      "description": "The supervisory workstation may initiate TCP sessions to control zone assets."
+    },
+    {
+      "rule_id": "R3",
+      "src_zone": "supervisory",
+      "dst_zone": "dmz",
+      "protocol": "TCP",
+      "description": "The supervisory workstation may access TCP services in the OT DMZ."
+    },
+    {
+      "rule_id": "R4",
+      "src_zone": "dmz",
+      "dst_zone": "supervisory",
+      "protocol": "TCP",
+      "description": "The OT DMZ may return or initiate TCP sessions to the supervisory workstation."
+    },
+    {
+      "rule_id": "R5",
+      "src_zone": "supervisory",
+      "dst_zone": "external",
+      "protocol": "UDP",
+      "description": "The supervisory workstation may send UDP traffic to external services."
+    },
+    {
+      "rule_id": "R6",
+      "src_zone": "external",
+      "dst_zone": "supervisory",
+      "protocol": "UDP",
+      "description": "External services may send UDP traffic back to the supervisory workstation."
+    }
+  ]
+}

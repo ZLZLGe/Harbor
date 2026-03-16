@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "structure-normalization-pymatgen-transfer-primitive-conventional",
+  "taskRole": "transfer",
+  "title": "Transfer | 本征胞与常规胞标准化转换",
+  "goal": "读取多种结构输入文件，分别生成 primitive cell 与 conventional cell，并输出每个样品转换前后的化学式、站点数、体积与体积/原子对比清单。",
+  "primaryOutputFile": "/root/workspace/normalization_manifest.json",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "任务关键在于跨格式结构读写和标准胞转换，同时保持晶体学一致性；这依赖 pymatgen 的 Structure I/O 与 SpacegroupAnalyzer 标准化能力。",
+  "targetSkillDirName": "pymatgen",
+  "targetSkillName": "pymatgen"
+}

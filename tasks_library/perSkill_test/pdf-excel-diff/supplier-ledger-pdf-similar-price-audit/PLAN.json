@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "supplier-ledger-pdf-similar-price-audit",
+  "taskRole": "similar",
+  "title": "Similar: Supplier Ledger Price Audit",
+  "goal": "Extract a multi-page supplier pricing table from an archived PDF, compare it against a current CSV export, and write a JSON report listing discontinued SKUs plus per-field changes for updated products.",
+  "primaryOutputFile": "/root/supplier_price_diff.json",
+  "difficulty": "medium",
+  "category": "data-comparison",
+  "skillBenefitRationale": "The core challenge is reliable table extraction from a structured PDF before any comparison can happen, which makes the pdf skill the only critical shipped skill.",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}
