@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "beam-load-sympy-transfer-reconstruction"
+name = "Transfer: Beam Load Integral Reconstructor"
+description = "Build a Python program that reconstructs exact segment-wise shear and bending-moment expressions from piecewise polynomial beam loads and boundary conditions."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "mechanical_engineering"
+tags = ["mechanics", "beam_theory", "symbolic_integration", "piecewise_loads", "exact_arithmetic"]
+primary_output_file = "/root/workspace/beam_load_analyzer.py"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096

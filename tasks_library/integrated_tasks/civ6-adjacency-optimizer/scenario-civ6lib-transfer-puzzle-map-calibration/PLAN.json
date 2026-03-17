@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "scenario-civ6lib-transfer-puzzle-map-calibration",
+  "taskRole": "transfer",
+  "title": "Transfer - Puzzle Map Calibration",
+  "goal": "给定一个预设好的城市与区域蓝图，以及允许修改的少量地块属性选项，求出最小地图补丁，使该蓝图在官规下合法且达到指定邻接目标，并输出需要修改的地块清单与校准后分数。",
+  "primaryOutputFile": "/output/puzzle_map_calibration.json",
+  "difficulty": "hard",
+  "category": "games",
+  "skillBenefitRationale": "这把 civ6lib 迁移到关卡设计与平衡校准场景。要判断哪些地图属性改动能同时影响合法性与邻接结果，本质上仍完全依赖该 skill 的 Civ6 区域规则知识，而不需要其他 source-task skills。",
+  "targetSkillDirName": "civ6lib",
+  "targetSkillName": "civ6lib"
+}

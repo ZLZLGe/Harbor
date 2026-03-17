@@ -1,0 +1,34 @@
+{
+  "asn_map": {
+    "core": 65100,
+    "east_hub": 65110,
+    "west_hub": 65111,
+    "branch_den": 65120,
+    "branch_phx": 65121,
+    "branch_sea": 65130,
+    "branch_bos": 65131
+  },
+  "route": {
+    "prefix": "10.44.8.0/24",
+    "branch_id": "branch-bos",
+    "description": "Migrating Boston branch prefix advertised through the west hub"
+  },
+  "notes": [
+    "Both hubs are temporarily accepting migration-era branch summaries.",
+    "The east hub should not provide transit for provider-learned branch routes toward the west hub.",
+    "Connectivity teardown is prohibited during the migration window."
+  ],
+  "candidate_fixes": [
+    "Change BGP keepalive timer on the east hub gateway to 20 seconds and holdtime to 60 seconds",
+    "Apply export policy on east hub ASN 65110 to block provider-learned branch routes from core ASN 65100 toward peer west hub ASN 65111",
+    "Update east hub ASN 65110 so it no longer prefers migrating branch routes via west hub ASN 65111",
+    "Set route preference hierarchy on both hubs: local branches > core routes > peer hub routes",
+    "Enable Virtual WAN routing intent so inter-hub branch transit uses core ASN 65100 only",
+    "Configure no-export community on east hub for provider-learned branch prefixes before advertising to west hub peer",
+    "Install a user defined route override for migrating branch prefixes so forwarding uses the approved core path",
+    "Disable hub-to-hub branch connectivity between east hub and west hub",
+    "Shut down the west hub branch connection during the migration window",
+    "Enable route dampening for migrating branch prefixes on both hubs",
+    "Apply inbound AS-PATH filtering on west hub to reject core ASN 65100 when learned from east hub peer"
+  ]
+}

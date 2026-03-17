@@ -1,0 +1,54 @@
+{
+  "scenario_id": "puzzle_map_calibration",
+  "selected_patch_ids": [
+    "clear_campus_luxury",
+    "restore_harbor_coast",
+    "add_hub_river"
+  ],
+  "patch_count": 3,
+  "patched_tiles": [
+    {
+      "tile": [
+        2,
+        3
+      ],
+      "changes": {
+        "resource": null,
+        "resource_type": null
+      }
+    },
+    {
+      "tile": [
+        2,
+        1
+      ],
+      "changes": {
+        "terrain": "COAST"
+      }
+    },
+    {
+      "tile": [
+        3,
+        2
+      ],
+      "changes": {
+        "river_edges": [
+          0,
+          3
+        ],
+        "river_names": [
+          "River Tyne"
+        ]
+      }
+    }
+  ],
+  "blueprint_legal": true,
+  "calibrated_adjacency_bonuses": {
+    "CAMPUS": 3,
+    "COMMERCIAL_HUB": 5,
+    "INDUSTRIAL_ZONE": 3,
+    "HARBOR": 3,
+    "AQUEDUCT": 0
+  },
+  "calibrated_total_adjacency": 14
+}

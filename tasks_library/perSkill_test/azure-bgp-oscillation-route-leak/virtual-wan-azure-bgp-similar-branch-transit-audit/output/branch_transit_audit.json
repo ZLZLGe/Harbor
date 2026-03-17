@@ -1,0 +1,95 @@
+{
+  "hub_cycle_detected": true,
+  "hub_cycle": [
+    65110,
+    65111
+  ],
+  "affected_hubs": [
+    65110,
+    65111
+  ],
+  "branch_route_leak_detected": true,
+  "branch_route_leaks": [
+    {
+      "leaker_as": 65110,
+      "source_as": 65100,
+      "destination_as": 65111,
+      "source_type": "provider",
+      "destination_type": "peer",
+      "branch_id": "branch-bos",
+      "prefix": "10.44.8.0/24"
+    }
+  ],
+  "policy_assessments": {
+    "Disable hub-to-hub branch connectivity between east hub and west hub": {
+      "allowed": false,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 0
+    },
+    "Set route preference hierarchy on both hubs: local branches > core routes > peer hub routes": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": false,
+      "score": 60
+    },
+    "Change BGP keepalive timer on the east hub gateway to 20 seconds and holdtime to 60 seconds": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 20
+    },
+    "Enable route dampening for migrating branch prefixes on both hubs": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 20
+    },
+    "Apply inbound AS-PATH filtering on west hub to reject core ASN 65100 when learned from east hub peer": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    },
+    "Apply export policy on east hub ASN 65110 to block provider-learned branch routes from core ASN 65100 toward peer west hub ASN 65111": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    },
+    "Update east hub ASN 65110 so it no longer prefers migrating branch routes via west hub ASN 65111": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": false,
+      "score": 60
+    },
+    "Configure no-export community on east hub for provider-learned branch prefixes before advertising to west hub peer": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    },
+    "Enable Virtual WAN routing intent so inter-hub branch transit uses core ASN 65100 only": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": true,
+      "score": 100
+    },
+    "Install a user defined route override for migrating branch prefixes so forwarding uses the approved core path": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": true,
+      "score": 100
+    },
+    "Shut down the west hub branch connection during the migration window": {
+      "allowed": false,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 0
+    }
+  },
+  "rejected_forbidden_actions": [
+    "Disable hub-to-hub branch connectivity between east hub and west hub",
+    "Shut down the west hub branch connection during the migration window"
+  ]
+}

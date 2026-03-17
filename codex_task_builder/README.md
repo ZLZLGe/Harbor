@@ -46,6 +46,12 @@ npm install
 npm run check
 ```
 
+最小 prompt 单测：
+
+```bash
+npm run test:prompts
+```
+
 ## 快速开始
 
 扫描 source task：
@@ -138,6 +144,7 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 - 当前实现按任务验收、按任务发布
 - 已有 `integrated_tasks/<source_task_id>/` 时允许追加新任务
 - 已有同名 `derived_task_id/` 目录时会跳过该任务，不会覆盖
+- 同一 scratch workspace 内，后续 writer 会先直接检查 `drafts/` 下已经生成好的 sibling tasks，并尽量避免与它们在场景、输入资产、输出目标和测试方式上重复；这属于 prompt 级软约束，不是硬校验
 - `task.toml` 的关键 metadata（如 `description`、`primary_output_file`、`source_task_id`、`task_role`）现在属于 static validate 硬门槛；缺失或不匹配会直接阻止发布
 - runtime 校验对齐 Harbor 官方 oracle：调用 `harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`
 - 如果手动调用 Harbor，`harbor run -p` 应指向 `integrated_tasks/<source_task_id>/` 这一级 family 目录，或更深一层的单任务目录；不能直接指向 `integrated_tasks/` 根目录

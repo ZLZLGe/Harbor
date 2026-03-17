@@ -1,0 +1,43 @@
+{
+  "route_server_name": "ars-prod-eastus",
+  "route_server_region": "East US",
+  "transit_vnet": "vnet-secure-transit",
+  "spokes": [
+    {
+      "name": "spoke-app",
+      "asn": 65220,
+      "cidr": "10.77.10.0/24"
+    },
+    {
+      "name": "spoke-ops",
+      "asn": 65221,
+      "cidr": "10.77.20.0/24"
+    },
+    {
+      "name": "spoke-pay",
+      "asn": 65230,
+      "cidr": "10.77.30.0/24"
+    },
+    {
+      "name": "spoke-analytics",
+      "asn": 65231,
+      "cidr": "10.77.32.0/24"
+    }
+  ],
+  "nva_roles": [
+    {
+      "name": "nva-a",
+      "asn": 65210,
+      "role": "active inspection"
+    },
+    {
+      "name": "nva-b",
+      "asn": 65211,
+      "role": "standby inspection"
+    }
+  ],
+  "notes": [
+    "Azure Route Server is provider-managed and remains present throughout remediation.",
+    "The secure transit design uses paired NVAs for inspection before spoke-to-spoke forwarding."
+  ]
+}

@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-safety-dialogue_graph-dialogue-graph-transfer-drill-playbook"
+name = "Transfer - 仓库安全演练流程图解析器"
+description = "Parse the warehouse safety drill playbook into a structured decision graph JSON and DOT visualization that preserve observation intake, graded response, escalation notices, and closure outcomes."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "operations"
+tags = ["dialogue graph", "warehouse safety", "operations", "parsing", "incident response"]
+primary_output_file = "/app/drill_playbook_graph.json"
+source_task_id = "dialogue-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+image = "python:3.12-slim"
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

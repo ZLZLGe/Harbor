@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-incident-pdf-transfer-annotation",
+  "taskRole": "transfer",
+  "title": "Transfer: Annotate a Warehouse Incident Report PDF",
+  "goal": "Complete a non-fillable warehouse incident report PDF by placing typed details and X marks into the correct labeled boxes based on a short incident narrative.",
+  "primaryOutputFile": "/root/incident-report-completed.pdf",
+  "difficulty": "easy",
+  "category": "document-processing",
+  "skillBenefitRationale": "The challenge is purely PDF annotation on a non-fillable form: locating entry regions, positioning text, and marking checkboxes accurately without needing any other shipped skill.",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

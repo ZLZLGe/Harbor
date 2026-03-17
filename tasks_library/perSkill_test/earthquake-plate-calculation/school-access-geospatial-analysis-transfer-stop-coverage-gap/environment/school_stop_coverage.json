@@ -1,0 +1,43 @@
+{
+  "metric_crs": "EPSG:32618",
+  "buffer_radius_m": 400,
+  "minimum_stop_target": 3,
+  "worst_school": {
+    "school_id": "SCH-104",
+    "school_name": "Riverside Preparatory",
+    "reachable_stop_count": 0,
+    "coverage_gap": 3
+  },
+  "school_audit": [
+    {
+      "school_id": "SCH-104",
+      "school_name": "Riverside Preparatory",
+      "reachable_stop_count": 0,
+      "coverage_gap": 3
+    },
+    {
+      "school_id": "SCH-105",
+      "school_name": "Liberty Technical School",
+      "reachable_stop_count": 1,
+      "coverage_gap": 2
+    },
+    {
+      "school_id": "SCH-103",
+      "school_name": "East Market School",
+      "reachable_stop_count": 2,
+      "coverage_gap": 1
+    },
+    {
+      "school_id": "SCH-102",
+      "school_name": "Canal Street Academy",
+      "reachable_stop_count": 3,
+      "coverage_gap": 0
+    },
+    {
+      "school_id": "SCH-101",
+      "school_name": "Harborview Primary School",
+      "reachable_stop_count": 4,
+      "coverage_gap": 0
+    }
+  ]
+}

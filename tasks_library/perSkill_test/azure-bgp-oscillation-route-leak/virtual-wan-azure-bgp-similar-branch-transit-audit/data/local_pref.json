@@ -1,0 +1,6 @@
+{
+  "customer": 200,
+  "peer": 100,
+  "provider": 50,
+  "description": "Standard BGP local preference weights for branch transit reasoning"
+}

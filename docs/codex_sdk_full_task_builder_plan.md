@@ -7,7 +7,8 @@
 - Codex 在这个工作区里自由读取整个 source task：`task.toml`、`instruction.md`、`environment/**`、`environment/skills/**`、`solution/**`、`tests/**`。
 - prompt 只负责控制生成方向，不负责承载 source task 内容。
 - 每个 source task 固定生成 4 个全新派生任务，最终发布到 `tasks_library/integrated_tasks/<source_task_id>/<derived_task_id>/`。
-- `instruction.md` 不应直接明示技能或具体 skill 名称，但技能文件正常保留在 `environment/skills/**` 里，是否越界由 reviewer 做语义审查。
+- `instruction.md` 应尽量避免直接明示技能或具体 skill 名称，但要以 source task 自身的 `instruction.md` 为基线判断；如果 source task 已经显式写出技术名，派生任务沿用同等级别表述不算越界。技能文件正常保留在 `environment/skills/**` 里，是否越界由 reviewer 做语义审查。
+- 同一 scratch workspace 内，后续 `task writer thread` 会直接检查 `drafts/` 下已经生成好的 sibling tasks，并尽量避免与它们在任务场景、输入资产、输出目标和测试方式上重复；这属于 prompt 级软约束，不回看更早的 `integrated_tasks/` 或 `manifest`。
 
 ## Key Changes
 
@@ -80,6 +81,7 @@
 2. `task writer thread`
    - 每个 blueprint 单独一个新 thread
    - 自由读取 `source_task/`
+   - 生成当前任务前，先检查同一 workspace 的 `drafts/` 中已完成的 sibling tasks
    - 把完整任务写到 `drafts/<derived_task_id>/`
 
 3. `reviewer thread`
@@ -102,7 +104,8 @@
 - `similar` 任务允许与原任务较接近，用于测试技能有效性
 - 3 个 `transfer` 任务必须彼此明显不同，用于测试技能泛化性
 - 任务命名必须让人一眼看出哪个是 `similar`，哪个是 `transfer`
-- `instruction.md` 不能直接明示要使用技能，也不能直接点名具体 skill
+- `instruction.md` 应尽量避免直接明示要使用技能，也不能引入 source task 没写过的具体 skill 名称
+- 如果 source task 本身已经显式写出技术或技能名称，派生任务沿用同等级别表述可以接受，但不能写得比 source task 更直接
 
 #### task writer prompt
 
@@ -110,6 +113,12 @@
 
 - 基于单个 blueprint 生成完整任务包
 - 写入 `drafts/<derived_task_id>/`
+- 生成当前任务前，先检查当前 workspace 的 `drafts/`
+- 把当前 `drafts/<derived_task_id>/` 视为当前目录，不当作已有 sibling task
+- 对已有 sibling tasks 优先读取 `PLAN.json`、`instruction.md`、`task.toml`
+- 如有必要，再读取 `tests/test_outputs.py` 和 `environment/` 下输入资产
+- 尽量避免与已有 sibling tasks 在任务场景、输入资产、输出目标和测试判定方式上过于接近
+- 只允许调整当前任务的具体情境、输入资产、验证方式和 instruction 文案，不能改 blueprint 中已经固定的 `derivedTaskId`、`taskRole`、`primaryOutputFile`、`source_task_id` 和 skill scope
 - 固定生成：
   - `task.toml`
   - `instruction.md`
@@ -124,7 +133,7 @@
 要求 Codex：
 
 - 对每个任务分别检查：
-  - `instruction.md` 是否直接明示了技能或具体 skill 名称
+  - 以 source task 的 `instruction.md` 为基线，检查派生任务是否写得更直接，或是否引入了 source task 未出现的具体 skill 名称
   - 测试是否可判定
   - 任务是否真的能从 shipped skills 受益
   - 该任务是否应通过 reviewer
@@ -326,7 +335,7 @@
 3. 启动 `family planner thread`
 4. 生成 4 个 blueprint
 5. 对 4 个 blueprint 分别启动 `task writer thread`
-6. 把完整任务写入 `drafts/<derived_task_id>/`
+6. writer 按顺序检查当前 `drafts/` 中已经生成好的 sibling tasks，并把完整任务写入 `drafts/<derived_task_id>/`
 7. 启动 `reviewer thread`
 8. reviewer 返回任务级 verdict 与 family 级观察
 9. 对每个任务执行本地静态校验
@@ -411,6 +420,7 @@
 - 每个 source task 都能识别到 `environment/skills`
 - `family planner` 每次都返回恰好 4 个 blueprint
 - 4 个 `derivedTaskId` 唯一
+- `test:prompts` 能断言 writer prompt 明确要求读取当前 workspace 的已有 `drafts/`
 
 ### 2. reviewer 语义审查测试
 
@@ -473,7 +483,7 @@
 
 - 实现完全独立于 `harbor_skill_pipeline`，包括不参考其 prompt、schema、目录逻辑、校验逻辑和测试代码。
 - 使用 Codex SDK 的 `workingDirectory` 模式，让 Codex 在本地完整工作区内自由读文件，而不是把整个 task 打包进 prompt。
-- `instruction.md` 不应直接明示技能；是否越界由 reviewer 做语义审查，`environment/skills/**` 保留原样。
+- `instruction.md` 应尽量避免直接明示技能；是否越界要以 source task 的原始表述为基线做 reviewer 语义审查，`environment/skills/**` 保留原样。
 - 完整任务文件由 Codex 直接写到 `drafts/`，结构化 schema 只用于 blueprint 和 reviewer。
 - 不做任何删除操作；已有目标目录只跳过。
 

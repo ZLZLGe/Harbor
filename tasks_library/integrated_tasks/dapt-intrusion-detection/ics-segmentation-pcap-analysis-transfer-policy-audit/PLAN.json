@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ics-segmentation-pcap-analysis-transfer-policy-audit",
+  "taskRole": "transfer",
+  "title": "Transfer - OT Segmentation Policy Audit",
+  "goal": "给定工控网络 PCAP、资产分区清单与允许通信策略，重建跨主机通信图并输出所有违规跨区流、涉及资产、方向与汇总计数。",
+  "primaryOutputFile": "/root/ot_policy_audit.json",
+  "difficulty": "hard",
+  "category": "security",
+  "skillBenefitRationale": "把同一组图拓扑与流提取能力迁移到工控分区合规审计；决定成败的关键仍是从 PCAP 准确恢复通信边、方向和活跃主机。",
+  "targetSkillDirName": "pcap-analysis",
+  "targetSkillName": "pcap-analysis"
+}

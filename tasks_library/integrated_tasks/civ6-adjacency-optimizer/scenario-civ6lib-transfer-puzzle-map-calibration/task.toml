@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "scenario-civ6lib-transfer-puzzle-map-calibration"
+name = "Transfer - Puzzle Map Calibration"
+description = "校准一份固定的 Civilization VI 城市蓝图，找出满足合法性与目标邻接分的最小地图补丁，并将结果写入 /output/puzzle_map_calibration.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "games"
+tags = ["civ6", "puzzle", "map-calibration", "adjacency", "constraints"]
+primary_output_file = "/output/puzzle_map_calibration.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

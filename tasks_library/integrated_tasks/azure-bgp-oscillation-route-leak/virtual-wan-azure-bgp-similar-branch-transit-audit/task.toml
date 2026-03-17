@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "virtual-wan-azure-bgp-similar-branch-transit-audit"
+name = "Similar - Azure Virtual WAN Branch Transit Policy Audit"
+description = "Analyze the Azure Virtual WAN branch-migration dataset, detect a hub preference cycle and branch route leak, and write scored policy assessments to /app/output/branch_transit_audit.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "bgp-route"
+tags = ["azure", "virtual-wan", "bgp", "route-leak", "policy-audit"]
+primary_output_file = "/app/output/branch_transit_audit.json"
+source_task_id = "azure-bgp-oscillation-route-leak"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

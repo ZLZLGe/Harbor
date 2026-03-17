@@ -1,0 +1,6 @@
+device_id,device_ip,device_role
+edge-hub-01,192.168.3.30,gateway
+signage-speaker-01,192.168.3.26,media-endpoint
+sensor-temp-01,192.168.3.32,temperature-sensor
+sensor-temp-02,192.168.3.33,temperature-sensor
+badge-reader-01,192.168.3.190,access-control

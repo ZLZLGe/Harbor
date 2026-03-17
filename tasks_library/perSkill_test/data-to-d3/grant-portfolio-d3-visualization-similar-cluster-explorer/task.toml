@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "grant-portfolio-d3-visualization-similar-cluster-explorer"
+name = "University Grants Similar Cluster Explorer"
+description = "Build a standalone D3 web app at /root/output/grant-clusters.html that clusters university grant bubbles by sponsor type and links them to a sortable grants table."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "Data Visualization"
+tags = ["d3.js", "bubble-chart", "interactive-table", "grants"]
+primary_output_file = "/root/output/grant-clusters.html"
+source_task_id = "data-to-d3"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

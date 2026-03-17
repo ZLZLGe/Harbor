@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "campus-soc-threat-detection-similar-threat-verdict",
+  "taskRole": "similar",
+  "title": "Campus SOC Similar Threat Verdict",
+  "goal": "Analyze a prepared packet-feature workbook from a campus traffic capture, apply the exact port-scan, DoS, and beaconing thresholds, and write the final threat verdict plus supporting metrics to /root/campus_verdict.json.",
+  "primaryOutputFile": "/root/campus_verdict.json",
+  "difficulty": "hard",
+  "category": "security",
+  "skillBenefitRationale": "This stays close to the source task’s core workflow of network threat triage, but shifts from full metric extraction to threshold-driven judgment so threat-detection is the only critical shipped skill.",
+  "targetSkillDirName": "threat-detection",
+  "targetSkillName": "threat-detection"
+}

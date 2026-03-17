@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "vehicle-following-csv-processing-similar-window-summary",
+  "taskRole": "similar",
+  "title": "Vehicle Following Window Summary Similar",
+  "goal": "Read a drive telemetry CSV with ego speed, lead speed, and gap columns containing missing lead-vehicle samples; segment contiguous open-road, following, and critical-gap windows; and write a summary CSV with start/end times, sample counts, average ego speed, minimum gap, and valid TTC statistics for each window.",
+  "primaryOutputFile": "following_window_summary.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "This stays close to the source domain while shifting from controller implementation to the core csv-processing workflow: ingesting time-series CSV data, handling null lead-vehicle rows, deriving columns, grouping contiguous windows, and exporting a structured summary CSV.",
+  "targetSkillDirName": "csv-processing",
+  "targetSkillName": "csv-processing"
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "from": 65100,
+    "to": 65110,
+    "type": "provider"
+  },
+  {
+    "from": 65100,
+    "to": 65111,
+    "type": "provider"
+  },
+  {
+    "from": 65110,
+    "to": 65100,
+    "type": "customer"
+  },
+  {
+    "from": 65111,
+    "to": 65100,
+    "type": "customer"
+  },
+  {
+    "from": 65110,
+    "to": 65120,
+    "type": "provider"
+  },
+  {
+    "from": 65110,
+    "to": 65121,
+    "type": "provider"
+  },
+  {
+    "from": 65111,
+    "to": 65130,
+    "type": "provider"
+  },
+  {
+    "from": 65111,
+    "to": 65131,
+    "type": "provider"
+  },
+  {
+    "from": 65120,
+    "to": 65110,
+    "type": "customer"
+  },
+  {
+    "from": 65121,
+    "to": 65110,
+    "type": "customer"
+  },
+  {
+    "from": 65130,
+    "to": 65111,
+    "type": "customer"
+  },
+  {
+    "from": 65131,
+    "to": 65111,
+    "type": "customer"
+  },
+  {
+    "from": 65110,
+    "to": 65111,
+    "type": "peer"
+  },
+  {
+    "from": 65111,
+    "to": 65110,
+    "type": "peer"
+  }
+]

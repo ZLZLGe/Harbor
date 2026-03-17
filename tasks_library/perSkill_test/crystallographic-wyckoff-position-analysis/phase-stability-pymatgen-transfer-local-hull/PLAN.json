@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "phase-stability-pymatgen-transfer-local-hull",
+  "taskRole": "transfer",
+  "title": "Transfer | 本地相图凸包稳定性分析",
+  "goal": "根据本地提供的组成与能量条目构建化学体系相图，识别稳定相，并对指定查询组成计算 energy above hull 与分解产物，输出热力学稳定性报告。",
+  "primaryOutputFile": "/root/workspace/phase_hull_report.json",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "关键能力是使用 Composition、ComputedEntry 和 PhaseDiagram 构建凸包并评估稳定性，这属于 pymatgen 的原生热力学分析能力。",
+  "targetSkillDirName": "pymatgen",
+  "targetSkillName": "pymatgen"
+}

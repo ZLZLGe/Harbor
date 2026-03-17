@@ -1,0 +1,102 @@
+{
+  "nva_cycle_detected": true,
+  "nva_cycle": [
+    65210,
+    65211
+  ],
+  "affected_nvas": [
+    65210,
+    65211
+  ],
+  "provider_route_leak_detected": true,
+  "provider_route_leaks": [
+    {
+      "leaker_as": 65210,
+      "source_as": 65200,
+      "destination_as": 65211,
+      "source_type": "provider",
+      "destination_type": "peer",
+      "prefix": "10.77.32.0/24",
+      "origin_asn": 65231,
+      "route_server": "ars-prod-eastus"
+    }
+  ],
+  "mitigation_assessments": {
+    "Clear the NVA peer preference override and enforce an export filter that blocks Route Server-learned prefixes toward the peer": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": true,
+      "score": 100
+    },
+    "Disable the BGP peering between Azure Route Server and NVA-B": {
+      "allowed": false,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 0
+    },
+    "Install a user defined route for 10.77.32.0/24 so secured spokes use the approved Route Server path instead of NVA peer transit": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": true,
+      "score": 100
+    },
+    "Shut down the NVA peer transit interface during the incident": {
+      "allowed": false,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 0
+    },
+    "Update NVA-A ASN 65210 so it no longer prefers the analytics spoke prefix via NVA-B ASN 65211": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": false,
+      "score": 60
+    },
+    "Enable ECMP across both NVAs for the analytics spoke prefix": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 20
+    },
+    "Set NVA route preference hierarchy to local spokes > Azure Route Server > NVA peer transit": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": false,
+      "score": 60
+    },
+    "Apply inbound AS-PATH filtering on NVA-B to reject ASN 65200 when received from NVA-A peer": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    },
+    "Constrain NVA-A with an inbound prefix list from NVA-B so only local spoke routes are accepted from the peer": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": false,
+      "score": 60
+    },
+    "Tune the BGP keepalive timer on NVA-A to 15 seconds and holdtime to 45 seconds": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 20
+    },
+    "Configure an outbound route map on NVA-A ASN 65210 to block Azure Route Server-learned prefixes from ASN 65200 before advertising them to NVA-B ASN 65211": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    },
+    "Apply no-export community on Azure Route Server-learned prefixes when NVA-A advertises to NVA-B": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    }
+  },
+  "forbidden_actions": [
+    "Disable the BGP peering between Azure Route Server and NVA-B",
+    "Shut down the NVA peer transit interface during the incident"
+  ]
+}

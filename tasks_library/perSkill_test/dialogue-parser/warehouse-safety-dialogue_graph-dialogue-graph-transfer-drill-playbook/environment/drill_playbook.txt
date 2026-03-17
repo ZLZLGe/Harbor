@@ -1,0 +1,254 @@
+[DrillBriefing]
+Coordinator: Morning drill begins with a staged report from the outbound warehouse floor. -> ReportIntake
+
+[ReportIntake]
+1. [Observe: Smoke] Report light haze near the battery charging cages. -> SmokeObservation
+2. [Observe: Spill] Report a leaking solvent drum beside packing lane two. -> SpillObservation
+3. [Observe: Rack] Report a leaning pallet stack in high-bay storage. -> RackObservation
+4. [Observe: Injury] Report a worker clipped by a shrink-wrap cart. -> InjuryObservation
+5. [Observe: Alarm] Report a flashing siren without an obvious hazard. -> AlarmObservation
+
+[SmokeObservation]
+Spotter: The observer sees thin gray smoke drifting above the charging station. -> SmokeAssessment
+
+[SmokeAssessment]
+1. Move the observer to a safe point near the fire cabinet. -> SmokeSafePoint
+2. [Notify: Shift Lead] Call the shift lead to bay three. -> ShiftLeadNotice
+3. [Escalate: Fire Team] Request extinguisher team standby. -> FireTeamStandby
+4. Check whether batteries are currently charging. -> BatteryCheck
+
+[SmokeSafePoint]
+Coordinator: The observer is clear of the hazard and can continue reporting from a safe point. -> ReportReview
+
+[ShiftLeadNotice]
+ShiftLead: The shift lead acknowledges the report and asks for a location update. -> ReportReview
+
+[FireTeamStandby]
+FireMarshal: The fire team stages outside the aisle and waits for severity classification. -> SeverityTriage
+
+[BatteryCheck]
+Spotter: Two chargers are active and one bay shows a blinking fault light. -> ReportReview
+
+[SpillObservation]
+Spotter: A solvent drum is weeping under the lower rim and liquid is pooling toward the conveyor. -> SpillAssessment
+
+[SpillAssessment]
+1. Read the drum label before anyone moves it. -> DrumLabelCheck
+2. Deploy absorbent socks around the pooling liquid. -> SpillContainment
+3. [Notify: Hazmat Coordinator] Call the hazmat desk for guidance. -> HazmatNotice
+4. Stop the conveyor on packing lane two. -> ConveyorStop
+
+[DrumLabelCheck]
+Coordinator: The label confirms a flammable cleaning solvent with a low flash point. -> ReportReview
+
+[SpillContainment]
+SafetyLead: The absorbent barrier slows the spread and keeps liquid out of the walking lane. -> ReportReview
+
+[HazmatNotice]
+HazmatDesk: The hazmat coordinator requests a severity rating before dispatching the spill team. -> SeverityTriage
+
+[ConveyorStop]
+WarehouseOps: Packing lane two is paused so no cartons pass through the spill zone. -> ReportReview
+
+[RackObservation]
+Spotter: A pallet on the fourth level is leaning forward and one beam looks twisted. -> RackAssessment
+
+[RackAssessment]
+1. Cordon the rack aisle immediately. -> RackIsolation
+2. Inspect nearby beams for bend marks. -> BeamInspection
+3. [Notify: Maintenance] Request a structural check from maintenance. -> MaintenanceNotice
+4. Move nearby pickers to the overflow lane. -> OverflowRedirect
+
+[RackIsolation]
+SafetyLead: Tape and cones block the aisle so no picker enters the unstable bay. -> ReportReview
+
+[BeamInspection]
+Coordinator: The inspection finds scrape marks on the upright and one loose pallet board. -> ReportReview
+
+[MaintenanceNotice]
+MaintenanceLead: Maintenance logs the rack location and waits for the triage result. -> ReportReview
+
+[OverflowRedirect]
+WarehouseOps: Pickers are reassigned to the overflow lane to keep the drill moving safely. -> ReportReview
+
+[InjuryObservation]
+Spotter: A worker is seated on the floor after a shrink-wrap cart clipped the shin guard. -> InjuryAssessment
+
+[InjuryAssessment]
+1. [Notify: Medic] Call the first-aid lead to the scene. -> MedicNotice
+2. Freeze nearby forklift traffic. -> ForkliftFreeze
+3. Record witness statements while the lane is quiet. -> WitnessNotes
+4. Check whether the worker can walk without support. -> MobilityCheck
+
+[MedicNotice]
+MedicLead: The first-aid lead is en route and asks whether there is visible bleeding. -> SeverityTriage
+
+[ForkliftFreeze]
+WarehouseOps: Nearby forklift traffic is frozen and the crossing lane is held clear. -> ReportReview
+
+[WitnessNotes]
+Coordinator: Two witnesses confirm the cart entered the crossing before the spotter called stop. -> ReportReview
+
+[MobilityCheck]
+Spotter: The worker can stand with assistance but reports sharp pain when turning. -> ReportReview
+
+[AlarmObservation]
+ControlRoom: The strobe and siren are active, but the camera feed shows no obvious smoke or spill. -> AlarmAssessment
+
+[AlarmAssessment]
+1. Check the last detector reset log. -> ResetLogCheck
+2. [Notify: Control Room] Confirm which panel triggered the alarm. -> ControlRoomNotice
+3. Sweep the zone for a hidden heat source. -> HeatSourceSweep
+4. Prepare a false-alarm closeout packet. -> FalseAlarmPrep
+
+[ResetLogCheck]
+Coordinator: The last reset happened during battery maintenance one hour ago. -> ReportReview
+
+[ControlRoomNotice]
+ControlRoom: The panel points to a detector above the charging cages and no other zones are active. -> ReportReview
+
+[HeatSourceSweep]
+Spotter: The sweep finds a warm charger housing that may explain the alarm. -> SeverityTriage
+
+[FalseAlarmPrep]
+Coordinator: A draft closeout form is opened in case the drill is ruled a false alarm. -> ReportReview
+
+[ReportReview]
+Coordinator: The observation report now includes location, people affected, active controls, and reporting notes. -> SeverityTriage
+
+[SeverityTriage]
+1. Classify the inject as low impact. -> LowResponse
+2. Classify the event as limited-area disruption. -> LimitedResponse
+3. [Escalate: Site Lead] Classify the event as a site-level emergency. -> SiteLeadEscalation
+4. Classify the event as a likely false alarm. -> FalseAlarmReview
+
+[LowResponse]
+SafetyLead: Low-impact events stay local, but the team still has to assign a documented control. -> LowActionChoice
+
+[LowActionChoice]
+1. Keep the zone open with a spotter posted. -> SpotterPosted
+2. Pause only the affected lane while checks finish. -> LanePause
+3. Route the low-severity case into cleanup planning. -> CleanupPlanning
+
+[SpotterPosted]
+SafetyLead: A spotter remains in place and logs every movement through the zone. -> CleanupPlanning
+
+[LanePause]
+WarehouseOps: Only the affected lane is paused while neighboring work continues under watch. -> CleanupPlanning
+
+[LimitedResponse]
+OpsLead: Limited-area events require a perimeter, an operations hold, and recovery planning. -> LimitedActionChoice
+
+[LimitedActionChoice]
+1. Expand the perimeter and halt local picking. -> PerimeterExpand
+2. [Notify: Inventory Control] Hold outgoing pallets from the zone. -> InventoryHold
+3. Prepare external vendor support if the condition worsens. -> VendorStandby
+4. Route the limited-area case into cleanup planning. -> CleanupPlanning
+
+[PerimeterExpand]
+OpsLead: The perimeter now covers the aisle, the adjacent dock door, and the cross-lane walkway. -> CleanupPlanning
+
+[InventoryHold]
+InventoryControl: Outgoing pallets from the affected zone are marked on hold in the queue. -> CleanupPlanning
+
+[VendorStandby]
+OpsLead: A vendor call tree is opened, but dispatch waits for the final recovery decision. -> CleanupPlanning
+
+[SiteLeadEscalation]
+SiteLead: Site-level emergencies shift to incident command and coordinated notifications. -> EmergencyActionChoice
+
+[EmergencyActionChoice]
+1. [Escalate: 911] Simulate emergency services notification. -> EmergencyDispatch
+2. Order full evacuation of bays one through four. -> BayEvacuation
+3. Activate the incident command radio bridge. -> CommandBridge
+4. Route the site-level case into cleanup planning. -> CleanupPlanning
+
+[EmergencyDispatch]
+SiteLead: Emergency services are notified in the drill timeline and staging instructions are announced. -> CleanupPlanning
+
+[BayEvacuation]
+SecurityDesk: Bays one through four are cleared and dock traffic is rerouted to the north apron. -> CleanupPlanning
+
+[CommandBridge]
+ControlRoom: The radio bridge opens for site lead, safety, security, and floor operations. -> CleanupPlanning
+
+[FalseAlarmReview]
+Coordinator: False-alarm cases still need documentation before operations can fully reopen. -> FalseAlarmChoice
+
+[FalseAlarmChoice]
+1. Reset the detector and document the cause. -> DetectorReset
+2. [Notify: Control Room] Close the alarm ticket with drill notes. -> PanelTicketClose
+3. Reopen operations after a final sweep. -> FalseAlarmClosed
+4. Route the false-alarm case into cleanup planning. -> CleanupPlanning
+
+[DetectorReset]
+ControlRoom: The detector is reset and a watch period begins for the charging zone. -> FalseAlarmDocumentation
+
+[PanelTicketClose]
+ControlRoom: The alarm ticket is closed with drill annotations and the trigger source. -> FalseAlarmDocumentation
+
+[FalseAlarmDocumentation]
+Coordinator: The false-alarm packet is complete and no active hazard remains on the floor. -> FalseAlarmClosed
+
+[FalseAlarmClosed]
+Coordinator: The drill closes as a documented false alarm and normal work can continue. -> End
+
+[CleanupPlanning]
+SafetyLead: Cleanup and recovery tasks are assigned before any restart decision is approved. -> NotificationMatrix
+
+[NotificationMatrix]
+1. [Notify: Warehouse Ops] Send the restart estimate to floor leads. -> OpsBroadcast
+2. [Notify: HR] Log injury and drill timing details for training review. -> HRTrainingNotice
+3. [Notify: Site Lead] Send the severity summary to leadership. -> LeadershipSummary
+4. [Notify: Security Desk] Confirm dock doors remain controlled. -> SecurityNotice
+5. Move directly to the recovery checklist. -> RecoveryChecklist
+
+[OpsBroadcast]
+WarehouseOps: Floor leads receive the restart estimate and revised work assignments. -> RecoveryChecklist
+
+[HRTrainingNotice]
+HRDesk: HR logs the drill timing and any injury simulation notes for training records. -> RecoveryChecklist
+
+[LeadershipSummary]
+SiteLead: Leadership receives the severity summary, control actions, and recovery timing. -> RecoveryChecklist
+
+[SecurityNotice]
+SecurityDesk: Security confirms dock doors and pedestrian gates remain under the drill perimeter rules. -> RecoveryChecklist
+
+[RecoveryChecklist]
+Coordinator: The recovery checklist tracks cleanup, briefing, and restart prerequisites. -> RecoveryChoice
+
+[RecoveryChoice]
+1. Verify the area is clean and equipment is tagged. -> AreaVerified
+2. Confirm the staff briefing is complete. -> StaffBriefed
+3. [Wrap-Up] Hold the final debrief before restart. -> DebriefMeeting
+4. [Wrap-Up] Escalate unresolved issues to investigation. -> InvestigationReview
+
+[AreaVerified]
+OpsLead: The area is clean, tagged, and ready for restart authorization. -> RestartDecision
+
+[StaffBriefed]
+SafetyLead: Team members sign the post-drill briefing sheet and acknowledge next steps. -> RestartDecision
+
+[DebriefMeeting]
+Coordinator: Lessons learned are logged and action items are assigned to named owners. -> DrillComplete
+
+[InvestigationReview]
+SiteLead: Open questions remain, so the drill is handed to the investigation queue. -> InvestigationClosed
+
+[InvestigationClosed]
+SiteLead: The event remains closed for operations until the investigation report is reviewed. -> End
+
+[RestartDecision]
+1. Resume normal picking waves. -> OperationsResume
+2. Reopen only manual packing stations. -> PartialResume
+3. Keep the zone closed pending investigation. -> InvestigationReview
+
+[DrillComplete]
+Coordinator: The drill is complete and the warehouse returns to standard monitoring. -> End
+
+[OperationsResume]
+OpsLead: Normal picking waves resume with spot checks for the next shift. -> End
+
+[PartialResume]
+OpsLead: Manual packing restarts first while the affected equipment remains locked out. -> End

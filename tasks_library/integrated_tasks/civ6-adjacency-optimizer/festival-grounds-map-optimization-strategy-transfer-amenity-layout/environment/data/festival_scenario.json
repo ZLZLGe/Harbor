@@ -1,0 +1,298 @@
+{
+  "id": "festival_grounds_alpha",
+  "description": "Place a main stage, food courts, water points, and a first aid station on a compact festival grounds grid.",
+  "grid": {
+    "width": 9,
+    "height": 7
+  },
+  "candidate_sites": [
+    {
+      "coord": [1, 1],
+      "sector": "northwest",
+      "role_site_values": {
+        "MAIN_STAGE": 12,
+        "FOOD_COURT": 6,
+        "WATER_POINT": 5,
+        "FIRST_AID": 4
+      }
+    },
+    {
+      "coord": [3, 1],
+      "sector": "north",
+      "role_site_values": {
+        "MAIN_STAGE": 18,
+        "FOOD_COURT": 8,
+        "WATER_POINT": 6,
+        "FIRST_AID": 5
+      }
+    },
+    {
+      "coord": [5, 1],
+      "sector": "northeast",
+      "role_site_values": {
+        "MAIN_STAGE": 17,
+        "FOOD_COURT": 9,
+        "WATER_POINT": 7,
+        "FIRST_AID": 4
+      }
+    },
+    {
+      "coord": [7, 1],
+      "sector": "east_north",
+      "role_site_values": {
+        "MAIN_STAGE": 15,
+        "FOOD_COURT": 8,
+        "WATER_POINT": 8,
+        "FIRST_AID": 6
+      }
+    },
+    {
+      "coord": [1, 3],
+      "sector": "west",
+      "role_site_values": {
+        "MAIN_STAGE": 10,
+        "FOOD_COURT": 11,
+        "WATER_POINT": 9,
+        "FIRST_AID": 8
+      }
+    },
+    {
+      "coord": [3, 3],
+      "sector": "central_west",
+      "role_site_values": {
+        "MAIN_STAGE": 20,
+        "FOOD_COURT": 12,
+        "WATER_POINT": 8,
+        "FIRST_AID": 7
+      }
+    },
+    {
+      "coord": [5, 3],
+      "sector": "central_east",
+      "role_site_values": {
+        "MAIN_STAGE": 19,
+        "FOOD_COURT": 13,
+        "WATER_POINT": 10,
+        "FIRST_AID": 8
+      }
+    },
+    {
+      "coord": [7, 3],
+      "sector": "east",
+      "role_site_values": {
+        "MAIN_STAGE": 14,
+        "FOOD_COURT": 12,
+        "WATER_POINT": 11,
+        "FIRST_AID": 9
+      }
+    },
+    {
+      "coord": [1, 5],
+      "sector": "west_south",
+      "role_site_values": {
+        "MAIN_STAGE": 8,
+        "FOOD_COURT": 10,
+        "WATER_POINT": 12,
+        "FIRST_AID": 11
+      }
+    },
+    {
+      "coord": [3, 5],
+      "sector": "southwest",
+      "role_site_values": {
+        "MAIN_STAGE": 11,
+        "FOOD_COURT": 14,
+        "WATER_POINT": 13,
+        "FIRST_AID": 12
+      }
+    },
+    {
+      "coord": [5, 5],
+      "sector": "south",
+      "role_site_values": {
+        "MAIN_STAGE": 13,
+        "FOOD_COURT": 15,
+        "WATER_POINT": 14,
+        "FIRST_AID": 13
+      }
+    },
+    {
+      "coord": [7, 5],
+      "sector": "southeast",
+      "role_site_values": {
+        "MAIN_STAGE": 9,
+        "FOOD_COURT": 13,
+        "WATER_POINT": 15,
+        "FIRST_AID": 14
+      }
+    }
+  ],
+  "prohibited_sites": [
+    {
+      "coord": [7, 1],
+      "reason": "generator-yard"
+    }
+  ],
+  "evacuation_corridors": [
+    [4, 0],
+    [4, 1],
+    [4, 2],
+    [4, 3],
+    [4, 4],
+    [4, 5],
+    [4, 6]
+  ],
+  "stage_noise_buffer": {
+    "quiet_zone_tiles": [
+      [0, 0],
+      [1, 0],
+      [2, 0],
+      [0, 1]
+    ],
+    "min_distance": 4
+  },
+  "required_counts": {
+    "FOOD_COURT": 2,
+    "WATER_POINT": 2
+  },
+  "safety_distance_rules": [
+    {
+      "roles": ["FOOD_COURT", "FOOD_COURT"],
+      "min_distance": 3,
+      "metric": "manhattan"
+    },
+    {
+      "roles": ["WATER_POINT", "WATER_POINT"],
+      "min_distance": 2,
+      "metric": "manhattan"
+    },
+    {
+      "roles": ["FIRST_AID", "FOOD_COURT"],
+      "min_distance": 2,
+      "metric": "manhattan"
+    },
+    {
+      "roles": ["FIRST_AID", "MAIN_STAGE"],
+      "min_distance": 3,
+      "metric": "manhattan"
+    }
+  ],
+  "coverage_radius_by_role": {
+    "MAIN_STAGE": 3,
+    "FOOD_COURT": 2,
+    "WATER_POINT": 2,
+    "FIRST_AID": 3
+  },
+  "hotspots": [
+    {
+      "id": "gate_west",
+      "coord": [0, 3],
+      "crowd_weight": 12,
+      "role_weights": {
+        "MAIN_STAGE": 0.3,
+        "FOOD_COURT": 0.8,
+        "WATER_POINT": 1.0,
+        "FIRST_AID": 0.6
+      }
+    },
+    {
+      "id": "gate_east",
+      "coord": [8, 3],
+      "crowd_weight": 11,
+      "role_weights": {
+        "MAIN_STAGE": 0.3,
+        "FOOD_COURT": 0.8,
+        "WATER_POINT": 1.0,
+        "FIRST_AID": 0.7
+      }
+    },
+    {
+      "id": "lawn_central",
+      "coord": [4, 2],
+      "crowd_weight": 18,
+      "role_weights": {
+        "MAIN_STAGE": 1.2,
+        "FOOD_COURT": 0.7,
+        "WATER_POINT": 0.5,
+        "FIRST_AID": 0.4
+      }
+    },
+    {
+      "id": "craft_market",
+      "coord": [2, 5],
+      "crowd_weight": 10,
+      "role_weights": {
+        "MAIN_STAGE": 0.2,
+        "FOOD_COURT": 1.0,
+        "WATER_POINT": 0.7,
+        "FIRST_AID": 0.8
+      }
+    },
+    {
+      "id": "art_tent",
+      "coord": [6, 5],
+      "crowd_weight": 9,
+      "role_weights": {
+        "MAIN_STAGE": 0.2,
+        "FOOD_COURT": 0.9,
+        "WATER_POINT": 0.8,
+        "FIRST_AID": 0.7
+      }
+    },
+    {
+      "id": "family_zone",
+      "coord": [4, 6],
+      "crowd_weight": 14,
+      "role_weights": {
+        "MAIN_STAGE": 0.1,
+        "FOOD_COURT": 0.6,
+        "WATER_POINT": 1.1,
+        "FIRST_AID": 1.0
+      }
+    }
+  ],
+  "support_bonus_rules": [
+    {
+      "source_role": "MAIN_STAGE",
+      "target_role": "FOOD_COURT",
+      "max_distance": 3,
+      "bonus": 7
+    },
+    {
+      "source_role": "MAIN_STAGE",
+      "target_role": "WATER_POINT",
+      "max_distance": 3,
+      "bonus": 6
+    },
+    {
+      "source_role": "FOOD_COURT",
+      "target_role": "WATER_POINT",
+      "max_distance": 2,
+      "bonus": 5
+    },
+    {
+      "source_role": "FOOD_COURT",
+      "target_role": "FIRST_AID",
+      "max_distance": 3,
+      "bonus": 4
+    },
+    {
+      "source_role": "WATER_POINT",
+      "target_role": "FIRST_AID",
+      "max_distance": 2,
+      "bonus": 5
+    }
+  ],
+  "distance_penalty_rules": [
+    {
+      "roles": ["MAIN_STAGE", "FIRST_AID"],
+      "max_distance": 5,
+      "penalty_per_tile": 6
+    },
+    {
+      "roles": ["MAIN_STAGE", "FOOD_COURT"],
+      "max_distance": 4,
+      "penalty_per_tile": 4
+    }
+  ]
+}
