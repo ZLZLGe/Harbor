@@ -1,0 +1,67 @@
+{
+  "type": "FeatureCollection",
+  "name": "rural_clinics",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "clinic_id": "CL01",
+        "clinic_name": "Qinghe North Clinic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [102.15, 24.45]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "clinic_id": "CL02",
+        "clinic_name": "Qinghe South Clinic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [102.48, 24.18]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "clinic_id": "CL03",
+        "clinic_name": "Shannan Central Clinic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.18, 24.55]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "clinic_id": "CL04",
+        "clinic_name": "Shannan East Clinic"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.58, 24.44]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "clinic_id": "CL99",
+        "clinic_name": "Roadside Temporary Site"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [104.2, 24.0]
+      }
+    }
+  ]
+}

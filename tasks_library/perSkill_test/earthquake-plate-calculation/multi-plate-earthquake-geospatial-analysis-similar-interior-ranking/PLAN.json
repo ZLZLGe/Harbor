@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "multi-plate-earthquake-geospatial-analysis-similar-interior-ranking",
+  "taskRole": "similar",
+  "title": "Similar: 多板块最内陆地震排名",
+  "goal": "给定 2024 年地震点数据、PB2002 板块面数据和板块边界线数据，比较 Pacific、Nazca、Philippine Sea、Cocos 四个板块；先分别找出每个板块内部且距离该板块自身边界最远的地震，再输出整体冠军板块及对应地震的关键信息与距离。",
+  "primaryOutputFile": "/root/plate_interior_winner.json",
+  "difficulty": "medium",
+  "category": "geophysics",
+  "skillBenefitRationale": "核心工作是按板块做点在多边形内筛选、匹配对应边界线、投影到米制坐标系后计算点到边界距离，并进行极值比较；关键能力完全由 geospatial-analysis 覆盖。",
+  "targetSkillDirName": "geospatial-analysis",
+  "targetSkillName": "geospatial-analysis"
+}

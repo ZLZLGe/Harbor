@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "robotic-joint-servo-simulation-metrics-transfer-step-load",
+  "taskRole": "transfer",
+  "title": "Robotic Joint Servo Transfer Validation",
+  "goal": "对机械臂关节伺服仿真结果进行设定角度阶跃与负载切换分析，计算 rise time、overshoot、settling time 和 steady-state error，并输出控制器排名与验收结论。",
+  "primaryOutputFile": "robotic_joint_validation.yaml",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务把同一套仿真性能指标迁移到机器人伺服场景，关键仍是度量闭环响应质量，而不是控制器建模或路径规划等其他能力。",
+  "targetSkillDirName": "simulation-metrics",
+  "targetSkillName": "simulation-metrics"
+}

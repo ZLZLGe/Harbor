@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-safety-dialogue_graph-dialogue-graph-transfer-drill-playbook",
+  "taskRole": "transfer",
+  "title": "Transfer - 仓库安全演练流程图解析器",
+  "goal": "实现一个解析器，把仓库安全演练处置脚本转换为结构化决策图，输出 `/app/drill_playbook_graph.json` 与 DOT 可视化，并建模观察报告、分级处置、通知升级和收尾节点。",
+  "primaryOutputFile": "/app/drill_playbook_graph.json",
+  "difficulty": "easy",
+  "category": "operations",
+  "skillBenefitRationale": "安全演练流程虽然脱离叙事游戏，但仍是标准分支决策树；dialogue_graph 能统一表示状态节点、行动选项和目标引用校验。",
+  "targetSkillDirName": "dialogue_graph",
+  "targetSkillName": "dialogue-graph"
+}

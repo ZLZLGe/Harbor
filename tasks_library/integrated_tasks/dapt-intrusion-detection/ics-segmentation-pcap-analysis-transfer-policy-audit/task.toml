@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "ics-segmentation-pcap-analysis-transfer-policy-audit"
+name = "Transfer - OT Segmentation Policy Audit"
+description = "Reconstruct the audited OT communication graph from the PCAP and write all violating cross-zone edges plus summary counts to /root/ot_policy_audit.json."
+author_name = "Shenghan Zheng"
+author_email = "shenghan.zheng.gr@dartmouth.edu"
+difficulty = "hard"
+category = "security"
+tags = ["security", "pcap", "ics", "segmentation", "policy-audit"]
+primary_output_file = "/root/ot_policy_audit.json"
+source_task_id = "dapt-intrusion-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

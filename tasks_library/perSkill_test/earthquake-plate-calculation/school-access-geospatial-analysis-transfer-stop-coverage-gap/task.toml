@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "school-access-geospatial-analysis-transfer-stop-coverage-gap"
+name = "Transfer: 学校公交站点覆盖缺口审计"
+description = "读取学校与公交站点米制坐标点位，统计每所学校 400 米步行缓冲区内可达站点数并输出覆盖最差学校摘要到 /root/school_stop_coverage.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "urban-planning"
+tags = ["urban-planning", "gis", "school-access", "bus-stops", "buffer-analysis"]
+primary_output_file = "/root/school_stop_coverage.json"
+source_task_id = "earthquake-plate-calculation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

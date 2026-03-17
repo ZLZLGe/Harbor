@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "school-access-geospatial-analysis-transfer-stop-coverage-gap",
+  "taskRole": "transfer",
+  "title": "Transfer: 学校公交站点覆盖缺口审计",
+  "goal": "给定学校点位和公交站点点位，在度量投影下为每所学校构造 400 米步行覆盖缓冲区，统计各缓冲区内可达站点数量，找出站点覆盖最差的学校，并将学校标识、名称、缓冲区内站点数和覆盖缺口写入 `/root/school_stop_coverage.json`。",
+  "primaryOutputFile": "/root/school_stop_coverage.json",
+  "difficulty": "medium",
+  "category": "urban-planning",
+  "skillBenefitRationale": "这里把技能迁移到城市可达性场景，但关键操作仍然是 CRS 选择、缓冲区构造和点落缓冲区内的空间计数。输出规则简单明确，唯一真正决定结果正确性的 shipped skill 仍然是 `geospatial-analysis`。",
+  "targetSkillDirName": "geospatial-analysis",
+  "targetSkillName": "geospatial-analysis"
+}

@@ -1,0 +1,24 @@
+version = "1.0"
+
+[metadata]
+id = "equipment-registry-transfer-maintenance-audit"
+name = "Transfer: Equipment Registry Maintenance Audit"
+author_name = "OpenAI"
+author_email = "noreply@openai.com"
+difficulty = "medium"
+category = "data-comparison"
+tags = ["pdf", "xlsx", "equipment", "compliance", "diff", "table-parsing", "audit"]
+primary_output_file = "/root/equipment_registry_changes.json"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0

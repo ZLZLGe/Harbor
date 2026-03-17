@@ -1,0 +1,16 @@
+⠋ 0/0 Running trials... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 0:00:00 -:--:--Results written to /home/levi/Harbor/codex_task_builder_runs/scratch/20260316130716-earthquake-plate-calculation-geospatial-analysis-xf23zt/earthquake-plate-calculation/artifacts/runtime-logs/ferry-route-slowzone-geospatial-analysis-transfer-overlap-length/harbor-oracle-20260316130716-earthquake-plate-calculation-geospatial-analysis-xf23zt-ferry-route-slowzone-geospatial-analysis-transfer-overlap-length/result.json
+          oracle on adhoc          
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Metric                 ┃ Value  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ Agent                  │ oracle │
+│ Dataset                │ adhoc  │
+│ Trials                 │ 0      │
+│ Errors                 │ 1      │
+│                        │        │
+│ Mean                   │ 0.000  │
+│                        │        │
+│ Exception Distribution │        │
+│   RuntimeError         │ 1      │
+└────────────────────────┴────────┘
+
