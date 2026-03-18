@@ -1,0 +1,13 @@
+[
+  "Disable hub-to-hub branch connectivity between east hub and west hub",
+  "Set route preference hierarchy on both hubs: local branches > core routes > peer hub routes",
+  "Change BGP keepalive timer on the east hub gateway to 20 seconds and holdtime to 60 seconds",
+  "Enable route dampening for migrating branch prefixes on both hubs",
+  "Apply inbound AS-PATH filtering on west hub to reject core ASN 65100 when learned from east hub peer",
+  "Apply export policy on east hub ASN 65110 to block provider-learned branch routes from core ASN 65100 toward peer west hub ASN 65111",
+  "Update east hub ASN 65110 so it no longer prefers migrating branch routes via west hub ASN 65111",
+  "Configure no-export community on east hub for provider-learned branch prefixes before advertising to west hub peer",
+  "Enable Virtual WAN routing intent so inter-hub branch transit uses core ASN 65100 only",
+  "Install a user defined route override for migrating branch prefixes so forwarding uses the approved core path",
+  "Shut down the west hub branch connection during the migration window"
+]

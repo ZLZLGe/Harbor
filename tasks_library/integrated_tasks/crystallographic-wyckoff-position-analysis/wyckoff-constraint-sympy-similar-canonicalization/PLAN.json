@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wyckoff-constraint-sympy-similar-canonicalization",
+  "taskRole": "similar",
+  "title": "Similar: Wyckoff Constraint Canonicalization",
+  "goal": "构建一个 Python 程序，读取若干 Wyckoff 风格的仿射分数坐标约束与带噪声的小数坐标样本，求解每组轨道的精确有理参数、按模 1 规范化后的代表坐标，以及对应的轨道重数。",
+  "primaryOutputFile": "/root/workspace/wyckoff_constraint_solver.py",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "这个任务保留晶体学分数坐标与重数分析语境，但把重点转到精确有理数恢复、符号代换和线性约束求解上；SymPy 的 Rational、symbols、simplify 与 solve 是唯一关键 shipped skill。",
+  "targetSkillDirName": "sympy",
+  "targetSkillName": "sympy"
+}

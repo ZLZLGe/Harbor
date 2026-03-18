@@ -1,0 +1,57 @@
+{
+  "removed_employees": [
+    "BEN0005",
+    "BEN0012"
+  ],
+  "tier_changes": [
+    {
+      "employee_id": "BEN0002",
+      "old_tier": "Employee Only",
+      "new_tier": "Employee + Spouse"
+    },
+    {
+      "employee_id": "BEN0007",
+      "old_tier": "Employee + Children",
+      "new_tier": "Family"
+    },
+    {
+      "employee_id": "BEN0014",
+      "old_tier": "Family",
+      "new_tier": "Employee Only"
+    }
+  ],
+  "dependent_count_changes": [
+    {
+      "employee_id": "BEN0003",
+      "old_dependents": 0,
+      "new_dependents": 1
+    },
+    {
+      "employee_id": "BEN0008",
+      "old_dependents": 2,
+      "new_dependents": 3
+    },
+    {
+      "employee_id": "BEN0016",
+      "old_dependents": 1,
+      "new_dependents": 0
+    }
+  ],
+  "salary_band_changes": [
+    {
+      "employee_id": "BEN0004",
+      "old_salary_band": "Band B",
+      "new_salary_band": "Band C"
+    },
+    {
+      "employee_id": "BEN0010",
+      "old_salary_band": "Band D",
+      "new_salary_band": "Band E"
+    },
+    {
+      "employee_id": "BEN0018",
+      "old_salary_band": "Band C",
+      "new_salary_band": "Band B"
+    }
+  ]
+}

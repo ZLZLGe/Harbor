@@ -1,0 +1,89 @@
+simulation:
+  dt: 0.5
+  duration: 80.0
+
+ego:
+  initial_speed: 0.0
+  initial_position: 0.0
+
+control:
+  target_speed: 9.0
+  time_headway: 1.7
+  min_gap: 11.0
+  release_gap: 9.0
+  ttc_threshold: 3.6
+  max_accel: 2.4
+  max_decel: -5.0
+  approach_gain: 0.75
+  gap_gain: 0.26
+  relative_gain: 0.58
+
+lead_vehicle:
+  initial_gap: 32.0
+  segments:
+    - name: open_lane
+      zone: open_lane
+      start: 0.0
+      end: 15.0
+      speed_limit: 10.0
+      speed_profile:
+        - time: 0.0
+          speed: 9.0
+        - time: 15.0
+          speed: 9.0
+    - name: stand_limit
+      zone: stand_limit
+      start: 15.5
+      end: 35.0
+      speed_limit: 6.0
+      speed_profile:
+        - time: 15.5
+          speed: 5.5
+        - time: 35.0
+          speed: 5.5
+    - name: transit_lane
+      zone: transit_lane
+      start: 35.5
+      end: 49.5
+      speed_limit: 9.0
+      speed_profile:
+        - time: 35.5
+          speed: 8.0
+        - time: 49.5
+          speed: 8.0
+    - name: stand_stop
+      zone: stand_stop
+      start: 50.0
+      end: 57.0
+      speed_limit: 4.0
+      speed_profile:
+        - time: 50.0
+          speed: 0.0
+        - time: 57.0
+          speed: 0.0
+    - name: restart_lane
+      zone: restart_lane
+      start: 57.5
+      end: 65.0
+      speed_limit: 5.0
+      speed_profile:
+        - time: 57.5
+          speed: 4.0
+        - time: 65.0
+          speed: 4.0
+    - name: hazard_stop
+      zone: hazard_stop
+      start: 65.5
+      end: 80.0
+      speed_limit: 5.0
+      speed_profile:
+        - time: 65.5
+          speed: 4.0
+        - time: 67.0
+          speed: 4.0
+        - time: 68.0
+          speed: 1.0
+        - time: 69.0
+          speed: 0.0
+        - time: 80.0
+          speed: 0.0

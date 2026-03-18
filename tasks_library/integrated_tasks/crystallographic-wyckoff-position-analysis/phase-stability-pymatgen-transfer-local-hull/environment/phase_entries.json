@@ -1,0 +1,59 @@
+{
+  "entries": [
+    {
+      "entry_id": "li_metal",
+      "formula": "Li",
+      "energy": -1.8
+    },
+    {
+      "entry_id": "fe_metal",
+      "formula": "Fe",
+      "energy": -0.9
+    },
+    {
+      "entry_id": "oxygen_gas",
+      "formula": "O2",
+      "energy": -4.8
+    },
+    {
+      "entry_id": "li2o_alpha",
+      "formula": "Li2O",
+      "energy": -8.4
+    },
+    {
+      "entry_id": "li2o_beta",
+      "formula": "Li2O",
+      "energy": -7.8
+    },
+    {
+      "entry_id": "feo_ground",
+      "formula": "FeO",
+      "energy": -6.0
+    },
+    {
+      "entry_id": "feo_excited",
+      "formula": "FeO",
+      "energy": -5.4
+    },
+    {
+      "entry_id": "fe2o3_ground",
+      "formula": "Fe2O3",
+      "energy": -15.5
+    },
+    {
+      "entry_id": "lifeo2_ground",
+      "formula": "LiFeO2",
+      "energy": -12.8
+    },
+    {
+      "entry_id": "li2feo3_ground",
+      "formula": "Li2FeO3",
+      "energy": -18.6
+    },
+    {
+      "entry_id": "li5feo4_ground",
+      "formula": "Li5FeO4",
+      "energy": -22.4
+    }
+  ]
+}

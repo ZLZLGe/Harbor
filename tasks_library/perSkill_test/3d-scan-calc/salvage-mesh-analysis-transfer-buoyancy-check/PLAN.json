@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "salvage-mesh-analysis-transfer-buoyancy-check",
+  "taskRole": "transfer",
+  "title": "Transfer - Salvage Buoyancy Check",
+  "goal": "Analyze a debris-contaminated binary STL scan of a recovered artifact, find the main component, read its material code from attribute bytes, and calculate whether it sinks or floats in seawater using the provided density reference.",
+  "primaryOutputFile": "/root/buoyancy_report.json",
+  "difficulty": "hard",
+  "category": "engineering",
+  "skillBenefitRationale": "`mesh-analysis` remains the sole key skill because the buoyancy result only becomes meaningful after extracting the true main-part volume and material ID from a noisy STL mesh.",
+  "targetSkillDirName": "mesh-analysis",
+  "targetSkillName": "mesh-analysis"
+}

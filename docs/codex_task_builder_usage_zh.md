@@ -70,6 +70,12 @@ npm install
 npm run check
 ```
 
+最小 prompt 单测：
+
+```bash
+npm run test:prompts
+```
+
 ## 4. 常用命令
 
 ### 4.1 扫描 source tasks
@@ -111,6 +117,8 @@ npm run generate-family -- \
 - 已有同名任务目录会跳过
 - 不会覆盖已有结果
 - 不会删除任何目录
+- 当前 family 内的 writer 是顺序执行；第 2-4 个 writer 会先直接检查当前 workspace 的 `drafts/`，参考已经生成好的 sibling tasks，尽量避免在场景、输入资产、输出目标和测试方式上重复
+- 上述防重只关注当前 scratch workspace，不会回看更早的 `integrated_tasks/` 或 `manifest`
 
 严格单技能模式示例：
 
@@ -120,7 +128,7 @@ npm run generate-family -- \
   --source-task-id citation-check \
   --skill-mode per-skill \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
-  --output-root /home/levi/Harbor/tasks_library/integrated_tasks
+  --output-root /home/levi/Harbor/tasks_library/perSkill_test
 ```
 
 补充说明：
@@ -140,7 +148,7 @@ npm run batch -- \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks \
   --skill-mode per-skill \
   --limit 10 \
-  --family-concurrency 4
+  --family-concurrency 2
 ```
 
 可选参数：
@@ -208,7 +216,7 @@ TASK_BUILDER_BRIEF.md
 说明：
 
 - `source_task/`：完整复制的原始 source task
-- `drafts/`：Codex 写出的派生任务草稿
+- `drafts/`：Codex 写出的派生任务草稿；同一 run 内后续 writer 会把这里已完成的 sibling tasks 当作参考上下文
 - `artifacts/`：中间产物，例如 family plan、writer summary、review result、运行日志
 
 ### 5.2 manifest
@@ -279,7 +287,7 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 1. 创建 scratch workspace
 2. 复制完整 `source_task/`
 3. planner 生成 family 规划
-4. 为 4 个派生任务分别运行 writer
+4. 为 4 个派生任务按顺序运行 writer
 5. reviewer 返回任务级 verdict 和 family 级观察
 6. 对每个任务做本地静态校验
 7. 对通过前置检查的任务做 Harbor Oracle(runtime) 运行校验（`harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`）
@@ -290,6 +298,7 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 - 运行校验对齐 Harbor 官方 oracle：调用 `harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`
 - 结果以 `trial result.json` 中的 `verifier_result.rewards` 为准（约定 `reward >= 1.0` 视为通过）
 - runtime 失败会在 metadata 区分为 `harbor-preflight` / `harbor-run` / `harbor-reward`
+- writer 阶段的防重属于 prompt 级软约束，不是本地硬校验
 
 ## 8. 当前硬规则
 
@@ -300,6 +309,7 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 - 必备文件存在
 - `task.toml` 中 `id` 与目录名一致
 - `metadata.name` 仍需显式包含 `Similar` 或 `Transfer`
+- `task.toml` 中以下 metadata 必须存在且关键值正确：`description`、`author_name`、`author_email`、`difficulty`、`category`、`tags`、`primary_output_file`、`source_task_id`、`task_role`
 - `environment/Dockerfile` 保留 `COPY skills /root/.codex/skills`
 
 说明：
@@ -386,3 +396,4 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 - 真实生成耗时可能较长，尤其是 skill 很大、source task 很复杂时
 - 运行校验依赖 `harbor` 与 `docker`
 - 当前 family 生成是顺序 writer，不是 4 个 writer 并发
+- 当前去重主要依赖 writer 在同一 workspace 内参考已有 `drafts/` 做软约束，仍不是程序级“零重复”保证

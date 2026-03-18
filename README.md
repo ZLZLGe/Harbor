@@ -24,6 +24,7 @@ cd /home/levi/Harbor/codex_task_builder
 npm install
 
 npm run check
+npm run test:prompts
 ```
 
 ### 常用命令
@@ -69,6 +70,7 @@ npm run review -- \
 - 运行校验：对齐 Harbor 官方 oracle（`harbor run -p <task_dir> -a oracle --force-build`，约定 `reward >= 1.0` 通过）
 - 如果手动运行 Harbor，`-p` 应指向单个 family 目录（如 `tasks_library/integrated_tasks/3d-scan-calc`）或单个 task 目录，不能直接指向 `tasks_library/integrated_tasks/`
 - `per-skill` 模式下，如果 planner 漏掉目标 skill slug，程序会在落盘前自动把该 slug 补进 `derivedTaskId`，再继续校验和发布
+- 同一 scratch workspace 内，后续 writer 会直接检查 `drafts/` 下已经生成好的 sibling tasks，并尽量避免与它们在场景、输入资产、输出目标和测试方式上重复；这属于 prompt 级软约束，不会回看更早的 `integrated_tasks/` 或 `manifest`
 - 工具不会删除任何目录，也不会覆盖已有同名任务目录（只会追加新任务）
 
 > 注意：当前实现默认假设仓库路径为 `/home/levi/Harbor`。如果你把仓库放在其他路径，需要修改 `codex_task_builder/src/utils.ts` 里的 `REPO_ROOT`。

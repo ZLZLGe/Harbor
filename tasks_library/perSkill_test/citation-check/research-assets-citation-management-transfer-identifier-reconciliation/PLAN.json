@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "research-assets-citation-management-transfer-identifier-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer: Research Asset Identifier Reconciliation",
+  "goal": "对混合的 DOI、PMID、arXiv ID 与论文链接清单进行解析与核对，生成一份区分“成功解析的学术记录”和“无法验证项”的结构化清单。",
+  "primaryOutputFile": "/root/asset_resolution.json",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "该任务把 citation-management 迁移到“多标识符元数据解析与记录对账”场景，突出 DOI/PMID/arXiv/URL 提取与交叉验证能力。",
+  "targetSkillDirName": "citation-management",
+  "targetSkillName": "citation-management"
+}

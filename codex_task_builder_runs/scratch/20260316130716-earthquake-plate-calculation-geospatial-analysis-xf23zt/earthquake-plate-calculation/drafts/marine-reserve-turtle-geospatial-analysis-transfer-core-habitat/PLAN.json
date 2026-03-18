@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "marine-reserve-turtle-geospatial-analysis-transfer-core-habitat",
+  "taskRole": "transfer",
+  "title": "Transfer: 海洋保护区核心海龟点位",
+  "goal": "给定海龟卫星定位点、海洋保护区面数据和保护区边界线，找出保护区内部距离边界最远的单个观测点，并输出标签编号、时间戳、坐标与距边界的公里数。",
+  "primaryOutputFile": "/root/turtle_core_ping.json",
+  "difficulty": "medium",
+  "category": "ecology",
+  "skillBenefitRationale": "任务依赖空间包含筛选、正确投影后的点到边界距离计算和极值选取，不需要额外领域技能；唯一关键 shipped skill 就是 geospatial-analysis。",
+  "targetSkillDirName": "geospatial-analysis",
+  "targetSkillName": "geospatial-analysis"
+}

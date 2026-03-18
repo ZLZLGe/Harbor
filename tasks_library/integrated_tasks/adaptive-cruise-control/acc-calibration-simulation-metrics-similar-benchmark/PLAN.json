@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "acc-calibration-simulation-metrics-similar-benchmark",
+  "taskRole": "similar",
+  "title": "Adaptive Cruise Calibration Similar Benchmark",
+  "goal": "基于多组自适应巡航控制仿真输出，计算巡航加速与跟车恢复阶段的 rise time、overshoot、steady-state error 和 settling time，并据此选出最符合安全与舒适指标的标定方案。",
+  "primaryOutputFile": "acc_calibration_benchmark.md",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务核心是对已有 ACC 仿真时间序列做标准控制性能指标计算、阈值判定和方案比较，完全贴近 simulation-metrics 的典型用法，不依赖其他 shipped skill。",
+  "targetSkillDirName": "simulation-metrics",
+  "targetSkillName": "simulation-metrics"
+}

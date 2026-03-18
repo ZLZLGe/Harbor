@@ -1,0 +1,7 @@
+metric,value,unit,notes
+capture_id,campus-west-quiet-hour-17,text,Prepared workbook export from the SOC worksheet
+packets_per_minute_avg,312.5,packets_per_minute,Average packets per populated 60-second bucket
+packets_per_minute_max,4680,packets_per_minute,Peak 60-second bucket
+iat_cv,0.42,ratio,Capture-level inter-arrival coefficient of variation
+observation_window_minutes,37.0,minutes,Informational only
+total_packets,11563,packets,Informational only

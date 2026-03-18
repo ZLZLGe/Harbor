@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "board-packet-pdf-transfer-assembly",
+  "taskRole": "transfer",
+  "title": "Transfer - 董事会资料包编排",
+  "goal": "依据提供的页序清单，从多份会议材料 PDF 中抽取指定页、纠正横向或倒置页面方向，并合并成一份最终会议资料包 PDF。",
+  "primaryOutputFile": "/root/board_meeting_packet.pdf",
+  "difficulty": "medium",
+  "category": "document-assembly",
+  "skillBenefitRationale": "决定成败的是对 PDF 的页级操作能力，包括抽页、旋转和合并；业务规则只是页序说明，因此 pdf 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

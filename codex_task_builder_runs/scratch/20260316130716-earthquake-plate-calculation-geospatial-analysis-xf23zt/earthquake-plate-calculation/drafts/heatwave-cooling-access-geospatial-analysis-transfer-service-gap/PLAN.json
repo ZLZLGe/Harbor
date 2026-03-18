@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "heatwave-cooling-access-geospatial-analysis-transfer-service-gap",
+  "taskRole": "transfer",
+  "title": "Transfer: 热浪避暑中心服务缺口定位",
+  "goal": "给定热浪警报区面数据、社区中心点位和避暑中心点位，找出警报区内距离最近避暑中心最远的社区中心，并输出社区 ID、最近避暑中心 ID、坐标和最近距离。",
+  "primaryOutputFile": "/root/cooling_access_gap.json",
+  "difficulty": "medium",
+  "category": "public-health",
+  "skillBenefitRationale": "需要用 GeoPandas 做区域内筛选、投影到米制 CRS、计算点到点集合的最近距离并排序；分析难点是纯空间可达性计算，geospatial-analysis 足以独立完成。",
+  "targetSkillDirName": "geospatial-analysis",
+  "targetSkillName": "geospatial-analysis"
+}

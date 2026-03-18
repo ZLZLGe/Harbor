@@ -1,0 +1,27 @@
+{
+    "id": "e0616a19-ff3a-445b-a29b-136427dde652",
+    "started_at": "2026-03-16T23:43:46.109247",
+    "finished_at": "2026-03-16T23:43:46.112199",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "marine-reserve-turtle-geospatial__2vzYRZ7"
+                    ]
+                }
+            }
+        }
+    }
+}

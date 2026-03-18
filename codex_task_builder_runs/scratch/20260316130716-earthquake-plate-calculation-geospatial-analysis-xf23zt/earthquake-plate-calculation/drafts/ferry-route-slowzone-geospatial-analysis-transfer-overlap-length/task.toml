@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "ferry-route-slowzone-geospatial-analysis-transfer-overlap-length"
+name = "Transfer: 渡轮航线限速区重叠长度分析"
+description = "计算春季限速区并集内重叠长度最长的渡轮航线，并将该航线及其重叠长度写入 /root/ferry_slowzone_overlap.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "maritime-operations"
+tags = ["maritime-operations", "geospatial-analysis", "ferry-routes", "slow-zones", "line-polygon-overlap"]
+primary_output_file = "/root/ferry_slowzone_overlap.json"
+source_task_id = "earthquake-plate-calculation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

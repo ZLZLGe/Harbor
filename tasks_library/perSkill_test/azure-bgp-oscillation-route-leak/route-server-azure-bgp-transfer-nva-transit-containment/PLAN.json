@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "route-server-azure-bgp-transfer-nva-transit-containment",
+  "taskRole": "transfer",
+  "title": "Transfer - Azure Route Server NVA Transit Containment",
+  "goal": "Inspect Azure Route Server advertisements exchanged with paired NVAs and spokes, determine whether NVA preference rules create oscillation, identify leaked provider-learned prefixes, and classify which mitigations actually resolve each issue.",
+  "primaryOutputFile": "/app/output/nva_transit_containment.json",
+  "difficulty": "hard",
+  "category": "bgp-route",
+  "skillBenefitRationale": "This transfers the skill into Azure Route Server service-insertion, but success still depends entirely on managed-BGP reasoning: detect cycles, enforce valley-free exports, and reject fixes that try to disable provider-controlled connectivity.",
+  "targetSkillDirName": "azure-bgp",
+  "targetSkillName": "azure-bgp"
+}

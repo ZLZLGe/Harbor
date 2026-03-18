@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "mars-colony-map-optimization-strategy-similar-module-cluster"
+name = "Mars Colony Similar - Module Cluster Optimizer"
+description = "Choose a command dome and module placements on a hex Mars map to maximize total synergy and write the final plan to /output/mars_colony_plan.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "games"
+tags = ["optimization", "hex-grid", "constraint-satisfaction", "spatial-reasoning", "mars-colony"]
+primary_output_file = "/output/mars_colony_plan.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

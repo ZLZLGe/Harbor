@@ -55,7 +55,10 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     3. family 固定包含 1 个 similar 任务和 3 个 transfer 任务。
     4. similar 任务用于测试当前 shipped skill 的典型用法，必须足够接近，但不能只是轻微改名。
     5. transfer 任务用于测试当前 shipped skill 在不同场景中的泛化性，三者必须彼此明显不同。
-    6. instruction.md 不应直接明示技能，也不应直接点名具体 skill。
+    6. instruction.md 应尽量避免直接明示技能，也不应新增 source task 中没有的具体 skill 点名。
+       - 以 source_task/instruction.md 为基线判断。
+       - 如果 source task 本身已经直接写出某个技术或技能名称，派生任务沿用同等级别的表述不算违规。
+       - 只有当派生任务比 source task 更直接地提示技能，或引入 source task 没写过的新 skill 名称时，才算越界。
     7. 每个完整任务必须是 Harbor 风格目录，至少包含:
        - task.toml
        - instruction.md
@@ -68,6 +71,8 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     9. environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
     10. 任务命名必须显式显示 Similar 或 Transfer 角色。
     11. environment/skills/ 中只允许保留当前 shipped skills。
+    12. 同一 scratch workspace 内，后续任务生成时必须检查 drafts/ 下已经完成的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出物语义和测试判定方式上过于接近。
+       - 这里只需要关注当前 workspace 的 drafts/，不需要查看更早之前生成的 integrated_tasks/ 或 manifest。
   `);
 }
 
@@ -144,6 +149,25 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     现在只生成一个完整派生任务，写入:
     - drafts/${plan.derivedTaskId}/
 
+    写作前必须先检查当前 workspace 的 drafts/ 目录：
+    - 把 drafts/${plan.derivedTaskId}/ 视为当前任务目录，不要把它当成已存在 sibling task。
+    - 把 drafts/ 下其他已经有内容的 sibling task 目录视为之前已经生成好的任务。
+    - 对每个已有 sibling task，优先阅读：
+      - drafts/<sibling_task_id>/PLAN.json
+      - drafts/<sibling_task_id>/instruction.md
+      - drafts/<sibling_task_id>/task.toml
+    - 如有必要，再补充检查：
+      - drafts/<sibling_task_id>/tests/test_outputs.py
+      - drafts/<sibling_task_id>/environment/ 下的输入资产
+    - 基于这些已有 drafts，主动避免当前任务与前面任务在以下方面过于接近：
+      - 任务场景或叙事
+      - 输入资产类型、结构或素材来源
+      - 输出物的语义目标
+      - 测试判定方式
+    - 如果发现当前 blueprint 对应的任务与已有 drafts 明显重合，你可以调整当前任务的具体情境、输入资产、验证方式和 instruction 文案来拉开差异。
+    - 但你不能修改 blueprint 中已经固定的核心约束：derivedTaskId、taskRole、primaryOutputFile、source_task_id，以及当前 skill scope。
+    - 如果 drafts/ 中还没有其他已生成 sibling tasks，就按正常流程继续写当前任务。
+
     已知约束:
     ${skillConstraint}
     - 你可以从 source_task/environment/ 中选择性复制需要的输入资产到 drafts/${plan.derivedTaskId}/environment/。
@@ -151,7 +175,21 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     - environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
     - task.toml 中 metadata.id 必须等于 "${plan.derivedTaskId}"。
     - task.toml 中 metadata.name 必须显式包含 "${roleLabel}"。
-    - instruction.md 不能直接明示要使用技能，也不能直接点名具体 skill 名称。
+    - task.toml 的 [metadata] 至少必须包含这些字段:
+      - id = "${plan.derivedTaskId}"
+      - name = <显式包含 ${roleLabel} 的标题>
+      - description = <非空单句摘要，描述任务目标和输出>
+      - author_name = <非空字符串>
+      - author_email = <非空字符串>
+      - difficulty = <非空字符串>
+      - category = <非空字符串>
+      - tags = <至少 1 个元素的数组>
+      - primary_output_file = "${plan.primaryOutputFile}"
+      - source_task_id = "${sourceTask.sourceTaskId}"
+      - task_role = "${plan.taskRole}"
+    - 如果 task.toml 缺少上述任一 metadata 字段，或者关键字段值不匹配，该任务会在 static validate 阶段直接失败，不能发布。
+    - instruction.md 应尽量避免直接明示要使用技能，也不要引入 source task 没写过的具体 skill 名称。
+    - 以 source_task/instruction.md 为基线：如果 source task 本身已经明确点出同一技术或技能名称，派生任务沿用同等级别表述可以接受，但不要写得比 source task 更直接。
     - solution/solve.sh 和 tests/test_outputs.py 必须能验证该任务。
     - primaryOutputFile 必须为 "${plan.primaryOutputFile}"。
     - 当前 source task ID 为 "${sourceTask.sourceTaskId}"。
@@ -194,7 +232,8 @@ export function buildReviewerPrompt(unit: GenerationUnit, familyPlan: FamilyPlan
 
     审查目标:
     - 对每个任务分别判断：
-      - instruction.md 是否直接明示了技能或具体 skill 名称
+      - 先把 source_task/instruction.md 当作基线，而不是脱离 source task 单独判定
+      - instruction.md 是否比 source_task/instruction.md 更直接地明示了技能，或引入了 source task 未出现的具体 skill 名称
       - 测试是否可判定
       ${skillReviewRule}
       - 该任务是否应通过 reviewer

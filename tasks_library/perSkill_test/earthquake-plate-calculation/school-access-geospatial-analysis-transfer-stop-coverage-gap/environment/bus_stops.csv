@@ -1,0 +1,14 @@
+stop_id,stop_name,easting_m,northing_m,route_group
+ST-001,Harbor Terminal,584750,4511150,Blue
+ST-002,Foundry Avenue,585180,4511260,Blue
+ST-003,Maple Court,585220,4510910,Green
+ST-004,Dockyard South,584920,4510720,Blue
+ST-005,Canal North,586100,4511110,Orange
+ST-006,Bell Square,586690,4511190,Orange
+ST-007,Canal Depot,586470,4510705,Orange
+ST-008,Market Gate,588060,4511180,Silver
+ST-009,East Market South,587620,4510720,Silver
+ST-010,River Works,589720,4510860,Red
+ST-011,Liberty Commons,590310,4510860,Red
+ST-012,North Ferry,590930,4511380,Red
+ST-013,Liberty East,591020,4511000,Red

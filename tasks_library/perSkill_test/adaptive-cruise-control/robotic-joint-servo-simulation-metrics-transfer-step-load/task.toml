@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "robotic-joint-servo-simulation-metrics-transfer-step-load"
+name = "Robotic Joint Servo Transfer Validation"
+description = "Analyze robotic joint servo traces for a commanded angle step and a load-switch recovery, then write the ranked acceptance result to robotic_joint_validation.yaml."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["robotics", "servo-control", "simulation", "time-series", "control-metrics"]
+primary_output_file = "robotic_joint_validation.yaml"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = true

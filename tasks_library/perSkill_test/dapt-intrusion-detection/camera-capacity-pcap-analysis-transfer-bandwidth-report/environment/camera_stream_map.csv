@@ -1,0 +1,8 @@
+stream_id,camera_id,camera_ip,destination_ip,protocol,dst_port,uplink_id
+stream_backup,cam_backup,192.168.3.30,192.168.3.1,TCP,52680,uplink-d
+stream_dock,cam_dock,192.168.3.34,192.168.3.30,TCP,8081,uplink-a
+stream_lobby_main,cam_lobby,192.168.3.30,192.168.3.34,TCP,46712,uplink-a
+stream_lobby_sub,cam_lobby,192.168.3.30,192.168.3.34,TCP,46714,uplink-a
+stream_parking,cam_parking,192.168.3.10,239.2.11.71,UDP,8662,uplink-c
+stream_vault,cam_vault,192.168.3.31,192.168.3.30,TCP,40504,uplink-b
+stream_warehouse,cam_warehouse,192.168.3.30,192.168.3.31,TCP,9200,uplink-b
