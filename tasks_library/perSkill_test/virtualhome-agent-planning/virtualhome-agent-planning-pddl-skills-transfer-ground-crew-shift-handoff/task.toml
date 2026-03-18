@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "virtualhome-agent-planning-pddl-skills-transfer-ground-crew-shift-handoff"
+name = "Transfer - Ground Crew Shift Handoff"
+description = "Generate handoff-ready plan files for shift change operations on a distinct set of planning instances."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "research"
+tags = ["dsl", "planning", "pddl", "airport"]
+primary_output_file = "/root/plans/handoff_shift_task05.plan"
+source_task_id = "virtualhome-agent-planning"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

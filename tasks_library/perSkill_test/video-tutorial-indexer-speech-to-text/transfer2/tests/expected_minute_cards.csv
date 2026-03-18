@@ -1,0 +1,24 @@
+minute,second_mark,chapter_id,chapter_title
+0,0,1,What we'll do
+1,60,3,Getting a floor plan
+2,120,5,Basic Navigation
+3,180,7,Basic transform operations
+4,240,8,Setting up the plan and units
+5,300,10,Scaling the plane to real dimensions
+6,360,11,Getting the plan in place
+7,420,12,Tracing the outline
+8,480,12,Tracing the outline
+9,540,12,Tracing the outline
+10,600,13,Tracing inner walls
+11,660,15,Continue tracing inner walls
+12,720,15,Continue tracing inner walls
+13,780,15,Continue tracing inner walls
+14,840,15,Continue tracing inner walls
+15,900,18,Make the floor
+16,960,19,Remove unnecessary geometry
+17,1020,21,Make the background
+18,1080,23,Reviewing face orientation
+19,1140,25,Fixing face orientation errors
+20,1200,25,Fixing face orientation errors
+21,1260,25,Fixing face orientation errors
+22,1320,26,Note on face orientation

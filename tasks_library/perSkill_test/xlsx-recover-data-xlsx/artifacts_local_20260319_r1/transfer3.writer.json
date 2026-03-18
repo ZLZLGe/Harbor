@@ -1,0 +1,19 @@
+{
+  "derivedTaskId": "transfer3",
+  "draftRelativePath": "drafts/transfer3",
+  "primaryOutputFile": "/root/growth_transfer_recovered.xlsx",
+  "filesWritten": [
+    "drafts/transfer3/PLAN.json",
+    "drafts/transfer3/task.toml",
+    "drafts/transfer3/instruction.md",
+    "drafts/transfer3/environment/Dockerfile",
+    "drafts/transfer3/environment/growth_transfer_input.xlsx",
+    "drafts/transfer3/solution/solve.sh",
+    "drafts/transfer3/tests/test.sh",
+    "drafts/transfer3/tests/test_outputs.py",
+    "drafts/transfer3/environment/skills/xlsx/SKILL.md",
+    "drafts/transfer3/environment/skills/xlsx/LICENSE.txt",
+    "drafts/transfer3/environment/skills/xlsx/recalc.py"
+  ],
+  "summary": "local writer created full Harbor task package without codex sdk"
+}

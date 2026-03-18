@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-contingency-reroute-pack",
+  "taskRole": "transfer",
+  "title": "Transfer - Contingency Reroute Pack",
+  "goal": "Generate valid PDDL plans for all listed airport planning cases.",
+  "primaryOutputFile": "/root/plans/contingency_task07.plan",
+  "skillScope": "pddl-skills"
+}

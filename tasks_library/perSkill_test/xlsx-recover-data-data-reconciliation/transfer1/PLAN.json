@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Totals and Delta Reconciliation",
+  "goal": "Resolve missing cells for totals and period deltas in a reconciliation workbook.",
+  "primaryOutputFile": "/root/reconcile_transfer1_recovered.xlsx",
+  "skillScope": "data-reconciliation"
+}

@@ -1,0 +1,19 @@
+{
+  "derivedTaskId": "similar",
+  "draftRelativePath": "drafts/similar",
+  "primaryOutputFile": "/root/budget_similar_recovered.xlsx",
+  "filesWritten": [
+    "drafts/similar/PLAN.json",
+    "drafts/similar/task.toml",
+    "drafts/similar/instruction.md",
+    "drafts/similar/environment/Dockerfile",
+    "drafts/similar/environment/budget_similar_input.xlsx",
+    "drafts/similar/solution/solve.sh",
+    "drafts/similar/tests/test.sh",
+    "drafts/similar/tests/test_outputs.py",
+    "drafts/similar/environment/skills/xlsx/SKILL.md",
+    "drafts/similar/environment/skills/xlsx/LICENSE.txt",
+    "drafts/similar/environment/skills/xlsx/recalc.py"
+  ],
+  "summary": "local writer created full Harbor task package without codex sdk"
+}

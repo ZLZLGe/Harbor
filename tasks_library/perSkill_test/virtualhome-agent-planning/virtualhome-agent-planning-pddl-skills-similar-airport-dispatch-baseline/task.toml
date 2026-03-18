@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "virtualhome-agent-planning-pddl-skills-similar-airport-dispatch-baseline"
+name = "Similar - Airport Dispatch Baseline"
+description = "Generate valid plans for baseline airport dispatch instances and write each plan to its configured output path."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "research"
+tags = ["dsl", "planning", "pddl", "airport"]
+primary_output_file = "/root/plans/similar_dispatch_task01.plan"
+source_task_id = "virtualhome-agent-planning"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

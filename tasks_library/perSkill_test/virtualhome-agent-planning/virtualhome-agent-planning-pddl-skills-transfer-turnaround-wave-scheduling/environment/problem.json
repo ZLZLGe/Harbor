@@ -1,0 +1,14 @@
+[
+  {
+    "id": "turnaround_task03",
+    "domain": "airport/domain03.pddl",
+    "problem": "airport/task03.pddl",
+    "plan_output": "/root/plans/turnaround_wave_task03.plan"
+  },
+  {
+    "id": "turnaround_task04",
+    "domain": "airport/domain04.pddl",
+    "problem": "airport/task04.pddl",
+    "plan_output": "/root/plans/turnaround_wave_task04.plan"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-tutorial-indexer",
+  "derived_task_id": "transfer2",
+  "task_role": "transfer",
+  "title": "Transfer - Tutorial Minute Cards",
+  "goal": "Convert the tutorial timeline into minute-level chapter index cards in CSV format.",
+  "primary_output_file": "/root/tutorial_minute_cards.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skill_benefit_rationale": "Uses speech-aligned temporal segmentation but reframes output as minute-index operational cards."
+}

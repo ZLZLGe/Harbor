@@ -1,0 +1,49 @@
+{
+  "sourceTaskId": "xlsx-recover-data",
+  "skillMode": "per-skill",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "familyTheme": "Spreadsheet recovery tasks focused on multi-sheet editing and formula-aware workbook handling",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - Workbook Recovery Baseline",
+      "goal": "Recover all placeholder cells in the baseline budget workbook and save a corrected copy.",
+      "primaryOutputFile": "/root/budget_similar_recovered.xlsx",
+      "difficulty": "medium",
+      "category": "spreadsheet",
+      "skillBenefitRationale": "Recover all placeholder cells in the baseline budget workbook and save a corrected copy."
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Operations Variance Pack",
+      "goal": "Produce an operations-focused recovered workbook from a partially missing planning file.",
+      "primaryOutputFile": "/root/ops_transfer_recovered.xlsx",
+      "difficulty": "medium",
+      "category": "spreadsheet",
+      "skillBenefitRationale": "Produce an operations-focused recovered workbook from a partially missing planning file."
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Share Allocation Audit",
+      "goal": "Recover allocation and growth-linked placeholders in a worksheet audit package.",
+      "primaryOutputFile": "/root/shares_transfer_recovered.xlsx",
+      "difficulty": "medium",
+      "category": "spreadsheet",
+      "skillBenefitRationale": "Recover allocation and growth-linked placeholders in a worksheet audit package."
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Growth Checkpoint Workbook",
+      "goal": "Resolve chain-dependent missing values and produce a growth checkpoint workbook.",
+      "primaryOutputFile": "/root/growth_transfer_recovered.xlsx",
+      "difficulty": "medium",
+      "category": "spreadsheet",
+      "skillBenefitRationale": "Resolve chain-dependent missing values and produce a growth checkpoint workbook."
+    }
+  ]
+}
