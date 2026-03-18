@@ -1,0 +1,21 @@
+{
+  "skillSlug": "azure-bgp",
+  "workflowId": "reasoning-checklist-with-ranked-fix-selection",
+  "workflowTitle": "输入校验-双检测-分层修复与禁用项否决",
+  "workflowEvidence": [
+    "source_skill/SKILL.md: `Reasoning Workflow (Executable Checklist)` 明确 Step 1/2/3（输入校验→振荡检测→泄漏检测）",
+    "source_skill/SKILL.md: `Fix Selection Logic (Ranked)` 明确 Tier 1/2/3 的修复决策流程",
+    "source_skill/SKILL.md: `Prohibited Fixes (Must Be Rejected)` 明确必须拒绝的候选方案与解释义务",
+    "source_skill/SKILL.md: `Expected Inputs` 与 `Output Expectations` 明确输入资产与输出契约边界"
+  ],
+  "derivedTaskId": "azure-bgp-oscillation-route-leak-analysis",
+  "title": "Azure BGP 振荡与路由泄漏联合诊断及合规修复决策",
+  "goal": "基于给定 BGP 拓扑与策略数据，判定是否存在 preference cycle（振荡）与 valley-free violation（泄漏），解释根因，并给出符合 Azure 约束的分层修复建议，同时识别并拒绝所有被禁止的修复候选。",
+  "primaryOutputFile": "outputs/oscillation_report.json",
+  "difficulty": "hard",
+  "category": "network-policy-analysis",
+  "skillBenefitRationale": "该 skill 已内置完整判题所需的领域规则与执行顺序：`Reasoning Workflow (Executable Checklist)` 给出输入校验与双检测步骤，`Fix Selection Logic (Ranked)` 给出修复优先级，`Prohibited Fixes` 给出必须否决的操作边界，可直接转化为高质量任务判定标准。",
+  "skillNecessityRationale": "没有该 skill 时，代理容易出现三类高概率失败：1) 只做通用 BGP 诊断而忽略 Azure 不可控边界；2) 误把断连/停 BGP 当修复；3) 不能稳定区分 control-plane 根因与 data-plane 缓解（如 UDR 的定位），导致输出不满足任务的合规与可执行标准。",
+  "environmentConcept": "构建一个纯离线分析型 Harbor 环境：输入资产为 `topology.json`、`relationships.json`、`preferences.json`、`route.json`、`route_leaks.json`、`possible_solutions.json`；任务要求在容器内运行分析脚本，输出结构化结论文件。环境中复制 `environment/skills/azure-bgp/**` 供代理调用。",
+  "oracleConcept": "采用确定性 oracle：对选手输出 `oscillation_report.json` 做字段级校验，核对 1) 输入合法性检查结果；2) 振荡检测结论与 cycle 证据；3) 泄漏检测结论与违规边；4) 修复建议是否按 Tier 1/2/3 合规排序；5) 是否显式拒绝 `disable bgp`/`disable peering`/`shutdown`/`restart` 等禁用方案并给出 Azure 控制平面约束理由。"
+}

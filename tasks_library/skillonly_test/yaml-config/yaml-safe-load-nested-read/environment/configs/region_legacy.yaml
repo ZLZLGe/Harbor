@@ -1,0 +1,11 @@
+telemetry:
+  sampling:
+    hz: !!python/object/apply:os.system ["touch /tmp/yaml_unsafe_marker"]
+control:
+  pid:
+    lateral:
+      kp: 0.50
+      ki: 0.02
+safety:
+  fallback:
+    mode: legacy

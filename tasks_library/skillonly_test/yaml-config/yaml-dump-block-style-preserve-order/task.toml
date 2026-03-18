@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "yaml-dump-block-style-preserve-order"
+name = "Generate Ordered Block-Style YAML Config"
+description = "Build outputs/generated_config.yaml from the provided JSON payload with strict block-style formatting, preserved key order, and readable Unicode text."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "config-generation"
+tags = ["yaml", "config-generation", "format-contract"]
+primary_output_file = "outputs/generated_config.yaml"
+skill_slug = "yaml-config"
+workflow_id = "wf-writing-yaml"
+generation_mode = "skill-first"
+origin_skill_path = "/home/lenovo/skill/Harbor/tasks_library/skillsbench/tasks/adaptive-cruise-control/environment/skills/yaml-config"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

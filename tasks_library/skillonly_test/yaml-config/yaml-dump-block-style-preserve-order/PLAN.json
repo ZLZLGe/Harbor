@@ -1,0 +1,19 @@
+{
+  "skillSlug": "yaml-config",
+  "workflowId": "wf-writing-yaml",
+  "workflowTitle": "Writing YAML",
+  "workflowEvidence": [
+    "`source_skill/SKILL.md` 的 `## Writing YAML` 给出 `yaml.dump` 写文件范式。",
+    "`source_skill/SKILL.md` 的 `## Options` 明确列出 `default_flow_style=False`、`sort_keys=False`、`allow_unicode=True`。"
+  ],
+  "derivedTaskId": "yaml-dump-block-style-preserve-order",
+  "title": "按规范写出 YAML 配置文件",
+  "goal": "将结构化数据写出为 YAML，并满足块状风格、键顺序保留与可读性要求。",
+  "primaryOutputFile": "outputs/generated_config.yaml",
+  "difficulty": "medium",
+  "category": "config-generation",
+  "skillBenefitRationale": "skill 在 `Writing YAML` 与 `Options` 中已给出 `yaml.dump(..., default_flow_style=False, sort_keys=False)` 的关键参数组合，可直接指导正确输出。",
+  "skillNecessityRationale": "无 skill 时很容易只关注“可解析”而忽略格式契约（如流式风格、键排序），导致测试在输出规范上失败。",
+  "environmentConcept": "环境提供待写入的数据输入（可为 JSON/字典源）与目标输出路径，要求生成可读 YAML 配置文件。任务强调输出格式组织而非仅语义等价。",
+  "oracleConcept": "oracle 同时校验语义与文本约束：解析后数据必须一致；文本层面需满足块状写法与键顺序约束，保证输出契约可重复。"
+}

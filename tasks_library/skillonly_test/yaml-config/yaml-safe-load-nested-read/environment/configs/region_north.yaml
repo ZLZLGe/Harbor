@@ -1,0 +1,11 @@
+telemetry:
+  sampling:
+    hz: 20
+control:
+  pid:
+    lateral:
+      kp: 0.8
+      ki: 0.04
+safety:
+  fallback:
+    mode: degraded

@@ -1,0 +1,19 @@
+{
+  "skillSlug": "yaml-config",
+  "workflowId": "wf-reading-yaml",
+  "workflowTitle": "Reading YAML",
+  "workflowEvidence": [
+    "`source_skill/SKILL.md` 中 `## Reading YAML` 明确给出 `yaml.safe_load` 读取流程。",
+    "`source_skill/SKILL.md` 在读取示例后给出 `config['section']['key']` 的嵌套访问模式。"
+  ],
+  "derivedTaskId": "yaml-safe-load-nested-read",
+  "title": "安全读取 YAML 并提取嵌套配置",
+  "goal": "实现 YAML 配置的安全读取，并按固定键路径提取参数，生成稳定可比对的解析结果。",
+  "primaryOutputFile": "outputs/parsed_values.json",
+  "difficulty": "medium",
+  "category": "config-parsing",
+  "skillBenefitRationale": "该 workflow 直接命中 skill 中 `Reading YAML` 的示例路径，尤其是 `yaml.safe_load` 与嵌套键访问方式，能显著减少实现偏差。",
+  "skillNecessityRationale": "没有该 skill 时，常见失败点是误用不安全加载、对空 YAML 返回值处理不当、嵌套路径访问脆弱，导致任务易出现安全与稳定性问题。",
+  "environmentConcept": "环境提供 Python 与 PyYAML，输入资产为一组 YAML 配置文件（含嵌套结构、空文档、含非常规 tag 的样例）。任务组织为读取配置并提取指定路径字段，输出结构化结果文件。",
+  "oracleConcept": "oracle 以确定性方式校验输出文件：字段值与预期一致、空文档行为正确，并通过行为约束确认采用安全加载语义（而非不安全加载）。"
+}
