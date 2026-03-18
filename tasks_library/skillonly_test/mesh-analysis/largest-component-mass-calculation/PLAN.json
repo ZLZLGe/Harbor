@@ -1,0 +1,21 @@
+{
+  "skillSlug": "mesh-analysis",
+  "workflowId": "calculating-mass",
+  "workflowTitle": "Calculating Mass",
+  "workflowEvidence": [
+    "source_skill/SKILL.md:44-54 以 `### Calculating Mass` 的形式给出独立的分步流程：先读取分析报告中的 Volume 和 Material ID，再查密度表，最后计算 `Mass = Volume * Density`。",
+    "source_skill/SKILL.md:46-49 明确说明质量计算依赖外部材料参考数据，这使其与仅输出分析报告的 Basic Workflow 在输入资产和输出契约上形成实质区别。",
+    "source_skill/SKILL.md:51-54 强调单位约束，说明该 workflow 需要题目显式提供坐标系单位与密度单位信息，适合设计成带参考表和单位说明的独立 Harbor 任务。",
+    "source_skill/scripts/mesh_tool.py:115-132 提供质量计算所需的上游结果字段 `main_part_volume` 与 `main_part_material_id`。"
+  ],
+  "derivedTaskId": "largest-component-mass-calculation",
+  "title": "Calculate Main-Part Mass From STL And Density Table",
+  "goal": "从 STL 扫描中提取主件的体积与材质 ID，并结合给定密度表计算主件质量。",
+  "primaryOutputFile": "outputs/main_part_mass.json",
+  "difficulty": "medium",
+  "category": "3d-mass-estimation",
+  "skillBenefitRationale": "该 workflow 复用了 skill 对最大连通分量、体积和材质 ID 的完整提取能力，让任务重点转移到密度表映射和质量计算，而不是陷入底层 STL 处理细节。对于扫描件物理量估算，这种复用有明显收益。",
+  "skillNecessityRationale": "如果没有这个 skill，选手不仅要做查表乘法，还要先可靠地解析二进制 STL、去除碎屑、识别主连通分量并提取 2 字节材质 ID。真正困难的部分在 mesh 处理链路，缺少 skill 时任务很容易在前置几何分析阶段失败。",
+  "environmentConcept": "环境可提供一个固定二进制 STL 扫描文件和一个按 material ID 映射密度的参考表，同时在 instruction 中明确 STL 坐标单位与密度单位兼容；Docker 环境同样复制 `environment/skills/mesh-analysis/**` 到技能目录，选手需要生成 `outputs/main_part_mass.json`，包含主件体积、材质 ID、所用密度和最终质量，构成完整 Harbor 任务。",
+  "oracleConcept": "oracle 可先以固定夹具的正确主件体积和材质 ID 为基准，再读取参考密度表，校验输出中的 `mass = volume * density` 是否成立，并确认结果遵守题目给定的单位约束；这使得测试既能覆盖 mesh 分析，也能覆盖后续质量计算。"
+}

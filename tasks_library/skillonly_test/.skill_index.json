@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "skills": {
+    "mesh-analysis": {
+      "skillSlug": "mesh-analysis",
+      "status": "published",
+      "skillName": "mesh-analysis",
+      "familyDir": "/home/lenovo/skill/Harbor/tasks_library/skillonly_test/mesh-analysis",
+      "taskIds": [
+        "largest-component-analysis",
+        "largest-component-mass-calculation"
+      ],
+      "publishedAt": "2026-03-18T11:28:17+08:00",
+      "originSkillPath": "/home/lenovo/skill/Harbor/tasks_library/skillsbench/tasks/3d-scan-calc/environment/skills/mesh-analysis",
+      "runId": "20260317191243-mesh-analysis-6n8ivc"
+    },
+    "csv-processing": {
+      "skillSlug": "csv-processing",
+      "status": "failed",
+      "skillName": "csv-processing",
+      "familyDir": "/home/lenovo/skill/Harbor/tasks_library/skillonly_test/csv-processing",
+      "taskIds": [],
+      "publishedAt": "2026-03-18T06:51:10.688Z",
+      "originSkillPath": "/home/lenovo/skill/Harbor/tasks_library/skillsbench/tasks/adaptive-cruise-control/environment/skills/csv-processing",
+      "runId": "20260318063512-csv-processing-1poue1"
+    },
+    "pid-controller": {
+      "skillSlug": "pid-controller",
+      "status": "failed",
+      "skillName": "pid-controller",
+      "familyDir": "/home/lenovo/skill/Harbor/tasks_library/skillonly_test/pid-controller",
+      "taskIds": [],
+      "publishedAt": "2026-03-18T05:10:06.703Z",
+      "originSkillPath": "/home/lenovo/skill/Harbor/tasks_library/skillsbench/tasks/adaptive-cruise-control/environment/skills/pid-controller",
+      "runId": "20260318043945-pid-controller-rjsrib"
+    },
+    "simulation-metrics": {
+      "skillSlug": "simulation-metrics",
+      "status": "failed",
+      "skillName": "simulation-metrics",
+      "familyDir": "/home/lenovo/skill/Harbor/tasks_library/skillonly_test/simulation-metrics",
+      "taskIds": [],
+      "publishedAt": "2026-03-18T05:24:04.524Z",
+      "originSkillPath": "/home/lenovo/skill/Harbor/tasks_library/skillsbench/tasks/adaptive-cruise-control/environment/skills/simulation-metrics",
+      "runId": "20260318051500-simulation-metrics-td48gw"
+    },
+    "vehicle-dynamics": {
+      "skillSlug": "vehicle-dynamics",
+      "status": "failed",
+      "skillName": "vehicle-dynamics",
+      "familyDir": "/home/lenovo/skill/Harbor/tasks_library/skillonly_test/vehicle-dynamics",
+      "taskIds": [],
+      "publishedAt": "2026-03-18T05:48:26.389Z",
+      "originSkillPath": "/home/lenovo/skill/Harbor/tasks_library/skillsbench/tasks/adaptive-cruise-control/environment/skills/vehicle-dynamics",
+      "runId": "20260318053543-vehicle-dynamics-i7rfaq"
+    },
+    "azure-bgp": {
+      "skillSlug": "azure-bgp",
+      "status": "failed",
+      "skillName": "azure-bgp",
+      "familyDir": "/home/lenovo/skill/Harbor/tasks_library/skillonly_test/azure-bgp",
+      "taskIds": [],
+      "publishedAt": "2026-03-18T06:14:15.420Z",
+      "originSkillPath": "/home/lenovo/skill/Harbor/tasks_library/skillsbench/tasks/azure-bgp-oscillation-route-leak/environment/skills/azure-bgp",
+      "runId": "20260318060102-azure-bgp-0uouic"
+    },
+    "yaml-config": {
+      "skillSlug": "yaml-config",
+      "status": "partial",
+      "skillName": "yaml-config",
+      "familyDir": "/home/lenovo/skill/Harbor/tasks_library/skillonly_test/yaml-config",
+      "taskIds": [
+        "yaml-safe-load-nested-read",
+        "yaml-dump-block-style-preserve-order"
+      ],
+      "publishedAt": "2026-03-18T06:16:25.454Z",
+      "originSkillPath": "/home/lenovo/skill/Harbor/tasks_library/skillsbench/tasks/adaptive-cruise-control/environment/skills/yaml-config",
+      "runId": "20260318054912-yaml-config-o2mo6x"
+    }
+  }
+}

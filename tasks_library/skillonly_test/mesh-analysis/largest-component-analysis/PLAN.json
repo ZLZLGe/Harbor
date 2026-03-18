@@ -1,0 +1,20 @@
+{
+  "skillSlug": "mesh-analysis",
+  "workflowId": "basic-workflow",
+  "workflowTitle": "Basic Workflow",
+  "workflowEvidence": [
+    "source_skill/SKILL.md:21-42 明确给出 `### Basic Workflow`，示例代码调用 `MeshAnalyzer('/path/to/your/file.stl')` 后执行 `analyze_largest_component()`，并读取 `main_part_volume` 与 `main_part_material_id`。",
+    "source_skill/scripts/mesh_tool.py:115-132 实现 `analyze_largest_component()`，返回 `main_part_volume`、`main_part_material_id` 和 `total_components`，足以支撑独立输出契约。",
+    "source_skill/scripts/mesh_tool.py:135-140 提供脚本入口，命令行直接打印 `analyze_largest_component()` 的分析结果，说明这是稳定可落地的主流程。"
+  ],
+  "derivedTaskId": "largest-component-analysis",
+  "title": "Analyze Largest Connected Component In Noisy STL Scan",
+  "goal": "从带碎屑的 STL 扫描中识别最大连通分量，并输出主件体积、材质 ID 和总组件数。",
+  "primaryOutputFile": "outputs/largest_component_report.json",
+  "difficulty": "medium",
+  "category": "3d-mesh-analysis",
+  "skillBenefitRationale": "这个 workflow 直接命中 skill 的核心能力：二进制 STL 解析、基于共享顶点的连通分量分析、最大组件筛选，以及 attribute 字段中的材质 ID 提取。对于脏扫描去碎屑场景，skill 能明显减少实现量并提高结果可靠性。",
+  "skillNecessityRationale": "没有这个 skill，选手需要自行实现 STL 二进制解析、ASCII 回退、体积积分、顶点量化后的连通性遍历，以及 2 字节 attribute 读取。任务表面上像是简单统计，实际上细节很多，手写实现既慢又容易在组件划分或属性解析上出错。",
+  "environmentConcept": "环境可提供一个固定的二进制 STL 扫描文件，文件中同时包含主件和若干碎屑连通分量；Docker 环境复制 `environment/skills/mesh-analysis/**` 到技能目录，选手需要生成 `outputs/largest_component_report.json`，至少包含 `main_part_volume`、`main_part_material_id` 与 `total_components`，从而形成完整可测的 Harbor 任务。",
+  "oracleConcept": "oracle 可基于固定 STL 夹具的已知几何结果，确定性校验 JSON 中的主件体积、主件材质 ID 与组件总数；体积字段使用小容差比较，其他字段做精确比对，即可形成稳定 deterministic oracle。"
+}
