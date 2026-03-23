@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Ohio Dining Route Brief",
+  "goal": "Select one qualifying restaurant for each stop in a short Ohio road-trip dining plan.",
+  "primaryOutputFile": "/root/similar_dining_route.json",
+  "difficulty": "medium",
+  "category": "travel-planning",
+  "skillBenefitRationale": "The task directly exercises the restaurant-by-city lookup pattern from the source travel task while narrowing scope to dining selection."
+}

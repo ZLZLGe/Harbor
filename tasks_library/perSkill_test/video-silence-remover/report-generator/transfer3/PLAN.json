@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Candidate Selection Pack",
+  "goal": "Evaluate multiple compressed candidates and publish a selection report under a target compression window.",
+  "primaryOutputFile": "/root/transfer3_candidate_selection.json",
+  "difficulty": "hard",
+  "category": "media-quality-control",
+  "skillBenefitRationale": "The task applies repeated report generation for model selection and enforces deterministic decision rules."
+}

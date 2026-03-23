@@ -1,0 +1,34 @@
+{
+  "row_count": 5,
+  "required_non_null": [
+    "applicant_id",
+    "intake_date",
+    "program_track",
+    "household_members"
+  ],
+  "unique_subset": [
+    "applicant_id",
+    "intake_date",
+    "program_track",
+    "pledge_amount"
+  ],
+  "numeric_columns": [
+    "household_members",
+    "pledge_amount"
+  ],
+  "max_values": {
+    "pledge_amount": 3000
+  },
+  "min_values": {
+    "household_members": 2
+  },
+  "value_checks": [
+    {
+      "match": {
+        "applicant_id": "A-104"
+      },
+      "column": "counselor_email",
+      "value": "stem.two@example.edu"
+    }
+  ]
+}

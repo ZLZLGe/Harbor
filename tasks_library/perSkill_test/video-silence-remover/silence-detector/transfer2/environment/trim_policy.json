@@ -1,0 +1,9 @@
+{
+  "threshold_multiplier": 1.5,
+  "initial_window": 10,
+  "smoothing_window": 1,
+  "safety_buffer_seconds": 2,
+  "min_publish_start_second": 20,
+  "max_publish_start_second": 30,
+  "energies_file": "/root/module_energies.json"
+}

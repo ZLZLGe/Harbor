@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Filler Window Montage"
+description = "Build a montage by extracting specified filler windows from an interview video."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "media-processing"
+tags = ["video", "editing", "segments", "montage"]
+primary_output_file = "/root/similar_filler_montage.mp4"
+source_task_id = "video-filler-word-remover"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

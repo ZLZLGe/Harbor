@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-silence-remover",
+  "derived_task_id": "transfer3",
+  "task_role": "transfer",
+  "title": "Transfer - Silence QC Flag Pack",
+  "goal": "Detect initial silence for a recording batch and assign deterministic QC flags.",
+  "primary_output_file": "/root/silence_qc_flags.json",
+  "difficulty": "medium",
+  "category": "audio-analysis",
+  "skill_benefit_rationale": "The task applies silence boundary detection to operational quality-control labeling."
+}

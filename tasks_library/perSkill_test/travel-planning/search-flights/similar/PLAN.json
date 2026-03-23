@@ -1,0 +1,11 @@
+{
+  "source_task_id": "travel-planning",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Candidate Roundtrip Flight Brief",
+  "goal": "Compare several candidate roundtrip flight options from the bundled dataset and save the cheapest feasible option within budget.",
+  "primaryOutputFile": "/root/similar_roundtrip_brief.json",
+  "difficulty": "medium",
+  "category": "travel-planning",
+  "skillBenefitRationale": "The task depends on exact origin, destination, and departure-date lookups against the bundled flight data before ranking feasible roundtrip options."
+}

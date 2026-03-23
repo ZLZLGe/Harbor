@@ -1,0 +1,4 @@
+Package	Max_Score	Selected_Source	Blocking_CVEs
+axios	9.0	nvd	2
+braces	7.2	redhat	0
+qs	N/A	none	0

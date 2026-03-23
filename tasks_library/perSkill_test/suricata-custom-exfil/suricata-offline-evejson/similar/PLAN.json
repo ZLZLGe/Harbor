@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Telemetry Alert Digest",
+  "goal": "Run the bundled IDS configuration against a batch of telemetry captures and summarize the resulting alert activity.",
+  "primaryOutputFile": "/root/similar_alert_digest.json",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "The task is closest to the source task because it still revolves around custom telemetry detection and requires offline Suricata execution plus alert inspection across packet captures."
+}

@@ -1,0 +1,6 @@
+{
+  "energies_file": "/root/lecture_energies.json",
+  "threshold_multiplier": 1.6,
+  "initial_window": 12,
+  "smoothing_window": 1
+}

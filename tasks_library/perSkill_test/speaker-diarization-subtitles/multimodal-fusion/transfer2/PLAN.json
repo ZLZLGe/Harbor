@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Diarization Review Queue",
+  "goal": "Identify segments that need manual review when camera evidence disagrees with the current speaker draft or provides too little support.",
+  "primaryOutputFile": "/root/transfer2_review_queue.csv",
+  "source_task_id": "speaker-diarization-subtitles",
+  "skillScope": "multimodal-fusion"
+}

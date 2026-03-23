@@ -1,0 +1,14 @@
+[
+  {
+    "id": "contingency_task07",
+    "domain": "airport/domain07.pddl",
+    "problem": "airport/task07.pddl",
+    "plan_output": "/root/plans/contingency_task07.plan"
+  },
+  {
+    "id": "contingency_task08",
+    "domain": "airport/domain08.pddl",
+    "problem": "airport/task08.pddl",
+    "plan_output": "/root/plans/contingency_task08.plan"
+  }
+]

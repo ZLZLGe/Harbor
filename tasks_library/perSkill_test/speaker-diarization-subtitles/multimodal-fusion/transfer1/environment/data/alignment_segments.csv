@@ -1,0 +1,6 @@
+segment_id,start,end,audio_cluster,subtitle_text
+segA,0.0,1.4,cluster_host,We are live from the lab.
+segB,1.6,3.1,cluster_guest_a,The sensor array is calibrated.
+segC,3.4,4.8,cluster_guest_a,We switched to the backup screen.
+segD,5.0,6.6,cluster_guest_b,The readings are holding steady.
+segE,6.9,8.2,cluster_guest_b,Let's mark this clip for editing.

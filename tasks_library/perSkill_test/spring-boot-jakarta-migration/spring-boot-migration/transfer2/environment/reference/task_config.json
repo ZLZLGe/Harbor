@@ -1,0 +1,45 @@
+{
+  "summary_file": "/root/transfer2_java8_compat_report.md",
+  "summary_title": "Transfer - Remove Java 8 Compatibility Debt",
+  "summary_points": [
+    "Removed Java 8 compiler-era build settings that conflict with the Boot 3 baseline.",
+    "Removed old activation and JAXB compatibility dependencies from the modernized build."
+  ],
+  "summary_must_contain": [
+    "Transfer - Remove Java 8 Compatibility Debt",
+    "Removed Java 8 compiler-era build settings that conflict with the Boot 3 baseline.",
+    "Removed old activation and JAXB compatibility dependencies from the modernized build."
+  ],
+  "copy_operations": [
+    {
+      "source": "pom.xml",
+      "target": "pom.xml"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "pom.xml",
+      "must_contain": [
+        "<version>3.2.0</version>",
+        "<java.version>21</java.version>",
+        "<artifactId>jjwt-api</artifactId>",
+        "<artifactId>jjwt-impl</artifactId>",
+        "<artifactId>jjwt-jackson</artifactId>"
+      ],
+      "must_not_contain": [
+        "<artifactId>jjwt</artifactId>",
+        "javax.xml.bind",
+        "javax.activation",
+        "<maven.compiler.source>1.8</maven.compiler.source>",
+        "<maven.compiler.target>1.8</maven.compiler.target>"
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

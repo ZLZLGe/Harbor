@@ -1,0 +1,9 @@
+member_id,age,household_income,newsletter_opt_in,membership_tier,region,months_active,legacy_score
+M-101,29,52000,Yes,Bronze,East,8,1
+M-102,41,68000,No,Silver,North,15,1
+M-103,35,61000,Yes,Gold,South,11,1
+M-104,52,87000,No,Gold,North,27,1
+M-105,24,47000,Yes,Bronze,South,5,1
+M-106,46,72000,No,Silver,East,19,1
+M-107,33,59000,Yes,Bronze,North,9,1
+M-108,38,76000,Yes,Gold,South,17,1

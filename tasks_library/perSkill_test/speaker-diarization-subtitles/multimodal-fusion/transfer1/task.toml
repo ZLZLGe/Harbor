@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Camera Cue Alignment Manifest"
+description = "Fuse subtitle cue drafts with camera events to assign a final visible speaker and supporting evidence."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "audio-visual"
+tags = ["speaker-alignment", "camera-cues", "timeline", "json"]
+primary_output_file = "/root/transfer1_alignment_manifest.json"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 1024
+storage_mb = 1024
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

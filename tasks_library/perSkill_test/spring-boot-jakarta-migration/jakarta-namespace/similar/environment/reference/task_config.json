@@ -1,0 +1,63 @@
+{
+  "summary_file": "/root/similar_namespace_sweep_report.md",
+  "summary_title": "Similar - Finish Entity Namespace Sweep",
+  "summary_points": [
+    "Migrated persistence imports from javax.persistence to jakarta.persistence.",
+    "Migrated validation imports from javax.validation to jakarta.validation."
+  ],
+  "summary_must_contain": [
+    "Similar - Finish Entity Namespace Sweep",
+    "Migrated persistence imports from javax.persistence to jakarta.persistence.",
+    "Migrated validation imports from javax.validation to jakarta.validation."
+  ],
+  "copy_operations": [
+    {
+      "source": "src/main/java/com/example/userservice/controller/UserController.java",
+      "target": "src/main/java/com/example/userservice/controller/UserController.java"
+    },
+    {
+      "source": "src/main/java/com/example/userservice/dto/CreateUserRequest.java",
+      "target": "src/main/java/com/example/userservice/dto/CreateUserRequest.java"
+    },
+    {
+      "source": "src/main/java/com/example/userservice/model/User.java",
+      "target": "src/main/java/com/example/userservice/model/User.java"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "src/main/java/com/example/userservice/model/User.java",
+      "must_contain": [
+        "jakarta.persistence"
+      ],
+      "must_not_contain": [
+        "javax.persistence"
+      ]
+    },
+    {
+      "path": "src/main/java/com/example/userservice/dto/CreateUserRequest.java",
+      "must_contain": [
+        "jakarta.validation"
+      ],
+      "must_not_contain": [
+        "javax.validation"
+      ]
+    },
+    {
+      "path": "src/main/java/com/example/userservice/controller/UserController.java",
+      "must_contain": [
+        "jakarta.validation.Valid"
+      ],
+      "must_not_contain": [
+        "javax.validation.Valid"
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

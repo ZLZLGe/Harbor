@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Editorial Pause Audit",
+  "goal": "Run pause detection and publish an editorial QA summary with top long pauses.",
+  "primaryOutputFile": "/root/transfer1_editorial_pause_audit.json",
+  "source_task_id": "video-silence-remover",
+  "skillScope": "pause-detector"
+}

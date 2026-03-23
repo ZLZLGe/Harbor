@@ -1,0 +1,8 @@
+item_id,shift_date,ward,units_used,restock_note,supervisor_email
+IV-100,2021-06-01,ICU,22,reorder in 2 days,nurse.icu@example.org
+IV-100,2021-06-01,ICU,22,reorder in 2 days,nurse.icu@example.org
+MASK-20,2021-06-01,ER,45,need refill in 1 day, lead.er@example.org 
+GLOVE-9,2021-06-02,,30,restock within 3 days,supply@example.org
+PPE-77,2021-06-03,Respiratory,500,,resp.team@example.org
+KIT-11,2021-06-04,ICU,18,reorder in 4 days,icu.backup@example.org
+BAND-5,2021-06-05,Pediatrics,12,reorder in 5 days,child ward <peds@example.org>

@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "spring-boot-migration",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Restore Validation and Dependency Alignment",
+  "goal": "Restore the missing starter and modern dependency set expected by the Boot 3 service.",
+  "primaryOutputFile": "/root/transfer3_dependency_alignment_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Spring Boot 2.x to 3.x migration checklist is applied carefully."
+}

@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Quiet Interval Extraction",
+  "goal": "Detect and summarize contiguous low-energy intervals in a diagnostic recording.",
+  "primaryOutputFile": "/root/transfer2_quiet_intervals.json",
+  "difficulty": "medium",
+  "category": "audio-analysis",
+  "skillBenefitRationale": "Second-level RMS values provide the foundation for interval segmentation."
+}

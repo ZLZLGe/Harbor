@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-silence-remover",
+  "derived_task_id": "transfer1",
+  "task_role": "transfer",
+  "title": "Transfer - Reviewer Merge Audit Manifest",
+  "goal": "Consolidate three reviewer segment lists and publish an audit manifest with per-reviewer totals.",
+  "primary_output_file": "/root/transfer1_review_manifest.json",
+  "difficulty": "medium",
+  "category": "media-processing",
+  "skill_benefit_rationale": "The task transfers segment consolidation to a reconciliation workflow with reviewer-level auditing."
+}

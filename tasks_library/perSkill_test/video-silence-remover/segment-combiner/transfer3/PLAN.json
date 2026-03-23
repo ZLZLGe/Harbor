@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-silence-remover",
+  "derived_task_id": "transfer3",
+  "task_role": "transfer",
+  "title": "Transfer - Channel Trim Budget Ranking",
+  "goal": "Run per-channel segment merges and export a trim-budget ranking CSV.",
+  "primary_output_file": "/root/transfer3_trim_budget_report.csv",
+  "difficulty": "medium",
+  "category": "reporting",
+  "skill_benefit_rationale": "The task applies the same segment merge operation repeatedly across channels before computing ranking metrics."
+}

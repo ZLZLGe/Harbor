@@ -1,0 +1,14 @@
+[
+  {
+    "id": "similar_task01",
+    "domain": "airport/domain01.pddl",
+    "problem": "airport/task01.pddl",
+    "plan_output": "/root/plans/similar_dispatch_task01.plan"
+  },
+  {
+    "id": "similar_task02",
+    "domain": "airport/domain02.pddl",
+    "problem": "airport/task02.pddl",
+    "plan_output": "/root/plans/similar_dispatch_task02.plan"
+  }
+]

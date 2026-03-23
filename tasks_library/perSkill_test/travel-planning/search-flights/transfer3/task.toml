@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Same-Day Connection Screen"
+description = "Evaluate multi-leg same-day connection candidates and save the cheapest feasible option as JSON."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "travel-planning"
+tags = ["connections", "flights", "json", "time-windows"]
+primary_output_file = "/root/transfer3_connection_screen.json"
+source_task_id = "travel-planning"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

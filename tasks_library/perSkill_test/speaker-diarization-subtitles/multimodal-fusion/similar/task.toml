@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Multi-Camera Diarization Repair"
+description = "Fuse segment drafts with camera observations to produce corrected diarization, subtitles, and a verifier report."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "audio-visual"
+tags = ["speaker-diarization", "subtitles", "timeline-alignment", "video"]
+primary_output_file = "/root/diarization.rttm"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 1024
+storage_mb = 1024
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

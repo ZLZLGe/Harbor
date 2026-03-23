@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "spring-boot-migration",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Remove Java 8 Compatibility Debt",
+  "goal": "Strip legacy compiler and activation-era compatibility settings from the Boot 3 build.",
+  "primaryOutputFile": "/root/transfer2_java8_compat_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Spring Boot 2.x to 3.x migration checklist is applied carefully."
+}

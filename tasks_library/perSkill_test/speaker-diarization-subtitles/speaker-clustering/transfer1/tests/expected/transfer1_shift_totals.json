@@ -1,0 +1,13 @@
+{
+  "durations_sec": {
+    "speaker_01": 2.3,
+    "speaker_02": 1.98,
+    "speaker_03": 1.55
+  },
+  "segments_per_speaker": {
+    "speaker_01": 3,
+    "speaker_02": 3,
+    "speaker_03": 2
+  },
+  "speaker_count": 3
+}

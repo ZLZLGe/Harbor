@@ -1,0 +1,10 @@
+{
+  "threshold_multiplier": 1.7,
+  "initial_window": 6,
+  "smoothing_window": 1,
+  "clips": [
+    {"clip_id": "alpha", "energies_file": "/root/clip_alpha_energies.json"},
+    {"clip_id": "beta", "energies_file": "/root/clip_beta_energies.json"},
+    {"clip_id": "gamma", "energies_file": "/root/clip_gamma_energies.json"}
+  ]
+}

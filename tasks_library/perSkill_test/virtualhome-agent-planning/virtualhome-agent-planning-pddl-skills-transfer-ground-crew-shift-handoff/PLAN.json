@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-ground-crew-shift-handoff",
+  "taskRole": "transfer",
+  "title": "Transfer - Ground Crew Shift Handoff",
+  "goal": "Generate valid PDDL plans for all listed airport planning cases.",
+  "primaryOutputFile": "/root/plans/handoff_shift_task05.plan",
+  "skillScope": "pddl-skills"
+}

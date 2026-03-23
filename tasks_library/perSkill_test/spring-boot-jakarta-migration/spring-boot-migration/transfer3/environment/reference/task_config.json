@@ -1,0 +1,41 @@
+{
+  "summary_file": "/root/transfer3_dependency_alignment_report.md",
+  "summary_title": "Transfer - Restore Validation and Dependency Alignment",
+  "summary_points": [
+    "Restored the Boot 3 validation starter that the service still depends on.",
+    "Realigned the JWT dependency set with the modular artifacts expected on the modern build."
+  ],
+  "summary_must_contain": [
+    "Transfer - Restore Validation and Dependency Alignment",
+    "Restored the Boot 3 validation starter that the service still depends on.",
+    "Realigned the JWT dependency set with the modular artifacts expected on the modern build."
+  ],
+  "copy_operations": [
+    {
+      "source": "pom.xml",
+      "target": "pom.xml"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "pom.xml",
+      "must_contain": [
+        "<artifactId>spring-boot-starter-validation</artifactId>",
+        "<artifactId>jjwt-api</artifactId>",
+        "<artifactId>jjwt-impl</artifactId>",
+        "<artifactId>jjwt-jackson</artifactId>"
+      ],
+      "must_not_contain": [
+        "<artifactId>jjwt</artifactId>",
+        "javax.xml.bind"
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

@@ -1,0 +1,4 @@
+clip_id,silence_seconds,has_preroll,rank
+beta,16,yes,1
+alpha,10,yes,2
+gamma,0,no,3

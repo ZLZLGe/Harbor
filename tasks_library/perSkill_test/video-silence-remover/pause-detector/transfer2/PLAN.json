@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Multi Session Break Index",
+  "goal": "Batch-run pause detection and produce a cross-session break summary CSV.",
+  "primaryOutputFile": "/root/transfer2_pause_break_index.csv",
+  "source_task_id": "video-silence-remover",
+  "skillScope": "pause-detector"
+}

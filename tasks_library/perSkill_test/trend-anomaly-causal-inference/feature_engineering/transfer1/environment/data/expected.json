@@ -1,0 +1,30 @@
+{
+  "row_count": 8,
+  "required_columns": [
+    "volunteered_last_year",
+    "donor_segment_Growth",
+    "donor_segment_Occasional",
+    "channel_pref_Phone",
+    "channel_pref_SMS",
+    "annual_gift_x_calls_completed"
+  ],
+  "removed_columns": [
+    "donor_segment",
+    "channel_pref",
+    "campaign_cycle"
+  ],
+  "binary_columns": [
+    "volunteered_last_year"
+  ],
+  "minmax_columns": [
+    "annual_gift",
+    "calls_completed"
+  ],
+  "value_checks": [
+    {
+      "id": "D-208",
+      "column": "donor_segment_Growth",
+      "value": 1
+    }
+  ]
+}

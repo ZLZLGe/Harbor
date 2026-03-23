@@ -1,0 +1,76 @@
+[
+  {
+    "speaker": "agent",
+    "turn_start": 0.0,
+    "words": [
+      {"word": "thanks", "start": 0.40, "end": 0.62},
+      {"word": "for", "start": 0.70, "end": 0.80},
+      {"word": "calling", "start": 0.84, "end": 1.14},
+      {"word": "um", "start": 2.10, "end": 2.34},
+      {"word": "can", "start": 2.58, "end": 2.72},
+      {"word": "i", "start": 2.76, "end": 2.82},
+      {"word": "get", "start": 2.88, "end": 3.00},
+      {"word": "your", "start": 3.04, "end": 3.14},
+      {"word": "account", "start": 3.20, "end": 3.54},
+      {"word": "you", "start": 8.10, "end": 8.22},
+      {"word": "know", "start": 8.28, "end": 8.50},
+      {"word": "the", "start": 8.72, "end": 8.82},
+      {"word": "email", "start": 8.88, "end": 9.18},
+      {"word": "like", "start": 16.00, "end": 16.22},
+      {"word": "the", "start": 16.44, "end": 16.52},
+      {"word": "one", "start": 16.58, "end": 16.74},
+      {"word": "used", "start": 16.78, "end": 16.96},
+      {"word": "at", "start": 17.00, "end": 17.08},
+      {"word": "signup", "start": 17.12, "end": 17.42}
+    ]
+  },
+  {
+    "speaker": "customer",
+    "turn_start": 30.0,
+    "words": [
+      {"word": "i", "start": 31.20, "end": 31.28},
+      {"word": "mean", "start": 31.34, "end": 31.52},
+      {"word": "it", "start": 31.70, "end": 31.80},
+      {"word": "stopped", "start": 31.86, "end": 32.14},
+      {"word": "working", "start": 32.18, "end": 32.48},
+      {"word": "so", "start": 36.40, "end": 36.56},
+      {"word": "i", "start": 36.78, "end": 36.86},
+      {"word": "reset", "start": 36.92, "end": 37.18},
+      {"word": "it", "start": 37.22, "end": 37.30},
+      {"word": "basically", "start": 42.10, "end": 42.52},
+      {"word": "twice", "start": 42.74, "end": 43.00},
+      {"word": "well", "start": 49.40, "end": 49.66},
+      {"word": "maybe", "start": 49.86, "end": 50.08},
+      {"word": "three", "start": 50.14, "end": 50.34},
+      {"word": "yeah", "start": 56.22, "end": 56.46},
+      {"word": "that", "start": 56.70, "end": 56.84},
+      {"word": "is", "start": 56.88, "end": 56.98},
+      {"word": "right", "start": 57.04, "end": 57.24}
+    ]
+  },
+  {
+    "speaker": "agent",
+    "turn_start": 60.0,
+    "words": [
+      {"word": "kind", "start": 61.10, "end": 61.24},
+      {"word": "of", "start": 61.30, "end": 61.40},
+      {"word": "sounds", "start": 61.62, "end": 61.88},
+      {"word": "like", "start": 62.00, "end": 62.24},
+      {"word": "a", "start": 62.46, "end": 62.52},
+      {"word": "token", "start": 62.56, "end": 62.80},
+      {"word": "issue", "start": 62.84, "end": 63.08},
+      {"word": "i", "start": 66.40, "end": 66.48},
+      {"word": "guess", "start": 66.56, "end": 66.72},
+      {"word": "we", "start": 66.90, "end": 67.02},
+      {"word": "can", "start": 67.06, "end": 67.16},
+      {"word": "reissue", "start": 67.22, "end": 67.56},
+      {"word": "uh", "start": 71.42, "end": 71.58},
+      {"word": "a", "start": 71.82, "end": 71.88},
+      {"word": "fresh", "start": 71.94, "end": 72.18},
+      {"word": "token", "start": 72.24, "end": 72.46},
+      {"word": "okay", "start": 79.08, "end": 79.30},
+      {"word": "please", "start": 79.56, "end": 79.76},
+      {"word": "wait", "start": 79.82, "end": 80.00}
+    ]
+  }
+]

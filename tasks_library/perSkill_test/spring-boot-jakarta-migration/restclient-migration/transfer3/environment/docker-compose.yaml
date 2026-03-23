@@ -1,0 +1,3 @@
+services:
+  main:
+    image: hb-spring-boot-jakarta-migration-restclient-migration-transfer3

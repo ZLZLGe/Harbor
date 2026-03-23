@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Restore Validation and Dependency Alignment"
+description = "Repair a Boot 3 build that dropped validation support while keeping legacy JWT wiring."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["migration", "spring-boot", "boot", "transfer"]
+primary_output_file = "/root/transfer3_dependency_alignment_report.md"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 360.0
+
+[agent]
+timeout_sec = 360.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

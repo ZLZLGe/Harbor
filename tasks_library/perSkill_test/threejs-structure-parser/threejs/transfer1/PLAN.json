@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Three.js Robot URDF Pack",
+  "goal": "Convert a Three.js inspection robot scene into merged per-link OBJ meshes and a deterministic fixed-joint URDF.",
+  "primaryOutputFile": "/root/output/robot_arm.urdf",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "The task depends on named-group link discovery, parent-child articulation extraction, baked mesh export, and deterministic URDF assembly."
+}

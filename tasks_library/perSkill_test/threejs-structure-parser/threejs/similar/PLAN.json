@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Three.js Ride Export Baseline",
+  "goal": "Parse a Three.js ride scene into part-level mesh folders, merged link OBJ files, and a part inventory summary.",
+  "primaryOutputFile": "/root/output/part_inventory.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "The task depends on named-group partitioning, nearest named ancestor ownership, baked world transforms, and deterministic OBJ export."
+}

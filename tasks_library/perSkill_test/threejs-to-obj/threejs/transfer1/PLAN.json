@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Inspection Rig URDF Pack",
+  "goal": "Build a fixed-joint URDF and per-link OBJ mesh pack from a Three.js link hierarchy.",
+  "primaryOutputFile": "/root/output/inspection_rig.urdf",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "This transfers the threejs skill into articulation packaging by using named groups as links and nearest named ancestors as joint parents."
+}

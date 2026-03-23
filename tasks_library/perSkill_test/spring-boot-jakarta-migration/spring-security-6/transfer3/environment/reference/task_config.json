@@ -1,0 +1,43 @@
+{
+  "summary_file": "/root/transfer3_security_exception_report.md",
+  "summary_title": "Transfer - Update Exception and Header Configuration",
+  "summary_points": [
+    "Converted exception handling onto the Spring Security 6 lambda API.",
+    "Converted the H2 console header exceptions onto the modern headers configuration style."
+  ],
+  "summary_must_contain": [
+    "Transfer - Update Exception and Header Configuration",
+    "Converted exception handling onto the Spring Security 6 lambda API.",
+    "Converted the H2 console header exceptions onto the modern headers configuration style."
+  ],
+  "copy_operations": [
+    {
+      "source": "src/main/java/com/example/userservice/config/SecurityConfig.java",
+      "target": "src/main/java/com/example/userservice/config/SecurityConfig.java"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "src/main/java/com/example/userservice/config/SecurityConfig.java",
+      "must_contain": [
+        "SecurityFilterChain",
+        "EnableMethodSecurity",
+        "requestMatchers(",
+        "AuthenticationConfiguration"
+      ],
+      "must_not_contain": [
+        "WebSecurityConfigurerAdapter",
+        "EnableGlobalMethodSecurity",
+        "antMatchers(",
+        "authorizeRequests("
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

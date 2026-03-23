@@ -1,0 +1,16 @@
+{
+  "const_file": "sys/linux/dev_capring.txt.const",
+  "arch_line": "arches = amd64, 386",
+  "constants": {
+    "CAPRING_SET_SLOT": 1074029360,
+    "CAPRING_GET_SLOT": 2147771185,
+    "CAPRING_SUBMIT": 1074291506,
+    "CAPRING_ENABLE_TRACE": 25395,
+    "CAPRING_TRACE_BURST": 1,
+    "CAPRING_TRACE_LOSSY": 2
+  },
+  "forbidden_substrings": [
+    "TODO",
+    "???"
+  ]
+}

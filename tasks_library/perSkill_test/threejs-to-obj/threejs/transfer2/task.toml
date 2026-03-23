@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Link Ownership Audit"
+description = "Audit named-group ownership and world-space bounds for the bundled line fixture scene."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["threejs", "scene-graph", "json", "analysis", "javascript"]
+primary_output_file = "/root/output/link_audit.json"
+source_task_id = "threejs-to-obj"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 8192
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

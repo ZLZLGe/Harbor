@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "feature_engineering",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Donor Profile Feature Pack",
+  "goal": "Engineer a numeric donor-profile table for campaign response modeling.",
+  "primaryOutputFile": "/root/transfer1_donor_features.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the feature_engineering skill is applied correctly."
+}

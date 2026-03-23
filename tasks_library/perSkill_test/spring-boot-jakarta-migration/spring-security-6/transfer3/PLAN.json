@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "spring-security-6",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Update Exception and Header Configuration",
+  "goal": "Bring exception handling and header configuration onto the modern lambda-based API.",
+  "primaryOutputFile": "/root/transfer3_security_exception_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Spring Security 6 migration guidance is applied correctly."
+}

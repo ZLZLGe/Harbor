@@ -1,0 +1,21 @@
+{
+  "total_segments": 6,
+  "total_duration_seconds": 41,
+  "has_overlaps": true,
+  "overlap_alerts": [
+    {
+      "first_segment": {"start": 10, "end": 20, "duration": 10},
+      "second_segment": {"start": 18, "end": 24, "duration": 6},
+      "overlap": {"start": 18, "end": 20, "duration": 2}
+    },
+    {
+      "first_segment": {"start": 40, "end": 48, "duration": 8},
+      "second_segment": {"start": 47, "end": 52, "duration": 5},
+      "overlap": {"start": 47, "end": 48, "duration": 1}
+    }
+  ],
+  "non_overlapping_segments": [
+    {"start": 90, "end": 95, "duration": 5},
+    {"start": 120, "end": 127, "duration": 7}
+  ]
+}

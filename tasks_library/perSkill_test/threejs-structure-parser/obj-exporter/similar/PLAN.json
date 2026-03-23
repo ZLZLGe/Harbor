@@ -1,0 +1,11 @@
+{
+  "source_task_id": "threejs-structure-parser",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Tower Component OBJ Handoff",
+  "goal": "Parse the bundled Three.js tower scene, export per-component mesh OBJ files plus merged component OBJ files, and write a manifest JSON.",
+  "primaryOutputFile": "/root/similar_component_manifest.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "The task hinges on exporting world-transformed meshes and merged named-group components into OBJ files with correct hierarchy ownership."
+}

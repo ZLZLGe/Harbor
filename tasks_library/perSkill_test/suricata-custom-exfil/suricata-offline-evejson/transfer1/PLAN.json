@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Incident Queue CSV",
+  "goal": "Run the supplied IDS stack across a capture set and turn alert activity into a ranked queue for incident routing.",
+  "primaryOutputFile": "/root/transfer1_incident_queue.csv",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "This task transfers the offline Suricata workflow into a queueing problem where alert events from captures must be combined with ticket metadata and weighted scores."
+}

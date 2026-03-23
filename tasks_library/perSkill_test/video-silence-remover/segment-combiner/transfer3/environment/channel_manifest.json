@@ -1,0 +1,26 @@
+{
+  "budget_seconds": 20,
+  "channels": [
+    {
+      "channel_id": "alpha",
+      "segment_files": [
+        "/root/alpha_intro.json",
+        "/root/alpha_pause.json"
+      ]
+    },
+    {
+      "channel_id": "beta",
+      "segment_files": [
+        "/root/beta_intro.json",
+        "/root/beta_pause.json"
+      ]
+    },
+    {
+      "channel_id": "gamma",
+      "segment_files": [
+        "/root/gamma_intro.json",
+        "/root/gamma_pause.json"
+      ]
+    }
+  ]
+}

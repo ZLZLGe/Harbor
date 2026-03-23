@@ -1,0 +1,11 @@
+{
+  "source_task_id": "spring-boot-jakarta-migration",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - User Roster Namespace Repair",
+  "goal": "Repair the user roster service so its remaining Java EE imports are migrated and write /root/similar_namespace_report.json.",
+  "primaryOutputFile": "/root/similar_namespace_report.json",
+  "difficulty": "medium",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This stays close to the source task: the upgraded user-service code still contains entity, validation, and servlet imports that must move out of the old namespace."
+}

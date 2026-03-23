@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "spring-security-6",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Migrate Matcher DSL Usage",
+  "goal": "Convert matcher configuration onto requestMatchers and the lambda DSL.",
+  "primaryOutputFile": "/root/transfer1_security_matcher_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Spring Security 6 migration guidance is applied correctly."
+}

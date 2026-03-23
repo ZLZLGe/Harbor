@@ -1,0 +1,43 @@
+{
+  "summary_file": "/root/transfer2_method_security_report.md",
+  "summary_title": "Transfer - Restore Method Security Wiring",
+  "summary_points": [
+    "Replaced the removed global method security annotation with the Spring Security 6 method-security variant.",
+    "Restored the authentication manager wiring expected by the upgraded configuration model."
+  ],
+  "summary_must_contain": [
+    "Transfer - Restore Method Security Wiring",
+    "Replaced the removed global method security annotation with the Spring Security 6 method-security variant.",
+    "Restored the authentication manager wiring expected by the upgraded configuration model."
+  ],
+  "copy_operations": [
+    {
+      "source": "src/main/java/com/example/userservice/config/SecurityConfig.java",
+      "target": "src/main/java/com/example/userservice/config/SecurityConfig.java"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "src/main/java/com/example/userservice/config/SecurityConfig.java",
+      "must_contain": [
+        "SecurityFilterChain",
+        "EnableMethodSecurity",
+        "requestMatchers(",
+        "AuthenticationConfiguration"
+      ],
+      "must_not_contain": [
+        "WebSecurityConfigurerAdapter",
+        "EnableGlobalMethodSecurity",
+        "antMatchers(",
+        "authorizeRequests("
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

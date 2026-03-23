@@ -1,0 +1,11 @@
+{
+  "source_task_id": "travel-planning",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Flight Request Manifest Fill",
+  "goal": "Resolve a list of exact route-date requests against the bundled flight dataset and write the cheapest matching flight for each row to a CSV manifest.",
+  "primaryOutputFile": "/root/transfer1_manifest.csv",
+  "difficulty": "medium",
+  "category": "travel-planning",
+  "skillBenefitRationale": "The task relies on repeated route-and-date flight lookups and deterministic tie-breaking for the cheapest available match."
+}

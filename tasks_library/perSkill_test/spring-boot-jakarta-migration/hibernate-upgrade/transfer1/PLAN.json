@@ -1,0 +1,11 @@
+{
+  "source_task_id": "spring-boot-jakarta-migration",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Warehouse Dock Query Repair",
+  "goal": "Finish a warehouse dock assignment migration by fixing a stricter Hibernate 6 repository query and its lingering Jakarta persistence imports.",
+  "primaryOutputFile": "/root/transfer1_query_fix.json",
+  "difficulty": "medium",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "The task transfers the Hibernate 6 migration skill to a different warehouse domain by requiring a stricter JPQL path fix and Jakarta persistence imports."
+}

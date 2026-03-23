@@ -1,0 +1,7 @@
+{
+  "segments": [
+    {"start": 10, "end": 20, "duration": 10},
+    {"start": 40, "end": 48, "duration": 8},
+    {"start": 90, "end": 95, "duration": 5}
+  ]
+}

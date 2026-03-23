@@ -1,0 +1,30 @@
+{
+  "row_count": 8,
+  "required_columns": [
+    "portal_active",
+    "triage_band_Routine",
+    "triage_band_Urgent",
+    "district_East",
+    "district_West",
+    "bmi_x_visits_last_year"
+  ],
+  "removed_columns": [
+    "triage_band",
+    "district",
+    "file_version"
+  ],
+  "binary_columns": [
+    "portal_active"
+  ],
+  "minmax_columns": [
+    "bmi",
+    "visits_last_year"
+  ],
+  "value_checks": [
+    {
+      "id": "P-408",
+      "column": "triage_band_Urgent",
+      "value": 1
+    }
+  ]
+}

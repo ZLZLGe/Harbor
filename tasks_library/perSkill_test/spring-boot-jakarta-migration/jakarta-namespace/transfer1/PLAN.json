@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "jakarta-namespace",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Repair Service Layer Imports",
+  "goal": "Update remaining service-side Java EE imports to Jakarta without changing behavior.",
+  "primaryOutputFile": "/root/transfer1_service_namespace_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Jakarta namespace migration rules are applied carefully."
+}

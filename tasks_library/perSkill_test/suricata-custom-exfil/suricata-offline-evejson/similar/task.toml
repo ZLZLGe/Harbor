@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Telemetry Alert Digest"
+description = "Analyze the supplied telemetry packet captures with the bundled IDS assets and publish an alert digest as JSON."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["suricata", "pcap", "ids", "json", "triage"]
+primary_output_file = "/root/similar_alert_digest.json"
+source_task_id = "suricata-custom-exfil"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

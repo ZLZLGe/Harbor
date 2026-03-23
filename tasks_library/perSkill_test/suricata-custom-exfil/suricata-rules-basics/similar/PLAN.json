@@ -1,0 +1,13 @@
+{
+  "source_task_id": "suricata-custom-exfil",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Suricata Export Submit Rule",
+  "goal": "Write one HTTP Suricata rule that alerts only on the custom export submit pattern in the bundled PCAPs.",
+  "primaryOutputFile": "/root/similar.rules",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "This task stays close to the source task and depends on composing an HTTP rule with method, URI, header, and body conditions.",
+  "targetSkillDirName": "suricata-rules-basics",
+  "targetSkillName": "suricata-rules-basics"
+}

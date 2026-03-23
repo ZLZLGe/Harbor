@@ -1,0 +1,37 @@
+[
+  {
+    "segment_id": "seg01",
+    "start": 0.0,
+    "end": 1.8,
+    "audio_label": "cluster_a",
+    "transcript": "Welcome back everyone."
+  },
+  {
+    "segment_id": "seg02",
+    "start": 1.9,
+    "end": 4.0,
+    "audio_label": "cluster_b",
+    "transcript": "Thanks for having me here."
+  },
+  {
+    "segment_id": "seg03",
+    "start": 4.2,
+    "end": 6.0,
+    "audio_label": "cluster_b",
+    "transcript": "The prototype is stable now."
+  },
+  {
+    "segment_id": "seg04",
+    "start": 6.3,
+    "end": 7.9,
+    "audio_label": "cluster_c",
+    "transcript": "Can you show the dashboard?"
+  },
+  {
+    "segment_id": "seg05",
+    "start": 8.1,
+    "end": 10.6,
+    "audio_label": "cluster_b",
+    "transcript": "Yes the dashboard is on screen."
+  }
+]

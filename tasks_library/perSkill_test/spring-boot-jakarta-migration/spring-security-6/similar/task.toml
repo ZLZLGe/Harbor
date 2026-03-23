@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Replace Deprecated Security Adapter"
+description = "Move the service off the deprecated WebSecurityConfigurerAdapter configuration style."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["migration", "spring-boot", "security", "similar"]
+primary_output_file = "/root/similar_security_adapter_report.md"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 360.0
+
+[agent]
+timeout_sec = 360.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

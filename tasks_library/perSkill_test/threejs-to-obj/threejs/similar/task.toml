@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Named Part OBJ Pack"
+description = "Export one OBJ per non-empty named group and write a manifest for the bundled cabinet scene."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["threejs", "scene-graph", "obj", "javascript", "parts"]
+primary_output_file = "/root/output/part_manifest.json"
+source_task_id = "threejs-to-obj"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 8192
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

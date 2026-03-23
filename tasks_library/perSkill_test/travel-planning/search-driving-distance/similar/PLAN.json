@@ -1,0 +1,11 @@
+{
+  "source_task_id": "travel-planning",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Ohio Self-Drive Route Recommendation",
+  "goal": "Compare three Ohio road-trip candidate loops from Minneapolis and choose the shortest driving route using the bundled lookup.",
+  "primaryOutputFile": "/root/similar_route_recommendation.json",
+  "difficulty": "medium",
+  "category": "travel-planning",
+  "skillBenefitRationale": "The task keeps the source task's road-trip planning flavor but narrows the work to selecting a route by querying real city-to-city driving durations and distances from the bundled lookup."
+}

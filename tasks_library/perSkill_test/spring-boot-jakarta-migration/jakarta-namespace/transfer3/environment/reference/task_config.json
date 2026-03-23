@@ -1,0 +1,60 @@
+{
+  "summary_file": "/root/transfer3_namespace_guardrail_report.md",
+  "summary_title": "Transfer - Sweep Jakarta Imports Without Touching JDK APIs",
+  "summary_points": [
+    "Migrated only Java EE imports into the Jakarta namespace.",
+    "Left JDK javax.crypto imports untouched because they are not part of the Jakarta migration."
+  ],
+  "summary_must_contain": [
+    "Transfer - Sweep Jakarta Imports Without Touching JDK APIs",
+    "Migrated only Java EE imports into the Jakarta namespace.",
+    "Left JDK javax.crypto imports untouched because they are not part of the Jakarta migration."
+  ],
+  "copy_operations": [
+    {
+      "source": "src/main/java/com/example/userservice/dto/CreateUserRequest.java",
+      "target": "src/main/java/com/example/userservice/dto/CreateUserRequest.java"
+    },
+    {
+      "source": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java",
+      "target": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "src/main/java/com/example/userservice/dto/CreateUserRequest.java",
+      "must_contain": [
+        "jakarta.validation.constraints.NotBlank"
+      ],
+      "must_not_contain": [
+        "javax.validation.constraints.NotBlank"
+      ]
+    },
+    {
+      "path": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java",
+      "must_contain": [
+        "jakarta.servlet.http.HttpServletRequest"
+      ],
+      "must_not_contain": [
+        "javax.servlet.http.HttpServletRequest"
+      ]
+    },
+    {
+      "path": "src/main/java/com/example/userservice/config/JwtDigestHelper.java",
+      "must_contain": [
+        "javax.crypto.Mac",
+        "javax.crypto.spec.SecretKeySpec"
+      ],
+      "must_not_contain": [
+        "jakarta.crypto"
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

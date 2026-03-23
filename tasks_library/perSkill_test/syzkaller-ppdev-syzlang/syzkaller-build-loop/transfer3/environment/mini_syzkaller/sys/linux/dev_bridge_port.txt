@@ -1,0 +1,8 @@
+include <linux/if.h>
+
+resource fd_bridge[fd]
+
+syz_open_dev$bridgectl(dev ptr[in, string["/dev/bridgectl#"]], id intptr, flags flags[open_flags]) fd_bridge
+
+ioctl$BPORT_QUERY_PORT(fd fd_bridge, cmd const[BPORT_QUERY_PORT], arg ptr[in, int16])
+ioctl$BPORT_GET_INDEX(fd fd_bridge, cmd const[BPORT_GET_INDEX], arg ptr[in, int16])

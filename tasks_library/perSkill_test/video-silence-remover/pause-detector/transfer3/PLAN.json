@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Joint Pause Overlap Windows",
+  "goal": "Run pause detection on two parallel tracks and compute overlap windows.",
+  "primaryOutputFile": "/root/transfer3_overlap_windows.json",
+  "source_task_id": "video-silence-remover",
+  "skillScope": "pause-detector"
+}

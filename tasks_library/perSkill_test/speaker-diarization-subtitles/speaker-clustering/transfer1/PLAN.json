@@ -1,0 +1,14 @@
+{
+  "category": "audio-visual",
+  "derivedTaskId": "transfer1",
+  "difficulty": "medium",
+  "goal": "Group radio dispatch signatures into three stable voices and write a per-segment manifest with speaker totals.",
+  "primaryOutputFile": "/root/output/transfer1_speaker_manifest.csv",
+  "skillBenefitRationale": "This task depends on grouping segment-level voice signatures into stable speaker identities with only the shipped speaker-clustering skill available.",
+  "skillMode": "per-skill",
+  "sourceTaskId": "speaker-diarization-subtitles",
+  "targetSkillDirName": "speaker-clustering",
+  "targetSkillName": "Speaker Clustering Methods",
+  "taskRole": "transfer",
+  "title": "Transfer - Dispatch Voice Manifest"
+}

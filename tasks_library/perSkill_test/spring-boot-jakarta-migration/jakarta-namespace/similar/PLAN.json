@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "jakarta-namespace",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Finish Entity Namespace Sweep",
+  "goal": "Update the remaining persistence and validation imports to the Jakarta namespace.",
+  "primaryOutputFile": "/root/similar_namespace_sweep_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Jakarta namespace migration rules are applied carefully."
+}

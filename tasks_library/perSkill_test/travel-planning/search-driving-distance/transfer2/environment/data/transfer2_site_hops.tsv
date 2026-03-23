@@ -1,0 +1,6 @@
+lane_id	origin	destination	max_duration_minutes
+SE-11	Atlanta	Charlotte	240
+SE-12	Charlotte	Jacksonville	330
+SE-13	Orlando	Tampa	90
+SE-14	Miami	Jacksonville	300
+SE-15	Tampa	Miami	240

@@ -1,0 +1,43 @@
+{
+  "summary_file": "/root/similar_security_adapter_report.md",
+  "summary_title": "Similar - Replace Deprecated Security Adapter",
+  "summary_points": [
+    "Replaced the deprecated WebSecurityConfigurerAdapter setup with a SecurityFilterChain bean.",
+    "Moved method security and request matching onto the Spring Security 6 configuration style."
+  ],
+  "summary_must_contain": [
+    "Similar - Replace Deprecated Security Adapter",
+    "Replaced the deprecated WebSecurityConfigurerAdapter setup with a SecurityFilterChain bean.",
+    "Moved method security and request matching onto the Spring Security 6 configuration style."
+  ],
+  "copy_operations": [
+    {
+      "source": "src/main/java/com/example/userservice/config/SecurityConfig.java",
+      "target": "src/main/java/com/example/userservice/config/SecurityConfig.java"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "src/main/java/com/example/userservice/config/SecurityConfig.java",
+      "must_contain": [
+        "SecurityFilterChain",
+        "EnableMethodSecurity",
+        "requestMatchers(",
+        "AuthenticationConfiguration"
+      ],
+      "must_not_contain": [
+        "WebSecurityConfigurerAdapter",
+        "EnableGlobalMethodSecurity",
+        "antMatchers(",
+        "authorizeRequests("
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

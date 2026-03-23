@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "data_cleaning",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Ward Inventory Ledger Cleanup",
+  "goal": "Clean a dirty hospital supply-usage ledger without losing usable volume signals.",
+  "primaryOutputFile": "/root/transfer1_ward_inventory_cleaned.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the single shipped skill data_cleaning is applied correctly."
+}

@@ -1,0 +1,13 @@
+{
+  "source_task_id": "suricata-custom-exfil",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer 1 - Suricata Mirror Snapshot Rule",
+  "goal": "Write one HTTP Suricata rule that detects the bundled JSON mirror snapshot upload pattern without flagging lookalikes.",
+  "primaryOutputFile": "/root/transfer1.rules",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "This transfer moves the same rule-building skill into JSON body inspection with multiple sticky-buffer conditions.",
+  "targetSkillDirName": "suricata-rules-basics",
+  "targetSkillName": "suricata-rules-basics"
+}

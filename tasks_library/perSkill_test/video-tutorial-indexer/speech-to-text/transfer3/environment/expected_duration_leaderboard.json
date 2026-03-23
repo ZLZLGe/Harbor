@@ -1,0 +1,88 @@
+{
+  "video_info": {
+    "title": "In-Depth Floor Plan Tutorial Part 1",
+    "duration_seconds": 1382
+  },
+  "top_longest_chapters": [
+    {
+      "rank": 1,
+      "chapter_id": 15,
+      "chapter_title": "Continue tracing inner walls",
+      "start_time": 628,
+      "end_time": 864,
+      "duration_seconds": 236
+    },
+    {
+      "rank": 2,
+      "chapter_id": 25,
+      "chapter_title": "Fixing face orientation errors",
+      "start_time": 1134,
+      "end_time": 1286,
+      "duration_seconds": 152
+    },
+    {
+      "rank": 3,
+      "chapter_id": 12,
+      "chapter_title": "Tracing the outline",
+      "start_time": 400,
+      "end_time": 550,
+      "duration_seconds": 150
+    },
+    {
+      "rank": 4,
+      "chapter_id": 13,
+      "chapter_title": "Tracing inner walls",
+      "start_time": 550,
+      "end_time": 623,
+      "duration_seconds": 73
+    },
+    {
+      "rank": 5,
+      "chapter_id": 11,
+      "chapter_title": "Getting the plan in place",
+      "start_time": 329,
+      "end_time": 400,
+      "duration_seconds": 71
+    },
+    {
+      "rank": 6,
+      "chapter_id": 3,
+      "chapter_title": "Getting a floor plan",
+      "start_time": 25,
+      "end_time": 92,
+      "duration_seconds": 67
+    },
+    {
+      "rank": 7,
+      "chapter_id": 18,
+      "chapter_title": "Make the floor",
+      "start_time": 881,
+      "end_time": 941,
+      "duration_seconds": 60
+    },
+    {
+      "rank": 8,
+      "chapter_id": 9,
+      "chapter_title": "It all starts with a plane",
+      "start_time": 242,
+      "end_time": 296,
+      "duration_seconds": 54
+    },
+    {
+      "rank": 9,
+      "chapter_id": 21,
+      "chapter_title": "Make the background",
+      "start_time": 994,
+      "end_time": 1040,
+      "duration_seconds": 46
+    },
+    {
+      "rank": 10,
+      "chapter_id": 6,
+      "chapter_title": "Import your plan into Blender",
+      "start_time": 126,
+      "end_time": 169,
+      "duration_seconds": 43
+    }
+  ]
+}

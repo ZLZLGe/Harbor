@@ -1,0 +1,11 @@
+{
+  "source_task_id": "threejs-structure-parser",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Greenhouse Crate OBJ Packing",
+  "goal": "Read the bundled Three.js greenhouse scene and export only the requested named components as crate OBJ files plus a packing summary JSON.",
+  "primaryOutputFile": "/root/transfer1_crate_summary.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "The task depends on selecting named groups, merging their world-space geometry, and emitting correctly renamed OBJ deliverables."
+}

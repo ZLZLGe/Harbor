@@ -1,0 +1,17 @@
+{
+  "detection": {
+    "threshold_multiplier": 1.6,
+    "initial_window": 3,
+    "smoothing_window": 1
+  },
+  "qc_policy": {
+    "ok_max_seconds": 5,
+    "review_max_seconds": 15
+  },
+  "records": [
+    {"recording_id": "rec-a", "energies_file": "/root/rec_a_energies.json"},
+    {"recording_id": "rec-b", "energies_file": "/root/rec_b_energies.json"},
+    {"recording_id": "rec-c", "energies_file": "/root/rec_c_energies.json"},
+    {"recording_id": "rec-d", "energies_file": "/root/rec_d_energies.json"}
+  ]
+}

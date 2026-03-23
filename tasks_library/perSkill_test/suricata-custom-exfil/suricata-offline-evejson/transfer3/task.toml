@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Rule Regression Report"
+description = "Compare two bundled IDS rule packs across packet captures and publish a regression report as JSON."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["suricata", "pcap", "ids", "json", "regression"]
+primary_output_file = "/root/transfer3_rule_regression_report.json"
+source_task_id = "suricata-custom-exfil"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

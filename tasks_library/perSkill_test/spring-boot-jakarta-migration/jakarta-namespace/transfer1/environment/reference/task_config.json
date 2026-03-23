@@ -1,0 +1,52 @@
+{
+  "summary_file": "/root/transfer1_service_namespace_report.md",
+  "summary_title": "Transfer - Repair Service Layer Imports",
+  "summary_points": [
+    "Updated persistence exceptions to jakarta.persistence.",
+    "Updated servlet request handling to jakarta.servlet."
+  ],
+  "summary_must_contain": [
+    "Transfer - Repair Service Layer Imports",
+    "Updated persistence exceptions to jakarta.persistence.",
+    "Updated servlet request handling to jakarta.servlet."
+  ],
+  "copy_operations": [
+    {
+      "source": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java",
+      "target": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java"
+    },
+    {
+      "source": "src/main/java/com/example/userservice/service/UserService.java",
+      "target": "src/main/java/com/example/userservice/service/UserService.java"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "src/main/java/com/example/userservice/service/UserService.java",
+      "must_contain": [
+        "jakarta.persistence.EntityNotFoundException"
+      ],
+      "must_not_contain": [
+        "javax.persistence.EntityNotFoundException"
+      ]
+    },
+    {
+      "path": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java",
+      "must_contain": [
+        "jakarta.persistence.EntityNotFoundException",
+        "jakarta.servlet.http.HttpServletRequest"
+      ],
+      "must_not_contain": [
+        "javax.persistence.EntityNotFoundException",
+        "javax.servlet.http.HttpServletRequest"
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

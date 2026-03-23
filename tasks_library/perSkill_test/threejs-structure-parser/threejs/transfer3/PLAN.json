@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Three.js Fabrication Z-Up Export",
+  "goal": "Convert a Three.js fabrication assembly into deterministic Z-up merged OBJ files and a fabrication manifest.",
+  "primaryOutputFile": "/root/output/fabrication_manifest.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "The task depends on named-group partitioning, nearest named ancestor ownership, baked world transforms, Y-up to Z-up conversion, and deterministic merged OBJ export."
+}

@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "spring-security-6",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Replace Deprecated Security Adapter",
+  "goal": "Convert the legacy security adapter into the Spring Security 6 component-style configuration.",
+  "primaryOutputFile": "/root/similar_security_adapter_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Spring Security 6 migration guidance is applied correctly."
+}

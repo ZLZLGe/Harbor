@@ -1,0 +1,21 @@
+{
+  "batch_id": "north-telemetry-queue",
+  "captures": [
+    {
+      "pcap": "north_line_1.pcap",
+      "site": "gate-a"
+    },
+    {
+      "pcap": "north_line_2.pcap",
+      "site": "gate-b"
+    },
+    {
+      "pcap": "north_line_3.pcap",
+      "site": "gate-c"
+    },
+    {
+      "pcap": "north_line_4.pcap",
+      "site": "gate-d"
+    }
+  ]
+}

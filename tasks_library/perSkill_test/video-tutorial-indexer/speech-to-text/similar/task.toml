@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Tutorial Chapter Index Reconstruction"
+description = "Build a chapter index JSON with 29 ordered chapter start times for the Blender tutorial video."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "hard"
+category = "multimodal-processing"
+tags = ["video", "timeline", "chapter-index", "speech"]
+primary_output_file = "/root/tutorial_index_similar.json"
+source_task_id = "video-tutorial-indexer"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 8192
+storage_mb = 20480
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

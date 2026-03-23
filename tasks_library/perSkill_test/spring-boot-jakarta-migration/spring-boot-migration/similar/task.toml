@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Update Core Build Coordinates"
+description = "Upgrade the service build definition from the old Spring Boot 2.7 / Java 8 baseline to the Boot 3.2 layout."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["migration", "spring-boot", "boot", "similar"]
+primary_output_file = "/root/similar_boot_build_report.md"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 360.0
+
+[agent]
+timeout_sec = 360.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

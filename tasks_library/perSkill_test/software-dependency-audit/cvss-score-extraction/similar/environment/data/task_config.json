@@ -1,0 +1,6 @@
+{
+  "mode": "select_scores",
+  "input_file": "/root/data/findings.json",
+  "output_file": "/root/similar_cvss_selection.json",
+  "expected_file": "/root/data/expected.json"
+}

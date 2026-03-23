@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Broadcast Window Alert Map",
+  "goal": "Map half-second loudness windows into alert tiers for a control-room broadcast clip.",
+  "primaryOutputFile": "/root/transfer1_energy_alerts.json",
+  "difficulty": "medium",
+  "category": "media-processing",
+  "skillBenefitRationale": "Windowed RMS energy supports threshold-based alerting in non-teaching audio streams."
+}

@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Multi-Camera Diarization Repair",
+  "goal": "Repair speaker labels for a meeting clip from segment drafts plus camera observations, then emit RTTM, ASS subtitles, and a short report.",
+  "primaryOutputFile": "/root/diarization.rttm",
+  "source_task_id": "speaker-diarization-subtitles",
+  "skillScope": "multimodal-fusion"
+}

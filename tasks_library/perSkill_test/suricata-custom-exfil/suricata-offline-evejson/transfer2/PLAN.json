@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Rule Budget Audit",
+  "goal": "Aggregate offline IDS alerts across site capture groups and determine whether each site stayed within its alert budget.",
+  "primaryOutputFile": "/root/transfer2_rule_budget_audit.json",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "This task shifts the skill from packet-level triage to site-level budget auditing, requiring repeated offline Suricata runs and aggregation over multiple captures per site."
+}

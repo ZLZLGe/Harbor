@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Named Part OBJ Pack",
+  "goal": "Parse a Three.js scene by named groups, export one OBJ per non-empty part, and emit a deterministic manifest.",
+  "primaryOutputFile": "/root/output/part_manifest.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "This stays close to the source export domain while directly testing the core threejs skill: named-group partitioning plus per-part OBJ export."
+}

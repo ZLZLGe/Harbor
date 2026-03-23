@@ -1,0 +1,19 @@
+source,category_path,unified_level_1,unified_level_2,unified_level_3,unified_level_4,unified_level_5
+alpha,Camp Furniture > Seating > Folding Chairs,outdoor gear,camping,site comfort,camp seating,chair
+alpha,Cold Storage > Ice Chests > Hard Coolers,outdoor gear,camping,food storage,cold storage,cooler
+alpha,Outdoor Cooking > Camp Kitchen > Portable Stoves,outdoor gear,camping,cook setup,portable heat,stove
+alpha,Outdoor Lighting > Camp Lights > Lanterns,outdoor gear,camping,camp lighting,area lighting,lantern
+alpha,Shelter & Sleep > Sleep Systems > Mummy Sleeping Bags,outdoor gear,camping,sleep shelter,sleep insulation,sleeping bag
+alpha,Shelter & Sleep > Tents > Backpacking Tents,outdoor gear,camping,sleep shelter,tent shelter,tent
+bravo,Camp Furniture > Chairs > Collapsible Camp Chairs,outdoor gear,camping,site comfort,camp seating,chair
+bravo,Camping Accessories > Lighting > LED Lanterns,outdoor gear,camping,camp lighting,area lighting,lantern
+bravo,Camping Gear > Cooking Equipment > Backpacking Stoves,outdoor gear,camping,cook setup,portable heat,stove
+bravo,Coolers & Ice Chests > Ice Chests,outdoor gear,camping,food storage,cold storage,cooler
+bravo,Sleep Gear > Down Sleeping Bags,outdoor gear,camping,sleep shelter,sleep insulation,sleeping bag
+bravo,Tent Gear > Lightweight Tents,outdoor gear,camping,sleep shelter,tent shelter,tent
+charlie,Sports & Outdoors > Bedding > Sleeping Bag,outdoor gear,camping,sleep shelter,sleep insulation,sleeping bag
+charlie,Sports & Outdoors > Camping Kitchen > Gas Camp Stove,outdoor gear,camping,cook setup,portable heat,stove
+charlie,Sports & Outdoors > Cooling > Portable Cooler,outdoor gear,camping,food storage,cold storage,cooler
+charlie,Sports & Outdoors > Illumination > Camping Lantern,outdoor gear,camping,camp lighting,area lighting,lantern
+charlie,Sports & Outdoors > Seating > Camping Chair,outdoor gear,camping,site comfort,camp seating,chair
+charlie,Sports & Outdoors > Shelters > Hiking Tent,outdoor gear,camping,sleep shelter,tent shelter,tent

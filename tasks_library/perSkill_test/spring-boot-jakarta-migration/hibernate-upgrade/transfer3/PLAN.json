@@ -1,0 +1,11 @@
+{
+  "source_task_id": "spring-boot-jakarta-migration",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Vendor Metadata Mapping",
+  "goal": "Replace removed legacy Hibernate type annotations in the vendor profile model and finish the Jakarta persistence migration.",
+  "primaryOutputFile": "/root/transfer3_metadata_mapping_report.md",
+  "difficulty": "medium",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "The task exercises the Hibernate 6 migration guidance for removed @TypeDef/@Type annotations and modern JSON mapping in a vendor profile domain."
+}

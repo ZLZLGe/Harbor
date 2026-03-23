@@ -1,0 +1,16 @@
+{
+  "input_file": "/root/data/raw.csv",
+  "output_file": "/root/similar_category_anomaly_index.csv",
+  "summary_file": "/root/similar_category_anomaly_summary.json",
+  "date_col": "sale_date",
+  "category_col": "category",
+  "value_col": "daily_spend",
+  "cutoff_date": "2020-03-01",
+  "prediction_start": "2020-03-01",
+  "prediction_end": "2020-03-31",
+  "agg_func": "sum",
+  "min_training_days": 45,
+  "confidence_interval": 0.68,
+  "changepoint_prior_scale": 0.1,
+  "seasonality_prior_scale": 10.0
+}

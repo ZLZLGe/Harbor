@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Chapter Duration Leaderboard"
+description = "Compute chapter durations and output the 10 longest chapters in ranked JSON format."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "analytics"
+tags = ["video", "ranking", "duration", "json"]
+primary_output_file = "/root/chapter_duration_leaderboard.json"
+source_task_id = "video-tutorial-indexer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1200.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 8192
+storage_mb = 20480
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

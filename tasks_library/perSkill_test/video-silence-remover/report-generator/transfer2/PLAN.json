@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Batch Compression Portfolio",
+  "goal": "Generate per-clip compression reports for a batch and aggregate portfolio-level metrics.",
+  "primaryOutputFile": "/root/transfer2_batch_summary.json",
+  "difficulty": "hard",
+  "category": "media-analytics",
+  "skillBenefitRationale": "The task reuses the same reporting primitive repeatedly across a job manifest and requires deterministic aggregation."
+}

@@ -1,0 +1,61 @@
+{
+  "target_file": "sys/linux/dev_ppdiag.txt",
+  "required_regexes": [
+    {
+      "pattern": "include\\s*<linux/ppdev\\.h>",
+      "message": "missing ppdev include"
+    },
+    {
+      "pattern": "include\\s*<linux/parport\\.h>",
+      "message": "missing parport include"
+    },
+    {
+      "pattern": "resource\\s+fd_ppdiag\\s*\\[\\s*fd\\s*\\]",
+      "message": "missing fd_ppdiag resource"
+    },
+    {
+      "pattern": "syz_open_dev\\$ppdiag\\s*\\([^\\n]*\"/dev/parport#\"[^\\n]*\\)\\s+fd_ppdiag",
+      "message": "missing ppdiag opener"
+    },
+    {
+      "pattern": "ppdiag_window\\s*\\{[\\s\\S]*mask\\s+int8[\\s\\S]*value\\s+int8[\\s\\S]*\\}",
+      "message": "missing ppdiag_window struct"
+    },
+    {
+      "pattern": "ppdiag_modes\\s*=\\s*PPDIAG_MODE_COMPAT,\\s*PPDIAG_MODE_ECP,\\s*PPDIAG_MODE_EPP",
+      "message": "missing ppdiag_modes flags"
+    },
+    {
+      "pattern": "ioctl\\$PPDIAG_CLAIM\\s*\\(\\s*fd\\s+fd_ppdiag\\s*,\\s*cmd\\s+const\\[PPDIAG_CLAIM\\]\\s*\\)",
+      "message": "missing PPDIAG_CLAIM ioctl"
+    },
+    {
+      "pattern": "ioctl\\$PPDIAG_RELEASE\\s*\\(\\s*fd\\s+fd_ppdiag\\s*,\\s*cmd\\s+const\\[PPDIAG_RELEASE\\]\\s*\\)",
+      "message": "missing PPDIAG_RELEASE ioctl"
+    },
+    {
+      "pattern": "ioctl\\$PPDIAG_GETMODE\\s*\\([^\\n]*ptr\\s*\\[\\s*out\\s*,\\s*int32\\s*\\]",
+      "message": "PPDIAG_GETMODE must use ptr[out, int32]"
+    },
+    {
+      "pattern": "ioctl\\$PPDIAG_SETMODE\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*flags\\[ppdiag_modes,\\s*int32\\]\\s*\\]",
+      "message": "PPDIAG_SETMODE must use ptr[in, flags[ppdiag_modes, int32]]"
+    },
+    {
+      "pattern": "ioctl\\$PPDIAG_READ_STATUS\\s*\\([^\\n]*ptr\\s*\\[\\s*out\\s*,\\s*int8\\s*\\]",
+      "message": "PPDIAG_READ_STATUS must use ptr[out, int8]"
+    },
+    {
+      "pattern": "ioctl\\$PPDIAG_WRITE_CTRL\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*int8\\s*\\]",
+      "message": "PPDIAG_WRITE_CTRL must use ptr[in, int8]"
+    },
+    {
+      "pattern": "ioctl\\$PPDIAG_FROB\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*ppdiag_window\\s*\\]",
+      "message": "PPDIAG_FROB must use ptr[in, ppdiag_window]"
+    }
+  ],
+  "forbidden_substrings": [
+    "TODO",
+    "???"
+  ]
+}

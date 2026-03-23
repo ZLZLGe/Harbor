@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Warehouse Dock Query Repair"
+description = "Fix the warehouse dock repository query for Hibernate 6 and produce the required JSON migration note."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "Legacy Systems"
+tags = ["spring-boot", "hibernate", "jpql", "jakarta", "warehouse"]
+primary_output_file = "/root/transfer1_query_fix.json"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 3072
+storage_mb = 8192
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

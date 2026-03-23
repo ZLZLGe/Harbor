@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "jakarta-namespace",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Sweep Jakarta Imports Without Touching JDK APIs",
+  "goal": "Update only Java EE imports to Jakarta and leave JDK javax.crypto imports untouched.",
+  "primaryOutputFile": "/root/transfer3_namespace_guardrail_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Jakarta namespace migration rules are applied carefully."
+}

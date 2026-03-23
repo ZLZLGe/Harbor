@@ -1,0 +1,6 @@
+{
+  "mode": "provenance_brief",
+  "input_file": "/root/data/findings.json",
+  "output_file": "/root/transfer2_cvss_provenance.md",
+  "expected_file": "/root/data/expected.md"
+}

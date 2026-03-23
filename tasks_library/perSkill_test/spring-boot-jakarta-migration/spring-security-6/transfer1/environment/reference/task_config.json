@@ -1,0 +1,43 @@
+{
+  "summary_file": "/root/transfer1_security_matcher_report.md",
+  "summary_title": "Transfer - Migrate Matcher DSL Usage",
+  "summary_points": [
+    "Replaced the old authorizeRequests and antMatchers calls with the Spring Security 6 matcher DSL.",
+    "Kept the endpoint permissions aligned with the upgraded stateless security flow."
+  ],
+  "summary_must_contain": [
+    "Transfer - Migrate Matcher DSL Usage",
+    "Replaced the old authorizeRequests and antMatchers calls with the Spring Security 6 matcher DSL.",
+    "Kept the endpoint permissions aligned with the upgraded stateless security flow."
+  ],
+  "copy_operations": [
+    {
+      "source": "src/main/java/com/example/userservice/config/SecurityConfig.java",
+      "target": "src/main/java/com/example/userservice/config/SecurityConfig.java"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "src/main/java/com/example/userservice/config/SecurityConfig.java",
+      "must_contain": [
+        "SecurityFilterChain",
+        "EnableMethodSecurity",
+        "requestMatchers(",
+        "AuthenticationConfiguration"
+      ],
+      "must_not_contain": [
+        "WebSecurityConfigurerAdapter",
+        "EnableGlobalMethodSecurity",
+        "antMatchers(",
+        "authorizeRequests("
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

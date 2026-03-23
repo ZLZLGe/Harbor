@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-silence-remover",
+  "derived_task_id": "transfer2",
+  "task_role": "transfer",
+  "title": "Transfer - Overlap Alert Extraction",
+  "goal": "Merge two policy segment files and emit overlap alerts for timeline conflicts.",
+  "primary_output_file": "/root/transfer2_overlap_alerts.json",
+  "difficulty": "medium",
+  "category": "quality-control",
+  "skill_benefit_rationale": "The overlap check depends on a deterministic sorted merge across independent segment sources."
+}

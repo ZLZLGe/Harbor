@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-silence-remover",
+  "derived_task_id": "transfer2",
+  "task_role": "transfer",
+  "title": "Transfer - Intro Trim Plan Builder",
+  "goal": "Turn an energy timeline into a publish-ready intro cut plan with policy constraints.",
+  "primary_output_file": "/root/intro_trim_plan.json",
+  "difficulty": "medium",
+  "category": "audio-analysis",
+  "skill_benefit_rationale": "The task reuses silence boundary detection to drive a deterministic trimming policy output."
+}

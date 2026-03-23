@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Lesson Audio Energy Profile",
+  "goal": "Compute second-level RMS energy and summarize quiet/loud points for a lesson audio clip.",
+  "primaryOutputFile": "/root/similar_energy_profile.json",
+  "difficulty": "easy",
+  "category": "media-processing",
+  "skillBenefitRationale": "Per-second RMS energy is the key signal for silence and loudness profiling."
+}

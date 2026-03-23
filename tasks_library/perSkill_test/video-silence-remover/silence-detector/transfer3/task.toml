@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Silence QC Flag Pack"
+description = "Generate QC flags for multiple recordings based on detected initial silence durations."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "audio-analysis"
+tags = ["silence", "batch", "qc", "json"]
+primary_output_file = "/root/silence_qc_flags.json"
+source_task_id = "video-silence-remover"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 1024
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

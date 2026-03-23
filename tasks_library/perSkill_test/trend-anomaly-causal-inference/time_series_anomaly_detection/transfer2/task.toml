@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Shipping Route Delay Anomaly Scan"
+description = "Rank freight routes by anomalous March delay minutes."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "data-science"
+tags = ["data-science", "skillsbench", "trend-anomaly-causal-inference", "transfer"]
+primary_output_file = "/root/transfer2_route_anomaly_index.csv"
+source_task_id = "trend-anomaly-causal-inference"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 360.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 8192
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

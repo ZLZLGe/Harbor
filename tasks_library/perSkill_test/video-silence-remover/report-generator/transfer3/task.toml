@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Candidate Selection Pack"
+description = "Score multiple compressed outputs and select the candidate closest to a target compression window."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "hard"
+category = "media-quality-control"
+tags = ["video", "selection", "quality-control", "json"]
+primary_output_file = "/root/transfer3_candidate_selection.json"
+source_task_id = "video-silence-remover"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 1024
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

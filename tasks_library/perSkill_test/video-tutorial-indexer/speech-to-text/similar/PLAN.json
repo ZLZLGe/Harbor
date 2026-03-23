@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-tutorial-indexer",
+  "derived_task_id": "similar",
+  "task_role": "similar",
+  "title": "Similar - Tutorial Chapter Index Reconstruction",
+  "goal": "Reconstruct a strict chapter timeline JSON for the same long-form Blender tutorial video.",
+  "primary_output_file": "/root/tutorial_index_similar.json",
+  "difficulty": "hard",
+  "category": "multimodal-processing",
+  "skill_benefit_rationale": "The task depends on extracting timestamped narration cues from long video audio."
+}

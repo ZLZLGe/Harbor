@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Tutorial Minute Cards"
+description = "Create a minute-by-minute CSV card that maps each minute mark to the active tutorial chapter."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "data-processing"
+tags = ["video", "csv", "time-series", "indexing"]
+primary_output_file = "/root/tutorial_minute_cards.csv"
+source_task_id = "video-tutorial-indexer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1200.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 8192
+storage_mb = 20480
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-silence-remover",
+  "derived_task_id": "transfer1",
+  "task_role": "transfer",
+  "title": "Transfer - Multi-Clip Pre-roll Leaderboard",
+  "goal": "Score multiple recordings by initial silence duration and produce an ordered CSV leaderboard.",
+  "primary_output_file": "/root/pre_roll_leaderboard.csv",
+  "difficulty": "medium",
+  "category": "audio-analysis",
+  "skill_benefit_rationale": "The task transfers initial silence detection to comparative ranking across clips."
+}

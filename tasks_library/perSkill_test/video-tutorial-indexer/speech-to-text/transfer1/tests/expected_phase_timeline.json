@@ -1,0 +1,88 @@
+{
+  "video_info": {
+    "title": "In-Depth Floor Plan Tutorial Part 1",
+    "duration_seconds": 1382
+  },
+  "phases": [
+    {
+      "phase_id": "phase_1",
+      "phase_title": "Orientation and Setup",
+      "start_time": 0,
+      "end_time": 126,
+      "chapter_span": [
+        1,
+        5
+      ]
+    },
+    {
+      "phase_id": "phase_2",
+      "phase_title": "Plan Import and Alignment",
+      "start_time": 126,
+      "end_time": 329,
+      "chapter_span": [
+        6,
+        10
+      ]
+    },
+    {
+      "phase_id": "phase_3",
+      "phase_title": "Wall Tracing Pass 1",
+      "start_time": 329,
+      "end_time": 623,
+      "chapter_span": [
+        11,
+        13
+      ]
+    },
+    {
+      "phase_id": "phase_4",
+      "phase_title": "Break and Tracing Resume",
+      "start_time": 623,
+      "end_time": 864,
+      "chapter_span": [
+        14,
+        15
+      ]
+    },
+    {
+      "phase_id": "phase_5",
+      "phase_title": "Geometry Cleanup and Floor",
+      "start_time": 864,
+      "end_time": 994,
+      "chapter_span": [
+        16,
+        20
+      ]
+    },
+    {
+      "phase_id": "phase_6",
+      "phase_title": "Wall Extrusion",
+      "start_time": 994,
+      "end_time": 1056,
+      "chapter_span": [
+        21,
+        22
+      ]
+    },
+    {
+      "phase_id": "phase_7",
+      "phase_title": "Face Orientation Repair",
+      "start_time": 1056,
+      "end_time": 1325,
+      "chapter_span": [
+        23,
+        26
+      ]
+    },
+    {
+      "phase_id": "phase_8",
+      "phase_title": "Wrap-Up and Export",
+      "start_time": 1325,
+      "end_time": 1382,
+      "chapter_span": [
+        27,
+        29
+      ]
+    }
+  ]
+}

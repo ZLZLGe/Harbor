@@ -1,0 +1,14 @@
+{
+  "detected_intro_end_seconds": 22,
+  "publish_start_seconds": 24,
+  "cut_segment": {
+    "start": 0,
+    "end": 24,
+    "duration": 24
+  },
+  "policy_applied": {
+    "safety_buffer_seconds": 2,
+    "min_publish_start_second": 20,
+    "max_publish_start_second": 30
+  }
+}

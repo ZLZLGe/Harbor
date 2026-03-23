@@ -1,0 +1,27 @@
+[
+  {
+    "timestamp": 0.9,
+    "visible_tracks": ["track_host", "track_guest"],
+    "lip_tracks": ["track_host"]
+  },
+  {
+    "timestamp": 3.0,
+    "visible_tracks": ["track_host", "track_guest"],
+    "lip_tracks": ["track_guest"]
+  },
+  {
+    "timestamp": 5.1,
+    "visible_tracks": ["track_guest", "track_analyst"],
+    "lip_tracks": ["track_guest"]
+  },
+  {
+    "timestamp": 7.1,
+    "visible_tracks": ["track_host", "track_guest", "track_analyst"],
+    "lip_tracks": []
+  },
+  {
+    "timestamp": 9.3,
+    "visible_tracks": ["track_guest", "track_analyst"],
+    "lip_tracks": ["track_analyst"]
+  }
+]

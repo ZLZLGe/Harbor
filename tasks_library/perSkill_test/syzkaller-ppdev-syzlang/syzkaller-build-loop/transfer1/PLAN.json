@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - PPDEV Signature Matrix Repair",
+  "goal": "Rebuild a compact ppdev ioctl description from an exported signature inventory and emit a verifier-friendly TSV matrix.",
+  "primaryOutputFile": "/root/transfer1_ppdev_signature_matrix.tsv",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "The task moves the same syzkaller build-loop skill into a signature-audit workflow where iterative compilation is the fastest way to confirm a repaired description is valid."
+}

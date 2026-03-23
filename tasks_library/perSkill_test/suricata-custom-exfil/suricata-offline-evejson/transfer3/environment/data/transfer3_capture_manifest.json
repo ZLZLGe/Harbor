@@ -1,0 +1,21 @@
+{
+  "comparison_id": "candidate-rollout-march",
+  "captures": [
+    {
+      "pcap": "compare_a.pcap",
+      "owner": "baseline-ops"
+    },
+    {
+      "pcap": "compare_b.pcap",
+      "owner": "change-canary"
+    },
+    {
+      "pcap": "compare_c.pcap",
+      "owner": "export-monitoring"
+    },
+    {
+      "pcap": "compare_d.pcap",
+      "owner": "quiet-lane"
+    }
+  ]
+}

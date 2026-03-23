@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Reviewer Merge Audit Manifest"
+description = "Merge multiple reviewer segment files and generate an audit manifest with totals."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "media-processing"
+tags = ["segments", "audit", "json", "reconciliation"]
+primary_output_file = "/root/transfer1_review_manifest.json"
+source_task_id = "video-silence-remover"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 1024
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

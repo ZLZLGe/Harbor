@@ -1,0 +1,45 @@
+{
+  "summary_file": "/root/similar_boot_build_report.md",
+  "summary_title": "Similar - Update Core Build Coordinates",
+  "summary_points": [
+    "Upgraded the Spring Boot parent and Java baseline to the Boot 3.2 / Java 21 target.",
+    "Replaced the legacy single-module JWT dependency and removed old JAXB-era compatibility baggage."
+  ],
+  "summary_must_contain": [
+    "Similar - Update Core Build Coordinates",
+    "Upgraded the Spring Boot parent and Java baseline to the Boot 3.2 / Java 21 target.",
+    "Replaced the legacy single-module JWT dependency and removed old JAXB-era compatibility baggage."
+  ],
+  "copy_operations": [
+    {
+      "source": "pom.xml",
+      "target": "pom.xml"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "pom.xml",
+      "must_contain": [
+        "<version>3.2.0</version>",
+        "<java.version>21</java.version>",
+        "<artifactId>jjwt-api</artifactId>",
+        "<artifactId>jjwt-impl</artifactId>",
+        "<artifactId>jjwt-jackson</artifactId>"
+      ],
+      "must_not_contain": [
+        "<artifactId>jjwt</artifactId>",
+        "javax.xml.bind",
+        "javax.activation",
+        "<maven.compiler.source>1.8</maven.compiler.source>",
+        "<maven.compiler.target>1.8</maven.compiler.target>"
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

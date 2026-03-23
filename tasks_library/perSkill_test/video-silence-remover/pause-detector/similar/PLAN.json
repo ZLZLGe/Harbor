@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Lecture Pause Segments",
+  "goal": "Generate a pause-segment JSON directly from one precomputed energy timeline.",
+  "primaryOutputFile": "/root/similar_pause_segments.json",
+  "source_task_id": "video-silence-remover",
+  "skillScope": "pause-detector"
+}

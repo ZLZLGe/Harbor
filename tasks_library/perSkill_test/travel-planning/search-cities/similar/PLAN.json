@@ -1,0 +1,11 @@
+{
+  "source_task_id": "travel-planning",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Ohio Route Seed Shortlist",
+  "goal": "Use the bundled state-to-city lookup to choose three Ohio route candidate cities and write a JSON shortlist.",
+  "primaryOutputFile": "/root/similar_trip_city_shortlist.json",
+  "difficulty": "medium",
+  "category": "travel-planning",
+  "skillBenefitRationale": "The task depends on enumerating real Ohio cities from the bundled dataset before applying deterministic name-based filters."
+}

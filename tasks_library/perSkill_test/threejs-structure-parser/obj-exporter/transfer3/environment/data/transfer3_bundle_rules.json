@@ -1,0 +1,12 @@
+{
+  "bundles": [
+    {
+      "bundle": "bridge-core",
+      "components": ["deck_segment", "brace_pack"]
+    },
+    {
+      "bundle": "service-package",
+      "components": ["sensor_post", "power_sled"]
+    }
+  ]
+}

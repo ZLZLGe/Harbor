@@ -1,0 +1,11 @@
+{
+  "source_task_id": "spring-boot-jakarta-migration",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Incident Criteria Migration",
+  "goal": "Replace a removed Hibernate Criteria implementation with a JPA CriteriaBuilder-based search flow and finish the Jakarta persistence migration.",
+  "primaryOutputFile": "/root/transfer2_criteria_migration.txt",
+  "difficulty": "medium",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "The task exercises the Hibernate 6 migration guidance for removed org.hibernate.Criteria APIs and Jakarta persistence imports in a different incident-review domain."
+}

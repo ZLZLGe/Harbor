@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "time_series_anomaly_detection",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Daily Category Spend Anomaly Scan",
+  "goal": "Rank retail categories by anomalous March spending behavior using pre-March history as the baseline.",
+  "primaryOutputFile": "/root/similar_category_anomaly_index.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the time_series_anomaly_detection skill is applied correctly."
+}

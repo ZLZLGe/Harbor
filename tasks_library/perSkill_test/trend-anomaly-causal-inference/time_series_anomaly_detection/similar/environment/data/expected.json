@@ -1,0 +1,23 @@
+{
+  "row_count": 5,
+  "top_category": "Fitness Recovery",
+  "top_min_anomaly": 95,
+  "bottom_category": "Travel Gear",
+  "bottom_max_anomaly": -95,
+  "positive_categories": [
+    {
+      "category": "Home Office",
+      "min_anomaly": 95
+    },
+    {
+      "category": "Pantry Staples",
+      "min_anomaly": 60
+    }
+  ],
+  "negative_categories": [
+    {
+      "category": "Pet Care",
+      "max_anomaly": -95
+    }
+  ]
+}

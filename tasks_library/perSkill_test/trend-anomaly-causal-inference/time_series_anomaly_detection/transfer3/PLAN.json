@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "time_series_anomaly_detection",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Streaming Genre View Anomaly Scan",
+  "goal": "Rank video genres by anomalous March watch-hour behavior.",
+  "primaryOutputFile": "/root/transfer3_genre_anomaly_index.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the time_series_anomaly_detection skill is applied correctly."
+}

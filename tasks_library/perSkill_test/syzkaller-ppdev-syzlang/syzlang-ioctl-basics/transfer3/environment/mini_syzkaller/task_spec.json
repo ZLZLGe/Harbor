@@ -1,0 +1,41 @@
+{
+  "target_file": "sys/linux/dev_bridge_port.txt",
+  "required_regexes": [
+    {
+      "pattern": "include\\s*<linux/if\\.h>",
+      "message": "missing linux/if.h include"
+    },
+    {
+      "pattern": "include\\s*<linux/sockios\\.h>",
+      "message": "missing linux/sockios.h include"
+    },
+    {
+      "pattern": "resource\\s+fd_bridgectl\\s*\\[\\s*fd\\s*\\]",
+      "message": "missing fd_bridgectl resource"
+    },
+    {
+      "pattern": "syz_open_dev\\$bridgectl\\s*\\([^\\n]*\"/dev/bridgectl#\"[^\\n]*\\)\\s+fd_bridgectl",
+      "message": "missing bridgectl opener"
+    },
+    {
+      "pattern": "bridge_flags\\s*=\\s*BR_PORT_UP,\\s*BR_PORT_LEARNING,\\s*BR_PORT_FLOOD",
+      "message": "missing bridge_flags set"
+    },
+    {
+      "pattern": "ioctl\\$BPORT_SET_PORT\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*ifreq_t\\[flags\\[bridge_flags,\\s*int16\\]\\]\\s*\\]",
+      "message": "BPORT_SET_PORT must use ptr[in, ifreq_t[flags[bridge_flags, int16]]]"
+    },
+    {
+      "pattern": "ioctl\\$BPORT_QUERY_PORT\\s*\\([^\\n]*ptr\\s*\\[\\s*inout\\s*,\\s*ifreq_t\\[int16\\]\\s*\\]",
+      "message": "BPORT_QUERY_PORT must use ptr[inout, ifreq_t[int16]]"
+    },
+    {
+      "pattern": "ioctl\\$BPORT_GET_INDEX\\s*\\([^\\n]*ptr\\s*\\[\\s*out\\s*,\\s*int32\\s*\\]",
+      "message": "BPORT_GET_INDEX must use ptr[out, int32]"
+    }
+  ],
+  "forbidden_substrings": [
+    "TODO",
+    "???"
+  ]
+}

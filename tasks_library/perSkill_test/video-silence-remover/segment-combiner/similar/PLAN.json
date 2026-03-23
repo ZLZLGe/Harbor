@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-silence-remover",
+  "derived_task_id": "similar",
+  "task_role": "similar",
+  "title": "Similar - Unified Segment Timeline",
+  "goal": "Merge opening and pause segment files into one normalized removal timeline JSON.",
+  "primary_output_file": "/root/similar_combined_segments.json",
+  "difficulty": "medium",
+  "category": "media-processing",
+  "skill_benefit_rationale": "The task directly checks whether multiple segment files are merged correctly and sorted by start time."
+}

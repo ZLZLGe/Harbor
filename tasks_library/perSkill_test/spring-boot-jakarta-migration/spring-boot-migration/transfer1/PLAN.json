@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "spring-boot-migration",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Finish Security Dependency Modernization",
+  "goal": "Align a partially upgraded build on Java 21 and the Boot 3 JWT dependency layout.",
+  "primaryOutputFile": "/root/transfer1_partial_boot_upgrade_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Spring Boot 2.x to 3.x migration checklist is applied carefully."
+}

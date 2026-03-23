@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Governance Gate Report",
+  "goal": "Produce a governance-ready JSON envelope that includes a compression report and pass/fail decision.",
+  "primaryOutputFile": "/root/transfer1_governance_report.json",
+  "difficulty": "medium",
+  "category": "media-governance",
+  "skillBenefitRationale": "The task repurposes compression-metric generation into a policy gate, requiring precise duration math in a wrapped contract."
+}

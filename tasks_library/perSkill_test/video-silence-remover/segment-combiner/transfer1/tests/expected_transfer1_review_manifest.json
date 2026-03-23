@@ -1,0 +1,16 @@
+{
+  "segment_files_used": [
+    "/root/reviewer_a_segments.json",
+    "/root/reviewer_b_segments.json",
+    "/root/reviewer_c_segments.json"
+  ],
+  "combined_segments_output": "/root/transfer1_all_segments.json",
+  "total_segments": 5,
+  "total_duration_seconds": 38,
+  "max_single_segment_seconds": 12,
+  "reviewer_stats": [
+    {"reviewer": "reviewer_a", "segment_count": 2, "duration_seconds": 18},
+    {"reviewer": "reviewer_b", "segment_count": 1, "duration_seconds": 8},
+    {"reviewer": "reviewer_c", "segment_count": 2, "duration_seconds": 12}
+  ]
+}

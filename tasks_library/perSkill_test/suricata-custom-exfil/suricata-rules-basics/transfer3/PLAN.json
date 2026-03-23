@@ -1,0 +1,13 @@
+{
+  "source_task_id": "suricata-custom-exfil",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer 3 - Suricata Archive Dispatch Rule",
+  "goal": "Write one HTTP Suricata rule that detects the bundled archive dispatch form post pattern without flagging lookalikes.",
+  "primaryOutputFile": "/root/transfer3.rules",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "This transfer keeps the same multi-condition HTTP rule-writing skill but shifts it to a different archive dispatch workflow and validation envelope.",
+  "targetSkillDirName": "suricata-rules-basics",
+  "targetSkillName": "suricata-rules-basics"
+}

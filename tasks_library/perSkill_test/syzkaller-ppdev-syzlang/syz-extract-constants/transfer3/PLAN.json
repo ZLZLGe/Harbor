@@ -1,0 +1,13 @@
+{
+  "source_task_id": "syzkaller-ppdev-syzlang",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Camrelay Constant Matrix",
+  "goal": "Define a manual constant file for a cam relay description and export a CSV matrix summarizing each constant.",
+  "primaryOutputFile": "/root/transfer3_constant_matrix.csv",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "The task transfers constant extraction into a reporting-oriented workflow and exercises all four ioctl encoding styles, including IOWR.",
+  "targetSkillDirName": "syz-extract-constants",
+  "targetSkillName": "syz-extract-constants"
+}

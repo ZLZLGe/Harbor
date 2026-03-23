@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-silence-remover",
+  "derived_task_id": "similar",
+  "task_role": "similar",
+  "title": "Similar - Initial Silence Boundary Report",
+  "goal": "Detect the pre-roll low-energy section from a lecture energy timeline and produce a structured boundary report.",
+  "primary_output_file": "/root/initial_silence_report.json",
+  "difficulty": "medium",
+  "category": "audio-analysis",
+  "skill_benefit_rationale": "The task directly depends on robust initial silence boundary detection from energy traces."
+}

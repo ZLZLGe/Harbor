@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Dual-Line Energy Delta",
+  "goal": "Measure per-second and aggregate energy reduction between baseline and optimized line recordings.",
+  "primaryOutputFile": "/root/transfer3_energy_delta.json",
+  "difficulty": "medium",
+  "category": "operations-analytics",
+  "skillBenefitRationale": "RMS energy enables consistent quantitative comparison between two tracks."
+}

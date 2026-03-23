@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Three.js Instanced Inventory Export",
+  "goal": "Expand a Three.js warehouse scene with InstancedMesh nodes into standalone OBJ exports and a deterministic instance report.",
+  "primaryOutputFile": "/root/output/instance_report.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "The task depends on InstancedMesh matrix expansion, nearest named ancestor ownership, baked geometry export, and deterministic reporting."
+}

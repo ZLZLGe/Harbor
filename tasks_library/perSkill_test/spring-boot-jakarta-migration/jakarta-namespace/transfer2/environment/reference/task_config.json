@@ -1,0 +1,63 @@
+{
+  "summary_file": "/root/transfer2_api_edge_namespace_report.md",
+  "summary_title": "Transfer - Complete API Edge Namespace Cleanup",
+  "summary_points": [
+    "Replaced legacy validation imports with Jakarta validation types.",
+    "Replaced legacy servlet imports with Jakarta servlet types."
+  ],
+  "summary_must_contain": [
+    "Transfer - Complete API Edge Namespace Cleanup",
+    "Replaced legacy validation imports with Jakarta validation types.",
+    "Replaced legacy servlet imports with Jakarta servlet types."
+  ],
+  "copy_operations": [
+    {
+      "source": "src/main/java/com/example/userservice/controller/UserController.java",
+      "target": "src/main/java/com/example/userservice/controller/UserController.java"
+    },
+    {
+      "source": "src/main/java/com/example/userservice/dto/CreateUserRequest.java",
+      "target": "src/main/java/com/example/userservice/dto/CreateUserRequest.java"
+    },
+    {
+      "source": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java",
+      "target": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java"
+    }
+  ],
+  "file_expectations": [
+    {
+      "path": "src/main/java/com/example/userservice/controller/UserController.java",
+      "must_contain": [
+        "jakarta.validation.Valid"
+      ],
+      "must_not_contain": [
+        "javax.validation.Valid"
+      ]
+    },
+    {
+      "path": "src/main/java/com/example/userservice/dto/CreateUserRequest.java",
+      "must_contain": [
+        "jakarta.validation.constraints.Email"
+      ],
+      "must_not_contain": [
+        "javax.validation.constraints.Email"
+      ]
+    },
+    {
+      "path": "src/main/java/com/example/userservice/exception/GlobalExceptionHandler.java",
+      "must_contain": [
+        "jakarta.servlet.http.HttpServletRequest"
+      ],
+      "must_not_contain": [
+        "javax.servlet.http.HttpServletRequest"
+      ]
+    }
+  ],
+  "build_command": [
+    "mvn",
+    "-q",
+    "-o",
+    "test"
+  ],
+  "build_timeout_sec": 300
+}

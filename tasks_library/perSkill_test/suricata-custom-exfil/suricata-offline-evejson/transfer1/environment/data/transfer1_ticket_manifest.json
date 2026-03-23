@@ -1,0 +1,28 @@
+{
+  "tickets": [
+    {
+      "ticket_id": "T-417",
+      "pcap": "queue_case_1.pcap",
+      "owner": "branch-ir",
+      "environment": "warehouse-edge"
+    },
+    {
+      "ticket_id": "T-418",
+      "pcap": "queue_case_2.pcap",
+      "owner": "partner-ops",
+      "environment": "finance-uplink"
+    },
+    {
+      "ticket_id": "T-419",
+      "pcap": "queue_case_3.pcap",
+      "owner": "soc-escalation",
+      "environment": "core-telemetry"
+    },
+    {
+      "ticket_id": "T-420",
+      "pcap": "queue_case_4.pcap",
+      "owner": "site-reliability",
+      "environment": "retail-kiosk"
+    }
+  ]
+}

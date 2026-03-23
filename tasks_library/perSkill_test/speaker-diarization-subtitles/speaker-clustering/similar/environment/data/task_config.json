@@ -1,0 +1,29 @@
+{
+  "embedding_key": "signature",
+  "end_field": "end_sec",
+  "input_format": "json",
+  "input_path": "/root/data/briefing_segments.json",
+  "max_clusters": 4,
+  "merge_gap_sec": 0.08,
+  "method": "hierarchical_auto",
+  "min_clusters": 2,
+  "output_type": "rttm_report",
+  "outputs": {
+    "report": "/root/output/similar_cluster_report.json",
+    "rttm": "/root/output/similar_diarization.rttm"
+  },
+  "primary_output_file": "/root/output/similar_diarization.rttm",
+  "reference_files": {
+    "/root/output/similar_cluster_report.json": "expected/similar_cluster_report.json",
+    "/root/output/similar_diarization.rttm": "expected/similar_diarization.rttm"
+  },
+  "rttm_file_id": "briefing",
+  "segment_id_field": "segment_id",
+  "start_field": "start_sec",
+  "threshold_candidates": [
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ]
+}

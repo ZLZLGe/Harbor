@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Leaf Part Mesh Pack",
+  "goal": "Export only leaf named groups to OBJ files and emit a deterministic index of leaf parts and their ancestor chains.",
+  "primaryOutputFile": "/root/output/leaf_parts_index.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "This transfers the threejs skill into a packaging workflow that depends on correct link-tree construction and leaf-part identification."
+}

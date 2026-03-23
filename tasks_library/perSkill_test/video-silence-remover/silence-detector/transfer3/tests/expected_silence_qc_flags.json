@@ -1,0 +1,14 @@
+{
+  "records": [
+    {"recording_id": "rec-a", "silence_seconds": 4, "qc_flag": "ok"},
+    {"recording_id": "rec-b", "silence_seconds": 10, "qc_flag": "review"},
+    {"recording_id": "rec-c", "silence_seconds": 18, "qc_flag": "reject"},
+    {"recording_id": "rec-d", "silence_seconds": 0, "qc_flag": "ok"}
+  ],
+  "summary": {
+    "ok": 2,
+    "review": 1,
+    "reject": 1,
+    "total": 4
+  }
+}

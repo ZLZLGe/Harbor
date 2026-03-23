@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "spring-boot-migration",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Update Core Build Coordinates",
+  "goal": "Bring the core Spring Boot parent, Java version, and JWT dependencies up to the Boot 3.2 baseline.",
+  "primaryOutputFile": "/root/similar_boot_build_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Spring Boot 2.x to 3.x migration checklist is applied carefully."
+}

@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "jakarta-namespace",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Complete API Edge Namespace Cleanup",
+  "goal": "Update controller, request, and exception imports to the Jakarta namespace.",
+  "primaryOutputFile": "/root/transfer2_api_edge_namespace_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Jakarta namespace migration rules are applied carefully."
+}

@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkill": "spring-security-6",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Restore Method Security Wiring",
+  "goal": "Restore the Spring Security 6 method-security and authentication wiring.",
+  "primaryOutputFile": "/root/transfer2_method_security_report.md",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "This task is easiest when the Spring Security 6 migration guidance is applied correctly."
+}

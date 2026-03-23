@@ -1,0 +1,13 @@
+{
+  "source_task_id": "suricata-custom-exfil",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer 2 - Suricata Stage Pull Rule",
+  "goal": "Write one HTTP Suricata rule that detects the bundled stage pull query pattern without flagging lookalikes.",
+  "primaryOutputFile": "/root/transfer2.rules",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "This transfer shifts the same multi-condition matching skill to URI and header inspection without relying on a request body.",
+  "targetSkillDirName": "suricata-rules-basics",
+  "targetSkillName": "suricata-rules-basics"
+}

@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Compression Report Baseline",
+  "goal": "Generate a structured compression report for one edited lecture clip pair with explicit removed segments.",
+  "primaryOutputFile": "/root/similar_compression_report.json",
+  "difficulty": "medium",
+  "category": "media-processing",
+  "skillBenefitRationale": "The task requires accurate duration extraction and normalized report schema generation from media inputs and segment annotations."
+}

@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Link Ownership Audit",
+  "goal": "Analyze a named-group scene hierarchy and report ownership, child links, triangle totals, and world-space bounds per part.",
+  "primaryOutputFile": "/root/output/link_audit.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "This transfers the threejs skill from export into deterministic structural analysis using the same nearest-named-ancestor partitioning logic."
+}

@@ -1,0 +1,38 @@
+{
+  "row_count": 5,
+  "top_categories": [
+    "Metro East Line",
+    "Port North Express"
+  ],
+  "top_min_anomaly": 95,
+  "bottom_categories": [
+    "Coastal Shuttle",
+    "Mountain Relay",
+    "Valley Connector"
+  ],
+  "bottom_max_anomaly": -95,
+  "positive_categories": [
+    {
+      "category": "Metro East Line",
+      "min_anomaly": 95
+    },
+    {
+      "category": "Port North Express",
+      "min_anomaly": 95
+    }
+  ],
+  "negative_categories": [
+    {
+      "category": "Valley Connector",
+      "max_anomaly": -95
+    },
+    {
+      "category": "Mountain Relay",
+      "max_anomaly": -95
+    },
+    {
+      "category": "Coastal Shuttle",
+      "max_anomaly": -95
+    }
+  ]
+}

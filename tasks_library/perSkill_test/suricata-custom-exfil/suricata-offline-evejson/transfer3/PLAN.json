@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Rule Regression Report",
+  "goal": "Run two IDS rule packs offline on the same captures and summarize the candidate-only alert expansion.",
+  "primaryOutputFile": "/root/transfer3_rule_regression_report.json",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "This task transfers the skill into a rule-regression comparison workflow that depends on repeated offline Suricata execution and alert diffing between two rule packs."
+}

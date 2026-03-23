@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-turnaround-wave-scheduling",
+  "taskRole": "transfer",
+  "title": "Transfer - Turnaround Wave Scheduling",
+  "goal": "Generate valid PDDL plans for all listed airport planning cases.",
+  "primaryOutputFile": "/root/plans/turnaround_wave_task03.plan",
+  "skillScope": "pddl-skills"
+}

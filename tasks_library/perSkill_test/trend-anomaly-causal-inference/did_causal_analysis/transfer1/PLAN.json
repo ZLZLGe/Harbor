@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "did_causal_analysis",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Ward Supply DID Summary",
+  "goal": "Rank the strongest positive intensive and extensive margin drivers for a ward supply surge.",
+  "primaryOutputFile": "/root/transfer1_driver_report.json",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the did_causal_analysis skill is applied correctly."
+}
