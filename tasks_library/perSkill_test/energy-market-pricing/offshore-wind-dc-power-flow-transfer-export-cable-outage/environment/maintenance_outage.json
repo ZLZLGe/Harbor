@@ -1,0 +1,6 @@
+{
+  "scenario_name": "West export string maintenance outage",
+  "maintenance_outage_cable_id": "E1",
+  "loading_alert_pct": 100.0,
+  "top_rerouted_count": 4
+}

@@ -1,0 +1,23 @@
+{
+  "sourceTaskId": "r2r-mpc-control",
+  "targetSkillDirName": "state-space-linearization",
+  "runId": "20260322155056-r2r-mpc-control-state-space-linearization-k29lvt",
+  "taskId": "planar-quadrotor-state-space-linearization-transfer-hover-gust",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/r2r-mpc-control/state-space-linearization/20260322155056-r2r-mpc-control-state-space-linearization-k29lvt/planar-quadrotor-state-space-linearization-transfer-hover-gust",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322155056-r2r-mpc-control-state-space-linearization-k29lvt/r2r-mpc-control/drafts/planar-quadrotor-state-space-linearization-transfer-hover-gust",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/r2r-mpc-control/planar-quadrotor-state-space-linearization-transfer-hover-gust",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/r2r-mpc-control/planar-quadrotor-state-space-linearization-transfer-hover-gust",
+  "status": "pass",
+  "issueCategories": [],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": [],
+  "originErrorCombo": "static"
+}

@@ -1,0 +1,117 @@
+{
+  "playlist_title_matches": [
+    {
+      "search_term": "midnite run tokio cut",
+      "content_id": "CNT-1001",
+      "canonical_title": "Midnight Run: Tokyo Cut",
+      "release_year": 2021
+    },
+    {
+      "search_term": "summer embers",
+      "content_id": "CNT-1002",
+      "canonical_title": "Summer of Embers",
+      "release_year": 2019
+    },
+    {
+      "search_term": "harbour echoes",
+      "content_id": "CNT-1003",
+      "canonical_title": "Harbor of Echoes",
+      "release_year": 2020
+    }
+  ],
+  "playlist_revenue_summary": {
+    "matched_title_count": 3,
+    "matched_play_rows": 10,
+    "gross_revenue_usd": 9180.4,
+    "allocated_revenue_usd": 9180.4
+  },
+  "rightsholder_revenue_rank": [
+    {
+      "rank": 1,
+      "rightsholder_id": "RH-100",
+      "rightsholder_name": "Northlight Studios Distribution",
+      "allocated_revenue_usd": 4117.26,
+      "content_ids": [
+        "CNT-1001",
+        "CNT-1002",
+        "CNT-1003"
+      ]
+    },
+    {
+      "rank": 2,
+      "rightsholder_id": "RH-300",
+      "rightsholder_name": "Seabound Documentary Sales",
+      "allocated_revenue_usd": 2100.0,
+      "content_ids": [
+        "CNT-1003"
+      ]
+    },
+    {
+      "rank": 3,
+      "rightsholder_id": "RH-500",
+      "rightsholder_name": "Archive Bridge International",
+      "allocated_revenue_usd": 1863.14,
+      "content_ids": [
+        "CNT-1001",
+        "CNT-1002"
+      ]
+    },
+    {
+      "rank": 4,
+      "rightsholder_id": "RH-200",
+      "rightsholder_name": "Emberlane Rights Group",
+      "allocated_revenue_usd": 1100.0,
+      "content_ids": [
+        "CNT-1002"
+      ]
+    }
+  ],
+  "duplicate_archive_groups": [
+    {
+      "content_id": "CNT-1002",
+      "canonical_title": "Summer of Embers",
+      "rightsholder_id": "RH-200",
+      "rightsholder_name": "Emberlane Rights Group",
+      "delivery_package_id": "PKG-EMB-08",
+      "archive_record_ids": [
+        "AR-104",
+        "AR-105"
+      ],
+      "duplicate_count": 2
+    },
+    {
+      "content_id": "CNT-1003",
+      "canonical_title": "Harbor of Echoes",
+      "rightsholder_id": "RH-300",
+      "rightsholder_name": "Seabound Documentary Sales",
+      "delivery_package_id": "PKG-HBR-12",
+      "archive_record_ids": [
+        "AR-106",
+        "AR-107"
+      ],
+      "duplicate_count": 2
+    },
+    {
+      "content_id": "CNT-1001",
+      "canonical_title": "Midnight Run: Tokyo Cut",
+      "rightsholder_id": "RH-100",
+      "rightsholder_name": "Northlight Studios Distribution",
+      "delivery_package_id": "PKG-TKO-01",
+      "archive_record_ids": [
+        "AR-101",
+        "AR-102"
+      ],
+      "duplicate_count": 2
+    }
+  ],
+  "top_rightsholder": {
+    "rightsholder_id": "RH-100",
+    "rightsholder_name": "Northlight Studios Distribution",
+    "allocated_revenue_usd": 4117.26,
+    "content_ids": [
+      "CNT-1001",
+      "CNT-1002",
+      "CNT-1003"
+    ]
+  }
+}

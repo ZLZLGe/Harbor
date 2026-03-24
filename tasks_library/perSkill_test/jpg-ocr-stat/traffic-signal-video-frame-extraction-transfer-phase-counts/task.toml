@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "traffic-signal-video-frame-extraction-transfer-phase-counts"
+name = "Transfer: Traffic Signal Phase Counts"
+description = "按配置从多段路口监控视频定时抽帧并统计各方向红黄绿信号出现次数，输出 /app/workspace/traffic_phase_counts.json。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "operations analytics"
+tags = ["video", "traffic signal", "json", "computer vision"]
+primary_output_file = "/app/workspace/traffic_phase_counts.json"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,41 @@
+{
+  "case_id": "IA-2025-11-03-17",
+  "incident_label": "Dock 3 escort hold review",
+  "submission_target": "evidence-intake-v2",
+  "expected_duration_sec": 12.0,
+  "duration_tolerance_sec": 0.25,
+  "required_width": 1280,
+  "required_height": 720,
+  "required_video_codec": "h264",
+  "required_audio_codec": "aac",
+  "preferred_device_order": [
+    "bodycam",
+    "cctv"
+  ],
+  "clips": [
+    {
+      "file": "evidence/bodycam/officer12_primary.mp4",
+      "device_role": "bodycam"
+    },
+    {
+      "file": "evidence/bodycam/officer12_noaudio.mp4",
+      "device_role": "bodycam"
+    },
+    {
+      "file": "evidence/bodycam/officer19_truncated.mp4",
+      "device_role": "bodycam"
+    },
+    {
+      "file": "evidence/bodycam/officer41_lowres.mp4",
+      "device_role": "bodycam"
+    },
+    {
+      "file": "evidence/cctv/garage_export.avi",
+      "device_role": "cctv"
+    },
+    {
+      "file": "evidence/cctv/lobby_overview.mp4",
+      "device_role": "cctv"
+    }
+  ]
+}

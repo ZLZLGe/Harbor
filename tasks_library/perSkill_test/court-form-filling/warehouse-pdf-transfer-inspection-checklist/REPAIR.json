@@ -1,0 +1,57 @@
+{
+  "sourceTaskId": "court-form-filling",
+  "targetSkillDirName": "pdf",
+  "runId": "20260318202932-court-form-filling-pdf-uugs49",
+  "taskId": "warehouse-pdf-transfer-inspection-checklist",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/court-form-filling/warehouse-pdf-transfer-inspection-checklist",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260318202932-court-form-filling-pdf-uugs49/court-form-filling/drafts/warehouse-pdf-transfer-inspection-checklist",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/court-form-filling/warehouse-pdf-transfer-inspection-checklist",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/court-form-filling/warehouse-pdf-transfer-inspection-checklist",
+  "status": "pass",
+  "issueCategories": [
+    "visibility",
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接写了 “PDF pages”，直接点名了当前 shipped skill `pdf`。; tests/test.sh 在 `set -euo pipefail` 下直接运行 pytest；失败时会提前退出，不能稳定写出 reward.txt，判定链路不完整。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md directly mentions the shipped skill `pdf`/`PDF` in both the file paths and the phrase \"PDF pages\", so this task exposes the skill.; visibilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "warehouse-pdf-transfer-inspection-checklist"
+      ],
+      "requestedIssuesByTaskId": {
+        "warehouse-pdf-transfer-inspection-checklist": {
+          "reviewerIssues": [
+            "instruction.md directly mentions the shipped skill `pdf`/`PDF` in both the file paths and the phrase \"PDF pages\", so this task exposes the skill.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10c6-966c-73d3-b6f5-2f5fb55a1a11",
+      "repairSummary": "- `warehouse-pdf-transfer-inspection-checklist`: 修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260318202932-court-form-filling-pdf-uugs49-4fa5c7d4/court-form-filling/drafts/warehouse-pdf-transfer-inspection-checklist/instruction.md)，去掉了直接出现的技能名/扩展名与 `.pdf` 文件名展示，也删掉了“直接叠加文字和勾选”这类过度暴露解法的表述；改为用输入文档 stem 和“与源文档相同后缀”来描述输入输出，保留原测试可推导性和原输出语义。\n\n已做针对性自检：该 `instruction.md` 中已不再出现 `pdf`/`PDF` 字符串。未改 `derivedTaskId`、`taskRole`、`source_task_id`，也未修改其他任务目录。",
+      "reviewThreadId": "019d10c9-6a62-75b0-a560-8037b4b52491",
+      "evaluationByTaskId": {
+        "warehouse-pdf-transfer-inspection-checklist": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "sample_interval_seconds": 2,
+  "videos": [
+    {
+      "video_file": "junction_cedar.avi",
+      "signals": [
+        {
+          "direction": "northbound",
+          "roi": [
+            24,
+            18,
+            84,
+            162
+          ]
+        },
+        {
+          "direction": "eastbound",
+          "roi": [
+            116,
+            18,
+            176,
+            162
+          ]
+        }
+      ]
+    },
+    {
+      "video_file": "junction_market.avi",
+      "signals": [
+        {
+          "direction": "northbound",
+          "roi": [
+            24,
+            18,
+            84,
+            162
+          ]
+        },
+        {
+          "direction": "eastbound",
+          "roi": [
+            116,
+            18,
+            176,
+            162
+          ]
+        }
+      ]
+    },
+    {
+      "video_file": "junction_river.avi",
+      "signals": [
+        {
+          "direction": "northbound",
+          "roi": [
+            24,
+            18,
+            84,
+            162
+          ]
+        },
+        {
+          "direction": "eastbound",
+          "roi": [
+            116,
+            18,
+            176,
+            162
+          ]
+        }
+      ]
+    }
+  ]
+}

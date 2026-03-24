@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "archive-parser-discover-important-function-similar-fuzz-notes",
+  "taskRole": "similar",
+  "title": "Similar: Python 归档解析库的重要函数定位",
+  "goal": "检查一个以归档格式和元数据解析为核心的 Python 库，结合仓库结构与现有测试，定位最值得后续做鲁棒性测试的函数，并把重要文件、重要函数、测试缺口和最终 shortlist 写入 `archive_fuzz_targets.md`。",
+  "primaryOutputFile": "archive_fuzz_targets.md",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "这是该 skill 的典型用法：围绕输入边界、解析逻辑和现有测试，筛出高价值函数并形成后续 fuzzing 的分析笔记，不依赖其他 shipped skill。",
+  "targetSkillDirName": "discover-important-function",
+  "targetSkillName": "discover-important-function"
+}

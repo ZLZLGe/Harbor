@@ -1,0 +1,116 @@
+{
+  "baseMVA": 100.0,
+  "slack_bus": 8000,
+  "traction_substation_bus_ids": [8000, 8110, 8220, 8330],
+  "buses": [
+    {"bus": 8000, "name": "Central Grid Intake", "kind": "grid_supply"},
+    {"bus": 8110, "name": "North Traction Substation", "kind": "traction_substation"},
+    {"bus": 8220, "name": "South Traction Substation", "kind": "traction_substation"},
+    {"bus": 8330, "name": "Depot Rectifier Station", "kind": "traction_substation"},
+    {"bus": 8411, "name": "Harbor Junction", "kind": "traction_load"},
+    {"bus": 8522, "name": "Museum Square", "kind": "traction_load"},
+    {"bus": 8633, "name": "River Crossing", "kind": "traction_load"},
+    {"bus": 8744, "name": "Airport Terminal", "kind": "traction_load"}
+  ],
+  "sections": [
+    {
+      "section_id": "NF-1",
+      "from_bus": 8000,
+      "to_bus": 8110,
+      "x_pu": 0.14,
+      "rating_MW": 140.0,
+      "corridor": "North Feed",
+      "section_type": "grid_feed"
+    },
+    {
+      "section_id": "SF-1",
+      "from_bus": 8000,
+      "to_bus": 8220,
+      "x_pu": 0.16,
+      "rating_MW": 140.0,
+      "corridor": "South Feed",
+      "section_type": "grid_feed"
+    },
+    {
+      "section_id": "EL-1",
+      "from_bus": 8110,
+      "to_bus": 8411,
+      "x_pu": 0.1,
+      "rating_MW": 52.0,
+      "corridor": "East Line",
+      "section_type": "line_section"
+    },
+    {
+      "section_id": "EL-2",
+      "from_bus": 8411,
+      "to_bus": 8522,
+      "x_pu": 0.08,
+      "rating_MW": 70.0,
+      "corridor": "East Line",
+      "section_type": "line_section"
+    },
+    {
+      "section_id": "EL-3",
+      "from_bus": 8522,
+      "to_bus": 8744,
+      "x_pu": 0.09,
+      "rating_MW": 70.0,
+      "corridor": "East Line",
+      "section_type": "line_section"
+    },
+    {
+      "section_id": "SB-1",
+      "from_bus": 8220,
+      "to_bus": 8633,
+      "x_pu": 0.09,
+      "rating_MW": 95.0,
+      "corridor": "South Branch",
+      "section_type": "line_section"
+    },
+    {
+      "section_id": "SB-2",
+      "from_bus": 8633,
+      "to_bus": 8744,
+      "x_pu": 0.07,
+      "rating_MW": 33.0,
+      "corridor": "South Branch",
+      "section_type": "line_section"
+    },
+    {
+      "section_id": "DP-1",
+      "from_bus": 8330,
+      "to_bus": 8522,
+      "x_pu": 0.11,
+      "rating_MW": 45.0,
+      "corridor": "Depot Link",
+      "section_type": "depot_feed"
+    },
+    {
+      "section_id": "CX-1",
+      "from_bus": 8110,
+      "to_bus": 8633,
+      "x_pu": 0.12,
+      "rating_MW": 38.0,
+      "corridor": "Cross Link",
+      "section_type": "tie_section"
+    },
+    {
+      "section_id": "CX-2",
+      "from_bus": 8220,
+      "to_bus": 8522,
+      "x_pu": 0.1,
+      "rating_MW": 40.0,
+      "corridor": "Cross Link",
+      "section_type": "tie_section"
+    },
+    {
+      "section_id": "DP-2",
+      "from_bus": 8330,
+      "to_bus": 8633,
+      "x_pu": 0.1,
+      "rating_MW": 30.0,
+      "corridor": "Depot Link",
+      "section_type": "depot_feed"
+    }
+  ]
+}

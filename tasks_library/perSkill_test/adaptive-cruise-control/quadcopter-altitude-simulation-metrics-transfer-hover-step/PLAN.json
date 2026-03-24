@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "quadcopter-altitude-simulation-metrics-transfer-hover-step",
+  "taskRole": "transfer",
+  "title": "Quadcopter Altitude Hold Transfer Scorecard",
+  "goal": "分析无人机高度保持仿真日志，对爬升阶跃响应和阵风扰动恢复段计算 rise time、overshoot、settling time 与 steady-state error，并比较不同自动驾驶参数集的表现。",
+  "primaryOutputFile": "quadcopter_altitude_scorecard.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "虽然场景迁移到飞行器，但输入仍是闭环仿真曲线，解题关键仍是从时间序列中提取标准动态响应指标并形成比较结论。",
+  "targetSkillDirName": "simulation-metrics",
+  "targetSkillName": "simulation-metrics"
+}

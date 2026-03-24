@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "campus-ac-branch-pi-model-transfer-feeder-reconciliation"
+name = "Transfer: Campus Feeder Reconciliation"
+description = "Reconcile a campus feeder voltage snapshot by aggregating branch outflows, computing bus residuals and feeder losses, and writing feeder_reconciliation.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = [ "energy", "distribution-feeder", "ac-power-flow", "reconciliation",]
+primary_output_file = "feeder_reconciliation.json"
+source_task_id = "energy-ac-optimal-power-flow"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

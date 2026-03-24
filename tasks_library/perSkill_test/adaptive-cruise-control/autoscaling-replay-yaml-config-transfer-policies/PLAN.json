@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "autoscaling-replay-yaml-config-transfer-policies",
+  "taskRole": "transfer",
+  "title": "Transfer: Cloud Autoscaling Replay With YAML Rules",
+  "goal": "Create a request-replay autoscaling simulator that loads service limits, cooldown windows, scale-up and scale-down thresholds, and latency SLOs from YAML, processes workload metrics from CSV, and emits a YAML policy/result artifact describing scaling actions and achieved performance.",
+  "primaryOutputFile": "autoscaling_policy.yaml",
+  "difficulty": "medium",
+  "category": "cloud-infrastructure",
+  "skillBenefitRationale": "This moves YAML-driven runtime configuration into cloud operations. The decisive shipped skill is still yaml-config, because the main challenge is correctly interpreting nested policy YAML and producing machine-readable YAML outputs instead of hardcoding autoscaling behavior.",
+  "targetSkillDirName": "yaml-config",
+  "targetSkillName": "yaml-config"
+}

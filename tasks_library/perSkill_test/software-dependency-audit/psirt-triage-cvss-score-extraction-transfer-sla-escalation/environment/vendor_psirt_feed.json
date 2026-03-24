@@ -1,0 +1,175 @@
+{
+  "vendor": "Northwind Networks",
+  "snapshot_date": "2026-03-20",
+  "advisories": [
+    {
+      "advisory_id": "NW-PSIRT-2026-041",
+      "product": "Edge Gateway",
+      "published_at": "2026-02-05",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-041",
+      "vulnerabilities": [
+        {
+          "vulnerability_id": "CVE-2026-11001",
+          "component": "tls-proxy",
+          "summary": "Handshake parser overflow in session resumption path",
+          "cvss": {
+            "nvd": {
+              "v3_score": 6.8
+            },
+            "ghsa": {
+              "v3_score": 7.2
+            }
+          }
+        },
+        {
+          "vulnerability_id": "CVE-2026-11002",
+          "component": "admin-ui",
+          "summary": "Authenticated request forgery reaches cluster controls",
+          "cvss": {
+            "ghsa": {
+              "v3_score": 8.7
+            },
+            "redhat": {
+              "v3_score": 8.2
+            }
+          }
+        }
+      ]
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-044",
+      "product": "Branch Controller",
+      "published_at": "2026-02-18",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-044",
+      "vulnerabilities": [
+        {
+          "vulnerability_id": "CVE-2026-11991",
+          "component": "config-sync",
+          "summary": "Signed package verification bypass in sync service",
+          "cvss": {
+            "nvd": {
+              "v3_score": 7.4
+            },
+            "ghsa": {
+              "v3_score": 8.9
+            }
+          }
+        },
+        {
+          "vulnerability_id": "CVE-2026-11992",
+          "component": "audit-exporter",
+          "summary": "Privilege confusion when exporting appliance logs",
+          "cvss": {
+            "redhat": {
+              "v3_score": 6.5
+            }
+          }
+        }
+      ]
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-047",
+      "product": "Access Switch",
+      "published_at": "2026-02-26",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-047",
+      "vulnerabilities": [
+        {
+          "vulnerability_id": "CVE-2026-12050",
+          "component": "snmp-agent",
+          "summary": "SNMP parser out-of-bounds read under crafted bulk requests",
+          "cvss": {
+            "redhat": {
+              "v3_score": 7.8
+            }
+          }
+        },
+        {
+          "vulnerability_id": "CVE-2026-12051",
+          "component": "radius-client",
+          "summary": "RADIUS retry loop causes temporary CPU spike",
+          "cvss": {}
+        }
+      ]
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-052",
+      "product": "Management Console",
+      "published_at": "2026-03-02",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-052",
+      "vulnerabilities": [
+        {
+          "vulnerability_id": "CVE-2026-13001",
+          "component": "session-cache",
+          "summary": "Token invalidation delay allows brief session reuse",
+          "cvss": {
+            "nvd": {
+              "v3_score": 6.9
+            }
+          }
+        },
+        {
+          "vulnerability_id": "CVE-2026-13002",
+          "component": "reporting-api",
+          "summary": "Insufficient input validation on archived report filters",
+          "cvss": {
+            "ghsa": {
+              "v3_score": 6.7
+            }
+          }
+        }
+      ]
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-055",
+      "product": "VPN Client",
+      "published_at": "2026-03-07",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-055",
+      "vulnerabilities": [
+        {
+          "vulnerability_id": "CVE-2026-14001",
+          "component": "updater",
+          "summary": "Update manifest parser accepts malformed mirrors",
+          "cvss": {}
+        },
+        {
+          "vulnerability_id": "CVE-2026-14002",
+          "component": "split-tunnel",
+          "summary": "Improper route ownership checks on reconnect",
+          "cvss": {
+            "ghsa": {
+              "v3_score": 8.1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-058",
+      "product": "Data Center Orchestrator",
+      "published_at": "2026-01-29",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-058",
+      "vulnerabilities": [
+        {
+          "vulnerability_id": "CVE-2026-15001",
+          "component": "tenant-api",
+          "summary": "Cross-tenant policy overwrite through crafted API replay",
+          "cvss": {
+            "redhat": {
+              "v3_score": 9.1
+            }
+          }
+        },
+        {
+          "vulnerability_id": "CVE-2026-15002",
+          "component": "backup-agent",
+          "summary": "Temporary path disclosure in backup job logs",
+          "cvss": {
+            "nvd": {
+              "v3_score": 5.0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

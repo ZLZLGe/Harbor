@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "structure-matching-pymatgen-transfer-equivalence-clustering"
+name = "Pymatgen Transfer: Structure Equivalence Clustering"
+description = "Cluster mixed CIF and POSCAR crystal structure exports into equivalence groups and write representative metadata to structure_equivalence_clusters.json."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "materials_science"
+tags = ["materials_science", "crystallography", "structure_matching", "cif", "poscar", "pymatgen"]
+primary_output_file = "structure_equivalence_clusters.json"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

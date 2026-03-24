@@ -1,0 +1,55 @@
+{
+  "sourceTaskId": "energy-market-pricing",
+  "targetSkillDirName": "dc-power-flow",
+  "runId": "20260319064902-energy-market-pricing-dc-power-flow-xg65au",
+  "taskId": "transmission-contingency-dc-power-flow-similar-flow-redistribution",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/energy-market-pricing/transmission-contingency-dc-power-flow-similar-flow-redistribution",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319064902-energy-market-pricing-dc-power-flow-xg65au/energy-market-pricing/drafts/transmission-contingency-dc-power-flow-similar-flow-redistribution",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/energy-market-pricing/transmission-contingency-dc-power-flow-similar-flow-redistribution",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/energy-market-pricing/transmission-contingency-dc-power-flow-similar-flow-redistribution",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 未说明所有数值需保留 4 位小数，但 tests/test_outputs.py 通过整份 JSON 精确比对强制了该格式。; instruction.md 未定义 base_case.overloads 与 outage_case.overloads 的排序规则，但测试按固定顺序做整份报告比对。; instruction.md 未明确 overload_count_change 的计算方向，测试固定要求为 outage_overloads 数量减去 base_overloads 数量。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "`instruction.md` does not expose the shipped skill name or dirName, but `comparison.overload_count_change` is not defined and the instruction does not specify required numeric rounding even though the verifier expects an exact 4-decimal report.; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "transmission-contingency-dc-power-flow-similar-flow-redistribution"
+      ],
+      "requestedIssuesByTaskId": {
+        "transmission-contingency-dc-power-flow-similar-flow-redistribution": {
+          "reviewerIssues": [
+            "`instruction.md` does not expose the shipped skill name or dirName, but `comparison.overload_count_change` is not defined and the instruction does not specify required numeric rounding even though the verifier expects an exact 4-decimal report.; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10d2-52a6-7953-93bc-d526a9bf95d7",
+      "repairSummary": "- `transmission-contingency-dc-power-flow-similar-flow-redistribution`: 只修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260319064902-energy-market-pricing-dc-power-flow-xg65au-872ef199/energy-market-pricing/drafts/transmission-contingency-dc-power-flow-similar-flow-redistribution/instruction.md#L102)。补齐了 `comparison.overload_count_change` 的明确定义，声明所有浮点输出统一按 4 位小数报告，并把测试实际依赖的顺序与计算规则写明：`overloads` 顺序、过载判定使用未四舍五入的 `loading_pct`、`absolute_shift_deg` 基于已报告角度值计算、`absolute_delta_MW` 基于已报告潮流值计算。`derivedTaskId`、`taskRole`、`source_task_id` 和主输出文件都未改。\n\n验证方面，我确认 `instruction.md` 里没有直接出现 shipped skill 名称；本地完整跑 task 自带解和测试受当前 sandbox 限制未完成，因为 `/root` 不可写且环境里缺少 `pip3`/`numpy`。",
+      "reviewThreadId": "019d10d5-15d4-7942-b438-52f9faa7c4e1",
+      "evaluationByTaskId": {
+        "transmission-contingency-dc-power-flow-similar-flow-redistribution": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

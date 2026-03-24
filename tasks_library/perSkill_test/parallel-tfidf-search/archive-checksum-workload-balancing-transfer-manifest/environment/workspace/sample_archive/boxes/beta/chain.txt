@@ -1,0 +1,2 @@
+The beta crate contains restoration notes, condition snapshots, and operator initials.
+Each line is short, but path ordering across nested directories must remain stable.

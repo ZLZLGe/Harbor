@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "literary-contest-academic-pdf-redaction-transfer-manuscript",
+  "taskRole": "transfer",
+  "title": "Transfer | Literary Contest Manuscript Anonymization",
+  "goal": "匿名化文学奖参赛 manuscript PDF，去除作者姓名、经纪公司、个人网站、联系信息、过往获奖记录、页眉署名以及 PDF metadata 中的创作者字段，同时保留正文章节、脚注和评审所需文本结构。",
+  "primaryOutputFile": "/root/jury_ready/manuscript_blinded.pdf",
+  "difficulty": "medium",
+  "category": "document-editing",
+  "skillBenefitRationale": "该任务把 PDF 定点脱敏能力迁移到文学匿名评审，考察对页眉页脚、正文前页和元数据中的身份线索进行精确 redaction，仍不依赖其他 workspace skill。",
+  "targetSkillDirName": "academic-pdf-redaction",
+  "targetSkillName": "academic-pdf-redaction"
+}

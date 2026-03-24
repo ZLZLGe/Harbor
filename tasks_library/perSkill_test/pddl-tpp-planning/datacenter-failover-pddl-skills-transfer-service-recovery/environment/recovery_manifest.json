@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cluster-a",
+    "domain": "datacenter/domain.pddl",
+    "problem": "datacenter/cluster_a.pddl",
+    "plan_output": "recovery_plans/cluster_a_recovery.txt",
+    "cluster": "cluster-a",
+    "gateway": "gateway-a",
+    "standby_site": "dc-west",
+    "failed_site": "dc-east",
+    "core_service": "auth-store",
+    "edge_service": "api-frontdoor",
+    "replicas": ["replica-a1", "replica-a2"]
+  },
+  {
+    "id": "cluster-b",
+    "domain": "datacenter/domain.pddl",
+    "problem": "datacenter/cluster_b.pddl",
+    "plan_output": "recovery_plans/cluster_b_recovery.txt",
+    "cluster": "cluster-b",
+    "gateway": "gateway-b",
+    "standby_site": "dc-south",
+    "failed_site": "dc-north",
+    "core_service": "ledger-store",
+    "edge_service": "checkout-edge",
+    "replicas": ["replica-b1", "replica-b2"]
+  },
+  {
+    "id": "cluster-c",
+    "domain": "datacenter/domain.pddl",
+    "problem": "datacenter/cluster_c.pddl",
+    "plan_output": "recovery_plans/cluster_c_recovery.txt",
+    "cluster": "cluster-c",
+    "gateway": "gateway-c",
+    "standby_site": "dc-backup",
+    "failed_site": "dc-primary",
+    "core_service": "profile-db",
+    "edge_service": "session-edge",
+    "replicas": ["replica-c1", "replica-c2"]
+  }
+]

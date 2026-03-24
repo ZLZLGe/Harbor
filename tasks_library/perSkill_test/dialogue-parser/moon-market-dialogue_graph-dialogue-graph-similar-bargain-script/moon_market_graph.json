@@ -1,0 +1,580 @@
+{
+  "nodes": [
+    {
+      "id": "MoonMarketStart",
+      "text": "Silver lanterns sway over the moon market as Mira beckons you toward a crescent-shaped stall.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "LanternGreeting",
+      "text": "Looking for a tideglass lantern? This one still remembers the sea.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "PriceMenu",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FirstPrice",
+      "text": "Sixty silver crescents, with a fresh wick and moon-oil vial.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "AppraiseLantern",
+      "text": "The brass is honest work, but one rune ring has a hairline crack near the hinge.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "AppraiseReply",
+      "text": "Sharp eyes. That crack does not dim the light, but it does give us room to talk.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "BargainMenu",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "LowOffer",
+      "text": "Forty? I'd lose money before moonrise.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "LowOfferChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "BrokerLaughs",
+      "text": "At forty, you may as well ask Mira to gift-wrap the moon.",
+      "speaker": "Broker",
+      "type": "line"
+    },
+    {
+      "id": "EmbarrassedReset",
+      "text": "Ignore him. If you want the lantern, make me a serious offer.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "LoreDiscount",
+      "text": "Hm. Someone taught you the old marks. Fifty-two, and I'll stop pretending that crack is decorative.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "LoreChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "MidOffer",
+      "text": "Fifty gets my attention, but not the lantern.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "MidOfferChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FairOffer",
+      "text": "Fifty-five is respectable. We are finally speaking the same language.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "FairOfferChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "CharmPitch",
+      "text": "Flattery buys you a smile, not a discount... unless you keep talking.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "CharmChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "CharmBackfire",
+      "text": "Forty-eight and a grin? Bold. Try again when you bring better poetry.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "StoryPitch",
+      "text": "This lantern guided my sister through the eclipse floods. It shines steady when maps fail.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "StoryChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "BrokerTruth",
+      "text": "The story is true enough. The lantern works, but Mira is charging for the legend too.",
+      "speaker": "Broker",
+      "type": "line"
+    },
+    {
+      "id": "TruthChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "TruthCounter",
+      "text": "Fifty-three, no hook, no extra oil. Final moonrise offer.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "FinalChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "AddOnTalk",
+      "text": "We can include a carrying hook if the sale closes before the bell.",
+      "speaker": "Apprentice",
+      "type": "line"
+    },
+    {
+      "id": "AddOnChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ReputationDeal",
+      "text": "Bring me two customers tomorrow, and fifty will do tonight.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "ReputationChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ApprenticePitch",
+      "text": "Mistress, the cracked ring means we should move it before the damp gets worse.",
+      "speaker": "Apprentice",
+      "type": "line"
+    },
+    {
+      "id": "ApprenticeChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RivalBluff",
+      "text": "Then the next stall is selling fog in a bottle. If your quote is real, prove it.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "BluffChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "BluffPressed",
+      "text": "Forty-five and no warranty, perhaps. I can do fifty-four if you stop performing for the crowd.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "GuardWarning",
+      "text": "Keep the haggling civil. The bell is about to ring, and the lane stays open only for honest trade.",
+      "speaker": "Guard",
+      "type": "line"
+    },
+    {
+      "id": "GuardChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DealAccepted",
+      "text": "Done. The lantern, hook if promised, and fresh oil are yours.",
+      "speaker": "Mira",
+      "type": "line"
+    },
+    {
+      "id": "WalkAway",
+      "text": "You melt back into the moon market crowd, still weighing silver against starlight.",
+      "speaker": "Narrator",
+      "type": "line"
+    }
+  ],
+  "edges": [
+    {
+      "from": "MoonMarketStart",
+      "to": "LanternGreeting",
+      "text": ""
+    },
+    {
+      "from": "LanternGreeting",
+      "to": "PriceMenu",
+      "text": ""
+    },
+    {
+      "from": "PriceMenu",
+      "to": "FirstPrice",
+      "text": "1. Ask the asking price."
+    },
+    {
+      "from": "PriceMenu",
+      "to": "AppraiseLantern",
+      "text": "2. [Appraise] Inspect the lantern frame and crystal seams."
+    },
+    {
+      "from": "PriceMenu",
+      "to": "RivalBluff",
+      "text": "3. [Bluff] Mention a cheaper offer from the next stall."
+    },
+    {
+      "from": "PriceMenu",
+      "to": "WalkAway",
+      "text": "4. Walk away and browse the market."
+    },
+    {
+      "from": "FirstPrice",
+      "to": "BargainMenu",
+      "text": ""
+    },
+    {
+      "from": "AppraiseLantern",
+      "to": "AppraiseReply",
+      "text": ""
+    },
+    {
+      "from": "AppraiseReply",
+      "to": "BargainMenu",
+      "text": ""
+    },
+    {
+      "from": "BargainMenu",
+      "to": "LowOffer",
+      "text": "1. Offer forty silver crescents."
+    },
+    {
+      "from": "BargainMenu",
+      "to": "FairOffer",
+      "text": "2. Offer fifty-five silver crescents."
+    },
+    {
+      "from": "BargainMenu",
+      "to": "CharmPitch",
+      "text": "3. [Charm] Praise Mira's craftsmanship before naming a price."
+    },
+    {
+      "from": "BargainMenu",
+      "to": "StoryPitch",
+      "text": "4. Ask why this lantern is worth more than the others."
+    },
+    {
+      "from": "LowOffer",
+      "to": "LowOfferChoice",
+      "text": ""
+    },
+    {
+      "from": "LowOfferChoice",
+      "to": "BrokerLaughs",
+      "text": "1. Hold firm at forty."
+    },
+    {
+      "from": "LowOfferChoice",
+      "to": "LoreDiscount",
+      "text": "2. [Moon Lore] Point out the cracked rune ring and old tideglass."
+    },
+    {
+      "from": "LowOfferChoice",
+      "to": "MidOffer",
+      "text": "3. Raise the offer to fifty."
+    },
+    {
+      "from": "LowOfferChoice",
+      "to": "PriceMenu",
+      "text": "4. Step back and restart the conversation."
+    },
+    {
+      "from": "BrokerLaughs",
+      "to": "EmbarrassedReset",
+      "text": ""
+    },
+    {
+      "from": "EmbarrassedReset",
+      "to": "BargainMenu",
+      "text": ""
+    },
+    {
+      "from": "LoreDiscount",
+      "to": "LoreChoice",
+      "text": ""
+    },
+    {
+      "from": "LoreChoice",
+      "to": "DealAccepted",
+      "text": "1. Accept fifty-two."
+    },
+    {
+      "from": "LoreChoice",
+      "to": "AddOnTalk",
+      "text": "2. Ask for a spare wick as well."
+    },
+    {
+      "from": "LoreChoice",
+      "to": "WalkAway",
+      "text": "3. Say you need another lap around the market."
+    },
+    {
+      "from": "MidOffer",
+      "to": "MidOfferChoice",
+      "text": ""
+    },
+    {
+      "from": "MidOfferChoice",
+      "to": "ReputationDeal",
+      "text": "1. Add a promise to recommend her stall."
+    },
+    {
+      "from": "MidOfferChoice",
+      "to": "ApprenticePitch",
+      "text": "2. [Signal] Nod to the apprentice to speak up for the lantern."
+    },
+    {
+      "from": "MidOfferChoice",
+      "to": "FairOffer",
+      "text": "3. Return to the higher offer."
+    },
+    {
+      "from": "FairOffer",
+      "to": "FairOfferChoice",
+      "text": ""
+    },
+    {
+      "from": "FairOfferChoice",
+      "to": "DealAccepted",
+      "text": "1. Take the deal."
+    },
+    {
+      "from": "FairOfferChoice",
+      "to": "AddOnTalk",
+      "text": "2. Ask for a carrying hook included."
+    },
+    {
+      "from": "FairOfferChoice",
+      "to": "ApprenticePitch",
+      "text": "3. [Signal] Invite the apprentice to sweeten the sale."
+    },
+    {
+      "from": "CharmPitch",
+      "to": "CharmChoice",
+      "text": ""
+    },
+    {
+      "from": "CharmChoice",
+      "to": "DealAccepted",
+      "text": "1. Offer fifty-two with a grin."
+    },
+    {
+      "from": "CharmChoice",
+      "to": "CharmBackfire",
+      "text": "2. Push your luck and ask for forty-eight."
+    },
+    {
+      "from": "CharmChoice",
+      "to": "AddOnTalk",
+      "text": "3. Ask for a travel hook instead of a lower price."
+    },
+    {
+      "from": "CharmBackfire",
+      "to": "BargainMenu",
+      "text": ""
+    },
+    {
+      "from": "StoryPitch",
+      "to": "StoryChoice",
+      "text": ""
+    },
+    {
+      "from": "StoryChoice",
+      "to": "DealAccepted",
+      "text": "1. Buy it for the quoted price."
+    },
+    {
+      "from": "StoryChoice",
+      "to": "BrokerTruth",
+      "text": "2. Ask the broker whether the story is true."
+    },
+    {
+      "from": "StoryChoice",
+      "to": "PriceMenu",
+      "text": "3. Circle the square and come back later."
+    },
+    {
+      "from": "BrokerTruth",
+      "to": "TruthChoice",
+      "text": ""
+    },
+    {
+      "from": "TruthChoice",
+      "to": "TruthCounter",
+      "text": "1. Use that admission to counter at fifty-three."
+    },
+    {
+      "from": "TruthChoice",
+      "to": "WalkAway",
+      "text": "2. Thank them both and leave."
+    },
+    {
+      "from": "TruthChoice",
+      "to": "DealAccepted",
+      "text": "3. Decide the story is worth the full price."
+    },
+    {
+      "from": "TruthCounter",
+      "to": "FinalChoice",
+      "text": ""
+    },
+    {
+      "from": "FinalChoice",
+      "to": "DealAccepted",
+      "text": "1. Accept the final offer."
+    },
+    {
+      "from": "FinalChoice",
+      "to": "WalkAway",
+      "text": "2. Refuse and leave."
+    },
+    {
+      "from": "AddOnTalk",
+      "to": "AddOnChoice",
+      "text": ""
+    },
+    {
+      "from": "AddOnChoice",
+      "to": "DealAccepted",
+      "text": "1. Agree to the current price with the hook."
+    },
+    {
+      "from": "AddOnChoice",
+      "to": "GuardWarning",
+      "text": "2. Try to shave off two more silver."
+    },
+    {
+      "from": "AddOnChoice",
+      "to": "WalkAway",
+      "text": "3. Decide against the purchase."
+    },
+    {
+      "from": "ReputationDeal",
+      "to": "ReputationChoice",
+      "text": ""
+    },
+    {
+      "from": "ReputationChoice",
+      "to": "DealAccepted",
+      "text": "1. Accept the promise deal."
+    },
+    {
+      "from": "ReputationChoice",
+      "to": "BargainMenu",
+      "text": "2. Decide you cannot promise that."
+    },
+    {
+      "from": "ApprenticePitch",
+      "to": "ApprenticeChoice",
+      "text": ""
+    },
+    {
+      "from": "ApprenticeChoice",
+      "to": "FinalChoice",
+      "text": "1. Offer fifty-one silver now."
+    },
+    {
+      "from": "ApprenticeChoice",
+      "to": "BargainMenu",
+      "text": "2. Thank the apprentice and return to the main negotiation."
+    },
+    {
+      "from": "RivalBluff",
+      "to": "BluffChoice",
+      "text": ""
+    },
+    {
+      "from": "BluffChoice",
+      "to": "BluffPressed",
+      "text": "1. [Bluff] Insist the other merchant offered forty-five."
+    },
+    {
+      "from": "BluffChoice",
+      "to": "BargainMenu",
+      "text": "2. Admit you exaggerated."
+    },
+    {
+      "from": "BluffChoice",
+      "to": "WalkAway",
+      "text": "3. Leave to compare stalls."
+    },
+    {
+      "from": "BluffPressed",
+      "to": "FinalChoice",
+      "text": ""
+    },
+    {
+      "from": "GuardWarning",
+      "to": "GuardChoice",
+      "text": ""
+    },
+    {
+      "from": "GuardChoice",
+      "to": "DealAccepted",
+      "text": "1. Apologize and accept the standing offer."
+    },
+    {
+      "from": "GuardChoice",
+      "to": "WalkAway",
+      "text": "2. Take the hint and leave."
+    },
+    {
+      "from": "DealAccepted",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "WalkAway",
+      "to": "End",
+      "text": ""
+    }
+  ]
+}

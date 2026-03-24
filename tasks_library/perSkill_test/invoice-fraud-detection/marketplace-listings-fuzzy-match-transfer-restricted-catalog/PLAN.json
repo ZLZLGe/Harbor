@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "marketplace-listings-fuzzy-match-transfer-restricted-catalog",
+  "taskRole": "transfer",
+  "title": "Transfer: Match Marketplace Listings to a Restricted Catalog",
+  "goal": "Compare seller listing titles against a restricted brand catalog with noisy abbreviations, bundle text, and formatting variation, then save probable restricted matches and their canonical targets to /root/restricted_listing_matches.json.",
+  "primaryOutputFile": "/root/restricted_listing_matches.json",
+  "difficulty": "hard",
+  "category": "catalog-moderation",
+  "skillBenefitRationale": "The main problem is resolving messy product-title variants to canonical restricted catalog entries; fuzzy matching is the only key shipped skill that makes the moderation decision possible.",
+  "targetSkillDirName": "fuzzy-match",
+  "targetSkillName": "fuzzy-match"
+}

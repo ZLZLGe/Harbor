@@ -1,0 +1,28 @@
+{
+  "study_id": "delta_cloud_block_siting",
+  "added_load_MW": 80.0,
+  "binding_threshold_pct": 99.0,
+  "price_diffusion_threshold_dollars_per_MWh": 0.5,
+  "candidate_buses": [
+    {
+      "candidate_id": "airport_hub",
+      "interconnection_bus": 205,
+      "label": "Airport Hub 230 kV"
+    },
+    {
+      "candidate_id": "metro_spur",
+      "interconnection_bus": 330,
+      "label": "Metro Spur 230 kV"
+    },
+    {
+      "candidate_id": "industrial_loop",
+      "interconnection_bus": 440,
+      "label": "Industrial Loop 161 kV"
+    },
+    {
+      "candidate_id": "coastal_landing",
+      "interconnection_bus": 550,
+      "label": "Coastal Landing 161 kV"
+    }
+  ]
+}

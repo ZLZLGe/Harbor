@@ -1,0 +1,192 @@
+{
+  "summary": {
+    "total_bus_count": 300,
+    "active_branch_count": 406,
+    "available_generator_count": 56,
+    "energized_island_count": 3,
+    "de_energized_component_count": 3,
+    "topology_disconnected_load_MW": 171.6,
+    "topology_disconnected_load_MVAr": 50.4
+  },
+  "critical_load_coverage": {
+    "total_count": 6,
+    "served_count": 3,
+    "unserved_count": 3,
+    "served_MW": 1427.0,
+    "unserved_MW": 143.5,
+    "served_bus_ids": [
+      78,
+      120,
+      261
+    ],
+    "unserved_bus_ids": [
+      25,
+      105,
+      242
+    ]
+  },
+  "energized_islands": [
+    {
+      "island_id": "island_1",
+      "representative_bus_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "bus_count": 293,
+      "load_MW": 22787.05,
+      "load_MVAr": 7538.97,
+      "available_generation_MW": 33616.0,
+      "generation_margin_MW": 10828.95,
+      "online_generator_count": 54,
+      "generator_bus_ids": [
+        2,
+        6,
+        9,
+        11,
+        15,
+        18,
+        31,
+        32,
+        43,
+        46,
+        53,
+        54,
+        71,
+        77,
+        80,
+        82,
+        106,
+        112,
+        117,
+        120,
+        121,
+        123,
+        125,
+        130,
+        142,
+        143,
+        157,
+        158,
+        162,
+        163,
+        168,
+        170,
+        171,
+        182,
+        184,
+        200,
+        201,
+        206,
+        207,
+        209,
+        211,
+        212,
+        224,
+        227,
+        240,
+        245,
+        249,
+        251,
+        252,
+        256,
+        264,
+        269,
+        286,
+        299
+      ],
+      "critical_load_bus_ids": [
+        120
+      ],
+      "critical_load_MW": 538.0
+    },
+    {
+      "island_id": "island_2",
+      "representative_bus_ids": [
+        64,
+        78
+      ],
+      "bus_count": 2,
+      "load_MW": 561.0,
+      "load_MVAr": 220.0,
+      "available_generation_MW": 490.0,
+      "generation_margin_MW": -71.0,
+      "online_generator_count": 1,
+      "generator_bus_ids": [
+        64
+      ],
+      "critical_load_bus_ids": [
+        78
+      ],
+      "critical_load_MW": 561.0
+    },
+    {
+      "island_id": "island_3",
+      "representative_bus_ids": [
+        261
+      ],
+      "bus_count": 1,
+      "load_MW": 328.0,
+      "load_MVAr": 188.0,
+      "available_generation_MW": 523.0,
+      "generation_margin_MW": 195.0,
+      "online_generator_count": 1,
+      "generator_bus_ids": [
+        261
+      ],
+      "critical_load_bus_ids": [
+        261
+      ],
+      "critical_load_MW": 328.0
+    }
+  ],
+  "de_energized_components": [
+    {
+      "component_id": "component_1",
+      "representative_bus_ids": [
+        25,
+        271
+      ],
+      "bus_count": 2,
+      "load_MW": 84.1,
+      "load_MVAr": 20.0,
+      "critical_load_bus_ids": [
+        25
+      ],
+      "critical_load_MW": 56.0
+    },
+    {
+      "component_id": "component_2",
+      "representative_bus_ids": [
+        242
+      ],
+      "bus_count": 1,
+      "load_MW": 50.5,
+      "load_MVAr": 17.4,
+      "critical_load_bus_ids": [
+        242
+      ],
+      "critical_load_MW": 50.5
+    },
+    {
+      "component_id": "component_3",
+      "representative_bus_ids": [
+        105
+      ],
+      "bus_count": 1,
+      "load_MW": 37.0,
+      "load_MVAr": 13.0,
+      "critical_load_bus_ids": [
+        105
+      ],
+      "critical_load_MW": 37.0
+    }
+  ]
+}

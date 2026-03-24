@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ledger-sync-restclient-migration-transfer-batch-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer - Migrate Batch Ledger Sync Client to RestClient",
+  "goal": "在一个 Spring Batch 对账任务中，`LedgerSyncClient` 仍用 `RestTemplate.exchange(...)` 拉取分页账目并提交确认结果。将其迁移到 `RestClient`，正确处理游标/查询参数和泛型分页响应 `ParameterizedTypeReference`，并保持批处理作业测试通过。",
+  "primaryOutputFile": "/workspace/src/main/java/com/example/reconciliation/client/LedgerSyncClient.java",
+  "difficulty": "hard",
+  "category": "Batch Processing",
+  "skillBenefitRationale": "把同一迁移技能转移到批处理场景，重点不再是普通控制器服务，而是分页泛型响应、查询参数拼装和批量确认请求。",
+  "targetSkillDirName": "restclient-migration",
+  "targetSkillName": "restclient-migration"
+}

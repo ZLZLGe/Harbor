@@ -1,0 +1,13 @@
+{
+  "pluginId": "docs-preview",
+  "version": "1.0.4",
+  "owner": "marketplace-docs",
+  "notes": "The docs include snippets like {\"@type\":\"com.harbor.pluginmanifest.steps.InternalScriptStep\"} and {\"@class\":\"sample\"}, but they are plain text.",
+  "steps": [
+    {
+      "type": "copyAsset",
+      "source": "docs/readme.md",
+      "destination": "plugins/docs-preview/readme.md"
+    }
+  ]
+}

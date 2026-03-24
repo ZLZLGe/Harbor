@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "rubric-scorer-python-scala-oop-transfer-evaluation",
+  "taskRole": "transfer",
+  "title": "Transfer: 评分量表模块翻译",
+  "goal": "将一个 Python 评分量表模块翻译为 Scala 2.13：模块包含题目与评分结果数据类、抽象评分器、文本/数值/加权评分子类、批量评分器和带元数据的结果构造方法。",
+  "primaryOutputFile": "/root/RubricScorer.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "教育评估场景与原始数据处理、游戏和定价都明显不同，但解决路径依旧完全依赖 Python 到 Scala 的 OOP 翻译能力，能覆盖抽象类、子类多态、不可变结果对象和构建方法。",
+  "targetSkillDirName": "python-scala-oop",
+  "targetSkillName": "python-scala-oop"
+}

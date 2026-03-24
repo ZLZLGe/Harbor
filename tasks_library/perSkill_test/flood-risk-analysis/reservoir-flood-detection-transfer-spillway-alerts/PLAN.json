@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-flood-detection-transfer-spillway-alerts",
+  "taskRole": "transfer",
+  "title": "Transfer - Reservoir Spillway Alert Board",
+  "goal": "Process hourly reservoir level records with action, flood, and major thresholds, then write `/root/output/spillway_alerts.json` summarizing each reservoir that crossed flood stage with flood-risk days, highest severity reached, and the peak day.",
+  "primaryOutputFile": "/root/output/spillway_alerts.json",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This transfers the same skill into reservoir operations. The task still depends on comparing observed levels to staged thresholds, counting flood days, and assigning severity bands, so flood-detection remains the sole key capability being exercised.",
+  "targetSkillDirName": "flood-detection",
+  "targetSkillName": "flood-detection"
+}

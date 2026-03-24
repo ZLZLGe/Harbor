@@ -1,0 +1,8 @@
+candidate_id,origin_time,analyst_note
+edge-start,2019-07-04T19:00:09.670000,Window starts before the available waveform archive.
+ridge-0302,2019-07-04T19:03:02.540000,Early aftershock well inside the first packet.
+boundary-2001,2019-07-04T19:20:01.230000,Crosses from the first packet into the second packet.
+middle-2740,2019-07-04T19:27:40.760000,Middle of the reduced-coverage packet.
+boundary-3949,2019-07-04T19:39:49.720000,Crosses from the second packet into the third packet.
+late-4750,2019-07-04T19:47:50.200000,Late aftershock in the final packet.
+edge-end,2019-07-04T19:59:43.370000,Window ends after the available waveform archive.

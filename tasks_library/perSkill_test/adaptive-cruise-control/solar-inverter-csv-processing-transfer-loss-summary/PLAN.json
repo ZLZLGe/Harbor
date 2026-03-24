@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "solar-inverter-csv-processing-transfer-loss-summary",
+  "taskRole": "transfer",
+  "title": "Solar Inverter Loss Summary Transfer",
+  "goal": "Read inverter production CSV data with periodic missing readings and curtailment flags, identify downtime and curtailed-generation intervals per inverter, and generate a summary CSV with interval timing, estimated lost kWh based on neighboring valid samples, and a categorical root-cause label.",
+  "primaryOutputFile": "inverter_loss_summary.csv",
+  "difficulty": "medium",
+  "category": "energy-operations",
+  "skillBenefitRationale": "This transfers the same core skill into an energy setting where the essential work is CSV ingestion, gap-aware handling of missing readings, interval aggregation, derived metric calculation, and structured CSV export without needing any other shipped skill.",
+  "targetSkillDirName": "csv-processing",
+  "targetSkillName": "csv-processing"
+}

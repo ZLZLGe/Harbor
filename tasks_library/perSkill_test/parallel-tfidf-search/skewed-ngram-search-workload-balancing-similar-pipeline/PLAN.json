@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "skewed-ngram-search-workload-balancing-similar-pipeline",
+  "taskRole": "similar",
+  "title": "Similar: Skewed N-Gram Search Pipeline",
+  "goal": "并行构建字符 n-gram 倒排索引并执行批量模糊检索，在长短差异很大的文档集合上保持与顺序版一致的结果，同时通过更均衡的任务分配减少长文档拖尾。",
+  "primaryOutputFile": "/root/workspace/ngram_parallel_solution.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "文档长度高度偏斜，只有按估计代价做分块或动态派发，才能同时提升索引构建和批量检索阶段的并行效率。",
+  "targetSkillDirName": "workload-balancing",
+  "targetSkillName": "workload-balancing"
+}

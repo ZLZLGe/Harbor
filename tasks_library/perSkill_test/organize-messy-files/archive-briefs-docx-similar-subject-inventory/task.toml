@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "archive-briefs-docx-similar-subject-inventory"
+name = "Similar - Word 稿件主题归档清单"
+description = "将收件箱里的 Word 稿件按主题归入四个指定目录，并生成记录各目录最终文件名的 JSON 清单。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "file-management"
+tags = ["file-management", "docx", "json"]
+primary_output_file = "/root/subject_inventory.json"
+source_task_id = "organize-messy-files"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

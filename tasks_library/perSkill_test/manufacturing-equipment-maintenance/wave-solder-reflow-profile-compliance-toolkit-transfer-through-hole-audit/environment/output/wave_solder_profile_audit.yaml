@@ -1,0 +1,130 @@
+line_id: WS-7
+handbook_limits:
+  preheat_temp_min_c: 90.0
+  preheat_temp_max_c: 140.0
+  max_preheat_ramp_c_per_s: 1.6
+  entry_temp_min_c: 100.0
+  entry_temp_max_c: 115.0
+  contact_time_threshold_c: 240.0
+  contact_time_min_s: 3.0
+  contact_time_max_s: 4.0
+  effective_wave_contact_length_cm: 4.8
+  speed_min_cm_min: 72.0
+  speed_max_cm_min: 96.0
+  target_entry_temp_c: 107.5
+  target_contact_time_s: 3.5
+  target_speed_cm_min: 84.0
+  entry_sensor_rule: lowest_entry_temp_then_smallest_tc_id
+  contact_sensor_rule: longest_time_above_threshold_then_smallest_tc_id
+qualified_lot_ids:
+- LOT-A1
+- LOT-A2
+- LOT-D1
+blocked_lot_ids:
+- LOT-B1
+- LOT-C1
+best_profile_id: PRF-A
+lots:
+- lot_id: LOT-A1
+  profile_id: PRF-A
+  entry_sensor_id: TOP2
+  contact_sensor_id: WAVE2
+  max_preheat_ramp_c_per_s: 1.6
+  board_entry_temp_c: 108.0
+  contact_time_s: 3.46
+  actual_speed_cm_min: 84.0
+  bridge_count: 0
+  insufficient_fill_count: 0
+  thermal_status: pass
+  speed_status: pass
+  defect_status: pass
+  audit_status: pass
+  failure_reasons: []
+- lot_id: LOT-A2
+  profile_id: PRF-A
+  entry_sensor_id: TOP1
+  contact_sensor_id: WAVE2
+  max_preheat_ramp_c_per_s: 1.5
+  board_entry_temp_c: 106.0
+  contact_time_s: 3.54
+  actual_speed_cm_min: 82.0
+  bridge_count: 0
+  insufficient_fill_count: 0
+  thermal_status: pass
+  speed_status: pass
+  defect_status: pass
+  audit_status: pass
+  failure_reasons: []
+- lot_id: LOT-B1
+  profile_id: PRF-B
+  entry_sensor_id: TOP1
+  contact_sensor_id: WAVE2
+  max_preheat_ramp_c_per_s: 1.5
+  board_entry_temp_c: 98.0
+  contact_time_s: 2.28
+  actual_speed_cm_min: 97.0
+  bridge_count: 0
+  insufficient_fill_count: 0
+  thermal_status: fail
+  speed_status: fail
+  defect_status: pass
+  audit_status: fail
+  failure_reasons:
+  - entry_temp_out_of_window
+  - contact_time_out_of_window
+  - speed_out_of_window
+- lot_id: LOT-C1
+  profile_id: PRF-C
+  entry_sensor_id: TOP1
+  contact_sensor_id: WAVE2
+  max_preheat_ramp_c_per_s: 1.5
+  board_entry_temp_c: 109.0
+  contact_time_s: 3.22
+  actual_speed_cm_min: 86.0
+  bridge_count: 2
+  insufficient_fill_count: 0
+  thermal_status: pass
+  speed_status: pass
+  defect_status: fail
+  audit_status: fail
+  failure_reasons:
+  - bridging_present
+- lot_id: LOT-D1
+  profile_id: PRF-D
+  entry_sensor_id: TOP2
+  contact_sensor_id: WAVE2
+  max_preheat_ramp_c_per_s: 1.6
+  board_entry_temp_c: 111.0
+  contact_time_s: 3.84
+  actual_speed_cm_min: 90.0
+  bridge_count: 0
+  insufficient_fill_count: 0
+  thermal_status: pass
+  speed_status: pass
+  defect_status: pass
+  audit_status: pass
+  failure_reasons: []
+recommended_profiles:
+- profile_id: PRF-A
+  preheater_top_sp_c: 118.0
+  chip_wave_height_mm: 5.2
+  lambda_wave_height_mm: 4.8
+  lot_count: 2
+  qualified_lot_ids:
+  - LOT-A1
+  - LOT-A2
+  average_entry_temp_c: 107.0
+  average_contact_time_s: 3.5
+  average_speed_cm_min: 83.0
+  recommended_speed_cm_min: 83.0
+- profile_id: PRF-D
+  preheater_top_sp_c: 117.0
+  chip_wave_height_mm: 5.1
+  lambda_wave_height_mm: 4.7
+  lot_count: 1
+  qualified_lot_ids:
+  - LOT-D1
+  average_entry_temp_c: 111.0
+  average_contact_time_s: 3.84
+  average_speed_cm_min: 90.0
+  recommended_speed_cm_min: 90.0

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "uinput-syz-extract-constants-similar-ioctl-matrix"
+name = "Similar: 为 uinput syzlang 补齐 ioctl 与事件常量"
+description = "基于预置的 uinput syzlang 骨架补齐 /opt/syzkaller/sys/linux/dev_uinput.txt.const 中的 amd64/386 常量并让描述编译通过。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "security"
+tags = ["security", "fuzzing", "kernel", "syzkaller", "syzlang", "uinput"]
+primary_output_file = "/opt/syzkaller/sys/linux/dev_uinput.txt.const"
+source_task_id = "syzkaller-ppdev-syzlang"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

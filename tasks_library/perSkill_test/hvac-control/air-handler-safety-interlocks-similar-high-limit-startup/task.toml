@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "air-handler-safety-interlocks-similar-high-limit-startup"
+name = "Similar: Air Handler High-Limit Startup Protection"
+description = "Implement a safe air-handler startup sequence that reaches 24.0C, respects the 27.0C high limit, and writes startup_safety_report.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["hvac", "air-handler", "startup", "safety", "interlocks", "python"]
+primary_output_file = "startup_safety_report.json"
+source_task_id = "hvac-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

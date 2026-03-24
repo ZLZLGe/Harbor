@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "fermentation-chamber-first-order-model-fitting-similar-thermal-commissioning",
+  "taskRole": "similar",
+  "title": "Similar: 发酵箱热响应建模",
+  "goal": "对发酵箱执行加热阶跃测试，基于含噪温度日志拟合一阶热响应模型，并据此预测达到目标发酵温度区间所需时间。",
+  "primaryOutputFile": "fermentation_model_fit.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务核心是从阶跃响应数据中提取一阶模型的 K 和 tau；后续时间预测只依赖这组拟合参数，当前 skill 是唯一关键 shipped skill。",
+  "targetSkillDirName": "first-order-model-fitting",
+  "targetSkillName": "first-order-model-fitting"
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "seismic-spectrogram-events-custom-distance-metrics-transfer-dbscan"
+name = "Transfer: 微震频谱事件分组"
+description = "在校准频谱峰值上选出最佳时间-频率加权 DBSCAN 配置，并将其应用到待分析台站后把事件簇摘要写入 /root/seismic_event_clusters.csv。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "data-science"
+tags = ["clustering", "dbscan", "signal-processing", "seismology", "custom-metric"]
+primary_output_file = "/root/seismic_event_clusters.csv"
+source_task_id = "mars-clouds-clustering"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 4
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

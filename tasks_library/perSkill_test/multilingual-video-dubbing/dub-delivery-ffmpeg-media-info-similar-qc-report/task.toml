@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "dub-delivery-ffmpeg-media-info-similar-qc-report"
+name = "Similar: 多语言配音交付包质检报告"
+description = "Inspect a prepared dubbing delivery package and write /root/dub_qc_report.json with media-metadata quality checks."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "multimodal-video-dubbing"
+tags = ["media metadata", "quality control", "video dubbing", "ffprobe"]
+primary_output_file = "/root/dub_qc_report.json"
+source_task_id = "multilingual-video-dubbing"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

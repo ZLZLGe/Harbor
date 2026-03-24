@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-service-layout-map-optimization-strategy-transfer-aisle-hotspots",
+  "taskRole": "transfer",
+  "title": "Warehouse Service Layout (Transfer)",
+  "goal": "在仓库方格地图上放置拣货站、充电座和缓冲台，使高需求货架在服务半径内获得的总服务分最高，同时满足消防通道、设备最小间距和占用冲突约束。",
+  "primaryOutputFile": "/output/warehouse_service_layout.json",
+  "difficulty": "hard",
+  "category": "logistics",
+  "skillBenefitRationale": "需要先排除被货架和通道规则锁死的位置，再按需求热点给候选格打分，并用锚点式搜索覆盖高密度货架簇；这正是 map-optimization-strategy 的直接迁移。",
+  "targetSkillDirName": "map-optimization-strategy",
+  "targetSkillName": "map-optimization-strategy"
+}

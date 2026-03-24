@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "leadlike-rdkit-transfer-descriptor-prioritization"
+name = "Transfer: Descriptor-Driven Lead Prioritization"
+description = "Score a local lead batch with molecular descriptors, explain each decision, and write a ranked follow-up queue."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "chemistry"
+tags = ["chemistry", "descriptors", "prioritization", "jsonl"]
+primary_output_file = "/root/workspace/leadlike_prioritization.py"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

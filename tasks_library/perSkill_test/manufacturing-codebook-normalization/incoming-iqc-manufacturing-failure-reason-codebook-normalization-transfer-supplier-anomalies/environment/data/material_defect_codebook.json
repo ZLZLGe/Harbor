@@ -1,0 +1,88 @@
+{
+  "entries": [
+    {
+      "code": "IQC-MAT-001",
+      "standard_label": "PCB solder mask scratch with copper exposure",
+      "allowed_categories": ["PCB"],
+      "allowed_stages": ["RECEIVING_VISUAL"],
+      "keywords": ["刮伤", "scratch", "见铜", "露铜", "copper", "green oil", "mask"]
+    },
+    {
+      "code": "IQC-MAT-002",
+      "standard_label": "Terminal oxidation or blackened contact",
+      "allowed_categories": ["CONNECTOR", "PIN_HEADER", "TERMINAL"],
+      "allowed_stages": ["RECEIVING_VISUAL", "SOLDERABILITY_CHECK"],
+      "keywords": ["氧化", "发黑", "black", "blackened", "oxidation", "wetting poor", "dull"]
+    },
+    {
+      "code": "IQC-MAT-003",
+      "standard_label": "Housing crack or chipped corner",
+      "allowed_categories": ["HOUSING"],
+      "allowed_stages": ["RECEIVING_VISUAL"],
+      "keywords": ["crack", "chip", "裂", "崩角", "角位", "chipped"]
+    },
+    {
+      "code": "IQC-MAT-004",
+      "standard_label": "Revision or label mismatch",
+      "allowed_categories": ["LABEL", "PACKING"],
+      "allowed_stages": ["PACK_AUDIT"],
+      "keywords": ["rev", "label mismatch", "错版", "wrong rev", "sticker", "版本不符"]
+    },
+    {
+      "code": "IQC-MAT-005",
+      "standard_label": "Pack shortage or missing accessory",
+      "allowed_categories": ["PACKING"],
+      "allowed_stages": ["PACK_AUDIT"],
+      "keywords": ["少", "missing", "short", "shortage", "tray", "spacer", "pcs"]
+    },
+    {
+      "code": "IQC-MAT-006",
+      "standard_label": "Dimensional oversize or coplanarity out",
+      "allowed_categories": ["PIN_HEADER", "MAGNETICS", "CASTING"],
+      "allowed_stages": ["DIMENSION_CHECK"],
+      "keywords": ["oversize", "coplanarity", "dim", "高", "超差", "+0.25mm", "width"]
+    },
+    {
+      "code": "IQC-MAT-007",
+      "standard_label": "Moisture protection broken or vacuum bag leak",
+      "allowed_categories": ["PCB", "IC", "MODULE"],
+      "allowed_stages": ["MOISTURE_AUDIT"],
+      "keywords": ["vacuum bag", "broken", "HIC pink", "seal broken", "受潮", "moisture"]
+    },
+    {
+      "code": "IQC-MAT-008",
+      "standard_label": "Polarity marking reversed",
+      "allowed_categories": ["CONNECTOR", "HARNESS"],
+      "allowed_stages": ["RECEIVING_VISUAL"],
+      "keywords": ["polarity", "reverse", "正负标反", "mark reverse", "反向标识"]
+    },
+    {
+      "code": "IQC-MAT-009",
+      "standard_label": "Burr or sharp edge on part",
+      "allowed_categories": ["CASTING", "STAMPING", "MACHINED_PART"],
+      "allowed_stages": ["RECEIVING_VISUAL"],
+      "keywords": ["burr", "sharp edge", "毛刺", "cut hand", "锐边"]
+    },
+    {
+      "code": "IQC-MAT-010",
+      "standard_label": "Bent lead or terminal deformation",
+      "allowed_categories": ["PIN_HEADER", "CONNECTOR", "TERMINAL"],
+      "allowed_stages": ["RECEIVING_VISUAL"],
+      "keywords": ["bent", "歪脚", "变形", "lead bent", "pins bent"]
+    },
+    {
+      "code": "IQC-MAT-011",
+      "standard_label": "Plating blister or peel off",
+      "allowed_categories": ["SHIELD_CAN", "STAMPING", "CONNECTOR"],
+      "allowed_stages": ["RECEIVING_VISUAL"],
+      "keywords": ["起泡", "peel off", "blister", "镀层", "plating"]
+    },
+    {
+      "code": "IQC-MAT-012",
+      "standard_label": "Foreign material contamination",
+      "allowed_categories": ["PCB", "HARNESS", "CONNECTOR", "PACKING"],
+      "allowed_stages": ["RECEIVING_VISUAL", "PACK_AUDIT"],
+      "keywords": ["异物", "contamination", "粉尘", "foreign material", "毛丝"]
+    }
+  ]
+}

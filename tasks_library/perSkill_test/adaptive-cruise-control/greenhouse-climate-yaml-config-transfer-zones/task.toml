@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "greenhouse-climate-yaml-config-transfer-zones"
+name = "Transfer: Greenhouse Climate Control From YAML Policies"
+description = "Implement a greenhouse climate replay that loads zone policies from YAML, replays the sensor trace CSV, and writes greenhouse_strategy.yaml plus simulation outputs."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "agriculture-tech"
+tags = ["python", "yaml", "greenhouse", "simulation", "climate-control", "csv"]
+primary_output_file = "greenhouse_strategy.yaml"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

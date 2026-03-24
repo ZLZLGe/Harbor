@@ -1,0 +1,109 @@
+{
+  "session_id": "panel_roundtable",
+  "merge_gap_sec": 0.12,
+  "speaker_count_range": [2, 6],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "start": 0.0,
+      "end": 0.92,
+      "embedding": [0.92, 0.08, 0.02, 0.01]
+    },
+    {
+      "segment_id": "seg_002",
+      "start": 1.0,
+      "end": 1.88,
+      "embedding": [0.88, 0.11, 0.03, 0.0]
+    },
+    {
+      "segment_id": "seg_003",
+      "start": 2.2,
+      "end": 2.9,
+      "embedding": [0.12, 0.91, 0.05, 0.02]
+    },
+    {
+      "segment_id": "seg_004",
+      "start": 2.98,
+      "end": 3.72,
+      "embedding": [0.09, 0.93, 0.04, 0.02]
+    },
+    {
+      "segment_id": "seg_005",
+      "start": 4.08,
+      "end": 4.82,
+      "embedding": [0.05, 0.1, 0.9, 0.08]
+    },
+    {
+      "segment_id": "seg_006",
+      "start": 5.15,
+      "end": 5.72,
+      "embedding": [0.9, 0.07, 0.04, 0.02]
+    },
+    {
+      "segment_id": "seg_007",
+      "start": 5.82,
+      "end": 6.34,
+      "embedding": [0.89, 0.06, 0.05, 0.02]
+    },
+    {
+      "segment_id": "seg_008",
+      "start": 6.7,
+      "end": 7.36,
+      "embedding": [0.04, 0.06, 0.09, 0.94]
+    },
+    {
+      "segment_id": "seg_009",
+      "start": 7.44,
+      "end": 8.1,
+      "embedding": [0.03, 0.05, 0.08, 0.95]
+    },
+    {
+      "segment_id": "seg_010",
+      "start": 8.52,
+      "end": 9.22,
+      "embedding": [0.1, 0.88, 0.09, 0.02]
+    },
+    {
+      "segment_id": "seg_011",
+      "start": 9.55,
+      "end": 10.08,
+      "embedding": [0.06, 0.07, 0.92, 0.07]
+    },
+    {
+      "segment_id": "seg_012",
+      "start": 10.18,
+      "end": 10.86,
+      "embedding": [0.04, 0.05, 0.93, 0.08]
+    },
+    {
+      "segment_id": "seg_013",
+      "start": 11.2,
+      "end": 11.86,
+      "embedding": [0.91, 0.09, 0.04, 0.02]
+    },
+    {
+      "segment_id": "seg_014",
+      "start": 11.94,
+      "end": 12.5,
+      "embedding": [0.9, 0.08, 0.03, 0.01]
+    },
+    {
+      "segment_id": "seg_015",
+      "start": 12.92,
+      "end": 13.62,
+      "embedding": [0.05, 0.08, 0.1, 0.91]
+    },
+    {
+      "segment_id": "seg_016",
+      "start": 14.02,
+      "end": 14.66,
+      "embedding": [0.11, 0.9, 0.06, 0.03]
+    },
+    {
+      "segment_id": "seg_017",
+      "start": 15.0,
+      "end": 15.72,
+      "embedding": [0.07, 0.09, 0.89, 0.1]
+    }
+  ]
+}

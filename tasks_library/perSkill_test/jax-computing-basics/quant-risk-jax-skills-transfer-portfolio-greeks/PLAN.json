@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "quant-risk-jax-skills-transfer-portfolio-greeks",
+  "taskRole": "transfer",
+  "title": "Transfer: Portfolio Greeks Matrix",
+  "goal": "把 JAX 能力迁移到量化风险分析：对一组期权场景批量计算价格及 Greeks 敏感度矩阵，要求使用自动微分、向量化和 JIT 生成可复现实验输出。",
+  "primaryOutputFile": "portfolio_greeks.npy",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "该任务把自动微分和高维数组运算迁移到金融风险表生成，和源任务场景明显不同，但关键能力仍完全来自 jax-skills 的 grad、vmap/jit 与数组处理能力。",
+  "targetSkillDirName": "jax-skills",
+  "targetSkillName": "jax-skills"
+}

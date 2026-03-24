@@ -1,0 +1,102 @@
+{
+  "status": "BASELINE_WITH_VIOLATIONS",
+  "makespan": 38,
+  "schedule": [
+    {
+      "job": 1,
+      "op": 0,
+      "machine": 0,
+      "start": 0,
+      "end": 6,
+      "dur": 6
+    },
+    {
+      "job": 0,
+      "op": 0,
+      "machine": 1,
+      "start": 0,
+      "end": 7,
+      "dur": 7
+    },
+    {
+      "job": 2,
+      "op": 0,
+      "machine": 3,
+      "start": 5,
+      "end": 13,
+      "dur": 8
+    },
+    {
+      "job": 3,
+      "op": 0,
+      "machine": 1,
+      "start": 5,
+      "end": 12,
+      "dur": 7
+    },
+    {
+      "job": 0,
+      "op": 1,
+      "machine": 2,
+      "start": 6,
+      "end": 13,
+      "dur": 7
+    },
+    {
+      "job": 1,
+      "op": 1,
+      "machine": 1,
+      "start": 9,
+      "end": 17,
+      "dur": 8
+    },
+    {
+      "job": 2,
+      "op": 1,
+      "machine": 0,
+      "start": 11,
+      "end": 18,
+      "dur": 7
+    },
+    {
+      "job": 3,
+      "op": 1,
+      "machine": 2,
+      "start": 12,
+      "end": 21,
+      "dur": 9
+    },
+    {
+      "job": 0,
+      "op": 2,
+      "machine": 2,
+      "start": 16,
+      "end": 29,
+      "dur": 13
+    },
+    {
+      "job": 1,
+      "op": 2,
+      "machine": 2,
+      "start": 18,
+      "end": 30,
+      "dur": 12
+    },
+    {
+      "job": 2,
+      "op": 2,
+      "machine": 3,
+      "start": 20,
+      "end": 34,
+      "dur": 14
+    },
+    {
+      "job": 3,
+      "op": 2,
+      "machine": 3,
+      "start": 22,
+      "end": 38,
+      "dur": 16
+    }
+  ]
+}

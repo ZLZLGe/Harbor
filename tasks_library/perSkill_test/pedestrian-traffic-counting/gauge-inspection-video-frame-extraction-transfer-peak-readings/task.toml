@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "gauge-inspection-video-frame-extraction-transfer-peak-readings"
+name = "Transfer: Industrial Gauge Peak Readings"
+description = "Inspect each industrial gauge video, find the earliest frame where the reading peaks, and write the video name, peak frame id, and maximum reading to /app/inspection/gauge_maxima.csv."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "industrial gauge monitoring"
+tags = ["video understanding", "frame extraction", "industrial inspection", "csv output"]
+primary_output_file = "/app/inspection/gauge_maxima.csv"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

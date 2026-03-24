@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reconciliation-batch-hibernate-upgrade-transfer-criteria-search",
+  "taskRole": "transfer",
+  "title": "Transfer: 对账批处理的 Criteria API 替换",
+  "goal": "在一个离线对账批处理应用中，把已删除的 Hibernate 旧 Criteria 查询迁移到 JPA Criteria API，并保持多条件筛选、分页和汇总测试通过。",
+  "primaryOutputFile": "src/main/java/com/acme/reconcile/persistence/ReconciliationSearchRepository.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "任务核心是识别 Hibernate 6 移除的 legacy Criteria API 并改写为标准 JPA Criteria；不依赖其他 shipped skill。",
+  "targetSkillDirName": "hibernate-upgrade",
+  "targetSkillName": "hibernate-upgrade"
+}

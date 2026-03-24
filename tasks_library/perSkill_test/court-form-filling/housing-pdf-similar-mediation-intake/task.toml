@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "housing-pdf-similar-mediation-intake"
+name = "Similar: Housing Mediation Intake PDF"
+description = "Fill the housing mediation intake PDF from the dispute summary and save the completed form to /root/housing-mediation-filled.pdf."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "easy"
+category = "document-processing"
+tags = ["pdf", "form-filling", "housing", "mediation"]
+primary_output_file = "/root/housing-mediation-filled.pdf"
+source_task_id = "court-form-filling"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

@@ -1,0 +1,156 @@
+{
+  "layout": {
+    "floor_name": "Plant 7 Receiving Hall",
+    "width": 8,
+    "height": 6,
+    "cell_size_m": 1.5
+  },
+  "rules": {
+    "candidate_lane_codes": [
+      "AISLE",
+      "BUFFER"
+    ],
+    "max_dock_steps": 3,
+    "min_hazard_manhattan": 3,
+    "shortlist_size": 5
+  },
+  "summary": {
+    "traversable_cells": 24,
+    "candidate_lane_cells": 20,
+    "blocked_cells": 1,
+    "forbidden_cells": 2,
+    "loading_docks": 2,
+    "hazard_sources": 3,
+    "valid_candidates": 6
+  },
+  "loading_docks": [
+    {
+      "asset_code": "DOCK_A",
+      "asset_type": "LOADING_DOCK",
+      "display_name": "West inbound dock",
+      "cell_ref": 16,
+      "x": 0,
+      "y": 2
+    },
+    {
+      "asset_code": "DOCK_B",
+      "asset_type": "LOADING_DOCK",
+      "display_name": "East outbound dock",
+      "cell_ref": 30,
+      "x": 6,
+      "y": 3
+    }
+  ],
+  "hazards": [
+    {
+      "asset_code": "HZ_CHEM",
+      "asset_type": "CHEM_TANK",
+      "display_name": "Solvent tote",
+      "cell_ref": 28,
+      "x": 4,
+      "y": 3
+    },
+    {
+      "asset_code": "HZ_PAINT",
+      "asset_type": "PAINT_BOOTH",
+      "display_name": "Touch-up paint booth",
+      "cell_ref": 35,
+      "x": 3,
+      "y": 4
+    },
+    {
+      "asset_code": "HZ_WELD",
+      "asset_type": "WELD_STATION",
+      "display_name": "Welding booth",
+      "cell_ref": 12,
+      "x": 4,
+      "y": 1
+    }
+  ],
+  "forbidden_cells": [
+    {
+      "cell_ref": 26,
+      "x": 2,
+      "y": 3,
+      "overlays": [
+        "NO_STAGING"
+      ]
+    },
+    {
+      "cell_ref": 37,
+      "x": 5,
+      "y": 4,
+      "overlays": [
+        "FIRE_LANE"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "cell_ref": 17,
+      "x": 1,
+      "y": 2,
+      "lane_code": "AISLE",
+      "nearest_dock": "DOCK_A",
+      "dock_steps": 1,
+      "hazard_clearance": 4,
+      "adjacent_open_cells": 3,
+      "overlays": []
+    },
+    {
+      "cell_ref": 22,
+      "x": 6,
+      "y": 2,
+      "lane_code": "AISLE",
+      "nearest_dock": "DOCK_B",
+      "dock_steps": 1,
+      "hazard_clearance": 3,
+      "adjacent_open_cells": 2,
+      "overlays": []
+    },
+    {
+      "cell_ref": 38,
+      "x": 6,
+      "y": 4,
+      "lane_code": "AISLE",
+      "nearest_dock": "DOCK_B",
+      "dock_steps": 1,
+      "hazard_clearance": 3,
+      "adjacent_open_cells": 0,
+      "overlays": []
+    },
+    {
+      "cell_ref": 18,
+      "x": 2,
+      "y": 2,
+      "lane_code": "BUFFER",
+      "nearest_dock": "DOCK_A",
+      "dock_steps": 2,
+      "hazard_clearance": 3,
+      "adjacent_open_cells": 3,
+      "overlays": []
+    },
+    {
+      "cell_ref": 9,
+      "x": 1,
+      "y": 1,
+      "lane_code": "AISLE",
+      "nearest_dock": "DOCK_A",
+      "dock_steps": 2,
+      "hazard_clearance": 3,
+      "adjacent_open_cells": 2,
+      "overlays": []
+    }
+  ],
+  "recommended_cell": {
+    "cell_ref": 17,
+    "x": 1,
+    "y": 2,
+    "lane_code": "AISLE",
+    "nearest_dock": "DOCK_A",
+    "dock_steps": 1,
+    "hazard_clearance": 4,
+    "adjacent_open_cells": 3,
+    "overlays": []
+  }
+}

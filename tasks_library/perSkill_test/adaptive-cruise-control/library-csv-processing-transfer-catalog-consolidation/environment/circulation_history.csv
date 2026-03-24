@@ -1,0 +1,15 @@
+loan_id,record_id,checkout_date,return_status
+L-001,BK-100,2025-01-10,returned
+L-002,BK-100,2025-02-14,returned
+L-003,BK-100,2025-09-09,returned
+L-004,BK-101,2025-03-01,returned
+L-005,BK-102,2025-04-01,returned
+L-006,BK-200,2024-11-20,returned
+L-007,BK-201,2024-12-22,returned
+L-008,BK-300,2025-01-15,returned
+L-009,BK-300,2025-07-02,returned
+L-010,BK-301,2025-02-01,returned
+L-011,BK-301,2025-08-12,returned
+L-012,BK-302,2025-03-05,returned
+L-013,BK-302,2025-10-30,returned
+L-014,BK-500,2025-06-18,returned

@@ -1,0 +1,193 @@
+{
+  "case_id": "offshore-export-transformer-audit-2042-06-18T04:00:00Z",
+  "summary": {
+    "transformer_count": 4,
+    "consistent_meter_count": 1,
+    "suspect_meter_count": 3,
+    "largest_as_modeled_rmse": 143.47664,
+    "largest_error_transformer_id": "T_WFB",
+    "worst_absolute_p_error_MW": 248.969434,
+    "worst_absolute_q_error_MVAr": 126.862174,
+    "worst_absolute_s_error_MVA": 65.110974
+  },
+  "diagnostics": [
+    {
+      "id": "T_WFB",
+      "from_bus": 702,
+      "to_bus": 710,
+      "status": "suspect",
+      "suspected_issue": "sign_convention_error",
+      "best_matching_model": "sign_convention_error",
+      "as_modeled_rmse": 143.47664,
+      "max_abs_p_error_MW": 248.969434,
+      "max_abs_q_error_MVAr": 18.266732,
+      "max_abs_s_error_MVA": 0.0,
+      "actual": {
+        "p_from_MW": 124.484717,
+        "q_from_MVAr": 9.133366,
+        "s_from_MVA": 124.819322,
+        "p_to_MW": -123.686922,
+        "q_to_MVAr": 0.041714,
+        "s_to_MVA": 123.686929
+      },
+      "expected": {
+        "p_from_MW": -124.484717,
+        "q_from_MVAr": -9.133366,
+        "s_from_MVA": 124.819322,
+        "p_to_MW": 123.686922,
+        "q_to_MVAr": -0.041714,
+        "s_to_MVA": 123.686929
+      },
+      "delta_expected_minus_actual": {
+        "p_from_MW": -248.969434,
+        "q_from_MVAr": -18.266732,
+        "s_from_MVA": -0.0,
+        "p_to_MW": 247.373844,
+        "q_to_MVAr": -0.083428,
+        "s_to_MVA": 0.0
+      },
+      "candidate_rmse": {
+        "as_modeled": 143.47664,
+        "sign_convention_error": 0.0,
+        "tap_ratio_not_applied": 140.915406,
+        "phase_shift_sign_error": 103.157713
+      },
+      "diagnostic_rank": 1
+    },
+    {
+      "id": "T_SHORE",
+      "from_bus": 720,
+      "to_bus": 730,
+      "status": "suspect",
+      "suspected_issue": "phase_shift_sign_error",
+      "best_matching_model": "phase_shift_sign_error",
+      "as_modeled_rmse": 134.460385,
+      "max_abs_p_error_MW": 223.630994,
+      "max_abs_q_error_MVAr": 19.533796,
+      "max_abs_s_error_MVA": 65.110974,
+      "actual": {
+        "p_from_MW": 153.824734,
+        "q_from_MVAr": 59.734604,
+        "s_from_MVA": 165.015974,
+        "p_to_MW": -152.960331,
+        "q_to_MVAr": -48.458825,
+        "s_to_MVA": 160.452861
+      },
+      "expected": {
+        "p_from_MW": -69.80626,
+        "q_from_MVAr": 71.47094,
+        "s_from_MVA": 99.905,
+        "p_to_MW": 70.12484,
+        "q_to_MVAr": -67.992621,
+        "s_to_MVA": 97.67543
+      },
+      "delta_expected_minus_actual": {
+        "p_from_MW": -223.630994,
+        "q_from_MVAr": 11.736336,
+        "s_from_MVA": -65.110974,
+        "p_to_MW": 223.085171,
+        "q_to_MVAr": -19.533796,
+        "s_to_MVA": -62.777431
+      },
+      "candidate_rmse": {
+        "as_modeled": 134.460385,
+        "sign_convention_error": 93.876782,
+        "tap_ratio_not_applied": 140.042772,
+        "phase_shift_sign_error": 0.0
+      },
+      "diagnostic_rank": 2
+    },
+    {
+      "id": "T_EXPORT",
+      "from_bus": 710,
+      "to_bus": 720,
+      "status": "suspect",
+      "suspected_issue": "tap_ratio_not_applied",
+      "best_matching_model": "tap_ratio_not_applied",
+      "as_modeled_rmse": 76.118496,
+      "max_abs_p_error_MW": 6.235834,
+      "max_abs_q_error_MVAr": 126.862174,
+      "max_abs_s_error_MVA": 43.532095,
+      "actual": {
+        "p_from_MW": -33.214496,
+        "q_from_MVAr": -82.201761,
+        "s_from_MVA": 88.658515,
+        "p_to_MW": 33.558266,
+        "q_to_MVAr": 86.21094,
+        "s_to_MVA": 92.512071
+      },
+      "expected": {
+        "p_from_MW": -27.22917,
+        "q_from_MVAr": 40.812512,
+        "s_from_MVA": 49.062091,
+        "p_to_MW": 27.322432,
+        "q_to_MVAr": -40.651234,
+        "s_to_MVA": 48.979976
+      },
+      "delta_expected_minus_actual": {
+        "p_from_MW": 5.985326,
+        "q_from_MVAr": 123.014273,
+        "s_from_MVA": -39.596424,
+        "p_to_MW": -6.235834,
+        "q_to_MVAr": -126.862174,
+        "s_to_MVA": -43.532095
+      },
+      "candidate_rmse": {
+        "as_modeled": 76.118496,
+        "sign_convention_error": 49.348376,
+        "tap_ratio_not_applied": 0.0,
+        "phase_shift_sign_error": 215.769343
+      },
+      "diagnostic_rank": 3
+    },
+    {
+      "id": "T_WFA",
+      "from_bus": 701,
+      "to_bus": 710,
+      "status": "consistent",
+      "suspected_issue": "none",
+      "best_matching_model": "as_modeled",
+      "as_modeled_rmse": 0.0,
+      "max_abs_p_error_MW": 0.0,
+      "max_abs_q_error_MVAr": 0.0,
+      "max_abs_s_error_MVA": 0.0,
+      "actual": {
+        "p_from_MW": 48.451682,
+        "q_from_MVAr": -66.009003,
+        "s_from_MVA": 81.882562,
+        "p_to_MW": -48.034857,
+        "q_to_MVAr": 69.902257,
+        "s_to_MVA": 84.815523
+      },
+      "expected": {
+        "p_from_MW": 48.451682,
+        "q_from_MVAr": -66.009003,
+        "s_from_MVA": 81.882562,
+        "p_to_MW": -48.034857,
+        "q_to_MVAr": 69.902257,
+        "s_to_MVA": 84.815523
+      },
+      "delta_expected_minus_actual": {
+        "p_from_MW": 0.0,
+        "q_from_MVAr": -0.0,
+        "s_from_MVA": 0.0,
+        "p_to_MW": -0.0,
+        "q_to_MVAr": 0.0,
+        "s_to_MVA": -0.0
+      },
+      "candidate_rmse": {
+        "as_modeled": 0.0,
+        "sign_convention_error": 96.25808,
+        "tap_ratio_not_applied": 34.367502,
+        "phase_shift_sign_error": 113.306181
+      },
+      "diagnostic_rank": 4
+    }
+  ],
+  "issue_counts": {
+    "none": 1,
+    "sign_convention_error": 1,
+    "tap_ratio_not_applied": 1,
+    "phase_shift_sign_error": 1
+  }
+}

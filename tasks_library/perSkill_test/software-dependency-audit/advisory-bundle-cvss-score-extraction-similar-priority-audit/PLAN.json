@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "advisory-bundle-cvss-score-extraction-similar-priority-audit",
+  "taskRole": "similar",
+  "title": "Similar: 多源依赖告警优先级导出",
+  "goal": "给定预生成的漏洞扫描 JSON，筛出 HIGH/CRITICAL 依赖漏洞，按 NVD→GHSA→RedHat 的优先级选择 CVSS 分数并导出审计 CSV，同时保留修复版本与参考链接。",
+  "primaryOutputFile": "/root/advisory_priority_audit.csv",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "这是 CVSS 分数提取的典型落地场景，核心在于从多来源漏洞记录中稳定选出正确分数，而不是重新运行扫描器。",
+  "targetSkillDirName": "cvss-score-extraction",
+  "targetSkillName": "cvss-score-extraction"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "csv-metrics-testing-python-transfer-parameterized-validation",
+  "taskRole": "transfer",
+  "title": "Transfer: Harden CSV Metrics Validation Tests",
+  "goal": "Fix a CSV metrics importer that silently mishandles malformed numeric fields and duplicate headers; build parameterized pytest coverage for valid and invalid rows, then correct the importer so the expected records and errors are produced.",
+  "primaryOutputFile": "artifacts/csv-validation-regression-log.md",
+  "difficulty": "easy",
+  "category": "Data Processing",
+  "skillBenefitRationale": "Success centers on expressing input variations as clean pytest cases, validating parser outcomes, and using those tests to drive the implementation fix, so testing-python is the unique key shipped skill.",
+  "targetSkillDirName": "testing-python",
+  "targetSkillName": "testing-python"
+}

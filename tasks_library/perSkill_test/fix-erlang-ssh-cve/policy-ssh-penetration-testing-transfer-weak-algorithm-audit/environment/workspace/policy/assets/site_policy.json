@@ -1,0 +1,28 @@
+{
+  "site": "branch-edge-west",
+  "service": {
+    "port": 2222,
+    "listen_address": "0.0.0.0"
+  },
+  "algorithms": {
+    "kex": [
+      "curve25519-sha256",
+      "diffie-hellman-group14-sha256",
+      "diffie-hellman-group14-sha1",
+      "diffie-hellman-group1-sha1"
+    ],
+    "ciphers": [
+      "chacha20-poly1305@openssh.com",
+      "aes256-gcm@openssh.com",
+      "aes128-ctr",
+      "aes256-cbc",
+      "3des-cbc"
+    ],
+    "macs": [
+      "hmac-sha2-256",
+      "hmac-sha2-512-etm@openssh.com",
+      "hmac-sha1",
+      "hmac-md5"
+    ]
+  }
+}

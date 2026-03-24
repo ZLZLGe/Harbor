@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "conference-session-pptx-similar-index",
+  "taskRole": "similar",
+  "title": "Similar - Normalize Floating Session Titles and Build a Session Index",
+  "goal": "在一个现有的峰会回顾演示文稿中，识别每页内容区里悬空的 session title 文本框，统一成指定字体、字号、颜色与居中样式，调整文本框宽度保证单行显示并移动到页底居中位置，最后新增一页按编号列出所有去重后的 session title 作为 Session Index。",
+  "primaryOutputFile": "/root/AI-Summit-Sessions_processed.pptx",
+  "difficulty": "medium",
+  "category": "office-suite",
+  "skillBenefitRationale": "这个任务核心是解包并编辑现有演示文稿的 slide XML，批量修改文本样式、位置与尺寸，并安全追加新的汇总页，完全依赖 PowerPoint OOXML 编辑能力。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

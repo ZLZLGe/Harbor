@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "crystal-symmetry-pymatgen-similar-site-census"
+name = "Pymatgen Similar: Batch Symmetry Site Census"
+description = "Read a batch of CIF structures, summarize symmetry metadata and per-element equivalent-site groups, and write the result to symmetry_site_census.json."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "materials_science"
+tags = ["crystallography", "symmetry_analysis", "cif", "materials_science", "pymatgen"]
+primary_output_file = "symmetry_site_census.json"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

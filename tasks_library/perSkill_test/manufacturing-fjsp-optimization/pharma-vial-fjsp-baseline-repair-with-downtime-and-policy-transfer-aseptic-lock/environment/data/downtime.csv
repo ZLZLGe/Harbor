@@ -1,0 +1,4 @@
+machine,start,end,reason
+1,6,14,cip_fill_head_changeover
+2,10,18,sterility_rechallenge
+3,15,20,vision_requalification

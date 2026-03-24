@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bns-alert-matched-filtering-transfer-early-warning",
+  "taskRole": "transfer",
+  "title": "Transfer: Binary Neutron Star Early-Warning Recovery",
+  "goal": "对一段已预处理的双中子星长时程数据做低质量模板搜索，恢复最佳模板的SNR、chirp mass以及峰值相对并合时刻，用于早预警报告。",
+  "primaryOutputFile": "/root/bns_early_warning_report.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "虽然场景从黑洞并合转到双中子星预警，但仍然必须依靠 matched-filtering 在低质量模板银行中定位最优信号。",
+  "targetSkillDirName": "matched-filtering",
+  "targetSkillName": "matched-filtering"
+}

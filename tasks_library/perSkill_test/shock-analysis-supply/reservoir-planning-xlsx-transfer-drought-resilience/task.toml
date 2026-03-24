@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "reservoir-planning-xlsx-transfer-drought-resilience"
+name = "Transfer - Reservoir Drought Resilience Workbook"
+description = "Complete the reservoir planning workbook with linked monthly inflow, evaporation, demand, project timing, and drought risk formulas, then save reservoir-drought-resilience.xlsx."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "infrastructure-analysis"
+tags = [ "excel", "water-planning", "reservoir-operations", "drought-analysis",]
+primary_output_file = "reservoir-drought-resilience.xlsx"
+source_task_id = "shock-analysis-supply"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "greenhouse-climate-pid-controller-transfer-temperature-zone"
+name = "Transfer: 温室温度稳定控制"
+description = "实现一套温室温度控制仿真，在天气扰动与加热功率上限下输出温度控制日志、调参结果和说明文档。"
+author_name = "Levi Chen"
+author_email = "levi.chen@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["python", "pid-control", "greenhouse", "temperature-control", "thermal-system"]
+primary_output_file = "greenhouse_temperature_log.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

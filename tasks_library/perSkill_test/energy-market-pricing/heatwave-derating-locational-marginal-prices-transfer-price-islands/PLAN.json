@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "heatwave-derating-locational-marginal-prices-transfer-price-islands",
+  "taskRole": "transfer",
+  "title": "Transfer | 高温降额下的价格孤岛应急分析",
+  "goal": "模拟高温天气导致关键联络线热稳限额下调后的紧急市场出清，对比事件前后 LMP 分布、绑定线路和价格飙升最明显的负荷中心，输出价格孤岛风险摘要。",
+  "primaryOutputFile": "price_island_risk.json",
+  "difficulty": "hard",
+  "category": "energy",
+  "skillBenefitRationale": "虽然场景从放松约束迁移为收紧约束，但判定仍依赖 nodal balance 对偶值提取 LMP、识别绑定线路并比较价格冲击，关键能力完全落在 locational-marginal-prices。",
+  "targetSkillDirName": "locational-marginal-prices",
+  "targetSkillName": "locational-marginal-prices"
+}

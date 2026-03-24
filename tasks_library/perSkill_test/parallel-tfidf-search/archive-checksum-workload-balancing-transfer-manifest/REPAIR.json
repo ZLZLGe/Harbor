@@ -1,0 +1,93 @@
+{
+  "sourceTaskId": "parallel-tfidf-search",
+  "targetSkillDirName": "workload-balancing",
+  "runId": "20260322131102-parallel-tfidf-search-workload-balancing-tqn12b",
+  "taskId": "archive-checksum-workload-balancing-transfer-manifest",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/parallel-tfidf-search/workload-balancing/20260322131102-parallel-tfidf-search-workload-balancing-tqn12b/archive-checksum-workload-balancing-transfer-manifest",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322131102-parallel-tfidf-search-workload-balancing-tqn12b/parallel-tfidf-search/drafts/archive-checksum-workload-balancing-transfer-manifest",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/parallel-tfidf-search/archive-checksum-workload-balancing-transfer-manifest",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/parallel-tfidf-search/archive-checksum-workload-balancing-transfer-manifest",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    ".pytest_cache/.gitignore",
+    ".pytest_cache/CACHEDIR.TAG",
+    ".pytest_cache/README.md",
+    ".pytest_cache/v/cache/lastfailed",
+    ".pytest_cache/v/cache/nodeids",
+    "environment/Dockerfile",
+    "environment/workspace/__pycache__/archive_fixture_builder.cpython-312.pyc",
+    "environment/workspace/__pycache__/sequential_manifest.cpython-312.pyc",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312-pytest-8.4.1.pyc",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "archive-checksum-workload-balancing-transfer-manifest"
+      ],
+      "requestedIssuesByTaskId": {
+        "archive-checksum-workload-balancing-transfer-manifest": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac1-4a55-7512-9529-fac0f6838e8d",
+      "repairSummary": "补上 environment/Dockerfile 中静态检查需要的精确 COPY 语句，保留将 skills 复制到 /root/.codex/skills 的配置，其他任务文件未改动。",
+      "reviewThreadId": "019d1ac1-fdf5-7491-baee-e4f51c4cf04e",
+      "evaluationByTaskId": {
+        "archive-checksum-workload-balancing-transfer-manifest": {
+          "reviewerIssues": [
+            "instruction.md 未明确给出性能验收阈值，但 tests/test_outputs.py 强制要求至少达到 1.15x 加速，存在隐藏要求。; tests/test_outputs.py 直接用真实运行耗时做硬性性能断言，结果容易受机器负载与缓存波动影响，判定不够稳定。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "archive-checksum-workload-balancing-transfer-manifest"
+      ],
+      "requestedIssuesByTaskId": {
+        "archive-checksum-workload-balancing-transfer-manifest": {
+          "reviewerIssues": [
+            "instruction.md 未明确给出性能验收阈值，但 tests/test_outputs.py 强制要求至少达到 1.15x 加速，存在隐藏要求。; tests/test_outputs.py 直接用真实运行耗时做硬性性能断言，结果容易受机器负载与缓存波动影响，判定不够稳定。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac3-1a47-70e2-b801-aa53ce0f924f",
+      "repairSummary": "补充了 instruction.md 中公开可见的性能验收标准，明确要求复用 `hash_file` 且达到至少 1.15x 加速；同时把 tests/test_outputs.py 的真实耗时硬断言改成基于可替换合成哈希延迟的稳定性能测试，消除了隐藏要求和机器波动带来的不稳定判定。",
+      "reviewThreadId": "019d1ac8-f623-7f72-9fe2-0d24df75e03e",
+      "evaluationByTaskId": {
+        "archive-checksum-workload-balancing-transfer-manifest": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "static"
+}

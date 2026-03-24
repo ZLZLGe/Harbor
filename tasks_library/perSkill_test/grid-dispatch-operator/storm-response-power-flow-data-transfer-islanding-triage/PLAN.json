@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "storm-response-power-flow-data-transfer-islanding-triage",
+  "taskRole": "transfer",
+  "title": "Transfer: Storm Outage Islanding Triage",
+  "goal": "Given a MATPOWER network snapshot and a list of storm-outaged transmission lines, generate `islanding_triage.json` that lists each post-contingency island, its stranded load, surviving generation, isolated buses, and the outage lines responsible for the split.",
+  "primaryOutputFile": "islanding_triage.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "Success hinges on converting MATPOWER branch records into a graph, preserving bus-number mappings, and recomputing island-level load and generation totals directly from the parsed network data.",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

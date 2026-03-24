@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "release-cutover-planning-with-files-transfer-launch-runbook"
+name = "Transfer | Assemble a Release Cutover Runbook"
+description = "Review a release workspace and write a cutover runbook that defines sequence, owners, dependencies, validation, and rollback conditions."
+author_name = "Levi Zhang"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "release-management"
+tags = ["release-management", "runbook", "cutover", "markdown", "planning"]
+primary_output_file = "plans/cutover_runbook.md"
+source_task_id = "organize-messy-files"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

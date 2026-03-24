@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "vendor-statement-pdf-transfer-extraction"
+name = "Transfer: Extract Invoice Data from a Vendor Statement PDF"
+description = "Read the provided vendor statement PDF and write /root/invoice-summary.json with each open invoice's number, statement date, due date, and amount due."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "document-processing"
+tags = ["pdf", "extraction", "json", "invoice"]
+primary_output_file = "/root/invoice-summary.json"
+source_task_id = "court-form-filling"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

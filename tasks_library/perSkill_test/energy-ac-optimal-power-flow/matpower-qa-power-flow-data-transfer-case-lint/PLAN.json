@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "matpower-qa-power-flow-data-transfer-case-lint",
+  "taskRole": "transfer",
+  "title": "Transfer: 电网案例数据质检与拓扑审计",
+  "goal": "读取一个或多个电网案例文件，生成 `case_lint_report.json`，检查并汇总重复母线编号、缺失参考母线、发电机挂接到不存在母线、支路端点无效、正在线设备形成的孤立子网、零或负额定值等数据质量问题。",
+  "primaryOutputFile": "case_lint_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这里把同一 skill 迁移到数据治理场景，仍然完全依赖对 bus/gen/branch/gencost 结构、编号映射和拓扑连通性的理解，不需要其他 source task skills。",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

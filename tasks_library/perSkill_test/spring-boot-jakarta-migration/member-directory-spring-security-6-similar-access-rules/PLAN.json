@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "member-directory-spring-security-6-similar-access-rules",
+  "taskRole": "similar",
+  "title": "Similar: 会员目录服务安全配置迁移",
+  "goal": "迁移一个遗留会员目录 REST 服务的安全配置，去掉基于 WebSecurityConfigurerAdapter 的旧写法，保留公开注册入口，以及管理员、审核员和资源所有者混合鉴权规则。",
+  "primaryOutputFile": "environment/workspace/src/main/java/com/example/memberdirectory/config/SecurityConfig.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这是该技能最典型的落点，直接覆盖 SecurityFilterChain、@EnableMethodSecurity、requestMatchers 和 AuthenticationManager 的核心迁移路径，但场景不再是原始用户服务复写。",
+  "targetSkillDirName": "spring-security-6",
+  "targetSkillName": "spring-security-6"
+}

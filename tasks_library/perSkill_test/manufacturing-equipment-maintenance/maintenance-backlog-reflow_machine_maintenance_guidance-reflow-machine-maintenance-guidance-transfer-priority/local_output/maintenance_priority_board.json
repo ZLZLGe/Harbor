@@ -1,0 +1,180 @@
+{
+  "board_name": "weekly_reflow_maintenance_backlog",
+  "window_reference": {
+    "reference_tc_role": "largest_mass",
+    "preheat_band_c": [
+      100.0,
+      150.0
+    ],
+    "max_ramp_c_per_s": 2.0,
+    "tal_window_s": [
+      30.0,
+      60.0
+    ],
+    "peak_margin_above_liquidus_c": 20.0
+  },
+  "machines": [
+    {
+      "machine_id": "RF-11",
+      "priority_band": "urgent",
+      "priority_score": 100.0,
+      "first_check_subsystem": "nitrogen_delivery_path",
+      "score_breakdown": {
+        "oxygen_wetting_risk": 40.0,
+        "heat_delivery_risk": 35.0,
+        "ramp_risk": 0.0,
+        "sensor_instability": 0.0,
+        "maintenance_overdue": 15.0,
+        "downtime_burden": 10.0
+      },
+      "evidence": {
+        "largest_stop_subsystem": "nitrogen_delivery_path",
+        "downtime_minutes_7d": 210,
+        "tc_drift_events_7d": 0,
+        "over_limit_oxygen_runs": [
+          "WK11-R101",
+          "WK11-R102"
+        ],
+        "tal_low_runs": [
+          "WK11-R101",
+          "WK11-R102"
+        ],
+        "peak_low_runs": [
+          "WK11-R101",
+          "WK11-R102"
+        ],
+        "ramp_violation_runs": [],
+        "dominant_defects": [
+          "insufficient_solder",
+          "voiding"
+        ]
+      },
+      "why_this_first": "RF-11 has repeated oxygen-cap breaches aligned with wetting defects and low-energy profiles, so the nitrogen delivery path should be checked first.",
+      "priority_rank": 1
+    },
+    {
+      "machine_id": "RF-12",
+      "priority_band": "high",
+      "priority_score": 50.0,
+      "first_check_subsystem": "entry_ramp_section",
+      "score_breakdown": {
+        "oxygen_wetting_risk": 0.0,
+        "heat_delivery_risk": 0.0,
+        "ramp_risk": 25.0,
+        "sensor_instability": 0.0,
+        "maintenance_overdue": 15.0,
+        "downtime_burden": 10.0
+      },
+      "evidence": {
+        "largest_stop_subsystem": "entry_ramp_section",
+        "downtime_minutes_7d": 160,
+        "tc_drift_events_7d": 0,
+        "over_limit_oxygen_runs": [],
+        "tal_low_runs": [],
+        "peak_low_runs": [],
+        "ramp_violation_runs": [
+          "WK11-R201",
+          "WK11-R202"
+        ],
+        "dominant_defects": [
+          "bridging",
+          "solder_balls"
+        ]
+      },
+      "why_this_first": "RF-12 exceeds the preheat ramp limit on representative traces while ramp-related defects are rising, so the entry ramp section is the first check.",
+      "priority_rank": 2
+    },
+    {
+      "machine_id": "RF-13",
+      "priority_band": "medium",
+      "priority_score": 45.0,
+      "first_check_subsystem": "thermocouple_chain",
+      "score_breakdown": {
+        "oxygen_wetting_risk": 0.0,
+        "heat_delivery_risk": 0.0,
+        "ramp_risk": 0.0,
+        "sensor_instability": 20.0,
+        "maintenance_overdue": 15.0,
+        "downtime_burden": 10.0
+      },
+      "evidence": {
+        "largest_stop_subsystem": "thermocouple_chain",
+        "downtime_minutes_7d": 150,
+        "tc_drift_events_7d": 3,
+        "over_limit_oxygen_runs": [],
+        "tal_low_runs": [],
+        "peak_low_runs": [],
+        "ramp_violation_runs": [],
+        "dominant_defects": [
+          "component_shift",
+          "coplanarity"
+        ]
+      },
+      "why_this_first": "RF-13 does not have a stronger process-window trigger, but repeated thermocouple drift events and overdue PM make the thermocouple chain the first check.",
+      "priority_rank": 3
+    },
+    {
+      "machine_id": "RF-14",
+      "priority_band": "medium",
+      "priority_score": 35.0,
+      "first_check_subsystem": "center_heating_zones",
+      "score_breakdown": {
+        "oxygen_wetting_risk": 0.0,
+        "heat_delivery_risk": 35.0,
+        "ramp_risk": 0.0,
+        "sensor_instability": 0.0,
+        "maintenance_overdue": 0.0,
+        "downtime_burden": 0.0
+      },
+      "evidence": {
+        "largest_stop_subsystem": "center_heating_zones",
+        "downtime_minutes_7d": 85,
+        "tc_drift_events_7d": 0,
+        "over_limit_oxygen_runs": [],
+        "tal_low_runs": [
+          "WK11-R401",
+          "WK11-R402"
+        ],
+        "peak_low_runs": [
+          "WK11-R401",
+          "WK11-R402"
+        ],
+        "ramp_violation_runs": [],
+        "dominant_defects": [
+          "head_in_pillow",
+          "insufficient_solder"
+        ]
+      },
+      "why_this_first": "RF-14 shows repeated TAL-low and peak-low representative traces, which points to insufficient center-zone heat delivery.",
+      "priority_rank": 4
+    },
+    {
+      "machine_id": "RF-15",
+      "priority_band": "low",
+      "priority_score": 0.0,
+      "first_check_subsystem": "planned_pm_window",
+      "score_breakdown": {
+        "oxygen_wetting_risk": 0.0,
+        "heat_delivery_risk": 0.0,
+        "ramp_risk": 0.0,
+        "sensor_instability": 0.0,
+        "maintenance_overdue": 0.0,
+        "downtime_burden": 0.0
+      },
+      "evidence": {
+        "largest_stop_subsystem": "cooling_section",
+        "downtime_minutes_7d": 35,
+        "tc_drift_events_7d": 0,
+        "over_limit_oxygen_runs": [],
+        "tal_low_runs": [],
+        "peak_low_runs": [],
+        "ramp_violation_runs": [],
+        "dominant_defects": [
+          "none"
+        ]
+      },
+      "why_this_first": "RF-15 has no rule-based urgent trigger, so keep it at the bottom of the backlog and inspect it in the next planned PM window.",
+      "priority_rank": 5
+    }
+  ]
+}

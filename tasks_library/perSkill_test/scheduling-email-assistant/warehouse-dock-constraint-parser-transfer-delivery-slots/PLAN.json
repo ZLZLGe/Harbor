@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-dock-constraint-parser-transfer-delivery-slots",
+  "taskRole": "transfer",
+  "title": "Transfer | Warehouse Dock Slot Constraint Parser",
+  "goal": "Read carrier scheduling messages and extract loading dock appointment constraints into `/root/dock_slot_constraints.json`, including arrival windows, no-arrival intervals, required slot length, date flexibility, and cutoff-time constraints for same-day unloading.",
+  "primaryOutputFile": "/root/dock_slot_constraints.json",
+  "difficulty": "medium",
+  "category": "Logistics",
+  "skillBenefitRationale": "This transfers the skill to logistics coordination, a clearly different domain that still depends on precise extraction of scheduling constraints from free-form messages.",
+  "targetSkillDirName": "constraint-parser",
+  "targetSkillName": "constraint-parser"
+}

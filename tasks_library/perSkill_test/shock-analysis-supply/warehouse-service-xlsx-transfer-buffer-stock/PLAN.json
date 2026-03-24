@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-service-xlsx-transfer-buffer-stock",
+  "taskRole": "transfer",
+  "title": "Transfer - Warehouse Buffer Stock Workbook",
+  "goal": "基于仓库历史出货、库容损耗和补货计划工作簿，补全月度库存滚动、服务水平缺口和扩容方案对比表，并输出 warehouse-buffer-stock.xlsx。",
+  "primaryOutputFile": "warehouse-buffer-stock.xlsx",
+  "difficulty": "hard",
+  "category": "supply-chain-analysis",
+  "skillBenefitRationale": "任务关键是维护现成工作簿结构，写对库存滚动与情景比较公式并保证重算结果一致，唯一关键 skill 是 xlsx。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

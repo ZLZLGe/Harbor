@@ -1,0 +1,18 @@
+{
+  "pack_id": "BP-17",
+  "dt_sec": 5.0,
+  "module_initial_temp_c": 8.2,
+  "cell_initial_temps_c": [8.0, 8.4, 8.1, 8.3],
+  "ambient_temp_c": 3.0,
+  "charge_window_c": {
+    "min": 17.0,
+    "max": 23.0
+  },
+  "cell_trip_temp_c": 32.0,
+  "cell_reset_temp_c": 30.5,
+  "module_heater_gain_c_per_pct": 0.34,
+  "module_time_constant_sec": 170.0,
+  "cell_time_constant_sec": 72.0,
+  "cell_bias_c": [0.1, 0.4, 1.2, 0.3],
+  "cell_hotspot_gain_c": [6.0, 7.5, 30.0, 7.0]
+}

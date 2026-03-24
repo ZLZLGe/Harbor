@@ -1,0 +1,28 @@
+{
+  "scenario_name": "Peak headway stress check for the Harbor Loop traction grid",
+  "shoulder_pattern_name": "Shoulder timetable",
+  "peak_pattern_name": "Peak headway timetable",
+  "loading_alert_pct": 95.0,
+  "top_substation_shift_count": 3,
+  "top_corridor_count": 3,
+  "shoulder_bus_injections_MW": [
+    {"bus": 8000, "net_injection_MW": 55.0},
+    {"bus": 8110, "net_injection_MW": 35.0},
+    {"bus": 8220, "net_injection_MW": 20.0},
+    {"bus": 8330, "net_injection_MW": 10.0},
+    {"bus": 8411, "net_injection_MW": -30.0},
+    {"bus": 8522, "net_injection_MW": -35.0},
+    {"bus": 8633, "net_injection_MW": -25.0},
+    {"bus": 8744, "net_injection_MW": -30.0}
+  ],
+  "peak_headway_bus_injections_MW": [
+    {"bus": 8000, "net_injection_MW": 70.0},
+    {"bus": 8110, "net_injection_MW": 55.0},
+    {"bus": 8220, "net_injection_MW": 30.0},
+    {"bus": 8330, "net_injection_MW": 15.0},
+    {"bus": 8411, "net_injection_MW": -42.0},
+    {"bus": 8522, "net_injection_MW": -55.0},
+    {"bus": 8633, "net_injection_MW": -31.0},
+    {"bus": 8744, "net_injection_MW": -42.0}
+  ]
+}

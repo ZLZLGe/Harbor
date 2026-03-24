@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "station-catalog-nws-flood-thresholds-transfer-threshold-enrichment",
+  "taskRole": "transfer",
+  "title": "Transfer - 站点阈值标准化目录",
+  "goal": "给定一份格式混乱的多县 USGS 站点名录，规范化站点 ID 后匹配 NWS 阈值表，生成 `/root/output/station_threshold_catalog.csv`，包含 `station_id`、`location_name`、`state`、`action_stage`、`flood_stage`、`moderate_stage`、`major_stage`，并过滤无效阈值记录。",
+  "primaryOutputFile": "/root/output/station_threshold_catalog.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "这个场景把 skill 转为参考数据整编任务，核心能力变成处理 NWS 批量 CSV 的列错位、`-9999` 和空 ID 等实际问题，并构建可靠阈值目录。",
+  "targetSkillDirName": "nws-flood-thresholds",
+  "targetSkillName": "nws-flood-thresholds"
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "security-ffmpeg-video-filters-transfer-privacy-redaction"
+name = "Transfer: Security Privacy Redaction"
+description = "Create /outputs/privacy-redaction-review.mp4 by applying time-scoped rectangular privacy redactions from the provided schedule while preserving the source clip timing and audio."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "privacy-video-redaction"
+tags = ["video", "privacy", "redaction", "surveillance", "review-copy"]
+primary_output_file = "/outputs/privacy-redaction-review.mp4"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

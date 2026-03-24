@@ -1,0 +1,20 @@
+{
+  "sourceTaskId": "dynamic-object-aware-egomotion",
+  "targetSkillDirName": "sampling-and-indexing",
+  "runId": "20260319005458-dynamic-object-aware-egomotion-sampling-and-indexing-cpm6ut",
+  "taskId": "intersection-queue-sampling-and-indexing-transfer-vehicle-counts",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/dynamic-object-aware-egomotion/sampling-and-indexing/20260319005458-dynamic-object-aware-egomotion-sampling-and-indexing-cpm6ut/intersection-queue-sampling-and-indexing-transfer-vehicle-counts",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/dynamic-object-aware-egomotion/intersection-queue-sampling-and-indexing-transfer-vehicle-counts",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:intersection-queue-sampling-and-indexing-transfer-vehicle-counts instruction 把 `sample_index`、`source_frame_id` 与逐行对应关系写得比 source task 更直白，进一步显式化了索引对齐技能。; draft 缺少 environment/、solution/、tests/，当前没有可执行 verifier，测试不可判定。; visibilityPass=false; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 draft 当前都只有 PLAN.json、instruction.md、task.toml，缺少 Harbor 必需的 environment/、solution/、tests/，整体都还不具备 reviewer 发布条件。",
+    "family 四个 instruction 相比 source_task/instruction.md 都更直接强调采样编号、边界覆盖或采样序列对齐，存在统一的技能暴露风险。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa2-eabf-7e81-b15e-6f4e3973af84"
+}

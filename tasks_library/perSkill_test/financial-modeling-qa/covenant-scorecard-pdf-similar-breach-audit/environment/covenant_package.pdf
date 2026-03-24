@@ -1,0 +1,101 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 5 0 R /Resources << /Font << /F1 7 0 R >> >> >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 7 0 R >> >> >>
+endobj
+5 0 obj
+<< /Length 1109 >>
+stream
+BT
+/F1 11 Tf
+72 750 Td
+(Harbor Bank Covenant Monitoring Addendum) Tj
+0 -16 Td
+(Workbook file: quarterly_financials.xlsx) Tj
+0 -16 Td
+(Sheet to use: Quarterly Results) Tj
+0 -16 Td
+(Use only rows where Testing Eligible = Yes as covenant test dates.) Tj
+0 -16 Td
+(All amounts are in USD millions.) Tj
+0 -16 Td
+() Tj
+0 -16 Td
+(Defined Terms) Tj
+0 -16 Td
+(1. Trailing Base EBITDA is the sum of Base EBITDA for the current quarter and prior three quarters.) Tj
+0 -16 Td
+(2. Trailing Permitted Addback is the sum of Permitted EBITDA Addback for the current quarter and prior three quarters.) Tj
+0 -16 Td
+(3. LTM EBITDA = Trailing Base EBITDA + min\(Trailing Permitted Addback, 20% of Trailing Base EBITDA\).) Tj
+0 -16 Td
+(4. Total Net Leverage Ratio = \(Total Debt - Allowed Cash Netting\) / LTM EBITDA.) Tj
+0 -16 Td
+(5. Senior Secured Leverage Ratio = \(Senior Secured Debt - Allowed Cash Netting\) / LTM EBITDA.) Tj
+0 -16 Td
+(6. Fixed Charge Coverage Ratio = \(LTM EBITDA - LTM Maintenance Capex - LTM Cash Taxes\) /) Tj
+0 -16 Td
+(   \(LTM Cash Interest - LTM Interest Income + LTM Scheduled Amortization\).) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Length 1129 >>
+stream
+BT
+/F1 11 Tf
+72 750 Td
+(Special Provisions) Tj
+0 -16 Td
+(1. Allowed Cash Netting = min\(Unrestricted Cash, Cash Netting Cap\).) Tj
+0 -16 Td
+(2. For quarter ends in calendar Q4, increase Cash Netting Cap by 5.0 before the lesser-of test.) Tj
+0 -16 Td
+(3. If Holiday Waiver = Yes, do not test Total Net Leverage Ratio or Fixed Charge Coverage Ratio) Tj
+0 -16 Td
+(   for that date. Senior Secured Leverage Ratio still applies.) Tj
+0 -16 Td
+() Tj
+0 -16 Td
+(Metric order for reporting breaches:) Tj
+0 -16 Td
+(Total Net Leverage Ratio | Senior Secured Leverage Ratio | Fixed Charge Coverage Ratio) Tj
+0 -16 Td
+() Tj
+0 -16 Td
+(Schedule A - Covenant Levels) Tj
+0 -16 Td
+(Testing date <= 2024-06-30 | Total Net Leverage Ratio max 4.50 | Senior Secured Leverage Ratio max 3.20 | Fixed Charge Coverage Ratio min 1.40) Tj
+0 -16 Td
+(2024-09-30 through 2025-03-31 | Total Net Leverage Ratio max 4.25 | Senior Secured Leverage Ratio max 3.00 | Fixed Charge Coverage Ratio min 1.55) Tj
+0 -16 Td
+(Testing date >= 2025-06-30 | Total Net Leverage Ratio max 4.00 | Senior Secured Leverage Ratio max 2.75 | Fixed Charge Coverage Ratio min 1.65) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000000373 00000 n 
+0000001534 00000 n 
+0000002715 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+2785
+%%EOF

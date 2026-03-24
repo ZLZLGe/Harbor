@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "harbor-suricata-offline-evejson-transfer-smtp-finance-dropbox"
+name = "Transfer: SMTP 财务归档投递告警"
+description = "编写 Suricata 规则到 /root/smtp_finance_drop.rules，使其仅对满足指定收件人、主题和 Base64 附件名模式的 SMTP 邮件告警。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["suricata", "pcap", "eve-json", "smtp", "mime"]
+primary_output_file = "/root/smtp_finance_drop.rules"
+source_task_id = "suricata-custom-exfil"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

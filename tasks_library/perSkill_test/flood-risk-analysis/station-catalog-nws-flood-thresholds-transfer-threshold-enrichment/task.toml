@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "station-catalog-nws-flood-thresholds-transfer-threshold-enrichment"
+name = "Transfer - 站点阈值标准化目录"
+description = "Normalize a messy multi-county station roster, match it against the provided NWS threshold batch export, and write a cleaned station threshold catalog CSV."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["hydrology", "csv", "data-cleaning", "thresholds", "catalog"]
+primary_output_file = "/root/output/station_threshold_catalog.csv"
+source_task_id = "flood-risk-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "patient-discharge-docx-transfer-home-care-packet",
+  "taskRole": "transfer",
+  "title": "Transfer: Patient Discharge Packet",
+  "goal": "根据患者出院数据填充一份出院指导 Word 模板，完成正文与页眉中的身份信息替换、药物与复诊安排的嵌套表格更新，并依据是否需要远程随访决定是否保留对应说明段落，输出最终出院包。",
+  "primaryOutputFile": "/root/discharge_packet_final.docx",
+  "difficulty": "easy",
+  "category": "document-generation",
+  "skillBenefitRationale": "该任务把同一套 Word 模板处理能力迁移到医疗场景，关键仍是 docx 文档遍历与替换，而不是任何领域专用技能。",
+  "targetSkillDirName": "docx",
+  "targetSkillName": "docx"
+}

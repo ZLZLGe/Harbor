@@ -1,0 +1,31 @@
+version = "1.0"
+
+[metadata]
+id = "service-ops-hierarchical-taxonomy-clustering-transfer-civic-request-normalization"
+name = "Transfer: 公共服务工单分类归一"
+description = "整合城市 311、校园后勤与物业工单的问题路径，输出统一的四层服务请求 taxonomy、跨系统映射和派单 SLA 汇总。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "ML/NLP"
+tags = ["taxonomy-alignment", "service-ops", "work-orders", "311", "facility-management"]
+primary_output_file = "drafts/service-ops-hierarchical-taxonomy-clustering-transfer-civic-request-normalization/instruction.md"
+source_task_id = "taxonomy-tree-merge"
+task_role = "transfer"
+
+[reward]
+reward = "(P0_passed/10 * 0.55) + (P1_passed/4 * 0.30) + (P2_passed/2 * 0.15)"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

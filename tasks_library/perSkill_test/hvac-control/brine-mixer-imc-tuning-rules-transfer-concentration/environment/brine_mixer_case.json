@@ -1,0 +1,20 @@
+{
+  "target_concentration_pct": 6.8,
+  "initial_concentration_pct": 5.9,
+  "base_concentration_pct": 2.2,
+  "nominal_brine_valve_pct": 46.0,
+  "process_gain_pct_per_valve_pct": 0.1,
+  "time_constant_s": 55.0,
+  "duration_s": 420.0,
+  "dt_s": 1.0,
+  "valve_min_pct": 0.0,
+  "valve_max_pct": 100.0,
+  "flush_start_s": 140.0,
+  "flush_end_s": 220.0,
+  "dilution_shift_pct": 0.9,
+  "settling_band_pct": 0.12,
+  "steady_state_window_s": 60.0,
+  "integral_min": -500.0,
+  "integral_max": 500.0,
+  "sample_times_s": [0.0, 40.0, 120.0, 160.0, 220.0, 280.0, 360.0, 420.0]
+}

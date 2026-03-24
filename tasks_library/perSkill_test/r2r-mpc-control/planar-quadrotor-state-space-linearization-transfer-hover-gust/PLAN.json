@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "planar-quadrotor-state-space-linearization-transfer-hover-gust",
+  "taskRole": "transfer",
+  "title": "Transfer - 平面四旋翼悬停线性化",
+  "goal": "对二维四旋翼的平移动力学与姿态动力学在悬停平衡点做状态空间线性化，生成离散模型，并用小角度扰动和微小推力偏差检验局部预测误差是否满足阈值。",
+  "primaryOutputFile": "artifacts/quadrotor_hover_linearization.json",
+  "difficulty": "medium",
+  "category": "robotics",
+  "skillBenefitRationale": "该任务把skill迁移到飞行器刚体动力学，要求处理不同物理量耦合和配平点附近的一阶展开；除了线性化与离散化外，其余流程只是运行给定模拟器并汇总误差。",
+  "targetSkillDirName": "state-space-linearization",
+  "targetSkillName": "state-space-linearization"
+}

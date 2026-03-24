@@ -1,0 +1,303 @@
+{
+  "reserve": {
+    "reserve_name": "Lotus Marsh Wetland Reserve",
+    "width": 7,
+    "height": 6,
+    "cell_size_m": 50
+  },
+  "rules": {
+    "target_habitat_types": [
+      "TERN_NEST",
+      "OTTER_DEN",
+      "REED_BED",
+      "FROG_POOL"
+    ],
+    "sensor_radius": 2,
+    "min_bank_contacts": 1,
+    "budget_cap": 13,
+    "max_sites": 3,
+    "shortlist_size": 5
+  },
+  "summary": {
+    "waterway_parcels": 13,
+    "key_habitats": 8,
+    "candidate_sites": 7,
+    "shortlisted_sites": 5,
+    "selected_sites": 3,
+    "covered_habitats": 7,
+    "covered_priority_weight": 23,
+    "budget_used": 13
+  },
+  "key_habitats": [
+    {
+      "habitat_code": "HAB_OTTER_03",
+      "parcel_id": 11,
+      "x": 4,
+      "y": 1,
+      "label": "East den shelf",
+      "habitat_type": "OTTER_DEN",
+      "priority_tier": "critical",
+      "priority_weight": 5,
+      "waterway_contacts": 3
+    },
+    {
+      "habitat_code": "HAB_OTTER_06",
+      "parcel_id": 31,
+      "x": 3,
+      "y": 4,
+      "label": "South channel den",
+      "habitat_type": "OTTER_DEN",
+      "priority_tier": "critical",
+      "priority_weight": 5,
+      "waterway_contacts": 2
+    },
+    {
+      "habitat_code": "HAB_POOL_04",
+      "parcel_id": 19,
+      "x": 5,
+      "y": 2,
+      "label": "Shallow frog pool",
+      "habitat_type": "FROG_POOL",
+      "priority_tier": "watch",
+      "priority_weight": 1,
+      "waterway_contacts": 2
+    },
+    {
+      "habitat_code": "HAB_POOL_08",
+      "parcel_id": 13,
+      "x": 6,
+      "y": 1,
+      "label": "North-east frog shelf",
+      "habitat_type": "FROG_POOL",
+      "priority_tier": "watch",
+      "priority_weight": 1,
+      "waterway_contacts": 2
+    },
+    {
+      "habitat_code": "HAB_REED_02",
+      "parcel_id": 16,
+      "x": 2,
+      "y": 2,
+      "label": "Central reed pocket",
+      "habitat_type": "REED_BED",
+      "priority_tier": "high",
+      "priority_weight": 3,
+      "waterway_contacts": 1
+    },
+    {
+      "habitat_code": "HAB_REED_05",
+      "parcel_id": 29,
+      "x": 1,
+      "y": 4,
+      "label": "Southern reed stand",
+      "habitat_type": "REED_BED",
+      "priority_tier": "high",
+      "priority_weight": 3,
+      "waterway_contacts": 3
+    },
+    {
+      "habitat_code": "HAB_TERN_01",
+      "parcel_id": 8,
+      "x": 1,
+      "y": 1,
+      "label": "North rookery",
+      "habitat_type": "TERN_NEST",
+      "priority_tier": "critical",
+      "priority_weight": 5,
+      "waterway_contacts": 2
+    },
+    {
+      "habitat_code": "HAB_TERN_07",
+      "parcel_id": 33,
+      "x": 5,
+      "y": 4,
+      "label": "East mudflat colony",
+      "habitat_type": "TERN_NEST",
+      "priority_tier": "high",
+      "priority_weight": 3,
+      "waterway_contacts": 1
+    }
+  ],
+  "no_entry_zones": [
+    {
+      "parcel_id": 4,
+      "x": 4,
+      "y": 0,
+      "overlay_codes": [
+        "NO_ENTRY"
+      ]
+    },
+    {
+      "parcel_id": 5,
+      "x": 5,
+      "y": 0,
+      "overlay_codes": [
+        "NO_ENTRY"
+      ]
+    },
+    {
+      "parcel_id": 14,
+      "x": 0,
+      "y": 2,
+      "overlay_codes": [
+        "RESTORATION_CLOSED"
+      ]
+    },
+    {
+      "parcel_id": 38,
+      "x": 3,
+      "y": 5,
+      "overlay_codes": [
+        "RESTORATION_CLOSED"
+      ]
+    }
+  ],
+  "candidate_sites": [
+    {
+      "site_code": "SEN_PAD_B",
+      "site_label": "Central observation rail",
+      "parcel_id": 17,
+      "x": 3,
+      "y": 2,
+      "access_code": "OBS_PLATFORM",
+      "install_cost": 6,
+      "bank_contacts": 1,
+      "coverable_habitat_codes": [
+        "HAB_OTTER_03",
+        "HAB_OTTER_06",
+        "HAB_POOL_04",
+        "HAB_REED_02"
+      ],
+      "coverable_habitat_count": 4,
+      "coverable_priority_weight": 14
+    },
+    {
+      "site_code": "SEN_PAD_A",
+      "site_label": "Willow boardwalk spur",
+      "parcel_id": 15,
+      "x": 1,
+      "y": 2,
+      "access_code": "BOARDWALK",
+      "install_cost": 4,
+      "bank_contacts": 2,
+      "coverable_habitat_codes": [
+        "HAB_REED_02",
+        "HAB_REED_05",
+        "HAB_TERN_01"
+      ],
+      "coverable_habitat_count": 3,
+      "coverable_priority_weight": 11
+    },
+    {
+      "site_code": "SEN_PAD_G",
+      "site_label": "North berm turnout",
+      "parcel_id": 2,
+      "x": 2,
+      "y": 0,
+      "access_code": "SERVICE_BERM",
+      "install_cost": 5,
+      "bank_contacts": 1,
+      "coverable_habitat_codes": [
+        "HAB_REED_02",
+        "HAB_TERN_01"
+      ],
+      "coverable_habitat_count": 2,
+      "coverable_priority_weight": 8
+    },
+    {
+      "site_code": "SEN_PAD_E",
+      "site_label": "South berm overlook",
+      "parcel_id": 32,
+      "x": 4,
+      "y": 4,
+      "access_code": "SERVICE_BERM",
+      "install_cost": 7,
+      "bank_contacts": 3,
+      "coverable_habitat_codes": [
+        "HAB_OTTER_06",
+        "HAB_TERN_07"
+      ],
+      "coverable_habitat_count": 2,
+      "coverable_priority_weight": 8
+    },
+    {
+      "site_code": "SEN_PAD_C",
+      "site_label": "East berm anchor",
+      "parcel_id": 26,
+      "x": 5,
+      "y": 3,
+      "access_code": "SERVICE_BERM",
+      "install_cost": 5,
+      "bank_contacts": 3,
+      "coverable_habitat_codes": [
+        "HAB_POOL_04",
+        "HAB_TERN_07"
+      ],
+      "coverable_habitat_count": 2,
+      "coverable_priority_weight": 4
+    }
+  ],
+  "deployment_plan": {
+    "selected_site_codes": [
+      "SEN_PAD_A",
+      "SEN_PAD_B",
+      "SEN_PAD_F"
+    ],
+    "total_install_cost": 13,
+    "covered_habitat_codes": [
+      "HAB_OTTER_03",
+      "HAB_OTTER_06",
+      "HAB_POOL_04",
+      "HAB_POOL_08",
+      "HAB_REED_02",
+      "HAB_REED_05",
+      "HAB_TERN_01"
+    ],
+    "uncovered_habitat_codes": [
+      "HAB_TERN_07"
+    ],
+    "sensors": [
+      {
+        "site_code": "SEN_PAD_A",
+        "site_label": "Willow boardwalk spur",
+        "parcel_id": 15,
+        "x": 1,
+        "y": 2,
+        "install_cost": 4,
+        "bank_contacts": 2,
+        "covered_habitat_codes": [
+          "HAB_REED_02",
+          "HAB_REED_05",
+          "HAB_TERN_01"
+        ]
+      },
+      {
+        "site_code": "SEN_PAD_B",
+        "site_label": "Central observation rail",
+        "parcel_id": 17,
+        "x": 3,
+        "y": 2,
+        "install_cost": 6,
+        "bank_contacts": 1,
+        "covered_habitat_codes": [
+          "HAB_OTTER_03",
+          "HAB_OTTER_06",
+          "HAB_POOL_04",
+          "HAB_REED_02"
+        ]
+      },
+      {
+        "site_code": "SEN_PAD_F",
+        "site_label": "North-east mast base",
+        "parcel_id": 6,
+        "x": 6,
+        "y": 0,
+        "install_cost": 3,
+        "bank_contacts": 1,
+        "covered_habitat_codes": [
+          "HAB_POOL_08"
+        ]
+      }
+    ]
+  }
+}

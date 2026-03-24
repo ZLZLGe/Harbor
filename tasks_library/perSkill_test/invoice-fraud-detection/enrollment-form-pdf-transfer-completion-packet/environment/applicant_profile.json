@@ -1,0 +1,39 @@
+{
+  "legal_name": "Elena Sofiya Petrov",
+  "preferred_name": "Elena Petrov",
+  "date_of_birth": "2004-09-28",
+  "student_id": "TR-618204",
+  "program_name": "M.S. in Human-Centered Design",
+  "start_term": "Spring 2027",
+  "email": "elena.petrov@example.edu",
+  "mobile_phone": "(312) 555-0184",
+  "citizenship": "International",
+  "mailing_address": {
+    "line1": "85 Queens Quay W Unit 1204",
+    "city": "Toronto",
+    "region": "ON",
+    "postal_code": "M5J 2Y2",
+    "country": "Canada"
+  },
+  "emergency_contact": {
+    "name": "Irina Petrov",
+    "relationship": "Mother",
+    "phone": "+1-647-555-0199"
+  },
+  "orientation_addons": [
+    "Airport Shuttle",
+    "Early Housing Tour"
+  ],
+  "previous_institution": "Lakeshore College",
+  "transfer_credits_accepted": 18,
+  "attendance_mode": "Full-Time",
+  "housing_plan": "Off-Campus",
+  "support_note": "Requires captioning support during orientation presentations.",
+  "communication_preferences": {
+    "directory_opt_in": false,
+    "sms_alerts": true
+  },
+  "financial_terms_accepted": true,
+  "typed_signature": "Elena Sofiya Petrov",
+  "completion_date": "2026-03-18"
+}

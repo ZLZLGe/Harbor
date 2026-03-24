@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "intersection-queue-sampling-and-indexing-transfer-vehicle-counts",
+  "taskRole": "transfer",
+  "title": "Transfer | 路口排队车辆采样计数",
+  "goal": "给定一个固定机位路口视频，按固定采样率抽帧并输出 CSV，为每个采样帧记录样本索引与停止线前排队车辆数；重点是保证采样时刻一致、索引连续，并让计数结果严格对应采样后的帧序号。",
+  "primaryOutputFile": "/root/pred_queue_counts.csv",
+  "difficulty": "medium",
+  "category": "traffic-analysis",
+  "skillBenefitRationale": "它把同一技能迁移到逐采样帧表格输出场景，考察的是抽样节奏、索引编号和观测值对齐，而不是源任务中的区间标签或稀疏掩码格式。",
+  "targetSkillDirName": "sampling-and-indexing",
+  "targetSkillName": "sampling-and-indexing"
+}

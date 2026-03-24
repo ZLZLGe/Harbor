@@ -1,0 +1,21 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "runId": "20260319111647-exoplanet-detection-period-light-curve-preprocessing-jhlada",
+  "taskId": "asteroid-nightly-drift-light-curve-preprocessing-transfer-cleaned-series",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/exoplanet-detection-period/light-curve-preprocessing/20260319111647-exoplanet-detection-period-light-curve-preprocessing-jhlada/asteroid-nightly-drift-light-curve-preprocessing-transfer-cleaned-series",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/exoplanet-detection-period/asteroid-nightly-drift-light-curve-preprocessing-transfer-cleaned-series",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:asteroid-nightly-drift-light-curve-preprocessing-transfer-cleaned-series instruction.md 明确规定了“21 点 running median”“robust scatter 公式”“ordinary least squares 线性去趋势”等具体做法，比 source_task/instruction.md 更直接地暴露了预处理实现路径，并引入了 source task 未出现的具体技术表述。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 角色配比符合 1 个 similar + 3 个 transfer，且 3 个 transfer 分别覆盖小行星逐夜测光、食双星食事件、类星体多季监测，场景区分度足够。",
+    "family similar 任务仍是 TESS 风格凌星光变的清洗与去趋势，并强调保留短时凌星形状，和当前 shipped skill 的典型用法足够贴近。",
+    "family 当前 family 的主要发布风险不在整体规划，而在个别 draft 的 instruction 过度配方化或测试工件污染。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa5-7d07-7c00-b306-27057a0c9d82"
+}

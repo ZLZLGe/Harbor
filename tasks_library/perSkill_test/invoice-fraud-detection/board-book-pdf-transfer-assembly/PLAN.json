@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "board-book-pdf-transfer-assembly",
+  "taskRole": "transfer",
+  "title": "Transfer: Board Book Assembly",
+  "goal": "按给定议程清单从多个来源 PDF 中抽取指定页、重排顺序、插入自动生成的封面与分隔页，并输出最终董事会资料包 PDF。",
+  "primaryOutputFile": "/root/board_book.pdf",
+  "difficulty": "medium",
+  "category": "document-workflow",
+  "skillBenefitRationale": "核心工作是拆分、复制、重排和生成 PDF 页面来组装最终文档；除简单清单解析外不依赖其他专门技能，因此 PDF 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

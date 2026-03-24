@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "exhibition-hall-threejs-transfer-zone-bounds",
+  "taskRole": "transfer",
+  "title": "Transfer: 展馆分区包围盒报告",
+  "goal": "解析一个多区域展馆场景，把具名 Group 视为区域节点，确保 mesh 只归属最近具名祖先区域，计算每个区域的世界空间包围盒、直属 mesh 列表和层级关系，并输出结构化报告。",
+  "primaryOutputFile": "/root/output/zone_bounds_report.json",
+  "difficulty": "medium",
+  "category": "spatial-analysis",
+  "skillBenefitRationale": "任务把 Three.js 场景图理解迁移到空间分析场景，核心仍是层级遍历、祖先归属判断和世界变换传播，因此当前技能仍是唯一关键 shipped skill。",
+  "targetSkillDirName": "threejs",
+  "targetSkillName": "threejs"
+}

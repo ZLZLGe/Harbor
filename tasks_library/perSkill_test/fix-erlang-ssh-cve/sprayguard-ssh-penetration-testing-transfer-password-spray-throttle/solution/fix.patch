@@ -1,0 +1,68 @@
+--- a/bastion/auth/failure_tracker.py
++++ b/bastion/auth/failure_tracker.py
+@@ -31,9 +31,12 @@
+         username: str,
+         now: float,
+     ) -> bool:
+-        state = self._get_state(connection_id)
+-        self._trim(state, now)
+-        return now < state.blocked_until
++        for key in self._scope_keys(remote_addr, username):
++            state = self._get_state(key)
++            self._trim(state, now)
++            if now < state.blocked_until:
++                return True
++        return False
+ 
+     def register_failure(
+         self,
+@@ -43,11 +46,12 @@
+         username: str,
+         now: float,
+     ) -> None:
+-        state = self._get_state(connection_id)
+-        self._trim(state, now)
+-        state.failed_at.append(now)
+-        if len(state.failed_at) >= self.max_failures:
+-            state.blocked_until = now + self.cooldown_seconds
++        for key in self._scope_keys(remote_addr, username):
++            state = self._get_state(key)
++            self._trim(state, now)
++            state.failed_at.append(now)
++            if len(state.failed_at) >= self.max_failures:
++                state.blocked_until = now + self.cooldown_seconds
+ 
+     def register_success(
+         self,
+@@ -57,10 +61,10 @@
+         username: str,
+         now: float,
+     ) -> None:
+-        self._states.pop(connection_id, None)
++        self._states.pop(self._account_key(remote_addr, username), None)
+ 
+     def disconnect(self, connection_id: str) -> None:
+-        self._states.pop(connection_id, None)
++        return None
+ 
+     def _get_state(self, key: str) -> FailureState:
+         state = self._states.get(key)
+@@ -69,6 +73,18 @@
+             self._states[key] = state
+         return state
+ 
++    def _scope_keys(self, remote_addr: str, username: str) -> tuple[str, str]:
++        return (
++            self._source_key(remote_addr),
++            self._account_key(remote_addr, username),
++        )
++
++    def _source_key(self, remote_addr: str) -> str:
++        return f"source:{remote_addr}"
++
++    def _account_key(self, remote_addr: str, username: str) -> str:
++        return f"account:{remote_addr}:{username.lower()}"
++
+     def _trim(self, state: FailureState, now: float) -> None:
+         cutoff = now - self.window_seconds
+         while state.failed_at and state.failed_at[0] < cutoff:

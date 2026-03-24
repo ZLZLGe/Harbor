@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "stratification-glm-output-transfer-thermocline-tracking",
+  "taskRole": "transfer",
+  "title": "Transfer | 季节性温跃层深度追踪",
+  "goal": "针对湖泊分层监测场景，从 GLM 输出剖面中逐日识别温跃层深度，并与人工判读结果比较，输出季节性温跃层追踪表且满足深度误差与有效覆盖率要求。",
+  "primaryOutputFile": "/root/output/thermocline_tracking.csv",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "该任务把技能迁移到分层诊断而非直接 RMSE 校准，但基础仍是从 GLM 输出恢复温度剖面、完成 z 到深度的转换并在正确的时间切片上提取层结信息。问题核心仍由 glm-output 支撑。",
+  "targetSkillDirName": "glm-output",
+  "targetSkillName": "glm-output"
+}

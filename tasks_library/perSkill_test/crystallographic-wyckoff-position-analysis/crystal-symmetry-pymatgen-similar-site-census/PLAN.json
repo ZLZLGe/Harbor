@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "crystal-symmetry-pymatgen-similar-site-census",
+  "taskRole": "similar",
+  "title": "Pymatgen Similar: Batch Symmetry Site Census",
+  "goal": "给定一批 CIF 结构文件，编写 Python 入口函数批量读取结构，输出每个结构的空间群符号与编号、晶系、按元素划分的对称等价位点组数量，以及每组的一个代表性分数坐标和 Wyckoff 字母，生成可序列化的汇总结果。",
+  "primaryOutputFile": "symmetry_site_census.json",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "任务核心依赖 pymatgen 的 CIF 读取、SpacegroupAnalyzer、symmetrized structure 与分数坐标处理能力，能够直接检验该 skill 在典型晶体对称分析场景中的使用熟练度。",
+  "targetSkillDirName": "pymatgen",
+  "targetSkillName": "pymatgen"
+}

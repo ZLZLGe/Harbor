@@ -1,0 +1,61 @@
+{
+  "reactions": [
+    {
+      "reaction_id": "batio3_from_carbonate",
+      "precursors": [
+        {"name": "BaCO3", "elements": {"Ba": 1, "C": 1, "O": 3}},
+        {"name": "TiO2", "elements": {"Ti": 1, "O": 2}}
+      ],
+      "target": {"name": "BaTiO3", "elements": {"Ba": 1, "Ti": 1, "O": 3}},
+      "byproducts": [
+        {"name": "CO2", "elements": {"C": 1, "O": 2}}
+      ]
+    },
+    {
+      "reaction_id": "licoo2_from_lithium_carbonate",
+      "precursors": [
+        {"name": "Li2CO3", "elements": {"Li": 2, "C": 1, "O": 3}},
+        {"name": "Co3O4", "elements": {"Co": 3, "O": 4}},
+        {"name": "O2", "elements": {"O": 2}}
+      ],
+      "target": {"name": "LiCoO2", "elements": {"Li": 1, "Co": 1, "O": 2}},
+      "byproducts": [
+        {"name": "CO2", "elements": {"C": 1, "O": 2}}
+      ]
+    },
+    {
+      "reaction_id": "limn2o4_with_oxygen_release",
+      "precursors": [
+        {"name": "Li2CO3", "elements": {"Li": 2, "C": 1, "O": 3}},
+        {"name": "MnO2", "elements": {"Mn": 1, "O": 2}}
+      ],
+      "target": {"name": "LiMn2O4", "elements": {"Li": 1, "Mn": 2, "O": 4}},
+      "byproducts": [
+        {"name": "CO2", "elements": {"C": 1, "O": 2}},
+        {"name": "O2", "elements": {"O": 2}}
+      ]
+    },
+    {
+      "reaction_id": "ybco_123_route",
+      "precursors": [
+        {"name": "Y2O3", "elements": {"Y": 2, "O": 3}},
+        {"name": "BaCO3", "elements": {"Ba": 1, "C": 1, "O": 3}},
+        {"name": "CuO", "elements": {"Cu": 1, "O": 1}},
+        {"name": "O2", "elements": {"O": 2}}
+      ],
+      "target": {"name": "YBa2Cu3O7", "elements": {"Y": 1, "Ba": 2, "Cu": 3, "O": 7}},
+      "byproducts": [
+        {"name": "CO2", "elements": {"C": 1, "O": 2}}
+      ]
+    },
+    {
+      "reaction_id": "lafeo3_direct_combination",
+      "precursors": [
+        {"name": "La2O3", "elements": {"La": 2, "O": 3}},
+        {"name": "Fe2O3", "elements": {"Fe": 2, "O": 3}}
+      ],
+      "target": {"name": "LaFeO3", "elements": {"La": 1, "Fe": 1, "O": 3}},
+      "byproducts": []
+    }
+  ]
+}

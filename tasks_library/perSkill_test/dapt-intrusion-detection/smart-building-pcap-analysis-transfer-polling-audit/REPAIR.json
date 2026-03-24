@@ -1,0 +1,61 @@
+{
+  "sourceTaskId": "dapt-intrusion-detection",
+  "targetSkillDirName": "pcap-analysis",
+  "runId": "20260318212719-dapt-intrusion-detection-pcap-analysis-ym78im",
+  "taskId": "smart-building-pcap-analysis-transfer-polling-audit",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/dapt-intrusion-detection/smart-building-pcap-analysis-transfer-polling-audit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260318212719-dapt-intrusion-detection-pcap-analysis-ym78im/dapt-intrusion-detection/drafts/smart-building-pcap-analysis-transfer-polling-audit",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/dapt-intrusion-detection/smart-building-pcap-analysis-transfer-polling-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/dapt-intrusion-detection/smart-building-pcap-analysis-transfer-polling-audit",
+  "status": "pass",
+  "issueCategories": [
+    "skill_benefit"
+  ],
+  "originalReviewerIssues": [
+    "environment/Dockerfile 只安装了 pyyaml，没有安装 scapy；但唯一 shipped skill `pcap-analysis` 的 `pcap_utils.py` 依赖 scapy。这个任务实际迫使解题者绕开 shipped skill 自行实现 PCAP 解析，不符合当前单技能 workspace 只依赖 `pcap-analysis` 的约束。; skillBenefitPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "The task environment does not install Scapy, so the shipped `pcap-analysis` skill helper module cannot run there.; As written, completion is pushed toward a custom raw-PCAP parser instead of relying on the only shipped skill, so this draft should not publish in per-skill mode.; skillBenefitPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/__pycache__/build_smart_building_pcap.cpython-312.pyc",
+    "environment/Dockerfile",
+    "instruction.md",
+    "PLAN.json",
+    "solution/solve.sh",
+    "task.toml",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "smart-building-pcap-analysis-transfer-polling-audit"
+      ],
+      "requestedIssuesByTaskId": {
+        "smart-building-pcap-analysis-transfer-polling-audit": {
+          "reviewerIssues": [
+            "The task environment does not install Scapy, so the shipped `pcap-analysis` skill helper module cannot run there.; As written, completion is pushed toward a custom raw-PCAP parser instead of relying on the only shipped skill, so this draft should not publish in per-skill mode.; skillBenefitPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10cf-9f80-72b0-a4ed-fce7b4bd5a7d",
+      "repairSummary": "- `smart-building-pcap-analysis-transfer-polling-audit`: 重写了 `instruction.md`，把输出结构改成显式的按流周期审计 `polling_audit`，把周期判定规则、排序、列表项结构和最终结论映射全部写明；同步更新了 YAML 模板、`task.toml` 描述和 `PLAN.json` 的 goal / skillBenefit 叙事。\n\n- `smart-building-pcap-analysis-transfer-polling-audit`: 重写了 `tests/test_outputs.py`，改为基于预装的 `pcap_utils` 与 Scapy 计算期望值，不再内置原始 PCAP 解析器；参考解 `solution/solve.sh` 也改为复用同一辅助模块并输出显式的 polling / beaconing 流列表；`environment/Dockerfile` 增加了 Scapy 和 `pcap_utils` 的导入校验，强化单技能收益路径。\n\n已做静态自检：`instruction.md` 不含被禁止直接点名的 shipped skill 字符串，`derivedTaskId` / `taskRole` / `source_task_id` / `primaryOutputFile` 保持不变；还跑了 `py_compile` 和 `bash -n`。完整 reviewer / 容器内测试我这边没直接跑，因为当前宿主环境没有 Scapy。",
+      "reviewThreadId": "019d10d5-e8d0-7e71-8def-91bbd853943d",
+      "evaluationByTaskId": {
+        "smart-building-pcap-analysis-transfer-polling-audit": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

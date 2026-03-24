@@ -1,0 +1,29 @@
+protocol_distribution:
+  total_packets: 0
+  ip_total: 0
+  tcp: 0
+  udp: 0
+  icmp: 0
+  arp: 0
+global_iat:
+  capture_duration_seconds: 0.0
+  mean_seconds: 0.0
+  variance_seconds: 0.0
+  cv: 0.0
+device_roles:
+  num_producers: 0
+  num_consumers: 0
+flow_summary:
+  unique_flows: 0
+  tcp_flows: 0
+  udp_flows: 0
+  bidirectional_flows: 0
+  bidirectional_flow_ratio: 0.0
+polling_audit:
+  periodic_polling_flow_count: 0
+  beaconing_flow_count: 0
+  polling_flows: []
+  beaconing_flows: []
+  obvious_periodic_polling: false
+  obvious_beaconing: false
+  final_assessment: no_obvious_periodic_activity

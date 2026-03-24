@@ -1,0 +1,24 @@
+{
+  "sourceTaskId": "earthquake-phase-association",
+  "targetSkillDirName": "seismic-picker-selection",
+  "runId": "20260319025634-earthquake-phase-association-seismic-picker-selection-q0pkhx",
+  "taskId": "glacier-icequake-seismic-picker-selection-transfer-mixed-sensor-catalog",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/earthquake-phase-association/glacier-icequake-seismic-picker-selection-transfer-mixed-sensor-catalog",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319025634-earthquake-phase-association-seismic-picker-selection-q0pkhx/earthquake-phase-association/drafts/glacier-icequake-seismic-picker-selection-transfer-mixed-sensor-catalog",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/earthquake-phase-association/glacier-icequake-seismic-picker-selection-transfer-mixed-sensor-catalog",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/earthquake-phase-association/glacier-icequake-seismic-picker-selection-transfer-mixed-sensor-catalog",
+  "status": "pass",
+  "issueCategories": [
+    "skill_benefit"
+  ],
+  "originalReviewerIssues": [
+    "`approach_scorecard.csv` 已直接按 `fit_score` 给出方法 family 排序，并把 `deep_picker_association` 写成最佳选项，导致方法选择几乎不需要依赖当前唯一 shipped skill `seismic-picker-selection`。; skillBenefitPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

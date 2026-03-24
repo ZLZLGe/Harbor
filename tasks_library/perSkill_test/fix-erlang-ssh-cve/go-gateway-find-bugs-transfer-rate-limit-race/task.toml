@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "go-gateway-find-bugs-transfer-rate-limit-race"
+name = "Transfer - 审计 Go 租户限流器重构"
+description = "审计本地 Go API gateway 分支中的租户限流器重构，并把已证实的问题写入指定报告。"
+author_name = "OpenAI"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "go concurrency review"
+tags = ["go", "gateway", "concurrency-review", "transfer"]
+primary_output_file = "reports/transfer-rate-limiter-findings.md"
+source_task_id = "fix-erlang-ssh-cve"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

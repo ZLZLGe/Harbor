@@ -1,0 +1,110 @@
+{
+  "sourceTaskId": "shock-analysis-supply",
+  "targetSkillDirName": "xlsx",
+  "runId": "20260322175652-shock-analysis-supply-xlsx-f7rld7",
+  "taskId": "reservoir-planning-xlsx-transfer-drought-resilience",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/shock-analysis-supply/reservoir-planning-xlsx-transfer-drought-resilience",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322175652-shock-analysis-supply-xlsx-f7rld7/shock-analysis-supply/drafts/reservoir-planning-xlsx-transfer-drought-resilience",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/shock-analysis-supply/reservoir-planning-xlsx-transfer-drought-resilience",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/shock-analysis-supply/reservoir-planning-xlsx-transfer-drought-resilience",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 在模板路径和输出文件名中直接出现了 `xlsx`（通过 `.xlsx` 扩展名），不满足技能隐藏要求。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现 xlsx：模板路径和输出文件名都含 .xlsx，构成 shipped skill 暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312-pytest-8.4.1.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "reservoir-planning-xlsx-transfer-drought-resilience"
+      ],
+      "requestedIssuesByTaskId": {
+        "reservoir-planning-xlsx-transfer-drought-resilience": {
+          "reviewerIssues": [
+            "instruction.md 直接出现 xlsx：模板路径和输出文件名都含 .xlsx，构成 shipped skill 暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a98-90e1-7750-9967-d5feb0f4fe17",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 名称的直接暴露，把模板和输出改写为不直接出现 .xlsx 的工作簿描述，同时保持任务目标与输出约束不变。",
+      "reviewThreadId": "019d1a99-7264-70d0-81ce-cd3ead81e94f",
+      "evaluationByTaskId": {
+        "reservoir-planning-xlsx-transfer-drought-resilience": {
+          "reviewerIssues": [
+            "instruction.md 未直接出现 shipped skill 的 name 或 dirName（xlsx），不满足技能暴露要求。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "reservoir-planning-xlsx-transfer-drought-resilience"
+      ],
+      "requestedIssuesByTaskId": {
+        "reservoir-planning-xlsx-transfer-drought-resilience": {
+          "reviewerIssues": [
+            "instruction.md 未直接出现 shipped skill 的 name 或 dirName（xlsx），不满足技能暴露要求。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a9a-f408-7872-aea1-4a82ba4d34e8",
+      "repairSummary": "在 instruction.md 顶部直接点名 `xlsx` 技能，修复 reviewer 的技能暴露问题；未改动其他任务文件。",
+      "reviewThreadId": "019d1a9b-9ff6-74b1-8c1c-55a825d59383",
+      "evaluationByTaskId": {
+        "reservoir-planning-xlsx-transfer-drought-resilience": {
+          "reviewerIssues": [
+            "instruction.md 直接点名了 shipped skill `xlsx`，造成技能暴露。; 测试将多处单元格公式限定为唯一字符串写法，但 instruction 只要求计算语义，等价公式也会被误判失败。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 3,
+      "requestedTaskIds": [
+        "reservoir-planning-xlsx-transfer-drought-resilience"
+      ],
+      "requestedIssuesByTaskId": {
+        "reservoir-planning-xlsx-transfer-drought-resilience": {
+          "reviewerIssues": [
+            "instruction.md 直接点名了 shipped skill `xlsx`，造成技能暴露。; 测试将多处单元格公式限定为唯一字符串写法，但 instruction 只要求计算语义，等价公式也会被误判失败。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a9c-793a-73c0-8244-8ed96fe41c25",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill 名称的直接点名，并将测试从公式字符串硬匹配改为“目标单元格必须保留公式且重算结果满足语义”的校验，避免等价公式被误判。",
+      "reviewThreadId": "019d1aa1-f98f-7f82-863b-98d3992eb458",
+      "evaluationByTaskId": {
+        "reservoir-planning-xlsx-transfer-drought-resilience": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "market_id": "north_delta_balancing_hour_2026-07-15T18:00:00Z",
+  "description": "Single-zone balancing market snapshot with co-optimized energy and spinning reserve.",
+  "load_MW": 360.0,
+  "reserve_requirement_MW": 140.0,
+  "units": [
+    {
+      "unit_id": "Aster-CCGT-1",
+      "technology": "ccgt",
+      "p_min_MW": 40.0,
+      "p_max_MW": 180.0,
+      "reserve_max_MW": 70.0,
+      "reserve_offer_dollars_per_MW": 5.0,
+      "energy_blocks": [
+        {"mw": 60.0, "price": 16.0},
+        {"mw": 60.0, "price": 21.0},
+        {"mw": 60.0, "price": 30.0}
+      ]
+    },
+    {
+      "unit_id": "Beacon-Coal-2",
+      "technology": "coal",
+      "p_min_MW": 50.0,
+      "p_max_MW": 160.0,
+      "reserve_max_MW": 40.0,
+      "reserve_offer_dollars_per_MW": 3.5,
+      "energy_blocks": [
+        {"mw": 80.0, "price": 18.0},
+        {"mw": 40.0, "price": 19.0},
+        {"mw": 40.0, "price": 27.0}
+      ]
+    },
+    {
+      "unit_id": "Cascade-Hydro-3",
+      "technology": "hydro",
+      "p_min_MW": 0.0,
+      "p_max_MW": 90.0,
+      "reserve_max_MW": 20.0,
+      "reserve_offer_dollars_per_MW": 8.0,
+      "energy_blocks": [
+        {"mw": 50.0, "price": 9.0},
+        {"mw": 40.0, "price": 12.0}
+      ]
+    },
+    {
+      "unit_id": "Drift-Battery-4",
+      "technology": "battery",
+      "p_min_MW": 0.0,
+      "p_max_MW": 70.0,
+      "reserve_max_MW": 70.0,
+      "reserve_offer_dollars_per_MW": 1.2,
+      "energy_blocks": [
+        {"mw": 20.0, "price": 25.0},
+        {"mw": 20.0, "price": 32.0},
+        {"mw": 30.0, "price": 40.0}
+      ]
+    },
+    {
+      "unit_id": "Ember-GT-5",
+      "technology": "gas_turbine",
+      "p_min_MW": 0.0,
+      "p_max_MW": 70.0,
+      "reserve_max_MW": 70.0,
+      "reserve_offer_dollars_per_MW": 2.0,
+      "energy_blocks": [
+        {"mw": 30.0, "price": 24.0},
+        {"mw": 20.0, "price": 29.0},
+        {"mw": 20.0, "price": 37.0}
+      ]
+    },
+    {
+      "unit_id": "Fjord-CCGT-6",
+      "technology": "ccgt",
+      "p_min_MW": 20.0,
+      "p_max_MW": 140.0,
+      "reserve_max_MW": 60.0,
+      "reserve_offer_dollars_per_MW": 4.0,
+      "energy_blocks": [
+        {"mw": 50.0, "price": 17.0},
+        {"mw": 50.0, "price": 20.0},
+        {"mw": 40.0, "price": 26.0}
+      ]
+    }
+  ]
+}

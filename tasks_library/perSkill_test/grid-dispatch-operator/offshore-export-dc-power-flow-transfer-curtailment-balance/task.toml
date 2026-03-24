@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "offshore-export-dc-power-flow-transfer-curtailment-balance"
+name = "Transfer | 海上风电送出限额分配"
+description = "基于海上风电汇集与送出网络快照，计算满足直流节点平衡与海缆限额的最大送岸接纳方案，并输出各风场接纳功率、弃风统计和最紧张海缆。"
+author_name = "Wenbo Chen"
+author_email = "wenbochen111@gmail.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "offshore-wind", "transfer", "dc-power-flow", "curtailment"]
+primary_output_file = "wind_export_plan.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240

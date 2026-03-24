@@ -1,0 +1,33 @@
+{
+  "portfolio_name": "North Harbor Multi-Asset Portfolio",
+  "report_period": "Q1 2026",
+  "committee_meeting_date": "2026-04-15",
+  "benchmark_name": "60/20/10/10 Policy Blend",
+  "portfolio_return_pct": 4.61,
+  "benchmark_return_pct": 3.98,
+  "net_exposure_pct": 96,
+  "gross_exposure_pct": 118,
+  "tracking_error_pct": 4.2,
+  "liquidity_within_5_days_pct": 87,
+  "risk_items": [
+    {
+      "title": "Semiconductor concentration remains elevated",
+      "severity": "High",
+      "owner": "Public Equities",
+      "mitigation": "Reduce NVIDIA exposure if position weight closes above 10%."
+    },
+    {
+      "title": "Real assets sleeve still lags inflation pass-through assumptions",
+      "severity": "Medium",
+      "owner": "Real Assets",
+      "mitigation": "Re-underwrite two infrastructure funds before the June allocation meeting."
+    },
+    {
+      "title": "Private credit liquidity is acceptable but documentation backlog remains",
+      "severity": "Medium",
+      "owner": "Private Credit",
+      "mitigation": "Complete side-letter inventory and update the lender consent tracker."
+    }
+  ],
+  "escalation_note": "Escalate immediately if tracking error rises above 5.0% or five-day liquidity falls below 80%."
+}

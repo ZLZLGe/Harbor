@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "credit-delinquency-pca-decomposition-transfer-pressure-share",
+  "taskRole": "transfer",
+  "title": "Credit Delinquency Pressure Attribution Transfer",
+  "goal": "对消费信贷逾期率与借款人负债、收入波动、还款行为、区域生活成本等多类高度相关指标做统一降维分解，再依据因子得分评估哪一类压力最主导逾期率变化，输出类别与贡献占比。",
+  "primaryOutputFile": "delinquency_pressure_share.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "金融风控特征常常高度相关，直接比较原始变量贡献不稳定。该任务把 PCA 分解迁移到信贷归因场景，关键能力仍是通过一次全局分解提炼共同因子，并在降维后进行稳定、可解释的类别级贡献分析。",
+  "targetSkillDirName": "pca-decomposition",
+  "targetSkillName": "pca-decomposition"
+}

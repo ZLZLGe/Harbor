@@ -1,0 +1,11 @@
+[project]
+name = "incident-digest"
+version = "0.1.0"
+description = "A tiny incident digest worker used for Docker build validation."
+requires-python = ">=3.11"
+dependencies = [
+  "ops-helpers==0.1.0",
+]
+
+[tool.uv.sources]
+ops-helpers = { path = "vendor/ops_helpers-0.1.0-py3-none-any.whl" }

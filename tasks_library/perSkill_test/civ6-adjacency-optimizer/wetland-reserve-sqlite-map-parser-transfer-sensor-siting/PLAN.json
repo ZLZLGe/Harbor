@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wetland-reserve-sqlite-map-parser-transfer-sensor-siting",
+  "taskRole": "transfer",
+  "title": "Transfer - 湿地监测传感器布设",
+  "goal": "读取湿地保护区 SQLite 地图数据库，恢复地块坐标、水道、栖息地标签和禁入区后，输出监测传感器布设 JSON，给出在固定预算下覆盖最多关键栖息点的候选坐标。",
+  "primaryOutputFile": "/output/sensor_siting_plan.json",
+  "difficulty": "hard",
+  "category": "environment",
+  "skillBenefitRationale": "传感器布设前提是把 SQLite 中分散的地块、标签和水系信息解析成可计算的空间数据；sqlite-map-parser 是唯一关键 shipped skill，因为没有它就无法知道哪些坐标存在、哪些覆盖层需要合并。",
+  "targetSkillDirName": "sqlite-map-parser",
+  "targetSkillName": "sqlite-map-parser"
+}

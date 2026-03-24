@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "enrollment-form-pdf-transfer-completion-packet",
+  "taskRole": "transfer",
+  "title": "Transfer: Enrollment Form Completion Packet",
+  "goal": "根据提供的申请人资料 JSON，填写一套入学注册 PDF；其中既包含可填写字段，也包含需要在指定区域补写文本和勾选项的页面，最终生成完整成品 PDF。",
+  "primaryOutputFile": "/root/completed_enrollment_packet.pdf",
+  "difficulty": "hard",
+  "category": "document-automation",
+  "skillBenefitRationale": "成败取决于识别 PDF 表单字段、定位非可填写区域并将内容准确写回 PDF；外部数据只是直接映射，因此唯一关键 shipped skill 是 PDF。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

@@ -1,0 +1,4 @@
+line,start,end,reason
+1,4,10,nozzle_calibration
+2,10,18,reflow_profile_check
+3,16,22,aoi_reference_reset

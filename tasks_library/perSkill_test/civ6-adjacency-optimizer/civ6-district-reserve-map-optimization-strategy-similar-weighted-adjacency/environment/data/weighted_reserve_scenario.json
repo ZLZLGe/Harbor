@@ -1,0 +1,157 @@
+{
+  "id": "weighted_reserve_plan",
+  "description": "Fixed-center Civ6 district reserve planning puzzle with weighted adjacency scoring.",
+  "city_center": [
+    21,
+    13
+  ],
+  "population": 13,
+  "required_builds": [
+    "CAMPUS",
+    "HOLY_SITE",
+    "INDUSTRIAL_ZONE",
+    "COMMERCIAL_HUB",
+    "HARBOR",
+    "AQUEDUCT",
+    "DAM"
+  ],
+  "weights": {
+    "CAMPUS": 3,
+    "HOLY_SITE": 2,
+    "INDUSTRIAL_ZONE": 4,
+    "COMMERCIAL_HUB": 3,
+    "HARBOR": 1,
+    "AQUEDUCT": 0,
+    "DAM": 0
+  },
+  "reserved_tiles": [
+    [
+      22,
+      14
+    ]
+  ],
+  "tiles": [
+    {
+      "x": 20,
+      "y": 11,
+      "terrain": "OCEAN"
+    },
+    {
+      "x": 21,
+      "y": 11,
+      "terrain": "COAST"
+    },
+    {
+      "x": 22,
+      "y": 11,
+      "terrain": "MOUNTAIN"
+    },
+    {
+      "x": 20,
+      "y": 12,
+      "terrain": "COAST"
+    },
+    {
+      "x": 21,
+      "y": 12,
+      "terrain": "COAST"
+    },
+    {
+      "x": 22,
+      "y": 12,
+      "terrain": "GRASS"
+    },
+    {
+      "x": 23,
+      "y": 12,
+      "terrain": "GRASS"
+    },
+    {
+      "x": 19,
+      "y": 13,
+      "terrain": "COAST"
+    },
+    {
+      "x": 20,
+      "y": 13,
+      "terrain": "GRASS",
+      "feature": "FEATURE_JUNGLE"
+    },
+    {
+      "x": 21,
+      "y": 13,
+      "terrain": "GRASS",
+      "feature": "FEATURE_GEOTHERMAL_FISSURE",
+      "river_edges": [
+        0,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "x": 22,
+      "y": 13,
+      "terrain": "GRASS"
+    },
+    {
+      "x": 23,
+      "y": 13,
+      "terrain": "GRASS",
+      "feature": "FEATURE_FOREST"
+    },
+    {
+      "x": 20,
+      "y": 14,
+      "terrain": "COAST",
+      "feature": "FEATURE_REEF"
+    },
+    {
+      "x": 21,
+      "y": 14,
+      "terrain": "GRASS"
+    },
+    {
+      "x": 22,
+      "y": 14,
+      "terrain": "GRASS",
+      "river_edges": [
+        0,
+        2,
+        3,
+        5
+      ]
+    },
+    {
+      "x": 23,
+      "y": 14,
+      "terrain": "PLAINS",
+      "feature": "FEATURE_FLOODPLAINS",
+      "is_floodplains": true,
+      "river_edges": [
+        0,
+        3
+      ]
+    },
+    {
+      "x": 20,
+      "y": 15,
+      "terrain": "GRASS",
+      "feature": "FEATURE_JUNGLE"
+    },
+    {
+      "x": 21,
+      "y": 15,
+      "terrain": "MOUNTAIN"
+    },
+    {
+      "x": 22,
+      "y": 15,
+      "terrain": "GRASS",
+      "river_edges": [
+        2,
+        5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "clinic-followup-constraint-parser-transfer-appointment-windows",
+  "taskRole": "transfer",
+  "title": "Transfer | Clinic Follow-up Constraint Intake",
+  "goal": "Read patient callback messages and extract follow-up appointment constraints into `/root/clinic_followup_constraints.json`, capturing visit duration, allowed days, preferred visit windows, temporary no-visit dates, and timing conditions such as fasting or post-treatment waiting windows.",
+  "primaryOutputFile": "/root/clinic_followup_constraints.json",
+  "difficulty": "medium",
+  "category": "Healthcare",
+  "skillBenefitRationale": "This transfers the same extraction skill into a healthcare intake setting where temporal rules are phrased differently and often mix hard constraints with soft preferences.",
+  "targetSkillDirName": "constraint-parser",
+  "targetSkillName": "constraint-parser"
+}

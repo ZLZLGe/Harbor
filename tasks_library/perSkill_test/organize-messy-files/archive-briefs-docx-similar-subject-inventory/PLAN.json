@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "archive-briefs-docx-similar-subject-inventory",
+  "taskRole": "similar",
+  "title": "Similar - Word 稿件主题归档清单",
+  "goal": "将一批散落在收件箱里的 Word 稿件按主题归入 4 个指定目录，并生成一个 JSON 清单，记录每个目录中的最终文件名列表。",
+  "primaryOutputFile": "/root/subject_inventory.json",
+  "difficulty": "medium",
+  "category": "file-management",
+  "skillBenefitRationale": "任务核心是读取多份 Word 文档正文来判断主题归属，再稳定地产出归档结果；唯一关键 shipped skill 是 docx，其他能力都只是通用脚本处理。",
+  "targetSkillDirName": "docx",
+  "targetSkillName": "docx"
+}

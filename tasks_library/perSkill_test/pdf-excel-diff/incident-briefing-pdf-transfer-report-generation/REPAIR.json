@@ -1,0 +1,101 @@
+{
+  "sourceTaskId": "pdf-excel-diff",
+  "targetSkillDirName": "pdf",
+  "runId": "20260315100830-pdf-excel-diff-pdf-vqlqv0",
+  "taskId": "incident-briefing-pdf-transfer-report-generation",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/pdf-excel-diff/incident-briefing-pdf-transfer-report-generation",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315100830-pdf-excel-diff-pdf-vqlqv0/pdf-excel-diff/drafts/incident-briefing-pdf-transfer-report-generation",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/pdf-excel-diff/incident-briefing-pdf-transfer-report-generation",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/pdf-excel-diff/incident-briefing-pdf-transfer-report-generation",
+  "status": "pass",
+  "issueCategories": [
+    "visibility",
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了“PDF”和“.pdf”，直接点名了当前 shipped skill 的 name/dirName。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "task.toml metadata.description 缺失或为空",
+    "task.toml metadata.primary_output_file=missing 与 blueprint 不一致",
+    "task.toml metadata.source_task_id=missing 与 sourceTaskId 不一致",
+    "task.toml metadata.task_role=missing 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [
+    "instruction.md directly mentions the shipped skill identifier via \"PDF\" and \".pdf\", so the task exposes the pdf skill.; visibilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [
+    "task.toml metadata.description 缺失或为空",
+    "task.toml metadata.primary_output_file=missing 与 blueprint 不一致",
+    "task.toml metadata.source_task_id=missing 与 sourceTaskId 不一致",
+    "task.toml metadata.task_role=missing 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "task.toml",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "incident-briefing-pdf-transfer-report-generation"
+      ],
+      "requestedIssuesByTaskId": {
+        "incident-briefing-pdf-transfer-report-generation": {
+          "reviewerIssues": [
+            "instruction.md directly mentions the shipped skill identifier via \"PDF\" and \".pdf\", so the task exposes the pdf skill.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [
+            "task.toml metadata.description 缺失或为空",
+            "task.toml metadata.primary_output_file=missing 与 blueprint 不一致",
+            "task.toml metadata.source_task_id=missing 与 sourceTaskId 不一致",
+            "task.toml metadata.task_role=missing 与 blueprint 不一致"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10b9-a259-7c81-918c-9fb073d68c61",
+      "repairSummary": "- `incident-briefing-pdf-transfer-report-generation`: 修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260315100830-pdf-excel-diff-pdf-vqlqv0-1d767e3e/pdf-excel-diff/drafts/incident-briefing-pdf-transfer-report-generation/instruction.md)，去掉了对 shipped skill 的直接暴露，不再出现 `PDF`、`.pdf` 或输出文件名直写，同时保留了标题、章节、统计口径、排序和多页可读性等可测试要求。\n- `incident-briefing-pdf-transfer-report-generation`: 修改了 [task.toml](/tmp/per_skill_repair_workspaces/20260315100830-pdf-excel-diff-pdf-vqlqv0-1d767e3e/pdf-excel-diff/drafts/incident-briefing-pdf-transfer-report-generation/task.toml)，补齐 `metadata.description`、`metadata.task_role`、`metadata.source_task_id`、`metadata.primary_output_file`，并保持 `derivedTaskId`、`taskRole`、`source_task_id` 与 blueprint 一致。\n\n已做自检：`instruction.md` 中不再命中 `pdf`/`PDF`/`.pdf`，新增的 `task.toml` 字段可正常解析。",
+      "reviewThreadId": "019d10bb-75c8-7401-9e2f-6d3aa2e905e0",
+      "evaluationByTaskId": {
+        "incident-briefing-pdf-transfer-report-generation": {
+          "reviewerIssues": [
+            "instruction.md 没有明确写出具体输出路径，代理需要额外从元数据推断 `/root/incident_briefing_report.pdf`，不应通过 reviewer。"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "incident-briefing-pdf-transfer-report-generation"
+      ],
+      "requestedIssuesByTaskId": {
+        "incident-briefing-pdf-transfer-report-generation": {
+          "reviewerIssues": [
+            "instruction.md 没有明确写出具体输出路径，代理需要额外从元数据推断 `/root/incident_briefing_report.pdf`，不应通过 reviewer。"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10bf-1407-7d33-a4fb-d88420eed01f",
+      "repairSummary": "- `incident-briefing-pdf-transfer-report-generation`: 在 [instruction.md](/tmp/per_skill_repair_workspaces/20260315100830-pdf-excel-diff-pdf-vqlqv0-1d767e3e/pdf-excel-diff/drafts/incident-briefing-pdf-transfer-report-generation/instruction.md#L6) 明确写出了可直接推导的精确输出路径，并在 [instruction.md](/tmp/per_skill_repair_workspaces/20260315100830-pdf-excel-diff-pdf-vqlqv0-1d767e3e/pdf-excel-diff/drafts/incident-briefing-pdf-transfer-report-generation/instruction.md#L11) 补充了必须设置文档 metadata title 的要求，同时保持 `derivedTaskId`、`taskRole`、`source_task_id` 和单技能范围不变，且 `instruction.md` 没有直接写出被禁止的技能名字符串。\n- `incident-briefing-pdf-transfer-report-generation`: 在 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260315100830-pdf-excel-diff-pdf-vqlqv0-1d767e3e/pdf-excel-diff/drafts/incident-briefing-pdf-transfer-report-generation/tests/test_outputs.py#L145) 新增 `log_text` 截取，把排序校验限定到 `Detailed Incident Log` 区段；排序断言改到 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260315100830-pdf-excel-diff-pdf-vqlqv0-1d767e3e/pdf-excel-diff/drafts/incident-briefing-pdf-transfer-report-generation/tests/test_outputs.py#L176)，避免被前面的 `Incident Highlights` 误伤。\n\n验证说明：当前沙箱无法写 `/root`，所以不能在这个工作区直接端到端复跑该 task 的参考解与测试。",
+      "reviewThreadId": "019d10c3-1617-7711-9871-d81a59ea06a8",
+      "evaluationByTaskId": {
+        "incident-briefing-pdf-transfer-report-generation": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

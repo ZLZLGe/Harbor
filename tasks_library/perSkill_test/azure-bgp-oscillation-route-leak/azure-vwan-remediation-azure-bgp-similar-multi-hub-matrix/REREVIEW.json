@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "azure-bgp-oscillation-route-leak",
+  "targetSkillDirName": "azure-bgp",
+  "runId": "20260318175450-azure-bgp-oscillation-route-leak-azure-bgp-dceyi9",
+  "taskId": "azure-vwan-remediation-azure-bgp-similar-multi-hub-matrix",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/azure-bgp-oscillation-route-leak/azure-bgp/20260318175450-azure-bgp-oscillation-route-leak-azure-bgp-dceyi9/azure-vwan-remediation-azure-bgp-similar-multi-hub-matrix",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/azure-bgp-oscillation-route-leak/azure-vwan-remediation-azure-bgp-similar-multi-hub-matrix",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:azure-vwan-remediation-azure-bgp-similar-multi-hub-matrix instruction.md 没有定义 overall_effect 的完整枚举与判定规则，但测试对 cycle_only、partial_leak_fix、all_leaks_only、full_fix、prohibited 等精确标签做强校验，存在可判定性风险。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0f9f-3be5-7c40-9326-b60e70e7e178"
+}

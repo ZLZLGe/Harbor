@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "procurement-audit-fuzzy-name-search-transfer-vendor-concentration",
+  "taskRole": "transfer",
+  "title": "Transfer - 政府采购供应商名称归一与集中度审计",
+  "goal": "在供应商主档、合同授标记录和付款流水中，把不一致的供应商名称归一到标准 vendor_id，随后统计目标部门前五大供应商、集团合并后的采购集中度，以及某类项目的超预算付款记录。",
+  "primaryOutputFile": "/root/vendor_concentration_report.json",
+  "difficulty": "hard",
+  "category": "public-sector",
+  "skillBenefitRationale": "同一供应商会以子公司名、缩写、标点变体和历史名称重复出现；只有先完成模糊供应商匹配，后续授标与付款汇总才有意义，因此 fuzzy-name-search 是唯一关键 shipped skill。",
+  "targetSkillDirName": "fuzzy-name-search",
+  "targetSkillName": "fuzzy-name-search"
+}

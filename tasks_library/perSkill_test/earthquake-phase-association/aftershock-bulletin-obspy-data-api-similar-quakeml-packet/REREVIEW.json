@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "earthquake-phase-association",
+  "targetSkillDirName": "obspy-data-api",
+  "runId": "20260319014317-earthquake-phase-association-obspy-data-api-74uabc",
+  "taskId": "aftershock-bulletin-obspy-data-api-similar-quakeml-packet",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/earthquake-phase-association/obspy-data-api/20260319014317-earthquake-phase-association-obspy-data-api-74uabc/aftershock-bulletin-obspy-data-api-similar-quakeml-packet",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/earthquake-phase-association/aftershock-bulletin-obspy-data-api-similar-quakeml-packet",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:aftershock-bulletin-obspy-data-api-similar-quakeml-packet instruction.md 直接要求构造 QuakeML catalog，并显式写出 `Origin.quality.used_station_count`，比 source_task/instruction.md 更直接暴露了 ObsPy 事件元数据 API。; instruction.md 引入了 source task 未出现的具体格式名 QuakeML，不符合以 source task 为基线的可见性约束。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer，且 3 个 transfer 的场景、输出语义与测试判定方式区分度足够；但其中有 2 个任务的 instruction 直接引入了 source task 未出现的 QuakeML / StationXML 及对象层级描述，存在 family 级可见性越界倾向。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa2-fad6-77a3-bb48-e246591778a8"
+}

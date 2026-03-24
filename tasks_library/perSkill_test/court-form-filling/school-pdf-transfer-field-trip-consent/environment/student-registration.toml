@@ -1,0 +1,46 @@
+[student]
+name = "Maya Torres"
+student_id = "ST-58214"
+grade = "5"
+homeroom = "Room 12"
+birth_date = "2015-08-29"
+
+[trip]
+name = "Watershed Discovery Day"
+destination = "San Pedro Valley Park, Pacifica, CA"
+trip_date = "2026-04-22"
+departure_time = "08:10"
+return_time = "15:55"
+transportation = "District school bus"
+
+[guardian]
+name = "Lucia Torres"
+relationship = "Mother"
+phone = "6505550126"
+email = "lucia.torres@example.com"
+
+[emergency_contact]
+name = "Daniel Torres"
+relationship = "Father"
+phone_day = "6505550180"
+phone_evening = "6505550181"
+
+[health]
+allergies = "Mild walnut allergy; carries epinephrine auto-injector."
+medications = "Albuterol inhaler as needed."
+physician_name = "Dr. Priya Raman"
+physician_phone = "6505550194"
+
+[authorization]
+has_medical_consent = true
+allows_otc_medication = false
+photo_release = true
+self_carry_epipen = true
+
+[pickup]
+authorized_adult = "Daniel Torres"
+authorized_phone = "6505550180"
+
+[signature]
+signer_name = "Lucia Torres"
+signed_on = "2026-03-18"

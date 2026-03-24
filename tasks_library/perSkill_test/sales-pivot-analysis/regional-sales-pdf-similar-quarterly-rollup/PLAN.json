@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "regional-sales-pdf-similar-quarterly-rollup",
+  "taskRole": "similar",
+  "title": "Similar: 区域销售季度汇总",
+  "goal": "读取一份跨多页的区域销售报表 PDF，提取所有表格并按地区与季度汇总，输出包含 gross_sales、refunds、net_sales 的结构化 CSV。",
+  "primaryOutputFile": "/root/regional_sales_rollup.csv",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "核心难点是把多页 PDF 中重复出现的表格完整提取并合并成统一数据表，再做聚合；`pdf` 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

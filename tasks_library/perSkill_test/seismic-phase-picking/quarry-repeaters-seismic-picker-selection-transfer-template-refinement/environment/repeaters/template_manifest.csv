@@ -1,0 +1,4 @@
+template_id,file_name,relative_path,p_idx,s_idx,note
+TPL_A,NP.1582..HN.0369499.npz,repeaters/templates/TPL_A.npz,2600,2776,North pit dayblast template
+TPL_B,NC.BJOB..HN.0244462.npz,repeaters/templates/TPL_B.npz,2600,2743,Crusher bench repeater template
+TPL_C,NC.GDXB..HN.0244608.npz,repeaters/templates/TPL_C.npz,2600,2657,South haul road repeater template

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "airline-catering-fjsp-baseline-repair-with-downtime-and-policy-transfer-oven-chiller-disruption",
+  "taskRole": "transfer",
+  "title": "Transfer Airline Catering Schedule Repair",
+  "goal": "把该 skill 迁移到航空配餐中央厨房，修复航班餐食备料、烹饪、装配的基线排程，绕开烤箱与速冷线保养停机，保持冻结航班段不被改动，并满足调整预算后输出班次修复方案。",
+  "primaryOutputFile": "/app/output/catering_shift_plan.json",
+  "difficulty": "medium",
+  "category": "food-operations",
+  "skillBenefitRationale": "中央厨房任务包依然可抽象为带备选设备和停机表的基线排程修复；成败取决于该 skill 对 precedence、downtime、freeze 和 policy budget 的联立处理能力。",
+  "targetSkillDirName": "fjsp-baseline-repair-with-downtime-and-policy",
+  "targetSkillName": "fjsp-baseline-repair-with-downtime-and-policy"
+}

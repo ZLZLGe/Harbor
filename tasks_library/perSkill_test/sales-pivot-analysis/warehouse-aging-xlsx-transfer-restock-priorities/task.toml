@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-aging-xlsx-transfer-restock-priorities"
+name = "Transfer: Warehouse Aging Restock Analysis"
+description = "读取库存台账与补货规则工作簿，生成包含账龄明细和多张仓储补货透视分析的 /root/warehouse_restock_analysis.xlsx。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-analysis"
+tags = ["excel", "inventory", "restocking", "pivot-tables", "warehouse"]
+primary_output_file = "/root/warehouse_restock_analysis.xlsx"
+source_task_id = "sales-pivot-analysis"
+task_role = "transfer"
+required_skills = ["xlsx"]
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

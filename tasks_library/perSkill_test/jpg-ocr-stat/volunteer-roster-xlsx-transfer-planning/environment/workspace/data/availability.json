@@ -1,0 +1,32 @@
+{
+  "availability": [
+    {
+      "volunteer_id": "V001",
+      "available_shifts": ["S001", "S003", "S004"]
+    },
+    {
+      "volunteer_id": "V002",
+      "available_shifts": ["S001", "S002", "S003"]
+    },
+    {
+      "volunteer_id": "V003",
+      "available_shifts": ["S005", "S006"]
+    },
+    {
+      "volunteer_id": "V004",
+      "available_shifts": ["S002", "S004"]
+    },
+    {
+      "volunteer_id": "V005",
+      "available_shifts": ["S003", "S005"]
+    },
+    {
+      "volunteer_id": "V006",
+      "available_shifts": ["S002", "S006"]
+    },
+    {
+      "volunteer_id": "V007",
+      "available_shifts": ["S004", "S005"]
+    }
+  ]
+}

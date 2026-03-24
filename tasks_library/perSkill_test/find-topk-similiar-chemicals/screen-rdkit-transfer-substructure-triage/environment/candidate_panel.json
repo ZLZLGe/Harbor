@@ -1,0 +1,53 @@
+{
+  "campaign": "Hinge Binder Triage",
+  "candidates": [
+    {
+      "candidate_id": "C-101",
+      "name": "Nicotinamide scout",
+      "series": "amide",
+      "smiles": "NC(=O)c1ccncc1"
+    },
+    {
+      "candidate_id": "C-102",
+      "name": "Nitro aniline alert",
+      "series": "aniline",
+      "smiles": "Nc1ccc([N+](=O)[O-])cc1"
+    },
+    {
+      "candidate_id": "C-103",
+      "name": "Morpholine sulfonamide",
+      "series": "solubilizer",
+      "smiles": "CCS(=O)(=O)N1CCOCC1"
+    },
+    {
+      "candidate_id": "C-104",
+      "name": "Catechol fragment",
+      "series": "phenol",
+      "smiles": "c1ccc(c(c1)O)O"
+    },
+    {
+      "candidate_id": "C-105",
+      "name": "Acetanilide control",
+      "series": "amide",
+      "smiles": "CC(=O)Nc1ccccc1"
+    },
+    {
+      "candidate_id": "C-106",
+      "name": "Diethyl benzamide",
+      "series": "amide",
+      "smiles": "CCN(CC)C(=O)c1ccccc1"
+    },
+    {
+      "candidate_id": "C-107",
+      "name": "Nitro morpholine hybrid",
+      "series": "mixed",
+      "smiles": "O=[N+]([O-])c1ccc(N1CCOCC1)cc1"
+    },
+    {
+      "candidate_id": "C-108",
+      "name": "Anisole blank",
+      "series": "aryl ether",
+      "smiles": "COc1ccccc1"
+    }
+  ]
+}

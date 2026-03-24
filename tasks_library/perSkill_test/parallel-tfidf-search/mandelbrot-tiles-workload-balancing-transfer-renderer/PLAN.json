@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "mandelbrot-tiles-workload-balancing-transfer-renderer",
+  "taskRole": "transfer",
+  "title": "Transfer: Mandelbrot Tile Renderer",
+  "goal": "并行渲染 Mandelbrot 图像分块，在迭代次数差异明显的边界区域上保持逐像素结果一致，并通过动态分块调度缩短整体渲染时间。",
+  "primaryOutputFile": "/root/workspace/mandelbrot_balance_solution.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "不同 tile 的计算成本不可均分，任务成功依赖根据 tile 难度动态分发工作以抑制 straggler。",
+  "targetSkillDirName": "workload-balancing",
+  "targetSkillName": "workload-balancing"
+}

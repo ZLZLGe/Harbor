@@ -1,0 +1,92 @@
+{
+  "defaults": {
+    "merge_gap_minutes": 10,
+    "label_prefix": "ops-",
+    "required_tags": [],
+    "max_results": null,
+    "default_repeat_days": 14
+  },
+  "plan_config": {
+    "required_tags": ["desk"],
+    "max_results": 3
+  },
+  "weekly_case": {
+    "worker_id": "rio",
+    "start": "2025-05-05T06:00:00",
+    "end": "2025-05-05T10:00:00",
+    "weeks": 2,
+    "tags": ["desk", "swing"]
+  },
+  "lazy_templates": [
+    {
+      "worker_id": "sam",
+      "start": "2025-06-01T08:00:00",
+      "end": "2025-06-01T10:00:00",
+      "repeat_every_days": null,
+      "occurrence_count": 3,
+      "until": null,
+      "tags": ["desk", "day"]
+    },
+    {
+      "worker_id": "tess",
+      "start": "2025-06-03T09:00:00",
+      "end": "2025-06-03T11:00:00",
+      "repeat_every_days": null,
+      "occurrence_count": 2,
+      "until": null,
+      "tags": ["desk", "cover"]
+    }
+  ],
+  "plan_templates": [
+    {
+      "worker_id": "alex",
+      "start": "2025-04-07T09:00:00",
+      "end": "2025-04-07T12:00:00",
+      "repeat_every_days": 7,
+      "occurrence_count": 3,
+      "until": null,
+      "tags": ["desk", "day"]
+    },
+    {
+      "worker_id": "alex",
+      "start": "2025-04-07T12:05:00",
+      "end": "2025-04-07T15:00:00",
+      "repeat_every_days": 7,
+      "occurrence_count": 3,
+      "until": null,
+      "tags": ["desk", "day"]
+    },
+    {
+      "worker_id": "blair",
+      "start": "2025-04-08T20:00:00",
+      "end": "2025-04-08T23:00:00",
+      "repeat_every_days": 7,
+      "occurrence_count": 2,
+      "until": null,
+      "tags": ["night"]
+    },
+    {
+      "worker_id": "casey",
+      "start": "2025-04-09T10:00:00",
+      "end": "2025-04-09T13:00:00",
+      "repeat_every_days": null,
+      "occurrence_count": 1,
+      "until": null,
+      "tags": ["desk", "backup"]
+    }
+  ],
+  "blocked": [
+    {
+      "start": "2025-04-14T09:30:00",
+      "end": "2025-04-14T11:00:00",
+      "worker_id": "alex",
+      "reason": "training"
+    },
+    {
+      "start": "2025-04-09T11:00:00",
+      "end": "2025-04-09T12:00:00",
+      "worker_id": null,
+      "reason": "maintenance"
+    }
+  ]
+}

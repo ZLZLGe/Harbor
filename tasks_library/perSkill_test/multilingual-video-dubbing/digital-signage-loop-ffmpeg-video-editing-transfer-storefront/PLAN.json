@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "digital-signage-loop-ffmpeg-video-editing-transfer-storefront",
+  "taskRole": "transfer",
+  "title": "Transfer: Assemble a Storefront Signage Loop",
+  "goal": "给定多段商品展示短视频与每段目标时长，整理为一条门店屏幕循环播放片，要求统一分辨率与音频参数，并将各段裁切或补齐后按指定顺序拼接。",
+  "primaryOutputFile": "/outputs/storefront_loop.mp4",
+  "difficulty": "medium",
+  "category": "digital-signage-video",
+  "skillBenefitRationale": "重点是对多素材做统一时长处理和拼接输出，属于 FFmpeg 视频编辑在数字标牌场景中的直接迁移。",
+  "targetSkillDirName": "ffmpeg-video-editing",
+  "targetSkillName": "FFmpeg Video Editing"
+}

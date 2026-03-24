@@ -1,0 +1,64 @@
+{
+  "campus_id": "harbor-west-campus",
+  "operating_interval": "2026-08-05T14:00:00+08:00",
+  "electricity_price_dollars_per_kWh": 0.126,
+  "cooling_load_RT": 2680.0,
+  "spinning_reserve_requirement_RT": 340.0,
+  "chillers": [
+    {
+      "chiller_id": "CH-N1",
+      "plant": "north-plant",
+      "reserve_priority": 3,
+      "cooling_min_RT": 260.0,
+      "cooling_max_RT": 760.0,
+      "reserve_max_RT": 500.0,
+      "no_load_power_kW": 92.0,
+      "linear_power_kW_per_RT": 0.4896,
+      "quadratic_power_kW_per_RT2": 0.00018
+    },
+    {
+      "chiller_id": "CH-N2",
+      "plant": "north-plant",
+      "reserve_priority": 1,
+      "cooling_min_RT": 200.0,
+      "cooling_max_RT": 670.0,
+      "reserve_max_RT": 470.0,
+      "no_load_power_kW": 80.0,
+      "linear_power_kW_per_RT": 0.5312,
+      "quadratic_power_kW_per_RT2": 0.00016
+    },
+    {
+      "chiller_id": "CH-C1",
+      "plant": "central-plant",
+      "reserve_priority": 5,
+      "cooling_min_RT": 300.0,
+      "cooling_max_RT": 870.0,
+      "reserve_max_RT": 570.0,
+      "no_load_power_kW": 108.0,
+      "linear_power_kW_per_RT": 0.5198,
+      "quadratic_power_kW_per_RT2": 0.00013
+    },
+    {
+      "chiller_id": "CH-S1",
+      "plant": "south-plant",
+      "reserve_priority": 2,
+      "cooling_min_RT": 140.0,
+      "cooling_max_RT": 520.0,
+      "reserve_max_RT": 380.0,
+      "no_load_power_kW": 66.0,
+      "linear_power_kW_per_RT": 0.468,
+      "quadratic_power_kW_per_RT2": 0.00035
+    },
+    {
+      "chiller_id": "CH-S2",
+      "plant": "south-plant",
+      "reserve_priority": 4,
+      "cooling_min_RT": 120.0,
+      "cooling_max_RT": 450.0,
+      "reserve_max_RT": 330.0,
+      "no_load_power_kW": 60.0,
+      "linear_power_kW_per_RT": 0.528,
+      "quadratic_power_kW_per_RT2": 0.0003
+    }
+  ]
+}

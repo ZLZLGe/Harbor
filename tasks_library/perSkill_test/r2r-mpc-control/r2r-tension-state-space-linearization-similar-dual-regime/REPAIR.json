@@ -1,0 +1,56 @@
+{
+  "sourceTaskId": "r2r-mpc-control",
+  "targetSkillDirName": "state-space-linearization",
+  "runId": "20260322155056-r2r-mpc-control-state-space-linearization-k29lvt",
+  "taskId": "r2r-tension-state-space-linearization-similar-dual-regime",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/r2r-mpc-control/state-space-linearization/20260322155056-r2r-mpc-control-state-space-linearization-k29lvt/r2r-tension-state-space-linearization-similar-dual-regime",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322155056-r2r-mpc-control-state-space-linearization-k29lvt/r2r-mpc-control/drafts/r2r-tension-state-space-linearization-similar-dual-regime",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/r2r-mpc-control/r2r-tension-state-space-linearization-similar-dual-regime",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/r2r-mpc-control/r2r-tension-state-space-linearization-similar-dual-regime",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [
+    "instruction.md 未明确连续模型离散化方法，但测试固定按 Euler 离散化判定，存在多解同题不同判的问题。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    ".logs/verifier/reward.txt",
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "r2r-tension-state-space-linearization-similar-dual-regime"
+      ],
+      "requestedIssuesByTaskId": {
+        "r2r-tension-state-space-linearization-similar-dual-regime": {
+          "reviewerIssues": [
+            "instruction.md 未明确连续模型离散化方法，但测试固定按 Euler 离散化判定，存在多解同题不同判的问题。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac1-4cd9-78d3-8de5-1b3f39cbde20",
+      "repairSummary": "在 instruction.md 中明确连续模型必须按前向 Euler 离散化，并补充线性验证轨迹也按同一 Euler 离散模型推进，消除题面与测试判定不一致的问题。",
+      "reviewThreadId": "019d1ac2-6289-75b0-a33b-d80cdee4c8c6",
+      "evaluationByTaskId": {
+        "r2r-tension-state-space-linearization-similar-dual-regime": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "static"
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "packaging-backend-discover-important-function-transfer-build-boundaries"
+name = "Transfer: Python 打包后端的构建边界函数排查"
+description = "Inspect the packaged Python build backend, correlate code and tests, and write a prioritized build boundary analysis to build_boundary_report.json."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "build"
+tags = ["build", "python", "packaging", "analysis", "pyproject"]
+primary_output_file = "build_boundary_report.json"
+source_task_id = "setup-fuzzing-py"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "otp-ssh-find-bugs-similar-channel-state-audit",
+  "taskRole": "similar",
+  "title": "Similar - 审计 Erlang SSH Channel 状态机加固补丁",
+  "goal": "审计一个本地 Erlang/OTP SSH 分支中关于 channel/subsystem 状态机加固的改动，确认是否仍存在未认证消息路径或新引入的正常会话回归，并把已证实的问题写入报告。",
+  "primaryOutputFile": "reports/similar-ssh-channel-findings.md",
+  "difficulty": "hard",
+  "category": "erlang security review",
+  "skillBenefitRationale": "任务核心是完整阅读本地分支 diff、映射协议输入面、核查认证前后的状态边界并验证问题是否真实；除了 `find-bugs` 不需要其他 shipped skill。",
+  "targetSkillDirName": "find-bugs",
+  "targetSkillName": "find-bugs"
+}

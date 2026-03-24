@@ -1,0 +1,28 @@
+{
+  "sourceTaskId": "flood-risk-analysis",
+  "targetSkillDirName": "nws-flood-thresholds",
+  "runId": "20260319232154-flood-risk-analysis-nws-flood-thresholds-eix6f8",
+  "taskId": "wisconsin-riverwatch-nws-flood-thresholds-similar-flood-window-summary",
+  "originErrorCombo": "reviewer__static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer__static/flood-risk-analysis/nws-flood-thresholds/20260319232154-flood-risk-analysis-nws-flood-thresholds-eix6f8/wisconsin-riverwatch-nws-flood-thresholds-similar-flood-window-summary",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319232154-flood-risk-analysis-nws-flood-thresholds-eix6f8/flood-risk-analysis/drafts/wisconsin-riverwatch-nws-flood-thresholds-similar-flood-window-summary",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/flood-risk-analysis/wisconsin-riverwatch-nws-flood-thresholds-similar-flood-window-summary",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/flood-risk-analysis/wisconsin-riverwatch-nws-flood-thresholds-similar-flood-window-summary",
+  "status": "pass",
+  "issueCategories": [
+    "visibility",
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接提示了 bulk gauge export 的尾随列问题，并明确要求使用 `flood stage`、过滤 `-9999`；相较 source_task/instruction.md，这更直接暴露了目标 skill 的具体用法。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

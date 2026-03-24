@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "rail-traction-dc-power-flow-transfer-peak-headway-stress",
+  "taskRole": "transfer",
+  "title": "Transfer: Rail Traction Peak Headway Stress",
+  "goal": "Evaluate a rail traction power network under two timetable-driven injection patterns, then summarize substation angle profiles, feeder loadings, newly overloaded sections, and the corridors with the highest incremental stress during peak headway service.",
+  "primaryOutputFile": "traction_peak_stress_report.json",
+  "difficulty": "hard",
+  "category": "transportation",
+  "skillBenefitRationale": "This applies dc-power-flow to rail electrification, but the only critical shipped skill remains the same: represent the network with a susceptance matrix and compute how changing nodal injections shifts line flows and congestion.",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

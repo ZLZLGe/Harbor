@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "repair-build-triage-uv-package-manager-similar-helper-bootstrap",
+  "taskRole": "similar",
+  "title": "Similar: Bootstrap a Build Triage Helper with uv",
+  "goal": "修复一个 Python 构建排障辅助流程：需要在仓库旁边启动一个临时 Python 项目，安装少量依赖，运行脚本生成标准 diff 补丁并把补丁应用到失败副本上，使后续构建复现脚本能够通过。",
+  "primaryOutputFile": "tools/fetch_patch_bundle.py",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "这个任务把 uv 的典型用法放在中心位置：初始化临时项目、声明依赖、再用 uv 运行脚本完成补丁生成与应用，和源任务的核心工作流接近，但场景改成仓库内的排障辅助工具而不是直接复写原题。",
+  "targetSkillDirName": "uv-package-manager",
+  "targetSkillName": "uv-package-manager"
+}

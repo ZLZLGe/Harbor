@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "energy-demand-timeseries-detrending-transfer-power-output-volatility"
+name = "Transfer: 用电与产出周期波动比"
+description = "Detrend monthly commercial power demand and industrial production, compare their cyclical standard deviations, and write the volatility ratio JSON to /root/power-output-cycle-volatility.json."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "energy-economics"
+tags = ["energy-economics", "industrial-production", "electricity-demand", "time-series", "hp-filter"]
+primary_output_file = "/root/power-output-cycle-volatility.json"
+source_task_id = "econ-detrending-correlation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

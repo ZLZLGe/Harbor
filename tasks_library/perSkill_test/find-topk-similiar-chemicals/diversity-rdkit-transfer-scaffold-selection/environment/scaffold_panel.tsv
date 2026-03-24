@@ -1,0 +1,12 @@
+compound_id	compound_name	series	submission_order	smiles
+SCF-101	Benzene core reference	aromatic	10	c1ccccc1
+SCF-102	Anisole survey	aromatic	20	COc1ccccc1
+SCF-103	Benzoic acid scout	aromatic	30	O=C(O)c1ccccc1
+SCF-201	Cyclohexane core	alicyclic	40	C1CCCCC1
+SCF-202	Cyclohexylmethanol	alicyclic	50	OCC1CCCCC1
+SCF-203	Methylcyclohexane	alicyclic	60	CC1CCCCC1
+SCF-301	Pyridine core	heteroaromatic	70	c1ccncc1
+SCF-302	4-Methylpyridine	heteroaromatic	80	Cc1ccncc1
+SCF-303	4-Ethylpyridine	heteroaromatic	90	CCc1ccncc1
+SCF-401	Ethanol fragment	acyclic	100	CCO
+SCF-402	Lactic acid fragment	acyclic	110	C[C@H](O)C(=O)O

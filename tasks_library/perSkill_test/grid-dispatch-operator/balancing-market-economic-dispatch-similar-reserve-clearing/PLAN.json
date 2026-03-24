@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "balancing-market-economic-dispatch-similar-reserve-clearing",
+  "taskRole": "similar",
+  "title": "Similar: 区域平衡市场备用联合出清",
+  "goal": "给定一个无输电网络约束的区域平衡市场快照，依据机组成本曲线、最小最大出力、系统负荷与备用需求，生成单时段能量与备用联合出清结果，并汇总总成本、边际紧张机组和未承诺容量。",
+  "primaryOutputFile": "balancing_market_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "核心工作是把机组成本最小化、供需平衡、出力上下限和备用容量耦合写成单时段优化并产出结构化调度结果；不需要潮流、时序或其他技能。",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "parks-alerts-nws-flood-thresholds-transfer-advisory-bulletin",
+  "taskRole": "transfer",
+  "title": "Transfer - 河滨设施告警简报",
+  "goal": "给定已映射到 USGS gage 的河滨公园清单及最新观测水位，使用 NWS flood stage 阈值只为达到或超过洪水线的设施生成 `/root/output/river_access_advisories.json`，每条告警包含 `park_id`、`station_id`、`flood_stage_ft`、`observed_stage_ft`、`exceedance_ft`。",
+  "primaryOutputFile": "/root/output/river_access_advisories.json",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "这里把 skill 迁移到面向公众设施的告警产物，仍然必须依赖 NWS 阈值匹配，但输出语义从站点分析转成设施级运营简报。",
+  "targetSkillDirName": "nws-flood-thresholds",
+  "targetSkillName": "nws-flood-thresholds"
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "hospital-cssd-fjsp-baseline-repair-with-downtime-and-policy-transfer-sterilizer-outage"
+name = "Transfer CSSD Sterilization Baseline Repair"
+description = "Repair the CSSD tray reprocessing baseline around washer and sterilizer outages and write the executable day plan to /app/output/cssd_day_plan.json."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "healthcare-operations"
+tags = [ "healthcare", "cssd", "sterilization", "scheduling", "repair",]
+primary_output_file = "/app/output/cssd_day_plan.json"
+source_task_id = "manufacturing-fjsp-optimization"
+task_role = "transfer"
+required_skills = [ "fjsp-baseline-repair-with-downtime-and-policy",]
+distractor_skills = [ "inventory-reconciliation", "clinical-note-summarization",]
+
+[verifier]
+timeout_sec = 450.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

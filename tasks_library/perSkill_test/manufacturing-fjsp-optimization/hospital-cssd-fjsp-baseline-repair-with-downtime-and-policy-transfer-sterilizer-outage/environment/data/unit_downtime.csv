@@ -1,0 +1,6 @@
+unit_id,start,end,reason
+0,8,22,chamber_descaling
+1,24,30,chemistry_reload
+3,34,38,sealing_audit
+4,30,52,steam_quality_hold
+5,18,28,biological_indicator_cycle

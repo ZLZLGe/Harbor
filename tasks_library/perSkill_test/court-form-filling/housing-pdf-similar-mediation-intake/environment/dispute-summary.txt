@@ -1,0 +1,25 @@
+Housing Mediation Dispute Summary
+
+Applicant: Marisol Vega. Role: tenant.
+Mailing address: 1489 Willow Bend Apt 3, Oakland, CA 94607.
+Phone: 5105550182.
+Email: marisol.vega@example.com.
+
+Respondent: Daniel Kim. Role: landlord/property owner.
+Phone: 5105550199.
+Respondent email not provided.
+
+Rental property: 2218 Lakeshore Blvd Unit B, Oakland, CA 94610.
+Lease start date: 2024-06-01.
+Move-out date: 2026-02-14.
+
+Issue: security deposit. Marisol paid a $2400 security deposit. Daniel returned only $600, so Marisol is asking for the remaining $1800.
+Dispute start date: 2026-02-14.
+Dispute end date / last unanswered follow-up: 2026-03-03.
+
+Resolution attempts: email request on 2026-02-20 and certified letter on 2026-02-27.
+Preferred contact method: email.
+Availability for mediation sessions: weekday evenings.
+Requested outcome: refund remaining $1800 deposit and provide a written explanation of deductions.
+
+Sign and date the form as Marisol Vega on 2026-03-05.

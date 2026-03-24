@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "repeater-search-seismic-picker-selection-transfer-template-correlation",
+  "taskRole": "transfer",
+  "title": "Transfer - 重复微震模板检索",
+  "goal": "给定少量高质量种子事件模板和连续波形，选择最合适的检测/拾取方法，补充检出重复微震事件，并输出新增事件的检测时间列表。",
+  "primaryOutputFile": "/root/repeater_detections.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "这个任务把 skill 迁移到“已有先验模板、目标是尽可能找出更小重复事件”的场景。真正关键的是根据方法权衡判断模板匹配比深度学习拾取或 STA/LTA 更合适，而不是机械复用原任务流程。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

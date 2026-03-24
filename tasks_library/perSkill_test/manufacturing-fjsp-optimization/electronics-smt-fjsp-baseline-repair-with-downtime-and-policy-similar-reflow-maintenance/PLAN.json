@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance",
+  "taskRole": "similar",
+  "title": "Similar - SMT Reflow Baseline Repair",
+  "goal": "修复一份电子装联 FJSP 基线排程，处理回流炉与贴片机停机窗口、基线中的非法机台选择，以及紧张的 machine-change / start-shift 预算，输出可行且 makespan 更优的排程结果。",
+  "primaryOutputFile": "drafts/electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance/task.toml",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "这是目标 skill 的典型用法：对给定基线做 precedence-aware 的最小右移修复，消除停机冲突，并在换机次数与启动偏移预算内决定是否切换到备选机台。",
+  "targetSkillDirName": "fjsp-baseline-repair-with-downtime-and-policy",
+  "targetSkillName": "fjsp-baseline-repair-with-downtime-and-policy"
+}

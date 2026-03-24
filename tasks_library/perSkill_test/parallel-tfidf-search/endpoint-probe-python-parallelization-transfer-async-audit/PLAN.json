@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "endpoint-probe-python-parallelization-transfer-async-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Async Endpoint Audit with Bounded Concurrency",
+  "goal": "把串行的本地 HTTP 端点巡检脚本改造成受限并发的异步审计器，并输出按状态码、延迟和 JSON 校验结果汇总的报告。",
+  "primaryOutputFile": "/root/workspace/async_endpoint_audit.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "这里把技能迁移到 I/O 密集型场景，核心是用 asyncio 或线程池并发请求大量独立端点并保留结果顺序与错误归档；任务成立不依赖任何其他 shipped skill。",
+  "targetSkillDirName": "python-parallelization",
+  "targetSkillName": "python-parallelization"
+}

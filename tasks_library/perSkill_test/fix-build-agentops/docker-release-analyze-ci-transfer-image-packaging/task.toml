@@ -1,0 +1,35 @@
+version = "1.0"
+
+[metadata]
+id = "docker-release-analyze-ci-transfer-image-packaging"
+name = "Transfer: 修复发布镜像打包流水线失败"
+description = "分析本地提供的发布流水线失败日志，写出修复报告并更新 Dockerfile 让镜像打包流程恢复。"
+author_name = "Yifeng He"
+author_email = "yfhe.cs@gmail.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = [
+  "docker",
+  "release",
+  "packaging",
+  "github actions",
+  "ci",
+  "debugging"
+]
+primary_output_file = "reports/release-pipeline-report.md"
+source_task_id = "fix-build-agentops"
+task_role = "transfer"
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

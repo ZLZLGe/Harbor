@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "drone-altitude-hold-pid-controller-transfer-hover-window",
+  "taskRole": "transfer",
+  "title": "Transfer: 无人机定高抗阵风控制",
+  "goal": "实现一套无人机定高仿真：飞行器在阵风扰动和目标高度切换下保持垂直高度稳定，生成控制参数文件、飞行轨迹数据和分析报告。",
+  "primaryOutputFile": "altitude_hold_trace.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务本质是将 PID 技能迁移到垂直高度闭环控制，关键工作仍是误差建模、积分/微分调节和增益整定，不需要额外 shipped skill。",
+  "targetSkillDirName": "pid-controller",
+  "targetSkillName": "pid-controller"
+}

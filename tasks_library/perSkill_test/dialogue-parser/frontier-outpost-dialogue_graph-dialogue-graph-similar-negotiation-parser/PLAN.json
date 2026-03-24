@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser",
+  "taskRole": "similar",
+  "title": "Similar: Frontier Outpost Negotiation Parser",
+  "goal": "解析一份边境哨站谈判脚本，把带有回环、技能检定选项和多结局的分支对话转换为可校验的 JSON 图，并生成对应的 DOT 可视化。",
+  "primaryOutputFile": "/app/outpost_dialogue.json",
+  "difficulty": "easy",
+  "category": "game",
+  "skillBenefitRationale": "任务的核心是把脚本段落稳定映射为 Graph/Node/Edge，处理 choice 与 line 节点、校验边目标和导出可视化；这些都直接对应 dialogue_graph 的典型能力，而且不需要其他 shipped skill。",
+  "targetSkillDirName": "dialogue_graph",
+  "targetSkillName": "dialogue-graph"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "district-heating-economic-dispatch-transfer-steam-reserve",
+  "taskRole": "transfer",
+  "title": "Transfer: 区域供热蒸汽调度",
+  "goal": "给定区域供热站中锅炉与热电联产机组的蒸汽成本曲线、蒸汽负荷、机组容量和热备用要求，生成最低燃料成本的蒸汽出力与热备用分配报告。",
+  "primaryOutputFile": "steam_dispatch_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "虽然场景变成蒸汽供应，但本质仍是多资产成本曲线下的总需求满足与备用头寸分配，完全可以由 economic-dispatch 的出力优化与容量耦合方法解决。",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

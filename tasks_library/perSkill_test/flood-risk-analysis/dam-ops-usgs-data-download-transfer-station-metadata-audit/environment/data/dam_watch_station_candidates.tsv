@@ -1,0 +1,7 @@
+reservoir_id	station_id	watch_tier	audit_note
+HARBOR-BEND	04124000	critical	legacy flood pool gauge candidate
+PINE-RIDGE	04112500	high	intake support routing candidate
+SILVER-POINT	05408000	high	upstream routing candidate
+CEDAR-LEDGE	09380000	medium	seasonal watchlist candidate
+EAST-SPILLWAY	00000000	low	retired placeholder id from archive sweep
+WEST-SPILLWAY	12345678	low	unverified manual note pending cleanup

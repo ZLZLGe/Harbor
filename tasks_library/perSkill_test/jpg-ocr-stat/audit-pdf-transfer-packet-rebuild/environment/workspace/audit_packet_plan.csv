@@ -1,0 +1,8 @@
+packet_order,source_pdf,page_number,rotate_clockwise,document_code,section_title
+1,board_minutes_extract.pdf,2,270,BM-02,Budget sign-off appendix
+2,engagement_letter.pdf,2,270,EL-02,Signed engagement approval
+3,expense_support.pdf,4,90,ES-04,Meal receipt index
+4,control_walkthrough.pdf,1,180,CW-01,Control walkthrough agenda
+5,expense_support.pdf,2,0,ES-02,Hotel folio extract
+6,engagement_letter.pdf,3,0,EL-03,Billing terms addendum
+7,control_walkthrough.pdf,3,0,CW-03,Remediation status memo

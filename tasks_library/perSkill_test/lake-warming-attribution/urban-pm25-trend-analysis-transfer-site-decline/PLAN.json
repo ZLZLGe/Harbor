@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "urban-pm25-trend-analysis-transfer-site-decline",
+  "taskRole": "transfer",
+  "title": "Transfer: Urban PM2.5 Site Decline Ranking",
+  "goal": "From multi-site PM2.5 observations, aggregate each site to a yearly high-pollution summary, run a trend test per site, and output the site with the steepest statistically significant decline along with its slope and p-value.",
+  "primaryOutputFile": "/root/output/pm25_decline_leader.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This transfers the same core workflow to urban air-quality monitoring and adds repeated trend estimation across groups, but success still depends only on computing and comparing site-level trends.",
+  "targetSkillDirName": "trend-analysis",
+  "targetSkillName": "trend-analysis"
+}

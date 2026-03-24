@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "flood-risk-analysis",
+  "targetSkillDirName": "nws-flood-thresholds",
+  "runId": "20260319232154-flood-risk-analysis-nws-flood-thresholds-eix6f8",
+  "taskId": "station-catalog-nws-flood-thresholds-transfer-threshold-enrichment",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/flood-risk-analysis/nws-flood-thresholds/20260319232154-flood-risk-analysis-nws-flood-thresholds-eix6f8/station-catalog-nws-flood-thresholds-transfer-threshold-enrichment",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/flood-risk-analysis/station-catalog-nws-flood-thresholds-transfer-threshold-enrichment",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:station-catalog-nws-flood-thresholds-transfer-threshold-enrichment instruction.md 直接要求按 NWS 批量阈值表结构匹配，并明确列出四个 threshold 列、空值和 `-9999` 清洗规则；这超出了 source_task/instruction.md 的技能显式程度。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 4 个 drafts 的 instruction.md 都比 source_task/instruction.md 更直接暴露了 `nws-flood-thresholds` 的使用路径：反复点明 bulk gauge export 的尾随列错位、具体阈值列名和 `-9999` 清洗规则，这属于同一类可见性越界。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fac-474f-70d3-94b2-db0644aede86"
+}

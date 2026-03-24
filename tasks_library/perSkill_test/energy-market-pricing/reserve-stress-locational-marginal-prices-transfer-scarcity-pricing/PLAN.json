@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reserve-stress-locational-marginal-prices-transfer-scarcity-pricing",
+  "taskRole": "transfer",
+  "title": "Transfer | 备用紧张情景下的稀缺定价分析",
+  "goal": "调整系统备用需求或可提供备用容量，比较基准与紧张情景下的备用 MCP、各母线 LMP 变化以及最受影响区域，判断稀缺定价是否从备用市场传导至能量价格。",
+  "primaryOutputFile": "scarcity_pricing_report.json",
+  "difficulty": "hard",
+  "category": "energy",
+  "skillBenefitRationale": "该任务把 skill 迁移到备用市场压力测试，仍需保留约束引用并读取 reserve requirement 与 nodal balance 的对偶值，再完成价格传导比较，因此 locational-marginal-prices 是唯一关键 shipped skill。",
+  "targetSkillDirName": "locational-marginal-prices",
+  "targetSkillName": "locational-marginal-prices"
+}

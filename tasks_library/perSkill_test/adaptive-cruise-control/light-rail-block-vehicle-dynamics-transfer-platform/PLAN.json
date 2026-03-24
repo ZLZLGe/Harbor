@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "light-rail-block-vehicle-dynamics-transfer-platform",
+  "taskRole": "transfer",
+  "title": "Transfer - 轻轨站台占用防护仿真",
+  "goal": "构建一个轻轨站台前方占用防护仿真：后车列车在进站前根据前车位置与速度维持区间保护距离，在前车停站、缓行离站和异常短距占用时切换运行、控距和紧急制动模式，并汇总安全指标。",
+  "primaryOutputFile": "tram_block_summary.yaml",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "本任务本质上是单轴车辆的间距演化、相对速度分析、TTC风险判定和模式状态机控制，仍然只依赖 vehicle-dynamics 技能。",
+  "targetSkillDirName": "vehicle-dynamics",
+  "targetSkillName": "vehicle-dynamics"
+}

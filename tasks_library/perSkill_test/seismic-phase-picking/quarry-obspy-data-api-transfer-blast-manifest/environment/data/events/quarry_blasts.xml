@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<q:quakeml xmlns:q="http://quakeml.org/xmlns/quakeml/1.2" xmlns="http://quakeml.org/xmlns/bed/1.2">
+  <eventParameters publicID="smi:local/quarry/eventparameters">
+    <event publicID="smi:local/quarry/blast_alpha">
+      <preferredOriginID>smi:local/quarry/origin/blast_alpha</preferredOriginID>
+      <preferredMagnitudeID>smi:local/quarry/magnitude/blast_alpha</preferredMagnitudeID>
+      <type>quarry blast</type>
+      <description>
+        <text>North bench production blast</text>
+        <type>region name</type>
+      </description>
+      <origin publicID="smi:local/quarry/origin/blast_alpha">
+        <time><value>2024-08-05T07:30:00.000000Z</value></time>
+        <latitude><value>36.1152</value></latitude>
+        <longitude><value>-117.8246</value></longitude>
+        <depth><value>18.0</value></depth>
+      </origin>
+      <magnitude publicID="smi:local/quarry/magnitude/blast_alpha">
+        <mag><value>-0.4</value></mag>
+        <type>ML</type>
+      </magnitude>
+    </event>
+    <event publicID="smi:local/quarry/blast_beta">
+      <preferredOriginID>smi:local/quarry/origin/blast_beta</preferredOriginID>
+      <preferredMagnitudeID>smi:local/quarry/magnitude/blast_beta</preferredMagnitudeID>
+      <type>quarry blast</type>
+      <description>
+        <text>South pit trim shot</text>
+        <type>region name</type>
+      </description>
+      <origin publicID="smi:local/quarry/origin/blast_beta">
+        <time><value>2024-08-05T15:42:30.500000Z</value></time>
+        <latitude><value>36.1098</value></latitude>
+        <longitude><value>-117.8189</value></longitude>
+        <depth><value>24.0</value></depth>
+      </origin>
+      <magnitude publicID="smi:local/quarry/magnitude/blast_beta">
+        <mag><value>-0.1</value></mag>
+        <type>ML</type>
+      </magnitude>
+    </event>
+    <event publicID="smi:local/quarry/blast_gamma">
+      <preferredOriginID>smi:local/quarry/origin/blast_gamma</preferredOriginID>
+      <preferredMagnitudeID>smi:local/quarry/magnitude/blast_gamma</preferredMagnitudeID>
+      <type>quarry blast</type>
+      <description>
+        <text>East wall presplit blast</text>
+        <type>region name</type>
+      </description>
+      <origin publicID="smi:local/quarry/origin/blast_gamma">
+        <time><value>2024-08-06T03:14:10.250000Z</value></time>
+        <latitude><value>36.1126</value></latitude>
+        <longitude><value>-117.8127</value></longitude>
+        <depth><value>12.0</value></depth>
+      </origin>
+      <magnitude publicID="smi:local/quarry/magnitude/blast_gamma">
+        <mag><value>-0.6</value></mag>
+        <type>ML</type>
+      </magnitude>
+    </event>
+  </eventParameters>
+</q:quakeml>

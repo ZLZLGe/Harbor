@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "pedestrian-traffic-counting",
+  "targetSkillDirName": "gpt-multimodal",
+  "runId": "20260322131102-pedestrian-traffic-counting-gpt-multimodal-q4jns6",
+  "taskId": "seedling-trays-gpt-multimodal-transfer-germination-map",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/pedestrian-traffic-counting/gpt-multimodal/20260322131102-pedestrian-traffic-counting-gpt-multimodal-q4jns6/seedling-trays-gpt-multimodal-transfer-germination-map",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/pedestrian-traffic-counting/seedling-trays-gpt-multimodal-transfer-germination-map",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:seedling-trays-gpt-multimodal-transfer-germination-map instruction.md 未直接出现 shipped skill 的 name 或 dirName，未发现技能暴露。; 测试可判定：verifier 使用固定 EXPECTED 坐标与 CSV 结构做精确比对，判定稳定。; 任务可在仅提供 gpt-multimodal 的前提下成立，未额外依赖其他未提供 skills。"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a6a-a6d4-7df0-a22f-b570229586b5"
+}

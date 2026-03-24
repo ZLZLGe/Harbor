@@ -1,0 +1,9 @@
+{
+  "experiment_id": "bench-incubator-step-17a",
+  "ambient_temperature_c": 23.4,
+  "target_temperature_c": 37.0,
+  "heater_step_percent": 55.0,
+  "step_start_time_s": 120.0,
+  "sample_period_s": 30.0,
+  "notes": "Door remained closed after the heater step. Temperature readings include sensor noise."
+}

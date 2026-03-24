@@ -1,0 +1,26 @@
+{
+  "risk_groups": [
+    {
+      "label": "aromatic_nitro",
+      "smarts": "c[N+](=O)[O-]"
+    },
+    {
+      "label": "catechol",
+      "smarts": "c1ccc(O)c(O)c1"
+    }
+  ],
+  "retain_groups": [
+    {
+      "label": "amide_core",
+      "smarts": "C(=O)N"
+    },
+    {
+      "label": "morpholine_ring",
+      "smarts": "N1CCOCC1"
+    },
+    {
+      "label": "sulfonamide",
+      "smarts": "NS(=O)(=O)C"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "drone-altitude-yaml-config-similar-gain-pack",
+  "taskRole": "similar",
+  "title": "Similar: Drone Altitude Gain Pack",
+  "goal": "构建一个无人机定高仿真任务：读取嵌套的 flight_params.yaml 与 telemetry.csv，按配置驱动高度保持逻辑，并输出调好的 altitude_tuning.yaml、flight_results.csv 与简短分析报告。",
+  "primaryOutputFile": "altitude_tuning.yaml",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "这个 Similar 任务延续了源任务里“从嵌套 YAML 读取控制参数、在运行时加载调参结果、再把最终参数写回 YAML”的典型用法，但把场景换成定高控制，避免对 ACC 结构做简单复写。唯一关键 shipped skill 仍然是 yaml-config。",
+  "targetSkillDirName": "yaml-config",
+  "targetSkillName": "yaml-config"
+}

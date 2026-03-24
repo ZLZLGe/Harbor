@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "harbor-radar-output-validation-transfer-vessel-sweeps",
+  "taskRole": "transfer",
+  "title": "Transfer: 港口雷达船舶输出校验",
+  "goal": "分析港口雷达扫描序列，输出时间区间到船舶整体机动标签的 JSON，以及每次采样扫描中活动目标回波区域的 CSR 稀疏 mask，要求交付物可通过本地结构校验后再提交。",
+  "primaryOutputFile": "/root/pred_harbor_tracks.json",
+  "difficulty": "medium",
+  "category": "radar-analysis",
+  "skillBenefitRationale": "雷达任务把 output-validation 迁移到低纹理、离散回波场景；最关键的能力是验证区间命名、扫描编号范围、稀疏 mask 的 shape/indices/indptr 一致性，而不是依赖新的 shipped 技能。",
+  "targetSkillDirName": "output-validation",
+  "targetSkillName": "output-validation"
+}

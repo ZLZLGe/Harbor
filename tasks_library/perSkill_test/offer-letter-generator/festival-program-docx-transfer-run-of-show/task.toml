@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "festival-program-docx-transfer-run-of-show"
+name = "Transfer: Festival Run-of-Show"
+description = "Fill a festival run-of-show template with schedule and contact data, handle the rain-plan clause, and save the final handbook."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "document-generation"
+tags = ["word", "template", "festival", "operations", "document-generation"]
+primary_output_file = "/root/festival_run_of_show_final.docx"
+source_task_id = "offer-letter-generator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

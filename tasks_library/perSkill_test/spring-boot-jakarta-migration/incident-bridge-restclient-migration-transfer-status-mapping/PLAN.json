@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "incident-bridge-restclient-migration-transfer-status-mapping",
+  "taskRole": "transfer",
+  "title": "Transfer - Migrate Incident Bridge Error Handling to RestClient",
+  "goal": "在一个告警桥接服务中，`IncidentBridgeClient` 目前依赖 `RestTemplate` 和自定义 `ResponseErrorHandler` 轮询事件并创建跟进工单。将其改为 `RestClient`，使用 status handlers 映射 404、429 和 5xx 为现有领域异常，同时保留告警抓取与工单创建行为。",
+  "primaryOutputFile": "/workspace/src/main/java/com/example/incident/client/IncidentBridgeClient.java",
+  "difficulty": "hard",
+  "category": "Operations",
+  "skillBenefitRationale": "该任务把 skill 迁移到错误处理主导的场景，考察如何把 `ResponseErrorHandler` 风格逻辑改写为 `RestClient` 的状态处理链。",
+  "targetSkillDirName": "restclient-migration",
+  "targetSkillName": "restclient-migration"
+}

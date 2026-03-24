@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "compact-binary-matched-filtering-similar-template-bank-scan"
+name = "Similar: Compact Binary Template Bank Scan"
+description = "Scan a preconditioned compact-binary candidate strain series with multiple waveform approximants and report the loudest SNR, total mass, and peak time for each approximant."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["science", "astronomy", "physics", "gravitational-waves", "signal-processing", "python", "pycbc"]
+primary_output_file = "/root/compact_binary_template_bank_scan.csv"
+source_task_id = "gravitational-wave-detection"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

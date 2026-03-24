@@ -1,0 +1,28 @@
+simulation:
+  duration_s: 180.0
+  dt: 0.2
+  target_speed_mps: 30.0
+  initial_ego_speed_mps: 12.0
+  initial_ego_position_m: 0.0
+
+vehicle:
+  max_accel_mps2: 2.8
+  max_brake_mps2: -7.5
+  max_speed_mps: 32.0
+
+gap_policy:
+  headway_s: 1.6
+  min_gap_m: 9.0
+  emergency_ttc_s: 2.6
+
+controller:
+  cruise_gain: 0.45
+  follow_gap_gain: 0.04
+  follow_speed_gain: 0.30
+
+mode_thresholds:
+  follow_factor: 1.4
+  emergency_factor: 0.9
+
+lead_vehicle:
+  initial_position_m: 100.0

@@ -1,0 +1,40 @@
+targets:
+  climb_altitude_m: 12.0
+  hold_altitude_m: 12.0
+
+phases:
+  climb_step:
+    start_time_s: 0.0
+    end_time_s: 18.0
+    signal_column: altitude_m
+    target: 12.0
+    settling_tolerance: 0.02
+    relative_time: false
+    steady_state_fraction: 0.2
+  gust_recovery:
+    start_time_s: 20.0
+    end_time_s: 36.0
+    signal_column: altitude_m
+    settling_tolerance: 0.02
+    relative_time: true
+    steady_state_fraction: 0.2
+
+limits:
+  climb_rise_time_s: 8.0
+  climb_overshoot_pct: 2.0
+  climb_settling_time_s: 15.0
+  climb_steady_state_error_m: 0.15
+  recovery_rise_time_s: 6.0
+  recovery_overshoot_pct: 2.0
+  recovery_settling_time_s: 12.0
+  recovery_steady_state_error_m: 0.05
+
+score_normalizers:
+  climb_rise_time_s: 8.0
+  climb_overshoot_pct: 2.0
+  climb_settling_time_s: 15.0
+  climb_steady_state_error_m: 0.15
+  recovery_rise_time_s: 6.0
+  recovery_overshoot_pct: 2.0
+  recovery_settling_time_s: 12.0
+  recovery_steady_state_error_m: 0.05

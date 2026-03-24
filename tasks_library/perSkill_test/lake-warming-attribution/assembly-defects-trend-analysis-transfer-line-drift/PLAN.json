@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "assembly-defects-trend-analysis-transfer-line-drift",
+  "taskRole": "transfer",
+  "title": "Transfer: Assembly Defect Drift Detection",
+  "goal": "Use monthly defect-rate records for a flagship electronics assembly line to determine whether quality is improving or worsening over time, and output the slope, p-value, and direction in a single summary file.",
+  "primaryOutputFile": "/root/output/defect_rate_trend.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This moves the skill into manufacturing quality control, where the only essential work is fitting and interpreting a long-term trend on an operational metric without forecasting or root-cause analysis.",
+  "targetSkillDirName": "trend-analysis",
+  "targetSkillName": "trend-analysis"
+}

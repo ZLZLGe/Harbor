@@ -1,0 +1,5 @@
+check_id,priority,owner,expected_result
+guest_checkout,release-critical,Omar Ruiz,Guest checkout completes with express_wallet enabled
+saved_card_checkout,release-critical,Omar Ruiz,Returning user checkout succeeds with saved card
+refund_lookup,release-critical,Omar Ruiz,Refund lookup returns within threshold and shows the migrated ledger rows
+invoice_download,release-critical,Omar Ruiz,Invoice PDF download succeeds after deploy

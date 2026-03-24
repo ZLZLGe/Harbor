@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "salvage-rigging-mesh-analysis-transfer-underwater-load",
+  "taskRole": "transfer",
+  "title": "Transfer - Subsea Salvage Rigging Load Plan",
+  "goal": "对水下扫描得到的带附着碎屑 STL 提取最大连通构件，读取合金 ID，并计算干重与水下起吊载荷。",
+  "primaryOutputFile": "/root/lift_plan.json",
+  "difficulty": "hard",
+  "category": "engineering",
+  "skillBenefitRationale": "场景从 3D 打印转到海事打捞，但关键仍是从脏 STL 中锁定主体体积并结合属性编码解释材料密度；这些都直接依赖 mesh-analysis。",
+  "targetSkillDirName": "mesh-analysis",
+  "targetSkillName": "mesh-analysis"
+}

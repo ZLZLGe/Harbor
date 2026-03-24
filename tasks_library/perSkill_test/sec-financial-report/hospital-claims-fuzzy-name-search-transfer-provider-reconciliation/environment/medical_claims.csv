@@ -1,0 +1,13 @@
+claim_id,claim_date,member_id,provider_name_raw,drug_name_raw,units,allowed_amount,paid_amount,status
+C-10001,2025-10-03,M-001,St Mary Med Ctr Westlk,Keytrudaa 100mg,4,22000,21200,PAID
+C-10002,2025-10-04,M-002,Saint Mary Infusion Pavillion,pembro lizumab 100 mg vial,6,33000,31800,PAID
+C-10003,2025-10-05,M-003,Riverbend Onclgy Hosp,nivolimab 40mg/4ml,10,29500,28500,PAID
+C-10004,2025-10-06,M-004,Saint Mary Medical Ctr - West Lake,Opdvio 40 mg,12,42000,0,DENIED
+C-10005,2025-10-08,M-005,St. Mary Outpt Infusion Pav,Herzuma 420mg,18,85000,0,DENIED
+C-10006,2025-10-09,M-006,Riverbend Oncology Hsp,trastuzmab dkst 420 mg,15,72000,69000,PAID
+C-10007,2025-10-11,M-007,Saint Mary Medical Center Westlake,keytruda infusion,8,60000,59000,PAID
+C-10008,2025-10-12,M-008,St Mary Medical Center Lakemont,Keytruda 100 mg,5,28000,26500,PAID
+C-10009,2025-10-12,M-009,Westlk Regional Hosp,Nivolumab 40 mg/4 ml,7,21000,19950,PAID
+C-10010,2025-10-13,M-010,Mercy Gen Cancer Inst,Herzuma 420 mg,11,52000,50600,PAID
+C-10011,2025-10-14,M-011,St Mary Med Ctr Westlake,Ofirmev 1000mg,3,360,360,PAID
+C-10012,2025-10-15,M-012,Saint Mary Infusion Pavilion,activaise 50 mg,2,1900,1900,PAID

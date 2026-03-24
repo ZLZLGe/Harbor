@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "audit-pdf-transfer-packet-rebuild"
+name = "Transfer | 审计材料 PDF 组包重排"
+description = "按清单从多份源 PDF 中抽取指定页面、修正方向并重组成一份审计审阅包。"
+author_name = "Levi"
+author_email = "levi@harbor.dev"
+difficulty = "hard"
+category = "document transformation"
+tags = ["pdf page extraction", "pdf rotation", "audit packet"]
+primary_output_file = "/app/workspace/audit_review_packet.pdf"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

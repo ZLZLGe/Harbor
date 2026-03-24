@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "seminar-archive-file-organizer-similar-reading-room",
+  "taskRole": "similar",
+  "title": "Similar: Curate a Mixed Seminar Archive",
+  "goal": "整理一批混杂的学术 PDF、讲义 DOCX 和报告 PPTX，按研讨主题归入目标文件夹，并生成一份记录每个文件最终去向的清单。",
+  "primaryOutputFile": "/root/seminar_drop/reports/placement_manifest.json",
+  "difficulty": "medium",
+  "category": "file-management",
+  "skillBenefitRationale": "这个任务延续源任务的核心模式：依据文件内容与上下文完成多主题归档，同时要求保持文件原样并输出可核对的落点清单，能直接检验文件整理技能的典型用法。",
+  "targetSkillDirName": "file-organizer",
+  "targetSkillName": "file-organizer"
+}

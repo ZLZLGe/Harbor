@@ -1,0 +1,54 @@
+{
+  "sourceTaskId": "parallel-tfidf-search",
+  "targetSkillDirName": "workload-balancing",
+  "runId": "20260322131102-parallel-tfidf-search-workload-balancing-tqn12b",
+  "taskId": "mandelbrot-tiles-workload-balancing-transfer-renderer",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/parallel-tfidf-search/mandelbrot-tiles-workload-balancing-transfer-renderer",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322131102-parallel-tfidf-search-workload-balancing-tqn12b/parallel-tfidf-search/drafts/mandelbrot-tiles-workload-balancing-transfer-renderer",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/parallel-tfidf-search/mandelbrot-tiles-workload-balancing-transfer-renderer",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/parallel-tfidf-search/mandelbrot-tiles-workload-balancing-transfer-renderer",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "`environment/Dockerfile` 会把整个 `workspace/` 拷入镜像，而该目录已包含 `mandelbrot_balance_solution.py`，导致参考解直接随题目环境发放，测试无法区分未作答与已完成实现。; `environment/workspace/__pycache__/mandelbrot_balance_solution.cpython-312.pyc` 也会随整目录一起进入镜像，进一步放大答案泄露问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "environment/workspace/mandelbrot_balance_solution.py 已经直接提供了目标输出文件的完整实现，任务发布后会处于预解状态。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/workspace/mandelbrot_balance_solution.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "mandelbrot-tiles-workload-balancing-transfer-renderer"
+      ],
+      "requestedIssuesByTaskId": {
+        "mandelbrot-tiles-workload-balancing-transfer-renderer": {
+          "reviewerIssues": [
+            "environment/workspace/mandelbrot_balance_solution.py 已经直接提供了目标输出文件的完整实现，任务发布后会处于预解状态。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a11-4caf-7e91-9475-4a630fac9ee5",
+      "repairSummary": "将 workspace 中预置的完整解答改为仅保留接口与结果数据结构的未实现骨架，消除任务预解状态且保持说明、测试和参考解目标一致。",
+      "reviewThreadId": "019d1a13-2559-7dc2-a51f-e68819f28192",
+      "evaluationByTaskId": {
+        "mandelbrot-tiles-workload-balancing-transfer-renderer": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+Quarry monitoring notes
+=====================
+- Three high-SNR reference events were manually reviewed and promoted to the template library.
+- Candidate windows are triggered snippets from later production days, already trimmed around likely arrivals.
+- Some later windows are true repeaters but much weaker; some are unrelated transients that should be rejected.
+- Keep only windows that convincingly belong to one template family and refine their P/S picks using that family.

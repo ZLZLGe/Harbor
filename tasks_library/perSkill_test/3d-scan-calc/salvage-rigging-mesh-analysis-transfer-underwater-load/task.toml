@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "salvage-rigging-mesh-analysis-transfer-underwater-load"
+name = "Transfer - Subsea Salvage Rigging Load Plan"
+description = "Extract the main salvage body from a noisy subsea STL, recover its alloy ID, and write a lift plan JSON with dry weight and underwater lift load."
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "hard"
+category = "engineering"
+tags = ["binary-stl", "salvage-engineering", "rigging", "mesh-analysis"]
+primary_output_file = "/root/lift_plan.json"
+source_task_id = "3d-scan-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

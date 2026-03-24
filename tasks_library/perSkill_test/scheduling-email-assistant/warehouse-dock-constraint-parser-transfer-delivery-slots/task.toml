@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-dock-constraint-parser-transfer-delivery-slots"
+name = "Transfer | Warehouse Dock Slot Constraint Parser"
+description = "Read warehouse dock scheduling messages from /root/dock_messages.json and write normalized dock appointment constraints to /root/dock_slot_constraints.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Logistics"
+tags = ["logistics", "warehouse", "constraint-extraction", "dock-scheduling"]
+primary_output_file = "/root/dock_slot_constraints.json"
+source_task_id = "scheduling-email-assistant"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

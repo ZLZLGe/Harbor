@@ -1,0 +1,121 @@
+{
+  "case_id": "offshore-export-transformer-audit-2042-06-18T04:00:00Z",
+  "study_notes": {
+    "operator": "North Basin offshore export desk",
+    "snapshot_label": "pre-dawn export check",
+    "purpose": "compare transformer metering expectations against the solved voltage snapshot"
+  },
+  "baseMVA": 100.0,
+  "buses": [
+    {
+      "id": 701,
+      "name": "WF-A collector",
+      "vm_pu": 1.018,
+      "va_deg": 11.0
+    },
+    {
+      "id": 702,
+      "name": "WF-B collector",
+      "vm_pu": 1.011,
+      "va_deg": 8.0
+    },
+    {
+      "id": 710,
+      "name": "offshore hub",
+      "vm_pu": 1.027,
+      "va_deg": 5.0
+    },
+    {
+      "id": 720,
+      "name": "export landing",
+      "vm_pu": 1.004,
+      "va_deg": 1.0
+    },
+    {
+      "id": 730,
+      "name": "onshore grid",
+      "vm_pu": 1.02,
+      "va_deg": 0.0
+    }
+  ],
+  "transformers": [
+    {
+      "id": "T_WFA",
+      "from_bus": 701,
+      "to_bus": 710,
+      "r_pu": 0.006,
+      "x_pu": 0.082,
+      "b_pu": 0.018,
+      "tap": 1.045,
+      "shift_deg": 3.5
+    },
+    {
+      "id": "T_WFB",
+      "from_bus": 702,
+      "to_bus": 710,
+      "r_pu": 0.0055,
+      "x_pu": 0.075,
+      "b_pu": 0.016,
+      "tap": 0.975,
+      "shift_deg": -2.0
+    },
+    {
+      "id": "T_EXPORT",
+      "from_bus": 710,
+      "to_bus": 720,
+      "r_pu": 0.004,
+      "x_pu": 0.06,
+      "b_pu": 0.012,
+      "tap": 1.08,
+      "shift_deg": 5.0
+    },
+    {
+      "id": "T_SHORE",
+      "from_bus": 720,
+      "to_bus": 730,
+      "r_pu": 0.0035,
+      "x_pu": 0.05,
+      "b_pu": 0.01,
+      "tap": 0.955,
+      "shift_deg": -3.0
+    }
+  ],
+  "meter_expectations": [
+    {
+      "id": "T_WFA",
+      "p_from_MW": 48.451682,
+      "q_from_MVAr": -66.009003,
+      "s_from_MVA": 81.882562,
+      "p_to_MW": -48.034857,
+      "q_to_MVAr": 69.902257,
+      "s_to_MVA": 84.815523
+    },
+    {
+      "id": "T_WFB",
+      "p_from_MW": -124.484717,
+      "q_from_MVAr": -9.133366,
+      "s_from_MVA": 124.819322,
+      "p_to_MW": 123.686922,
+      "q_to_MVAr": -0.041714,
+      "s_to_MVA": 123.686929
+    },
+    {
+      "id": "T_EXPORT",
+      "p_from_MW": -27.22917,
+      "q_from_MVAr": 40.812512,
+      "s_from_MVA": 49.062091,
+      "p_to_MW": 27.322432,
+      "q_to_MVAr": -40.651234,
+      "s_to_MVA": 48.979976
+    },
+    {
+      "id": "T_SHORE",
+      "p_from_MW": -69.80626,
+      "q_from_MVAr": 71.47094,
+      "s_from_MVA": 99.905,
+      "p_to_MW": 70.12484,
+      "q_to_MVAr": -67.992621,
+      "s_to_MVA": 97.67543
+    }
+  ]
+}

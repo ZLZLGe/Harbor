@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "nephrology-lab-unit-harmonization-similar-dialysis-followup"
+name = "Similar | 透析随访化验统一"
+description = "清洗透析连锁机构的月度随访化验表并统一到常规单位，输出完整随访队列 CSV。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "healthcare"
+tags = ["healthcare", "dialysis", "lab-unit-conversion", "data-cleaning", "similar-task"]
+primary_output_file = "/root/dialysis_followup_labs_harmonized.csv"
+source_task_id = "lab-unit-harmonization"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = false

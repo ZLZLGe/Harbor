@@ -1,0 +1,3 @@
+sha256 payloads/video-001.mov 5ef2f8f4placeholder
+sha256 payloads/video-002.mov 9fce9120placeholder
+sha256 notes/chain-of-custody.txt e2ab1984placeholder

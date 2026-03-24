@@ -1,0 +1,11 @@
+{
+  "event_id": "rectifier-bay-3/load-release-17",
+  "samples_file": "voltage_recovery_samples.jsonl",
+  "bus_nominal_v": 380.0,
+  "load_current_before_a": 42.0,
+  "load_current_after_a": 24.0,
+  "released_load_a": 18.0,
+  "switch_event_ms": 0.0,
+  "recovery_target_fraction": 0.95,
+  "notes": "Fit an equivalent recovery response after the auxiliary load bank is disconnected."
+}

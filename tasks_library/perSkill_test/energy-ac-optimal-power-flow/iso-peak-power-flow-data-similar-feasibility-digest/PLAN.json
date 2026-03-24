@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "iso-peak-power-flow-data-similar-feasibility-digest",
+  "taskRole": "similar",
+  "title": "Similar: 峰时基础工况可行性摘要",
+  "goal": "读取电网案例文件和给定的候选运行点数据，生成 `operations_feasibility_report.json`，汇总总负荷、总发电、网损、参考母线角度检查、前 10 条重载线路，以及基于母线/发电机/支路数据计算得到的电压越限、机组越界、支路过载和功率失配指标。",
+  "primaryOutputFile": "operations_feasibility_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这个任务紧贴源任务的典型上下文，但去掉了求解器实现，核心难点变成正确解析母线、发电机、支路和成本/限额字段，并用非连续母线编号映射与网络拓扑关系完成可行性汇总。",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock",
+  "taskRole": "transfer",
+  "title": "Transfer - Pharma Vial Campaign Repair",
+  "goal": "把同一类基线修复方法迁移到无菌西林瓶灌装场景，修复灌装、轧盖、灯检等工序在清洗停机窗口下的冲突，同时满足冻结批次与变更预算约束。",
+  "primaryOutputFile": "drafts/pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock/task.toml",
+  "difficulty": "hard",
+  "category": "manufacturing",
+  "skillBenefitRationale": "该任务仍然只依赖目标 skill：核心是基线修复、停机规避、冻结字段约束和预算内最小扰动调整；场景迁移到了监管更强的制药产线，但不引入其他 shipped skill。",
+  "targetSkillDirName": "fjsp-baseline-repair-with-downtime-and-policy",
+  "targetSkillName": "fjsp-baseline-repair-with-downtime-and-policy"
+}

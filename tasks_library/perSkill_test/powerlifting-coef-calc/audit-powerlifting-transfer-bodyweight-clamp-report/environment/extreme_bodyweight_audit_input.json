@@ -1,0 +1,125 @@
+{
+  "meet_id": "harbor-extreme-bw-audit-2026",
+  "audit_batch": "weigh-in-clamp-check",
+  "athletes": [
+    {
+      "athlete_id": "M-001",
+      "profile": {
+        "lifter_name": "Aaron Pike",
+        "sex": "M",
+        "team": "North Dock"
+      },
+      "weigh_in": {
+        "bodyweight_kg": 38.4,
+        "lot_number": 11
+      },
+      "best_lifts_kg": {
+        "squat": 250.0,
+        "bench": 170.0,
+        "deadlift": 280.0
+      }
+    },
+    {
+      "athlete_id": "M-002",
+      "profile": {
+        "lifter_name": "Bruno Dale",
+        "sex": "M",
+        "team": "Granite Barbell"
+      },
+      "weigh_in": {
+        "bodyweight_kg": 83.7,
+        "lot_number": 12
+      },
+      "best_lifts_kg": {
+        "squat": 280.0,
+        "bench": 185.0,
+        "deadlift": 310.0
+      }
+    },
+    {
+      "athlete_id": "M-003",
+      "profile": {
+        "lifter_name": "Caleb Frost",
+        "sex": "M",
+        "team": "East Yard"
+      },
+      "weigh_in": {
+        "bodyweight_kg": 218.6,
+        "lot_number": 13
+      },
+      "best_lifts_kg": {
+        "squat": 320.0,
+        "bench": 215.0,
+        "deadlift": 330.0
+      }
+    },
+    {
+      "athlete_id": "F-001",
+      "profile": {
+        "lifter_name": "Dana Wu",
+        "sex": "F",
+        "team": "Harbor South"
+      },
+      "weigh_in": {
+        "bodyweight_kg": 37.2,
+        "lot_number": 21
+      },
+      "best_lifts_kg": {
+        "squat": 165.0,
+        "bench": 95.0,
+        "deadlift": 180.0
+      }
+    },
+    {
+      "athlete_id": "F-002",
+      "profile": {
+        "lifter_name": "Eva Long",
+        "sex": "F",
+        "team": "North Dock"
+      },
+      "weigh_in": {
+        "bodyweight_kg": 69.4,
+        "lot_number": 22
+      },
+      "best_lifts_kg": {
+        "squat": 190.0,
+        "bench": 115.0,
+        "deadlift": 210.0
+      }
+    },
+    {
+      "athlete_id": "F-003",
+      "profile": {
+        "lifter_name": "Fiona Kerr",
+        "sex": "F",
+        "team": "Iron Lantern"
+      },
+      "weigh_in": {
+        "bodyweight_kg": 154.8,
+        "lot_number": 23
+      },
+      "best_lifts_kg": {
+        "squat": 225.0,
+        "bench": 132.5,
+        "deadlift": 230.0
+      }
+    },
+    {
+      "athlete_id": "F-004",
+      "profile": {
+        "lifter_name": "Grace Noll",
+        "sex": "F",
+        "team": "East Yard"
+      },
+      "weigh_in": {
+        "bodyweight_kg": 150.0,
+        "lot_number": 24
+      },
+      "best_lifts_kg": {
+        "squat": 210.0,
+        "bench": 125.0,
+        "deadlift": 220.0
+      }
+    }
+  ]
+}

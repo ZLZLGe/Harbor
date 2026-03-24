@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "order-fulfillment-restclient-migration-similar-shipping-gateway",
+  "taskRole": "similar",
+  "title": "Similar - Migrate Legacy Shipping Gateway to RestClient",
+  "goal": "在一个已升级到 Spring Boot 3.2 的订单履约服务中，遗留的 `ShippingGatewayClient` 仍使用 `RestTemplate` 处理运费试算 GET、创建运单 POST 和取消运单 DELETE。将它迁移为 `RestClient` 实现，保留共享 base URL/JSON 头配置与现有请求语义，并让编译与测试通过。",
+  "primaryOutputFile": "/workspace/src/main/java/com/example/orders/integration/ShippingGatewayClient.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这是该 skill 的典型用法：把同步式 `RestTemplate` CRUD 风格外部调用迁移为 `RestClient` 的 fluent API，同时覆盖 GET、POST、DELETE 和基础客户端配置。",
+  "targetSkillDirName": "restclient-migration",
+  "targetSkillName": "restclient-migration"
+}

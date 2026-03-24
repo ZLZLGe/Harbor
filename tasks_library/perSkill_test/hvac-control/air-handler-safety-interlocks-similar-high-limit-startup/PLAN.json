@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "air-handler-safety-interlocks-similar-high-limit-startup",
+  "taskRole": "similar",
+  "title": "Similar: Air Handler High-Limit Startup Protection",
+  "goal": "为送风加热段实现一次启动升温与稳态保持流程：把送风温度拉到 24.0C 并保持至少 120 秒，但在试加热和闭环阶段都必须先检查 27.0C 高温上限，一旦触发就立刻把加热指令切到 0、保留安全事件日志，并证明全程未越过安全上限。",
+  "primaryOutputFile": "startup_safety_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "这个任务的成败主要取决于是否把高温切断、输出钳位和安全事件记录正确嵌入控制循环；控制策略本身可以保持简单，因此 safety-interlocks 是唯一关键 shipped skill。",
+  "targetSkillDirName": "safety-interlocks",
+  "targetSkillName": "safety-interlocks"
+}

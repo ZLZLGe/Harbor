@@ -1,0 +1,11 @@
+[build-system]
+requires = []
+build-backend = "packager_backend.build_backend"
+
+[project]
+name = "packaging-backend-repo"
+version = "0.1.0"
+description = "Fixture repository for packaging backend analysis"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

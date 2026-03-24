@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "volcano-waveform-qc-obspy-data-api-transfer-gap-report",
+  "taskRole": "transfer",
+  "title": "Transfer: Volcano Waveform QC Report",
+  "goal": "Inspect continuous volcano-monitoring MiniSEED traces, merge or compare overlapping segments by station-channel, quantify gaps, overlaps, sample-rate inconsistencies, and time coverage, and emit a machine-readable waveform quality-control report.",
+  "primaryOutputFile": "/root/volcano_trace_qc.json",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "This task relies on reading waveform files into ObsPy Streams, examining Trace stats, handling timing metadata, and reasoning about segment continuity. The essential capability is the ObsPy waveform data API.",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

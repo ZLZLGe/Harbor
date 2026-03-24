@@ -1,0 +1,39 @@
+{
+  "project": "harbor street storefront spring loop",
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "frame_rate": 30,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_sample_rate_hz": 48000,
+    "audio_channels": 1
+  },
+  "fill_mode": "center_crop",
+  "short_clip_policy": {
+    "video": "freeze_last_frame",
+    "audio": "silence"
+  },
+  "clips": [
+    {
+      "slot": "hero_espresso",
+      "file": "espresso_hero.mp4",
+      "target_duration_sec": 2.4
+    },
+    {
+      "slot": "bakery_window",
+      "file": "pastry_vertical.mp4",
+      "target_duration_sec": 3.0
+    },
+    {
+      "slot": "loyalty_offer",
+      "file": "loyalty_square.mp4",
+      "target_duration_sec": 2.8
+    },
+    {
+      "slot": "evening_special",
+      "file": "evening_special.mp4",
+      "target_duration_sec": 3.2
+    }
+  ]
+}

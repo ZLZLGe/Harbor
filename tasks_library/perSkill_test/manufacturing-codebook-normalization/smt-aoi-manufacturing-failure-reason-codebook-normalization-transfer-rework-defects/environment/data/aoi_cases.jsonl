@@ -1,0 +1,15 @@
+{"board_id":"A1001","panel_id":"PNL-8801","product_family":"INV-X2","process_stage":"AOI_POST_REFLOW","line":"SMT-L1","side":"TOP","operator_id":"AOI-17","remark_text":"U12 pin5-6 bridge / 连锡"}
+{"board_id":"A1002","panel_id":"PNL-8801","product_family":"INV-X2","process_stage":"AOI_POST_REFLOW","line":"SMT-L1","side":"TOP","operator_id":"AOI-17","remark_text":"R88 少锡; C41 虚焊"}
+{"board_id":"A1003","panel_id":"PNL-8802","product_family":"SENSOR-M","process_stage":"AOI_POST_REFLOW","line":"SMT-L2","side":"BOT","operator_id":"AOI-09","remark_text":"C210 polarity rev / C210 反向"}
+{"board_id":"A1004","panel_id":"PNL-8803","product_family":"GATEWAY-P","process_stage":"AOI_POST_REFLOW","line":"SMT-L3","side":"TOP","operator_id":"AOI-04","remark_text":"R45 tombstone / 立碑"}
+{"board_id":"A1005","panel_id":"PNL-8803","product_family":"GATEWAY-P","process_stage":"AOI_POST_REFLOW","line":"SMT-L3","side":"TOP","operator_id":"AOI-04","remark_text":"Q3 偏位 offset to east"}
+{"board_id":"A1006","panel_id":"PNL-8804","product_family":"CTRL-H","process_stage":"AOI_POST_REFLOW","line":"SMT-L1","side":"BOT","operator_id":"AOI-12","remark_text":"D8 no part / 漏件"}
+{"board_id":"A1007","panel_id":"PNL-8804","product_family":"CTRL-H","process_stage":"AOI_POST_REFLOW","line":"SMT-L1","side":"BOT","operator_id":"AOI-12","remark_text":"R120 wrong value loaded, mark 102 not 103"}
+{"board_id":"A1008","panel_id":"PNL-8805","product_family":"RADIO-Q","process_stage":"AOI_POST_REFLOW","line":"SMT-L4","side":"TOP","operator_id":"AOI-22","remark_text":"U7 pin1~2 bridge + solder ball nearby"}
+{"board_id":"A1009","panel_id":"PNL-8806","product_family":"RADIO-Q","process_stage":"REWORK_BENCH","line":"RW-L1","side":"TOP","operator_id":"RW-03","remark_text":"after rework C33 pad lift, copper exposed"}
+{"board_id":"A1010","panel_id":"PNL-8806","product_family":"RADIO-Q","process_stage":"REWORK_BENCH","line":"RW-L1","side":"TOP","operator_id":"RW-03","remark_text":"flux残留 around U5, sticky after clean"}
+{"board_id":"A1011","panel_id":"PNL-8807","product_family":"SENSOR-M","process_stage":"REWORK_BENCH","line":"RW-L2","side":"BOT","operator_id":"RW-11","remark_text":"R19 tombstone again after rework"}
+{"board_id":"A1012","panel_id":"PNL-8808","product_family":"DRV-Z","process_stage":"SPI_PRE_REFLOW","line":"SMT-L2","side":"TOP","operator_id":"SPI-06","remark_text":"C78 shifted / 偏位 before oven"}
+{"board_id":"A1013","panel_id":"PNL-8808","product_family":"DRV-Z","process_stage":"SPI_PRE_REFLOW","line":"SMT-L2","side":"TOP","operator_id":"SPI-06","remark_text":"L4 missing before reflow"}
+{"board_id":"A1014","panel_id":"PNL-8809","product_family":"INV-X2","process_stage":"REWORK_BENCH","line":"RW-L3","side":"TOP","operator_id":"RW-08","remark_text":"looks dull, maybe heat mark only"}
+{"board_id":"A1015","panel_id":"PNL-8810","product_family":"CTRL-H","process_stage":"AOI_POST_REFLOW","line":"SMT-L5","side":"BOT","operator_id":"AOI-31","remark_text":"D11 reversed and R44 missing"}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "battery-peak-shaving-yaml-config-transfer-dispatch",
+  "taskRole": "transfer",
+  "title": "Transfer: Battery Peak-Shaving Scheduler Using YAML Constraints",
+  "goal": "Implement a deterministic battery peak-shaving replay that reads tariff windows, battery constraints, reserve requirements, and dispatch preferences from YAML, replays a facility load trace, and generates a dispatch plan together with cost and peak-demand summaries.",
+  "primaryOutputFile": "battery_dispatch_plan.yaml",
+  "difficulty": "medium",
+  "category": "energy-systems",
+  "skillBenefitRationale": "This places the skill in an energy-management setting while keeping YAML as the single key dependency. The task’s essential complexity is in reading nested operating constraints from YAML and writing the resulting dispatch plan back as YAML for downstream consumption.",
+  "targetSkillDirName": "yaml-config",
+  "targetSkillName": "yaml-config"
+}

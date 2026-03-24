@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "quarry-repeaters-seismic-picker-selection-transfer-template-refinement",
+  "taskRole": "transfer",
+  "title": "Transfer - 重复事件模板精修",
+  "goal": "利用给定的高信噪比模板和一批候选事件窗口，找出重复爆破或重复事件并输出 `template_id`、`file_name`、`phase`、`pick_idx`、`score`，重点提升弱事件的拾取灵敏度与一致性。",
+  "primaryOutputFile": "/root/repeater_template_matches.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "这里的核心是识别出波形高度重复且已有模板时，模板匹配比通用深度学习或 STA/LTA 更合适。任务主要考查对不同拾取范式优缺点的判断，而不需要其他 shipped skill，因此当前 skill 是唯一关键能力。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

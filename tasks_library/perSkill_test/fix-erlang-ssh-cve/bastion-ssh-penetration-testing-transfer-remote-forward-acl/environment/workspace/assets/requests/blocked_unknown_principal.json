@@ -1,0 +1,7 @@
+{
+  "principal": "guest-user",
+  "bind_host": "127.0.0.1",
+  "bind_port": 18080,
+  "target_host": "127.0.0.1",
+  "target_port": 8080
+}

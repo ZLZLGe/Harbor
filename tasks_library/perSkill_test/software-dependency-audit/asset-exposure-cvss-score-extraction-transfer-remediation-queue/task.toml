@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "asset-exposure-cvss-score-extraction-transfer-remediation-queue"
+name = "Transfer: 资产暴露修复队列"
+description = "根据资产暴露统计和漏洞记录选出每条漏洞的最佳 CVSS 分数，并输出按修复优先级排序的 TSV 队列。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "security"
+tags = ["security", "cvss", "tsv", "remediation-planning"]
+primary_output_file = "/root/remediation_queue.tsv"
+source_task_id = "software-dependency-audit"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

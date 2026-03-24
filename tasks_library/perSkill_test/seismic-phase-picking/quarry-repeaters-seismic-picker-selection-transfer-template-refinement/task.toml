@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "quarry-repeaters-seismic-picker-selection-transfer-template-refinement"
+name = "Transfer - 重复事件模板精修"
+description = "利用模板库筛选候选重复爆破并输出 template_id、file_name、phase、pick_idx、score 到 /root/repeater_template_matches.csv。"
+author_name = "Haotian Shen"
+author_email = "dalyshen@berkeley.edu"
+difficulty = "hard"
+category = "seismology"
+tags = ["science", "earth-science", "seismology", "template-matching", "repeater", "transfer"]
+primary_output_file = "/root/repeater_template_matches.csv"
+source_task_id = "seismic-phase-picking"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

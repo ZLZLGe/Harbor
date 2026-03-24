@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "dc-bus-first-order-model-fitting-transfer-voltage-recovery",
+  "taskRole": "transfer",
+  "title": "Transfer: 直流母线电压恢复拟合",
+  "goal": "根据直流母线在负载切换后的电压恢复采样数据拟合一阶等效模型，输出增益、时间常数以及恢复到稳态 95% 所需时间。",
+  "primaryOutputFile": "dc_bus_fit.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "场景迁移到电气系统后，关键仍是把脉冲响应拟合成一阶模型并估计参数；其余结果都是对已拟合模型的直接换算。",
+  "targetSkillDirName": "first-order-model-fitting",
+  "targetSkillName": "first-order-model-fitting"
+}

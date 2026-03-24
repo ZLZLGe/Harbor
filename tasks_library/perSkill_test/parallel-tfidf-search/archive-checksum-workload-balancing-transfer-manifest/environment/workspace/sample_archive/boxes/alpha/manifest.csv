@@ -1,0 +1,4 @@
+path,size_bytes,label
+payloads/video-001.mov,1843200,priority
+payloads/video-002.mov,917504,standard
+notes/chain-of-custody.txt,2048,audit

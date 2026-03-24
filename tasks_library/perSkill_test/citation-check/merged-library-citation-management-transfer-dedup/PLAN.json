@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "merged-library-citation-management-transfer-dedup",
+  "taskRole": "transfer",
+  "title": "Transfer: Merged Bibliography Dedup Resolution",
+  "goal": "清理两份合并后的参考文献库，识别指向同一论文的重复条目，并输出 canonical key 与被合并 key 的 JSON 映射。",
+  "primaryOutputFile": "/root/duplicate_map.json",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "核心在于标准化标题与作者、核对冲突元数据并完成书目去重，依赖 citation-management 的引用验证与整理能力。",
+  "targetSkillDirName": "citation-management",
+  "targetSkillName": "citation-management"
+}

@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "flood-risk-analysis",
+  "targetSkillDirName": "nws-flood-thresholds",
+  "runId": "20260319232154-flood-risk-analysis-nws-flood-thresholds-eix6f8",
+  "taskId": "forecast-ops-nws-flood-thresholds-transfer-crest-risk-buckets",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/flood-risk-analysis/nws-flood-thresholds/20260319232154-flood-risk-analysis-nws-flood-thresholds-eix6f8/forecast-ops-nws-flood-thresholds-transfer-crest-risk-buckets",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/flood-risk-analysis/forecast-ops-nws-flood-thresholds-transfer-crest-risk-buckets",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:forecast-ops-nws-flood-thresholds-transfer-crest-risk-buckets instruction.md 明确点出了 `action stage`、`flood stage`、`moderate flood stage`、`major flood stage` 四级阈值和 bulk gauge export 的尾随列问题；这比 source_task/instruction.md 更直接地提示了 `nws-flood-thresholds`。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 4 个 drafts 的 instruction.md 都比 source_task/instruction.md 更直接暴露了 `nws-flood-thresholds` 的使用路径：反复点明 bulk gauge export 的尾随列错位、具体阈值列名和 `-9999` 清洗规则，这属于同一类可见性越界。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fac-474f-70d3-94b2-db0644aede86"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "customer-profiles-spring-boot-migration-similar-java21-upgrade",
+  "taskRole": "similar",
+  "title": "Similar: 升级遗留客户档案服务到 Spring Boot 3.2",
+  "goal": "迁移一个单模块客户档案 REST 服务：把 Java 11 / Spring Boot 2.7 升级到 Java 21 / Spring Boot 3.2，更新父 POM 与相关依赖，拆分旧版 `jjwt`，移除遗留 `javax.xml.bind` 依赖，并恢复 `mvn clean compile` 与 `mvn test` 通过。",
+  "primaryOutputFile": "/workspace/customer-profiles/pom.xml",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这是 spring-boot-migration 的典型用法，核心在于版本跃迁、依赖替换和构建恢复，贴近源任务但不复写原有用户管理场景。",
+  "targetSkillDirName": "spring-boot-migration",
+  "targetSkillName": "spring-boot-migration"
+}

@@ -1,0 +1,38 @@
+version = "1.0"
+
+[metadata]
+id = "meet-powerlifting-similar-wilks-scoreboard"
+name = "Similar: 本地公开赛 Wilks 排名表"
+description = "从公开赛成绩工作簿中提取 Wilks 所需列，使用 Excel 公式生成按分数降序排列的排名表，并保存为 /root/data/wilks_scoreboard.xlsx。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "easy"
+category = "data-analysis"
+tags = [
+  "excel",
+  "sports",
+  "ranking",
+  "formula",
+  "powerlifting"
+]
+primary_output_file = "/root/data/wilks_scoreboard.xlsx"
+source_task_id = "powerlifting-coef-calc"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

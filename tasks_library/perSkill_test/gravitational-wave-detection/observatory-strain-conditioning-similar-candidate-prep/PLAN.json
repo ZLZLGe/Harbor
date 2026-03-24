@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "observatory-strain-conditioning-similar-candidate-prep",
+  "taskRole": "similar",
+  "title": "Similar - 并合候选片段预处理",
+  "goal": "对一段疑似双黑洞并合的原始干涉仪应变数据执行高通、重采样、裁边和 PSD 估计，输出供后续搜索使用的条件化摘要表，包含最终采样率、有效时长以及指定频带的噪声指标。",
+  "primaryOutputFile": "/root/candidate_conditioning_summary.csv",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "这个场景保留了原任务中最典型的前处理链路，但把目标收敛到“把原始探测器数据整理成可分析输入”本身，而不是继续做模板搜索；关键工作完全是 conditioning 覆盖的高通、重采样、裁边和 PSD 估计，唯一关键 shipped skill 就是 conditioning。",
+  "targetSkillDirName": "conditioning",
+  "targetSkillName": "conditioning"
+}

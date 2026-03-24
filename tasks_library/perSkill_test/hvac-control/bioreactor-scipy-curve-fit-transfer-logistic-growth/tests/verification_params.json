@@ -1,0 +1,10 @@
+{
+  "carrying_capacity_od600": 1.82,
+  "growth_rate_per_hr": 0.31,
+  "midpoint_time_hr": 16.0,
+  "lag_adjusted_onset_hr": 9.548387096774192,
+  "max_growth_rate_od600_per_hr": 0.14105,
+  "time_to_target_od600_hr": 17.51614134054338,
+  "time_to_latest_recommended_od600_hr": 22.079164761181782,
+  "predicted_window_width_hr": 4.563023420638401
+}

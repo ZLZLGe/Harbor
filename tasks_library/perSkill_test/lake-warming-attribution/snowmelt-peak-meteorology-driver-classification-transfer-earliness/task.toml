@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "snowmelt-peak-meteorology-driver-classification-transfer-earliness"
+name = "Transfer: Alpine Snowmelt Peak Driver Attribution"
+description = "Merge alpine basin observation tables, quantify which driver category most advances the annual snowmelt peak date, and write the dominant category with its contribution percentage to /root/output/snowmelt_peak_driver.csv."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["cryosphere", "snowmelt", "attribution", "driver-classification"]
+primary_output_file = "/root/output/snowmelt_peak_driver.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

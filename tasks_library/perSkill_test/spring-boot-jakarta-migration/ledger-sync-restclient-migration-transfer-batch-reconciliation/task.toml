@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "ledger-sync-restclient-migration-transfer-batch-reconciliation"
+name = "Transfer - Migrate Batch Ledger Sync Client to RestClient"
+description = "Migrate the batch reconciliation LedgerSyncClient to Spring RestClient while preserving paginated ledger fetches and confirmation submission behavior."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "Batch Processing"
+tags = ["spring-batch", "spring-boot", "restclient", "migration", "reconciliation"]
+primary_output_file = "/workspace/src/main/java/com/example/reconciliation/client/LedgerSyncClient.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

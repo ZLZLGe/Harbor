@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "cold-chain-xlsx-transfer-route-alerts"
+name = "Transfer: Cold-Chain Route Alert Analysis"
+description = "Analyze the cold-chain routing workbook, compute each active route's adjusted profit and final risk level across the lookup sheets, and write the escalation list to /root/route_alerts.json."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "logistics analytics"
+tags = ["xlsx", "logistics", "route analysis", "json output"]
+primary_output_file = "/root/route_alerts.json"
+source_task_id = "financial-modeling-qa"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

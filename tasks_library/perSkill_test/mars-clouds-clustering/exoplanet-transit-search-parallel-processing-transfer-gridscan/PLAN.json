@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "exoplanet-transit-search-parallel-processing-transfer-gridscan",
+  "taskRole": "transfer",
+  "title": "Transfer | Exoplanet Transit Template Scan",
+  "goal": "对多颗恒星的光变曲线扫描大规模 transit 模板参数网格，汇总每组参数在验证星表上的平均检出分数与误报率，并将综合得分最高的 20 个候选写入 /root/transit_template_rankings.csv。",
+  "primaryOutputFile": "/root/transit_template_rankings.csv",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "模板参数组合之间完全独立，而每次评估都要复用同一批光变数据并执行昂贵的批量打分；并行化网格扫描是核心能力。",
+  "targetSkillDirName": "parallel-processing",
+  "targetSkillName": "parallel-processing"
+}

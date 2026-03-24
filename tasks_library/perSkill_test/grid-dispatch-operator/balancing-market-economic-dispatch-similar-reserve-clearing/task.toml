@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "balancing-market-economic-dispatch-similar-reserve-clearing"
+name = "Similar: 区域平衡市场备用联合出清"
+description = "给定单区域平衡市场报价快照，生成满足负荷与备用需求的能量和备用联合出清结果，并输出 balancing_market_report.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "economic-dispatch", "balancing-market", "reserve-clearing", "optimization"]
+primary_output_file = "balancing_market_report.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240

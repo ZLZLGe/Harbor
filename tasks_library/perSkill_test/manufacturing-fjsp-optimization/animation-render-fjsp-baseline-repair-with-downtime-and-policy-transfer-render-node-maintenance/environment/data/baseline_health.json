@@ -1,0 +1,10 @@
+{
+  "baseline": {
+    "maintenance_hits": 5,
+    "shots_touching_maintenance": [
+      "SH010",
+      "SH020",
+      "SH030"
+    ]
+  }
+}

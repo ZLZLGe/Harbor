@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "hospital-triage-senior-data-scientist-transfer-readmission-risk",
+  "taskRole": "transfer",
+  "title": "Transfer | Hospital Readmission Risk Scoring",
+  "goal": "基于住院患者入院信息工作簿构建风险评分表，工程化年龄段、生命体征阈值与共病特征，计算 readmission risk score，并将患者分层为低中高风险。",
+  "primaryOutputFile": "/root/data/readmission_risk_dashboard.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "该任务把技能迁移到医疗风险分层场景，重点是特征构造、加权评分与阈值分层，体现 senior-data-scientist 的分析建模思维。",
+  "targetSkillDirName": "senior-data-scientist",
+  "targetSkillName": "senior-data-scientist"
+}

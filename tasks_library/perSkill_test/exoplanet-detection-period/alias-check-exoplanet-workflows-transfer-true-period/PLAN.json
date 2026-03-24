@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "alias-check-exoplanet-workflows-transfer-true-period",
+  "taskRole": "transfer",
+  "title": "Transfer | 在混叠候选中判定真实凌星周期",
+  "goal": "给定一条存在观测间断和明显混叠候选的凌星光变曲线，区分真实轨道周期与 0.5 倍或 2 倍混叠解，输出最终确认的真实周期。",
+  "primaryOutputFile": "/root/validated_period.txt",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "该任务把技能迁移到候选验证与混叠判别场景，重点不再是初次发现信号，而是利用相位折叠、一致性检查和窄范围细化来确认正确周期。",
+  "targetSkillDirName": "exoplanet-workflows",
+  "targetSkillName": "exoplanet-workflows"
+}

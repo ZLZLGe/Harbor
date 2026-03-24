@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "roundtable-speaker-clustering-similar-rttm-rebuild",
+  "taskRole": "similar",
+  "title": "Similar | 圆桌访谈 RTTM 重建",
+  "goal": "给定圆桌访谈视频中已切好的语音片段时间边界与说话人嵌入，自动估计说话人数、完成聚类、合并相邻同簇话轮，并输出可直接评分的 RTTM 文件。",
+  "primaryOutputFile": "/root/panel_diarization.rttm",
+  "difficulty": "hard",
+  "category": "audio-visual",
+  "skillBenefitRationale": "上游切分与嵌入已提供，任务成败只取决于是否能正确选择聚类方法、估计簇数并做聚类后合并，这正是 speaker-clustering 的典型用法。",
+  "targetSkillDirName": "speaker-clustering",
+  "targetSkillName": "Speaker Clustering Methods"
+}

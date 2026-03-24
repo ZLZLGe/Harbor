@@ -1,0 +1,753 @@
+{
+  "nodes": [
+    {
+      "id": "AlertIngress",
+      "text": "PagerDuty reports elevated 5xx after the 09:40 deploy wave.",
+      "speaker": "Monitor",
+      "type": "line"
+    },
+    {
+      "id": "SeverityGate",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "SevOneBridge",
+      "text": "Open the release war room, assign an incident scribe, and confirm customer impact within five minutes.",
+      "speaker": "IncidentLead",
+      "type": "line"
+    },
+    {
+      "id": "BlastRadiusChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RollbackPrep",
+      "text": "Compare the failing build to the last healthy release and confirm which switch is safest to reverse first.",
+      "speaker": "ReleaseEngineer",
+      "type": "line"
+    },
+    {
+      "id": "RollbackChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FlagDisable",
+      "text": "The feature flag is disabled and the newest requests are draining through the old path.",
+      "speaker": "ReleaseEngineer",
+      "type": "line"
+    },
+    {
+      "id": "RollbackExecute",
+      "text": "The previous release is redeploying across the production cluster now.",
+      "speaker": "ReleaseEngineer",
+      "type": "line"
+    },
+    {
+      "id": "DatabaseCheck",
+      "text": "I am checking replica lag, lock contention, and whether the new schema can safely move backward.",
+      "speaker": "Database",
+      "type": "line"
+    },
+    {
+      "id": "DatabaseChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FailoverStep",
+      "text": "Promote the healthy replica, pin writes there, and let the old primary cool down.",
+      "speaker": "Database",
+      "type": "line"
+    },
+    {
+      "id": "StatusDraft",
+      "text": "I have a draft customer update and can publish it as soon as we agree on scope and wording.",
+      "speaker": "Comms",
+      "type": "line"
+    },
+    {
+      "id": "StatusChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DependencyCheck",
+      "text": "Compare trace spans, dependency dashboards, and deploy timing to find out whether the fault sits outside the application pods.",
+      "speaker": "SRE",
+      "type": "line"
+    },
+    {
+      "id": "DependencyChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "VendorBridge",
+      "text": "The vendor bridge is open, and their engineer wants either degraded mode or a five-minute observation window.",
+      "speaker": "SRE",
+      "type": "line"
+    },
+    {
+      "id": "VendorChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DegradedMode",
+      "text": "Degraded mode is on, error volume has dropped, and we can check whether the customer-facing path is stable enough to hold.",
+      "speaker": "SRE",
+      "type": "line"
+    },
+    {
+      "id": "CacheMitigation",
+      "text": "Flush the stale cache tier, reload configuration, and watch whether the failing requests clear.",
+      "speaker": "SRE",
+      "type": "line"
+    },
+    {
+      "id": "EdgeBalancerCheck",
+      "text": "One region is receiving a bad slice of traffic while the rest of the edge looks healthy.",
+      "speaker": "EdgeTeam",
+      "type": "line"
+    },
+    {
+      "id": "EdgeChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ZoneDrain",
+      "text": "The unhealthy zone is drained and user traffic has shifted to the remaining regions.",
+      "speaker": "EdgeTeam",
+      "type": "line"
+    },
+    {
+      "id": "RoutingRevert",
+      "text": "Canary routing weights are back to the pre-deploy split.",
+      "speaker": "EdgeTeam",
+      "type": "line"
+    },
+    {
+      "id": "PlatformEscalation",
+      "text": "Platform engineering is taking over the live mitigation while we preserve notes and customer timelines.",
+      "speaker": "IncidentLead",
+      "type": "line"
+    },
+    {
+      "id": "SevTwoAssess",
+      "text": "Keep the release bridge small, assign one owner per hypothesis, and confirm whether the incident is user-visible before escalating.",
+      "speaker": "IncidentLead",
+      "type": "line"
+    },
+    {
+      "id": "ServiceCheckChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ServiceOwnerCheck",
+      "text": "I checked the newest pods, recent endpoint changes, and the top failing requests in the service logs.",
+      "speaker": "ServiceOwner",
+      "type": "line"
+    },
+    {
+      "id": "ServiceOwnerChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RestartPods",
+      "text": "The newest pods are restarting, and the previous replicas are still serving traffic.",
+      "speaker": "ServiceOwner",
+      "type": "line"
+    },
+    {
+      "id": "CapacityPlan",
+      "text": "Queue depth and worker saturation are the clearest signals, so capacity relief is the fastest next move.",
+      "speaker": "SRE",
+      "type": "line"
+    },
+    {
+      "id": "CapacityChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ScaleOut",
+      "text": "Extra capacity is online and the backlog is shrinking.",
+      "speaker": "SRE",
+      "type": "line"
+    },
+    {
+      "id": "QueueDrain",
+      "text": "Noncritical jobs are paused, the backlog is draining, and the hot path has more headroom.",
+      "speaker": "SRE",
+      "type": "line"
+    },
+    {
+      "id": "SlowBurnDecision",
+      "text": "Customer reports are sparse, but the error budget is burning steadily enough that we may still need to widen the response.",
+      "speaker": "SupportLead",
+      "type": "line"
+    },
+    {
+      "id": "SlowBurnChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "WatchWindow",
+      "text": "Hold a ten-minute watch window and compare live traffic, error budget burn, and support chatter before changing mitigation.",
+      "speaker": "Monitor",
+      "type": "line"
+    },
+    {
+      "id": "WatchChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "MonitorNoiseReview",
+      "text": "Check whether the alert came from a synthetic probe, a silenced canary, or a query that changed labels during the deploy.",
+      "speaker": "Observability",
+      "type": "line"
+    },
+    {
+      "id": "NoiseChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "QueryFix",
+      "text": "The alert rule is corrected and historical data confirms that production traffic stayed healthy.",
+      "speaker": "Observability",
+      "type": "line"
+    },
+    {
+      "id": "StabilizationReview",
+      "text": "Re-check the core user journey, watch the main dashboards for fifteen minutes, and decide whether the incident is stable enough to close.",
+      "speaker": "IncidentLead",
+      "type": "line"
+    },
+    {
+      "id": "StabilizationChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "BridgeRecheck",
+      "text": "Choose the next review loop based on which hypothesis is still alive after the latest mitigation.",
+      "speaker": "IncidentLead",
+      "type": "line"
+    },
+    {
+      "id": "BridgeChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RecoverySummary",
+      "text": "The incident looks stable, so choose the summary that best matches the mitigation we used and close the loop cleanly.",
+      "speaker": "Comms",
+      "type": "line"
+    },
+    {
+      "id": "RecoveryChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FalseAlarmClosed",
+      "text": "Close the incident as monitor noise or a self-recovered alert, and attach the query notes for follow-up tuning.",
+      "speaker": "Observability",
+      "type": "line"
+    },
+    {
+      "id": "RollbackComplete",
+      "text": "Rollback recovery confirmed, customer traffic is healthy, and the release can stay frozen pending review.",
+      "speaker": "Comms",
+      "type": "line"
+    },
+    {
+      "id": "CapacityRecovered",
+      "text": "Capacity mitigation held through the watch window, so we can close and schedule scaling follow-up.",
+      "speaker": "IncidentLead",
+      "type": "line"
+    },
+    {
+      "id": "DependencyMitigated",
+      "text": "Dependency mitigation is holding, with degraded mode or routing changes documented for the next review.",
+      "speaker": "SRE",
+      "type": "line"
+    },
+    {
+      "id": "FeatureFlagRecovered",
+      "text": "The feature flag rollback restored stability, and the launch stays disabled until the fix is ready.",
+      "speaker": "ReleaseEngineer",
+      "type": "line"
+    },
+    {
+      "id": "ManualMitigationHandoff",
+      "text": "Hand off the active mitigation to the next team with timeline, open hypotheses, and customer impact notes attached.",
+      "speaker": "IncidentLead",
+      "type": "line"
+    }
+  ],
+  "edges": [
+    {
+      "from": "AlertIngress",
+      "to": "SeverityGate",
+      "text": ""
+    },
+    {
+      "from": "SeverityGate",
+      "to": "SevOneBridge",
+      "text": "1. [SEV-1] Error rate is above 20% or checkout is fully down."
+    },
+    {
+      "from": "SeverityGate",
+      "to": "SevTwoAssess",
+      "text": "2. Error rate is elevated but core transactions still succeed."
+    },
+    {
+      "from": "SeverityGate",
+      "to": "MonitorNoiseReview",
+      "text": "3. Alert appears noisy or is already recovering."
+    },
+    {
+      "from": "SevOneBridge",
+      "to": "BlastRadiusChoice",
+      "text": ""
+    },
+    {
+      "from": "BlastRadiusChoice",
+      "to": "RollbackPrep",
+      "text": "1. [Rollback] Symptoms started immediately after the latest deploy."
+    },
+    {
+      "from": "BlastRadiusChoice",
+      "to": "DependencyCheck",
+      "text": "2. [Dependency] Traces point to a gateway, cache, or database dependency."
+    },
+    {
+      "from": "BlastRadiusChoice",
+      "to": "StatusDraft",
+      "text": "3. [Comms] Support volume is spiking and a status update may be needed."
+    },
+    {
+      "from": "RollbackPrep",
+      "to": "RollbackChoice",
+      "text": ""
+    },
+    {
+      "from": "RollbackChoice",
+      "to": "FlagDisable",
+      "text": "1. [Feature Flag] Disable the new feature flag before touching the build."
+    },
+    {
+      "from": "RollbackChoice",
+      "to": "RollbackExecute",
+      "text": "2. Start a full application rollback."
+    },
+    {
+      "from": "RollbackChoice",
+      "to": "DatabaseCheck",
+      "text": "3. Ask the database owner whether schema changes block a rollback."
+    },
+    {
+      "from": "FlagDisable",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "RollbackExecute",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "DatabaseCheck",
+      "to": "DatabaseChoice",
+      "text": ""
+    },
+    {
+      "from": "DatabaseChoice",
+      "to": "FailoverStep",
+      "text": "1. [DB Failover] Lag or lock contention is severe enough to move traffic."
+    },
+    {
+      "from": "DatabaseChoice",
+      "to": "RollbackExecute",
+      "text": "2. The schema is backward-compatible, so application rollback is safe."
+    },
+    {
+      "from": "DatabaseChoice",
+      "to": "ManualMitigationHandoff",
+      "text": "3. We need a specialist on the bridge before changing anything."
+    },
+    {
+      "from": "FailoverStep",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "StatusDraft",
+      "to": "StatusChoice",
+      "text": ""
+    },
+    {
+      "from": "StatusChoice",
+      "to": "DependencyCheck",
+      "text": "1. Publish the customer-facing note and continue dependency triage."
+    },
+    {
+      "from": "StatusChoice",
+      "to": "RollbackPrep",
+      "text": "2. Send an internal-only heads-up and continue rollback preparation."
+    },
+    {
+      "from": "StatusChoice",
+      "to": "StabilizationReview",
+      "text": "3. Metrics are already improving, so defer the update and re-check stability."
+    },
+    {
+      "from": "DependencyCheck",
+      "to": "DependencyChoice",
+      "text": ""
+    },
+    {
+      "from": "DependencyChoice",
+      "to": "VendorBridge",
+      "text": "1. [Vendor Escalation] A third-party API latency spike dominates the traces."
+    },
+    {
+      "from": "DependencyChoice",
+      "to": "CacheMitigation",
+      "text": "2. [Cache Flush] Stale configuration or cache data is serving bad responses."
+    },
+    {
+      "from": "DependencyChoice",
+      "to": "EdgeBalancerCheck",
+      "text": "3. Edge traffic shifted unevenly after the deploy."
+    },
+    {
+      "from": "DependencyChoice",
+      "to": "RollbackPrep",
+      "text": "4. No external signal stands out, return to the rollback path."
+    },
+    {
+      "from": "VendorBridge",
+      "to": "VendorChoice",
+      "text": ""
+    },
+    {
+      "from": "VendorChoice",
+      "to": "DegradedMode",
+      "text": "1. Enable degraded mode while the vendor works the incident."
+    },
+    {
+      "from": "VendorChoice",
+      "to": "DependencyCheck",
+      "text": "2. Wait five minutes and then repeat dependency checks."
+    },
+    {
+      "from": "DegradedMode",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "CacheMitigation",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "EdgeBalancerCheck",
+      "to": "EdgeChoice",
+      "text": ""
+    },
+    {
+      "from": "EdgeChoice",
+      "to": "ZoneDrain",
+      "text": "1. Drain the unhealthy zone and keep the remaining regions serving traffic."
+    },
+    {
+      "from": "EdgeChoice",
+      "to": "RoutingRevert",
+      "text": "2. Revert the canary routing weights to the previous distribution."
+    },
+    {
+      "from": "EdgeChoice",
+      "to": "PlatformEscalation",
+      "text": "3. Escalate the imbalance to the platform war room."
+    },
+    {
+      "from": "ZoneDrain",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "RoutingRevert",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "PlatformEscalation",
+      "to": "ManualMitigationHandoff",
+      "text": ""
+    },
+    {
+      "from": "SevTwoAssess",
+      "to": "ServiceCheckChoice",
+      "text": ""
+    },
+    {
+      "from": "ServiceCheckChoice",
+      "to": "ServiceOwnerCheck",
+      "text": "1. [Logs] Errors cluster around one service or endpoint."
+    },
+    {
+      "from": "ServiceCheckChoice",
+      "to": "CapacityPlan",
+      "text": "2. [Capacity] CPU, memory, or queue depth spiked after rollout."
+    },
+    {
+      "from": "ServiceCheckChoice",
+      "to": "SlowBurnDecision",
+      "text": "3. The issue is quiet for customers but persistent in alerts."
+    },
+    {
+      "from": "ServiceOwnerCheck",
+      "to": "ServiceOwnerChoice",
+      "text": ""
+    },
+    {
+      "from": "ServiceOwnerChoice",
+      "to": "RestartPods",
+      "text": "1. Restart only the newest pods and keep the rest of the deployment."
+    },
+    {
+      "from": "ServiceOwnerChoice",
+      "to": "FlagDisable",
+      "text": "2. Disable the new endpoint behind a feature flag."
+    },
+    {
+      "from": "ServiceOwnerChoice",
+      "to": "SevOneBridge",
+      "text": "3. Escalate this to the SEV-1 bridge now."
+    },
+    {
+      "from": "RestartPods",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "CapacityPlan",
+      "to": "CapacityChoice",
+      "text": ""
+    },
+    {
+      "from": "CapacityChoice",
+      "to": "ScaleOut",
+      "text": "1. Scale out the workers and web pods."
+    },
+    {
+      "from": "CapacityChoice",
+      "to": "QueueDrain",
+      "text": "2. [Queue Drain] Pause noncritical jobs and drain the backlog first."
+    },
+    {
+      "from": "CapacityChoice",
+      "to": "DependencyCheck",
+      "text": "3. Capacity looks secondary, so inspect dependencies instead."
+    },
+    {
+      "from": "ScaleOut",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "QueueDrain",
+      "to": "StabilizationReview",
+      "text": ""
+    },
+    {
+      "from": "SlowBurnDecision",
+      "to": "SlowBurnChoice",
+      "text": ""
+    },
+    {
+      "from": "SlowBurnChoice",
+      "to": "WatchWindow",
+      "text": "1. Draft an internal advisory and keep watching the metrics."
+    },
+    {
+      "from": "SlowBurnChoice",
+      "to": "SevOneBridge",
+      "text": "2. Escalate to SEV-1 because the burn rate is accelerating."
+    },
+    {
+      "from": "SlowBurnChoice",
+      "to": "MonitorNoiseReview",
+      "text": "3. Verify whether this is only monitor noise."
+    },
+    {
+      "from": "WatchWindow",
+      "to": "WatchChoice",
+      "text": ""
+    },
+    {
+      "from": "WatchChoice",
+      "to": "FalseAlarmClosed",
+      "text": "1. Metrics recover during the watch window without another action."
+    },
+    {
+      "from": "WatchChoice",
+      "to": "SevOneBridge",
+      "text": "2. Metrics worsen and customer errors start climbing fast."
+    },
+    {
+      "from": "WatchChoice",
+      "to": "ServiceOwnerCheck",
+      "text": "3. One service keeps failing, so continue service-level checks."
+    },
+    {
+      "from": "MonitorNoiseReview",
+      "to": "NoiseChoice",
+      "text": ""
+    },
+    {
+      "from": "NoiseChoice",
+      "to": "FalseAlarmClosed",
+      "text": "1. The alert only fired from a synthetic probe or silenced canary."
+    },
+    {
+      "from": "NoiseChoice",
+      "to": "QueryFix",
+      "text": "2. The alert query is wrong after a label or dashboard change."
+    },
+    {
+      "from": "NoiseChoice",
+      "to": "SevTwoAssess",
+      "text": "3. We still see uncertain impact, so return to SEV-2 assessment."
+    },
+    {
+      "from": "QueryFix",
+      "to": "FalseAlarmClosed",
+      "text": ""
+    },
+    {
+      "from": "StabilizationReview",
+      "to": "StabilizationChoice",
+      "text": ""
+    },
+    {
+      "from": "StabilizationChoice",
+      "to": "RecoverySummary",
+      "text": "1. Metrics are back to baseline and the user journey is healthy."
+    },
+    {
+      "from": "StabilizationChoice",
+      "to": "BridgeRecheck",
+      "text": "2. Error rate improved but is not stable enough yet."
+    },
+    {
+      "from": "StabilizationChoice",
+      "to": "SevOneBridge",
+      "text": "3. A second region or service is now impacted."
+    },
+    {
+      "from": "BridgeRecheck",
+      "to": "BridgeChoice",
+      "text": ""
+    },
+    {
+      "from": "BridgeChoice",
+      "to": "ServiceCheckChoice",
+      "text": "1. Re-run the service-level checks."
+    },
+    {
+      "from": "BridgeChoice",
+      "to": "DependencyCheck",
+      "text": "2. Re-run the dependency checks."
+    },
+    {
+      "from": "BridgeChoice",
+      "to": "ManualMitigationHandoff",
+      "text": "3. Prepare a manual handoff to the overnight or platform team."
+    },
+    {
+      "from": "RecoverySummary",
+      "to": "RecoveryChoice",
+      "text": ""
+    },
+    {
+      "from": "RecoveryChoice",
+      "to": "RollbackComplete",
+      "text": "1. Close this as a rollback recovery."
+    },
+    {
+      "from": "RecoveryChoice",
+      "to": "CapacityRecovered",
+      "text": "2. Close this as a capacity recovery."
+    },
+    {
+      "from": "RecoveryChoice",
+      "to": "DependencyMitigated",
+      "text": "3. Close this as a dependency mitigation."
+    },
+    {
+      "from": "RecoveryChoice",
+      "to": "FeatureFlagRecovered",
+      "text": "4. Close this as a feature-flag mitigation."
+    },
+    {
+      "from": "FalseAlarmClosed",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "RollbackComplete",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "CapacityRecovered",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "DependencyMitigated",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "FeatureFlagRecovered",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "ManualMitigationHandoff",
+      "to": "End",
+      "text": ""
+    }
+  ]
+}

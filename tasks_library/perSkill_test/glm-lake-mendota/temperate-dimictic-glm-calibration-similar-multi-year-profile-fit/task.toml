@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "temperate-dimictic-glm-calibration-similar-multi-year-profile-fit"
+name = "Similar: 温带双循环深湖多年度剖面温度校准"
+description = "为一座温带双循环深湖校准 GLM 物理参数，使 2010-2015 年温度剖面模拟与观测匹配并输出 /root/output/dimictic_profile.nc。"
+author_name = "Levi"
+author_email = "levi@harbor.local"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["hydrology", "lake-modeling", "parameter-calibration", "temperature-profile", "glm"]
+primary_output_file = "/root/output/dimictic_profile.nc"
+source_task_id = "glm-lake-mendota"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

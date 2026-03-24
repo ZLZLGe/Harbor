@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "icu-lab-unit-harmonization-transfer-blood-gas-stream"
+name = "Transfer | ICU 血气流数据统一"
+description = "清洗 ICU 连续血气流数据并统一关键化验单位，输出可直接用于急性酸碱状态分析的标准化 CSV。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "healthcare"
+tags = ["healthcare", "icu", "blood-gas", "lab-unit-conversion", "transfer-task"]
+primary_output_file = "/root/icu_blood_gas_harmonized.csv"
+source_task_id = "lab-unit-harmonization"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

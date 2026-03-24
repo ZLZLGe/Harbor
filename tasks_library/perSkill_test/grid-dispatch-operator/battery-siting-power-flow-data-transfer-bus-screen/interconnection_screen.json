@@ -1,0 +1,101 @@
+{
+  "project_name": "Harbor Point 250 MW Battery",
+  "candidate_count": 8,
+  "ranking_rule": {
+    "primary": "voltage_class_rank_desc",
+    "secondary": "connected_branch_transfer_MW_desc",
+    "tertiary": "nearby_load_sink_MW_desc",
+    "quaternary": "local_generation_headroom_MW_desc",
+    "tie_breaker": "bus_asc"
+  },
+  "ranked_buses": [
+    {
+      "bus": 2633,
+      "voltage_kV": 380.0,
+      "voltage_class": "EHV",
+      "voltage_class_rank": 3,
+      "connected_in_service_branches": 10,
+      "connected_branch_transfer_MW": 283487.0,
+      "nearby_load_sink_MW": 42.74,
+      "local_generation_headroom_MW": 603.66,
+      "rank": 1
+    },
+    {
+      "bus": 755,
+      "voltage_kV": 380.0,
+      "voltage_class": "EHV",
+      "voltage_class_rank": 3,
+      "connected_in_service_branches": 6,
+      "connected_branch_transfer_MW": 170085.0,
+      "nearby_load_sink_MW": 198.51,
+      "local_generation_headroom_MW": 860.0,
+      "rank": 2
+    },
+    {
+      "bus": 1574,
+      "voltage_kV": 220.0,
+      "voltage_class": "HV",
+      "voltage_class_rank": 2,
+      "connected_in_service_branches": 12,
+      "connected_branch_transfer_MW": 340667.0,
+      "nearby_load_sink_MW": 531.43,
+      "local_generation_headroom_MW": 294.24,
+      "rank": 3
+    },
+    {
+      "bus": 1901,
+      "voltage_kV": 220.0,
+      "voltage_class": "HV",
+      "voltage_class_rank": 2,
+      "connected_in_service_branches": 2,
+      "connected_branch_transfer_MW": 312856.0,
+      "nearby_load_sink_MW": 229.65,
+      "local_generation_headroom_MW": 106.0,
+      "rank": 4
+    },
+    {
+      "bus": 59,
+      "voltage_kV": 220.0,
+      "voltage_class": "HV",
+      "voltage_class_rank": 2,
+      "connected_in_service_branches": 7,
+      "connected_branch_transfer_MW": 217299.0,
+      "nearby_load_sink_MW": 522.2,
+      "local_generation_headroom_MW": 0.0,
+      "rank": 5
+    },
+    {
+      "bus": 842,
+      "voltage_kV": 220.0,
+      "voltage_class": "HV",
+      "voltage_class_rank": 2,
+      "connected_in_service_branches": 6,
+      "connected_branch_transfer_MW": 216711.0,
+      "nearby_load_sink_MW": 492.21,
+      "local_generation_headroom_MW": 292.33,
+      "rank": 6
+    },
+    {
+      "bus": 1101,
+      "voltage_kV": 150.0,
+      "voltage_class": "Subtransmission",
+      "voltage_class_rank": 1,
+      "connected_in_service_branches": 12,
+      "connected_branch_transfer_MW": 720604.0,
+      "nearby_load_sink_MW": 1129.65,
+      "local_generation_headroom_MW": 596.0,
+      "rank": 7
+    },
+    {
+      "bus": 1095,
+      "voltage_kV": 150.0,
+      "voltage_class": "Subtransmission",
+      "voltage_class_rank": 1,
+      "connected_in_service_branches": 15,
+      "connected_branch_transfer_MW": 241479.0,
+      "nearby_load_sink_MW": 775.98,
+      "local_generation_headroom_MW": 779.0,
+      "rank": 8
+    }
+  ]
+}

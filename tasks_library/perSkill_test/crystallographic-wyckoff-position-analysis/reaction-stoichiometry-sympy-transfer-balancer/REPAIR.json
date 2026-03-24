@@ -1,0 +1,55 @@
+{
+  "sourceTaskId": "crystallographic-wyckoff-position-analysis",
+  "targetSkillDirName": "sympy",
+  "runId": "20260315220644-crystallographic-wyckoff-position-analysis-sympy-nbpap2",
+  "taskId": "reaction-stoichiometry-sympy-transfer-balancer",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/crystallographic-wyckoff-position-analysis/sympy/20260315220644-crystallographic-wyckoff-position-analysis-sympy-nbpap2/reaction-stoichiometry-sympy-transfer-balancer",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315220644-crystallographic-wyckoff-position-analysis-sympy-nbpap2/crystallographic-wyckoff-position-analysis/drafts/reaction-stoichiometry-sympy-transfer-balancer",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/crystallographic-wyckoff-position-analysis/reaction-stoichiometry-sympy-transfer-balancer",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/crystallographic-wyckoff-position-analysis/reaction-stoichiometry-sympy-transfer-balancer",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [
+    "`balanced_equation` 的精确格式在 instruction.md 中没有充分规范，但测试要求严格字符串全等；尤其对系数 1 是否省略、空格样式都有隐含要求，存在可判定性缺口。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "reaction-stoichiometry-sympy-transfer-balancer"
+      ],
+      "requestedIssuesByTaskId": {
+        "reaction-stoichiometry-sympy-transfer-balancer": {
+          "reviewerIssues": [
+            "`balanced_equation` 的精确格式在 instruction.md 中没有充分规范，但测试要求严格字符串全等；尤其对系数 1 是否省略、空格样式都有隐含要求，存在可判定性缺口。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d113d-3178-7e32-8364-5ba4ba08e8b4",
+      "repairSummary": "- `reaction-stoichiometry-sympy-transfer-balancer`：修改了 [instruction.md](/tmp/per_skill_static_combo_repair_workspaces/20260315220644-crystallographic-wyckoff-position-analysis-sympy-nbpap2-121e3d67/crystallographic-wyckoff-position-analysis/drafts/reaction-stoichiometry-sympy-transfer-balancer/instruction.md)，把 `balanced_equation` 的精确格式补充为显式规则：保留原物种顺序、系数为 `1` 时省略、其余写成 `\"<coefficient> <formula>\"`、两侧分别用 `\" + \"` 连接、整体用 `\" -> \"` 连接、且不允许额外空格。这样测试中的严格字符串比较可以直接由任务说明推出。\n\n未改动 `source_task/`、`artifacts/` 或其他 sibling drafts；未运行功能测试，因为这次只修正文档判定约束。",
+      "reviewThreadId": "019d1141-bd79-7751-88c8-a2f9fc03459f",
+      "evaluationByTaskId": {
+        "reaction-stoichiometry-sympy-transfer-balancer": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

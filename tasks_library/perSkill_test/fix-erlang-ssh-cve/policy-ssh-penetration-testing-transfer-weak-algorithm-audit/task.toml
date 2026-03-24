@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "policy-ssh-penetration-testing-transfer-weak-algorithm-audit"
+name = "Transfer | 修复 SSH 弱算法审计与配置生成"
+description = "修复设备 SSH 策略渲染器对弱 KEX、cipher 和 MAC 的错误合规判定，并生成禁用这些算法的 sshd_config。"
+author_name = "Yuanli Wang"
+author_email = "yuanliw@bu.edu"
+difficulty = "hard"
+category = "ssh hardening"
+tags = ["python", "ssh", "hardening", "policy", "audit"]
+primary_output_file = "/app/workspace/policy/renderers/sshd_policy.py"
+source_task_id = "fix-erlang-ssh-cve"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

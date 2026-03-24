@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "metabolite-panel-xlsx-similar-treatment-shifts",
+  "taskRole": "similar",
+  "title": "Similar: Metabolite Treatment Shift Scorecard",
+  "goal": "在现有代谢组学工作簿中，用公式从原始数据表抓取指定代谢物在目标样本中的丰度，按 Responder 与 Nonresponder 分组计算均值和标准差，生成 log2 差值、倍数变化，并整理出变化最显著的代谢物排名。",
+  "primaryOutputFile": "metabolite_treatment_shift_scorecard.xlsx",
+  "difficulty": "middle",
+  "category": "data-analysis",
+  "skillBenefitRationale": "核心在于跨表双向查找、分组统计公式、排名汇总，以及在不破坏既有模板格式的前提下编辑工作簿；这正是 xlsx 的典型 shipped skill 用法。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

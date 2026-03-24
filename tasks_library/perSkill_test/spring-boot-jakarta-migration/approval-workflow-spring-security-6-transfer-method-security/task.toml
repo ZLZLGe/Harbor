@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "approval-workflow-spring-security-6-transfer-method-security"
+name = "Transfer: 审批工作流方法级鉴权迁移"
+description = "Repair the approval workflow security migration by rewriting MethodSecurityConfig.java so method-level SpEL authorization and HTTP Basic access rules still work on Spring Boot 3."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "hard"
+category = "Workflow Systems"
+tags = ["spring-boot", "spring-security", "method-security", "workflow", "migration"]
+primary_output_file = "environment/workspace/src/main/java/com/example/approval/security/MethodSecurityConfig.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

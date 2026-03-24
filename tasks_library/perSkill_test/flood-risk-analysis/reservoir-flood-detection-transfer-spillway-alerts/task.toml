@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reservoir-flood-detection-transfer-spillway-alerts"
+name = "Transfer - Reservoir Spillway Alert Board"
+description = "Process hourly reservoir level records against staged thresholds and write a JSON alert board for reservoirs that crossed flood stage."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["reservoir-operations", "flood-monitoring", "json", "time-series", "threshold-analysis"]
+primary_output_file = "/root/output/spillway_alerts.json"
+source_task_id = "flood-risk-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

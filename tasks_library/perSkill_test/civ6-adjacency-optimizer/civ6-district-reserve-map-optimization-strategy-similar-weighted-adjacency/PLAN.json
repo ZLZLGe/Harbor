@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "civ6-district-reserve-map-optimization-strategy-similar-weighted-adjacency",
+  "taskRole": "similar",
+  "title": "Civ6 District Reserve Planner (Similar)",
+  "goal": "在给定的 Civ6 六边形地图上，城市中心已固定且必须放下指定的一组区域与基础设施；你需要在保留地块、人口上限和区域合法性约束下，找到总加权邻接收益最高的布局，并输出逐区域得分与总分。",
+  "primaryOutputFile": "/output/civ6_weighted_reserve_plan.json",
+  "difficulty": "hard",
+  "category": "games",
+  "skillBenefitRationale": "核心工作就是先剪掉无效或被保留的候选格，再识别高价值邻接热点，并围绕这些锚点做组合搜索；除 map-optimization-strategy 外不依赖其他 shipped skill。",
+  "targetSkillDirName": "map-optimization-strategy",
+  "targetSkillName": "map-optimization-strategy"
+}

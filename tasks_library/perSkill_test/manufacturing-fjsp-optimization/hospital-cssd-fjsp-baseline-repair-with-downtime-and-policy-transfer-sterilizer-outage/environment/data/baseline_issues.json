@@ -1,0 +1,7 @@
+{
+  "batch_id": "cssd-day-sterilizer-outage",
+  "baseline": {
+    "outage_conflicts": 6,
+    "unit_overlaps": 3
+  }
+}

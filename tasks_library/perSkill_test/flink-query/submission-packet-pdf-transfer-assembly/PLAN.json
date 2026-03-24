@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "submission-packet-pdf-transfer-assembly",
+  "taskRole": "transfer",
+  "title": "Transfer: 合规提交包 PDF 组装",
+  "goal": "从多份 PDF 中抽取指定页、修正页面方向、补充封面并合并成单一合规提交包。",
+  "primaryOutputFile": "artifacts/regulatory_submission_packet.pdf",
+  "difficulty": "medium",
+  "category": "compliance",
+  "skillBenefitRationale": "核心能力是 PDF 的拆分、旋转、生成和合并，完整交付物本身就是 PDF 处理结果，因此 pdf skill 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

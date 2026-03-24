@@ -1,0 +1,7 @@
+Queue_Position	Asset_ID	Business_Service	Environment	Vulnerability_ID	Package	Installed_Version	Selected_CVSS	Score_Source	Exposure_Points	Priority_Score	Remediation_Band	Patch_Window	Fixed_Version	Reference_URL
+1	edge-gw-01	Partner API Gateway	production	CVE-2026-41001	gatewayd	4.2.1	8.4	NVD	10	84.0	P1	Sun 01:00-03:00 UTC	4.2.4	https://nvd.nist.gov/vuln/detail/CVE-2026-41001
+2	edge-gw-01	Partner API Gateway	production	CVE-2026-41015	metrics-agent	3.1.8	7.5	GHSA	10	75.0	P1	Sun 01:00-03:00 UTC	3.2.0	https://access.redhat.com/security/cve/CVE-2026-41015
+3	erp-batch-02	Finance Batch Processor	production	GHSA-qq44-v6v8-9h6m	ledger-sync	2.7.0	8.6	GHSA	7	60.2	P1	Sat 18:00-20:00 UTC	2.7.3	https://github.com/advisories/GHSA-qq44-v6v8-9h6m
+4	store-kiosk-17	Retail Kiosk Fleet	store-edge	CVE-2026-41007	receipt-renderer	1.9.4	7.2	RedHat	7	50.4	P2	Mon 02:00-04:00 UTC	N/A	https://access.redhat.com/security/cve/CVE-2026-41007
+5	hr-portal-03	HR Self-Service Portal	production	CVE-2026-41011	session-kit	5.4.0	6.9	NVD	7	48.3	P2	Wed 00:00-02:00 UTC	5.4.2	https://nvd.nist.gov/vuln/detail/CVE-2026-41011
+6	lab-report-01	Lab Reporting	staging	GHSA-z8rj-fhhm-x5cp	report-export	0.18.2	N/A	N/A	3	0.0	P3	Fri 03:00-05:00 UTC	0.18.5	https://github.com/advisories/GHSA-z8rj-fhhm-x5cp

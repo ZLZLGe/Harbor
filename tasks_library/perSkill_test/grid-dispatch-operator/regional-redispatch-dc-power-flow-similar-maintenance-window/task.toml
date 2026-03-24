@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "regional-redispatch-dc-power-flow-similar-maintenance-window"
+name = "Similar | 区域检修窗口拥塞重调度"
+description = "基于检修降额后的区域输电网快照，求解满足节点平衡与线路限额的最小成本机组重调度并输出机组出力、母线相角、总成本与最拥塞通道。"
+author_name = "Wenbo Chen"
+author_email = "wenbochen111@gmail.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "redispatch", "dc-power-flow", "transmission-congestion"]
+primary_output_file = "redispatch_report.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240

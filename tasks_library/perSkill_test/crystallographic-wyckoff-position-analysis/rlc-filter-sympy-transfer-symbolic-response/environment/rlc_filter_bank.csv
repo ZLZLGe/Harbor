@@ -1,0 +1,5 @@
+filter_id,output_probe,R_ohm,L_henry,C_farad
+sensor_smoother,capacitor,1,2,1/2
+resonant_pickoff,resistor,2,1,1
+edge_shaper,inductor,5,1,1/4
+fractional_tuner,resistor,3/2,3,2/3

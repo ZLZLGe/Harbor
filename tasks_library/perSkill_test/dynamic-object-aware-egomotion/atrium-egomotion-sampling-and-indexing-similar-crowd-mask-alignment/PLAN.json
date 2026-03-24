@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "atrium-egomotion-sampling-and-indexing-similar-crowd-mask-alignment",
+  "taskRole": "similar",
+  "title": "Similar: 中庭手持镜头运动与人群掩码对齐",
+  "goal": "给定一段29.97fps的手持中庭视频，按7fps抽样并只在采样帧索引空间内输出两份结果：`/root/pred_camera_intervals.json` 记录相机运动区间标签，`/root/pred_crowd_masks.npz` 记录每个采样帧的人群动态掩码；两份结果必须覆盖同一批采样帧且区间键严格使用 `start->end`。",
+  "primaryOutputFile": "/root/pred_camera_intervals.json",
+  "difficulty": "medium",
+  "category": "video-analysis",
+  "skillBenefitRationale": "场景语义可用简单视觉规则得到，真正决定正确性的关键是把非整除fps采样、区间边界和逐帧掩码数量严格对齐，因此 `sampling-and-indexing` 是唯一关键 shipped skill。",
+  "targetSkillDirName": "sampling-and-indexing",
+  "targetSkillName": "sampling-and-indexing"
+}

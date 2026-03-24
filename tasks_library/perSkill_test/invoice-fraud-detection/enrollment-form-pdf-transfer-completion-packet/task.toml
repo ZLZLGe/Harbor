@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "enrollment-form-pdf-transfer-completion-packet"
+name = "Transfer: Enrollment Form Completion Packet"
+description = "Complete the enrollment registration packet PDF from the applicant JSON and write the finished packet to /root/completed_enrollment_packet.pdf."
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "hard"
+category = "document-automation"
+tags = ["pdf", "forms", "document-completion", "education", "annotations"]
+primary_output_file = "/root/completed_enrollment_packet.pdf"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

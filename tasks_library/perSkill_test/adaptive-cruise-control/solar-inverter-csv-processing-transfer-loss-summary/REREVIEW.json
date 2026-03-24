@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "adaptive-cruise-control",
+  "targetSkillDirName": "csv-processing",
+  "runId": "20260315170728-adaptive-cruise-control-csv-processing-a64kun",
+  "taskId": "solar-inverter-csv-processing-transfer-loss-summary",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/adaptive-cruise-control/csv-processing/20260315170728-adaptive-cruise-control-csv-processing-a64kun/solar-inverter-csv-processing-transfer-loss-summary",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/adaptive-cruise-control/solar-inverter-csv-processing-transfer-loss-summary",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:solar-inverter-csv-processing-transfer-loss-summary 任务根目录预置了 inverter_loss_summary.csv，tests/test_outputs.py 会接受该预置文件，导致不生成结果也可能通过测试。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0f99-60fc-7073-9f71-d0bad0c53171"
+}

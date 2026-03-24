@@ -1,0 +1,176 @@
+{
+  "scenario_id": "frontier_blueprint_board",
+  "description": "Audit a planning board of competing inland expansion blueprints and rank only the legal proposals.",
+  "output_file": "/output/blueprint_audit.json",
+  "notes": [
+    "Every blueprint proposes exactly two cities, one per city role.",
+    "Blueprint district lists are arrays, so duplicates can appear and must be audited.",
+    "Use the listed tiles as the full world state when validating placement and adjacency."
+  ],
+  "city_roles": [
+    {
+      "city_id": "ridge_academy",
+      "population": 7,
+      "required_districts": ["CAMPUS", "HOLY_SITE", "COMMERCIAL_HUB"]
+    },
+    {
+      "city_id": "floodplain_foundry",
+      "population": 7,
+      "required_districts": ["AQUEDUCT", "DAM", "INDUSTRIAL_ZONE"]
+    }
+  ],
+  "candidate_blueprints": [
+    {
+      "blueprint_id": "ledger_peak",
+      "claimed_total_adjacency": 13,
+      "cities": [
+        {
+          "city_id": "ridge_academy",
+          "center": [2, 2],
+          "districts": [
+            {"district": "CAMPUS", "tile": [3, 2]},
+            {"district": "HOLY_SITE", "tile": [1, 3]},
+            {"district": "COMMERCIAL_HUB", "tile": [2, 3]}
+          ]
+        },
+        {
+          "city_id": "floodplain_foundry",
+          "center": [8, 4],
+          "districts": [
+            {"district": "AQUEDUCT", "tile": [7, 4]},
+            {"district": "DAM", "tile": [8, 5]},
+            {"district": "INDUSTRIAL_ZONE", "tile": [7, 5]}
+          ]
+        }
+      ]
+    },
+    {
+      "blueprint_id": "canal_detour",
+      "claimed_total_adjacency": 7,
+      "cities": [
+        {
+          "city_id": "ridge_academy",
+          "center": [2, 2],
+          "districts": [
+            {"district": "CAMPUS", "tile": [3, 2]},
+            {"district": "HOLY_SITE", "tile": [1, 2]},
+            {"district": "COMMERCIAL_HUB", "tile": [3, 3]}
+          ]
+        },
+        {
+          "city_id": "floodplain_foundry",
+          "center": [8, 4],
+          "districts": [
+            {"district": "AQUEDUCT", "tile": [9, 4]},
+            {"district": "DAM", "tile": [8, 5]},
+            {"district": "INDUSTRIAL_ZONE", "tile": [9, 5]}
+          ]
+        }
+      ]
+    },
+    {
+      "blueprint_id": "ridge_market",
+      "claimed_total_adjacency": 6,
+      "cities": [
+        {
+          "city_id": "ridge_academy",
+          "center": [3, 3],
+          "districts": [
+            {"district": "CAMPUS", "tile": [4, 3]},
+            {"district": "HOLY_SITE", "tile": [2, 4]},
+            {"district": "COMMERCIAL_HUB", "tile": [3, 4]}
+          ]
+        },
+        {
+          "city_id": "floodplain_foundry",
+          "center": [8, 4],
+          "districts": [
+            {"district": "AQUEDUCT", "tile": [7, 4]},
+            {"district": "DAM", "tile": [8, 5]},
+            {"district": "INDUSTRIAL_ZONE", "tile": [9, 4]}
+          ]
+        }
+      ]
+    },
+    {
+      "blueprint_id": "crowded_claim",
+      "claimed_total_adjacency": 10,
+      "cities": [
+        {
+          "city_id": "ridge_academy",
+          "center": [2, 2],
+          "districts": [
+            {"district": "CAMPUS", "tile": [3, 2]},
+            {"district": "HOLY_SITE", "tile": [1, 3]},
+            {"district": "COMMERCIAL_HUB", "tile": [2, 3]}
+          ]
+        },
+        {
+          "city_id": "floodplain_foundry",
+          "center": [4, 3],
+          "districts": [
+            {"district": "AQUEDUCT", "tile": [5, 3]},
+            {"district": "DAM", "tile": [8, 5]},
+            {"district": "INDUSTRIAL_ZONE", "tile": [7, 5]}
+          ]
+        }
+      ]
+    },
+    {
+      "blueprint_id": "double_market_claim",
+      "claimed_total_adjacency": 12,
+      "cities": [
+        {
+          "city_id": "ridge_academy",
+          "center": [2, 2],
+          "districts": [
+            {"district": "CAMPUS", "tile": [3, 2]},
+            {"district": "COMMERCIAL_HUB", "tile": [2, 3]},
+            {"district": "COMMERCIAL_HUB", "tile": [3, 3]}
+          ]
+        },
+        {
+          "city_id": "floodplain_foundry",
+          "center": [8, 4],
+          "districts": [
+            {"district": "AQUEDUCT", "tile": [7, 4]},
+            {"district": "DAM", "tile": [8, 5]},
+            {"district": "INDUSTRIAL_ZONE", "tile": [7, 5]}
+          ]
+        }
+      ]
+    }
+  ],
+  "tiles": [
+    {"x": 2, "y": 2, "terrain": "GRASS"},
+    {"x": 3, "y": 2, "terrain": "PLAINS"},
+    {"x": 2, "y": 1, "terrain": "MOUNTAIN"},
+    {"x": 1, "y": 1, "terrain": "MOUNTAIN"},
+    {"x": 1, "y": 2, "terrain": "PLAINS", "feature": "FEATURE_FOREST"},
+    {"x": 1, "y": 3, "terrain": "PLAINS", "feature": "FEATURE_FOREST"},
+    {"x": 2, "y": 3, "terrain": "PLAINS", "river_edges": [0, 3]},
+    {"x": 3, "y": 1, "terrain": "PLAINS", "feature": "FEATURE_FOREST"},
+    {"x": 3, "y": 3, "terrain": "PLAINS"},
+    {"x": 4, "y": 2, "terrain": "PLAINS"},
+    {"x": 4, "y": 3, "terrain": "PLAINS"},
+    {"x": 4, "y": 1, "terrain": "PLAINS"},
+    {"x": 2, "y": 4, "terrain": "PLAINS", "feature": "FEATURE_FOREST"},
+    {"x": 3, "y": 4, "terrain": "PLAINS", "river_edges": [0, 3]},
+    {"x": 4, "y": 4, "terrain": "PLAINS"},
+    {"x": 5, "y": 3, "terrain": "PLAINS"},
+    {"x": 6, "y": 3, "terrain": "PLAINS"},
+    {"x": 6, "y": 4, "terrain": "PLAINS"},
+    {"x": 7, "y": 4, "terrain": "PLAINS"},
+    {"x": 8, "y": 4, "terrain": "GRASS", "river_edges": [0, 3]},
+    {"x": 7, "y": 3, "terrain": "MOUNTAIN"},
+    {"x": 7, "y": 5, "terrain": "PLAINS", "improvement": "QUARRY"},
+    {"x": 8, "y": 5, "terrain": "PLAINS", "is_floodplains": true, "river_edges": [0, 2]},
+    {"x": 9, "y": 4, "terrain": "PLAINS"},
+    {"x": 9, "y": 5, "terrain": "PLAINS", "improvement": "MINE"},
+    {"x": 8, "y": 3, "terrain": "PLAINS"},
+    {"x": 9, "y": 3, "terrain": "PLAINS"},
+    {"x": 7, "y": 6, "terrain": "PLAINS", "improvement": "MINE"},
+    {"x": 8, "y": 6, "terrain": "PLAINS"},
+    {"x": 6, "y": 5, "terrain": "PLAINS", "improvement": "MINE"}
+  ]
+}

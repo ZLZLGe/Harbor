@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "telemetry-csv-memory-optimization-transfer-window-stats",
+  "taskRole": "transfer",
+  "title": "Transfer: Low-RAM Telemetry Window Statistics",
+  "goal": "Optimize a sensor CSV pipeline to produce rolling window statistics and anomaly summaries for a very large file while matching the naive baseline outputs under a low-memory limit.",
+  "primaryOutputFile": "/root/workspace/telemetry_window_solution.py",
+  "difficulty": "medium",
+  "category": "Time Series",
+  "skillBenefitRationale": "Its core challenge is replacing whole-file loading with streaming windows and compact numeric buffers, making memory-efficient data handling the only critical shipped skill.",
+  "targetSkillDirName": "memory-optimization",
+  "targetSkillName": "memory-optimization"
+}

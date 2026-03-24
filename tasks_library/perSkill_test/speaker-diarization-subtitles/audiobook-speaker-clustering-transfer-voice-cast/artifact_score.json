@@ -1,0 +1,9 @@
+{
+  "book_id": "moonlit_ferry",
+  "output_exists": true,
+  "dialogue_segment_count": 9,
+  "summary_rows": 3,
+  "detail_rows": 9,
+  "pairwise_f1": 1.0,
+  "all_assignments_correct": true
+}

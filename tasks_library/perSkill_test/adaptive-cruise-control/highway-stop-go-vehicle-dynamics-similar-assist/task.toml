@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "highway-stop-go-vehicle-dynamics-similar-assist"
+name = "Similar - 高速停走辅助仿真"
+description = "Simulate a highway stop-go assist controller that switches among cruise, follow, and emergency modes and writes the full trace to stop_go_trace.csv."
+author_name = "Jiachen Li"
+author_email = "jiachenli@utexas.edu"
+difficulty = "medium"
+category = "control-systems"
+tags = ["python", "vehicle-dynamics", "simulation", "automotive", "state-machine"]
+primary_output_file = "stop_go_trace.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

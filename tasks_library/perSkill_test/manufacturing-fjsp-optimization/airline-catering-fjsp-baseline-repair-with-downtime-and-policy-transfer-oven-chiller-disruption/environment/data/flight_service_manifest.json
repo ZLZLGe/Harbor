@@ -1,0 +1,302 @@
+{
+  "equipment": [
+    {
+      "equipment_id": "prep-a",
+      "equipment_name": "Prep Bench A",
+      "group": "prep"
+    },
+    {
+      "equipment_id": "prep-b",
+      "equipment_name": "Prep Bench B",
+      "group": "prep"
+    },
+    {
+      "equipment_id": "oven-a",
+      "equipment_name": "Convection Oven A",
+      "group": "cook"
+    },
+    {
+      "equipment_id": "oven-b",
+      "equipment_name": "Convection Oven B",
+      "group": "cook"
+    },
+    {
+      "equipment_id": "chill-a",
+      "equipment_name": "Blast Chiller A",
+      "group": "chill"
+    },
+    {
+      "equipment_id": "chill-b",
+      "equipment_name": "Blast Chiller B",
+      "group": "chill"
+    },
+    {
+      "equipment_id": "asm-a",
+      "equipment_name": "Tray Assembly Lane A",
+      "group": "assemble"
+    },
+    {
+      "equipment_id": "asm-b",
+      "equipment_name": "Tray Assembly Lane B",
+      "group": "assemble"
+    }
+  ],
+  "flights": [
+    {
+      "flight_id": "HX215",
+      "route": "PVG-HKG",
+      "departure_minute": 180,
+      "ready_buffer": 30,
+      "stages": [
+        {
+          "stage": "prep",
+          "group": "prep",
+          "options": [
+            {
+              "equipment_id": "prep-a",
+              "duration": 16
+            },
+            {
+              "equipment_id": "prep-b",
+              "duration": 18
+            }
+          ]
+        },
+        {
+          "stage": "cook",
+          "group": "cook",
+          "options": [
+            {
+              "equipment_id": "oven-a",
+              "duration": 26
+            },
+            {
+              "equipment_id": "oven-b",
+              "duration": 22
+            }
+          ]
+        },
+        {
+          "stage": "chill",
+          "group": "chill",
+          "options": [
+            {
+              "equipment_id": "chill-a",
+              "duration": 18
+            },
+            {
+              "equipment_id": "chill-b",
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "stage": "assemble",
+          "group": "assemble",
+          "options": [
+            {
+              "equipment_id": "asm-a",
+              "duration": 14
+            },
+            {
+              "equipment_id": "asm-b",
+              "duration": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "flight_id": "HX342",
+      "route": "PVG-SIN",
+      "departure_minute": 210,
+      "ready_buffer": 35,
+      "stages": [
+        {
+          "stage": "prep",
+          "group": "prep",
+          "options": [
+            {
+              "equipment_id": "prep-a",
+              "duration": 15
+            },
+            {
+              "equipment_id": "prep-b",
+              "duration": 17
+            }
+          ]
+        },
+        {
+          "stage": "cook",
+          "group": "cook",
+          "options": [
+            {
+              "equipment_id": "oven-a",
+              "duration": 24
+            },
+            {
+              "equipment_id": "oven-b",
+              "duration": 20
+            }
+          ]
+        },
+        {
+          "stage": "chill",
+          "group": "chill",
+          "options": [
+            {
+              "equipment_id": "chill-a",
+              "duration": 16
+            },
+            {
+              "equipment_id": "chill-b",
+              "duration": 18
+            }
+          ]
+        },
+        {
+          "stage": "assemble",
+          "group": "assemble",
+          "options": [
+            {
+              "equipment_id": "asm-a",
+              "duration": 15
+            },
+            {
+              "equipment_id": "asm-b",
+              "duration": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "flight_id": "HX404",
+      "route": "PVG-BKK",
+      "departure_minute": 235,
+      "ready_buffer": 30,
+      "stages": [
+        {
+          "stage": "prep",
+          "group": "prep",
+          "options": [
+            {
+              "equipment_id": "prep-a",
+              "duration": 18
+            },
+            {
+              "equipment_id": "prep-b",
+              "duration": 14
+            }
+          ]
+        },
+        {
+          "stage": "cook",
+          "group": "cook",
+          "options": [
+            {
+              "equipment_id": "oven-a",
+              "duration": 28
+            },
+            {
+              "equipment_id": "oven-b",
+              "duration": 23
+            }
+          ]
+        },
+        {
+          "stage": "chill",
+          "group": "chill",
+          "options": [
+            {
+              "equipment_id": "chill-a",
+              "duration": 17
+            },
+            {
+              "equipment_id": "chill-b",
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "stage": "assemble",
+          "group": "assemble",
+          "options": [
+            {
+              "equipment_id": "asm-a",
+              "duration": 16
+            },
+            {
+              "equipment_id": "asm-b",
+              "duration": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "flight_id": "HX518",
+      "route": "PVG-KUL",
+      "departure_minute": 265,
+      "ready_buffer": 40,
+      "stages": [
+        {
+          "stage": "prep",
+          "group": "prep",
+          "options": [
+            {
+              "equipment_id": "prep-a",
+              "duration": 17
+            },
+            {
+              "equipment_id": "prep-b",
+              "duration": 16
+            }
+          ]
+        },
+        {
+          "stage": "cook",
+          "group": "cook",
+          "options": [
+            {
+              "equipment_id": "oven-a",
+              "duration": 25
+            },
+            {
+              "equipment_id": "oven-b",
+              "duration": 21
+            }
+          ]
+        },
+        {
+          "stage": "chill",
+          "group": "chill",
+          "options": [
+            {
+              "equipment_id": "chill-a",
+              "duration": 19
+            },
+            {
+              "equipment_id": "chill-b",
+              "duration": 17
+            }
+          ]
+        },
+        {
+          "stage": "assemble",
+          "group": "assemble",
+          "options": [
+            {
+              "equipment_id": "asm-a",
+              "duration": 15
+            },
+            {
+              "equipment_id": "asm-b",
+              "duration": 14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

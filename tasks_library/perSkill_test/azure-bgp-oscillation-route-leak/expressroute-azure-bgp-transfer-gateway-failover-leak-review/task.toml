@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "expressroute-azure-bgp-transfer-gateway-failover-leak-review"
+name = "Transfer - ExpressRoute Gateway Failover Leak Review"
+description = "Review the hybrid ExpressRoute-plus-VPN failover dataset, detect gateway preference instability and upstream route leaks, and write remediation assessments to /app/output/failover_leak_review.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "bgp-route"
+tags = ["azure", "expressroute", "vpn", "bgp", "route-leak", "failover"]
+primary_output_file = "/app/output/failover_leak_review.json"
+source_task_id = "azure-bgp-oscillation-route-leak"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

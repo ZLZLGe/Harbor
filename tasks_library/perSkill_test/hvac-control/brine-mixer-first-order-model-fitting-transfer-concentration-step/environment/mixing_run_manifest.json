@@ -1,0 +1,10 @@
+{
+  "trial_id": "brine-skid-2/qualification-step-03",
+  "samples_file": "outlet_concentration_trace.tsv",
+  "step_start_s": 24.0,
+  "pre_step_valve_percent_open": 18.0,
+  "post_step_valve_percent_open": 32.0,
+  "valve_step_percent_open": 14.0,
+  "recirculation_flow_lpm": 145.0,
+  "target_band_g_per_l": [12.6, 13.1]
+}

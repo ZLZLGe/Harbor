@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "harbor-hydrophone-obspy-data-api-transfer-deployment-inventory",
+  "taskRole": "transfer",
+  "title": "Transfer - 港湾水听器部署清册",
+  "goal": "给定港湾水听器的分段 MiniSEED 和设备部署 CSV，生成一份可直接被下游工具读取的 StationXML inventory，补全每个通道的起止时间、采样率和位置元数据。",
+  "primaryOutputFile": "/root/hydrophone_inventory.xml",
+  "difficulty": "hard",
+  "category": "ocean-acoustics",
+  "skillBenefitRationale": "这个任务把 skill 迁移到被动声学部署管理场景，真正关键的是把自定义部署表和波形头信息映射成 ObsPy 的 Inventory/Network/Station/Channel 层级，并序列化为标准 StationXML。",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

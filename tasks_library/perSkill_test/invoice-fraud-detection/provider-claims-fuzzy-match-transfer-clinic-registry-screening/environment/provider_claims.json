@@ -1,0 +1,92 @@
+[
+  {
+    "claim_id": "CLM-9001",
+    "member_id": "MBR-1001",
+    "submitted_clinic_name": "Harborview Family Med Ctr",
+    "billed_npi": "1770611001",
+    "service_state": "WA",
+    "settlement_account": "SETT-HARBOR-01",
+    "claim_amount": 420.75
+  },
+  {
+    "claim_id": "CLM-9002",
+    "member_id": "MBR-1002",
+    "submitted_clinic_name": "Sun State Cardiology Assoc.",
+    "billed_npi": "1882754499",
+    "service_state": "FL",
+    "settlement_account": "SETT-SUNSTATE-09",
+    "claim_amount": 1335.0
+  },
+  {
+    "claim_id": "CLM-9003",
+    "member_id": "MBR-1003",
+    "submitted_clinic_name": "Desert Bloom Womens Health",
+    "billed_npi": "1417023308",
+    "service_state": "NV",
+    "settlement_account": "SETT-DBLOOM-15",
+    "claim_amount": 289.1
+  },
+  {
+    "claim_id": "CLM-9004",
+    "member_id": "MBR-1004",
+    "submitted_clinic_name": "Blue Mesa Urgent Care LLC",
+    "billed_npi": "1669587420",
+    "service_state": "NM",
+    "settlement_account": "SETT-BMESA-00",
+    "claim_amount": 515.0
+  },
+  {
+    "claim_id": "CLM-9005",
+    "member_id": "MBR-1005",
+    "submitted_clinic_name": "North River Pediatric Ctr",
+    "billed_npi": "1548392204",
+    "service_state": "OR",
+    "settlement_account": "SETT-NRIVER-77",
+    "claim_amount": 199.99
+  },
+  {
+    "claim_id": "CLM-9006",
+    "member_id": "MBR-1006",
+    "submitted_clinic_name": "Redwood Physical Therapy Ctr",
+    "billed_npi": "1225176309",
+    "service_state": "CA",
+    "settlement_account": "SETT-REDWOOD-44",
+    "claim_amount": 321.45
+  },
+  {
+    "claim_id": "CLM-9007",
+    "member_id": "MBR-1007",
+    "submitted_clinic_name": "Midtown Sleep Diag",
+    "billed_npi": "1336847215",
+    "service_state": "NY",
+    "settlement_account": "SETT-MIDSLP-52",
+    "claim_amount": 888.0
+  },
+  {
+    "claim_id": "CLM-9008",
+    "member_id": "MBR-1008",
+    "submitted_clinic_name": "Lakeside Imaging Grp",
+    "billed_npi": "1992845500",
+    "service_state": "IL",
+    "settlement_account": "SETT-LAKEIMG-00",
+    "claim_amount": 742.6
+  },
+  {
+    "claim_id": "CLM-9009",
+    "member_id": "MBR-1009",
+    "submitted_clinic_name": "Desert Bloom Women's Health",
+    "billed_npi": "1417023308",
+    "service_state": "AZ",
+    "settlement_account": "SETT-DBLOOM-15",
+    "claim_amount": 601.0
+  },
+  {
+    "claim_id": "CLM-9010",
+    "member_id": "MBR-1010",
+    "submitted_clinic_name": "Sunstate Cardiology Associates",
+    "billed_npi": "1882754403",
+    "service_state": "FL",
+    "settlement_account": "SETT-SUNSTATE-09",
+    "claim_amount": 410.4
+  }
+]

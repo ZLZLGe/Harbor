@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "shift-windows-python-scala-functional-transfer-recurring-scheduler",
+  "taskRole": "transfer",
+  "title": "Transfer: Python 排班窗口规划器转 Scala",
+  "goal": "将一个 Python 排班窗口规划器翻译为 Scala 2.13，要求把递归/生成器式时段展开、冲突过滤、时间区间合并和可选配置处理改写为 LazyList 或 Iterator 驱动的函数式实现，并输出 `/root/ShiftWindowPlanner.scala`。",
+  "primaryOutputFile": "/root/ShiftWindowPlanner.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "该任务把技能迁移到时间调度场景，核心仍是 Python 函数式构件到 Scala 的惯用翻译，尤其覆盖生成器到惰性序列、日期时间 ADT、for-comprehension 与 Option 链式处理；不需要额外 shipped skill。",
+  "targetSkillDirName": "python-scala-functional",
+  "targetSkillName": "python-scala-functional"
+}

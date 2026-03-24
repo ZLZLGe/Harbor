@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "csv-metrics-testing-python-transfer-parameterized-validation"
+name = "Transfer: Harden CSV Metrics Validation Tests"
+description = "Repair the local CSV metrics importer, expand its case-driven regression coverage, and write the required validation log artifact."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "easy"
+category = "Data Processing"
+tags = ["Python", "testing", "pytest", "csv", "data-validation"]
+primary_output_file = "artifacts/csv-validation-regression-log.md"
+source_task_id = "fix-build-agentops"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

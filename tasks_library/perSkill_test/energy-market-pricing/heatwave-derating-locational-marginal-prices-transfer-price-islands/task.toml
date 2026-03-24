@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "heatwave-derating-locational-marginal-prices-transfer-price-islands"
+name = "Transfer | 高温降额下的价格孤岛应急分析"
+description = "在热浪导致关键联络线降额的紧急场景下比较事前与事后市场出清，输出负荷中心价格飙升、绑定降额线路与价格孤岛风险摘要。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "energy"
+tags = ["energy", "market-pricing", "opf", "heatwave-derating", "price-islands"]
+primary_output_file = "price_island_risk.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

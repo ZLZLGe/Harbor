@@ -1,0 +1,65 @@
+{
+  "sourceTaskId": "adaptive-cruise-control",
+  "targetSkillDirName": "yaml-config",
+  "runId": "20260315183532-adaptive-cruise-control-yaml-config-wimhfx",
+  "taskId": "battery-peak-shaving-yaml-config-transfer-dispatch",
+  "originErrorCombo": "reviewer__static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer__static/adaptive-cruise-control/yaml-config/20260315183532-adaptive-cruise-control-yaml-config-wimhfx/battery-peak-shaving-yaml-config-transfer-dispatch",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315183532-adaptive-cruise-control-yaml-config-wimhfx/adaptive-cruise-control/drafts/battery-peak-shaving-yaml-config-transfer-dispatch",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/adaptive-cruise-control/battery-peak-shaving-yaml-config-transfer-dispatch",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/adaptive-cruise-control/battery-peak-shaving-yaml-config-transfer-dispatch",
+  "status": "pass",
+  "issueCategories": [
+    "testability",
+    "skill_benefit",
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "tests 对成本汇总和调度结果给出了大量精确数值，instruction.md 只要求满足约束与改进目标，未唯一指定该调度算法。; tests 期望 reserve_floor_for_hour(5) == 1.4，但配置里的 critical window 从 17 点开始，这与 YAML 语义不一致。; skillBenefitPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [
+    "instruction.md does not directly name the shipped skill `yaml-config`, so there is no direct skill exposure.; The tests bake in a specific reserve-floor interpretation and exact dispatch/cost totals that are not fully pinned down by the instruction.; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/__pycache__/battery_peak_shaving.cpython-312.pyc",
+    "environment/__pycache__/dispatch_scheduler.cpython-312.pyc",
+    "instruction.md",
+    "PLAN.json",
+    "task.toml",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "battery-peak-shaving-yaml-config-transfer-dispatch"
+      ],
+      "requestedIssuesByTaskId": {
+        "battery-peak-shaving-yaml-config-transfer-dispatch": {
+          "reviewerIssues": [
+            "instruction.md does not directly name the shipped skill `yaml-config`, so there is no direct skill exposure.; The tests bake in a specific reserve-floor interpretation and exact dispatch/cost totals that are not fully pinned down by the instruction.; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d113e-a4de-78f2-9318-bd018552ded2",
+      "repairSummary": "`battery-peak-shaving-yaml-config-transfer-dispatch`\n- 重写了 `instruction.md`，把任务收紧为确定性的规则回放：明确了动作优先级、`reserve_floor_for_hour` 语义、充放电功率约束、SOC/效率公式、成本汇总公式和四舍五入要求，同时保持不在 `instruction.md` 里直接点名 shipped skill。\n- 重写了 `tests/test_outputs.py`，不再硬编码隐藏的总成本/总调度结果，而是按指令中声明的规则和配置文件现场重算期望 dispatch 与 summary，再对输出做一致性校验。\n- 对齐了 `task.toml` 和 `PLAN.json` 的描述，把任务表述成 deterministic replay，避免 reviewer 把它当成未定义的优化搜索题。\n- 清理了我自检时落在 `environment/` 里的运行产物，只保留原始输入资产。\n\n本地做过：\n- `python3 -m py_compile` 检查测试文件和参考解生成代码语法\n- 参考解生成后的基础自检，确认输出结构、峰值约束和成本下降条件成立",
+      "reviewThreadId": "019d114a-27d1-7d23-acb4-cd4f74dffb72",
+      "evaluationByTaskId": {
+        "battery-peak-shaving-yaml-config-transfer-dispatch": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

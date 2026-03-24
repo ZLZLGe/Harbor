@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "assembly-scrap-pca-decomposition-transfer-defect-share",
+  "taskRole": "transfer",
+  "title": "Assembly Scrap Driver Attribution Transfer",
+  "goal": "针对装配产线废品率数据，将温湿度、设备振动、来料波动、节拍负荷等多组相关指标合并后统一做降维分解，并根据分解后的因子得分判断哪一类因素最主导废品率上升，输出类别与贡献占比。",
+  "primaryOutputFile": "scrap_defect_share.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "制造现场常见大量联动传感器和过程变量，直接回归很容易受共线性影响。该任务把 PCA 分解迁移到工业质量归因场景，核心就在于先把多组过程变量压缩成可解释因子，再比较各类因子对目标指标的贡献。",
+  "targetSkillDirName": "pca-decomposition",
+  "targetSkillName": "pca-decomposition"
+}

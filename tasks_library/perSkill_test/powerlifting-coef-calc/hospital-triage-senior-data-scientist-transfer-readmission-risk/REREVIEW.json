@@ -1,0 +1,20 @@
+{
+  "sourceTaskId": "powerlifting-coef-calc",
+  "targetSkillDirName": "senior-data-scientist",
+  "runId": "20260322140138-powerlifting-coef-calc-senior-data-scientist-bkowxe",
+  "taskId": "hospital-triage-senior-data-scientist-transfer-readmission-risk",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/powerlifting-coef-calc/senior-data-scientist/20260322140138-powerlifting-coef-calc-senior-data-scientist-bkowxe/hospital-triage-senior-data-scientist-transfer-readmission-risk",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/powerlifting-coef-calc/hospital-triage-senior-data-scientist-transfer-readmission-risk",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:hospital-triage-senior-data-scientist-transfer-readmission-risk instruction.md 未直接点名 shipped skill 名称或目录名。; 任务内容属于当前 shipped skill 可覆盖的特征构造、加权评分与分层汇总，不需要额外 source skill。; 测试只检查 `Admissions` 的行数和首尾 ID，再基于输出中的 `Admissions` 推导 expected，未校验原始入院数据是否被完整保留，因此 `Do not alter Admissions` 不可判定。; tests/test_outputs.py 直接解析 worksheet XML，且只处理 inline string / numeric 单元格；如果正确解法用常见表格工具写出 shared strings，存在被误判失败的风险。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer；3 个 transfer 分别覆盖实验分析、医疗风险分层、零售时序预测，彼此区分度足够；similar 任务也贴近 senior-data-scientist 的特征工程与分组统计典型用法。",
+    "family 四个任务都有同一类测试缺口：verifier 都没有完整锁定源数据 sheet 必须保持不变这一显式要求。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a6d-2521-7130-a300-aa810b2e8203"
+}

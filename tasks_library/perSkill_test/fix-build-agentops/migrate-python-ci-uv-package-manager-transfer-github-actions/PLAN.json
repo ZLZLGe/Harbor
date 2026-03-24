@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "migrate-python-ci-uv-package-manager-transfer-github-actions",
+  "taskRole": "transfer",
+  "title": "Transfer: Migrate a GitHub Actions Python CI Job to uv",
+  "goal": "修复一个失效的 GitHub Actions Python 测试流水线，把原先零散的 pip/requirements 安装步骤迁移为基于 pyproject.toml 和 lockfile 的 uv 安装与命令执行流程，让 CI 稳定跑通测试。",
+  "primaryOutputFile": ".github/workflows/python-ci.yml",
+  "difficulty": "easy",
+  "category": "CI/CD",
+  "skillBenefitRationale": "这里的关键能力是把依赖安装和测试命令改写为 uv 原生工作流，例如 sync、锁定依赖和 uv run；任务重点是包管理迁移，不依赖其他 shipped skill。",
+  "targetSkillDirName": "uv-package-manager",
+  "targetSkillName": "uv-package-manager"
+}

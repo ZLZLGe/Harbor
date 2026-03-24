@@ -1,0 +1,58 @@
+{
+  "audit_id": "AUD-BRANCH-2026-017",
+  "virtual_wan": {
+    "name": "vwan-branch-prod",
+    "asn": 65301,
+    "allowBranchToBranchTraffic": true,
+    "allowVnetToVnetTraffic": false
+  },
+  "hubs": [
+    {
+      "name": "vpn-hub-east",
+      "region": "eastus2",
+      "asn": 65302,
+      "attached_branches": ["retail-east", "clinic-east"],
+      "peer_hubs": [65303, 65304]
+    },
+    {
+      "name": "vpn-hub-west",
+      "region": "westus2",
+      "asn": 65303,
+      "attached_branches": ["plant-west"],
+      "peer_hubs": [65302, 65304]
+    },
+    {
+      "name": "vpn-hub-north",
+      "region": "centralus",
+      "asn": 65304,
+      "attached_branches": ["finance-north"],
+      "peer_hubs": [65302, 65303]
+    }
+  ],
+  "branches": [
+    {
+      "site": "retail-east",
+      "asn": 65321,
+      "prefix": "172.16.10.0/24",
+      "attached_hub_asn": 65302
+    },
+    {
+      "site": "plant-west",
+      "asn": 65322,
+      "prefix": "172.16.20.0/24",
+      "attached_hub_asn": 65303
+    },
+    {
+      "site": "finance-north",
+      "asn": 65323,
+      "prefix": "172.16.30.0/24",
+      "attached_hub_asn": 65304
+    },
+    {
+      "site": "clinic-east",
+      "asn": 65324,
+      "prefix": "172.16.40.0/24",
+      "attached_hub_asn": 65302
+    }
+  ]
+}

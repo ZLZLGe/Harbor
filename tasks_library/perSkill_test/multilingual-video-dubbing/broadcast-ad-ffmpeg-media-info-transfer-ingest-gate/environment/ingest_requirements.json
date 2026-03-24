@@ -1,0 +1,24 @@
+{
+  "campaign_id": "spring-grid-refresh-2026",
+  "station_id": "HXDTV-12",
+  "spec_version": "broadcast-ad-ingest-v1",
+  "candidates": [
+    "candidates/spot_A_duration_20s.mp4",
+    "candidates/spot_B_resolution_720p.mp4",
+    "candidates/spot_C_frame_rate_2997.mp4",
+    "candidates/spot_D_audio_pcm.mov",
+    "candidates/spot_E_video_mpeg4_mono.mp4",
+    "candidates/spot_F_master_ok.mp4"
+  ],
+  "requirements": {
+    "duration_sec": 15.0,
+    "duration_tolerance_sec": 0.02,
+    "width": 1920,
+    "height": 1080,
+    "frame_rate_fps": 25.0,
+    "frame_rate_tolerance_fps": 0.01,
+    "video_codec": "h264",
+    "audio_codec": "aac",
+    "audio_channel_layout": "stereo"
+  }
+}

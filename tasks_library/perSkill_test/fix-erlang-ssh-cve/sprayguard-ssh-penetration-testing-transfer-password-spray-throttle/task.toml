@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "sprayguard-ssh-penetration-testing-transfer-password-spray-throttle"
+name = "Transfer | 修复 SSH 口令喷洒绕过限速"
+description = "修复 Python SSH bastion 认证服务中按连接统计失败次数导致可通过频繁重连持续口令喷洒的问题，并保持冷却后的正常登录。"
+author_name = "Yuanli Wang"
+author_email = "yuanliw@bu.edu"
+difficulty = "hard"
+category = "python security bugfix"
+tags = ["python", "ssh", "security", "rate-limit", "authentication"]
+primary_output_file = "/app/workspace/bastion/auth/failure_tracker.py"
+source_task_id = "fix-erlang-ssh-cve"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1200.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 4
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

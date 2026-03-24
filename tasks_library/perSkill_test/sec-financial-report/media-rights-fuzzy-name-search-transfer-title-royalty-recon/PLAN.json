@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "media-rights-fuzzy-name-search-transfer-title-royalty-recon",
+  "taskRole": "transfer",
+  "title": "Transfer - 流媒体片名匹配与版权收益核对",
+  "goal": "在片库主数据、播放日志和版权分账表中，依据模糊片名与权利方名称定位标准 content_id 与 rightsholder_id，计算指定片单的播放收入、识别重复归档条目，并列出收益最高的权利方。",
+  "primaryOutputFile": "/root/royalty_reconciliation.json",
+  "difficulty": "hard",
+  "category": "media",
+  "skillBenefitRationale": "片名和权利方名称常带有副标题、地区版名、大小写差异与简称，若不能先做模糊匹配，就无法把播放与分账精确归并到同一内容资产，因此 fuzzy-name-search 是唯一关键 shipped skill。",
+  "targetSkillDirName": "fuzzy-name-search",
+  "targetSkillName": "fuzzy-name-search"
+}

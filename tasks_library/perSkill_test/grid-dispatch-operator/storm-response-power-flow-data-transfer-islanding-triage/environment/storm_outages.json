@@ -1,0 +1,9 @@
+{
+  "event": "coastal_windstorm",
+  "description": "Transmission lines forced out of service by the storm.",
+  "outaged_lines": [
+    {"from": 402, "to": 511},
+    {"from": 309, "to": 511},
+    {"from": 511, "to": 620}
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "nodes": [
+    {
+      "id": "Arrival",
+      "text": "Welcome to the Riverlight Museum audio trail. Tap ahead when you are ready to leave the lobby arch.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "LobbyGreeting",
+      "text": "Ahead of you are three permanent halls, one family shortcut, and the main exit atrium.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "LobbyMenu",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "OrientationIntro",
+      "text": "This museum is arranged as a loop, so you can circle back without losing your place in the narration.",
+      "speaker": "Curator",
+      "type": "line"
+    },
+    {
+      "id": "OrientationChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DinosaurHallIntro",
+      "text": "The Fossil Gallery opens with low amber light and a timeline wall tracing 200 million years.",
+      "speaker": "PaleoHost",
+      "type": "line"
+    },
+    {
+      "id": "DinosaurChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FossilSkullStop",
+      "text": "Notice the bite marks along the jaw hinge; our conservation team left them visible to show the animal's final hunt.",
+      "speaker": "PaleoHost",
+      "type": "line"
+    },
+    {
+      "id": "SkullReplayChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "TrackwayStop",
+      "text": "The projected footprints match the stride length of a running predator, letting visitors pace beside it.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "TrackwayChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RestBenchAudio",
+      "text": "Children usually compare their own shoe size to the fossil print here before moving on.",
+      "speaker": "FamilyGuide",
+      "type": "line"
+    },
+    {
+      "id": "OceanHallIntro",
+      "text": "Ocean Court surrounds you with blue light, live reef audio, and the suspended whale model above the stairs.",
+      "speaker": "MarineHost",
+      "type": "line"
+    },
+    {
+      "id": "OceanChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "WhaleStop",
+      "text": "The sixty-foot model overhead marks the midpoint of the route and points toward every exit in the building.",
+      "speaker": "MarineHost",
+      "type": "line"
+    },
+    {
+      "id": "WhaleReplayChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "CoralLabStop",
+      "text": "Behind the glass, staff grow coral fragments on ceramic stars before sending them back to the bay reef.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "CoralChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "QuietAlcoveStop",
+      "text": "This alcove lowers the soundtrack and dims the projections while preserving the same route information.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "QuietChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "InnovationHallIntro",
+      "text": "The final wing mixes robotics, renewable energy, and early prototype sketches from local inventors.",
+      "speaker": "InnovationHost",
+      "type": "line"
+    },
+    {
+      "id": "InnovationChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RoboticsDemo",
+      "text": "The robot arm sorts recycled parts by shape, echoing the same vision system used in the museum workshop downstairs.",
+      "speaker": "InnovationHost",
+      "type": "line"
+    },
+    {
+      "id": "RoboticsChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "EnergyTable",
+      "text": "The touch table compares river current, rooftop solar, and battery storage with real data from this district.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "EnergyChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "PrototypeVault",
+      "text": "Drawer labels reveal how each prototype changed over time, from pencil sketch to patent model to public display.",
+      "speaker": "Archivist",
+      "type": "line"
+    },
+    {
+      "id": "PrototypeReplay",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FamilyTrail",
+      "text": "This shorter trail keeps the biggest objects and hands-on prompts while skipping the longest narration clips.",
+      "speaker": "FamilyGuide",
+      "type": "line"
+    },
+    {
+      "id": "FamilyTrailChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "AccessibilityDesk",
+      "text": "Elevators connect every hall, and the shortest loop avoids the whale stairs without skipping any major narration.",
+      "speaker": "AccessibilityHost",
+      "type": "line"
+    },
+    {
+      "id": "MapDesk",
+      "text": "From here, you can return to the lobby, continue by elevator, or finish near the gift shop corridor.",
+      "speaker": "AccessibilityHost",
+      "type": "line"
+    },
+    {
+      "id": "ReturnToLobby",
+      "text": "You are back beneath the lobby arch, with every hall still available from this central hub.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "CafePause",
+      "text": "The cafe overlook faces the sculpture garden and lets you resume the tour from the same progress marker.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "GiftShopRoute",
+      "text": "The gift shop corridor closes the tour with postcards, field guides, and a final route map for future visits.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "ExitAtrium",
+      "text": "You have reached the glass atrium exit; the audio tour ends as the doors open to the riverwalk.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "ResearchLounge",
+      "text": "The reading lounge offers field notebooks, reef surveys, and patent sketches if you want a quieter ending to the route.",
+      "speaker": "Archivist",
+      "type": "line"
+    }
+  ],
+  "edges": [
+    {
+      "from": "Arrival",
+      "to": "LobbyGreeting",
+      "text": ""
+    },
+    {
+      "from": "LobbyGreeting",
+      "to": "LobbyMenu",
+      "text": ""
+    },
+    {
+      "from": "LobbyMenu",
+      "to": "OrientationIntro",
+      "text": "1. Begin with a short orientation clip."
+    },
+    {
+      "from": "LobbyMenu",
+      "to": "DinosaurHallIntro",
+      "text": "2. Walk straight to the Fossil Gallery."
+    },
+    {
+      "from": "LobbyMenu",
+      "to": "OceanHallIntro",
+      "text": "3. Head toward the Ocean Court."
+    },
+    {
+      "from": "LobbyMenu",
+      "to": "AccessibilityDesk",
+      "text": "4. [Accessible Map] Request the elevator-friendly route summary."
+    },
+    {
+      "from": "LobbyMenu",
+      "to": "ExitAtrium",
+      "text": "5. Leave the museum from the atrium."
+    },
+    {
+      "from": "OrientationIntro",
+      "to": "OrientationChoice",
+      "text": ""
+    },
+    {
+      "from": "OrientationChoice",
+      "to": "DinosaurHallIntro",
+      "text": "1. Start with ancient life in the Fossil Gallery."
+    },
+    {
+      "from": "OrientationChoice",
+      "to": "OceanHallIntro",
+      "text": "2. Start with the suspended blue whale in Ocean Court."
+    },
+    {
+      "from": "OrientationChoice",
+      "to": "InnovationHallIntro",
+      "text": "3. Skip ahead to the invention prototypes."
+    },
+    {
+      "from": "OrientationChoice",
+      "to": "FamilyTrail",
+      "text": "4. [Family Route] Follow the shorter trail with hands-on stops."
+    },
+    {
+      "from": "DinosaurHallIntro",
+      "to": "DinosaurChoice",
+      "text": ""
+    },
+    {
+      "from": "DinosaurChoice",
+      "to": "FossilSkullStop",
+      "text": "1. Stop at the tyrannosaur skull."
+    },
+    {
+      "from": "DinosaurChoice",
+      "to": "TrackwayStop",
+      "text": "2. Continue to the illuminated trackway floor."
+    },
+    {
+      "from": "DinosaurChoice",
+      "to": "LobbyMenu",
+      "text": "3. Return to the central lobby menu."
+    },
+    {
+      "from": "DinosaurChoice",
+      "to": "InnovationHallIntro",
+      "text": "4. [Shortcut] Cross the bridge to the innovation wing."
+    },
+    {
+      "from": "FossilSkullStop",
+      "to": "SkullReplayChoice",
+      "text": ""
+    },
+    {
+      "from": "SkullReplayChoice",
+      "to": "FossilSkullStop",
+      "text": "1. [Replay] Hear the skull description again."
+    },
+    {
+      "from": "SkullReplayChoice",
+      "to": "TrackwayStop",
+      "text": "2. Continue to the trackway floor."
+    },
+    {
+      "from": "SkullReplayChoice",
+      "to": "OceanHallIntro",
+      "text": "3. Skip to Ocean Court."
+    },
+    {
+      "from": "TrackwayStop",
+      "to": "TrackwayChoice",
+      "text": ""
+    },
+    {
+      "from": "TrackwayChoice",
+      "to": "RestBenchAudio",
+      "text": "1. Pause at the bench and hear the family note."
+    },
+    {
+      "from": "TrackwayChoice",
+      "to": "InnovationHallIntro",
+      "text": "2. Cross into the innovation wing."
+    },
+    {
+      "from": "TrackwayChoice",
+      "to": "DinosaurChoice",
+      "text": "3. Revisit the Fossil Gallery menu."
+    },
+    {
+      "from": "TrackwayChoice",
+      "to": "ExitAtrium",
+      "text": "4. Exit the tour from the atrium."
+    },
+    {
+      "from": "RestBenchAudio",
+      "to": "ReturnToLobby",
+      "text": ""
+    },
+    {
+      "from": "OceanHallIntro",
+      "to": "OceanChoice",
+      "text": ""
+    },
+    {
+      "from": "OceanChoice",
+      "to": "WhaleStop",
+      "text": "1. Listen to the whale migration stop."
+    },
+    {
+      "from": "OceanChoice",
+      "to": "CoralLabStop",
+      "text": "2. Enter the coral restoration lab window."
+    },
+    {
+      "from": "OceanChoice",
+      "to": "QuietAlcoveStop",
+      "text": "3. [Quiet Route] Take the low-sensory alcove beside the tide map."
+    },
+    {
+      "from": "OceanChoice",
+      "to": "LobbyMenu",
+      "text": "4. Return to the lobby menu."
+    },
+    {
+      "from": "WhaleStop",
+      "to": "WhaleReplayChoice",
+      "text": ""
+    },
+    {
+      "from": "WhaleReplayChoice",
+      "to": "WhaleStop",
+      "text": "1. [Replay] Repeat the whale migration clip."
+    },
+    {
+      "from": "WhaleReplayChoice",
+      "to": "CoralLabStop",
+      "text": "2. Continue to the coral lab window."
+    },
+    {
+      "from": "WhaleReplayChoice",
+      "to": "InnovationHallIntro",
+      "text": "3. Cross directly to the innovation wing."
+    },
+    {
+      "from": "CoralLabStop",
+      "to": "CoralChoice",
+      "text": ""
+    },
+    {
+      "from": "CoralChoice",
+      "to": "FamilyTrail",
+      "text": "1. [Family Route] Follow the scavenger clue to the next hands-on exhibit."
+    },
+    {
+      "from": "CoralChoice",
+      "to": "QuietAlcoveStop",
+      "text": "2. Continue into the quiet alcove."
+    },
+    {
+      "from": "CoralChoice",
+      "to": "OceanChoice",
+      "text": "3. Return to the Ocean Court menu."
+    },
+    {
+      "from": "CoralChoice",
+      "to": "ResearchLounge",
+      "text": "4. Finish with the research reading lounge."
+    },
+    {
+      "from": "QuietAlcoveStop",
+      "to": "QuietChoice",
+      "text": ""
+    },
+    {
+      "from": "QuietChoice",
+      "to": "OceanChoice",
+      "text": "1. Rejoin Ocean Court."
+    },
+    {
+      "from": "QuietChoice",
+      "to": "InnovationHallIntro",
+      "text": "2. Move on to the innovation wing."
+    },
+    {
+      "from": "QuietChoice",
+      "to": "MapDesk",
+      "text": "3. [Accessible Map] Hear the elevator route to the lobby."
+    },
+    {
+      "from": "QuietChoice",
+      "to": "ExitAtrium",
+      "text": "4. Leave through the atrium now."
+    },
+    {
+      "from": "InnovationHallIntro",
+      "to": "InnovationChoice",
+      "text": ""
+    },
+    {
+      "from": "InnovationChoice",
+      "to": "RoboticsDemo",
+      "text": "1. Watch the robot arm demo."
+    },
+    {
+      "from": "InnovationChoice",
+      "to": "EnergyTable",
+      "text": "2. Try the energy table narration."
+    },
+    {
+      "from": "InnovationChoice",
+      "to": "PrototypeVault",
+      "text": "3. Open the prototype vault cabinet audio."
+    },
+    {
+      "from": "InnovationChoice",
+      "to": "LobbyMenu",
+      "text": "4. Return to the lobby menu."
+    },
+    {
+      "from": "RoboticsDemo",
+      "to": "RoboticsChoice",
+      "text": ""
+    },
+    {
+      "from": "RoboticsChoice",
+      "to": "PrototypeVault",
+      "text": "1. Continue to the prototype vault."
+    },
+    {
+      "from": "RoboticsChoice",
+      "to": "FamilyTrail",
+      "text": "2. [Family Route] Jump to the shorter hands-on trail."
+    },
+    {
+      "from": "RoboticsChoice",
+      "to": "InnovationChoice",
+      "text": "3. Revisit the innovation menu."
+    },
+    {
+      "from": "RoboticsChoice",
+      "to": "CafePause",
+      "text": "4. Take a break at the cafe overlook."
+    },
+    {
+      "from": "EnergyTable",
+      "to": "EnergyChoice",
+      "text": ""
+    },
+    {
+      "from": "EnergyChoice",
+      "to": "PrototypeVault",
+      "text": "1. Continue to the prototype vault."
+    },
+    {
+      "from": "EnergyChoice",
+      "to": "CafePause",
+      "text": "2. Take a break at the cafe overlook."
+    },
+    {
+      "from": "EnergyChoice",
+      "to": "InnovationChoice",
+      "text": "3. Revisit the innovation menu."
+    },
+    {
+      "from": "EnergyChoice",
+      "to": "OceanHallIntro",
+      "text": "4. Loop back to Ocean Court."
+    },
+    {
+      "from": "PrototypeVault",
+      "to": "PrototypeReplay",
+      "text": ""
+    },
+    {
+      "from": "PrototypeReplay",
+      "to": "PrototypeVault",
+      "text": "1. [Replay] Open the prototype vault description again."
+    },
+    {
+      "from": "PrototypeReplay",
+      "to": "MapDesk",
+      "text": "2. [Accessible Map] Hear the shortest route back to the lobby."
+    },
+    {
+      "from": "PrototypeReplay",
+      "to": "GiftShopRoute",
+      "text": "3. End with the gift shop corridor."
+    },
+    {
+      "from": "PrototypeReplay",
+      "to": "ExitAtrium",
+      "text": "4. Leave through the atrium."
+    },
+    {
+      "from": "FamilyTrail",
+      "to": "FamilyTrailChoice",
+      "text": ""
+    },
+    {
+      "from": "FamilyTrailChoice",
+      "to": "DinosaurHallIntro",
+      "text": "1. Return to the Fossil Gallery."
+    },
+    {
+      "from": "FamilyTrailChoice",
+      "to": "OceanHallIntro",
+      "text": "2. Head back to Ocean Court."
+    },
+    {
+      "from": "FamilyTrailChoice",
+      "to": "InnovationHallIntro",
+      "text": "3. Finish in the innovation wing."
+    },
+    {
+      "from": "FamilyTrailChoice",
+      "to": "CafePause",
+      "text": "4. Pause at the cafe overlook."
+    },
+    {
+      "from": "FamilyTrailChoice",
+      "to": "ExitAtrium",
+      "text": "5. Leave through the atrium."
+    },
+    {
+      "from": "AccessibilityDesk",
+      "to": "MapDesk",
+      "text": ""
+    },
+    {
+      "from": "MapDesk",
+      "to": "ReturnToLobby",
+      "text": ""
+    },
+    {
+      "from": "ReturnToLobby",
+      "to": "LobbyMenu",
+      "text": ""
+    },
+    {
+      "from": "CafePause",
+      "to": "ReturnToLobby",
+      "text": ""
+    },
+    {
+      "from": "GiftShopRoute",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "ExitAtrium",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "ResearchLounge",
+      "to": "End",
+      "text": ""
+    }
+  ]
+}

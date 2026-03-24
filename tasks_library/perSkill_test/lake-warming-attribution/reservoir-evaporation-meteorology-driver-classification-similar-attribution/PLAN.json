@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-evaporation-meteorology-driver-classification-similar-attribution",
+  "taskRole": "similar",
+  "title": "Similar: Reservoir Evaporation Driver Attribution",
+  "goal": "Analyze a reservoir monitoring dataset to determine whether warm-season evaporation has intensified over time, then classify all candidate predictors into Heat, Flow, Wind, and Human groups and report the dominant category with its contribution percentage.",
+  "primaryOutputFile": "/root/output/evaporation_driver_summary.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This stays close to the source task’s attribution pattern, but shifts from lake temperature to reservoir evaporation so the key challenge remains grouping mixed hydro-meteorological variables into the four driver classes before estimating category-level importance.",
+  "targetSkillDirName": "meteorology-driver-classification",
+  "targetSkillName": "meteorology-driver-classification"
+}

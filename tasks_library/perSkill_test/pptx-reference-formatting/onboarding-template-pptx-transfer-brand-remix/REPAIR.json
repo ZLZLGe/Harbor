@@ -1,0 +1,84 @@
+{
+  "sourceTaskId": "pptx-reference-formatting",
+  "targetSkillDirName": "pptx",
+  "runId": "20260322140509-pptx-reference-formatting-pptx-3f34ui",
+  "taskId": "onboarding-template-pptx-transfer-brand-remix",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/pptx-reference-formatting/onboarding-template-pptx-transfer-brand-remix",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322140509-pptx-reference-formatting-pptx-3f34ui/pptx-reference-formatting/drafts/onboarding-template-pptx-transfer-brand-remix",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/pptx-reference-formatting/onboarding-template-pptx-transfer-brand-remix",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/pptx-reference-formatting/onboarding-template-pptx-transfer-brand-remix",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "核心要求“复用并重排模板页、而不是从空白稿新建”没有被充分判定；当前测试主要校验文本、bullet、theme 和单个品牌素材，空白新建后复制这些资产仍有机会通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 在输入/输出路径里字面出现了 `pptx`，按当前规则属于 shipped skill 暴露。; 测试没有真正约束“必须复用并重排模板页”这一核心要求；从空白 deck 重建文本后只要保留 theme/media，也有机会通过。; visibilityPass=false; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/skills/pptx/scripts/__pycache__/inventory.cpython-312.pyc",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "onboarding-template-pptx-transfer-brand-remix"
+      ],
+      "requestedIssuesByTaskId": {
+        "onboarding-template-pptx-transfer-brand-remix": {
+          "reviewerIssues": [
+            "instruction.md 在输入/输出路径里字面出现了 `pptx`，按当前规则属于 shipped skill 暴露。; 测试没有真正约束“必须复用并重排模板页”这一核心要求；从空白 deck 重建文本后只要保留 theme/media，也有机会通过。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a7c-d43e-7042-aca5-48407d5d722b",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill 扩展名的直接暴露，并补强 tests/test_outputs.py：新增模板页结构签名校验，要求输出必须复用并按指定顺序重排模板页，而不能从空白 deck 重建；同时保留原有文本、项目符号、占位符清理和主题/品牌资源校验。",
+      "reviewThreadId": "019d1a82-5ca1-7143-96e3-1546e0db3965",
+      "evaluationByTaskId": {
+        "onboarding-template-pptx-transfer-brand-remix": {
+          "reviewerIssues": [
+            "tests 强制要求使用固定模板页序列 0,6,2,3,4,5，但 instruction 只要求自行挑选最合适页面，存在隐藏要求且与说明不一致。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "onboarding-template-pptx-transfer-brand-remix"
+      ],
+      "requestedIssuesByTaskId": {
+        "onboarding-template-pptx-transfer-brand-remix": {
+          "reviewerIssues": [
+            "tests 强制要求使用固定模板页序列 0,6,2,3,4,5，但 instruction 只要求自行挑选最合适页面，存在隐藏要求且与说明不一致。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a83-4b3e-7503-b55b-e7d6e521cea6",
+      "repairSummary": "已最小化修复说明与测试不一致的问题，在 instruction.md 中明确要求按固定的零基模板页序列 0,6,2,3,4,5 复用并重排页面，使 instruction、tests、solution 保持一致。",
+      "reviewThreadId": "019d1a84-1ea8-7083-85b0-2ad950b2a9c4",
+      "evaluationByTaskId": {
+        "onboarding-template-pptx-transfer-brand-remix": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

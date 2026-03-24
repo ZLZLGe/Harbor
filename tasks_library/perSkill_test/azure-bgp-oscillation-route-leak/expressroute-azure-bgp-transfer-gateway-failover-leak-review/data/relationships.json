@@ -1,0 +1,62 @@
+[
+  {
+    "from": 65300,
+    "to": 65310,
+    "type": "provider"
+  },
+  {
+    "from": 65300,
+    "to": 65311,
+    "type": "provider"
+  },
+  {
+    "from": 65310,
+    "to": 65300,
+    "type": "customer"
+  },
+  {
+    "from": 65311,
+    "to": 65300,
+    "type": "customer"
+  },
+  {
+    "from": 65310,
+    "to": 65320,
+    "type": "provider"
+  },
+  {
+    "from": 65320,
+    "to": 65310,
+    "type": "customer"
+  },
+  {
+    "from": 65311,
+    "to": 65321,
+    "type": "provider"
+  },
+  {
+    "from": 65321,
+    "to": 65311,
+    "type": "customer"
+  },
+  {
+    "from": 65311,
+    "to": 65330,
+    "type": "provider"
+  },
+  {
+    "from": 65330,
+    "to": 65311,
+    "type": "customer"
+  },
+  {
+    "from": 65310,
+    "to": 65311,
+    "type": "peer"
+  },
+  {
+    "from": 65311,
+    "to": 65310,
+    "type": "peer"
+  }
+]

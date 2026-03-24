@@ -1,0 +1,28 @@
+{
+  "callbacks": [
+    {
+      "callback_id": "followup-001",
+      "patient_name": "Ana Morales",
+      "source_channel": "voicemail",
+      "message_text": "Hi, this is Ana Morales calling back about my infusion follow-up. I need a 30-minute visit. Mondays or Wednesdays are the days that work for me, and morning is best, roughly 8:00 to 11:00 AM. Please do not put me on May 6, 2026 because I will be traveling. The appointment has to be at least 48 hours after my last iron infusion on May 3, 2026, and I need to fast for 8 hours before the visit."
+    },
+    {
+      "callback_id": "followup-002",
+      "patient_name": "Benita Shah",
+      "source_channel": "patient-portal",
+      "message_text": "Hello clinic, I need to book my 45-minute wound check. Tuesdays or Thursdays are fine. I cannot get there before 1:30 PM, and I would like the visit wrapped up by 4:00 PM. Please skip May 12, 2026 because of my daughter's graduation. Also, the check has to be no sooner than one week after my cast removal on May 5, 2026."
+    },
+    {
+      "callback_id": "followup-003",
+      "patient_name": "Carl Nguyen",
+      "source_channel": "voicemail",
+      "message_text": "This is Carl Nguyen. I only need a 20-minute follow-up to review results. Fridays are the only days I can step away from work, and 9:00 AM to 10:30 AM is ideal. I cannot come on May 22, 2026 because of a school field trip, and I am out of town on May 29, 2026. Please make sure the visit lands within 3 days after the MRI on May 20, 2026."
+    },
+    {
+      "callback_id": "followup-004",
+      "patient_name": "Dana Brooks",
+      "source_channel": "text-message",
+      "message_text": "I need a 60-minute nutrition follow-up. Monday, Tuesday, or Friday all work. On Mondays and Fridays, 2:00 PM to 5:00 PM is best. On Tuesdays, please keep it between 3:00 PM and 5:00 PM. Do not schedule me on June 2, 2026 because I will be at dialysis. The visit needs to be at least 14 days after I finish my steroid taper on May 18, 2026, and I should not eat for 6 hours before the appointment."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Harbor Ridge 10-bus transmission snapshot",
+  "description": "Simplified transmission snapshot with fixed net injections for intact and contingency DC power flow analysis.",
+  "baseMVA": 100.0,
+  "slack_bus": 101,
+  "buses": [
+    {"bus": 101, "net_injection_MW": 120.0},
+    {"bus": 205, "net_injection_MW": 60.0},
+    {"bus": 309, "net_injection_MW": -90.0},
+    {"bus": 450, "net_injection_MW": -70.0},
+    {"bus": 611, "net_injection_MW": 80.0},
+    {"bus": 730, "net_injection_MW": -50.0},
+    {"bus": 845, "net_injection_MW": -40.0},
+    {"bus": 910, "net_injection_MW": 30.0},
+    {"bus": 1203, "net_injection_MW": -20.0},
+    {"bus": 1507, "net_injection_MW": -20.0}
+  ],
+  "branches": [
+    {"branch_id": "L1", "from_bus": 101, "to_bus": 205, "x_pu": 0.2, "limit_MW": 120.0},
+    {"branch_id": "L2", "from_bus": 205, "to_bus": 309, "x_pu": 0.25, "limit_MW": 90.0},
+    {"branch_id": "L3", "from_bus": 309, "to_bus": 450, "x_pu": 0.18, "limit_MW": 100.0},
+    {"branch_id": "L4", "from_bus": 450, "to_bus": 730, "x_pu": 0.2, "limit_MW": 75.0},
+    {"branch_id": "L5", "from_bus": 205, "to_bus": 611, "x_pu": 0.16, "limit_MW": 80.0},
+    {"branch_id": "L6", "from_bus": 611, "to_bus": 730, "x_pu": 0.22, "limit_MW": 70.0},
+    {"branch_id": "L7", "from_bus": 611, "to_bus": 845, "x_pu": 0.19, "limit_MW": 65.0},
+    {"branch_id": "L8", "from_bus": 845, "to_bus": 910, "x_pu": 0.17, "limit_MW": 60.0},
+    {"branch_id": "L9", "from_bus": 910, "to_bus": 1507, "x_pu": 0.15, "limit_MW": 55.0},
+    {"branch_id": "L10", "from_bus": 450, "to_bus": 1203, "x_pu": 0.21, "limit_MW": 60.0},
+    {"branch_id": "L11", "from_bus": 1203, "to_bus": 1507, "x_pu": 0.2, "limit_MW": 50.0},
+    {"branch_id": "L12", "from_bus": 309, "to_bus": 845, "x_pu": 0.24, "limit_MW": 75.0},
+    {"branch_id": "L13", "from_bus": 205, "to_bus": 450, "x_pu": 0.3, "limit_MW": 50.0},
+    {"branch_id": "L14", "from_bus": 730, "to_bus": 910, "x_pu": 0.18, "limit_MW": 65.0},
+    {"branch_id": "L15", "from_bus": 611, "to_bus": 1203, "x_pu": 0.26, "limit_MW": 45.0}
+  ]
+}

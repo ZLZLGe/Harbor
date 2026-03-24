@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "harbor-suricata-offline-evejson-transfer-smtp-finance-dropbox",
+  "taskRole": "transfer",
+  "title": "Transfer: SMTP 财务归档投递告警",
+  "goal": "编写 Suricata 规则，离线分析 SMTP 会话 PCAP，并仅在邮件发往 `dropbox@shadow.example`、主题为 `Quarterly Archive`、正文里出现 Base64 编码附件且附件名匹配 `finance-YYYYMM.zip` 时告警。",
+  "primaryOutputFile": "/root/smtp_finance_drop.rules",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "该任务要求在多包 SMTP 文本流上做离线检测并用 eve.json 验证结果，核心仍是目标 skill 的回放与告警校验闭环。",
+  "targetSkillDirName": "suricata-offline-evejson",
+  "targetSkillName": "suricata-offline-evejson"
+}

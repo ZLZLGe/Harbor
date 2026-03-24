@@ -1,0 +1,377 @@
+{
+  "lots": [
+    {
+      "inspection_id": "IQC-3001",
+      "supplier_id": "SUP-A",
+      "supplier_lot": "LOT-PCB-771",
+      "material_code": "PCB-7742",
+      "item_category": "PCB",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I01",
+      "sample_size": 32,
+      "defect_remark": "板边绿油刮伤见铜；左下角有粉尘",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3001-S1",
+          "span_text": "板边绿油刮伤见铜",
+          "pred_code": "IQC-MAT-001",
+          "pred_label": "PCB solder mask scratch with copper exposure",
+          "confidence": 0.735,
+          "rationale": "category=PCB | stage=RECEIVING_VISUAL | lot=LOT-PCB-771 | code=IQC-MAT-001 | kw=0.000 | phrase=0.286"
+        },
+        {
+          "segment_id": "IQC-3001-S2",
+          "span_text": "左下角有粉尘",
+          "pred_code": "IQC-MAT-012",
+          "pred_label": "Foreign material contamination",
+          "confidence": 0.7278,
+          "rationale": "category=PCB | stage=RECEIVING_VISUAL | lot=LOT-PCB-771 | code=IQC-MAT-012 | kw=0.000 | phrase=0.200"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3002",
+      "supplier_id": "SUP-B",
+      "supplier_lot": "LOT-CON-552",
+      "material_code": "CN-16",
+      "item_category": "CONNECTOR",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I02",
+      "sample_size": 50,
+      "defect_remark": "端子发黑氧化 contact dull",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3002-S1",
+          "span_text": "端子发黑氧化 contact dull",
+          "pred_code": "IQC-MAT-002",
+          "pred_label": "Terminal oxidation or blackened contact",
+          "confidence": 0.7768,
+          "rationale": "category=CONNECTOR | stage=RECEIVING_VISUAL | lot=LOT-CON-552 | code=IQC-MAT-002 | kw=0.100 | phrase=0.429 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3003",
+      "supplier_id": "SUP-C",
+      "supplier_lot": "LOT-HSG-210",
+      "material_code": "HSG-88",
+      "item_category": "HOUSING",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I03",
+      "sample_size": 40,
+      "defect_remark": "壳体角位 crack chip",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3003-S1",
+          "span_text": "壳体角位 crack chip",
+          "pred_code": "IQC-MAT-003",
+          "pred_label": "Housing crack or chipped corner",
+          "confidence": 0.8023,
+          "rationale": "category=HOUSING | stage=RECEIVING_VISUAL | lot=LOT-HSG-210 | code=IQC-MAT-003 | kw=0.286 | phrase=0.500 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3004",
+      "supplier_id": "SUP-D",
+      "supplier_lot": "LOT-LBL-901",
+      "material_code": "BX-LABEL",
+      "item_category": "LABEL",
+      "inspection_stage": "PACK_AUDIT",
+      "inspector_id": "I01",
+      "sample_size": 100,
+      "defect_remark": "外箱rev sticker错版 wrong rev label",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3004-S1",
+          "span_text": "外箱rev sticker错版 wrong rev label",
+          "pred_code": "IQC-MAT-004",
+          "pred_label": "Revision or label mismatch",
+          "confidence": 0.8207,
+          "rationale": "category=LABEL | stage=PACK_AUDIT | lot=LOT-LBL-901 | code=IQC-MAT-004 | kw=0.333 | phrase=0.667 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3005",
+      "supplier_id": "SUP-E",
+      "supplier_lot": "LOT-PACK-420",
+      "material_code": "ACC-SPACER",
+      "item_category": "PACKING",
+      "inspection_stage": "PACK_AUDIT",
+      "inspector_id": "I04",
+      "sample_size": 60,
+      "defect_remark": "每箱少2pcs spacer",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3005-S1",
+          "span_text": "每箱少2pcs spacer",
+          "pred_code": "IQC-MAT-005",
+          "pred_label": "Pack shortage or missing accessory",
+          "confidence": 0.7751,
+          "rationale": "category=PACKING | stage=PACK_AUDIT | lot=LOT-PACK-420 | code=IQC-MAT-005 | kw=0.125 | phrase=0.429 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3006",
+      "supplier_id": "SUP-F",
+      "supplier_lot": "LOT-PIN-118",
+      "material_code": "HDR-20",
+      "item_category": "PIN_HEADER",
+      "inspection_stage": "DIMENSION_CHECK",
+      "inspector_id": "I05",
+      "sample_size": 36,
+      "defect_remark": "pin coplanarity 高 0.22mm",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3006-S1",
+          "span_text": "pin coplanarity 高 0.22mm",
+          "pred_code": "IQC-MAT-006",
+          "pred_label": "Dimensional oversize or coplanarity out",
+          "confidence": 0.7771,
+          "rationale": "category=PIN_HEADER | stage=DIMENSION_CHECK | lot=LOT-PIN-118 | code=IQC-MAT-006 | kw=0.222 | phrase=0.286 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3007",
+      "supplier_id": "SUP-G",
+      "supplier_lot": "LOT-SHC-607",
+      "material_code": "SHIELD-1",
+      "item_category": "SHIELD_CAN",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I02",
+      "sample_size": 28,
+      "defect_remark": "镀层起泡 peel off around rim",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3007-S1",
+          "span_text": "镀层起泡 peel off around rim",
+          "pred_code": "IQC-MAT-011",
+          "pred_label": "Plating blister or peel off",
+          "confidence": 0.8072,
+          "rationale": "category=SHIELD_CAN | stage=RECEIVING_VISUAL | lot=LOT-SHC-607 | code=IQC-MAT-011 | kw=0.222 | phrase=0.600 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3008",
+      "supplier_id": "SUP-H",
+      "supplier_lot": "LOT-WIR-334",
+      "material_code": "HARN-5",
+      "item_category": "HARNESS",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I03",
+      "sample_size": 45,
+      "defect_remark": "inside bag有毛丝异物 contamination",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3008-S1",
+          "span_text": "inside bag有毛丝异物 contamination",
+          "pred_code": "IQC-MAT-012",
+          "pred_label": "Foreign material contamination",
+          "confidence": 0.7955,
+          "rationale": "category=HARNESS | stage=RECEIVING_VISUAL | lot=LOT-WIR-334 | code=IQC-MAT-012 | kw=0.125 | phrase=0.600 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3009",
+      "supplier_id": "SUP-B",
+      "supplier_lot": "LOT-CON-552",
+      "material_code": "CN-16",
+      "item_category": "CONNECTOR",
+      "inspection_stage": "SOLDERABILITY_CHECK",
+      "inspector_id": "I04",
+      "sample_size": 24,
+      "defect_remark": "black pin again wetting poor",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3009-S1",
+          "span_text": "black pin again wetting poor",
+          "pred_code": "IQC-MAT-002",
+          "pred_label": "Terminal oxidation or blackened contact",
+          "confidence": 0.7815,
+          "rationale": "category=CONNECTOR | stage=SOLDERABILITY_CHECK | lot=LOT-CON-552 | code=IQC-MAT-002 | kw=0.300 | phrase=0.286 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3010",
+      "supplier_id": "SUP-I",
+      "supplier_lot": "LOT-MAG-883",
+      "material_code": "MAG-22",
+      "item_category": "MAGNETICS",
+      "inspection_stage": "DIMENSION_CHECK",
+      "inspector_id": "I05",
+      "sample_size": 30,
+      "defect_remark": "core width oversize +0.25mm",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3010-S1",
+          "span_text": "core width oversize +0.25mm",
+          "pred_code": "IQC-MAT-006",
+          "pred_label": "Dimensional oversize or coplanarity out",
+          "confidence": 0.8051,
+          "rationale": "category=MAGNETICS | stage=DIMENSION_CHECK | lot=LOT-MAG-883 | code=IQC-MAT-006 | kw=0.375 | phrase=0.429 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3011",
+      "supplier_id": "SUP-J",
+      "supplier_lot": "LOT-PCB-882",
+      "material_code": "PCB-990",
+      "item_category": "PCB",
+      "inspection_stage": "MOISTURE_AUDIT",
+      "inspector_id": "I01",
+      "sample_size": 20,
+      "defect_remark": "vacuum bag broken HIC pink",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3011-S1",
+          "span_text": "vacuum bag broken HIC pink",
+          "pred_code": "IQC-MAT-007",
+          "pred_label": "Moisture protection broken or vacuum bag leak",
+          "confidence": 0.8436,
+          "rationale": "category=PCB | stage=MOISTURE_AUDIT | lot=LOT-PCB-882 | code=IQC-MAT-007 | kw=0.625 | phrase=0.500 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3012",
+      "supplier_id": "SUP-B",
+      "supplier_lot": "LOT-CON-778",
+      "material_code": "CN-09",
+      "item_category": "CONNECTOR",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I02",
+      "sample_size": 40,
+      "defect_remark": "polar mark reverse 正负标反",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3012-S1",
+          "span_text": "polar mark reverse 正负标反",
+          "pred_code": "IQC-MAT-008",
+          "pred_label": "Polarity marking reversed",
+          "confidence": 0.8289,
+          "rationale": "category=CONNECTOR | stage=RECEIVING_VISUAL | lot=LOT-CON-778 | code=IQC-MAT-008 | kw=0.500 | phrase=0.600 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3013",
+      "supplier_id": "SUP-K",
+      "supplier_lot": "LOT-PIN-205",
+      "material_code": "HDR-32",
+      "item_category": "PIN_HEADER",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I03",
+      "sample_size": 64,
+      "defect_remark": "2 pins bent歪脚",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3013-S1",
+          "span_text": "2 pins bent歪脚",
+          "pred_code": "IQC-MAT-010",
+          "pred_label": "Bent lead or terminal deformation",
+          "confidence": 0.7914,
+          "rationale": "category=PIN_HEADER | stage=RECEIVING_VISUAL | lot=LOT-PIN-205 | code=IQC-MAT-010 | kw=0.143 | phrase=0.600 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3014",
+      "supplier_id": "SUP-L",
+      "supplier_lot": "LOT-CAST-730",
+      "material_code": "FRAME-1",
+      "item_category": "CASTING",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I05",
+      "sample_size": 18,
+      "defect_remark": "edge burr sharp cut hand risk",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3014-S1",
+          "span_text": "edge burr sharp cut hand risk",
+          "pred_code": "IQC-MAT-009",
+          "pred_label": "Burr or sharp edge on part",
+          "confidence": 0.8352,
+          "rationale": "category=CASTING | stage=RECEIVING_VISUAL | lot=LOT-CAST-730 | code=IQC-MAT-009 | kw=0.625 | phrase=0.400 | lot_hint=1"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3015",
+      "supplier_id": "SUP-D",
+      "supplier_lot": "LOT-LBL-377",
+      "material_code": "BAG-LABEL",
+      "item_category": "LABEL",
+      "inspection_stage": "RECEIVING_VISUAL",
+      "inspector_id": "I01",
+      "sample_size": 80,
+      "defect_remark": "字迹淡 maybe old stock label",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3015-S1",
+          "span_text": "字迹淡 maybe old stock label",
+          "pred_code": "UNKNOWN",
+          "pred_label": "",
+          "confidence": 0.3372,
+          "rationale": "category=LABEL | stage=RECEIVING_VISUAL | lot=LOT-LBL-377 | kw=0.091 | phrase=0.000"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3016",
+      "supplier_id": "SUP-M",
+      "supplier_lot": "LOT-BOX-144",
+      "material_code": "CARTON-7",
+      "item_category": "PACKING",
+      "inspection_stage": "PACK_AUDIT",
+      "inspector_id": "I04",
+      "sample_size": 70,
+      "defect_remark": "seal bag OK but carton bruised",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3016-S1",
+          "span_text": "seal bag OK but carton bruised",
+          "pred_code": "UNKNOWN",
+          "pred_label": "",
+          "confidence": 0.3572,
+          "rationale": "category=PACKING | stage=PACK_AUDIT | lot=LOT-BOX-144 | kw=0.000 | phrase=0.000"
+        }
+      ]
+    },
+    {
+      "inspection_id": "IQC-3017",
+      "supplier_id": "SUP-N",
+      "supplier_lot": "LOT-CMB-511",
+      "material_code": "KIT-9",
+      "item_category": "PACKING",
+      "inspection_stage": "PACK_AUDIT",
+      "inspector_id": "I03",
+      "sample_size": 25,
+      "defect_remark": "外箱rev sticker错版；每箱少1pcs tray",
+      "normalized_reasons": [
+        {
+          "segment_id": "IQC-3017-S1",
+          "span_text": "外箱rev sticker错版",
+          "pred_code": "IQC-MAT-004",
+          "pred_label": "Revision or label mismatch",
+          "confidence": 0.768,
+          "rationale": "category=PACKING | stage=PACK_AUDIT | lot=LOT-CMB-511 | code=IQC-MAT-004 | kw=0.000 | phrase=0.500 | lot_hint=1"
+        },
+        {
+          "segment_id": "IQC-3017-S2",
+          "span_text": "每箱少1pcs tray",
+          "pred_code": "IQC-MAT-005",
+          "pred_label": "Pack shortage or missing accessory",
+          "confidence": 0.7601,
+          "rationale": "category=PACKING | stage=PACK_AUDIT | lot=LOT-CMB-511 | code=IQC-MAT-005 | kw=0.125 | phrase=0.429"
+        }
+      ]
+    }
+  ]
+}

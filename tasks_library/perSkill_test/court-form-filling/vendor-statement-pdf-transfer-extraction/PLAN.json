@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "vendor-statement-pdf-transfer-extraction",
+  "taskRole": "transfer",
+  "title": "Transfer: Extract Invoice Data from a Vendor Statement PDF",
+  "goal": "Read a multi-page vendor statement PDF and produce a JSON summary listing each invoice number, statement date, due date, and amount due.",
+  "primaryOutputFile": "/root/invoice-summary.json",
+  "difficulty": "easy",
+  "category": "document-processing",
+  "skillBenefitRationale": "Success depends on extracting structured information from PDF text or tables and converting it into JSON; the task's core competency is PDF parsing.",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

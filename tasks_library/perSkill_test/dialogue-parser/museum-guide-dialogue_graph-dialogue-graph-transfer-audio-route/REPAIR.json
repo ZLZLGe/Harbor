@@ -1,0 +1,25 @@
+{
+  "sourceTaskId": "dialogue-parser",
+  "targetSkillDirName": "dialogue_graph",
+  "runId": "20260318224221-dialogue-parser-dialogue-graph-sxdcgb",
+  "taskId": "museum-guide-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/dialogue-parser/dialogue_graph/20260318224221-dialogue-parser-dialogue-graph-sxdcgb/museum-guide-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260318224221-dialogue-parser-dialogue-graph-sxdcgb/dialogue-parser/drafts/museum-guide-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/dialogue-parser/museum-guide-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/dialogue-parser/museum-guide-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

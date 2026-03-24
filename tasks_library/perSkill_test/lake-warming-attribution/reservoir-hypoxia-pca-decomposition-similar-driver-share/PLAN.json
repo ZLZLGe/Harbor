@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-hypoxia-pca-decomposition-similar-driver-share",
+  "taskRole": "similar",
+  "title": "Reservoir Hypoxia Driver Attribution Similar",
+  "goal": "分析水库夏季低氧指标与多类相关驱动变量之间的关系，对热力、入出流、营养盐和岸线开发变量做一次全局降维与旋转分解，再用分解后的因子得分做贡献分析，输出主导类别及其贡献占比。",
+  "primaryOutputFile": "hypoxia_driver_share.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "该任务保留了环境归因这一典型用法，但把目标从湖泊增温换成低氧风险。原始变量强相关且按领域分组明显，只有用一次全局 PCA 分解并结合旋转后的因子得分，才能在避免多重共线性的同时得到可解释的主导类别贡献。",
+  "targetSkillDirName": "pca-decomposition",
+  "targetSkillName": "pca-decomposition"
+}

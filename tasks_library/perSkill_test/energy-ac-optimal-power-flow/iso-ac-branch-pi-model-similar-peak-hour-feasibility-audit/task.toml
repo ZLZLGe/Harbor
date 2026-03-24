@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "iso-ac-branch-pi-model-similar-peak-hour-feasibility-audit"
+name = "Similar: Peak-Hour AC Feasibility Audit"
+description = "Audit a solved peak-hour AC snapshot by computing bidirectional branch flows, ranking branch loadings, and writing feasibility_audit.json with balance residuals and limit checks."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = [ "energy", "ac-power-flow", "branch-audit", "grid-operations",]
+primary_output_file = "feasibility_audit.json"
+source_task_id = "energy-ac-optimal-power-flow"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

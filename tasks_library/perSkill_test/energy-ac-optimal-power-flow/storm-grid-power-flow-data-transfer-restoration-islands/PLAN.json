@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "storm-grid-power-flow-data-transfer-restoration-islands",
+  "taskRole": "transfer",
+  "title": "Transfer: 风暴停运后的恢复孤岛清单",
+  "goal": "读取电网案例文件、停运元件清单和关键负荷清单，生成 `restoration_islands_report.json`，识别停运后仍连通的带电孤岛，统计每个孤岛可用发电、负荷规模、关键负荷覆盖情况，以及因拓扑断开而失供的负荷总量。",
+  "primaryOutputFile": "restoration_islands_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "任务把同一份电网数据解析能力迁移到灾后恢复场景，关键仍是理解 bus/gen/branch 关系、设备状态字段和网络连通性，而不依赖额外 shipped skill。",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

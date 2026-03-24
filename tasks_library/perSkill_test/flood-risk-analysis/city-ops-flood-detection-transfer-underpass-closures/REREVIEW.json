@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "flood-risk-analysis",
+  "targetSkillDirName": "flood-detection",
+  "runId": "20260319225236-flood-risk-analysis-flood-detection-plw9zr",
+  "taskId": "city-ops-flood-detection-transfer-underpass-closures",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/flood-risk-analysis/flood-detection/20260319225236-flood-risk-analysis-flood-detection-plw9zr/city-ops-flood-detection-transfer-underpass-closures",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/flood-risk-analysis/city-ops-flood-detection-transfer-underpass-closures",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:city-ops-flood-detection-transfer-underpass-closures instruction.md 明确规定按日最大深度聚合，并与 `traffic_control_depth_cm` / `full_closure_depth_cm` 阈值比较；这些都比 source task 基线更直接地提示了技能。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 drafts 的 instruction.md 都比 source_task/instruction.md 更直接地写出了“按天取最大值并与阈值比较”的技能路径，属于 family 级的系统性越界风险。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fab-a777-7492-ace1-fc2d2cb669a6"
+}

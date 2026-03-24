@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "payments-csv-processing-transfer-ledger-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer: Payments Ledger Reconciliation",
+  "goal": "对账支付流水 CSV 与退款流水 CSV，按订单重建净额，识别重复扣款、超额退款和未闭合退款，并导出需要人工复核的差异清单。",
+  "primaryOutputFile": "reconciliation_exceptions.csv",
+  "difficulty": "medium",
+  "category": "finance-ops",
+  "skillBenefitRationale": "把 csv-processing 迁移到事务型表格数据，重点考察键连接、分组聚合、数值核对和异常结果写出，而不依赖其他 shipped skills。",
+  "targetSkillDirName": "csv-processing",
+  "targetSkillName": "csv-processing"
+}

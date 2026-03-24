@@ -1,0 +1,22 @@
+version = 1
+revision = 3
+requires-python = ">=3.11"
+
+[[package]]
+name = "incident-digest"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "ops-helpers" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "ops-helpers", path = "vendor/ops_helpers-0.1.0-py3-none-any.whl" }]
+
+[[package]]
+name = "ops-helpers"
+version = "0.1.0"
+source = { path = "vendor/ops_helpers-0.1.0-py3-none-any.whl" }
+wheels = [
+    { filename = "ops_helpers-0.1.0-py3-none-any.whl", hash = "sha256:fb31d0f06d2abf2507e63594b35eaf026d58dbaf0d1c0d65af396586e0a787d6" },
+]

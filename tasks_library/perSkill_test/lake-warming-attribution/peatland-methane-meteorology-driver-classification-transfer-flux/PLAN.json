@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "peatland-methane-meteorology-driver-classification-transfer-flux",
+  "taskRole": "transfer",
+  "title": "Transfer: Peatland Methane Flux Driver Attribution",
+  "goal": "Assess a restored peatland dataset to determine which Heat, Flow, Wind, or Human driver category most strongly explains increasing methane flux, and output the dominant category with its contribution percentage.",
+  "primaryOutputFile": "/root/output/methane_flux_driver.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This transfers the skill into wetland biogeochemistry, where the unique critical capability is still mapping heterogeneous environmental variables into the four driver categories so attribution can be summarized at the category level.",
+  "targetSkillDirName": "meteorology-driver-classification",
+  "targetSkillName": "meteorology-driver-classification"
+}

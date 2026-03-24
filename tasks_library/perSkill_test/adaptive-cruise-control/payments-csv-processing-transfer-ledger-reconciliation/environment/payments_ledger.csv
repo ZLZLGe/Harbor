@@ -1,0 +1,12 @@
+payment_id,order_id,posted_at,payment_status,payment_method,attempt_seq,intended_order_amount,charged_amount,currency,customer_region
+PAY-1001-A,ORD-1001,2026-08-01T09:00,settled,card,1,120.00,120.00,USD,US
+PAY-1002-A,ORD-1002,2026-08-01T09:15,settled,card,1,75.00,75.00,USD,US
+PAY-1002-B,ORD-1002,2026-08-01T09:17,settled,card,2,75.00,75.00,USD,US
+PAY-1003-A,ORD-1003,2026-08-01T09:30,settled,wallet,1,60.00,60.00,USD,EU
+PAY-1004-A,ORD-1004,2026-08-01T09:45,settled,card,1,200.00,200.00,USD,APAC
+PAY-1005-A,ORD-1005,2026-08-01T10:00,settled,card,1,90.00,90.00,USD,LATAM
+PAY-1005-B,ORD-1005,2026-08-01T10:03,settled,card,2,90.00,90.00,USD,LATAM
+PAY-1006-A,ORD-1006,2026-08-01T10:20,settled,bank_transfer,1,150.00,150.00,USD,US
+PAY-1007-A,ORD-1007,2026-08-01T10:40,failed,card,1,40.00,40.00,USD,EU
+PAY-1008-A,ORD-1008,2026-08-01T11:00,settled,card,1,50.00,50.00,USD,APAC
+PAY-1008-B,ORD-1008,2026-08-01T11:02,settled,card,2,50.00,50.00,USD,APAC

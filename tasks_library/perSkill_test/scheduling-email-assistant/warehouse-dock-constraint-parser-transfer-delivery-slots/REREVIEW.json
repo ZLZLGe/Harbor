@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "scheduling-email-assistant",
+  "targetSkillDirName": "constraint-parser",
+  "runId": "20260322161956-scheduling-email-assistant-constraint-parser-3c7caf",
+  "taskId": "warehouse-dock-constraint-parser-transfer-delivery-slots",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/scheduling-email-assistant/constraint-parser/20260322161956-scheduling-email-assistant-constraint-parser-3c7caf/warehouse-dock-constraint-parser-transfer-delivery-slots",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/scheduling-email-assistant/warehouse-dock-constraint-parser-transfer-delivery-slots",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:warehouse-dock-constraint-parser-transfer-delivery-slots instruction.md 未直接点名 `constraint-parser`，没有技能暴露。; 任务本质是抽取装卸预约相关时间约束，只依赖当前 shipped skill，不依赖其他 source skills。; 测试不可充分判定：`date_flexibility` 与 `same_day_unloading_cutoff.condition` 被 instruction 定义为简洁完整句子，存在多种等价正确写法，但测试做了唯一精确匹配。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个任务都有共同问题：测试对多个自由文本字段采用精确字符串匹配，但 instruction 没有把这些字段限定为唯一表述，整组存在可判定性风险。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a70-ca56-7af1-8f5a-950a96752d7c"
+}

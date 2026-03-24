@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "museum-guide-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "taskRole": "transfer",
+  "title": "Transfer: 展馆音频导览路线图",
+  "goal": "解析一份互动展馆音频导览脚本，输出访客在不同展厅与讲解节点之间的结构化路线图 JSON，并生成 DOT 导览图。",
+  "primaryOutputFile": "museum_audio_route.json",
+  "difficulty": "easy",
+  "category": "education",
+  "skillBenefitRationale": "该任务把 skill 迁移到导览路线设计，但关键能力仍只有 dialogue-graph：表示讲解节点、观众选择、回看分支和出口路径，并验证整张图的连通性。",
+  "targetSkillDirName": "dialogue_graph",
+  "targetSkillName": "dialogue-graph"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "rlc-filter-sympy-transfer-symbolic-response",
+  "taskRole": "transfer",
+  "title": "Transfer: RLC 滤波器的符号传递函数分析",
+  "goal": "读取若干二阶 RLC 滤波器参数，符号推导传递函数，输出标准化分子分母、多项式极点、阻尼分类以及直流和高频极限。",
+  "primaryOutputFile": "/root/workspace/rlc_symbolic_response.py",
+  "difficulty": "medium",
+  "category": "electrical_engineering",
+  "skillBenefitRationale": "该任务把 SymPy 迁移到电路分析，主要使用符号化简、多项式求根、limit 和参数表达式整理，与前两个 transfer 在问题结构和测试方式上都明显不同。",
+  "targetSkillDirName": "sympy",
+  "targetSkillName": "sympy"
+}

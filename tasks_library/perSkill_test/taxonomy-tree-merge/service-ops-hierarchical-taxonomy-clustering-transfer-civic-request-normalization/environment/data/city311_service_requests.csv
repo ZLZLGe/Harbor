@@ -1,0 +1,19 @@
+sr_id,complaint_hierarchy,submission_channel,district,priority_code,sla_target_hours
+311-001,public space > cleaning > graffiti > wall markings,311 Phone,Central,Urgent,48
+311-002,streets > sidewalks > surface hazard > trip hazard,Web Form,Harbor,Urgent,72
+311-003,parks > street trees > low branches > branch obstruction,NYC App,North,Routine,96
+311-004,sanitation > trash removal > illegal dumping > bulky waste,311 Phone,Central,Routine,96
+311-005,health and sanitation > pest control > rodents > rat sighting,Web Form,Harbor,Routine,120
+311-006,sanitation > recycling > missed pickup > recycling overflow,NYC App,North,Routine,72
+311-007,housing > elevators > service outage > car stalled,311 Phone,Central,Emergency,4
+311-008,accessibility > building access > automatic doors > opener failure,Web Form,Harbor,Urgent,24
+311-009,parking and access > garage entry > gate failure > resident gate,NYC App,North,Urgent,24
+311-010,water and sewer > leaks > active leak > ceiling drip,311 Phone,Central,Emergency,6
+311-011,housing > hot water > no hot water > building outage,Web Form,Harbor,Urgent,24
+311-012,water and sewer > drainage > backup > toilet overflow,311 Phone,North,Emergency,6
+311-013,housing > climate control > cooling outage > warm apartment,NYC App,Central,Urgent,24
+311-014,housing > heat > no heat > cold apartment,311 Phone,Harbor,Emergency,8
+311-015,streets > lighting > streetlight outage > dark block,NYC App,North,Urgent,48
+311-016,water and sewer > leaks > pipe break > hallway drip,311 Phone,Central,Emergency,4
+311-017,housing > climate control > air conditioner failure > hot apartment,Web Form,Harbor,Urgent,48
+311-018,housing > elevators > no service > elevator stuck,311 Phone,North,Emergency,4

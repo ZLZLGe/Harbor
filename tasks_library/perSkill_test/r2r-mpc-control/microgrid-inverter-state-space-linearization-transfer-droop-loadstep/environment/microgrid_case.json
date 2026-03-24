@@ -1,0 +1,28 @@
+{
+  "dt": 0.05,
+  "nominal_operating_point": {
+    "reference_state": [0.0, 0.0],
+    "reference_input": [0.82, 0.31]
+  },
+  "model_parameters": {
+    "tau_frequency": 0.35,
+    "tau_voltage": 0.45,
+    "active_droop_gain": 0.18,
+    "reactive_droop_gain": 0.22,
+    "nominal_voltage_pu": 1.0,
+    "active_voltage_exponent": 1.5,
+    "reactive_voltage_exponent": 2.1,
+    "active_frequency_coupling": 0.16,
+    "reactive_frequency_coupling": 0.1
+  },
+  "validation_case": {
+    "steps": 20,
+    "initial_state": [0.0, 0.0]
+  },
+  "error_tolerances": {
+    "max_abs_frequency_gap_hz": 5e-05,
+    "max_abs_voltage_gap_pu": 2.5e-05,
+    "frequency_nadir_gap_hz": 5e-05,
+    "voltage_nadir_gap_pu": 2.5e-05
+  }
+}

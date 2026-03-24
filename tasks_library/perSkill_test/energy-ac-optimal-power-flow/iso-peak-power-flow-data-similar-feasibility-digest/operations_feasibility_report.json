@@ -1,0 +1,138 @@
+{
+  "summary": {
+    "total_load_MW": 23525.85,
+    "total_load_MVAr": 7787.97,
+    "total_generation_MW": 18122.0,
+    "total_generation_MVAr": 1881.515,
+    "total_losses_MW": -5403.8499999999985
+  },
+  "reference_bus_check": {
+    "reference_bus": 437,
+    "angle_deg": 1.5,
+    "target_angle_deg": 0.0,
+    "tolerance_deg": 0.1,
+    "abs_deviation_deg": 1.5,
+    "within_tolerance": false
+  },
+  "most_loaded_branches": [
+    {
+      "from_bus": 57,
+      "to_bus": 497,
+      "loading_pct": 239.81839554955053,
+      "flow_from_MVA": 719.4551866486516,
+      "flow_to_MVA": 654.952188256487,
+      "limit_MVA": 300.0,
+      "overload_MVA": 419.45518664865165
+    },
+    {
+      "from_bus": 97,
+      "to_bus": 897,
+      "loading_pct": 127.67774010302931,
+      "flow_from_MVA": 167.45719732838782,
+      "flow_to_MVA": 191.51661015454397,
+      "limit_MVA": 150.0,
+      "overload_MVA": 41.51661015454397
+    },
+    {
+      "from_bus": 1077,
+      "to_bus": 757,
+      "loading_pct": 110.35389807782757,
+      "flow_from_MVA": 993.185082700448,
+      "flow_to_MVA": 993.1850827004479,
+      "limit_MVA": 900.0,
+      "overload_MVA": 93.18508270044799
+    },
+    {
+      "from_bus": 57,
+      "to_bus": 683,
+      "loading_pct": 52.3208178497398,
+      "flow_from_MVA": 534.5613354655762,
+      "flow_to_MVA": 625.2337733043906,
+      "limit_MVA": 1195.0,
+      "overload_MVA": 0.0
+    },
+    {
+      "from_bus": 1463,
+      "to_bus": 497,
+      "loading_pct": 48.42614271371558,
+      "flow_from_MVA": 275.54475204104165,
+      "flow_to_MVA": 251.97688381162956,
+      "limit_MVA": 569.0,
+      "overload_MVA": 0.0
+    },
+    {
+      "from_bus": 163,
+      "to_bus": 2803,
+      "loading_pct": 46.59919360246433,
+      "flow_from_MVA": 47.568456829395544,
+      "flow_to_MVA": 54.05506457885863,
+      "limit_MVA": 116.0,
+      "overload_MVA": 0.0
+    },
+    {
+      "from_bus": 243,
+      "to_bus": 163,
+      "loading_pct": 46.20976313428094,
+      "flow_from_MVA": 54.0654228671087,
+      "flow_to_MVA": 47.57757212305566,
+      "limit_MVA": 117.0,
+      "overload_MVA": 0.0
+    },
+    {
+      "from_bus": 163,
+      "to_bus": 1957,
+      "loading_pct": 45.57584353976363,
+      "flow_from_MVA": 4.0106742314992,
+      "flow_to_MVA": 4.557584353976363,
+      "limit_MVA": 10.0,
+      "overload_MVA": 0.0
+    },
+    {
+      "from_bus": 163,
+      "to_bus": 377,
+      "loading_pct": 43.81625271598809,
+      "flow_from_MVA": 5.783745358510419,
+      "flow_to_MVA": 6.572437907398213,
+      "limit_MVA": 15.0,
+      "overload_MVA": 0.0
+    },
+    {
+      "from_bus": 397,
+      "to_bus": 897,
+      "loading_pct": 42.3520036336972,
+      "flow_from_MVA": 1591.4073197462203,
+      "flow_to_MVA": 1757.1846307620967,
+      "limit_MVA": 4149.0,
+      "overload_MVA": 0.0
+    }
+  ],
+  "feasibility_metrics": {
+    "max_p_mismatch_MW": 1251.9994834842137,
+    "worst_p_mismatch_bus": 497,
+    "max_q_mismatch_MVAr": 1735.210895663239,
+    "worst_q_mismatch_bus": 897,
+    "voltage_violations": {
+      "count": 3,
+      "max_violation_pu": 0.06000000000000005,
+      "worst_bus": 57
+    },
+    "generator_p_violations": {
+      "count": 1,
+      "max_violation_MW": 45.0,
+      "worst_generator_id": 1
+    },
+    "generator_q_violations": {
+      "count": 2,
+      "max_violation_MVAr": 22.0,
+      "worst_generator_id": 4
+    },
+    "branch_overloads": {
+      "count": 3,
+      "max_overload_MVA": 419.45518664865165,
+      "worst_branch": {
+        "from_bus": 57,
+        "to_bus": 497
+      }
+    }
+  }
+}

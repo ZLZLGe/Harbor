@@ -1,0 +1,34 @@
+{
+  "critical_loads": [
+    {
+      "bus": 120,
+      "name": "Harbor trauma campus",
+      "priority": "tier-1"
+    },
+    {
+      "bus": 78,
+      "name": "Water pumping district",
+      "priority": "tier-1"
+    },
+    {
+      "bus": 261,
+      "name": "Airport operations center",
+      "priority": "tier-1"
+    },
+    {
+      "bus": 25,
+      "name": "Telecom hub",
+      "priority": "tier-2"
+    },
+    {
+      "bus": 105,
+      "name": "Coastal emergency shelter",
+      "priority": "tier-1"
+    },
+    {
+      "bus": 242,
+      "name": "Port cold-storage block",
+      "priority": "tier-2"
+    }
+  ]
+}

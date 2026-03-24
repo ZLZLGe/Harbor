@@ -1,0 +1,35 @@
+version = "1.0"
+
+[metadata]
+id = "docs-build-analyze-ci-transfer-lockfile-drift"
+name = "Transfer: 修复文档站点构建因锁文件漂移失败"
+description = "分析本地提供的文档站点 CI 失败日志，写出调查报告并修复锁文件漂移导致的 docs 构建失败。"
+author_name = "Yifeng He"
+author_email = "yfhe.cs@gmail.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = [
+  "nodejs",
+  "npm",
+  "documentation",
+  "ci",
+  "debugging",
+  "lockfile"
+]
+primary_output_file = "reports/docs-build-investigation.md"
+source_task_id = "fix-build-agentops"
+task_role = "transfer"
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

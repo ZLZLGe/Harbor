@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "message-canonicalizer-python-scala-idioms-similar-pipeline",
+  "taskRole": "similar",
+  "title": "Similar: Message Canonicalizer Translation",
+  "goal": "Translate a Python message canonicalization module into idiomatic Scala 2.13, preserving behavior while redesigning the API around case classes, sealed hierarchies, Option-based absence handling, and collection-driven batch transforms instead of Python-style mutation and duck typing.",
+  "primaryOutputFile": "/root/MessageCanonicalizer.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "This is a close analogue to the source task: the core challenge is turning a utility-style Python module with flexible input handling and chained processors into clean Scala domain models and expression-oriented code, which makes python-scala-idioms the single critical shipped skill.",
+  "targetSkillDirName": "python-scala-idioms",
+  "targetSkillName": "python-scala-idioms"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "volunteer-roster-xlsx-transfer-planning",
+  "taskRole": "transfer",
+  "title": "Transfer | 志愿者排班规划工作簿",
+  "goal": "读取 `/app/workspace/data/volunteers.tsv`、`/app/workspace/data/shift_needs.csv` 与 `/app/workspace/data/availability.json`，生成 `/app/workspace/volunteer_shift_plan.xlsx`。工作簿需包含班次需求、分配结果和缺口概览，并通过公式统计每人负载、班次缺口及时间冲突标记。",
+  "primaryOutputFile": "/app/workspace/volunteer_shift_plan.xlsx",
+  "difficulty": "hard",
+  "category": "resource planning",
+  "skillBenefitRationale": "核心在于把排班约束转成可审阅的工作簿结构与公式汇总，用电子表格完成计划编排与校验，体现 xlsx 技能在规划场景中的迁移能力。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "saturn-aurora-consensus-pareto-optimization-similar-frontier",
+  "taskRole": "similar",
+  "title": "Similar: Saturn Aurora Consensus Frontier",
+  "goal": "Sweep consensus-building hyperparameters for citizen-science Saturn aurora markings, average agreement score and localization error against expert annotations across images, filter out weak configurations, and write the non-dominated trade-off set to `/root/aurora_frontier.csv`.",
+  "primaryOutputFile": "/root/aurora_frontier.csv",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "核心难点是从一批双目标候选配置中找出非支配解，并正确处理一个目标最大化、一个目标最小化以及阈值过滤；其余只是按题面规则汇总指标。",
+  "targetSkillDirName": "pareto-optimization",
+  "targetSkillName": "pareto-optimization"
+}

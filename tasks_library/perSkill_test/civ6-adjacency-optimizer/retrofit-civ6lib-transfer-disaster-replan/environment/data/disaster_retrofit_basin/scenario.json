@@ -1,0 +1,51 @@
+{
+  "scenario_id": "disaster_retrofit_basin",
+  "description": "Retrofit a damaged single-city district layout after two core tiles fail and only a small rebuild crew is available.",
+  "output_file": "/output/retrofit_plan.json",
+  "notes": [
+    "The city center is fixed and cannot move.",
+    "Every district in existing_districts must still exist after the repair.",
+    "Only the districts listed in movable_districts may change tiles.",
+    "Disabled tiles are permanently unusable after the disaster.",
+    "Only the coordinates listed in tiles exist."
+  ],
+  "city": {
+    "center": [6, 4],
+    "population": 10
+  },
+  "existing_districts": {
+    "AQUEDUCT": [5, 4],
+    "DAM": [6, 5],
+    "INDUSTRIAL_ZONE": [5, 5],
+    "HARBOR": [7, 4],
+    "NEIGHBORHOOD": [4, 5],
+    "CAMPUS": [6, 3],
+    "COMMERCIAL_HUB": [7, 3]
+  },
+  "movable_districts": ["CAMPUS", "COMMERCIAL_HUB"],
+  "move_budget": 2,
+  "disabled_tiles": [[6, 3], [7, 3]],
+  "tiles": [
+    {"x": 6, "y": 4, "terrain": "GRASS", "river_edges": [0, 3]},
+    {"x": 5, "y": 4, "terrain": "PLAINS", "river_edges": [0]},
+    {"x": 6, "y": 5, "terrain": "PLAINS", "is_floodplains": true, "river_edges": [0, 2]},
+    {"x": 5, "y": 5, "terrain": "PLAINS"},
+    {"x": 7, "y": 4, "terrain": "COAST"},
+    {"x": 8, "y": 4, "terrain": "COAST", "resource": "FISH", "resource_type": "BONUS"},
+    {"x": 8, "y": 3, "terrain": "COAST", "resource": "PEARLS", "resource_type": "LUXURY"},
+    {"x": 7, "y": 3, "terrain": "PLAINS", "river_edges": [3]},
+    {"x": 6, "y": 3, "terrain": "PLAINS"},
+    {"x": 5, "y": 3, "terrain": "PLAINS"},
+    {"x": 4, "y": 4, "terrain": "PLAINS"},
+    {"x": 4, "y": 5, "terrain": "PLAINS"},
+    {"x": 4, "y": 3, "terrain": "MOUNTAIN"},
+    {"x": 5, "y": 2, "terrain": "MOUNTAIN"},
+    {"x": 6, "y": 2, "terrain": "PLAINS", "feature": "FEATURE_JUNGLE"},
+    {"x": 7, "y": 2, "terrain": "PLAINS", "feature": "FEATURE_JUNGLE"},
+    {"x": 5, "y": 6, "terrain": "PLAINS", "improvement": "QUARRY"},
+    {"x": 6, "y": 6, "terrain": "PLAINS", "improvement": "MINE"},
+    {"x": 7, "y": 5, "terrain": "PLAINS", "river_edges": [2]},
+    {"x": 7, "y": 6, "terrain": "PLAINS"},
+    {"x": 8, "y": 5, "terrain": "COAST"}
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "campaign": "Lead-Scout Refresh",
+  "ruleset_name": "leadlike_v1",
+  "top_n": 4,
+  "hard_limits": {
+    "molecular_weight": {"min": 150.0, "max": 420.0},
+    "logp": {"min": -0.5, "max": 4.5},
+    "tpsa": {"min": 20.0, "max": 120.0},
+    "hbd": {"min": 0, "max": 4},
+    "hba": {"min": 1, "max": 9},
+    "rotatable_bonds": {"min": 0, "max": 8}
+  },
+  "preferred_ranges": {
+    "molecular_weight": {"min": 200.0, "max": 340.0},
+    "logp": {"min": 1.0, "max": 3.5},
+    "tpsa": {"min": 35.0, "max": 90.0},
+    "hbd": {"min": 0, "max": 2},
+    "hba": {"min": 2, "max": 6},
+    "rotatable_bonds": {"min": 1, "max": 5}
+  }
+}

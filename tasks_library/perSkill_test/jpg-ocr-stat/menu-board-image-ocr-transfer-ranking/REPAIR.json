@@ -1,0 +1,56 @@
+{
+  "sourceTaskId": "jpg-ocr-stat",
+  "targetSkillDirName": "image-ocr",
+  "runId": "20260320101606-jpg-ocr-stat-image-ocr-la3xil",
+  "taskId": "menu-board-image-ocr-transfer-ranking",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/jpg-ocr-stat/menu-board-image-ocr-transfer-ranking",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320101606-jpg-ocr-stat-image-ocr-la3xil/jpg-ocr-stat/drafts/menu-board-image-ocr-transfer-ranking",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/jpg-ocr-stat/menu-board-image-ocr-transfer-ranking",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/jpg-ocr-stat/menu-board-image-ocr-transfer-ranking",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "tests/test.sh 依赖 apt-get、curl 和在线安装 uv，但该任务在 task.toml 中设置了 allow_internet=false，当前 verifier 不可可靠执行。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "tests/test.sh requires network access (`apt-get`, `curl`, `uv` install) even though task.toml sets `allow_internet = false`, so the verifier is not reliably runnable in the per-skill offline workspace.; environment/Dockerfile does not preinstall the verifier dependencies that tests/test.sh tries to fetch at runtime, which makes the task non-testable under the declared environment constraints.; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "menu-board-image-ocr-transfer-ranking"
+      ],
+      "requestedIssuesByTaskId": {
+        "menu-board-image-ocr-transfer-ranking": {
+          "reviewerIssues": [
+            "tests/test.sh requires network access (`apt-get`, `curl`, `uv` install) even though task.toml sets `allow_internet = false`, so the verifier is not reliably runnable in the per-skill offline workspace.; environment/Dockerfile does not preinstall the verifier dependencies that tests/test.sh tries to fetch at runtime, which makes the task non-testable under the declared environment constraints.; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10e1-04af-7f22-aacd-639019f79c4a",
+      "repairSummary": "- `menu-board-image-ocr-transfer-ranking`: 将 [tests/test.sh](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-image-ocr-la3xil-2f477e26/jpg-ocr-stat/drafts/menu-board-image-ocr-transfer-ranking/tests/test.sh) 改为纯离线 verifier，不再执行 `apt-get`、`curl`、`uv` 或在线安装任何依赖，只用预装 `python3` 直接运行校验并写入 `reward.txt`。\n- `menu-board-image-ocr-transfer-ranking`: 在 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-image-ocr-la3xil-2f477e26/jpg-ocr-stat/drafts/menu-board-image-ocr-transfer-ranking/tests/test_outputs.py) 增加脚本入口 `if __name__ == \"__main__\": test_output_report()`，使测试文件可被 `test.sh` 直接执行，保留原有断言逻辑不变。\n- `menu-board-image-ocr-transfer-ranking`: 复核了 [task.toml](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-image-ocr-la3xil-2f477e26/jpg-ocr-stat/drafts/menu-board-image-ocr-transfer-ranking/task.toml) 与 [instruction.md](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-image-ocr-la3xil-2f477e26/jpg-ocr-stat/drafts/menu-board-image-ocr-transfer-ranking/instruction.md)，`derivedTaskId`、`taskRole`、`source_task_id`、`primary_output_file` 均未改动，说明中也未直接点名当前 shipped skill。  \n- 验证：做了本地等价自检，新的离线校验逻辑可通过；静态关键字段检查通过。",
+      "reviewThreadId": "019d10e4-390a-72b1-ab42-b9649e976b0b",
+      "evaluationByTaskId": {
+        "menu-board-image-ocr-transfer-ranking": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

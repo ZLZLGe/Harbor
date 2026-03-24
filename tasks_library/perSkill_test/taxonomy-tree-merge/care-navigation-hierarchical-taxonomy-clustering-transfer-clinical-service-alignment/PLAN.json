@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "care-navigation-hierarchical-taxonomy-clustering-transfer-clinical-service-alignment",
+  "taskRole": "transfer",
+  "title": "Transfer: 临床服务目录统一",
+  "goal": "整合医院集团、保险目录与远程医疗平台的服务分类路径，构建统一的 5 层临床服务 taxonomy，用于预约导航、服务线报表和跨机构需求分析。",
+  "primaryOutputFile": "drafts/care-navigation-hierarchical-taxonomy-clustering-transfer-clinical-service-alignment/instruction.md",
+  "difficulty": "hard",
+  "category": "ML/NLP",
+  "skillBenefitRationale": "医疗服务目录同样是多源层级分类，但同义词、粒度和父子边界更混乱；该 skill 的层级加权聚类与命名约束可以把服务线树整合成可导航的统一结构。",
+  "targetSkillDirName": "hierarchical-taxonomy-clustering",
+  "targetSkillName": "hierarchical-taxonomy-clustering"
+}

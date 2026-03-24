@@ -1,0 +1,4 @@
+metric,value,unit
+requests,128,count
+latency,17.4,ms
+errors,2,count

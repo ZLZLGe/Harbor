@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "grocery-forecasting-senior-data-scientist-transfer-seasonal-reorder",
+  "taskRole": "transfer",
+  "title": "Transfer | Grocery Demand Forecast and Reorder Alerts",
+  "goal": "针对门店日销量历史工作簿生成预测表，计算移动平均基线、星期季节性调整、未来 14 天需求预测、误差指标与补货预警。",
+  "primaryOutputFile": "/root/data/store_reorder_forecast.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "该任务把技能迁移到运营预测场景，要求时间序列特征提炼、预测评估与业务决策支持，关键能力仍然是 senior-data-scientist。",
+  "targetSkillDirName": "senior-data-scientist",
+  "targetSkillName": "senior-data-scientist"
+}

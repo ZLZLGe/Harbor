@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "record-canonicalizer-python-scala-functional-similar-mixed-input-pipeline",
+  "taskRole": "similar",
+  "title": "Similar: Python 记录规范化器转 Scala",
+  "goal": "将一个 Python 记录规范化模块翻译为 Scala 2.13，要求把高阶归一化函数、可选元数据、异构值分发、惰性批处理和流式文本切分改写成惯用的函数式 Scala 结构，并输出 `/root/RecordCanonicalizer.scala`。",
+  "primaryOutputFile": "/root/RecordCanonicalizer.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "这个任务仍然是典型的 Python 到函数式 Scala 模块翻译，但场景从通用 tokenizer 改为记录规范化流水线，能直接检验 ADT、Option、模式匹配、Iterator 和 fluent builder 的综合迁移能力；除该技能外不需要其他 shipped skill。",
+  "targetSkillDirName": "python-scala-functional",
+  "targetSkillName": "python-scala-functional"
+}

@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "lake-warming-attribution",
+  "targetSkillDirName": "meteorology-driver-classification",
+  "runId": "20260320105733-lake-warming-attribution-meteorology-driver-classification-hmaul8",
+  "taskId": "reservoir-evaporation-meteorology-driver-classification-similar-attribution",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/lake-warming-attribution/meteorology-driver-classification/20260320105733-lake-warming-attribution-meteorology-driver-classification-hmaul8/reservoir-evaporation-meteorology-driver-classification-similar-attribution",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/lake-warming-attribution/reservoir-evaporation-meteorology-driver-classification-similar-attribution",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:reservoir-evaporation-meteorology-driver-classification-similar-attribution instruction.md 要求“Use all candidate predictors in the file except year, month, and evaporation_mm_day”，但测试只接受将 `shortwave_wm2` 和 `longwave_wm2` 替换为 `net_radiation_wm2` 后的那一套分组与计算；是否还应保留原始辐射变量并不明确，导致存在合理实现无法通过测试的判定歧义。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fb2-077b-7693-ac83-8acd508e692d"
+}

@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "bastion-ssh-penetration-testing-transfer-remote-forward-acl"
+name = "Transfer | 修复 SSH 远程端口转发 ACL 泄露"
+description = "修复 Rust SSH 隧道代理对 remote forwarding 的 ACL 校验，使其只允许白名单中的 loopback 绑定与目标端口并保持合法运维隧道可用。"
+author_name = "Yuanli Wang"
+author_email = "yuanliw@bu.edu"
+difficulty = "hard"
+category = "rust security bugfix"
+tags = ["rust", "ssh", "security", "port-forwarding", "acl"]
+primary_output_file = "/app/workspace/src/forwarding/remote_acl.rs"
+source_task_id = "fix-erlang-ssh-cve"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "assay-lab-jax-skills-similar-screening-suite",
+  "taskRole": "similar",
+  "title": "Similar: Assay Screening Suite",
+  "goal": "构造一个实验室筛查数组工作流任务：读取多份 .npy/.npz 输入，分别完成通道均值汇总、平方残差映射、二分类损失梯度、scan 状态展开与 JIT 两层网络推理，并把每项结果保存到指定输出文件。",
+  "primaryOutputFile": "assay_state_rollout.npy",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "这个任务贴近源任务的典型 JAX 用法，但换成统一的实验筛查场景来组织；核心仍然是数组加载保存、vmap/map、reduce、grad、scan 和 jit，唯一关键 shipped skill 就是 jax-skills。",
+  "targetSkillDirName": "jax-skills",
+  "targetSkillName": "jax-skills"
+}

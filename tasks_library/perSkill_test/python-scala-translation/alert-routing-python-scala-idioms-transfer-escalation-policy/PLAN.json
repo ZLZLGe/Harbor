@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "alert-routing-python-scala-idioms-transfer-escalation-policy",
+  "taskRole": "transfer",
+  "title": "Transfer: Alert Routing Policy Translation",
+  "goal": "Translate a Python incident alert routing module into idiomatic Scala 2.13, preserving escalation behavior while recasting severity levels, channels, schedules, and fallback logic into immutable Scala models with exhaustive pattern matching.",
+  "primaryOutputFile": "/root/AlertRouting.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "This tests whether the learner can apply python-scala-idioms in an operations-policy setting, replacing Python branching and nullable lookups with sealed ADTs, Options, and composable transformations as the only essential competency.",
+  "targetSkillDirName": "python-scala-idioms",
+  "targetSkillName": "python-scala-idioms"
+}

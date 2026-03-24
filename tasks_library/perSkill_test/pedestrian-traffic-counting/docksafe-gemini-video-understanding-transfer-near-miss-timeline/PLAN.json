@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "docksafe-gemini-video-understanding-transfer-near-miss-timeline",
+  "taskRole": "transfer",
+  "title": "Transfer: 装卸区近失事件时间线",
+  "goal": "读取装卸区安全监控视频，定位每次叉车与行人或手推车发生近失碰撞的时间点，输出 JSON 时间线；每条记录包含视频名、MM:SS 时间戳、涉事对象和一句简短证据描述。",
+  "primaryOutputFile": "/app/loading_dock/near_miss_timeline.json",
+  "difficulty": "hard",
+  "category": "industrial safety video analysis",
+  "skillBenefitRationale": "任务核心是从连续视频里识别高风险互动并精确落到时间轴，依赖 gemini-video-understanding 的动作理解、事件定位和视频到结构化 JSON 的能力，不需要其他 shipped skill。",
+  "targetSkillDirName": "gemini-video-understanding",
+  "targetSkillName": "gemini-video-understanding"
+}

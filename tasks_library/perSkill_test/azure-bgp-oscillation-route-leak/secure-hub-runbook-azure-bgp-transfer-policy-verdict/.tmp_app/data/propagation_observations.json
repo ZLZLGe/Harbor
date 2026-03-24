@@ -1,0 +1,22 @@
+[
+  {
+    "observation_id": "obs-401",
+    "prefix": "10.88.14.0/24",
+    "advertiser_asn": 65412,
+    "learned_from_asn": 65401,
+    "exported_to_asn": 65413,
+    "learned_from_relationship": "provider",
+    "exported_to_relationship": "peer",
+    "note": "secure-hub-east leaked an Azure-backbone-learned route to the peer secure hub"
+  },
+  {
+    "observation_id": "obs-402",
+    "prefix": "10.99.20.0/24",
+    "advertiser_asn": 65413,
+    "learned_from_asn": 65428,
+    "exported_to_asn": 65401,
+    "learned_from_relationship": "customer",
+    "exported_to_relationship": "provider",
+    "note": "secure-hub-west exported a branch route upstream, which is valley-free"
+  }
+]

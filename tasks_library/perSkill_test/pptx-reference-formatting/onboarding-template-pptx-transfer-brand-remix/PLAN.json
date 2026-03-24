@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "onboarding-template-pptx-transfer-brand-remix",
+  "taskRole": "transfer",
+  "title": "Transfer - Remix a Branded Template Into an Onboarding Deck",
+  "goal": "基于给定的品牌模板演示文稿，先盘点可复用版式，再选择、复制、重排合适的模板页，替换占位内容并清理未使用占位符，产出一份 6 页的新员工 onboarding deck。",
+  "primaryOutputFile": "/root/Team-Onboarding-Branded.pptx",
+  "difficulty": "medium",
+  "category": "office-suite",
+  "skillBenefitRationale": "任务需要模板分析、幻灯片复制重排和占位内容替换，同时保持原主题与布局关系，属于典型的 PowerPoint 模板复用场景。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

@@ -1,0 +1,40 @@
+{
+  "scenario_id": "volcanic_hinterland_heatmap",
+  "city": {
+    "center": [3, 3],
+    "population": 7
+  },
+  "locked_districts": {
+    "AQUEDUCT": [2, 3],
+    "COMMERCIAL_HUB": [4, 3],
+    "HARBOR": [4, 4]
+  },
+  "reserved_tiles": [
+    [3, 2],
+    [5, 4]
+  ],
+  "candidate_districts": [
+    "CAMPUS",
+    "HOLY_SITE",
+    "INDUSTRIAL_ZONE"
+  ],
+  "tiles": [
+    {"x": 3, "y": 3, "terrain": "PLAINS", "river_edges": [0, 1]},
+    {"x": 4, "y": 3, "terrain": "PLAINS", "river_edges": [0, 3]},
+    {"x": 4, "y": 2, "terrain": "MOUNTAIN"},
+    {"x": 3, "y": 2, "terrain": "PLAINS", "feature": "FEATURE_JUNGLE"},
+    {"x": 2, "y": 3, "terrain": "PLAINS", "river_edges": [0, 3]},
+    {"x": 3, "y": 4, "terrain": "PLAINS", "feature": "FEATURE_FOREST", "improvement": "LUMBER_MILL"},
+    {"x": 4, "y": 4, "terrain": "COAST", "resource": "FISH", "resource_type": "BONUS"},
+    {"x": 5, "y": 3, "terrain": "PLAINS", "feature": "FEATURE_FOREST"},
+    {"x": 5, "y": 2, "terrain": "MOUNTAIN"},
+    {"x": 2, "y": 2, "terrain": "PLAINS", "feature": "FEATURE_JUNGLE"},
+    {"x": 1, "y": 3, "terrain": "PLAINS", "improvement": "MINE"},
+    {"x": 2, "y": 4, "terrain": "PLAINS", "feature": "FEATURE_FOREST", "improvement": "QUARRY"},
+    {"x": 5, "y": 4, "terrain": "PLAINS", "river_edges": [2, 3]},
+    {"x": 4, "y": 5, "terrain": "PLAINS", "feature": "FEATURE_FOREST"},
+    {"x": 3, "y": 5, "terrain": "PLAINS", "improvement": "MINE"},
+    {"x": 2, "y": 5, "terrain": "PLAINS", "is_floodplains": true, "river_edges": [0, 2]},
+    {"x": 4, "y": 6, "terrain": "PLAINS", "feature": "FEATURE_NATURAL_WONDER_CRATER"}
+  ]
+}

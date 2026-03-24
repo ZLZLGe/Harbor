@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "battery-model-casadi-ipopt-nlp-transfer-parameter-fit"
+name = "Transfer: Battery RC Parameter Identification"
+description = "Fit a temperature-aware first-order RC battery model to pulse-test data and write battery_model_fit_report.json with identified parameters, residual statistics, and validation-segment errors."
+author_name = "Codex Task Builder"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "battery-modeling", "parameter-identification", "nonlinear-least-squares"]
+primary_output_file = "battery_model_fit_report.json"
+source_task_id = "energy-ac-optimal-power-flow"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240
+gpus = 0
+allow_internet = true

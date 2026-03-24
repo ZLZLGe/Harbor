@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "energy-ac-optimal-power-flow",
+  "targetSkillDirName": "power-flow-data",
+  "runId": "20260319055059-energy-ac-optimal-power-flow-power-flow-data-0qv1aw",
+  "taskId": "matpower-qa-power-flow-data-transfer-case-lint",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/energy-ac-optimal-power-flow/power-flow-data/20260319055059-energy-ac-optimal-power-flow-power-flow-data-0qv1aw/matpower-qa-power-flow-data-transfer-case-lint",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/energy-ac-optimal-power-flow/matpower-qa-power-flow-data-transfer-case-lint",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:matpower-qa-power-flow-data-transfer-case-lint instruction.md 直接点名 MATPOWER，并逐项展开 bus/gen/branch 字段定义；相对 source_task/instruction.md 属于更直接明示技能，并引入了 source task 未直接写出的具体 skill 线索。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 4 个 drafts 的 instruction.md 都比 source_task/instruction.md 更直接地点明了 MATPOWER 风格、bus/gen/branch/gencost 与字段级映射要求，整体存在统一的可见性越界问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa3-d869-7000-839b-b9c3b27c33e4"
+}

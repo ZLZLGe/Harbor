@@ -1,0 +1,135 @@
+{
+  "snapshot_id": "offshore-export-window-7a",
+  "control_area": "Eastern Shelf Cluster",
+  "weather_window": "Strong evening production with export bottlenecks",
+  "base_mva": 100.0,
+  "reference_bus": 900,
+  "shore_bus": 900,
+  "buses": [
+    {
+      "id": 900,
+      "name": "Lingang Shore Grid",
+      "kind": "shore"
+    },
+    {
+      "id": 430,
+      "name": "North Converter",
+      "kind": "converter"
+    },
+    {
+      "id": 510,
+      "name": "South Converter",
+      "kind": "converter"
+    },
+    {
+      "id": 310,
+      "name": "Aurora Collector",
+      "kind": "collector"
+    },
+    {
+      "id": 250,
+      "name": "Beacon Collector",
+      "kind": "collector"
+    },
+    {
+      "id": 140,
+      "name": "Cascade Collector",
+      "kind": "collector"
+    }
+  ],
+  "wind_farms": [
+    {
+      "id": "WF-AURORA",
+      "name": "Aurora East",
+      "bus": 310,
+      "available_mw": 105.0,
+      "curtailment_priority": 1
+    },
+    {
+      "id": "WF-BEACON",
+      "name": "Beacon Reef",
+      "bus": 250,
+      "available_mw": 125.0,
+      "curtailment_priority": 2
+    },
+    {
+      "id": "WF-CASCADE",
+      "name": "Cascade Deep",
+      "bus": 140,
+      "available_mw": 160.0,
+      "curtailment_priority": 3
+    },
+    {
+      "id": "WF-DRIFT",
+      "name": "Drift South",
+      "bus": 510,
+      "available_mw": 95.0,
+      "curtailment_priority": 4
+    }
+  ],
+  "cables": [
+    {
+      "id": "IC-310-430",
+      "name": "Aurora Spur",
+      "from": 310,
+      "to": 430,
+      "reactance_pu": 0.18,
+      "limit_mw": 120.0,
+      "segment_type": "collector"
+    },
+    {
+      "id": "IC-250-430",
+      "name": "Beacon North Link",
+      "from": 250,
+      "to": 430,
+      "reactance_pu": 0.22,
+      "limit_mw": 58.0,
+      "segment_type": "collector"
+    },
+    {
+      "id": "IC-250-510",
+      "name": "Beacon South Link",
+      "from": 250,
+      "to": 510,
+      "reactance_pu": 0.16,
+      "limit_mw": 82.0,
+      "segment_type": "collector"
+    },
+    {
+      "id": "IC-140-510",
+      "name": "Cascade Spur",
+      "from": 140,
+      "to": 510,
+      "reactance_pu": 0.19,
+      "limit_mw": 100.0,
+      "segment_type": "collector"
+    },
+    {
+      "id": "IC-430-510",
+      "name": "Hub Coupler",
+      "from": 430,
+      "to": 510,
+      "reactance_pu": 0.30,
+      "limit_mw": 35.0,
+      "segment_type": "hub-tie"
+    },
+    {
+      "id": "EX-430-900",
+      "name": "North Export",
+      "from": 430,
+      "to": 900,
+      "reactance_pu": 0.13,
+      "limit_mw": 150.0,
+      "segment_type": "export"
+    },
+    {
+      "id": "EX-510-900",
+      "name": "South Export",
+      "from": 510,
+      "to": 900,
+      "reactance_pu": 0.11,
+      "limit_mw": 165.0,
+      "segment_type": "export"
+    }
+  ]
+}

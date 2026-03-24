@@ -1,0 +1,74 @@
+{
+  "city_center": [
+    21,
+    13
+  ],
+  "placements": {
+    "CAMPUS": [
+      21,
+      14
+    ],
+    "HOLY_SITE": [
+      23,
+      12
+    ],
+    "INDUSTRIAL_ZONE": [
+      22,
+      13
+    ],
+    "COMMERCIAL_HUB": [
+      20,
+      13
+    ],
+    "HARBOR": [
+      21,
+      12
+    ],
+    "AQUEDUCT": [
+      22,
+      12
+    ],
+    "DAM": [
+      23,
+      14
+    ]
+  },
+  "district_scores": {
+    "CAMPUS": {
+      "raw_adjacency": 6,
+      "weight": 3,
+      "weighted_score": 18
+    },
+    "HOLY_SITE": {
+      "raw_adjacency": 2,
+      "weight": 2,
+      "weighted_score": 4
+    },
+    "INDUSTRIAL_ZONE": {
+      "raw_adjacency": 5,
+      "weight": 4,
+      "weighted_score": 20
+    },
+    "COMMERCIAL_HUB": {
+      "raw_adjacency": 3,
+      "weight": 3,
+      "weighted_score": 9
+    },
+    "HARBOR": {
+      "raw_adjacency": 3,
+      "weight": 1,
+      "weighted_score": 3
+    },
+    "AQUEDUCT": {
+      "raw_adjacency": 0,
+      "weight": 0,
+      "weighted_score": 0
+    },
+    "DAM": {
+      "raw_adjacency": 0,
+      "weight": 0,
+      "weighted_score": 0
+    }
+  },
+  "total_weighted_score": 54
+}

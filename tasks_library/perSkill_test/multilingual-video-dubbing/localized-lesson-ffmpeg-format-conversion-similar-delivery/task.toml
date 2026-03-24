@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "localized-lesson-ffmpeg-format-conversion-similar-delivery"
+name = "Similar: Localized Lesson Delivery"
+description = "将原始短视频与已对齐的本地化旁白封装成保留原画面的最终交付 MP4，并统一为 H.264 视频和 AAC 48kHz 单声道音频。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "multimodal-video-dubbing"
+tags = ["video delivery", "audio replacement", "ffmpeg", "h264", "aac"]
+primary_output_file = "/outputs/localized_lesson.mp4"
+source_task_id = "multilingual-video-dubbing"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

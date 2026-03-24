@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "port-inventory-simulator-parallel-processing-transfer-montecarlo",
+  "taskRole": "transfer",
+  "title": "Transfer | Port Inventory Policy Monte Carlo",
+  "goal": "对港口备件库存策略组合运行大批量 Monte Carlo 需求仿真，统计服务水平、平均库存和总成本，在满足服务水平阈值的前提下输出最低成本策略到 /root/port_inventory_policy.csv。",
+  "primaryOutputFile": "/root/port_inventory_policy.csv",
+  "difficulty": "hard",
+  "category": "operations-research",
+  "skillBenefitRationale": "不同库存策略与仿真批次互不依赖，但单次仿真需要重复执行较长时间序列更新；把策略评估批量并行化是任务成败的关键。",
+  "targetSkillDirName": "parallel-processing",
+  "targetSkillName": "parallel-processing"
+}

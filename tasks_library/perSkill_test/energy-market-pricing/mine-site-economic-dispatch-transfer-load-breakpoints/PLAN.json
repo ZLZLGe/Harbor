@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "mine-site-economic-dispatch-transfer-load-breakpoints",
+  "taskRole": "transfer",
+  "title": "Transfer - Mine Site Load Breakpoint Study",
+  "goal": "Study a remote mining complex that runs its own thermal fleet across several independent production load blocks. Produce `breakpoint_study.json` containing the optimal dispatch for each load block, the marginal system cost for each block, and the first load level where a designated standby turbine dispatches above a specified threshold.",
+  "primaryOutputFile": "breakpoint_study.json",
+  "difficulty": "hard",
+  "category": "energy",
+  "skillBenefitRationale": "This transfers economic dispatch into an industrial self-supply context and stresses cost-curve interpretation across a demand sweep. The key work is repeatedly solving least-cost dispatch with generator limits and reading marginal behavior from the solutions, which remains squarely within the single economic-dispatch skill.",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

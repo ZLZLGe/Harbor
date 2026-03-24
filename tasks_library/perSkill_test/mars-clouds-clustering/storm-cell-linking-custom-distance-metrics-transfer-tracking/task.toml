@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "storm-cell-linking-custom-distance-metrics-transfer-tracking"
+name = "Transfer: 风暴单体跨帧链接"
+description = "在 archive 风暴单体样本上选出最佳方向代价配置，并把它应用到 live 两帧候选后输出 /root/storm_cell_links.csv。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "data-science"
+tags = ["storm-tracking", "greedy-matching", "distance-matrix", "radar", "custom-metric"]
+primary_output_file = "/root/storm_cell_links.csv"
+source_task_id = "mars-clouds-clustering"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

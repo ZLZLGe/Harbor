@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wave-solder-reflow-profile-compliance-toolkit-transfer-through-hole-audit",
+  "taskRole": "transfer",
+  "title": "Transfer | 波峰焊热历程审核",
+  "goal": "把同类热曲线合规分析迁移到波峰焊场景：根据波峰焊手册、预热/过波热电偶数据、线速日志与桥连/虚焊缺陷记录，审核每个 lot 的预热斜率、入波前板面温度、过波接触时间和输送速度可行性，并输出推荐参数组合。",
+  "primaryOutputFile": "/app/output/wave_solder_profile_audit.yaml",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "虽然工艺对象从回流炉变成波峰焊，但关键仍是从手册提取热窗口与速度规则，再对时温轨迹做斜率、驻留时间和最差传感器归约计算；现有 skill 的方法可以直接迁移。",
+  "targetSkillDirName": "reflow-profile-compliance-toolkit",
+  "targetSkillName": "reflow-profile-compliance-toolkit"
+}

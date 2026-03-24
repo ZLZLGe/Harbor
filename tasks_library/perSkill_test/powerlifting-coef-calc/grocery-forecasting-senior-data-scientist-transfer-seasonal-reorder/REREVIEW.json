@@ -1,0 +1,20 @@
+{
+  "sourceTaskId": "powerlifting-coef-calc",
+  "targetSkillDirName": "senior-data-scientist",
+  "runId": "20260322140138-powerlifting-coef-calc-senior-data-scientist-bkowxe",
+  "taskId": "grocery-forecasting-senior-data-scientist-transfer-seasonal-reorder",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/powerlifting-coef-calc/senior-data-scientist/20260322140138-powerlifting-coef-calc-senior-data-scientist-bkowxe/grocery-forecasting-senior-data-scientist-transfer-seasonal-reorder",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/powerlifting-coef-calc/grocery-forecasting-senior-data-scientist-transfer-seasonal-reorder",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:grocery-forecasting-senior-data-scientist-transfer-seasonal-reorder instruction.md 未直接点名 shipped skill 名称或目录名。; 任务内容属于当前 shipped skill 可覆盖的时序特征提炼、回测评估与补货决策分析，不需要额外 source skill。; 测试只检查 `DailySales` 的部分表面特征，再用输出中的 `DailySales` 回推 expected，未校验历史销量与库存字段是否被完整保留，因此 `Do not alter DailySales` 不可判定。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer；3 个 transfer 分别覆盖实验分析、医疗风险分层、零售时序预测，彼此区分度足够；similar 任务也贴近 senior-data-scientist 的特征工程与分组统计典型用法。",
+    "family 四个任务都有同一类测试缺口：verifier 都没有完整锁定源数据 sheet 必须保持不变这一显式要求。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a6d-2521-7130-a300-aa810b2e8203"
+}

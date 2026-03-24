@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "smart-building-pcap-analysis-transfer-polling-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Smart Building Polling Audit",
+  "goal": "分析一份楼宇控制设备通信 PCAP，并填写 `/root/smart_building_polling_audit.yaml`，输出协议分布、全局 IAT 统计、生产者/消费者数量、唯一流与双向流统计，列出符合规则的周期性轮询或 beaconing 流，并给出最终结论。",
+  "primaryOutputFile": "/root/smart_building_polling_audit.yaml",
+  "difficulty": "hard",
+  "category": "iot",
+  "skillBenefitRationale": "这个任务要求先复用现成抓包辅助模块完成协议、IAT、PCR 和流统计，再继续做按流周期识别与排序输出；核心仍是围绕同一抓包分析能力在 IoT 轮询审计场景中的迁移。",
+  "targetSkillDirName": "pcap-analysis",
+  "targetSkillName": "pcap-analysis"
+}

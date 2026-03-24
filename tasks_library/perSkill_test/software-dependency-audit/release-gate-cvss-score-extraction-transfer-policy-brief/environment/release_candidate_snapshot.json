@@ -1,0 +1,92 @@
+{
+  "release_id": "harbor-2026.03-rc2",
+  "service": "payments-control-plane",
+  "planned_release_date": "2026-03-24",
+  "components": [
+    {
+      "component": "edge-api",
+      "artifact": "registry.harbor.example/payments/edge-api:2026.03-rc2",
+      "advisories": [
+        {
+          "advisory_id": "CVE-2026-31001",
+          "package": "hypercorn",
+          "installed_version": "0.17.3",
+          "summary": "HTTP/2 request cancellation can leave stale auth context",
+          "fixed_version": "0.17.4",
+          "reference_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31001",
+          "cvss": {
+            "nvd": {
+              "v3_score": 6.8
+            },
+            "ghsa": {
+              "v3_score": 9.3
+            }
+          }
+        },
+        {
+          "advisory_id": "CVE-2026-31004",
+          "package": "pyjwt",
+          "installed_version": "2.9.0",
+          "summary": "Audience matching bypass during optional claim checks",
+          "fixed_version": "2.10.0",
+          "reference_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31004",
+          "cvss": {
+            "nvd": {
+              "v3_score": 5.9
+            },
+            "redhat": {
+              "v3_score": 6.1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "component": "billing-worker",
+      "artifact": "registry.harbor.example/payments/billing-worker:2026.03-rc2",
+      "advisories": [
+        {
+          "advisory_id": "GHSA-7f9m-r47m-63cc",
+          "package": "fast-json-stringify",
+          "installed_version": "5.15.0",
+          "summary": "Schema reference expansion enables unsafe prototype merge",
+          "fixed_version": "5.16.1",
+          "reference_url": "https://github.com/advisories/GHSA-7f9m-r47m-63cc",
+          "cvss": {
+            "ghsa": {
+              "v3_score": 8.1
+            }
+          }
+        },
+        {
+          "advisory_id": "CVE-2026-31003",
+          "package": "libxml2",
+          "installed_version": "2.11.7",
+          "summary": "Crafted XML payload causes namespace confusion in import path",
+          "fixed_version": "2.11.9",
+          "reference_url": "https://access.redhat.com/security/cve/CVE-2026-31003",
+          "cvss": {
+            "redhat": {
+              "v3_score": 7.4
+            }
+          }
+        }
+      ]
+    },
+    {
+      "component": "release-ui",
+      "artifact": "registry.harbor.example/payments/release-ui:2026.03-rc2",
+      "advisories": [
+        {
+          "advisory_id": "GHSA-2m39-px67-4p8j",
+          "package": "serialize-javascript",
+          "installed_version": "6.0.1",
+          "summary": "Template serialization misses special character escaping on legacy path",
+          "fixed_version": "",
+          "reference_url": "https://github.com/advisories/GHSA-2m39-px67-4p8j",
+          "cvss": {}
+        }
+      ]
+    }
+  ]
+}

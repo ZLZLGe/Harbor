@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "museum-loans-fuzzy-match-transfer-artwork-manifest-reconciliation"
+name = "Transfer: 博物馆借展清单对账"
+description = "核对艺术品装箱清单与批准外借目录，识别无法可靠匹配的展品以及借展机构或保险保单编号不一致的箱单条目，并逐条写入 /root/loan_manifest_flags.ndjson。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "data-validation"
+tags = ["museum", "art-loans", "manifest-reconciliation", "fuzzy-matching", "tsv", "ndjson"]
+primary_output_file = "/root/loan_manifest_flags.ndjson"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

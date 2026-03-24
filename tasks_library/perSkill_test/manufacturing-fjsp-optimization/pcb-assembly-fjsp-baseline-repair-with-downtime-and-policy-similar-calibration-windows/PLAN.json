@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "pcb-assembly-fjsp-baseline-repair-with-downtime-and-policy-similar-calibration-windows",
+  "taskRole": "similar",
+  "title": "Similar PCB Assembly Calibration Repair",
+  "goal": "修复一份 SMT/回流焊车间的基线排程，在设备校准停机与冻结窗口下消除停机冲突和工序先后违例，同时保持改机次数与总开工偏移不超过 policy 预算，并输出修复后的产线计划。",
+  "primaryOutputFile": "/app/output/pcb_repair_plan.json",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "任务结构与源题同型：给定基线、备选机器、停机窗口、冻结字段和 change budget，唯一关键能力就是按 precedence-aware、right-shift-only 的方式完成 FJSP repair。",
+  "targetSkillDirName": "fjsp-baseline-repair-with-downtime-and-policy",
+  "targetSkillName": "fjsp-baseline-repair-with-downtime-and-policy"
+}

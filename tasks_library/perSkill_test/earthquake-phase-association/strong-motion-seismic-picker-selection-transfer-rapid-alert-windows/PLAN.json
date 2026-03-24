@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "strong-motion-seismic-picker-selection-transfer-rapid-alert-windows",
+  "taskRole": "transfer",
+  "title": "Transfer - 强震快速告警窗口筛查",
+  "goal": "给定强震期间的加速度台站波形，选择最适合低时延预警筛查的触发方法，输出各台站告警窗口的起始时间。",
+  "primaryOutputFile": "/root/alert_windows.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "这个任务把 skill 迁移到“速度优先、可解释性优先、主要关注大震明显起始”的场景。核心知识是判断 STA/LTA 一类快速触发在这里比更重的深度学习或模板方法更合适。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

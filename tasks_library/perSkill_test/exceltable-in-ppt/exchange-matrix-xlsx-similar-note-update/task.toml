@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "exchange-matrix-xlsx-similar-note-update"
+name = "Similar: Update Exchange Matrix Workbook From Note Sheet"
+description = "Read one updated FX quote from the workbook note sheet, change only the editable matrix input cell, and save the result as /root/results_exchange_matrix.xlsx."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Office Operation"
+tags = ["xlsx", "exchange-rates", "formula-preservation"]
+primary_output_file = "/root/results_exchange_matrix.xlsx"
+source_task_id = "exceltable-in-ppt"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

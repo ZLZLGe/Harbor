@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bench-powerlifting-transfer-goodlift-ranking",
+  "taskRole": "transfer",
+  "title": "Transfer: 卧推全国赛 Goodlift 排名",
+  "goal": "给定一份卧推专项全国赛成绩表，按选手性别、器械类别和项目类型计算 IPF Goodlift 分数，生成一份排名输出文件，要求正确处理 raw 与 single-ply 分支、bench-only 项目分支以及最小体重限制。",
+  "primaryOutputFile": "/root/data/bench_goodlift_ranking.csv",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "这里把力量举技能迁移到卧推专项和 Goodlift 规则，关键知识点是 Goodlift 对性别、器械和项目的系数分支判断。",
+  "targetSkillDirName": "powerlifting",
+  "targetSkillName": "powerlifting"
+}

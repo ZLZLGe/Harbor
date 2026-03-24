@@ -1,0 +1,17 @@
+{
+  "freeze": {
+    "before_minute": 5,
+    "fields": [
+      "station_id",
+      "start"
+    ]
+  },
+  "change_budget": {
+    "max_station_changes": 4,
+    "max_total_start_shift": 95
+  },
+  "guards": {
+    "max_last_review_minute": 65,
+    "max_late_shots": 0
+  }
+}

@@ -1,0 +1,199 @@
+[Start]
+PA System: Attention team, this is a scheduled evacuation drill for Harbor Tower. Report status through the command channel. -> BroadcastHub
+
+[BroadcastHub]
+1. Acknowledge the call as Floor 2 warden. -> Floor2Ready
+2. Report a blocked fire door on Floor 5. -> Floor5Blocked
+3. Confirm lobby visitors and contractors. -> LobbyCheck
+4. Request mobility assistance routing. -> MobilityAssist
+5. Review building-wide status at command. -> CommandReview
+
+[Floor2Ready]
+Safety Warden: Floor 2 is sweeping west to east and guiding staff toward Stair A. -> Floor2SweepChoice
+
+[Floor2SweepChoice]
+1. West wing is clear. -> StairDispatch
+2. One office is still occupied. -> LateOccupant
+3. [Fallback] Radio message was unclear, repeat the broadcast. -> BroadcastRepeat
+
+[StairDispatch]
+Safety Warden: Staff from Floor 2 are entering Stair A in an orderly line. -> AssemblyUpdate
+
+[LateOccupant]
+Safety Warden: The finance office is still occupied and needs a second knock. -> OccupantFollowup
+
+[OccupantFollowup]
+1. The employee exits toward Stair A. -> StairDispatch
+2. The employee reports ankle pain. -> MobilityAssist
+3. There is still no response from the office. -> Floor2Escalation
+
+[Floor2Escalation]
+Command Chief: Send a backup checker to Floor 2 and keep that zone closed until contact is confirmed. -> CommandReview
+
+[Floor5Blocked]
+Safety Warden: The south fire door on Floor 5 is not latching open for the lab team. -> Floor5Choice
+
+[Floor5Choice]
+1. Route the lab team to the east stairs. -> EastStairRoute
+2. [Fallback] Reset the door magnet and try again. -> Floor5Resweep
+3. Call engineering to inspect the door. -> EngineeringDispatch
+
+[EastStairRoute]
+Safety Warden: Lab staff are being redirected to the east stairs with the aisle kept clear. -> EastStairCheck
+
+[EastStairCheck]
+1. The east stairs stay clear. -> AssemblyUpdate
+2. The east stairs are crowded. -> CrowdControl
+3. The chem cabinet was left unsecured. -> SecureCabinet
+
+[EngineeringDispatch]
+Engineer: Engineering is on the way to inspect the blocked fire door. -> EngineeringChoice
+
+[EngineeringChoice]
+1. The door remains blocked after inspection. -> FireDoorFailure
+2. The door opens after inspection. -> Floor5Resweep
+
+[FireDoorFailure]
+Command Chief: Keep Floor 5 on alternate routing and log the blocked door as a corrective action. -> CommandReview
+
+[Floor5Resweep]
+Safety Warden: The Floor 5 team is re-running the sweep after the route change. -> ResweepChoice
+
+[ResweepChoice]
+1. Floor 5 is now clear. -> AssemblyUpdate
+2. A chem cabinet still needs to be secured. -> SecureCabinet
+3. Another broadcast reminder is needed. -> BroadcastRepeat
+
+[SecureCabinet]
+Safety Warden: The last lab worker is securing the chemical cabinet before exiting. -> Floor5Resweep
+
+[LobbyCheck]
+Reception: The lobby desk is matching visitor badges against the sign-in sheet. -> LobbyChoice
+
+[LobbyChoice]
+1. Every visitor matches the log. -> AssemblyUpdate
+2. One contractor badge is missing. -> ContractorSearch
+3. [Fallback] The lobby radio failed. -> RadioFallback
+
+[ContractorSearch]
+Reception: One contractor badge is missing from the roll call and the vendor was last checked in upstairs. -> ContractorChoice
+
+[ContractorChoice]
+1. The contractor is already at the assembly point. -> AssemblyUpdate
+2. The contractor was last seen on Floor 2. -> Floor2Escalation
+3. The contractor was in the Floor 5 lab. -> Floor5Blocked
+
+[RadioFallback]
+Reception: The front desk radio has dropped off the command channel. -> FallbackChoice
+
+[FallbackChoice]
+1. [Fallback] Use the backup handset. -> AssemblyUpdate
+2. Send a runner to the command desk. -> RunnerDispatch
+3. Wait for command to call back. -> BroadcastRepeat
+
+[RunnerDispatch]
+Reception: A runner is carrying the visitor sheet to the command desk by hand. -> CommandReview
+
+[MobilityAssist]
+Accessibility Lead: A mobility-assisted evacuee is waiting near the refuge area and needs routing guidance. -> MobilityChoice
+
+[MobilityChoice]
+1. Dispatch the stair-chair team. -> StairChairDeploy
+2. Hold position in the refuge area and monitor. -> RefugeMonitor
+3. Someone requested the elevator by mistake. -> ElevatorDenied
+
+[StairChairDeploy]
+Accessibility Lead: The stair-chair team is moving to the refuge area with a spotter on Stair B. -> StairChairOutcome
+
+[StairChairOutcome]
+1. The transfer reaches the stair landing. -> AssemblyUpdate
+2. The stairs are too crowded for the transfer. -> CrowdControl
+3. The evacuee asks to pause in the refuge area. -> RefugeMonitor
+
+[RefugeMonitor]
+Accessibility Lead: The evacuee remains calm in the refuge area while command evaluates timing. -> RefugeChoice
+
+[RefugeChoice]
+1. Command approves assisted descent now. -> StairChairDeploy
+2. Command keeps the refuge area occupied for the next cycle. -> CommandReview
+3. A second evacuee arrives and needs crowd control. -> CrowdControl
+
+[ElevatorDenied]
+Command Chief: Elevators stay out of service during the drill; redirect the request to the assisted-descent procedure. -> MobilityChoice
+
+[CrowdControl]
+Assembly Lead: Stair traffic is bunching up and needs spacing before the next team descends. -> CrowdControlChoice
+
+[CrowdControlChoice]
+1. Open the secondary stairwell. -> CommandReview
+2. Pause the descent and retry from the refuge area. -> RefugeMonitor
+3. Repeat the floor broadcast for spacing. -> BroadcastRepeat
+
+[CommandReview]
+Command Chief: Command is comparing floor reports, visitor counts, and assembly updates. -> ClearStatusChoice
+
+[ClearStatusChoice]
+1. All zones report clear. -> HeadcountConfirm
+2. Floor 5 still needs alternate routing. -> Floor5Blocked
+3. Headcount does not match at assembly. -> HeadcountMismatch
+4. Weather outside becomes unsafe. -> ShelterInPlace
+
+[HeadcountConfirm]
+Assembly Lead: Every badge and visitor tag is accounted for at the assembly area. -> DrillCloseChoice
+
+[DrillCloseChoice]
+1. Close the drill as a clean run. -> DrillSuccess
+2. Close the drill and log a corrective action. -> DrillCorrective
+3. Recheck one more time before closing. -> CommandReview
+
+[DrillSuccess]
+PA System: Drill complete. Return teams to normal operations after the debrief. -> End
+
+[DrillCorrective]
+PA System: Drill complete. Keep the blocked-door review open for follow-up. -> End
+
+[HeadcountMismatch]
+Assembly Lead: Two badges are missing from the assembly roster. -> HeadcountChoice
+
+[HeadcountChoice]
+1. Recheck the lobby sign-in sheets. -> LobbyCheck
+2. Send a targeted resweep request. -> ResweepDispatch
+3. Treat it as a controller inject and continue. -> ControllerInject
+
+[ResweepDispatch]
+Command Chief: Command is sending a targeted resweep based on the missing badge list. -> ResweepDispatchChoice
+
+[ResweepDispatchChoice]
+1. Send the team back to Floor 2. -> Floor2Ready
+2. Send the team back to Floor 5. -> Floor5Blocked
+3. Ask accessibility staff to verify the refuge area. -> MobilityAssist
+
+[ControllerInject]
+Command Chief: The missing badges were part of the drill inject and no live occupants are unaccounted for. -> HeadcountConfirm
+
+[ShelterInPlace]
+PA System: Weather has made the outdoor assembly point unsafe; move the drill to the covered garage. -> ShelterChoice
+
+[ShelterChoice]
+1. Move everyone to the covered garage. -> CoveredGarage
+2. Pause and restart the floor broadcast. -> BroadcastRepeat
+3. Keep the current assembly point and re-evaluate. -> CommandReview
+
+[CoveredGarage]
+Assembly Lead: The covered garage is now the temporary assembly location with headcount restarting there. -> HeadcountConfirm
+
+[BroadcastRepeat]
+PA System: Repeat the last status request and keep the routes clear until command confirms the next move. -> BroadcastRepeatChoice
+
+[BroadcastRepeatChoice]
+1. Repeat the all-clear request. -> CommandReview
+2. Repeat Floor 2 sweep instructions. -> Floor2Ready
+3. Repeat mobility assistance instructions. -> MobilityAssist
+
+[AssemblyUpdate]
+Assembly Lead: The assembly point has received another team and updated the roster. -> AssemblyChoice
+
+[AssemblyChoice]
+1. Send the update to command. -> CommandReview
+2. Start a manual headcount check. -> HeadcountMismatch
+3. Ask lobby to verify visitor badges again. -> LobbyCheck

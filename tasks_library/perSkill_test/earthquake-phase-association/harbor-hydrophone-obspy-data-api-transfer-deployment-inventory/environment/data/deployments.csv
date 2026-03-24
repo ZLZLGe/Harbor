@@ -1,0 +1,6 @@
+network,station,location,channel,latitude,longitude,elevation_m,depth_m,azimuth_deg,dip_deg,site_name,mooring_id,planned_start,planned_end
+HB,PIER1,10,BDH,37.8082,-122.3985,4.0,12.5,0.0,-90.0,Pier Alpha Array,PA-10,2019-07-04T18:50:00,2019-07-04T19:18:00
+HB,PIER1,20,BDH,37.8082,-122.3985,4.0,27.0,0.0,-90.0,Pier Alpha Array,PA-20,2019-07-04T19:07:30,2019-07-04T20:10:00
+HB,MIDBK,00,BDH,37.8041,-122.3856,0.0,18.0,0.0,-90.0,Mid-basin Mooring,MB-00,2019-07-04T19:12:00,2019-07-04T19:47:15
+HB,OUTER,00,BDH,37.8127,-122.4098,-1.5,32.0,0.0,-90.0,Outer Gate Line,OG-00,2019-07-04T19:25:45,2019-07-04T19:40:30
+HB,INLET,00,BDH,37.7992,-122.3768,1.2,14.0,0.0,-90.0,Inner Gate Line,IG-00,2019-07-04T18:00:00,2019-07-04T18:30:00

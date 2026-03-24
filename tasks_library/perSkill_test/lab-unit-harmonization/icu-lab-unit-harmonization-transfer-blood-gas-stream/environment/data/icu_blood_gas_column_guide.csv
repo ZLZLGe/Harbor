@@ -1,0 +1,10 @@
+column,target_unit,expected_range,notes
+pH,pH units,6.80-7.80,dimensionless acidity measurement
+pCO2,mmHg,15.00-100.00,may appear in kPa and should be converted to mmHg
+pO2,mmHg,25.00-500.00,may appear in kPa and should be converted to mmHg
+lactate,mmol/L,0.30-20.00,may appear in mg/dL and should be converted to mmol/L
+bicarbonate,mmol/L,5.00-45.00,reported as mmol/L or mEq/L with 1:1 interpretation
+sodium,mmol/L,110.00-170.00,reported in ICU chemistry convention
+potassium,mmol/L,2.00-8.00,reported in ICU chemistry convention
+chloride,mmol/L,70.00-140.00,reported in ICU chemistry convention
+ionized_calcium,mmol/L,0.60-2.00,may appear in mg/dL and should be converted to mmol/L

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "seminar-archive-file-organizer-similar-reading-room"
+name = "Similar: Curate a Mixed Seminar Archive"
+description = "Sort the mixed seminar archive into topic folders and write a placement manifest that records each file's final location."
+author_name = "Bingran You"
+author_email = "bingran.you@berkeley.edu"
+difficulty = "medium"
+category = "file-management"
+tags = ["file-management", "document-classification", "manifest"]
+primary_output_file = "/root/seminar_drop/reports/placement_manifest.json"
+source_task_id = "organize-messy-files"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

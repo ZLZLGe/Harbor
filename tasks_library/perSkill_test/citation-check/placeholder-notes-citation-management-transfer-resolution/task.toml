@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "placeholder-notes-citation-management-transfer-resolution"
+name = "Transfer: Placeholder Citation Resolution from Review Notes"
+description = "Resolve incomplete citation placeholders from review notes into confirmed scholarly records and write them as a TSV file at /root/resolved_placeholders.tsv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "research"
+tags = ["citation", "placeholder-resolution", "review-notes", "tsv", "metadata-verification"]
+primary_output_file = "/root/resolved_placeholders.tsv"
+source_task_id = "citation-check"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true

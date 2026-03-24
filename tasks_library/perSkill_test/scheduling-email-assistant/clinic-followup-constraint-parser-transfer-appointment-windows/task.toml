@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "clinic-followup-constraint-parser-transfer-appointment-windows"
+name = "Transfer | Clinic Follow-up Constraint Intake"
+description = "Read patient callback messages from /root/patient_callbacks.json and write normalized follow-up appointment constraints to /root/clinic_followup_constraints.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Healthcare"
+tags = ["healthcare", "constraint-extraction", "appointments", "follow-up"]
+primary_output_file = "/root/clinic_followup_constraints.json"
+source_task_id = "scheduling-email-assistant"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

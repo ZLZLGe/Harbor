@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "nephrology-lab-unit-harmonization-similar-dialysis-followup",
+  "taskRole": "similar",
+  "title": "Similar | 透析随访化验统一",
+  "goal": "清洗并统一一家透析连锁机构的月度随访化验表，处理缺失行、科学计数法、逗号小数以及肾功能/贫血/矿骨代谢相关指标的混合单位，把所有结果转换为统一的常规单位后输出完整队列。",
+  "primaryOutputFile": "/root/dialysis_followup_labs_harmonized.csv",
+  "difficulty": "medium",
+  "category": "healthcare",
+  "skillBenefitRationale": "任务核心是按生理范围识别异常单位表示，并对肾病相关实验室指标做批量单位换算与数值格式标准化；这正是当前 shipped skill 的典型使用方式，但场景从原始全量 CKD 数据转为透析随访面板，避免了简单复写。",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "targetSkillName": "lab-unit-harmonization"
+}

@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "event_id": "aft_003",
+      "origin_time": "2024-04-19T22:41:05.250000Z",
+      "latitude": 37.221,
+      "longitude": -121.882,
+      "depth_km": 4.9,
+      "magnitude": 2.6,
+      "magnitude_type": "Mw",
+      "review_pre_sec": 6.0,
+      "review_post_sec": 18.0
+    }
+  ]
+}

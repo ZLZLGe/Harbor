@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "delivery-robot-vehicle-dynamics-transfer-zone-speed-profile",
+  "taskRole": "transfer",
+  "title": "Transfer | Delivery Robot Zone Speed Profile",
+  "goal": "实现园区配送车分区限速运动仿真：车辆需在不同限速区和停靠缓冲区之间切换 accelerate、coast、brake 模式，输出整段任务的区段速度与停车误差指标。",
+  "primaryOutputFile": "zone_speed_profile_metrics.yaml",
+  "difficulty": "medium",
+  "category": "robotics",
+  "skillBenefitRationale": "难点在于基于位置和速度的离散运动学推进、制动距离判断和模式切换逻辑，完全由 vehicle-dynamics 支撑，不依赖其他 skill。",
+  "targetSkillDirName": "vehicle-dynamics",
+  "targetSkillName": "vehicle-dynamics"
+}

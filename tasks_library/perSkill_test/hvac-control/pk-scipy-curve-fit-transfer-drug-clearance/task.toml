@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "pk-scipy-curve-fit-transfer-drug-clearance"
+name = "Transfer | IV Drug Clearance Curve Fit"
+description = "Fit a one-compartment IV bolus decay model from timestamped plasma samples and write a discharge clearance summary to pk_decay_summary.json."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "pharmacometrics"
+tags = ["pharmacokinetics", "iv-bolus", "curve-fitting", "drug-clearance", "python"]
+primary_output_file = "pk_decay_summary.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = true

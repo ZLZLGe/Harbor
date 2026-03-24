@@ -1,0 +1,105 @@
+entries:
+  - code: REL-TC-001
+    standard_label: Thermal-cycle solder fatigue crack at interconnect
+    allowed_screen_types: [THERMAL_CYCLE]
+    allowed_phases: [POST_100CYCLE, POST_200CYCLE]
+    allowed_benches: [TC_CHAMBER_A, TC_CHAMBER_B]
+    keywords:
+      - ring crack
+      - 焊点
+      - solder fatigue
+      - output drop
+      - J12
+  - code: REL-TC-002
+    standard_label: Potting edge crack or corner delamination
+    allowed_screen_types: [THERMAL_CYCLE]
+    allowed_phases: [POST_200CYCLE]
+    allowed_benches: [TC_CHAMBER_B]
+    keywords:
+      - potting edge裂开
+      - corner delam
+      - delam
+      - 裂开
+      - T3
+  - code: REL-TC-003
+    standard_label: Seal leak with internal condensation trace
+    allowed_screen_types: [THERMAL_CYCLE]
+    allowed_phases: [POST_100CYCLE, POST_200CYCLE]
+    allowed_benches: [TC_CHAMBER_A, TC_CHAMBER_B]
+    keywords:
+      - seal leak
+      - fogging
+      - inside lens
+      - condensation
+      - 水汽
+  - code: REL-VB-101
+    standard_label: Harness latch loosened causing intermittent open
+    allowed_screen_types: [VIBRATION]
+    allowed_phases: [RANDOM_3GRMS]
+    allowed_benches: [VIBE_BENCH_1]
+    keywords:
+      - J5 latch松
+      - harness open
+      - latch loose
+      - open blip
+  - code: REL-VB-102
+    standard_label: Shield resonance causing RF power drop
+    allowed_screen_types: [VIBRATION]
+    allowed_phases: [RANDOM_6GRMS]
+    allowed_benches: [VIBE_BENCH_2]
+    keywords:
+      - RF shield resonance
+      - rf shield singing
+      - tx power掉到0
+      - resonance
+  - code: REL-VB-103
+    standard_label: Fastener backed out under vibration
+    allowed_screen_types: [VIBRATION]
+    allowed_phases: [AXIS_Z_SWEEP, RANDOM_6GRMS]
+    allowed_benches: [VIBE_BENCH_2]
+    keywords:
+      - M4 screw backed out
+      - M4 screw loose
+      - screw loose
+      - z sweep
+  - code: REL-BI-201
+    standard_label: Buck regulator thermal runaway during burn-in
+    allowed_screen_types: [BURN_IN]
+    allowed_phases: [HOT_SOAK_24H]
+    allowed_benches: [BURN_RACK_3, BURN_RACK_5]
+    keywords:
+      - buck reg runaway
+      - case very hot
+      - thermal runaway
+      - hot soak
+  - code: REL-BI-202
+    standard_label: Cooling fan stall with airflow collapse
+    allowed_screen_types: [BURN_IN]
+    allowed_phases: [HOT_SOAK_24H]
+    allowed_benches: [BURN_RACK_7]
+    keywords:
+      - fan stall
+      - airflow low
+      - fan stopped
+      - tach glitch
+  - code: REL-BI-203
+    standard_label: EEPROM retention drift after hot soak
+    allowed_screen_types: [BURN_IN]
+    allowed_phases: [HOT_SOAK_24H]
+    allowed_benches: [BURN_RACK_5]
+    keywords:
+      - EEPROM data drift
+      - 24h bake
+      - retention
+      - drift
+  - code: REL-GN-301
+    standard_label: Fixture socket or sense lead intermittent contact
+    allowed_screen_types: [THERMAL_CYCLE, VIBRATION, BURN_IN]
+    allowed_phases: [POST_200CYCLE, RANDOM_3GRMS, HOT_SOAK_24H]
+    allowed_benches: [TC_CHAMBER_A, VIBE_BENCH_1, BURN_RACK_7]
+    keywords:
+      - socket A3 contact飘
+      - move slot后pass
+      - fixture sense lead noise
+      - reseat tray就好
+      - socket B2接触也飘

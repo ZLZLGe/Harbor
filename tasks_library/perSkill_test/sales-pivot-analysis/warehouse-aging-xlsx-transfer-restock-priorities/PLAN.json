@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-aging-xlsx-transfer-restock-priorities",
+  "taskRole": "transfer",
+  "title": "Transfer: Warehouse Aging Restock Analysis",
+  "goal": "读取库存台账与补货规则工作簿，计算库存账龄桶、库存金额、周转风险和补货优先级，输出一个新的 Excel 文件，包含明细表以及按仓库、品类、账龄桶和优先级汇总的透视分析。",
+  "primaryOutputFile": "/root/warehouse_restock_analysis.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "这个任务把 xlsx 能力迁移到仓储场景，核心仍是 Excel 数据读取、跨表匹配、公式化派生字段与透视表汇总，不依赖任何 PDF、数据库或其他外部技能。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

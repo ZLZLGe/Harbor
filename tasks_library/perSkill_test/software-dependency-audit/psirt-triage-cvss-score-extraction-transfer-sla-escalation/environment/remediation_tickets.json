@@ -1,0 +1,53 @@
+{
+  "snapshot_date": "2026-03-20",
+  "tickets": [
+    {
+      "advisory_id": "NW-PSIRT-2026-041",
+      "ticket_id": "OPS-4821",
+      "owner": "patch-oncall",
+      "status": "in_progress",
+      "sla_due_date": "2026-03-01",
+      "deployment_ring": "gateway-fleet"
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-044",
+      "ticket_id": "OPS-4856",
+      "owner": "branch-release",
+      "status": "pending_validation",
+      "sla_due_date": "2026-03-15",
+      "deployment_ring": "branch-controllers"
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-047",
+      "ticket_id": "OPS-4870",
+      "owner": "campus-switching",
+      "status": "resolved",
+      "sla_due_date": "2026-03-10",
+      "deployment_ring": "campus-access"
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-052",
+      "ticket_id": "OPS-4891",
+      "owner": "console-platform",
+      "status": "in_progress",
+      "sla_due_date": "2026-03-12",
+      "deployment_ring": "shared-console"
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-055",
+      "ticket_id": "OPS-4914",
+      "owner": "endpoint-update",
+      "status": "open",
+      "sla_due_date": "2026-03-28",
+      "deployment_ring": "vpn-clients"
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-058",
+      "ticket_id": "OPS-4802",
+      "owner": "orchestrator-sre",
+      "status": "awaiting_patch",
+      "sla_due_date": "2026-03-05",
+      "deployment_ring": "dc-orchestrator"
+    }
+  ]
+}

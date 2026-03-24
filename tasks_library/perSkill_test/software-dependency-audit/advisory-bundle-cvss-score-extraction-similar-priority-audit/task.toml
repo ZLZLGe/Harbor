@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "advisory-bundle-cvss-score-extraction-similar-priority-audit"
+name = "Similar: 多源依赖告警优先级导出"
+description = "从预生成的依赖告警 JSON 中筛出 HIGH/CRITICAL 记录，按 NVD→GHSA→RedHat 优先级选择 CVSS 分数并导出审计 CSV。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "security"
+tags = ["security", "cvss", "csv", "dependency-audit"]
+primary_output_file = "/root/advisory_priority_audit.csv"
+source_task_id = "software-dependency-audit"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096

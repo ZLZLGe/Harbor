@@ -1,0 +1,4 @@
+file_name,deployment,note
+batch_beta.mseed,crater-rim,mid-rotation export
+batch_gamma.mseed,east-flank,late export after relay recovery
+batch_alpha.mseed,summit,early export from primary recorder

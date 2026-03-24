@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "stadium-lighting-threejs-transfer-instanced-inventory",
+  "taskRole": "transfer",
+  "title": "Transfer: 体育馆灯阵实例清点",
+  "goal": "解析一个体育馆灯阵场景，展开 InstancedMesh 的每个实例到世界坐标，按具名灯架分组导出 OBJ，并输出每组灯具数量和包围盒清单。",
+  "primaryOutputFile": "/root/output/lighting_inventory.json",
+  "difficulty": "medium",
+  "category": "simulation",
+  "skillBenefitRationale": "这里重点迁移到 Three.js 的实例展开、矩阵合成和分组导出流程，和原题的普通 Mesh 分件不同，但仍由当前技能独立覆盖。",
+  "targetSkillDirName": "threejs",
+  "targetSkillName": "threejs"
+}

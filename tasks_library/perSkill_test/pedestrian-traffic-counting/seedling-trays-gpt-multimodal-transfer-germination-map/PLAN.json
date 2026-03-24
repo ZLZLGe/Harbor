@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "seedling-trays-gpt-multimodal-transfer-germination-map",
+  "taskRole": "transfer",
+  "title": "Transfer: 育苗盘发芽穴位识别与汇总",
+  "goal": "分析俯拍育苗盘图片，识别每个穴位是否已发芽，并将每盘的发芽总数与坐标列表写入`/app/trays/germination_report.csv`。",
+  "primaryOutputFile": "/app/trays/germination_report.csv",
+  "difficulty": "hard",
+  "category": "seedling germination analysis",
+  "skillBenefitRationale": "该任务把能力迁移到农业图像盘面识别，需要模型做密集小目标判断与空间位置整理；无需额外技能，关键仍是 gpt-multimodal 的图像理解与结构化提取。",
+  "targetSkillDirName": "gpt-multimodal",
+  "targetSkillName": "gpt-multimodal"
+}

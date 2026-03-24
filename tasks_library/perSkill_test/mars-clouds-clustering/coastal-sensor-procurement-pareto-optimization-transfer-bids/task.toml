@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "coastal-sensor-procurement-pareto-optimization-transfer-bids"
+name = "Transfer: Coastal Sensor Procurement Frontier"
+description = "Evaluate coastal buoy procurement bundles, keep the viable non-dominated coverage-cost trade-offs, and write them to /root/procurement_frontier.csv."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-science"
+tags = ["procurement", "coastal-monitoring", "multi-objective-optimization", "pandas"]
+primary_output_file = "/root/procurement_frontier.csv"
+source_task_id = "mars-clouds-clustering"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

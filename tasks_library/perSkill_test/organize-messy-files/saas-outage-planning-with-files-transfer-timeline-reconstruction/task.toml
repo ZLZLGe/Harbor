@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "saas-outage-planning-with-files-transfer-timeline-reconstruction"
+name = "Transfer | Reconstruct a SaaS Outage Timeline"
+description = "Investigate a SaaS outage workspace, reconstruct the outage timeline, and write a Markdown postmortem with evidence, hypothesis, and open questions."
+author_name = "Levi Zhang"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "incident-analysis"
+tags = ["incident-analysis", "timeline-reconstruction", "logs", "markdown", "planning"]
+primary_output_file = "reports/outage_postmortem.md"
+source_task_id = "organize-messy-files"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096

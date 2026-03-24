@@ -1,0 +1,8 @@
+{
+  "initial_concentration_mg_per_l": 14.285714285714286,
+  "elimination_rate_per_hr": 0.173,
+  "half_life_hr": 4.006631101502574,
+  "clearance_l_per_hr": 3.0275,
+  "predicted_concentration_at_discharge_mg_per_l": 0.8969636308462584,
+  "time_to_fall_below_floor_hr": 14.31756346901054
+}

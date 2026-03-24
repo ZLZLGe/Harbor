@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "fermentation-chamber-first-order-model-fitting-similar-thermal-commissioning"
+name = "Similar: 发酵箱热响应建模"
+description = "Fit a heating step-response model for a fermentation chamber from a noisy log and report the time predictions in fermentation_model_fit.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["fermentation", "thermal-modeling", "system-identification", "step-response", "python"]
+primary_output_file = "fermentation_model_fit.json"
+source_task_id = "hvac-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = true

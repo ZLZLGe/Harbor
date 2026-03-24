@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "smooth-precall-lobby-react-best-practices-transfer-session",
+  "taskRole": "transfer",
+  "title": "Transfer: 稳定视频会议预检大厅",
+  "goal": "修复一个视频会议预检大厅中的设备预览、网络提示条、参会者列表和权限状态卡片在异步到达时引发的布局跳动与首屏闪屏问题。",
+  "primaryOutputFile": "output/precall-lobby-stability-report.json",
+  "difficulty": "hard",
+  "category": "web-performance",
+  "skillBenefitRationale": "场景转到实时协作预检页，需要用 react-best-practices 处理预览区保留尺寸、延迟提示容器占位、客户端设备偏好读取时机和避免 hydration flicker。",
+  "targetSkillDirName": "react-best-practices",
+  "targetSkillName": "react-best-practices"
+}

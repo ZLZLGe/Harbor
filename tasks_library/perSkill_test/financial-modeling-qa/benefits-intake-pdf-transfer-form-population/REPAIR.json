@@ -1,0 +1,85 @@
+{
+  "sourceTaskId": "financial-modeling-qa",
+  "targetSkillDirName": "pdf",
+  "runId": "20260319123857-financial-modeling-qa-pdf-2wy379",
+  "taskId": "benefits-intake-pdf-transfer-form-population",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/financial-modeling-qa/benefits-intake-pdf-transfer-form-population",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319123857-financial-modeling-qa-pdf-2wy379/financial-modeling-qa/drafts/benefits-intake-pdf-transfer-form-population",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/financial-modeling-qa/benefits-intake-pdf-transfer-form-population",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/financial-modeling-qa/benefits-intake-pdf-transfer-form-population",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现 `pdf`/`PDF`，存在技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现了 `PDF`/`.pdf`，暴露了 shipped skill `pdf`。; visibilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "benefits-intake-pdf-transfer-form-population",
+        "covenant-scorecard-pdf-similar-breach-audit",
+        "investment-briefing-pdf-transfer-report-generation"
+      ],
+      "requestedIssuesByTaskId": {
+        "benefits-intake-pdf-transfer-form-population": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `PDF`/`.pdf`，暴露了 shipped skill `pdf`。; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "covenant-scorecard-pdf-similar-breach-audit": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `PDF`/`.pdf`，暴露了 shipped skill `pdf`。; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "investment-briefing-pdf-transfer-report-generation": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `PDF`/`.pdf`，暴露了 shipped skill `pdf`。; 摘要页测试依赖特定措辞片段；instruction 只要求覆盖要点，不要求固定表述，测试判定过于实现相关。; visibilityPass=false; testabilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10d4-5588-72b0-ae5a-852d11a2ddde",
+      "repairSummary": "- `benefits-intake-pdf-transfer-form-population`：修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260319123857-financial-modeling-qa-pdf-2wy379-2d1a4655/financial-modeling-qa/drafts/benefits-intake-pdf-transfer-form-population/instruction.md)，去掉了所有直接点名当前技能的词和带该后缀的文件名展示，把“保持两页 PDF”改成“保持两页文档结构”，其余任务语义不变。\n\n- `covenant-scorecard-pdf-similar-breach-audit`：修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260319123857-financial-modeling-qa-pdf-2wy379-2d1a4655/financial-modeling-qa/drafts/covenant-scorecard-pdf-similar-breach-audit/instruction.md)，把对输入文档和指标顺序来源的描述统一改成“covenant package document”，并清掉 JSON 示例里残留的 `PDF` 文案。\n\n- `investment-briefing-pdf-transfer-report-generation`：修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260319123857-financial-modeling-qa-pdf-2wy379-2d1a4655/financial-modeling-qa/drafts/investment-briefing-pdf-transfer-report-generation/instruction.md)，去掉技能暴露；同时把摘要页必须出现的具体短语和数值写明，让测试可直接由说明推出。对应的 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260319123857-financial-modeling-qa-pdf-2wy379-2d1a4655/financial-modeling-qa/drafts/investment-briefing-pdf-transfer-report-generation/tests/test_outputs.py) 仅保留与新说明一致的断言口径。\n\n另外我核对了这 3 个任务的 `derivedTaskId`、`taskRole`、`source_task_id`，都未改；`instruction.md` 已不再包含 `pdf` / `.pdf`；必需文件齐全，测试文件语法可编译。完整官方测试在当前沙箱里无法原样跑，因为不能向 `/root` 写文件，且本机缺少 `pypdf`、`reportlab` 依赖。",
+      "reviewThreadId": "019d10d9-a425-7fc3-838f-356dae389171",
+      "evaluationByTaskId": {
+        "benefits-intake-pdf-transfer-form-population": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "covenant-scorecard-pdf-similar-breach-audit": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "investment-briefing-pdf-transfer-report-generation": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

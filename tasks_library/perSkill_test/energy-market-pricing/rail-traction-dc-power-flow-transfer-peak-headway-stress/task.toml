@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "rail-traction-dc-power-flow-transfer-peak-headway-stress"
+name = "Transfer: Rail Traction Peak Headway Stress"
+description = "Evaluate a rail traction power network under shoulder and peak-headway timetables, then write a stress report covering substation angles, section loadings, new overloads, and corridor-level incremental stress."
+author_name = "Wenbo Chen"
+author_email = "wenbochen111@gmail.com"
+difficulty = "hard"
+category = "transportation"
+tags = ["transportation", "rail", "dc-power-flow", "traction-power", "headway-analysis"]
+primary_output_file = "traction_peak_stress_report.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

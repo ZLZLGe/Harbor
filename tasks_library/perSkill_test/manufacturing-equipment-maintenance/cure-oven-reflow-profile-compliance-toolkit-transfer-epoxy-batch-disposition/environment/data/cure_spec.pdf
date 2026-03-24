@@ -1,0 +1,51 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1266 >>
+stream
+BT
+/F1 11 Tf
+50 770 Td
+14 TL
+(Epoxy Cure Oven Specification Rev 4.2) Tj
+T* (Warmup ramp region: use consecutive segments with both endpoints between 60 C and 120 C.) Tj
+T* (Maximum warmup ramp: 1.40 C/min.) Tj
+T* (Effective cure hold: count only time between 150 C and 162 C using linear interpolation at both boundaries.) Tj
+T* (Batch effective hold is the minimum hold across all embedded thermocouples.) Tj
+T* (Release window for effective hold: 600 s to 840 s inclusive.) Tj
+T* (Peak overshoot is max\(0, hottest peak - target_peak_c from batch log\).) Tj
+T* (Release overshoot limit: 3.0 C. Rebake overshoot limit: 1.5 C.) Tj
+T* (Peak uniformity is hottest peak minus coolest peak across the batch. Limit: 4.0 C.) Tj
+T* (Disposition logic:) Tj
+T* (1. release when ramp, hold, overshoot, uniformity all pass and door_open_alarm = 0.) Tj
+T* (2. rebake only when the only thermal failure is short hold, rebake_allowed = yes, rebake_count = 0, door_open_alarm = 0, and overshoot/uniformity still meet rebake limits.) Tj
+T* (3. otherwise hold.) Tj
+T* (Reason code order: warmup_ramp_high, effective_hold_short, effective_hold_long, peak_overshoot_high, uniformity_exceeds_limit, door_open_alarm, rebake_not_allowed.) Tj
+T* (Rebake profile code: RBK-150C-12M.) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1628
+%%EOF

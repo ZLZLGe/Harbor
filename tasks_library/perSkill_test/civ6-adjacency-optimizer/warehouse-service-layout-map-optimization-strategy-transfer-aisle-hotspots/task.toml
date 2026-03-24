@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-service-layout-map-optimization-strategy-transfer-aisle-hotspots"
+name = "Warehouse Service Layout (Transfer)"
+description = "Place warehouse service equipment on valid pads to maximize the reported shelf service score and write the full layout audit to /output/warehouse_service_layout.json."
+author_name = "Songlin Li"
+author_email = "vincent.li.9701@gmail.com"
+difficulty = "hard"
+category = "logistics"
+tags = ["optimization", "warehouse", "grid-map", "facility-layout", "service-coverage"]
+primary_output_file = "/output/warehouse_service_layout.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

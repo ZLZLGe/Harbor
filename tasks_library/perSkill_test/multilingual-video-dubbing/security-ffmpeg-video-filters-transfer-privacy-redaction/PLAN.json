@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "security-ffmpeg-video-filters-transfer-privacy-redaction",
+  "taskRole": "transfer",
+  "title": "Transfer: Security Privacy Redaction",
+  "goal": "Produce a privacy-safe review copy of a surveillance clip by blurring fixed sensitive regions only during specified intervals and slightly dimming the surrounding frame so the redactions are visually obvious.",
+  "primaryOutputFile": "/outputs/privacy-redaction-review.mp4",
+  "difficulty": "medium",
+  "category": "privacy-video-redaction",
+  "skillBenefitRationale": "Regional blur with time-based enable logic is the core challenge, and that work depends directly on FFmpeg video filters rather than any other shipped capability.",
+  "targetSkillDirName": "ffmpeg-video-filters",
+  "targetSkillName": "FFmpeg Video Filters"
+}

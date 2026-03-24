@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cooling-fan-first-order-model-fitting-transfer-speed-step",
+  "taskRole": "transfer",
+  "title": "Transfer: 冷却风机转速阶跃拟合",
+  "goal": "根据 PWM 阶跃后的风机转速采样日志拟合一阶速度响应模型，并给出达到目标转速百分比的预测时间。",
+  "primaryOutputFile": "fan_speed_fit.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "机械执行器场景与热过程和电气过程明显不同，但解决路径仍然是对阶跃响应做一阶模型拟合并提取 K、tau，未引入其他 shipped skill 依赖。",
+  "targetSkillDirName": "first-order-model-fitting",
+  "targetSkillName": "first-order-model-fitting"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "pilot-line-manufacturing-failure-reason-codebook-normalization-similar-final-test-cleanup",
+  "taskRole": "similar",
+  "title": "Similar - Pilot Line Final-Test Reason Cleanup",
+  "goal": "Normalize multilingual pilot-line final-test and burn-in failure remarks into product-specific standard reason codebooks, preserving substring spans, handling multi-segment notes, respecting station scope, and emitting calibrated confidence with UNKNOWN when evidence is weak.",
+  "primaryOutputFile": "/app/output/final_test_reason_map.json",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "This is the closest typical use of the shipped skill: engineers write noisy mixed-language failure reasons that must be segmented and mapped into standardized product codebooks with station-aware validation and confidence calibration.",
+  "targetSkillDirName": "manufacturing-failure-reason-codebook-normalization",
+  "targetSkillName": "manufacturing-failure-reason-codebook-normalization"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "course-grades-xlsx-transfer-weighted-report",
+  "taskRole": "transfer",
+  "title": "Transfer | 课程成绩加权报告",
+  "goal": "从 Scores、Weights 与 Roster 工作表生成空白的 Report 工作表，复制学生标识与各类成绩，并用 Excel 公式完成分类加权、最低小测丢弃、总评和等级判定。",
+  "primaryOutputFile": "/root/data/course_weighted_report.xlsx",
+  "difficulty": "easy",
+  "category": "data-analysis",
+  "skillBenefitRationale": "这里要求在教育场景下构造多步公式和条件判定，仍然是典型的工作簿编辑与公式设计问题，不需要其他 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

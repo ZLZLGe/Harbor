@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warranty-desk-dialogue_graph-dialogue-graph-transfer-return-playbook",
+  "taskRole": "transfer",
+  "title": "Transfer: 退换货客服流程图",
+  "goal": "把一份售后退换货客服话术与升级流程文本解析成结构化流程图 JSON，要求准确表示客服台词、客户选项、转人工节点和结束分支。",
+  "primaryOutputFile": "warranty_returns_flow.json",
+  "difficulty": "easy",
+  "category": "customer-support",
+  "skillBenefitRationale": "虽然场景从游戏迁移到客服，但本质仍是把带分支的文本流程转成节点与边，并用 dialogue-graph 统一序列化、校验目标节点和生成流程可视化。",
+  "targetSkillDirName": "dialogue_graph",
+  "targetSkillName": "dialogue-graph"
+}

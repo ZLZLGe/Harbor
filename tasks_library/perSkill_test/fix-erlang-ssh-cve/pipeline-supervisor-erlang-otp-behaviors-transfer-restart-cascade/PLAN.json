@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "pipeline-supervisor-erlang-otp-behaviors-transfer-restart-cascade",
+  "taskRole": "transfer",
+  "title": "Transfer: 修复 supervisor 批处理管线在工作进程崩溃后的恢复编排",
+  "goal": "一个批处理应用的 supervisor 树在 worker 崩溃后不会按预期重建调度器与消费者，导致队列永远无人处理。需要梳理 child spec、restart intensity 与启动顺序，修复监督树，使崩溃恢复后吞吐恢复且不会进入重启风暴。",
+  "primaryOutputFile": "apps/pipeline/src/pipeline_sup.erl",
+  "difficulty": "hard",
+  "category": "erlang bugfix",
+  "skillBenefitRationale": "难点不在业务逻辑，而在 OTP supervisor 的 child spec、重启策略和树形恢复语义。它把同一 shipped skill 迁移到容错编排场景，测试的是行为级恢复设计，而不是消息解析或会话状态流转。",
+  "targetSkillDirName": "erlang-otp-behaviors",
+  "targetSkillName": "erlang-otp-behaviors"
+}

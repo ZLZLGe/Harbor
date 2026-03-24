@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "screening-lab-unit-harmonization-transfer-wellness-batch",
+  "taskRole": "transfer",
+  "title": "Transfer | 体检批量化验统一",
+  "goal": "处理企业年度体检批量实验室结果，统一葡萄糖、血脂、甲状腺、肝胆和炎症指标的国际/常规单位，消除科学计数法与欧式小数格式差异，并输出面向人群筛查分析的干净数据集。",
+  "primaryOutputFile": "/root/wellness_screening_labs_harmonized.csv",
+  "difficulty": "medium",
+  "category": "healthcare",
+  "skillBenefitRationale": "该任务进一步迁移到大规模体检筛查场景，区别于住院和专科数据，强调高吞吐批量化验的格式清洗与单位统一；唯一关键能力仍是当前 shipped skill 的实验室 harmonization。",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "targetSkillName": "lab-unit-harmonization"
+}

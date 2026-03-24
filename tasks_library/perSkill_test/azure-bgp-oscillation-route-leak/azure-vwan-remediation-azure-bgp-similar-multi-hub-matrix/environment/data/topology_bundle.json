@@ -1,0 +1,85 @@
+{
+  "connections": [
+    {"from": 65101, "to": 65102},
+    {"from": 65102, "to": 65101},
+    {"from": 65101, "to": 65103},
+    {"from": 65103, "to": 65101},
+    {"from": 65101, "to": 65104},
+    {"from": 65104, "to": 65101},
+    {"from": 65102, "to": 65103},
+    {"from": 65103, "to": 65102},
+    {"from": 65103, "to": 65104},
+    {"from": 65104, "to": 65103},
+    {"from": 65104, "to": 65102},
+    {"from": 65102, "to": 65104},
+    {"from": 65102, "to": 65111},
+    {"from": 65111, "to": 65102},
+    {"from": 65102, "to": 65112},
+    {"from": 65112, "to": 65102},
+    {"from": 65103, "to": 65113},
+    {"from": 65113, "to": 65103},
+    {"from": 65103, "to": 65115},
+    {"from": 65115, "to": 65103},
+    {"from": 65104, "to": 65116},
+    {"from": 65116, "to": 65104},
+    {"from": 65104, "to": 65114},
+    {"from": 65114, "to": 65104}
+  ],
+  "relationships": [
+    {"from": 65101, "to": 65102, "type": "provider"},
+    {"from": 65102, "to": 65101, "type": "customer"},
+    {"from": 65101, "to": 65103, "type": "provider"},
+    {"from": 65103, "to": 65101, "type": "customer"},
+    {"from": 65101, "to": 65104, "type": "provider"},
+    {"from": 65104, "to": 65101, "type": "customer"},
+    {"from": 65102, "to": 65103, "type": "peer"},
+    {"from": 65103, "to": 65102, "type": "peer"},
+    {"from": 65103, "to": 65104, "type": "peer"},
+    {"from": 65104, "to": 65103, "type": "peer"},
+    {"from": 65104, "to": 65102, "type": "peer"},
+    {"from": 65102, "to": 65104, "type": "peer"},
+    {"from": 65102, "to": 65111, "type": "provider"},
+    {"from": 65111, "to": 65102, "type": "customer"},
+    {"from": 65102, "to": 65112, "type": "provider"},
+    {"from": 65112, "to": 65102, "type": "customer"},
+    {"from": 65103, "to": 65113, "type": "provider"},
+    {"from": 65113, "to": 65103, "type": "customer"},
+    {"from": 65103, "to": 65115, "type": "provider"},
+    {"from": 65115, "to": 65103, "type": "customer"},
+    {"from": 65104, "to": 65116, "type": "provider"},
+    {"from": 65116, "to": 65104, "type": "customer"},
+    {"from": 65104, "to": 65114, "type": "provider"},
+    {"from": 65114, "to": 65104, "type": "customer"}
+  ],
+  "preferences": [
+    {
+      "asn": 65102,
+      "prefer_via": 65103,
+      "description": "hub-west prefers reaching incident prefixes through hub-central"
+    },
+    {
+      "asn": 65103,
+      "prefer_via": 65104,
+      "description": "hub-central prefers reaching incident prefixes through hub-east"
+    },
+    {
+      "asn": 65104,
+      "prefer_via": 65102,
+      "description": "hub-east prefers reaching incident prefixes through hub-west"
+    }
+  ],
+  "prefix_origins": [
+    {
+      "prefix": "10.44.10.0/24",
+      "origin_asn": 65114,
+      "attached_hub_asn": 65104,
+      "label": "branch-east"
+    },
+    {
+      "prefix": "10.55.20.0/24",
+      "origin_asn": 65115,
+      "attached_hub_asn": 65103,
+      "label": "branch-central"
+    }
+  ]
+}

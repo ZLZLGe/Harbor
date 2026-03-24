@@ -1,0 +1,94 @@
+{
+    "id": "1429aee0-0cf7-42b2-9d7d-606c3ad2ebef",
+    "task_name": "vpn-gateway-threat-detection-transfer-alert-triage",
+    "trial_name": "vpn-gateway-threat-detection-tra__HXHnxga",
+    "trial_uri": "file:///home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/dapt-intrusion-detection/jobs/vpn-gateway-threat-detection-tra__HXHnxga",
+    "task_id": {
+        "path": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/dapt-intrusion-detection/vpn-gateway-threat-detection-transfer-alert-triage"
+    },
+    "source": "dapt-intrusion-detection",
+    "task_checksum": "e6c82e56efc872a03fc7cd330aab8987379f5007674494a36be2b4092721232f",
+    "config": {
+        "task": {
+            "path": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/dapt-intrusion-detection/vpn-gateway-threat-detection-transfer-alert-triage",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "dapt-intrusion-detection"
+        },
+        "trial_name": "vpn-gateway-threat-detection-tra__HXHnxga",
+        "trials_dir": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/dapt-intrusion-detection/jobs",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "a9657b9e-3178-4725-bdb8-61a74ce23323"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-23T14:26:30.512771Z",
+    "finished_at": "2026-03-23T14:38:34.533714Z",
+    "environment_setup": {
+        "started_at": "2026-03-23T14:26:30.514106Z",
+        "finished_at": "2026-03-23T14:38:24.507400Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-23T14:38:24.507405Z",
+        "finished_at": "2026-03-23T14:38:24.507421Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-23T14:38:24.507440Z",
+        "finished_at": "2026-03-23T14:38:26.054958Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-23T14:38:26.055023Z",
+        "finished_at": "2026-03-23T14:38:26.969542Z"
+    }
+}

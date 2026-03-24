@@ -1,0 +1,13 @@
+template_id,file_name,phase,pick_idx,score
+TPL_A,cand_tpl_a_01.npz,P,2618,0.569
+TPL_A,cand_tpl_a_01.npz,S,2794,0.569
+TPL_A,cand_tpl_a_02.npz,P,2574,0.478
+TPL_A,cand_tpl_a_02.npz,S,2750,0.478
+TPL_B,cand_tpl_b_01.npz,P,2634,0.74
+TPL_B,cand_tpl_b_01.npz,S,2777,0.74
+TPL_B,cand_tpl_b_02.npz,P,2559,0.653
+TPL_B,cand_tpl_b_02.npz,S,2702,0.653
+TPL_C,cand_tpl_c_01.npz,P,2622,0.708
+TPL_C,cand_tpl_c_01.npz,S,2679,0.708
+TPL_C,cand_tpl_c_02.npz,P,2569,0.607
+TPL_C,cand_tpl_c_02.npz,S,2626,0.607

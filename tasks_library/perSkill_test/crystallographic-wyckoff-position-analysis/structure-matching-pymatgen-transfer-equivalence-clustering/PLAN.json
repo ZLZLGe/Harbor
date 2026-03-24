@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "structure-matching-pymatgen-transfer-equivalence-clustering",
+  "taskRole": "transfer",
+  "title": "Pymatgen Transfer: Structure Equivalence Clustering",
+  "goal": "给定一组可能来自不同软件导出的 CIF 和 POSCAR 文件，构建脚本识别哪些文件表示同一晶体结构，将它们聚类为结构等价组，并为每组输出代表文件、化学式、空间群信息和成员文件列表。",
+  "primaryOutputFile": "structure_equivalence_clusters.json",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "该任务把 pymatgen 从单结构对称读取迁移到跨文件结构比较，关键在于 Structure、格式读写和 StructureMatcher，这些都是 pymatgen 的独特能力。",
+  "targetSkillDirName": "pymatgen",
+  "targetSkillName": "pymatgen"
+}

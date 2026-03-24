@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "digital-signage-loop-ffmpeg-video-editing-transfer-storefront"
+name = "Transfer: Assemble a Storefront Signage Loop"
+description = "Assemble the supplied storefront promo clips into /outputs/storefront_loop.mp4 by normalizing the screen format, applying the requested trim-or-freeze timing rules, and concatenating them in order."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "digital-signage-video"
+tags = ["video editing", "digital signage", "clip timing", "storefront"]
+primary_output_file = "/outputs/storefront_loop.mp4"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

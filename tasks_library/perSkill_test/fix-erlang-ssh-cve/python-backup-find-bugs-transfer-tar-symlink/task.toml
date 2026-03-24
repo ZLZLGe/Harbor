@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "python-backup-find-bugs-transfer-tar-symlink"
+name = "Transfer - 审计 Python 备份恢复归档处理改动"
+description = "审计本地 Python 备份恢复分支中的 tar 解包与恢复改动，并把已证实的问题写入指定报告。"
+author_name = "OpenAI"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "python security review"
+tags = ["python", "tar", "security-review", "transfer"]
+primary_output_file = "reports/transfer-backup-archive-findings.md"
+source_task_id = "fix-erlang-ssh-cve"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

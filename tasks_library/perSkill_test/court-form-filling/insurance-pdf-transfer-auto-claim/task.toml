@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "insurance-pdf-transfer-auto-claim"
+name = "Transfer: Auto Damage Claim PDF"
+description = "Fill the auto damage claim PDF from the provided claim packet and save the completed form to /root/auto-claim-filled.pdf."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "easy"
+category = "document-processing"
+tags = ["pdf", "form-filling", "insurance", "claims"]
+primary_output_file = "/root/auto-claim-filled.pdf"
+source_task_id = "court-form-filling"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

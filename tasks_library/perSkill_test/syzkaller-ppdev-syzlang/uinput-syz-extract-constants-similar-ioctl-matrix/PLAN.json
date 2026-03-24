@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "uinput-syz-extract-constants-similar-ioctl-matrix",
+  "taskRole": "similar",
+  "title": "Similar: 为 uinput syzlang 补齐 ioctl 与事件常量",
+  "goal": "在已提供的 `/opt/syzkaller/sys/linux/dev_uinput.txt` 骨架基础上，完成 `/opt/syzkaller/sys/linux/dev_uinput.txt.const`，为描述里已经写好的 ioctl、事件类型和功能位补齐 amd64/386 常量，并让 `make descriptions` 通过。",
+  "primaryOutputFile": "/opt/syzkaller/sys/linux/dev_uinput.txt.const",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "任务核心是根据 UAPI 头文件与 ioctl 编码规则生成 companion `.const` 文件；syzlang 结构已预置，当前唯一关键 shipped skill 就是常量提取与定义。",
+  "targetSkillDirName": "syz-extract-constants",
+  "targetSkillName": "syz-extract-constants"
+}

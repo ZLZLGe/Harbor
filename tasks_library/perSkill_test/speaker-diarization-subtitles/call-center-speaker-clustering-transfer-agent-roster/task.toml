@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "call-center-speaker-clustering-transfer-agent-roster"
+name = "Transfer | 呼叫中心重复声线台账"
+description = "根据多通客服电话的短话轮嵌入做跨通话聚类，输出 /root/agent_voice_roster.json 中的坐席/来电者簇台账与每段 cluster 分配。"
+author_name = "Levi Chen"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "audio-visual"
+tags = ["speaker-clustering", "call-center", "voice-roster", "embeddings"]
+primary_output_file = "/root/agent_voice_roster.json"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

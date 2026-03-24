@@ -1,0 +1,28 @@
+{
+  "sourceTaskId": "energy-ac-optimal-power-flow",
+  "targetSkillDirName": "power-flow-data",
+  "runId": "20260319055059-energy-ac-optimal-power-flow-power-flow-data-0qv1aw",
+  "taskId": "ev-depot-power-flow-data-transfer-interconnection-screen",
+  "originErrorCombo": "reviewer__static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer__static/energy-ac-optimal-power-flow/power-flow-data/20260319055059-energy-ac-optimal-power-flow-power-flow-data-0qv1aw/ev-depot-power-flow-data-transfer-interconnection-screen",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319055059-energy-ac-optimal-power-flow-power-flow-data-0qv1aw/energy-ac-optimal-power-flow/drafts/ev-depot-power-flow-data-transfer-interconnection-screen",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/energy-ac-optimal-power-flow/ev-depot-power-flow-data-transfer-interconnection-screen",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/energy-ac-optimal-power-flow/ev-depot-power-flow-data-transfer-interconnection-screen",
+  "status": "pass",
+  "issueCategories": [
+    "visibility",
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 明确写出 MATPOWER 风格、bus/gen/branch/gencost、BUS_I 映射和字段级打分指标；相对 source_task/instruction.md 属于更直接明示技能，并引入了 source task 未直接写出的具体 skill 线索。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

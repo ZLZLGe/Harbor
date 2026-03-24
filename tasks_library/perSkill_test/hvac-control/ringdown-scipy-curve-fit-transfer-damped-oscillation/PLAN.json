@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ringdown-scipy-curve-fit-transfer-damped-oscillation",
+  "taskRole": "transfer",
+  "title": "Transfer | Damped Ring-Down Modal Fit",
+  "goal": "Fit a damped sinusoid to ring-down accelerometer data from a vibrating test beam, estimate natural frequency and damping ratio, and determine whether the measured damping satisfies the inspection threshold.",
+  "primaryOutputFile": "ringdown_modal_fit.json",
+  "difficulty": "medium",
+  "category": "structural-diagnostics",
+  "skillBenefitRationale": "The task shifts the same fitting skill into oscillatory system identification, requiring nonlinear estimation of exponential decay and sinusoidal terms from sensor data. `curve_fit` remains the sole key shipped skill.",
+  "targetSkillDirName": "scipy-curve-fit",
+  "targetSkillName": "scipy-curve-fit"
+}

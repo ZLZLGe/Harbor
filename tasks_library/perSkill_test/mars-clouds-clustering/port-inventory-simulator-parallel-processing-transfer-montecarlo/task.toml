@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "port-inventory-simulator-parallel-processing-transfer-montecarlo"
+name = "Transfer | Port Inventory Policy Monte Carlo"
+description = "Simulate port spare-parts inventory policies over Monte Carlo demand paths and write the lowest-cost feasible policy to /root/port_inventory_policy.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "hard"
+category = "operations-research"
+tags = ["operations-research", "inventory", "monte-carlo", "simulation", "supply-chain", "policy-search"]
+primary_output_file = "/root/port_inventory_policy.csv"
+source_task_id = "mars-clouds-clustering"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 4
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = false

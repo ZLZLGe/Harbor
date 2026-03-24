@@ -1,0 +1,156 @@
+{
+  "video": {
+    "width": 1280,
+    "height": 720,
+    "source_fps": {
+      "numerator": 30000,
+      "denominator": 1001
+    },
+    "sample_fps": 7,
+    "frame_count": 104,
+    "sample_source_frames": [
+      0,
+      4,
+      9,
+      13,
+      17,
+      21,
+      26,
+      30,
+      34,
+      39,
+      43,
+      47,
+      51,
+      56,
+      60,
+      64,
+      69,
+      73,
+      77,
+      81,
+      86,
+      90,
+      94,
+      99,
+      103
+    ]
+  },
+  "camera_segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 16,
+      "labels": [
+        "Stay"
+      ]
+    },
+    {
+      "start_frame": 16,
+      "end_frame": 44,
+      "labels": [
+        "Pan Right"
+      ]
+    },
+    {
+      "start_frame": 44,
+      "end_frame": 78,
+      "labels": [
+        "Dolly In",
+        "Pan Right"
+      ]
+    },
+    {
+      "start_frame": 78,
+      "end_frame": 104,
+      "labels": [
+        "Tilt Down"
+      ]
+    }
+  ],
+  "crowd_segments": [
+    {
+      "start_frame": 0,
+      "end_frame": 18,
+      "boxes": [
+        [
+          430,
+          390,
+          860,
+          719
+        ]
+      ]
+    },
+    {
+      "start_frame": 18,
+      "end_frame": 44,
+      "boxes": [
+        [
+          430,
+          390,
+          860,
+          719
+        ],
+        [
+          120,
+          240,
+          360,
+          560
+        ]
+      ]
+    },
+    {
+      "start_frame": 44,
+      "end_frame": 78,
+      "boxes": [
+        [
+          470,
+          400,
+          900,
+          719
+        ],
+        [
+          150,
+          250,
+          360,
+          560
+        ],
+        [
+          780,
+          260,
+          1160,
+          690
+        ]
+      ]
+    },
+    {
+      "start_frame": 78,
+      "end_frame": 92,
+      "boxes": [
+        [
+          540,
+          360,
+          990,
+          690
+        ],
+        [
+          820,
+          280,
+          1180,
+          700
+        ]
+      ]
+    },
+    {
+      "start_frame": 92,
+      "end_frame": 104,
+      "boxes": [
+        [
+          560,
+          340,
+          1040,
+          680
+        ]
+      ]
+    }
+  ]
+}

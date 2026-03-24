@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "intake-pdf-transfer-form-packet",
+  "taskRole": "transfer",
+  "title": "Transfer | 医疗入院 PDF 表单填写",
+  "goal": "根据提供的住院登记 JSON，完成一份多页 PDF 入院表，正确填写文本字段、下拉选项与复选框，并输出最终提交版 PDF。",
+  "primaryOutputFile": "/app/workspace/patient_intake_completed.pdf",
+  "difficulty": "hard",
+  "category": "document automation",
+  "skillBenefitRationale": "需要识别 PDF 表单字段或为非可填写区域建立标注框并回写内容，关键能力完全来自 PDF 表单处理链路。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

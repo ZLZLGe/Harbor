@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "brine-mixer-imc-tuning-rules-transfer-concentration"
+name = "Transfer - 盐水混合槽浓度保持 IMC 整定"
+description = "为盐水混合槽在临时冲洗稀释扰动下设计 PI 控制器，并输出浓度控制摘要到 brine_mixer_control_summary.json。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control-theory", "mixing-process", "pi-controller", "concentration-control", "imc"]
+primary_output_file = "brine_mixer_control_summary.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

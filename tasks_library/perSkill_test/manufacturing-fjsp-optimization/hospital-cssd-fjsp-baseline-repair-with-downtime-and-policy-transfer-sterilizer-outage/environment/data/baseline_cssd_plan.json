@@ -1,0 +1,167 @@
+{
+  "status": "BASELINE",
+  "last_ready_minute": 48,
+  "budget_usage": {
+    "unit_changes": 0,
+    "total_start_shift": 0
+  },
+  "ready_trays": [
+    "ER-TRAUMA-SET",
+    "ENT-MICRO-SET",
+    "OR-ORTHO-SET",
+    "LDR-CSECTION-SET",
+    "GI-LAP-SET"
+  ],
+  "tray_plan": [
+    {
+      "tray_id": "ER-TRAUMA-SET",
+      "step": "wash",
+      "step_index": 0,
+      "unit_id": 0,
+      "unit_name": "Washer-A",
+      "start": 0,
+      "finish": 7,
+      "duration": 7
+    },
+    {
+      "tray_id": "OR-ORTHO-SET",
+      "step": "wash",
+      "step_index": 0,
+      "unit_id": 1,
+      "unit_name": "Washer-B",
+      "start": 0,
+      "finish": 13,
+      "duration": 13
+    },
+    {
+      "tray_id": "ENT-MICRO-SET",
+      "step": "wash",
+      "step_index": 0,
+      "unit_id": 0,
+      "unit_name": "Washer-A",
+      "start": 7,
+      "finish": 17,
+      "duration": 10
+    },
+    {
+      "tray_id": "GI-LAP-SET",
+      "step": "wash",
+      "step_index": 0,
+      "unit_id": 0,
+      "unit_name": "Washer-A",
+      "start": 17,
+      "finish": 26,
+      "duration": 9
+    },
+    {
+      "tray_id": "LDR-CSECTION-SET",
+      "step": "wash",
+      "step_index": 0,
+      "unit_id": 1,
+      "unit_name": "Washer-B",
+      "start": 13,
+      "finish": 24,
+      "duration": 11
+    },
+    {
+      "tray_id": "ER-TRAUMA-SET",
+      "step": "inspect_pack",
+      "step_index": 1,
+      "unit_id": 2,
+      "unit_name": "Pack-Bench-A",
+      "start": 7,
+      "finish": 12,
+      "duration": 5
+    },
+    {
+      "tray_id": "OR-ORTHO-SET",
+      "step": "inspect_pack",
+      "step_index": 1,
+      "unit_id": 3,
+      "unit_name": "Pack-Bench-B",
+      "start": 13,
+      "finish": 20,
+      "duration": 7
+    },
+    {
+      "tray_id": "ENT-MICRO-SET",
+      "step": "inspect_pack",
+      "step_index": 1,
+      "unit_id": 2,
+      "unit_name": "Pack-Bench-A",
+      "start": 17,
+      "finish": 24,
+      "duration": 7
+    },
+    {
+      "tray_id": "LDR-CSECTION-SET",
+      "step": "inspect_pack",
+      "step_index": 1,
+      "unit_id": 2,
+      "unit_name": "Pack-Bench-A",
+      "start": 24,
+      "finish": 30,
+      "duration": 6
+    },
+    {
+      "tray_id": "GI-LAP-SET",
+      "step": "inspect_pack",
+      "step_index": 1,
+      "unit_id": 3,
+      "unit_name": "Pack-Bench-B",
+      "start": 26,
+      "finish": 33,
+      "duration": 7
+    },
+    {
+      "tray_id": "ER-TRAUMA-SET",
+      "step": "sterilize",
+      "step_index": 2,
+      "unit_id": 5,
+      "unit_name": "Sterilizer-B",
+      "start": 12,
+      "finish": 25,
+      "duration": 13
+    },
+    {
+      "tray_id": "OR-ORTHO-SET",
+      "step": "sterilize",
+      "step_index": 2,
+      "unit_id": 4,
+      "unit_name": "Sterilizer-A",
+      "start": 20,
+      "finish": 40,
+      "duration": 20
+    },
+    {
+      "tray_id": "ENT-MICRO-SET",
+      "step": "sterilize",
+      "step_index": 2,
+      "unit_id": 5,
+      "unit_name": "Sterilizer-B",
+      "start": 24,
+      "finish": 39,
+      "duration": 15
+    },
+    {
+      "tray_id": "LDR-CSECTION-SET",
+      "step": "sterilize",
+      "step_index": 2,
+      "unit_id": 5,
+      "unit_name": "Sterilizer-B",
+      "start": 30,
+      "finish": 46,
+      "duration": 16
+    },
+    {
+      "tray_id": "GI-LAP-SET",
+      "step": "sterilize",
+      "step_index": 2,
+      "unit_id": 4,
+      "unit_name": "Sterilizer-A",
+      "start": 33,
+      "finish": 48,
+      "duration": 15
+    }
+  ]
+}

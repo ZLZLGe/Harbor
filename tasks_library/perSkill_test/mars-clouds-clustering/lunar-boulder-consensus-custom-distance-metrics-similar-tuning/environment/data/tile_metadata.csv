@@ -1,0 +1,13 @@
+tile_id,track_angle_deg,region_name,phase_bucket
+LUNR_01,18,Mare Sector 01,dawn
+LUNR_02,39,Mare Sector 02,noon
+LUNR_03,61,Mare Sector 03,dusk
+LUNR_04,84,Mare Sector 04,dawn
+LUNR_05,107,Mare Sector 05,noon
+LUNR_06,129,Mare Sector 06,dusk
+LUNR_07,151,Mare Sector 07,dawn
+LUNR_08,173,Mare Sector 08,noon
+LUNR_09,26,Mare Sector 09,dusk
+LUNR_10,72,Mare Sector 10,dawn
+LUNR_11,118,Mare Sector 11,noon
+LUNR_12,164,Mare Sector 12,dusk

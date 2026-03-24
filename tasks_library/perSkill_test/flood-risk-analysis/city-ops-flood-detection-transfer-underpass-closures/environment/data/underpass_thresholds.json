@@ -1,0 +1,46 @@
+{
+  "underpasses": [
+    {
+      "underpass_id": "UP-101",
+      "corridor": "Harbor Loop",
+      "traffic_control_depth_cm": 18,
+      "full_closure_depth_cm": 30
+    },
+    {
+      "underpass_id": "UP-205",
+      "corridor": "Canal Avenue",
+      "traffic_control_depth_cm": 22,
+      "full_closure_depth_cm": 40
+    },
+    {
+      "underpass_id": "UP-318",
+      "corridor": "Market Street",
+      "traffic_control_depth_cm": 15,
+      "full_closure_depth_cm": 26
+    },
+    {
+      "underpass_id": "UP-404",
+      "corridor": "Depot Road",
+      "traffic_control_depth_cm": 20,
+      "full_closure_depth_cm": 35
+    },
+    {
+      "underpass_id": "UP-512",
+      "corridor": "East Belt",
+      "traffic_control_depth_cm": 17,
+      "full_closure_depth_cm": 28
+    },
+    {
+      "underpass_id": "UP-620",
+      "corridor": "Terminal Spur",
+      "traffic_control_depth_cm": 19,
+      "full_closure_depth_cm": 33
+    },
+    {
+      "underpass_id": "UP-730",
+      "corridor": "Warehouse Cut",
+      "traffic_control_depth_cm": 21,
+      "full_closure_depth_cm": 34
+    }
+  ]
+}

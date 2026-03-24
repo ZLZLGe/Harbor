@@ -1,0 +1,5 @@
+{"id":"evt-001","ts":"2024-11-05T08:15:30Z","actor":{"email":"ops@example.com"},"action":"login","resource":"console#Prod","details":"interactive access #IAM"}
+{"id":"evt-002","timestamp":"2024-11-05 08:16:10","user":"bot-sync","event":"write config","target":"cluster/east#platform","message":"applied patch #Config"}
+{"id":"evt-003","occurred_at":"2024/11/05 16:20:00 +0800","principal":"sec@example.com","type":"revoke-key","object":"service/api#Auth","note":"Emergency rotation #P1 #Auth"}
+{"id":"evt-004","timestamp":"2024-11-06","actor":{"name":"backup-daemon"},"action":"snapshot","resource":{"id":"vault/archive#cold"},"details":"scheduled copy #retention"}
+{"id":"evt-005","ts":"2024-11-05T08:21:00+00:00","user":"ops@example.com","action":"disable-user","target":"iam/user#Prod","message":"disabled access #IAM"}

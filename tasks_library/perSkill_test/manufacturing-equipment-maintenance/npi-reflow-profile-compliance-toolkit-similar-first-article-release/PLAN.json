@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "npi-reflow-profile-compliance-toolkit-similar-first-article-release",
+  "taskRole": "similar",
+  "title": "Similar | 回流首件放行决策",
+  "goal": "面向新产品导入阶段的回流炉首件放行，要求从工艺手册提取预热区、升温斜率、TAL、峰值裕量和代表性冷点传感器规则，结合热电偶曲线、MES 运行记录与缺陷数据，为每个候选 run 生成放行/拦截结论、失效原因和推荐 golden run。",
+  "primaryOutputFile": "/app/output/first_article_release.json",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "任务核心是手册约束检索加多热电偶曲线的确定性计算，需要稳定完成温区筛选、阈值插值、冷点传感器选择与 run 级汇总，这正是当前 shipped skill 的典型能力边界。",
+  "targetSkillDirName": "reflow-profile-compliance-toolkit",
+  "targetSkillName": "reflow-profile-compliance-toolkit"
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "archive-parser-discover-important-function-similar-fuzz-notes"
+name = "Similar: Python 归档解析库的重要函数定位"
+description = "Inspect the bundled archive parsing library, correlate the code with existing tests, and write prioritized fuzz-target notes to archive_fuzz_targets.md."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "security"
+tags = ["security", "python", "fuzzing", "archive", "analysis"]
+primary_output_file = "archive_fuzz_targets.md"
+source_task_id = "setup-fuzzing-py"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

@@ -1,0 +1,238 @@
+{
+  "shape": [
+    12,
+    18
+  ],
+  "encoding": "Union all components whose active flag is true into the output mask for the same scan.",
+  "scans": [
+    {
+      "scan_id": 0,
+      "components": [
+        {
+          "component_id": "cargo_a",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 4,
+          "left": 3,
+          "height": 2,
+          "width": 3
+        },
+        {
+          "component_id": "pier_echo",
+          "kind": "static-structure",
+          "active": false,
+          "top": 1,
+          "left": 13,
+          "height": 3,
+          "width": 2
+        }
+      ]
+    },
+    {
+      "scan_id": 1,
+      "components": [
+        {
+          "component_id": "cargo_a",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 4,
+          "left": 4,
+          "height": 2,
+          "width": 3
+        },
+        {
+          "component_id": "pier_echo",
+          "kind": "static-structure",
+          "active": false,
+          "top": 1,
+          "left": 13,
+          "height": 3,
+          "width": 2
+        }
+      ]
+    },
+    {
+      "scan_id": 2,
+      "components": [
+        {
+          "component_id": "cargo_a",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 4,
+          "left": 6,
+          "height": 2,
+          "width": 4
+        },
+        {
+          "component_id": "tug_b",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 7,
+          "left": 12,
+          "height": 2,
+          "width": 2
+        },
+        {
+          "component_id": "pier_echo",
+          "kind": "static-structure",
+          "active": false,
+          "top": 1,
+          "left": 13,
+          "height": 3,
+          "width": 2
+        }
+      ]
+    },
+    {
+      "scan_id": 3,
+      "components": [
+        {
+          "component_id": "cargo_a",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 4,
+          "left": 7,
+          "height": 2,
+          "width": 4
+        },
+        {
+          "component_id": "tug_b",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 7,
+          "left": 11,
+          "height": 2,
+          "width": 2
+        },
+        {
+          "component_id": "breakwater",
+          "kind": "static-structure",
+          "active": false,
+          "top": 9,
+          "left": 1,
+          "height": 2,
+          "width": 4
+        }
+      ]
+    },
+    {
+      "scan_id": 4,
+      "components": [
+        {
+          "component_id": "cargo_a",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 4,
+          "left": 8,
+          "height": 3,
+          "width": 4
+        },
+        {
+          "component_id": "tug_b",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 8,
+          "left": 10,
+          "height": 2,
+          "width": 2
+        },
+        {
+          "component_id": "breakwater",
+          "kind": "static-structure",
+          "active": false,
+          "top": 9,
+          "left": 1,
+          "height": 2,
+          "width": 4
+        }
+      ]
+    },
+    {
+      "scan_id": 5,
+      "components": [
+        {
+          "component_id": "cargo_a",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 5,
+          "left": 9,
+          "height": 3,
+          "width": 3
+        },
+        {
+          "component_id": "tug_b",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 8,
+          "left": 9,
+          "height": 2,
+          "width": 2
+        },
+        {
+          "component_id": "breakwater",
+          "kind": "static-structure",
+          "active": false,
+          "top": 9,
+          "left": 1,
+          "height": 2,
+          "width": 4
+        }
+      ]
+    },
+    {
+      "scan_id": 6,
+      "components": [
+        {
+          "component_id": "cargo_a",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 6,
+          "left": 10,
+          "height": 3,
+          "width": 3
+        },
+        {
+          "component_id": "tug_b",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 8,
+          "left": 8,
+          "height": 2,
+          "width": 2
+        },
+        {
+          "component_id": "breakwater",
+          "kind": "static-structure",
+          "active": false,
+          "top": 9,
+          "left": 1,
+          "height": 2,
+          "width": 4
+        }
+      ]
+    },
+    {
+      "scan_id": 7,
+      "components": [
+        {
+          "component_id": "cargo_a",
+          "kind": "active-vessel",
+          "active": true,
+          "top": 7,
+          "left": 11,
+          "height": 2,
+          "width": 3
+        },
+        {
+          "component_id": "breakwater",
+          "kind": "static-structure",
+          "active": false,
+          "top": 9,
+          "left": 1,
+          "height": 2,
+          "width": 4
+        }
+      ]
+    }
+  ]
+}

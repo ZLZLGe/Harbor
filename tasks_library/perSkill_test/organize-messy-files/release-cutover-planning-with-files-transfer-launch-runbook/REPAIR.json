@@ -1,0 +1,56 @@
+{
+  "sourceTaskId": "organize-messy-files",
+  "targetSkillDirName": "planning-with-files",
+  "runId": "20260320143304-organize-messy-files-planning-with-files-trm9ja",
+  "taskId": "release-cutover-planning-with-files-transfer-launch-runbook",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/organize-messy-files/release-cutover-planning-with-files-transfer-launch-runbook",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320143304-organize-messy-files-planning-with-files-trm9ja/organize-messy-files/drafts/release-cutover-planning-with-files-transfer-launch-runbook",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/organize-messy-files/release-cutover-planning-with-files-transfer-launch-runbook",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/organize-messy-files/release-cutover-planning-with-files-transfer-launch-runbook",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "测试对 Owner Map 的断言绑定了精确措辞，超出了 instruction 只要求包含 owner 与职责的范围，因此可判定性不够稳。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "测试对 `## Owner Map` 的完整句子措辞要求过死，instruction 只要求覆盖负责人和职责，等价表述也可能被误判失败。; 执行表测试依赖大量特定短语子串，超出了 instruction 对 Action/Verification/Rollback/Evidence 的约束，存在正确答案无法通过的风险。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "release-cutover-planning-with-files-transfer-launch-runbook"
+      ],
+      "requestedIssuesByTaskId": {
+        "release-cutover-planning-with-files-transfer-launch-runbook": {
+          "reviewerIssues": [
+            "测试对 `## Owner Map` 的完整句子措辞要求过死，instruction 只要求覆盖负责人和职责，等价表述也可能被误判失败。; 执行表测试依赖大量特定短语子串，超出了 instruction 对 Action/Verification/Rollback/Evidence 的约束，存在正确答案无法通过的风险。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10f0-7280-7561-8305-9d8861972ef9",
+      "repairSummary": "- `release-cutover-planning-with-files-transfer-launch-runbook`：我修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260320143304-organize-messy-files-planning-with-files-trm9ja-2209e8b6/organize-messy-files/drafts/release-cutover-planning-with-files-transfer-launch-runbook/instruction.md#L14) 和 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260320143304-organize-messy-files-planning-with-files-trm9ja-2209e8b6/organize-messy-files/drafts/release-cutover-planning-with-files-transfer-launch-runbook/tests/test_outputs.py#L1)。`instruction.md` 补充了工作笔记要求、执行表必须遵循会议纪要里的 8 步顺序、`Window` 可自定但必须填写、以及每行要用具体证据而不是泛化占位。测试改为校验结构和关键事实，不再要求 `## Owner Map` 固定整句措辞，也不再对执行表的 `Action`/`Verification`/`Rollback` 绑定大量特定短语；同时把工作笔记断言收敛为可由指令直接推出的要求。\n\n验证方面：本地环境没有 `pytest`，但我已用参考解手动执行新测试函数，并通过了语法检查与等价断言调用。",
+      "reviewThreadId": "019d10f6-cfb7-7200-a5fb-7a6719502323",
+      "evaluationByTaskId": {
+        "release-cutover-planning-with-files-transfer-launch-runbook": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

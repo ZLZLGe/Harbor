@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "battery-pack-safety-interlocks-transfer-preheat-guard",
+  "taskRole": "transfer",
+  "title": "Transfer: Battery Pack Preheat Guard",
+  "goal": "实现电池包预热控制，使模组温度升到允许充电区间，但任一电芯温度达到 32.0C 时都必须立即切断加热并把 charge_enable 置为 false，直到恢复安全范围；需要输出包含温度轨迹、联锁触发时刻和最终充电许可判断的安全报告。",
+  "primaryOutputFile": "battery_safety_report.json",
+  "difficulty": "medium",
+  "category": "energy-systems",
+  "skillBenefitRationale": "这里真正必须做对的是过温联锁、输出切断和安全状态锁存，避免在预热阶段误允许充电；不需要额外 shipped skill，safety-interlocks 就是唯一关键能力。",
+  "targetSkillDirName": "safety-interlocks",
+  "targetSkillName": "safety-interlocks"
+}

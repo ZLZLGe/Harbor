@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "ringdown-scipy-curve-fit-transfer-damped-oscillation"
+name = "Transfer | Damped Ring-Down Modal Fit"
+description = "Fit a damped sinusoid to beam ring-down accelerometer data and write a damping inspection summary to ringdown_modal_fit.json."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "structural-diagnostics"
+tags = ["structural-dynamics", "ringdown", "modal-fit", "curve-fitting", "python"]
+primary_output_file = "ringdown_modal_fit.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

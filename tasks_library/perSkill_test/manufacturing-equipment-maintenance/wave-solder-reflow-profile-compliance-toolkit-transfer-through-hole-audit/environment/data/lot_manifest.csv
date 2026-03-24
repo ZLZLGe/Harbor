@@ -1,0 +1,6 @@
+lot_id,profile_id,line_id,product_family,board_rev,solder_liquidus_c,preheater_top_sp_c,chip_wave_height_mm,lambda_wave_height_mm
+LOT-A1,PRF-A,WS-7,Controller_IO,R2,183,118.0,5.2,4.8
+LOT-A2,PRF-A,WS-7,Controller_IO,R2,183,118.0,5.2,4.8
+LOT-B1,PRF-B,WS-7,Controller_IO,R2,183,112.0,5.0,4.6
+LOT-C1,PRF-C,WS-7,Power_Backplane,R1,183,121.0,5.4,4.9
+LOT-D1,PRF-D,WS-7,Power_Backplane,R1,183,117.0,5.1,4.7

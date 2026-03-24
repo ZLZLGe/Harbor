@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ore-haulage-mesh-analysis-transfer-routing",
+  "taskRole": "transfer",
+  "title": "Transfer - Ore Scanner Haulage Routing",
+  "goal": "对传送带 3D 扫描 STL 去除碎石粉尘连通域，识别主矿块并读取矿种 ID，估算质量并输出分拣线路决策。",
+  "primaryOutputFile": "/root/ore_manifest.json",
+  "difficulty": "hard",
+  "category": "industrial",
+  "skillBenefitRationale": "迁移到矿石分拣后，唯一关键 skill 仍是从含噪 STL 中找到主矿块并利用属性字节解释物料类型，再完成质量估算和路由判断。",
+  "targetSkillDirName": "mesh-analysis",
+  "targetSkillName": "mesh-analysis"
+}

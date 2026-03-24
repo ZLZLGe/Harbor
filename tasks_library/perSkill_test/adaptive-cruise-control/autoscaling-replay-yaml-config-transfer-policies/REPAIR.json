@@ -1,0 +1,69 @@
+{
+  "sourceTaskId": "adaptive-cruise-control",
+  "targetSkillDirName": "yaml-config",
+  "runId": "20260315183532-adaptive-cruise-control-yaml-config-wimhfx",
+  "taskId": "autoscaling-replay-yaml-config-transfer-policies",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/adaptive-cruise-control/autoscaling-replay-yaml-config-transfer-policies",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315183532-adaptive-cruise-control-yaml-config-wimhfx/adaptive-cruise-control/drafts/autoscaling-replay-yaml-config-transfer-policies",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/adaptive-cruise-control/autoscaling-replay-yaml-config-transfer-policies",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/adaptive-cruise-control/autoscaling-replay-yaml-config-transfer-policies",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 固定要求分钟 10/20/35/75 的具体动作、`final_instances == 4`、`peak_request_ratio <= 0.7` 等结果；instruction.md 只要求遵守 YAML 规则并达到总体目标，没有唯一动作时间线，测试过度锁定某一实现。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "扩缩容判定逻辑与延迟投影模型在 instruction.md 中没有定义清楚，但测试却要求特定时刻出现特定动作（如 10/20/35/75 分钟）以及特定最终状态，属于隐藏实现要求。; 测试还要求 `final_instances = 4`、`peak_request_ratio <= 0.7`、`max_projected_latency_ms < 130.0` 等未在 instruction.md 明示的结果约束。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "autoscaling-replay-yaml-config-transfer-policies",
+        "lane-keeping-yaml-config-similar-steering"
+      ],
+      "requestedIssuesByTaskId": {
+        "autoscaling-replay-yaml-config-transfer-policies": {
+          "reviewerIssues": [
+            "扩缩容判定逻辑与延迟投影模型在 instruction.md 中没有定义清楚，但测试却要求特定时刻出现特定动作（如 10/20/35/75 分钟）以及特定最终状态，属于隐藏实现要求。; 测试还要求 `final_instances = 4`、`peak_request_ratio <= 0.7`、`max_projected_latency_ms < 130.0` 等未在 instruction.md 明示的结果约束。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "lane-keeping-yaml-config-similar-steering": {
+          "reviewerIssues": [
+            "instruction.md 未说明 `lane_keeping_system.py` 还需要导出 `load_yaml()`，但测试直接导入并调用该函数，存在隐藏接口要求。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10ba-d48b-7ae1-90df-f71e16ebd286",
+      "repairSummary": "- `autoscaling-replay-yaml-config-transfer-policies`: 重写了 `instruction.md`，把延迟投影公式、扩缩容信号优先级、冷却判定、动作命名、汇总字段计算都写成显式契约，同时去掉了 `instruction.md` 里对当前 shipped skill 的直接点名；`tests/test_outputs.py` 改成按说明里的规则从配置和 workload 直接推导期望结果，不再依赖隐藏实现或额外结果阈值。这个任务我用参考解做了本地回放校验。\n\n- `lane-keeping-yaml-config-similar-steering`: 重写了 `instruction.md`，去掉了对当前 shipped skill 的直接点名，并明确只有 `LaneKeepingSimulator` 接口会被测试；`tests/test_outputs.py` 去掉了对隐藏辅助函数 `load_yaml()` 的导入调用，改成测试内直接读取配置文件，所以不再有隐藏接口要求。\n\n补充：`derivedTaskId`、`taskRole`、`source_task_id`、`primary_output_file` 都没改。两份测试文件都过了 `py_compile`。Harbor 的 static validator 我这里没法直接跑。",
+      "reviewThreadId": "019d10c9-ea09-7543-90a4-cf4bce347838",
+      "evaluationByTaskId": {
+        "autoscaling-replay-yaml-config-transfer-policies": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "lane-keeping-yaml-config-similar-steering": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "water-tank-level-pid-controller-transfer-pump-balance",
+  "taskRole": "transfer",
+  "title": "Transfer: 储液罐液位闭环控制",
+  "goal": "实现一套储液罐液位控制仿真：在进流量扰动和泵送速率限制下维持目标液位，输出液位时序结果、控制参数和简要性能报告。",
+  "primaryOutputFile": "tank_level_response.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务要求把 PID 用到液位过程控制，通过比例、积分、微分项处理慢响应与扰动恢复；完成任务不需要任何其他 source task skill。",
+  "targetSkillDirName": "pid-controller",
+  "targetSkillName": "pid-controller"
+}

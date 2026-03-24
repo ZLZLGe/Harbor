@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "datacenter-change-constraint-parser-transfer-maintenance-windows",
+  "taskRole": "transfer",
+  "title": "Transfer | Datacenter Change Window Extractor",
+  "goal": "Read maintenance approval threads and extract deployment timing constraints into `/root/change_window_constraints.json`, including approved windows, freeze periods, prohibited dates, maximum outage duration, and any sequencing-related timing restrictions.",
+  "primaryOutputFile": "/root/change_window_constraints.json",
+  "difficulty": "medium",
+  "category": "Operations",
+  "skillBenefitRationale": "This moves the skill into operational planning, where the main challenge is identifying allow/forbid time windows and downtime limits from unstructured operational text.",
+  "targetSkillDirName": "constraint-parser",
+  "targetSkillName": "constraint-parser"
+}

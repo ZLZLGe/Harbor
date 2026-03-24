@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "coaching-ffmpeg-video-filters-transfer-slow-motion-replay"
+name = "Transfer: Slow-Motion Coaching Replay"
+description = "Create /outputs/coaching-replay.mp4 by extracting a specified review window, isolating the action zone, slowing it for analysis, and adding a small reference logo in a muted shareable replay."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "sports-video-analysis"
+tags = ["video", "replay", "slow-motion", "crop", "overlay"]
+primary_output_file = "/outputs/coaching-replay.mp4"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

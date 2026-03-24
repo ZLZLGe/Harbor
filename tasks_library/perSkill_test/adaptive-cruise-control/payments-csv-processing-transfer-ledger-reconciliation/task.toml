@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "payments-csv-processing-transfer-ledger-reconciliation"
+name = "Transfer: Payments Ledger Reconciliation"
+description = "Read payment and refund ledger CSVs, rebuild per-order net positions, and export manual-review exceptions to reconciliation_exceptions.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "finance-ops"
+tags = ["python", "csv", "pandas", "payments", "reconciliation", "finance"]
+primary_output_file = "reconciliation_exceptions.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "retail-abtest-senior-data-scientist-transfer-campaign-lift",
+  "taskRole": "transfer",
+  "title": "Transfer | Retail Campaign Lift Analysis",
+  "goal": "在门店营销实验数据工作簿中计算各实验组的转化率、客单收入、绝对与相对 lift、标准误与 95% 置信区间，并标记统计上显著优胜的方案。",
+  "primaryOutputFile": "/root/data/campaign_lift_analysis.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "该任务把技能迁移到实验分析场景，核心在于指标设计、显著性判断与结果解释，仍然只依赖 senior-data-scientist。",
+  "targetSkillDirName": "senior-data-scientist",
+  "targetSkillName": "senior-data-scientist"
+}

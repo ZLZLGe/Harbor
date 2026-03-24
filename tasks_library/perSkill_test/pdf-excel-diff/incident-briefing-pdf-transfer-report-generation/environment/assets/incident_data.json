@@ -1,0 +1,173 @@
+{
+  "briefing": {
+    "title": "Incident Briefing Report",
+    "briefing_date": "2026-02-18 06:30 UTC",
+    "reporting_window": "2026-02-17 01:00 UTC to 2026-02-17 12:30 UTC",
+    "prepared_for": "Executive Leadership Council",
+    "prepared_by": "Operations Intelligence Unit",
+    "command_contact": "Jordan Ellis, Duty Commander"
+  },
+  "leadership_actions": [
+    "Approve the Seattle payment platform resilience review before the next release window.",
+    "Authorize executive escalation with the customs webhook vendor supporting Miami Hub.",
+    "Confirm overtime staffing for the Seattle returns queue until backlog falls below 500 cases."
+  ],
+  "incidents": [
+    {
+      "incident_id": "INC-2401",
+      "title": "Core payment API latency spike",
+      "site": "Seattle Hub",
+      "severity": "SEV-1",
+      "status": "Mitigated",
+      "owner": "Ava Patel",
+      "started_at": "2026-02-17 01:12 UTC",
+      "duration_minutes": 134,
+      "customers_impacted": 6400,
+      "summary": "Primary payment API exceeded latency SLO after a database failover loop.",
+      "next_update": "Complete database stability review by 10:00 UTC."
+    },
+    {
+      "incident_id": "INC-2402",
+      "title": "Warehouse scanner authentication failures",
+      "site": "Dallas Hub",
+      "severity": "SEV-2",
+      "status": "Resolved",
+      "owner": "Noah Kim",
+      "started_at": "2026-02-17 02:40 UTC",
+      "duration_minutes": 78,
+      "customers_impacted": 950,
+      "summary": "Expired SSO certificates blocked handheld scanner logins.",
+      "next_update": "No further update required."
+    },
+    {
+      "incident_id": "INC-2403",
+      "title": "Outbound carrier label rendering mismatch",
+      "site": "Chicago Hub",
+      "severity": "SEV-3",
+      "status": "Monitoring",
+      "owner": "Lena Ortiz",
+      "started_at": "2026-02-17 03:05 UTC",
+      "duration_minutes": 45,
+      "customers_impacted": 320,
+      "summary": "Label template patch caused truncated routing codes on select printers.",
+      "next_update": "Confirm printer fleet patch rollout at 09:30 UTC."
+    },
+    {
+      "incident_id": "INC-2404",
+      "title": "Returns queue backlog after workflow retry storm",
+      "site": "Seattle Hub",
+      "severity": "SEV-2",
+      "status": "Active",
+      "owner": "Mia Chen",
+      "started_at": "2026-02-17 04:22 UTC",
+      "duration_minutes": 166,
+      "customers_impacted": 1800,
+      "summary": "Duplicate retries inflated the reverse logistics queue and delayed processing.",
+      "next_update": "Queue drain estimate due by 08:45 UTC."
+    },
+    {
+      "incident_id": "INC-2405",
+      "title": "Fraud review dashboard stale metrics",
+      "site": "Phoenix Hub",
+      "severity": "SEV-3",
+      "status": "Resolved",
+      "owner": "Ethan Brooks",
+      "started_at": "2026-02-17 05:10 UTC",
+      "duration_minutes": 61,
+      "customers_impacted": 120,
+      "summary": "Streaming job lag left fraud analysts with stale transaction totals.",
+      "next_update": "No further update required."
+    },
+    {
+      "incident_id": "INC-2406",
+      "title": "Partner webhook timeouts on customs clearance",
+      "site": "Miami Hub",
+      "severity": "SEV-2",
+      "status": "Mitigated",
+      "owner": "Sofia Ramirez",
+      "started_at": "2026-02-17 06:48 UTC",
+      "duration_minutes": 112,
+      "customers_impacted": 2100,
+      "summary": "Third-party customs webhook latency stalled international order release.",
+      "next_update": "Vendor to confirm permanent fix by 11:00 UTC."
+    },
+    {
+      "incident_id": "INC-2407",
+      "title": "Cold-storage sensor packet loss",
+      "site": "Denver Hub",
+      "severity": "SEV-3",
+      "status": "Resolved",
+      "owner": "Grace Wilson",
+      "started_at": "2026-02-17 08:02 UTC",
+      "duration_minutes": 37,
+      "customers_impacted": 85,
+      "summary": "Gateway firmware fault caused intermittent packet loss from freezer telemetry.",
+      "next_update": "No further update required."
+    },
+    {
+      "incident_id": "INC-2408",
+      "title": "Order history service memory pressure",
+      "site": "Atlanta Hub",
+      "severity": "SEV-2",
+      "status": "Monitoring",
+      "owner": "Lucas Reed",
+      "started_at": "2026-02-17 08:35 UTC",
+      "duration_minutes": 93,
+      "customers_impacted": 1420,
+      "summary": "Traffic burst triggered garbage collection thrash in order history pods.",
+      "next_update": "Review autoscaling thresholds by 12:00 UTC."
+    },
+    {
+      "incident_id": "INC-2409",
+      "title": "Manual review queue permissions drift",
+      "site": "Chicago Hub",
+      "severity": "SEV-3",
+      "status": "Resolved",
+      "owner": "Harper Singh",
+      "started_at": "2026-02-17 09:14 UTC",
+      "duration_minutes": 54,
+      "customers_impacted": 140,
+      "summary": "Privilege sync regression prevented analysts from claiming review tasks.",
+      "next_update": "No further update required."
+    },
+    {
+      "incident_id": "INC-2410",
+      "title": "Voice support transcript export failure",
+      "site": "Nashville Hub",
+      "severity": "SEV-3",
+      "status": "Active",
+      "owner": "Zoe Morgan",
+      "started_at": "2026-02-17 10:02 UTC",
+      "duration_minutes": 129,
+      "customers_impacted": 260,
+      "summary": "Transcription export jobs failed after a storage permission change.",
+      "next_update": "Restore export automation by 13:30 UTC."
+    },
+    {
+      "incident_id": "INC-2411",
+      "title": "East region routing rule mismatch",
+      "site": "Boston Hub",
+      "severity": "SEV-2",
+      "status": "Resolved",
+      "owner": "Daniel Park",
+      "started_at": "2026-02-17 11:26 UTC",
+      "duration_minutes": 88,
+      "customers_impacted": 990,
+      "summary": "A misaligned rule pack diverted express packages to ground lanes.",
+      "next_update": "No further update required."
+    },
+    {
+      "incident_id": "INC-2412",
+      "title": "Dispatch console theme rollout regression",
+      "site": "Seattle Hub",
+      "severity": "SEV-3",
+      "status": "Resolved",
+      "owner": "Ivy Thompson",
+      "started_at": "2026-02-17 12:03 UTC",
+      "duration_minutes": 42,
+      "customers_impacted": 60,
+      "summary": "Recent UI theme deployment hid dispatch status badges on legacy browsers.",
+      "next_update": "No further update required."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "hvac-control",
+  "targetSkillDirName": "safety-interlocks",
+  "runId": "20260320035819-hvac-control-safety-interlocks-xcu5ce",
+  "taskId": "tank-fill-safety-interlocks-transfer-overflow-cutoff",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/hvac-control/safety-interlocks/20260320035819-hvac-control-safety-interlocks-xcu5ce/tank-fill-safety-interlocks-transfer-overflow-cutoff",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/hvac-control/tank-fill-safety-interlocks-transfer-overflow-cutoff",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:tank-fill-safety-interlocks-transfer-overflow-cutoff instruction.md 直接使用 high-level interlock、safety_log、safety_proof 等表述，相比 source_task 更明显地点出了技能。; tests 对 safety_log.events 只做了 subset 级别校验，没有严格判定是否覆盖了每一次 interlock activation，因此测试判定不够完整。; visibilityPass=false; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 满足 1 个 similar + 3 个 transfer，三个 transfer 也足够不同；但四个 instruction.md 都比 source_task 更直接地显化了 interlock/cutoff/audit 一类技能线索。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0faf-d503-7eb1-be76-4ddae20e56eb"
+}

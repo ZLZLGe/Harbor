@@ -1,0 +1,22 @@
+{
+  "sourceTaskId": "fix-visual-stability",
+  "targetSkillDirName": "react-best-practices",
+  "runId": "20260319205745-fix-visual-stability-react-best-practices-8zkjm3",
+  "taskId": "smooth-precall-lobby-react-best-practices-transfer-session",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/fix-visual-stability/react-best-practices/20260319205745-fix-visual-stability-react-best-practices-8zkjm3/smooth-precall-lobby-react-best-practices-transfer-session",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/fix-visual-stability/smooth-precall-lobby-react-best-practices-transfer-session",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:smooth-precall-lobby-react-best-practices-transfer-session instruction.md 直接点出 `localStorage` 与 `hydration` 闪屏，较 source_task/instruction.md 更直接地提示了无闪烁偏好恢复方案。; tests 额外要求未在 instruction.md 说明的 `lobby`、`status`、`preHydrationBootstrap`、`checks` 结构，以及固定 check id，测试合同不完整。; visibilityPass=false; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer，且 3 个 transfer 分别落在运营控制台、视频会议预检、自助签到 kiosk，场景差异足够大。",
+    "family similar 任务与 source task 一样都是 Next.js 首屏视觉稳定性治理，贴近 react-best-practices 的典型用法。",
+    "family 4 个 drafts 的 instruction.md 都比 source_task/instruction.md 更直接地引入了 `hydration`/`localStorage` 一类术语，存在系统性的 visibility 越界。",
+    "family 4 个 drafts 的输出 JSON 合同都比测试断言更弱，存在系统性的 hidden test contract 问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fab-1a64-7411-a287-69c1bd2a2c39"
+}

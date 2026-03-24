@@ -1,0 +1,61 @@
+{
+  "id": "coastal_empire",
+  "description": "Two coastal cities with fixed district packages, candidate settlement sites, and explicit tile data.",
+  "output_file": "/output/dual_city_plan.json",
+  "notes": [
+    "Only the coordinates listed in tiles exist.",
+    "Each city role must choose exactly one center from candidate_centers.",
+    "Each city role must place exactly the districts listed in required_districts."
+  ],
+  "city_roles": [
+    {
+      "city_id": "trade_port",
+      "population": 7,
+      "candidate_centers": [[1, 1], [2, 2]],
+      "required_districts": ["HARBOR", "COMMERCIAL_HUB", "CANAL", "INDUSTRIAL_ZONE"]
+    },
+    {
+      "city_id": "foundry_harbor",
+      "population": 7,
+      "candidate_centers": [[7, 4], [6, 4]],
+      "required_districts": ["HARBOR", "CAMPUS", "AQUEDUCT", "DAM", "INDUSTRIAL_ZONE"]
+    }
+  ],
+  "tiles": [
+    {"x": 1, "y": 1, "terrain": "GRASS"},
+    {"x": 2, "y": 1, "terrain": "COAST"},
+    {"x": 2, "y": 0, "terrain": "COAST", "resource": "FISH", "resource_type": "BONUS"},
+    {"x": 3, "y": 0, "terrain": "COAST", "resource": "CRABS", "resource_type": "BONUS"},
+    {"x": 3, "y": 1, "terrain": "COAST"},
+    {"x": 2, "y": 2, "terrain": "PLAINS", "river_edges": [0, 3]},
+    {"x": 1, "y": 2, "terrain": "PLAINS"},
+    {"x": 1, "y": 3, "terrain": "PLAINS"},
+    {"x": 2, "y": 3, "terrain": "PLAINS", "improvement": "QUARRY"},
+    {"x": 0, "y": 1, "terrain": "COAST"},
+    {"x": 0, "y": 2, "terrain": "COAST"},
+    {"x": 0, "y": 3, "terrain": "COAST"},
+    {"x": 1, "y": 0, "terrain": "COAST"},
+    {"x": 2, "y": 4, "terrain": "PLAINS", "is_hills": true, "improvement": "MINE"},
+    {"x": 1, "y": 4, "terrain": "PLAINS"},
+
+    {"x": 7, "y": 4, "terrain": "GRASS", "river_edges": [0, 3]},
+    {"x": 8, "y": 4, "terrain": "COAST"},
+    {"x": 8, "y": 3, "terrain": "COAST", "feature": "FEATURE_REEF", "resource": "FISH", "resource_type": "BONUS"},
+    {"x": 9, "y": 3, "terrain": "COAST", "resource": "PEARLS", "resource_type": "LUXURY"},
+    {"x": 7, "y": 3, "terrain": "PLAINS"},
+    {"x": 6, "y": 3, "terrain": "PLAINS"},
+    {"x": 6, "y": 4, "terrain": "PLAINS"},
+    {"x": 7, "y": 5, "terrain": "PLAINS", "is_floodplains": true, "river_edges": [0, 2]},
+    {"x": 6, "y": 5, "terrain": "PLAINS"},
+    {"x": 5, "y": 3, "terrain": "MOUNTAIN"},
+    {"x": 5, "y": 4, "terrain": "MOUNTAIN"},
+    {"x": 6, "y": 2, "terrain": "MOUNTAIN"},
+    {"x": 7, "y": 2, "terrain": "PLAINS"},
+    {"x": 8, "y": 5, "terrain": "PLAINS", "is_hills": true, "improvement": "MINE"},
+    {"x": 7, "y": 6, "terrain": "PLAINS", "improvement": "QUARRY"},
+    {"x": 6, "y": 6, "terrain": "PLAINS"},
+    {"x": 8, "y": 2, "terrain": "COAST"},
+    {"x": 9, "y": 4, "terrain": "COAST"},
+    {"x": 8, "y": 6, "terrain": "COAST"}
+  ]
+}

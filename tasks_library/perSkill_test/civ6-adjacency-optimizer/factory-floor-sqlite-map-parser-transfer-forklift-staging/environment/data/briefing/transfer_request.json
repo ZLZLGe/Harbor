@@ -1,0 +1,25 @@
+{
+  "layout_db": "layout/factory_floor.db",
+  "candidate_lane_codes": [
+    "AISLE",
+    "BUFFER"
+  ],
+  "blocked_overlay_codes": [
+    "BLOCKED"
+  ],
+  "forbidden_overlay_codes": [
+    "NO_STAGING",
+    "FIRE_LANE"
+  ],
+  "loading_asset_types": [
+    "LOADING_DOCK"
+  ],
+  "hazard_asset_types": [
+    "WELD_STATION",
+    "CHEM_TANK",
+    "PAINT_BOOTH"
+  ],
+  "max_dock_steps": 3,
+  "min_hazard_manhattan": 3,
+  "shortlist_size": 5
+}

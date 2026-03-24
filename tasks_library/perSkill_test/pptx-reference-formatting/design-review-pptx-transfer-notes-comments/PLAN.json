@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "design-review-pptx-transfer-notes-comments",
+  "taskRole": "transfer",
+  "title": "Transfer - Repair Speaker Notes and Reviewer Comments in a Design Deck",
+  "goal": "在一个现有的设计评审演示文稿中，按给定说明修正指定页的 speaker notes，为对应图形添加 reviewer comments，并在末尾追加一页 Action Items 汇总未决决策与负责人。",
+  "primaryOutputFile": "/root/Design-Review-Commented.pptx",
+  "difficulty": "hard",
+  "category": "office-suite",
+  "skillBenefitRationale": "这个任务把能力迁移到 notes 与 comments 等非正文 OOXML 部件，同时还要追加标准幻灯片，能单独检验 PowerPoint 底层结构编辑能力。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

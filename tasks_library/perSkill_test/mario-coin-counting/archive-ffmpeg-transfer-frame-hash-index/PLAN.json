@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "archive-ffmpeg-transfer-frame-hash-index",
+  "taskRole": "transfer",
+  "title": "Transfer: Archive Frame Hash Index",
+  "goal": "从一段监控归档视频中提取关键帧，并生成`/root/frame_hash_index.tsv`，为每张关键帧写出文件路径、顺序编号和SHA256哈希，方便后续去重与档案比对。",
+  "primaryOutputFile": "/root/frame_hash_index.tsv",
+  "difficulty": "medium",
+  "category": "image-processing",
+  "skillBenefitRationale": "任务把关键帧抽取迁移到视频归档与去重场景，真正关键的是先把长视频压缩成有代表性的关键帧集合；哈希计算本身只是常规脚本处理。",
+  "targetSkillDirName": "ffmpeg",
+  "targetSkillName": "ffmpeg-keyframe-extraction"
+}

@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "museum-tour-dialogue_graph-dialogue-graph-transfer-audio-route"
+name = "Transfer: Museum Audio Route Graph Parser"
+description = "Parse an interactive museum audio route script into a validated JSON graph and matching DOT visualization."
+author_name = "scriptwonder"
+author_email = "swu85@ur.rochester.edu"
+difficulty = "easy"
+category = "education"
+tags = ["education", "parsing", "dialogue graphs", "museum"]
+primary_output_file = "/app/museum_route.json"
+source_task_id = "dialogue-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+image = "python:3.12-slim"
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

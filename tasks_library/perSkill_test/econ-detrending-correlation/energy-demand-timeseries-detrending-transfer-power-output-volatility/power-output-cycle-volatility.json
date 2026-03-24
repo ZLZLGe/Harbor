@@ -1,0 +1,5 @@
+{
+  "commercial_power_cycle_std": 0.0302,
+  "industrial_production_cycle_std": 0.02354,
+  "power_to_output_volatility_ratio": 1.28278
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "brine-mixer-first-order-model-fitting-transfer-concentration-step",
+  "taskRole": "transfer",
+  "title": "Transfer: 盐水混合槽浓度响应拟合",
+  "goal": "对盐水混合槽执行阀门阶跃试验，利用出口浓度时间序列拟合一阶过程模型，并预测系统进入合格浓度带的时间。",
+  "primaryOutputFile": "mixing_tank_fit.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "这里的本质仍是从过程工业的阶跃实验数据中识别一阶增益和时间常数，任务成败主要取决于 first-order-model-fitting。",
+  "targetSkillDirName": "first-order-model-fitting",
+  "targetSkillName": "first-order-model-fitting"
+}

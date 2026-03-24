@@ -1,0 +1,38 @@
+version = "1.0"
+
+[metadata]
+id = "grocery-forecasting-senior-data-scientist-transfer-seasonal-reorder"
+name = "Transfer | Grocery Demand Forecast and Reorder Alerts"
+description = "Build a 14-day grocery demand forecast and reorder alert workbook at /root/data/store_reorder_forecast.xlsx."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "data-analysis"
+tags = [
+  "excel",
+  "retail-operations",
+  "time-series",
+  "forecasting",
+  "inventory"
+]
+primary_output_file = "/root/data/store_reorder_forecast.xlsx"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

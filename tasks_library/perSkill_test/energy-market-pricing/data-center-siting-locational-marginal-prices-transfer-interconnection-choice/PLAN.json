@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "data-center-siting-locational-marginal-prices-transfer-interconnection-choice",
+  "taskRole": "transfer",
+  "title": "Transfer | 数据中心并网点位价格影响选址",
+  "goal": "为新增大负荷块评估多个候选接入母线，分别运行市场出清并比较目标母线 LMP、全网价格扩散、系统总成本与新增拥塞，给出最优接入点及其价格依据。",
+  "primaryOutputFile": "interconnection_choice.json",
+  "difficulty": "hard",
+  "category": "energy",
+  "skillBenefitRationale": "任务把 LMP 分析迁移到并网选址决策，但关键仍是通过 DC-OPF 对偶值量化不同接入点的边际供电成本与价格传播，不依赖其他 shipped skill。",
+  "targetSkillDirName": "locational-marginal-prices",
+  "targetSkillName": "locational-marginal-prices"
+}

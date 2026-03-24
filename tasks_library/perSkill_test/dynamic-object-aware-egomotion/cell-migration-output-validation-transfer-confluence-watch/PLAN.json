@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cell-migration-output-validation-transfer-confluence-watch",
+  "taskRole": "transfer",
+  "title": "Transfer: 细胞迁移时序输出校验",
+  "goal": "分析显微镜延时序列，输出细胞群体状态区间 JSON（如静止扩张、定向迁移、快速汇合等）和逐帧活跃迁移区域的 CSR 稀疏 mask，重点保证时间索引与 mask 结构可被本地验证。",
+  "primaryOutputFile": "/root/pred_cell_activity.json",
+  "difficulty": "medium",
+  "category": "microscopy-analysis",
+  "skillBenefitRationale": "场景迁移到显微镜时序后，核心 shipped skill 仍然是 output-validation：需要在没有 GT 的情况下确认区间索引连续、标签集合合法、mask 帧数与采样策略一致、稀疏存储不损坏。",
+  "targetSkillDirName": "output-validation",
+  "targetSkillName": "output-validation"
+}

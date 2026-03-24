@@ -1,0 +1,18 @@
+{"ticket_ref": "CAMP-001", "issue_tree": "grounds / cleaning / graffiti / wall markings", "request_channel": "Call Center", "campus_zone": "residential", "urgency_code": "same_day", "target_hours": 36}
+{"ticket_ref": "CAMP-002", "issue_tree": "campus exterior / walkways / pavement damage / trip hazard", "request_channel": "Self-Service", "campus_zone": "athletics", "urgency_code": "same_day", "target_hours": 48}
+{"ticket_ref": "CAMP-003", "issue_tree": "grounds / landscaping / tree limbs / walkway obstruction", "request_channel": "Self-Service", "campus_zone": "science", "urgency_code": "planned", "target_hours": 72}
+{"ticket_ref": "CAMP-004", "issue_tree": "waste services / exterior bins / abandoned items / bulk pickup", "request_channel": "Email", "campus_zone": "residential", "urgency_code": "planned", "target_hours": 72}
+{"ticket_ref": "CAMP-005", "issue_tree": "facilities / pest management / rodents / rodent sighting", "request_channel": "Email", "campus_zone": "athletics", "urgency_code": "planned", "target_hours": 96}
+{"ticket_ref": "CAMP-006", "issue_tree": "waste services / loading dock / recycling cage / overflow", "request_channel": "Self-Service", "campus_zone": "science", "urgency_code": "planned", "target_hours": 48}
+{"ticket_ref": "CAMP-007", "issue_tree": "vertical transit / elevators / outage / stalled car", "request_channel": "Call Center", "campus_zone": "residential", "urgency_code": "life_safety", "target_hours": 2}
+{"ticket_ref": "CAMP-008", "issue_tree": "building access / entrances / auto operators / door opener fault", "request_channel": "Call Center", "campus_zone": "athletics", "urgency_code": "same_day", "target_hours": 12}
+{"ticket_ref": "CAMP-009", "issue_tree": "transportation / parking access / gate arm / entry gate fault", "request_channel": "Self-Service", "campus_zone": "science", "urgency_code": "same_day", "target_hours": 12}
+{"ticket_ref": "CAMP-010", "issue_tree": "plumbing / leaks / active water / ceiling drip", "request_channel": "Call Center", "campus_zone": "residential", "urgency_code": "life_safety", "target_hours": 2}
+{"ticket_ref": "CAMP-011", "issue_tree": "domestic water / heating / hot water / no hot water", "request_channel": "Email", "campus_zone": "athletics", "urgency_code": "same_day", "target_hours": 12}
+{"ticket_ref": "CAMP-012", "issue_tree": "plumbing / drains / blockage / toilet overflow", "request_channel": "Call Center", "campus_zone": "science", "urgency_code": "life_safety", "target_hours": 4}
+{"ticket_ref": "CAMP-013", "issue_tree": "hvac / cooling / no cooling / warm room", "request_channel": "Self-Service", "campus_zone": "residential", "urgency_code": "same_day", "target_hours": 12}
+{"ticket_ref": "CAMP-014", "issue_tree": "hvac / heating / no heat / cold classroom", "request_channel": "Call Center", "campus_zone": "athletics", "urgency_code": "life_safety", "target_hours": 4}
+{"ticket_ref": "CAMP-015", "issue_tree": "electrical / exterior lighting / pathway lights / dark zone", "request_channel": "Email", "campus_zone": "science", "urgency_code": "same_day", "target_hours": 24}
+{"ticket_ref": "CAMP-016", "issue_tree": "plumbing / leaks / burst pipe / hallway drip", "request_channel": "Call Center", "campus_zone": "residential", "urgency_code": "life_safety", "target_hours": 2}
+{"ticket_ref": "CAMP-017", "issue_tree": "hvac / cooling / condenser fault / hot lecture hall", "request_channel": "Email", "campus_zone": "athletics", "urgency_code": "same_day", "target_hours": 24}
+{"ticket_ref": "CAMP-018", "issue_tree": "vertical transit / elevators / service outage / elevator stuck", "request_channel": "Call Center", "campus_zone": "science", "urgency_code": "life_safety", "target_hours": 2}

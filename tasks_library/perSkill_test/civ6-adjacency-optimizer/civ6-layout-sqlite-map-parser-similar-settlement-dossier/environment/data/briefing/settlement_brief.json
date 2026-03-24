@@ -1,0 +1,25 @@
+{
+  "scenario_id": "settlement_dossier_alpha",
+  "map_file": "maps/island_frontier.Civ6Map",
+  "search_radius": 3,
+  "shortlist_size": 3,
+  "planning_score_weights": {
+    "campus_signal": 3,
+    "commercial_signal": 2,
+    "coastal_access_signal": 1,
+    "feature_signal": 1
+  },
+  "feature_buckets": {
+    "feature_signal": [
+      "FEATURE_FOREST",
+      "FEATURE_JUNGLE",
+      "FEATURE_FLOODPLAINS_PLAINS"
+    ],
+    "campus_specials": [
+      "FEATURE_GEOTHERMAL_FISSURE"
+    ],
+    "campus_adjacent_bonus": [
+      "FEATURE_REEF"
+    ]
+  }
+}

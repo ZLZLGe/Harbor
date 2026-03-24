@@ -1,0 +1,9 @@
+{
+  "change_budget": {
+    "max_machine_changes": 5,
+    "max_total_start_shift_L1": 40
+  },
+  "guards": {
+    "max_downtime_violations": 0
+  }
+}

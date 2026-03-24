@@ -1,0 +1,66 @@
+[
+  {
+    "entity_id": "WL-1001",
+    "primary_name": "Aleksandr Petrov",
+    "aliases": ["Alexander Petrov", "Aleksander Petroff", "Sasha Petrov"],
+    "date_of_birth": "1981-04-11",
+    "risk_countries": ["RU", "CY"],
+    "program": "EU Asset Freeze"
+  },
+  {
+    "entity_id": "WL-1002",
+    "primary_name": "Mohammad Al-Hakim",
+    "aliases": ["Muhamad Al Hakim", "Mohamad Hakim", "M Alhakim"],
+    "date_of_birth": "1977-09-03",
+    "risk_countries": ["SY", "TR"],
+    "program": "OFAC SDN"
+  },
+  {
+    "entity_id": "WL-1003",
+    "primary_name": "Li Wei",
+    "aliases": ["Wei Li", "Li Wai"],
+    "date_of_birth": "1988-01-19",
+    "risk_countries": ["CN", "HK"],
+    "program": "UN 1718"
+  },
+  {
+    "entity_id": "WL-1004",
+    "primary_name": "Natalia Orlova",
+    "aliases": ["Nataliya Orlova", "Natalya Orlova"],
+    "date_of_birth": "1990-07-27",
+    "risk_countries": ["BY", "RU"],
+    "program": "UK Sanctions List"
+  },
+  {
+    "entity_id": "WL-1005",
+    "primary_name": "Jong Su Kim",
+    "aliases": ["Kim Jong-Su", "Jongsoo Kim"],
+    "date_of_birth": "1984-12-05",
+    "risk_countries": ["KP", "CN"],
+    "program": "UN 1718"
+  },
+  {
+    "entity_id": "WL-1006",
+    "primary_name": "Hassan Qadir",
+    "aliases": ["Hasan Kadir", "H Qadir"],
+    "date_of_birth": "1982-05-14",
+    "risk_countries": ["IQ", "AE"],
+    "program": "OFAC SDN"
+  },
+  {
+    "entity_id": "WL-1007",
+    "primary_name": "Ali Reza",
+    "aliases": ["A Reza"],
+    "date_of_birth": "1985-03-22",
+    "risk_countries": ["AE", "IR"],
+    "program": "EU Asset Freeze"
+  },
+  {
+    "entity_id": "WL-1008",
+    "primary_name": "Ali Raza",
+    "aliases": ["Aly Raza", "A Raza"],
+    "date_of_birth": "1985-03-22",
+    "risk_countries": ["AE", "PK"],
+    "program": "UK Sanctions List"
+  }
+]

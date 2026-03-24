@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "benefits-intake-pdf-transfer-form-population"
+name = "Transfer: Benefits Intake PDF Form Population"
+description = "Fill the multi-page benefits intake PDF from the employee profile JSON and write the completed packet to the required output path."
+author_name = "Levi"
+author_email = "levi@harbor.dev"
+difficulty = "medium"
+category = "form-processing"
+tags = ["pdf", "forms", "document-automation"]
+primary_output_file = "/root/completed_benefits_packet.pdf"
+source_task_id = "financial-modeling-qa"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

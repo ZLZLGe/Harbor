@@ -1,0 +1,53 @@
+{
+  "snapshot_time": "2025-09-22T15:00:00Z",
+  "parks": [
+    {
+      "park_id": "PARK-101",
+      "park_name": "Riverfront Trailhead",
+      "station_id": "08100000",
+      "district": "north"
+    },
+    {
+      "park_id": "PARK-102",
+      "park_name": "Cottonwood Boat Launch",
+      "station_id": "08110000",
+      "district": "north"
+    },
+    {
+      "park_id": "PARK-103",
+      "park_name": "Heron Point Campground",
+      "station_id": "08120000",
+      "district": "east"
+    },
+    {
+      "park_id": "PARK-104",
+      "park_name": "Maple Bend Picnic Area",
+      "station_id": "08130000",
+      "district": "east"
+    },
+    {
+      "park_id": "PARK-105",
+      "park_name": "Riverside Dog Park",
+      "station_id": "08100000",
+      "district": "north"
+    },
+    {
+      "park_id": "PARK-106",
+      "park_name": "South Channel Kayak Steps",
+      "station_id": "08150000",
+      "district": "south"
+    },
+    {
+      "park_id": "PARK-107",
+      "park_name": "Willow Shore Fishing Pier",
+      "station_id": "08160000",
+      "district": "south"
+    },
+    {
+      "park_id": "PARK-108",
+      "park_name": "Twin Oaks Overlook",
+      "station_id": "08170000",
+      "district": "west"
+    }
+  ]
+}

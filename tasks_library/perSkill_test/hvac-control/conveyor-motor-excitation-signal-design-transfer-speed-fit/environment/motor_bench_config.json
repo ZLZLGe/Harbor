@@ -1,0 +1,7 @@
+{
+  "initial_speed_rpm": 0.0,
+  "safe_speed_limit_rpm": 1650.0,
+  "tachometer_noise_std_rpm": 6.0,
+  "dt_sec": 0.02,
+  "recommended_identification_band_rpm": [700.0, 1300.0]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cold-chain-xlsx-transfer-route-alerts",
+  "taskRole": "transfer",
+  "title": "Transfer: Cold-Chain Route Alert Analysis",
+  "goal": "分析冷链配送工作簿中的路线日志、温控阈值、合同罚金和客户优先级等多个工作表，计算每条线路的调整后利润与风险等级，并将需要升级处理的线路清单写入 /root/route_alerts.json。",
+  "primaryOutputFile": "/root/route_alerts.json",
+  "difficulty": "hard",
+  "category": "logistics analytics",
+  "skillBenefitRationale": "该任务把 xlsx 迁移到跨表汇总、规则匹配和异常筛选的运营分析场景，唯一关键技能仍是对复杂电子表格的数据读取与计算。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "desk-lamp-obj-exporter-similar-segment-bundles",
+  "taskRole": "similar",
+  "title": "Similar - Desk Lamp Segment Bundles",
+  "goal": "解析一个带有命名关节段的 Three.js 台灯场景，按最近命名 Group 归属收集每段中的 Mesh，把每个 Mesh 导出到 `/root/output/part_meshes/<segment>/`，并把每个段的合并结果导出到 `/root/output/links/<segment>.obj`。",
+  "primaryOutputFile": "/root/output/links/lamp_head.obj",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "这个任务直接考察 OBJ 导出的典型用法：遍历 Three.js 层级、按命名部件聚合 Mesh、应用 world transform 后分别导出单体和合并 OBJ。",
+  "targetSkillDirName": "obj-exporter",
+  "targetSkillName": "obj-exporter"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "archive-bibliography-citation-management-transfer-normalization-pass",
+  "taskRole": "transfer",
+  "title": "Transfer: Archive Bibliography Normalization",
+  "goal": "清洗一份来自馆藏项目的杂乱 BibTeX 参考文献，完成去重、字段排序、页码与 DOI 规范化，并输出统一格式的干净版本。",
+  "primaryOutputFile": "/root/exhibit_catalog_clean.bib",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "该任务把 citation-management 迁移到“格式清洗与编目整理”场景，重点测试 BibTeX 规范化、重复检测和格式一致性处理能力。",
+  "targetSkillDirName": "citation-management",
+  "targetSkillName": "citation-management"
+}

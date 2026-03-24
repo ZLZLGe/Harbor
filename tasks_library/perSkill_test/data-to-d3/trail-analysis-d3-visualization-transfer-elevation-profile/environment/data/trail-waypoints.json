@@ -1,0 +1,47 @@
+[
+  {
+    "id": "creek-gate",
+    "name": "溪谷起点",
+    "distance_km": 0.0,
+    "elevation_m": 920,
+    "category": "Trailhead",
+    "eta": "00:00",
+    "note": "石阶入口旁是最后一个稳定补水点，适合出发前整理装备。"
+  },
+  {
+    "id": "cedar-bridge",
+    "name": "雪松木桥",
+    "distance_km": 3.2,
+    "elevation_m": 1110,
+    "category": "Bridge",
+    "eta": "01:05",
+    "note": "跨过溪谷木桥后会进入林荫最密的缓坡路段。"
+  },
+  {
+    "id": "ridge-camp",
+    "name": "山脊营地",
+    "distance_km": 6.4,
+    "elevation_m": 1386,
+    "category": "Camp",
+    "eta": "02:25",
+    "note": "开阔平台可俯瞰东侧山脊，是午休和观察云层变化的常用位置。"
+  },
+  {
+    "id": "cloud-pass",
+    "name": "流云垭口",
+    "distance_km": 10.4,
+    "elevation_m": 1682,
+    "category": "Pass",
+    "eta": "04:15",
+    "note": "风口位置暴露感明显增强，之后会进入连续碎石坡。"
+  },
+  {
+    "id": "firelook-peak",
+    "name": "瞭望峰顶",
+    "distance_km": 14.4,
+    "elevation_m": 2074,
+    "category": "Summit",
+    "eta": "05:55",
+    "note": "旧瞭望台遗址位于终点，视野可同时看到南北两侧峡谷。"
+  }
+]

@@ -1,0 +1,60 @@
+{
+  "depot_name": "Harbor Fleet Charging Hub",
+  "depot_peak_demand_MW": 180.0,
+  "minimum_voltage_kV": 69.0,
+  "preferred_voltage_kV": 115.0,
+  "strong_branch_capacity_threshold_MVA": 3000.0,
+  "status_thresholds": {
+    "preferred_min_score": 50.0,
+    "conditional_min_score": 30.0
+  },
+  "weights": {
+    "voltage_level": 0.22,
+    "existing_load": 0.18,
+    "same_bus_generation_margin": 0.22,
+    "adjacent_branch_capacity": 0.26,
+    "one_hop_topology": 0.12
+  },
+  "candidate_buses": [
+    {
+      "bus": 200,
+      "site_code": "canal_service"
+    },
+    {
+      "bus": 53,
+      "site_code": "quarry_hub"
+    },
+    {
+      "bus": 30,
+      "site_code": "union_loop"
+    },
+    {
+      "bus": 82,
+      "site_code": "river_gate"
+    },
+    {
+      "bus": 263,
+      "site_code": "south_stack"
+    },
+    {
+      "bus": 8,
+      "site_code": "switchyard_east"
+    },
+    {
+      "bus": 124,
+      "site_code": "delta_junction"
+    },
+    {
+      "bus": 99,
+      "site_code": "market_spur"
+    },
+    {
+      "bus": 246,
+      "site_code": "freight_portal"
+    },
+    {
+      "bus": 73,
+      "site_code": "ridge_line"
+    }
+  ]
+}

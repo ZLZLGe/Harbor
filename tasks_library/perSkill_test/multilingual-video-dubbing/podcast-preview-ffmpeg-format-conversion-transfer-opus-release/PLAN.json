@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "podcast-preview-ffmpeg-format-conversion-transfer-opus-release",
+  "taskRole": "transfer",
+  "title": "Transfer: Podcast Preview Opus Release",
+  "goal": "给定一段无损播客预告母带 WAV，产出一个面向移动端分发的 Opus 音频文件，要求编码格式、采样率和目标比特率满足发布规范。",
+  "primaryOutputFile": "/outputs/podcast_preview.opus",
+  "difficulty": "easy",
+  "category": "podcast-audio-publishing",
+  "skillBenefitRationale": "任务完全聚焦音频格式与编码参数转换，检验 FFmpeg 在纯音频发行场景下的迁移能力，不需要额外的混音、降噪或语音生成技能。",
+  "targetSkillDirName": "ffmpeg-format-conversion",
+  "targetSkillName": "FFmpeg Format Conversion"
+}

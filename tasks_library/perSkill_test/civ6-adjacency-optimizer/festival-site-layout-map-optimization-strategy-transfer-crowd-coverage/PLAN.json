@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "festival-site-layout-map-optimization-strategy-transfer-crowd-coverage",
+  "taskRole": "transfer",
+  "title": "Festival Site Layout (Transfer)",
+  "goal": "在音乐节场地地图上布置舞台、补给站、急救点和电源节点，使人流区覆盖与设施协同分最大，并满足噪音缓冲、最小间距、禁搭建区和服务半径约束。",
+  "primaryOutputFile": "/output/festival_site_plan.json",
+  "difficulty": "hard",
+  "category": "operations",
+  "skillBenefitRationale": "解题关键是从场地地图中筛掉不可搭建区域，识别人流与供电热点，再围绕少数高价值锚点扩展完整布局；唯一关键能力就是 map-optimization-strategy。",
+  "targetSkillDirName": "map-optimization-strategy",
+  "targetSkillName": "map-optimization-strategy"
+}

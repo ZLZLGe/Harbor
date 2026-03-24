@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "docksafe-gemini-video-understanding-transfer-near-miss-timeline"
+name = "Transfer: 装卸区近失事件时间线"
+description = "Review the loading dock safety videos and write every forklift near-miss timeline event to /app/loading_dock/near_miss_timeline.json."
+author_name = "Yijiang Li"
+author_email = "yijiangli@ucsd.edu"
+difficulty = "hard"
+category = "industrial safety video analysis"
+tags = ["video understanding", "industrial safety", "near miss detection", "json timeline"]
+primary_output_file = "/app/loading_dock/near_miss_timeline.json"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "lecture-screen-video-frame-extraction-transfer-slide-index",
+  "taskRole": "transfer",
+  "title": "Transfer: Lecture Slide Change Index",
+  "goal": "给定一段课程录屏视频，抽取时间序列帧并检测幻灯片切换点，生成 `/app/workspace/slide_change_index.csv`，列出每次切换的时间戳与对应预览帧文件名。",
+  "primaryOutputFile": "/app/workspace/slide_change_index.csv",
+  "difficulty": "hard",
+  "category": "knowledge management",
+  "skillBenefitRationale": "任务核心在于把录屏视频转成可比较的连续帧并保留关键变化节点；后续相邻帧差异比较和 CSV 汇总是直接脚本处理，因此唯一关键 shipped skill 是 video-frame-extraction。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

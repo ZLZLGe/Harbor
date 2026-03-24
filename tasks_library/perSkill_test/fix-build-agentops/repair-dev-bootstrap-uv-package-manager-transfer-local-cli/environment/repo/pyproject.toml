@@ -1,0 +1,7 @@
+[project]
+name = "dev-bootstrap-station"
+version = "0.1.0"
+description = "A local CLI bootstrap demo for developer environments."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "highway-gap-assist-vehicle-dynamics-similar-stop-go",
+  "taskRole": "similar",
+  "title": "Similar | Highway Stop-and-Go Gap Assist",
+  "goal": "实现一个高速拥堵走走停停跟车辅助仿真：依据前车可见性、车距、安全时距和 TTC 在 cruise、follow、emergency 模式间切换，输出 180 秒逐时刻车辆状态与模式时间线。",
+  "primaryOutputFile": "stop_go_gap_results.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "关键难点是离散车辆运动学更新、安全跟车距离计算、TTC 判断和模式状态机，这些都直接依赖 vehicle-dynamics，且不需要其他 shipped skill。",
+  "targetSkillDirName": "vehicle-dynamics",
+  "targetSkillName": "vehicle-dynamics"
+}

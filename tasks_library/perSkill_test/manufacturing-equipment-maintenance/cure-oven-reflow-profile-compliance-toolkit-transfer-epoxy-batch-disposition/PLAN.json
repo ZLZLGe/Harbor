@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cure-oven-reflow-profile-compliance-toolkit-transfer-epoxy-batch-disposition",
+  "taskRole": "transfer",
+  "title": "Transfer | 固化炉批次处置",
+  "goal": "把热曲线合规方法迁移到环氧固化炉批次处置：根据固化规范、批次日志与埋入式热电偶曲线，计算升温阶段最大斜率、达到最小固化温度后的有效保温时间、峰值超冲和批次间均匀性，并给出 release、hold 或 rebake 处置。",
+  "primaryOutputFile": "/app/output/cure_batch_disposition.csv",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "该任务仍依赖对规范文档中的温度区间、驻留窗口和超冲上限做结构化提取，再对多传感器时温数据做确定性归并；不需要其他技能，当前 shipped skill 已覆盖关键解法。",
+  "targetSkillDirName": "reflow-profile-compliance-toolkit",
+  "targetSkillName": "reflow-profile-compliance-toolkit"
+}

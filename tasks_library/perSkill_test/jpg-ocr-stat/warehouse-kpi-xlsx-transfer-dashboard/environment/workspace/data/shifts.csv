@@ -1,0 +1,4 @@
+shift_id,shift_date,zone,picker_count,target_secs_per_unit
+S1,2026-02-14,A,4,12
+S2,2026-02-14,B,3,10
+S3,2026-02-15,A,5,11

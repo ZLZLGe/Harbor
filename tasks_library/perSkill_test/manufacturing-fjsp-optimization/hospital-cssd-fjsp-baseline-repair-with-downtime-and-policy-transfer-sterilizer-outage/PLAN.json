@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "hospital-cssd-fjsp-baseline-repair-with-downtime-and-policy-transfer-sterilizer-outage",
+  "taskRole": "transfer",
+  "title": "Transfer CSSD Sterilization Baseline Repair",
+  "goal": "把同一排程修复能力迁移到医院 CSSD，为器械托盘的清洗、检查、灭菌流程修复基线计划，避开清洗机与灭菌器停机窗口，遵守右移修复和变更预算，产出日内可执行排程。",
+  "primaryOutputFile": "/app/output/cssd_day_plan.json",
+  "difficulty": "medium",
+  "category": "healthcare-operations",
+  "skillBenefitRationale": "虽然场景变成器械再处理，但本质仍是多工序、备选设备、停机窗口和 policy budget 约束下的基线修复问题，解题核心仍完全落在该 skill 的 repair pipeline 上。",
+  "targetSkillDirName": "fjsp-baseline-repair-with-downtime-and-policy",
+  "targetSkillName": "fjsp-baseline-repair-with-downtime-and-policy"
+}

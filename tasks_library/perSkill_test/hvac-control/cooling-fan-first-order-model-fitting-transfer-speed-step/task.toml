@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "cooling-fan-first-order-model-fitting-transfer-speed-step"
+name = "Transfer: 冷却风机转速阶跃拟合"
+description = "Fit a first-order speed-response model from a cooling fan PWM step log and report the target-rise timing in fan_speed_fit.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["fan-control", "electromechanical", "system-identification", "step-response", "python"]
+primary_output_file = "fan_speed_fit.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = true

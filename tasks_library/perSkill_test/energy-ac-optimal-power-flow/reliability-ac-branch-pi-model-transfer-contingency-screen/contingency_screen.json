@@ -1,0 +1,106 @@
+{
+  "study_id": "delta-transfer-screen-2031q3",
+  "summary": {
+    "scenario_count": 4,
+    "scenarios_with_overloads": 3,
+    "most_dangerous_scenario_id": "OUT_L13",
+    "most_dangerous_outaged_branch_id": "L13",
+    "overall_worst_branch_id": "T23",
+    "overall_worst_loading_pct": 110.40466162231095,
+    "overall_worst_overload_MVA": 23.410488650199653
+  },
+  "scenario_results": [
+    {
+      "scenario_id": "OUT_L13",
+      "outaged_branch_id": "L13",
+      "surviving_branch_count": 4,
+      "overloaded_branch_count": 2,
+      "max_loading_pct": 110.40466162231095,
+      "max_overload_MVA": 23.410488650199653,
+      "worst_branch": {
+        "id": "T23",
+        "from_bus": 12,
+        "to_bus": 13,
+        "p_from_MW": 241.71109664656996,
+        "q_from_MVAr": 57.30197753431803,
+        "s_from_MVA": 248.41048865019965,
+        "p_to_MW": -235.7731178132889,
+        "q_to_MVAr": -17.718258521009034,
+        "s_to_MVA": 236.4379406280141,
+        "limit_MVA": 225.0,
+        "loading_pct": 110.40466162231095,
+        "overload_MVA": 23.410488650199653
+      },
+      "severity_rank": 1
+    },
+    {
+      "scenario_id": "OUT_L12",
+      "outaged_branch_id": "L12",
+      "surviving_branch_count": 4,
+      "overloaded_branch_count": 2,
+      "max_loading_pct": 109.21944836058583,
+      "max_overload_MVA": 20.743758811318116,
+      "worst_branch": {
+        "id": "T23",
+        "from_bus": 12,
+        "to_bus": 13,
+        "p_from_MW": 241.8928492980669,
+        "q_from_MVAr": 43.334102658045026,
+        "s_from_MVA": 245.74375881131812,
+        "p_to_MW": -236.19850120080042,
+        "q_to_MVAr": -5.515927576513313,
+        "s_to_MVA": 236.2628989632817,
+        "limit_MVA": 225.0,
+        "loading_pct": 109.21944836058583,
+        "overload_MVA": 20.743758811318116
+      },
+      "severity_rank": 2
+    },
+    {
+      "scenario_id": "OUT_L34",
+      "outaged_branch_id": "L34",
+      "surviving_branch_count": 4,
+      "overloaded_branch_count": 1,
+      "max_loading_pct": 109.88378887123298,
+      "max_overload_MVA": 14.82568330684947,
+      "worst_branch": {
+        "id": "L13",
+        "from_bus": 11,
+        "to_bus": 13,
+        "p_from_MW": 164.69376261602574,
+        "q_from_MVAr": 6.593211125543874,
+        "s_from_MVA": 164.82568330684947,
+        "p_to_MW": -159.3637074924088,
+        "q_to_MVAr": 20.234185804349636,
+        "s_to_MVA": 160.6431247856284,
+        "limit_MVA": 150.0,
+        "loading_pct": 109.88378887123298,
+        "overload_MVA": 14.82568330684947
+      },
+      "severity_rank": 3
+    },
+    {
+      "scenario_id": "OUT_L24",
+      "outaged_branch_id": "L24",
+      "surviving_branch_count": 4,
+      "overloaded_branch_count": 0,
+      "max_loading_pct": 99.00608642425597,
+      "max_overload_MVA": 0.0,
+      "worst_branch": {
+        "id": "T23",
+        "from_bus": 12,
+        "to_bus": 13,
+        "p_from_MW": 218.45540493727205,
+        "q_from_MVAr": 43.59930757184287,
+        "s_from_MVA": 222.76369445457593,
+        "p_to_MW": -213.86578411904043,
+        "q_to_MVAr": -13.555260469794383,
+        "s_to_MVA": 214.29493391878393,
+        "limit_MVA": 225.0,
+        "loading_pct": 99.00608642425597,
+        "overload_MVA": 0.0
+      },
+      "severity_rank": 4
+    }
+  ]
+}

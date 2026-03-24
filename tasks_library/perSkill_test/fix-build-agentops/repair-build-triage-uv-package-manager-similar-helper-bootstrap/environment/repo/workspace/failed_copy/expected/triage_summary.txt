@@ -1,0 +1,7 @@
+Build Triage Summary
+Total services: 4
+
+1. auth [critical] -> platform
+2. billing [high] -> finance
+3. search [high] -> growth
+4. checkout [medium] -> payments

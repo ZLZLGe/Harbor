@@ -1,0 +1,99 @@
+{
+  "sourceTaskId": "azure-bgp-oscillation-route-leak",
+  "targetSkillDirName": "azure-bgp",
+  "runId": "20260315190651-azure-bgp-oscillation-route-leak-azure-bgp-g7i781",
+  "taskId": "expressroute-azure-bgp-transfer-gateway-failover-leak-review",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/azure-bgp-oscillation-route-leak/expressroute-azure-bgp-transfer-gateway-failover-leak-review",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315190651-azure-bgp-oscillation-route-leak-azure-bgp-g7i781/azure-bgp-oscillation-route-leak/drafts/expressroute-azure-bgp-transfer-gateway-failover-leak-review",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/azure-bgp-oscillation-route-leak/expressroute-azure-bgp-transfer-gateway-failover-leak-review",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/azure-bgp-oscillation-route-leak/expressroute-azure-bgp-transfer-gateway-failover-leak-review",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "`forbidden_actions` 的输出顺序未在 instruction.md 中规定，但测试对该数组做了精确顺序断言，任务不可完全判定。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "`tests/test_outputs.py` requires a specific `forbidden_actions` list order, but `instruction.md` does not specify any ordering rule for that list.; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "expressroute-azure-bgp-transfer-gateway-failover-leak-review",
+        "managed-transit-azure-bgp-transfer-regional-backbone-forensics"
+      ],
+      "requestedIssuesByTaskId": {
+        "expressroute-azure-bgp-transfer-gateway-failover-leak-review": {
+          "reviewerIssues": [
+            "`tests/test_outputs.py` requires a specific `forbidden_actions` list order, but `instruction.md` does not specify any ordering rule for that list.; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "managed-transit-azure-bgp-transfer-regional-backbone-forensics": {
+          "reviewerIssues": [
+            "`tests/test_outputs.py` requires a specific tie-break order in `ranked_remediations`, but `instruction.md` only requires descending score order and leaves equal-score ordering unspecified.; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10b9-ee68-7b51-bfcb-d7a284187e1a",
+      "repairSummary": "- `expressroute-azure-bgp-transfer-gateway-failover-leak-review`: 修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260315190651-azure-bgp-oscillation-route-leak-azure-bgp-g7i781-c119f8c2/azure-bgp-oscillation-route-leak/drafts/expressroute-azure-bgp-transfer-gateway-failover-leak-review/instruction.md)，明确 `forbidden_actions` 必须按 remediation 全文本的升序字母序排序，消除测试里的隐含顺序要求。\n\n- `managed-transit-azure-bgp-transfer-regional-backbone-forensics`: 修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260315190651-azure-bgp-oscillation-route-leak-azure-bgp-g7i781-c119f8c2/azure-bgp-oscillation-route-leak/drafts/managed-transit-azure-bgp-transfer-regional-backbone-forensics/instruction.md)，明确 `ranked_remediations` 先按 `score` 降序、同分再按 `action` 全文本升序字母序排序，并补充 `excluded_actions` 也按全文本升序字母序排序，消除 tie-break 和列表顺序歧义。\n\n本地没有可直接复用的 reviewer/static validate 入口；另外当前 sandbox 下缺少 `python`/`pytest`，且没有 `/app` 挂载点，所以没法完整跑打包后的 verifier。但这次修改只涉及说明文本，未改动 ID、role、source_task_id、输出文件或其他目录。",
+      "reviewThreadId": "019d10bc-3d80-73d1-984f-05e665a4658a",
+      "evaluationByTaskId": {
+        "expressroute-azure-bgp-transfer-gateway-failover-leak-review": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "managed-transit-azure-bgp-transfer-regional-backbone-forensics": {
+          "reviewerIssues": [
+            "instruction.md 规定 `ranked_remediations` 同分时按 action 文本升序排序，但测试期望把 `Enable RPKI...` 排在同分且字典序更靠前的 `Enable ingress filtering...` 之前，说明与判定不一致。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "managed-transit-azure-bgp-transfer-regional-backbone-forensics"
+      ],
+      "requestedIssuesByTaskId": {
+        "managed-transit-azure-bgp-transfer-regional-backbone-forensics": {
+          "reviewerIssues": [
+            "instruction.md 规定 `ranked_remediations` 同分时按 action 文本升序排序，但测试期望把 `Enable RPKI...` 排在同分且字典序更靠前的 `Enable ingress filtering...` 之前，说明与判定不一致。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10c0-d15a-7c10-9977-4c03fe587b8e",
+      "repairSummary": "- `managed-transit-azure-bgp-transfer-regional-backbone-forensics`: 修改了 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260315190651-azure-bgp-oscillation-route-leak-azure-bgp-g7i781-c119f8c2/azure-bgp-oscillation-route-leak/drafts/managed-transit-azure-bgp-transfer-regional-backbone-forensics/tests/test_outputs.py)，把 `ranked_remediations` 的断言改成完整顺序校验，严格对齐 `instruction.md` 已声明的规则：先按 `score` 降序、同分按 `action` 文本升序。这样修复了原先测试把同分项排成非字典序的问题，消除了 reviewer 指出的 testability 不一致。\n\n补充：已做 `py_compile` 语法检查；受沙箱限制，无法在本地创建 `/app` 路径，也没有 `pytest` 可直接运行完整 verifier。",
+      "reviewThreadId": "019d10c3-3c15-7ae2-9499-fba2cd30c2f8",
+      "evaluationByTaskId": {
+        "expressroute-azure-bgp-transfer-gateway-failover-leak-review": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "managed-transit-azure-bgp-transfer-regional-backbone-forensics": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "fix-build-agentops",
+  "targetSkillDirName": "analyze-ci",
+  "runId": "20260319144255-fix-build-agentops-analyze-ci-q2fk41",
+  "taskId": "python-matrix-analyze-ci-similar-pr-failure",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/fix-build-agentops/analyze-ci/20260319144255-fix-build-agentops-analyze-ci-q2fk41/python-matrix-analyze-ci-similar-pr-failure",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/fix-build-agentops/python-matrix-analyze-ci-similar-pr-failure",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:python-matrix-analyze-ci-similar-pr-failure instruction.md 明确要求先读 PR 背景与失败日志、列出 matrix job 和受影响测试；相对 source_task/instruction.md，更直接提示了 analyze-ci 型解法。; draft 缺少 environment/Dockerfile、environment/skills/**、solution/solve.sh、tests/test.sh、tests/test_outputs.py，不是完整 Harbor 任务。; 缺少 tests，当前无法判定测试是否可执行且可稳定验收。; 缺少 environment/skills/**，无法确认任务只依赖唯一 shipped skill analyze-ci，而没有额外专用 skill 依赖。; visibilityPass=false; skillBenefitPass=false; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family drafts 整体缺少 environment/solution/tests；目前只能确认 1 个 similar + 3 个 transfer 的角色布局，以及 transfer 场景题材有区分，无法在 family 层核验测试判定方式是否也充分拉开。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa6-a15f-7f22-8f76-a9a5489593a5"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "diversity-rdkit-transfer-scaffold-selection"
+name = "Transfer: Scaffold Diversity Representative Selection"
+description = "Group a local molecule panel by Bemis-Murcko scaffold, pick one representative per scaffold, and write a scaffold diversity summary."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "chemistry"
+tags = ["chemistry", "scaffold", "diversity", "tsv"]
+primary_output_file = "/root/workspace/scaffold_selection.py"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

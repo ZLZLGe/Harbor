@@ -1,0 +1,18 @@
+{"benefit_hierarchy": "Family Medicine / Rapid Access / Low-Acuity Illness / Same-Day Exam / Clinic Setting", "benefit_code": "PAY001", "entry_point": "member_services", "setting": "in_person"}
+{"benefit_hierarchy": "Family Medicine / Rapid Access / Low-Acuity Illness / Same-Day Video / Virtual Setting", "benefit_code": "PAY002", "entry_point": "mobile_app", "setting": "virtual"}
+{"benefit_hierarchy": "Primary Care / Prevention / Adult Wellness / Annual Check / Office Setting", "benefit_code": "PAY003", "entry_point": "mobile_app", "setting": "in_person"}
+{"benefit_hierarchy": "Primary Care / Chronic Care / Diabetes Coaching / Follow-Up Review / Blended Setting", "benefit_code": "PAY004", "entry_point": "care_concierge", "setting": "hybrid"}
+{"benefit_hierarchy": "Pediatrics / Prevention / Child Wellness / School-Age Visit / Office Setting", "benefit_code": "PAY005", "entry_point": "member_services", "setting": "in_person"}
+{"benefit_hierarchy": "Pediatrics / Rapid Access / Fever and Cough / Virtual Express / Virtual Setting", "benefit_code": "PAY006", "entry_point": "mobile_app", "setting": "virtual"}
+{"benefit_hierarchy": "Maternity / Prenatal Services / Routine OB / Trimester Visit / Office Setting", "benefit_code": "PAY007", "entry_point": "member_services", "setting": "in_person"}
+{"benefit_hierarchy": "Maternity / Prenatal Imaging / Obstetric Ultrasound / Anatomy Review / Imaging Setting", "benefit_code": "PAY008", "entry_point": "referral_line", "setting": "ancillary"}
+{"benefit_hierarchy": "Womens Preventive / Breast Imaging / Screening Mammography / Routine Screen / Imaging Setting", "benefit_code": "PAY009", "entry_point": "mobile_app", "setting": "ancillary"}
+{"benefit_hierarchy": "Orthopedics / Ambulatory Evaluation / Knee Pain / New Consult / Office Setting", "benefit_code": "PAY010", "entry_point": "member_services", "setting": "in_person"}
+{"benefit_hierarchy": "Orthopedics / Surgical Care / Joint Replacement / Knee Replacement / Procedure Setting", "benefit_code": "PAY011", "entry_point": "surgery_line", "setting": "ancillary"}
+{"benefit_hierarchy": "Cardiology / Specialty Evaluation / Rhythm Disorders / Arrhythmia Consult / Office Setting", "benefit_code": "PAY012", "entry_point": "referral_line", "setting": "in_person"}
+{"benefit_hierarchy": "Cardiology / Recovery Programs / Cardiac Rehabilitation / Monitored Exercise / Blended Setting", "benefit_code": "PAY013", "entry_point": "care_concierge", "setting": "hybrid"}
+{"benefit_hierarchy": "Behavioral Health / Counseling / Individual Therapy / Anxiety Depression / Virtual Setting", "benefit_code": "PAY014", "entry_point": "mobile_app", "setting": "virtual"}
+{"benefit_hierarchy": "Behavioral Health / Psychiatry / Medication Management / Mood Anxiety / Virtual Setting", "benefit_code": "PAY015", "entry_point": "care_concierge", "setting": "virtual"}
+{"benefit_hierarchy": "Oncology / Infusion Care / Chemotherapy / Adult Protocols / Infusion Setting", "benefit_code": "PAY016", "entry_point": "care_concierge", "setting": "ancillary"}
+{"benefit_hierarchy": "Gastroenterology / Preventive Endoscopy / Colon Screening / Outpatient Procedure / Procedure Setting", "benefit_code": "PAY017", "entry_point": "referral_line", "setting": "ancillary"}
+{"benefit_hierarchy": "Sleep Medicine / Diagnostics / Home Sleep Test / Study Review / Blended Setting", "benefit_code": "PAY018", "entry_point": "mobile_app", "setting": "hybrid"}

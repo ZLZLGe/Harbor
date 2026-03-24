@@ -1,0 +1,4 @@
+rank,candidate,rise_time_s,overshoot_pct,steady_state_error_bar,low_pressure_duration_s,thresholds_passed
+1,balanced_vfd_pid,6.00,0.80,0.01,4.50,4/4
+2,buffer_tank_assist,11.00,0.00,0.04,4.00,3/4
+3,legacy_valve_trim,5.50,6.40,0.02,5.00,3/4

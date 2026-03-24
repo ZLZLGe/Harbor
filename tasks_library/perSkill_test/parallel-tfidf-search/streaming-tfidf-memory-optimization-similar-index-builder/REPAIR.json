@@ -1,0 +1,112 @@
+{
+  "sourceTaskId": "parallel-tfidf-search",
+  "targetSkillDirName": "memory-optimization",
+  "runId": "20260322131102-parallel-tfidf-search-memory-optimization-jkx694",
+  "taskId": "streaming-tfidf-memory-optimization-similar-index-builder",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/parallel-tfidf-search/memory-optimization/20260322131102-parallel-tfidf-search-memory-optimization-jkx694/streaming-tfidf-memory-optimization-similar-index-builder",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322131102-parallel-tfidf-search-memory-optimization-jkx694/parallel-tfidf-search/drafts/streaming-tfidf-memory-optimization-similar-index-builder",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/parallel-tfidf-search/streaming-tfidf-memory-optimization-similar-index-builder",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/parallel-tfidf-search/streaming-tfidf-memory-optimization-similar-index-builder",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "streaming-tfidf-memory-optimization-similar-index-builder"
+      ],
+      "requestedIssuesByTaskId": {
+        "streaming-tfidf-memory-optimization-similar-index-builder": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a16-06eb-79e1-b60b-8651fcc0fb46",
+      "repairSummary": "已在 environment/Dockerfile 中补回静态检查要求的 `COPY skills /root/.codex/skills` 指令，未修改其他任务文件。",
+      "reviewThreadId": "019d1a16-d927-73b1-bf1f-5f20623a3c7b",
+      "evaluationByTaskId": {
+        "streaming-tfidf-memory-optimization-similar-index-builder": {
+          "reviewerIssues": [
+            "instruction.md does not directly name the shipped skill.; tests/test_outputs.py imports workspace modules at module import time without adding /root/workspace to sys.path, so the verifier is not reliably runnable as written.; The task itself is well aligned to the sole shipped skill; the main blocker is verifier breakage.; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "streaming-tfidf-memory-optimization-similar-index-builder"
+      ],
+      "requestedIssuesByTaskId": {
+        "streaming-tfidf-memory-optimization-similar-index-builder": {
+          "reviewerIssues": [
+            "instruction.md does not directly name the shipped skill.; tests/test_outputs.py imports workspace modules at module import time without adding /root/workspace to sys.path, so the verifier is not reliably runnable as written.; The task itself is well aligned to the sole shipped skill; the main blocker is verifier breakage.; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a19-491a-7df3-b6fe-14bd46cb4943",
+      "repairSummary": "补上了 instruction.md 对 shipped skill `memory-optimization` 的直接点名，并在 tests/test_outputs.py 的模块级导入前显式把 `/root/workspace` 加入 `sys.path`，修复 verifier 的可运行性问题。",
+      "reviewThreadId": "019d1a1a-6605-7520-8311-ece19e06aa3e",
+      "evaluationByTaskId": {
+        "streaming-tfidf-memory-optimization-similar-index-builder": {
+          "reviewerIssues": [
+            "instruction.md directly exposes the shipped skill by naming `memory-optimization`.; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 3,
+      "requestedTaskIds": [
+        "streaming-tfidf-memory-optimization-similar-index-builder"
+      ],
+      "requestedIssuesByTaskId": {
+        "streaming-tfidf-memory-optimization-similar-index-builder": {
+          "reviewerIssues": [
+            "instruction.md directly exposes the shipped skill by naming `memory-optimization`.; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a1d-4340-7eb0-8817-72053326be6a",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill 名称 `memory-optimization` 的直接点名，改为不暴露具体名称的泛化表述，其余任务内容保持不变。",
+      "reviewThreadId": "019d1a1d-c111-7723-a985-0adc69a6200e",
+      "evaluationByTaskId": {
+        "streaming-tfidf-memory-optimization-similar-index-builder": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "static"
+}

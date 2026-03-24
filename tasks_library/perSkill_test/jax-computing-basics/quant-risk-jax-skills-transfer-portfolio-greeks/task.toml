@@ -1,0 +1,32 @@
+version = "0.0"
+
+[metadata]
+id = "quant-risk-jax-skills-transfer-portfolio-greeks"
+name = "Transfer: Portfolio Greeks Matrix"
+description = "Compute a batched option-portfolio risk matrix from the provided book and market scenarios, and save the result as `portfolio_greeks.npy`."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "research"
+tags = ["jax", "quant-finance", "autodiff", "risk"]
+primary_output_file = "portfolio_greeks.npy"
+source_task_id = "jax-computing-basics"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "triangle-fem-sympy-transfer-shape-functions"
+name = "Transfer: 三角有限元形函数的符号推导"
+description = "Read exact triangle-node and query-point specifications, derive linear triangular shape functions and gradients, and report exact area and query evaluations."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "mechanical_engineering"
+tags = ["mechanical_engineering", "finite_element_method", "shape_functions", "exact_arithmetic", "symbolic_derivation"]
+primary_output_file = "/root/workspace/triangle_shape_functions.py"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

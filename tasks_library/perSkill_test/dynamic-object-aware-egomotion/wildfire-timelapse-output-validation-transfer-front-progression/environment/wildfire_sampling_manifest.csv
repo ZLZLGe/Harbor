@@ -1,0 +1,9 @@
+sample_index,timestamp_utc,phase_to_next,wind_kph,front_edge_col,comment
+0,2025-08-02T18:00:00Z,初始点火,12,6,ignition near service road
+1,2025-08-02T18:30:00Z,顺风扩展,18,9,flame front aligns with canyon wind
+2,2025-08-02T19:00:00Z,顺风扩展,21,12,main front widens on eastern slope
+3,2025-08-02T19:30:00Z,峡谷跃进,26,14,spot fire lands across the drainage
+4,2025-08-02T20:00:00Z,峡谷跃进,24,17,new head fire connects with main flank
+5,2025-08-02T20:30:00Z,侧翼回燃,19,20,suppression line bends spread to the south
+6,2025-08-02T21:00:00Z,侧翼回燃,15,20,holding action shifts to the trailing edge
+7,2025-08-02T21:30:00Z,,11,19,no following interval after final sample

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "batch-red",
+    "domain": "wetlab/domain.pddl",
+    "problem": "wetlab/batch_red.pddl",
+    "plan_output": "assay_plans/batch_red_plan.txt",
+    "plate": "plate-red",
+    "incubator": "inc-37a",
+    "washer": "wash-rho",
+    "reader": "reader-rho",
+    "well_order": ["well-r1", "well-r2", "well-r3"],
+    "samples": ["lysate-r1", "lysate-r2", "lysate-r3"],
+    "reagents": ["chromogen-r1", "chromogen-r2", "chromogen-r3"]
+  },
+  {
+    "id": "batch-cyan",
+    "domain": "wetlab/domain.pddl",
+    "problem": "wetlab/batch_cyan.pddl",
+    "plan_output": "assay_plans/batch_cyan_plan.txt",
+    "plate": "plate-cyan",
+    "incubator": "inc-25b",
+    "washer": "wash-sigma",
+    "reader": "reader-sigma",
+    "well_order": ["well-c1", "well-c2", "well-c3", "well-c4"],
+    "samples": ["plasma-c1", "plasma-c2", "plasma-c3", "plasma-c4"],
+    "reagents": ["enzyme-c1", "enzyme-c2", "enzyme-c3", "enzyme-c4"]
+  },
+  {
+    "id": "batch-gold",
+    "domain": "wetlab/domain.pddl",
+    "problem": "wetlab/batch_gold.pddl",
+    "plan_output": "assay_plans/batch_gold_plan.txt",
+    "plate": "plate-gold",
+    "incubator": "inc-42z",
+    "washer": "wash-tau",
+    "reader": "reader-tau",
+    "well_order": ["well-g1", "well-g2", "well-g3", "well-g4", "well-g5"],
+    "samples": ["serum-g1", "serum-g2", "serum-g3", "serum-g4", "serum-g5"],
+    "reagents": ["substrate-g1", "substrate-g2", "substrate-g3", "substrate-g4", "substrate-g5"]
+  }
+]

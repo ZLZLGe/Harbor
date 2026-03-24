@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" schemaVersion="1.2">
+  <Source>Codex Task Builder</Source>
+  <Created>2024-08-01T00:00:00Z</Created>
+  <Network code="QB" startDate="2024-01-01T00:00:00Z">
+    <Description>Basalt Ridge Quarry Monitoring Network</Description>
+    <Station code="RIM1" startDate="2024-01-01T00:00:00Z">
+      <Latitude>36.1181</Latitude>
+      <Longitude>-117.8284</Longitude>
+      <Elevation>1285.0</Elevation>
+      <Site><Name>North Rim 1</Name></Site>
+      <Channel code="HHE" locationCode="" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1181</Latitude><Longitude>-117.8284</Longitude><Elevation>1285.0</Elevation><Depth>1.5</Depth><Azimuth>90.0</Azimuth><Dip>0.0</Dip><SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="HHN" locationCode="" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1181</Latitude><Longitude>-117.8284</Longitude><Elevation>1285.0</Elevation><Depth>1.5</Depth><Azimuth>0.0</Azimuth><Dip>0.0</Dip><SampleRate>100.0</SampleRate>
+      </Channel>
+      <Channel code="HHZ" locationCode="" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1181</Latitude><Longitude>-117.8284</Longitude><Elevation>1285.0</Elevation><Depth>1.5</Depth><Azimuth>0.0</Azimuth><Dip>-90.0</Dip><SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="PIT2" startDate="2024-01-01T00:00:00Z">
+      <Latitude>36.1072</Latitude>
+      <Longitude>-117.8199</Longitude>
+      <Elevation>1192.0</Elevation>
+      <Site><Name>South Pit 2</Name></Site>
+      <Channel code="BHE" locationCode="00" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1072</Latitude><Longitude>-117.8199</Longitude><Elevation>1192.0</Elevation><Depth>2.0</Depth><Azimuth>90.0</Azimuth><Dip>0.0</Dip><SampleRate>50.0</SampleRate>
+      </Channel>
+      <Channel code="BHN" locationCode="00" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1072</Latitude><Longitude>-117.8199</Longitude><Elevation>1192.0</Elevation><Depth>2.0</Depth><Azimuth>0.0</Azimuth><Dip>0.0</Dip><SampleRate>50.0</SampleRate>
+      </Channel>
+      <Channel code="BHZ" locationCode="00" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1072</Latitude><Longitude>-117.8199</Longitude><Elevation>1192.0</Elevation><Depth>2.0</Depth><Azimuth>0.0</Azimuth><Dip>-90.0</Dip><SampleRate>50.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="HILL" startDate="2024-01-01T00:00:00Z">
+      <Latitude>36.1214</Latitude>
+      <Longitude>-117.8103</Longitude>
+      <Elevation>1338.0</Elevation>
+      <Site><Name>East Hill</Name></Site>
+      <Channel code="ENE" locationCode="10" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1214</Latitude><Longitude>-117.8103</Longitude><Elevation>1338.0</Elevation><Depth>1.0</Depth><Azimuth>90.0</Azimuth><Dip>0.0</Dip><SampleRate>40.0</SampleRate>
+      </Channel>
+      <Channel code="ENN" locationCode="10" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1214</Latitude><Longitude>-117.8103</Longitude><Elevation>1338.0</Elevation><Depth>1.0</Depth><Azimuth>0.0</Azimuth><Dip>0.0</Dip><SampleRate>40.0</SampleRate>
+      </Channel>
+      <Channel code="ENZ" locationCode="10" startDate="2024-01-01T00:00:00Z">
+        <Latitude>36.1214</Latitude><Longitude>-117.8103</Longitude><Elevation>1338.0</Elevation><Depth>1.0</Depth><Azimuth>0.0</Azimuth><Dip>-90.0</Dip><SampleRate>40.0</SampleRate>
+      </Channel>
+    </Station>
+  </Network>
+</FDSNStationXML>

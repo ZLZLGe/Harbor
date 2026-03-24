@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "demography-timeseries-detrending-transfer-fertility-trough"
+name = "Transfer: 生育率周期低谷识别"
+description = "Construct an annual general fertility rate series from births and women ages 15-44, identify the lowest HP-filtered cyclical gap year, and write the result to /root/fertility-cycle-trough.csv."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "demography"
+tags = ["demography", "fertility", "time-series", "hp-filter", "annual-data"]
+primary_output_file = "/root/fertility-cycle-trough.csv"
+source_task_id = "econ-detrending-correlation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

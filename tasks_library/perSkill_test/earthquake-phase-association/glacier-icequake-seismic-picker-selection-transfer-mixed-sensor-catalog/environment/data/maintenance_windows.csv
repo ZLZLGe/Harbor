@@ -1,0 +1,4 @@
+window_start,window_end,reason
+2019-07-04T19:08:00.000000,2019-07-04T19:08:20.000000,solar charge controller calibration pulse
+2019-07-04T19:31:00.000000,2019-07-04T19:31:20.000000,short radio link reset
+2019-07-04T19:45:30.000000,2019-07-04T19:45:50.000000,telemetry reboot and sensor tap test

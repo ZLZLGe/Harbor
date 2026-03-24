@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "npi-reflow-profile-compliance-toolkit-similar-first-article-release"
+name = "Similar | 回流首件放行决策"
+description = "Use handbook limits, thermocouple traces, MES candidate records, and defect data to produce /app/output/first_article_release.json for NPI first-article release."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "manufacturing"
+tags = ["manufacturing", "reflow", "npi", "quality"]
+primary_output_file = "/app/output/first_article_release.json"
+source_task_id = "manufacturing-equipment-maintenance"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

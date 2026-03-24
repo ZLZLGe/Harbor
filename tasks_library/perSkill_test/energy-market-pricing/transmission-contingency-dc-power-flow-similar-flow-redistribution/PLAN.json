@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transmission-contingency-dc-power-flow-similar-flow-redistribution",
+  "taskRole": "similar",
+  "title": "Similar: Transmission Contingency Flow Redistribution",
+  "goal": "Run DC power flow on a transmission snapshot for an intact-grid case and a specified single-line outage case, then compare bus angles, branch flows, overloads, and the branches with the largest absolute flow redistribution in a structured report.",
+  "primaryOutputFile": "contingency_flow_report.json",
+  "difficulty": "hard",
+  "category": "energy",
+  "skillBenefitRationale": "This stays close to the core dc-power-flow workflow: build the susceptance matrix, map non-contiguous bus IDs, anchor the slack bus, recompute flows after a topology change, and compare line loading between two scenarios.",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

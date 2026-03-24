@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "multi-planet-exoplanet-workflows-transfer-outer-planet",
+  "taskRole": "transfer",
+  "title": "Transfer | 在双行星系统中恢复外侧行星周期",
+  "goal": "面对包含两颗凌星行星的单条光变曲线，先识别并屏蔽最显著的内侧行星信号，再从剩余数据中恢复外侧行星的轨道周期，并写入指定输出文件。",
+  "primaryOutputFile": "/root/outer_planet_period.txt",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "该任务把同一技能迁移到多行星迭代搜索场景，要求使用候选验证、凌星屏蔽与重复检索，而不是一次性找到最强峰值后结束。",
+  "targetSkillDirName": "exoplanet-workflows",
+  "targetSkillName": "exoplanet-workflows"
+}

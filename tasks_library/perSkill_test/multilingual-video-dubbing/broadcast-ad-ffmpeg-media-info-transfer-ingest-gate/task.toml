@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "broadcast-ad-ffmpeg-media-info-transfer-ingest-gate"
+name = "Transfer: 电视广告入库技术审核"
+description = "Review multiple broadcast-ad masters using media metadata and write /root/ad_ingest_report.json with the single ingest-approved file and rejection reasons."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "broadcast-ad-qc"
+tags = ["broadcast qc", "media metadata", "ffprobe", "ad ingest"]
+primary_output_file = "/root/ad_ingest_report.json"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

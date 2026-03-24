@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "remittance-change-fuzzy-match-similar-vendor-alias-audit",
+  "taskRole": "similar",
+  "title": "Similar: 供应商收款账户变更审计",
+  "goal": "审计一批供应商收款账户变更申请，将申请中的供应商名称与主数据中的正式供应商名称做模糊归并，识别无法可信匹配的申请，以及匹配后银行账户或税务编号与主档冲突的申请，并将问题申请写入 /root/remittance_alerts.json。",
+  "primaryOutputFile": "/root/remittance_alerts.json",
+  "difficulty": "hard",
+  "category": "data-validation",
+  "skillBenefitRationale": "关键难点是把带有缩写、后缀变化和轻微拼写误差的供应商名称稳定映射到唯一主档记录；一旦匹配成立，其余判断只是直接字段比对，因此 fuzzy-match 是唯一关键 shipped skill。",
+  "targetSkillDirName": "fuzzy-match",
+  "targetSkillName": "fuzzy-match"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "maintenance-schedule-pdf-transfer-downtime-calendar",
+  "taskRole": "transfer",
+  "title": "Transfer: 维护停机排程",
+  "goal": "读取工厂维护公告 PDF，提取各生产线的停机时间窗，生成标准化 CSV，包含产线、开始时间、结束时间和计划停机小时数。",
+  "primaryOutputFile": "/root/maintenance_downtime_schedule.csv",
+  "difficulty": "medium",
+  "category": "operations",
+  "skillBenefitRationale": "非平凡部分是把 PDF 中跨页的时段表和备注行还原成结构化排程数据；`pdf` 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

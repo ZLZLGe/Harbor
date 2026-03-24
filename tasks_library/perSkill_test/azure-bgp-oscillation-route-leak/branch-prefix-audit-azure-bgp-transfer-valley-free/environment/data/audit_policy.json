@@ -1,0 +1,14 @@
+{
+  "valley_free_rule": "Routes learned from a provider or peer may only be exported to customers.",
+  "violation_classes": [
+    "provider_to_peer",
+    "provider_to_provider",
+    "peer_to_peer",
+    "peer_to_provider"
+  ],
+  "acceptable_mitigation_requirements": {
+    "azure_supported": true,
+    "policy_level": true,
+    "preserves_connectivity": true
+  }
+}

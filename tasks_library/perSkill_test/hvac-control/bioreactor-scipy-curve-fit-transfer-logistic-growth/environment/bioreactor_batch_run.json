@@ -1,0 +1,29 @@
+{
+  "batch_id": "BRX-208A",
+  "reactor_volume_l": 1200.0,
+  "organism": "Bacillus subtilis production strain",
+  "signal": "OD600",
+  "target_harvest_od600": 1.12,
+  "latest_recommended_od600": 1.58,
+  "observations": [
+    {"time_hr": 0.0, "od600": 0.0176},
+    {"time_hr": 1.5, "od600": 0.0281},
+    {"time_hr": 3.0, "od600": 0.0324},
+    {"time_hr": 4.5, "od600": 0.0504},
+    {"time_hr": 6.0, "od600": 0.0755},
+    {"time_hr": 8.0, "od600": 0.1545},
+    {"time_hr": 10.0, "od600": 0.2393},
+    {"time_hr": 11.5, "od600": 0.3516},
+    {"time_hr": 13.0, "od600": 0.5082},
+    {"time_hr": 14.5, "od600": 0.6954},
+    {"time_hr": 16.0, "od600": 0.9052},
+    {"time_hr": 17.5, "od600": 1.1113},
+    {"time_hr": 19.0, "od600": 1.2941},
+    {"time_hr": 21.0, "od600": 1.4965},
+    {"time_hr": 23.0, "od600": 1.6282},
+    {"time_hr": 25.0, "od600": 1.7166},
+    {"time_hr": 27.5, "od600": 1.7616},
+    {"time_hr": 30.0, "od600": 1.7846},
+    {"time_hr": 33.0, "od600": 1.8024}
+  ]
+}

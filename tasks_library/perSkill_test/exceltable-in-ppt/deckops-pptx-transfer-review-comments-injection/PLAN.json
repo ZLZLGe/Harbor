@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "deckops-pptx-transfer-review-comments-injection",
+  "taskRole": "transfer",
+  "title": "Transfer: Inject Review Comments into a Compliance Deck",
+  "goal": "根据控制页中的审阅清单，为指定幻灯片上的指定文本框添加 PowerPoint 评论，评论内容与作者信息需正确写入，原页面正文不改动。",
+  "primaryOutputFile": "/root/review-comments-injected.pptx",
+  "difficulty": "medium",
+  "category": "Office Operation",
+  "skillBenefitRationale": "任务把 pptx skill 迁移到评论与关系文件编辑场景，重点考察对评论部件、shape 对应关系和幻灯片 XML 的掌握，而不是嵌入表格更新。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

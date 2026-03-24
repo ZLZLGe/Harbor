@@ -1,0 +1,39 @@
+version = "1.0"
+
+[metadata]
+id = "reliability-lab-manufacturing-failure-reason-codebook-normalization-transfer-stress-screen-failures"
+name = "Transfer - Reliability Lab Stress-Screen Failure Normalization"
+description = "Normalize reliability stress-screen failure notes into the standardized lab failure codebook and write the mapped segments to /app/output/reliability_failure_reason_map.json."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "manufacturing"
+tags = [
+  "reliability lab",
+  "stress screen",
+  "failure reason normalization",
+  "bench-aware mapping",
+]
+primary_output_file = "/app/output/reliability_failure_reason_map.json"
+source_task_id = "manufacturing-codebook-normalization"
+task_role = "transfer"
+required_skills = [
+  "manufacturing-failure-reason-codebook-normalization",
+]
+distractor_skills = [
+  "environmental-chamber-scheduling",
+  "lab-instrument-calibration",
+  "field-return-prioritization",
+]
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

@@ -1,0 +1,7 @@
+prototype_id,cadence_spm,stride_time_cv,left_right_asymmetry,knee_flexion_deg,balance_index,therapy_track
+PROTO_STEADY,88,9.5,0.12,42,78,steadying
+PROTO_DRAG,72,15.5,0.28,31,61,toe-clearance
+PROTO_STIFF,95,12.0,0.10,24,72,knee-mobility
+PROTO_FATIGUE,68,18.5,0.34,36,49,endurance
+PROTO_BALANCE,82,11.0,0.16,38,88,balance
+PROTO_PROPULSE,104,8.0,0.08,46,74,push-off

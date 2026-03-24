@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "regional-aftershock-seismic-picker-selection-similar-mixed-network"
+name = "Similar - 混合台网余震相位拾取"
+description = "为一批混合台网余震窗口选择合适的自动拾取路线，并输出包含 trace_id、phase、pick_idx、confidence、method 的结果文件。"
+author_name = "Haotian Shen"
+author_email = "dalyshen@berkeley.edu"
+difficulty = "hard"
+category = "seismology"
+tags = ["science", "earth-science", "seismology", "phase-picking", "mixed-network"]
+primary_output_file = "/root/mixed_network_picks.csv"
+source_task_id = "seismic-phase-picking"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

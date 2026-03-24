@@ -1,0 +1,24 @@
+{
+  "sourceTaskId": "gravitational-wave-detection",
+  "targetSkillDirName": "matched-filtering",
+  "runId": "20260320013855-gravitational-wave-detection-matched-filtering-dw643u",
+  "taskId": "bns-alert-matched-filtering-transfer-early-warning",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/gravitational-wave-detection/bns-alert-matched-filtering-transfer-early-warning",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320013855-gravitational-wave-detection-matched-filtering-dw643u/gravitational-wave-detection/drafts/bns-alert-matched-filtering-transfer-early-warning",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/gravitational-wave-detection/bns-alert-matched-filtering-transfer-early-warning",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/gravitational-wave-detection/bns-alert-matched-filtering-transfer-early-warning",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 的 name 或 dirName，但测试把 JSON 键顺序当作硬性条件，可能误伤等价输出。; instruction.md 没有明确 matched-filter 打分、白化和归一化细节，测试却用白化加相关的单一实现并以极严容差做精确比对，判定过于依赖隐含实现。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

@@ -1,0 +1,41 @@
+version = "1.0"
+
+[metadata]
+id = "smt-aoi-manufacturing-failure-reason-codebook-normalization-transfer-rework-defects"
+name = "Transfer - SMT AOI Defect Remark Normalization"
+description = "Normalize SMT AOI and rework-bench defect remarks into the soldering and placement defect codebook and write the mapped segments to /app/output/aoi_defect_map.json."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "manufacturing"
+tags = [
+  "smt aoi",
+  "rework bench",
+  "defect remark normalization",
+  "process-stage restriction",
+]
+primary_output_file = "/app/output/aoi_defect_map.json"
+source_task_id = "manufacturing-codebook-normalization"
+task_role = "transfer"
+required_skills = [
+  "manufacturing-failure-reason-codebook-normalization",
+]
+distractor_skills = [
+  "bom-reconciliation",
+  "machine-scheduling",
+  "vision-model-tuning",
+]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

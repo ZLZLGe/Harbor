@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "data-center-dc-power-flow-transfer-campus-feeder-rebalance",
+  "taskRole": "transfer",
+  "title": "Transfer: Data Center Campus Feeder Rebalance",
+  "goal": "Compare two campus power-distribution scenarios for a large data center portfolio with different hall-level load placements, and produce a report on feeder flows, overloaded ties, bus-angle changes, and the feeders that gain the most relief after rebalancing.",
+  "primaryOutputFile": "campus_rebalance_summary.json",
+  "difficulty": "hard",
+  "category": "infrastructure",
+  "skillBenefitRationale": "The task moves dc-power-flow into behind-the-meter infrastructure operations while preserving the same essential skill: solve linear power balance with a slack reference and derive feeder flow/loading changes from altered nodal injections.",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

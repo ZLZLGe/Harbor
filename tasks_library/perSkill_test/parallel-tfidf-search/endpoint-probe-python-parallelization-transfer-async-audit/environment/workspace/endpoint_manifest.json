@@ -1,0 +1,66 @@
+[
+  {
+    "name": "catalog-health",
+    "path": "/audit/catalog/health",
+    "expected_status": 200,
+    "required_json_fields": ["service", "status", "checked_at"],
+    "expected_json_values": {"service": "catalog", "status": "ok"},
+    "timeout": 1.5
+  },
+  {
+    "name": "billing-health",
+    "path": "/audit/billing/health",
+    "expected_status": 200,
+    "required_json_fields": ["service", "status", "checked_at"],
+    "expected_json_values": {"service": "billing", "status": "ok"},
+    "timeout": 1.5
+  },
+  {
+    "name": "identity-health",
+    "path": "/audit/identity/health",
+    "expected_status": 200,
+    "required_json_fields": ["service", "status", "checked_at"],
+    "expected_json_values": {"service": "identity", "status": "ok"},
+    "timeout": 1.5
+  },
+  {
+    "name": "ledger-schema",
+    "path": "/audit/ledger/schema",
+    "expected_status": 200,
+    "required_json_fields": ["service", "status", "checked_at"],
+    "expected_json_values": {"service": "ledger", "status": "ok"},
+    "timeout": 1.5
+  },
+  {
+    "name": "search-degraded",
+    "path": "/audit/search/degraded",
+    "expected_status": 200,
+    "required_json_fields": ["service", "status", "checked_at"],
+    "expected_json_values": {"service": "search", "status": "ok"},
+    "timeout": 1.5
+  },
+  {
+    "name": "dashboard-html",
+    "path": "/audit/dashboard/html",
+    "expected_status": 503,
+    "required_json_fields": [],
+    "expected_json_values": {},
+    "timeout": 1.5
+  },
+  {
+    "name": "webhook-invalid-json",
+    "path": "/audit/webhook/invalid-json",
+    "expected_status": 200,
+    "required_json_fields": ["service", "status", "checked_at"],
+    "expected_json_values": {"service": "webhook", "status": "ok"},
+    "timeout": 1.5
+  },
+  {
+    "name": "scheduler-health",
+    "path": "/audit/scheduler/health",
+    "expected_status": 200,
+    "required_json_fields": ["service", "status", "checked_at"],
+    "expected_json_values": {"service": "scheduler", "status": "ok"},
+    "timeout": 1.5
+  }
+]

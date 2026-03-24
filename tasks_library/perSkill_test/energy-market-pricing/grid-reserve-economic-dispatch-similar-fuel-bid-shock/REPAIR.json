@@ -1,0 +1,27 @@
+{
+  "sourceTaskId": "energy-market-pricing",
+  "targetSkillDirName": "economic-dispatch",
+  "runId": "20260319065715-energy-market-pricing-economic-dispatch-qbn223",
+  "taskId": "grid-reserve-economic-dispatch-similar-fuel-bid-shock",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/energy-market-pricing/economic-dispatch/20260319065715-energy-market-pricing-economic-dispatch-qbn223/grid-reserve-economic-dispatch-similar-fuel-bid-shock",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319065715-energy-market-pricing-economic-dispatch-qbn223/energy-market-pricing/drafts/grid-reserve-economic-dispatch-similar-fuel-bid-shock",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/energy-market-pricing/grid-reserve-economic-dispatch-similar-fuel-bid-shock",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/energy-market-pricing/grid-reserve-economic-dispatch-similar-fuel-bid-shock",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": []
+}

@@ -1,0 +1,31 @@
+version = "1.0"
+
+[metadata]
+id = "curriculum-map-hierarchical-taxonomy-clustering-transfer-course-subject-alignment"
+name = "Transfer: 高校课程学科目录对齐"
+description = "整合三所大学的课程目录路径，输出统一的四层学科 taxonomy、课程映射和转学分对齐摘要。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "ML/NLP"
+tags = ["taxonomy-alignment", "transfer-credit", "curriculum-mapping", "hierarchical-clustering", "course-catalog"]
+primary_output_file = "drafts/curriculum-map-hierarchical-taxonomy-clustering-transfer-course-subject-alignment/instruction.md"
+source_task_id = "taxonomy-tree-merge"
+task_role = "transfer"
+
+[reward]
+reward = "(P0_passed/10 * 0.55) + (P1_passed/4 * 0.30) + (P2_passed/2 * 0.15)"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

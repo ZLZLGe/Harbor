@@ -1,0 +1,32 @@
+{
+  "policyholder": {
+    "name": "Alicia Gomez",
+    "policy_number": "QP-4472819",
+    "phone": "4085550134",
+    "email": "agomez.driver@example.com",
+    "mailing_address": "1187 Benton St, Santa Clara, CA 95050"
+  },
+  "vehicle": {
+    "year": "2022",
+    "make_model": "Honda Civic LX",
+    "license_plate": "8XJR214"
+  },
+  "incident": {
+    "date": "2026-02-11",
+    "time": "07:40",
+    "location": "Level 3 parking garage at 4500 Great America Pkwy, Santa Clara, CA 95054",
+    "summary": "Scraped the vehicle against a concrete support pillar while turning into a narrow parking space.",
+    "damaged_parts": "Passenger-side doors and rear quarter panel.",
+    "estimated_damage_usd": "1860.75",
+    "single_vehicle_incident": true,
+    "insured_driver_responsible": true,
+    "vehicle_drivable": true,
+    "vehicle_towed": false,
+    "police_report_filed": false,
+    "injuries_reported": false
+  },
+  "signature": {
+    "name": "Alicia Gomez",
+    "date": "2026-02-12"
+  }
+}

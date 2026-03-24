@@ -1,0 +1,142 @@
+{
+  "analysis_summary": {
+    "oscillation_detected": true,
+    "preference_cycle": [
+      65102,
+      65103,
+      65104
+    ],
+    "leak_ids": [
+      "leak-001",
+      "leak-002"
+    ],
+    "affected_prefixes": [
+      "10.44.10.0/24",
+      "10.55.20.0/24"
+    ]
+  },
+  "remediation_matrix": [
+    {
+      "candidate_id": "chg-01",
+      "candidate_change": "Increase BGP keepalive and hold timers on all three virtual hubs",
+      "azure_viable": false,
+      "breaks_preference_cycle": false,
+      "resolved_leak_ids": [],
+      "remaining_leak_ids": [
+        "leak-001",
+        "leak-002"
+      ],
+      "overall_effect": "no_fix"
+    },
+    {
+      "candidate_id": "chg-02",
+      "candidate_change": "Remove the hub-west preference that prefers incident prefixes via hub-central",
+      "azure_viable": true,
+      "breaks_preference_cycle": true,
+      "resolved_leak_ids": [],
+      "remaining_leak_ids": [
+        "leak-001",
+        "leak-002"
+      ],
+      "overall_effect": "cycle_only"
+    },
+    {
+      "candidate_id": "chg-03",
+      "candidate_change": "Add an export policy on hub-central to block provider-learned prefixes from being advertised to peer hubs",
+      "azure_viable": true,
+      "breaks_preference_cycle": false,
+      "resolved_leak_ids": [
+        "leak-001"
+      ],
+      "remaining_leak_ids": [
+        "leak-002"
+      ],
+      "overall_effect": "partial_leak_fix"
+    },
+    {
+      "candidate_id": "chg-04",
+      "candidate_change": "Add an export policy on hub-east to block peer-learned prefixes from being advertised back to Virtual WAN transit",
+      "azure_viable": true,
+      "breaks_preference_cycle": false,
+      "resolved_leak_ids": [
+        "leak-002"
+      ],
+      "remaining_leak_ids": [
+        "leak-001"
+      ],
+      "overall_effect": "partial_leak_fix"
+    },
+    {
+      "candidate_id": "chg-05",
+      "candidate_change": "Apply valley-free export policies on hub-central and hub-east so provider-learned routes stay off peers and peer-learned routes stay off the provider",
+      "azure_viable": true,
+      "breaks_preference_cycle": false,
+      "resolved_leak_ids": [
+        "leak-001",
+        "leak-002"
+      ],
+      "remaining_leak_ids": [],
+      "overall_effect": "all_leaks_only"
+    },
+    {
+      "candidate_id": "chg-06",
+      "candidate_change": "Enable Virtual WAN routing intent so inter-hub traffic must use the Virtual WAN transit path",
+      "azure_viable": true,
+      "breaks_preference_cycle": true,
+      "resolved_leak_ids": [
+        "leak-001",
+        "leak-002"
+      ],
+      "remaining_leak_ids": [],
+      "overall_effect": "full_fix"
+    },
+    {
+      "candidate_id": "chg-07",
+      "candidate_change": "Install UDR overrides for both affected prefixes so hub-west and hub-east forward through Virtual WAN next hops",
+      "azure_viable": true,
+      "breaks_preference_cycle": true,
+      "resolved_leak_ids": [
+        "leak-001",
+        "leak-002"
+      ],
+      "remaining_leak_ids": [],
+      "overall_effect": "full_fix"
+    },
+    {
+      "candidate_id": "chg-08",
+      "candidate_change": "Disable hub peering between hub-central and hub-east",
+      "azure_viable": false,
+      "breaks_preference_cycle": false,
+      "resolved_leak_ids": [],
+      "remaining_leak_ids": [
+        "leak-001",
+        "leak-002"
+      ],
+      "overall_effect": "prohibited"
+    },
+    {
+      "candidate_id": "chg-09",
+      "candidate_change": "Set an explicit preference hierarchy on all hubs: local spokes first, Virtual WAN transit second, peer hubs last",
+      "azure_viable": true,
+      "breaks_preference_cycle": true,
+      "resolved_leak_ids": [],
+      "remaining_leak_ids": [
+        "leak-001",
+        "leak-002"
+      ],
+      "overall_effect": "cycle_only"
+    },
+    {
+      "candidate_id": "chg-10",
+      "candidate_change": "Restart the VPN and ExpressRoute gateway processes on each hub",
+      "azure_viable": false,
+      "breaks_preference_cycle": false,
+      "resolved_leak_ids": [],
+      "remaining_leak_ids": [
+        "leak-001",
+        "leak-002"
+      ],
+      "overall_effect": "no_fix"
+    }
+  ]
+}

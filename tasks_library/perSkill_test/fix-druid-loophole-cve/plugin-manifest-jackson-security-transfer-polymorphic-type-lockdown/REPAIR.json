@@ -1,0 +1,55 @@
+{
+  "sourceTaskId": "fix-druid-loophole-cve",
+  "targetSkillDirName": "jackson-security",
+  "runId": "20260319171340-fix-druid-loophole-cve-jackson-security-dx6ibq",
+  "taskId": "plugin-manifest-jackson-security-transfer-polymorphic-type-lockdown",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/fix-druid-loophole-cve/plugin-manifest-jackson-security-transfer-polymorphic-type-lockdown",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319171340-fix-druid-loophole-cve-jackson-security-dx6ibq/fix-druid-loophole-cve/drafts/plugin-manifest-jackson-security-transfer-polymorphic-type-lockdown",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/fix-druid-loophole-cve/plugin-manifest-jackson-security-transfer-polymorphic-type-lockdown",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/fix-druid-loophole-cve/plugin-manifest-jackson-security-transfer-polymorphic-type-lockdown",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 名称或目录名，技能未暴露。; 任务核心是 Jackson 多态类型提示注入防护，只依赖当前 shipped skill。; instruction 允许“限制危险类型信息”或“反序列化前拦截”，但 tests/test_outputs.py 额外要求补丁文本必须包含 ManifestStep.java；纯前置拦截型有效解会被误判失败。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "merchant-rules-jackson-security-transfer-duplicate-key-override"
+      ],
+      "requestedIssuesByTaskId": {
+        "merchant-rules-jackson-security-transfer-duplicate-key-override": {
+          "reviewerIssues": [
+            "tests/test_outputs.py 强制要求新增 JacksonDuplicateKeyConfig.java 并启用 STRICT_DUPLICATE_DETECTION，导致其他同样满足说明的前置拒绝方案会被误判失败，测试约束过于实现绑定。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10d8-1232-7bd0-9469-83a5ed3145de",
+      "repairSummary": "- `merchant-rules-jackson-security-transfer-duplicate-key-override`：修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260319171340-fix-druid-loophole-cve-jackson-security-dx6ibq-69febd67/fix-druid-loophole-cve/drafts/merchant-rules-jackson-security-transfer-duplicate-key-override/instruction.md#L15)，明确重复键拒绝要求也覆盖会改变授权输入的 `operator.delegatedRole` 和 `importTarget.scope`，让 `duplicate scope` 这类测试可直接从说明推出；修改了 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260319171340-fix-druid-loophole-cve-jackson-security-dx6ibq-69febd67/fix-druid-loophole-cve/drafts/merchant-rules-jackson-security-transfer-duplicate-key-override/tests/test_outputs.py#L64)，移除了对 `JacksonDuplicateKeyConfig.java` 和 `STRICT_DUPLICATE_DETECTION` 的实现绑定，改为只要求存在补丁文件、补丁已应用到服务仓库，并继续用黑盒接口测试验证“重复键前置拒绝 + 合法请求仍可通过”。\n\n已做本地检查：`python3 -m py_compile` 通过，`instruction.md` 中没有直接出现被禁止的 shipped skill 名称。",
+      "reviewThreadId": "019d10da-cdf8-7df3-84e7-052db98db922",
+      "evaluationByTaskId": {
+        "merchant-rules-jackson-security-transfer-duplicate-key-override": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "plugin-manifest-jackson-security-transfer-polymorphic-type-lockdown": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

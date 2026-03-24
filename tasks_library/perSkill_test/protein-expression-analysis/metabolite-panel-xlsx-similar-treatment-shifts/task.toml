@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "metabolite-panel-xlsx-similar-treatment-shifts"
+name = "Similar: Metabolite Treatment Shift Scorecard"
+description = "Complete the metabolite scorecard workbook with formulas that pull raw signals, compute responder versus nonresponder summary statistics, and rank the strongest treatment shifts in metabolite_treatment_shift_scorecard.xlsx."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "middle"
+category = "data-analysis"
+tags = ["xlsx", "metabolomics", "excel", "formula-modeling", "statistics"]
+primary_output_file = "metabolite_treatment_shift_scorecard.xlsx"
+source_task_id = "protein-expression-analysis"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

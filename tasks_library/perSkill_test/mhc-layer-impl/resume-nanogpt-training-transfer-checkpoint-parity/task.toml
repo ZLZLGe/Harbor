@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "resume-nanogpt-training-transfer-checkpoint-parity"
+name = "Transfer - Checkpoint Resume Parity Audit"
+description = "Implement resumable GPT training on the provided local token stream, compare uninterrupted and resumed runs for parity, and write the consistency report to resume_consistency_report.json."
+author_name = "Yimin Liu"
+author_email = "yiminliu.career@gmail.com"
+difficulty = "hard"
+category = "ml-implementation"
+tags = ["pytorch", "gpt", "checkpointing", "reproducibility", "optimizer-state"]
+primary_output_file = "resume_consistency_report.json"
+source_task_id = "mhc-layer-impl"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

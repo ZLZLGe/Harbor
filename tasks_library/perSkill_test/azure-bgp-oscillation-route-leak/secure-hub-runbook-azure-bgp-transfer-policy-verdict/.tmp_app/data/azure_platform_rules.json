@@ -1,0 +1,30 @@
+{
+  "forbidden_action_types": [
+    "bgp_process_restart",
+    "disable_hub_link",
+    "timer_change"
+  ],
+  "allowed_action_types": [
+    "export_filter_provider_to_peer",
+    "ingress_reject_provider_from_peer",
+    "remove_preference_edge",
+    "route_dampening",
+    "routing_intent_enforcement"
+  ],
+  "cycle_break_action_types": [
+    "remove_preference_edge",
+    "routing_intent_enforcement"
+  ],
+  "leak_block_action_types": [
+    "export_filter_provider_to_peer",
+    "ingress_reject_provider_from_peer",
+    "routing_intent_enforcement"
+  ],
+  "selection_policy": {
+    "prefer_single_step_full_fix": true,
+    "allow_multi_step_fallbacks": true,
+    "fallbacks_must_cover_both_issues": true,
+    "exclude_forbidden_actions": true,
+    "exclude_no_effect_actions": true
+  }
+}

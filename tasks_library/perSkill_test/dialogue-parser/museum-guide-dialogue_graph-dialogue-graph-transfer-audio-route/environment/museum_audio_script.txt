@@ -1,0 +1,152 @@
+[Arrival]
+Guide: Welcome to the Riverlight Museum audio trail. Tap ahead when you are ready to leave the lobby arch. -> LobbyGreeting
+
+[LobbyGreeting]
+Guide: Ahead of you are three permanent halls, one family shortcut, and the main exit atrium. -> LobbyMenu
+
+[LobbyMenu]
+1. Begin with a short orientation clip. -> OrientationIntro
+2. Walk straight to the Fossil Gallery. -> DinosaurHallIntro
+3. Head toward the Ocean Court. -> OceanHallIntro
+4. [Accessible Map] Request the elevator-friendly route summary. -> AccessibilityDesk
+5. Leave the museum from the atrium. -> ExitAtrium
+
+[OrientationIntro]
+Curator: This museum is arranged as a loop, so you can circle back without losing your place in the narration. -> OrientationChoice
+
+[OrientationChoice]
+1. Start with ancient life in the Fossil Gallery. -> DinosaurHallIntro
+2. Start with the suspended blue whale in Ocean Court. -> OceanHallIntro
+3. Skip ahead to the invention prototypes. -> InnovationHallIntro
+4. [Family Route] Follow the shorter trail with hands-on stops. -> FamilyTrail
+
+[DinosaurHallIntro]
+PaleoHost: The Fossil Gallery opens with low amber light and a timeline wall tracing 200 million years. -> DinosaurChoice
+
+[DinosaurChoice]
+1. Stop at the tyrannosaur skull. -> FossilSkullStop
+2. Continue to the illuminated trackway floor. -> TrackwayStop
+3. Return to the central lobby menu. -> LobbyMenu
+4. [Shortcut] Cross the bridge to the innovation wing. -> InnovationHallIntro
+
+[FossilSkullStop]
+PaleoHost: Notice the bite marks along the jaw hinge; our conservation team left them visible to show the animal's final hunt. -> SkullReplayChoice
+
+[SkullReplayChoice]
+1. [Replay] Hear the skull description again. -> FossilSkullStop
+2. Continue to the trackway floor. -> TrackwayStop
+3. Skip to Ocean Court. -> OceanHallIntro
+
+[TrackwayStop]
+Narrator: The projected footprints match the stride length of a running predator, letting visitors pace beside it. -> TrackwayChoice
+
+[TrackwayChoice]
+1. Pause at the bench and hear the family note. -> RestBenchAudio
+2. Cross into the innovation wing. -> InnovationHallIntro
+3. Revisit the Fossil Gallery menu. -> DinosaurChoice
+4. Exit the tour from the atrium. -> ExitAtrium
+
+[RestBenchAudio]
+FamilyGuide: Children usually compare their own shoe size to the fossil print here before moving on. -> ReturnToLobby
+
+[OceanHallIntro]
+MarineHost: Ocean Court surrounds you with blue light, live reef audio, and the suspended whale model above the stairs. -> OceanChoice
+
+[OceanChoice]
+1. Listen to the whale migration stop. -> WhaleStop
+2. Enter the coral restoration lab window. -> CoralLabStop
+3. [Quiet Route] Take the low-sensory alcove beside the tide map. -> QuietAlcoveStop
+4. Return to the lobby menu. -> LobbyMenu
+
+[WhaleStop]
+MarineHost: The sixty-foot model overhead marks the midpoint of the route and points toward every exit in the building. -> WhaleReplayChoice
+
+[WhaleReplayChoice]
+1. [Replay] Repeat the whale migration clip. -> WhaleStop
+2. Continue to the coral lab window. -> CoralLabStop
+3. Cross directly to the innovation wing. -> InnovationHallIntro
+
+[CoralLabStop]
+Conservator: Behind the glass, staff grow coral fragments on ceramic stars before sending them back to the bay reef. -> CoralChoice
+
+[CoralChoice]
+1. [Family Route] Follow the scavenger clue to the next hands-on exhibit. -> FamilyTrail
+2. Continue into the quiet alcove. -> QuietAlcoveStop
+3. Return to the Ocean Court menu. -> OceanChoice
+4. Finish with the research reading lounge. -> ResearchLounge
+
+[QuietAlcoveStop]
+Guide: This alcove lowers the soundtrack and dims the projections while preserving the same route information. -> QuietChoice
+
+[QuietChoice]
+1. Rejoin Ocean Court. -> OceanChoice
+2. Move on to the innovation wing. -> InnovationHallIntro
+3. [Accessible Map] Hear the elevator route to the lobby. -> MapDesk
+4. Leave through the atrium now. -> ExitAtrium
+
+[InnovationHallIntro]
+InnovationHost: The final wing mixes robotics, renewable energy, and early prototype sketches from local inventors. -> InnovationChoice
+
+[InnovationChoice]
+1. Watch the robot arm demo. -> RoboticsDemo
+2. Try the energy table narration. -> EnergyTable
+3. Open the prototype vault cabinet audio. -> PrototypeVault
+4. Return to the lobby menu. -> LobbyMenu
+
+[RoboticsDemo]
+InnovationHost: The robot arm sorts recycled parts by shape, echoing the same vision system used in the museum workshop downstairs. -> RoboticsChoice
+
+[RoboticsChoice]
+1. Continue to the prototype vault. -> PrototypeVault
+2. [Family Route] Jump to the shorter hands-on trail. -> FamilyTrail
+3. Revisit the innovation menu. -> InnovationChoice
+4. Take a break at the cafe overlook. -> CafePause
+
+[EnergyTable]
+Narrator: The touch table compares river current, rooftop solar, and battery storage with real data from this district. -> EnergyChoice
+
+[EnergyChoice]
+1. Continue to the prototype vault. -> PrototypeVault
+2. Take a break at the cafe overlook. -> CafePause
+3. Revisit the innovation menu. -> InnovationChoice
+4. Loop back to Ocean Court. -> OceanHallIntro
+
+[PrototypeVault]
+Archivist: Drawer labels reveal how each prototype changed over time, from pencil sketch to patent model to public display. -> PrototypeReplay
+
+[PrototypeReplay]
+1. [Replay] Open the prototype vault description again. -> PrototypeVault
+2. [Accessible Map] Hear the shortest route back to the lobby. -> MapDesk
+3. End with the gift shop corridor. -> GiftShopRoute
+4. Leave through the atrium. -> ExitAtrium
+
+[FamilyTrail]
+FamilyGuide: This shorter trail keeps the biggest objects and hands-on prompts while skipping the longest narration clips. -> FamilyTrailChoice
+
+[FamilyTrailChoice]
+1. Return to the Fossil Gallery. -> DinosaurHallIntro
+2. Head back to Ocean Court. -> OceanHallIntro
+3. Finish in the innovation wing. -> InnovationHallIntro
+4. Pause at the cafe overlook. -> CafePause
+5. Leave through the atrium. -> ExitAtrium
+
+[AccessibilityDesk]
+AccessibilityHost: Elevators connect every hall, and the shortest loop avoids the whale stairs without skipping any major narration. -> MapDesk
+
+[MapDesk]
+AccessibilityHost: From here, you can return to the lobby, continue by elevator, or finish near the gift shop corridor. -> ReturnToLobby
+
+[ReturnToLobby]
+Guide: You are back beneath the lobby arch, with every hall still available from this central hub. -> LobbyMenu
+
+[CafePause]
+Guide: The cafe overlook faces the sculpture garden and lets you resume the tour from the same progress marker. -> ReturnToLobby
+
+[GiftShopRoute]
+Guide: The gift shop corridor closes the tour with postcards, field guides, and a final route map for future visits. -> End
+
+[ExitAtrium]
+Guide: You have reached the glass atrium exit; the audio tour ends as the doors open to the riverwalk. -> End
+
+[ResearchLounge]
+Archivist: The reading lounge offers field notebooks, reef surveys, and patent sketches if you want a quieter ending to the route. -> End

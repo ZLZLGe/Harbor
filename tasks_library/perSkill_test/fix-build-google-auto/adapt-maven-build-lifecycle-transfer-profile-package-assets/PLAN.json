@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "adapt-maven-build-lifecycle-transfer-profile-package-assets",
+  "taskRole": "transfer",
+  "title": "Transfer: 修复基于 Profile 的 Maven 打包生命周期",
+  "goal": "修复一个带环境 profile 的 Maven 应用构建，使生产 profile 下的资源处理与打包发生在正确生命周期阶段，生成包含预期配置文件的制品。",
+  "primaryOutputFile": "app/pom.xml",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "任务把技能迁移到 profile 与 package 产物场景，考察对 profile 激活、resources/package 阶段关系和构建产物验证的掌握。",
+  "targetSkillDirName": "maven-build-lifecycle",
+  "targetSkillName": "maven-build-lifecycle"
+}

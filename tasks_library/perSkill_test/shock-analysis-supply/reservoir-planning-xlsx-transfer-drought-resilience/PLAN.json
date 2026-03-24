@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-planning-xlsx-transfer-drought-resilience",
+  "taskRole": "transfer",
+  "title": "Transfer - Reservoir Drought Resilience Workbook",
+  "goal": "在水务规划模板中链接来水、蒸发损失、需求预测和工程投运计划，完成月度库容滚动与限水风险对比，并输出 reservoir-drought-resilience.xlsx。",
+  "primaryOutputFile": "reservoir-drought-resilience.xlsx",
+  "difficulty": "hard",
+  "category": "infrastructure-analysis",
+  "skillBenefitRationale": "该任务依赖 Excel 的跨表引用、时间序列滚动和情景测算来完成基础设施规划分析，不需要任何其他 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

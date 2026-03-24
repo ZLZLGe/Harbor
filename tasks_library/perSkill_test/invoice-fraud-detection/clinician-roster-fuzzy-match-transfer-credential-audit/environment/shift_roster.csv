@@ -1,0 +1,12 @@
+assignment_id,shift_date,unit,clinician_alias,reported_license_number,required_credential
+A-001,2026-03-18,ICU,"Nguyen, Alice M.",LIC-4101,RN
+A-002,2026-03-18,Emergency,"J P OConnor",LIC-4102,MD
+A-003,2026-03-19,Observation,"Maria I. Delacruz",LIC-4103,NP
+A-004,2026-03-19,Clinic,Tasha Harris,LIC-9999,RN
+A-005,2026-03-20,Emergency,Dr Omar N Haddaad,LIC-4106,MD
+A-006,2026-03-20,Respiratory,L Thompson,LIC-4107,RT
+A-007,2026-03-20,Pediatrics,Mika Rios,LIC-4108,RN
+A-008,2026-03-20,Night Float,E. Brooks,LIC-4104,PA-C
+A-009,2026-03-20,Stepdown,S K Patel,LIC-4109,MD
+A-010,2026-03-20,Telemetry,M. Alvarez,LIC-7777,RN
+A-011,2026-03-21,Rehab,"Chen, Nora Lee",LIC-4110,LPN

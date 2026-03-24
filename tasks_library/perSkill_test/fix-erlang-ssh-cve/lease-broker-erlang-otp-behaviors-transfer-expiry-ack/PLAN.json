@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "lease-broker-erlang-otp-behaviors-transfer-expiry-ack",
+  "taskRole": "transfer",
+  "title": "Transfer: 修复 gen_server 资源租约服务对过期确认的状态污染",
+  "goal": "修复一个管理资源租约的 gen_server：租约超时后延迟到达的 confirm 或 release 消息会把已回收资源重新标成占用，导致后续申请卡死。需要调整 handle_call、handle_cast 和 handle_info 中的状态更新与定时器引用管理，既拒绝陈旧消息，又保留正常租约续期流程。",
+  "primaryOutputFile": "apps/lease_broker/src/lease_server.erl",
+  "difficulty": "hard",
+  "category": "erlang bugfix",
+  "skillBenefitRationale": "核心在于使用 gen_server 正确组织同步调用、异步消息和超时事件，避免邮箱中晚到消息污染状态。这把 OTP 行为的消息边界控制迁移到资源生命周期管理场景，和协议状态机是明显不同的应用面。",
+  "targetSkillDirName": "erlang-otp-behaviors",
+  "targetSkillName": "erlang-otp-behaviors"
+}

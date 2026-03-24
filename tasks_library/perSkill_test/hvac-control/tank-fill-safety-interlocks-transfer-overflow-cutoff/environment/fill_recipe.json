@@ -1,0 +1,24 @@
+{
+  "tank_id": "TK-204",
+  "dt_sec": 2.0,
+  "target_band_pct": {
+    "low": 84.0,
+    "high": 88.0
+  },
+  "high_level_interlock_pct": 92.0,
+  "reopen_fill_pct": 89.5,
+  "overflow_level_pct": 100.0,
+  "hydraulics": {
+    "max_inlet_gain_pct_per_sec": 0.18,
+    "base_outflow_pct_per_sec": 0.025
+  },
+  "sensor_offsets_pct": [0.0, 0.04, -0.03, 0.02, -0.01],
+  "pulse_test": {
+    "initial_level_pct": 91.55,
+    "requested_profile_pct": [80.0, 80.0, 80.0, 80.0, 40.0, 40.0, 0.0, 0.0]
+  },
+  "auto_fill": {
+    "initial_level_pct": 76.0,
+    "duration_sec": 260.0
+  }
+}

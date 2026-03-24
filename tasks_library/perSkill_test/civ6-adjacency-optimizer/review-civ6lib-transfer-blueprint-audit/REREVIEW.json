@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "civ6-adjacency-optimizer",
+  "targetSkillDirName": "civ6lib",
+  "runId": "20260318183732-civ6-adjacency-optimizer-civ6lib-y3vlo5",
+  "taskId": "review-civ6lib-transfer-blueprint-audit",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/civ6-adjacency-optimizer/civ6lib/20260318183732-civ6-adjacency-optimizer-civ6lib-y3vlo5/review-civ6lib-transfer-blueprint-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/civ6-adjacency-optimizer/review-civ6lib-transfer-blueprint-audit",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:review-civ6lib-transfer-blueprint-audit 测试要求输出与期望报告逐字一致，但 instruction 只要求错误原因需能解释失败，没有规定 `errors` 的精确措辞、顺序，以及多错误场景下是累积全部错误还是在首个错误处停止，因此对解题者不可判定。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0f9f-539f-7ec0-b6fd-4644c19091ac"
+}

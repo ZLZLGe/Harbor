@@ -1,0 +1,29 @@
+scenario_name: bioreactor_thermal_recovery_audit
+reactor_id: BR-07
+batch_id: BT-2403
+sample_period_min: 1.0
+tolerance_band_c: 0.25
+steady_state_window_min: 8.0
+events:
+  - event_id: nutrient_shift_heatup
+    phase: nutrient_shift
+    direction: heatup
+    switch_time_min: 18.0
+    target_setpoint_c: 37.0
+    evaluation_window_min: [18.0, 48.0]
+    limits:
+      overshoot_c_max: 0.40
+      settling_time_min_max: 15.0
+      steady_state_error_c_max: 0.12
+      out_of_tolerance_duration_min_max: 10.0
+  - event_id: induction_coolback
+    phase: induction_trim
+    direction: cooldown
+    switch_time_min: 62.0
+    target_setpoint_c: 35.8
+    evaluation_window_min: [62.0, 92.0]
+    limits:
+      overshoot_c_max: 0.35
+      settling_time_min_max: 13.0
+      steady_state_error_c_max: 0.10
+      out_of_tolerance_duration_min_max: 9.0

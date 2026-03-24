@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "eclipsing-binary-box-least-squares-transfer-orbit",
+  "taskRole": "transfer",
+  "title": "Transfer | Measure an Eclipsing Binary Orbital Period",
+  "goal": "分析一条恒星亮度时间序列中的周期性食双星下陷，确定系统轨道周期，并将结果写入 /root/binary_period.txt。",
+  "primaryOutputFile": "/root/binary_period.txt",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "食双星的主食与次食都会表现为重复的箱形亮度下降，和行星凌星在信号形态上高度同构，因此 BLS 可以直接迁移使用，而不依赖其他 shipped skill。",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares"
+}

@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-service-xlsx-transfer-buffer-stock"
+name = "Transfer - Warehouse Buffer Stock Workbook"
+description = "Complete the warehouse buffer stock workbook with monthly inventory rollforward, service gap, and expansion comparison formulas, then save warehouse-buffer-stock.xlsx."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "supply-chain-analysis"
+tags = [ "excel", "warehouse", "inventory-planning", "service-level",]
+primary_output_file = "warehouse-buffer-stock.xlsx"
+source_task_id = "shock-analysis-supply"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

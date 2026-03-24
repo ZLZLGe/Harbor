@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "tcp-suricata-rules-basics-transfer-backup-sync",
+  "taskRole": "transfer",
+  "title": "Transfer - 自定义 TCP 备份同步通道检测",
+  "goal": "编写 Suricata 规则，使其只在发往 TCP/4040 的重组客户端流同时出现 `SYNC/3`、`MODE: MIRROR`、`DEST: vault`，以及 `PAYLOAD=` 后跟至少 128 个十六进制字符和 `TOKEN=` 后跟恰好 32 位十六进制字符时告警。",
+  "primaryOutputFile": "/root/tcp_backup_sync.rules",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "把同一套 `flow`、`content` 与 `pcre` 组合从 HTTP 迁移到原始 TCP 文本协议，强调在无高级协议解析前提下构造可靠多条件规则。",
+  "targetSkillDirName": "suricata-rules-basics",
+  "targetSkillName": "suricata-rules-basics"
+}

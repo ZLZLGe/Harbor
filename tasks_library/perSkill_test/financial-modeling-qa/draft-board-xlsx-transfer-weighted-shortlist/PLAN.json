@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "draft-board-xlsx-transfer-weighted-shortlist",
+  "taskRole": "transfer",
+  "title": "Transfer: Weighted Draft Board Shortlist",
+  "goal": "从球探工作簿中整合体测、比赛分段、位置系数和伤病折减等工作表，生成一份按综合评分排序的选秀 shortlist，并输出为 /root/draft_board.csv。",
+  "primaryOutputFile": "/root/draft_board.csv",
+  "difficulty": "hard",
+  "category": "sports analytics",
+  "skillBenefitRationale": "任务将 xlsx 应用于体育评估场景，要求对多表结构进行映射、加权计算和结果导出，不需要任何额外 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

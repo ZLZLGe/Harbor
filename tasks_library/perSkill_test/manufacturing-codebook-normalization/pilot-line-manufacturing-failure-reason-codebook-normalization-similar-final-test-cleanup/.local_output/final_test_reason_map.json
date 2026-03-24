@@ -1,0 +1,302 @@
+{
+  "records": [
+    {
+      "event_id": "EVT-1001",
+      "product_id": "AX5_DRV",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-LI",
+      "test_item": "OUTPUT_12V",
+      "symptom_code": "F901",
+      "raw_reason_text": "12V output dead，J9开路样子; U17脚位浮高",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1001-S1",
+          "span_text": "12V output dead，J9开路样子",
+          "pred_code": "AX5-FT-001",
+          "pred_label": "No 12V output: J9 open circuit",
+          "confidence": 0.8389,
+          "rationale": "station=FINAL_TEST | item=OUTPUT_12V | symptom=F901 | code=AX5-FT-001 | ov=0.455 | score=0.634"
+        },
+        {
+          "segment_id": "EVT-1001-S2",
+          "span_text": "U17脚位浮高",
+          "pred_code": "AX5-SD-004",
+          "pred_label": "Cold solder suspected: U17",
+          "confidence": 0.7982,
+          "rationale": "station=FINAL_TEST | item=OUTPUT_12V | symptom=F901 | code=AX5-SD-004 | ov=0.286 | score=0.492"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1002",
+      "product_id": "AX5_DRV",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-QI",
+      "test_item": "FAN_TACH",
+      "symptom_code": "F315",
+      "raw_reason_text": "fan不转，tach no pulse，重测还是挂",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1002-S1",
+          "span_text": "fan不转，tach no pulse，重测还是挂",
+          "pred_code": "AX5-FT-002",
+          "pred_label": "Fan tach abnormal / fan stall",
+          "confidence": 0.8689,
+          "rationale": "station=FINAL_TEST | item=FAN_TACH | symptom=F315 | code=AX5-FT-002 | ov=0.556 | score=0.661"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1003",
+      "product_id": "AX5_DRV",
+      "station": "BURN_IN",
+      "engineer_id": "ENG-ZHOU",
+      "test_item": "THERMAL_SOAK",
+      "symptom_code": "B112",
+      "raw_reason_text": "老化2h后 OTP trip，自动关机",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1003-S1",
+          "span_text": "老化2h后 OTP trip，自动关机",
+          "pred_code": "AX5-BI-005",
+          "pred_label": "Burn-in thermal shutdown / OTP trip",
+          "confidence": 0.7908,
+          "rationale": "station=BURN_IN | item=THERMAL_SOAK | symptom=B112 | code=AX5-BI-005 | ov=0.250 | score=0.516"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1004",
+      "product_id": "AX5_DRV",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-SUN",
+      "test_item": "IDLE_CURRENT",
+      "symptom_code": "F228",
+      "raw_reason_text": "静态电流偏高，像半短路",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1004-S1",
+          "span_text": "静态电流偏高，像半短路",
+          "pred_code": "AX5-FT-003",
+          "pred_label": "Idle current high / partial short",
+          "confidence": 0.7578,
+          "rationale": "station=FINAL_TEST | item=IDLE_CURRENT | symptom=F228 | code=AX5-FT-003 | ov=0.100 | score=0.410"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1005",
+      "product_id": "AX5_DRV",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-WU",
+      "test_item": "FIXTURE_LOOP",
+      "symptom_code": "F044",
+      "raw_reason_text": "换夹具后偶尔OK，治具接触飘",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1005-S1",
+          "span_text": "换夹具后偶尔OK，治具接触飘",
+          "pred_code": "AX5-GN-006",
+          "pred_label": "Fixture contact unstable / reseat passes",
+          "confidence": 0.81,
+          "rationale": "station=FINAL_TEST | item=FIXTURE_LOOP | symptom=F044 | code=AX5-GN-006 | ov=0.333 | score=0.498"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1006",
+      "product_id": "BZ9_CTRL",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-HE",
+      "test_item": "BOOT_CHECK",
+      "symptom_code": "C701",
+      "raw_reason_text": "CRC对不上，fw pkg mismatch",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1006-S1",
+          "span_text": "CRC对不上，fw pkg mismatch",
+          "pred_code": "BZ9-FT-001",
+          "pred_label": "Firmware package CRC mismatch",
+          "confidence": 0.8887,
+          "rationale": "station=FINAL_TEST | item=BOOT_CHECK | symptom=C701 | code=BZ9-FT-001 | ov=0.625 | score=0.671"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1007",
+      "product_id": "BZ9_CTRL",
+      "station": "FLASH",
+      "engineer_id": "ENG-PAN",
+      "test_item": "EEPROM_WRITE",
+      "symptom_code": "C411",
+      "raw_reason_text": "写eeprom失败，重烧也不稳",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1007-S1",
+          "span_text": "写eeprom失败，重烧也不稳",
+          "pred_code": "BZ9-FT-003",
+          "pred_label": "EEPROM write failed / reflash unstable",
+          "confidence": 0.8428,
+          "rationale": "station=FLASH | item=EEPROM_WRITE | symptom=C411 | code=BZ9-FT-003 | ov=0.444 | score=0.582"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1008",
+      "product_id": "BZ9_CTRL",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-XU",
+      "test_item": "CAN_LOOP",
+      "symptom_code": "C510",
+      "raw_reason_text": "CAN timeout at J3，偶发丢包",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1008-S1",
+          "span_text": "CAN timeout at J3，偶发丢包",
+          "pred_code": "BZ9-FT-002",
+          "pred_label": "CAN communication timeout at J3",
+          "confidence": 0.8543,
+          "rationale": "station=FINAL_TEST | item=CAN_LOOP | symptom=C510 | code=BZ9-FT-002 | ov=0.500 | score=0.657"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1009",
+      "product_id": "BZ9_CTRL",
+      "station": "BURN_IN",
+      "engineer_id": "ENG-HAN",
+      "test_item": "AGING_RESET",
+      "symptom_code": "B220",
+      "raw_reason_text": "老化时 watchdog reset loop; TP12 浮高",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1009-S1",
+          "span_text": "老化时 watchdog reset loop",
+          "pred_code": "BZ9-BI-004",
+          "pred_label": "Burn-in watchdog reset loop",
+          "confidence": 0.8832,
+          "rationale": "station=BURN_IN | item=AGING_RESET | symptom=B220 | code=BZ9-BI-004 | ov=0.571 | score=0.710"
+        },
+        {
+          "segment_id": "EVT-1009-S2",
+          "span_text": "TP12 浮高",
+          "pred_code": "BZ9-SD-005",
+          "pred_label": "Cold solder suspected: TP12",
+          "confidence": 0.8057,
+          "rationale": "station=BURN_IN | item=AGING_RESET | symptom=B220 | code=BZ9-SD-005 | ov=0.333 | score=0.519"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1010",
+      "product_id": "BZ9_CTRL",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-YAO",
+      "test_item": "PROBE_SCAN",
+      "symptom_code": "C044",
+      "raw_reason_text": "probe pin worn, contact bad",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1010-S1",
+          "span_text": "probe pin worn, contact bad",
+          "pred_code": "BZ9-GN-006",
+          "pred_label": "Probe wear / bad contact",
+          "confidence": 0.8917,
+          "rationale": "station=FINAL_TEST | item=PROBE_SCAN | symptom=C044 | code=BZ9-GN-006 | ov=0.625 | score=0.698"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1011",
+      "product_id": "AX5_DRV",
+      "station": "BURN_IN",
+      "engineer_id": "ENG-LU",
+      "test_item": "AGING_LIGHT",
+      "symptom_code": "B907",
+      "raw_reason_text": "老化时灯闪一下就灭, maybe cap issue",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1011-S1",
+          "span_text": "老化时灯闪一下就灭, maybe cap issue",
+          "pred_code": "UNKNOWN",
+          "pred_label": "",
+          "confidence": 0.2931,
+          "rationale": "station=BURN_IN | item=AGING_LIGHT | symptom=B907 | weak_match score=0.036 ov=0.000"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1012",
+      "product_id": "BZ9_CTRL",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-TAO",
+      "test_item": "CAN_LOOP",
+      "symptom_code": "C999",
+      "raw_reason_text": "J3附近有点怪，debug later",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1012-S1",
+          "span_text": "J3附近有点怪，debug later",
+          "pred_code": "UNKNOWN",
+          "pred_label": "",
+          "confidence": 0.2978,
+          "rationale": "station=FINAL_TEST | item=CAN_LOOP | symptom=C999 | weak_match score=0.063 ov=0.100"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1013",
+      "product_id": "AX5_DRV",
+      "station": "BURN_IN",
+      "engineer_id": "ENG-FEI",
+      "test_item": "IDLE_CURRENT",
+      "symptom_code": "B331",
+      "raw_reason_text": "静态电流高; reseat治具后有时过",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1013-S1",
+          "span_text": "静态电流高",
+          "pred_code": "AX5-FT-003",
+          "pred_label": "Idle current high / partial short",
+          "confidence": 0.7514,
+          "rationale": "station=BURN_IN | item=IDLE_CURRENT | symptom=B331 | code=AX5-FT-003 | ov=0.111 | score=0.414"
+        },
+        {
+          "segment_id": "EVT-1013-S2",
+          "span_text": "reseat治具后有时过",
+          "pred_code": "AX5-GN-006",
+          "pred_label": "Fixture contact unstable / reseat passes",
+          "confidence": 0.7878,
+          "rationale": "station=BURN_IN | item=IDLE_CURRENT | symptom=B331 | code=AX5-GN-006 | ov=0.222 | score=0.474"
+        }
+      ]
+    },
+    {
+      "event_id": "EVT-1014",
+      "product_id": "BZ9_CTRL",
+      "station": "FINAL_TEST",
+      "engineer_id": "ENG-MA",
+      "test_item": "BOOT_CHECK",
+      "symptom_code": "C702",
+      "raw_reason_text": "CRC fail ; probe wear again",
+      "reason_segments": [
+        {
+          "segment_id": "EVT-1014-S1",
+          "span_text": "CRC fail",
+          "pred_code": "BZ9-FT-001",
+          "pred_label": "Firmware package CRC mismatch",
+          "confidence": 0.7903,
+          "rationale": "station=FINAL_TEST | item=BOOT_CHECK | symptom=C702 | code=BZ9-FT-001 | ov=0.250 | score=0.491"
+        },
+        {
+          "segment_id": "EVT-1014-S2",
+          "span_text": "probe wear again",
+          "pred_code": "BZ9-GN-006",
+          "pred_label": "Probe wear / bad contact",
+          "confidence": 0.8306,
+          "rationale": "station=FINAL_TEST | item=BOOT_CHECK | symptom=C702 | code=BZ9-GN-006 | ov=0.375 | score=0.598"
+        }
+      ]
+    }
+  ]
+}

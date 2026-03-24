@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots",
+  "taskRole": "similar",
+  "title": "Similar: Sidewalk Crowd Peak Frames",
+  "goal": "读取街头监控视频，提取可比较的静态帧，找出每个视频里同时出现行人最多的那一帧，并把视频名、峰值帧标识和该帧可见行人数写入 /app/video/pedestrian_peaks.xlsx。",
+  "primaryOutputFile": "/app/video/pedestrian_peaks.xlsx",
+  "difficulty": "hard",
+  "category": "pedestrian crowd peak detection",
+  "skillBenefitRationale": "任务核心是先把连续监控视频拆成可检视帧，再定位人流峰值对应的静态证据；视频帧提取是唯一关键 shipped skill，且目标仍贴近原始监控视频分析场景。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

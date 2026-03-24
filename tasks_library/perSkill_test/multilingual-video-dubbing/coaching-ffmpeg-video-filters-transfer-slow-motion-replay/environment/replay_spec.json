@@ -1,0 +1,14 @@
+{
+  "segment_start_sec": 1.8,
+  "segment_end_sec": 4.8,
+  "slowdown_factor": 2.0,
+  "crop_width_expr": "iw*0.40",
+  "crop_height_expr": "ih*0.62",
+  "crop_x_expr": "iw*0.46",
+  "crop_y_expr": "ih*0.12",
+  "output_width": 960,
+  "output_height": 540,
+  "logo_width": 112,
+  "overlay_x": 820,
+  "overlay_y": 22
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "saturn-aurora-consensus-pareto-optimization-similar-frontier"
+name = "Similar: Saturn Aurora Consensus Frontier"
+description = "Sweep Saturn aurora consensus hyperparameters, keep strong trade-off candidates, and write the non-dominated frontier to /root/aurora_frontier.csv."
+author_name = "Steven Dillmann"
+author_email = "stevendi@stanford.edu"
+difficulty = "hard"
+category = "data-science"
+tags = ["astronomy", "saturn", "citizen-science", "consensus", "multi-objective-optimization", "python"]
+primary_output_file = "/root/aurora_frontier.csv"
+source_task_id = "mars-clouds-clustering"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true

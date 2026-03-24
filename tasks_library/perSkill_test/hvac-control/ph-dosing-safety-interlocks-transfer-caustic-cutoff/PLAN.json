@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ph-dosing-safety-interlocks-transfer-caustic-cutoff",
+  "taskRole": "transfer",
+  "title": "Transfer: pH Dosing Caustic Cutoff",
+  "goal": "实现发酵罐 pH 调节流程，把 pH 拉到 6.8 附近，但在试投加和调节阶段都必须执行 7.2 上限联锁；一旦测得 pH 过高，就要立刻停止碱液泵、把输出命令钳在安全范围内并记录事件，最终生成一份投加安全审计结果。",
+  "primaryOutputFile": "dosing_interlock_audit.json",
+  "difficulty": "medium",
+  "category": "process-control",
+  "skillBenefitRationale": "任务重点是把超限切断、命令钳位和事件审计稳定地接进投加控制回路，防止过量投加造成失控；除 safety-interlocks 外不依赖其他 shipped skill。",
+  "targetSkillDirName": "safety-interlocks",
+  "targetSkillName": "safety-interlocks"
+}

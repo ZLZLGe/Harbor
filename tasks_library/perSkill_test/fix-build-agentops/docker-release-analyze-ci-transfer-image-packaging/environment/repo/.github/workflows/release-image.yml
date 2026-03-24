@@ -1,0 +1,23 @@
+name: release-image
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build release image
+        run: docker build -f Dockerfile -t ghcr.io/harbor-labs/harbor-app:${{ github.ref_name }} .
+
+  package-release-bundle:
+    needs: release-image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build offline release bundle
+        run: bash scripts/run_release_ci.sh

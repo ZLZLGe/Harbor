@@ -1,0 +1,12 @@
+{
+  "initial_envelope_amplitude_g": 0.82,
+  "decay_rate_per_s": 1.35,
+  "damped_frequency_hz": 7.4,
+  "phase_rad": 0.55,
+  "offset_g": -0.004,
+  "natural_frequency_hz": 7.403118563436429,
+  "damping_ratio": 0.029022792399305296,
+  "log_decrement": 0.18243243243243243,
+  "predicted_envelope_at_evaluation_g": 0.10823495141402073,
+  "time_to_amplitude_limit_s": 1.7239094115440126
+}

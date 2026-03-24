@@ -1,0 +1,70 @@
+{
+  "sourceTaskId": "court-form-filling",
+  "targetSkillDirName": "pdf",
+  "runId": "20260315213805-court-form-filling-pdf-leta44",
+  "taskId": "vendor-statement-pdf-transfer-extraction",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/court-form-filling/vendor-statement-pdf-transfer-extraction",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315213805-court-form-filling-pdf-leta44/court-form-filling/drafts/vendor-statement-pdf-transfer-extraction",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/court-form-filling/vendor-statement-pdf-transfer-extraction",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/court-form-filling/vendor-statement-pdf-transfer-extraction",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 `pdf`/`PDF`，构成技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md directly uses the shipped skill name in prose via 'statement PDF', so it should be treated as skill exposure.; visibilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "permit-packet-pdf-transfer-assembly",
+        "vendor-statement-pdf-transfer-extraction"
+      ],
+      "requestedIssuesByTaskId": {
+        "permit-packet-pdf-transfer-assembly": {
+          "reviewerIssues": [
+            "instruction.md directly uses the shipped skill name in prose via 'source PDFs' and 'merged PDF', so it should be treated as skill exposure.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "vendor-statement-pdf-transfer-extraction": {
+          "reviewerIssues": [
+            "instruction.md directly uses the shipped skill name in prose via 'statement PDF', so it should be treated as skill exposure.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10b9-dc81-7b43-aac0-67fb81fb322d",
+      "repairSummary": "- `permit-packet-pdf-transfer-assembly`: 改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260315213805-court-form-filling-pdf-leta44-3cfc66d8/court-form-filling/drafts/permit-packet-pdf-transfer-assembly/instruction.md)，把输入文件描述改成 `basename + 现有扩展名`，页序列表也去掉了带扩展名的完整路径；输出文件改成“固定 basename + 与输入相同扩展名”的写法，避免直接出现受限字符串，同时保留测试可推导性。\n\n- `vendor-statement-pdf-transfer-extraction`: 改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260315213805-court-form-filling-pdf-leta44-3cfc66d8/court-form-filling/drafts/vendor-statement-pdf-transfer-extraction/instruction.md)，把输入资产改成“`vendor-statement` 这个 basename 的现有文件”，并把 “statement PDF” 改成 “statement file”，去掉直接点名但不改变输出 JSON 要求。\n\n已额外检查这两份 `instruction.md`，`pdf` / `PDF` 已无匹配。没有改 `derivedTaskId`、`taskRole`、`source_task_id`，也没有改其他目录。",
+      "reviewThreadId": "019d10bb-f34f-7be1-b854-349e7ecedd1a",
+      "evaluationByTaskId": {
+        "permit-packet-pdf-transfer-assembly": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "vendor-statement-pdf-transfer-extraction": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

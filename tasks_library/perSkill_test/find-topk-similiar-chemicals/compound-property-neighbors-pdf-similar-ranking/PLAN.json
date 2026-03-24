@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "compound-property-neighbors-pdf-similar-ranking",
+  "taskRole": "similar",
+  "title": "Similar: Compound Property Neighbors",
+  "goal": "从给定文档中提取化合物名称与表中给出的理化属性，给定目标化合物名后按属性距离找出top-k最相近化合物，并输出为JSON结果。",
+  "primaryOutputFile": "/root/workspace/compound_neighbors.json",
+  "difficulty": "medium",
+  "category": "chemistry",
+  "skillBenefitRationale": "任务核心是稳定抽取PDF中的化合物属性表并据此完成排序，`pdf`是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

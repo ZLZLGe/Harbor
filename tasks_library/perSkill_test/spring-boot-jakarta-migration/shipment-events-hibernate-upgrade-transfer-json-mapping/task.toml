@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "shipment-events-hibernate-upgrade-transfer-json-mapping"
+name = "Transfer: 物流事件仓储的 JSON 映射迁移"
+description = "修复物流事件实体中的旧式 JSONB 类型声明，并产出可通过持久化与回读测试的 ShipmentEvent。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["hibernate", "json", "spring-boot", "entity-mapping", "logistics"]
+primary_output_file = "src/main/java/com/acme/logistics/model/ShipmentEvent.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

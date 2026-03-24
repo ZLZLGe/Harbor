@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "podcast-preview-ffmpeg-format-conversion-transfer-opus-release"
+name = "Transfer: Podcast Preview Opus Release"
+description = "将高采样率播客预告母带 WAV 转成面向移动端发布的 Opus 音频文件，并满足指定采样率、声道和目标比特率。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "podcast-audio-publishing"
+tags = ["podcast", "audio publishing", "opus", "transcoding"]
+primary_output_file = "/outputs/podcast_preview.opus"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

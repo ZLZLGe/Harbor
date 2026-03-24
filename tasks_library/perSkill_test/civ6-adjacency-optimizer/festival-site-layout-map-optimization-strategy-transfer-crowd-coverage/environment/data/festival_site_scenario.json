@@ -1,0 +1,105 @@
+{
+  "site_map": [
+    "..P.Q.P...",
+    ".P..P..P..",
+    "..S.C.S...",
+    "S.C...C.S.",
+    ".S..P..S..",
+    "..C.M.C...",
+    ".M..P..M..",
+    "..P...P..."
+  ],
+  "legend": {
+    ".": "walkable ground",
+    "P": "power-node candidate neighborhood",
+    "Q": "quiet camping edge",
+    "S": "stage or supply candidate neighborhood",
+    "C": "crowd concentration",
+    "M": "medical access neighborhood"
+  },
+  "distance_metric": "euclidean",
+  "required_counts": {
+    "stages": 2,
+    "supply_stations": 2,
+    "first_aid_points": 1,
+    "power_nodes": 2
+  },
+  "candidate_sites": {
+    "stages": [
+      {"id": "ST1", "coord": [2, 2]},
+      {"id": "ST2", "coord": [5, 2]},
+      {"id": "ST3", "coord": [8, 2]},
+      {"id": "ST4", "coord": [3, 5]},
+      {"id": "ST5", "coord": [7, 5]}
+    ],
+    "supply_stations": [
+      {"id": "SU1", "coord": [1, 4]},
+      {"id": "SU2", "coord": [4, 4]},
+      {"id": "SU3", "coord": [6, 4]},
+      {"id": "SU4", "coord": [9, 4]},
+      {"id": "SU5", "coord": [5, 7]}
+    ],
+    "first_aid_points": [
+      {"id": "MD1", "coord": [2, 7]},
+      {"id": "MD2", "coord": [6, 7]},
+      {"id": "MD3", "coord": [9, 6]}
+    ],
+    "power_nodes": [
+      {"id": "PW1", "coord": [1, 1]},
+      {"id": "PW2", "coord": [4, 1]},
+      {"id": "PW3", "coord": [7, 1]},
+      {"id": "PW4", "coord": [4, 6]},
+      {"id": "PW5", "coord": [7, 7]}
+    ]
+  },
+  "quiet_zones": [
+    {"id": "Q1", "coord": [8, 1], "buffer_radius": 1.6}
+  ],
+  "restricted_sites": {
+    "stages": [],
+    "supply_stations": ["SU4"],
+    "first_aid_points": [],
+    "power_nodes": []
+  },
+  "crowd_zones": [
+    {"id": "Z1", "coord": [2, 3], "attendance": 100, "hydration_need": 7, "medical_risk": 4},
+    {"id": "Z2", "coord": [5, 3], "attendance": 130, "hydration_need": 8, "medical_risk": 5},
+    {"id": "Z3", "coord": [8, 3], "attendance": 90, "hydration_need": 6, "medical_risk": 3},
+    {"id": "Z4", "coord": [3, 6], "attendance": 110, "hydration_need": 5, "medical_risk": 6},
+    {"id": "Z5", "coord": [6, 6], "attendance": 120, "hydration_need": 9, "medical_risk": 7},
+    {"id": "Z6", "coord": [9, 5], "attendance": 80, "hydration_need": 4, "medical_risk": 4}
+  ],
+  "service_radii": {
+    "stages": 2.6,
+    "supply_stations": 2.2,
+    "first_aid_points": 2.5
+  },
+  "coverage_scores": {
+    "stage_attendance_multiplier": 0.12,
+    "supply_hydration_multiplier": 3,
+    "first_aid_risk_multiplier": 4,
+    "dual_service_bonus": 5
+  },
+  "power_rules": {
+    "stage_radius": 3.2,
+    "supply_radius": 3.0,
+    "stage_bonus_per_powered_stage": 12,
+    "supply_bonus_per_powered_supply": 6
+  },
+  "spacing_rules": {
+    "same_type": {
+      "stages": 3.0,
+      "supply_stations": 2.5,
+      "first_aid_points": 0.0,
+      "power_nodes": 2.5
+    },
+    "cross_type": {
+      "stages|supply_stations": 2.0,
+      "stages|first_aid_points": 2.5,
+      "stages|power_nodes": 1.5,
+      "supply_stations|first_aid_points": 1.5,
+      "supply_stations|power_nodes": 1.5,
+      "first_aid_points|power_nodes": 1.5
+    }
+  }
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "city-permit-planning-with-files-transfer-submission-checklist"
+name = "Transfer | Build a Permit Submission Checklist"
+description = "Review a municipal permit package, determine which submission requirements are satisfied, missing, or conflicting, and write a CSV checklist with blockers."
+author_name = "Levi Zhang"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "compliance-ops"
+tags = ["compliance-ops", "permit-review", "csv", "document-analysis", "planning"]
+primary_output_file = "deliverables/permit_submission_checklist.csv"
+source_task_id = "organize-messy-files"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096

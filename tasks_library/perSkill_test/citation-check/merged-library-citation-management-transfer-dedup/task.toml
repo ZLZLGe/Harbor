@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "merged-library-citation-management-transfer-dedup"
+name = "Transfer: Merged Bibliography Dedup Resolution"
+description = "Resolve duplicate records across two merged BibTeX libraries and write the canonical-to-merged key mapping to /root/duplicate_map.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "research"
+tags = ["citation", "bibtex", "deduplication", "metadata-reconciliation", "research-library"]
+primary_output_file = "/root/duplicate_map.json"
+source_task_id = "citation-check"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true

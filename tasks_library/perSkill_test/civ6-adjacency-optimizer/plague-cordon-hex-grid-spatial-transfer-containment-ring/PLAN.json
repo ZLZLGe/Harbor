@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "plague-cordon-hex-grid-spatial-transfer-containment-ring",
+  "taskRole": "transfer",
+  "title": "Transfer: Plague Containment Ring",
+  "goal": "给定会按六边形邻接逐回合扩散的疫情源，布置隔离塔与封锁节点，在限定回合内拦截所有扩散路径并最小化总建造代价。",
+  "primaryOutputFile": "/output/containment_ring.json",
+  "difficulty": "hard",
+  "category": "public-safety",
+  "skillBenefitRationale": "该任务把 skill 迁移到时序扩散控制问题，核心仍是六边形邻居展开、hex distance 前沿判断与环状封锁空间设计。",
+  "targetSkillDirName": "hex-grid-spatial",
+  "targetSkillName": "hex-grid-spatial"
+}

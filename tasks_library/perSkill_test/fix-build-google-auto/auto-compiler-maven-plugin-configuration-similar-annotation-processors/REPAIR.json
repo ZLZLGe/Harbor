@@ -1,0 +1,28 @@
+{
+  "sourceTaskId": "fix-build-google-auto",
+  "targetSkillDirName": "maven-plugin-configuration",
+  "runId": "20260319164942-fix-build-google-auto-maven-plugin-configuration-vit488",
+  "taskId": "auto-compiler-maven-plugin-configuration-similar-annotation-processors",
+  "originErrorCombo": "reviewer__static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer__static/fix-build-google-auto/maven-plugin-configuration/20260319164942-fix-build-google-auto-maven-plugin-configuration-vit488/auto-compiler-maven-plugin-configuration-similar-annotation-processors",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319164942-fix-build-google-auto-maven-plugin-configuration-vit488/fix-build-google-auto/drafts/auto-compiler-maven-plugin-configuration-similar-annotation-processors",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/fix-build-google-auto/auto-compiler-maven-plugin-configuration-similar-annotation-processors",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/fix-build-google-auto/auto-compiler-maven-plugin-configuration-similar-annotation-processors",
+  "status": "pass",
+  "issueCategories": [
+    "visibility",
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接点名 `maven-compiler-plugin` 并明确要求修复注解处理器路径与编译参数，相比 source_task/instruction.md 更直接地暴露了技能。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

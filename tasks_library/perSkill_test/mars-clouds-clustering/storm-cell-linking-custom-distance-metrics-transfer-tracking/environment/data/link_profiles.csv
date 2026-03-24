@@ -1,0 +1,5 @@
+profile_id,east_west_weight,north_south_weight,max_link_distance_km
+zonal_relaxed,0.7,1.7,4.8
+balanced,1.0,1.0,4.8
+meridional_relaxed,1.5,0.9,4.8
+zonal_strict,0.7,1.7,3.6

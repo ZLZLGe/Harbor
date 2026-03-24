@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "release-gate-cvss-score-extraction-transfer-policy-brief",
+  "taskRole": "transfer",
+  "title": "Transfer: 发布门禁风险简报",
+  "goal": "给定候选发布版本的 advisory 快照，提取每个问题的权威 CVSS 分数与来源，生成 Markdown 门禁简报，判断是否触发阻断发布的风险阈值。",
+  "primaryOutputFile": "/root/release_gate_brief.md",
+  "difficulty": "medium",
+  "category": "devops",
+  "skillBenefitRationale": "场景迁移到 CI/CD 决策，仍然以正确选择和呈现 CVSS 分数为唯一关键能力。",
+  "targetSkillDirName": "cvss-score-extraction",
+  "targetSkillName": "cvss-score-extraction"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cdc-quality-senior-data-engineer-transfer-disorder-report",
+  "taskRole": "transfer",
+  "title": "Transfer: CDC Disorder Quality Report",
+  "goal": "实现一个 Flink 作业，读取多表 CDC 变更流，按 table 和 primaryKey 去重并保留最新版本，统计每个表每日被抑制的重复事件数、乱序更新数以及最终保留记录数，输出到单个本地文件。",
+  "primaryOutputFile": "/app/workspace/cdc_quality_report.txt",
+  "difficulty": "hard",
+  "category": "flink",
+  "skillBenefitRationale": "这个任务把 skill 迁移到数据质量与 CDC 治理场景，核心是有状态去重、事件时间顺序校正和质量指标汇总，属于与原题不同的数据工程落地面。",
+  "targetSkillDirName": "senior-data-engineer",
+  "targetSkillName": "senior-data-engineer"
+}

@@ -1,0 +1,30 @@
+[task]
+version = "1.0"
+id = "endpoint-probe-python-parallelization-transfer-async-audit"
+name = "Transfer: Async Endpoint Audit with Bounded Concurrency"
+description = "Convert a sequential local HTTP endpoint auditor into /root/workspace/async_endpoint_audit.py with bounded concurrent probing and summary reporting."
+
+[metadata]
+id = "endpoint-probe-python-parallelization-transfer-async-audit"
+name = "Transfer: Async Endpoint Audit with Bounded Concurrency"
+description = "Convert a sequential local HTTP endpoint auditor into /root/workspace/async_endpoint_audit.py with bounded concurrent probing and summary reporting."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "Parallelization"
+tags = ["parallelization", "python", "asyncio", "http", "audit"]
+primary_output_file = "/root/workspace/async_endpoint_audit.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

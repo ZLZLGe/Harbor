@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "saas-outage-planning-with-files-transfer-timeline-reconstruction",
+  "taskRole": "transfer",
+  "title": "Transfer | Reconstruct a SaaS Outage Timeline",
+  "goal": "检查一个 SaaS 故障工作区中的日志、告警导出、值班聊天记录、工单和配置快照，重建完整故障时间线，给出根因假设、关键证据和仍待确认的问题。",
+  "primaryOutputFile": "reports/outage_postmortem.md",
+  "difficulty": "medium",
+  "category": "incident-analysis",
+  "skillBenefitRationale": "证据分散且可能互相矛盾，必须把阶段计划、时间线草稿和未决问题持续落盘，才能稳定推进调查而不丢失上下文。",
+  "targetSkillDirName": "planning-with-files",
+  "targetSkillName": "planning-with-files"
+}

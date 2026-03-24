@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "animation-render-fjsp-baseline-repair-with-downtime-and-policy-transfer-render-node-maintenance",
+  "taskRole": "transfer",
+  "title": "Transfer Animation Render Farm Recovery",
+  "goal": "把该 skill 迁移到动画后期渲染场景，修复镜头预处理、渲染、合成、质检的基线队列，在渲染节点与合成工作站维护窗口下重排任务，并限制节点切换次数与开始时间总偏移。",
+  "primaryOutputFile": "/app/output/render_recovery_plan.json",
+  "difficulty": "medium",
+  "category": "media-operations",
+  "skillBenefitRationale": "这里不需要额外媒体领域知识；难点仍是把带基线的柔性多工序任务在可替代资源上做最早可行修复，消除停机冲突并控制 machine-change 与 start-shift 预算。",
+  "targetSkillDirName": "fjsp-baseline-repair-with-downtime-and-policy",
+  "targetSkillName": "fjsp-baseline-repair-with-downtime-and-policy"
+}

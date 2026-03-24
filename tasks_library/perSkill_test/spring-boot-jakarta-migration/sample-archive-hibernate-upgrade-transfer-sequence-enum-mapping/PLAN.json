@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping",
+  "taskRole": "transfer",
+  "title": "Transfer: 科研样本归档服务的主键与类型映射迁移",
+  "goal": "在科研样本归档服务中，修复 Hibernate 6 下失效的主键生成策略、枚举与时间字段映射，以及过时方言配置，让归档写入与历史回放测试重新通过。",
+  "primaryOutputFile": "src/main/java/com/acme/archive/model/SampleRecord.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "问题集中在 Hibernate 6 的 ID generation、类型映射和配置变化，属于持久化层迁移，不需要任何其他 shipped skill。",
+  "targetSkillDirName": "hibernate-upgrade",
+  "targetSkillName": "hibernate-upgrade"
+}

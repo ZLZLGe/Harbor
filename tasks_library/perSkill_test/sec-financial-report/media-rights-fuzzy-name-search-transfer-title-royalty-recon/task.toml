@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "media-rights-fuzzy-name-search-transfer-title-royalty-recon"
+name = "Transfer - 13F 基金与发行人模糊检索持仓复核"
+description = "使用 `fuzzy-name-search` skill 将不规范基金名称和发行人名称映射到标准 13F filing 与 CUSIP，汇总目标持仓、重复持仓分组和最大单笔持仓，并输出 `/root/royalty_reconciliation.json`。"
+author_name = "Xuanqing Liu"
+author_email = "xuanqingliu@outlook.com"
+difficulty = "hard"
+category = "finance"
+tags = ["13f", "sec filing", "fuzzy search", "portfolio reconciliation"]
+primary_output_file = "/root/royalty_reconciliation.json"
+source_task_id = "sec-financial-report"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

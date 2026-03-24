@@ -1,0 +1,11 @@
+run_id,machine_id,board_family,gas_mode,solder_liquidus_c,o2_ppm_reflow,dominant_defect,defect_trend
+WK11-R101,RF-11,Mobile_PWR,N2_full,217,1250,insufficient_solder,up
+WK11-R102,RF-11,Sensor_Module,N2_full,217,1380,voiding,up
+WK11-R201,RF-12,Compute_IO,Air,183,19800,bridging,up
+WK11-R202,RF-12,Compute_IO,Air,183,20100,solder_balls,up
+WK11-R301,RF-13,Industrial_CTRL,N2_mixed,217,760,component_shift,stable
+WK11-R302,RF-13,Industrial_CTRL,N2_mixed,217,840,coplanarity,stable
+WK11-R401,RF-14,Wearable,N2_mixed,217,720,head_in_pillow,up
+WK11-R402,RF-14,Wearable,N2_mixed,217,700,insufficient_solder,up
+WK11-R501,RF-15,Sensor_Module,N2_full,183,320,none,down
+WK11-R502,RF-15,Sensor_Module,N2_full,183,340,none,stable

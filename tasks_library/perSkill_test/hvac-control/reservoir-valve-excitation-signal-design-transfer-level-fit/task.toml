@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "reservoir-valve-excitation-signal-design-transfer-level-fit"
+name = "Transfer - 蓄水罐液位阀门阶跃辨识"
+description = "为蓄水罐进水阀设计一次安全且信息量足够的开度阶跃试验，并输出包含激励方案、液位响应日志和液位动态模型的 tank_level_response_fit.json。"
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "process-control"
+tags = ["reservoir", "level-identification", "valve-step", "process-control", "python"]
+primary_output_file = "tank_level_response_fit.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

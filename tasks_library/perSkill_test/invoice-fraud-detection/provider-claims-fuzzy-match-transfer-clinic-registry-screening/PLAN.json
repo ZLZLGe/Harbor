@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "provider-claims-fuzzy-match-transfer-clinic-registry-screening",
+  "taskRole": "transfer",
+  "title": "Transfer: 医疗机构理赔注册表筛查",
+  "goal": "筛查医疗理赔记录中的就诊机构，将理赔里的诊所名称与授权机构注册表进行模糊匹配，识别无法可信匹配的机构，以及匹配后 NPI、州别或结算账户与注册信息不一致的理赔，并将需要复核的记录保存到 /root/provider_claim_blocks.json。",
+  "primaryOutputFile": "/root/provider_claim_blocks.json",
+  "difficulty": "hard",
+  "category": "data-validation",
+  "skillBenefitRationale": "核心问题是机构名称存在简称、标点差异和常见拼写错误，必须先做高质量实体解析；后续 NPI、州别和账户检查都是确定性验证，所以 fuzzy-match 仍是唯一关键 shipped skill。",
+  "targetSkillDirName": "fuzzy-match",
+  "targetSkillName": "fuzzy-match"
+}

@@ -1,0 +1,8 @@
+{
+  "batch_id": "saison-tank-07",
+  "step_log_file": "heating_step_log.csv",
+  "heater_power_percent": 45.0,
+  "step_start_min": 4.0,
+  "target_band_c": [24.2, 24.8],
+  "notes": "Predict minutes from the heater step to the lower bound, midpoint, and upper bound of the fermentation window."
+}

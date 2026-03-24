@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "tcp-suricata-rules-basics-transfer-backup-sync"
+name = "Transfer - 自定义 TCP 备份同步通道检测"
+description = "Write Suricata rule(s) that alert only on the targeted TCP backup sync channel and save them to /root/tcp_backup_sync.rules."
+author_name = "Shenghan Zheng"
+author_email = "shenghan.zheng.gr@dartmouth.edu"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["suricata", "tcp", "stream-reassembly", "ids", "rule-writing"]
+primary_output_file = "/root/tcp_backup_sync.rules"
+source_task_id = "suricata-custom-exfil"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

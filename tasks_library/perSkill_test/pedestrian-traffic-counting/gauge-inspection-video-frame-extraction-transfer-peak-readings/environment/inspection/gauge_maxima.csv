@@ -1,0 +1,5 @@
+video_filename,peak_frame_id,max_reading
+boiler_feed_pressure.avi,F0007,80.1
+compressor_suction.avi,F0006,52.1
+coolant_loop_temp.avi,F0004,73.6
+dryer_humidity.avi,F0003,18.1

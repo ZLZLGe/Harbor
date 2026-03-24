@@ -1,0 +1,5 @@
+Al2O3_mp-7048.cif
+CF4_mp-1167.cif
+FeS2_mp-226.cif
+HgSe_mp-1018722.cif
+SiO2_mp-7000.cif

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "wave-solder-reflow-profile-compliance-toolkit-transfer-through-hole-audit"
+name = "Transfer | 波峰焊热历程审核"
+description = "Audit each wave-solder lot with handbook limits, thermocouple traces, line-speed logs, and defect records, then write /app/output/wave_solder_profile_audit.yaml."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "manufacturing"
+tags = ["manufacturing", "wave-solder", "thermal-profile", "yaml"]
+primary_output_file = "/app/output/wave_solder_profile_audit.yaml"
+source_task_id = "manufacturing-equipment-maintenance"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

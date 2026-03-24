@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "estuary-salinity-meteorology-driver-classification-transfer-intrusion"
+name = "Transfer: Estuary Salinity Intrusion Attribution"
+description = "Analyze estuary salinity transects and annual driver conditions to identify the dominant category behind worsening dry-season salinity intrusion in /root/output/salinity_intrusion_driver.csv."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["estuary", "salinity", "attribution", "driver-classification"]
+primary_output_file = "/root/output/salinity_intrusion_driver.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

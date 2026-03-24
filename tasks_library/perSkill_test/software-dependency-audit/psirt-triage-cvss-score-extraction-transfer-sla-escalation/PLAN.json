@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "psirt-triage-cvss-score-extraction-transfer-sla-escalation",
+  "taskRole": "transfer",
+  "title": "Transfer: PSIRT 工单 SLA 升级清单",
+  "goal": "给定厂商 PSIRT 公告 JSON 和内部工单状态，提取每条公告的最佳 CVSS 分数，识别 CVSS 至少为 7.0 且超过修复 SLA 的事项，输出升级 JSON 清单。",
+  "primaryOutputFile": "/root/psirt_sla_escalations.json",
+  "difficulty": "medium",
+  "category": "operations",
+  "skillBenefitRationale": "把同一套多源 CVSS 选择逻辑迁移到厂商公告分诊，重点从依赖审计转为补丁响应升级。",
+  "targetSkillDirName": "cvss-score-extraction",
+  "targetSkillName": "cvss-score-extraction"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "model-qc-power-flow-data-transfer-topology-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Topology Data Quality Audit",
+  "goal": "Given a MATPOWER network snapshot, generate `topology_audit.json` identifying orphan buses, duplicate corridors, zero-reactance or zero-rating anomalies, invalid generator-to-bus references, and a normalized bus-index map for downstream tooling.",
+  "primaryOutputFile": "topology_audit.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "This is a pure network-data QA task that requires detailed handling of MATPOWER field layouts, bus numbering conventions, and branch connectivity, with no dependence on any non-shipped skill.",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

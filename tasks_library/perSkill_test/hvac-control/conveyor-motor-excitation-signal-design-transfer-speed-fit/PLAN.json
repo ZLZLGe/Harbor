@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "conveyor-motor-excitation-signal-design-transfer-speed-fit",
+  "taskRole": "transfer",
+  "title": "Transfer - 传送带电机速度阶跃建模",
+  "goal": "为传送带电机测试台设计 PWM 阶跃激励，记录转速计响应并输出 `motor_speed_model.json`，其中包含输入阶跃方案、速度响应日志和拟合出的电机速度动态参数。",
+  "primaryOutputFile": "motor_speed_model.json",
+  "difficulty": "medium",
+  "category": "robotics-control",
+  "skillBenefitRationale": "电机速度辨识仍然依赖选择合适的阶跃幅值、保持时长和采样频率，确保响应既不饱和也不淹没在噪声里；核心可迁移能力就是激励信号设计。",
+  "targetSkillDirName": "excitation-signal-design",
+  "targetSkillName": "excitation-signal-design"
+}

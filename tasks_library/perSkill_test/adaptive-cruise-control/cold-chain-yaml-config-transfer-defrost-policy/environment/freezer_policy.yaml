@@ -1,0 +1,46 @@
+site:
+  facility_id: HK-COLD-03
+  timezone: Asia/Hong_Kong
+
+analysis:
+  sample_interval_hours: 1
+  severe_excursion_delta_c: 2.0
+  long_event_hours: 4
+  repeat_event_threshold: 2
+  door_open_extension_threshold: 2
+
+alarm_windows:
+  day:
+    start: "06:00"
+    end: "13:59"
+    recommended_start: "06:30"
+  swing:
+    start: "14:00"
+    end: "21:59"
+    recommended_start: "14:30"
+  night:
+    start: "22:00"
+    end: "05:59"
+    recommended_start: "22:30"
+
+equipment_groups:
+  produce_line:
+    freezer_ids:
+      - FZ-A1
+      - FZ-A2
+    max_temp_c: -16.0
+    defrost:
+      base_interval_hours: 8
+      min_interval_hours: 5
+      base_duration_minutes: 30
+      max_duration_minutes: 45
+  protein_line:
+    freezer_ids:
+      - FZ-B1
+      - FZ-B2
+    max_temp_c: -15.5
+    defrost:
+      base_interval_hours: 7
+      min_interval_hours: 4
+      base_duration_minutes: 35
+      max_duration_minutes: 50

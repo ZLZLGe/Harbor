@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "phase-diagram-pymatgen-transfer-local-hull-analysis",
+  "taskRole": "transfer",
+  "title": "Pymatgen Transfer: Local Phase Hull Analysis",
+  "goal": "给定本地提供的化学式与能量数据文件，为指定化学体系构建相图，输出稳定相列表、目标组成的 energy above hull，以及不稳定组成的分解产物与比例。",
+  "primaryOutputFile": "local_hull_analysis.json",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "任务把 pymatgen 迁移到热力学分析场景，核心依赖 Composition、ComputedEntry 和 PhaseDiagram，而不需要任何其他 shipped skill。",
+  "targetSkillDirName": "pymatgen",
+  "targetSkillName": "pymatgen"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "release-cutover-planning-with-files-transfer-launch-runbook",
+  "taskRole": "transfer",
+  "title": "Transfer | Assemble a Release Cutover Runbook",
+  "goal": "基于产品规格、迁移说明、缺陷分级文档、回滚片段和会议纪要，整理出发布当天的 cutover runbook，明确执行顺序、负责人、依赖、验证步骤和回滚触发条件。",
+  "primaryOutputFile": "plans/cutover_runbook.md",
+  "difficulty": "medium",
+  "category": "release-management",
+  "skillBenefitRationale": "该任务需要先拆分阶段，再把依赖关系、已确认决策和风险项持续写入文件；这样才能在多文档综合编排中保持全局顺序与遗漏控制。",
+  "targetSkillDirName": "planning-with-files",
+  "targetSkillName": "planning-with-files"
+}

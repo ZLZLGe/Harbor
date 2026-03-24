@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "battery-siting-power-flow-data-transfer-bus-screen",
+  "taskRole": "transfer",
+  "title": "Transfer: Battery Interconnection Bus Screen",
+  "goal": "Given a MATPOWER network snapshot and a shortlist of candidate buses for a battery project, generate `interconnection_screen.json` ranking the buses by voltage class, connected branch transfer capability, nearby load sink, and local generation headroom proxies.",
+  "primaryOutputFile": "interconnection_screen.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "The core work is extracting structured bus, generator, and branch context from MATPOWER data and recombining it into siting metrics, making power-flow-data the only critical shipped skill.",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

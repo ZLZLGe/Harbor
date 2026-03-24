@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "fix-build-google-auto",
+  "targetSkillDirName": "maven-build-lifecycle",
+  "runId": "20260319160720-fix-build-google-auto-maven-build-lifecycle-yur9eq",
+  "taskId": "adapt-maven-build-lifecycle-transfer-profile-package-assets",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/fix-build-google-auto/maven-build-lifecycle/20260319160720-fix-build-google-auto-maven-build-lifecycle-yur9eq/adapt-maven-build-lifecycle-transfer-profile-package-assets",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/fix-build-google-auto/adapt-maven-build-lifecycle-transfer-profile-package-assets",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:adapt-maven-build-lifecycle-transfer-profile-package-assets instruction.md 直接点名 Maven profile、package/JAR 产物和 `mvn -f app/pom.xml -Pproduction package`，比 source_task/instruction.md 更直接提示了技能。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 draft 的 instruction.md 都比 source_task/instruction.md 更直接地点名了 Maven/生命周期相关信息，存在整组共性的技能暴露问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa8-58bd-7853-8576-74a65a53838a"
+}

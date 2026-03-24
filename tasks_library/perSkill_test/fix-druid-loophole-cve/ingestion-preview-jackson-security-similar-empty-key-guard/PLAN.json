@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ingestion-preview-jackson-security-similar-empty-key-guard",
+  "taskRole": "similar",
+  "title": "Similar: 加固预览配置接口的空键绕过防护",
+  "goal": "修复一个 Java 数据摄取预览接口的结构化 JSON 漏洞：攻击者可通过空字符串键在反序列化阶段重新启用本应关闭的脚本过滤能力。任务需要在 Jackson 消费原始请求体之前拦截恶意结构，同时保持合法预览请求继续可用。",
+  "primaryOutputFile": "drafts/ingestion-preview-jackson-security-similar-empty-key-guard/task.toml",
+  "difficulty": "hard",
+  "category": "Security",
+  "skillBenefitRationale": "这个任务保留了源任务最核心的 Jackson 安全点：不能只在 readValue() 之后校验对象，必须对原始 JSON 做前置检查。场景仍是配置型接口，但不直接复写 Druid sampler，能测试 jackson-security 的典型 shipped 用法。",
+  "targetSkillDirName": "jackson-security",
+  "targetSkillName": "jackson-security"
+}

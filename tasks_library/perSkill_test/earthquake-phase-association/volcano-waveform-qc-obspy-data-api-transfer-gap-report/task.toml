@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "volcano-waveform-qc-obspy-data-api-transfer-gap-report"
+name = "Transfer: Volcano Waveform QC Report"
+description = "Inspect listed volcano-monitoring MiniSEED segments, quantify per-trace gaps, overlaps, sample-rate inconsistencies, and archive coverage, and write the machine-readable QC report to /root/volcano_trace_qc.json."
+author_name = "Haotian Shen"
+author_email = "dalyshen@berkeley.edu"
+difficulty = "medium"
+category = "seismology"
+tags = ["science", "earth-science", "seismology", "waveform-qc", "mseed"]
+primary_output_file = "/root/volcano_trace_qc.json"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

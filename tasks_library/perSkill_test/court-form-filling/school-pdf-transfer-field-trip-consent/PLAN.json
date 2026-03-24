@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "school-pdf-transfer-field-trip-consent",
+  "taskRole": "transfer",
+  "title": "Transfer: Field Trip Consent PDF",
+  "goal": "根据学生报名信息填写校外活动家长同意书 PDF，补齐学生资料、紧急联系人、过敏信息、授权勾选和签名日期。",
+  "primaryOutputFile": "/root/field-trip-consent-filled.pdf",
+  "difficulty": "easy",
+  "category": "document-processing",
+  "skillBenefitRationale": "该任务把 PDF 填表能力迁移到教育授权文档，重点仍是文本字段、复选框和签名日期的正确填写，pdf 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

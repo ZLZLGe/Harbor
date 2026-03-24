@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "lecture-gemini-video-understanding-transfer-structured-chapters"
+name = "Transfer: 课堂录像章节提纲生成"
+description = "Review the classroom recording under /app/lecture/raw and write a structured chapter outline JSON to /app/lecture/chapter_outline.json."
+author_name = "Yijiang Li"
+author_email = "yijiangli@ucsd.edu"
+difficulty = "hard"
+category = "lecture video structuring"
+tags = ["video understanding", "lecture structuring", "chapter segmentation", "json output"]
+primary_output_file = "/app/lecture/chapter_outline.json"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

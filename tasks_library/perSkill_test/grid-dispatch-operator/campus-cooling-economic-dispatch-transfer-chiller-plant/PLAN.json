@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "campus-cooling-economic-dispatch-transfer-chiller-plant",
+  "taskRole": "transfer",
+  "title": "Transfer: 校园冷站冷机调度",
+  "goal": "给定校园冷站多台冷机的制冷成本曲线、最小最大冷量、总冷负荷和旋转备用冷量要求，生成成本最低的冷机负载分配，并输出各机组冷量、备用冷量、总电费和剩余裕度。",
+  "primaryOutputFile": "cooling_dispatch_summary.json",
+  "difficulty": "medium",
+  "category": "facilities",
+  "skillBenefitRationale": "这里把“发电出力”迁移为“制冷出力”，但求解结构仍是单时段成本最小化、总量平衡与备用约束；economic-dispatch 仍是唯一关键技能。",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

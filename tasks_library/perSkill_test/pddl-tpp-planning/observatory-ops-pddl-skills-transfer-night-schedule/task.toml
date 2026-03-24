@@ -1,0 +1,32 @@
+version = "0.0"
+
+[metadata]
+id = "observatory-ops-pddl-skills-transfer-night-schedule"
+name = "Transfer | 天文台夜间观测调度"
+description = "读取夜间观测清单中的全部 PDDL 实例，为每个观测窗口生成满足姿态切换、校准与下传约束的计划并写入输出文件。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "research"
+tags = ["pddl", "planning", "observatory"]
+primary_output_file = "observatory_plans/night_window_plan.txt"
+source_task_id = "pddl-tpp-planning"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

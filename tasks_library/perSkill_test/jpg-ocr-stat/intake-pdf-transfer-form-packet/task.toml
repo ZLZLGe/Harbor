@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "intake-pdf-transfer-form-packet"
+name = "Transfer | 医疗入院 PDF 表单填写"
+description = "根据住院登记 JSON 完成一份两页医疗入院表单，并输出最终提交版 PDF。"
+author_name = "Levi"
+author_email = "levi@harbor.dev"
+difficulty = "hard"
+category = "document automation"
+tags = ["pdf forms", "document automation", "healthcare intake"]
+primary_output_file = "/app/workspace/patient_intake_completed.pdf"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

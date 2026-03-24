@@ -1,0 +1,30 @@
+{
+  "patient": {
+    "last_name": "Nguyen",
+    "first_name": "Mina",
+    "date_of_birth": "1986-11-02",
+    "medical_record_number": "MRN-483920",
+    "preferred_language": "Mandarin",
+    "admission_type": "Urgent"
+  },
+  "screening": {
+    "interpreter_required": true,
+    "fall_risk_flag": true
+  },
+  "insurance": {
+    "provider": "North Harbor Health Plan",
+    "policy_number": "NH-7781-2045"
+  },
+  "clinical": {
+    "primary_physician": "Dr. Alia Brooks",
+    "known_allergies": "Penicillin; shellfish"
+  },
+  "emergency_contact": {
+    "name": "David Nguyen",
+    "phone": "617-555-0142"
+  },
+  "acknowledgements": {
+    "privacy_notice_ack": true,
+    "treatment_consent_ack": true
+  }
+}

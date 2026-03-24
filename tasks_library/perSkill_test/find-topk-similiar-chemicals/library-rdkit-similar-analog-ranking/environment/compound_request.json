@@ -1,0 +1,5 @@
+{
+  "target_name": "Propionic acid",
+  "smiles": "CCC(=O)O",
+  "top_k": 6
+}

@@ -1,0 +1,96 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 2 /Kids [ 4 0 R 6 0 R ] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 654 >>
+stream
+BT
+/F1 11 Tf
+54 742 Td
+15 TL
+(Harbor Components Plant 7) Tj
+T*
+(Maintenance Shutdown Bulletin) Tj
+T*
+(Issue Date: 28 Mar 2026) Tj
+T*
+() Tj
+T*
+(Schedule Table \(Page 1 of 2\)) Tj
+T*
+(Line      Start               End                 Hours  Work Order) Tj
+T*
+(LINE-01   02 Apr 2026 22:00  03 Apr 2026 04:00   6.0    Gearbox lubrication) Tj
+T*
+(LINE-03   05 Apr 2026 09:30  05 Apr 2026 13:00   3.5    Sensor realignment) Tj
+T*
+(Note: Keep feeder bypass active during the LINE-03 stop.) Tj
+T*
+(LINE-07   08 Apr 2026 23:15  09 Apr 2026 06:45   7.5    Cooling loop flush) Tj
+T*
+(LINE-11   12 Apr 2026 14:00  12 Apr 2026 18:30   4.5    Labeler rebuild) Tj
+T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 677 >>
+stream
+BT
+/F1 11 Tf
+54 742 Td
+15 TL
+(Harbor Components Plant 7) Tj
+T*
+(Maintenance Shutdown Bulletin) Tj
+T*
+(Issue Date: 28 Mar 2026) Tj
+T*
+() Tj
+T*
+(Schedule Table \(Page 2 of 2\)) Tj
+T*
+(Line      Start               End                 Hours  Work Order) Tj
+T*
+(LINE-14   15 Apr 2026 01:00  15 Apr 2026 09:30   8.5    Dryer bearing swap) Tj
+T*
+(Note: Utility contractors arrive before the listed start and are not part of downtime.) Tj
+T*
+(LINE-18   18 Apr 2026 21:45  19 Apr 2026 03:15   5.5    Tooling change) Tj
+T*
+(LINE-21   22 Apr 2026 10:00  22 Apr 2026 12:30   2.5    Vision camera reset) Tj
+T*
+(LINE-30   24 Apr 2026 06:00  24 Apr 2026 14:00   8.0    Steam tie-in) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000129 00000 n 
+0000000197 00000 n 
+0000000323 00000 n 
+0000001028 00000 n 
+0000001154 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+1882
+%%EOF

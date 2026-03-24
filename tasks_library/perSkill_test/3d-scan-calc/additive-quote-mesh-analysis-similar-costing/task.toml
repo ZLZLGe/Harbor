@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "additive-quote-mesh-analysis-similar-costing"
+name = "Similar - Additive Manufacturing Material Quote"
+description = "Identify the main part in a noisy binary STL, recover its material code, and write a production quote JSON using the provided density and powder price table."
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "hard"
+category = "engineering"
+tags = ["binary-stl", "3d-printing", "pricing", "mesh-analysis"]
+primary_output_file = "/root/production_quote.json"
+source_task_id = "3d-scan-calc"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

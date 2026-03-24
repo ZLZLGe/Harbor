@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "archivekit"
+version = "0.1.0"
+description = "Small archive parsing reference project for target selection."
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

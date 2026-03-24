@@ -1,0 +1,208 @@
+{
+  "portfolio_summary": {
+    "case_count": 3,
+    "cases_with_any_issue": 3,
+    "total_issue_count": 14,
+    "issue_type_counts": {
+      "duplicate_bus_ids": 1,
+      "missing_reference_bus": 1,
+      "generator_buses_missing": 2,
+      "branch_endpoints_missing": 2,
+      "isolated_online_subnetworks": 2,
+      "nonpositive_branch_ratings": 3,
+      "nonpositive_generator_pmax": 2,
+      "invalid_generator_q_ranges": 1
+    }
+  },
+  "cases": [
+    {
+      "case_id": "audit_alpha",
+      "source_file": "cases/audit_alpha.json",
+      "bus_count": 5,
+      "generator_count": 3,
+      "branch_count": 4,
+      "reference_bus_ids": [
+        101
+      ],
+      "issue_counts": {
+        "duplicate_bus_ids": 1,
+        "missing_reference_bus": 0,
+        "generator_buses_missing": 1,
+        "branch_endpoints_missing": 1,
+        "isolated_online_subnetworks": 1,
+        "nonpositive_branch_ratings": 1,
+        "nonpositive_generator_pmax": 1,
+        "invalid_generator_q_ranges": 1,
+        "total": 7
+      },
+      "issues": {
+        "duplicate_bus_ids": [
+          201
+        ],
+        "missing_reference_bus": false,
+        "generator_buses_missing": [
+          {
+            "generator_id": 3,
+            "bus": 999
+          }
+        ],
+        "branch_endpoints_missing": [
+          {
+            "branch_id": 3,
+            "from_bus": 102,
+            "to_bus": 777
+          }
+        ],
+        "isolated_online_subnetworks": [
+          {
+            "subnetwork_id": "island_1",
+            "bus_ids": [
+              201,
+              202
+            ],
+            "bus_count": 2,
+            "online_generator_ids": [
+              2
+            ],
+            "online_generator_count": 1,
+            "online_branch_ids": [
+              2
+            ],
+            "online_branch_count": 1
+          }
+        ],
+        "nonpositive_branch_ratings": [
+          {
+            "branch_id": 4,
+            "from_bus": 101,
+            "to_bus": 202,
+            "rateA": 0.0
+          }
+        ],
+        "nonpositive_generator_pmax": [
+          {
+            "generator_id": 2,
+            "bus": 202,
+            "pmax_MW": 0.0
+          }
+        ],
+        "invalid_generator_q_ranges": [
+          {
+            "generator_id": 2,
+            "bus": 202,
+            "qmin_MVAr": 5.0,
+            "qmax_MVAr": 5.0
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "audit_beta",
+      "source_file": "cases/audit_beta.json",
+      "bus_count": 3,
+      "generator_count": 2,
+      "branch_count": 3,
+      "reference_bus_ids": [],
+      "issue_counts": {
+        "duplicate_bus_ids": 0,
+        "missing_reference_bus": 1,
+        "generator_buses_missing": 1,
+        "branch_endpoints_missing": 1,
+        "isolated_online_subnetworks": 0,
+        "nonpositive_branch_ratings": 1,
+        "nonpositive_generator_pmax": 0,
+        "invalid_generator_q_ranges": 0,
+        "total": 4
+      },
+      "issues": {
+        "duplicate_bus_ids": [],
+        "missing_reference_bus": true,
+        "generator_buses_missing": [
+          {
+            "generator_id": 2,
+            "bus": 399
+          }
+        ],
+        "branch_endpoints_missing": [
+          {
+            "branch_id": 2,
+            "from_bus": 340,
+            "to_bus": 350
+          }
+        ],
+        "isolated_online_subnetworks": [],
+        "nonpositive_branch_ratings": [
+          {
+            "branch_id": 1,
+            "from_bus": 310,
+            "to_bus": 330,
+            "rateA": -5.0
+          }
+        ],
+        "nonpositive_generator_pmax": [],
+        "invalid_generator_q_ranges": []
+      }
+    },
+    {
+      "case_id": "audit_gamma",
+      "source_file": "cases/audit_gamma.json",
+      "bus_count": 5,
+      "generator_count": 3,
+      "branch_count": 3,
+      "reference_bus_ids": [
+        410
+      ],
+      "issue_counts": {
+        "duplicate_bus_ids": 0,
+        "missing_reference_bus": 0,
+        "generator_buses_missing": 0,
+        "branch_endpoints_missing": 0,
+        "isolated_online_subnetworks": 1,
+        "nonpositive_branch_ratings": 1,
+        "nonpositive_generator_pmax": 1,
+        "invalid_generator_q_ranges": 0,
+        "total": 3
+      },
+      "issues": {
+        "duplicate_bus_ids": [],
+        "missing_reference_bus": false,
+        "generator_buses_missing": [],
+        "branch_endpoints_missing": [],
+        "isolated_online_subnetworks": [
+          {
+            "subnetwork_id": "island_1",
+            "bus_ids": [
+              410,
+              420
+            ],
+            "bus_count": 2,
+            "online_generator_ids": [
+              1
+            ],
+            "online_generator_count": 1,
+            "online_branch_ids": [
+              1
+            ],
+            "online_branch_count": 1
+          }
+        ],
+        "nonpositive_branch_ratings": [
+          {
+            "branch_id": 2,
+            "from_bus": 430,
+            "to_bus": 440,
+            "rateA": 0.0
+          }
+        ],
+        "nonpositive_generator_pmax": [
+          {
+            "generator_id": 3,
+            "bus": 450,
+            "pmax_MW": -10.0
+          }
+        ],
+        "invalid_generator_q_ranges": []
+      }
+    }
+  ]
+}

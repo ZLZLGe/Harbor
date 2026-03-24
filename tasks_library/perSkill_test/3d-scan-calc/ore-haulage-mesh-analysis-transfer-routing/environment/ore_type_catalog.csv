@@ -1,0 +1,6 @@
+ore_type_id,ore_name,bulk_density_t_per_m3,fe_grade_pct,silica_pct
+271,Direct Ship Lump,3.21,63.4,4.1
+318,Channel Hematite Blend,3.48,59.4,6.8
+412,Weathered Shale Mix,2.74,54.8,10.9
+777,Stockpile Sweepings,1.95,49.5,12.7
+901,Belt Dust Agglomerate,1.62,18.0,31.5

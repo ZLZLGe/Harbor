@@ -1,0 +1,104 @@
+{
+  "changes": [
+    {
+      "change_id": "chg-701",
+      "system": "core-auth-db",
+      "region": "us-east-1",
+      "approval_thread": [
+        {
+          "author": "Nora Patel",
+          "role": "Platform Engineer",
+          "posted_at": "2026-07-02T14:10:00Z",
+          "body": "Requesting approval for the auth database patch. I can execute either Saturday July 11, 2026 from 01:00 to 03:30 UTC or Sunday July 12, 2026 from 00:30 to 03:00 UTC. Customer authentication impact will stay under 30 minutes. Sequence-wise, the replica promotion has to finish before the primary reboot, and health checks must pass before login traffic is restored."
+        },
+        {
+          "author": "Mira Chen",
+          "role": "Change Manager",
+          "posted_at": "2026-07-02T16:25:00Z",
+          "body": "July 14 through July 16 is frozen for quarter-close reporting, so avoid that span entirely. Also do not touch July 18 because the onboarding campaign goes live that day."
+        },
+        {
+          "author": "Luis Romero",
+          "role": "Operations Director",
+          "posted_at": "2026-07-03T09:05:00Z",
+          "body": "Approved only for Saturday July 11, 2026 from 01:00 to 03:30 UTC. The Sunday option is not approved because it overlaps another storage change. Keep the outage cap at 30 minutes."
+        }
+      ]
+    },
+    {
+      "change_id": "chg-702",
+      "system": "backbone-optics",
+      "region": "us-west-2",
+      "approval_thread": [
+        {
+          "author": "Evan Brooks",
+          "role": "Network Engineer",
+          "posted_at": "2026-08-01T18:40:00-07:00",
+          "body": "For the Seattle backbone optics swap, I proposed either August 2, 2026 from 22:00 to 23:30 PDT or August 3, 2026 from 00:30 to 02:00 PDT. We can tolerate at most 12 minutes of packet loss. The BGP session drain must complete before the optics swap, and remote hands need to confirm the spare line is lit before we cut over."
+        },
+        {
+          "author": "Rita Gomez",
+          "role": "Site Reliability Manager",
+          "posted_at": "2026-08-01T19:15:00-07:00",
+          "body": "No-change freeze runs August 5 to August 7 for the regional disaster drill. August 9 is blocked because of the stadium event traffic load."
+        },
+        {
+          "author": "Harold Singh",
+          "role": "Change Advisory Board",
+          "posted_at": "2026-08-01T20:05:00-07:00",
+          "body": "Proceed with the August 2, 2026 22:00-23:30 PDT window only. Do not use the August 3 fallback unless you reopen the request. The outage must stay within 12 minutes."
+        }
+      ]
+    },
+    {
+      "change_id": "chg-703",
+      "system": "storage-cluster-a",
+      "region": "eu-central-1",
+      "approval_thread": [
+        {
+          "author": "Hannah Voigt",
+          "role": "Storage Engineer",
+          "posted_at": "2026-08-18T08:00:00+02:00",
+          "body": "Seeking approval for controller firmware updates. We can work on August 21, 2026 from 21:00 to 23:00 CEST and, if needed, August 22, 2026 from 21:00 to 23:00 CEST. Please hold us to a maximum outage of 20 minutes. Snapshot validation must finish before controller failover starts. Node A has to be upgraded and rejoined before Node B enters maintenance."
+        },
+        {
+          "author": "Jules Martin",
+          "role": "Capacity Planner",
+          "posted_at": "2026-08-18T10:10:00+02:00",
+          "body": "Month-end freeze is August 28 through August 31. August 24 is off limits because the backup restore rehearsal is booked all day."
+        },
+        {
+          "author": "Klara Weiss",
+          "role": "Regional Ops Lead",
+          "posted_at": "2026-08-18T11:45:00+02:00",
+          "body": "Both requested windows are approved: August 21, 2026 21:00-23:00 CEST and August 22, 2026 21:00-23:00 CEST. Keep customer impact under 20 minutes."
+        }
+      ]
+    },
+    {
+      "change_id": "chg-704",
+      "system": "payment-hsm",
+      "region": "ap-southeast-1",
+      "approval_thread": [
+        {
+          "author": "Sanjay Menon",
+          "role": "Payments Engineer",
+          "posted_at": "2026-09-01T09:20:00+08:00",
+          "body": "I need approval for the HSM certificate rollover. I first penciled in September 7, 2026 from 01:00 to 02:00 SGT, with September 8, 2026 from 01:30 to 02:30 SGT as backup. Maximum payment interruption is 5 minutes. Promote the secondary HSM before rebooting the primary, and finish tokenization smoke tests before merchant traffic is resumed."
+        },
+        {
+          "author": "Felicia Tan",
+          "role": "Change Coordinator",
+          "posted_at": "2026-09-01T10:05:00+08:00",
+          "body": "There is a regional freeze from September 3 to September 6 for the annual resilience exercise. Also, September 10 is blocked for the acquiring partner certification run."
+        },
+        {
+          "author": "Adrian Koh",
+          "role": "Payments Duty Manager",
+          "posted_at": "2026-09-01T11:00:00+08:00",
+          "body": "Approve the September 8, 2026 01:30-02:30 SGT window. Do not use September 7 because finance has a rollover review that night. Keep the interruption ceiling at 5 minutes."
+        }
+      ]
+    }
+  ]
+}

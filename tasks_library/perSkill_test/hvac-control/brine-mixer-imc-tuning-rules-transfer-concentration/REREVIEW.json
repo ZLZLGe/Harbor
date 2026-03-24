@@ -1,0 +1,20 @@
+{
+  "sourceTaskId": "hvac-control",
+  "targetSkillDirName": "imc-tuning-rules",
+  "runId": "20260320035259-hvac-control-imc-tuning-rules-qvxso2",
+  "taskId": "brine-mixer-imc-tuning-rules-transfer-concentration",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/hvac-control/imc-tuning-rules/20260320035259-hvac-control-imc-tuning-rules-qvxso2/brine-mixer-imc-tuning-rules-transfer-concentration",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/hvac-control/brine-mixer-imc-tuning-rules-transfer-concentration",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:brine-mixer-imc-tuning-rules-transfer-concentration instruction.md 明确写出“PI controller”“first-order concentration process”“choose a closed-loop speed”，比 source_task/instruction.md 更直接提示了当前 IMC 整定技能的用法。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer，且 3 个 transfer 在液位、转速、浓度场景上区分充分，similar 也足够贴近热过程 IMC 的典型用法。",
+    "family 但四个 draft 的 instruction.md 都比 source_task/instruction.md 更直接写出了“一阶 PI 控制 + 闭环速度选择”这一解题路径，存在整组 family 的统一可见性问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0faf-798f-7cf3-a301-31b8ef73e871"
+}

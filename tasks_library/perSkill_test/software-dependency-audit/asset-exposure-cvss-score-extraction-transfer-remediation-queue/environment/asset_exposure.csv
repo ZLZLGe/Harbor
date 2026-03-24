@@ -1,0 +1,6 @@
+asset_id,business_service,environment,internet_exposed,exposed_hosts,criticality,patch_window
+edge-gw-01,Partner API Gateway,production,yes,340,5,Sun 01:00-03:00 UTC
+erp-batch-02,Finance Batch Processor,production,no,120,5,Sat 18:00-20:00 UTC
+store-kiosk-17,Retail Kiosk Fleet,store-edge,yes,58,3,Mon 02:00-04:00 UTC
+hr-portal-03,HR Self-Service Portal,production,yes,42,4,Wed 00:00-02:00 UTC
+lab-report-01,Lab Reporting,staging,no,25,2,Fri 03:00-05:00 UTC

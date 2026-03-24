@@ -1,0 +1,13 @@
+[fill]
+baseline_fill_ml = 14.0
+
+[pricing]
+charge_step_ml = 5.0
+charge_per_step_usd = 2.4
+
+[pads]
+ml_per_pad = 45.0
+
+[pouch_capacity_ml]
+small = 80.0
+medium = 130.0

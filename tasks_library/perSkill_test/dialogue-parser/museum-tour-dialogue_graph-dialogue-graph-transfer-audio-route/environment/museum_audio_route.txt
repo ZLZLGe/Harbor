@@ -1,0 +1,218 @@
+[Start]
+Guide: Welcome to the Harbor Museum. Your headset can branch between galleries whenever you choose. -> OrientationHub
+
+[OrientationHub]
+1. Begin with the fossil hall. -> FossilIntro
+2. Visit the maritime wing. -> MaritimeIntro
+3. Enter the restoration lab. -> LabIntro
+4. Stop at the accessibility desk first. -> AccessibilityIntro
+
+[FossilIntro]
+Curator: The fossil hall starts with a suspended mammoth and a floor map of vanished coastlines. -> FossilChoice
+
+[FossilChoice]
+1. Focus on the mammoth skeleton. -> DinoNarration
+2. Open the amber specimen drawer. -> AmberNarration
+3. Compare extinction timelines. -> TimelineBridge
+
+[DinoNarration]
+Curator: Notice the healed fracture on the mammoth rib. It tells us the herd survived one brutal winter before the final thaw. -> FossilDeepChoice
+
+[FossilDeepChoice]
+1. Hear the climate evidence. -> ClimatePanel
+2. Hear the excavation field story. -> FieldStory
+3. Return to the museum map. -> OrientationHub
+
+[ClimatePanel]
+Curator: Pollen trapped under the tusks matches a colder grassland than this city has seen in ten thousand years. -> EchoReturn
+
+[FieldStory]
+Guide: The excavation crew nicknamed this skeleton Lantern because the ice around it glowed blue at sunrise. -> EchoReturn
+
+[AmberNarration]
+Curator: This amber drawer preserves insects, fern spores, and even one tiny feather barb caught mid-drift. -> AmberChoice
+
+[AmberChoice]
+1. Zoom in on the trapped dragonfly. -> InsectZoom
+2. Follow the amber trade route. -> TradeRoute
+3. Return to fossil choices. -> FossilChoice
+
+[InsectZoom]
+Guide: The dragonfly's wing veins still align with species that now live only in tropical wetlands. -> EchoReturn
+
+[TradeRoute]
+Guide: Traders carried Baltic amber through ports that later fed the same shipping lanes highlighted in the maritime wing. -> CrossWingChoice
+
+[TimelineBridge]
+Guide: The timeline wall links extinctions, migrations, and human toolmaking so visitors can jump between eras instead of walking chronologically. -> LoopGallery
+
+[MaritimeIntro]
+Narrator: The maritime wing mixes harbor storm recordings, navigation charts, and cargo recovered from a wreck near the old breakwater. -> MaritimeChoice
+
+[MaritimeChoice]
+1. Play the storm deck audio. -> StormDeck
+2. Inspect the trade map. -> TradeMap
+3. Read the captain's log. -> CaptainLog
+
+[StormDeck]
+Guide: The speakers above you replay a gale recorded by lighthouse staff during the winter blackout of 1926. -> StormChoice
+
+[StormChoice]
+1. Learn the crew's survival tactics. -> SurvivalNote
+2. Compare the storm route to whale migration paths. -> WhaleBridge
+3. Return to the museum map. -> OrientationHub
+
+[SurvivalNote]
+Guide: Sailors tied themselves to the rail and counted bell strikes to measure distance when the stars vanished behind ice. -> EchoReturn
+
+[WhaleBridge]
+Narrator: The migration overlay shows why the museum placed the whale gallery beside maritime history instead of natural science. -> EchoReturn
+
+[TradeMap]
+Archivist: This map layers tea, amber, and copper routes so you can trace how one harbor connected exhibitions on opposite sides of the museum. -> CrossWingChoice
+
+[CaptainLog]
+Archivist: The captain's handwriting sharpens whenever the crew sailed close to reefs, as if caution tightened every line of ink. -> CaptainChoice
+
+[CaptainChoice]
+1. Hear the mutiny rumor. -> MutinyRumor
+2. Jump to the sail restoration note. -> SailRepair
+3. Return to maritime choices. -> MaritimeChoice
+
+[MutinyRumor]
+Archivist: One margin note claims the crew hid fresh water from the paying passengers, but no court ever proved it. -> EchoReturn
+
+[SailRepair]
+Conservator: The patched sail overhead was stitched with modern linen so visitors can still read the original wind tears. -> LabIntro
+
+[LabIntro]
+Conservator: The restoration lab lets you follow pigment scans, frame repairs, and conservation interviews through the glass wall. -> LabChoice
+
+[LabChoice]
+1. Review the pigment scan station. -> PigmentScan
+2. Watch the frame repair bench. -> FrameRepair
+3. Ask the conservator a question. -> ConservatorIntro
+4. Replay the main museum menu. -> OrientationHub
+
+[PigmentScan]
+Conservator: Infrared images uncovered a hidden lighthouse sketch beneath the seascape now hanging beside the lab. -> PigmentChoice
+
+[PigmentChoice]
+1. Turn on the ultraviolet overlay. -> UVOverlay
+2. Trace where the minerals were imported from. -> MineralOrigin
+3. Return to lab choices. -> LabChoice
+
+[UVOverlay]
+Conservator: Under ultraviolet light, later varnish glows green while the original brushwork stays matte and calm. -> EchoReturn
+
+[MineralOrigin]
+Guide: The pigment minerals came through the same shipping network highlighted in the maritime trade map. -> CrossWingChoice
+
+[FrameRepair]
+Conservator: The oak frame is clamped in three places so the warped corner can relax before the adhesive cures. -> FrameChoice
+
+[FrameChoice]
+1. Join the live repair demo. -> DemoBench
+2. Hear the ethics note about restoration limits. -> EthicsNote
+3. Return to lab choices. -> LabChoice
+
+[DemoBench]
+Guide: A camera over the bench magnifies each brush stroke so even distant visitors can watch the filler settle into the cracks. -> EchoReturn
+
+[EthicsNote]
+Conservator: We restore enough for stability and reading, but we do not repaint history into something neater than it ever was. -> AccessibilityIntro
+
+[ConservatorIntro]
+Conservator: Ask quickly; the solvent chamber restarts in three minutes and I need both hands free before then. -> ConservatorChoice
+
+[ConservatorChoice]
+1. How do people enter this field? -> CareersAnswer
+2. Why do rope barriers matter? -> BarrierAnswer
+3. Return to lab choices. -> LabChoice
+
+[CareersAnswer]
+Conservator: Most conservators study chemistry, art history, and patient documentation long before they ever touch a public masterpiece. -> EchoReturn
+
+[BarrierAnswer]
+Conservator: Rope barriers hold back vibration as much as people, which matters when a cracked panel reacts to every footstep. -> EchoReturn
+
+[AccessibilityIntro]
+Access Host: The accessibility desk can route you toward quieter spaces, family prompts, or a full transcript for every stop. -> AccessibilityChoice
+
+[AccessibilityChoice]
+1. [Quiet Route] Build a low-noise path. -> QuietRoute
+2. [Family] Start the scavenger prompts. -> FamilyRoute
+3. [Transcript] Send me the written guide. -> TranscriptSupport
+4. Return to the museum map. -> OrientationHub
+
+[QuietRoute]
+Access Host: The quiet route skips the storm speakers and sends you through the sculpture court before the busiest galleries fill up. -> QuietChoice
+
+[QuietChoice]
+1. Start in the sculpture court. -> SculptureCourt
+2. Use the maritime bypass summary. -> MaritimeBypass
+3. End the tour here. -> End
+
+[SculptureCourt]
+Narrator: The sculpture court is hushed except for filtered air and the soft hum of the skylight motors overhead. -> SculptureChoice
+
+[SculptureChoice]
+1. Focus on the abstract bronze. -> BronzeFocus
+2. Visit the tactile replica station. -> TactileReplica
+3. Return to accessibility choices. -> AccessibilityChoice
+
+[BronzeFocus]
+Guide: The bronze surface records fingerprints from the artist's own thumbs, left visible on purpose beside the polished ridge. -> EchoReturn
+
+[TactileReplica]
+Access Host: The replica station pairs touch-safe casts with short verbal cues so every form can be explored at your own pace. -> EchoReturn
+
+[MaritimeBypass]
+Guide: The bypass summary covers the shipwreck chart and captain's log without playing the storm recording. -> MaritimeIntro
+
+[FamilyRoute]
+Guide: The family prompts turn each gallery into a short hunt for shapes, sounds, and clues hidden in the labels. -> FamilyChoice
+
+[FamilyChoice]
+1. Hunt for spiral shells. -> ShellChallenge
+2. Follow the fossil footprint trail. -> FootprintHunt
+3. Return to accessibility choices. -> AccessibilityChoice
+
+[ShellChallenge]
+Guide: Count how many shell spirals turn clockwise before you leave the maritime cabinets. -> EchoReturn
+
+[FootprintHunt]
+Guide: The footprint trail begins in the fossil hall and loops past the mammoth map markers on the floor. -> FossilIntro
+
+[TranscriptSupport]
+Access Host: I can send a QR transcript and explain the icon system printed on each route card. -> SupportChoice
+
+[SupportChoice]
+1. Send the QR transcript now. -> TranscriptSent
+2. Explain the icon system. -> IconGuide
+3. Return to accessibility choices. -> AccessibilityChoice
+
+[TranscriptSent]
+Access Host: The transcript link is live for the next twenty-four hours and includes captions for every ambient audio segment. -> End
+
+[IconGuide]
+Access Host: Blue icons mark optional detours, green icons mark family prompts, and silver icons mark quiet alternatives. -> EchoReturn
+
+[CrossWingChoice]
+1. Continue into the maritime wing. -> MaritimeIntro
+2. Continue into the restoration lab. -> LabIntro
+3. Wrap up the tour. -> End
+
+[LoopGallery]
+1. Jump to the maritime wing next. -> MaritimeIntro
+2. Jump to the restoration lab next. -> LabIntro
+3. Return to fossil choices. -> FossilChoice
+
+[EchoReturn]
+Narrator: The guide pauses so you can choose a new direction without losing your place in the tour. -> ReplayChoice
+
+[ReplayChoice]
+1. Return to the museum map. -> OrientationHub
+2. Head for the maritime wing. -> MaritimeIntro
+3. Head for the restoration lab. -> LabIntro
+4. Conclude the tour. -> End

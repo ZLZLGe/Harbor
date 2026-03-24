@@ -1,0 +1,31 @@
+autoscaling:
+  replay:
+    dt_minutes: 5
+    duration_minutes: 75
+    cooldown_steps:
+      scale_up: 1
+      scale_down: 2
+  service:
+    name: checkout-api
+    min_instances: 2
+    max_instances: 6
+    initial_instances: 2
+    capacity_rps_per_instance: 100
+    base_latency_ms: 95
+    latency_penalty_ms_per_over_capacity: 320
+    cpu_penalty_ms_per_pct_over_60: 1.5
+    instance_hour_cost_usd: 0.42
+  policies:
+    scale_up:
+      request_ratio_threshold: 0.82
+      cpu_threshold_pct: 68
+      latency_threshold_ms: 170
+      step: 2
+    scale_down:
+      request_ratio_threshold: 0.45
+      cpu_threshold_pct: 35
+      latency_threshold_ms: 125
+      step: 1
+  slo:
+    latency_p95_ms: 180
+    compliance_target_ratio: 0.8

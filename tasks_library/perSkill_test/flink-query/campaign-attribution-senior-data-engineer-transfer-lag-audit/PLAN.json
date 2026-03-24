@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "campaign-attribution-senior-data-engineer-transfer-lag-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Campaign Attribution Lag Audit",
+  "goal": "实现一个 Flink 作业，读取 impression 与 click 两路 gzipped CSV 事件流，按 campaign 和 impressionId 做事件时间关联，在 watermark 关闭后输出每个 campaign 的未归因曝光数与有效点击归因延迟的 P95。",
+  "primaryOutputFile": "/app/workspace/campaign_attribution_sla.txt",
+  "difficulty": "hard",
+  "category": "flink",
+  "skillBenefitRationale": "该任务把 senior-data-engineer 能力迁移到广告归因场景，重点考察双流关联、迟到数据处理、状态管理与流式 SLA 指标计算，和原始集群阶段识别场景明显不同。",
+  "targetSkillDirName": "senior-data-engineer",
+  "targetSkillName": "senior-data-engineer"
+}

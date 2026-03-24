@@ -1,0 +1,24 @@
+{
+  "incident_id": "sh-inc-204",
+  "service": "Azure Secure Hub",
+  "azure_backbone_asn": 65401,
+  "affected_hubs": [
+    {
+      "name": "secure-hub-east",
+      "asn": 65412,
+      "role": "regional_secure_hub"
+    },
+    {
+      "name": "secure-hub-west",
+      "asn": 65413,
+      "role": "regional_secure_hub"
+    }
+  ],
+  "origin_prefix": {
+    "prefix": "10.88.14.0/24",
+    "origin_site": "branch-dc-7",
+    "origin_asn": 65427
+  },
+  "summary": "A secure hub pair started preferring each other for the same branch prefix while secure-hub-east also exported an Azure-backbone-learned route to the peer hub.",
+  "operator_goal": "Choose an Azure-executable runbook subset that stops both the preference loop and the route leak without tearing down hub connectivity."
+}

@@ -1,0 +1,10 @@
+nwsli,location name,state,county,action stage,flood stage,moderate flood stage,major flood stage,usgs id,updated at
+MLOI2,Mill Creek at Oak Junction,IL,Adams,8.5,10.0,12.5,15.0,05512000,2025-09-03,extra
+CDRI2,Cedar Run near Milburn,IL,Boone,7.0,9.5,11.0,13.0,05513000,2025-09-03,extra
+ESFI2,East Fork at Ramsey,IL,Adams,6.0,-9999,9.0,11.5,05525500,2025-09-03,extra
+SBEI2,South Branch at Elgin,IL,Boone,9.0,11.5,13.5,16.0,05530000,2025-09-03,extra
+PHOM3,Pine Hollow at Dayton,MO,Boone,5.5,7.5,9.0,,05530500,2025-09-03,extra
+QCBM3,Quarry Creek nr. Benton,MO,Cole,10.0,12.0,14.0,17.0,05531000,2025-09-03,extra
+PRDM3,Prairie Ditch at Moberly,MO,Cole,4.0,6.0,7.5,9.0,05532000,2025-09-03,extra
+NOMI2,North Outlet at Mesa,IL,Adams,5.0,6.5,8.0,9.5,05533000,2025-09-03,extra
+BLKI2,Broken Line,IL,Adams,5.0,6.5,8.0,9.5,,2025-09-03,extra

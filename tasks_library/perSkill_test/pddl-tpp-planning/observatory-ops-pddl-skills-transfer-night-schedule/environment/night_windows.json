@@ -1,0 +1,23 @@
+[
+  {
+    "id": "night-window-alpha",
+    "domain": "observatory/domain.pddl",
+    "problem": "observatory/night_window_alpha.pddl",
+    "plan_output": "observatory_plans/night_window_plan.txt",
+    "required_targets": ["auriga", "cygnus"]
+  },
+  {
+    "id": "southern-arc-beta",
+    "domain": "observatory/domain.pddl",
+    "problem": "observatory/southern_arc_beta.pddl",
+    "plan_output": "observatory_plans/southern_arc_plan.txt",
+    "required_targets": ["pegasus", "vela", "scorpius"]
+  },
+  {
+    "id": "dawn-relay-gamma",
+    "domain": "observatory/domain.pddl",
+    "problem": "observatory/dawn_relay_gamma.pddl",
+    "plan_output": "observatory_plans/dawn_relay_plan.txt",
+    "required_targets": ["atlas", "deneb", "foramen", "hydra"]
+  }
+]

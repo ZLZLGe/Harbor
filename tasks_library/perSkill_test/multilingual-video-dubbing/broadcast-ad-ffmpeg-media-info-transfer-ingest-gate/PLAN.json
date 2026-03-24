@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "broadcast-ad-ffmpeg-media-info-transfer-ingest-gate",
+  "taskRole": "transfer",
+  "title": "Transfer: 电视广告入库技术审核",
+  "goal": "面对多个候选电视广告成片，读取每个文件的时长、分辨率、帧率、视频编码、音频编码和声道布局，找出唯一符合播出站入库规范的版本，并输出包含拒收原因的入库审核结果。",
+  "primaryOutputFile": "/root/ad_ingest_report.json",
+  "difficulty": "medium",
+  "category": "broadcast-ad-qc",
+  "skillBenefitRationale": "任务核心是用 FFmpeg Media Info 做广告成片技术审查，依赖的关键能力是稳定读取并比对媒体元数据，而不是任何剪辑、转码或别的 shipped skill。",
+  "targetSkillDirName": "ffmpeg-media-info",
+  "targetSkillName": "FFmpeg Media Info"
+}

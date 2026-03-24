@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "tank-fill-safety-interlocks-transfer-overflow-cutoff"
+name = "Transfer: Tank Fill Overflow Interlock"
+description = "Run a safe tank fill sequence with a 92.0% high-level cutoff and write fill_interlock_summary.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "industrial-automation"
+tags = ["tank", "level-control", "safety", "interlocks", "automation", "python"]
+primary_output_file = "fill_interlock_summary.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

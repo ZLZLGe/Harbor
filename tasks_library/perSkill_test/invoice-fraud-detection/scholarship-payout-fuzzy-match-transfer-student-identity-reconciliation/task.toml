@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "scholarship-payout-fuzzy-match-transfer-student-identity-reconciliation"
+name = "Transfer: 奖学金付款身份对账"
+description = "核对奖学金付款批次、获奖名单和学籍主档，识别无法可靠对应的付款、收款账户不一致的付款以及金额不符的付款，并输出到 /root/scholarship_exceptions.csv。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "data-validation"
+tags = ["scholarship", "student-records", "fuzzy-matching", "csv", "reconciliation"]
+primary_output_file = "/root/scholarship_exceptions.csv"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "great-lakes-flood-detection-similar-river-watch",
+  "taskRole": "similar",
+  "title": "Similar - Great Lakes River Flood Watch",
+  "goal": "Analyze a provided Wisconsin gauge list for a spring high-water window, fetch stage observations, compare each station’s daily maximum stage against its flood threshold, and write `/root/output/river_watch_summary.json` with only stations that had flooding, including flood day counts and flood dates.",
+  "primaryOutputFile": "/root/output/river_watch_summary.json",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This stays close to the source task’s core workflow: aggregate stage time series to daily maxima, compare against flood stage thresholds, and report stations with flood days. The changed region, time window, and JSON output keep it from being a simple rewrite while still making flood-detection the single critical skill.",
+  "targetSkillDirName": "flood-detection",
+  "targetSkillName": "flood-detection"
+}

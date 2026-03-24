@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "documentary-archive-planning-with-files-similar-milestone-sort",
+  "taskRole": "similar",
+  "title": "Similar | Reorganize a Documentary Production Archive",
+  "goal": "整理一个纪录片制作团队的混乱资料库：阅读大量 PDF、DOCX、PPTX、转写稿和预算表，按 6 个制作里程碑文件夹完成归档，保持原文件名不变，并产出一份归档清单说明每个文件夹的范围与文件数量。",
+  "primaryOutputFile": "reports/archive_manifest.json",
+  "difficulty": "medium",
+  "category": "file-management",
+  "skillBenefitRationale": "任务需要先规划阶段，再持续记录分类准则、已检查范围和歧义判定；把计划与发现写入文件能避免在高文件量归档过程中漏看、漏分或重复判断。",
+  "targetSkillDirName": "planning-with-files",
+  "targetSkillName": "planning-with-files"
+}

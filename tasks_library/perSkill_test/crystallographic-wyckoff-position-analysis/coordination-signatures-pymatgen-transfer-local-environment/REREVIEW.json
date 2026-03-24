@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "crystallographic-wyckoff-position-analysis",
+  "targetSkillDirName": "pymatgen",
+  "runId": "20260315214306-crystallographic-wyckoff-position-analysis-pymatgen-cgycsr",
+  "taskId": "coordination-signatures-pymatgen-transfer-local-environment",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/crystallographic-wyckoff-position-analysis/pymatgen/20260315214306-crystallographic-wyckoff-position-analysis-pymatgen-cgycsr/coordination-signatures-pymatgen-transfer-local-environment",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/crystallographic-wyckoff-position-analysis/coordination-signatures-pymatgen-transfer-local-environment",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:coordination-signatures-pymatgen-transfer-local-environment instruction.md 直接写出了 `CrystalNN(distance_cutoffs=None, x_diff_weight=0.0, porous_adjustment=False)`，已明示具体实现技能/API。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family coordination-signatures-pymatgen-transfer-local-environment 的 instruction.md 暴露了 `CrystalNN(...)` 具体 API，属于 family 内的单点可见性问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0f9b-4400-7cf1-91b8-30ecbcbda215"
+}

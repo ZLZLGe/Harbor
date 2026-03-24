@@ -1,0 +1,38 @@
+version = "1.0"
+
+[metadata]
+id = "course-grades-xlsx-transfer-weighted-report"
+name = "Transfer | 课程成绩加权报告"
+description = "在给定课程成绩工作簿中用公式生成 Report 工作表并输出到 /root/data/course_weighted_report.xlsx。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "data-analysis"
+tags = [
+  "excel",
+  "education",
+  "grading",
+  "formula",
+  "weighted-report"
+]
+primary_output_file = "/root/data/course_weighted_report.xlsx"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

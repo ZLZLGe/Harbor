@@ -1,0 +1,58 @@
+{
+  "sourceTaskId": "hvac-control",
+  "targetSkillDirName": "imc-tuning-rules",
+  "runId": "20260320035259-hvac-control-imc-tuning-rules-qvxso2",
+  "taskId": "incubator-imc-tuning-rules-similar-recovery",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/hvac-control/incubator-imc-tuning-rules-similar-recovery",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320035259-hvac-control-imc-tuning-rules-qvxso2/hvac-control/drafts/incubator-imc-tuning-rules-similar-recovery",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/hvac-control/incubator-imc-tuning-rules-similar-recovery",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/hvac-control/incubator-imc-tuning-rules-similar-recovery",
+  "status": "pass",
+  "issueCategories": [
+    "other"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 里的示例 controller 数值不一致：给定的 Kp=10.0、Ki=0.15、lambda_s=25.0 彼此不满足测试要求的 IMC 一阶 PI 公式，容易误导解题者。"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "`instruction.md` 未直接点名 `imc-tuning-rules`，无技能暴露。; 任务核心仍是依据给定一阶热过程参数选择 lambda 并按 IMC PI 公式求增益，只依赖当前 shipped skill。; `tests/test.sh` 运行时要 `pip install pytest`、`pytest-json-ctrf`、`numpy`，但 `task.toml` 设置 `allow_internet = false`，Dockerfile 也未预装完整 verifier 依赖，测试不可稳定执行。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "environment/incubator_recovery_sim.py",
+    "instruction.md",
+    "tests/test_outputs.py",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "incubator-imc-tuning-rules-similar-recovery"
+      ],
+      "requestedIssuesByTaskId": {
+        "incubator-imc-tuning-rules-similar-recovery": {
+          "reviewerIssues": [
+            "`instruction.md` 未直接点名 `imc-tuning-rules`，无技能暴露。; 任务核心仍是依据给定一阶热过程参数选择 lambda 并按 IMC PI 公式求增益，只依赖当前 shipped skill。; `tests/test.sh` 运行时要 `pip install pytest`、`pytest-json-ctrf`、`numpy`，但 `task.toml` 设置 `allow_internet = false`，Dockerfile 也未预装完整 verifier 依赖，测试不可稳定执行。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10de-4b8c-7ad3-a0aa-7433e98204df",
+      "repairSummary": "- `incubator-imc-tuning-rules-similar-recovery`：重写了 [instruction.md](/tmp/per_skill_repair_workspaces/20260320035259-hvac-control-imc-tuning-rules-qvxso2-16a656bb/hvac-control/drafts/incubator-imc-tuning-rules-similar-recovery/instruction.md)，把一阶对象 PI 整定公式、`lambda_s` 选择、`simulate_pi_controller`/`compute_metrics` 的使用方式和各项判定标准写明，确保测试可由说明直接推导，同时没有在说明里直接点名 shipped skill。把 [tests/test.sh](/tmp/per_skill_repair_workspaces/20260320035259-hvac-control-imc-tuning-rules-qvxso2-16a656bb/hvac-control/drafts/incubator-imc-tuning-rules-similar-recovery/tests/test.sh) 改成纯离线执行，去掉 `pip install`，并增加可覆盖的 `VERIFIER_LOG_DIR`。把 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260320035259-hvac-control-imc-tuning-rules-qvxso2-16a656bb/hvac-control/drafts/incubator-imc-tuning-rules-similar-recovery/tests/test_outputs.py) 改成无需 `pytest` 的标准库校验脚本。顺带把 [environment/incubator_recovery_sim.py](/tmp/per_skill_repair_workspaces/20260320035259-hvac-control-imc-tuning-rules-qvxso2-16a656bb/hvac-control/drafts/incubator-imc-tuning-rules-similar-recovery/environment/incubator_recovery_sim.py) 和 [environment/Dockerfile](/tmp/per_skill_repair_workspaces/20260320035259-hvac-control-imc-tuning-rules-qvxso2-16a656bb/hvac-control/drafts/incubator-imc-tuning-rules-similar-recovery/environment/Dockerfile) 去掉了 `numpy` 依赖，提升稳定性。\n\n验证：已用参考解跑通 `solution/solve.sh` 和 `tests/test.sh`（本地通过 `VERIFIER_LOG_DIR` 覆盖日志目录），结果为 `All checks passed.`，`reward.txt=1`。",
+      "reviewThreadId": "019d10e4-05b7-7922-8686-698c87b28f7e",
+      "evaluationByTaskId": {
+        "incubator-imc-tuning-rules-similar-recovery": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

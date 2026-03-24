@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "gait-prototype-retrieval-custom-distance-metrics-transfer-ranking",
+  "taskRole": "transfer",
+  "title": "Transfer: 康复步态原型检索",
+  "goal": "在康复步态样本与治疗原型库之间，用可调特征权重距离生成每个患者的 top-3 最近原型排行，并选择验证准确率最高的权重配置。",
+  "primaryOutputFile": "/root/gait_protocol_rankings.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "最近原型的排序完全由自定义特征距离决定，任务的唯一关键能力就是构造并复用带参数的距离函数进行批量距离计算。",
+  "targetSkillDirName": "custom-distance-metrics",
+  "targetSkillName": "custom-distance-metrics"
+}

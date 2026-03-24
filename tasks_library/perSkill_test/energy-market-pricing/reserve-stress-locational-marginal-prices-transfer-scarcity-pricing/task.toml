@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "reserve-stress-locational-marginal-prices-transfer-scarcity-pricing"
+name = "Transfer | 备用紧张情景下的稀缺定价分析"
+description = "比较基准与备用紧张情景下的市场出清结果，输出备用 MCP、各母线 LMP、区域价格冲击与稀缺定价传导判断。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "energy"
+tags = ["energy", "market-pricing", "opf", "reserve-scarcity", "locational-pricing"]
+primary_output_file = "scarcity_pricing_report.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

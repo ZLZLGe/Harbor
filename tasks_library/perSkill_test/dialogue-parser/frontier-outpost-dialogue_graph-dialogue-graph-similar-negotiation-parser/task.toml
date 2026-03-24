@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser"
+name = "Similar: Frontier Outpost Negotiation Parser"
+description = "Parse a frontier outpost negotiation script into a validated JSON dialogue graph and matching DOT visualization."
+author_name = "scriptwonder"
+author_email = "swu85@ur.rochester.edu"
+difficulty = "easy"
+category = "game"
+tags = ["game development", "parsing", "dialogue graphs"]
+primary_output_file = "/app/outpost_dialogue.json"
+source_task_id = "dialogue-parser"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+image = "python:3.12-slim"
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

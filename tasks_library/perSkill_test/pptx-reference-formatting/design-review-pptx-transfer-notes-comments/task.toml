@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "design-review-pptx-transfer-notes-comments"
+name = "Transfer - Repair Speaker Notes and Reviewer Comments in a Design Deck"
+description = "Repair stale speaker notes and reviewer comments in the provided design review presentation, append an Action Items slide, and save the finished PPTX to the required path."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "office-suite"
+tags = ["pptx", "slides", "ooxml", "speaker-notes", "comments", "design-review"]
+primary_output_file = "/root/Design-Review-Commented.pptx"
+source_task_id = "pptx-reference-formatting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,8 @@
+{
+  "request_id": "gallery_beacon_plan_alpha",
+  "layout_db": "gallery/gallery_floor.db",
+  "priority_tiers": ["A", "B"],
+  "required_voltage": 24,
+  "max_room_hops": 1,
+  "shortlist_size": 4
+}

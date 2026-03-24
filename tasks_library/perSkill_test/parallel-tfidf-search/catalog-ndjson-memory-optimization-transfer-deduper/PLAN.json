@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "catalog-ndjson-memory-optimization-transfer-deduper",
+  "taskRole": "transfer",
+  "title": "Transfer: Memory-Efficient Catalog Deduper",
+  "goal": "Refactor a large NDJSON product catalog normalizer so it can deduplicate records and emit canonicalized output despite heavy string repetition and sparse attributes, all within a fixed memory cap.",
+  "primaryOutputFile": "/root/workspace/catalog_deduper_solution.py",
+  "difficulty": "hard",
+  "category": "Data Cleaning",
+  "skillBenefitRationale": "This transfer task depends on interning repeated values, compact record layouts, sparse handling, and streaming normalization instead of accumulating full object graphs, so memory optimization is the unique key skill.",
+  "targetSkillDirName": "memory-optimization",
+  "targetSkillName": "memory-optimization"
+}

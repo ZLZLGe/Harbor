@@ -1,0 +1,10 @@
+file_name,relative_path,window_role,notes
+cand_tpl_a_01.npz,repeaters/candidates/cand_tpl_a_01.npz,candidate,weak repeater from north pit round
+cand_tpl_a_02.npz,repeaters/candidates/cand_tpl_a_02.npz,candidate,overcast shot with modest coda noise
+cand_tpl_b_01.npz,repeaters/candidates/cand_tpl_b_01.npz,candidate,crusher bench repeat with low amplitude
+cand_tpl_b_02.npz,repeaters/candidates/cand_tpl_b_02.npz,candidate,late afternoon bench repeat
+cand_tpl_c_01.npz,repeaters/candidates/cand_tpl_c_01.npz,candidate,haul road repeat with low SNR
+cand_tpl_c_02.npz,repeaters/candidates/cand_tpl_c_02.npz,candidate,haul road repeat with stronger surface noise
+cand_noise_01.npz,repeaters/candidates/cand_noise_01.npz,candidate,"regional quarry-adjacent transient, not a repeater"
+cand_noise_02.npz,repeaters/candidates/cand_noise_02.npz,candidate,impulsive local event outside template family
+cand_noise_03.npz,repeaters/candidates/cand_noise_03.npz,candidate,broadband disturbance with different moveout

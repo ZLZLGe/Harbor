@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "lunar-boulder-consensus-parallel-processing-similar-sweep",
+  "taskRole": "similar",
+  "title": "Similar | Lunar Boulder Consensus Sweep",
+  "goal": "对月球巨石公民科学标注执行 DBSCAN 参数网格搜索，在整套影像上计算平均 F1 与平均定位误差，并按“F1 降序、误差升序”输出前 15 组配置到 /root/lunar_boulder_leaderboard.csv。",
+  "primaryOutputFile": "/root/lunar_boulder_leaderboard.csv",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "每组超参数都要对同一批影像独立完成聚类和评分，计算彼此独立且共享同一份预加载数据；并行分发参数组合是唯一关键提速点。",
+  "targetSkillDirName": "parallel-processing",
+  "targetSkillName": "parallel-processing"
+}

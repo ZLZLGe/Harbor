@@ -1,0 +1,22 @@
+[
+  {
+    "leak_id": "leak-001",
+    "prefix": "10.44.10.0/24",
+    "advertiser_asn": 65103,
+    "learned_from_asn": 65101,
+    "exported_to_asn": 65102,
+    "learned_from_relationship": "provider",
+    "exported_to_relationship": "peer",
+    "description": "hub-central exported the branch-east prefix learned from Virtual WAN transit to peer hub-west"
+  },
+  {
+    "leak_id": "leak-002",
+    "prefix": "10.55.20.0/24",
+    "advertiser_asn": 65104,
+    "learned_from_asn": 65103,
+    "exported_to_asn": 65101,
+    "learned_from_relationship": "peer",
+    "exported_to_relationship": "provider",
+    "description": "hub-east exported the branch-central prefix learned from peer hub-central back to the Virtual WAN transit ASN"
+  }
+]

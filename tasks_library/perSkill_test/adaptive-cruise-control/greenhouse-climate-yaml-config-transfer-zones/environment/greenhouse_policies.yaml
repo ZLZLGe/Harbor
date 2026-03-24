@@ -1,0 +1,58 @@
+greenhouse:
+  replay:
+    dt_minutes: 10
+    duration_minutes: 120
+    sensor_blend: 0.6
+  model:
+    temperature:
+      heater_gain_per_kw: 0.42
+      vent_cooling_per_pct: 0.035
+      outside_leak_per_step: 0.1
+      solar_gain_per_wm2: 0.0018
+    humidity:
+      mister_gain_per_lpm: 5.0
+      vent_drying_per_pct: 0.12
+      outside_leak_per_step: 0.05
+  fallback:
+    max_missing_steps: 2
+  zones:
+    propagation:
+      crop: "basil seedlings"
+      targets:
+        temperature_c:
+          min: 21.0
+          max: 24.0
+        humidity_pct:
+          min: 68.0
+          max: 78.0
+      limits:
+        heater_kw_max: 6.0
+        vent_pct_max: 35.0
+        mister_lpm_max: 2.2
+      initial_state:
+        temperature_c: 20.5
+        humidity_pct: 70.0
+      fallback:
+        safe_heater_kw: 1.2
+        safe_vent_pct: 6.0
+        safe_mister_lpm: 0.4
+    production:
+      crop: "tomatoes"
+      targets:
+        temperature_c:
+          min: 19.0
+          max: 23.0
+        humidity_pct:
+          min: 60.0
+          max: 72.0
+      limits:
+        heater_kw_max: 5.0
+        vent_pct_max: 45.0
+        mister_lpm_max: 1.6
+      initial_state:
+        temperature_c: 19.5
+        humidity_pct: 64.0
+      fallback:
+        safe_heater_kw: 1.0
+        safe_vent_pct: 8.0
+        safe_mister_lpm: 0.2

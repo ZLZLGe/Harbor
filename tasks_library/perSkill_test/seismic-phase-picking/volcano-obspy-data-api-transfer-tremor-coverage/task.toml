@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "volcano-obspy-data-api-transfer-tremor-coverage"
+name = "Transfer | Volcano Tremor Coverage Audit"
+description = "Audit a day of fragmented volcano monitoring waveforms, summarize hourly station coverage, and write /root/volcano_gap_report.json."
+author_name = "Haotian Shen"
+author_email = "dalyshen@berkeley.edu"
+difficulty = "hard"
+category = "volcanology"
+tags = ["science", "earth-science", "volcanology", "continuous-waveforms", "coverage-audit"]
+primary_output_file = "/root/volcano_gap_report.json"
+source_task_id = "seismic-phase-picking"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

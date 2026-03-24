@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "equipment-checkout-pdf-transfer-form"
+name = "Transfer: Equipment Checkout Form"
+description = "Read the equipment request packet, fill the provided checkout form PDF, and write the completed PDF output."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "operations"
+tags = ["operations", "pdf", "form-filling", "transfer"]
+primary_output_file = "/root/workspace/equipment_checkout_filled.pdf"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "branch-prefix-audit-azure-bgp-transfer-valley-free",
+  "taskRole": "transfer",
+  "title": "Azure BGP Transfer - Branch Prefix Audit",
+  "goal": "对 Azure VPN 分支站点通告的多组前缀做 valley-free 合规审计，逐条识别泄漏路径、受影响 ASN 与可接受的策略级缓解方案，输出前缀审计结果。",
+  "primaryOutputFile": "branch_prefix_audit.json",
+  "difficulty": "hard",
+  "category": "bgp-audit",
+  "skillBenefitRationale": "该任务把技能迁移到多前缀合规审计场景，核心不再是单一事故，而是系统性识别 provider/peer/customer 传播违规并给出不破坏连接的 Azure 修复建议。",
+  "targetSkillDirName": "azure-bgp",
+  "targetSkillName": "azure-bgp"
+}

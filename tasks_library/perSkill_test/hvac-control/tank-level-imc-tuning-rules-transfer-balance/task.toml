@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "tank-level-imc-tuning-rules-transfer-balance"
+name = "Transfer - 储液罐液位平衡 IMC 整定"
+description = "为带恒定出流扰动的储液罐液位过程设计 IMC PI 控制器，并输出液位平衡控制报告到 tank_level_controller_report.json。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control-theory", "liquid-level", "pi-controller", "imc", "process-control"]
+primary_output_file = "tank_level_controller_report.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

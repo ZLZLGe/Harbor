@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reliability-ac-branch-pi-model-transfer-contingency-screen",
+  "taskRole": "transfer",
+  "title": "Transfer: N-1 Contingency Branch Screen",
+  "goal": "针对多个输电走廊事故后电压快照，计算存活支路的双向潮流与负载率，识别每个场景的最严重越限支路，并输出一份 N-1 筛查报告，指出最危险的事故场景。",
+  "primaryOutputFile": "contingency_screen.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "该任务完全依赖 AC 支路 pi-model 在不同场景下重算双向视在功率与 rateA 约束占用率，关键难点就是正确处理支路双向流和负载率。",
+  "targetSkillDirName": "ac-branch-pi-model",
+  "targetSkillName": "ac-branch-pi-model"
+}

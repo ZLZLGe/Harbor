@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reliability-lab-manufacturing-failure-reason-codebook-normalization-transfer-stress-screen-failures",
+  "taskRole": "transfer",
+  "title": "Transfer - Reliability Lab Stress-Screen Failure Normalization",
+  "goal": "Normalize reliability lab stress-screen failure notes from thermal cycle, vibration, and burn-in experiments into a reliability failure reason codebook, using test phase and bench context to map noisy remarks to standardized causes.",
+  "primaryOutputFile": "/app/output/reliability_failure_reason_map.json",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "This transfer moves the skill into reliability engineering, where the same normalization capability remains the only key requirement: segmenting unstructured failure notes, matching them to a scoped codebook, and calibrating confidence for uncertain cases.",
+  "targetSkillDirName": "manufacturing-failure-reason-codebook-normalization",
+  "targetSkillName": "manufacturing-failure-reason-codebook-normalization"
+}

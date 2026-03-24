@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "tess-known-transit-light-curve-preprocessing-similar-depth"
+name = "Similar: 已知星历凌星深度测量预处理"
+description = "Clean a TESS-style light curve with a known transit ephemeris and write the median detrended transit depth to /root/transit_depth.txt."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "exoplanet", "tess", "light-curve", "data-analysis"]
+primary_output_file = "/root/transit_depth.txt"
+source_task_id = "exoplanet-detection-period"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

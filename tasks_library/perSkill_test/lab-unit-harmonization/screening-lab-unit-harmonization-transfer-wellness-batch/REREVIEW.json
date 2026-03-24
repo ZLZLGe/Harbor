@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "lab-unit-harmonization",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "runId": "20260320101606-lab-unit-harmonization-lab-unit-harmonization-4wna5a",
+  "taskId": "screening-lab-unit-harmonization-transfer-wellness-batch",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/lab-unit-harmonization/lab-unit-harmonization/20260320101606-lab-unit-harmonization-lab-unit-harmonization-4wna5a/screening-lab-unit-harmonization-transfer-wellness-batch",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/lab-unit-harmonization/screening-lab-unit-harmonization-transfer-wellness-batch",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:screening-lab-unit-harmonization-transfer-wellness-batch tests/test.sh 最后固定 `exit 0`，即使 pytest 失败也不会以失败退出，测试无法严格判定通过/失败。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fb1-90d6-7f90-a458-96c3827acce6"
+}

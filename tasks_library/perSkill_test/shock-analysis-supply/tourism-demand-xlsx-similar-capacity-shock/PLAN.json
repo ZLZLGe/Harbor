@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "tourism-demand-xlsx-similar-capacity-shock",
+  "taskRole": "similar",
+  "title": "Similar - Tourism Capacity Shock Workbook",
+  "goal": "在给定工作簿中补全旅游资本、游客支出与收入预测表，使用跨表链接和公式完成基线/扩建两种情景的潜在旅游收入模型，并把结果保存为 tourism-capacity-shock.xlsx。",
+  "primaryOutputFile": "tourism-capacity-shock.xlsx",
+  "difficulty": "hard",
+  "category": "financial-analysis",
+  "skillBenefitRationale": "核心工作是沿用既有 Excel 模板完成多工作表引用、时间序列公式、趋势外推和重算校验，当前唯一关键 shipped skill 就是 xlsx。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

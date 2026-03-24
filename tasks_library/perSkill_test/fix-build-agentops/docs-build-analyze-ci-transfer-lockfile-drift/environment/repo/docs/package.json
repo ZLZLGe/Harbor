@@ -1,0 +1,13 @@
+{
+  "name": "harbor-docs-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Fixture for docs build CI debugging",
+  "scripts": {
+    "build": "node scripts/build-docs.js"
+  },
+  "dependencies": {
+    "@harbor/content-kit": "file:../packages/content-kit",
+    "@harbor/theme-utils": "file:../packages/theme-utils"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "restclient-migration",
+  "runId": "20260322193547-spring-boot-jakarta-migration-restclient-migration-f5q6gv",
+  "taskId": "incident-bridge-restclient-migration-transfer-status-mapping",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/spring-boot-jakarta-migration/restclient-migration/20260322193547-spring-boot-jakarta-migration-restclient-migration-f5q6gv/incident-bridge-restclient-migration-transfer-status-mapping",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322193547-spring-boot-jakarta-migration-restclient-migration-f5q6gv/spring-boot-jakarta-migration/drafts/incident-bridge-restclient-migration-transfer-status-mapping",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/spring-boot-jakarta-migration/incident-bridge-restclient-migration-transfer-status-mapping",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/spring-boot-jakarta-migration/incident-bridge-restclient-migration-transfer-status-mapping",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "incident-bridge-restclient-migration-transfer-status-mapping"
+      ],
+      "requestedIssuesByTaskId": {
+        "incident-bridge-restclient-migration-transfer-status-mapping": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac3-a9d5-7cf0-8c1a-55f45b51c6e2",
+      "repairSummary": "已最小化修复 static 问题，把 environment/Dockerfile 中的 skills 复制指令调整为保留 `COPY skills /root/.codex/skills` 的形式，未改动其他任务文件。",
+      "reviewThreadId": "019d1ac4-7dfe-7eb1-bd32-35c92b4eb15c",
+      "evaluationByTaskId": {
+        "incident-bridge-restclient-migration-transfer-status-mapping": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "static"
+}

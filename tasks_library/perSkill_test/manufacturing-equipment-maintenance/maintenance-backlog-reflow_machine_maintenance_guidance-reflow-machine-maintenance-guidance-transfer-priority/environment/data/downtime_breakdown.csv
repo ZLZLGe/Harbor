@@ -1,0 +1,16 @@
+machine_id,subsystem_code,downtime_minutes_7d
+RF-11,nitrogen_delivery_path,120
+RF-11,center_heating_zones,60
+RF-11,entry_ramp_section,30
+RF-12,entry_ramp_section,90
+RF-12,cooling_section,40
+RF-12,thermocouple_chain,30
+RF-13,thermocouple_chain,100
+RF-13,center_heating_zones,30
+RF-13,cooling_section,20
+RF-14,center_heating_zones,50
+RF-14,nitrogen_delivery_path,20
+RF-14,entry_ramp_section,15
+RF-15,cooling_section,20
+RF-15,entry_ramp_section,10
+RF-15,thermocouple_chain,5

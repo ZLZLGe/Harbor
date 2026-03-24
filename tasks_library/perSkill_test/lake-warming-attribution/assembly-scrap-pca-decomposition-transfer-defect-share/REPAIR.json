@@ -1,0 +1,24 @@
+{
+  "sourceTaskId": "lake-warming-attribution",
+  "targetSkillDirName": "pca-decomposition",
+  "runId": "20260320110115-lake-warming-attribution-pca-decomposition-tp74up",
+  "taskId": "assembly-scrap-pca-decomposition-transfer-defect-share",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/lake-warming-attribution/assembly-scrap-pca-decomposition-transfer-defect-share",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320110115-lake-warming-attribution-pca-decomposition-tp74up/lake-warming-attribution/drafts/assembly-scrap-pca-decomposition-transfer-defect-share",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/lake-warming-attribution/assembly-scrap-pca-decomposition-transfer-defect-share",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/lake-warming-attribution/assembly-scrap-pca-decomposition-transfer-defect-share",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction 只写了 global dimensionality reduction 和 orthogonal rotation，没有把 varimax、标准化方式与具体因子得分算法唯一化；测试却精确绑定到标准化后 SVD+varimax。; 测试按精确参考答案校验 share_pct，容差不足以容纳其他合理正交旋转/PCA 实现，因此可判定性不足。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

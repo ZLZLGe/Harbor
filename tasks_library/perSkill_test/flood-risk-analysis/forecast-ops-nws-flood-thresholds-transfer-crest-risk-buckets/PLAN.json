@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "forecast-ops-nws-flood-thresholds-transfer-crest-risk-buckets",
+  "taskRole": "transfer",
+  "title": "Transfer - 预报洪峰风险分桶",
+  "goal": "将未来 48 小时各站点的预报洪峰水位与 NWS 的 action/minor/moderate/major 阈值对齐，输出 `/root/output/forecast_crest_risk.json`，按 `no_risk`、`action`、`minor`、`moderate`、`major` 分桶，并给出每站点相对对应阈值的裕量。",
+  "primaryOutputFile": "/root/output/forecast_crest_risk.json",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "把同一 skill 迁移到预报分级场景，重点考察对整套 NWS 阈值层级的提取、数值化和分级判断，而不是历史 flood day 统计。",
+  "targetSkillDirName": "nws-flood-thresholds",
+  "targetSkillName": "nws-flood-thresholds"
+}

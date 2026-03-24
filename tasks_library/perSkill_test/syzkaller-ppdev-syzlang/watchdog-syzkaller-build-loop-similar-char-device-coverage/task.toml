@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "watchdog-syzkaller-build-loop-similar-char-device-coverage"
+name = "Similar - Add Linux Watchdog Syzlang Coverage"
+description = "Add buildable syzkaller watchdog device descriptions and constants so `/opt/syzkaller/sys/linux/dev_watchdog.txt` builds successfully."
+author_name = "Shenghan Zheng"
+author_email = "shenghan.zheng.gr@dartmouth.edu"
+difficulty = "medium"
+category = "security"
+tags = ["security", "fuzzing", "kernel", "syzkaller", "syzlang", "watchdog"]
+primary_output_file = "/opt/syzkaller/sys/linux/dev_watchdog.txt"
+source_task_id = "syzkaller-ppdev-syzlang"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

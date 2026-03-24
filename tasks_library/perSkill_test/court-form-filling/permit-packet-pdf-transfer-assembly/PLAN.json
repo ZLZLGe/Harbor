@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "permit-packet-pdf-transfer-assembly",
+  "taskRole": "transfer",
+  "title": "Transfer: Assemble a Permit Submission Packet PDF",
+  "goal": "Build a final permit submission PDF by selecting only the required pages from a mixed packet of inspection and application PDFs and merging them in the specified order.",
+  "primaryOutputFile": "/root/permit-submission-packet.pdf",
+  "difficulty": "easy",
+  "category": "document-processing",
+  "skillBenefitRationale": "The only essential skill is PDF page inspection, splitting, reordering, and merging to create a correctly assembled output document.",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

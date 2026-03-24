@@ -1,0 +1,23 @@
+[breaker]
+threshold_tonnes = 0.16
+
+[[routes]]
+dispatch_line = "premium-lump"
+diversion_gate = "G1"
+min_fe_grade_pct = 61.5
+max_silica_pct = 4.5
+max_mass_tonnes = 0.14
+
+[[routes]]
+dispatch_line = "blend-pad"
+diversion_gate = "G3"
+min_fe_grade_pct = 58.0
+max_silica_pct = 8.0
+max_mass_tonnes = 0.30
+
+[[routes]]
+dispatch_line = "rehandle-bin"
+diversion_gate = "G6"
+min_fe_grade_pct = 0.0
+max_silica_pct = 100.0
+max_mass_tonnes = 999.0

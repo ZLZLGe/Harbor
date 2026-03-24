@@ -1,0 +1,48 @@
+{
+  "generated_for_date": "2026-03-20",
+  "minimum_cvss_for_escalation": 7.0,
+  "escalations": [
+    {
+      "advisory_id": "NW-PSIRT-2026-041",
+      "ticket_id": "OPS-4821",
+      "product": "Edge Gateway",
+      "owner": "patch-oncall",
+      "status": "in_progress",
+      "best_vulnerability_id": "CVE-2026-11002",
+      "best_cvss_score": 8.7,
+      "score_source": "GHSA",
+      "sla_due_date": "2026-03-01",
+      "days_overdue": 19,
+      "published_at": "2026-02-05",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-041"
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-058",
+      "ticket_id": "OPS-4802",
+      "product": "Data Center Orchestrator",
+      "owner": "orchestrator-sre",
+      "status": "awaiting_patch",
+      "best_vulnerability_id": "CVE-2026-15001",
+      "best_cvss_score": 9.1,
+      "score_source": "RedHat",
+      "sla_due_date": "2026-03-05",
+      "days_overdue": 15,
+      "published_at": "2026-01-29",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-058"
+    },
+    {
+      "advisory_id": "NW-PSIRT-2026-044",
+      "ticket_id": "OPS-4856",
+      "product": "Branch Controller",
+      "owner": "branch-release",
+      "status": "pending_validation",
+      "best_vulnerability_id": "CVE-2026-11991",
+      "best_cvss_score": 7.4,
+      "score_source": "NVD",
+      "sla_due_date": "2026-03-15",
+      "days_overdue": 5,
+      "published_at": "2026-02-18",
+      "bulletin_url": "https://psirt.northwind.example/advisories/NW-PSIRT-2026-044"
+    }
+  ]
+}

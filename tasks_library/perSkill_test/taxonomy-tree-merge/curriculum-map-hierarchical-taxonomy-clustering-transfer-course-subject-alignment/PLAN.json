@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "curriculum-map-hierarchical-taxonomy-clustering-transfer-course-subject-alignment",
+  "taskRole": "transfer",
+  "title": "Transfer: 高校课程学科目录对齐",
+  "goal": "整合三所大学的课程目录路径，建立统一的 4 层学科 taxonomy，用于跨校转学分分析、课程覆盖统计和培养方案对照。",
+  "primaryOutputFile": "drafts/curriculum-map-hierarchical-taxonomy-clustering-transfer-course-subject-alignment/instruction.md",
+  "difficulty": "hard",
+  "category": "ML/NLP",
+  "skillBenefitRationale": "课程目录天然是层级路径，但跨校命名差异大、粒度不一致；该 skill 可以仅依赖路径结构与名称相似性完成学科树对齐，不需要额外文本抽取或规则库。",
+  "targetSkillDirName": "hierarchical-taxonomy-clustering",
+  "targetSkillName": "hierarchical-taxonomy-clustering"
+}

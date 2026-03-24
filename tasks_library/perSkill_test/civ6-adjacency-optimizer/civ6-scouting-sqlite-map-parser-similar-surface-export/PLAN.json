@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "civ6-scouting-sqlite-map-parser-similar-surface-export",
+  "taskRole": "similar",
+  "title": "Similar: Civ6 District Surface Exporter",
+  "goal": "给定一个 Civilization VI 的 .Civ6Map SQLite 地图和侦察请求，输出一个结构化 JSON，枚举地图尺寸、每个地块的坐标/地表/河流/资源信息，以及围绕候选城市中心三环内的通用陆地区块候选标记与显式阻塞代码，供后续规划器直接消费。",
+  "primaryOutputFile": "/output/civ6_district_surface.json",
+  "difficulty": "hard",
+  "category": "games",
+  "skillBenefitRationale": "任务核心在于探明地图 SQLite schema，并把多张空间相关表按 plot id 和地图宽度还原为坐标化 JSON；环内候选标记只依赖说明中显式给出的基础阻塞条件，主要难点仍集中在数据库解析、表关联和结构化导出。",
+  "targetSkillDirName": "sqlite-map-parser",
+  "targetSkillName": "sqlite-map-parser"
+}

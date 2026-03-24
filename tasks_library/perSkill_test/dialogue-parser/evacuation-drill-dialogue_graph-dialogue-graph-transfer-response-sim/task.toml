@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "evacuation-drill-dialogue_graph-dialogue-graph-transfer-response-sim"
+name = "Transfer: Evacuation Drill Response Graph Parser"
+description = "Parse an evacuation drill response script into a validated JSON decision graph and matching DOT visualization."
+author_name = "scriptwonder"
+author_email = "swu85@ur.rochester.edu"
+difficulty = "easy"
+category = "operations"
+tags = ["operations", "parsing", "decision graphs", "evacuation"]
+primary_output_file = "/app/evacuation_response.json"
+source_task_id = "dialogue-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+image = "python:3.12-slim"
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

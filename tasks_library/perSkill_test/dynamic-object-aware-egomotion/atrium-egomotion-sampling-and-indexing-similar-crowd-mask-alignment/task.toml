@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "atrium-egomotion-sampling-and-indexing-similar-crowd-mask-alignment"
+name = "Similar: 中庭手持镜头运动与人群掩码对齐"
+description = "将中庭视频的源帧级相机运动与人群框标注严格投影到 7fps 采样索引空间，并输出对齐的区间 JSON 与 crowd mask NPZ。"
+author_name = "Yue Zhang"
+author_email = "skywalkerzhang19@gmail.com"
+difficulty = "medium"
+category = "video-analysis"
+tags = ["video", "sampling", "index-alignment", "egomotion", "crowd-mask"]
+primary_output_file = "/root/pred_camera_intervals.json"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096

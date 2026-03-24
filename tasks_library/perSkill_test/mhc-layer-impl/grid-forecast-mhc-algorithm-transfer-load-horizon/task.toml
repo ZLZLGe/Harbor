@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "grid-forecast-mhc-algorithm-transfer-load-horizon"
+name = "Transfer | Grid Load Forecasting Stability"
+description = "将双随机约束的多残差流混合迁移到给定的电网负荷预测 Transformer，并输出包含长预测窗口误差、梯度离散度与流混合诊断的 grid_forecast_summary.json。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "ml-implementation"
+tags = ["pytorch", "transformer", "time-series", "forecasting", "residual-connections"]
+primary_output_file = "grid_forecast_summary.json"
+source_task_id = "mhc-layer-impl"
+task_role = "transfer"
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier]
+timeout_sec = 600.0

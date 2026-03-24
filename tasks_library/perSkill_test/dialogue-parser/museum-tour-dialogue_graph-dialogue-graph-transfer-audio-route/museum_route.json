@@ -1,0 +1,865 @@
+{
+  "nodes": [
+    {
+      "id": "Start",
+      "text": "Welcome to the Harbor Museum. Your headset can branch between galleries whenever you choose.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "OrientationHub",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FossilIntro",
+      "text": "The fossil hall starts with a suspended mammoth and a floor map of vanished coastlines.",
+      "speaker": "Curator",
+      "type": "line"
+    },
+    {
+      "id": "FossilChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DinoNarration",
+      "text": "Notice the healed fracture on the mammoth rib. It tells us the herd survived one brutal winter before the final thaw.",
+      "speaker": "Curator",
+      "type": "line"
+    },
+    {
+      "id": "FossilDeepChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ClimatePanel",
+      "text": "Pollen trapped under the tusks matches a colder grassland than this city has seen in ten thousand years.",
+      "speaker": "Curator",
+      "type": "line"
+    },
+    {
+      "id": "FieldStory",
+      "text": "The excavation crew nicknamed this skeleton Lantern because the ice around it glowed blue at sunrise.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "AmberNarration",
+      "text": "This amber drawer preserves insects, fern spores, and even one tiny feather barb caught mid-drift.",
+      "speaker": "Curator",
+      "type": "line"
+    },
+    {
+      "id": "AmberChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "InsectZoom",
+      "text": "The dragonfly's wing veins still align with species that now live only in tropical wetlands.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "TradeRoute",
+      "text": "Traders carried Baltic amber through ports that later fed the same shipping lanes highlighted in the maritime wing.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "TimelineBridge",
+      "text": "The timeline wall links extinctions, migrations, and human toolmaking so visitors can jump between eras instead of walking chronologically.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "MaritimeIntro",
+      "text": "The maritime wing mixes harbor storm recordings, navigation charts, and cargo recovered from a wreck near the old breakwater.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "MaritimeChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "StormDeck",
+      "text": "The speakers above you replay a gale recorded by lighthouse staff during the winter blackout of 1926.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "StormChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "SurvivalNote",
+      "text": "Sailors tied themselves to the rail and counted bell strikes to measure distance when the stars vanished behind ice.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "WhaleBridge",
+      "text": "The migration overlay shows why the museum placed the whale gallery beside maritime history instead of natural science.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "TradeMap",
+      "text": "This map layers tea, amber, and copper routes so you can trace how one harbor connected exhibitions on opposite sides of the museum.",
+      "speaker": "Archivist",
+      "type": "line"
+    },
+    {
+      "id": "CaptainLog",
+      "text": "The captain's handwriting sharpens whenever the crew sailed close to reefs, as if caution tightened every line of ink.",
+      "speaker": "Archivist",
+      "type": "line"
+    },
+    {
+      "id": "CaptainChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "MutinyRumor",
+      "text": "One margin note claims the crew hid fresh water from the paying passengers, but no court ever proved it.",
+      "speaker": "Archivist",
+      "type": "line"
+    },
+    {
+      "id": "SailRepair",
+      "text": "The patched sail overhead was stitched with modern linen so visitors can still read the original wind tears.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "LabIntro",
+      "text": "The restoration lab lets you follow pigment scans, frame repairs, and conservation interviews through the glass wall.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "LabChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "PigmentScan",
+      "text": "Infrared images uncovered a hidden lighthouse sketch beneath the seascape now hanging beside the lab.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "PigmentChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "UVOverlay",
+      "text": "Under ultraviolet light, later varnish glows green while the original brushwork stays matte and calm.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "MineralOrigin",
+      "text": "The pigment minerals came through the same shipping network highlighted in the maritime trade map.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "FrameRepair",
+      "text": "The oak frame is clamped in three places so the warped corner can relax before the adhesive cures.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "FrameChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DemoBench",
+      "text": "A camera over the bench magnifies each brush stroke so even distant visitors can watch the filler settle into the cracks.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "EthicsNote",
+      "text": "We restore enough for stability and reading, but we do not repaint history into something neater than it ever was.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "ConservatorIntro",
+      "text": "Ask quickly; the solvent chamber restarts in three minutes and I need both hands free before then.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "ConservatorChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "CareersAnswer",
+      "text": "Most conservators study chemistry, art history, and patient documentation long before they ever touch a public masterpiece.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "BarrierAnswer",
+      "text": "Rope barriers hold back vibration as much as people, which matters when a cracked panel reacts to every footstep.",
+      "speaker": "Conservator",
+      "type": "line"
+    },
+    {
+      "id": "AccessibilityIntro",
+      "text": "The accessibility desk can route you toward quieter spaces, family prompts, or a full transcript for every stop.",
+      "speaker": "Access Host",
+      "type": "line"
+    },
+    {
+      "id": "AccessibilityChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "QuietRoute",
+      "text": "The quiet route skips the storm speakers and sends you through the sculpture court before the busiest galleries fill up.",
+      "speaker": "Access Host",
+      "type": "line"
+    },
+    {
+      "id": "QuietChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "SculptureCourt",
+      "text": "The sculpture court is hushed except for filtered air and the soft hum of the skylight motors overhead.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "SculptureChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "BronzeFocus",
+      "text": "The bronze surface records fingerprints from the artist's own thumbs, left visible on purpose beside the polished ridge.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "TactileReplica",
+      "text": "The replica station pairs touch-safe casts with short verbal cues so every form can be explored at your own pace.",
+      "speaker": "Access Host",
+      "type": "line"
+    },
+    {
+      "id": "MaritimeBypass",
+      "text": "The bypass summary covers the shipwreck chart and captain's log without playing the storm recording.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "FamilyRoute",
+      "text": "The family prompts turn each gallery into a short hunt for shapes, sounds, and clues hidden in the labels.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "FamilyChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ShellChallenge",
+      "text": "Count how many shell spirals turn clockwise before you leave the maritime cabinets.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "FootprintHunt",
+      "text": "The footprint trail begins in the fossil hall and loops past the mammoth map markers on the floor.",
+      "speaker": "Guide",
+      "type": "line"
+    },
+    {
+      "id": "TranscriptSupport",
+      "text": "I can send a QR transcript and explain the icon system printed on each route card.",
+      "speaker": "Access Host",
+      "type": "line"
+    },
+    {
+      "id": "SupportChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "TranscriptSent",
+      "text": "The transcript link is live for the next twenty-four hours and includes captions for every ambient audio segment.",
+      "speaker": "Access Host",
+      "type": "line"
+    },
+    {
+      "id": "IconGuide",
+      "text": "Blue icons mark optional detours, green icons mark family prompts, and silver icons mark quiet alternatives.",
+      "speaker": "Access Host",
+      "type": "line"
+    },
+    {
+      "id": "CrossWingChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "LoopGallery",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "EchoReturn",
+      "text": "The guide pauses so you can choose a new direction without losing your place in the tour.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "ReplayChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    }
+  ],
+  "edges": [
+    {
+      "from": "Start",
+      "to": "OrientationHub",
+      "text": ""
+    },
+    {
+      "from": "OrientationHub",
+      "to": "FossilIntro",
+      "text": "1. Begin with the fossil hall."
+    },
+    {
+      "from": "OrientationHub",
+      "to": "MaritimeIntro",
+      "text": "2. Visit the maritime wing."
+    },
+    {
+      "from": "OrientationHub",
+      "to": "LabIntro",
+      "text": "3. Enter the restoration lab."
+    },
+    {
+      "from": "OrientationHub",
+      "to": "AccessibilityIntro",
+      "text": "4. Stop at the accessibility desk first."
+    },
+    {
+      "from": "FossilIntro",
+      "to": "FossilChoice",
+      "text": ""
+    },
+    {
+      "from": "FossilChoice",
+      "to": "DinoNarration",
+      "text": "1. Focus on the mammoth skeleton."
+    },
+    {
+      "from": "FossilChoice",
+      "to": "AmberNarration",
+      "text": "2. Open the amber specimen drawer."
+    },
+    {
+      "from": "FossilChoice",
+      "to": "TimelineBridge",
+      "text": "3. Compare extinction timelines."
+    },
+    {
+      "from": "DinoNarration",
+      "to": "FossilDeepChoice",
+      "text": ""
+    },
+    {
+      "from": "FossilDeepChoice",
+      "to": "ClimatePanel",
+      "text": "1. Hear the climate evidence."
+    },
+    {
+      "from": "FossilDeepChoice",
+      "to": "FieldStory",
+      "text": "2. Hear the excavation field story."
+    },
+    {
+      "from": "FossilDeepChoice",
+      "to": "OrientationHub",
+      "text": "3. Return to the museum map."
+    },
+    {
+      "from": "ClimatePanel",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "FieldStory",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "AmberNarration",
+      "to": "AmberChoice",
+      "text": ""
+    },
+    {
+      "from": "AmberChoice",
+      "to": "InsectZoom",
+      "text": "1. Zoom in on the trapped dragonfly."
+    },
+    {
+      "from": "AmberChoice",
+      "to": "TradeRoute",
+      "text": "2. Follow the amber trade route."
+    },
+    {
+      "from": "AmberChoice",
+      "to": "FossilChoice",
+      "text": "3. Return to fossil choices."
+    },
+    {
+      "from": "InsectZoom",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "TradeRoute",
+      "to": "CrossWingChoice",
+      "text": ""
+    },
+    {
+      "from": "TimelineBridge",
+      "to": "LoopGallery",
+      "text": ""
+    },
+    {
+      "from": "MaritimeIntro",
+      "to": "MaritimeChoice",
+      "text": ""
+    },
+    {
+      "from": "MaritimeChoice",
+      "to": "StormDeck",
+      "text": "1. Play the storm deck audio."
+    },
+    {
+      "from": "MaritimeChoice",
+      "to": "TradeMap",
+      "text": "2. Inspect the trade map."
+    },
+    {
+      "from": "MaritimeChoice",
+      "to": "CaptainLog",
+      "text": "3. Read the captain's log."
+    },
+    {
+      "from": "StormDeck",
+      "to": "StormChoice",
+      "text": ""
+    },
+    {
+      "from": "StormChoice",
+      "to": "SurvivalNote",
+      "text": "1. Learn the crew's survival tactics."
+    },
+    {
+      "from": "StormChoice",
+      "to": "WhaleBridge",
+      "text": "2. Compare the storm route to whale migration paths."
+    },
+    {
+      "from": "StormChoice",
+      "to": "OrientationHub",
+      "text": "3. Return to the museum map."
+    },
+    {
+      "from": "SurvivalNote",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "WhaleBridge",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "TradeMap",
+      "to": "CrossWingChoice",
+      "text": ""
+    },
+    {
+      "from": "CaptainLog",
+      "to": "CaptainChoice",
+      "text": ""
+    },
+    {
+      "from": "CaptainChoice",
+      "to": "MutinyRumor",
+      "text": "1. Hear the mutiny rumor."
+    },
+    {
+      "from": "CaptainChoice",
+      "to": "SailRepair",
+      "text": "2. Jump to the sail restoration note."
+    },
+    {
+      "from": "CaptainChoice",
+      "to": "MaritimeChoice",
+      "text": "3. Return to maritime choices."
+    },
+    {
+      "from": "MutinyRumor",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "SailRepair",
+      "to": "LabIntro",
+      "text": ""
+    },
+    {
+      "from": "LabIntro",
+      "to": "LabChoice",
+      "text": ""
+    },
+    {
+      "from": "LabChoice",
+      "to": "PigmentScan",
+      "text": "1. Review the pigment scan station."
+    },
+    {
+      "from": "LabChoice",
+      "to": "FrameRepair",
+      "text": "2. Watch the frame repair bench."
+    },
+    {
+      "from": "LabChoice",
+      "to": "ConservatorIntro",
+      "text": "3. Ask the conservator a question."
+    },
+    {
+      "from": "LabChoice",
+      "to": "OrientationHub",
+      "text": "4. Replay the main museum menu."
+    },
+    {
+      "from": "PigmentScan",
+      "to": "PigmentChoice",
+      "text": ""
+    },
+    {
+      "from": "PigmentChoice",
+      "to": "UVOverlay",
+      "text": "1. Turn on the ultraviolet overlay."
+    },
+    {
+      "from": "PigmentChoice",
+      "to": "MineralOrigin",
+      "text": "2. Trace where the minerals were imported from."
+    },
+    {
+      "from": "PigmentChoice",
+      "to": "LabChoice",
+      "text": "3. Return to lab choices."
+    },
+    {
+      "from": "UVOverlay",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "MineralOrigin",
+      "to": "CrossWingChoice",
+      "text": ""
+    },
+    {
+      "from": "FrameRepair",
+      "to": "FrameChoice",
+      "text": ""
+    },
+    {
+      "from": "FrameChoice",
+      "to": "DemoBench",
+      "text": "1. Join the live repair demo."
+    },
+    {
+      "from": "FrameChoice",
+      "to": "EthicsNote",
+      "text": "2. Hear the ethics note about restoration limits."
+    },
+    {
+      "from": "FrameChoice",
+      "to": "LabChoice",
+      "text": "3. Return to lab choices."
+    },
+    {
+      "from": "DemoBench",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "EthicsNote",
+      "to": "AccessibilityIntro",
+      "text": ""
+    },
+    {
+      "from": "ConservatorIntro",
+      "to": "ConservatorChoice",
+      "text": ""
+    },
+    {
+      "from": "ConservatorChoice",
+      "to": "CareersAnswer",
+      "text": "1. How do people enter this field?"
+    },
+    {
+      "from": "ConservatorChoice",
+      "to": "BarrierAnswer",
+      "text": "2. Why do rope barriers matter?"
+    },
+    {
+      "from": "ConservatorChoice",
+      "to": "LabChoice",
+      "text": "3. Return to lab choices."
+    },
+    {
+      "from": "CareersAnswer",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "BarrierAnswer",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "AccessibilityIntro",
+      "to": "AccessibilityChoice",
+      "text": ""
+    },
+    {
+      "from": "AccessibilityChoice",
+      "to": "QuietRoute",
+      "text": "1. [Quiet Route] Build a low-noise path."
+    },
+    {
+      "from": "AccessibilityChoice",
+      "to": "FamilyRoute",
+      "text": "2. [Family] Start the scavenger prompts."
+    },
+    {
+      "from": "AccessibilityChoice",
+      "to": "TranscriptSupport",
+      "text": "3. [Transcript] Send me the written guide."
+    },
+    {
+      "from": "AccessibilityChoice",
+      "to": "OrientationHub",
+      "text": "4. Return to the museum map."
+    },
+    {
+      "from": "QuietRoute",
+      "to": "QuietChoice",
+      "text": ""
+    },
+    {
+      "from": "QuietChoice",
+      "to": "SculptureCourt",
+      "text": "1. Start in the sculpture court."
+    },
+    {
+      "from": "QuietChoice",
+      "to": "MaritimeBypass",
+      "text": "2. Use the maritime bypass summary."
+    },
+    {
+      "from": "QuietChoice",
+      "to": "End",
+      "text": "3. End the tour here."
+    },
+    {
+      "from": "SculptureCourt",
+      "to": "SculptureChoice",
+      "text": ""
+    },
+    {
+      "from": "SculptureChoice",
+      "to": "BronzeFocus",
+      "text": "1. Focus on the abstract bronze."
+    },
+    {
+      "from": "SculptureChoice",
+      "to": "TactileReplica",
+      "text": "2. Visit the tactile replica station."
+    },
+    {
+      "from": "SculptureChoice",
+      "to": "AccessibilityChoice",
+      "text": "3. Return to accessibility choices."
+    },
+    {
+      "from": "BronzeFocus",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "TactileReplica",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "MaritimeBypass",
+      "to": "MaritimeIntro",
+      "text": ""
+    },
+    {
+      "from": "FamilyRoute",
+      "to": "FamilyChoice",
+      "text": ""
+    },
+    {
+      "from": "FamilyChoice",
+      "to": "ShellChallenge",
+      "text": "1. Hunt for spiral shells."
+    },
+    {
+      "from": "FamilyChoice",
+      "to": "FootprintHunt",
+      "text": "2. Follow the fossil footprint trail."
+    },
+    {
+      "from": "FamilyChoice",
+      "to": "AccessibilityChoice",
+      "text": "3. Return to accessibility choices."
+    },
+    {
+      "from": "ShellChallenge",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "FootprintHunt",
+      "to": "FossilIntro",
+      "text": ""
+    },
+    {
+      "from": "TranscriptSupport",
+      "to": "SupportChoice",
+      "text": ""
+    },
+    {
+      "from": "SupportChoice",
+      "to": "TranscriptSent",
+      "text": "1. Send the QR transcript now."
+    },
+    {
+      "from": "SupportChoice",
+      "to": "IconGuide",
+      "text": "2. Explain the icon system."
+    },
+    {
+      "from": "SupportChoice",
+      "to": "AccessibilityChoice",
+      "text": "3. Return to accessibility choices."
+    },
+    {
+      "from": "TranscriptSent",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "IconGuide",
+      "to": "EchoReturn",
+      "text": ""
+    },
+    {
+      "from": "CrossWingChoice",
+      "to": "MaritimeIntro",
+      "text": "1. Continue into the maritime wing."
+    },
+    {
+      "from": "CrossWingChoice",
+      "to": "LabIntro",
+      "text": "2. Continue into the restoration lab."
+    },
+    {
+      "from": "CrossWingChoice",
+      "to": "End",
+      "text": "3. Wrap up the tour."
+    },
+    {
+      "from": "LoopGallery",
+      "to": "MaritimeIntro",
+      "text": "1. Jump to the maritime wing next."
+    },
+    {
+      "from": "LoopGallery",
+      "to": "LabIntro",
+      "text": "2. Jump to the restoration lab next."
+    },
+    {
+      "from": "LoopGallery",
+      "to": "FossilChoice",
+      "text": "3. Return to fossil choices."
+    },
+    {
+      "from": "EchoReturn",
+      "to": "ReplayChoice",
+      "text": ""
+    },
+    {
+      "from": "ReplayChoice",
+      "to": "OrientationHub",
+      "text": "1. Return to the museum map."
+    },
+    {
+      "from": "ReplayChoice",
+      "to": "MaritimeIntro",
+      "text": "2. Head for the maritime wing."
+    },
+    {
+      "from": "ReplayChoice",
+      "to": "LabIntro",
+      "text": "3. Head for the restoration lab."
+    },
+    {
+      "from": "ReplayChoice",
+      "to": "End",
+      "text": "4. Conclude the tour."
+    }
+  ]
+}

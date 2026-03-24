@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sanctions-screening-fuzzy-match-transfer-signup-triage",
+  "taskRole": "transfer",
+  "title": "Transfer: Triage Customer Signups Against a Sanctions Watchlist",
+  "goal": "Screen new customer signup names against a sanctions watchlist containing aliases and transliteration drift, then write review-required hits with matched watchlist entities to /root/watchlist_hits.tsv.",
+  "primaryOutputFile": "/root/watchlist_hits.tsv",
+  "difficulty": "hard",
+  "category": "risk-screening",
+  "skillBenefitRationale": "This task shifts the skill into compliance screening, where fuzzy matching is required to catch alias-heavy or slightly misspelled entity names without relying on any other shipped skill.",
+  "targetSkillDirName": "fuzzy-match",
+  "targetSkillName": "fuzzy-match"
+}

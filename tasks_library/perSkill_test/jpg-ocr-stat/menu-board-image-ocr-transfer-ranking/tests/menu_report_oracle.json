@@ -1,0 +1,122 @@
+{
+  "board_order": [
+    "board_aurora.png",
+    "board_canal.png",
+    "board_lobby.png",
+    "board_patio.png"
+  ],
+  "boards": {
+    "board_aurora.png": {
+      "items": [
+        {
+          "item": "ESPRESSO",
+          "price": "3.20"
+        },
+        {
+          "item": "AMERICANO",
+          "price": "3.80"
+        },
+        {
+          "item": "CAPPUCCINO",
+          "price": "4.50"
+        },
+        {
+          "item": "VANILLA LATTE",
+          "price": "5.75"
+        },
+        {
+          "item": "MOCHA",
+          "price": "5.95"
+        }
+      ],
+      "cheapest_item": "ESPRESSO",
+      "cheapest_price": "3.20"
+    },
+    "board_canal.png": {
+      "items": [
+        {
+          "item": "COLD BREW",
+          "price": "4.85"
+        },
+        {
+          "item": "ICED CHAI",
+          "price": "4.95"
+        },
+        {
+          "item": "AFFOGATO",
+          "price": "5.10"
+        },
+        {
+          "item": "HONEY OAT LATTE",
+          "price": "6.40"
+        },
+        {
+          "item": "MATCHA LEMONADE",
+          "price": "6.80"
+        }
+      ],
+      "cheapest_item": "COLD BREW",
+      "cheapest_price": "4.85"
+    },
+    "board_lobby.png": {
+      "items": [
+        {
+          "item": "PLAIN CROISSANT",
+          "price": "3.60"
+        },
+        {
+          "item": "LEMON SCONE",
+          "price": "4.10"
+        },
+        {
+          "item": "ALMOND TWIST",
+          "price": "4.40"
+        },
+        {
+          "item": "BANANA LOAF",
+          "price": "4.90"
+        },
+        {
+          "item": "QUICHE SLICE",
+          "price": "6.25"
+        }
+      ],
+      "cheapest_item": "PLAIN CROISSANT",
+      "cheapest_price": "3.60"
+    },
+    "board_patio.png": {
+      "items": [
+        {
+          "item": "TOMATO SOUP",
+          "price": "5.25"
+        },
+        {
+          "item": "HAM BAGEL",
+          "price": "6.55"
+        },
+        {
+          "item": "PESTO TOAST",
+          "price": "7.10"
+        },
+        {
+          "item": "GARDEN WRAP",
+          "price": "7.60"
+        },
+        {
+          "item": "CHICKPEA SALAD",
+          "price": "7.95"
+        },
+        {
+          "item": "TURKEY MELT",
+          "price": "8.90"
+        }
+      ],
+      "cheapest_item": "TOMATO SOUP",
+      "cheapest_price": "5.25"
+    }
+  },
+  "summary": {
+    "total_items": 21,
+    "overall_median_price": "5.25"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "status": "BASELINE",
+  "completion_time": 20,
+  "change_budget_usage": {
+    "line_changes": 0,
+    "total_start_shift": 0
+  },
+  "line_plan": [
+    {
+      "lot": 0,
+      "stage": 0,
+      "line": 0,
+      "start": 0,
+      "finish": 4,
+      "duration": 4
+    },
+    {
+      "lot": 1,
+      "stage": 0,
+      "line": 2,
+      "start": 0,
+      "finish": 6,
+      "duration": 6
+    },
+    {
+      "lot": 2,
+      "stage": 0,
+      "line": 1,
+      "start": 1,
+      "finish": 4,
+      "duration": 3
+    },
+    {
+      "lot": 3,
+      "stage": 0,
+      "line": 0,
+      "start": 4,
+      "finish": 8,
+      "duration": 4
+    },
+    {
+      "lot": 4,
+      "stage": 0,
+      "line": 1,
+      "start": 4,
+      "finish": 8,
+      "duration": 4
+    },
+    {
+      "lot": 0,
+      "stage": 1,
+      "line": 2,
+      "start": 6,
+      "finish": 11,
+      "duration": 5
+    },
+    {
+      "lot": 1,
+      "stage": 1,
+      "line": 3,
+      "start": 6,
+      "finish": 11,
+      "duration": 5
+    },
+    {
+      "lot": 2,
+      "stage": 1,
+      "line": 0,
+      "start": 8,
+      "finish": 14,
+      "duration": 6
+    },
+    {
+      "lot": 3,
+      "stage": 1,
+      "line": 1,
+      "start": 8,
+      "finish": 13,
+      "duration": 5
+    },
+    {
+      "lot": 4,
+      "stage": 1,
+      "line": 2,
+      "start": 11,
+      "finish": 15,
+      "duration": 4
+    },
+    {
+      "lot": 2,
+      "stage": 2,
+      "line": 2,
+      "start": 12,
+      "finish": 16,
+      "duration": 4
+    },
+    {
+      "lot": 0,
+      "stage": 2,
+      "line": 1,
+      "start": 11,
+      "finish": 15,
+      "duration": 4
+    },
+    {
+      "lot": 1,
+      "stage": 2,
+      "line": 0,
+      "start": 14,
+      "finish": 20,
+      "duration": 6
+    },
+    {
+      "lot": 3,
+      "stage": 2,
+      "line": 2,
+      "start": 13,
+      "finish": 17,
+      "duration": 4
+    },
+    {
+      "lot": 4,
+      "stage": 2,
+      "line": 3,
+      "start": 14,
+      "finish": 18,
+      "duration": 4
+    }
+  ]
+}

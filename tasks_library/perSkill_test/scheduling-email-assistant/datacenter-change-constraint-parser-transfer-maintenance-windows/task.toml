@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "datacenter-change-constraint-parser-transfer-maintenance-windows"
+name = "Transfer | Datacenter Change Window Extractor"
+description = "Read maintenance approval threads from /root/maintenance_threads.json and write normalized deployment timing constraints to /root/change_window_constraints.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Operations"
+tags = ["operations", "change-management", "constraint-extraction", "maintenance"]
+primary_output_file = "/root/change_window_constraints.json"
+source_task_id = "scheduling-email-assistant"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

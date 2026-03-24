@@ -1,0 +1,5 @@
+close_time_utc,pipeline_id,close_reason
+2024-06-01T00:01:00Z,batch-alpha,MANUAL_CLOSE
+2024-06-01T00:01:40Z,stream-beta,AUTO_COMPLETE
+2024-06-01T00:02:30Z,ml-gamma,SLA_TIMEOUT
+2024-06-01T00:03:20Z,etl-epsilon,MANUAL_CLOSE

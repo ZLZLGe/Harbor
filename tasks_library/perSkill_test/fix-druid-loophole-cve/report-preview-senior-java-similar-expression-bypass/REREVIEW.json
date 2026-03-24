@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "fix-druid-loophole-cve",
+  "targetSkillDirName": "senior-java",
+  "runId": "20260319173130-fix-druid-loophole-cve-senior-java-5liehe",
+  "taskId": "report-preview-senior-java-similar-expression-bypass",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/fix-druid-loophole-cve/senior-java/20260319173130-fix-druid-loophole-cve-senior-java-5liehe/report-preview-senior-java-similar-expression-bypass",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/fix-druid-loophole-cve/report-preview-senior-java-similar-expression-bypass",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:report-preview-senior-java-similar-expression-bypass instruction.md 直接点名了 `SpEL`，这比 source_task/instruction.md 更明确地暴露了 Spring 表达式求值这一具体技能线索。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [
+    "未实跑 Maven/pytest；testability 结论基于 instruction、environment 与 tests 的静态审查，当前审稿环境缺少可用 Java/JAVA_HOME，所以我对此保留少量不确定性。"
+  ],
+  "reviewThreadId": "019d0fa9-1d7f-76c0-84a9-fc0e198cde46"
+}

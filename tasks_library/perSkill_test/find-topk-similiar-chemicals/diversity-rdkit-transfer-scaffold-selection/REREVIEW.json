@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "find-topk-similiar-chemicals",
+  "targetSkillDirName": "rdkit",
+  "runId": "20260319141717-find-topk-similiar-chemicals-rdkit-e3rnt8",
+  "taskId": "diversity-rdkit-transfer-scaffold-selection",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/find-topk-similiar-chemicals/rdkit/20260319141717-find-topk-similiar-chemicals-rdkit-e3rnt8/diversity-rdkit-transfer-scaffold-selection",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/find-topk-similiar-chemicals/diversity-rdkit-transfer-scaffold-selection",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:diversity-rdkit-transfer-scaffold-selection instruction.md 直接点名 Bemis-Murcko scaffold、scaffold 分组与 representative selection，这些属于 source_task/instruction.md 未出现的具体技能名，技能暴露程度越界。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 满足 1 个 similar + 3 个 transfer，三个 transfer 在子结构筛查、描述符优先级、scaffold 多样性三个方向上也足够不同，similar 任务也贴近 RDKit 的典型相似度检索用法；但 3 个 transfer 的 instruction.md 都系统性引入了 source_task/instruction.md 未出现的具体技能名（如 SMARTS、具体描述符集合、Bemis-Murcko scaffold），有一致性的可见性越界问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa6-04bd-7610-a3a8-1644bc775d60"
+}

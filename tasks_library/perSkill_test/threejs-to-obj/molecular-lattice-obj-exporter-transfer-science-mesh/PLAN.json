@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "molecular-lattice-obj-exporter-transfer-science-mesh",
+  "taskRole": "transfer",
+  "title": "Transfer - Molecular Lattice OBJ Export",
+  "goal": "Export a Three.js molecular lattice made from atom spheres and bond cylinders, including instanced atoms across the crystal cell, into /root/output/lattice.obj with coordinates preserved after Blender-axis conversion.",
+  "primaryOutputFile": "/root/output/lattice.obj",
+  "difficulty": "medium",
+  "category": "scientific-visualization",
+  "skillBenefitRationale": "This moves the exporter skill into scientific visualization, but the only essential capability remains converting a generated Three.js mesh hierarchy into a correct OBJ artifact.",
+  "targetSkillDirName": "obj-exporter",
+  "targetSkillName": "obj-exporter"
+}

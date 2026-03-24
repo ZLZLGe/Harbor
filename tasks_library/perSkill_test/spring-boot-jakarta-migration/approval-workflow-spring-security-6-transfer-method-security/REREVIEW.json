@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "spring-security-6",
+  "runId": "20260322195413-spring-boot-jakarta-migration-spring-security-6-avrjso",
+  "taskId": "approval-workflow-spring-security-6-transfer-method-security",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/spring-boot-jakarta-migration/spring-security-6/20260322195413-spring-boot-jakarta-migration-spring-security-6-avrjso/approval-workflow-spring-security-6-transfer-method-security",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/spring-boot-jakarta-migration/approval-workflow-spring-security-6-transfer-method-security",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:approval-workflow-spring-security-6-transfer-method-security instruction.md 未直接点名 shipped skill，技能暴露检查通过。; 测试对实现细节约束过强：要求 MethodSecurityConfig 直接出现 UserDetailsService 字样，导致依赖现有 UserDetailsService Bean 自动装配的有效 Spring Security 6 解法也可能被判错。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a76-a72b-7271-a49c-7d5545ea9231"
+}

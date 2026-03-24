@@ -1,0 +1,6 @@
+run_id = "ahu-bay-2/fan-step-06"
+samples_file = "fan_speed_trace.csv"
+step_time_s = 1.5
+pwm_before_percent = 32.0
+pwm_after_percent = 56.0
+target_percentages_of_speed_rise = [80.0, 95.0]

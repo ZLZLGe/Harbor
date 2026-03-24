@@ -1,0 +1,5 @@
+defect_id,severity,status,summary,release_rule
+RL-219,P1,mitigated,Guest checkout can fail if express_wallet is enabled before config propagation,Run guest_checkout again immediately after flag activation and rollback if symptoms recur
+RL-233,P2,accepted,Invoice PDF shows local timezone instead of UTC,Does not block release
+RL-244,P1,resolved,Refund lookup timed out during migration load in staging,Run refund_lookup smoke test after migration and rollback if timeout symptoms recur
+RL-251,P3,accepted,Receipt footer spacing regresses on Safari,Does not block release

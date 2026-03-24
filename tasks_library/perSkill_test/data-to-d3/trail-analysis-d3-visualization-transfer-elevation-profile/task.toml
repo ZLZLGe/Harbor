@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "trail-analysis-d3-visualization-transfer-elevation-profile"
+name = "Transfer: 徒步路线高程剖面浏览器"
+description = "基于徒步路线采样点与途经点数据生成单页可视化，输出分段着色的高程剖面并联动浏览途经点说明。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Data Visualization"
+tags = ["d3.js", "elevation-profile", "interactive-visualization", "trail-analysis"]
+primary_output_file = "/root/output/elevation-profile.html"
+source_task_id = "data-to-d3"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

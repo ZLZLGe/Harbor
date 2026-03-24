@@ -1,0 +1,8 @@
+patch_dir: workspace/failed_copy/patches
+targets:
+  - target: workspace/failed_copy/triage_app/__init__.py
+    template: templates/triage_app/__init__.py
+  - target: workspace/failed_copy/triage_app/engine.py
+    template: templates/triage_app/engine.py
+  - target: workspace/failed_copy/pyproject.toml
+    template: templates/pyproject.toml

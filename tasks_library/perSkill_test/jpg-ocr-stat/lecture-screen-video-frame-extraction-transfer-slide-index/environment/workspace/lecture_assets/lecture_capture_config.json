@@ -1,0 +1,7 @@
+{
+  "video_file": "lecture_week3.avi",
+  "sample_interval_seconds": 1,
+  "slide_region": [40, 40, 760, 440],
+  "preview_dir": "slide_change_previews",
+  "change_threshold": 12.0
+}

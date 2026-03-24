@@ -1,0 +1,46 @@
+audit:
+  reactor_id: BR-07
+  batch_id: BT-2403
+  tolerance_band_c: 0.25
+  sample_period_min: 1.0
+events:
+- event_id: nutrient_shift_heatup
+  phase: nutrient_shift
+  direction: heatup
+  switch_time_min: 18.0
+  target_setpoint_c: 37.0
+  metrics:
+    overshoot_c: 0.32
+    settling_time_min: 15.0
+    steady_state_error_c: 0.0
+    out_of_tolerance_duration_min: 10.0
+  limits:
+    overshoot_c_max: 0.4
+    settling_time_min_max: 15.0
+    steady_state_error_c_max: 0.12
+    out_of_tolerance_duration_min_max: 10.0
+  pass_count: 4
+  status: pass
+- event_id: induction_coolback
+  phase: induction_trim
+  direction: cooldown
+  switch_time_min: 62.0
+  target_setpoint_c: 35.8
+  metrics:
+    overshoot_c: 0.4
+    settling_time_min: 14.0
+    steady_state_error_c: 0.01
+    out_of_tolerance_duration_min: 10.0
+  limits:
+    overshoot_c_max: 0.35
+    settling_time_min_max: 13.0
+    steady_state_error_c_max: 0.1
+    out_of_tolerance_duration_min_max: 9.0
+  pass_count: 1
+  status: fail
+overall:
+  passed_events: 1
+  total_events: 2
+  requires_investigation: true
+  worst_event: induction_coolback
+  largest_overshoot_event: induction_coolback

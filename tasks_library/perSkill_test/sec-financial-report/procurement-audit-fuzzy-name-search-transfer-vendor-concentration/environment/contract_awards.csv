@@ -1,0 +1,12 @@
+contract_id,department_code,department_name,project_category,project_name,vendor_name_award,award_date,award_amount
+C-4101,DPT-410,Department of Water Infrastructure,Stormwater Retrofit,Basin 4 Culvert Replacement,Blue River Civil Works,2025-01-12,480000
+C-4102,DPT-410,Department of Water Infrastructure,Stormwater Retrofit,South Channel Drain Upgrade,BlueRiver Drainage Solns LLC,2025-01-27,420000
+C-4103,DPT-410,Department of Water Infrastructure,Pump Station Upgrade,Mariner Pump Station Controls,Aqua Terra Pump Svcs,2025-02-06,350000
+C-4104,DPT-410,Department of Water Infrastructure,Canal Lining,North Reach Canal Concrete Rehab,Civic Paving Ptrs Co,2025-02-18,275000
+C-4105,DPT-410,Department of Water Infrastructure,Flood Sensor Network,Harbor Flood Alert Nodes,NorthShore Signal Sys,2025-03-03,310000
+C-4106,DPT-410,Department of Water Infrastructure,Pump Station Upgrade,Delta Pump Yard Lighting,Harbor St Lighting Cons.,2025-03-15,190000
+C-4107,DPT-410,Department of Water Infrastructure,Stormwater Retrofit,East Spillway Reinforcement,BlueRiver Civil Wks Ltd,2025-04-01,260000
+C-4108,DPT-410,Department of Water Infrastructure,Canal Lining,Canal Walk Safety Rail Package,Metro Guardrail Ind.,2025-04-22,90000
+C-4109,DPT-410,Department of Water Infrastructure,Flood Sensor Network,Reservoir Mapping and Survey,East Bay Geo Analytics,2025-05-08,140000
+C-5201,DPT-520,Parks and Streets Division,Street Lighting,Riverside Promenade Lighting,Harbor Street Lighting Consortium,2025-01-19,500000
+C-6101,DPT-610,Transit Facilities Office,Safety Barriers,Depot Barrier Upgrade,Metro Guard Rail Industries,2025-02-11,230000

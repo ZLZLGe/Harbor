@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "acc-telemetry-csv-processing-similar-mode-audit",
+  "taskRole": "similar",
+  "title": "Similar: ACC Telemetry Mode Audit",
+  "goal": "读取一次高速路测遥测 CSV，基于 lead vehicle 缺失值、TTC 与安全间距公式生成逐时刻模式审计表，并汇总关键安全指标。",
+  "primaryOutputFile": "acc_mode_audit.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "延续原任务的汽车传感器时序场景，但把重点收敛到 CSV 读取、缺失值处理、派生列计算和结果导出，直接覆盖 csv-processing 的典型 shipped 用法。",
+  "targetSkillDirName": "csv-processing",
+  "targetSkillName": "csv-processing"
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "grid-reserve-economic-dispatch-similar-fuel-bid-shock"
+name = "Similar - Fuel Bid Shock Reserve Dispatch Review"
+description = "Compare a base reserve-co-optimized fleet dispatch with a gas-peaker fuel-bid shock and write dispatch_impact.json with costs, marginal prices, awards, and redispatch impacts."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "energy"
+tags = [ "energy", "economic-dispatch", "reserve-co-optimization", "counterfactual-analysis",]
+primary_output_file = "dispatch_impact.json"
+source_task_id = "energy-market-pricing"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = true

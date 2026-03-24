@@ -1,0 +1,21 @@
+{
+  "sourceTaskId": "civ6-adjacency-optimizer",
+  "targetSkillDirName": "sqlite-map-parser",
+  "runId": "20260318193712-civ6-adjacency-optimizer-sqlite-map-parser-zpelyy",
+  "taskId": "factory-floor-sqlite-map-parser-transfer-forklift-staging",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/civ6-adjacency-optimizer/sqlite-map-parser/20260318193712-civ6-adjacency-optimizer-sqlite-map-parser-zpelyy/factory-floor-sqlite-map-parser-transfer-forklift-staging",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/civ6-adjacency-optimizer/factory-floor-sqlite-map-parser-transfer-forklift-staging",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:factory-floor-sqlite-map-parser-transfer-forklift-staging instruction.md 直接写出“从 SQLite 数据库中恢复”，比 source_task/instruction.md 更直接地提示了目标 skill。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer，三个 transfer 分别落在工厂物流、博物馆导览、湿地监测，彼此区分度足够。",
+    "family similar 任务仍然围绕 .Civ6Map 的表结构探查、plot_id 还原、地形/地貌/河流整合，贴近 sqlite-map-parser 的典型用法。",
+    "family 但 3 个 transfer 的 instruction 都直接写出“SQLite 数据库”，相对 source_task/instruction.md 更直接地点明了目标 skill，属于同一类可见性问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0f9f-809f-7310-8dc3-c89679733edf"
+}

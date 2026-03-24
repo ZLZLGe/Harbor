@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "dub-delivery-ffmpeg-media-info-similar-qc-report",
+  "taskRole": "similar",
+  "title": "Similar: 多语言配音交付包质检报告",
+  "goal": "检查一个已生成的多语言配音交付包，基于视频与分段音频的媒体元数据生成质检报告，确认音频采样率、声道数、总时长、语言标记以及各语音片段的放置时间漂移是否满足交付规范。",
+  "primaryOutputFile": "/root/dub_qc_report.json",
+  "difficulty": "medium",
+  "category": "multimodal-video-dubbing",
+  "skillBenefitRationale": "这个任务把 FFmpeg Media Info 的典型用法放在中心位置：用 ffprobe/ffmpeg 提取音视频流信息、时长和标签并做交付核验，场景仍然贴近配音成片验收，但不再复写源任务里的语音生成与混音流程。",
+  "targetSkillDirName": "ffmpeg-media-info",
+  "targetSkillName": "FFmpeg Media Info"
+}

@@ -1,0 +1,12 @@
+code,standard_label,category,allowed_stages,keywords_examples
+SMT-AOI-001,Solder bridge between adjacent pins,SOLDER_BRIDGE,AOI_POST_REFLOW;REWORK_BENCH,"bridge,连锡,锡桥,short,pin short,短路"
+SMT-AOI-002,Insufficient solder on joint,INSUFFICIENT_SOLDER,AOI_POST_REFLOW;REWORK_BENCH,"少锡,少焊,insuf,insufficient,starved"
+SMT-AOI-003,Cold solder / non-wet joint,COLD_SOLDER,AOI_POST_REFLOW;REWORK_BENCH,"虚焊,cold solder,non-wet,dry joint,假焊"
+SMT-AOI-004,Tombstone component,TOMBSTONE,AOI_POST_REFLOW,"tombstone,立碑,standing,翘立"
+SMT-AOI-005,Missing component,MISSING,SPI_PRE_REFLOW;AOI_POST_REFLOW;REWORK_BENCH,"missing,漏件,no part,空位,no component"
+SMT-AOI-006,Reversed polarity / orientation,REVERSED,AOI_POST_REFLOW;REWORK_BENCH,"反向,reversed,polarity rev,flip,极性"
+SMT-AOI-007,Offset placement,OFFSET,SPI_PRE_REFLOW;AOI_POST_REFLOW,"偏位,offset,shifted,misalign,偏移"
+SMT-AOI-008,Wrong component loaded,WRONG_PART,SPI_PRE_REFLOW;AOI_POST_REFLOW;REWORK_BENCH,"wrong value,wrong part,错件,料错,package错"
+SMT-AOI-009,Excess solder / solder ball,EXCESS_SOLDER,AOI_POST_REFLOW,"多锡,solder ball,锡珠,excess,splash"
+SMT-AOI-010,Pad lifted after rework,PAD_LIFT,REWORK_BENCH,"pad lift,pad起皮,lifted pad,copper exposed,land damage"
+SMT-AOI-011,Flux residue contamination,FLUX_RESIDUE,REWORK_BENCH;AOI_POST_REFLOW,"flux残留,助焊剂,residue,污染,sticky"

@@ -1,0 +1,9 @@
+vendor_id,vendor_name,parent_group_id,parent_group_name,city,state
+V-1001,BlueRiver Civil Works Ltd.,GRP-BR,BlueRiver Infrastructure Group,Redstone,CA
+V-1002,BlueRiver Drainage Solutions LLC,GRP-BR,BlueRiver Infrastructure Group,Redstone,CA
+V-2001,North Shore Signal Systems Inc.,GRP-NS,North Shore Mobility Group,Port Emery,CA
+V-3001,Civic Paving Partners Co.,GRP-CP,Civic Paving Holdings,New Albion,CA
+V-4001,Aquaterra Pump Services GmbH,GRP-AQ,Aquaterra Industrial Group,San Merino,CA
+V-5001,Harbor Street Lighting Consortium,GRP-HS,Harbor Urban Systems,Port Emery,CA
+V-6001,Metro Guard Rail Industries,GRP-MG,Metro Safety Works,Redstone,CA
+V-7001,East Bay Geospatial Analytics Ltd.,GRP-EB,East Bay Data Holdings,Oak Valley,CA

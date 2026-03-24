@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "icu-capacity-xlsx-transfer-scenario-model",
+  "taskRole": "transfer",
+  "title": "Transfer: ICU Capacity Scenario Model",
+  "goal": "修复并扩展一个 ICU 排班容量模型工作簿：把假设区、病区负荷表和 staffing summary 正确连通，补全缺失公式并重新计算，输出可直接审阅的 /root/ward_capacity_model.xlsx。",
+  "primaryOutputFile": "/root/ward_capacity_model.xlsx",
+  "difficulty": "hard",
+  "category": "healthcare operations",
+  "skillBenefitRationale": "任务重点是编辑现有 Excel 模型、保持结构与格式、用公式而非硬编码完成联动并验证结果，关键能力完全落在 xlsx。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

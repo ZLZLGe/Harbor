@@ -1,0 +1,56 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1774276790.8370779,
+            "stop": 1774276790.873769
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_comments_and_order_are_preserved",
+                "status": "passed",
+                "duration": 0.019409662999350985,
+                "start": 1774276790.8493588,
+                "stop": 1774276790.869454,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_only_verdict_columns_change",
+                "status": "passed",
+                "duration": 0.0009196600003633648,
+                "start": 1774276790.8700414,
+                "stop": 1774276790.8714256,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_expected_verdict_matrix",
+                "status": "passed",
+                "duration": 0.00048300199978257297,
+                "start": 1774276790.8717358,
+                "stop": 1774276790.8725557,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_all_verdicts_use_lowercase_booleans",
+                "status": "passed",
+                "duration": 0.0005051870002716896,
+                "start": 1774276790.8728726,
+                "stop": 1774276790.8736453,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

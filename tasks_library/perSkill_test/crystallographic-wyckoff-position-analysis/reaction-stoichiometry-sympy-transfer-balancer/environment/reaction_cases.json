@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "case_id": "combustion_ethane",
+      "equation": "C2H6 + O2 -> CO2 + H2O"
+    },
+    {
+      "case_id": "pyrite_roasting",
+      "equation": "FeS2 + O2 -> Fe2O3 + SO2"
+    },
+    {
+      "case_id": "permanganate_hcl",
+      "equation": "KMnO4 + HCl -> KCl + MnCl2 + H2O + Cl2"
+    },
+    {
+      "case_id": "thermite",
+      "equation": "Al + Fe2O3 -> Al2O3 + Fe"
+    },
+    {
+      "case_id": "phosphate_reduction",
+      "equation": "Ca3(PO4)2 + SiO2 + C -> P4 + CaSiO3 + CO"
+    },
+    {
+      "case_id": "double_replacement",
+      "equation": "Na3PO4 + MgCl2 -> NaCl + Mg3(PO4)2"
+    }
+  ]
+}

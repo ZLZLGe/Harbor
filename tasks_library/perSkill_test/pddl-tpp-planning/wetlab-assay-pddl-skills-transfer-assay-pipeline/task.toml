@@ -1,0 +1,32 @@
+version = "0.0"
+
+[metadata]
+id = "wetlab-assay-pddl-skills-transfer-assay-pipeline"
+name = "Transfer | 湿实验批处理流程规划"
+description = "读取湿实验批次清单中的全部 PDDL 实例，为每个批次生成覆盖取样、混配、孵育、清洗与上机读板顺序的合法计划并写入输出文件。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "research"
+tags = ["pddl", "planning", "wetlab", "assay"]
+primary_output_file = "assay_plans/batch_red_plan.txt"
+source_task_id = "pddl-tpp-planning"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

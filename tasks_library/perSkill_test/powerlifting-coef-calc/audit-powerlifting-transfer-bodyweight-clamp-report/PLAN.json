@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "audit-powerlifting-transfer-bodyweight-clamp-report",
+  "taskRole": "transfer",
+  "title": "Transfer: 极端体重 Dots 边界审计报告",
+  "goal": "给定一份包含极端体重选手的称重与成绩数据，输出审计报告，列出每位选手的原始体重、公式实际采用的封顶/保底体重、三项总成绩以及最终 Dots 分数，用来核查体重边界裁剪是否按男女不同规则执行。",
+  "primaryOutputFile": "/root/data/bodyweight_clamp_audit.json",
+  "difficulty": "easy",
+  "category": "data-analysis",
+  "skillBenefitRationale": "任务把力量举评分迁移到规则审计场景，唯一关键仍是理解并正确应用 Dots 的男女体重截断区间与系数公式。",
+  "targetSkillDirName": "powerlifting",
+  "targetSkillName": "powerlifting"
+}

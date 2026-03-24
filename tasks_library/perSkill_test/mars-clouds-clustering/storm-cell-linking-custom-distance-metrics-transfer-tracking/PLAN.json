@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "storm-cell-linking-custom-distance-metrics-transfer-tracking",
+  "taskRole": "transfer",
+  "title": "Transfer: 风暴单体跨帧链接",
+  "goal": "在连续两帧风暴单体候选之间，用可调东西向/南北向代价构造距离矩阵，完成阈值内贪心链接并输出跨帧连接结果。",
+  "primaryOutputFile": "/root/storm_cell_links.csv",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "跨帧链接是否正确首先取决于能否把方向性移动代价写成自定义距离矩阵；没有这一步，后续匹配规则只是机械执行。",
+  "targetSkillDirName": "custom-distance-metrics",
+  "targetSkillName": "custom-distance-metrics"
+}

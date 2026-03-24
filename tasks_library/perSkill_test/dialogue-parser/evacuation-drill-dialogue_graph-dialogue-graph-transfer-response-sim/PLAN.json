@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "evacuation-drill-dialogue_graph-dialogue-graph-transfer-response-sim",
+  "taskRole": "transfer",
+  "title": "Transfer: Evacuation Drill Response Graph Parser",
+  "goal": "把一份楼宇疏散演练响应脚本解析为分支决策图，覆盖广播提示、岗位响应、错误分支回退和终止节点，并输出可验证 JSON。",
+  "primaryOutputFile": "/app/evacuation_response.json",
+  "difficulty": "easy",
+  "category": "operations",
+  "skillBenefitRationale": "场景变成运营演练后，任务仍然围绕分支状态流的图建模、完整性检查和可视化表达展开，因此 dialogue_graph 仍是唯一关键 shipped skill。",
+  "targetSkillDirName": "dialogue_graph",
+  "targetSkillName": "dialogue-graph"
+}

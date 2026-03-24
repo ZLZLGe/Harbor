@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "surface-slab-pymatgen-transfer-termination-catalog"
+name = "Pymatgen Transfer: Slab Termination Catalog"
+description = "Generate slab terminations from on-disk bulk structures and write a catalog summarizing Miller indices, surface areas, layer counts, and polarity-proxy surface compositions to slab_termination_catalog.json."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "materials_science"
+tags = ["materials_science", "surface_science", "slab_generation", "miller_indices", "cif", "pymatgen"]
+primary_output_file = "slab_termination_catalog.json"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

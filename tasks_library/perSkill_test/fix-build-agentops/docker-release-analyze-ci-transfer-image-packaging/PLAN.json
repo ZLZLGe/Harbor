@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "docker-release-analyze-ci-transfer-image-packaging",
+  "taskRole": "transfer",
+  "title": "Transfer: 修复发布镜像打包流水线失败",
+  "goal": "分析提供的发布作业失败日志，定位镜像构建或打包步骤中的错误，写出修复说明并更新仓库里的 Dockerfile、打包脚本或工作流配置，使发布流水线恢复。",
+  "primaryOutputFile": "reports/release-pipeline-report.md",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "场景转到发布镜像与打包阶段，失败点横跨 Docker 构建输出和 GitHub Actions step 日志；analyze-ci 能先把多步日志收敛成可修复的单一根因。",
+  "targetSkillDirName": "analyze-ci",
+  "targetSkillName": "analyze-ci"
+}

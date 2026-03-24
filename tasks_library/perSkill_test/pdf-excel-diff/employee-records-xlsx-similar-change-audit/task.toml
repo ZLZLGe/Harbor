@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "employee-records-xlsx-similar-change-audit"
+name = "XLSX Similar: Employee Workbook Change Audit"
+description = "Compare an archived employee workbook with a current employee workbook and report deleted employees plus every modified field."
+author_name = "OpenAI"
+author_email = "noreply@openai.com"
+difficulty = "medium"
+category = "data-comparison"
+tags = ["xlsx", "excel", "employee-records", "diff", "audit", "similar"]
+primary_output_file = "/root/employee_workbook_diff.json"
+source_task_id = "pdf-excel-diff"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

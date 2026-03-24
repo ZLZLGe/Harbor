@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transmission-contingency-dc-power-flow-similar-flow-redistribution"
+name = "Similar: Transmission Contingency Flow Redistribution"
+description = "Run DC power flow for an intact transmission snapshot and a specified single-line outage, then write a structured contingency comparison report."
+author_name = "Wenbo Chen"
+author_email = "wenbochen111@gmail.com"
+difficulty = "hard"
+category = "energy"
+tags = ["energy", "transmission", "dc-power-flow", "contingency-analysis"]
+primary_output_file = "contingency_flow_report.json"
+source_task_id = "energy-market-pricing"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

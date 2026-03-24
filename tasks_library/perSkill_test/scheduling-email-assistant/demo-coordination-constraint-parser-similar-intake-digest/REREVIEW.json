@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "scheduling-email-assistant",
+  "targetSkillDirName": "constraint-parser",
+  "runId": "20260322161956-scheduling-email-assistant-constraint-parser-3c7caf",
+  "taskId": "demo-coordination-constraint-parser-similar-intake-digest",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/scheduling-email-assistant/constraint-parser/20260322161956-scheduling-email-assistant-constraint-parser-3c7caf/demo-coordination-constraint-parser-similar-intake-digest",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/scheduling-email-assistant/demo-coordination-constraint-parser-similar-intake-digest",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:demo-coordination-constraint-parser-similar-intake-digest instruction.md 未直接点名 `constraint-parser`，没有技能暴露。; 任务只要求从非结构化请求中提炼时间约束并结构化输出，不依赖其他未 shipped 的 source skills。; 测试不可充分判定：`timezone_reference` 与 `blackout_periods[].note` 允许多种同样符合 instruction 的写法，但测试做了唯一精确匹配。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个任务都有共同问题：测试对多个自由文本字段采用精确字符串匹配，但 instruction 没有把这些字段限定为唯一表述，整组存在可判定性风险。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a70-ca56-7af1-8f5a-950a96752d7c"
+}

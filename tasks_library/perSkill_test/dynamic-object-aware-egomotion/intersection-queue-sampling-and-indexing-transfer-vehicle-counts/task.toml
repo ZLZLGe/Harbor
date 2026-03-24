@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "intersection-queue-sampling-and-indexing-transfer-vehicle-counts"
+name = "Transfer | 路口排队车辆采样计数"
+description = "对固定机位路口视频按固定采样率抽帧，输出每个采样帧的样本索引、原始帧号与停止线前排队车辆数 CSV。"
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "traffic-analysis"
+tags = ["video", "sampling", "indexing", "traffic", "csv", "counting"]
+primary_output_file = "/root/pred_queue_counts.csv"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

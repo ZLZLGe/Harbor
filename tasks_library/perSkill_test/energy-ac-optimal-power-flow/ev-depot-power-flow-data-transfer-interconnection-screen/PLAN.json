@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ev-depot-power-flow-data-transfer-interconnection-screen",
+  "taskRole": "transfer",
+  "title": "Transfer: 电动汽车车队充电站接入筛选",
+  "goal": "读取电网案例文件和若干候选接入母线，生成 `ev_depot_screen.json`，对候选点按母线电压等级、现有负荷、同母线可用发电余量、相邻支路额定容量和一跳邻接拓扑特征进行打分和排序，并给出每个候选点的结构化摘要。",
+  "primaryOutputFile": "ev_depot_screen.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这个任务把 power-flow-data skill 迁移到大负荷接入筛选场景，重点仍是正确解释 MATPOWER 风格网络字段、建立母线映射并从局部拓扑中提取容量与连接特征。",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

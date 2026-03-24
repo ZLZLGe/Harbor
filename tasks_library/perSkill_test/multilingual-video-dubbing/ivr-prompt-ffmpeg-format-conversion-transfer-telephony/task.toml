@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "ivr-prompt-ffmpeg-format-conversion-transfer-telephony"
+name = "Transfer: IVR Prompt Telephony Packaging"
+description = "将录音棚级客服提示音母带转成适合传统 IVR 平台导入的 8kHz G.711 mu-law 单声道 WAV 文件。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "telephony-audio-packaging"
+tags = ["telephony", "ivr", "g711", "mulaw", "audio transcoding"]
+primary_output_file = "/outputs/ivr_prompt.wav"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

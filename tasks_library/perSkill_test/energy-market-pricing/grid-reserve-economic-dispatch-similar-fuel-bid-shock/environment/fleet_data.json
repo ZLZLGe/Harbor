@@ -1,0 +1,51 @@
+{
+  "fleet_name": "Harbor South Reserve Review",
+  "load_mw": 445.0,
+  "reserve_requirement_mw": 90.0,
+  "counterfactual": {
+    "generator_id": "gas_peaker_red",
+    "new_energy_bid_dollars_per_mwh": 52.0
+  },
+  "generators": [
+    {
+      "generator_id": "coal_alpha",
+      "technology": "coal",
+      "pmin_mw": 60.0,
+      "pmax_mw": 180.0,
+      "energy_bid_dollars_per_mwh": 18.0,
+      "reserve_cap_mw": 15.0
+    },
+    {
+      "generator_id": "ccgt_delta",
+      "technology": "combined_cycle_gas",
+      "pmin_mw": 40.0,
+      "pmax_mw": 150.0,
+      "energy_bid_dollars_per_mwh": 24.0,
+      "reserve_cap_mw": 40.0
+    },
+    {
+      "generator_id": "hydro_cascade",
+      "technology": "hydro",
+      "pmin_mw": 0.0,
+      "pmax_mw": 80.0,
+      "energy_bid_dollars_per_mwh": 30.0,
+      "reserve_cap_mw": 60.0
+    },
+    {
+      "generator_id": "gas_peaker_red",
+      "technology": "gas_peaker",
+      "pmin_mw": 0.0,
+      "pmax_mw": 90.0,
+      "energy_bid_dollars_per_mwh": 36.0,
+      "reserve_cap_mw": 25.0
+    },
+    {
+      "generator_id": "oil_steam_harbor",
+      "technology": "oil_steam",
+      "pmin_mw": 0.0,
+      "pmax_mw": 100.0,
+      "energy_bid_dollars_per_mwh": 44.0,
+      "reserve_cap_mw": 20.0
+    }
+  ]
+}

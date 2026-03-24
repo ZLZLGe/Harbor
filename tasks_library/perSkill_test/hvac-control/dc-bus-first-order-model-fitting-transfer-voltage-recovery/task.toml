@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "dc-bus-first-order-model-fitting-transfer-voltage-recovery"
+name = "Transfer: 直流母线电压恢复拟合"
+description = "Fit an equivalent first-order recovery model for a DC bus voltage transient and report the fitted parameters and 95% recovery timing in dc_bus_fit.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["dc-bus", "power-electronics", "system-identification", "step-response", "python"]
+primary_output_file = "dc_bus_fit.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = true

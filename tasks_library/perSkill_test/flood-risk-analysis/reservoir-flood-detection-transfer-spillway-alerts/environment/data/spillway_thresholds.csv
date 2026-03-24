@@ -1,0 +1,7 @@
+reservoir_id,reservoir_name,action_stage_ft,flood_stage_ft,major_stage_ft
+ALB-01,Albright Reservoir,52.0,56.0,58.0
+BRM-17,Bramble Reservoir,55.0,59.0,60.5
+CDR-22,Cedar Draw Reservoir,44.0,48.0,50.0
+ELM-09,Elm Fork Reservoir,39.0,42.5,44.5
+FAL-31,Falls Bend Reservoir,47.0,53.0,55.5
+GRT-77,Granite Reach Reservoir,58.5,60.5,62.5

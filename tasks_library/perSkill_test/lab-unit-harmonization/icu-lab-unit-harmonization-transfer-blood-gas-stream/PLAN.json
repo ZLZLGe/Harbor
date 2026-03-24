@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "icu-lab-unit-harmonization-transfer-blood-gas-stream",
+  "taskRole": "transfer",
+  "title": "Transfer | ICU 血气流数据统一",
+  "goal": "整理 ICU 脓毒症患者的血气与乳酸流式化验数据，统一 kPa/mmHg、mg/dL/mmol/L 等混合单位，修复格式噪声并剔除不完整采样记录，输出可直接用于急性酸碱状态分析的标准化结果。",
+  "primaryOutputFile": "/root/icu_blood_gas_harmonized.csv",
+  "difficulty": "medium",
+  "category": "healthcare",
+  "skillBenefitRationale": "该任务把同一技能迁移到急诊重症场景，重点落在血气、乳酸和电解质的单位识别与格式修复，不依赖其他技能，仍然完全由实验室数据 harmonization 能力决定成败。",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "targetSkillName": "lab-unit-harmonization"
+}

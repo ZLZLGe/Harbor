@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "vendor-payment-fuzzy-match-similar-ledger-screen",
+  "taskRole": "similar",
+  "title": "Similar: Screen Noisy Vendor Payment Requests Against an Approved Ledger",
+  "goal": "Reconcile noisy vendor names in payment request exports against an approved vendor ledger, then validate bank account, PO linkage, and amount consistency before writing only flagged requests to /root/payment_anomalies.json.",
+  "primaryOutputFile": "/root/payment_anomalies.json",
+  "difficulty": "hard",
+  "category": "data-validation",
+  "skillBenefitRationale": "The core challenge is matching slightly misspelled or reformatted supplier names to canonical vendor records before any downstream validation can work; fuzzy matching is the single critical shipped skill.",
+  "targetSkillDirName": "fuzzy-match",
+  "targetSkillName": "fuzzy-match"
+}

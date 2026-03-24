@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wetland-reserve-map-optimization-strategy-transfer-habitat-corridor",
+  "taskRole": "transfer",
+  "title": "Wetland Reserve Transfer - Habitat Corridor Planner",
+  "goal": "在湿地保护区地图上布置巢箱、缓冲带和监测点，使目标物种栖息地连通性与监测覆盖收益最大，同时避开洪涝高风险区、噪声源和施工冲突区。",
+  "primaryOutputFile": "/output/wetland_corridor_plan.json",
+  "difficulty": "hard",
+  "category": "environment",
+  "skillBenefitRationale": "这个迁移场景强调在大地图上先排除低价值或不可用区域，再识别能连接高价值生态斑块的关键锚点，最后组合出满足空间约束的高收益布局。",
+  "targetSkillDirName": "map-optimization-strategy",
+  "targetSkillName": "map-optimization-strategy"
+}

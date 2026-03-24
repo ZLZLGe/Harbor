@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "stadium-lighting-threejs-transfer-instanced-inventory"
+name = "Transfer: 体育馆灯阵实例清点"
+description = "解析体育馆灯阵场景中的实例化灯具，按具名灯架导出合并 OBJ，并生成每组灯具数量与包围盒清单。"
+author_name = "Yipeng Gao"
+author_email = "yipengga@usc.edu"
+difficulty = "medium"
+category = "simulation"
+tags = ["threejs", "instancing", "obj", "inventory", "scene-graph"]
+primary_output_file = "/root/output/lighting_inventory.json"
+source_task_id = "threejs-structure-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

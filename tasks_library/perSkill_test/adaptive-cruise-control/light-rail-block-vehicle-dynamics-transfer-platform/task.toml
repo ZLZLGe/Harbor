@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "light-rail-block-vehicle-dynamics-transfer-platform"
+name = "Transfer - 轻轨站台占用防护仿真"
+description = "Simulate a light-rail platform block protection controller with station-stop and short-occupancy lead events, then write the trace and safety summary to tram_block_summary.yaml."
+author_name = "Jiachen Li"
+author_email = "jiachenli@utexas.edu"
+difficulty = "medium"
+category = "control-systems"
+tags = ["python", "vehicle-dynamics", "simulation", "rail-transit", "state-machine"]
+primary_output_file = "tram_block_summary.yaml"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

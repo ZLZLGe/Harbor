@@ -1,0 +1,20 @@
+{
+  "sourceTaskId": "fix-erlang-ssh-cve",
+  "targetSkillDirName": "ssh-penetration-testing",
+  "runId": "20260319202133-fix-erlang-ssh-cve-ssh-penetration-testing-gprj0w",
+  "taskId": "policy-ssh-penetration-testing-transfer-weak-algorithm-audit",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/fix-erlang-ssh-cve/ssh-penetration-testing/20260319202133-fix-erlang-ssh-cve-ssh-penetration-testing-gprj0w/policy-ssh-penetration-testing-transfer-weak-algorithm-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/fix-erlang-ssh-cve/policy-ssh-penetration-testing-transfer-weak-algorithm-audit",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:policy-ssh-penetration-testing-transfer-weak-algorithm-audit instruction.md 直接点明了 KEX、cipher、MAC 以及“按前缀放行”这一具体缺陷形态；这些都明显超出 source_task 的提示粒度。; 测试可判定：分别校验审计结果与渲染出的 `sshd_config`，并同时检查弱算法移除与现代兼容算法保留。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer，且 3 个 transfer 在凭据攻击防护、弱算法审计/配置生成、远程转发 ACL 三个方向上区分明显。",
+    "family similar 任务和 shipped skill 的典型用法贴合度足够高，但四个草稿的 instruction.md 都比 source_task/instruction.md 更直接地点明了 SSH 子技能或具体攻击面，存在统一的可见性越界问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0faa-d4e2-7ba2-acf9-3a00861c77aa"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "campus-ac-branch-pi-model-transfer-feeder-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer: Campus Feeder Reconciliation",
+  "goal": "给定园区配电馈线的电压快照以及母线负荷和分布式电源数据，汇总各母线支路流出功率，计算节点功率残差与馈线损耗，并输出一份突出最大不平衡节点的对账报告。",
+  "primaryOutputFile": "feeder_reconciliation.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "任务本质是把 AC 支路 pi-model 计算出的双向潮流准确聚合到母线层面，用于节点平衡与损耗核对；不需要优化或其他额外技能。",
+  "targetSkillDirName": "ac-branch-pi-model",
+  "targetSkillName": "ac-branch-pi-model"
+}

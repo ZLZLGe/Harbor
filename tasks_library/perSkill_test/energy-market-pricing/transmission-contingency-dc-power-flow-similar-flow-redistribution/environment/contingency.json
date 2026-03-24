@@ -1,0 +1,7 @@
+{
+  "scenario_name": "North corridor single-line outage",
+  "outaged_branch_id": "L5",
+  "top_angle_shift_count": 4,
+  "top_flow_redistribution_count": 5,
+  "overload_threshold_pct": 100.0
+}

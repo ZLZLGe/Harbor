@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "survey-branching-python-scala-functional-transfer-decision-graph",
+  "taskRole": "transfer",
+  "title": "Transfer: Python 问卷分支决策模块转 Scala",
+  "goal": "将一个 Python 问卷分支决策模块翻译为 Scala 2.13，要求把分支节点、递归遍历、条件谓词组合、缺失答案传播和解释路径构造改写为类型清晰的函数式 Scala 设计，并输出 `/root/SurveyBranching.scala`。",
+  "primaryOutputFile": "/root/SurveyBranching.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "该任务把技能迁移到决策图遍历场景，主要检验如何将 Python 的递归控制流、高阶谓词和 nullable 输入处理转为 Scala 的 sealed trait、模式匹配、Option/Either 和不可变递归；不依赖其他技能。",
+  "targetSkillDirName": "python-scala-functional",
+  "targetSkillName": "python-scala-functional"
+}

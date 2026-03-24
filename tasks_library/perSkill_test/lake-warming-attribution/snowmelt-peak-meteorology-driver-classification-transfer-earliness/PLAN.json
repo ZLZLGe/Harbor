@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "snowmelt-peak-meteorology-driver-classification-transfer-earliness",
+  "taskRole": "transfer",
+  "title": "Transfer: Alpine Snowmelt Peak Driver Attribution",
+  "goal": "Use alpine basin observations to explain which Heat, Flow, Wind, or Human driver category most strongly advances the annual snowmelt peak date, and output the top category with its contribution percentage.",
+  "primaryOutputFile": "/root/output/snowmelt_peak_driver.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "The transfer is into cryosphere timing analysis, where the essential shipped skill is still the explicit classification of diverse predictors into the four driver groups so their aggregate attribution can be compared.",
+  "targetSkillDirName": "meteorology-driver-classification",
+  "targetSkillName": "meteorology-driver-classification"
+}

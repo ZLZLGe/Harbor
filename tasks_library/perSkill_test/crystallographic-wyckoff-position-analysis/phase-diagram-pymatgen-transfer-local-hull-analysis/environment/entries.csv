@@ -1,0 +1,16 @@
+entry_id,formula,energy_per_atom
+li_ref,Li,-1.900000
+fe_ref,Fe,-1.250000
+o2_ref,O2,-4.950000
+li2o_alpha,Li2O,-4.700000
+li2o_beta,Li2O,-4.620000
+feo_ground,FeO,-3.600000
+feo_high,FeO,-3.420000
+fe2o3_ground,Fe2O3,-3.780000
+lifeo2_ground,LiFeO2,-3.930000
+lifeo2_high,LiFeO2,-3.760000
+li5feo4_ground,Li5FeO4,-3.820000
+li2feo3_trial,Li2FeO3,-3.740000
+li3feo4_trial,Li3FeO4,-3.690000
+na2o_offsystem,Na2O,-4.200000
+nafeo2_offsystem,NaFeO2,-3.500000

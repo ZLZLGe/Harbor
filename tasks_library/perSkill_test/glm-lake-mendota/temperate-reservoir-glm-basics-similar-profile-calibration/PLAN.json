@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "temperate-reservoir-glm-basics-similar-profile-calibration",
+  "taskRole": "similar",
+  "title": "Similar: 温带饮用水库垂向温度校准",
+  "goal": "运行并调参一个温带饮用水库的 GLM 模型，使 4 月到 11 月的垂向水温观测 RMSE 低于 1.8 摄氏度，并生成 `/root/output/temperate_profile.nc`。",
+  "primaryOutputFile": "/root/output/temperate_profile.nc",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "任务核心仍是 glm-basics 的典型用法：理解 `glm3.nml`、调整光衰减与混合参数、运行 GLM 并验证垂向温度输出；不依赖其他 shipped skill。",
+  "targetSkillDirName": "glm-basics",
+  "targetSkillName": "glm-basics"
+}

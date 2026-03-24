@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "highway-gap-assist-vehicle-dynamics-similar-stop-go"
+name = "Similar | Highway Stop-and-Go Gap Assist"
+description = "Build a 180-second highway stop-and-go gap assist simulation and write the mode timeline plus vehicle state history to stop_go_gap_results.csv."
+author_name = "Jiachen Li"
+author_email = "jiachenli@utexas.edu"
+difficulty = "medium"
+category = "control-systems"
+tags = ["python", "simulation", "vehicle-dynamics", "automotive", "state-machine"]
+primary_output_file = "stop_go_gap_results.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = true

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "museum-loans-fuzzy-match-transfer-artwork-manifest-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer: 博物馆借展清单对账",
+  "goal": "核对博物馆外借艺术品装箱清单与批准外借目录，处理作品标题中的副标题省略、标点变化和轻微拼写偏差，找出无法匹配的展品，以及匹配后借展机构或保险保单编号不一致的箱单条目，并逐条写入 /root/loan_manifest_flags.ndjson。",
+  "primaryOutputFile": "/root/loan_manifest_flags.ndjson",
+  "difficulty": "hard",
+  "category": "data-validation",
+  "skillBenefitRationale": "这里的决定性能力是把非规范化作品标题映射回唯一目录条目；借展方和保单号校验只是匹配后的直接比较，因此唯一关键 shipped skill 仍然是 fuzzy-match。",
+  "targetSkillDirName": "fuzzy-match",
+  "targetSkillName": "fuzzy-match"
+}

@@ -1,0 +1,19 @@
+enterprise_service_line,hospital_service_code,booking_surface,care_mode
+Adult Medicine > Same-Day Care > Minor Illness > Office Assessment > Walk-In Clinic,HSP001,front_desk,in_person
+Adult Medicine > Same-Day Care > Minor Illness > Video Triage > Virtual Hub,HSP002,digital_front_door,virtual
+Adult Medicine > Prevention > Wellness Exams > Annual Physical > Primary Care Suite,HSP003,self_schedule,in_person
+Adult Medicine > Chronic Conditions > Diabetes Support > Follow-Up Visit > Endocrine Classroom,HSP004,care_manager,hybrid
+Child & Teen Health > Prevention > Well Visits > School-Age Checkup > Pediatric Clinic,HSP005,front_desk,in_person
+Child & Teen Health > Same-Day Care > Fever and Cough > Express Video Visit > Pediatric Virtual Hub,HSP006,digital_front_door,virtual
+Women and Birth > Prenatal Care > Routine Obstetrics > Trimester Check > OB Clinic,HSP007,front_desk,in_person
+Women and Birth > Prenatal Imaging > Fetal Ultrasound > Anatomy Scan > Imaging Center,HSP008,referral_queue,ancillary
+Women and Birth > Preventive Screening > Breast Imaging > Screening Mammogram > Breast Center,HSP009,self_schedule,ancillary
+Bone and Joint > Outpatient Evaluation > Joint Pain > Knee Consult > Orthopedic Clinic,HSP010,front_desk,in_person
+Bone and Joint > Surgical Services > Joint Replacement > Knee Arthroplasty > Surgical Pavilion,HSP011,surgery_scheduler,ancillary
+Heart and Vascular > Specialty Clinic > Heart Rhythm > Arrhythmia Review > Cardiology Office,HSP012,referral_queue,in_person
+Heart and Vascular > Recovery Programs > Cardiac Rehab > Monitored Sessions > Rehab Gym,HSP013,care_manager,hybrid
+Mind and Mood > Counseling > Individual Therapy > Anxiety and Depression > Behavioral Clinic,HSP014,digital_front_door,virtual
+Mind and Mood > Psychiatry > Medication Follow-Up > Mood Disorders > Telepsychiatry Room,HSP015,care_manager,virtual
+Cancer Services > Infusion Therapy > Medical Oncology > Adult Regimens > Infusion Center,HSP016,oncology_navigator,ancillary
+Digestive Health > Preventive Endoscopy > Colon Cancer Screening > Outpatient Colonoscopy > Procedure Suite,HSP017,referral_queue,ancillary
+Diagnostic Services > Sleep Medicine > Sleep Testing > Home Sleep Study > Interpretation Lab,HSP018,digital_front_door,hybrid

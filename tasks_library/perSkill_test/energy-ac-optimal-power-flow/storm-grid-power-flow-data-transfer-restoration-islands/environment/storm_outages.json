@@ -1,0 +1,36 @@
+{
+  "branch_outages": [
+    {
+      "from_bus": 169,
+      "to_bus": 25,
+      "reason": "storm corridor relay lockout"
+    },
+    {
+      "from_bus": 222,
+      "to_bus": 242,
+      "reason": "flooded right-of-way"
+    },
+    {
+      "from_bus": 297,
+      "to_bus": 78,
+      "reason": "transformer isolation after lightning strike"
+    },
+    {
+      "from_bus": 19,
+      "to_bus": 261,
+      "reason": "coastal tie line unavailable"
+    },
+    {
+      "from_bus": 83,
+      "to_bus": 105,
+      "reason": "substation exit breaker damage"
+    }
+  ],
+  "generator_outages": [
+    {
+      "id": 62,
+      "bus": 105,
+      "reason": "switchyard inundation"
+    }
+  ]
+}

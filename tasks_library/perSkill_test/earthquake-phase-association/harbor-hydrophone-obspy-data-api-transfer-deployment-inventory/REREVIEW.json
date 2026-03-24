@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "earthquake-phase-association",
+  "targetSkillDirName": "obspy-data-api",
+  "runId": "20260319014317-earthquake-phase-association-obspy-data-api-74uabc",
+  "taskId": "harbor-hydrophone-obspy-data-api-transfer-deployment-inventory",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/earthquake-phase-association/obspy-data-api/20260319014317-earthquake-phase-association-obspy-data-api-74uabc/harbor-hydrophone-obspy-data-api-transfer-deployment-inventory",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/earthquake-phase-association/harbor-hydrophone-obspy-data-api-transfer-deployment-inventory",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:harbor-hydrophone-obspy-data-api-transfer-deployment-inventory instruction.md 直接要求构造 StationXML inventory，并点出 `Network` / `Station` / `Channel` 层级，较 source_task/instruction.md 更直接提示了 ObsPy 台站元数据 API。; instruction.md 引入了 source task 未出现的具体格式名 StationXML，不符合 source baseline 下的可见性约束。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer，且 3 个 transfer 的场景、输出语义与测试判定方式区分度足够；但其中有 2 个任务的 instruction 直接引入了 source task 未出现的 QuakeML / StationXML 及对象层级描述，存在 family 级可见性越界倾向。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa2-fad6-77a3-bb48-e246591778a8"
+}

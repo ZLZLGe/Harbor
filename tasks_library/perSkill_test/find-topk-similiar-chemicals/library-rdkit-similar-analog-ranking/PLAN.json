@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "library-rdkit-similar-analog-ranking",
+  "taskRole": "similar",
+  "title": "Similar: Analog Ranking from a Compound Library",
+  "goal": "给定一个目标分子和一份包含候选分子名称与结构表示的化合物清单，使用 Morgan 指纹与 Tanimoto 相似度找出前 k 个最相近的类似物；需要做分子规范化、重复项合并，并在分数相同的情况下按名称字母序稳定排序。",
+  "primaryOutputFile": "/root/workspace/analog_ranking.py",
+  "difficulty": "medium",
+  "category": "chemistry",
+  "skillBenefitRationale": "核心工作是用 RDKit 完成分子解析、规范化、Morgan 指纹生成和相似度排序，其他部分只是基础文件处理，因此当前唯一 shipped skill 就足够支撑整题。",
+  "targetSkillDirName": "rdkit",
+  "targetSkillName": "rdkit"
+}

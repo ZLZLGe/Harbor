@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "assembly-line-sampling-and-indexing-transfer-state-spans"
+name = "Transfer | 传送带状态区间索引"
+description = "对传送带生产线视频按固定采样率抽样，输出采样索引区间到产线状态标签的 JSON。"
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "process-monitoring"
+tags = ["video", "sampling", "indexing", "process-monitoring", "state-segmentation"]
+primary_output_file = "/root/pred_line_state_spans.json"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

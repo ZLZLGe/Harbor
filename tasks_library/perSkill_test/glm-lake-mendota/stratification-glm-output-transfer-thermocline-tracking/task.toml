@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "stratification-glm-output-transfer-thermocline-tracking"
+name = "Transfer | 季节性温跃层深度追踪"
+description = "Run the supplied Lake Mendota GLM setup, identify daily thermocline depths during the 2013 stratification season, compare them against analyst reference picks, and write the tracking table to /root/output/thermocline_tracking.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["hydrology", "lake-stratification", "glm-output", "thermocline-tracking"]
+primary_output_file = "/root/output/thermocline_tracking.csv"
+source_task_id = "glm-lake-mendota"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

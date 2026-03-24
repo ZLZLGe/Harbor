@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "auto-compiler-maven-plugin-configuration-similar-annotation-processors"
+name = "Similar: 修复注解处理器的 Maven Compiler Plugin 配置"
+description = "修复单模块 Java 库中的 pom.xml，让注解处理器与编译参数恢复正确配置并使生成源码重新参与构建。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = ["Java", "Maven", "annotation-processing", "maven-compiler-plugin", "build"]
+primary_output_file = "pom.xml"
+source_task_id = "fix-build-google-auto"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 2
+memory = "2G"
+storage = "4G"
+gpus = 0
+allow_internet = true

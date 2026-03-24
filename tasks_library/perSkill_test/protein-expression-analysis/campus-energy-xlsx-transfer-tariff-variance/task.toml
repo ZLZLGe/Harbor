@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "campus-energy-xlsx-transfer-tariff-variance"
+name = "Transfer: Campus Energy Tariff Variance Review"
+description = "Complete the campus energy workbook by pulling time-band meter readings and tariffs, calculating building-level cost variance and savings opportunities, and ranking the highest-priority buildings in campus_energy_tariff_variance.xlsx."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "middle"
+category = "data-analysis"
+tags = ["xlsx", "excel", "energy", "utilities", "formula-modeling", "budget-analysis"]
+primary_output_file = "campus_energy_tariff_variance.xlsx"
+source_task_id = "protein-expression-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reusable-workflow-analyze-ci-transfer-matrix-contract",
+  "taskRole": "transfer",
+  "title": "Transfer: 修复复用工作流的矩阵参数契约错误",
+  "goal": "阅读提供的多个失败作业日志，找出复用 GitHub Actions 工作流与调用方之间的参数或矩阵契约不一致问题，形成诊断说明并修复工作流定义，使相关作业重新通过。",
+  "primaryOutputFile": "reports/workflow-contract-findings.md",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "这个任务把 analyze-ci 迁移到跨作业、跨 workflow 的排障场景；关键难点是先从多个失败 job 中归纳共同根因，而不是直接读代码。",
+  "targetSkillDirName": "analyze-ci",
+  "targetSkillName": "analyze-ci"
+}

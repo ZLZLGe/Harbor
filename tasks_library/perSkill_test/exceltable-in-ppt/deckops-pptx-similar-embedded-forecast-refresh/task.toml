@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "deckops-pptx-similar-embedded-forecast-refresh"
+name = "Similar: Refresh Embedded Forecast Table in a Sales Deck"
+description = "Refresh the embedded regional revenue forecast in the sales deck and save the updated presentation to /root/revenue-forecast-refresh.pptx."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Office Operation"
+tags = ["pptx", "embedded-excel", "forecast-refresh"]
+primary_output_file = "/root/revenue-forecast-refresh.pptx"
+source_task_id = "exceltable-in-ppt"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

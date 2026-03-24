@@ -1,0 +1,9 @@
+{
+  "project_name": "Harbor Point 250 MW Battery",
+  "candidate_buses": [1095, 1574, 2633, 842, 59, 755, 1101, 1901],
+  "voltage_class_thresholds_kV": {
+    "ehv_min": 300.0,
+    "hv_min": 200.0
+  },
+  "nearby_bus_hops": 1
+}

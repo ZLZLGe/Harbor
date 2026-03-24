@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "city-ops-flood-detection-transfer-underpass-closures"
+name = "Transfer - Urban Underpass Closure Watch"
+description = "Aggregate 5-minute underpass depth readings to daily maxima and write a CSV of underpasses with closure-risk days and their worst closure category."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["urban-flooding", "transportation", "csv", "json", "time-series"]
+primary_output_file = "/root/output/underpass_closure_days.csv"
+source_task_id = "flood-risk-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

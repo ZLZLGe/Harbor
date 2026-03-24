@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "microgrid-inverter-state-space-linearization-transfer-droop-loadstep",
+  "taskRole": "transfer",
+  "title": "Transfer - 微电网逆变器下垂模型线性化",
+  "goal": "对孤岛微电网中并网逆变器的频率-电压下垂非线性动态在额定负载点线性化，输出小信号状态空间模型，并用一次小负载突变对比线性模型与原模型的频率、电压偏差。",
+  "primaryOutputFile": "artifacts/microgrid_droop_linearization.json",
+  "difficulty": "medium",
+  "category": "power-systems",
+  "skillBenefitRationale": "场景转到电力系统小信号分析，仍然只依赖在指定运行点求Jacobian与离散化的能力；负载扰动对比只是验证模型用途，不要求调度、估计或稳态潮流等其他技能。",
+  "targetSkillDirName": "state-space-linearization",
+  "targetSkillName": "state-space-linearization"
+}

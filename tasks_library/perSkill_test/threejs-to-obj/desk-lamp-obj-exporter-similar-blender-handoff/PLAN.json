@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "desk-lamp-obj-exporter-similar-blender-handoff",
+  "taskRole": "similar",
+  "title": "Similar - Desk Lamp Blender OBJ Export",
+  "goal": "Write a Node.js exporter that loads a Three.js desk lamp assembly from a module, bakes nested transforms plus repeated screw instances into world space, applies a -90 degree X rotation for Blender Z-up, and saves a single OBJ to /root/output/lamp.obj.",
+  "primaryOutputFile": "/root/output/lamp.obj",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "This stays close to the core OBJ export workflow: traverse a procedural Three.js object graph, apply world transforms, flatten instanced meshes, and emit one Blender-ready OBJ using the shipped exporter skill alone.",
+  "targetSkillDirName": "obj-exporter",
+  "targetSkillName": "obj-exporter"
+}

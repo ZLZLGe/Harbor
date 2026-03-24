@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "invoice-reconciliation-pdf-transfer-ledger"
+name = "Transfer: Invoice Reconciliation Ledger"
+description = "Extract invoice fields from the provided PDF packet, remove duplicates, sort by due date, and write the CSV ledger."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "finance"
+tags = ["finance", "pdf", "csv", "ledger"]
+primary_output_file = "/root/workspace/invoice_ledger.csv"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

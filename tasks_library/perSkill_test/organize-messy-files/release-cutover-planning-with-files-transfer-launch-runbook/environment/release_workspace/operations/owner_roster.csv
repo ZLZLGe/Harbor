@@ -1,0 +1,6 @@
+name,role,responsibility
+Mara Singh,release_manager,Owns go/no-go approval, bridge coordination, and reopen decision
+Devon Hale,traffic_ops,Owns maintenance banner and queue drain
+Priya Natarajan,data_platform,Owns billing-worker pause, snapshot, and migration execution
+Linh Tran,application_release,Owns deploy and feature-flag activation
+Omar Ruiz,qa_lead,Owns smoke validation and release sign-off recommendation

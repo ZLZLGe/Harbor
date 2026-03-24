@@ -1,0 +1,6 @@
+unit_id,pmin_mw,pmax_mw,cost_quadratic,cost_linear,cost_fixed
+waste_heat_recovery,22,55,0.010,11.0,0.0
+coal_boiler_east,28,78,0.018,13.5,0.0
+gas_engine_bank,18,52,0.024,16.2,0.0
+kiln_offgas_turbine,12,40,0.032,19.8,0.0
+standby_turbine,0,36,0.045,24.0,0.0

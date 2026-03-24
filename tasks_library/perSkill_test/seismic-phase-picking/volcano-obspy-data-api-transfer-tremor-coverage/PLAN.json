@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "volcano-obspy-data-api-transfer-tremor-coverage",
+  "taskRole": "transfer",
+  "title": "Transfer | Volcano Tremor Coverage Audit",
+  "goal": "Load a day of continuous volcano monitoring waveforms plus station metadata, merge fragmented traces into per-station streams, compute hourly coverage and the first missing interval for each station, and emit `/root/volcano_gap_report.json` for observatory handoff.",
+  "primaryOutputFile": "/root/volcano_gap_report.json",
+  "difficulty": "hard",
+  "category": "volcanology",
+  "skillBenefitRationale": "The hard part is using ObsPy’s waveform containers and header/time abstractions to merge, inspect, and summarize fragmented continuous records with correct station context. No additional shipped skill is required.",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

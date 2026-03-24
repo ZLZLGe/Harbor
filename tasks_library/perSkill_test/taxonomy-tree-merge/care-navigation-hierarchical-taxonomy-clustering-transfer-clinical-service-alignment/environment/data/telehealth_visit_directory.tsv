@@ -1,0 +1,19 @@
+visit_tree	visit_id	intake_channel	modality
+General Care :: On-Demand Visits :: Minor Sickness :: Same-Day Video :: App Intake	TEL001	app_chat	virtual
+General Care :: On-Demand Visits :: Minor Sickness :: Same-Day Clinic Partner :: Retail Intake	TEL002	partner_clinic	in_person
+General Care :: Prevention :: Adult Wellness :: Annual Intake :: Virtual Pre-Visit	TEL003	app_chat	hybrid
+Chronic Care :: Metabolic Support :: Diabetes Coaching :: Follow-Up Check-In :: Remote Care Team	TEL004	remote_care_team	hybrid
+Kids Care :: Prevention :: Well Child :: School Age Review :: Partner Clinic	TEL005	partner_clinic	in_person
+Kids Care :: On-Demand Visits :: Fever and Cough :: Pediatric Video :: App Intake	TEL006	app_chat	virtual
+Women Health :: Maternity Support :: Prenatal Routine :: Trimester Review :: Partner OB Clinic	TEL007	partner_clinic	in_person
+Women Health :: Maternity Imaging :: Prenatal Ultrasound :: Anatomy Scan Coordination :: Imaging Network	TEL008	imaging_network	ancillary
+Women Health :: Screening :: Mammography :: Routine Breast Screen :: Imaging Network	TEL009	imaging_network	ancillary
+Mobility Care :: Joint Clinic :: Knee Pain :: Specialist Consult :: Partner Orthopedics	TEL010	partner_clinic	in_person
+Mobility Care :: Surgical Pathways :: Knee Replacement :: Pre-Op Navigation :: Surgical Network	TEL011	surgical_network	ancillary
+Heart Care :: Rhythm Clinic :: Arrhythmia :: Specialist Review :: Cardiology Network	TEL012	specialist_network	in_person
+Heart Care :: Recovery :: Cardiac Rehab :: Hybrid Coaching :: Rehab Network	TEL013	remote_care_team	hybrid
+Mind Care :: Therapy :: Anxiety and Depression :: Weekly Session :: Video Room	TEL014	app_chat	virtual
+Mind Care :: Psychiatry :: Medication Review :: Mood and Anxiety :: Video Room	TEL015	app_chat	virtual
+Cancer Care :: Infusion Navigation :: Chemotherapy :: Treatment Cycle :: Infusion Network	TEL016	oncology_navigator	ancillary
+Digestive Care :: Screening :: Colonoscopy :: Procedure Navigation :: Ambulatory Network	TEL017	procedure_network	ancillary
+Sleep Care :: Home Diagnostics :: Sleep Study :: Result Review :: Virtual Sleep Desk	TEL018	app_chat	hybrid

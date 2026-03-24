@@ -1,0 +1,11 @@
+lot_id,defect_type,count
+LOT-A1,bridge,0
+LOT-A1,insufficient_fill,0
+LOT-A2,bridge,0
+LOT-A2,insufficient_fill,0
+LOT-B1,bridge,0
+LOT-B1,insufficient_fill,0
+LOT-C1,bridge,2
+LOT-C1,insufficient_fill,0
+LOT-D1,bridge,0
+LOT-D1,insufficient_fill,0

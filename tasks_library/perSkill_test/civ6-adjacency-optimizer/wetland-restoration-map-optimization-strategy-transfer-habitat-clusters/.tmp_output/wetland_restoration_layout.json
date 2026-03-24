@@ -1,0 +1,131 @@
+{
+  "placements": {
+    "filter_islands": [
+      "F2",
+      "F5"
+    ],
+    "observation_points": [
+      "O1",
+      "O3"
+    ],
+    "trailheads": [
+      "T1",
+      "T3"
+    ]
+  },
+  "cluster_scores": {
+    "H1": {
+      "covered_by": {
+        "filter_islands": [
+          "F2"
+        ],
+        "observation_points": [
+          "O1"
+        ],
+        "trailheads": [
+          "T1"
+        ]
+      },
+      "component_scores": {
+        "filter_island": 16,
+        "observation_point": 7,
+        "trailhead": 4,
+        "restoration_bonus": 5
+      },
+      "coverage_score": 32
+    },
+    "H2": {
+      "covered_by": {
+        "filter_islands": [
+          "F2"
+        ],
+        "observation_points": [],
+        "trailheads": []
+      },
+      "component_scores": {
+        "filter_island": 14,
+        "observation_point": 0,
+        "trailhead": 0,
+        "restoration_bonus": 0
+      },
+      "coverage_score": 14
+    },
+    "H3": {
+      "covered_by": {
+        "filter_islands": [
+          "F5"
+        ],
+        "observation_points": [
+          "O3"
+        ],
+        "trailheads": []
+      },
+      "component_scores": {
+        "filter_island": 15,
+        "observation_point": 8,
+        "trailhead": 0,
+        "restoration_bonus": 4
+      },
+      "coverage_score": 27
+    },
+    "H4": {
+      "covered_by": {
+        "filter_islands": [
+          "F5"
+        ],
+        "observation_points": [
+          "O3"
+        ],
+        "trailheads": []
+      },
+      "component_scores": {
+        "filter_island": 12,
+        "observation_point": 10,
+        "trailhead": 0,
+        "restoration_bonus": 5
+      },
+      "coverage_score": 27
+    },
+    "H5": {
+      "covered_by": {
+        "filter_islands": [],
+        "observation_points": [
+          "O3"
+        ],
+        "trailheads": [
+          "T3"
+        ]
+      },
+      "component_scores": {
+        "filter_island": 0,
+        "observation_point": 13,
+        "trailhead": 7,
+        "restoration_bonus": 0
+      },
+      "coverage_score": 20
+    }
+  },
+  "facility_synergy": {
+    "filter_observation_links": [
+      {
+        "filter_island": "F5",
+        "observation_point": "O3",
+        "score": 3
+      }
+    ],
+    "observation_trailhead_links": [
+      {
+        "observation_point": "O1",
+        "trailhead": "T1",
+        "score": 4
+      },
+      {
+        "observation_point": "O3",
+        "trailhead": "T3",
+        "score": 4
+      }
+    ],
+    "total_synergy_score": 11
+  },
+  "total_score": 131
+}

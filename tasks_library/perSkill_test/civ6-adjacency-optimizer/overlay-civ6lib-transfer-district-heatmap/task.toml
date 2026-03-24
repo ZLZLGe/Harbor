@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "overlay-civ6lib-transfer-district-heatmap"
+name = "Transfer: District Placement Heatmap Generator"
+description = "Enumerate every legal placement for each candidate district around a fixed city core, score the placements, and write the ranked heatmap report to /output/district_heatmap.json."
+author_name = "Songlin Li"
+author_email = "vincent.li.9701@gmail.com"
+difficulty = "medium"
+category = "games"
+tags = ["civ6", "transfer", "heatmap", "district-placement", "adjacency"]
+primary_output_file = "/output/district_heatmap.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

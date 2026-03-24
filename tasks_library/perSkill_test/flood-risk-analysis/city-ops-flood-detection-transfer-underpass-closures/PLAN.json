@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "city-ops-flood-detection-transfer-underpass-closures",
+  "taskRole": "transfer",
+  "title": "Transfer - Urban Underpass Closure Watch",
+  "goal": "Use 5-minute underpass water-depth CSVs plus per-site closure thresholds from JSON, aggregate to daily maxima, and write `/root/output/underpass_closure_days.csv` listing only underpasses with at least one closure-risk day, their blocked-day counts, and worst closure category reached.",
+  "primaryOutputFile": "/root/output/underpass_closure_days.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "The domain shifts from river gauges to transportation assets, but the essential work is still flood detection: threshold comparison on water levels, daily aggregation, and severity classification. No additional shipped skill is needed beyond the existing flood-detection guidance.",
+  "targetSkillDirName": "flood-detection",
+  "targetSkillName": "flood-detection"
+}

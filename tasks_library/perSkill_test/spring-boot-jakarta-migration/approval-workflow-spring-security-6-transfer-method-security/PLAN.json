@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "approval-workflow-spring-security-6-transfer-method-security",
+  "taskRole": "transfer",
+  "title": "Transfer: 审批工作流方法级鉴权迁移",
+  "goal": "修复一个文档审批工作流服务的旧版方法级鉴权配置，替换被移除的全局方法安全注解，并保持审批人、提交人和主管三类角色的 SpEL 授权规则可用。",
+  "primaryOutputFile": "environment/workspace/src/main/java/com/example/approval/security/MethodSecurityConfig.java",
+  "difficulty": "hard",
+  "category": "Workflow Systems",
+  "skillBenefitRationale": "该任务把技能重心转到方法级授权迁移，突出 @EnableMethodSecurity 与组件化认证装配的理解，而不是 URL 规则本身。",
+  "targetSkillDirName": "spring-security-6",
+  "targetSkillName": "spring-security-6"
+}

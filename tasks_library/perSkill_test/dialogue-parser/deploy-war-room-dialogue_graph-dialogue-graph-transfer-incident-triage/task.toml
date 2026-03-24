@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "deploy-war-room-dialogue_graph-dialogue-graph-transfer-incident-triage"
+name = "Transfer: 上线事故分诊图"
+description = "Parse a release war-room incident triage handbook into a structured decision graph JSON and DOT incident map."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "operations"
+tags = ["operations", "incident-response", "parsing", "graph"]
+primary_output_file = "incident_triage_map.json"
+source_task_id = "dialogue-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+image = "python:3.12-slim"
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

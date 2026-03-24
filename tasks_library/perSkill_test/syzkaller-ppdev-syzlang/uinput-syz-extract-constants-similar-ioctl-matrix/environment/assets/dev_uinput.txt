@@ -1,0 +1,50 @@
+# Uinput constant scaffold for syzkaller descriptions.
+include <linux/uinput.h>
+include <linux/input.h>
+
+resource fd_uinput[fd]
+
+syz_open_dev$uinput(dev ptr[in, string["/dev/uinput"]], id intptr, flags flags[open_flags]) fd_uinput
+
+uinput_input_id {
+	bustype		int16
+	vendor		int16
+	product		int16
+	version		int16
+}
+
+uinput_setup {
+	id		uinput_input_id
+	name		array[int8, 80]
+	ff_effects_max	int32
+}
+
+uinput_absinfo {
+	value		int32
+	minimum		int32
+	maximum		int32
+	fuzz		int32
+	flat		int32
+	resolution	int32
+}
+
+uinput_abs_setup {
+	code		int16
+	pad		int16
+	absinfo		uinput_absinfo
+}
+
+ioctl$UI_SET_EVBIT(fd fd_uinput, cmd const[UI_SET_EVBIT], arg ptr[in, flags[uinput_ev_types, int32]])
+ioctl$UI_SET_KEYBIT(fd fd_uinput, cmd const[UI_SET_KEYBIT], arg ptr[in, flags[uinput_key_bits, int32]])
+ioctl$UI_SET_RELBIT(fd fd_uinput, cmd const[UI_SET_RELBIT], arg ptr[in, flags[uinput_rel_bits, int32]])
+ioctl$UI_SET_PROPBIT(fd fd_uinput, cmd const[UI_SET_PROPBIT], arg ptr[in, flags[uinput_prop_bits, int32]])
+ioctl$UI_DEV_SETUP(fd fd_uinput, cmd const[UI_DEV_SETUP], arg ptr[in, uinput_setup])
+ioctl$UI_ABS_SETUP(fd fd_uinput, cmd const[UI_ABS_SETUP], arg ptr[in, uinput_abs_setup])
+ioctl$UI_GET_VERSION(fd fd_uinput, cmd const[UI_GET_VERSION], arg ptr[out, int32])
+ioctl$UI_DEV_CREATE(fd fd_uinput, cmd const[UI_DEV_CREATE])
+ioctl$UI_DEV_DESTROY(fd fd_uinput, cmd const[UI_DEV_DESTROY])
+
+uinput_ev_types = EV_KEY, EV_REL
+uinput_key_bits = KEY_SPACE, BTN_LEFT
+uinput_rel_bits = REL_X, REL_Y
+uinput_prop_bits = INPUT_PROP_POINTER

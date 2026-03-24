@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "incubator-imc-tuning-rules-similar-recovery"
+name = "Similar - 实验培养箱温度恢复 IMC 整定"
+description = "为实验培养箱开门降温后的恢复场景设计 PI 控制器，并输出整定结果与闭环恢复摘要到 incubator_controller_bundle.json。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control-theory", "thermal-process", "pi-controller", "incubator", "imc"]
+primary_output_file = "incubator_controller_bundle.json"
+source_task_id = "hvac-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

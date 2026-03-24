@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "exchange-matrix-xlsx-similar-note-update",
+  "taskRole": "similar",
+  "title": "Similar: Update Exchange Matrix Workbook From Note Sheet",
+  "goal": "在现有汇率工作簿中读取汇率矩阵与“更新说明”工作表中的一条新汇率，只修改对应的可编辑数值单元格，保留反向汇率公式与其余内容不变，另存为新的 Excel 文件。",
+  "primaryOutputFile": "/root/results_exchange_matrix.xlsx",
+  "difficulty": "medium",
+  "category": "Office Operation",
+  "skillBenefitRationale": "聚焦 xlsx 的典型能力：读取现有工作簿、定位表格与说明单元格、更新输入值、保留公式并触发重算，完全不依赖其他技能。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

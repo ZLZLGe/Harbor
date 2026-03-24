@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "site-audit-docx-transfer-corrective-report",
+  "taskRole": "transfer",
+  "title": "Transfer: Site Audit Report",
+  "goal": "根据现场审计结果填充一份站点检查报告 Word 模板，替换检查编号、客户与检查员信息，更新嵌套合规矩阵，并根据是否存在严重问题决定是否保留整改要求段落，输出最终审计报告。",
+  "primaryOutputFile": "/root/site_audit_report_final.docx",
+  "difficulty": "easy",
+  "category": "document-generation",
+  "skillBenefitRationale": "任务场景转为运营审计，但实现重点依旧是使用 docx 处理模板中的复杂占位符、表格和条件内容，无需其他 skill。",
+  "targetSkillDirName": "docx",
+  "targetSkillName": "docx"
+}

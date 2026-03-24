@@ -1,0 +1,17 @@
+{
+  "freeze": {
+    "enabled": true,
+    "until": 4,
+    "fields": [
+      "line",
+      "start"
+    ]
+  },
+  "change_budget": {
+    "max_machine_changes": 3,
+    "max_total_start_shift_L1": 60
+  },
+  "guards": {
+    "max_completion_time": 32
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-pdf-transfer-inspection-checklist",
+  "taskRole": "transfer",
+  "title": "Transfer: Warehouse Inspection Checklist PDF",
+  "goal": "根据一份仓库巡检记录，在不可填写的检查清单 PDF 上添加文本内容与勾选标记，生成已完成的巡检表。",
+  "primaryOutputFile": "/root/warehouse-inspection-completed.pdf",
+  "difficulty": "medium",
+  "category": "document-processing",
+  "skillBenefitRationale": "这个任务把 pdf skill 迁移到非 fillable 表单场景，要求基于页面版式完成坐标定位、文字叠加和勾选标记，仍然只依赖 PDF 处理能力。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

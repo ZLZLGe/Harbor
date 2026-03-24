@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "harbor-hydrophone-obspy-data-api-transfer-deployment-inventory"
+name = "Transfer - 港湾水听器部署清册"
+description = "根据分段 MiniSEED 和部署表生成可供下游读取的 StationXML inventory，并补全通道时间范围、采样率与位置元数据。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "ocean-acoustics"
+tags = ["science", "ocean-acoustics", "hydrophone", "stationxml", "inventory"]
+primary_output_file = "/root/hydrophone_inventory.xml"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 4
+memory_mb = 4096
+storage_mb = 8192
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

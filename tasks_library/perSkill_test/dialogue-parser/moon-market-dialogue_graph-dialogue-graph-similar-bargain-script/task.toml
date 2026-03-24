@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "moon-market-dialogue_graph-dialogue-graph-similar-bargain-script"
+name = "Similar: 月市讨价还价对话图"
+description = "Parse the moon market bargaining script into a structured dialogue graph JSON and DOT visualization."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "game"
+tags = ["game", "dialogue", "parsing", "graph"]
+primary_output_file = "moon_market_graph.json"
+source_task_id = "dialogue-parser"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+image = "python:3.12-slim"
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

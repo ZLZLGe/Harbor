@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "brine-mixer-imc-tuning-rules-transfer-concentration",
+  "taskRole": "transfer",
+  "title": "Transfer - 盐水混合槽浓度保持 IMC 整定",
+  "goal": "针对盐水混合槽浓度控制场景，利用给定的一阶混合模型完成 IMC PI 整定，使出口浓度收敛到目标配比并提交闭环结果汇总。",
+  "primaryOutputFile": "brine_mixer_control_summary.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "该任务把 IMC 整定迁移到化工混合浓度控制，唯一关键 shipped skill 仍是依据一阶过程模型选择 lambda 并计算 PI 参数。",
+  "targetSkillDirName": "imc-tuning-rules",
+  "targetSkillName": "imc-tuning-rules"
+}

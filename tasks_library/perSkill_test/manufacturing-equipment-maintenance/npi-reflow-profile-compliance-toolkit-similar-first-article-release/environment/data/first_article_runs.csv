@@ -1,0 +1,7 @@
+run_id,trial_order,board_id,board_family,build_phase,machine_id,recipe_id,recipe_version,paste_type,solder_liquidus_c,conveyor_speed_cm_min
+FA-01,1,NPI-771,EdgeGateway_Controller,EVT,RF-NPI-01,NPI771_BASELINE,A1,SAC305,217,61.0
+FA-02,2,NPI-771,EdgeGateway_Controller,EVT,RF-NPI-01,NPI771_FINE_TUNE,A2,SAC305,217,59.5
+FA-03,3,NPI-771,EdgeGateway_Controller,EVT,RF-NPI-01,NPI771_FAST_RAMP,A3,SAC305,217,58.0
+FA-04,4,NPI-771,EdgeGateway_Controller,EVT,RF-NPI-01,NPI771_LOW_PEAK,A4,SAC305,217,60.0
+FA-05,5,NPI-771,EdgeGateway_Controller,EVT,RF-NPI-01,NPI771_QUALITY_RISK,A5,SAC305,217,60.5
+FA-06,6,NPI-771,EdgeGateway_Controller,EVT,RF-NPI-01,NPI771_SHORT_TAL,A6,SAC305,217,59.0

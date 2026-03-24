@@ -1,0 +1,14 @@
+{
+  "target_level_pct": 64.0,
+  "initial_level_pct": 50.0,
+  "base_level_pct": 38.0,
+  "constant_outflow_equivalent_pct": 6.0,
+  "process_gain_pct_per_valve_pct": 0.72,
+  "time_constant_s": 95.0,
+  "duration_s": 720.0,
+  "dt_s": 2.0,
+  "valve_min_pct": 0.0,
+  "valve_max_pct": 100.0,
+  "settling_band_pct": 1.0,
+  "steady_state_window_s": 120.0
+}

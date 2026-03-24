@@ -1,0 +1,10 @@
+{
+  "case_id": "smt_reflow_case_001",
+  "baseline": {
+    "makespan": 38,
+    "downtime_violations": 6
+  },
+  "thresholds": {
+    "max_downtime_violations": 0
+  }
+}

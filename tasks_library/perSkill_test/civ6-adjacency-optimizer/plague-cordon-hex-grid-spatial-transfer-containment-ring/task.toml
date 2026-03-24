@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "plague-cordon-hex-grid-spatial-transfer-containment-ring"
+name = "Transfer: Plague Containment Ring"
+description = "Contain a turn-based outbreak on an odd-r hex corridor map with isolation towers and block nodes, then write the minimum-cost plan to /output/containment_ring.json."
+author_name = "Songlin Li"
+author_email = "vincent.li.9701@gmail.com"
+difficulty = "hard"
+category = "public-safety"
+tags = ["hex-grid", "containment", "path-blocking", "temporal-spread", "optimization"]
+primary_output_file = "/output/containment_ring.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

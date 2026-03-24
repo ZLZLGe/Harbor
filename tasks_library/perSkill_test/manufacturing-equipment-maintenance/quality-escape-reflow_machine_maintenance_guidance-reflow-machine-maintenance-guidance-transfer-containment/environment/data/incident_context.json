@@ -1,0 +1,10 @@
+{
+  "incident_id": "QE-ESC-2026-0318",
+  "line_id": "RF-07",
+  "batch_id": "BATCH-9A",
+  "owners": [
+    "quality_engineer",
+    "line_lead",
+    "maintenance_technician"
+  ]
+}

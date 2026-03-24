@@ -1,0 +1,34 @@
+version = "1.0"
+
+[metadata]
+id = "repair-build-triage-uv-package-manager-similar-helper-bootstrap"
+name = "Similar: Bootstrap a Build Triage Helper with uv"
+description = "Bootstrap a sibling Python helper project, generate bundle diffs, and apply them so the build triage reproduction script passes."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = [
+  "Python",
+  "build",
+  "triage",
+  "diff",
+  "uv",
+]
+primary_output_file = "tools/fetch_patch_bundle.py"
+source_task_id = "fix-build-agentops"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 2
+memory = "2G"
+storage = "4G"
+gpus = 0
+allow_internet = true

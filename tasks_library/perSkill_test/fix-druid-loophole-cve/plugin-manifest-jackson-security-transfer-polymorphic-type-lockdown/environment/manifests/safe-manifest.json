@@ -1,0 +1,23 @@
+{
+  "pluginId": "analytics-exporter",
+  "version": "2026.03.1",
+  "owner": "plugin-marketplace",
+  "notes": "Partner review note: {\"@class\":\"com.harbor.pluginmanifest.steps.InternalScriptStep\"} is sample text only.",
+  "steps": [
+    {
+      "type": "copyAsset",
+      "source": "assets/logo.svg",
+      "destination": "plugins/analytics/logo.svg"
+    },
+    {
+      "type": "renderTemplate",
+      "template": "templates/dashboard.json.tpl",
+      "outputPath": "plugins/analytics/dashboard.json"
+    },
+    {
+      "type": "registerWebhook",
+      "endpoint": "https://plugins.harbor.local/hooks/sync",
+      "event": "SYNC_COMPLETED"
+    }
+  ]
+}

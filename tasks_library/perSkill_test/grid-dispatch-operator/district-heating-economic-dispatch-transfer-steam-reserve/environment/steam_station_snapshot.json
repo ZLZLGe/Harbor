@@ -1,0 +1,73 @@
+{
+  "station_id": "harbor_district_heat_evening_peak",
+  "dispatch_step_tph": 5,
+  "steam_demand_tph": 490,
+  "hot_reserve_requirement_tph": 95,
+  "assets": [
+    {
+      "asset_id": "Base-Boiler-A",
+      "asset_type": "boiler",
+      "steam_min_tph": 0,
+      "steam_max_tph": 150,
+      "hot_reserve_max_tph": 20,
+      "hot_reserve_cost_dollars_per_tph": 8.0,
+      "fuel_cost_blocks": [
+        {"steam_tph": 60, "marginal_cost_dollars_per_tph": 14.0},
+        {"steam_tph": 50, "marginal_cost_dollars_per_tph": 16.0},
+        {"steam_tph": 40, "marginal_cost_dollars_per_tph": 18.0}
+      ]
+    },
+    {
+      "asset_id": "Base-Boiler-B",
+      "asset_type": "boiler",
+      "steam_min_tph": 0,
+      "steam_max_tph": 140,
+      "hot_reserve_max_tph": 25,
+      "hot_reserve_cost_dollars_per_tph": 8.5,
+      "fuel_cost_blocks": [
+        {"steam_tph": 50, "marginal_cost_dollars_per_tph": 15.0},
+        {"steam_tph": 50, "marginal_cost_dollars_per_tph": 17.0},
+        {"steam_tph": 40, "marginal_cost_dollars_per_tph": 19.2}
+      ]
+    },
+    {
+      "asset_id": "CHP-West-1",
+      "asset_type": "chp",
+      "steam_min_tph": 80,
+      "steam_max_tph": 170,
+      "hot_reserve_max_tph": 35,
+      "hot_reserve_cost_dollars_per_tph": 7.5,
+      "fuel_cost_blocks": [
+        {"steam_tph": 80, "marginal_cost_dollars_per_tph": 16.4},
+        {"steam_tph": 50, "marginal_cost_dollars_per_tph": 18.4},
+        {"steam_tph": 40, "marginal_cost_dollars_per_tph": 20.4}
+      ]
+    },
+    {
+      "asset_id": "CHP-West-2",
+      "asset_type": "chp",
+      "steam_min_tph": 70,
+      "steam_max_tph": 150,
+      "hot_reserve_max_tph": 30,
+      "hot_reserve_cost_dollars_per_tph": 7.8,
+      "fuel_cost_blocks": [
+        {"steam_tph": 70, "marginal_cost_dollars_per_tph": 17.3},
+        {"steam_tph": 40, "marginal_cost_dollars_per_tph": 19.8},
+        {"steam_tph": 40, "marginal_cost_dollars_per_tph": 21.6}
+      ]
+    },
+    {
+      "asset_id": "Standby-Boiler-E",
+      "asset_type": "boiler",
+      "steam_min_tph": 0,
+      "steam_max_tph": 110,
+      "hot_reserve_max_tph": 90,
+      "hot_reserve_cost_dollars_per_tph": 2.5,
+      "fuel_cost_blocks": [
+        {"steam_tph": 40, "marginal_cost_dollars_per_tph": 22.0},
+        {"steam_tph": 40, "marginal_cost_dollars_per_tph": 26.0},
+        {"steam_tph": 30, "marginal_cost_dollars_per_tph": 32.0}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "precursor-balance-sympy-transfer-solid-state-stoichiometry",
+  "taskRole": "transfer",
+  "title": "Transfer: 固相合成反应的符号化计量配平",
+  "goal": "读取一个给出前驱体、目标产物和允许副产物元素计数的 JSON 规格，建立元素守恒方程组并求出最小整数反应系数，同时输出规范化后的配平方程和逐元素守恒检查结果。",
+  "primaryOutputFile": "/root/workspace/solid_state_stoichiometry.py",
+  "difficulty": "medium",
+  "category": "chemistry",
+  "skillBenefitRationale": "该任务把 SymPy 迁移到化学计量配平，核心依赖 Matrix/nullspace、整数倍归一化和 exact arithmetic，能直接测试符号线性代数能力，而不依赖其他 shipped skill。",
+  "targetSkillDirName": "sympy",
+  "targetSkillName": "sympy"
+}

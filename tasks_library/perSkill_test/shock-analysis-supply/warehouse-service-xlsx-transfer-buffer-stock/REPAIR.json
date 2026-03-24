@@ -1,0 +1,118 @@
+{
+  "sourceTaskId": "shock-analysis-supply",
+  "targetSkillDirName": "xlsx",
+  "runId": "20260322175652-shock-analysis-supply-xlsx-f7rld7",
+  "taskId": "warehouse-service-xlsx-transfer-buffer-stock",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/shock-analysis-supply/warehouse-service-xlsx-transfer-buffer-stock",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322175652-shock-analysis-supply-xlsx-f7rld7/shock-analysis-supply/drafts/warehouse-service-xlsx-transfer-buffer-stock",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/shock-analysis-supply/warehouse-service-xlsx-transfer-buffer-stock",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/shock-analysis-supply/warehouse-service-xlsx-transfer-buffer-stock",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 在模板路径和输出文件名中直接出现了 `xlsx`（通过 `.xlsx` 扩展名），不满足技能隐藏要求。; tests/test.sh 没有在 data_only 数值断言前执行 xlsx 的重算脚本，正确公式但未写入缓存值的工作簿可能被误判失败。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现 xlsx：模板路径和输出文件名都含 .xlsx，构成 shipped skill 暴露。; tests/test.sh 在断言缓存数值前没有执行重算，正确公式但未写入缓存值的实现有被误判风险。; visibilityPass=false; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "__pycache__/build_workbooks.cpython-312.pyc",
+    ".pytest_cache/.gitignore",
+    ".pytest_cache/CACHEDIR.TAG",
+    ".pytest_cache/README.md",
+    ".pytest_cache/v/cache/nodeids",
+    "build_workbooks.py",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312-pytest-8.4.1.pyc",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "warehouse-service-xlsx-transfer-buffer-stock"
+      ],
+      "requestedIssuesByTaskId": {
+        "warehouse-service-xlsx-transfer-buffer-stock": {
+          "reviewerIssues": [
+            "instruction.md 直接出现 xlsx：模板路径和输出文件名都含 .xlsx，构成 shipped skill 暴露。; tests/test.sh 在断言缓存数值前没有执行重算，正确公式但未写入缓存值的实现有被误判风险。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a9a-2389-7b83-afec-f27fb6b76deb",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill 名称的直接暴露，并在 tests/test.sh 里先执行工作簿重算再进行缓存值断言；本地仅完成静态校验，未完整运行依赖 LibreOffice/openpyxl 的验证。",
+      "reviewThreadId": "019d1a9c-0bf2-7072-b6f0-bac79b19b1f8",
+      "evaluationByTaskId": {
+        "warehouse-service-xlsx-transfer-buffer-stock": {
+          "reviewerIssues": [
+            "任务根目录中的 build_workbooks.py 直接包含模板与答案工作簿的完整生成逻辑、精确公式和目标数值，构成答案泄露。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "warehouse-service-xlsx-transfer-buffer-stock"
+      ],
+      "requestedIssuesByTaskId": {
+        "warehouse-service-xlsx-transfer-buffer-stock": {
+          "reviewerIssues": [
+            "任务根目录中的 build_workbooks.py 直接包含模板与答案工作簿的完整生成逻辑、精确公式和目标数值，构成答案泄露。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a9d-253f-7270-bc7f-cd6b6a5d5551",
+      "repairSummary": "将根目录的 build_workbooks.py 改为仅导出仓库内已提交的工作簿资产，不再包含模板与答案工作簿的生成逻辑、公式和目标数值，从而消除答案泄露。",
+      "reviewThreadId": "019d1aa0-3e01-78e3-aea2-985a0a958a2d",
+      "evaluationByTaskId": {
+        "warehouse-service-xlsx-transfer-buffer-stock": {
+          "reviewerIssues": [
+            "`tests/test_outputs.py` 以公式字符串精确匹配为主，但 `instruction.md` 未把不少实现细节限定到这一程度，等价公式也可能被误判失败。; `tests/test_outputs.py` 没有直接覆盖 `Inventory_Rollforward!B10:B16` 等指令明确要求的整段滚动承接区域，存在未完整实现仍通过测试的空间。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 3,
+      "requestedTaskIds": [
+        "warehouse-service-xlsx-transfer-buffer-stock"
+      ],
+      "requestedIssuesByTaskId": {
+        "warehouse-service-xlsx-transfer-buffer-stock": {
+          "reviewerIssues": [
+            "`tests/test_outputs.py` 以公式字符串精确匹配为主，但 `instruction.md` 未把不少实现细节限定到这一程度，等价公式也可能被误判失败。; `tests/test_outputs.py` 没有直接覆盖 `Inventory_Rollforward!B10:B16` 等指令明确要求的整段滚动承接区域，存在未完整实现仍通过测试的空间。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1aa2-1a63-78f0-9a3f-87345f92208b",
+      "repairSummary": "重写测试逻辑：将大部分公式校验从精确字符串匹配改为“公式存在 + 关键直链/滚动承接检查 + 全量结果数值校验”，并补齐了 Inventory_Rollforward!B9:B16 等滚动区域覆盖，避免等价公式误判且提升未完整实现时的可检出性。",
+      "reviewThreadId": "019d1aa8-c4a9-7d53-8e49-bca30554dc42",
+      "evaluationByTaskId": {
+        "warehouse-service-xlsx-transfer-buffer-stock": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

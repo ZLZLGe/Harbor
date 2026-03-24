@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "draft-board-xlsx-transfer-weighted-shortlist"
+name = "Transfer: Weighted Draft Board Shortlist"
+description = "Analyze the scouting workbook, combine testing, split grades, position coefficients, and injury discounts into a ranked shortlist, and write the result to /root/draft_board.csv."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "sports analytics"
+tags = ["xlsx", "sports analytics", "draft board", "csv output"]
+primary_output_file = "/root/draft_board.csv"
+source_task_id = "financial-modeling-qa"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

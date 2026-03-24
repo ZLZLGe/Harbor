@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "docs-build-analyze-ci-transfer-lockfile-drift",
+  "taskRole": "transfer",
+  "title": "Transfer: 修复文档站点构建因锁文件漂移失败",
+  "goal": "从提供的文档构建作业日志中找出静态站点在 CI 中失败的原因，记录分析结论，并修复包管理或工作流配置让文档构建重新通过。",
+  "primaryOutputFile": "reports/docs-build-investigation.md",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "这里不再是源码测试，而是前端文档构建流水线；analyze-ci 仍是唯一关键入口，因为根因首先藏在 job 日志、安装阶段和构建输出中。",
+  "targetSkillDirName": "analyze-ci",
+  "targetSkillName": "analyze-ci"
+}

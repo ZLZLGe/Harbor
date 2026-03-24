@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-pdf-transfer-inspection-checklist"
+name = "Transfer: Warehouse Inspection Checklist PDF"
+description = "Complete the warehouse inspection checklist PDF from the inspection record and save the finished document to /root/warehouse-inspection-completed.pdf."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "document-processing"
+tags = ["pdf", "warehouse", "inspection", "checklist", "annotation"]
+primary_output_file = "/root/warehouse-inspection-completed.pdf"
+source_task_id = "court-form-filling"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

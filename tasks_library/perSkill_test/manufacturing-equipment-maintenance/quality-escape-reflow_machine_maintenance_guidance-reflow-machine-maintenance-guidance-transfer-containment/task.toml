@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "quality-escape-reflow_machine_maintenance_guidance-reflow-machine-maintenance-guidance-transfer-containment"
+name = "Transfer: Reflow Quality Escape Containment"
+description = "Investigate a reflow quality escape event and write /app/output/defect_containment_card.json with the most likely process-loss mode, the isolation scope, immediate containment actions, and a technician action card."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "manufacturing"
+tags = ["manufacturing", "quality-escape", "reflow", "containment", "incident-response"]
+primary_output_file = "/app/output/defect_containment_card.json"
+source_task_id = "manufacturing-equipment-maintenance"
+task_role = "transfer"
+required_skills = ["reflow_machine_maintenance_guidance"]
+distractor_skills = []
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "club-powerlifting-transfer-team-dots-summary",
+  "taskRole": "transfer",
+  "title": "Transfer: 俱乐部杯 Dots 团队积分汇总",
+  "goal": "给定一个俱乐部杯参赛名单工作簿，先为每位选手计算 Dots 分数，再在汇总页中统计每个俱乐部成绩最好的 3 名选手的 Dots 总和，输出团队积分榜，并保留个人明细与团队汇总两部分结果。",
+  "primaryOutputFile": "/root/data/team_dots_summary.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "任务把力量举系数计算迁移到团队积分场景，关键仍是先准确算出个人 Dots，后续汇总只是围绕该分数展开。",
+  "targetSkillDirName": "powerlifting",
+  "targetSkillName": "powerlifting"
+}

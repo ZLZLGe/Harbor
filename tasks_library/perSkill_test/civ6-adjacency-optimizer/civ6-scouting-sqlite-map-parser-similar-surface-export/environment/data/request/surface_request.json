@@ -1,0 +1,28 @@
+{
+  "id": "surface_export_request",
+  "description": "Export the full map surface and district buildability around a fixed city center.",
+  "map_file": "/data/maps/e2e_test_case_0.Civ6Map",
+  "candidate_city_center": [21, 13],
+  "ring_radius": 3,
+  "population": 9,
+  "district_types": [
+    "CAMPUS",
+    "HOLY_SITE",
+    "THEATER_SQUARE",
+    "COMMERCIAL_HUB",
+    "HARBOR",
+    "INDUSTRIAL_ZONE",
+    "ENTERTAINMENT_COMPLEX",
+    "WATER_PARK",
+    "ENCAMPMENT",
+    "AERODROME",
+    "GOVERNMENT_PLAZA",
+    "DIPLOMATIC_QUARTER",
+    "PRESERVE",
+    "AQUEDUCT",
+    "DAM",
+    "CANAL",
+    "SPACEPORT",
+    "NEIGHBORHOOD"
+  ]
+}

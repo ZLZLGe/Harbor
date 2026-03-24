@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "regatta-points-xlsx-similar-team-leaderboard",
+  "taskRole": "similar",
+  "title": "Similar | 赛艇分站赛团队积分榜",
+  "goal": "读取包含 Results 与 ScoringRules 的工作簿，在空白的 Leaderboard 工作表中复制选手、队伍、项目和名次字段，并用 Excel 公式按名次与项目类型匹配积分、汇总队伍总分并生成队内排序。",
+  "primaryOutputFile": "/root/data/regatta_team_leaderboard.xlsx",
+  "difficulty": "easy",
+  "category": "data-analysis",
+  "skillBenefitRationale": "核心难点是对现有工作簿做结构化编辑，写入跨表查找、求和与排名公式并完成重算验证；除了 xlsx 之外不依赖任何其他 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "museum-guide-dialogue_graph-dialogue-graph-transfer-audio-route"
+name = "Transfer: 展馆音频导览路线图"
+description = "Parse an interactive museum audio tour script into a structured route graph JSON and DOT guide map."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "education"
+tags = ["education", "museum", "audio-guide", "graph"]
+primary_output_file = "museum_audio_route.json"
+source_task_id = "dialogue-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+image = "python:3.12-slim"
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "harbor-radar-output-validation-transfer-vessel-sweeps"
+name = "Transfer: 港口雷达船舶输出校验"
+description = "根据港口雷达扫描摘要生成船舶机动区间 JSON，并输出逐扫描活动目标回波区域的 CSR 稀疏 mask。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "radar-analysis"
+tags = ["radar", "harbor", "csr-mask", "transfer", "output-validation"]
+primary_output_file = "/root/pred_harbor_tracks.json"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

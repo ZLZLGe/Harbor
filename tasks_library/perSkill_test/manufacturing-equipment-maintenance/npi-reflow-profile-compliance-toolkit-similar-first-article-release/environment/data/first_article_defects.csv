@@ -1,0 +1,16 @@
+run_id,inspection_stage,defect_type,severity,count,units_tested,units_pass,units_rework,units_scrap,fp_yield_pct,notes
+FA-01,AOI,solder_ball,minor,1,,,,,,pilot_scan
+FA-01,XRay,voiding,minor,1,,,,,,pilot_scan
+FA-01,SUMMARY,yield_summary,,0,250,244,6,0,97.60,pilot_summary
+FA-02,AOI,flux_residue,minor,1,,,,,,pilot_scan
+FA-02,SUMMARY,yield_summary,,0,250,246,4,0,98.40,pilot_summary
+FA-03,AOI,insufficient_solder,minor,1,,,,,,pilot_scan
+FA-03,SUMMARY,yield_summary,,0,250,247,3,0,98.80,pilot_summary
+FA-04,AOI,tombstone,minor,1,,,,,,pilot_scan
+FA-04,XRay,voiding,minor,2,,,,,,pilot_scan
+FA-04,SUMMARY,yield_summary,,0,250,243,7,0,97.20,pilot_summary
+FA-05,AOI,insufficient_solder,major,2,,,,,,pilot_scan
+FA-05,Visual,component_crack,critical,1,,,,,,pilot_scan
+FA-05,SUMMARY,yield_summary,,0,250,235,12,3,94.00,pilot_summary
+FA-06,AOI,solder_ball,minor,1,,,,,,pilot_scan
+FA-06,SUMMARY,yield_summary,,0,250,245,5,0,98.00,pilot_summary

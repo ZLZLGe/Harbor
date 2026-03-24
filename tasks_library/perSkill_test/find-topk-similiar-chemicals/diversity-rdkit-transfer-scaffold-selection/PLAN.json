@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "diversity-rdkit-transfer-scaffold-selection",
+  "taskRole": "transfer",
+  "title": "Transfer: Scaffold Diversity Representative Selection",
+  "goal": "对一个分子集合提取 Bemis-Murcko scaffold，按骨架对分子分组，并从每组中选出代表分子，生成一个覆盖骨架多样性的代表集和对应的 scaffold 统计摘要。",
+  "primaryOutputFile": "/root/workspace/scaffold_selection.py",
+  "difficulty": "medium",
+  "category": "chemistry",
+  "skillBenefitRationale": "核心是分子骨架提取、结构规范化与按骨架聚合选择代表分子，这些都是 RDKit 的典型结构分析能力，不依赖其他 shipped skill。",
+  "targetSkillDirName": "rdkit",
+  "targetSkillName": "rdkit"
+}

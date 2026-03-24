@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "utility-flood-detection-transfer-pump-station-overflow"
+name = "Transfer - Pump Station Overflow Risk Report"
+description = "Evaluate 15-minute wet-well readings against station overflow thresholds and write a CSV report for pump stations with overflow-risk days."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["wastewater", "pump-stations", "csv", "jsonl", "time-series"]
+primary_output_file = "/root/output/pump_station_overflow_report.csv"
+source_task_id = "flood-risk-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

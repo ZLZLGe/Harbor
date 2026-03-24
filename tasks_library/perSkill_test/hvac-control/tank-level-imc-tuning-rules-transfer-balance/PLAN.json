@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "tank-level-imc-tuning-rules-transfer-balance",
+  "taskRole": "transfer",
+  "title": "Transfer - 储液罐液位平衡 IMC 整定",
+  "goal": "针对带恒定出流扰动的储液罐液位系统，依据给定的一阶液位模型参数完成 IMC PI 整定，使液位稳定在目标百分比附近，并生成控制报告。",
+  "primaryOutputFile": "tank_level_controller_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务把同一套一阶对象 IMC 整定规则迁移到液位过程，核心仍是用 lambda 调节响应速度与鲁棒性，再直接换算出 PI 增益。",
+  "targetSkillDirName": "imc-tuning-rules",
+  "targetSkillName": "imc-tuning-rules"
+}

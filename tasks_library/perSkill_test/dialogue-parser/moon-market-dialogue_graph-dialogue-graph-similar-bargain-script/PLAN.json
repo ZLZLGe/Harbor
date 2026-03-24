@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "moon-market-dialogue_graph-dialogue-graph-similar-bargain-script",
+  "taskRole": "similar",
+  "title": "Similar: 月市讨价还价对话图",
+  "goal": "解析一份月市支线任务的分支对话脚本，生成结构化对话图 JSON 与可视化 DOT，保留说话人、选项文本、技能标签样式选项和可回环分支。",
+  "primaryOutputFile": "moon_market_graph.json",
+  "difficulty": "easy",
+  "category": "game",
+  "skillBenefitRationale": "任务核心仍是把叙事脚本文本可靠映射为 `Graph/Node/Edge`，并依赖 dialogue-graph 完成图结构表达、合法性校验和可视化输出；不存在其他关键 shipped skill。",
+  "targetSkillDirName": "dialogue_graph",
+  "targetSkillName": "dialogue-graph"
+}

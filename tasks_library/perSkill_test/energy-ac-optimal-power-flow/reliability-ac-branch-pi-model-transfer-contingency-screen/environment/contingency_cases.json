@@ -1,0 +1,167 @@
+{
+  "study_id": "delta-transfer-screen-2031q3",
+  "baseMVA": 100.0,
+  "branches": [
+    {
+      "id": "L12",
+      "from_bus": 11,
+      "to_bus": 12,
+      "r_pu": 0.012,
+      "x_pu": 0.09,
+      "b_pu": 0.03,
+      "rateA_MVA": 130.0,
+      "tap": 1.0,
+      "shift_deg": 0.0
+    },
+    {
+      "id": "T23",
+      "from_bus": 12,
+      "to_bus": 13,
+      "r_pu": 0.01,
+      "x_pu": 0.07,
+      "b_pu": 0.02,
+      "rateA_MVA": 225.0,
+      "tap": 0.98,
+      "shift_deg": -4.0
+    },
+    {
+      "id": "L13",
+      "from_bus": 11,
+      "to_bus": 13,
+      "r_pu": 0.02,
+      "x_pu": 0.11,
+      "b_pu": 0.025,
+      "rateA_MVA": 150.0,
+      "tap": 1.0,
+      "shift_deg": 0.0
+    },
+    {
+      "id": "L34",
+      "from_bus": 13,
+      "to_bus": 14,
+      "r_pu": 0.015,
+      "x_pu": 0.09,
+      "b_pu": 0.02,
+      "rateA_MVA": 75.0,
+      "tap": 1.0,
+      "shift_deg": 0.0
+    },
+    {
+      "id": "L24",
+      "from_bus": 12,
+      "to_bus": 14,
+      "r_pu": 0.017,
+      "x_pu": 0.1,
+      "b_pu": 0.03,
+      "rateA_MVA": 155.0,
+      "tap": 1.0,
+      "shift_deg": 0.0
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "OUT_L12",
+      "outaged_branch_id": "L12",
+      "bus_voltages": [
+        {
+          "bus": 11,
+          "vm_pu": 1.03,
+          "va_deg": 0.0
+        },
+        {
+          "bus": 12,
+          "vm_pu": 1.01,
+          "va_deg": -4.5
+        },
+        {
+          "bus": 13,
+          "vm_pu": 0.99,
+          "va_deg": -9.8
+        },
+        {
+          "bus": 14,
+          "vm_pu": 0.98,
+          "va_deg": -12.7
+        }
+      ]
+    },
+    {
+      "scenario_id": "OUT_L13",
+      "outaged_branch_id": "L13",
+      "bus_voltages": [
+        {
+          "bus": 11,
+          "vm_pu": 1.02,
+          "va_deg": 0.0
+        },
+        {
+          "bus": 12,
+          "vm_pu": 1.0,
+          "va_deg": -6.0
+        },
+        {
+          "bus": 13,
+          "vm_pu": 0.97,
+          "va_deg": -11.5
+        },
+        {
+          "bus": 14,
+          "vm_pu": 0.96,
+          "va_deg": -15.0
+        }
+      ]
+    },
+    {
+      "scenario_id": "OUT_L24",
+      "outaged_branch_id": "L24",
+      "bus_voltages": [
+        {
+          "bus": 11,
+          "vm_pu": 1.04,
+          "va_deg": 0.0
+        },
+        {
+          "bus": 12,
+          "vm_pu": 1.02,
+          "va_deg": -3.8
+        },
+        {
+          "bus": 13,
+          "vm_pu": 1.0,
+          "va_deg": -8.0
+        },
+        {
+          "bus": 14,
+          "vm_pu": 0.99,
+          "va_deg": -10.2
+        }
+      ]
+    },
+    {
+      "scenario_id": "OUT_L34",
+      "outaged_branch_id": "L34",
+      "bus_voltages": [
+        {
+          "bus": 11,
+          "vm_pu": 1.01,
+          "va_deg": 0.0
+        },
+        {
+          "bus": 12,
+          "vm_pu": 0.995,
+          "va_deg": -5.8
+        },
+        {
+          "bus": 13,
+          "vm_pu": 0.985,
+          "va_deg": -10.4
+        },
+        {
+          "bus": 14,
+          "vm_pu": 0.975,
+          "va_deg": -14.8
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "service": "checkout",
+      "severity": "medium",
+      "owner": "payments"
+    },
+    {
+      "service": "auth",
+      "severity": "critical",
+      "owner": "platform"
+    },
+    {
+      "service": "billing",
+      "severity": "high",
+      "owner": "finance"
+    },
+    {
+      "service": "search",
+      "severity": "high",
+      "owner": "growth"
+    }
+  ]
+}

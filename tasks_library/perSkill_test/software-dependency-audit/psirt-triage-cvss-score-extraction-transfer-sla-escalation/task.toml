@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "psirt-triage-cvss-score-extraction-transfer-sla-escalation"
+name = "Transfer: PSIRT 工单 SLA 升级清单"
+description = "从厂商 PSIRT 公告和内部工单状态中提取每条公告的最佳 CVSS 分数，筛出超过修复 SLA 的高风险事项并输出升级 JSON 清单。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "operations"
+tags = ["operations", "psirt", "cvss", "sla", "json"]
+primary_output_file = "/root/psirt_sla_escalations.json"
+source_task_id = "software-dependency-audit"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096

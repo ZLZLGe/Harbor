@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "policy-ssh-penetration-testing-transfer-weak-algorithm-audit",
+  "taskRole": "transfer",
+  "title": "Transfer | 修复 SSH 弱算法审计与配置生成",
+  "goal": "在一个为设备生成 `sshd_config` 的策略工具中，弱 KEX、cipher 和 MAC 被错误地标记为合规，导致生成配置仍暴露已知弱算法。任务要求修复审计与生成逻辑，让输出配置禁用这些算法，同时保留测试里允许的现代客户端兼容性。",
+  "primaryOutputFile": "/app/workspace/policy/renderers/sshd_policy.py",
+  "difficulty": "hard",
+  "category": "ssh hardening",
+  "skillBenefitRationale": "核心在于把 SSH 配置审计知识转化为代码层面的算法判定与加固规则，属于 SSH 渗透测试中配置审计能力的迁移应用。",
+  "targetSkillDirName": "ssh-penetration-testing",
+  "targetSkillName": "ssh-penetration-testing"
+}

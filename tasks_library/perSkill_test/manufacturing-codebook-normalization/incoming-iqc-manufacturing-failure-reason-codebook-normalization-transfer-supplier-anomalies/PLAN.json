@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "incoming-iqc-manufacturing-failure-reason-codebook-normalization-transfer-supplier-anomalies",
+  "taskRole": "transfer",
+  "title": "Transfer - IQC Supplier Anomaly Normalization",
+  "goal": "Normalize incoming quality inspection anomaly remarks for supplier lots into a material-defect codebook, using item category, inspection stage, and lot context to separate true codebook matches from ambiguous notes.",
+  "primaryOutputFile": "/app/output/iqc_supplier_reason_map.json",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "This is a distinct transfer to supplier quality inspection, but success still depends on the same shipped skill: converting inconsistent human-written defect descriptions into standard codebook labels with context-aware matching and UNKNOWN escalation.",
+  "targetSkillDirName": "manufacturing-failure-reason-codebook-normalization",
+  "targetSkillName": "manufacturing-failure-reason-codebook-normalization"
+}

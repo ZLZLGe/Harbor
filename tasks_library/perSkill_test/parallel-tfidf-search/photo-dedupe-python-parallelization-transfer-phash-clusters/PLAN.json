@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "photo-dedupe-python-parallelization-transfer-phash-clusters",
+  "taskRole": "transfer",
+  "title": "Transfer: Parallel Photo Deduplication via Perceptual Hashing",
+  "goal": "并行化一个照片去重工具，批量计算图片感知哈希并生成疑似重复图片簇，要求结果与串行版本一致且在多核下明显提速。",
+  "primaryOutputFile": "/root/workspace/parallel_photo_dedupe.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "这是与文本检索明显不同的 CPU 密集型媒体批处理任务，重点是把独立图片变换和哈希计算分发到多个 worker，再安全汇总聚类结果；唯一关键 shipped skill 仍然是 python-parallelization。",
+  "targetSkillDirName": "python-parallelization",
+  "targetSkillName": "python-parallelization"
+}

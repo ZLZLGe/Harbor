@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "aftershock-obspy-data-api-similar-arrival-windows",
+  "taskRole": "similar",
+  "title": "Similar | Aftershock Arrival Window Assembly",
+  "goal": "Read heterogeneous earthquake waveform files together with event and station metadata, convert them into ObsPy Stream/Catalog/Inventory objects, align each usable station trace to its event origin, and write `/root/arrival_windows.csv` with one row per station-event pair describing absolute review-window bounds, sample rate, duration, and channel coverage for downstream arrival analysis.",
+  "primaryOutputFile": "/root/arrival_windows.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "This task is centered on the canonical ObsPy data workflow: reading waveform files, representing custom and standard metadata with Stream/Trace, Catalog, Inventory, and UTCDateTime objects, and using those objects to derive aligned review windows. The shipped skill is the only critical dependency.",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "go-gateway-find-bugs-transfer-rate-limit-race",
+  "taskRole": "transfer",
+  "title": "Transfer - 审计 Go 租户限流器重构",
+  "goal": "审计一个 Go API gateway 分支中对租户级限流器的重构，确认是否引入竞态、计数失真或可被利用的资源耗尽问题，并形成审计报告。",
+  "primaryOutputFile": "reports/transfer-rate-limiter-findings.md",
+  "difficulty": "hard",
+  "category": "go concurrency review",
+  "skillBenefitRationale": "任务重点是查看本地 diff、识别共享状态与并发访问点、判断问题是否已被其他逻辑覆盖并给出真实结论；`find-bugs` 是唯一关键 shipped skill。",
+  "targetSkillDirName": "find-bugs",
+  "targetSkillName": "find-bugs"
+}

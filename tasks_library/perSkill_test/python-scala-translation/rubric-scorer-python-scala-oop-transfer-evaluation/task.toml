@@ -1,0 +1,30 @@
+version = "1.0"
+
+[metadata]
+id = "rubric-scorer-python-scala-oop-transfer-evaluation"
+name = "Transfer: 评分量表模块翻译"
+description = "将 Python 评分量表模块翻译为 Scala 2.13，并输出可编译的 /root/RubricScorer.scala。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "oop", "education", "rubric"]
+primary_output_file = "/root/RubricScorer.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]

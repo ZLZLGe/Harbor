@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "additive-quote-mesh-analysis-similar-costing",
+  "taskRole": "similar",
+  "title": "Similar - Additive Manufacturing Material Quote",
+  "goal": "从带粉末碎屑的二进制 STL 中识别主零件，读取材料 ID，结合材料密度与单价表生成生产报价 JSON。",
+  "primaryOutputFile": "/root/production_quote.json",
+  "difficulty": "hard",
+  "category": "engineering",
+  "skillBenefitRationale": "唯一关键能力仍是对带噪 STL 做连通域筛选并读取属性字节中的材料编码；没有 mesh-analysis，就难以稳定得到主零件体积和正确材料，从而无法计算质量与报价。",
+  "targetSkillDirName": "mesh-analysis",
+  "targetSkillName": "mesh-analysis"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "board-book-pdf-transfer-assembly"
+name = "Transfer: Board Book Assembly"
+description = "Assemble the final board materials packet from the agenda manifest and source documents, then write the finished board book to /root/board_book.pdf."
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "medium"
+category = "document-workflow"
+tags = ["board-book", "document-assembly", "page-reordering", "packet-build"]
+primary_output_file = "/root/board_book.pdf"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

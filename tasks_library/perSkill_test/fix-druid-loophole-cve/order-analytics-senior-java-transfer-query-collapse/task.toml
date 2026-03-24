@@ -1,0 +1,39 @@
+version = "1.0"
+
+[metadata]
+id = "order-analytics-senior-java-transfer-query-collapse"
+name = "Transfer | 收敛订单分析接口的查询风暴"
+description = "重构订单分析查询服务以收敛批量查询路径，并输出 /workspace/order-analytics/src/main/java/com/acme/analytics/reporting/OrderSummaryQueryService.java。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "Data"
+tags = ["Java", "Performance", "Batch Query", "Data Access"]
+primary_output_file = "/workspace/order-analytics/src/main/java/com/acme/analytics/reporting/OrderSummaryQueryService.java"
+source_task_id = "fix-druid-loophole-cve"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[solution]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[solution.env]
+WORKSPACE = "/workspace"
+APP_HOME = "/workspace/order-analytics"
+
+[verifier.env]
+WORKSPACE = "/workspace"
+APP_HOME = "/workspace/order-analytics"

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "emergency-wait-pca-decomposition-transfer-bottleneck-share"
+name = "Emergency Department Wait Bottleneck Transfer"
+description = "Identify the dominant emergency-department bottleneck category and its contribution share from correlated daily operations metrics."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["healthcare-operations", "emergency-department", "factor-analysis", "attribution"]
+primary_output_file = "ed_bottleneck_share.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

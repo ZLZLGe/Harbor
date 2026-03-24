@@ -1,0 +1,46 @@
+simulation:
+  dt: 0.1
+  duration: 80.0
+
+ego:
+  initial_speed: 0.0
+  initial_position: 0.0
+
+controller:
+  target_speed: 27.0
+  time_headway: 1.4
+  min_gap: 8.0
+  ttc_threshold: 2.8
+  k_cruise: 0.55
+  k_gap: 0.18
+  k_rel: 0.65
+  max_accel: 2.5
+  max_decel: -6.5
+
+lead_segments:
+  - name: first_lead
+    start: 18.0
+    end: 34.0
+    start_gap: 60.0
+    speed_points:
+      - time: 18.0
+        speed: 23.0
+      - time: 24.0
+        speed: 23.0
+      - time: 28.0
+        speed: 16.0
+      - time: 34.0
+        speed: 16.0
+  - name: cut_in
+    start: 39.0
+    end: 60.0
+    start_gap: 20.0
+    speed_points:
+      - time: 39.0
+        speed: 15.0
+      - time: 45.0
+        speed: 5.0
+      - time: 52.0
+        speed: 5.0
+      - time: 60.0
+        speed: 17.0

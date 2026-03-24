@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "asset-exposure-cvss-score-extraction-transfer-remediation-queue",
+  "taskRole": "transfer",
+  "title": "Transfer: 资产暴露修复队列",
+  "goal": "给定资产暴露统计和漏洞记录，先从多源数据里提取每个漏洞的最佳 CVSS 分数，再生成按修复优先级排序的 TSV 队列，供运维安排补丁窗口。",
+  "primaryOutputFile": "/root/remediation_queue.tsv",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "把技能迁移到修复排期与资产优先级管理，CVSS 提取仍是排序结果是否正确的决定因素。",
+  "targetSkillDirName": "cvss-score-extraction",
+  "targetSkillName": "cvss-score-extraction"
+}

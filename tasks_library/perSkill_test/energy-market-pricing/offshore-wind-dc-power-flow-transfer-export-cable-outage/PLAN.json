@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "offshore-wind-dc-power-flow-transfer-export-cable-outage",
+  "taskRole": "transfer",
+  "title": "Transfer: Offshore Wind Export Cable Outage",
+  "goal": "Analyze an offshore wind export network under a normal topology and a maintenance-outage topology, then report export-cable loadings, overloaded elements, landing-point angle shifts, and the cables with the largest rerouted flows.",
+  "primaryOutputFile": "offshore_cable_stress_report.json",
+  "difficulty": "hard",
+  "category": "energy",
+  "skillBenefitRationale": "This transfers dc-power-flow to an offshore grid setting where the key work is still reconstructing B after a cable outage and quantifying how injections reroute across rated corridors.",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

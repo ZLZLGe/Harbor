@@ -1,0 +1,9 @@
+{
+  "initial_level_cm": 41.5,
+  "nominal_operating_band_cm": [47.0, 54.0],
+  "recommended_level_rise_cm": [6.0, 14.0],
+  "sensor_noise_std_cm": 0.08,
+  "overflow_level_cm": 59.0,
+  "minimum_level_cm": 10.0,
+  "dt_sec": 4.0
+}

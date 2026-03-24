@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "localized-lesson-ffmpeg-format-conversion-similar-delivery",
+  "taskRole": "similar",
+  "title": "Similar: Localized Lesson Delivery",
+  "goal": "给定原始教学短视频和一条已经对齐好的译制旁白音频，产出一个最终交付版 MP4：保留原始画面，把新音轨封装进去，并把成品统一转成 H.264 视频加 AAC 48kHz 单声道音频。",
+  "primaryOutputFile": "/outputs/localized_lesson.mp4",
+  "difficulty": "medium",
+  "category": "multimodal-video-dubbing",
+  "skillBenefitRationale": "核心难点是用 FFmpeg 完成音视频封装与编码规格统一，这正是格式转换技能在配音交付场景中的典型用法，而且不依赖 TTS、剪辑或分析类技能。",
+  "targetSkillDirName": "ffmpeg-format-conversion",
+  "targetSkillName": "FFmpeg Format Conversion"
+}

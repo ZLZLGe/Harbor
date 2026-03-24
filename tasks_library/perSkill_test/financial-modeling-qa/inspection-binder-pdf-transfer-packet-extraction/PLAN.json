@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "inspection-binder-pdf-transfer-packet-extraction",
+  "taskRole": "transfer",
+  "title": "Transfer: 巡检汇编页面提取",
+  "goal": "分析一份混合站点的巡检汇编 PDF，按页面中的站点编号和检查日期识别目标站点所需页面，保持规定顺序后组装为新的 `/root/site_inspection_packet.pdf`。",
+  "primaryOutputFile": "/root/site_inspection_packet.pdf",
+  "difficulty": "medium",
+  "category": "document-assembly",
+  "skillBenefitRationale": "任务依赖页级文本抽取、页面筛选与 PDF 重组，这些都是 `pdf` skill 的直接能力范围；输入规则简单，唯一关键 shipped skill 仍然是 `pdf`。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

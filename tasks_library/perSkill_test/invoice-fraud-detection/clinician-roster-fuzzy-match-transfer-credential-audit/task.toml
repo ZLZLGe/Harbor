@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "clinician-roster-fuzzy-match-transfer-credential-audit"
+name = "Transfer: Audit Clinician Roster Aliases Against a Licensing Registry"
+description = "Match noisy clinician roster aliases to the licensing registry, detect unresolved or credential mismatches, and write the exceptions to /root/license_exceptions.csv."
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "hard"
+category = "compliance-audit"
+tags = ["healthcare", "licensing", "roster-audit", "fuzzy-matching", "csv"]
+primary_output_file = "/root/license_exceptions.csv"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

@@ -1,0 +1,69 @@
+{
+  "sourceTaskId": "data-to-d3",
+  "targetSkillDirName": "d3-visualization",
+  "runId": "20260318223646-data-to-d3-d3-visualization-ng3aiy",
+  "taskId": "trail-analysis-d3-visualization-transfer-elevation-profile",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/data-to-d3/trail-analysis-d3-visualization-transfer-elevation-profile",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260318223646-data-to-d3-d3-visualization-ng3aiy/data-to-d3/drafts/trail-analysis-d3-visualization-transfer-elevation-profile",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/data-to-d3/trail-analysis-d3-visualization-transfer-elevation-profile",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/data-to-d3/trail-analysis-d3-visualization-transfer-elevation-profile",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 未校验面积图与坐标轴文本，也未校验途经点按钮文本包含距离；对 instruction 里的关键显式要求覆盖不足。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 未直接暴露 `d3js-visualization` 或 `d3-visualization`。; 任务要求仍然落在当前 shipped D3 skill 的覆盖范围内：线/面积图、分段着色、tooltip、交互联动。; tests/test_outputs.py 增加了 instruction.md 未明示的隐藏约束，例如固定页面标题 `Trail Elevation Profile Explorer`、`.profile-segment`、`#crosshair-x`、`#crosshair-y`、`#hover-focus` 等 DOM 标识。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "startup-funding-d3-visualization-similar-bubble-explorer",
+        "trail-analysis-d3-visualization-transfer-elevation-profile"
+      ],
+      "requestedIssuesByTaskId": {
+        "startup-funding-d3-visualization-similar-bubble-explorer": {
+          "reviewerIssues": [
+            "instruction.md 未直接暴露 `d3js-visualization` 或 `d3-visualization`。; 任务内容与当前 shipped skill 高度贴合，只依赖 D3 可视化、tooltip、力导向和表格联动能力。; tests/test_outputs.py 引入了 instruction.md 未声明的隐藏要求，例如固定页面标题 `Startup Funding Bubble Explorer`、`#legend .legend-item`、`tbody tr td:first-child strong` 的 DOM 结构，以及表头首次点击后的特定排序方向。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "trail-analysis-d3-visualization-transfer-elevation-profile": {
+          "reviewerIssues": [
+            "instruction.md 未直接暴露 `d3js-visualization` 或 `d3-visualization`。; 任务要求仍然落在当前 shipped D3 skill 的覆盖范围内：线/面积图、分段着色、tooltip、交互联动。; tests/test_outputs.py 增加了 instruction.md 未明示的隐藏约束，例如固定页面标题 `Trail Elevation Profile Explorer`、`.profile-segment`、`#crosshair-x`、`#crosshair-y`、`#hover-focus` 等 DOM 标识。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10c7-d454-7e80-a635-2e1302cc2515",
+      "repairSummary": "- `startup-funding-d3-visualization-similar-bubble-explorer`：我在 [instruction.md](/tmp/per_skill_repair_workspaces/20260318223646-data-to-d3-d3-visualization-ng3aiy-fba9a0d1/data-to-d3/drafts/startup-funding-d3-visualization-similar-bubble-explorer/instruction.md) 里把 `#legend` 和两次表头点击后的排序方向写成显式要求；在 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260318223646-data-to-d3-d3-visualization-ng3aiy-fba9a0d1/data-to-d3/drafts/startup-funding-d3-visualization-similar-bubble-explorer/tests/test_outputs.py) 里去掉了固定页面标题、`.legend-item` 和 `td:first-child strong` 这类隐藏 DOM 假设，改成按说明中的显式行为验证。\n\n- `trail-analysis-d3-visualization-transfer-elevation-profile`：我在 [instruction.md](/tmp/per_skill_repair_workspaces/20260318223646-data-to-d3-d3-visualization-ng3aiy-fba9a0d1/data-to-d3/drafts/trail-analysis-d3-visualization-transfer-elevation-profile/instruction.md) 里把 `profile-segment`、`#crosshair-x`、`#crosshair-y`、`#hover-focus` 明确成任务要求；在 [tests/test_outputs.py](/tmp/per_skill_repair_workspaces/20260318223646-data-to-d3-d3-visualization-ng3aiy-fba9a0d1/data-to-d3/drafts/trail-analysis-d3-visualization-transfer-elevation-profile/tests/test_outputs.py) 里去掉了固定页面标题和 `.legend-item` 依赖，改成只验证说明中声明的 legend 顺序与交互钩子。\n\n补充：`derivedTaskId`、`taskRole`、`source_task_id`、`primary_output_file` 都未改；两份测试已通过 `python3 -m py_compile`，两份 `instruction.md` 里也确认没有直接出现禁用的 skill 名称或目录名。受当前沙箱限制，无法原样访问 `/root` 去跑 Harbor 式端到端 verifier。",
+      "reviewThreadId": "019d10ce-494e-74d1-8287-20095bd3ecad",
+      "evaluationByTaskId": {
+        "startup-funding-d3-visualization-similar-bubble-explorer": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "trail-analysis-d3-visualization-transfer-elevation-profile": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

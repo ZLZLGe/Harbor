@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cstr-reactor-state-space-linearization-transfer-thermal-balance",
+  "taskRole": "transfer",
+  "title": "Transfer - CSTR 热反应器工作点线性化",
+  "goal": "对带冷却夹套的连续搅拌釜反应器非线性浓度-温度动力学，在标称转化率工作点求线性化状态空间模型并离散化，再用小幅冷却流量阶跃验证局部模型与非线性仿真的短时一致性。",
+  "primaryOutputFile": "artifacts/cstr_operating_point_linearization.json",
+  "difficulty": "medium",
+  "category": "process-control",
+  "skillBenefitRationale": "场景迁移到化工过程控制后，核心仍是从非线性质量与能量平衡方程构造局部A/B模型；验证步骤只服务于检查线性化质量，不引入额外的控制设计技能。",
+  "targetSkillDirName": "state-space-linearization",
+  "targetSkillName": "state-space-linearization"
+}

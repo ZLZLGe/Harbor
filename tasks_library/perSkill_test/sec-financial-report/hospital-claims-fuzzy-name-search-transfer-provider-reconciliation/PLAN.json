@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "hospital-claims-fuzzy-name-search-transfer-provider-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer - 医疗机构名称对齐与理赔核对",
+  "goal": "在医院主档、理赔明细和药品目录中，根据带有缩写、错拼和别名的医院名与药品名匹配标准 provider_id 与药品编码，计算目标医院网络的高费用药品支出、拒赔率和异常理赔清单，并输出 JSON 报告。",
+  "primaryOutputFile": "/root/claims_reconciliation.json",
+  "difficulty": "hard",
+  "category": "healthcare",
+  "skillBenefitRationale": "医院与药品名称存在大量非标准写法，必须先做模糊名称对齐，才能把主档、理赔和药品目录可靠关联起来；因此 fuzzy-name-search 是完成任务的唯一关键 shipped skill。",
+  "targetSkillDirName": "fuzzy-name-search",
+  "targetSkillName": "fuzzy-name-search"
+}

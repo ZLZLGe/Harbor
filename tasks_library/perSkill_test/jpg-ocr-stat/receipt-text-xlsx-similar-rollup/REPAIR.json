@@ -1,0 +1,99 @@
+{
+  "sourceTaskId": "jpg-ocr-stat",
+  "targetSkillDirName": "xlsx",
+  "runId": "20260320101606-jpg-ocr-stat-xlsx-myojvy",
+  "taskId": "receipt-text-xlsx-similar-rollup",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/jpg-ocr-stat/receipt-text-xlsx-similar-rollup",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320101606-jpg-ocr-stat-xlsx-myojvy/jpg-ocr-stat/drafts/receipt-text-xlsx-similar-rollup",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/jpg-ocr-stat/receipt-text-xlsx-similar-rollup",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/jpg-ocr-stat/receipt-text-xlsx-similar-rollup",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现 `receipt_rollup.xlsx`，包含 shipped skill dirName/name `xlsx`，存在技能暴露。; 任务本身仍可在仅提供 xlsx skill 的 workspace 中完成，测试也可稳定判定。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现了 `receipt_rollup.xlsx`，包含 shipped skill 的 name/dirName `xlsx`，构成技能暴露。; visibilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: xlsx，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/workspace/receipt_rollup.xlsx",
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "invoice-audit-xlsx-transfer-reconciliation",
+        "receipt-text-xlsx-similar-rollup",
+        "volunteer-roster-xlsx-transfer-planning",
+        "warehouse-kpi-xlsx-transfer-dashboard"
+      ],
+      "requestedIssuesByTaskId": {
+        "invoice-audit-xlsx-transfer-reconciliation": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `reconciliation_template.xlsx` 和 `invoice_reconciliation.xlsx`，包含 shipped skill 的 name/dirName `xlsx`，构成技能暴露。; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: xlsx，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "receipt-text-xlsx-similar-rollup": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `receipt_rollup.xlsx`，包含 shipped skill 的 name/dirName `xlsx`，构成技能暴露。; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: xlsx，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "volunteer-roster-xlsx-transfer-planning": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `volunteer_shift_plan.xlsx`，包含 shipped skill 的 name/dirName `xlsx`，构成技能暴露。; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: xlsx，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "warehouse-kpi-xlsx-transfer-dashboard": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `warehouse_kpi_dashboard.xlsx`，包含 shipped skill 的 name/dirName `xlsx`，构成技能暴露。; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: xlsx，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10e1-8db9-79e0-b8cf-fd82f6781f4e",
+      "repairSummary": "- `invoice-audit-xlsx-transfer-reconciliation`: 重写了 [`instruction.md`](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-xlsx-myojvy-4fef966d/jpg-ocr-stat/drafts/invoice-audit-xlsx-transfer-reconciliation/instruction.md)，去掉了直接出现的技能名和带该后缀的文件名，改成“模板主文件名 + 同后缀目标文件”的表述；同时补了预置目标文件 [`invoice_reconciliation.xlsx`](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-xlsx-myojvy-4fef966d/jpg-ocr-stat/drafts/invoice-audit-xlsx-transfer-reconciliation/environment/workspace/invoice_reconciliation.xlsx) 让说明成立。\n- `receipt-text-xlsx-similar-rollup`: 重写了 [`instruction.md`](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-xlsx-myojvy-4fef966d/jpg-ocr-stat/drafts/receipt-text-xlsx-similar-rollup/instruction.md)，去掉了直接暴露的后缀/文件名，改成覆盖工作区内已放好的目标工作簿文件；同时补了预置目标文件 [`receipt_rollup.xlsx`](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-xlsx-myojvy-4fef966d/jpg-ocr-stat/drafts/receipt-text-xlsx-similar-rollup/environment/workspace/receipt_rollup.xlsx)。\n- `volunteer-roster-xlsx-transfer-planning`: 重写了 [`instruction.md`](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-xlsx-myojvy-4fef966d/jpg-ocr-stat/drafts/volunteer-roster-xlsx-transfer-planning/instruction.md)，去掉了直接暴露的后缀/文件名，改成覆盖预置目标工作簿文件；同时补了预置目标文件 [`volunteer_shift_plan.xlsx`](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-xlsx-myojvy-4fef966d/jpg-ocr-stat/drafts/volunteer-roster-xlsx-transfer-planning/environment/workspace/volunteer_shift_plan.xlsx)。\n- `warehouse-kpi-xlsx-transfer-dashboard`: 重写了 [`instruction.md`](/tmp/per_skill_repair_workspaces/20260320101606-jpg-ocr-stat-xlsx-myojvy-4fef966d/jpg-ocr-stat/drafts/warehouse-kpi-xlsx-transfer-dashboard/instruction.md)，去掉了直接暴露的后缀/文件名；另外补明了 reviewer 关心的可推导规则，包括无事件时各指标记 `0`、`slowest_shift` 和 `highest_overdue_rate_shift` 并列时按 `shifts.csv` 更早行取值。\n\n补充检查已做：4 个 `instruction.md` 对 `xlsx` 的扫描为 0 命中，4 个 `task.toml` 必需 metadata 字段完整。`tests/test.sh` 在当前工作区不能直接跑，因为缺少 verifier 容器里的 `pytest` 和 `/tests` 挂载。",
+      "reviewThreadId": "019d10e5-dc5a-77d0-96e5-63af9a90f38c",
+      "evaluationByTaskId": {
+        "invoice-audit-xlsx-transfer-reconciliation": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "receipt-text-xlsx-similar-rollup": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "volunteer-roster-xlsx-transfer-planning": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "warehouse-kpi-xlsx-transfer-dashboard": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

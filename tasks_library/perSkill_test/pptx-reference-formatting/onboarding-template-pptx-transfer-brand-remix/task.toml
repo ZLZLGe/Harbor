@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "onboarding-template-pptx-transfer-brand-remix"
+name = "Transfer - Remix a Branded Template Into an Onboarding Deck"
+description = "Remix the provided branded template presentation into a six-slide onboarding deck and save the finished presentation to the required output path."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "office-suite"
+tags = ["pptx", "slides", "template", "branding", "onboarding"]
+primary_output_file = "/root/Team-Onboarding-Branded.pptx"
+source_task_id = "pptx-reference-formatting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

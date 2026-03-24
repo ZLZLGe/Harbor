@@ -1,0 +1,150 @@
+[Start]
+Narrator: Wind scrapes dust across Frontier Outpost Seven as the barrier lowers halfway. -> GateChallenge
+
+[GateChallenge]
+Commander Vela: State your business before the sun touches the ridge. -> NegotiationHub
+
+[NegotiationHub]
+1. Request emergency passage for a medical caravan. -> CaravanPitch
+2. Offer a salvage-and-supply contract. -> ContractPitch
+3. [Observe] Study the sentries before speaking. -> ScoutRead
+4. Withdraw before the talks sour. -> QuietRetreat
+
+[ScoutRead]
+Narrator: Two sentries favor their left knees, and the signal horn hangs unwatched beside the gate crank. -> ScoutChoice
+
+[ScoutChoice]
+1. Mention the exhausted sentries to argue for urgency. -> FatigueArgument
+2. Note the exposed horn and imply the outpost is vulnerable. -> VulnerabilityHint
+3. Return to the main negotiation. -> NegotiationHub
+
+[FatigueArgument]
+Commander Vela: You noticed that quickly. Speak, then. -> PassageTerms
+
+[VulnerabilityHint]
+Commander Vela: Careful. Spotting weaknesses can sound like planning an attack. -> SuspicionChoice
+
+[SuspicionChoice]
+1. Clarify that you are offering free advice. -> AdviceAccepted
+2. Double down and threaten to spread the rumor. -> AlarmRaised
+3. Return to the main negotiation. -> NegotiationHub
+
+[AdviceAccepted]
+Commander Vela: Useful eyes deserve a fair hearing. -> NegotiationHub
+
+[CaravanPitch]
+Commander Vela: Sick miners, you say? Then prove they are real and not smugglers in blankets. -> CaravanChoice
+
+[CaravanChoice]
+1. Present stamped manifests. -> PapersShown
+2. [Persuade] Describe the fever spreading beyond the ridge. -> MercyAppeal
+3. Admit the lead seal was broken in the storm. -> MissingSeal
+4. Return to a different offer. -> NegotiationHub
+
+[PapersShown]
+Clerk Iven: The manifests match last week's convoy numbers. -> PassageTerms
+
+[MercyAppeal]
+Commander Vela: If your story is true, delay costs lives. -> PassageTerms
+
+[MissingSeal]
+Clerk Iven: Broken seals invite inspections. Give me one reason not to hold every wagon. -> MissingSealChoice
+
+[MissingSealChoice]
+1. Offer to unload the wagons for inspection. -> InspectionDelay
+2. [Bribe] Slide a heavy coin pouch across the table. -> BribeAttempt
+3. Retreat to another proposal. -> NegotiationHub
+
+[InspectionDelay]
+Narrator: The delay will cost the miners a night without medicine. -> DelayChoice
+
+[DelayChoice]
+1. Accept the inspection anyway. -> DelayedPassage
+2. [Intimidate] Warn that the miners' guild will remember this. -> GuildThreat
+3. Return to negotiations. -> NegotiationHub
+
+[BribeAttempt]
+Commander Vela: Wrong gate for that mistake. -> Detained
+
+[GuildThreat]
+Commander Vela: I answer to the frontier office, not guild gossip. -> Detained
+
+[PassageTerms]
+Commander Vela: One escort rider, no covered crates, and you leave before dusk. -> PassageChoice
+
+[PassageChoice]
+1. Accept the escort and terms. -> AidGranted
+2. Ask for a waived inspection fee. -> FeeWaiver
+3. Return to negotiations. -> NegotiationHub
+
+[FeeWaiver]
+Quartermaster Suri: Waive the fee and the stores come out of my ledgers. Convince me. -> FeeWaiverChoice
+
+[FeeWaiverChoice]
+1. [Recall] Cite the famine relief clause from the Red Basin treaty. -> TreatyWin
+2. Promise half your next caravan's salt ration. -> SaltBargain
+3. Drop the request. -> PassageTerms
+
+[TreatyWin]
+Quartermaster Suri: Hm. Clause nine does cover medical relief. -> AidGranted
+
+[SaltBargain]
+Quartermaster Suri: Salt spends faster than coin out here. Done. -> AidGranted
+
+[DelayedPassage]
+Narrator: The wagons roll through long after sunset, and several crates of herbs are ruined by frost. -> BitterPassage
+
+[BitterPassage]
+1. Count it as a partial success and move on. -> End
+2. Return tomorrow with a better offer. -> NegotiationHub
+
+[ContractPitch]
+Commander Vela: Supplies buy goodwill. Guarantees buy gates. -> ContractChoice
+
+[ContractChoice]
+1. Present the salvage ledgers. -> LedgerReview
+2. [Recall] Cite the abandoned-fort recovery charter. -> CharterClaim
+3. [Bribe] Offer a private commission. -> ContractBribe
+4. Return to the main negotiation. -> NegotiationHub
+
+[LedgerReview]
+Quartermaster Suri: These numbers could keep us warm for a month. -> ContractTerms
+
+[CharterClaim]
+Commander Vela: Bold citation. If it holds, the outpost owes you a hearing. -> CharterProof
+
+[CharterProof]
+1. Produce the signed charter copy. -> ContractTerms
+2. Admit you only memorized the title. -> ThinClaim
+
+[ThinClaim]
+Commander Vela: Then do not waste my patrol's time. -> NegotiationHub
+
+[ContractBribe]
+Commander Vela: Second bribe today. You're either careless or desperate. -> Detained
+
+[ContractTerms]
+Quartermaster Suri: Deliver lamp oil, grain, and spare bowstrings within six days, and I'll sign. -> ContractDecision
+
+[ContractDecision]
+1. Accept the timeline. -> ContractSealed
+2. [Persuade] Ask for eight days because of the ice road. -> ExtendedDeadline
+3. Refuse and pivot back to passage talks. -> NegotiationHub
+
+[ExtendedDeadline]
+Quartermaster Suri: Seven days. Miss it, and the bond is forfeit. -> ContractSealed
+
+[AidGranted]
+Narrator: The barrier lifts, the caravan rattles through, and the outpost lanterns stay green behind you. -> End
+
+[ContractSealed]
+Narrator: Ink dries on the supply bond, and the sentries mark your name as trusted. -> End
+
+[QuietRetreat]
+Narrator: You withdraw before the talks sour, leaving only bootprints in the dust. -> End
+
+[Detained]
+Narrator: Iron cuffs close around your wrists while the horn echoes across the wall. -> End
+
+[AlarmRaised]
+Narrator: The unattended horn screams once, and crossbows appear along the rampart. -> End

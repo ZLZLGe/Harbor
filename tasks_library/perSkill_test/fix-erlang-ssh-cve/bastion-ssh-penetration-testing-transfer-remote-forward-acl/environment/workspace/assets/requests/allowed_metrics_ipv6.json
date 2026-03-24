@@ -1,0 +1,7 @@
+{
+  "principal": "metrics-sidecar",
+  "bind_host": "[::1]",
+  "bind_port": 19000,
+  "target_host": "::1",
+  "target_port": 9000
+}

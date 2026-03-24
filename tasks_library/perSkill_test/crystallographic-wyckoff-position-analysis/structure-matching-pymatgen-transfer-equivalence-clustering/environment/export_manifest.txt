@@ -1,0 +1,8 @@
+cluster_a_cf4_reference.cif
+POSCAR_cluster_c_sio2_trigonal_export
+cluster_b_pyrite_reference.cif
+POSCAR_cluster_a_cf4_export
+cluster_d_sio2_tetragonal_reference.cif
+POSCAR_cluster_b_pyrite_export
+cluster_c_sio2_trigonal_reference.cif
+POSCAR_cluster_d_sio2_tetragonal_export

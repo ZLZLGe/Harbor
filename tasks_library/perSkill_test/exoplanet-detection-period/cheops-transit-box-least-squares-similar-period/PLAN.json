@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cheops-transit-box-least-squares-similar-period",
+  "taskRole": "similar",
+  "title": "Similar | Recover a Transit Period from a Gapped Space Light Curve",
+  "goal": "在一条已经过基础清洗、但仍包含观测间隙和浅弱凌星下陷的空间望远镜光变曲线中，恢复候选系外行星的轨道周期，并将结果写入 /root/planet_period.txt。",
+  "primaryOutputFile": "/root/planet_period.txt",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "任务核心仍是从光度时序中寻找重复出现的箱形变暗事件。BLS 正是为这类凌星信号设计的，且数据前处理要求被压低到常规筛选，因而 box-least-squares 是唯一关键 shipped skill。",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares"
+}

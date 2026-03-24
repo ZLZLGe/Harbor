@@ -1,0 +1,48 @@
+{
+  "wind_farm_dispatch": [
+    {
+      "id": "WF-AURORA",
+      "bus": 310,
+      "available_MW": 105.0,
+      "accepted_MW": 105.0,
+      "curtailed_MW": 0.0
+    },
+    {
+      "id": "WF-BEACON",
+      "bus": 250,
+      "available_MW": 125.0,
+      "accepted_MW": 125.0,
+      "curtailed_MW": 0.0
+    },
+    {
+      "id": "WF-CASCADE",
+      "bus": 140,
+      "available_MW": 160.0,
+      "accepted_MW": 84.76,
+      "curtailed_MW": 75.24
+    },
+    {
+      "id": "WF-DRIFT",
+      "bus": 510,
+      "available_MW": 95.0,
+      "accepted_MW": 0.0,
+      "curtailed_MW": 95.0
+    }
+  ],
+  "summary": {
+    "total_available_MW": 485.0,
+    "total_accepted_MW": 314.76,
+    "total_curtailed_MW": 170.24,
+    "delivered_to_shore_MW": 314.76,
+    "curtailment_pct": 35.1
+  },
+  "most_congested_cable": {
+    "cable_id": "EX-510-900",
+    "name": "South Export",
+    "from": 510,
+    "to": 900,
+    "flow_MW": 165.0,
+    "limit_MW": 165.0,
+    "loading_pct": 100.0
+  }
+}

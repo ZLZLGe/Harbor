@@ -1,0 +1,342 @@
+{
+  "screening_context": {
+    "depot_name": "Harbor Fleet Charging Hub",
+    "depot_peak_demand_MW": 180.0,
+    "minimum_voltage_kV": 69.0,
+    "preferred_voltage_kV": 115.0,
+    "strong_branch_capacity_threshold_MVA": 3000.0,
+    "candidate_count": 10
+  },
+  "status_summary": {
+    "preferred_count": 3,
+    "conditional_count": 4,
+    "reject_count": 3,
+    "recommended_bus_ids": [
+      82,
+      8,
+      53
+    ]
+  },
+  "ranked_candidates": [
+    {
+      "bus": 82,
+      "site_code": "river_gate",
+      "score": 74.0263,
+      "status": "preferred",
+      "score_breakdown": {
+        "voltage_level": 1.0,
+        "existing_load": 0.9413,
+        "same_bus_generation_margin": 1.0,
+        "adjacent_branch_capacity": 0.3993,
+        "one_hop_topology": 0.225
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": true,
+        "strong_branch_capacity_proxy": true
+      },
+      "summary": {
+        "base_kV": 230.0,
+        "existing_load_MW": 59.8,
+        "same_bus_generation_margin_MW": 1232.5,
+        "adjacent_branch_count": 2,
+        "adjacent_branch_capacity_MVA_sum": 5341.0,
+        "max_adjacent_branch_MVA": 3400.0,
+        "one_hop_neighbor_count": 2,
+        "one_hop_115kV_plus_neighbor_count": 2,
+        "one_hop_generator_bus_count": 0,
+        "one_hop_total_neighbor_load_MW": 456.2
+      },
+      "rank": 1
+    },
+    {
+      "bus": 8,
+      "site_code": "switchyard_east",
+      "score": 56.6524,
+      "status": "preferred",
+      "score_breakdown": {
+        "voltage_level": 0.4524,
+        "existing_load": 1.0,
+        "same_bus_generation_margin": 0.0,
+        "adjacent_branch_capacity": 1.0,
+        "one_hop_topology": 0.225
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": false,
+        "strong_branch_capacity_proxy": true
+      },
+      "summary": {
+        "base_kV": 115.0,
+        "existing_load_MW": 0.0,
+        "same_bus_generation_margin_MW": 0.0,
+        "adjacent_branch_count": 2,
+        "adjacent_branch_capacity_MVA_sum": 11734.0,
+        "max_adjacent_branch_MVA": 9900.0,
+        "one_hop_neighbor_count": 2,
+        "one_hop_115kV_plus_neighbor_count": 2,
+        "one_hop_generator_bus_count": 0,
+        "one_hop_total_neighbor_load_MW": 47.1
+      },
+      "rank": 2
+    },
+    {
+      "bus": 53,
+      "site_code": "quarry_hub",
+      "score": 53.1632,
+      "status": "preferred",
+      "score_breakdown": {
+        "voltage_level": 1.0,
+        "existing_load": 0.5202,
+        "same_bus_generation_margin": 0.8682,
+        "adjacent_branch_capacity": 0.0,
+        "one_hop_topology": 0.225
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": true,
+        "strong_branch_capacity_proxy": false
+      },
+      "summary": {
+        "base_kV": 230.0,
+        "existing_load_MW": 489.0,
+        "same_bus_generation_margin_MW": 1070.0,
+        "adjacent_branch_count": 2,
+        "adjacent_branch_capacity_MVA_sum": 1091.0,
+        "max_adjacent_branch_MVA": 610.0,
+        "one_hop_neighbor_count": 2,
+        "one_hop_115kV_plus_neighbor_count": 2,
+        "one_hop_generator_bus_count": 0,
+        "one_hop_total_neighbor_load_MW": 1210.0
+      },
+      "rank": 3
+    },
+    {
+      "bus": 30,
+      "site_code": "union_loop",
+      "score": 40.3854,
+      "status": "conditional",
+      "score_breakdown": {
+        "voltage_level": 0.4524,
+        "existing_load": 0.8087,
+        "same_bus_generation_margin": 0.0,
+        "adjacent_branch_capacity": 0.1491,
+        "one_hop_topology": 1.0
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": false,
+        "strong_branch_capacity_proxy": false
+      },
+      "summary": {
+        "base_kV": 115.0,
+        "existing_load_MW": 195.0,
+        "same_bus_generation_margin_MW": 0.0,
+        "adjacent_branch_count": 5,
+        "adjacent_branch_capacity_MVA_sum": 2678.0,
+        "max_adjacent_branch_MVA": 1467.0,
+        "one_hop_neighbor_count": 5,
+        "one_hop_115kV_plus_neighbor_count": 4,
+        "one_hop_generator_bus_count": 1,
+        "one_hop_total_neighbor_load_MW": 107.0
+      },
+      "rank": 4
+    },
+    {
+      "bus": 246,
+      "site_code": "freight_portal",
+      "score": 37.5696,
+      "status": "conditional",
+      "score_breakdown": {
+        "voltage_level": 1.0,
+        "existing_load": 0.2151,
+        "same_bus_generation_margin": 0.0,
+        "adjacent_branch_capacity": 0.2538,
+        "one_hop_topology": 0.425
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": false,
+        "strong_branch_capacity_proxy": true
+      },
+      "summary": {
+        "base_kV": 230.0,
+        "existing_load_MW": 800.0,
+        "same_bus_generation_margin_MW": 0.0,
+        "adjacent_branch_count": 2,
+        "adjacent_branch_capacity_MVA_sum": 3792.0,
+        "max_adjacent_branch_MVA": 3182.0,
+        "one_hop_neighbor_count": 2,
+        "one_hop_115kV_plus_neighbor_count": 2,
+        "one_hop_generator_bus_count": 1,
+        "one_hop_total_neighbor_load_MW": 899.0
+      },
+      "rank": 5
+    },
+    {
+      "bus": 124,
+      "site_code": "delta_junction",
+      "score": 35.545,
+      "status": "conditional",
+      "score_breakdown": {
+        "voltage_level": 0.5619,
+        "existing_load": 0.5604,
+        "same_bus_generation_margin": 0.0,
+        "adjacent_branch_capacity": 0.3537,
+        "one_hop_topology": 0.325
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": false,
+        "strong_branch_capacity_proxy": true
+      },
+      "summary": {
+        "base_kV": 138.0,
+        "existing_load_MW": 448.0,
+        "same_bus_generation_margin_MW": 0.0,
+        "adjacent_branch_count": 2,
+        "adjacent_branch_capacity_MVA_sum": 4855.0,
+        "max_adjacent_branch_MVA": 4250.0,
+        "one_hop_neighbor_count": 2,
+        "one_hop_115kV_plus_neighbor_count": 1,
+        "one_hop_generator_bus_count": 1,
+        "one_hop_total_neighbor_load_MW": 563.0
+      },
+      "rank": 6
+    },
+    {
+      "bus": 99,
+      "site_code": "market_spur",
+      "score": 32.215,
+      "status": "conditional",
+      "score_breakdown": {
+        "voltage_level": 0.4524,
+        "existing_load": 0.4064,
+        "same_bus_generation_margin": 0.0,
+        "adjacent_branch_capacity": 0.2634,
+        "one_hop_topology": 0.675
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": false,
+        "strong_branch_capacity_proxy": true
+      },
+      "summary": {
+        "base_kV": 115.0,
+        "existing_load_MW": 605.0,
+        "same_bus_generation_margin_MW": 0.0,
+        "adjacent_branch_count": 4,
+        "adjacent_branch_capacity_MVA_sum": 3894.0,
+        "max_adjacent_branch_MVA": 2096.0,
+        "one_hop_neighbor_count": 4,
+        "one_hop_115kV_plus_neighbor_count": 4,
+        "one_hop_generator_bus_count": 0,
+        "one_hop_total_neighbor_load_MW": 285.0
+      },
+      "rank": 7
+    },
+    {
+      "bus": 263,
+      "site_code": "south_stack",
+      "score": 29.129,
+      "status": "reject",
+      "score_breakdown": {
+        "voltage_level": 1.0,
+        "existing_load": 0.0,
+        "same_bus_generation_margin": 0.0,
+        "adjacent_branch_capacity": 0.1703,
+        "one_hop_topology": 0.225
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": false,
+        "strong_branch_capacity_proxy": false
+      },
+      "summary": {
+        "base_kV": 230.0,
+        "existing_load_MW": 1019.2,
+        "same_bus_generation_margin_MW": 0.0,
+        "adjacent_branch_count": 2,
+        "adjacent_branch_capacity_MVA_sum": 2904.0,
+        "max_adjacent_branch_MVA": 1452.0,
+        "one_hop_neighbor_count": 2,
+        "one_hop_115kV_plus_neighbor_count": 2,
+        "one_hop_generator_bus_count": 0,
+        "one_hop_total_neighbor_load_MW": 256.0
+      },
+      "rank": 8
+    },
+    {
+      "bus": 200,
+      "site_code": "canal_service",
+      "score": 27.6755,
+      "status": "reject",
+      "score_breakdown": {
+        "voltage_level": 0.0,
+        "existing_load": 1.0,
+        "same_bus_generation_margin": 0.3574,
+        "adjacent_branch_capacity": 0.0697,
+        "one_hop_topology": 0.0
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": false,
+        "meets_preferred_voltage": false,
+        "has_same_bus_generation_margin": true,
+        "strong_branch_capacity_proxy": false
+      },
+      "summary": {
+        "base_kV": 20.0,
+        "existing_load_MW": 0.0,
+        "same_bus_generation_margin_MW": 440.5,
+        "adjacent_branch_count": 1,
+        "adjacent_branch_capacity_MVA_sum": 1833.0,
+        "max_adjacent_branch_MVA": 1833.0,
+        "one_hop_neighbor_count": 1,
+        "one_hop_115kV_plus_neighbor_count": 1,
+        "one_hop_generator_bus_count": 0,
+        "one_hop_total_neighbor_load_MW": 572.0
+      },
+      "rank": 9
+    },
+    {
+      "bus": 73,
+      "site_code": "ridge_line",
+      "score": 18.8955,
+      "status": "reject",
+      "score_breakdown": {
+        "voltage_level": 0.4524,
+        "existing_load": 0.2508,
+        "same_bus_generation_margin": 0.0,
+        "adjacent_branch_capacity": 0.1703,
+        "one_hop_topology": 0.0
+      },
+      "screening_flags": {
+        "meets_minimum_voltage": true,
+        "meets_preferred_voltage": true,
+        "has_same_bus_generation_margin": false,
+        "strong_branch_capacity_proxy": false
+      },
+      "summary": {
+        "base_kV": 115.0,
+        "existing_load_MW": 763.6,
+        "same_bus_generation_margin_MW": 0.0,
+        "adjacent_branch_count": 1,
+        "adjacent_branch_capacity_MVA_sum": 2904.0,
+        "max_adjacent_branch_MVA": 2904.0,
+        "one_hop_neighbor_count": 1,
+        "one_hop_115kV_plus_neighbor_count": 1,
+        "one_hop_generator_bus_count": 0,
+        "one_hop_total_neighbor_load_MW": 0.0
+      },
+      "rank": 10
+    }
+  ]
+}

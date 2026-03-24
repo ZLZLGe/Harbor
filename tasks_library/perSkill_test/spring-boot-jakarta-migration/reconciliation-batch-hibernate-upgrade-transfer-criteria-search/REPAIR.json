@@ -1,0 +1,57 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "hibernate-upgrade",
+  "runId": "20260322190117-spring-boot-jakarta-migration-hibernate-upgrade-aaxmi7",
+  "taskId": "reconciliation-batch-hibernate-upgrade-transfer-criteria-search",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/spring-boot-jakarta-migration/hibernate-upgrade/20260322190117-spring-boot-jakarta-migration-hibernate-upgrade-aaxmi7/reconciliation-batch-hibernate-upgrade-transfer-criteria-search",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322190117-spring-boot-jakarta-migration-hibernate-upgrade-aaxmi7/spring-boot-jakarta-migration/drafts/reconciliation-batch-hibernate-upgrade-transfer-criteria-search",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/spring-boot-jakarta-migration/reconciliation-batch-hibernate-upgrade-transfer-criteria-search",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/spring-boot-jakarta-migration/reconciliation-batch-hibernate-upgrade-transfer-criteria-search",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "`tests/test_outputs.py` 强制要求源码出现 `Subquery`，但使用 `distinct`/`countDistinct` 等其他 JPA Criteria 实现同样可以满足去重分页与汇总语义，当前验证有实现过拟合。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "reconciliation-batch-hibernate-upgrade-transfer-criteria-search"
+      ],
+      "requestedIssuesByTaskId": {
+        "reconciliation-batch-hibernate-upgrade-transfer-criteria-search": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac1-5635-7190-b45d-4bee496c785d",
+      "repairSummary": "在 environment/Dockerfile 中补上静态检查要求的 `COPY skills /root/.codex/skills` 语句，保持其余任务文件不变。",
+      "reviewThreadId": "019d1ac2-4651-7521-8d43-c350509fd36d",
+      "evaluationByTaskId": {
+        "reconciliation-batch-hibernate-upgrade-transfer-criteria-search": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "reviewer__static"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "dns-pcap-triage-tshark-transfer-beacon-clusters",
+  "taskRole": "transfer",
+  "title": "Transfer: DNS 信标聚类报告",
+  "goal": "分析 DNS 流量 PCAP，识别使用超长子域进行周期性回连的主机，并输出 CSV，汇总源主机、可疑基域名、查询次数、最长查询名长度与首次出现时间。",
+  "primaryOutputFile": "dns_beacon_clusters.csv",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "把同一套 PCAP 快速分流与字段提取能力迁移到 DNS 场景，核心仍然是用 tshark 观察协议层字段与时间线；不需要恶意样本逆向、Suricata 规则或其他外部技能。",
+  "targetSkillDirName": "pcap-triage-tshark",
+  "targetSkillName": "pcap-triage-tshark"
+}

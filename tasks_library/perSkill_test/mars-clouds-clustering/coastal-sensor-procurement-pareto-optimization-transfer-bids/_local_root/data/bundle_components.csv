@@ -1,0 +1,28 @@
+bundle_id,vendor,buoy_model,sensor_suite,component,quantity,unit_cost_usd
+CB-611,TideSpan,Kestrel-A,budget-basic,buoy-array,3,39000
+CB-611,TideSpan,Kestrel-A,budget-basic,shore-gateway,1,42000
+CB-611,TideSpan,Kestrel-A,budget-basic,spare-kit,1,9000
+CB-101,AquaDynamics,Tern-4,metocean-core,buoy-array,4,41000
+CB-101,AquaDynamics,Tern-4,metocean-core,shore-gateway,1,48000
+CB-101,AquaDynamics,Tern-4,metocean-core,spare-kit,1,12000
+CB-815,Harbor Metrics,Petrel-S,balanced-plus,buoy-array,4,44000
+CB-815,Harbor Metrics,Petrel-S,balanced-plus,shore-gateway,1,52000
+CB-815,Harbor Metrics,Petrel-S,balanced-plus,spare-kit,1,14000
+CB-203,ShoreSight,Pelican-X,imaging-plus,buoy-array,4,47000
+CB-203,ShoreSight,Pelican-X,imaging-plus,shore-gateway,1,58000
+CB-203,ShoreSight,Pelican-X,imaging-plus,spare-kit,1,15000
+CB-305,MariSense,Gull-7,salinity-extended,buoy-array,4,46000
+CB-305,MariSense,Gull-7,salinity-extended,shore-gateway,1,50000
+CB-305,MariSense,Gull-7,salinity-extended,spare-kit,1,15000
+CB-509,WaveNorth,Osprey-M,storm-watch,buoy-array,5,48000
+CB-509,WaveNorth,Osprey-M,storm-watch,shore-gateway,1,60000
+CB-509,WaveNorth,Osprey-M,storm-watch,spare-kit,1,18000
+CB-407,DeepCurrent,Heron-L,radar-hybrid,buoy-array,5,50000
+CB-407,DeepCurrent,Heron-L,radar-hybrid,shore-gateway,1,62000
+CB-407,DeepCurrent,Heron-L,radar-hybrid,spare-kit,1,20000
+CB-713,Coastline Labs,Albatross-Q,sonar-fusion,buoy-array,5,49000
+CB-713,Coastline Labs,Albatross-Q,sonar-fusion,shore-gateway,1,61000
+CB-713,Coastline Labs,Albatross-Q,sonar-fusion,spare-kit,1,18000
+CB-917,BlueArc,Skua-V,extreme-range,buoy-array,6,52000
+CB-917,BlueArc,Skua-V,extreme-range,shore-gateway,1,69000
+CB-917,BlueArc,Skua-V,extreme-range,spare-kit,1,23000

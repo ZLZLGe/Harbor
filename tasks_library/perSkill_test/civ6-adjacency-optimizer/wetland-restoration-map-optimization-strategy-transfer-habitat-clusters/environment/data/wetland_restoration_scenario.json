@@ -1,0 +1,195 @@
+{
+  "id": "wetland_restoration_layout",
+  "description": "Wetland reserve restoration planning puzzle with habitat clusters, nest exclusion buffers, and facility synergy links.",
+  "reserve_bounds": {
+    "width": 11,
+    "height": 8,
+    "coordinate_system": "planar"
+  },
+  "required_counts": {
+    "filter_island": 2,
+    "observation_point": 2,
+    "trailhead": 2
+  },
+  "candidate_sites": {
+    "filter_islands": [
+      {
+        "id": "F1",
+        "coord": [1, 6],
+        "zone": "north_pool",
+        "blocked_by_waterway": false
+      },
+      {
+        "id": "F2",
+        "coord": [3, 7],
+        "zone": "reed_belt",
+        "blocked_by_waterway": false
+      },
+      {
+        "id": "F3",
+        "coord": [5, 6],
+        "zone": "navigation_cut",
+        "blocked_by_waterway": true
+      },
+      {
+        "id": "F4",
+        "coord": [7, 7],
+        "zone": "backwater_fan",
+        "blocked_by_waterway": false
+      },
+      {
+        "id": "F5",
+        "coord": [8, 5],
+        "zone": "south_lagoon",
+        "blocked_by_waterway": false
+      }
+    ],
+    "observation_points": [
+      {
+        "id": "O1",
+        "coord": [2, 3],
+        "zone": "west_hide"
+      },
+      {
+        "id": "O2",
+        "coord": [4, 2],
+        "zone": "central_bank"
+      },
+      {
+        "id": "O3",
+        "coord": [6, 3],
+        "zone": "east_hide"
+      },
+      {
+        "id": "O4",
+        "coord": [7, 1],
+        "zone": "dune_spur"
+      },
+      {
+        "id": "O5",
+        "coord": [9, 2],
+        "zone": "bittern_overlook"
+      }
+    ],
+    "trailheads": [
+      {
+        "id": "T1",
+        "coord": [0, 4],
+        "zone": "west_gate"
+      },
+      {
+        "id": "T2",
+        "coord": [3, 0],
+        "zone": "north_gate"
+      },
+      {
+        "id": "T3",
+        "coord": [6, 0],
+        "zone": "boardwalk_gate"
+      },
+      {
+        "id": "T4",
+        "coord": [10, 3],
+        "zone": "east_gate"
+      }
+    ]
+  },
+  "sensitive_nests": [
+    {
+      "id": "N1",
+      "species": "night_heron",
+      "coord": [5, 4],
+      "exclusion_radius": 1.4
+    },
+    {
+      "id": "N2",
+      "species": "bittern",
+      "coord": [8, 2],
+      "exclusion_radius": 1.2
+    }
+  ],
+  "habitat_clusters": [
+    {
+      "id": "H1",
+      "species": "reed_warbler",
+      "coord": [2, 5],
+      "coverage_scores": {
+        "filter_island": 16,
+        "observation_point": 7,
+        "trailhead": 4
+      },
+      "restoration_bonus": 5
+    },
+    {
+      "id": "H2",
+      "species": "marsh_harrier",
+      "coord": [4, 6],
+      "coverage_scores": {
+        "filter_island": 14,
+        "observation_point": 9,
+        "trailhead": 5
+      },
+      "restoration_bonus": 4
+    },
+    {
+      "id": "H3",
+      "species": "otter_channel",
+      "coord": [6, 5],
+      "coverage_scores": {
+        "filter_island": 15,
+        "observation_point": 8,
+        "trailhead": 4
+      },
+      "restoration_bonus": 4
+    },
+    {
+      "id": "H4",
+      "species": "egret_flat",
+      "coord": [8, 4],
+      "coverage_scores": {
+        "filter_island": 12,
+        "observation_point": 10,
+        "trailhead": 6
+      },
+      "restoration_bonus": 5
+    },
+    {
+      "id": "H5",
+      "species": "amphibian_pool",
+      "coord": [5, 2],
+      "coverage_scores": {
+        "filter_island": 6,
+        "observation_point": 13,
+        "trailhead": 7
+      },
+      "restoration_bonus": 3
+    }
+  ],
+  "coverage_radii": {
+    "filter_island": 2.4,
+    "observation_point": 2.3,
+    "trailhead": 3.2
+  },
+  "interference_radii": {
+    "same_type": {
+      "filter_island": 2.5,
+      "observation_point": 2.5,
+      "trailhead": 5.5
+    },
+    "cross_type": {
+      "filter_island|observation_point": 2.0,
+      "filter_island|trailhead": 2.5,
+      "observation_point|trailhead": 2.0
+    }
+  },
+  "synergy_rules": {
+    "filter_observation": {
+      "radius": 4.1,
+      "score": 3
+    },
+    "observation_trailhead": {
+      "radius": 3.5,
+      "score": 4
+    }
+  }
+}

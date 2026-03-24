@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ivr-prompt-ffmpeg-format-conversion-transfer-telephony",
+  "taskRole": "transfer",
+  "title": "Transfer: IVR Prompt Telephony Packaging",
+  "goal": "给定一条录音棚级别的客服提示音 WAV，输出一个适合电话系统导入的 8kHz G.711 mu-law 单声道文件，满足传统 IVR 平台的格式要求。",
+  "primaryOutputFile": "/outputs/ivr_prompt.wav",
+  "difficulty": "easy",
+  "category": "telephony-audio-packaging",
+  "skillBenefitRationale": "任务把同一技能迁移到电信语音交付场景，重点仍然是采样率、编码和容器的转换，不需要任何额外音频处理技能。",
+  "targetSkillDirName": "ffmpeg-format-conversion",
+  "targetSkillName": "FFmpeg Format Conversion"
+}

@@ -1,0 +1,17 @@
+{
+  "freeze": {
+    "until": 7,
+    "fields": [
+      "unit_id",
+      "start"
+    ]
+  },
+  "change_budget": {
+    "max_machine_changes": 5,
+    "max_total_start_shift_L1": 150
+  },
+  "guards": {
+    "max_last_ready_minute": 90,
+    "max_missed_deadlines": 0
+  }
+}

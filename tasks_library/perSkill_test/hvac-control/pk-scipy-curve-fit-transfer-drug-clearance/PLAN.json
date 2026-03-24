@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "pk-scipy-curve-fit-transfer-drug-clearance",
+  "taskRole": "transfer",
+  "title": "Transfer | IV Drug Clearance Curve Fit",
+  "goal": "Fit a one-compartment concentration-decay model to timestamped plasma samples from an IV bolus study, estimate the elimination constant and half-life, and generate a dosing-clearance summary for a discharge handoff.",
+  "primaryOutputFile": "pk_decay_summary.json",
+  "difficulty": "medium",
+  "category": "pharmacometrics",
+  "skillBenefitRationale": "The core challenge is estimating nonlinear decay parameters from experimental concentration data. `curve_fit` is the single critical skill needed to recover the pharmacokinetic constants and derived half-life.",
+  "targetSkillDirName": "scipy-curve-fit",
+  "targetSkillName": "scipy-curve-fit"
+}

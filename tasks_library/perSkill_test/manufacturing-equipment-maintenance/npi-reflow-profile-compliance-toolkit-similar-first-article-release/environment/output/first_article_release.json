@@ -1,0 +1,124 @@
+{
+  "board_id": "NPI-771",
+  "handbook_limits": {
+    "preheat_temp_min_c": 100.0,
+    "preheat_temp_max_c": 150.0,
+    "ramp_limit_c_per_s": 2.0,
+    "tal_min_s": 30.0,
+    "tal_max_s": 60.0,
+    "peak_margin_c": 20.0,
+    "representative_tc_rule": "lowest_peak_then_smallest_tc_id"
+  },
+  "released_run_ids": [
+    "FA-01",
+    "FA-02"
+  ],
+  "blocked_run_ids": [
+    "FA-03",
+    "FA-04",
+    "FA-05",
+    "FA-06"
+  ],
+  "golden_run_id": "FA-02",
+  "runs": [
+    {
+      "run_id": "FA-01",
+      "representative_tc_id": "TC1",
+      "max_preheat_ramp_c_per_s": 1.35,
+      "tal_s": 56.07,
+      "peak_temp_c": 243.0,
+      "required_min_peak_c": 237.0,
+      "fp_yield_pct": 97.6,
+      "critical_defect_count": 0,
+      "total_defect_count": 2,
+      "thermal_status": "pass",
+      "quality_status": "pass",
+      "release_decision": "release",
+      "failure_reasons": []
+    },
+    {
+      "run_id": "FA-02",
+      "representative_tc_id": "TC1",
+      "max_preheat_ramp_c_per_s": 1.25,
+      "tal_s": 53.33,
+      "peak_temp_c": 240.0,
+      "required_min_peak_c": 237.0,
+      "fp_yield_pct": 98.4,
+      "critical_defect_count": 0,
+      "total_defect_count": 1,
+      "thermal_status": "pass",
+      "quality_status": "pass",
+      "release_decision": "release",
+      "failure_reasons": []
+    },
+    {
+      "run_id": "FA-03",
+      "representative_tc_id": "TC1",
+      "max_preheat_ramp_c_per_s": 2.1,
+      "tal_s": 57.26,
+      "peak_temp_c": 244.0,
+      "required_min_peak_c": 237.0,
+      "fp_yield_pct": 98.8,
+      "critical_defect_count": 0,
+      "total_defect_count": 1,
+      "thermal_status": "fail",
+      "quality_status": "pass",
+      "release_decision": "hold",
+      "failure_reasons": [
+        "preheat_ramp_exceeds_limit"
+      ]
+    },
+    {
+      "run_id": "FA-04",
+      "representative_tc_id": "TC1",
+      "max_preheat_ramp_c_per_s": 1.2,
+      "tal_s": 38.34,
+      "peak_temp_c": 233.0,
+      "required_min_peak_c": 237.0,
+      "fp_yield_pct": 97.2,
+      "critical_defect_count": 0,
+      "total_defect_count": 3,
+      "thermal_status": "fail",
+      "quality_status": "pass",
+      "release_decision": "hold",
+      "failure_reasons": [
+        "peak_margin_not_met"
+      ]
+    },
+    {
+      "run_id": "FA-05",
+      "representative_tc_id": "TC1",
+      "max_preheat_ramp_c_per_s": 1.3,
+      "tal_s": 53.7,
+      "peak_temp_c": 239.0,
+      "required_min_peak_c": 237.0,
+      "fp_yield_pct": 94.0,
+      "critical_defect_count": 1,
+      "total_defect_count": 3,
+      "thermal_status": "pass",
+      "quality_status": "fail",
+      "release_decision": "hold",
+      "failure_reasons": [
+        "critical_defects_present",
+        "yield_below_95"
+      ]
+    },
+    {
+      "run_id": "FA-06",
+      "representative_tc_id": "TC1",
+      "max_preheat_ramp_c_per_s": 1.2,
+      "tal_s": 21.57,
+      "peak_temp_c": 239.0,
+      "required_min_peak_c": 237.0,
+      "fp_yield_pct": 98.0,
+      "critical_defect_count": 0,
+      "total_defect_count": 1,
+      "thermal_status": "fail",
+      "quality_status": "pass",
+      "release_decision": "hold",
+      "failure_reasons": [
+        "tal_out_of_window"
+      ]
+    }
+  ]
+}

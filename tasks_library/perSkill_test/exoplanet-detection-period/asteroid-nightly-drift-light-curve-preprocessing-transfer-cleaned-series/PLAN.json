@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "asteroid-nightly-drift-light-curve-preprocessing-transfer-cleaned-series",
+  "taskRole": "transfer",
+  "title": "Transfer: 小行星地基测光清洗与归一化",
+  "goal": "处理一条地基小行星差分测光序列，其中包含云层导致的异常点和逐夜基线漂移；要求完成清洗、归一化与去趋势，并将可直接用于后续自转分析的净化时间序列写入 /root/asteroid_cleaned.csv。",
+  "primaryOutputFile": "/root/asteroid_cleaned.csv",
+  "difficulty": "medium",
+  "category": "planetary-science",
+  "skillBenefitRationale": "该任务把同一套光变预处理方法迁移到行星科学场景，关键仍是质量筛选、离群点剔除和基线校正，而不依赖额外的周期搜索技能。",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing"
+}

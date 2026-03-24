@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "repair-normalizer-testing-python-similar-pytest-regression",
+  "taskRole": "similar",
+  "title": "Similar: Repair Text Normalization Pytest Regression",
+  "goal": "Repair a small Python package whose CI now fails because text normalization behavior drifted from the intended contract; identify the failing cases, strengthen the existing pytest coverage with focused parameterized cases, and fix the implementation so the suite passes.",
+  "primaryOutputFile": "artifacts/normalizer-regression-notes.md",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "This keeps testing-python as the only critical shipped skill because the task hinges on reproducing the bug with pytest, choosing good case variations, and validating the fix through targeted regression tests rather than broader build or infrastructure work.",
+  "targetSkillDirName": "testing-python",
+  "targetSkillName": "testing-python"
+}

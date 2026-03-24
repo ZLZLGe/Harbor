@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-kpi-xlsx-transfer-dashboard"
+name = "Transfer | 仓储班次KPI仪表簿"
+description = "读取仓储拣货事件与班次表，生成包含原始明细、班次汇总、异常明细和仪表指标的工作簿。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "operations analytics"
+tags = ["warehouse", "operations analytics", "spreadsheet", "kpi"]
+primary_output_file = "/app/workspace/warehouse_kpi_dashboard.xlsx"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

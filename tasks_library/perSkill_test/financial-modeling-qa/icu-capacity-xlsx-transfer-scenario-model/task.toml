@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "icu-capacity-xlsx-transfer-scenario-model"
+name = "Transfer: ICU Capacity Scenario Model"
+description = "Repair the ICU capacity workbook so the assumptions, ward load table, and staffing summary are fully linked by formulas, then save the finished model to /root/ward_capacity_model.xlsx."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "healthcare operations"
+tags = ["xlsx", "icu", "capacity planning", "scenario model"]
+primary_output_file = "/root/ward_capacity_model.xlsx"
+source_task_id = "financial-modeling-qa"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

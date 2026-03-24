@@ -1,0 +1,36 @@
+{
+  "dim_alpha": 0.18,
+  "regions": [
+    {
+      "id": "entrance_badge_panel",
+      "x": 16,
+      "y": 18,
+      "w": 92,
+      "h": 64,
+      "intervals": [
+        [0.8, 3.2],
+        [6.2, 9.0]
+      ]
+    },
+    {
+      "id": "wall_monitor",
+      "x": 214,
+      "y": 20,
+      "w": 74,
+      "h": 56,
+      "intervals": [
+        [2.4, 5.4]
+      ]
+    },
+    {
+      "id": "visitor_clipboard",
+      "x": 118,
+      "y": 148,
+      "w": 94,
+      "h": 54,
+      "intervals": [
+        [7.0, 10.4]
+      ]
+    }
+  ]
+}

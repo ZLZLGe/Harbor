@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "smart-building-pcap-analysis-transfer-polling-audit"
+name = "Transfer: Smart Building Polling Audit"
+description = "Analyze the smart-building device capture and write a YAML audit with protocol, timing, role, flow, and explicit periodic polling versus beaconing flow findings."
+author_name = "Shenghan Zheng"
+author_email = "shenghan.zheng.gr@dartmouth.edu"
+difficulty = "hard"
+category = "iot"
+tags = ["iot", "network", "pcap", "smart-building", "polling-audit"]
+primary_output_file = "/root/smart_building_polling_audit.yaml"
+source_task_id = "dapt-intrusion-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

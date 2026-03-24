@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "estuary-salinity-meteorology-driver-classification-transfer-intrusion",
+  "taskRole": "transfer",
+  "title": "Transfer: Estuary Salinity Intrusion Attribution",
+  "goal": "Investigate an estuary dataset to identify the dominant Heat, Flow, Wind, or Human category behind worsening dry-season salinity intrusion and report that category’s contribution percentage.",
+  "primaryOutputFile": "/root/output/salinity_intrusion_driver.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This moves the skill into a coastal setting, but success still depends on correctly grouping river, atmospheric, wind, and development variables into the prescribed driver classes before ranking category contributions.",
+  "targetSkillDirName": "meteorology-driver-classification",
+  "targetSkillName": "meteorology-driver-classification"
+}

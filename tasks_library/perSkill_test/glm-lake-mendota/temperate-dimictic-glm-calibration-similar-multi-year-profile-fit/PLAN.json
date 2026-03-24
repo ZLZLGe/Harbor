@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "temperate-dimictic-glm-calibration-similar-multi-year-profile-fit",
+  "taskRole": "similar",
+  "title": "Similar: 温带双循环深湖多年度剖面温度校准",
+  "goal": "为另一座温带双循环深湖校准 GLM 物理参数，使 6 年逐日水温剖面模拟与观测剖面匹配，输出 /root/output/dimictic_profile.nc，并使总体 RMSE 低于 1.8°C。",
+  "primaryOutputFile": "/root/output/dimictic_profile.nc",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "这最贴近 glm-calibration 的典型用法：仍然围绕多年度垂向温度剖面 RMSE 调参，只是换成新的湖泊、时间窗和达标阈值，不是对原任务的简单复写。",
+  "targetSkillDirName": "glm-calibration",
+  "targetSkillName": "glm-calibration"
+}

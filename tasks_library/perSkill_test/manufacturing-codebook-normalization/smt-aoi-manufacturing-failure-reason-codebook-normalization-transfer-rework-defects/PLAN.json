@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "smt-aoi-manufacturing-failure-reason-codebook-normalization-transfer-rework-defects",
+  "taskRole": "transfer",
+  "title": "Transfer - SMT AOI Defect Remark Normalization",
+  "goal": "Normalize SMT AOI and rework-bench free-text defect remarks into a soldering and placement defect codebook, including mixed Chinese-English shorthand, duplicated causes, component references, and process-stage restrictions.",
+  "primaryOutputFile": "/app/output/aoi_defect_map.json",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "This transfers the same core skill to AOI/rework data: messy technician defect notes still require segmentation, semantic codebook matching, component-aware reasoning, and calibrated UNKNOWN handling without needing any other shipped skill.",
+  "targetSkillDirName": "manufacturing-failure-reason-codebook-normalization",
+  "targetSkillName": "manufacturing-failure-reason-codebook-normalization"
+}

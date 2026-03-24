@@ -1,0 +1,25 @@
+payment_id,contract_id,payment_date,payee_name_raw,invoice_reference,payment_amount
+P-9001,C-4101,2025-02-15,BlueRiver Civil Works Ltd.,INV-4101-01,150000
+P-9002,C-4101,2025-04-03,Blue River Civil Wks,INV-4101-02,170000
+P-9003,C-4101,2025-07-28,Blue Riv Civil Wks Ltd,INV-4101-03,190000
+P-9004,C-4102,2025-03-01,BlueRiver Drainage Solutions,INV-4102-01,200000
+P-9005,C-4102,2025-05-19,Blue River Drainage Solns LLC,INV-4102-02,180000
+P-9006,C-4102,2025-08-22,BlueRiver Drainage Solution LLC,INV-4102-03,70000
+P-9007,C-4103,2025-02-20,Aquaterra Pump Service,INV-4103-01,120000
+P-9008,C-4103,2025-06-11,Aqua Terra Pump Services GmbH,INV-4103-02,100000
+P-9009,C-4103,2025-09-02,Aquaterra Pump Svcs,INV-4103-03,90000
+P-9010,C-4104,2025-03-15,Civic Paving Partners Company,INV-4104-01,130000
+P-9011,C-4104,2025-07-09,Civic Paving Ptrs,INV-4104-02,125000
+P-9012,C-4105,2025-04-12,North Shore Signal Systems,INV-4105-01,180000
+P-9013,C-4105,2025-09-25,NorthShore Signal Systems Inc,INV-4105-02,95000
+P-9014,C-4106,2025-05-08,Harbor Street Lighting,INV-4106-01,80000
+P-9015,C-4106,2025-11-17,Harbor St Lighting Consortium,INV-4106-02,76000
+P-9016,C-4107,2025-06-22,Blue River Civil Works Ltd,INV-4107-01,100000
+P-9017,C-4107,2025-10-03,BlueRiver Civil Works,INV-4107-02,120000
+P-9018,C-4108,2025-08-15,Metro Guard Rail Industries,INV-4108-01,40000
+P-9019,C-4108,2025-12-02,Metro Guardrail Ind,INV-4108-02,35000
+P-9020,C-4109,2025-05-29,East Bay Geospatial Analytics Ltd.,INV-4109-01,50000
+P-9021,C-4109,2025-10-29,EastBay Geo Analytics,INV-4109-02,60000
+P-9101,C-5201,2025-04-01,Harbor Street Lighting Consortium,INV-5201-01,250000
+P-9102,C-5201,2025-09-01,Harbor Street Lighting,INV-5201-02,220000
+P-9103,C-6101,2025-07-01,Metro Guard Rail Industries,INV-6101-01,120000

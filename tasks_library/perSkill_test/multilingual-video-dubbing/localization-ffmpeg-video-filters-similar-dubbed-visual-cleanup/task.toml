@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "localization-ffmpeg-video-filters-similar-dubbed-visual-cleanup"
+name = "Similar: Dubbed Visual Cleanup"
+description = "Create /outputs/dubbed-visual-cleanup.mp4 by removing the burned-in subtitle strip with a reframed lower-third layout, adding the provided watermark, and preserving the original program audio unchanged."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "video-localization"
+tags = ["video", "ffmpeg", "localization", "watermark", "visual-cleanup"]
+primary_output_file = "/outputs/dubbed-visual-cleanup.mp4"
+source_task_id = "multilingual-video-dubbing"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

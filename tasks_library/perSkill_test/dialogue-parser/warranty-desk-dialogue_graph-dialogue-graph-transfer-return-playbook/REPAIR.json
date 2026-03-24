@@ -1,0 +1,25 @@
+{
+  "sourceTaskId": "dialogue-parser",
+  "targetSkillDirName": "dialogue_graph",
+  "runId": "20260318224221-dialogue-parser-dialogue-graph-sxdcgb",
+  "taskId": "warranty-desk-dialogue_graph-dialogue-graph-transfer-return-playbook",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/dialogue-parser/dialogue_graph/20260318224221-dialogue-parser-dialogue-graph-sxdcgb/warranty-desk-dialogue_graph-dialogue-graph-transfer-return-playbook",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260318224221-dialogue-parser-dialogue-graph-sxdcgb/dialogue-parser/drafts/warranty-desk-dialogue_graph-dialogue-graph-transfer-return-playbook",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/dialogue-parser/warranty-desk-dialogue_graph-dialogue-graph-transfer-return-playbook",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/dialogue-parser/warranty-desk-dialogue_graph-dialogue-graph-transfer-return-playbook",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

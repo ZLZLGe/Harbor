@@ -1,0 +1,52 @@
+[
+  {
+    "sensor_id": "sensor-00",
+    "sample_count": 24,
+    "complete_window_count": 13,
+    "mean_of_window_means": 43.638747,
+    "peak_window_stddev": 1.283862,
+    "anomaly_count": 1,
+    "strongest_anomaly_score": 2.325599,
+    "first_anomaly_timestamp": "2025-01-14T07:12:00Z"
+  },
+  {
+    "sensor_id": "sensor-01",
+    "sample_count": 24,
+    "complete_window_count": 13,
+    "mean_of_window_means": 45.488065,
+    "peak_window_stddev": 1.953059,
+    "anomaly_count": 1,
+    "strongest_anomaly_score": 2.695019,
+    "first_anomaly_timestamp": "2025-01-14T07:04:07Z"
+  },
+  {
+    "sensor_id": "sensor-02",
+    "sample_count": 24,
+    "complete_window_count": 13,
+    "mean_of_window_means": 46.960245,
+    "peak_window_stddev": 2.446539,
+    "anomaly_count": 2,
+    "strongest_anomaly_score": 2.400938,
+    "first_anomaly_timestamp": "2025-01-14T07:00:14Z"
+  },
+  {
+    "sensor_id": "sensor-03",
+    "sample_count": 24,
+    "complete_window_count": 13,
+    "mean_of_window_means": 48.481937,
+    "peak_window_stddev": 1.543722,
+    "anomaly_count": 1,
+    "strongest_anomaly_score": 2.360304,
+    "first_anomaly_timestamp": "2025-01-14T06:48:21Z"
+  },
+  {
+    "sensor_id": "sensor-04",
+    "sample_count": 24,
+    "complete_window_count": 13,
+    "mean_of_window_means": 49.781209,
+    "peak_window_stddev": 5.104123,
+    "anomaly_count": 0,
+    "strongest_anomaly_score": 2.049756,
+    "first_anomaly_timestamp": null
+  }
+]

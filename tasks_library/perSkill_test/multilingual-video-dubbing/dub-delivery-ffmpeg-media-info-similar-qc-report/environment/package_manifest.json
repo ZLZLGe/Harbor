@@ -1,0 +1,36 @@
+{
+  "package_id": "harbor-es-delivery-qc-07",
+  "video_file": "delivery/final_mix.mp4",
+  "source_language": "en",
+  "target_language": "es",
+  "required_audio_sample_rate_hz": 48000,
+  "required_audio_channels": 1,
+  "required_audio_language_tag": "spa",
+  "expected_video_duration_sec": 11.0,
+  "allowed_video_duration_delta_sec": 0.05,
+  "allowed_start_drift_sec": 0.02,
+  "allowed_end_drift_sec": 0.05,
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "file": "delivery/segments/seg_001.wav",
+      "expected_start_sec": 1.2,
+      "expected_end_sec": 2.85,
+      "placed_start_sec": 1.2
+    },
+    {
+      "segment_id": "seg_002",
+      "file": "delivery/segments/seg_002.wav",
+      "expected_start_sec": 4.1,
+      "expected_end_sec": 6.3,
+      "placed_start_sec": 4.08
+    },
+    {
+      "segment_id": "seg_003",
+      "file": "delivery/segments/seg_003.wav",
+      "expected_start_sec": 7.25,
+      "expected_end_sec": 8.45,
+      "placed_start_sec": 7.26
+    }
+  ]
+}

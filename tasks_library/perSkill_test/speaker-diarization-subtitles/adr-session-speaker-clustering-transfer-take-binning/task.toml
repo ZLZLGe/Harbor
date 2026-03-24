@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "adr-session-speaker-clustering-transfer-take-binning"
+name = "Transfer | ADR Take 分桶"
+description = "根据 ADR 会话中已切好的 take 嵌入和已知演员人数完成固定簇数分桶，并输出 /root/adr_take_bins.tsv 对轨分配表。"
+author_name = "Levi Chen"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "audio-visual"
+tags = ["speaker-clustering", "adr", "take-binning", "tsv"]
+primary_output_file = "/root/adr_take_bins.tsv"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 4096
+allow_internet = false

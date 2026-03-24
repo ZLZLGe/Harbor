@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "incubator-scipy-curve-fit-similar-thermal-step-fit"
+name = "Similar | Incubator Thermal Step-Response Fit"
+description = "Fit a first-order incubator heating model from a noisy step-test log and report the model parameters plus the steady heater setting needed for the target culture temperature."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["incubator", "thermal-modeling", "system-identification", "curve-fitting", "python"]
+primary_output_file = "incubator_fit_report.json"
+source_task_id = "hvac-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = true

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "python-matrix-analyze-ci-similar-pr-failure",
+  "taskRole": "similar",
+  "title": "Similar: 修复 Python PR 测试矩阵失败",
+  "goal": "分析提供的 GitHub Actions PR 失败作业，定位导致 Python 测试矩阵报错的根因，先写出诊断说明，再修补仓库中的配置或代码使重跑通过。",
+  "primaryOutputFile": "reports/pr-triage.md",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "任务核心是把 PR 失败作业日志快速压缩成可执行的修复计划；analyze-ci 直接提供根因、关键报错和受影响测试，决定后续补丁方向。",
+  "targetSkillDirName": "analyze-ci",
+  "targetSkillName": "analyze-ci"
+}

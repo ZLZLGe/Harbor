@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "kubernetes-egress-threat-detection-transfer-pod-triage",
+  "taskRole": "transfer",
+  "title": "Transfer: Kubernetes Pod Egress Triage",
+  "goal": "Use per-pod egress metric summaries from a cluster monitor to produce a JSON incident queue that labels each pod for port-scan, flood-like DoS, beaconing, or benign behavior and records the highest-priority reason.",
+  "primaryOutputFile": "/root/pod_egress_findings.json",
+  "difficulty": "hard",
+  "category": "security",
+  "skillBenefitRationale": "The cloud-native context is different from the source PCAP task, but the only decisive shipped capability is still the exact threat-detection thresholds for scan, DoS, and beaconing.",
+  "targetSkillDirName": "threat-detection",
+  "targetSkillName": "threat-detection"
+}

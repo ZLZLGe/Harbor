@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "report-preview-senior-java-similar-expression-bypass",
+  "taskRole": "similar",
+  "title": "Similar | 修复表达式预览接口的绕过执行漏洞",
+  "goal": "修复一个 Java 报表预览接口中的表达式执行绕过漏洞：攻击者可借助畸形请求在预览阶段触发任意表达式求值。任务需要产出并应用补丁，确保恶意载荷在执行前被拒绝，同时合法预览请求继续通过。",
+  "primaryOutputFile": "/root/patches/0001-block-expression-preview-bypass.patch",
+  "difficulty": "hard",
+  "category": "Security",
+  "skillBenefitRationale": "需要 senior-java 来沿着 Java 服务的请求绑定、表达式求值与异常处理链定位漏洞，并实现兼容现有接口行为的最小补丁。",
+  "targetSkillDirName": "senior-java",
+  "targetSkillName": "senior-java"
+}

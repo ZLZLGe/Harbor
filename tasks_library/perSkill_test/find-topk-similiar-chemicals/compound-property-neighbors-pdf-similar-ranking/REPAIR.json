@@ -1,0 +1,65 @@
+{
+  "sourceTaskId": "find-topk-similiar-chemicals",
+  "targetSkillDirName": "pdf",
+  "runId": "20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq",
+  "taskId": "compound-property-neighbors-pdf-similar-ranking",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/find-topk-similiar-chemicals/pdf/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq/compound-property-neighbors-pdf-similar-ranking",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq/find-topk-similiar-chemicals/drafts/compound-property-neighbors-pdf-similar-ranking",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/find-topk-similiar-chemicals/compound-property-neighbors-pdf-similar-ranking",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/find-topk-similiar-chemicals/compound-property-neighbors-pdf-similar-ranking",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现了 shipped skill 名称/dirName `pdf`：如 `/root/compound_properties.pdf`、`source_pdf` 以及文案中的 `PDF`。; visibilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/compound_properties_table.dat",
+    "environment/compound_properties.pdf",
+    "environment/Dockerfile",
+    "instruction.md",
+    "PLAN.json",
+    "solution/solve.sh",
+    "task.toml",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "compound-property-neighbors-pdf-similar-ranking"
+      ],
+      "requestedIssuesByTaskId": {
+        "compound-property-neighbors-pdf-similar-ranking": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 shipped skill 名称/dirName `pdf`：如 `/root/compound_properties.pdf`、`source_pdf` 以及文案中的 `PDF`。; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1148-0d8c-7d02-bb6e-36dc662d9424",
+      "repairSummary": "- `compound-property-neighbors-pdf-similar-ranking`\n  - 修改了 [instruction.md](/tmp/per_skill_static_combo_repair_workspaces/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq-5b56c7b2/find-topk-similiar-chemicals/drafts/compound-property-neighbors-pdf-similar-ranking/instruction.md)，去掉了被禁止的技能名暴露：不再出现 `pdf`/`PDF`、不再展示带该扩展名的输入路径，也把输出 JSON 的顶层键从 `source_pdf` 改为 `source_document`。\n  - 将输入资产重命名为 [environment/compound_properties_table.dat](/tmp/per_skill_static_combo_repair_workspaces/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq-5b56c7b2/find-topk-similiar-chemicals/drafts/compound-property-neighbors-pdf-similar-ranking/environment/compound_properties_table.dat)，并同步更新了 [environment/Dockerfile](/tmp/per_skill_static_combo_repair_workspaces/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq-5b56c7b2/find-topk-similiar-chemicals/drafts/compound-property-neighbors-pdf-similar-ranking/environment/Dockerfile)、[solution/solve.sh](/tmp/per_skill_static_combo_repair_workspaces/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq-5b56c7b2/find-topk-similiar-chemicals/drafts/compound-property-neighbors-pdf-similar-ranking/solution/solve.sh) 和 [tests/test_outputs.py](/tmp/per_skill_static_combo_repair_workspaces/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq-5b56c7b2/find-topk-similiar-chemicals/drafts/compound-property-neighbors-pdf-similar-ranking/tests/test_outputs.py)，保证说明、参考解、测试一致。\n  - 同步清理了 [task.toml](/tmp/per_skill_static_combo_repair_workspaces/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq-5b56c7b2/find-topk-similiar-chemicals/drafts/compound-property-neighbors-pdf-similar-ranking/task.toml) 的描述/tag，以及 [PLAN.json](/tmp/per_skill_static_combo_repair_workspaces/20260319132236-find-topk-similiar-chemicals-pdf-nzfwuq-5b56c7b2/find-topk-similiar-chemicals/drafts/compound-property-neighbors-pdf-similar-ranking/PLAN.json) 的 goal 文案，避免内部表述与当前任务不一致。\n\n已做验证：确认 `instruction.md` 不含 `pdf`/`PDF`，并用更新后的期望 JSON 跑通了 `tests/test_outputs.py` 的校验逻辑。workspace 里...",
+      "reviewThreadId": "019d114c-6649-7df3-b0fe-d8ea29ceb171",
+      "evaluationByTaskId": {
+        "compound-property-neighbors-pdf-similar-ranking": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

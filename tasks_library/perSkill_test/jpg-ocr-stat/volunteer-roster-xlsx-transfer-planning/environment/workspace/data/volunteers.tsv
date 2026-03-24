@@ -1,0 +1,8 @@
+volunteer_id	volunteer_name	team	eligible_roles	max_shifts
+V001	林悦	frontdesk	checkin|registration	2
+V002	周凯	frontdesk	checkin|usher	2
+V003	高宁	stage	logistics|stage	2
+V004	唐婧	frontdesk	usher|registration	1
+V005	何川	operations	checkin|logistics	2
+V006	许朔	stage	usher|stage	1
+V007	彭立	operations	registration|logistics	2

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "invoice-reconciliation-pdf-transfer-ledger",
+  "taskRole": "transfer",
+  "title": "Transfer: Invoice Reconciliation Ledger",
+  "goal": "从多页`vendor_invoices.pdf`中提取发票号、供应商、到期日与金额，清洗重复项后按到期日排序输出CSV台账。",
+  "primaryOutputFile": "/root/workspace/invoice_ledger.csv",
+  "difficulty": "medium",
+  "category": "finance",
+  "skillBenefitRationale": "难点在于跨页PDF文本与表格抽取及规范化整理，不需要其他专门技能。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

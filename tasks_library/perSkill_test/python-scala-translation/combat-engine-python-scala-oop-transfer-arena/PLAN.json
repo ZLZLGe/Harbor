@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "combat-engine-python-scala-oop-transfer-arena",
+  "taskRole": "transfer",
+  "title": "Transfer: 回合制战斗引擎翻译",
+  "goal": "将一个 Python 回合制战斗引擎翻译为 Scala 2.13：模块包含角色与技能类层次、状态效果继承树、装备工厂、只读属性和战斗日志对象，要求保持行为一致并采用 idiomatic Scala 设计。",
+  "primaryOutputFile": "/root/CombatArena.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "场景迁移到游戏系统后，核心难点仍然是 OOP 结构翻译：类层次、组合关系、属性访问、工厂模式与方法覆盖，能单独验证当前 skill 的泛化能力。",
+  "targetSkillDirName": "python-scala-oop",
+  "targetSkillName": "python-scala-oop"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "empire-civ6lib-similar-dual-city-coastal-planner",
+  "taskRole": "similar",
+  "title": "Similar: Dual-City Coastal Expansion Planner",
+  "goal": "在给定的双城海岸地块场景中，同时选择两个城市中心与整套区域布局，最大化全帝国总相邻加成，并输出合法布局与逐区域加成明细。",
+  "primaryOutputFile": "/output/dual_city_plan.json",
+  "difficulty": "hard",
+  "category": "games",
+  "skillBenefitRationale": "这个任务直接对应 civ6lib 的典型能力组合：城市间距校验、区域放置合法性、人口与唯一性约束、港口/运河/水渠/大坝等特殊规则，以及最终相邻加成计算。除 civ6lib 外不需要任何其他 shipped skill。",
+  "targetSkillDirName": "civ6lib",
+  "targetSkillName": "civ6lib"
+}

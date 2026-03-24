@@ -1,0 +1,9 @@
+block_id,load_mw
+night_ventilation,150
+mill_warmup,170
+crusher_push,188
+conveyor_plus_pump,202
+haulage_peak,214
+ore_sorter_restart,226
+shaft_hoist_overlap,232
+full_blend_train,236

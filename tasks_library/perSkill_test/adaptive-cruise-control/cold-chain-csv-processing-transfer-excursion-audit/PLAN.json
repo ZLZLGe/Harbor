@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cold-chain-csv-processing-transfer-excursion-audit",
+  "taskRole": "transfer",
+  "title": "Cold Chain Excursion Audit Transfer",
+  "goal": "Process refrigerated-shipment logger CSV data with minute timestamps, door-open flags, and some missing thermometer samples; detect each temperature excursion above the allowed threshold, merge adjacent samples into incident windows, and export a CSV listing shipment_id, excursion start/end, duration, peak temperature, and whether the incident coincided with a door opening.",
+  "primaryOutputFile": "shipment_excursion_audit.csv",
+  "difficulty": "medium",
+  "category": "supply-chain-analytics",
+  "skillBenefitRationale": "The task is driven entirely by CSV wrangling: reading messy logs, handling missing sensor values, filtering threshold breaches, grouping contiguous incidents, and writing a tabular audit output, so csv-processing is the only critical shipped skill.",
+  "targetSkillDirName": "csv-processing",
+  "targetSkillName": "csv-processing"
+}

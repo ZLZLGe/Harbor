@@ -1,0 +1,25 @@
+{
+  "baseMVA": 100.0,
+  "slack_bus": 5000,
+  "hall_bus_ids": [6110, 6120, 6210, 6220],
+  "tie_feeder_ids": ["T-N-S", "T-H"],
+  "buses": [
+    {"bus": 5000, "name": "Utility PCC", "kind": "grid_intertie"},
+    {"bus": 5100, "name": "North Loop", "kind": "switchyard"},
+    {"bus": 5200, "name": "South Loop", "kind": "switchyard"},
+    {"bus": 6110, "name": "North Hall A", "kind": "hall"},
+    {"bus": 6120, "name": "North Hall B", "kind": "hall"},
+    {"bus": 6210, "name": "South Hall A", "kind": "hall"},
+    {"bus": 6220, "name": "South Hall B", "kind": "hall"}
+  ],
+  "feeders": [
+    {"feeder_id": "UF-N", "from_bus": 5000, "to_bus": 5100, "x_pu": 0.08, "rating_MW": 260.0, "feeder_class": "utility"},
+    {"feeder_id": "UF-S", "from_bus": 5000, "to_bus": 5200, "x_pu": 0.09, "rating_MW": 240.0, "feeder_class": "utility"},
+    {"feeder_id": "N-H1", "from_bus": 5100, "to_bus": 6110, "x_pu": 0.05, "rating_MW": 140.0, "feeder_class": "hall"},
+    {"feeder_id": "N-H2", "from_bus": 5100, "to_bus": 6120, "x_pu": 0.06, "rating_MW": 130.0, "feeder_class": "hall"},
+    {"feeder_id": "S-H1", "from_bus": 5200, "to_bus": 6210, "x_pu": 0.05, "rating_MW": 140.0, "feeder_class": "hall"},
+    {"feeder_id": "S-H2", "from_bus": 5200, "to_bus": 6220, "x_pu": 0.06, "rating_MW": 130.0, "feeder_class": "hall"},
+    {"feeder_id": "T-N-S", "from_bus": 5100, "to_bus": 5200, "x_pu": 0.14, "rating_MW": 12.0, "feeder_class": "tie"},
+    {"feeder_id": "T-H", "from_bus": 6120, "to_bus": 6220, "x_pu": 0.18, "rating_MW": 15.0, "feeder_class": "tie"}
+  ]
+}

@@ -1,0 +1,87 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+2 0 obj
+<< /Length 385 >>
+stream
+BT
+/F1 10 Tf
+72 740 Td
+14 TL
+(Harbor Settlement Network) Tj
+T*
+(Monthly Services Statement) Tj
+T*
+() Tj
+T*
+(Statement ID: TFS-2401-118) Tj
+T*
+(Account ID: ACCT-77821) Tj
+T*
+(Period Start: 2024-01-01) Tj
+T*
+(Period End: 2024-01-31) Tj
+T*
+(Currency: USD) Tj
+T*
+(Total Due: 57.50) Tj
+T*
+(Closing Ledger Balance: 181240.14) Tj
+T*
+() Tj
+T*
+(Review the fee activity on the next page.) Tj
+ET
+endstream
+endobj
+3 0 obj
+<< /Length 476 >>
+stream
+BT
+/F1 10 Tf
+72 740 Td
+14 TL
+(January Fee Activity) Tj
+T*
+() Tj
+T*
+(Posted On      Fee Code               Description                    Amount) Tj
+T*
+(2024-01-03     ATM_FEE                Out of network ATM            3.50) Tj
+T*
+(2024-01-09     WIRE_FEE               Domestic wire transfer        18.00) Tj
+T*
+(2024-01-14     PAPER_STMT_FEE         Paper statement mailing       2.00) Tj
+T*
+(2024-01-27     LATE_FEE               Delayed payment charge       34.00) Tj
+ET
+endstream
+endobj
+4 0 obj
+<< /Type /Pages /Kids [5 0 R 6 0 R] /Count 2 >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 4 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 4 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 3 0 R >>
+endobj
+7 0 obj
+<< /Type /Catalog /Pages 4 0 R >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000077 00000 n 
+0000000512 00000 n 
+0000001038 00000 n 
+0000001101 00000 n 
+0000001227 00000 n 
+0000001353 00000 n 
+trailer
+<< /Size 8 /Root 7 0 R >>
+startxref
+1402
+%%EOF

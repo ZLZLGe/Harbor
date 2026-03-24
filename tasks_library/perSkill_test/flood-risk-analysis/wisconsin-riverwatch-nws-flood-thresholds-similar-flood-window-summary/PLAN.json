@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wisconsin-riverwatch-nws-flood-thresholds-similar-flood-window-summary",
+  "taskRole": "similar",
+  "title": "Similar - 威斯康星洪水窗口汇总",
+  "goal": "读取威斯康星州站点清单和一周观测水位数据，使用 NWS flood stage 阈值筛出至少出现过 1 天洪水的站点，并输出 `station_id`、`first_flood_date`、`flood_days`、`peak_stage_ft` 到 `/root/output/wisconsin_flood_window.csv`。",
+  "primaryOutputFile": "/root/output/wisconsin_flood_window.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "这是该 skill 的典型用法：从 NWS 批量阈值表中匹配 USGS 站点，处理阈值字段清洗后，再与水位时间序列比较判断是否发生洪水。",
+  "targetSkillDirName": "nws-flood-thresholds",
+  "targetSkillName": "nws-flood-thresholds"
+}

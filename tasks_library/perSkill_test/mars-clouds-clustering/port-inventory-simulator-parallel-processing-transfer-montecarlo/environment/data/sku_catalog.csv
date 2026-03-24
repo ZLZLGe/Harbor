@@ -1,0 +1,5 @@
+sku_id,base_daily_demand,congestion_uplift,lead_time_days,delay_probability,delay_extra_days,unit_cost,holding_cost_per_day,stockout_penalty,order_cost,initial_inventory
+crane_motor,3.2,0.18,5,0.16,2,1800,2.2,4200,180,30
+berth_sensor,4.5,0.22,4,0.12,1,950,1.4,2600,120,42
+cooling_pump,2.4,0.28,6,0.2,3,2400,2.8,5100,220,24
+customs_scanner,1.8,0.35,7,0.25,4,4200,3.6,7600,260,20

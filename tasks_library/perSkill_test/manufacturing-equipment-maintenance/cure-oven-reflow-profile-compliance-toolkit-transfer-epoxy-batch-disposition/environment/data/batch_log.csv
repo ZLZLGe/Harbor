@@ -1,0 +1,6 @@
+batch_id,product_code,resin_lot,cure_recipe,target_peak_c,rebake_allowed,rebake_count,door_open_alarm
+CB-1001,EPX-A100,RL-7712,CURE-A,158.0,yes,0,0
+CB-1002,EPX-A100,RL-7716,CURE-A,158.0,yes,0,0
+CB-1003,EPX-B220,RL-8831,CURE-B,158.0,yes,0,0
+CB-1004,EPX-C310,RL-9104,CURE-C,158.0,no,1,1
+CB-1005,EPX-D440,RL-9420,CURE-D,158.0,yes,0,0

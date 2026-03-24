@@ -1,0 +1,6 @@
+station,trace_column,latitude,longitude,sample_rate_hz,units,site_class
+SM01,SM01_acc,35.4000,-117.8000,20,g,rock
+SM02,SM02_acc,35.4800,-117.7100,20,g,stiff-soil
+SM03,SM03_acc,35.5600,-117.6200,20,g,rock
+SM04,SM04_acc,35.6400,-117.5300,20,g,stiff-soil
+SM05,SM05_acc,35.7200,-117.4400,20,g,rock

@@ -1,0 +1,2 @@
+segment_id,final_sample_rate_hz,effective_duration_s,mean_psd_25_40,mean_psd_80_120
+OBS-CANDIDATE-17,2048.0,17.0,4.925452020643851e-45,8.359158796688758e-43

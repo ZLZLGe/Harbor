@@ -1,0 +1,90 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "restclient-migration",
+  "runId": "20260322193547-spring-boot-jakarta-migration-restclient-migration-f5q6gv",
+  "taskId": "report-archive-restclient-migration-transfer-binary-downloads",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/spring-boot-jakarta-migration/restclient-migration/20260322193547-spring-boot-jakarta-migration-restclient-migration-f5q6gv/report-archive-restclient-migration-transfer-binary-downloads",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322193547-spring-boot-jakarta-migration-restclient-migration-f5q6gv/spring-boot-jakarta-migration/drafts/report-archive-restclient-migration-transfer-binary-downloads",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/spring-boot-jakarta-migration/report-archive-restclient-migration-transfer-binary-downloads",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/spring-boot-jakarta-migration/report-archive-restclient-migration-transfer-binary-downloads",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    ".pytest_cache/.gitignore",
+    ".pytest_cache/CACHEDIR.TAG",
+    ".pytest_cache/README.md",
+    ".pytest_cache/v/cache/lastfailed",
+    ".pytest_cache/v/cache/nodeids",
+    "environment/Dockerfile",
+    "tests/__pycache__/test_outputs.cpython-312-pytest-8.4.1.pyc",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "report-archive-restclient-migration-transfer-binary-downloads"
+      ],
+      "requestedIssuesByTaskId": {
+        "report-archive-restclient-migration-transfer-binary-downloads": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac5-bb03-7b71-983e-5f83bdcc633c",
+      "repairSummary": "最小化修复了 environment/Dockerfile 中的 COPY 语句，将 shipped skill 的复制写法调整为静态检查预期的 `COPY skills /root/.codex/skills`。",
+      "reviewThreadId": "019d1ac6-6355-7e02-96d8-531ec72bdfad",
+      "evaluationByTaskId": {
+        "report-archive-restclient-migration-transfer-binary-downloads": {
+          "reviewerIssues": [
+            "测试通过源码字符串匹配强制要求特定写法（如 `.body(String.class)`、`.body(byte[].class)` 和 `headers -> headers.setBearerAuth(apiToken)`），会把满足题意的等价 RestClient 实现误判为失败。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "report-archive-restclient-migration-transfer-binary-downloads"
+      ],
+      "requestedIssuesByTaskId": {
+        "report-archive-restclient-migration-transfer-binary-downloads": {
+          "reviewerIssues": [
+            "测试通过源码字符串匹配强制要求特定写法（如 `.body(String.class)`、`.body(byte[].class)` 和 `headers -> headers.setBearerAuth(apiToken)`），会把满足题意的等价 RestClient 实现误判为失败。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac7-4d95-77a2-ae0e-d317915c17d4",
+      "repairSummary": "放宽了 `tests/test_outputs.py` 对 `ArchiveExportClient` 的过度源码字符串匹配，只保留对 `RestClient` 迁移目标和关键 endpoint 的检查，把 Bearer 头、文本/二进制响应和确认回调契约交给已有 Maven 行为测试覆盖；同时给测试加入了本地回退工作目录解析，便于当前任务副本下校验。",
+      "reviewThreadId": "019d1ac9-f8fa-7f20-a011-ae056ce32116",
+      "evaluationByTaskId": {
+        "report-archive-restclient-migration-transfer-binary-downloads": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "static"
+}

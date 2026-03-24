@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "receipt-text-xlsx-similar-rollup",
+  "taskRole": "similar",
+  "title": "Similar | OCR文本小票汇总工作簿",
+  "goal": "读取 `/app/workspace/inbox/receipts_txt/` 下按文件名编号的 OCR 文本小票，抽取交易日期与总金额，写入 `/app/workspace/receipt_rollup.xlsx`。输出只保留一个名为 `results` 的工作表，列严格为 `filename`、`date`、`total_amount`，数据按文件名排序，无法确认的字段留空。",
+  "primaryOutputFile": "/app/workspace/receipt_rollup.xlsx",
+  "difficulty": "hard",
+  "category": "data statistics",
+  "skillBenefitRationale": "核心在于按严格 schema 生成单表工作簿，并稳定写入排序结果与空单元格，直接检验 xlsx 文件创建与精确落盘能力。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

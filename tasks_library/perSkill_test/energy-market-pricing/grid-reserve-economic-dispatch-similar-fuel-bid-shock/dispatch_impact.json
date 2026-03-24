@@ -1,0 +1,89 @@
+{
+  "base_case": {
+    "total_production_cost_dollars_per_hour": 10890.0,
+    "system_energy_price_dollars_per_mwh": 44.0,
+    "reserve_mcp_dollars_per_mw": 14.0,
+    "generator_awards": [
+      {
+        "generator_id": "coal_alpha",
+        "energy_mw": 180.0,
+        "reserve_mw": 0.0
+      },
+      {
+        "generator_id": "ccgt_delta",
+        "energy_mw": 150.0,
+        "reserve_mw": 0.0
+      },
+      {
+        "generator_id": "hydro_cascade",
+        "energy_mw": 35.0,
+        "reserve_mw": 45.0
+      },
+      {
+        "generator_id": "gas_peaker_red",
+        "energy_mw": 65.0,
+        "reserve_mw": 25.0
+      },
+      {
+        "generator_id": "oil_steam_harbor",
+        "energy_mw": 15.0,
+        "reserve_mw": 20.0
+      }
+    ]
+  },
+  "counterfactual": {
+    "total_production_cost_dollars_per_hour": 11410.0,
+    "system_energy_price_dollars_per_mwh": 52.0,
+    "reserve_mcp_dollars_per_mw": 22.0,
+    "generator_awards": [
+      {
+        "generator_id": "coal_alpha",
+        "energy_mw": 180.0,
+        "reserve_mw": 0.0
+      },
+      {
+        "generator_id": "ccgt_delta",
+        "energy_mw": 150.0,
+        "reserve_mw": 0.0
+      },
+      {
+        "generator_id": "hydro_cascade",
+        "energy_mw": 35.0,
+        "reserve_mw": 45.0
+      },
+      {
+        "generator_id": "gas_peaker_red",
+        "energy_mw": 0.0,
+        "reserve_mw": 25.0
+      },
+      {
+        "generator_id": "oil_steam_harbor",
+        "energy_mw": 80.0,
+        "reserve_mw": 20.0
+      }
+    ]
+  },
+  "impact_analysis": {
+    "cost_change_dollars_per_hour": 520.0,
+    "largest_redispatch_units": [
+      {
+        "generator_id": "gas_peaker_red",
+        "base_energy_mw": 65.0,
+        "counterfactual_energy_mw": 0.0,
+        "energy_delta_mw": -65.0,
+        "base_reserve_mw": 25.0,
+        "counterfactual_reserve_mw": 25.0,
+        "reserve_delta_mw": 0.0
+      },
+      {
+        "generator_id": "oil_steam_harbor",
+        "base_energy_mw": 15.0,
+        "counterfactual_energy_mw": 80.0,
+        "energy_delta_mw": 65.0,
+        "base_reserve_mw": 20.0,
+        "counterfactual_reserve_mw": 20.0,
+        "reserve_delta_mw": 0.0
+      }
+    ]
+  }
+}

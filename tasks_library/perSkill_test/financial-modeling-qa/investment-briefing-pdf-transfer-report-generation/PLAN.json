@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "investment-briefing-pdf-transfer-report-generation",
+  "taskRole": "transfer",
+  "title": "Transfer: 投委会简报生成",
+  "goal": "读取投资组合持仓、业绩归因和风险备注数据，生成一份面向投委会的多页 PDF 简报，包含标题页、摘要段落、业绩表和风险清单，并写入 `/root/investment_committee_briefing.pdf`。",
+  "primaryOutputFile": "/root/investment_committee_briefing.pdf",
+  "difficulty": "medium",
+  "category": "report-generation",
+  "skillBenefitRationale": "这里的决定性工作是程序化生成结构化 PDF 报告并控制分页和表格布局，任务价值集中在 PDF 创建能力本身，因此唯一关键 shipped skill 是 `pdf`。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

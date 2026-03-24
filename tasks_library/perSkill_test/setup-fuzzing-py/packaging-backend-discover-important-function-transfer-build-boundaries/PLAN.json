@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "packaging-backend-discover-important-function-transfer-build-boundaries",
+  "taskRole": "transfer",
+  "title": "Transfer: Python 打包后端的构建边界函数排查",
+  "goal": "检查一个 Python 打包后端仓库，找出最可能因畸形 `pyproject.toml`、backend 配置项或构建参数而出错的关键函数，输出带优先级的边界分析结果到 `build_boundary_report.json`。",
+  "primaryOutputFile": "build_boundary_report.json",
+  "difficulty": "medium",
+  "category": "build",
+  "skillBenefitRationale": "把同一套函数定位能力迁移到构建系统场景，重点仍是从代码与测试中识别关键输入边界，而不是实现修复或编写构建脚本。",
+  "targetSkillDirName": "discover-important-function",
+  "targetSkillName": "discover-important-function"
+}

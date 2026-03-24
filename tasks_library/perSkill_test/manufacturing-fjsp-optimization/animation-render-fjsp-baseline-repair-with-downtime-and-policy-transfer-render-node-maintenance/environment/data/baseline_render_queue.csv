@@ -1,0 +1,17 @@
+shot_id,stage,stage_index,station_id,station_name,start,finish,duration
+SH010,prep,0,prep-b,Prep Bay B,0,5,5
+SH020,prep,0,prep-a,Prep Bay A,0,7,7
+SH010,render,1,render-02,Render Node 02,5,20,15
+SH040,prep,0,prep-a,Prep Bay A,7,13,6
+SH030,prep,0,prep-b,Prep Bay B,13,17,4
+SH040,render,1,render-01,Render Node 01,13,25,12
+SH030,render,1,render-03,Render Node 03,17,32,15
+SH020,render,1,render-02,Render Node 02,20,34,14
+SH010,composite,2,comp-a,Comp Suite A,20,30,10
+SH040,composite,2,comp-b,Comp Suite B,25,34,9
+SH010,qc,3,qc-east,QC Desk East,30,35,5
+SH030,composite,2,comp-b,Comp Suite B,32,40,8
+SH040,qc,3,qc-west,QC Desk West,34,39,5
+SH020,composite,2,comp-a,Comp Suite A,34,43,9
+SH030,qc,3,qc-east,QC Desk East,40,44,4
+SH020,qc,3,qc-west,QC Desk West,43,47,4

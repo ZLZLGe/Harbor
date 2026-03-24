@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "wildfire-timelapse-output-validation-transfer-front-progression"
+name = "Transfer: 野火时序遥感输出校验"
+description = "根据野火多时相采样清单与火线行段数据生成火势阶段区间 JSON，并输出逐采样时刻活跃火线的 CSR 稀疏 mask。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "remote-sensing"
+tags = ["wildfire", "remote-sensing", "csr-mask", "transfer", "output-validation"]
+primary_output_file = "/root/pred_fire_progression.json"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

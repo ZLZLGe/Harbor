@@ -1,0 +1,593 @@
+{
+  "nodes": [
+    {
+      "id": "Start",
+      "text": "Wind scrapes dust across Frontier Outpost Seven as the barrier lowers halfway.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "GateChallenge",
+      "text": "State your business before the sun touches the ridge.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "NegotiationHub",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ScoutRead",
+      "text": "Two sentries favor their left knees, and the signal horn hangs unwatched beside the gate crank.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "ScoutChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FatigueArgument",
+      "text": "You noticed that quickly. Speak, then.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "VulnerabilityHint",
+      "text": "Careful. Spotting weaknesses can sound like planning an attack.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "SuspicionChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "AdviceAccepted",
+      "text": "Useful eyes deserve a fair hearing.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "CaravanPitch",
+      "text": "Sick miners, you say? Then prove they are real and not smugglers in blankets.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "CaravanChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "PapersShown",
+      "text": "The manifests match last week's convoy numbers.",
+      "speaker": "Clerk Iven",
+      "type": "line"
+    },
+    {
+      "id": "MercyAppeal",
+      "text": "If your story is true, delay costs lives.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "MissingSeal",
+      "text": "Broken seals invite inspections. Give me one reason not to hold every wagon.",
+      "speaker": "Clerk Iven",
+      "type": "line"
+    },
+    {
+      "id": "MissingSealChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "InspectionDelay",
+      "text": "The delay will cost the miners a night without medicine.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "DelayChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "BribeAttempt",
+      "text": "Wrong gate for that mistake.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "GuildThreat",
+      "text": "I answer to the frontier office, not guild gossip.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "PassageTerms",
+      "text": "One escort rider, no covered crates, and you leave before dusk.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "PassageChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FeeWaiver",
+      "text": "Waive the fee and the stores come out of my ledgers. Convince me.",
+      "speaker": "Quartermaster Suri",
+      "type": "line"
+    },
+    {
+      "id": "FeeWaiverChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "TreatyWin",
+      "text": "Hm. Clause nine does cover medical relief.",
+      "speaker": "Quartermaster Suri",
+      "type": "line"
+    },
+    {
+      "id": "SaltBargain",
+      "text": "Salt spends faster than coin out here. Done.",
+      "speaker": "Quartermaster Suri",
+      "type": "line"
+    },
+    {
+      "id": "DelayedPassage",
+      "text": "The wagons roll through long after sunset, and several crates of herbs are ruined by frost.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "BitterPassage",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ContractPitch",
+      "text": "Supplies buy goodwill. Guarantees buy gates.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "ContractChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "LedgerReview",
+      "text": "These numbers could keep us warm for a month.",
+      "speaker": "Quartermaster Suri",
+      "type": "line"
+    },
+    {
+      "id": "CharterClaim",
+      "text": "Bold citation. If it holds, the outpost owes you a hearing.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "CharterProof",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ThinClaim",
+      "text": "Then do not waste my patrol's time.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "ContractBribe",
+      "text": "Second bribe today. You're either careless or desperate.",
+      "speaker": "Commander Vela",
+      "type": "line"
+    },
+    {
+      "id": "ContractTerms",
+      "text": "Deliver lamp oil, grain, and spare bowstrings within six days, and I'll sign.",
+      "speaker": "Quartermaster Suri",
+      "type": "line"
+    },
+    {
+      "id": "ContractDecision",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ExtendedDeadline",
+      "text": "Seven days. Miss it, and the bond is forfeit.",
+      "speaker": "Quartermaster Suri",
+      "type": "line"
+    },
+    {
+      "id": "AidGranted",
+      "text": "The barrier lifts, the caravan rattles through, and the outpost lanterns stay green behind you.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "ContractSealed",
+      "text": "Ink dries on the supply bond, and the sentries mark your name as trusted.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "QuietRetreat",
+      "text": "You withdraw before the talks sour, leaving only bootprints in the dust.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "Detained",
+      "text": "Iron cuffs close around your wrists while the horn echoes across the wall.",
+      "speaker": "Narrator",
+      "type": "line"
+    },
+    {
+      "id": "AlarmRaised",
+      "text": "The unattended horn screams once, and crossbows appear along the rampart.",
+      "speaker": "Narrator",
+      "type": "line"
+    }
+  ],
+  "edges": [
+    {
+      "from": "Start",
+      "to": "GateChallenge",
+      "text": ""
+    },
+    {
+      "from": "GateChallenge",
+      "to": "NegotiationHub",
+      "text": ""
+    },
+    {
+      "from": "NegotiationHub",
+      "to": "CaravanPitch",
+      "text": "1. Request emergency passage for a medical caravan."
+    },
+    {
+      "from": "NegotiationHub",
+      "to": "ContractPitch",
+      "text": "2. Offer a salvage-and-supply contract."
+    },
+    {
+      "from": "NegotiationHub",
+      "to": "ScoutRead",
+      "text": "3. [Observe] Study the sentries before speaking."
+    },
+    {
+      "from": "NegotiationHub",
+      "to": "QuietRetreat",
+      "text": "4. Withdraw before the talks sour."
+    },
+    {
+      "from": "ScoutRead",
+      "to": "ScoutChoice",
+      "text": ""
+    },
+    {
+      "from": "ScoutChoice",
+      "to": "FatigueArgument",
+      "text": "1. Mention the exhausted sentries to argue for urgency."
+    },
+    {
+      "from": "ScoutChoice",
+      "to": "VulnerabilityHint",
+      "text": "2. Note the exposed horn and imply the outpost is vulnerable."
+    },
+    {
+      "from": "ScoutChoice",
+      "to": "NegotiationHub",
+      "text": "3. Return to the main negotiation."
+    },
+    {
+      "from": "FatigueArgument",
+      "to": "PassageTerms",
+      "text": ""
+    },
+    {
+      "from": "VulnerabilityHint",
+      "to": "SuspicionChoice",
+      "text": ""
+    },
+    {
+      "from": "SuspicionChoice",
+      "to": "AdviceAccepted",
+      "text": "1. Clarify that you are offering free advice."
+    },
+    {
+      "from": "SuspicionChoice",
+      "to": "AlarmRaised",
+      "text": "2. Double down and threaten to spread the rumor."
+    },
+    {
+      "from": "SuspicionChoice",
+      "to": "NegotiationHub",
+      "text": "3. Return to the main negotiation."
+    },
+    {
+      "from": "AdviceAccepted",
+      "to": "NegotiationHub",
+      "text": ""
+    },
+    {
+      "from": "CaravanPitch",
+      "to": "CaravanChoice",
+      "text": ""
+    },
+    {
+      "from": "CaravanChoice",
+      "to": "PapersShown",
+      "text": "1. Present stamped manifests."
+    },
+    {
+      "from": "CaravanChoice",
+      "to": "MercyAppeal",
+      "text": "2. [Persuade] Describe the fever spreading beyond the ridge."
+    },
+    {
+      "from": "CaravanChoice",
+      "to": "MissingSeal",
+      "text": "3. Admit the lead seal was broken in the storm."
+    },
+    {
+      "from": "CaravanChoice",
+      "to": "NegotiationHub",
+      "text": "4. Return to a different offer."
+    },
+    {
+      "from": "PapersShown",
+      "to": "PassageTerms",
+      "text": ""
+    },
+    {
+      "from": "MercyAppeal",
+      "to": "PassageTerms",
+      "text": ""
+    },
+    {
+      "from": "MissingSeal",
+      "to": "MissingSealChoice",
+      "text": ""
+    },
+    {
+      "from": "MissingSealChoice",
+      "to": "InspectionDelay",
+      "text": "1. Offer to unload the wagons for inspection."
+    },
+    {
+      "from": "MissingSealChoice",
+      "to": "BribeAttempt",
+      "text": "2. [Bribe] Slide a heavy coin pouch across the table."
+    },
+    {
+      "from": "MissingSealChoice",
+      "to": "NegotiationHub",
+      "text": "3. Retreat to another proposal."
+    },
+    {
+      "from": "InspectionDelay",
+      "to": "DelayChoice",
+      "text": ""
+    },
+    {
+      "from": "DelayChoice",
+      "to": "DelayedPassage",
+      "text": "1. Accept the inspection anyway."
+    },
+    {
+      "from": "DelayChoice",
+      "to": "GuildThreat",
+      "text": "2. [Intimidate] Warn that the miners' guild will remember this."
+    },
+    {
+      "from": "DelayChoice",
+      "to": "NegotiationHub",
+      "text": "3. Return to negotiations."
+    },
+    {
+      "from": "BribeAttempt",
+      "to": "Detained",
+      "text": ""
+    },
+    {
+      "from": "GuildThreat",
+      "to": "Detained",
+      "text": ""
+    },
+    {
+      "from": "PassageTerms",
+      "to": "PassageChoice",
+      "text": ""
+    },
+    {
+      "from": "PassageChoice",
+      "to": "AidGranted",
+      "text": "1. Accept the escort and terms."
+    },
+    {
+      "from": "PassageChoice",
+      "to": "FeeWaiver",
+      "text": "2. Ask for a waived inspection fee."
+    },
+    {
+      "from": "PassageChoice",
+      "to": "NegotiationHub",
+      "text": "3. Return to negotiations."
+    },
+    {
+      "from": "FeeWaiver",
+      "to": "FeeWaiverChoice",
+      "text": ""
+    },
+    {
+      "from": "FeeWaiverChoice",
+      "to": "TreatyWin",
+      "text": "1. [Recall] Cite the famine relief clause from the Red Basin treaty."
+    },
+    {
+      "from": "FeeWaiverChoice",
+      "to": "SaltBargain",
+      "text": "2. Promise half your next caravan's salt ration."
+    },
+    {
+      "from": "FeeWaiverChoice",
+      "to": "PassageTerms",
+      "text": "3. Drop the request."
+    },
+    {
+      "from": "TreatyWin",
+      "to": "AidGranted",
+      "text": ""
+    },
+    {
+      "from": "SaltBargain",
+      "to": "AidGranted",
+      "text": ""
+    },
+    {
+      "from": "DelayedPassage",
+      "to": "BitterPassage",
+      "text": ""
+    },
+    {
+      "from": "BitterPassage",
+      "to": "End",
+      "text": "1. Count it as a partial success and move on."
+    },
+    {
+      "from": "BitterPassage",
+      "to": "NegotiationHub",
+      "text": "2. Return tomorrow with a better offer."
+    },
+    {
+      "from": "ContractPitch",
+      "to": "ContractChoice",
+      "text": ""
+    },
+    {
+      "from": "ContractChoice",
+      "to": "LedgerReview",
+      "text": "1. Present the salvage ledgers."
+    },
+    {
+      "from": "ContractChoice",
+      "to": "CharterClaim",
+      "text": "2. [Recall] Cite the abandoned-fort recovery charter."
+    },
+    {
+      "from": "ContractChoice",
+      "to": "ContractBribe",
+      "text": "3. [Bribe] Offer a private commission."
+    },
+    {
+      "from": "ContractChoice",
+      "to": "NegotiationHub",
+      "text": "4. Return to the main negotiation."
+    },
+    {
+      "from": "LedgerReview",
+      "to": "ContractTerms",
+      "text": ""
+    },
+    {
+      "from": "CharterClaim",
+      "to": "CharterProof",
+      "text": ""
+    },
+    {
+      "from": "CharterProof",
+      "to": "ContractTerms",
+      "text": "1. Produce the signed charter copy."
+    },
+    {
+      "from": "CharterProof",
+      "to": "ThinClaim",
+      "text": "2. Admit you only memorized the title."
+    },
+    {
+      "from": "ThinClaim",
+      "to": "NegotiationHub",
+      "text": ""
+    },
+    {
+      "from": "ContractBribe",
+      "to": "Detained",
+      "text": ""
+    },
+    {
+      "from": "ContractTerms",
+      "to": "ContractDecision",
+      "text": ""
+    },
+    {
+      "from": "ContractDecision",
+      "to": "ContractSealed",
+      "text": "1. Accept the timeline."
+    },
+    {
+      "from": "ContractDecision",
+      "to": "ExtendedDeadline",
+      "text": "2. [Persuade] Ask for eight days because of the ice road."
+    },
+    {
+      "from": "ContractDecision",
+      "to": "NegotiationHub",
+      "text": "3. Refuse and pivot back to passage talks."
+    },
+    {
+      "from": "ExtendedDeadline",
+      "to": "ContractSealed",
+      "text": ""
+    },
+    {
+      "from": "AidGranted",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "ContractSealed",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "QuietRetreat",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "Detained",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "AlarmRaised",
+      "to": "End",
+      "text": ""
+    }
+  ]
+}

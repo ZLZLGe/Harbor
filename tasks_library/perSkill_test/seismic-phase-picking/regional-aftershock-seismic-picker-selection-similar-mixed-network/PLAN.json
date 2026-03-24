@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "regional-aftershock-seismic-picker-selection-similar-mixed-network",
+  "taskRole": "similar",
+  "title": "Similar - 混合台网余震相位拾取",
+  "goal": "针对一批已截取的三分量局地余震窗口，选择合适的拾取路线并输出包含 `trace_id`、`phase`、`pick_idx`、`confidence`、`method` 的结果文件，在无模板先验下同时兼顾混合台站类型与较高的 P/S 拾取质量。",
+  "primaryOutputFile": "/root/mixed_network_picks.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "这仍是地震事件窗中的典型 P/S 到时拾取场景，但不再是原题的直接复写，而是要求显式做方法选型并记录所用路线。任务成败主要取决于能否依据波形条件在深度学习、STA/LTA、模板匹配之间做出正确判断，因此当前 skill 是唯一关键 shipped skill。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "urban-pm25-trend-analysis-transfer-site-decline"
+name = "Transfer: Urban PM2.5 Site Decline Ranking"
+description = "Aggregate each PM2.5 monitoring site to a yearly high-pollution summary, identify the steepest statistically significant decline, and write the winning site with its slope and p-value to /root/output/pm25_decline_leader.csv."
+author_name = "Xin Lan"
+author_email = "xinlan@myyahoo.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["air-quality", "pm25", "trend-analysis", "site-ranking"]
+primary_output_file = "/root/output/pm25_decline_leader.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "factory-floor-sqlite-map-parser-transfer-forklift-staging",
+  "taskRole": "transfer",
+  "title": "Transfer - 工厂叉车集货区规划",
+  "goal": "读取工厂车间布局 SQLite 数据库，重建网格单元、通道、装卸口、危险设备和禁停区，输出叉车临时集货区 JSON，列出满足装卸口接近且远离危险源的有效候选位置。",
+  "primaryOutputFile": "/output/forklift_staging_plan.json",
+  "difficulty": "hard",
+  "category": "operations",
+  "skillBenefitRationale": "核心难点不是行业知识，而是先从陌生 SQLite schema 中找出单元表、覆盖层和坐标编码，再整合成统一布局 JSON；sqlite-map-parser 是唯一关键 shipped skill，选位规则只是在解析结果上做直接筛选。",
+  "targetSkillDirName": "sqlite-map-parser",
+  "targetSkillName": "sqlite-map-parser"
+}

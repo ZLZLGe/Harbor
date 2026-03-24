@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reservoir-hypoxia-pca-decomposition-similar-driver-share"
+name = "Reservoir Hypoxia Driver Attribution Similar"
+description = "Identify the dominant summer hypoxia driver category and its contribution share from a multivariate reservoir panel."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["reservoir-hypoxia", "pca", "attribution", "water-quality"]
+primary_output_file = "hypoxia_driver_share.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

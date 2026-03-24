@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-kpi-xlsx-transfer-dashboard",
+  "taskRole": "transfer",
+  "title": "Transfer | 仓储班次KPI仪表簿",
+  "goal": "读取 `/app/workspace/data/picking_events.csv` 与 `/app/workspace/data/shifts.csv`，生成 `/app/workspace/warehouse_kpi_dashboard.xlsx`。工作簿需包含原始事件、班次汇总和异常明细等工作表，关键 KPI 由工作表公式计算，便于按班次审阅效率、超时率和异常记录。",
+  "primaryOutputFile": "/app/workspace/warehouse_kpi_dashboard.xlsx",
+  "difficulty": "hard",
+  "category": "operations analytics",
+  "skillBenefitRationale": "核心在于创建多工作表分析报表并写入跨表公式，让统计结果可随源数据重算，直接覆盖 xlsx 技能的公式化分析能力。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

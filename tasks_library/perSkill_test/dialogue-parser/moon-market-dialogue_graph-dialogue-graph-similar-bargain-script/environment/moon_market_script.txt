@@ -1,0 +1,145 @@
+[MoonMarketStart]
+Narrator: Silver lanterns sway over the moon market as Mira beckons you toward a crescent-shaped stall. -> LanternGreeting
+
+[LanternGreeting]
+Mira: Looking for a tideglass lantern? This one still remembers the sea. -> PriceMenu
+
+[PriceMenu]
+1. Ask the asking price. -> FirstPrice
+2. [Appraise] Inspect the lantern frame and crystal seams. -> AppraiseLantern
+3. [Bluff] Mention a cheaper offer from the next stall. -> RivalBluff
+4. Walk away and browse the market. -> WalkAway
+
+[FirstPrice]
+Mira: Sixty silver crescents, with a fresh wick and moon-oil vial. -> BargainMenu
+
+[AppraiseLantern]
+Narrator: The brass is honest work, but one rune ring has a hairline crack near the hinge. -> AppraiseReply
+
+[AppraiseReply]
+Mira: Sharp eyes. That crack does not dim the light, but it does give us room to talk. -> BargainMenu
+
+[BargainMenu]
+1. Offer forty silver crescents. -> LowOffer
+2. Offer fifty-five silver crescents. -> FairOffer
+3. [Charm] Praise Mira's craftsmanship before naming a price. -> CharmPitch
+4. Ask why this lantern is worth more than the others. -> StoryPitch
+
+[LowOffer]
+Mira: Forty? I'd lose money before moonrise. -> LowOfferChoice
+
+[LowOfferChoice]
+1. Hold firm at forty. -> BrokerLaughs
+2. [Moon Lore] Point out the cracked rune ring and old tideglass. -> LoreDiscount
+3. Raise the offer to fifty. -> MidOffer
+4. Step back and restart the conversation. -> PriceMenu
+
+[BrokerLaughs]
+Broker: At forty, you may as well ask Mira to gift-wrap the moon. -> EmbarrassedReset
+
+[EmbarrassedReset]
+Mira: Ignore him. If you want the lantern, make me a serious offer. -> BargainMenu
+
+[LoreDiscount]
+Mira: Hm. Someone taught you the old marks. Fifty-two, and I'll stop pretending that crack is decorative. -> LoreChoice
+
+[LoreChoice]
+1. Accept fifty-two. -> DealAccepted
+2. Ask for a spare wick as well. -> AddOnTalk
+3. Say you need another lap around the market. -> WalkAway
+
+[MidOffer]
+Mira: Fifty gets my attention, but not the lantern. -> MidOfferChoice
+
+[MidOfferChoice]
+1. Add a promise to recommend her stall. -> ReputationDeal
+2. [Signal] Nod to the apprentice to speak up for the lantern. -> ApprenticePitch
+3. Return to the higher offer. -> FairOffer
+
+[FairOffer]
+Mira: Fifty-five is respectable. We are finally speaking the same language. -> FairOfferChoice
+
+[FairOfferChoice]
+1. Take the deal. -> DealAccepted
+2. Ask for a carrying hook included. -> AddOnTalk
+3. [Signal] Invite the apprentice to sweeten the sale. -> ApprenticePitch
+
+[CharmPitch]
+Mira: Flattery buys you a smile, not a discount... unless you keep talking. -> CharmChoice
+
+[CharmChoice]
+1. Offer fifty-two with a grin. -> DealAccepted
+2. Push your luck and ask for forty-eight. -> CharmBackfire
+3. Ask for a travel hook instead of a lower price. -> AddOnTalk
+
+[CharmBackfire]
+Mira: Forty-eight and a grin? Bold. Try again when you bring better poetry. -> BargainMenu
+
+[StoryPitch]
+Mira: This lantern guided my sister through the eclipse floods. It shines steady when maps fail. -> StoryChoice
+
+[StoryChoice]
+1. Buy it for the quoted price. -> DealAccepted
+2. Ask the broker whether the story is true. -> BrokerTruth
+3. Circle the square and come back later. -> PriceMenu
+
+[BrokerTruth]
+Broker: The story is true enough. The lantern works, but Mira is charging for the legend too. -> TruthChoice
+
+[TruthChoice]
+1. Use that admission to counter at fifty-three. -> TruthCounter
+2. Thank them both and leave. -> WalkAway
+3. Decide the story is worth the full price. -> DealAccepted
+
+[TruthCounter]
+Mira: Fifty-three, no hook, no extra oil. Final moonrise offer. -> FinalChoice
+
+[FinalChoice]
+1. Accept the final offer. -> DealAccepted
+2. Refuse and leave. -> WalkAway
+
+[AddOnTalk]
+Apprentice: We can include a carrying hook if the sale closes before the bell. -> AddOnChoice
+
+[AddOnChoice]
+1. Agree to the current price with the hook. -> DealAccepted
+2. Try to shave off two more silver. -> GuardWarning
+3. Decide against the purchase. -> WalkAway
+
+[ReputationDeal]
+Mira: Bring me two customers tomorrow, and fifty will do tonight. -> ReputationChoice
+
+[ReputationChoice]
+1. Accept the promise deal. -> DealAccepted
+2. Decide you cannot promise that. -> BargainMenu
+
+[ApprenticePitch]
+Apprentice: Mistress, the cracked ring means we should move it before the damp gets worse. -> ApprenticeChoice
+
+[ApprenticeChoice]
+1. Offer fifty-one silver now. -> FinalChoice
+2. Thank the apprentice and return to the main negotiation. -> BargainMenu
+
+[RivalBluff]
+Mira: Then the next stall is selling fog in a bottle. If your quote is real, prove it. -> BluffChoice
+
+[BluffChoice]
+1. [Bluff] Insist the other merchant offered forty-five. -> BluffPressed
+2. Admit you exaggerated. -> BargainMenu
+3. Leave to compare stalls. -> WalkAway
+
+[BluffPressed]
+Mira: Forty-five and no warranty, perhaps. I can do fifty-four if you stop performing for the crowd. -> FinalChoice
+
+[GuardWarning]
+Guard: Keep the haggling civil. The bell is about to ring, and the lane stays open only for honest trade. -> GuardChoice
+
+[GuardChoice]
+1. Apologize and accept the standing offer. -> DealAccepted
+2. Take the hint and leave. -> WalkAway
+
+[DealAccepted]
+Mira: Done. The lantern, hook if promised, and fresh oil are yours. -> End
+
+[WalkAway]
+Narrator: You melt back into the moon market crowd, still weighing silver against starlight. -> End

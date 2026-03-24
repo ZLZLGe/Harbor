@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "release-gate-cvss-score-extraction-transfer-policy-brief"
+name = "Transfer: 发布门禁风险简报"
+description = "根据候选发布版本的 advisory 快照和门禁策略选择权威 CVSS 分数，生成 Markdown 风险简报并判断是否阻断发布。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "devops"
+tags = ["devops", "release-gate", "cvss", "markdown"]
+primary_output_file = "/root/release_gate_brief.md"
+source_task_id = "software-dependency-audit"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

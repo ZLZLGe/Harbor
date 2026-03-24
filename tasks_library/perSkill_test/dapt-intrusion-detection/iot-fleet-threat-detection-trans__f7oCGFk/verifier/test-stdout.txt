@@ -1,0 +1,33 @@
+downloading uv 0.9.7 x86_64-unknown-linux-gnu
+no checksums to verify
+installing to /root/.local/bin
+  uv
+  uvx
+everything's installed!
+
+To add $HOME/.local/bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/bin/env (sh, bash, zsh)
+    source $HOME/.local/bin/env.fish (fish)
+Downloading pygments (1.2MiB)
+ Downloading pygments
+Installed 6 packages in 33ms
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0 -- /root/.cache/uv/archive-v0/Iy6JOgDqVEgm5S1Wl7vhy/bin/python
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 4 items
+
+../tests/test_outputs.py::test_markdown_watchlist_matches_expected_blocks PASSED [ 25%]
+../tests/test_outputs.py::test_devices_are_sorted_and_count_matches PASSED [ 50%]
+../tests/test_outputs.py::test_benign_devices_are_omitted PASSED         [ 75%]
+../tests/test_outputs.py::test_reason_lines_use_only_allowed_sentences PASSED [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_markdown_watchlist_matches_expected_blocks
+PASSED ../tests/test_outputs.py::test_devices_are_sorted_and_count_matches
+PASSED ../tests/test_outputs.py::test_benign_devices_are_omitted
+PASSED ../tests/test_outputs.py::test_reason_lines_use_only_allowed_sentences
+============================== 4 passed in 0.02s ===============================

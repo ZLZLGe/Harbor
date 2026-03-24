@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "surface-slab-pymatgen-transfer-termination-catalog",
+  "taskRole": "transfer",
+  "title": "Pymatgen Transfer: Slab Termination Catalog",
+  "goal": "给定若干体相结构文件和指定的 Miller 指数集合，生成满足给定厚度与真空层要求的表面 slab，并输出每个 slab 的 Miller 指数、终止面组成、表面积、层数和极性相关摘要。",
+  "primaryOutputFile": "slab_termination_catalog.json",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "该任务把 pymatgen 迁移到表面模型构建场景，关键依赖 Structure 处理与 SlabGenerator 等表面模块，能够检验 skill 在完全不同工作流中的泛化。",
+  "targetSkillDirName": "pymatgen",
+  "targetSkillName": "pymatgen"
+}

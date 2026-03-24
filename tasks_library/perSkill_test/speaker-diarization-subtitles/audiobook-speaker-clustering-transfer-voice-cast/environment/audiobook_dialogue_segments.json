@@ -1,0 +1,125 @@
+{
+  "book_id": "moonlit_ferry",
+  "embedding_metric": "cosine",
+  "voice_cast_id_rule": "Sort clusters by first appearance across chapter_number then start_sec among dialogue segments, assign voice_cast_00, voice_cast_01, ...",
+  "inclusion_rule": "Only segments whose role_hint is dialogue belong in the ledger.",
+  "chapters": [
+    {
+      "chapter_id": "ch01",
+      "chapter_number": 1,
+      "chapter_title": "Lanterns Under Stone",
+      "segments": [
+        {
+          "segment_id": "s01",
+          "start_sec": 0.0,
+          "end_sec": 1.82,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "\"Hold the lantern higher,\" Aurelia whispered.",
+          "embedding": [0.939859, 0.109984, 0.179973, 0.249963, 0.089987, 0.039994]
+        },
+        {
+          "segment_id": "s02",
+          "start_sec": 1.95,
+          "end_sec": 3.31,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "Bram answered, \"The river is closer than the map promised.\"",
+          "embedding": [0.069694, 0.96576, 0.149344, 0.159301, 0.069694, 0.099563]
+        },
+        {
+          "segment_id": "s03",
+          "start_sec": 3.52,
+          "end_sec": 4.72,
+          "role_hint": "narration",
+          "transcript_excerpt": "The tunnel exhaled a damp breath around them.",
+          "embedding": [0.289826, 0.24985, 0.19988, 0.889466, 0.119928, 0.089946]
+        },
+        {
+          "segment_id": "s04",
+          "start_sec": 4.96,
+          "end_sec": 6.6,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "Cedric muttered, \"I heard the gate move.\"",
+          "embedding": [0.140394, 0.120337, 0.952671, 0.190534, 0.130366, 0.070197]
+        }
+      ]
+    },
+    {
+      "chapter_id": "ch02",
+      "chapter_number": 2,
+      "chapter_title": "The Ferryman's Bell",
+      "segments": [
+        {
+          "segment_id": "s05",
+          "start_sec": 0.4,
+          "end_sec": 1.98,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "Aurelia said, \"Do not wake the ferryman yet.\"",
+          "embedding": [0.933301, 0.101446, 0.192747, 0.263759, 0.101446, 0.040578]
+        },
+        {
+          "segment_id": "s06",
+          "start_sec": 2.18,
+          "end_sec": 3.6,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "\"Too late,\" Cedric replied, already knocking.",
+          "embedding": [0.173379, 0.122385, 0.948486, 0.183578, 0.122385, 0.08159]
+        },
+        {
+          "segment_id": "s07",
+          "start_sec": 3.88,
+          "end_sec": 5.16,
+          "role_hint": "narration",
+          "transcript_excerpt": "A bell rang once, thin as silver wire.",
+          "embedding": [0.299015, 0.239212, 0.219278, 0.887077, 0.109639, 0.079737]
+        },
+        {
+          "segment_id": "s08",
+          "start_sec": 5.34,
+          "end_sec": 6.82,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "Aurelia laughed softly: \"At least we found a door.\"",
+          "embedding": [0.931007, 0.134479, 0.20689, 0.248268, 0.082756, 0.062067]
+        }
+      ]
+    },
+    {
+      "chapter_id": "ch03",
+      "chapter_number": 3,
+      "chapter_title": "Names on the Bridge",
+      "segments": [
+        {
+          "segment_id": "s09",
+          "start_sec": 0.12,
+          "end_sec": 1.8,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "Cedric warned, \"Keep your name to yourself in this town.\"",
+          "embedding": [0.175791, 0.113747, 0.940999, 0.206813, 0.15511, 0.062044]
+        },
+        {
+          "segment_id": "s10",
+          "start_sec": 2.02,
+          "end_sec": 3.48,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "Aurelia replied, \"Then lend me one of yours.\"",
+          "embedding": [0.937076, 0.09102, 0.192154, 0.263666, 0.09102, 0.03034]
+        },
+        {
+          "segment_id": "s11",
+          "start_sec": 3.66,
+          "end_sec": 4.78,
+          "role_hint": "narration",
+          "transcript_excerpt": "Bootsteps scattered from the bridge above.",
+          "embedding": [0.277923, 0.228294, 0.228294, 0.893325, 0.11911, 0.079407]
+        },
+        {
+          "segment_id": "s12",
+          "start_sec": 5.02,
+          "end_sec": 6.53,
+          "role_hint": "dialogue",
+          "transcript_excerpt": "\"Mine are all expensive,\" Bram said.",
+          "embedding": [0.090326, 0.963475, 0.140507, 0.170615, 0.050181, 0.110398]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "advertiser_asn": 65310,
+    "source_asn": 65300,
+    "destination_asn": 65311,
+    "source_type": "provider",
+    "destination_type": "peer",
+    "prefix": "10.88.30.0/24",
+    "origin_asn": 65330,
+    "path_label": "ExpressRoute-to-VPN backup peer",
+    "description": "The ExpressRoute customer edge re-advertises an Azure-edge-learned branch route to the VPN failover peer."
+  }
+]

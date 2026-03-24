@@ -1,0 +1,30 @@
+{
+  "sourceTaskId": "fix-erlang-ssh-cve",
+  "targetSkillDirName": "erlang-otp-behaviors",
+  "runId": "20260319192836-fix-erlang-ssh-cve-erlang-otp-behaviors-pwxaot",
+  "taskId": "pipeline-supervisor-erlang-otp-behaviors-transfer-restart-cascade",
+  "originErrorCombo": "reviewer__static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer__static/fix-erlang-ssh-cve/erlang-otp-behaviors/20260319192836-fix-erlang-ssh-cve-erlang-otp-behaviors-pwxaot/pipeline-supervisor-erlang-otp-behaviors-transfer-restart-cascade",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319192836-fix-erlang-ssh-cve-erlang-otp-behaviors-pwxaot/fix-erlang-ssh-cve/drafts/pipeline-supervisor-erlang-otp-behaviors-transfer-restart-cascade",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/fix-erlang-ssh-cve/pipeline-supervisor-erlang-otp-behaviors-transfer-restart-cascade",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/fix-erlang-ssh-cve/pipeline-supervisor-erlang-otp-behaviors-transfer-restart-cascade",
+  "status": "pass",
+  "issueCategories": [
+    "visibility",
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接点名了 `supervisor`，并显式提示 `child spec`、`restart intensity`、启动顺序；这些都是 source task 未直接给出的具体 skill 线索。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": []
+}

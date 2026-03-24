@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "battery-peak-shaving-yaml-config-transfer-dispatch"
+name = "Transfer: Battery Peak-Shaving Scheduler Using YAML Constraints"
+description = "Implement a deterministic battery peak-shaving replay that reads nested operating constraints, replays the provided facility load trace, and writes battery_dispatch_plan.yaml with dispatch and cost summaries."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy-systems"
+tags = ["python", "yaml", "battery-storage", "peak-shaving", "energy-systems", "simulation", "csv"]
+primary_output_file = "battery_dispatch_plan.yaml"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = true

@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "bns-alert-matched-filtering-transfer-early-warning"
+name = "Transfer: Binary Neutron Star Early-Warning Recovery"
+description = "Search a preconditioned binary-neutron-star early-warning segment with a low-mass template bank and write the best template's SNR, chirp mass, and lead time before merger to JSON."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["science", "astronomy", "gravitational-waves", "signal-processing", "matched-filter", "numpy"]
+primary_output_file = "/root/bns_early_warning_report.json"
+source_task_id = "gravitational-wave-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,18 @@
+{
+  "event_id": "rectifier-bay-3/load-release-17",
+  "samples_file": "voltage_recovery_samples.jsonl",
+  "pre_event_voltage_v": 371.815,
+  "released_load_a": 18.0,
+  "fitted_model": {
+    "gain_v_per_a": 0.421583,
+    "tau_ms": 7.576524,
+    "steady_state_voltage_v": 379.403496,
+    "r_squared": 0.999922,
+    "rmse_v": 0.017924
+  },
+  "recovery_metrics": {
+    "target_fraction": 0.95,
+    "time_to_95_ms": 22.697236,
+    "voltage_at_95_v": 379.024071
+  }
+}

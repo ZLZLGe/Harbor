@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "data-center-dc-power-flow-transfer-campus-feeder-rebalance"
+name = "Transfer: Data Center Campus Feeder Rebalance"
+description = "Compare two hall-placement scenarios for a data center campus distribution network and write a feeder rebalance summary covering flows, overloaded ties, hall angle changes, and relief rankings."
+author_name = "Wenbo Chen"
+author_email = "wenbochen111@gmail.com"
+difficulty = "hard"
+category = "infrastructure"
+tags = ["infrastructure", "data-center", "dc-power-flow", "feeder-rebalance", "campus-operations"]
+primary_output_file = "campus_rebalance_summary.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

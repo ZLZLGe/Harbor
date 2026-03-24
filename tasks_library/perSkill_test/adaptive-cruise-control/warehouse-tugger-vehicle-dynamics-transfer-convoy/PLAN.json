@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-tugger-vehicle-dynamics-transfer-convoy",
+  "taskRole": "transfer",
+  "title": "Transfer - 仓储牵引车编队安全仿真",
+  "goal": "构建一个仓储牵引车编队仿真：自车牵引车在低速巷道中跟随前方主牵引车运输托盘，遇到前车急停和障碍绕停时维持安全车距并限制纵向加减速，输出整段任务的车距与模式日志。",
+  "primaryOutputFile": "tugger_gap_log.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务依赖低速车辆的速度/距离离散更新、编队安全间距、TTC触发与紧急制动状态切换，不需要其他 shipped skill。",
+  "targetSkillDirName": "vehicle-dynamics",
+  "targetSkillName": "vehicle-dynamics"
+}

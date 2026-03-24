@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "placeholder-notes-citation-management-transfer-resolution",
+  "taskRole": "transfer",
+  "title": "Transfer: Placeholder Citation Resolution from Review Notes",
+  "goal": "根据综述笔记里不完整的论文标题、作者或年份线索，检索并确认真实论文，输出制表符分隔的已解析引用结果。",
+  "primaryOutputFile": "/root/resolved_placeholders.tsv",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "核心在于根据残缺线索完成学术检索、元数据确认与引用落地，依赖 citation-management 的论文搜索与 citation verification 流程。",
+  "targetSkillDirName": "citation-management",
+  "targetSkillName": "citation-management"
+}

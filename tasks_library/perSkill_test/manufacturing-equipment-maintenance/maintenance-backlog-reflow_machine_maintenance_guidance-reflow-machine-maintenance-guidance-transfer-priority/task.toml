@@ -1,0 +1,30 @@
+version = "1.0"
+
+[metadata]
+id = "maintenance-backlog-reflow_machine_maintenance_guidance-reflow-machine-maintenance-guidance-transfer-priority"
+name = "Transfer: Reflow Maintenance Backlog Prioritization"
+description = "Rank reflow machines into a maintenance backlog by combining handbook window checks, oxygen exposure, downtime, overdue PM status, and thermocouple instability into one JSON board."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "manufacturing"
+tags = ["manufacturing", "maintenance-backlog", "reflow", "triage", "data-analysis"]
+primary_output_file = "/app/output/maintenance_priority_board.json"
+source_task_id = "manufacturing-equipment-maintenance"
+task_role = "transfer"
+required_skills = ["reflow_machine_maintenance_guidance"]
+distractor_skills = []
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

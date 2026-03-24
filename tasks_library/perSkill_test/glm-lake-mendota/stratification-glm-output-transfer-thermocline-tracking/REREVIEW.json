@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "glm-lake-mendota",
+  "targetSkillDirName": "glm-output",
+  "runId": "20260320010252-glm-lake-mendota-glm-output-rbraec",
+  "taskId": "stratification-glm-output-transfer-thermocline-tracking",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/glm-lake-mendota/glm-output/20260320010252-glm-lake-mendota-glm-output-rbraec/stratification-glm-output-transfer-thermocline-tracking",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/glm-lake-mendota/stratification-glm-output-transfer-thermocline-tracking",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:stratification-glm-output-transfer-thermocline-tracking instruction.md 明确要求从 output.nc 转换深度、计算层间温度梯度并选择最大正梯度，这比 source_task/instruction.md 更直接地提示了 glm-output skill。; tests/test_outputs.py 除 instruction.md 写明的 coverage 和 MAE 外，还额外要求 valid_model_days >= 95 与 max_abs_depth_error < 7.0；这些发布条件没有在 instruction.md 说明。; visibilityPass=false; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 drafts 的 instruction.md 都比 source_task/instruction.md 更直接提示了 glm-output 的关键操作（尤其是 output.nc 层位读取、z 到水面以下深度转换、选层/剖面处理），这是 family 级共性问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fad-84e3-7e11-b8fa-033bb61b937e"
+}

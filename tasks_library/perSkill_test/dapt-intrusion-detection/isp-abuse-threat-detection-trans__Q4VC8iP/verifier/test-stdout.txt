@@ -1,0 +1,4 @@
+=== Running ISP Abuse Desk Adjudication Tests ===
+All assertions passed.
+
+All tests passed!

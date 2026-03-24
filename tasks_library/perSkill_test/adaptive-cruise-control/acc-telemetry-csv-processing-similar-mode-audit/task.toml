@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "acc-telemetry-csv-processing-similar-mode-audit"
+name = "Similar: ACC Telemetry Mode Audit"
+description = "Read a highway telemetry CSV, derive an ACC mode audit table, and export the results to acc_mode_audit.csv with a safety summary."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["python", "csv", "pandas", "automotive", "telemetry", "time-series"]
+primary_output_file = "acc_mode_audit.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

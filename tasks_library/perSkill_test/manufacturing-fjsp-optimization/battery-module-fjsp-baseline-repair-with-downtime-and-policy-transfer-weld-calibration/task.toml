@@ -1,0 +1,35 @@
+version = "1.0"
+
+[metadata]
+id = "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration"
+name = "Transfer - Battery Module Weld Repair"
+description = "Repair a battery-module welding baseline schedule under calibration downtime, legal-machine constraints, and change-budget limits."
+author_name = "OpenAI Codex"
+author_email = "noreply@example.com"
+difficulty = "medium"
+category = "manufacturing"
+primary_output_file = "drafts/battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration/task.toml"
+source_task_id = "manufacturing-fjsp-optimization"
+task_role = "transfer"
+tags = [
+  "optimization",
+  "manufacturing",
+  "battery module assembly",
+  "weld calibration",
+  "flexible job shop scheduling",
+  "baseline repair",
+]
+required_skills = [ "fjsp-baseline-repair-with-downtime-and-policy",]
+distractor_skills = [ "battery-chemistry-modeling", "quality-manual-authoring", "warehouse-slotting",]
+
+[verifier]
+timeout_sec = 450.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

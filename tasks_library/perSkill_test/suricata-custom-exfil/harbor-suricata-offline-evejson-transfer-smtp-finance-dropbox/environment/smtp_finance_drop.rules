@@ -1,0 +1,2 @@
+# Write your rule(s) here.
+# Requirement: raise sid:2305001 only for matching SMTP finance archive deliveries.

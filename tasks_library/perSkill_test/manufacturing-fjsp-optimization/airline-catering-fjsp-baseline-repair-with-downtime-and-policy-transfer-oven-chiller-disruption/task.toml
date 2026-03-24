@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "airline-catering-fjsp-baseline-repair-with-downtime-and-policy-transfer-oven-chiller-disruption"
+name = "Transfer Airline Catering Schedule Repair"
+description = "Repair the airline catering baseline around oven and blast-chiller maintenance and write the executable shift plan to /app/output/catering_shift_plan.json."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "food-operations"
+tags = [ "airline", "catering", "central-kitchen", "scheduling", "repair",]
+primary_output_file = "/app/output/catering_shift_plan.json"
+source_task_id = "manufacturing-fjsp-optimization"
+task_role = "transfer"
+required_skills = [ "fjsp-baseline-repair-with-downtime-and-policy",]
+distractor_skills = [ "recipe-scaling", "inventory-reconciliation",]
+
+[verifier]
+timeout_sec = 450.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

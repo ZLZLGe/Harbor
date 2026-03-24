@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "crystal-orbit-sympy-similar-wyckoff-representatives"
+name = "Similar: 符号化 Wyckoff 轨道代表元分析"
+description = "Parse symmetry-operation cards with exact fractional arithmetic and output each orbit's unique mod-1 positions, multiplicity, and fixed representative."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "materials_science"
+tags = ["materials_science", "crystallography", "symmetry_operations", "exact_arithmetic", "wyckoff_orbits"]
+primary_output_file = "/root/workspace/wyckoff_orbit_solver.py"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

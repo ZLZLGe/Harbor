@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "energy-demand-timeseries-detrending-transfer-power-output-volatility",
+  "taskRole": "transfer",
+  "title": "Transfer: 用电与产出周期波动比",
+  "goal": "对 2010-01 到 2024-12 的月度工业生产指数与商业用电量做去趋势，比较两者周期项的标准差，并输出用电周期波动相对工业生产周期波动的比值。",
+  "primaryOutputFile": "/root/power-output-cycle-volatility.json",
+  "difficulty": "medium",
+  "category": "energy-economics",
+  "skillBenefitRationale": "这个场景把技能迁移到能源与生产联动分析，核心仍是对正值水平序列做对数后 HP 去趋势，再用周期项构造可验证统计量，唯一关键 shipped skill 仍是 timeseries-detrending。",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending"
+}

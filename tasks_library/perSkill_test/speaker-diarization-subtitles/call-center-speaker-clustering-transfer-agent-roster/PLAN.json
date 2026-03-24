@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "call-center-speaker-clustering-transfer-agent-roster",
+  "taskRole": "transfer",
+  "title": "Transfer | 呼叫中心重复声线台账",
+  "goal": "给定多通客服录音中已切分短话轮的嵌入与通话元数据，跨通话聚类出重复出现的声线，生成坐席/来电者簇台账与每个片段的稳定 cluster 分配。",
+  "primaryOutputFile": "/root/agent_voice_roster.json",
+  "difficulty": "hard",
+  "category": "audio-visual",
+  "skillBenefitRationale": "任务已避开 VAD、ASR 和角色识别技能，核心难点是把跨录音嵌入聚成稳定身份簇并利用簇覆盖模式识别重复坐席声线，唯一关键技能就是 speaker-clustering。",
+  "targetSkillDirName": "speaker-clustering",
+  "targetSkillName": "Speaker Clustering Methods"
+}

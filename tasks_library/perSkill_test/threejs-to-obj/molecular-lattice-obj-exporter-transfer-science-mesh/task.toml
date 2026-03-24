@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "molecular-lattice-obj-exporter-transfer-science-mesh"
+name = "Transfer - Molecular Lattice OBJ Export"
+description = "Export the provided Three.js molecular lattice into a single Blender-ready OBJ at /root/output/lattice.obj."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "scientific-visualization"
+tags = ["threejs", "obj", "science", "molecular-lattice", "node"]
+primary_output_file = "/root/output/lattice.obj"
+source_task_id = "threejs-to-obj"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

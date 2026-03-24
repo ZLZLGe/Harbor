@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "cell-migration-output-validation-transfer-confluence-watch"
+name = "Transfer: 细胞迁移时序输出校验"
+description = "根据显微镜时序观测包整理细胞群体状态区间 JSON，并输出逐采样帧活跃迁移区域的 CSR 稀疏 mask。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "microscopy-analysis"
+tags = ["microscopy", "cell-migration", "csr-mask", "transfer", "output-validation"]
+primary_output_file = "/root/pred_cell_activity.json"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

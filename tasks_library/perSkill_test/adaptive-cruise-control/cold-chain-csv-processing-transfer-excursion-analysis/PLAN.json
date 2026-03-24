@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cold-chain-csv-processing-transfer-excursion-analysis",
+  "taskRole": "transfer",
+  "title": "Transfer: Cold Chain Excursion Analysis",
+  "goal": "处理冷链车厢温度日志 CSV 与门磁事件 CSV，识别连续超温区间，计算每段最大超限幅度和持续时间，并输出可审核的异常窗口表。",
+  "primaryOutputFile": "excursion_windows.csv",
+  "difficulty": "medium",
+  "category": "logistics",
+  "skillBenefitRationale": "把同样的时序 CSV 清洗与窗口聚合能力迁移到冷链监控场景，核心仍是多 CSV 合并、缺失值处理和连续区段汇总。",
+  "targetSkillDirName": "csv-processing",
+  "targetSkillName": "csv-processing"
+}

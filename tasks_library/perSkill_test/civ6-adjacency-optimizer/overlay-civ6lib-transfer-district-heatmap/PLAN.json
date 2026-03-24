@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "overlay-civ6lib-transfer-district-heatmap",
+  "taskRole": "transfer",
+  "title": "Transfer: District Placement Heatmap Generator",
+  "goal": "围绕固定城市中心和若干锁定区域，为指定的每一种候选区域枚举所有合法落点，计算若建造后可获得的相邻加成，并输出按得分排序的热力图式报告。",
+  "primaryOutputFile": "/output/district_heatmap.json",
+  "difficulty": "medium",
+  "category": "games",
+  "skillBenefitRationale": "这个场景把 civ6lib 用作分析引擎而不是求解器，核心是批量调用区域合法性验证与相邻加成计算，生成可视化决策所需的候选位评分。唯一关键 shipped skill 仍是 civ6lib。",
+  "targetSkillDirName": "civ6lib",
+  "targetSkillName": "civ6lib"
+}

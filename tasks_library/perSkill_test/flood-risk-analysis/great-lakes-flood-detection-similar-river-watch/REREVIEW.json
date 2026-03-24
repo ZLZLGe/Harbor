@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "flood-risk-analysis",
+  "targetSkillDirName": "flood-detection",
+  "runId": "20260319225236-flood-risk-analysis-flood-detection-plw9zr",
+  "taskId": "great-lakes-flood-detection-similar-river-watch",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/flood-risk-analysis/flood-detection/20260319225236-flood-risk-analysis-flood-detection-plw9zr/great-lakes-flood-detection-similar-river-watch",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/flood-risk-analysis/great-lakes-flood-detection-similar-river-watch",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:great-lakes-flood-detection-similar-river-watch instruction.md 直接要求用 flood stages 计算 daily maximum stage，并明确按阈值判定 flood_dates；相对 source_task/instruction.md 明显更直接地暴露了 flood-detection 技能路径。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 drafts 的 instruction.md 都比 source_task/instruction.md 更直接地写出了“按天取最大值并与阈值比较”的技能路径，属于 family 级的系统性越界风险。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fab-a777-7492-ace1-fc2d2cb669a6"
+}

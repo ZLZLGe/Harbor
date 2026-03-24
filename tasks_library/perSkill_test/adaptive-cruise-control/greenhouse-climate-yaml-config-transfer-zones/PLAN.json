@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "greenhouse-climate-yaml-config-transfer-zones",
+  "taskRole": "transfer",
+  "title": "Transfer: Greenhouse Climate Control From YAML Policies",
+  "goal": "Implement a greenhouse climate replay system that reads zone targets, heater/vent/mister limits, and fallback rules from YAML, consumes a sensor trace CSV, and produces a YAML strategy file plus simulation outputs showing whether temperature and humidity stay within target bands.",
+  "primaryOutputFile": "greenhouse_strategy.yaml",
+  "difficulty": "medium",
+  "category": "agriculture-tech",
+  "skillBenefitRationale": "This transfers the same config-loading pattern into greenhouse automation. YAML parsing and emission are the only specialized shipped capability needed because all zone policies, actuator constraints, and generated strategy outputs are structured as nested YAML.",
+  "targetSkillDirName": "yaml-config",
+  "targetSkillName": "yaml-config"
+}

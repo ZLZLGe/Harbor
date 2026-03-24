@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "ph-dosing-safety-interlocks-transfer-caustic-cutoff"
+name = "Transfer: pH Dosing Caustic Cutoff"
+description = "Run a safe fermentor caustic-dosing procedure with a 7.2 pH cutoff, command clamping, and an auditable dosing_interlock_audit.json output."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "process-control"
+tags = ["ph-control", "fermentation", "dosing", "safety", "interlocks", "python"]
+primary_output_file = "dosing_interlock_audit.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

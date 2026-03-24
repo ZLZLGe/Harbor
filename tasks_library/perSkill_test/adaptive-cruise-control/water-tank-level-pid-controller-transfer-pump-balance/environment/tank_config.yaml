@@ -1,0 +1,25 @@
+tank:
+  tank_area_m2: 4.2
+  min_level_m: 0.5
+  max_level_m: 2.5
+  initial_level_m: 1.35
+  target_level_m: 1.7
+  outlet_coeff_lps_per_sqrt_m: 0.85
+
+pump:
+  min_pump_lps: 0.0
+  max_pump_lps: 4.8
+  initial_pump_lps: 1.8
+  pump_ramp_limit_lps_per_s: 0.8
+
+pid_initial:
+  kp: 1.2
+  ki: 0.08
+  kd: 0.0
+
+simulation:
+  dt: 0.5
+  duration: 120.0
+  nominal_inflow_lps: 3.1
+  inflow_feedforward_gain: 0.85
+  integral_limit: 10.0

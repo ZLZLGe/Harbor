@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "offshore-export-dc-power-flow-transfer-curtailment-balance",
+  "taskRole": "transfer",
+  "title": "Transfer | 海上风电送出限额分配",
+  "goal": "给定一个海上风电汇集与送出网络快照，在海缆容量受限条件下分配各风场可接纳出力与弃风量，使送岸功率最大且满足 DC 节点平衡与线路限额，并输出风场接纳功率、弃风统计和最紧张海缆。",
+  "primaryOutputFile": "wind_export_plan.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "虽然场景从常规机组调度转到海上风电送出，但关键仍是用 DC 潮流计算海缆功率分布、识别瓶颈并形成受网络约束的注入分配。",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

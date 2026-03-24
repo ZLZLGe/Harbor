@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "menu-board-image-ocr-transfer-ranking",
+  "taskRole": "transfer",
+  "title": "Transfer | Menu Board Price Ranking",
+  "goal": "OCR a folder of cafe menu board photos, extract each listed item name and price, and write a Markdown report containing the cheapest item per board and the overall median price.",
+  "primaryOutputFile": "/app/workspace/menu_price_report.md",
+  "difficulty": "hard",
+  "category": "retail analytics",
+  "skillBenefitRationale": "把 OCR 迁移到远摄菜单板场景，版式更自由、背景更复杂，需要先可靠取字再完成价格统计；任务成立只依赖 image-ocr。",
+  "targetSkillDirName": "image-ocr",
+  "targetSkillName": "image-ocr"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transit-reliability-trend-analysis-transfer-metric-compare",
+  "taskRole": "transfer",
+  "title": "Transfer: Transit Reliability Metric Comparison",
+  "goal": "Given yearly rail-network reliability KPIs for late departures and missed connections, compute a trend for each KPI and report which metric is worsening faster, including its slope and p-value.",
+  "primaryOutputFile": "/root/output/reliability_metric_shift.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This transfers the skill to transit operations and changes the task shape from one series to a small KPI comparison, but the deciding step remains trend estimation and significance-based interpretation.",
+  "targetSkillDirName": "trend-analysis",
+  "targetSkillName": "trend-analysis"
+}

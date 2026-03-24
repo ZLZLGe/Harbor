@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "stabilize-docker-build-uv-package-manager-transfer-lockfile-layering",
+  "taskRole": "transfer",
+  "title": "Transfer: Stabilize a Python Docker Build with uv",
+  "goal": "修复一个 Python 镜像构建流程：当前 Dockerfile 用临时 pip 命令安装依赖，导致构建不稳定或缓存失效；需要改为基于 uv 的依赖安装分层方式，让镜像可重复构建并能正常启动应用。",
+  "primaryOutputFile": "Dockerfile",
+  "difficulty": "easy",
+  "category": "Containers",
+  "skillBenefitRationale": "这个场景把 uv 迁移到容器构建里，强调 lockfile、依赖同步和镜像层缓存，而不是 CI 或脚本执行，和另外两个 transfer 场景明显不同。",
+  "targetSkillDirName": "uv-package-manager",
+  "targetSkillName": "uv-package-manager"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "audio-jax-skills-transfer-filterbank-envelopes",
+  "taskRole": "transfer",
+  "title": "Transfer: Audio Filterbank Envelopes",
+  "goal": "把 JAX 能力迁移到音频 DSP：读取多段波形和滤波器参数，使用 scan 实现因果滤波链路，批量计算各频带包络与能量汇总，并保存最终包络矩阵。",
+  "primaryOutputFile": "audio_envelopes.npy",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "音频序列处理与原任务的基础数值/ML benchmark 明显不同，但仍然直接检验 jax-skills 提供的 scan、map/reduce、数组 I/O 和 JIT 思路，且没有额外技能依赖。",
+  "targetSkillDirName": "jax-skills",
+  "targetSkillName": "jax-skills"
+}

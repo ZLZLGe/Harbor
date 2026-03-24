@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "incident-briefing-pdf-transfer-report-generation"
+name = "Transfer: Incident Briefing Report Generation"
+author_name = "OpenAI Codex"
+author_email = "noreply@example.com"
+description = "Create a leadership-ready incident briefing from structured incident data, including summary metrics, action items, highlights, and a complete incident log."
+difficulty = "medium"
+category = "report-generation"
+task_role = "transfer"
+source_task_id = "pdf-excel-diff"
+primary_output_file = "/root/incident_briefing_report.pdf"
+tags = ["pdf", "report-generation", "incident-management", "json", "tables"]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

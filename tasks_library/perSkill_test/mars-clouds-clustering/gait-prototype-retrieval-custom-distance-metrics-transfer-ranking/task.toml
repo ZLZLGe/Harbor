@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "gait-prototype-retrieval-custom-distance-metrics-transfer-ranking"
+name = "Transfer: 康复步态原型检索"
+description = "在康复步态验证集上选择最佳特征权重距离配置，并为待评估患者输出 top-3 治疗原型排行到 /root/gait_protocol_rankings.csv。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-science"
+tags = ["rehabilitation", "ranking", "nearest-neighbor", "custom-metric", "feature-weighting"]
+primary_output_file = "/root/gait_protocol_rankings.csv"
+source_task_id = "mars-clouds-clustering"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true

@@ -1,0 +1,27 @@
+{
+  "sourceTaskId": "dynamic-object-aware-egomotion",
+  "targetSkillDirName": "output-validation",
+  "runId": "20260319004427-dynamic-object-aware-egomotion-output-validation-nmfj6s",
+  "taskId": "harbor-radar-output-validation-transfer-vessel-sweeps",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/dynamic-object-aware-egomotion/output-validation/20260319004427-dynamic-object-aware-egomotion-output-validation-nmfj6s/harbor-radar-output-validation-transfer-vessel-sweeps",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/dynamic-object-aware-egomotion/harbor-radar-output-validation-transfer-vessel-sweeps",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:harbor-radar-output-validation-transfer-vessel-sweeps instruction.md 通过“已经整理好的机动分段”“只把 active=true 的组件并入输出 mask”“重点是保证…可校验”等表述，比 source_task/instruction.md 更直接提示了 output-validation 路径。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family reviewer 认为 family 角色布局不理想",
+    "family family 数量配比满足 1 个 similar + 3 个 transfer，且三个 transfer 分别落在显微镜、雷达、遥感三种明显不同模态。",
+    "family similar 任务虽然贴近 source 的视频形态，但主体仍是原始视频感知，不够贴近 output-validation 作为唯一 shipped skill 的典型用法。",
+    "family 四个 drafts 的 instruction.md 都比 source_task/instruction.md 更直接提示了本地自检或结构校验路径，存在统一的 visibility 风险。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [
+    "reviewer 认为 family 角色布局不理想",
+    "family 满足 1 个 similar + 3 个 transfer 的数量要求。",
+    "3 个 transfer 分别落在显微镜时序、港口雷达、野火遥感场景，彼此差异足够大。",
+    "similar 任务虽然场景贴近 source task，但仍要求从原始视频完成相机运动与动态目标分析，核心完成依赖超出当前唯一 shipped skill `output-validation`，因此不符合当前单技能 family 对典型用法的约束。"
+  ],
+  "reviewThreadId": "019d0fa2-a9b0-7541-a944-e0eefaaf6179"
+}

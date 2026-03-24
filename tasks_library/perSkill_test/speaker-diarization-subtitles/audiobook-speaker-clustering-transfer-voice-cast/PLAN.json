@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "audiobook-speaker-clustering-transfer-voice-cast",
+  "taskRole": "transfer",
+  "title": "Transfer | 有声书声线 Cast 总表",
+  "goal": "给定有声书多章节对白片段的嵌入、章节编号和片段边界，跨章节聚类出稳定声线组，为每段对白分配一致的 voice cast id，并输出角色声线总表。",
+  "primaryOutputFile": "/root/voice_cast_ledger.csv",
+  "difficulty": "medium",
+  "category": "audio-visual",
+  "skillBenefitRationale": "对白片段与嵌入已经准备好，任务不依赖文本理解或额外音频处理，唯一关键能力是用 speaker-clustering 在长跨度章节间保持声线簇的一致性。",
+  "targetSkillDirName": "speaker-clustering",
+  "targetSkillName": "Speaker Clustering Methods"
+}

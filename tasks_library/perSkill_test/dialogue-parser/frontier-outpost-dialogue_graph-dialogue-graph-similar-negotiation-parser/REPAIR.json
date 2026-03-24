@@ -1,0 +1,66 @@
+{
+  "sourceTaskId": "dialogue-parser",
+  "targetSkillDirName": "dialogue_graph",
+  "runId": "20260315230605-dialogue-parser-dialogue-graph-z0mu1w",
+  "taskId": "frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser",
+  "originErrorCombo": "reviewer__static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer__static/dialogue-parser/dialogue_graph/20260315230605-dialogue-parser-dialogue-graph-z0mu1w/frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315230605-dialogue-parser-dialogue-graph-z0mu1w/dialogue-parser/drafts/frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/dialogue-parser/frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/dialogue-parser/frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 未直接明示 shipped skill 或具体 skill 名称。; 测试可判定，tests/test_outputs.py 与 tests/test.sh 已提供且可静态编译。; 任务内容只围绕 dialogue graph 解析与可视化展开，未见对其他专用 skills 的隐性依赖。; solution/solution.py 缺失，但 solution/solve.sh 仍直接调用该文件，当前草稿不可发布。"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill，测试也具备可判定性，且任务仅依赖 dialogue-graph；但草稿缺少 instruction.md 和 solution/solve.sh 所引用的 solution/solution.py，因此不应发布。"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/skills/dialogue_graph/scripts/__pycache__/dialogue_graph.cpython-312.pyc",
+    "outpost_dialogue.dot",
+    "outpost_dialogue.json",
+    "solution/__pycache__/solution.cpython-312.pyc",
+    "solution/solution.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser"
+      ],
+      "requestedIssuesByTaskId": {
+        "frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser": {
+          "reviewerIssues": [
+            "instruction.md 未直接点名 shipped skill，测试也具备可判定性，且任务仅依赖 dialogue-graph；但草稿缺少 instruction.md 和 solution/solve.sh 所引用的 solution/solution.py，因此不应发布。"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d113e-95de-7c73-aa82-3408bc86e1d2",
+      "repairSummary": "- `frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser`：补齐了缺失的 [`solution/solution.py`](/tmp/per_skill_static_combo_repair_workspaces/20260315230605-dialogue-parser-dialogue-graph-z0mu1w-cf854b5d/dialogue-parser/drafts/frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser/solution/solution.py)，实现了脚本解析、目标存在性校验、首节点可达性校验，以及 `/app/outpost_dialogue.json` 和 `/app/outpost_dialogue.dot` 的生成；同时重生成了草稿内的 [`outpost_dialogue.json`](/tmp/per_skill_static_combo_repair_workspaces/20260315230605-dialogue-parser-dialogue-graph-z0mu1w-cf854b5d/dialogue-parser/drafts/frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser/outpost_dialogue.json) 和 [`outpost_dialogue.dot`](/tmp/per_skill_static_combo_repair_workspaces/20260315230605-dialogue-parser-dialogue-graph-z0mu1w-cf854b5d/dialogue-parser/drafts/frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser/outpost_dialogue.dot) 以与解法一致。\n\n补充说明：本地环境缺少 `pytest/pip/ensurepip`，所以没有直接跑 `tests/test.sh`；已用等价脚本手工校验节点/边数量、关键内容、可达性、回环、终点数量和 DOT 中的 `shape=diamond`，结果通过。",
+      "reviewThreadId": "019d1143-e35b-7c70-af52-d3366b9c5795",
+      "evaluationByTaskId": {
+        "evacuation-drill-dialogue_graph-dialogue-graph-transfer-response-sim": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "frontier-outpost-dialogue_graph-dialogue-graph-similar-negotiation-parser": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

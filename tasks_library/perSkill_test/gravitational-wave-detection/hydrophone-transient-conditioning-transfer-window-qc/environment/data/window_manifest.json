@@ -1,0 +1,42 @@
+{
+  "deployment_id": "HYDRO-ALPHA-03",
+  "raw_sample_rate_hz": 2400,
+  "target_sample_rate_hz": 600,
+  "high_pass_cutoff_hz": 25.0,
+  "crop_seconds": 0.5,
+  "welch_window_seconds": 1.0,
+  "welch_overlap_fraction": 0.5,
+  "max_low_frequency_noise_ratio": 1.5,
+  "windows": [
+    {
+      "window_id": "HP-00",
+      "start_time_s": 0.0,
+      "end_time_s": 6.0
+    },
+    {
+      "window_id": "HP-01",
+      "start_time_s": 6.0,
+      "end_time_s": 12.0
+    },
+    {
+      "window_id": "HP-02",
+      "start_time_s": 12.0,
+      "end_time_s": 18.0
+    },
+    {
+      "window_id": "HP-03",
+      "start_time_s": 18.0,
+      "end_time_s": 24.0
+    },
+    {
+      "window_id": "HP-04",
+      "start_time_s": 24.0,
+      "end_time_s": 30.0
+    },
+    {
+      "window_id": "HP-05",
+      "start_time_s": 30.0,
+      "end_time_s": 36.0
+    }
+  ]
+}

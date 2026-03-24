@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "regional-redispatch-dc-power-flow-similar-maintenance-window",
+  "taskRole": "similar",
+  "title": "Similar | 区域检修窗口拥塞重调度",
+  "goal": "给定一份因检修而降额的区域输电网快照，计算满足节点功率平衡和线路限额的最小成本机组重调度方案，并输出机组出力、母线相角、总成本和最拥塞通道。",
+  "primaryOutputFile": "redispatch_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "任务核心是把非连续母线编号映射成 DC 潮流方程，构建 B 矩阵并据此约束线流与拥塞程度；没有这个技能就无法得到可行且经济的重调度结果。",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

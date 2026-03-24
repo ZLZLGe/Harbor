@@ -1,0 +1,21 @@
+scenario:
+  id: "orchard_loop_shift_b"
+  dt_s: 0.25
+  initial_position_m: 0.0
+  initial_speed_mps: 0.0
+
+vehicle:
+  max_accel_mps2: 1.4
+  max_brake_mps2: -2.2
+  max_speed_mps: 5.5
+  rolling_drag_mps2: 0.08
+  quadratic_drag_coeff: 0.018
+
+controller:
+  accel_gain: 0.9
+  brake_gain: 1.1
+  brake_margin_m: 0.8
+  cruise_tolerance_mps: 0.25
+
+assessment:
+  stop_error_tolerance_m: 0.6

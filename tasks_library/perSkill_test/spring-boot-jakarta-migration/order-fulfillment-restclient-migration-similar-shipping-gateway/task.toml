@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "order-fulfillment-restclient-migration-similar-shipping-gateway"
+name = "Similar - Migrate Legacy Shipping Gateway to RestClient"
+description = "Migrate the legacy ShippingGatewayClient to Spring's fluent HTTP client while preserving quote, shipment creation, and shipment cancellation behavior."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["spring-boot", "restclient", "migration", "http-client", "order-fulfillment"]
+primary_output_file = "/workspace/src/main/java/com/example/orders/integration/ShippingGatewayClient.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

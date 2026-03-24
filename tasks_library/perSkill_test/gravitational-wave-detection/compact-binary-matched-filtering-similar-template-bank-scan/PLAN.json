@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "compact-binary-matched-filtering-similar-template-bank-scan",
+  "taskRole": "similar",
+  "title": "Similar: Compact Binary Template Bank Scan",
+  "goal": "对已预处理的单探测器致密双星候选数据执行模板库匹配滤波，比较多个波形近似模型和质量网格，输出每个近似模型的最高SNR、对应总质量与峰值时刻。",
+  "primaryOutputFile": "/root/compact_binary_template_bank_scan.csv",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "任务核心是在给定PSD和应变序列上生成模板并做匹配滤波，成败主要取决于是否正确使用 matched-filtering。",
+  "targetSkillDirName": "matched-filtering",
+  "targetSkillName": "matched-filtering"
+}

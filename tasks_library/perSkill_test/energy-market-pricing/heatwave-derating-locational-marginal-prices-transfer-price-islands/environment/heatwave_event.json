@@ -1,0 +1,21 @@
+{
+  "event_id": "heatwave_derating_july_peak",
+  "binding_threshold_pct": 99.0,
+  "monitored_load_centers": [629, 64, 1501],
+  "reference_bus": 629,
+  "island_buses": [64, 1501],
+  "elevated_price_increase_threshold": 15.0,
+  "severe_price_increase_threshold": 50.0,
+  "emergency_deratings": [
+    {
+      "from_bus": 629,
+      "to_bus": 64,
+      "derated_limit_MW": 260.0
+    },
+    {
+      "from_bus": 64,
+      "to_bus": 1501,
+      "derated_limit_MW": 120.0
+    }
+  ]
+}

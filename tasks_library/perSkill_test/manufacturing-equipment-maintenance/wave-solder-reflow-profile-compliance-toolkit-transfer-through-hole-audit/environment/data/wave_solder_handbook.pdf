@@ -1,0 +1,44 @@
+Wave Solder Process Control Handbook
+Line reference: WS-7 selective-free conveyor wave solder line.
+
+Section 4.2 Preheat Ramp Audit
+- Use only top-side preheat thermocouples.
+- Evaluate ramp only in the 90.0 C to 140.0 C board temperature band.
+- Compute finite-difference slope on consecutive samples whose two endpoints are both inside that band.
+- Maximum allowed preheat ramp: 1.60 C/s.
+
+Section 4.3 Entry Temperature Audit
+- Use the entry snapshot taken immediately before the board reaches the chip wave.
+- Use the coldest top-side entry thermocouple as the lot result.
+- Tie break by smaller tc_id.
+- Acceptable board entry temperature window: 100.0 C to 115.0 C.
+
+Section 4.4 Wave Contact Audit
+- Use underside wave-contact thermocouples only.
+- Contact witness is the thermocouple with the longest time above 240.0 C.
+- Compute time above threshold with linear interpolation at crossings.
+- Tie break by smaller tc_id.
+- Acceptable contact time window: 3.00 s to 4.00 s.
+
+Section 4.5 Conveyor Feasibility
+- Effective wave contact length: 4.8 cm.
+- Conveyor speed window is derived from the contact window:
+  speed_min_cm_min = 4.8 / 4.00 * 60 = 72.00
+  speed_max_cm_min = 4.8 / 3.00 * 60 = 96.00
+- Use the median logged conveyor speed per lot.
+
+Section 4.6 Recommendation Targets
+- Preferred entry temperature target center: 107.5 C.
+- Preferred contact time target center: 3.50 s.
+- Preferred conveyor speed target center: 84.00 cm/min.
+
+Section 4.7 Defect Gate
+- Defect gate passes only when bridge_count = 0 and insufficient_fill_count = 0.
+
+Section 4.8 Failure Reason Output Order
+1. preheat_ramp_exceeds_limit
+2. entry_temp_out_of_window
+3. contact_time_out_of_window
+4. speed_out_of_window
+5. bridging_present
+6. insufficient_fill_present

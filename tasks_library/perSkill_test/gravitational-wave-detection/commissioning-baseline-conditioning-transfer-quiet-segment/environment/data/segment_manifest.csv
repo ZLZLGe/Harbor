@@ -1,0 +1,5 @@
+segment_id,raw_sample_rate_hz,duration_s,num_samples
+COM-A,2048,20.0,40960
+COM-B,4096,20.0,81920
+COM-C,8192,20.0,163840
+COM-D,4096,20.0,81920

@@ -1,0 +1,11 @@
+Session,LifterName,Province,Sex,Equipment,Event,BodyweightKg,Best3BenchKg,Coach
+A,Li Wei,Zhejiang,F,Raw,B,47.80,95.0,Luo
+A,Chen Hao,Guangdong,M,Raw,B,66.20,180.0,Tan
+B,Sun Qi,Jiangsu,F,Single-ply,B,58.30,130.0,Shen
+B,Zhao Peng,Henan,M,Single-ply,B,82.50,255.0,Yu
+A,Wu Min,Fujian,F,Raw,B,34.90,72.5,Xu
+B,Gao Lei,Hubei,M,Single-ply,B,34.50,140.0,Deng
+C,Lin Tao,Beijing,M,Raw,B,93.10,210.0,Qin
+C,He Jing,Shanghai,F,Raw,B,70.50,122.5,Zhu
+C,Qiao Ning,Liaoning,F,Single-ply,B,83.40,150.0,Cai
+A,Ma Jun,Shaanxi,M,Raw,B,59.90,165.0,Gao

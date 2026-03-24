@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "wisconsin-riverwatch-nws-flood-thresholds-similar-flood-window-summary"
+name = "Similar - 威斯康星洪水窗口汇总"
+description = "Use the provided Wisconsin roster, stage observations, and gauge threshold report to write a flood-window summary CSV for stations that reached flood stage."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["hydrology", "csv", "flood-monitoring", "wisconsin", "thresholds"]
+primary_output_file = "/root/output/wisconsin_flood_window.csv"
+source_task_id = "flood-risk-analysis"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "lecture-ffmpeg-transfer-slide-gallery",
+  "taskRole": "transfer",
+  "title": "Transfer: Lecture Slide Gallery",
+  "goal": "从一段课程录屏视频中提取关键帧，筛出代表性页面变化节点，并生成`/root/slide_gallery.html`，以可直接浏览的HTML画廊形式展示所有关键帧缩略图和对应文件名。",
+  "primaryOutputFile": "/root/slide_gallery.html",
+  "difficulty": "medium",
+  "category": "image-processing",
+  "skillBenefitRationale": "这里把关键帧抽取迁移到课件页面归档场景，关键在于用I帧近似页面切换点；HTML画廊只是对抽取结果的轻量展示。",
+  "targetSkillDirName": "ffmpeg",
+  "targetSkillName": "ffmpeg-keyframe-extraction"
+}

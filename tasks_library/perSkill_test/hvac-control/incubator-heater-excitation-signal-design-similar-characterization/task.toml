@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "incubator-heater-excitation-signal-design-similar-characterization"
+name = "Similar - 孵化箱加热阶跃辨识"
+description = "为台式恒温培养箱设计一次安全且信息量充足的开环加热阶跃试验，并输出包含原始响应与一阶模型拟合结果的 incubator_identification_report.json。"
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["incubator", "system-identification", "thermal-dynamics", "step-test", "python"]
+primary_output_file = "incubator_identification_report.json"
+source_task_id = "hvac-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

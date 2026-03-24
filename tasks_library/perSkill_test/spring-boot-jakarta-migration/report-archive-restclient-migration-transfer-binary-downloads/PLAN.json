@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "report-archive-restclient-migration-transfer-binary-downloads",
+  "taskRole": "transfer",
+  "title": "Transfer - Migrate Report Archive Downloads to RestClient",
+  "goal": "在一个报表归档服务中，`ArchiveExportClient` 仍使用 `RestTemplate` 下载 CSV/PDF 导出文件并回传导入确认。将其迁移为 `RestClient`，保留认证头、文本与二进制响应体处理，以及确认回调请求的现有契约。",
+  "primaryOutputFile": "/workspace/src/main/java/com/example/reporting/client/ArchiveExportClient.java",
+  "difficulty": "hard",
+  "category": "Reporting",
+  "skillBenefitRationale": "这把 skill 迁移到非 JSON 响应场景，验证 `RestClient` 迁移不仅适用于常规 CRUD，也适用于认证下载、文本/字节流返回和后续确认调用。",
+  "targetSkillDirName": "restclient-migration",
+  "targetSkillName": "restclient-migration"
+}

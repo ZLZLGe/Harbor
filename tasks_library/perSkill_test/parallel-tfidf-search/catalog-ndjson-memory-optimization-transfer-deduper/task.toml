@@ -1,0 +1,32 @@
+[task]
+version = "1.0"
+id = "catalog-ndjson-memory-optimization-transfer-deduper"
+name = "Transfer: Memory-Efficient Catalog Deduper"
+description = "Deduplicate and canonicalize a large NDJSON product catalog under a strict memory budget and write the solution to /root/workspace/catalog_deduper_solution.py."
+
+[metadata]
+id = "catalog-ndjson-memory-optimization-transfer-deduper"
+name = "Transfer: Memory-Efficient Catalog Deduper"
+description = "Deduplicate and canonicalize a large NDJSON product catalog under a strict memory budget and write the solution to /root/workspace/catalog_deduper_solution.py."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "hard"
+category = "Data Cleaning"
+tags = ["data-cleaning", "ndjson", "deduplication", "streaming", "memory"]
+primary_output_file = "/root/workspace/catalog_deduper_solution.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

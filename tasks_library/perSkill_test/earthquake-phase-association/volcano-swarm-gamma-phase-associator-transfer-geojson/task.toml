@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "volcano-swarm-gamma-phase-associator-transfer-geojson"
+name = "Transfer - Volcano Swarm Event Layer for Monitoring"
+description = "Associate volcano swarm phase picks into event hypocenters and export them as a GeoJSON monitoring layer with event times and point locations."
+author_name = "Haotian Shen"
+author_email = "dalyshen@berkeley.edu"
+difficulty = "hard"
+category = "seismology"
+tags = ["science", "earth-science", "seismology", "volcano", "geojson"]
+primary_output_file = "/root/volcano_swarm_events.geojson"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

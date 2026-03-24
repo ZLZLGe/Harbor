@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "coaching-ffmpeg-video-filters-transfer-slow-motion-replay",
+  "taskRole": "transfer",
+  "title": "Transfer: Slow-Motion Coaching Replay",
+  "goal": "Create a muted coaching replay that isolates the action zone with a crop, slows the key sequence for analysis, and adds a small reference logo so the clip is ready for review sharing.",
+  "primaryOutputFile": "/outputs/coaching-replay.mp4",
+  "difficulty": "medium",
+  "category": "sports-video-analysis",
+  "skillBenefitRationale": "The solution hinges on setpts-based speed control plus crop and overlay filters, so FFmpeg video filters are the only shipped skill that materially matters.",
+  "targetSkillDirName": "ffmpeg-video-filters",
+  "targetSkillName": "FFmpeg Video Filters"
+}

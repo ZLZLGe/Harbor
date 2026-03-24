@@ -1,0 +1,23 @@
+{
+  "layout_db": "reserve/wetland_reserve.db",
+  "target_habitat_types": [
+    "TERN_NEST",
+    "OTTER_DEN",
+    "REED_BED",
+    "FROG_POOL"
+  ],
+  "priority_weights": {
+    "critical": 5,
+    "high": 3,
+    "watch": 1
+  },
+  "blocked_overlay_codes": [
+    "NO_ENTRY",
+    "RESTORATION_CLOSED"
+  ],
+  "sensor_radius": 2,
+  "min_bank_contacts": 1,
+  "budget_cap": 13,
+  "max_sites": 3,
+  "shortlist_size": 5
+}

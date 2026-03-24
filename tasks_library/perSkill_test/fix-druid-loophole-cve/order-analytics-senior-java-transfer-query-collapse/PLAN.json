@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "order-analytics-senior-java-transfer-query-collapse",
+  "taskRole": "transfer",
+  "title": "Transfer | 收敛订单分析接口的查询风暴",
+  "goal": "重构订单分析接口的查询路径，解决列表页在高数据量下出现的查询风暴与超时问题。任务需要保留现有返回契约，但显著减少查询次数和汇总接口的响应时间。",
+  "primaryOutputFile": "/workspace/order-analytics/src/main/java/com/acme/analytics/reporting/OrderSummaryQueryService.java",
+  "difficulty": "hard",
+  "category": "Data",
+  "skillBenefitRationale": "需要 senior-java 来完成 Java 数据访问层与服务层的协同优化，运用 ORM 抓取策略、投影与聚合重构手法，在不破坏接口语义的前提下消除性能瓶颈。",
+  "targetSkillDirName": "senior-java",
+  "targetSkillName": "senior-java"
+}

@@ -1,0 +1,39 @@
+version = "1.0"
+
+[metadata]
+id = "incoming-iqc-manufacturing-failure-reason-codebook-normalization-transfer-supplier-anomalies"
+name = "Transfer - IQC Supplier Anomaly Normalization"
+description = "Normalize incoming supplier-lot anomaly remarks into the IQC material defect codebook and write the mapped segments to /app/output/iqc_supplier_reason_map.json."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "manufacturing"
+tags = [
+  "incoming quality inspection",
+  "supplier lot",
+  "material defect normalization",
+  "codebook mapping",
+]
+primary_output_file = "/app/output/iqc_supplier_reason_map.json"
+source_task_id = "manufacturing-codebook-normalization"
+task_role = "transfer"
+required_skills = [
+  "manufacturing-failure-reason-codebook-normalization",
+]
+distractor_skills = [
+  "vendor-scorecard-analysis",
+  "purchase-order-matching",
+  "warehouse-slotting",
+]
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

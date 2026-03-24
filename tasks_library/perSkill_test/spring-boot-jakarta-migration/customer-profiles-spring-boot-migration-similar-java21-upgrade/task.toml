@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "customer-profiles-spring-boot-migration-similar-java21-upgrade"
+name = "Similar: 升级遗留客户档案服务到 Spring Boot 3.2"
+description = "升级 /workspace/customer-profiles/pom.xml 到 Java 21 与 Spring Boot 3.2，并恢复 Maven 编译和测试。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["spring-boot", "java21", "maven", "migration", "customer-profiles"]
+primary_output_file = "/workspace/customer-profiles/pom.xml"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

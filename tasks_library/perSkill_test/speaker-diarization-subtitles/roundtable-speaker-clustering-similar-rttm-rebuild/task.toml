@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "roundtable-speaker-clustering-similar-rttm-rebuild"
+name = "Similar | 圆桌访谈 RTTM 重建"
+description = "根据已切好的圆桌访谈片段时间边界与说话人嵌入估计说话人数、完成聚类与相邻同簇合并，并输出 /root/panel_diarization.rttm。"
+author_name = "Levi Chen"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "audio-visual"
+tags = ["speaker-clustering", "diarization", "rttm", "embeddings"]
+primary_output_file = "/root/panel_diarization.rttm"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

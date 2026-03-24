@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "exceltable-in-ppt",
+  "targetSkillDirName": "pptx",
+  "runId": "20260319085844-exceltable-in-ppt-pptx-ldml3q",
+  "taskId": "deckops-pptx-transfer-review-comments-injection",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/exceltable-in-ppt/pptx/20260319085844-exceltable-in-ppt-pptx-ldml3q/deckops-pptx-transfer-review-comments-injection",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/exceltable-in-ppt/deckops-pptx-transfer-review-comments-injection",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:deckops-pptx-transfer-review-comments-injection instruction.md 相比 source_task/instruction.md 更直接地点名了“PowerPoint comment”以及 author entry / reviewer metadata 这类具体功能点，技能暴露超过基线。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa5-3734-7e80-abc6-c4634291fafe"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bioreactor-scipy-curve-fit-transfer-logistic-growth",
+  "taskRole": "transfer",
+  "title": "Transfer | Bioreactor Logistic Growth Fit",
+  "goal": "Use optical-density measurements from a batch bioreactor to fit a logistic growth curve, estimate lag-adjusted growth behavior and carrying capacity, and report the predicted harvest window when biomass crosses a target threshold.",
+  "primaryOutputFile": "bioreactor_growth_fit.json",
+  "difficulty": "medium",
+  "category": "bioprocess-modeling",
+  "skillBenefitRationale": "This transfers the skill to sigmoidal growth modeling, where the main work is nonlinear parameter estimation from noisy time-series data. `curve_fit` is the unique shipped capability that makes the task possible.",
+  "targetSkillDirName": "scipy-curve-fit",
+  "targetSkillName": "scipy-curve-fit"
+}

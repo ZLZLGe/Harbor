@@ -1,0 +1,34 @@
+{
+  "overview_plate": {
+    "width": 144,
+    "height": 96,
+    "center_x": -0.75,
+    "center_y": 0.0,
+    "scale": 3.0,
+    "max_iter": 120
+  },
+  "boundary_study": {
+    "width": 160,
+    "height": 120,
+    "center_x": -0.743643887037151,
+    "center_y": 0.13182590420533,
+    "scale": 0.018,
+    "max_iter": 360
+  },
+  "filament_probe": {
+    "width": 224,
+    "height": 160,
+    "center_x": -0.1011,
+    "center_y": 0.9563,
+    "scale": 0.075,
+    "max_iter": 420
+  },
+  "tail_heavy": {
+    "width": 480,
+    "height": 320,
+    "center_x": -0.743643887037151,
+    "center_y": 0.13182590420533,
+    "scale": 0.0105,
+    "max_iter": 900
+  }
+}

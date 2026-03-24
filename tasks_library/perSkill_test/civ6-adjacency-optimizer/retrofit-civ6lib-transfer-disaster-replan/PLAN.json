@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "retrofit-civ6lib-transfer-disaster-replan",
+  "taskRole": "transfer",
+  "title": "Transfer: Disaster Retrofit Replanner",
+  "goal": "从一份已存在的城市布局出发，在若干地块因灾害或禁建而失效、且可移动区域数量受限的条件下，求出总相邻加成最高的合法修复方案。",
+  "primaryOutputFile": "/output/retrofit_plan.json",
+  "difficulty": "hard",
+  "category": "games",
+  "skillBenefitRationale": "该任务把 civ6lib 迁移到“受约束重规划”场景，重点依赖其放置合法性检查、被占用地块处理、特殊区域规则和相邻加成重算能力；不需要其他 source task skills。",
+  "targetSkillDirName": "civ6lib",
+  "targetSkillName": "civ6lib"
+}

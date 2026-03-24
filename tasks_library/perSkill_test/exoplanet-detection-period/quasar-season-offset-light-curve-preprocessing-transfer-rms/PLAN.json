@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "quasar-season-offset-light-curve-preprocessing-transfer-rms",
+  "taskRole": "transfer",
+  "title": "Transfer: 类星体监测光变基线校正",
+  "goal": "清洗一条多季类星体监测光变曲线，其中包含坏曝光标记、孤立异常点和分段零点偏移；要求完成稳健归一化与去趋势，并将清洗后的残差 RMS 写入 /root/quasar_rms.txt。",
+  "primaryOutputFile": "/root/quasar_rms.txt",
+  "difficulty": "medium",
+  "category": "observational-astronomy",
+  "skillBenefitRationale": "该任务把技能迁移到非周期性变源监测，核心仍是可靠的光变清洗与基线处理，能验证此 skill 在完全不同观测目标上的泛化。",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing"
+}

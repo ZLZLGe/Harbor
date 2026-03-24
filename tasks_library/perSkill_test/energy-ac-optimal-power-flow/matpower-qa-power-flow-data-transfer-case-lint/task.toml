@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "matpower-qa-power-flow-data-transfer-case-lint"
+name = "Transfer: 电网案例数据质检与拓扑审计"
+description = "读取 cases/ 下的 MATPOWER 风格案例文件，生成 case_lint_report.json，汇总编号、挂接关系、参考母线、孤立子网和额定值质量问题。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "power-flow", "data-quality", "topology", "transfer"]
+primary_output_file = "case_lint_report.json"
+source_task_id = "energy-ac-optimal-power-flow"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

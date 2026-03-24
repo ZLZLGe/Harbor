@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "assembly-line-video-frame-extraction-transfer-cap-audit"
+name = "Transfer: Assembly Line Cap Audit"
+description = "分析饮料产线巡检视频的节拍抽样结果，统计红盖与蓝盖瓶数量并输出 /app/workspace/cap_audit.xlsx。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "quality assurance"
+tags = ["video", "excel", "manufacturing", "color counting"]
+primary_output_file = "/app/workspace/cap_audit.xlsx"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "lecture-screen-video-frame-extraction-transfer-slide-index"
+name = "Transfer: Lecture Slide Change Index"
+description = "分析课程录屏的时间序列帧并检测幻灯片切换点，输出 /app/workspace/slide_change_index.csv 及对应预览帧。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "knowledge management"
+tags = ["video", "csv", "lecture", "change detection"]
+primary_output_file = "/app/workspace/slide_change_index.csv"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

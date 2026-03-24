@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "dialogue-parser",
+  "targetSkillDirName": "dialogue_graph",
+  "runId": "20260315230605-dialogue-parser-dialogue-graph-z0mu1w",
+  "taskId": "museum-tour-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/dialogue-parser/dialogue_graph/20260315230605-dialogue-parser-dialogue-graph-z0mu1w/museum-tour-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/dialogue-parser/museum-tour-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:museum-tour-dialogue_graph-dialogue-graph-transfer-audio-route instruction.md 未直接明示 shipped skill 或具体 skill 名称。; 测试可判定，tests/test_outputs.py 与 tests/test.sh 已提供且可静态编译。; 任务内容只围绕 dialogue graph 建模、校验与 DOT 导出展开，未见对其他专用 skills 的隐性依赖。"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0f9b-d0ef-7241-b593-c81891e8814c"
+}

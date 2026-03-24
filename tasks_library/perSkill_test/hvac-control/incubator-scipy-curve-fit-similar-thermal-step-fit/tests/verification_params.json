@@ -1,0 +1,5 @@
+{
+  "process_gain_K": 0.255,
+  "time_constant_tau_s": 480.0,
+  "expected_hold_heater_percent": 53.333333333333336
+}

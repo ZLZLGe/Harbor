@@ -1,0 +1,28 @@
+{
+  "requests": [
+    {
+      "request_id": "demo-001",
+      "from_email": "alina@northstarhealth.com",
+      "subject": "Clinical analytics demo request",
+      "email_text": "Hello team,\nWe'd like a 45-minute analytics demo sometime from April 14 to April 16, 2026.\nOur buying team is on Eastern Time, and the best window is 10:00 AM to 1:00 PM.\nPlease avoid April 15 from 11:30 AM to 12:00 PM because our CFO has a standing check-in.\nThanks,\nAlina"
+    },
+    {
+      "request_id": "demo-002",
+      "from_email": "mina@brightlane.io",
+      "subject": "Walkthrough timing",
+      "email_text": "Hi,\nCould we do a 30-minute walkthrough either on April 20-21, 2026 from 2:00 PM to 5:00 PM Pacific Time, or on April 23, 2026 from 9:00 AM to 11:00 AM Pacific Time?\nPlease do not place it on April 22, 2026 because of our internal launch.\nRegards,\nMina"
+    },
+    {
+      "request_id": "demo-003",
+      "from_email": "owen@harborsideops.co.uk",
+      "subject": "Platform demo for operations team",
+      "email_text": "Hello team,\nI'm looking for a 90-minute platform demo on April 30, 2026 or May 1, 2026.\nLondon time works best. Ideally 4:00 PM to 6:30 PM BST.\nOn May 1 we are unavailable from 5:00 PM to 5:30 PM during shift handover.\nBest,\nOwen"
+    },
+    {
+      "request_id": "demo-004",
+      "from_email": "priya@fultonprocurement.com",
+      "subject": "Procurement demo scheduling",
+      "email_text": "Hi there,\nPlease set up a 60-minute procurement demo during May 4-6, 2026.\nWe operate on Central Time and can meet between 8:30 AM and 10:30 AM.\nThere are no blackout windows at the moment.\nThanks,\nPriya"
+    }
+  ]
+}

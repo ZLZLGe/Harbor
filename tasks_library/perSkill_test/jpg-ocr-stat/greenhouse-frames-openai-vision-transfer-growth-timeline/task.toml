@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "greenhouse-frames-openai-vision-transfer-growth-timeline"
+name = "Transfer: 温室生长时序统计"
+description = "读取同一温室苗床的每日照片，统计开花株数、成熟果实数和明显病害叶片数，并生成 /app/workspace/growth_timeline.tsv。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "data statistics"
+tags = ["vision counting", "time series", "greenhouse", "tsv"]
+primary_output_file = "/app/workspace/growth_timeline.tsv"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

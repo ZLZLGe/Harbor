@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "maintenance-backlog-reflow_machine_maintenance_guidance-reflow-machine-maintenance-guidance-transfer-priority",
+  "taskRole": "transfer",
+  "title": "Transfer: Reflow Maintenance Backlog Prioritization",
+  "goal": "把回流炉维护知识迁移到工单分诊场景：基于多台设备的氧含量、停机记录、维护逾期标记、热电偶异常和缺陷趋势，输出机器级维护优先级看板，并为每台机器指定最应先检查的子系统与依据。",
+  "primaryOutputFile": "/app/output/maintenance_priority_board.json",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "虽然输出变成工单优先级，但判断依据仍依赖回流工艺窗口、气氛控制和温度曲线解释，必须使用该 skill 才能把设备维护决策和工艺证据正确对应起来。",
+  "targetSkillDirName": "reflow_machine_maintenance_guidance",
+  "targetSkillName": "reflow_machine_maintenance_guidance"
+}

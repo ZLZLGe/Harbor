@@ -1,0 +1,7 @@
+zone_id	start_m	end_m	speed_limit_mps	stop_id	stop_position_m
+launch_lane	0.0	20.0	4.0		
+garden_walk	20.0	42.0	2.6		
+kiosk_buffer	42.0	60.0	1.4	kiosk_buffer	58.0
+quad_spur	60.0	94.0	4.3		
+library_lane	94.0	114.0	2.2		
+library_buffer	114.0	126.0	1.1	library_buffer	126.0

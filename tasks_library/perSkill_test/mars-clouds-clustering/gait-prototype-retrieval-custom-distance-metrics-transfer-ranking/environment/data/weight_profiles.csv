@@ -1,0 +1,5 @@
+profile_id,cadence_weight,stride_time_cv_weight,left_right_asymmetry_weight,knee_flexion_weight,balance_weight
+symmetry_priority,0.15,0.20,0.35,0.15,0.15
+mobility_priority,0.15,0.15,0.10,0.40,0.20
+stability_priority,0.20,0.15,0.15,0.15,0.35
+tempo_priority,0.40,0.15,0.15,0.15,0.15

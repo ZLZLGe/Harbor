@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "regional-sales-pdf-similar-quarterly-rollup"
+name = "Similar: 区域销售季度汇总"
+description = "从一份跨多页的区域销售报表中提取所有表格并按地区与季度汇总为 CSV 输出。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-analysis"
+tags = ["pdf", "csv", "aggregation", "sales-report"]
+primary_output_file = "/root/regional_sales_rollup.csv"
+source_task_id = "sales-pivot-analysis"
+task_role = "similar"
+required_skills = ["pdf"]
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

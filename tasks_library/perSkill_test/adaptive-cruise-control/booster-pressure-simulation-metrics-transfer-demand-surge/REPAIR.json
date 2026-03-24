@@ -1,0 +1,25 @@
+{
+  "sourceTaskId": "adaptive-cruise-control",
+  "targetSkillDirName": "simulation-metrics",
+  "runId": "20260318162125-adaptive-cruise-control-simulation-metrics-thh1wa",
+  "taskId": "booster-pressure-simulation-metrics-transfer-demand-surge",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/adaptive-cruise-control/simulation-metrics/20260318162125-adaptive-cruise-control-simulation-metrics-thh1wa/booster-pressure-simulation-metrics-transfer-demand-surge",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260318162125-adaptive-cruise-control-simulation-metrics-thh1wa/adaptive-cruise-control/drafts/booster-pressure-simulation-metrics-transfer-demand-surge",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/adaptive-cruise-control/booster-pressure-simulation-metrics-transfer-demand-surge",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/adaptive-cruise-control/booster-pressure-simulation-metrics-transfer-demand-surge",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "tourism-demand-xlsx-similar-capacity-shock"
+name = "Similar - Tourism Capacity Shock Workbook"
+description = "Complete the tourism capacity scenario workbook with cross-sheet formulas and save the finished model as tourism-capacity-shock.xlsx."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "financial-analysis"
+tags = [ "excel", "tourism", "forecasting", "scenario-modeling",]
+primary_output_file = "tourism-capacity-shock.xlsx"
+source_task_id = "shock-analysis-supply"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

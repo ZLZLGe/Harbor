@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "aftershock-bulletin-obspy-data-api-similar-quakeml-packet"
+name = "Similar - 余震窗口 QuakeML 整编"
+description = "整理候选余震在固定时间窗内的可用三分量记录并输出包含 origin time 与支持台站数的 QuakeML 目录。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "seismology"
+tags = ["science", "earth-science", "seismology", "obspy", "quakeml"]
+primary_output_file = "/root/aftershock_catalog.xml"
+source_task_id = "earthquake-phase-association"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

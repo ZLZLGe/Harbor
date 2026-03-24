@@ -1,0 +1,9 @@
+{
+  "project": "dev-bootstrap-station",
+  "owner": "platform-docs",
+  "commands": [
+    "collect",
+    "preview",
+    "serve"
+  ]
+}

@@ -1,0 +1,18 @@
+=== Adams County packet ===
+1. Mill Creek at Oak Junction | USGS 5512000 | active
+2. Cedar Run near Milburn (site no. 05513000) - monitor
+3. East Fork at Ramsey -- archive ref: usgs#05525500
+
+=== Boone County packet ===
+- South Branch at Elgin / station=05530000 / priority A
+- Cedar Run near Milburn duplicate listing [5513000]
+- Pine Hollow at Dayton ; Site ID: 5530500 ; verify thresholds
+
+=== Cole County packet ===
+* Quarry Creek nr. Benton // USGS-ID 05531000 // county watch
+* Prairie Ditch at Moberly -> station id 5532000
+* Routing note only, no gage assigned yet
+
+=== Franklin County packet ===
+Memo: keep station 05530000 on the roster until further notice.
+Memo: Lost Slough west of marker 12 has no usable USGS site ID.

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "plugin-manifest-jackson-security-transfer-polymorphic-type-lockdown",
+  "taskRole": "transfer",
+  "title": "Transfer: 收紧插件清单导入的多态类型注入",
+  "goal": "修复一个 Java CLI/后台导入器，它会用 Jackson 读取插件 manifest 并支持多态步骤定义。攻击者可在上传的 JSON 中注入 @class 或 @type 之类的类型提示，触发非预期类型实例化。任务需要限制危险类型信息或在反序列化前拦截它们，同时保留白名单内的合法步骤。",
+  "primaryOutputFile": "drafts/plugin-manifest-jackson-security-transfer-polymorphic-type-lockdown/task.toml",
+  "difficulty": "hard",
+  "category": "Security",
+  "skillBenefitRationale": "这个任务把 skill 从 HTTP 请求迁移到文件导入流程，攻击面从空键绕过切换到 polymorphic type handling，但仍完全落在 jackson-security 的知识边界内。它测试的是 Jackson 结构性攻击模式的泛化能力。",
+  "targetSkillDirName": "jackson-security",
+  "targetSkillName": "jackson-security"
+}

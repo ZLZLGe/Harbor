@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "datacenter-failover-pddl-skills-transfer-service-recovery",
+  "taskRole": "transfer",
+  "title": "Transfer | 数据中心故障切换恢复规划",
+  "goal": "给定数据中心故障恢复的 PDDL 域文件和多个集群失效问题文件，生成恢复关键服务、切换流量并重建副本的顺序恢复计划，写入每个实例要求的输出文件。",
+  "primaryOutputFile": "recovery_plans/cluster_a_recovery.txt",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "这里把同一规划技能迁移到运维恢复场景，仍然只需要把 PDDL 问题读入、求解并导出可验证计划；唯一关键 shipped skill 仍是 `pddl-skills`。",
+  "targetSkillDirName": "pddl-skills",
+  "targetSkillName": "pddl-skills"
+}

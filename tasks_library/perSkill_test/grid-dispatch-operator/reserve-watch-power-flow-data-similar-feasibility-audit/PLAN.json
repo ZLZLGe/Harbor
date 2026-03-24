@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reserve-watch-power-flow-data-similar-feasibility-audit",
+  "taskRole": "similar",
+  "title": "Similar: Reserve Feasibility and Congestion Audit",
+  "goal": "Given a MATPOWER network snapshot and a proposed dispatch-and-reserve schedule, generate `dispatch_audit.json` summarizing generator capacity-coupling compliance, reserve sufficiency, total load versus scheduled generation, and the three most heavily loaded branches under the proposed plan.",
+  "primaryOutputFile": "dispatch_audit.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "The task depends on parsing MATPOWER bus, generator, branch, and reserve fields, building the correct bus-number mapping, and turning the network topology into operational checks without relying on any other shipped skill.",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

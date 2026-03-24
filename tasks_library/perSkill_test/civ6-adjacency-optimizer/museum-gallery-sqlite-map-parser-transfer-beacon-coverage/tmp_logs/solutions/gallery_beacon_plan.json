@@ -1,0 +1,204 @@
+{
+  "gallery": {
+    "venue_name": "Harbor Museum of Modern Objects",
+    "exhibition_name": "Cities in Motion",
+    "room_count": 7,
+    "visitor_door_count": 6
+  },
+  "rules": {
+    "priority_tiers": [
+      "A",
+      "B"
+    ],
+    "required_voltage": 24,
+    "max_room_hops": 1,
+    "shortlist_size": 4
+  },
+  "summary": {
+    "priority_exhibits": 5,
+    "valid_mount_points": 5,
+    "selected_beacons": 2,
+    "priority_rooms_covered": 5
+  },
+  "priority_exhibits": [
+    {
+      "exhibit_code": "EXH_BRONZE",
+      "title": "Bronze Routes",
+      "tier": "A",
+      "room_code": "GAL_A",
+      "room_name": "Impression Hall"
+    },
+    {
+      "exhibit_code": "EXH_MARBLE",
+      "title": "Marble Voices",
+      "tier": "B",
+      "room_code": "SCULPT",
+      "room_name": "Sculpture Court"
+    },
+    {
+      "exhibit_code": "EXH_SCROLL",
+      "title": "Night Archive",
+      "tier": "B",
+      "room_code": "ARCHIVE",
+      "room_name": "Archive Nook"
+    },
+    {
+      "exhibit_code": "EXH_SOUND",
+      "title": "Signal Chorus",
+      "tier": "A",
+      "room_code": "MEDIA",
+      "room_name": "Media Lab"
+    },
+    {
+      "exhibit_code": "EXH_TRANSIT",
+      "title": "Transit Lines",
+      "tier": "A",
+      "room_code": "GAL_B",
+      "room_name": "Transit Gallery"
+    }
+  ],
+  "candidate_beacons": [
+    {
+      "mount_code": "MP_SCULPT_01",
+      "mount_label": "Central truss",
+      "room_code": "SCULPT",
+      "room_name": "Sculpture Court",
+      "feed_code": "PF_SCULPT_A",
+      "install_cost": 4,
+      "coverage_rooms": [
+        "ARCHIVE",
+        "GAL_A",
+        "SCULPT"
+      ],
+      "covered_exhibits": [
+        "EXH_BRONZE",
+        "EXH_MARBLE",
+        "EXH_SCROLL"
+      ],
+      "covered_priority_count": 3
+    },
+    {
+      "mount_code": "MP_GALB_01",
+      "mount_label": "Track beam",
+      "room_code": "GAL_B",
+      "room_name": "Transit Gallery",
+      "feed_code": "PF_GALB_A",
+      "install_cost": 6,
+      "coverage_rooms": [
+        "GAL_A",
+        "GAL_B",
+        "MEDIA"
+      ],
+      "covered_exhibits": [
+        "EXH_BRONZE",
+        "EXH_SOUND",
+        "EXH_TRANSIT"
+      ],
+      "covered_priority_count": 3
+    },
+    {
+      "mount_code": "MP_GALA_01",
+      "mount_label": "North cornice",
+      "room_code": "GAL_A",
+      "room_name": "Impression Hall",
+      "feed_code": "PF_GALA_A",
+      "install_cost": 7,
+      "coverage_rooms": [
+        "ENT",
+        "GAL_A",
+        "GAL_B",
+        "SCULPT"
+      ],
+      "covered_exhibits": [
+        "EXH_BRONZE",
+        "EXH_MARBLE",
+        "EXH_TRANSIT"
+      ],
+      "covered_priority_count": 3
+    },
+    {
+      "mount_code": "MP_MEDIA_01",
+      "mount_label": "Acoustic rail",
+      "room_code": "MEDIA",
+      "room_name": "Media Lab",
+      "feed_code": "PF_MEDIA_A",
+      "install_cost": 5,
+      "coverage_rooms": [
+        "GAL_B",
+        "LOUNGE",
+        "MEDIA"
+      ],
+      "covered_exhibits": [
+        "EXH_SOUND",
+        "EXH_TRANSIT"
+      ],
+      "covered_priority_count": 2
+    }
+  ],
+  "deployment_plan": {
+    "selected_mount_codes": [
+      "MP_MEDIA_01",
+      "MP_SCULPT_01"
+    ],
+    "total_install_cost": 9,
+    "beacons": [
+      {
+        "mount_code": "MP_MEDIA_01",
+        "mount_label": "Acoustic rail",
+        "room_code": "MEDIA",
+        "room_name": "Media Lab",
+        "feed_code": "PF_MEDIA_A",
+        "install_cost": 5,
+        "coverage_rooms": [
+          "GAL_B",
+          "LOUNGE",
+          "MEDIA"
+        ],
+        "covered_exhibits": [
+          "EXH_SOUND",
+          "EXH_TRANSIT"
+        ]
+      },
+      {
+        "mount_code": "MP_SCULPT_01",
+        "mount_label": "Central truss",
+        "room_code": "SCULPT",
+        "room_name": "Sculpture Court",
+        "feed_code": "PF_SCULPT_A",
+        "install_cost": 4,
+        "coverage_rooms": [
+          "ARCHIVE",
+          "GAL_A",
+          "SCULPT"
+        ],
+        "covered_exhibits": [
+          "EXH_BRONZE",
+          "EXH_MARBLE",
+          "EXH_SCROLL"
+        ]
+      }
+    ],
+    "coverage_assignments": [
+      {
+        "exhibit_code": "EXH_BRONZE",
+        "mount_code": "MP_SCULPT_01"
+      },
+      {
+        "exhibit_code": "EXH_MARBLE",
+        "mount_code": "MP_SCULPT_01"
+      },
+      {
+        "exhibit_code": "EXH_SCROLL",
+        "mount_code": "MP_SCULPT_01"
+      },
+      {
+        "exhibit_code": "EXH_SOUND",
+        "mount_code": "MP_MEDIA_01"
+      },
+      {
+        "exhibit_code": "EXH_TRANSIT",
+        "mount_code": "MP_MEDIA_01"
+      }
+    ]
+  }
+}

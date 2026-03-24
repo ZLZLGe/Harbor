@@ -1,0 +1,169 @@
+{
+  "incident_id": "QE-ESC-2026-0318",
+  "line_id": "RF-07",
+  "window_reference": {
+    "reference_tc_role": "largest_mass",
+    "preheat_band_c": [
+      100.0,
+      150.0
+    ],
+    "max_ramp_c_per_s": 2.0,
+    "tal_window_s": [
+      30.0,
+      60.0
+    ],
+    "peak_margin_above_liquidus_c": 20.0
+  },
+  "escape_run_analysis": [
+    {
+      "run_id": "ESC1002",
+      "lot_id": "L2402",
+      "dominant_defect": "insufficient_solder",
+      "escape_defect_total": 43,
+      "ramp_c_per_s": 1.15,
+      "tal_s": 16.32,
+      "peak_temp_c": 228.0,
+      "required_min_peak_c": 237.0,
+      "signal_flags": {
+        "ramp_violation": false,
+        "tal_low": true,
+        "peak_low": true,
+        "oxygen_over_limit": false
+      }
+    },
+    {
+      "run_id": "ESC1003",
+      "lot_id": "L2403",
+      "dominant_defect": "head_in_pillow",
+      "escape_defect_total": 39,
+      "ramp_c_per_s": 1.2,
+      "tal_s": 19.37,
+      "peak_temp_c": 230.0,
+      "required_min_peak_c": 237.0,
+      "signal_flags": {
+        "ramp_violation": false,
+        "tal_low": true,
+        "peak_low": true,
+        "oxygen_over_limit": false
+      }
+    },
+    {
+      "run_id": "ESC1004",
+      "lot_id": "L2404",
+      "dominant_defect": "bridging",
+      "escape_defect_total": 25,
+      "ramp_c_per_s": 4.5,
+      "tal_s": 40.4,
+      "peak_temp_c": 240.0,
+      "required_min_peak_c": 237.0,
+      "signal_flags": {
+        "ramp_violation": true,
+        "tal_low": false,
+        "peak_low": false,
+        "oxygen_over_limit": false
+      }
+    },
+    {
+      "run_id": "ESC1005",
+      "lot_id": "L2405",
+      "dominant_defect": "voiding",
+      "escape_defect_total": 37,
+      "ramp_c_per_s": 1.25,
+      "tal_s": 34.52,
+      "peak_temp_c": 239.0,
+      "required_min_peak_c": 237.0,
+      "signal_flags": {
+        "ramp_violation": false,
+        "tal_low": false,
+        "peak_low": false,
+        "oxygen_over_limit": true
+      }
+    }
+  ],
+  "suspected_failure_mode": {
+    "mode_code": "center_zone_heat_loss",
+    "priority_subsystem": "center_heating_zones",
+    "confidence": "high",
+    "trigger_run_ids": [
+      "ESC1002",
+      "ESC1003"
+    ],
+    "evidence": {
+      "dominant_defects": [
+        "bridging",
+        "head_in_pillow",
+        "insufficient_solder",
+        "voiding"
+      ],
+      "tal_below_runs": [
+        "ESC1002",
+        "ESC1003"
+      ],
+      "peak_below_runs": [
+        "ESC1002",
+        "ESC1003"
+      ],
+      "ramp_violation_runs": [
+        "ESC1004"
+      ],
+      "oxygen_over_limit_runs": [
+        "ESC1005"
+      ]
+    }
+  },
+  "containment_scope": {
+    "affected_run_ids": [
+      "ESC1002",
+      "ESC1003"
+    ],
+    "affected_lot_ids": [
+      "L2402",
+      "L2403"
+    ],
+    "serial_span": [
+      "PNL2402-001",
+      "PNL2403-006"
+    ],
+    "panels_to_hold": 9,
+    "shipped_panels": 3,
+    "hold_locations": [
+      "fg_buffer",
+      "packout_queue",
+      "qa_cage"
+    ]
+  },
+  "immediate_actions": [
+    {
+      "step": 1,
+      "owner_role": "quality_engineer",
+      "action": "Block lots L2402 and L2403 in MES, quarantine all non-shipped panels at fg_buffer, packout_queue, qa_cage.",
+      "reason": "The selected trigger runs share low TAL and low peak signals that map to a center-zone heat delivery loss."
+    },
+    {
+      "step": 2,
+      "owner_role": "line_lead",
+      "action": "Launch 100% AOI plus visual reinspection for affected runs and notify downstream packout that shipped panels need recall screening.",
+      "reason": "The dominant defects are wetting-related, so immediate downstream screening is required before any more units move."
+    },
+    {
+      "step": 3,
+      "owner_role": "maintenance_technician",
+      "action": "Inspect reflow zones 5-7 heater output, blower balance, and rail loading before any restart decision.",
+      "reason": "Both trigger runs point to insufficient heat delivery through the center of the profile."
+    }
+  ],
+  "technician_action_card": {
+    "subsystem": "center_heating_zones",
+    "inspection_points": [
+      "Check zone 5-7 heater feedback versus setpoint.",
+      "Confirm center-zone blower circulation is stable across both rails.",
+      "Inspect conveyor loading balance and shadowing at the board center mass."
+    ],
+    "parameter_checks": [
+      "O2 is not the primary trigger for this incident; do not release only on nitrogen data.",
+      "Peak temperature must be at least liquidus + 20.00 C.",
+      "TAL must recover to 30.00-60.00 s on the representative thermocouple."
+    ],
+    "release_condition": "Release only after a confirmation run shows TAL and peak both recovered on the representative thermocouple and quality approves the reinspection results."
+  }
+}

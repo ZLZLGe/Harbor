@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "volcano-swarm-gamma-phase-associator-transfer-geojson",
+  "taskRole": "transfer",
+  "title": "Transfer - Volcano Swarm Event Layer for Monitoring",
+  "goal": "给定火山台阵在短时群震窗口内的 phase picks 和台站信息，使用 GaMMA 关联事件并生成可供监控面板直接使用的 GeoJSON 事件图层，每个 feature 至少包含事件时间和几何位置。",
+  "primaryOutputFile": "/root/volcano_swarm_events.geojson",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "该任务把同一关联能力迁移到火山群震监测场景，重点仍是利用 GaMMA 从密集 picks 中恢复事件；输出格式改为 GeoJSON，但唯一关键能力仍是 gamma-phase-associator。",
+  "targetSkillDirName": "gamma-phase-associator",
+  "targetSkillName": "gamma-phase-associator"
+}

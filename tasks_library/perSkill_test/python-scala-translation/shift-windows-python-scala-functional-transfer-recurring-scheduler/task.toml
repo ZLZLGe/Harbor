@@ -1,0 +1,30 @@
+version = "1.0"
+
+[metadata]
+id = "shift-windows-python-scala-functional-transfer-recurring-scheduler"
+name = "Transfer: Python 排班窗口规划器转 Scala"
+description = "将 Python 排班窗口规划器翻译为 Scala 2.13，并在 /root/ShiftWindowPlanner.scala 输出可编译、可验证的函数式实现。"
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "functional", "scheduler"]
+primary_output_file = "/root/ShiftWindowPlanner.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]

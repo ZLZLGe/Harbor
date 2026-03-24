@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "benefits-intake-pdf-transfer-form-population",
+  "taskRole": "transfer",
+  "title": "Transfer: 福利登记表单回填",
+  "goal": "根据员工档案 JSON 自动填写一份多页福利登记包 PDF，正确处理可填写字段、复选框和签名日期区域，并输出完成后的 `/root/completed_benefits_packet.pdf`。",
+  "primaryOutputFile": "/root/completed_benefits_packet.pdf",
+  "difficulty": "medium",
+  "category": "form-processing",
+  "skillBenefitRationale": "核心工作是检查 PDF 表单结构、定位字段并把数据写回文档；除了 PDF 处理本身，没有其他 shipped skill 会决定任务成败，因此 `pdf` 是唯一关键能力。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

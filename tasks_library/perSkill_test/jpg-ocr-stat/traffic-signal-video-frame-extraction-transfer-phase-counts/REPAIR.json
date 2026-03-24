@@ -1,0 +1,85 @@
+{
+  "sourceTaskId": "jpg-ocr-stat",
+  "targetSkillDirName": "video-frame-extraction",
+  "runId": "20260320101606-jpg-ocr-stat-video-frame-extraction-6ze3ju",
+  "taskId": "traffic-signal-video-frame-extraction-transfer-phase-counts",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/jpg-ocr-stat/video-frame-extraction/20260320101606-jpg-ocr-stat-video-frame-extraction-6ze3ju/traffic-signal-video-frame-extraction-transfer-phase-counts",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320101606-jpg-ocr-stat-video-frame-extraction-6ze3ju/jpg-ocr-stat/drafts/traffic-signal-video-frame-extraction-transfer-phase-counts",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/jpg-ocr-stat/traffic-signal-video-frame-extraction-transfer-phase-counts",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/jpg-ocr-stat/traffic-signal-video-frame-extraction-transfer-phase-counts",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [
+    "`tests/test.sh` 只运行 `python3 /tests/test_outputs.py`，没有写 `reward.txt` 或 `reward.json`；当前 Harbor 运行以 `RewardFileNotFoundError` 结束，因此 verifier 不能正式给出判定结果。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "traffic-signal-video-frame-extraction-transfer-phase-counts"
+      ],
+      "requestedIssuesByTaskId": {
+        "traffic-signal-video-frame-extraction-transfer-phase-counts": {
+          "reviewerIssues": [
+            "`tests/test.sh` 只运行 `python3 /tests/test_outputs.py`，没有写 `reward.txt` 或 `reward.json`；当前 Harbor 运行以 `RewardFileNotFoundError` 结束，因此 verifier 不能正式给出判定结果。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1153-5894-7011-b48c-43cda5c8aa4e",
+      "repairSummary": "- `traffic-signal-video-frame-extraction-transfer-phase-counts`：修改了 [tests/test.sh](/tmp/per_skill_static_combo_repair_workspaces/20260320101606-jpg-ocr-stat-video-frame-extraction-6ze3ju-b0acef97/jpg-ocr-stat/drafts/traffic-signal-video-frame-extraction-transfer-phase-counts/tests/test.sh)，补上 `mkdir -p /logs/verifier` 和 `reward.txt` 写出逻辑；测试通过时写 `1`，失败时写 `0` 并保持非零退出码，修复 reviewer 报的 `RewardFileNotFoundError`。\n\n已额外确认：`derivedTaskId`、`taskRole`、`source_task_id`、`primary_output_file` 未改，且 `instruction.md` 里没有直接出现当前 shipped skill 名称。还做了 `bash -n` 语法检查；未在本地完整跑 Harbor 容器态 verifier。",
+      "reviewThreadId": "019d1157-b895-7f50-8124-1ba2f368f115",
+      "evaluationByTaskId": {
+        "traffic-signal-video-frame-extraction-transfer-phase-counts": {
+          "reviewerIssues": [
+            "`instruction.md` 未直接点名 `video-frame-extraction`，不存在技能暴露。; 测试严格校验了 JSON，但对 `sampled_frames/<video_stem>/frame_*.jpg` 只检查文件名和数量，不校验帧内容是否真的来自按间隔抽样的视频帧，因此抽帧要求本身不可判定。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "traffic-signal-video-frame-extraction-transfer-phase-counts"
+      ],
+      "requestedIssuesByTaskId": {
+        "traffic-signal-video-frame-extraction-transfer-phase-counts": {
+          "reviewerIssues": [
+            "`instruction.md` 未直接点名 `video-frame-extraction`，不存在技能暴露。; 测试严格校验了 JSON，但对 `sampled_frames/<video_stem>/frame_*.jpg` 只检查文件名和数量，不校验帧内容是否真的来自按间隔抽样的视频帧，因此抽帧要求本身不可判定。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d115d-b2db-7e12-8187-e028f11779ea",
+      "repairSummary": "- `traffic-signal-video-frame-extraction-transfer-phase-counts`\n  - 在 [instruction.md](/tmp/per_skill_static_combo_repair_workspaces/20260320101606-jpg-ocr-stat-video-frame-extraction-6ze3ju-b0acef97/jpg-ocr-stat/drafts/traffic-signal-video-frame-extraction-transfer-phase-counts/instruction.md#L9) 补充了无歧义的采样规则：先读实际 FPS，再按 `round(FPS * sample_interval_seconds)` 得到帧间隔，从源视频第 `0` 帧开始保留 `0, n, 2n...`，并明确导出的 JPG 必须对应这些原始帧内容。\n  - 重写了 [tests/test_outputs.py](/tmp/per_skill_static_combo_repair_workspaces/20260320101606-jpg-ocr-stat-video-frame-extraction-6ze3ju-b0acef97/jpg-ocr-stat/drafts/traffic-signal-video-frame-extraction-transfer-phase-counts/tests/test_outputs.py#L1)，现在会直接从源视频重建应采样的帧索引，逐张比对导出图片是否真的来自正确采样点，并用导出帧内容反算 `phase_counts` 后再校验 JSON，解决“只查文件名和数量、无法判定抽帧是否正确”的 reviewer 问题。\n  - 已做静态自检：`test_outputs.py` 语法通过，`instruction.md` 未出现被禁止的 shipped skill 名称。容器级跑测尝试过，但当前环境无 Docker daemon 权限，无法在真实任务镜像里执行 verifier。",
+      "reviewThreadId": "019d1162-6074-70a0-977e-3c28dd3d3656",
+      "evaluationByTaskId": {
+        "traffic-signal-video-frame-extraction-transfer-phase-counts": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

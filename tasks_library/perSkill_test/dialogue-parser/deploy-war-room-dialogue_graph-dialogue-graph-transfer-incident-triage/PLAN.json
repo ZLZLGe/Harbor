@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "deploy-war-room-dialogue_graph-dialogue-graph-transfer-incident-triage",
+  "taskRole": "transfer",
+  "title": "Transfer: 上线事故分诊图",
+  "goal": "将上线事故分诊手册中的告警、排查步骤、升级决策和恢复结论解析为结构化决策图 JSON，便于后续查看与可视化。",
+  "primaryOutputFile": "incident_triage_map.json",
+  "difficulty": "medium",
+  "category": "operations",
+  "skillBenefitRationale": "运维手册场景与前两者明显不同，但依旧只需要 dialogue-graph 来承载分诊节点、条件分支、回退路径和终止状态，不依赖其他 shipped skill。",
+  "targetSkillDirName": "dialogue_graph",
+  "targetSkillName": "dialogue-graph"
+}

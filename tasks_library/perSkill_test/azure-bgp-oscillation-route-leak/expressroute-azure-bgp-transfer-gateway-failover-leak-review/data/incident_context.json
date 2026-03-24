@@ -1,0 +1,46 @@
+{
+  "incident_id": "er-vpn-failover-2026-02-17",
+  "azure_region": "East US 2",
+  "azure_edge": {
+    "name": "msee-eastus2",
+    "asn": 65300
+  },
+  "expressroute_gateway": {
+    "name": "ergw-prod-eastus2",
+    "asn": 65310,
+    "mode": "primary"
+  },
+  "vpn_gateway": {
+    "name": "vpngw-prod-eastus2",
+    "asn": 65311,
+    "mode": "failover"
+  },
+  "branches": [
+    {
+      "name": "branch-chi",
+      "asn": 65320,
+      "cidr": "10.88.20.0/24"
+    },
+    {
+      "name": "branch-den",
+      "asn": 65321,
+      "cidr": "10.88.21.0/24"
+    },
+    {
+      "name": "branch-hou",
+      "asn": 65330,
+      "cidr": "10.88.30.0/24",
+      "origin": true
+    }
+  ],
+  "allowed_control_points": [
+    "customer-edge routing policy",
+    "AS-PATH or community-based filtering on customer edges",
+    "user defined routes on Azure subnets"
+  ],
+  "notes": [
+    "ExpressRoute is intended to remain primary while VPN is failover-only.",
+    "The Azure gateways are managed services; custom route maps cannot be attached directly to the gateways.",
+    "Branch peers exchange backup reachability over a controlled peer link outside Azure."
+  ]
+}

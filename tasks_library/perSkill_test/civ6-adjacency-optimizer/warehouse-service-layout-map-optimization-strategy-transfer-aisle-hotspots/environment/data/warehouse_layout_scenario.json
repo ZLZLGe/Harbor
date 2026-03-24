@@ -1,0 +1,104 @@
+{
+  "id": "warehouse_service_layout",
+  "description": "Compact warehouse service layout puzzle with fire-aisle clearance and minimum spacing constraints.",
+  "layout": [
+    "###########",
+    "#SP.P.SP.P#",
+    "#...F...S.#",
+    "#P..P.P..P#",
+    "#FS...S...#",
+    "#.P..P..P.#",
+    "#S....S.F.#",
+    "#P..P..P..#",
+    "###########"
+  ],
+  "legend": {
+    "#": "wall",
+    ".": "walkway",
+    "S": "shelf",
+    "P": "service_pad",
+    "F": "fire_aisle"
+  },
+  "device_counts": {
+    "pick_station": 2,
+    "charging_dock": 1,
+    "buffer_table": 2
+  },
+  "min_device_spacing": 2,
+  "fire_clearance_distance": 1,
+  "service_rules": {
+    "pick_station": {
+      "demand_field": "pick_load",
+      "distance_scores": {
+        "1": 5,
+        "2": 2
+      }
+    },
+    "charging_dock": {
+      "demand_field": "charge_need",
+      "distance_scores": {
+        "1": 4,
+        "2": 2,
+        "3": 1
+      }
+    },
+    "buffer_table": {
+      "demand_field": "buffer_flow",
+      "distance_scores": {
+        "1": 3,
+        "2": 1
+      }
+    }
+  },
+  "shelves": [
+    {
+      "id": "S1",
+      "coord": [1, 1],
+      "pick_load": 9,
+      "charge_need": 2,
+      "buffer_flow": 6
+    },
+    {
+      "id": "S2",
+      "coord": [6, 1],
+      "pick_load": 8,
+      "charge_need": 6,
+      "buffer_flow": 3
+    },
+    {
+      "id": "S3",
+      "coord": [8, 2],
+      "pick_load": 5,
+      "charge_need": 8,
+      "buffer_flow": 2
+    },
+    {
+      "id": "S4",
+      "coord": [2, 4],
+      "pick_load": 7,
+      "charge_need": 3,
+      "buffer_flow": 7
+    },
+    {
+      "id": "S5",
+      "coord": [6, 4],
+      "pick_load": 6,
+      "charge_need": 5,
+      "buffer_flow": 4
+    },
+    {
+      "id": "S6",
+      "coord": [1, 6],
+      "pick_load": 4,
+      "charge_need": 7,
+      "buffer_flow": 5
+    },
+    {
+      "id": "S7",
+      "coord": [6, 6],
+      "pick_load": 9,
+      "charge_need": 4,
+      "buffer_flow": 8
+    }
+  ]
+}

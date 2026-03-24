@@ -1,0 +1,4 @@
+approach_family,fit_score,needs_historical_templates,mixed_sensor_support,small_event_sensitivity,false_trigger_risk,summary
+deep_picker_association,9.5,no,strong,high,moderate,Best first-pass option when the site has no local template catalog and the channels mix higher-gain and strong-motion sensors.
+network_stalta,4.0,no,limited,low,high,Fast and simple but meltwater and calving bursts create many extra amplitude triggers during this hour.
+template_transfer,2.0,yes,limited,medium,low,Can be precise for repeaters but this glacier front has no reviewed local template library to start from.

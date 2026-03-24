@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sprayguard-ssh-penetration-testing-transfer-password-spray-throttle",
+  "taskRole": "transfer",
+  "title": "Transfer | 修复 SSH 口令喷洒绕过限速",
+  "goal": "在一个 Python SSH bastion 认证服务中，攻击者通过频繁断开重连绕过了按连接计数的失败限制，能够持续进行 password spraying。任务要求修复失败计数与封禁逻辑，使跨连接的口令喷洒被阻断，同时合法用户在冷却后仍可正常登录。",
+  "primaryOutputFile": "/app/workspace/bastion/auth/failure_tracker.py",
+  "difficulty": "hard",
+  "category": "python security bugfix",
+  "skillBenefitRationale": "需要用 SSH 渗透测试里的凭据攻击思路去理解 password spraying 的真实绕过路径，再据此修补认证节流逻辑；除此之外不依赖别的 shipped skill。",
+  "targetSkillDirName": "ssh-penetration-testing",
+  "targetSkillName": "ssh-penetration-testing"
+}

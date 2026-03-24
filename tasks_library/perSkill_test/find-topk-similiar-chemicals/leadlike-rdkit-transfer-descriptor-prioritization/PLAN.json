@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "leadlike-rdkit-transfer-descriptor-prioritization",
+  "taskRole": "transfer",
+  "title": "Transfer: Descriptor-Driven Lead Prioritization",
+  "goal": "从一个候选分子库中批量计算分子量、LogP、TPSA、HBD/HBA、可旋转键等描述符，按给定成药性与可开发性规则筛选并排序最值得跟进的分子，同时给出每个分子的判定依据。",
+  "primaryOutputFile": "/root/workspace/leadlike_prioritization.py",
+  "difficulty": "medium",
+  "category": "chemistry",
+  "skillBenefitRationale": "难点是用 RDKit 批量读取分子并计算多种描述符，再基于这些化学性质完成规则判定与排序；整条工作流可由该 skill 独立完成。",
+  "targetSkillDirName": "rdkit",
+  "targetSkillName": "rdkit"
+}

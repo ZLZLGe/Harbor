@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wildfire-relay-hex-grid-spatial-transfer-coverage-network",
+  "taskRole": "transfer",
+  "title": "Transfer: Wildfire Relay Coverage Network",
+  "goal": "在六边形山火地图上放置无人机中继站，使高风险热点尽可能被基地通过中继链覆盖，同时满足站点数量上限、禁建地块与最小间距约束。",
+  "primaryOutputFile": "/output/wildfire_relay_plan.json",
+  "difficulty": "hard",
+  "category": "operations",
+  "skillBenefitRationale": "把同一 skill 迁移到应急覆盖网络场景，成败取决于六边形邻接、odd-r 距离、覆盖半径与连通扩展的准确计算。",
+  "targetSkillDirName": "hex-grid-spatial",
+  "targetSkillName": "hex-grid-spatial"
+}

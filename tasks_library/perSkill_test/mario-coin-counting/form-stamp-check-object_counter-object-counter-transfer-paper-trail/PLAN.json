@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "form-stamp-check-object_counter-object-counter-transfer-paper-trail",
+  "taskRole": "transfer",
+  "title": "Transfer: Form Stamp Tally",
+  "goal": "给定若干扫描表单页面和“PAID”章、复核章、警示贴纸的模板图，统计每页中这些标记的出现次数，并写入 TSV 报表。",
+  "primaryOutputFile": "/root/form_markup_counts.tsv",
+  "difficulty": "medium",
+  "category": "image-processing",
+  "skillBenefitRationale": "把模板计数迁移到文档分析场景，目标从游戏精灵变成纸面标记，噪声类型和页面组织方式都不同，但关键能力仍是重复目标识别与去重计数。",
+  "targetSkillDirName": "object_counter",
+  "targetSkillName": "object_counter"
+}

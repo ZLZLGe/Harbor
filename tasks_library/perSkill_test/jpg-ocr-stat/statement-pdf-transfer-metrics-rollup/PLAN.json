@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "statement-pdf-transfer-metrics-rollup",
+  "taskRole": "transfer",
+  "title": "Transfer | 月度对账单 PDF 指标汇总",
+  "goal": "读取多份数字化月度对账单 PDF，抽取其中的费用表格与关键字段，计算指定维度的汇总指标，并输出结构化 JSON 结果。",
+  "primaryOutputFile": "/app/workspace/statement_metrics.json",
+  "difficulty": "hard",
+  "category": "data statistics",
+  "skillBenefitRationale": "任务依赖从 PDF 页面中稳定提取表格与文本布局，再完成跨文档聚合，PDF 表格提取是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

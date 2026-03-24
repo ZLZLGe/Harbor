@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "battery-siting-power-flow-data-transfer-bus-screen"
+name = "Transfer: Battery Interconnection Bus Screen"
+description = "Screen shortlisted MATPOWER buses for a battery interconnection study and write interconnection_screen.json with ranked siting metrics."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "power-flow", "matpower", "battery-siting", "interconnection"]
+primary_output_file = "interconnection_screen.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

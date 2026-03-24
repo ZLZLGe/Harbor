@@ -1,0 +1,56 @@
+{
+  "incident_id": "er-vpn-failover-2026-02-17",
+  "azure_region": "East US 2",
+  "expressroute_gateway": {
+    "name": "ergw-prod-eastus2",
+    "asn": 65310,
+    "mode": "primary"
+  },
+  "vpn_gateway": {
+    "name": "vpngw-prod-eastus2",
+    "asn": 65311,
+    "mode": "failover"
+  },
+  "azure_edge": {
+    "name": "msee-eastus2",
+    "asn": 65300
+  },
+  "branches": [
+    {
+      "name": "branch-chi",
+      "asn": 65320,
+      "cidr": "10.88.20.0/24"
+    },
+    {
+      "name": "branch-den",
+      "asn": 65321,
+      "cidr": "10.88.21.0/24"
+    },
+    {
+      "name": "branch-hou",
+      "asn": 65330,
+      "cidr": "10.88.30.0/24",
+      "origin": true
+    }
+  ],
+  "prefix": "10.88.30.0/24",
+  "notes": [
+    "ExpressRoute is intended to remain primary while VPN is failover-only.",
+    "The Azure gateways are managed services; custom route maps cannot be attached directly to the gateways.",
+    "Branch peers exchange backup reachability over a controlled peer link outside Azure."
+  ],
+  "candidate_remediations": [
+    "Tune BGP keepalive on the ExpressRoute customer edge to 10 seconds and holdtime to 30 seconds",
+    "Apply an outbound filter on the ExpressRoute customer edge ASN 65310 to block Azure-edge-learned routes from ASN 65300 before advertising them to VPN peer ASN 65311",
+    "Update the ExpressRoute failover policy so ASN 65310 no longer prefers branch-hou prefix 10.88.30.0/24 via VPN peer ASN 65311",
+    "Set failover preference hierarchy to local branch routes > ExpressRoute primary > VPN backup peer paths",
+    "Apply no-export community on Azure-edge-learned routes before the ExpressRoute customer edge advertises them to the VPN peer",
+    "Install a user defined route override for 10.88.30.0/24 so Azure subnets use the approved ExpressRoute next hop during failover",
+    "Apply inbound AS-PATH filtering on the VPN customer edge to reject Azure edge ASN 65300 when received from the ExpressRoute peer",
+    "Clear the failover preference override and pair it with an export filter that blocks Azure-edge-learned routes toward the VPN peer",
+    "Enable ECMP across ExpressRoute and VPN for the branch-hou prefix during failover",
+    "Disable the ExpressRoute and VPN gateway peering during the incident",
+    "Attach a custom route map directly to the Azure VPN gateway to suppress provider-learned prefixes",
+    "Shut down the VPN gateway connection until the leak alarm clears"
+  ]
+}

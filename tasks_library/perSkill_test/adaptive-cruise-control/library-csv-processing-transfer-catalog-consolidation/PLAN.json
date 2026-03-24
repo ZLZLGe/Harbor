@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "library-csv-processing-transfer-catalog-consolidation",
+  "taskRole": "transfer",
+  "title": "Transfer: Library Catalog Consolidation",
+  "goal": "处理馆藏目录导出 CSV 与借阅记录 CSV，标准化 ISBN 和标题字段，找出高置信度重复馆藏，并输出建议合并清单。",
+  "primaryOutputFile": "catalog_merge_candidates.csv",
+  "difficulty": "medium",
+  "category": "knowledge-management",
+  "skillBenefitRationale": "把同一 skill 迁移到目录治理场景，核心仍是 CSV 清洗、字段标准化、分组统计与结构化结果导出，和前两个 transfer 任务明显不同。",
+  "targetSkillDirName": "csv-processing",
+  "targetSkillName": "csv-processing"
+}

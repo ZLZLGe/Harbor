@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reservoir-evaporation-meteorology-driver-classification-similar-attribution"
+name = "Similar: Reservoir Evaporation Driver Attribution"
+description = "Analyze warm-season reservoir monitoring data to determine whether evaporation intensified over time and report the dominant driver category in /root/output/evaporation_driver_summary.csv."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["hydrology", "evaporation", "attribution", "trend-analysis"]
+primary_output_file = "/root/output/evaporation_driver_summary.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

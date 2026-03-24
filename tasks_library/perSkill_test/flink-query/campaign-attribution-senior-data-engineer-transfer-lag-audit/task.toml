@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "campaign-attribution-senior-data-engineer-transfer-lag-audit"
+name = "Transfer: Campaign Attribution Lag Audit"
+description = "实现一个 Flink 作业，按 campaign 汇总 impression 与 click 的事件时间归因结果，并输出未归因曝光数与有效点击归因延迟 P95 到 /app/workspace/campaign_attribution_sla.txt。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "flink"
+tags = ["flink", "java", "stream-processing", "event-time", "adtech"]
+primary_output_file = "/app/workspace/campaign_attribution_sla.txt"
+source_task_id = "flink-query"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

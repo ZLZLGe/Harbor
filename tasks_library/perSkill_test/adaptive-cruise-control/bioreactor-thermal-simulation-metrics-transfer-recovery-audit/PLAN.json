@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bioreactor-thermal-simulation-metrics-transfer-recovery-audit",
+  "taskRole": "transfer",
+  "title": "反应器温控 Transfer 恢复审查",
+  "goal": "针对生物反应器温度控制仿真，在设定值切换后计算温度恢复过程的 overshoot、settling time、steady-state error 与超容差持续时间，并输出用于审查控制品质的总结文件。",
+  "primaryOutputFile": "thermal_recovery_summary.yaml",
+  "difficulty": "medium",
+  "category": "industrial-automation",
+  "skillBenefitRationale": "虽然场景变成过程温控，但任务成败仍取决于是否能正确计算并解读仿真响应指标，而不是依赖额外专门技能。",
+  "targetSkillDirName": "simulation-metrics",
+  "targetSkillName": "simulation-metrics"
+}

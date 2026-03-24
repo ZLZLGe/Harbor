@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "offshore-wind-dc-power-flow-transfer-export-cable-outage"
+name = "Transfer: Offshore Wind Export Cable Outage"
+description = "Analyze an offshore wind export grid under normal and maintenance-outage topologies, then write a cable stress report covering export loadings, overloads, landing-point angle shifts, and rerouted flows."
+author_name = "Wenbo Chen"
+author_email = "wenbochen111@gmail.com"
+difficulty = "hard"
+category = "energy"
+tags = ["energy", "offshore-wind", "dc-power-flow", "export-cable", "maintenance-outage"]
+primary_output_file = "offshore_cable_stress_report.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

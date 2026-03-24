@@ -1,0 +1,42 @@
+[
+  {
+    "step_id": "rb-01",
+    "title": "Increase BGP keepalive to 20 seconds and hold time to 60 seconds on both secure hubs",
+    "action_type": "timer_change"
+  },
+  {
+    "step_id": "rb-02",
+    "title": "Restart the managed BGP process on secure-hub-east to clear the learned routes",
+    "action_type": "bgp_process_restart"
+  },
+  {
+    "step_id": "rb-03",
+    "title": "Remove the east secure hub preference that sends the incident prefix through secure-hub-west",
+    "action_type": "remove_preference_edge"
+  },
+  {
+    "step_id": "rb-04",
+    "title": "Apply an export policy on secure-hub-east so Azure-backbone routes are not announced to secure-hub-west",
+    "action_type": "export_filter_provider_to_peer"
+  },
+  {
+    "step_id": "rb-05",
+    "title": "Disable the hub-to-hub path between secure-hub-east and secure-hub-west until the incident ends",
+    "action_type": "disable_hub_link"
+  },
+  {
+    "step_id": "rb-06",
+    "title": "Enforce secure hub routing intent so hub-to-hub propagation stays through the Azure backbone instead of the peer hub",
+    "action_type": "routing_intent_enforcement"
+  },
+  {
+    "step_id": "rb-07",
+    "title": "Enable route dampening on the branch connection attached to secure-hub-east",
+    "action_type": "route_dampening"
+  },
+  {
+    "step_id": "rb-08",
+    "title": "Reject routes learned from Azure backbone ASN 65401 when they arrive from peer secure-hub-east on secure-hub-west",
+    "action_type": "ingress_reject_provider_from_peer"
+  }
+]

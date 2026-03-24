@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sales-duel-xlsx-similar-matchup-score",
+  "taskRole": "similar",
+  "title": "Similar: Sales Campaign Matchup Workbook",
+  "goal": "在一个包含干扰工作表、规则表和隐藏更正区块的大型销售竞赛工作簿中，识别有效数据区域，按规则计算每个 campaign 的得分，并比较奇数编号与偶数编号 campaign 的相邻对决结果，最后把净胜场差写入 /root/campaign_margin.txt。",
+  "primaryOutputFile": "/root/campaign_margin.txt",
+  "difficulty": "hard",
+  "category": "financial modeling",
+  "skillBenefitRationale": "核心难点是对复杂 Excel 工作簿进行定位、清洗、跨表读取和规则驱动计算；不依赖其他 shipped skill，完整体现 xlsx 在高噪声分析场景中的典型用法。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

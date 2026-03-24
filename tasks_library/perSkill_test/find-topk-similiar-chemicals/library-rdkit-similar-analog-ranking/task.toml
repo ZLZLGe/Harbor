@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "library-rdkit-similar-analog-ranking"
+name = "Similar: Analog Ranking from a Compound Library"
+description = "Implement a compound-library analog ranking program that normalizes structures, merges duplicate molecules, and writes a top-k similarity report."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "chemistry"
+tags = ["chemistry", "rdkit", "similarity", "csv"]
+primary_output_file = "/root/workspace/analog_ranking.py"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

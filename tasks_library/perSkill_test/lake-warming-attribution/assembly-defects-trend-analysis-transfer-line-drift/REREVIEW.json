@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "lake-warming-attribution",
+  "targetSkillDirName": "trend-analysis",
+  "runId": "20260320110159-lake-warming-attribution-trend-analysis-plt721",
+  "taskId": "assembly-defects-trend-analysis-transfer-line-drift",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/lake-warming-attribution/trend-analysis/20260320110159-lake-warming-attribution-trend-analysis-plt721/assembly-defects-trend-analysis-transfer-line-drift",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/lake-warming-attribution/assembly-defects-trend-analysis-transfer-line-drift",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:assembly-defects-trend-analysis-transfer-line-drift 缺少 `tests/test.sh` 与 `tests/test_outputs.py`，测试当前不可判定。; 缺少 `environment/Dockerfile`、`environment/skills/**`、`solution/solve.sh` 等 Harbor 必需内容，当前不应通过 reviewer。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fb2-d5be-7e72-9456-6f43ee307876"
+}

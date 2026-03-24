@@ -1,0 +1,54 @@
+{
+  "sourceTaskId": "sales-pivot-analysis",
+  "targetSkillDirName": "xlsx",
+  "runId": "20260322160822-sales-pivot-analysis-xlsx-wwugwd",
+  "taskId": "retail-margin-xlsx-similar-pivot-report",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/sales-pivot-analysis/retail-margin-xlsx-similar-pivot-report",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322160822-sales-pivot-analysis-xlsx-wwugwd/sales-pivot-analysis/drafts/retail-margin-xlsx-similar-pivot-report",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/sales-pivot-analysis/retail-margin-xlsx-similar-pivot-report",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/sales-pivot-analysis/retail-margin-xlsx-similar-pivot-report",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现 `xlsx`（输入/输出文件名扩展名），构成 shipped skill 暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现了 `.xlsx`，暴露 shipped skill 名称/目录名 `xlsx`。; instruction.md 说 `SourceData` “至少包含以下列”，但测试要求列集合与顺序完全精确。; instruction.md 没有规定 `SourceData` 的行顺序，但测试对整张明细表做逐行精确比对。; visibilityPass=false; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "retail-margin-xlsx-similar-pivot-report"
+      ],
+      "requestedIssuesByTaskId": {
+        "retail-margin-xlsx-similar-pivot-report": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `.xlsx`，暴露 shipped skill 名称/目录名 `xlsx`。; instruction.md 说 `SourceData` “至少包含以下列”，但测试要求列集合与顺序完全精确。; instruction.md 没有规定 `SourceData` 的行顺序，但测试对整张明细表做逐行精确比对。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a89-fc02-75f3-97d4-51dd236c033d",
+      "repairSummary": "收紧了 instruction.md 的任务契约：去掉了直接出现的 `.xlsx`，并明确了 SourceData 的列集合与顺序、明细行顺序以及结果工作簿的工作表顺序，使说明与现有测试/参考解保持一致。",
+      "reviewThreadId": "019d1a8d-6903-7460-ab73-4d9599588226",
+      "evaluationByTaskId": {
+        "retail-margin-xlsx-similar-pivot-report": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

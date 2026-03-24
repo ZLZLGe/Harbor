@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "commissioning-baseline-conditioning-transfer-quiet-segment"
+name = "Transfer - 调试期安静基线筛选"
+description = "Condition multiple commissioning strain segments and write a PSD baseline table that ranks the quietest segment across two analysis bands."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "instrumentation"
+tags = ["instrumentation", "gravitational-waves", "noise-floor", "signal-processing", "conditioning", "python"]
+primary_output_file = "/root/commissioning_noise_baseline.csv"
+source_task_id = "gravitational-wave-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

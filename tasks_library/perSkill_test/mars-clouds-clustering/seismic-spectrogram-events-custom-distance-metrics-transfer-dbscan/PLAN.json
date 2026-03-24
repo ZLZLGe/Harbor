@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "seismic-spectrogram-events-custom-distance-metrics-transfer-dbscan",
+  "taskRole": "transfer",
+  "title": "Transfer: 微震频谱事件分组",
+  "goal": "在微震频谱峰值数据上，用时间-频率加权距离执行 DBSCAN，把离散峰值合并成事件簇，并输出最佳权重方案下的事件聚类结果。",
+  "primaryOutputFile": "/root/seismic_event_clusters.csv",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "核心难点是把时间轴和频率轴的不同比例封装为可调自定义距离，再交给 DBSCAN；其余流程只是常规聚类汇总。",
+  "targetSkillDirName": "custom-distance-metrics",
+  "targetSkillName": "custom-distance-metrics"
+}

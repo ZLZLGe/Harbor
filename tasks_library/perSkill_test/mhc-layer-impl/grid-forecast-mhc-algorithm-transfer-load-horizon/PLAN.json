@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "grid-forecast-mhc-algorithm-transfer-load-horizon",
+  "taskRole": "transfer",
+  "title": "Transfer | Grid Load Forecasting Stability",
+  "goal": "在已提供的多变量电网负荷预测 Transformer 中引入 mHC，对时间混合残差块进行双随机约束，比较 baseline 与 mHC 在长预测窗口上的训练稳定性，并输出 `grid_forecast_summary.json`，包含 MAE、RMSE、梯度范数离散度与流混合诊断。",
+  "primaryOutputFile": "grid_forecast_summary.json",
+  "difficulty": "hard",
+  "category": "ml-implementation",
+  "skillBenefitRationale": "时间窗切分、特征读取和预测评测都可以由现成脚手架承担，任务核心只剩将 mHC 的 Sinkhorn 约束残差混合适配到序列回归模型，所以 `mhc-algorithm` 仍是唯一关键 shipped skill。",
+  "targetSkillDirName": "mhc-algorithm",
+  "targetSkillName": "mhc-algorithm"
+}

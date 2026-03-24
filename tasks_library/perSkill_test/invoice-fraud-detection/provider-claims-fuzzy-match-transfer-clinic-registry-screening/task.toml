@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "provider-claims-fuzzy-match-transfer-clinic-registry-screening"
+name = "Transfer: 医疗机构理赔注册表筛查"
+description = "筛查医疗理赔记录中的就诊机构，将理赔名称与授权机构注册表做名称归并，并把无法可信匹配或注册信息冲突的理赔写入 /root/provider_claim_blocks.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "data-validation"
+tags = ["healthcare", "claims", "provider-registry", "fuzzy-matching", "json", "tsv"]
+primary_output_file = "/root/provider_claim_blocks.json"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

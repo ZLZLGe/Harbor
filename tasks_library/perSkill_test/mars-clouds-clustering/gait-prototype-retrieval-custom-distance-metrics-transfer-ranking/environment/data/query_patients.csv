@@ -1,0 +1,6 @@
+patient_id,cadence_spm,stride_time_cv,left_right_asymmetry,knee_flexion_deg,balance_index
+PAT_001,84.2,10.7,0.15,39.5,84.0
+PAT_002,70.5,16.4,0.30,33.0,57.0
+PAT_003,97.3,11.4,0.11,26.5,74.2
+PAT_004,69.2,18.1,0.32,35.5,51.0
+PAT_005,100.0,8.8,0.09,44.0,76.0

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "tess-known-transit-light-curve-preprocessing-similar-depth",
+  "taskRole": "similar",
+  "title": "Similar: 已知星历凌星深度测量预处理",
+  "goal": "对一条带有质量标记、离群点和恒星活动调制的 TESS 风格光变曲线做清洗与去趋势；已提供凌星星历，要求在保留短时凌星形状的前提下测量中位数凌星深度，并写入 /root/transit_depth.txt。",
+  "primaryOutputFile": "/root/transit_depth.txt",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "这与目标 skill 的典型用法最接近：先做质量筛选和离群点处理，再 flatten 去除低频恒星变化，同时避免抹掉短时凌星信号。",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing"
+}

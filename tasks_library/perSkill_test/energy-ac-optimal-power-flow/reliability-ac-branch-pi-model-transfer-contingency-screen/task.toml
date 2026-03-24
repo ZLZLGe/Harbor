@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "reliability-ac-branch-pi-model-transfer-contingency-screen"
+name = "Transfer: N-1 Contingency Branch Screen"
+description = "Screen multiple post-contingency voltage snapshots by recomputing surviving branch flows, identifying the worst branch in each scenario, and writing contingency_screen.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = [ "energy", "contingency-analysis", "ac-power-flow", "transmission-screening",]
+primary_output_file = "contingency_screen.json"
+source_task_id = "energy-ac-optimal-power-flow"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

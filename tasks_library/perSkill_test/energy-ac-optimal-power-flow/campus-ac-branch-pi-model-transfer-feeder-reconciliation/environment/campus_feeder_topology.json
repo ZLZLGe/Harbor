@@ -1,0 +1,111 @@
+{
+  "study_id": "campus-feeder-recon-2034-09-15T07:30:00+08:00",
+  "baseMVA": 10.0,
+  "buses": [
+    {
+      "id": 201,
+      "name": "Campus Intertie",
+      "vmin_pu": 0.97,
+      "vmax_pu": 1.03,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.0
+    },
+    {
+      "id": 202,
+      "name": "Energy Center",
+      "vmin_pu": 0.97,
+      "vmax_pu": 1.03,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.0
+    },
+    {
+      "id": 203,
+      "name": "North Quad",
+      "vmin_pu": 0.97,
+      "vmax_pu": 1.03,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.18
+    },
+    {
+      "id": 204,
+      "name": "Research Park",
+      "vmin_pu": 0.97,
+      "vmax_pu": 1.03,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.22
+    },
+    {
+      "id": 205,
+      "name": "Residence Village",
+      "vmin_pu": 0.97,
+      "vmax_pu": 1.03,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.0
+    },
+    {
+      "id": 206,
+      "name": "Mobility Hub",
+      "vmin_pu": 0.97,
+      "vmax_pu": 1.03,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.12
+    }
+  ],
+  "branches": [
+    {
+      "id": "F12",
+      "from_bus": 201,
+      "to_bus": 202,
+      "r_pu": 0.004,
+      "x_pu": 0.028,
+      "b_pu": 0.01,
+      "tap": 1.0,
+      "shift_deg": 0.0,
+      "rateA_MVA": 12.5
+    },
+    {
+      "id": "F23",
+      "from_bus": 202,
+      "to_bus": 203,
+      "r_pu": 0.006,
+      "x_pu": 0.032,
+      "b_pu": 0.012,
+      "tap": 1.0,
+      "shift_deg": 0.0,
+      "rateA_MVA": 8.5
+    },
+    {
+      "id": "F24",
+      "from_bus": 202,
+      "to_bus": 204,
+      "r_pu": 0.005,
+      "x_pu": 0.025,
+      "b_pu": 0.01,
+      "tap": 0.985,
+      "shift_deg": 0.0,
+      "rateA_MVA": 12.0
+    },
+    {
+      "id": "F35",
+      "from_bus": 203,
+      "to_bus": 205,
+      "r_pu": 0.0045,
+      "x_pu": 0.02,
+      "b_pu": 0.008,
+      "tap": 1.0,
+      "shift_deg": 0.0,
+      "rateA_MVA": 6.5
+    },
+    {
+      "id": "F46",
+      "from_bus": 204,
+      "to_bus": 206,
+      "r_pu": 0.0035,
+      "x_pu": 0.018,
+      "b_pu": 0.006,
+      "tap": 1.0,
+      "shift_deg": 0.0,
+      "rateA_MVA": 6.0
+    }
+  ]
+}

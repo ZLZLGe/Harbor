@@ -1,0 +1,7 @@
+station_id,basin,priority
+07010000,Upper Missouri,high
+07020000,Upper Missouri,normal
+07030000,Red River,high
+07040000,Red River,normal
+07050000,Arkansas,high
+07060000,Arkansas,normal

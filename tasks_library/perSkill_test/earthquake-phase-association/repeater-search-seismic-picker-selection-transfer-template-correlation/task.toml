@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "repeater-search-seismic-picker-selection-transfer-template-correlation"
+name = "Transfer - 重复微震模板检索"
+description = "利用给定种子模板在连续多台站波形中检索新增重复微震，并将检测时间列表写入 /root/repeater_detections.csv。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "seismology"
+tags = ["science", "earth-science", "seismology", "transfer", "repeater", "template-correlation"]
+primary_output_file = "/root/repeater_detections.csv"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

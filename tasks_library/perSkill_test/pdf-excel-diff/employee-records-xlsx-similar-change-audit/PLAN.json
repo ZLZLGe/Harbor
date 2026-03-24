@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "employee-records-xlsx-similar-change-audit",
+  "taskRole": "similar",
+  "title": "XLSX Similar: Employee Workbook Change Audit",
+  "goal": "Compare an archived employee workbook with a current employee workbook and write a JSON report listing deleted employee IDs plus every modified field with its old and new value.",
+  "primaryOutputFile": "/root/employee_workbook_diff.json",
+  "difficulty": "medium",
+  "category": "data-comparison",
+  "skillBenefitRationale": "The task is centered on reading structured Excel tables, normalizing spreadsheet cell types, and comparing workbook-backed records, so xlsx is the only critical shipped skill.",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

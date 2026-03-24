@@ -1,0 +1,6 @@
+drug_code,canonical_name,brand_name,high_cost_flag,reference_unit_paid_amount
+DRUG-9271,pembrolizumab 100 mg vial,Keytruda,Y,5300
+DRUG-9299,nivolumab 40 mg/4 mL,Opdivo,Y,2850
+DRUG-5117,trastuzumab-dkst 420 mg,Herzuma,Y,4600
+DRUG-0001,alteplase 50 mg,Activase,N,950
+DRUG-0002,acetaminophen 1000 mg iv,Ofirmev,N,120

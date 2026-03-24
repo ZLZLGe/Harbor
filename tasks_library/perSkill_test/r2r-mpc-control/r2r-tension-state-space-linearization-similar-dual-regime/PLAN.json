@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "r2r-tension-state-space-linearization-similar-dual-regime",
+  "taskRole": "similar",
+  "title": "Similar - R2R 双工况张力线性化与局部预测验证",
+  "goal": "针对6段卷对卷产线在换辊前后两个参考工况，推导连续与离散状态空间模型的A/B矩阵，并输出一个对比报告，证明线性模型能在短时间窗内近似预测张力与速度变化。",
+  "primaryOutputFile": "artifacts/r2r_dual_regime_linearization.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务仍处于原始张力系统场景，考察在典型控制建模流程中围绕工作点求Jacobian、离散化并检查局部有效性的能力；不再要求MPC设计，避免把控制器调参与优化建模变成关键能力。",
+  "targetSkillDirName": "state-space-linearization",
+  "targetSkillName": "state-space-linearization"
+}

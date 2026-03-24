@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-iceout-trend-analysis-similar-spring-shift",
+  "taskRole": "similar",
+  "title": "Similar: Reservoir Ice-Out Timing Trend",
+  "goal": "Analyze annual reservoir ice-out day-of-year observations and write a CSV that reports the long-term slope and p-value for the timing shift, so the user can tell whether spring breakup is happening earlier or later over time.",
+  "primaryOutputFile": "/root/output/ice_out_trend.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "This stays close to the source domain with a single environmental time series, but removes attribution work so the decisive capability is estimating and interpreting a monotonic trend with slope and significance.",
+  "targetSkillDirName": "trend-analysis",
+  "targetSkillName": "trend-analysis"
+}

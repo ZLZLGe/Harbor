@@ -1,0 +1,11 @@
+request_id,submitted_vendor_name,bank_account,po_number,requested_amount,currency
+REQ-001,"Northwind Industrial, L.L.C.",US00-NW-445566,PO-91001,18250.00,USD
+REQ-002,Blue Harbor Supply Co.,US00-BH-000000,PO-91002,9430.50,USD
+REQ-003,Apex Office Systems Limited,US00-AO-778899,PO-91003,1275.75,USD
+REQ-004,GreenLine Facility Services,US00-GF-112233,PO-91004,6500.00,USD
+REQ-005,Everstream Logistics Incorporated,US00-EL-554433,PO-99999,6500.00,USD
+REQ-006,Oribtal Foods Group,US00-OF-120000,PO-12345,880.00,USD
+REQ-007,Maple Bio Analytics Lab,US00-MB-665544,PO-91006,410.00,USD
+REQ-008,Summit Restaurant Grp,US00-SR-000999,PO-40404,760.25,USD
+REQ-009,Northwind Industrial LLC,US00-NW-445566,,18250.00,USD
+REQ-010,Blue Harbor Supply Company,US00-BH-901122,PO-91002,9430.50,USD

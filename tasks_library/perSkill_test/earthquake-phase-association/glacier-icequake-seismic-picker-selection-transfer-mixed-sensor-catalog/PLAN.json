@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "glacier-icequake-seismic-picker-selection-transfer-mixed-sensor-catalog",
+  "taskRole": "transfer",
+  "title": "Transfer - 冰震混合传感器事件筛选",
+  "goal": "面对缺少历史目录、台站稀疏且传感器类型混杂的冰川连续观测数据，选择合适的自动拾取方案并生成候选冰震事件时间表。",
+  "primaryOutputFile": "/root/icequake_candidates.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "这个场景把 skill 迁移到冰震监测，数据分布与构造地震不同，但仍然是无先验模板的连续波形问题；该 skill 对判断深度学习方法在泛化性、易部署性和多传感器适配上的优势最关键。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

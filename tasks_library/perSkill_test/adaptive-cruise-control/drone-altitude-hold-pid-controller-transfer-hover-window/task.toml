@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "drone-altitude-hold-pid-controller-transfer-hover-window"
+name = "Transfer: 无人机定高抗阵风控制"
+description = "实现一套无人机垂直定高仿真，在目标高度切换与阵风扰动下输出调参结果、飞行轨迹数据和分析报告。"
+author_name = "Levi Chen"
+author_email = "levi.chen@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["python", "pid-control", "drone", "altitude-hold", "simulation"]
+primary_output_file = "altitude_hold_trace.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

@@ -1,0 +1,56 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1774276756.8490489,
+            "stop": 1774276756.8656974
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_markdown_watchlist_matches_expected_blocks",
+                "status": "passed",
+                "duration": 0.0005243499999778578,
+                "start": 1774276756.8617885,
+                "stop": 1774276756.8626647,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_devices_are_sorted_and_count_matches",
+                "status": "passed",
+                "duration": 0.0004328259992689709,
+                "start": 1774276756.8629422,
+                "stop": 1774276756.863655,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_benign_devices_are_omitted",
+                "status": "passed",
+                "duration": 0.00038018800023564836,
+                "start": 1774276756.8639364,
+                "stop": 1774276756.8646286,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_reason_lines_use_only_allowed_sentences",
+                "status": "passed",
+                "duration": 0.00039678000030107796,
+                "start": 1774276756.8649108,
+                "stop": 1774276756.8656008,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "implant-packout-mesh-analysis-transfer-sterile-charge",
+  "taskRole": "transfer",
+  "title": "Transfer - Implant Sterile Packout Charge",
+  "goal": "从术前分割生成的二进制 STL 中剔除漂浮噪点，识别主植入体并读取材料 ID，按体积和材料规则计算灭菌封装填充剂用量。",
+  "primaryOutputFile": "/root/sterile_packout.json",
+  "difficulty": "hard",
+  "category": "healthcare",
+  "skillBenefitRationale": "这里不再求零件质量，而是把主构件体积和材料编码用于医疗封装计量；能力核心仍是网格主体识别与属性提取，因此 mesh-analysis 仍是唯一关键 shipped skill。",
+  "targetSkillDirName": "mesh-analysis",
+  "targetSkillName": "mesh-analysis"
+}

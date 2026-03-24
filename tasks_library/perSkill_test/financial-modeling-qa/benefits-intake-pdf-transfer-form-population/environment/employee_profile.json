@@ -1,0 +1,32 @@
+{
+  "employee": {
+    "name": "Avery Chen",
+    "employee_id": "EMP-20481",
+    "department": "People Operations",
+    "hire_date": "2023-11-06"
+  },
+  "benefits": {
+    "medical_plan": "PPO",
+    "dental_enrolled": false,
+    "vision_enrolled": true,
+    "tobacco_free": true,
+    "fsa_election": false,
+    "hsa_contribution_per_pay_period": "125.00"
+  },
+  "dependents": [
+    {
+      "name": "Jordan Chen",
+      "relationship": "Spouse",
+      "date_of_birth": "1990-02-21"
+    },
+    {
+      "name": "Mila Chen",
+      "relationship": "Child",
+      "date_of_birth": "2018-07-14"
+    }
+  ],
+  "signature": {
+    "signed_by": "Avery Chen",
+    "signed_on": "2026-03-01"
+  }
+}

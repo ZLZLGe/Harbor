@@ -1,0 +1,55 @@
+{
+  "sourceTaskId": "parallel-tfidf-search",
+  "targetSkillDirName": "python-parallelization",
+  "runId": "20260322131102-parallel-tfidf-search-python-parallelization-8qyp5y",
+  "taskId": "endpoint-probe-python-parallelization-transfer-async-audit",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/parallel-tfidf-search/python-parallelization/20260322131102-parallel-tfidf-search-python-parallelization-8qyp5y/endpoint-probe-python-parallelization-transfer-async-audit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322131102-parallel-tfidf-search-python-parallelization-8qyp5y/parallel-tfidf-search/drafts/endpoint-probe-python-parallelization-transfer-async-audit",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/parallel-tfidf-search/endpoint-probe-python-parallelization-transfer-async-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/parallel-tfidf-search/endpoint-probe-python-parallelization-transfer-async-audit",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "endpoint-probe-python-parallelization-transfer-async-audit"
+      ],
+      "requestedIssuesByTaskId": {
+        "endpoint-probe-python-parallelization-transfer-async-audit": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac1-49da-7de2-bd3a-ec10310dd2c2",
+      "repairSummary": "已最小化修复 static 问题，在 environment/Dockerfile 中补上精确的 `COPY skills /root/.codex/skills` 指令，未修改其他任务文件。",
+      "reviewThreadId": "019d1ac2-0886-70d3-9e74-1f47f4bac4da",
+      "evaluationByTaskId": {
+        "endpoint-probe-python-parallelization-transfer-async-audit": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "static"
+}

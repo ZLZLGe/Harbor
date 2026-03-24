@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "construction-site-openai-vision-transfer-safety-delta"
+name = "Transfer: 施工现场安全变化报告"
+description = "对施工区域 before/after 照片进行对比，统计新增安全风险并生成 /app/workspace/site_safety_delta.md。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "data statistics"
+tags = ["vision comparison", "construction safety", "markdown report"]
+primary_output_file = "/app/workspace/site_safety_delta.md"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

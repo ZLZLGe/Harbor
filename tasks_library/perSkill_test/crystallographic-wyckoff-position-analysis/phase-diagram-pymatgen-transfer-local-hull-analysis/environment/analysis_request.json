@@ -1,0 +1,10 @@
+{
+  "chemical_system": ["Li", "Fe", "O"],
+  "target_entry_ids": [
+    "lifeo2_ground",
+    "lifeo2_high",
+    "feo_high",
+    "li2feo3_trial",
+    "li3feo4_trial"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "insurance-pdf-transfer-auto-claim",
+  "taskRole": "transfer",
+  "title": "Transfer: Auto Damage Claim PDF",
+  "goal": "根据车辆剐蹭事故描述填写一份车险索赔 PDF，录入投保人信息、事故时间地点、受损说明与责任相关勾选。",
+  "primaryOutputFile": "/root/auto-claim-filled.pdf",
+  "difficulty": "easy",
+  "category": "document-processing",
+  "skillBenefitRationale": "该任务把同一能力迁移到保险场景，但本质仍是把给定事实准确写入 PDF 表单并处理复选项，不依赖额外 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

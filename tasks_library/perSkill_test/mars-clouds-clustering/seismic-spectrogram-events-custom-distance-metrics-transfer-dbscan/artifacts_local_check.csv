@@ -1,0 +1,6 @@
+station_id,event_id,peak_count,start_time_sec,end_time_sec,center_time_sec,min_frequency_hz,max_frequency_hz,center_frequency_hz,mean_amplitude_db,selected_time_weight,selected_epsilon,selected_min_samples
+SUR_A,SUR_A_E01,4,5.84,6.11,5.98,62.0,81.0,71.5,20.75,1.2,0.85,3
+SUR_A,SUR_A_E02,5,15.34,16.3,15.644,98.0,117.0,105.6,19.2,1.2,0.85,3
+SUR_A,SUR_A_E03,5,26.2,27.11,26.824,76.0,95.0,84.0,20.2,1.2,0.85,3
+SUR_B,SUR_B_E01,4,8.84,9.11,8.98,85.0,104.0,94.5,20.75,1.2,0.85,3
+SUR_B,SUR_B_E02,3,18.68,18.88,18.78,60.0,73.0,66.333,20.333,1.2,0.85,3

@@ -1,0 +1,10 @@
+{
+  "case_id": "battery_module_weld_case_001",
+  "baseline": {
+    "makespan": 20,
+    "downtime_violations": 6
+  },
+  "thresholds": {
+    "max_downtime_violations": 0
+  }
+}

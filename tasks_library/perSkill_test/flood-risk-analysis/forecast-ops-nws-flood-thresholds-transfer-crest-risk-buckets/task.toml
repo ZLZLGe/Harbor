@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "forecast-ops-nws-flood-thresholds-transfer-crest-risk-buckets"
+name = "Transfer - 预报洪峰风险分桶"
+description = "Use the provided watchlist, forecast crest guidance, and gauge threshold export to write a JSON risk-bucket summary for the next 48 hours."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["hydrology", "forecasting", "json", "thresholds", "risk-buckets"]
+primary_output_file = "/root/output/forecast_crest_risk.json"
+source_task_id = "flood-risk-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

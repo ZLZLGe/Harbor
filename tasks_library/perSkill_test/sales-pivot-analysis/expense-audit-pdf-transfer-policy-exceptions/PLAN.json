@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "expense-audit-pdf-transfer-policy-exceptions",
+  "taskRole": "transfer",
+  "title": "Transfer: 报销异常审计",
+  "goal": "解析一份报销审核 PDF，其中同时包含员工报销明细表和报销上限表，输出 JSON，列出超限员工、对应类别、申报金额、上限金额与异常原因。",
+  "primaryOutputFile": "/root/expense_policy_exceptions.json",
+  "difficulty": "medium",
+  "category": "audit",
+  "skillBenefitRationale": "交易明细和政策阈值都嵌在 PDF 表格里，任务成立的关键是准确提取并关联不同表格；`pdf` 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

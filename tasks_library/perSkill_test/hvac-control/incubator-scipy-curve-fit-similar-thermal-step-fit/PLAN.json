@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "incubator-scipy-curve-fit-similar-thermal-step-fit",
+  "taskRole": "similar",
+  "title": "Similar | Incubator Thermal Step-Response Fit",
+  "goal": "Characterize a benchtop incubator with an open-loop heater step test, fit a first-order thermal response from noisy measurements, and report the model parameters plus the steady heater percentage needed to hold a target culture temperature.",
+  "primaryOutputFile": "incubator_fit_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "This stays close to the source skill’s canonical use case: fitting a noisy first-order step response with constrained nonlinear least squares. `scipy.optimize.curve_fit` is the only essential shipped skill for recovering the thermal gain and time constant.",
+  "targetSkillDirName": "scipy-curve-fit",
+  "targetSkillName": "scipy-curve-fit"
+}

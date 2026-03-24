@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "coordination-signatures-pymatgen-transfer-local-environment",
+  "taskRole": "transfer",
+  "title": "Transfer | 局域配位环境签名分析",
+  "goal": "对给定晶体样品中的目标位点执行局域配位环境分析，汇总每个样品的配位数、邻居元素构成、最近键长范围和位点级配位签名，并输出结构化结果。",
+  "primaryOutputFile": "/root/workspace/coordination_signatures.json",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "核心工作是基于周期结构做近邻搜索和配位环境判断，这正对应 pymatgen 的结构表示与 local_env 分析模块，且不需要其他 shipped skill。",
+  "targetSkillDirName": "pymatgen",
+  "targetSkillName": "pymatgen"
+}

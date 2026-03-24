@@ -1,0 +1,118 @@
+{
+  "cluster": "harbor-west-2",
+  "observation_window": "2026-03-18T00:00:00Z/2026-03-18T01:00:00Z",
+  "pods": [
+    {
+      "namespace": "edge",
+      "pod": "asset-indexer-7c89d9d7b9-2kgr2",
+      "owner": "deployment/asset-indexer",
+      "egress_summary": {
+        "tcp_packet_count": 260,
+        "port_entropy": 6.82,
+        "syn_only_ratio": 0.88,
+        "unique_dst_ports": 150,
+        "packets_per_minute_avg": 30.0,
+        "packets_per_minute_max": 900.0,
+        "iat_cv": 0.41
+      }
+    },
+    {
+      "namespace": "b2b",
+      "pod": "partner-sync-68c7dd4f54-txqnr",
+      "owner": "deployment/partner-sync",
+      "egress_summary": {
+        "tcp_packet_count": 121,
+        "port_entropy": 6.35,
+        "syn_only_ratio": 0.75,
+        "unique_dst_ports": 101,
+        "packets_per_minute_avg": 14.0,
+        "packets_per_minute_max": 180.0,
+        "iat_cv": 0.82
+      }
+    },
+    {
+      "namespace": "telemetry",
+      "pod": "node-export-5dbfdcb85d-l2vqb",
+      "owner": "daemonset/node-export",
+      "egress_summary": {
+        "tcp_packet_count": 90,
+        "port_entropy": 3.1,
+        "syn_only_ratio": 0.1,
+        "unique_dst_ports": 9,
+        "packets_per_minute_avg": 18.0,
+        "packets_per_minute_max": 450.0,
+        "iat_cv": 0.32
+      }
+    },
+    {
+      "namespace": "jobs",
+      "pod": "cron-notifier-28542000-zx8k2",
+      "owner": "job/cron-notifier",
+      "egress_summary": {
+        "tcp_packet_count": 65,
+        "port_entropy": 2.8,
+        "syn_only_ratio": 0.08,
+        "unique_dst_ports": 4,
+        "packets_per_minute_avg": 6.0,
+        "packets_per_minute_max": 40.0,
+        "iat_cv": 0.22
+      }
+    },
+    {
+      "namespace": "compliance",
+      "pod": "report-exporter-6fd89c4c77-rt9nq",
+      "owner": "deployment/report-exporter",
+      "egress_summary": {
+        "tcp_packet_count": 49,
+        "port_entropy": 6.91,
+        "syn_only_ratio": 0.95,
+        "unique_dst_ports": 130,
+        "packets_per_minute_avg": 8.0,
+        "packets_per_minute_max": 48.0,
+        "iat_cv": 0.71
+      }
+    },
+    {
+      "namespace": "kube-system",
+      "pod": "dns-cache-5f8d7c9b6-mrx1c",
+      "owner": "deployment/dns-cache",
+      "egress_summary": {
+        "tcp_packet_count": 88,
+        "port_entropy": 6.2,
+        "syn_only_ratio": 0.82,
+        "unique_dst_ports": 100,
+        "packets_per_minute_avg": 5.0,
+        "packets_per_minute_max": 100.0,
+        "iat_cv": 0.5
+      }
+    },
+    {
+      "namespace": "checkout",
+      "pod": "frontend-api-7f9cf6d68c-hk2rw",
+      "owner": "deployment/frontend-api",
+      "egress_summary": {
+        "tcp_packet_count": 110,
+        "port_entropy": 6.0,
+        "syn_only_ratio": 0.9,
+        "unique_dst_ports": 145,
+        "packets_per_minute_avg": 7.0,
+        "packets_per_minute_max": 119.0,
+        "iat_cv": 1.2
+      }
+    },
+    {
+      "namespace": "storage",
+      "pod": "object-mirror-6b7d9fdbf8-jr2pl",
+      "owner": "statefulset/object-mirror",
+      "egress_summary": {
+        "tcp_packet_count": 73,
+        "port_entropy": 4.1,
+        "syn_only_ratio": 0.12,
+        "unique_dst_ports": 12,
+        "packets_per_minute_avg": 9.0,
+        "packets_per_minute_max": 150.0,
+        "iat_cv": 0.49
+      }
+    }
+  ]
+}

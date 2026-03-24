@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bastion-ssh-penetration-testing-transfer-remote-forward-acl",
+  "taskRole": "transfer",
+  "title": "Transfer | 修复 SSH 远程端口转发 ACL 泄露",
+  "goal": "在一个 Rust 写的 SSH 隧道代理里，远程端口转发请求默认可绑定任意地址和目标端口，导致外部用户能把内部服务暴露到公网。任务要求收紧 remote forwarding ACL，只允许白名单中的 loopback 目标和端口，同时不破坏被允许的运维隧道。",
+  "primaryOutputFile": "/app/workspace/src/forwarding/remote_acl.rs",
+  "difficulty": "hard",
+  "category": "rust security bugfix",
+  "skillBenefitRationale": "需要理解 SSH 隧道、`-R` 转发和横向移动风险，才能正确识别危险转发模式并修补 ACL；关键能力完全来自 ssh-penetration-testing。",
+  "targetSkillDirName": "ssh-penetration-testing",
+  "targetSkillName": "ssh-penetration-testing"
+}

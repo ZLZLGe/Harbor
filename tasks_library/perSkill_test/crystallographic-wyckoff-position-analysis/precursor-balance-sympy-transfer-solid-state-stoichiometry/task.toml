@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "precursor-balance-sympy-transfer-solid-state-stoichiometry"
+name = "Transfer: 固相合成反应的符号化计量配平"
+description = "Read a JSON specification of precursor and byproduct element counts, solve the smallest integer solid-state reaction coefficients, and report normalized equations with per-element balance checks."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "chemistry"
+tags = ["chemistry", "stoichiometry", "exact_arithmetic", "linear_algebra", "solid_state_synthesis"]
+primary_output_file = "/root/workspace/solid_state_stoichiometry.py"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096

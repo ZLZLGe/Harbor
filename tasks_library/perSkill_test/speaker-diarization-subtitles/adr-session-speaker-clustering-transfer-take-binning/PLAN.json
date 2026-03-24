@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "adr-session-speaker-clustering-transfer-take-binning",
+  "taskRole": "transfer",
+  "title": "Transfer | ADR Take 分桶",
+  "goal": "给定影视 ADR 会话中已切好的 take 嵌入以及已知演员人数，把各个 take 聚到对应演员桶中，输出供后期对轨使用的 actor-bin 分配表。",
+  "primaryOutputFile": "/root/adr_take_bins.tsv",
+  "difficulty": "hard",
+  "category": "audio-visual",
+  "skillBenefitRationale": "演员数量已知、take 边界与嵌入已给定，问题的关键就是在固定簇数场景下选择并实现合适的聚类方案完成分桶，完全由 speaker-clustering 决定。",
+  "targetSkillDirName": "speaker-clustering",
+  "targetSkillName": "Speaker Clustering Methods"
+}

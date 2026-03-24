@@ -1,0 +1,66 @@
+{
+  "packet_title": "Region 5 Wastewater Renewal Submission Packet",
+  "packet_id": "R5-2026-041",
+  "applicant": "Harbor Point Finishing LLC",
+  "facility": "Pier 7 Pretreatment Annex",
+  "permit_number": "IW-4471-22",
+  "submission_deadline": "2026-04-15",
+  "prepared_by": "Mina Ortega",
+  "output_title": "Regulatory Submission Packet - R5-2026-041",
+  "assembly_order": [
+    {
+      "section_code": "A",
+      "section_title": "Inspection findings overview",
+      "source_pdf": "inspection_summary.pdf",
+      "page_number": 2,
+      "rotation_correction_clockwise": 0,
+      "page_marker": "Marker: INSPECT-OVERVIEW"
+    },
+    {
+      "section_code": "B",
+      "section_title": "Corrective action timeline",
+      "source_pdf": "inspection_summary.pdf",
+      "page_number": 3,
+      "rotation_correction_clockwise": 270,
+      "page_marker": "Marker: CORRECTIVE-TIMELINE"
+    },
+    {
+      "section_code": "C",
+      "section_title": "March 2026 composite monitoring results",
+      "source_pdf": "effluent_monitoring.pdf",
+      "page_number": 1,
+      "rotation_correction_clockwise": 0,
+      "page_marker": "Marker: MARCH-COMPOSITE"
+    },
+    {
+      "section_code": "D",
+      "section_title": "Quarterly trend exceptions summary",
+      "source_pdf": "effluent_monitoring.pdf",
+      "page_number": 2,
+      "rotation_correction_clockwise": 90,
+      "page_marker": "Marker: TREND-EXCEPTIONS"
+    },
+    {
+      "section_code": "E",
+      "section_title": "Hazmat refresher certificate",
+      "source_pdf": "training_records.pdf",
+      "page_number": 2,
+      "rotation_correction_clockwise": 0,
+      "page_marker": "Marker: HAZMAT-CERT"
+    },
+    {
+      "section_code": "F",
+      "section_title": "Spill drill sign-off",
+      "source_pdf": "training_records.pdf",
+      "page_number": 3,
+      "rotation_correction_clockwise": 0,
+      "page_marker": "Marker: SPILL-DRILL"
+    }
+  ],
+  "excluded_page_markers": [
+    "Marker: INSPECT-LETTER",
+    "Marker: INSPECT-APPENDIX",
+    "Marker: MONITORING-ROUTING",
+    "Marker: TRAINING-LEDGER"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "fermentor_id": "FERM-22",
+  "dt_sec": 10.0,
+  "target_ph": 6.8,
+  "target_band": {
+    "low": 6.75,
+    "high": 6.9
+  },
+  "high_limit_ph": 7.2,
+  "pump_limits_pct": {
+    "min": 0.0,
+    "max": 45.0
+  },
+  "dosing_gain_ph_per_pct_step": 0.003,
+  "base_drift_ph_per_step": -0.03,
+  "buffer_center_ph": 6.65,
+  "buffer_pull_per_step": 0.08,
+  "trial_dose": {
+    "initial_ph": 7.05,
+    "requested_profile_pct": [45.0, 45.0, 35.0, 35.0, 20.0, 0.0]
+  },
+  "regulate": {
+    "initial_ph": 6.12,
+    "duration_sec": 180.0,
+    "kp": 70.0,
+    "bias_pct": 14.0,
+    "tail_window_samples": 6
+  }
+}

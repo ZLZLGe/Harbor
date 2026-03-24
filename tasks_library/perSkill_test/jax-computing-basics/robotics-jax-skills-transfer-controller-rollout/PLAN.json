@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "robotics-jax-skills-transfer-controller-rollout",
+  "taskRole": "transfer",
+  "title": "Transfer: Robotics Controller Rollout",
+  "goal": "把 JAX 能力迁移到机器人控制场景：根据给定控制序列、动力学参数和初始状态，批量 rollout 多条轨迹，输出每步状态张量与控制代价摘要，重点检验 scan、vmap 与 jit 在时序仿真中的组合使用。",
+  "primaryOutputFile": "robot_rollout.npy",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "机器人轨迹推进是与原始 ML/数值练习明显不同的场景，但依然依赖 JAX 的批量数组计算、scan 时序递推和 jit 加速；除 jax-skills 外不需要其他 shipped skill。",
+  "targetSkillDirName": "jax-skills",
+  "targetSkillName": "jax-skills"
+}

@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "pedestrian-traffic-counting",
+  "targetSkillDirName": "gemini-video-understanding",
+  "runId": "20260322131102-pedestrian-traffic-counting-gemini-video-understanding-j54fnm",
+  "taskId": "docksafe-gemini-video-understanding-transfer-near-miss-timeline",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/pedestrian-traffic-counting/gemini-video-understanding/20260322131102-pedestrian-traffic-counting-gemini-video-understanding-j54fnm/docksafe-gemini-video-understanding-transfer-near-miss-timeline",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/pedestrian-traffic-counting/docksafe-gemini-video-understanding-transfer-near-miss-timeline",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:docksafe-gemini-video-understanding-transfer-near-miss-timeline instruction.md 未直接出现 `gemini-video-understanding`，不存在技能暴露。; 任务完成只需要当前 shipped skill 的视频事件定位与结构化输出能力，不需要额外 shipped skill。; tests/test_outputs.py 虽检查 JSON 结构和记录数，但最终只要求 average_reward > 0.0；只要少量事件部分命中，大量错误时间点、对象或证据仍可能通过，测试不可判定。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 draft 的 instruction.md 都没有直接暴露 shipped skill 的 name 或 dirName，但四个任务的测试整体都偏松，普遍只要求 reward > 0，family 级可判定性不足。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a6a-a689-7010-aa3e-a88c3936314c"
+}

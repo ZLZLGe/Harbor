@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "python-backup-find-bugs-transfer-tar-symlink",
+  "taskRole": "transfer",
+  "title": "Transfer - 审计 Python 备份恢复归档处理改动",
+  "goal": "审计一个 Python 备份恢复服务分支里新加入的 tar 解包与恢复逻辑，确认是否仍可通过恶意归档成员或符号链接覆盖任意路径，并输出经过验证的发现。",
+  "primaryOutputFile": "reports/transfer-backup-archive-findings.md",
+  "difficulty": "hard",
+  "category": "python security review",
+  "skillBenefitRationale": "该任务要求对变更代码做安全审查、追踪外部输入到文件系统写入的路径、验证现有防护是否真的生效；关键能力完全落在 `find-bugs` 上。",
+  "targetSkillDirName": "find-bugs",
+  "targetSkillName": "find-bugs"
+}

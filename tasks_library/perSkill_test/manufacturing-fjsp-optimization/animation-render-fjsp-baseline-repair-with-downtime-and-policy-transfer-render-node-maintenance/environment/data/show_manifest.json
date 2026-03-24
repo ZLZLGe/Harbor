@@ -1,0 +1,287 @@
+{
+  "stations": [
+    {
+      "station_id": "prep-a",
+      "station_name": "Prep Bay A",
+      "kind": "prep"
+    },
+    {
+      "station_id": "prep-b",
+      "station_name": "Prep Bay B",
+      "kind": "prep"
+    },
+    {
+      "station_id": "render-01",
+      "station_name": "Render Node 01",
+      "kind": "render"
+    },
+    {
+      "station_id": "render-02",
+      "station_name": "Render Node 02",
+      "kind": "render"
+    },
+    {
+      "station_id": "render-03",
+      "station_name": "Render Node 03",
+      "kind": "render"
+    },
+    {
+      "station_id": "comp-a",
+      "station_name": "Comp Suite A",
+      "kind": "composite"
+    },
+    {
+      "station_id": "comp-b",
+      "station_name": "Comp Suite B",
+      "kind": "composite"
+    },
+    {
+      "station_id": "qc-east",
+      "station_name": "QC Desk East",
+      "kind": "qc"
+    },
+    {
+      "station_id": "qc-west",
+      "station_name": "QC Desk West",
+      "kind": "qc"
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "SH010",
+      "review_due": 60,
+      "stages": [
+        {
+          "stage": "prep",
+          "options": [
+            {
+              "station_id": "prep-a",
+              "duration": 6
+            },
+            {
+              "station_id": "prep-b",
+              "duration": 5
+            }
+          ]
+        },
+        {
+          "stage": "render",
+          "options": [
+            {
+              "station_id": "render-01",
+              "duration": 18
+            },
+            {
+              "station_id": "render-02",
+              "duration": 15
+            },
+            {
+              "station_id": "render-03",
+              "duration": 16
+            }
+          ]
+        },
+        {
+          "stage": "composite",
+          "options": [
+            {
+              "station_id": "comp-a",
+              "duration": 10
+            },
+            {
+              "station_id": "comp-b",
+              "duration": 12
+            }
+          ]
+        },
+        {
+          "stage": "qc",
+          "options": [
+            {
+              "station_id": "qc-east",
+              "duration": 5
+            },
+            {
+              "station_id": "qc-west",
+              "duration": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "shot_id": "SH020",
+      "review_due": 72,
+      "stages": [
+        {
+          "stage": "prep",
+          "options": [
+            {
+              "station_id": "prep-a",
+              "duration": 7
+            },
+            {
+              "station_id": "prep-b",
+              "duration": 6
+            }
+          ]
+        },
+        {
+          "stage": "render",
+          "options": [
+            {
+              "station_id": "render-02",
+              "duration": 14
+            },
+            {
+              "station_id": "render-03",
+              "duration": 16
+            }
+          ]
+        },
+        {
+          "stage": "composite",
+          "options": [
+            {
+              "station_id": "comp-a",
+              "duration": 9
+            },
+            {
+              "station_id": "comp-b",
+              "duration": 11
+            }
+          ]
+        },
+        {
+          "stage": "qc",
+          "options": [
+            {
+              "station_id": "qc-west",
+              "duration": 4
+            },
+            {
+              "station_id": "qc-east",
+              "duration": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "shot_id": "SH030",
+      "review_due": 70,
+      "stages": [
+        {
+          "stage": "prep",
+          "options": [
+            {
+              "station_id": "prep-a",
+              "duration": 5
+            },
+            {
+              "station_id": "prep-b",
+              "duration": 4
+            }
+          ]
+        },
+        {
+          "stage": "render",
+          "options": [
+            {
+              "station_id": "render-01",
+              "duration": 17
+            },
+            {
+              "station_id": "render-03",
+              "duration": 15
+            }
+          ]
+        },
+        {
+          "stage": "composite",
+          "options": [
+            {
+              "station_id": "comp-b",
+              "duration": 8
+            },
+            {
+              "station_id": "comp-a",
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "stage": "qc",
+          "options": [
+            {
+              "station_id": "qc-east",
+              "duration": 4
+            },
+            {
+              "station_id": "qc-west",
+              "duration": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "shot_id": "SH040",
+      "review_due": 55,
+      "stages": [
+        {
+          "stage": "prep",
+          "options": [
+            {
+              "station_id": "prep-a",
+              "duration": 6
+            },
+            {
+              "station_id": "prep-b",
+              "duration": 7
+            }
+          ]
+        },
+        {
+          "stage": "render",
+          "options": [
+            {
+              "station_id": "render-01",
+              "duration": 12
+            },
+            {
+              "station_id": "render-02",
+              "duration": 11
+            }
+          ]
+        },
+        {
+          "stage": "composite",
+          "options": [
+            {
+              "station_id": "comp-b",
+              "duration": 9
+            },
+            {
+              "station_id": "comp-a",
+              "duration": 8
+            }
+          ]
+        },
+        {
+          "stage": "qc",
+          "options": [
+            {
+              "station_id": "qc-west",
+              "duration": 5
+            },
+            {
+              "station_id": "qc-east",
+              "duration": 4
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "mhc-layer-impl",
+  "targetSkillDirName": "nanogpt-training",
+  "runId": "20260320125420-mhc-layer-impl-nanogpt-training-t57u6c",
+  "taskId": "resume-nanogpt-training-transfer-checkpoint-parity",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/mhc-layer-impl/nanogpt-training/20260320125420-mhc-layer-impl-nanogpt-training-t57u6c/resume-nanogpt-training-transfer-checkpoint-parity",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/mhc-layer-impl/resume-nanogpt-training-transfer-checkpoint-parity",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:resume-nanogpt-training-transfer-checkpoint-parity `tests/test.sh` 会先执行 `/solution/solve.sh`，验证器实际上在跑参考解，无法判定提交者自己的实现。; 测试强制检查 `train_data_state.generator_state` 和 `train_data_state.batches_emitted` 这组具体键名，但 instruction 只要求保存可回放的数据流状态，合法实现可能被误判。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fb4-b306-77f1-ab47-8e2e69cba5cb"
+}

@@ -1,0 +1,15 @@
+{
+  "asset_queries": [
+    "relay controller cabinet signal",
+    "drainage pump ballast rainfall",
+    "wind visibility weather alert",
+    "crowd boarding platform shuttle"
+  ],
+  "generated_queries": [
+    "signal relay manual routing",
+    "drainage turnout ballast pump",
+    "substation feeder voltage charger",
+    "platform crowd wayfinding boarding",
+    "coastal wind bridge visibility"
+  ]
+}

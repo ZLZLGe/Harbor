@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "deckops-pptx-similar-embedded-forecast-refresh",
+  "taskRole": "similar",
+  "title": "Similar: Refresh Embedded Forecast Table in a Sales Deck",
+  "goal": "在销售汇报 PPT 中读取嵌入式 Excel 预测表，并根据相邻文本框给出的最新区域季度数值更新对应单元格，保留原有公式与版式不变后导出新文件。",
+  "primaryOutputFile": "/root/revenue-forecast-refresh.pptx",
+  "difficulty": "medium",
+  "category": "Office Operation",
+  "skillBenefitRationale": "这个任务延续了 PPTX 典型的 OOXML 编辑流程：定位文本框、提取嵌入工作簿、修改嵌入对象并重新打包演示文稿，核心能力与目标 skill 高度贴合但场景不再是汇率表。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

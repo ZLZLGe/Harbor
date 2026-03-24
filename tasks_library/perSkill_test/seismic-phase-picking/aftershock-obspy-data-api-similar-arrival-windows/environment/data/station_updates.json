@@ -1,0 +1,28 @@
+{
+  "stations": [
+    {
+      "network": "BK",
+      "station": "MHC",
+      "location": "00",
+      "latitude": 37.3416,
+      "longitude": -121.6426,
+      "elevation_m": 1250.4
+    },
+    {
+      "network": "NN",
+      "station": "LHV",
+      "location": "",
+      "latitude": 38.2513,
+      "longitude": -118.5049,
+      "elevation_m": 2353.0
+    },
+    {
+      "network": "TA",
+      "station": "P01C",
+      "location": "",
+      "latitude": 39.469,
+      "longitude": -123.3375,
+      "elevation_m": 440.9
+    }
+  ]
+}

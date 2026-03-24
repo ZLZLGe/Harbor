@@ -1,0 +1,6 @@
+machine_id,line_id,oven_model,gas_mode,maintenance_overdue,last_pm_days,downtime_minutes_7d,tc_drift_events_7d
+RF-11,L1,10Z_Convection,N2_full,1,47,210,0
+RF-12,L2,8Z_Convection,Air,1,39,160,0
+RF-13,L2,10Z_Convection,N2_mixed,1,61,150,3
+RF-14,L3,8Z_IR+Conv,N2_mixed,0,28,85,0
+RF-15,L3,10Z_Convection,N2_full,0,21,35,0

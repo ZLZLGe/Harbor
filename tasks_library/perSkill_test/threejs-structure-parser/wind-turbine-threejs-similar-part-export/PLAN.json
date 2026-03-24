@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wind-turbine-threejs-similar-part-export",
+  "taskRole": "similar",
+  "title": "Similar: 风力发电机分件导出",
+  "goal": "解析一个风力发电机 Three.js 场景，把具名 Group 视为部件，按最近具名祖先归属 mesh，导出每个部件的单独 OBJ 与合并后的部件 OBJ，并生成部件清单。",
+  "primaryOutputFile": "/root/output/wind_turbine_manifest.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "这道题直接考察 Three.js 场景图遍历、具名 Group 分件、世界变换烘焙和稳定 OBJ 导出，是当前技能最典型的 shipped 用法之一，但对象结构与原始任务明显不同。",
+  "targetSkillDirName": "threejs",
+  "targetSkillName": "threejs"
+}

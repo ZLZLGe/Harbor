@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "dam-ops-usgs-data-download-transfer-station-metadata-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: 水库值守测站元数据审计",
+  "goal": "给定一批用于水库运行值守候选的 USGS 站号，拉取站点元数据，筛出具有完整名称、经纬度、州信息和排水面积字段的河流测站，并输出 `/root/output/station_metadata_audit.json`，按站点记录 `station_id`、`site_name`、`state`、`latitude`、`longitude` 和 `drainage_area_sqmi`。",
+  "primaryOutputFile": "/root/output/station_metadata_audit.json",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "任务不再关注时序水文值，而是依赖 `usgs-data-download` 的 `nwis.get_info()` 做站点信息获取和整理，能测试同一技能在元数据场景下的迁移能力。",
+  "targetSkillDirName": "usgs-data-download",
+  "targetSkillName": "usgs-data-download"
+}

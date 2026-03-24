@@ -1,0 +1,101 @@
+{
+  "sourceTaskId": "jpg-ocr-stat",
+  "targetSkillDirName": "pdf",
+  "runId": "20260320101606-jpg-ocr-stat-pdf-37zwbd",
+  "taskId": "audit-pdf-transfer-packet-rebuild",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/jpg-ocr-stat/audit-pdf-transfer-packet-rebuild",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320101606-jpg-ocr-stat-pdf-37zwbd/jpg-ocr-stat/drafts/audit-pdf-transfer-packet-rebuild",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/jpg-ocr-stat/audit-pdf-transfer-packet-rebuild",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/jpg-ocr-stat/audit-pdf-transfer-packet-rebuild",
+  "status": "pass",
+  "issueCategories": [
+    "visibility",
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现“PDF”和输出路径 `audit_review_packet.pdf`，直接点名了唯一 shipped skill `pdf`。; tests/test.sh 直接调用 `pytest`，但 environment/Dockerfile 未安装 pytest，测试链路不自洽。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md directly mentions \"PDF\", so it exposes the shipped skill name/dirName.; tests/test.sh assumes pytest is already available and does not provision verifier dependencies, so the test is not reliably runnable in this environment.; visibilityPass=false; testabilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "audit-pdf-transfer-packet-rebuild",
+        "intake-pdf-transfer-form-packet",
+        "receipt-pdf-similar-spend-summary",
+        "statement-pdf-transfer-metrics-rollup"
+      ],
+      "requestedIssuesByTaskId": {
+        "audit-pdf-transfer-packet-rebuild": {
+          "reviewerIssues": [
+            "instruction.md directly mentions \"PDF\", so it exposes the shipped skill name/dirName.; tests/test.sh assumes pytest is already available and does not provision verifier dependencies, so the test is not reliably runnable in this environment.; visibilityPass=false; testabilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "intake-pdf-transfer-form-packet": {
+          "reviewerIssues": [
+            "instruction.md directly mentions \"PDF\", so it exposes the shipped skill name/dirName.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "receipt-pdf-similar-spend-summary": {
+          "reviewerIssues": [
+            "instruction.md directly mentions \"PDF\", so it exposes the shipped skill name/dirName.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "statement-pdf-transfer-metrics-rollup": {
+          "reviewerIssues": [
+            "instruction.md directly mentions \"PDF\", so it exposes the shipped skill name/dirName.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10e1-649b-7410-8e1a-804377587d12",
+      "repairSummary": "- `audit-pdf-transfer-packet-rebuild`：重写 `instruction.md`，去掉所有直接暴露技能名的写法，包括扩展名和文件名直写；保留页序、页来源、旋转修正、单文件输出等可测要求。另把 `tests/test.sh` 改成自包含安装 `pytest`、`pypdf` 和 CTRF 依赖，不再假设环境里已预装 verifier 依赖。\n\n- `intake-pdf-transfer-form-packet`：重写 `instruction.md`，去掉技能名暴露；补充“保留原有可填写字段集合、不要把字段烘焙成不可读取内容”的要求，使现有字段集校验与测试更直接对应。\n\n- `receipt-pdf-similar-spend-summary`：重写 `instruction.md`，去掉技能名暴露，包括输入目录名和输出文件名里的相关直写；保留并明确 CSV 表头、三列限制、按文件名排序、日期与金额格式、缺失值留空等要求。\n\n- `statement-pdf-transfer-metrics-rollup`：重写 `instruction.md`，去掉所有技能名暴露，包括正文、JSON 示例和值说明中的残留；保留顶层 JSON 结构、排序要求、金额字符串格式、仅统计实际出现代码等测试所需约束。\n\n已做本地检查：四个 `instruction.md` 里已无 `pdf/PDF` 字符串；`audit` 的 `tests/test.sh` 过了 `bash -n`；四个 `test_outputs.py` 过了 `py_compile`。未在完整 Harbor reviewer / static validate 环境里跑端到端。",
+      "reviewThreadId": "019d10e5-c7f1-7ad2-acdf-3a92cb6da299",
+      "evaluationByTaskId": {
+        "audit-pdf-transfer-packet-rebuild": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "intake-pdf-transfer-form-packet": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "receipt-pdf-similar-spend-summary": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "statement-pdf-transfer-metrics-rollup": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

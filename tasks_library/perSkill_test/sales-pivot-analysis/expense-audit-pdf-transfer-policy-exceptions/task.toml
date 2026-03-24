@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "expense-audit-pdf-transfer-policy-exceptions"
+name = "Transfer: 报销异常审计"
+description = "从一份同时包含报销明细和报销上限表的审计资料中提取超限报销异常，并输出 JSON。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "audit"
+tags = ["pdf", "json", "audit", "expense-review"]
+primary_output_file = "/root/expense_policy_exceptions.json"
+source_task_id = "sales-pivot-analysis"
+task_role = "transfer"
+required_skills = ["pdf"]
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

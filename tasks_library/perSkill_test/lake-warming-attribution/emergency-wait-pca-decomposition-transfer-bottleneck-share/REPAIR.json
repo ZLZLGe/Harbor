@@ -1,0 +1,24 @@
+{
+  "sourceTaskId": "lake-warming-attribution",
+  "targetSkillDirName": "pca-decomposition",
+  "runId": "20260320110115-lake-warming-attribution-pca-decomposition-tp74up",
+  "taskId": "emergency-wait-pca-decomposition-transfer-bottleneck-share",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/lake-warming-attribution/emergency-wait-pca-decomposition-transfer-bottleneck-share",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320110115-lake-warming-attribution-pca-decomposition-tp74up/lake-warming-attribution/drafts/emergency-wait-pca-decomposition-transfer-bottleneck-share",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/lake-warming-attribution/emergency-wait-pca-decomposition-transfer-bottleneck-share",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/lake-warming-attribution/emergency-wait-pca-decomposition-transfer-bottleneck-share",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction 没有把旋转方法与 PCA 实现细节写死，只要求 orthogonal rotation；测试则精确绑定到标准化后 SVD+varimax 的特定实现。; dominant category 与 share_pct 都按近乎精确值验证，和 instruction 的开放表述不一致，因此测试不可充分判定。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

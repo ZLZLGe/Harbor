@@ -1,0 +1,212 @@
+{
+  "status": "DISPATCHABLE",
+  "last_ready_minute": 137,
+  "budget_usage": {
+    "equipment_changes": 4,
+    "total_start_shift": 115
+  },
+  "dispatch_board": [
+    {
+      "flight_id": "HX215",
+      "ready_minute": 74,
+      "departure_minute": 180,
+      "buffer_to_departure": 106
+    },
+    {
+      "flight_id": "HX342",
+      "ready_minute": 97,
+      "departure_minute": 210,
+      "buffer_to_departure": 113
+    },
+    {
+      "flight_id": "HX404",
+      "ready_minute": 116,
+      "departure_minute": 235,
+      "buffer_to_departure": 119
+    },
+    {
+      "flight_id": "HX518",
+      "ready_minute": 137,
+      "departure_minute": 265,
+      "buffer_to_departure": 128
+    }
+  ],
+  "kitchen_plan": [
+    {
+      "flight_id": "HX215",
+      "stage": "prep",
+      "stage_index": 0,
+      "equipment_group": "prep",
+      "equipment_id": "prep-a",
+      "equipment_name": "Prep Bench A",
+      "start": 0,
+      "finish": 16,
+      "duration": 16
+    },
+    {
+      "flight_id": "HX342",
+      "stage": "prep",
+      "stage_index": 0,
+      "equipment_group": "prep",
+      "equipment_id": "prep-b",
+      "equipment_name": "Prep Bench B",
+      "start": 0,
+      "finish": 17,
+      "duration": 17
+    },
+    {
+      "flight_id": "HX404",
+      "stage": "prep",
+      "stage_index": 0,
+      "equipment_group": "prep",
+      "equipment_id": "prep-a",
+      "equipment_name": "Prep Bench A",
+      "start": 16,
+      "finish": 34,
+      "duration": 18
+    },
+    {
+      "flight_id": "HX518",
+      "stage": "prep",
+      "stage_index": 0,
+      "equipment_group": "prep",
+      "equipment_id": "prep-b",
+      "equipment_name": "Prep Bench B",
+      "start": 18,
+      "finish": 34,
+      "duration": 16
+    },
+    {
+      "flight_id": "HX215",
+      "stage": "cook",
+      "stage_index": 1,
+      "equipment_group": "cook",
+      "equipment_id": "oven-a",
+      "equipment_name": "Convection Oven A",
+      "start": 16,
+      "finish": 42,
+      "duration": 26
+    },
+    {
+      "flight_id": "HX342",
+      "stage": "cook",
+      "stage_index": 1,
+      "equipment_group": "cook",
+      "equipment_id": "oven-b",
+      "equipment_name": "Convection Oven B",
+      "start": 42,
+      "finish": 62,
+      "duration": 20
+    },
+    {
+      "flight_id": "HX404",
+      "stage": "cook",
+      "stage_index": 1,
+      "equipment_group": "cook",
+      "equipment_id": "oven-b",
+      "equipment_name": "Convection Oven B",
+      "start": 62,
+      "finish": 85,
+      "duration": 23
+    },
+    {
+      "flight_id": "HX518",
+      "stage": "cook",
+      "stage_index": 1,
+      "equipment_group": "cook",
+      "equipment_id": "oven-b",
+      "equipment_name": "Convection Oven B",
+      "start": 85,
+      "finish": 106,
+      "duration": 21
+    },
+    {
+      "flight_id": "HX215",
+      "stage": "chill",
+      "stage_index": 2,
+      "equipment_group": "chill",
+      "equipment_id": "chill-a",
+      "equipment_name": "Blast Chiller A",
+      "start": 42,
+      "finish": 60,
+      "duration": 18
+    },
+    {
+      "flight_id": "HX342",
+      "stage": "chill",
+      "stage_index": 2,
+      "equipment_group": "chill",
+      "equipment_id": "chill-b",
+      "equipment_name": "Blast Chiller B",
+      "start": 66,
+      "finish": 84,
+      "duration": 18
+    },
+    {
+      "flight_id": "HX404",
+      "stage": "chill",
+      "stage_index": 2,
+      "equipment_group": "chill",
+      "equipment_id": "chill-b",
+      "equipment_name": "Blast Chiller B",
+      "start": 85,
+      "finish": 100,
+      "duration": 15
+    },
+    {
+      "flight_id": "HX518",
+      "stage": "chill",
+      "stage_index": 2,
+      "equipment_group": "chill",
+      "equipment_id": "chill-b",
+      "equipment_name": "Blast Chiller B",
+      "start": 106,
+      "finish": 123,
+      "duration": 17
+    },
+    {
+      "flight_id": "HX215",
+      "stage": "assemble",
+      "stage_index": 3,
+      "equipment_group": "assemble",
+      "equipment_id": "asm-a",
+      "equipment_name": "Tray Assembly Lane A",
+      "start": 60,
+      "finish": 74,
+      "duration": 14
+    },
+    {
+      "flight_id": "HX342",
+      "stage": "assemble",
+      "stage_index": 3,
+      "equipment_group": "assemble",
+      "equipment_id": "asm-b",
+      "equipment_name": "Tray Assembly Lane B",
+      "start": 84,
+      "finish": 97,
+      "duration": 13
+    },
+    {
+      "flight_id": "HX404",
+      "stage": "assemble",
+      "stage_index": 3,
+      "equipment_group": "assemble",
+      "equipment_id": "asm-a",
+      "equipment_name": "Tray Assembly Lane A",
+      "start": 100,
+      "finish": 116,
+      "duration": 16
+    },
+    {
+      "flight_id": "HX518",
+      "stage": "assemble",
+      "stage_index": 3,
+      "equipment_group": "assemble",
+      "equipment_id": "asm-b",
+      "equipment_name": "Tray Assembly Lane B",
+      "start": 123,
+      "finish": 137,
+      "duration": 14
+    }
+  ]
+}

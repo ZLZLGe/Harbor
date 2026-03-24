@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "booster-pressure-simulation-metrics-transfer-demand-surge",
+  "taskRole": "transfer",
+  "title": "增压泵稳压 Transfer 指标对比",
+  "goal": "评估增压泵站在用水突增工况下的压力调节仿真，计算压力恢复的 rise time、overshoot、steady-state error 和低压持续时长，整理成可复核的指标表用于方案比较。",
+  "primaryOutputFile": "pressure_surge_metrics.csv",
+  "difficulty": "medium",
+  "category": "fluid-systems",
+  "skillBenefitRationale": "将 simulation-metrics 迁移到流体压力控制问题，仍然是围绕仿真曲线计算标准性能指标并据此比较控制效果。",
+  "targetSkillDirName": "simulation-metrics",
+  "targetSkillName": "simulation-metrics"
+}

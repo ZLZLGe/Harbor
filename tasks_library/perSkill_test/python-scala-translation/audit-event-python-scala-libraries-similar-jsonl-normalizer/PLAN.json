@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "audit-event-python-scala-libraries-similar-jsonl-normalizer",
+  "taskRole": "similar",
+  "title": "Similar: Translate a Python JSONL Event Normalizer to Scala",
+  "goal": "将一个使用 `json`、`datetime`、`re` 与 `pathlib` 处理 JSONL 审计事件的 Python 模块翻译成 Scala 2.13，输出 `/root/EventNormalizer.scala`，保留事件解析、时间标准化、标签提取和批量汇总行为。",
+  "primaryOutputFile": "/root/EventNormalizer.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "核心难点是把 Python 常见库与惯用法映射到 Scala 对应方案，例如 Circe、`java.time`、`java.nio.file` 和 Scala 正则；这正是当前 skill 的典型用法，而且不依赖其他 shipped skill。",
+  "targetSkillDirName": "python-scala-libraries",
+  "targetSkillName": "python-scala-libraries"
+}

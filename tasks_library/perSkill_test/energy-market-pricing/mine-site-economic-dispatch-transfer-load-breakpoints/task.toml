@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "mine-site-economic-dispatch-transfer-load-breakpoints"
+name = "Transfer - Mine Site Load Breakpoint Study"
+description = "Solve least-cost dispatch for each mine-site production load block and write breakpoint_study.json with block dispatches, marginal costs, and the standby turbine breakpoint."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "energy"
+tags = [ "energy", "economic-dispatch", "industrial-power", "load-sweep", "transfer",]
+primary_output_file = "breakpoint_study.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

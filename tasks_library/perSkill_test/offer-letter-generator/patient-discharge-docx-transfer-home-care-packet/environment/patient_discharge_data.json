@@ -1,0 +1,51 @@
+{
+  "PACKET_ID": "DP-2026-117",
+  "HOSPITAL_NAME": "Harbor View Medical Center",
+  "DISCHARGE_DATE": "March 18, 2026",
+  "PATIENT_FULL_NAME": "Maya Thompson",
+  "PATIENT_DOB": "August 22, 1958",
+  "MEDICAL_RECORD_NUMBER": "HV-0042189",
+  "PRIMARY_DIAGNOSIS": "Acute decompensated heart failure",
+  "DISPOSITION": "Home with visiting nurse support",
+  "ATTENDING_CLINICIAN": "Dr. Aaron Patel",
+  "CARE_MANAGER": "Lillian Brooks, RN",
+  "FOLLOWUP_CONTACT": "Cardiology Care Line (555) 410-8820",
+  "REMOTE_FOLLOWUP_REQUIRED": "Yes",
+  "REMOTE_FOLLOWUP_WINDOW": "within 48 hours of discharge",
+  "REMOTE_FOLLOWUP_PLATFORM": "the Harbor TeleCare video portal",
+  "REMOTE_FOLLOWUP_PHONE": "(555) 410-8899",
+  "MEDICATIONS": [
+    {
+      "NAME": "Furosemide",
+      "DOSE": "40 mg",
+      "SCHEDULE": "Every morning",
+      "PURPOSE": "Fluid control"
+    },
+    {
+      "NAME": "Lisinopril",
+      "DOSE": "10 mg",
+      "SCHEDULE": "Once daily",
+      "PURPOSE": "Blood pressure and heart support"
+    },
+    {
+      "NAME": "Metoprolol succinate",
+      "DOSE": "50 mg",
+      "SCHEDULE": "Every evening",
+      "PURPOSE": "Heart rate control"
+    }
+  ],
+  "FOLLOW_UP_APPOINTMENTS": [
+    {
+      "CLINIC": "Heart Failure Clinic",
+      "WHEN": "March 25, 2026 at 9:30 AM",
+      "LOCATION": "North Pavilion, Suite 420",
+      "NOTES": "Bring daily weight log"
+    },
+    {
+      "CLINIC": "Primary Care Visit",
+      "WHEN": "April 1, 2026 at 2:00 PM",
+      "LOCATION": "Riverside Family Practice",
+      "NOTES": "Review medication tolerance"
+    }
+  ]
+}

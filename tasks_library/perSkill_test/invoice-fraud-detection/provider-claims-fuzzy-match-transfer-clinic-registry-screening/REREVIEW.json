@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "invoice-fraud-detection",
+  "targetSkillDirName": "fuzzy-match",
+  "runId": "20260320043637-invoice-fraud-detection-fuzzy-match-8jp2rf",
+  "taskId": "provider-claims-fuzzy-match-transfer-clinic-registry-screening",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/invoice-fraud-detection/fuzzy-match/20260320043637-invoice-fraud-detection-fuzzy-match-8jp2rf/provider-claims-fuzzy-match-transfer-clinic-registry-screening",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/invoice-fraud-detection/provider-claims-fuzzy-match-transfer-clinic-registry-screening",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:provider-claims-fuzzy-match-transfer-clinic-registry-screening instruction.md 直接规定标准化词典、排序方式、`SequenceMatcher` 公式和阈值，明显比 source task 更像在给出 fuzzy-match 实现配方，并新增了 source 未出现的具体算法名。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 drafts 的 instruction.md 都比 source_task/instruction.md 更具体地暴露了模糊匹配实现；其中 scholarship/provider/museum 还直接引入了 source task 未出现的 `SequenceMatcher` 算法名。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0faf-dae3-7c43-b54a-e9af5ab5ff2a"
+}

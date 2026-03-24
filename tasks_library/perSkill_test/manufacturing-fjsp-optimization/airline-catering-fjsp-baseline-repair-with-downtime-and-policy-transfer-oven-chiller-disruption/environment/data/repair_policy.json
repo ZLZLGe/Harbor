@@ -1,0 +1,17 @@
+{
+  "freeze": {
+    "before_minute": 15,
+    "fields": [
+      "equipment_id",
+      "start"
+    ]
+  },
+  "change_budget": {
+    "max_equipment_changes": 5,
+    "max_total_start_shift": 180
+  },
+  "guards": {
+    "max_last_ready_minute": 150,
+    "max_late_flights": 0
+  }
+}

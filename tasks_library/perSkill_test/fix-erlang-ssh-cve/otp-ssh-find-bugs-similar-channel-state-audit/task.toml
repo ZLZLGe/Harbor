@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "otp-ssh-find-bugs-similar-channel-state-audit"
+name = "Similar - 审计 Erlang SSH Channel 状态机加固补丁"
+description = "审计本地 Erlang/OTP SSH 分支的 channel/subsystem 状态机补丁并把已证实的问题写入报告。"
+author_name = "OpenAI"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "erlang security review"
+tags = ["erlang", "ssh", "security-review", "similar"]
+primary_output_file = "reports/similar-ssh-channel-findings.md"
+source_task_id = "fix-erlang-ssh-cve"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "scholarship-payout-fuzzy-match-transfer-student-identity-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer: 奖学金付款身份对账",
+  "goal": "核对奖学金付款批次与获奖学生名册，处理学生姓名在学籍系统、银行批次和奖项名单中的缩写、倒置和轻微拼写差异，找出无法可靠对应的付款、收款账户不一致的付款以及金额与获奖额度不符的付款，并输出到 /root/scholarship_exceptions.csv。",
+  "primaryOutputFile": "/root/scholarship_exceptions.csv",
+  "difficulty": "hard",
+  "category": "data-validation",
+  "skillBenefitRationale": "任务成败取决于能否跨多份名单对齐脏姓名并避免误配；账户和金额核验都建立在这一姓名归并之上，没有其他 shipped skill 会成为主要瓶颈。",
+  "targetSkillDirName": "fuzzy-match",
+  "targetSkillName": "fuzzy-match"
+}

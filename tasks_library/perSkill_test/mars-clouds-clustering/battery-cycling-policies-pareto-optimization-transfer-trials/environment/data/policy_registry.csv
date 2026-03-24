@@ -1,0 +1,9 @@
+policy_id,charger_family,peak_c_rate,taper_soc,rest_minutes,upper_cutoff_v
+BAT-FAST-19,PulseMax,1.80,82,5,4.24
+BAT-BAL-24,BlendFlex,1.55,80,8,4.20
+BAT-BAL-28,BlendFlex,1.60,78,6,4.21
+BAT-STEADY-12,GentleLoop,1.30,76,10,4.18
+BAT-GENTLE-05,SoftRest,1.10,72,14,4.16
+BAT-SHIFT-33,RapidShift,1.45,74,4,4.19
+BAT-THERM-08,ThermaHold,1.00,70,16,4.15
+BAT-SPARSE-41,FieldPilot,1.50,79,7,4.20

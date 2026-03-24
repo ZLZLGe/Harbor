@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "compound-property-neighbors-pdf-similar-ranking"
+name = "Similar: Compound Property Neighbors"
+description = "Read the compound property table from the provided document, rank the nearest compounds for the required targets, and write the JSON result."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "chemistry"
+tags = ["chemistry", "document", "ranking", "json"]
+primary_output_file = "/root/workspace/compound_neighbors.json"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

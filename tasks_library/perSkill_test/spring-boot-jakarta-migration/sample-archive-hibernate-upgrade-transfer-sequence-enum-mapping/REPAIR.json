@@ -1,0 +1,55 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "hibernate-upgrade",
+  "runId": "20260322190117-spring-boot-jakarta-migration-hibernate-upgrade-aaxmi7",
+  "taskId": "sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/spring-boot-jakarta-migration/hibernate-upgrade/20260322190117-spring-boot-jakarta-migration-hibernate-upgrade-aaxmi7/sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322190117-spring-boot-jakarta-migration-hibernate-upgrade-aaxmi7/spring-boot-jakarta-migration/drafts/sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/spring-boot-jakarta-migration/sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/spring-boot-jakarta-migration/sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping"
+      ],
+      "requestedIssuesByTaskId": {
+        "sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac1-56ad-79f0-866d-419ecd6c9188",
+      "repairSummary": "在 environment/Dockerfile 中补回静态检查要求的 `COPY skills /root/.codex/skills` 指令，未改动其他任务文件。",
+      "reviewThreadId": "019d1ac2-0bc1-7751-a072-fa4c1cd19ee5",
+      "evaluationByTaskId": {
+        "sample-archive-hibernate-upgrade-transfer-sequence-enum-mapping": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "static"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "edge-model-benchmarks-pareto-optimization-transfer-frontier",
+  "taskRole": "transfer",
+  "title": "Transfer: Edge Vision Benchmark Frontier",
+  "goal": "Aggregate benchmark runs for edge vision models, keep configurations above a required validation-accuracy floor, and output the Pareto-optimal trade-offs between accuracy and mean latency to `/root/edge_model_frontier.csv`.",
+  "primaryOutputFile": "/root/edge_model_frontier.csv",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "任务本质是对模型配置的多目标结果做 Pareto 前沿提取；除基础分组、过滤和排序外，不依赖其他专门技能。",
+  "targetSkillDirName": "pareto-optimization",
+  "targetSkillName": "pareto-optimization"
+}

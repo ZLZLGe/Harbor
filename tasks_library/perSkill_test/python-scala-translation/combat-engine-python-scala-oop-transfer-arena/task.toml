@@ -1,0 +1,30 @@
+version = "1.0"
+
+[metadata]
+id = "combat-engine-python-scala-oop-transfer-arena"
+name = "Transfer: 回合制战斗引擎翻译"
+description = "将 Python 回合制战斗引擎翻译为 Scala 2.13，并输出可编译的 /root/CombatArena.scala。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "oop", "game-engine"]
+primary_output_file = "/root/CombatArena.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]

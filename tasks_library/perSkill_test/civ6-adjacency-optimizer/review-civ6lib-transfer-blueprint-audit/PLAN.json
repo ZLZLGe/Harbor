@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "review-civ6lib-transfer-blueprint-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Expansion Blueprint Audit Board",
+  "goal": "读取多份候选扩张蓝图，逐份判定城市与区域布局是否合法，重算总相邻加成，给出错误原因、有效方案排行榜，并输出最佳有效方案。",
+  "primaryOutputFile": "/output/blueprint_audit.json",
+  "difficulty": "medium",
+  "category": "games",
+  "skillBenefitRationale": "这里的核心不再是自己找最优解，而是用 civ6lib 充当规则裁判与计分器，精确复核放置条件、唯一性、城市距离和相邻加成。关键 shipped skill 仍只有 civ6lib。",
+  "targetSkillDirName": "civ6lib",
+  "targetSkillName": "civ6lib"
+}

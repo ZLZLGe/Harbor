@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "smooth-precall-lobby-react-best-practices-transfer-session"
+name = "Transfer: 稳定视频会议预检大厅"
+description = "修复 Next.js 视频会议预检大厅的异步布局跳动与偏好闪屏问题，并输出 output/precall-lobby-stability-report.json。"
+author_name = "OpenAI"
+author_email = "openai@example.com"
+difficulty = "hard"
+category = "web-performance"
+tags = ["react", "nextjs", "video-conference", "visual-stability", "hydration"]
+primary_output_file = "output/precall-lobby-stability-report.json"
+source_task_id = "fix-visual-stability"
+task_role = "transfer"
+required_skills = ["react-best-practices"]
+
+[verifier]
+timeout_sec = 450.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

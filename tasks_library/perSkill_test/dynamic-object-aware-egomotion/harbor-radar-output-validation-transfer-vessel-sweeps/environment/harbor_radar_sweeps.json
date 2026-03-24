@@ -1,0 +1,74 @@
+{
+  "scenario": "North quay patrol radar excerpt",
+  "sampling_seconds": 12,
+  "shape": [
+    12,
+    18
+  ],
+  "sampled_scans": [
+    {
+      "scan_id": 0,
+      "timestamp": "2026-02-18T03:10:00Z",
+      "dominant_maneuver": "锚泊待命"
+    },
+    {
+      "scan_id": 1,
+      "timestamp": "2026-02-18T03:10:12Z",
+      "dominant_maneuver": "锚泊待命"
+    },
+    {
+      "scan_id": 2,
+      "timestamp": "2026-02-18T03:10:24Z",
+      "dominant_maneuver": "沿航道驶入"
+    },
+    {
+      "scan_id": 3,
+      "timestamp": "2026-02-18T03:10:36Z",
+      "dominant_maneuver": "沿航道驶入"
+    },
+    {
+      "scan_id": 4,
+      "timestamp": "2026-02-18T03:10:48Z",
+      "dominant_maneuver": "沿航道驶入"
+    },
+    {
+      "scan_id": 5,
+      "timestamp": "2026-02-18T03:11:00Z",
+      "dominant_maneuver": "右舷转向"
+    },
+    {
+      "scan_id": 6,
+      "timestamp": "2026-02-18T03:11:12Z",
+      "dominant_maneuver": "右舷转向"
+    },
+    {
+      "scan_id": 7,
+      "timestamp": "2026-02-18T03:11:24Z",
+      "dominant_maneuver": "右舷转向"
+    }
+  ],
+  "maneuver_segments": [
+    {
+      "start": 0,
+      "end": 2,
+      "label": "锚泊待命"
+    },
+    {
+      "start": 2,
+      "end": 5,
+      "label": "沿航道驶入"
+    },
+    {
+      "start": 5,
+      "end": 7,
+      "label": "右舷转向"
+    }
+  ],
+  "allowed_labels": [
+    "锚泊待命",
+    "沿航道驶入",
+    "沿航道驶离",
+    "右舷转向",
+    "左舷回转"
+  ]
+}

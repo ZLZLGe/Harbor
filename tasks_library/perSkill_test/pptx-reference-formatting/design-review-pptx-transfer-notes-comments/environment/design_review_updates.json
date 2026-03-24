@@ -1,0 +1,89 @@
+{
+  "notes": {
+    "2": [
+      "Lead with the mobile-only scope and confirm this variant stays limited to first-time guest checkout.",
+      "Call out that the trust badges are illustrative and not locked for launch.",
+      "Ask product analytics to verify the event names before sign-off."
+    ],
+    "3": [
+      "State that the annual plan remains opt-in; the monthly plan stays selected by default.",
+      "Mention that legal review is still open on the savings disclosure text.",
+      "Highlight the need for a clearer downgrade path before experiment launch."
+    ],
+    "4": [
+      "Describe the sticky summary as a mobile affordance rather than a final layout lock.",
+      "Note that address validation errors are not shown on this mock and still need a fallback state.",
+      "Ask engineering to confirm that keyboard overlap is already handled in the prototype."
+    ],
+    "5": [
+      "Explain that wallet buttons should appear before manual card entry on supported devices.",
+      "Mention that 3DS fallback stays inline unless issuer friction forces a redirect.",
+      "Flag the copy debt around the tax estimate helper text."
+    ],
+    "6": [
+      "Frame the confirmation screen as the moment to reinforce delivery timing and support contact points.",
+      "Ask whether account creation should remain secondary to receipt review.",
+      "Confirm that the reorder shortcut is out of scope for this release."
+    ]
+  },
+  "comments": [
+    {
+      "slide": 2,
+      "target_label": "Hero banner mock",
+      "author_name": "Rina Patel",
+      "author_initials": "RP",
+      "text": "Check whether the shipping promise should localize by market before sign-off."
+    },
+    {
+      "slide": 3,
+      "target_label": "Annual savings badge",
+      "author_name": "Marcus Lee",
+      "author_initials": "ML",
+      "text": "Verify the savings claim against finance-approved copy before review closes."
+    },
+    {
+      "slide": 4,
+      "target_label": "Sticky summary rail",
+      "author_name": "Sara Kim",
+      "author_initials": "SK",
+      "text": "Test this rail at 320px width; the current padding may clip the tax line."
+    },
+    {
+      "slide": 5,
+      "target_label": "Primary CTA",
+      "author_name": "Rina Patel",
+      "author_initials": "RP",
+      "text": "Decide whether the CTA label changes after card validation succeeds."
+    },
+    {
+      "slide": 6,
+      "target_label": "Receipt breakdown",
+      "author_name": "Marcus Lee",
+      "author_initials": "ML",
+      "text": "Confirm whether installment details belong here or stay in the email receipt."
+    }
+  ],
+  "action_items_title": "Action Items",
+  "action_items": [
+    {
+      "owner": "Rina Patel",
+      "decision": "Confirm localized shipping promise for the hero banner."
+    },
+    {
+      "owner": "Marcus Lee",
+      "decision": "Finalize the finance-approved savings disclosure."
+    },
+    {
+      "owner": "Sara Kim",
+      "decision": "Resolve the 320px clipping issue on the sticky summary rail."
+    },
+    {
+      "owner": "Rina Patel",
+      "decision": "Choose the final payment CTA label after validation."
+    },
+    {
+      "owner": "Marcus Lee",
+      "decision": "Decide where installment details should appear after checkout."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "sourceTaskId": "protein-expression-analysis",
+  "targetSkillDirName": "xlsx",
+  "runId": "20260322140525-protein-expression-analysis-xlsx-o24xq7",
+  "taskId": "campus-energy-xlsx-transfer-tariff-variance",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/protein-expression-analysis/campus-energy-xlsx-transfer-tariff-variance",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322140525-protein-expression-analysis-xlsx-o24xq7/protein-expression-analysis/drafts/campus-energy-xlsx-transfer-tariff-variance",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/protein-expression-analysis/campus-energy-xlsx-transfer-tariff-variance",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/protein-expression-analysis/campus-energy-xlsx-transfer-tariff-variance",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 首行出现 `campus_energy_tariff_variance.xlsx`，直接包含 shipped skill 的 dirName/name `xlsx`，属于技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 第 1 行直接写出 `campus_energy_tariff_variance.xlsx`，其中直接包含当前 shipped skill 的 name/dirName `xlsx`，构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "campus-energy-xlsx-transfer-tariff-variance"
+      ],
+      "requestedIssuesByTaskId": {
+        "campus-energy-xlsx-transfer-tariff-variance": {
+          "reviewerIssues": [
+            "instruction.md 第 1 行直接写出 `campus_energy_tariff_variance.xlsx`，其中直接包含当前 shipped skill 的 name/dirName `xlsx`，构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a7c-d13a-76a0-9050-d0bdf16ddc0b",
+      "repairSummary": "移除了 instruction.md 中直接出现的 `.xlsx` 文件名，改为泛指工作目录中的工作簿，以消除对当前 shipped skill 名称的直接暴露；其余任务资产、测试与解法保持不变。",
+      "reviewThreadId": "019d1a7d-72f2-72d0-82bf-74a4e4128591",
+      "evaluationByTaskId": {
+        "campus-energy-xlsx-transfer-tariff-variance": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

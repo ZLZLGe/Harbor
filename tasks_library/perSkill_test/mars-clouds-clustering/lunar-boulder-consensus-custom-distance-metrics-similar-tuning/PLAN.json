@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "lunar-boulder-consensus-custom-distance-metrics-similar-tuning",
+  "taskRole": "similar",
+  "title": "Similar: 月表巨石共识聚类",
+  "goal": "在月表巨石志愿者点击与专家标注数据上，搜索带方向权重的 DBSCAN 配置，输出验证集最佳参数及对应 F1 与平均质心误差。",
+  "primaryOutputFile": "/root/boulder_best_config.json",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "任务成败取决于把成像方向畸变编码进 DBSCAN 的参数化距离函数；如果只用默认欧氏距离，簇会系统性误并或被拉裂。",
+  "targetSkillDirName": "custom-distance-metrics",
+  "targetSkillName": "custom-distance-metrics"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "streaming-tfidf-memory-optimization-similar-index-builder",
+  "taskRole": "similar",
+  "title": "Similar: Streaming TF-IDF Index Builder",
+  "goal": "Refactor a TF-IDF corpus indexer so it can build exact search structures for a much larger document set under a strict RAM budget, while preserving the baseline ranking results.",
+  "primaryOutputFile": "/root/workspace/streaming_tfidf_solution.py",
+  "difficulty": "medium",
+  "category": "Information Retrieval",
+  "skillBenefitRationale": "This stays close to the source task’s text-indexing domain, but the decisive work is memory reduction: streaming token processing, avoiding full intermediate materialization, and using compact in-memory index representations.",
+  "targetSkillDirName": "memory-optimization",
+  "targetSkillName": "memory-optimization"
+}

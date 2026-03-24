@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "marketplace-listings-fuzzy-match-transfer-restricted-catalog"
+name = "Transfer: Match Marketplace Listings to a Restricted Catalog"
+description = "Match noisy marketplace listing titles to a restricted catalog, keep only reliable restricted matches, and write them to /root/restricted_listing_matches.json."
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "hard"
+category = "catalog-moderation"
+tags = ["marketplace", "catalog-moderation", "title-matching", "fuzzy-matching", "jsonl"]
+primary_output_file = "/root/restricted_listing_matches.json"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

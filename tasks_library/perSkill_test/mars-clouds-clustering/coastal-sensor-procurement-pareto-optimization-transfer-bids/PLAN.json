@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "coastal-sensor-procurement-pareto-optimization-transfer-bids",
+  "taskRole": "transfer",
+  "title": "Transfer: Coastal Sensor Procurement Frontier",
+  "goal": "Evaluate candidate coastal buoy sensor bundles, discard options below the minimum shoreline coverage requirement, and save the Pareto-optimal set balancing expected annual coverage and total 3-year cost to `/root/procurement_frontier.csv`.",
+  "primaryOutputFile": "/root/procurement_frontier.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "关键在于识别采购方案中的非支配组合，处理覆盖率最大化与成本最小化的冲突目标；计算本身只是直接读取和比较表格字段。",
+  "targetSkillDirName": "pareto-optimization",
+  "targetSkillName": "pareto-optimization"
+}

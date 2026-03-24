@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "incident-briefing-pdf-transfer-report-generation",
+  "taskRole": "transfer",
+  "title": "Transfer: Incident Briefing Report Generation",
+  "goal": "Read structured incident data from JSON and generate a polished multi-page PDF briefing with headings, summaries, and tabular incident details for leadership review.",
+  "primaryOutputFile": "/root/incident_briefing_report.pdf",
+  "difficulty": "medium",
+  "category": "report-generation",
+  "skillBenefitRationale": "The main requirement is programmatic PDF creation with layout, pagination, and tables, so the pdf skill is the sole key shipped capability.",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

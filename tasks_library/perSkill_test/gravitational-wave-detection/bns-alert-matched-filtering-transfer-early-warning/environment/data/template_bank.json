@@ -1,0 +1,80 @@
+[
+  {
+    "template_id": "bns_00",
+    "mass1_solar_mass": 1.15,
+    "mass2_solar_mass": 1.15,
+    "chirp_mass_solar_mass": 1.0011331477905427
+  },
+  {
+    "template_id": "bns_01",
+    "mass1_solar_mass": 1.2,
+    "mass2_solar_mass": 1.15,
+    "chirp_mass_solar_mass": 1.0226190514266247
+  },
+  {
+    "template_id": "bns_02",
+    "mass1_solar_mass": 1.2,
+    "mass2_solar_mass": 1.2,
+    "chirp_mass_solar_mass": 1.044660675955349
+  },
+  {
+    "template_id": "bns_03",
+    "mass1_solar_mass": 1.25,
+    "mass2_solar_mass": 1.15,
+    "chirp_mass_solar_mass": 1.0435721096016604
+  },
+  {
+    "template_id": "bns_04",
+    "mass1_solar_mass": 1.25,
+    "mass2_solar_mass": 1.2,
+    "chirp_mass_solar_mass": 1.0661579227643663
+  },
+  {
+    "template_id": "bns_05",
+    "mass1_solar_mass": 1.25,
+    "mass2_solar_mass": 1.25,
+    "chirp_mass_solar_mass": 1.0881882041201552
+  },
+  {
+    "template_id": "bns_06",
+    "mass1_solar_mass": 1.3,
+    "mass2_solar_mass": 1.2,
+    "chirp_mass_solar_mass": 1.0871432089029394
+  },
+  {
+    "template_id": "bns_07",
+    "mass1_solar_mass": 1.3,
+    "mass2_solar_mass": 1.25,
+    "chirp_mass_solar_mass": 1.109695904227561
+  },
+  {
+    "template_id": "bns_08",
+    "mass1_solar_mass": 1.35,
+    "mass2_solar_mass": 1.2,
+    "chirp_mass_solar_mass": 1.10764597233269
+  },
+  {
+    "template_id": "bns_09",
+    "mass1_solar_mass": 1.35,
+    "mass2_solar_mass": 1.25,
+    "chirp_mass_solar_mass": 1.1307109534765831
+  },
+  {
+    "template_id": "bns_10",
+    "mass1_solar_mass": 1.4,
+    "mass2_solar_mass": 1.25,
+    "chirp_mass_solar_mass": 1.1512606331947077
+  },
+  {
+    "template_id": "bns_11",
+    "mass1_solar_mass": 1.4,
+    "mass2_solar_mass": 1.3,
+    "chirp_mass_solar_mass": 1.1742757165047846
+  },
+  {
+    "template_id": "bns_12",
+    "mass1_solar_mass": 1.45,
+    "mass2_solar_mass": 1.3,
+    "chirp_mass_solar_mass": 1.194868945347726
+  }
+]

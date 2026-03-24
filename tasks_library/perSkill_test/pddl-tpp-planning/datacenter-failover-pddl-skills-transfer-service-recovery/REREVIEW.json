@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "pddl-tpp-planning",
+  "targetSkillDirName": "pddl-skills",
+  "runId": "20260322131102-pddl-tpp-planning-pddl-skills-sq7e5i",
+  "taskId": "datacenter-failover-pddl-skills-transfer-service-recovery",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/pddl-tpp-planning/pddl-skills/20260322131102-pddl-tpp-planning-pddl-skills-sq7e5i/datacenter-failover-pddl-skills-transfer-service-recovery",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/pddl-tpp-planning/datacenter-failover-pddl-skills-transfer-service-recovery",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:datacenter-failover-pddl-skills-transfer-service-recovery instruction.md 未直接点名 shipped skill，技能暴露检查通过。; 测试把恢复流程限制为固定长度和单一路径顺序，未接受带冗余步骤但仍满足 PDDL 目标的合法计划；对“任意合法顺序恢复计划”而言判定过窄。; 任务执行上只需要当前 shipped PDDL skill，不依赖 source task 里其他未提供 skills。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a6a-a675-74a2-a825-cb23922bae63"
+}

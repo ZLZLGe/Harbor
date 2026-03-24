@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reserve-watch-power-flow-data-similar-feasibility-audit"
+name = "Similar: Reserve Feasibility and Congestion Audit"
+description = "Audit a proposed dispatch-and-reserve plan against a MATPOWER network snapshot and write dispatch_audit.json with reserve, capacity-coupling, and branch-loading findings."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "power-flow", "matpower", "reserve-audit", "grid-operations"]
+primary_output_file = "dispatch_audit.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240

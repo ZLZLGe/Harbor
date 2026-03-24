@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "greenhouse-climate-pid-controller-transfer-temperature-zone",
+  "taskRole": "transfer",
+  "title": "Transfer: 温室温度稳定控制",
+  "goal": "实现一套温室温度控制仿真：在外界气温波动和加热功率上限下，将种植区温度稳定在设定值附近，并输出控制日志与调参说明。",
+  "primaryOutputFile": "greenhouse_temperature_log.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "该场景把 PID 从车辆动力学迁移到热惯性系统，仍然围绕单一反馈回路的误差校正、超调抑制和稳态误差消除展开，唯一关键 skill 仍是 pid-controller。",
+  "targetSkillDirName": "pid-controller",
+  "targetSkillName": "pid-controller"
+}

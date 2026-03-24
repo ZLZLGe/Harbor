@@ -1,0 +1,30 @@
+version = "1.0"
+
+[metadata]
+id = "audit-event-python-scala-libraries-similar-jsonl-normalizer"
+name = "Similar: Translate a Python JSONL Audit Event Normalizer to Scala"
+description = "Translate `/root/EventNormalizer.py` into Scala 2.13 as `/root/EventNormalizer.scala`, preserving JSONL audit-event normalization and summary behavior."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "jsonl", "audit-events"]
+primary_output_file = "/root/EventNormalizer.scala"
+source_task_id = "python-scala-translation"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]

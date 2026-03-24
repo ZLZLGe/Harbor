@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ground-campaign-exoplanet-workflows-transfer-ephemeris",
+  "taskRole": "transfer",
+  "title": "Transfer | 用稀疏地基观测拟合凌星周期与历元",
+  "goal": "整合多晚地基观测得到的稀疏凌星数据，完成预处理与周期恢复，并进一步估计一组可复现的凌星历元参数后写入结构化输出文件。",
+  "primaryOutputFile": "/root/ephemeris.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "该任务把技能迁移到不规则采样和后续参数估计场景，要求在检测之外完成周期细化与历元提取，体现 exoplanet-workflows 的端到端分析能力。",
+  "targetSkillDirName": "exoplanet-workflows",
+  "targetSkillName": "exoplanet-workflows"
+}

@@ -1,0 +1,88 @@
+{
+  "sourceTaskId": "sec-financial-report",
+  "targetSkillDirName": "fuzzy-name-search",
+  "runId": "20260322164712-sec-financial-report-fuzzy-name-search-g2vx9s",
+  "taskId": "media-rights-fuzzy-name-search-transfer-title-royalty-recon",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/sec-financial-report/media-rights-fuzzy-name-search-transfer-title-royalty-recon",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322164712-sec-financial-report-fuzzy-name-search-g2vx9s/sec-financial-report/drafts/media-rights-fuzzy-name-search-transfer-title-royalty-recon",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/sec-financial-report/media-rights-fuzzy-name-search-transfer-title-royalty-recon",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/sec-financial-report/media-rights-fuzzy-name-search-transfer-title-royalty-recon",
+  "status": "pass",
+  "issueCategories": [
+    "skill_benefit"
+  ],
+  "originalReviewerIssues": [
+    "`instruction.md` 没有直接点名 skill，测试也可判定，但当前 `environment/skills/fuzzy-name-search/` 仍是 13F 版 `SKILL.md`、`search_fund.py` 和 `search_stock_cusip.py`，没有提供片名/权利方解析所需的 shipped skill 能力。; 因此完成任务实际上需要绕开当前 shipped skill，自行重写模糊匹配逻辑；这不符合 per-skill workspace 下“任务应只依赖当前唯一 shipped skill”的要求. ; skillBenefitPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "`instruction.md` 没有直接暴露技能名，但当前唯一 shipped skill 在该 draft 的 `environment/skills/fuzzy-name-search/SKILL.md` 里仍是 13F fund/CUSIP 搜索说明，没有片名或权利方名称解析入口。; 该任务因此不能被判定为只依赖当前提供的 `fuzzy-name-search` 技能完成；要完成任务需要额外自造媒体域模糊检索能力，和严格单技能 family 的要求不一致。; skillBenefitPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/2025-q2/COVERPAGE.tsv",
+    "environment/2025-q2/INFOTABLE.tsv",
+    "environment/Dockerfile",
+    "instruction.md",
+    "solution/solve.sh",
+    "task.toml",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "media-rights-fuzzy-name-search-transfer-title-royalty-recon"
+      ],
+      "requestedIssuesByTaskId": {
+        "media-rights-fuzzy-name-search-transfer-title-royalty-recon": {
+          "reviewerIssues": [
+            "`instruction.md` 没有直接暴露技能名，但当前唯一 shipped skill 在该 draft 的 `environment/skills/fuzzy-name-search/SKILL.md` 里仍是 13F fund/CUSIP 搜索说明，没有片名或权利方名称解析入口。; 该任务因此不能被判定为只依赖当前提供的 `fuzzy-name-search` 技能完成；要完成任务需要额外自造媒体域模糊检索能力，和严格单技能 family 的要求不一致。; skillBenefitPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a8b-4c0d-7012-aaea-dee91604181a",
+      "repairSummary": "已将任务改为直接点名并依赖 `fuzzy-name-search` 的 13F 基金/发行人模糊检索场景，补齐可供该 skill 使用的 2025-q2 数据，并同步更新解答脚本与测试校验。",
+      "reviewThreadId": "019d1a93-3045-7e43-a228-dd1858d7cb15",
+      "evaluationByTaskId": {
+        "media-rights-fuzzy-name-search-transfer-title-royalty-recon": {
+          "reviewerIssues": [
+            "instruction.md 直接点名了 shipped skill `fuzzy-name-search`，存在技能暴露。; tests/test_outputs.py 直接写死了目标 ACCESSION_NUMBER、CUSIP 以及多项精确结果，存在答案泄露。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "media-rights-fuzzy-name-search-transfer-title-royalty-recon"
+      ],
+      "requestedIssuesByTaskId": {
+        "media-rights-fuzzy-name-search-transfer-title-royalty-recon": {
+          "reviewerIssues": [
+            "instruction.md 直接点名了 shipped skill `fuzzy-name-search`，存在技能暴露。; tests/test_outputs.py 直接写死了目标 ACCESSION_NUMBER、CUSIP 以及多项精确结果，存在答案泄露。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a93-fa4d-76b3-93da-c31acac18784",
+      "repairSummary": "去掉了 instruction.md 对当前 shipped skill 名称的直接点名，并把 tests/test_outputs.py 改为基于搜索词、输入数据和现有模糊检索脚本动态推导预期结果，不再硬编码 ACCESSION_NUMBER、CUSIP 或精确答案。",
+      "reviewThreadId": "019d1a99-84c9-7cd3-a7ba-79be24c5597a",
+      "evaluationByTaskId": {
+        "media-rights-fuzzy-name-search-transfer-title-royalty-recon": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

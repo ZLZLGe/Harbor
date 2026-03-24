@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "archive-checksum-workload-balancing-transfer-manifest",
+  "taskRole": "transfer",
+  "title": "Transfer: Archive Checksum Manifest Builder",
+  "goal": "并行扫描目录树并为大小差异巨大的文件生成校验清单，要求输出顺序稳定且比顺序版更快，同时避免少数大文件让其余 worker 提前空闲。",
+  "primaryOutputFile": "/root/workspace/checksum_balance_solution.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "文件大小分布天然长尾，核心难点不是校验算法本身，而是按文件代价平衡 worker 负载并降低尾部等待时间。",
+  "targetSkillDirName": "workload-balancing",
+  "targetSkillName": "workload-balancing"
+}

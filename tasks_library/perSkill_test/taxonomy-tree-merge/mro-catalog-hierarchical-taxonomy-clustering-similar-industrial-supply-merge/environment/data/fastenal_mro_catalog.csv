@@ -1,0 +1,31 @@
+web_hierarchy,terminal_node,branch_code
+Fasteners :: Bolts :: Hex Cap Screws,Hex Cap Screws,FST-101
+Fasteners :: Anchoring Systems :: Concrete Anchors,Concrete Anchors,FST-102
+Fasteners :: Washers :: Split Lock Washers,Split Lock Washers,FST-103
+Safety :: Gloves :: Disposable Gloves :: Nitrile Gloves,Nitrile Gloves,SFY-201
+Safety :: Head Protection :: Hard Hats :: Full Brim,Full Brim Hard Hats,SFY-202
+Safety :: Respiratory Protection :: Reusable Respirators :: Half Mask,Half Mask Respirators,SFY-203
+Electrical :: Wire & Cable :: THHN Building Wire,THHN Building Wire,ELC-301
+Electrical :: Power Distribution :: Miniature Circuit Breakers,Miniature Circuit Breakers,ELC-302
+Electrical :: Conduit & Fittings :: Liquidtight Straight Connectors,Straight Connectors,ELC-303
+Cutting Tools :: Drill Bits :: Cobalt Jobber Length Bits,Cobalt Jobber Length Bits,CTL-401
+Cutting Tools :: End Mills :: Carbide Square End Mills,Carbide Square End Mills,CTL-402
+Abrasives :: Cut-Off Wheels :: Thin Wheels,Thin Wheels,CTL-403
+Hydraulics :: Hydraulic Hose Assemblies :: Two Wire Hose,Two Wire Hose,HYD-501
+Pneumatics :: Air Prep :: Filter Regulator Lubricators,Filter Regulator Lubricators,HYD-502
+Hydraulics :: Hydraulic Fittings :: JIC Male Adapters,JIC Male Adapters,HYD-503
+Motors & Drives :: AC Motors :: TEFC Motors,TEFC Motors,MOT-601
+Power Transmission :: Ball Bearings :: Sealed Bearings,Sealed Bearings,MOT-602
+Power Transmission :: V-Belts :: Classical Belts,Classical Belts,MOT-603
+Janitorial :: Paper Towels :: Roll Towels,Roll Towels,JAN-701
+Janitorial :: Degreasers :: Citrus Based Degreasers,Citrus Based Degreasers,JAN-702
+Janitorial :: Trash Liners :: Contractor Bags,Contractor Bags,JAN-703
+Material Handling :: Platform Trucks :: Steel Deck Trucks,Steel Deck Trucks,MAT-801
+Storage :: Bin Shelving :: Shelf Bin Systems,Shelf Bin Systems,MAT-802
+Storage :: Cabinets :: Welded Storage Cabinets,Welded Storage Cabinets,MAT-803
+Welding :: MIG Wire :: ER70S-6,ER70S-6,WLD-901
+Welding :: Helmets :: Auto Darkening Helmets,Auto Darkening Helmets,WLD-902
+Welding :: Magnets & Clamps :: Magnetic Welding Clamps,Magnetic Welding Clamps,WLD-903
+Chemicals :: Threadlockers :: Medium Strength :: Blue Threadlocker,Blue Threadlocker,CHM-1001
+Chemicals :: Epoxy :: Metal Repair :: Steel Repair Putty,Steel Repair Putty,CHM-1002
+Chemicals :: Silicone Sealants :: RTV Gasket Maker,RTV Gasket Maker,CHM-1003

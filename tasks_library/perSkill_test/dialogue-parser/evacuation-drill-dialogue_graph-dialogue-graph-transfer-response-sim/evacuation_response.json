@@ -1,0 +1,798 @@
+{
+  "nodes": [
+    {
+      "id": "Start",
+      "text": "Attention team, this is a scheduled evacuation drill for Harbor Tower. Report status through the command channel.",
+      "speaker": "PA System",
+      "type": "line"
+    },
+    {
+      "id": "BroadcastHub",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "Floor2Ready",
+      "text": "Floor 2 is sweeping west to east and guiding staff toward Stair A.",
+      "speaker": "Safety Warden",
+      "type": "line"
+    },
+    {
+      "id": "Floor2SweepChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "StairDispatch",
+      "text": "Staff from Floor 2 are entering Stair A in an orderly line.",
+      "speaker": "Safety Warden",
+      "type": "line"
+    },
+    {
+      "id": "LateOccupant",
+      "text": "The finance office is still occupied and needs a second knock.",
+      "speaker": "Safety Warden",
+      "type": "line"
+    },
+    {
+      "id": "OccupantFollowup",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "Floor2Escalation",
+      "text": "Send a backup checker to Floor 2 and keep that zone closed until contact is confirmed.",
+      "speaker": "Command Chief",
+      "type": "line"
+    },
+    {
+      "id": "Floor5Blocked",
+      "text": "The south fire door on Floor 5 is not latching open for the lab team.",
+      "speaker": "Safety Warden",
+      "type": "line"
+    },
+    {
+      "id": "Floor5Choice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "EastStairRoute",
+      "text": "Lab staff are being redirected to the east stairs with the aisle kept clear.",
+      "speaker": "Safety Warden",
+      "type": "line"
+    },
+    {
+      "id": "EastStairCheck",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "EngineeringDispatch",
+      "text": "Engineering is on the way to inspect the blocked fire door.",
+      "speaker": "Engineer",
+      "type": "line"
+    },
+    {
+      "id": "EngineeringChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "FireDoorFailure",
+      "text": "Keep Floor 5 on alternate routing and log the blocked door as a corrective action.",
+      "speaker": "Command Chief",
+      "type": "line"
+    },
+    {
+      "id": "Floor5Resweep",
+      "text": "The Floor 5 team is re-running the sweep after the route change.",
+      "speaker": "Safety Warden",
+      "type": "line"
+    },
+    {
+      "id": "ResweepChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "SecureCabinet",
+      "text": "The last lab worker is securing the chemical cabinet before exiting.",
+      "speaker": "Safety Warden",
+      "type": "line"
+    },
+    {
+      "id": "LobbyCheck",
+      "text": "The lobby desk is matching visitor badges against the sign-in sheet.",
+      "speaker": "Reception",
+      "type": "line"
+    },
+    {
+      "id": "LobbyChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ContractorSearch",
+      "text": "One contractor badge is missing from the roll call and the vendor was last checked in upstairs.",
+      "speaker": "Reception",
+      "type": "line"
+    },
+    {
+      "id": "ContractorChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RadioFallback",
+      "text": "The front desk radio has dropped off the command channel.",
+      "speaker": "Reception",
+      "type": "line"
+    },
+    {
+      "id": "FallbackChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RunnerDispatch",
+      "text": "A runner is carrying the visitor sheet to the command desk by hand.",
+      "speaker": "Reception",
+      "type": "line"
+    },
+    {
+      "id": "MobilityAssist",
+      "text": "A mobility-assisted evacuee is waiting near the refuge area and needs routing guidance.",
+      "speaker": "Accessibility Lead",
+      "type": "line"
+    },
+    {
+      "id": "MobilityChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "StairChairDeploy",
+      "text": "The stair-chair team is moving to the refuge area with a spotter on Stair B.",
+      "speaker": "Accessibility Lead",
+      "type": "line"
+    },
+    {
+      "id": "StairChairOutcome",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "RefugeMonitor",
+      "text": "The evacuee remains calm in the refuge area while command evaluates timing.",
+      "speaker": "Accessibility Lead",
+      "type": "line"
+    },
+    {
+      "id": "RefugeChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ElevatorDenied",
+      "text": "Elevators stay out of service during the drill; redirect the request to the assisted-descent procedure.",
+      "speaker": "Command Chief",
+      "type": "line"
+    },
+    {
+      "id": "CrowdControl",
+      "text": "Stair traffic is bunching up and needs spacing before the next team descends.",
+      "speaker": "Assembly Lead",
+      "type": "line"
+    },
+    {
+      "id": "CrowdControlChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "CommandReview",
+      "text": "Command is comparing floor reports, visitor counts, and assembly updates.",
+      "speaker": "Command Chief",
+      "type": "line"
+    },
+    {
+      "id": "ClearStatusChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "HeadcountConfirm",
+      "text": "Every badge and visitor tag is accounted for at the assembly area.",
+      "speaker": "Assembly Lead",
+      "type": "line"
+    },
+    {
+      "id": "DrillCloseChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DrillSuccess",
+      "text": "Drill complete. Return teams to normal operations after the debrief.",
+      "speaker": "PA System",
+      "type": "line"
+    },
+    {
+      "id": "DrillCorrective",
+      "text": "Drill complete. Keep the blocked-door review open for follow-up.",
+      "speaker": "PA System",
+      "type": "line"
+    },
+    {
+      "id": "HeadcountMismatch",
+      "text": "Two badges are missing from the assembly roster.",
+      "speaker": "Assembly Lead",
+      "type": "line"
+    },
+    {
+      "id": "HeadcountChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ResweepDispatch",
+      "text": "Command is sending a targeted resweep based on the missing badge list.",
+      "speaker": "Command Chief",
+      "type": "line"
+    },
+    {
+      "id": "ResweepDispatchChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ControllerInject",
+      "text": "The missing badges were part of the drill inject and no live occupants are unaccounted for.",
+      "speaker": "Command Chief",
+      "type": "line"
+    },
+    {
+      "id": "ShelterInPlace",
+      "text": "Weather has made the outdoor assembly point unsafe; move the drill to the covered garage.",
+      "speaker": "PA System",
+      "type": "line"
+    },
+    {
+      "id": "ShelterChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "CoveredGarage",
+      "text": "The covered garage is now the temporary assembly location with headcount restarting there.",
+      "speaker": "Assembly Lead",
+      "type": "line"
+    },
+    {
+      "id": "BroadcastRepeat",
+      "text": "Repeat the last status request and keep the routes clear until command confirms the next move.",
+      "speaker": "PA System",
+      "type": "line"
+    },
+    {
+      "id": "BroadcastRepeatChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "AssemblyUpdate",
+      "text": "The assembly point has received another team and updated the roster.",
+      "speaker": "Assembly Lead",
+      "type": "line"
+    },
+    {
+      "id": "AssemblyChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    }
+  ],
+  "edges": [
+    {
+      "from": "Start",
+      "to": "BroadcastHub",
+      "text": ""
+    },
+    {
+      "from": "BroadcastHub",
+      "to": "Floor2Ready",
+      "text": "1. Acknowledge the call as Floor 2 warden."
+    },
+    {
+      "from": "BroadcastHub",
+      "to": "Floor5Blocked",
+      "text": "2. Report a blocked fire door on Floor 5."
+    },
+    {
+      "from": "BroadcastHub",
+      "to": "LobbyCheck",
+      "text": "3. Confirm lobby visitors and contractors."
+    },
+    {
+      "from": "BroadcastHub",
+      "to": "MobilityAssist",
+      "text": "4. Request mobility assistance routing."
+    },
+    {
+      "from": "BroadcastHub",
+      "to": "CommandReview",
+      "text": "5. Review building-wide status at command."
+    },
+    {
+      "from": "Floor2Ready",
+      "to": "Floor2SweepChoice",
+      "text": ""
+    },
+    {
+      "from": "Floor2SweepChoice",
+      "to": "StairDispatch",
+      "text": "1. West wing is clear."
+    },
+    {
+      "from": "Floor2SweepChoice",
+      "to": "LateOccupant",
+      "text": "2. One office is still occupied."
+    },
+    {
+      "from": "Floor2SweepChoice",
+      "to": "BroadcastRepeat",
+      "text": "3. [Fallback] Radio message was unclear, repeat the broadcast."
+    },
+    {
+      "from": "StairDispatch",
+      "to": "AssemblyUpdate",
+      "text": ""
+    },
+    {
+      "from": "LateOccupant",
+      "to": "OccupantFollowup",
+      "text": ""
+    },
+    {
+      "from": "OccupantFollowup",
+      "to": "StairDispatch",
+      "text": "1. The employee exits toward Stair A."
+    },
+    {
+      "from": "OccupantFollowup",
+      "to": "MobilityAssist",
+      "text": "2. The employee reports ankle pain."
+    },
+    {
+      "from": "OccupantFollowup",
+      "to": "Floor2Escalation",
+      "text": "3. There is still no response from the office."
+    },
+    {
+      "from": "Floor2Escalation",
+      "to": "CommandReview",
+      "text": ""
+    },
+    {
+      "from": "Floor5Blocked",
+      "to": "Floor5Choice",
+      "text": ""
+    },
+    {
+      "from": "Floor5Choice",
+      "to": "EastStairRoute",
+      "text": "1. Route the lab team to the east stairs."
+    },
+    {
+      "from": "Floor5Choice",
+      "to": "Floor5Resweep",
+      "text": "2. [Fallback] Reset the door magnet and try again."
+    },
+    {
+      "from": "Floor5Choice",
+      "to": "EngineeringDispatch",
+      "text": "3. Call engineering to inspect the door."
+    },
+    {
+      "from": "EastStairRoute",
+      "to": "EastStairCheck",
+      "text": ""
+    },
+    {
+      "from": "EastStairCheck",
+      "to": "AssemblyUpdate",
+      "text": "1. The east stairs stay clear."
+    },
+    {
+      "from": "EastStairCheck",
+      "to": "CrowdControl",
+      "text": "2. The east stairs are crowded."
+    },
+    {
+      "from": "EastStairCheck",
+      "to": "SecureCabinet",
+      "text": "3. The chem cabinet was left unsecured."
+    },
+    {
+      "from": "EngineeringDispatch",
+      "to": "EngineeringChoice",
+      "text": ""
+    },
+    {
+      "from": "EngineeringChoice",
+      "to": "FireDoorFailure",
+      "text": "1. The door remains blocked after inspection."
+    },
+    {
+      "from": "EngineeringChoice",
+      "to": "Floor5Resweep",
+      "text": "2. The door opens after inspection."
+    },
+    {
+      "from": "FireDoorFailure",
+      "to": "CommandReview",
+      "text": ""
+    },
+    {
+      "from": "Floor5Resweep",
+      "to": "ResweepChoice",
+      "text": ""
+    },
+    {
+      "from": "ResweepChoice",
+      "to": "AssemblyUpdate",
+      "text": "1. Floor 5 is now clear."
+    },
+    {
+      "from": "ResweepChoice",
+      "to": "SecureCabinet",
+      "text": "2. A chem cabinet still needs to be secured."
+    },
+    {
+      "from": "ResweepChoice",
+      "to": "BroadcastRepeat",
+      "text": "3. Another broadcast reminder is needed."
+    },
+    {
+      "from": "SecureCabinet",
+      "to": "Floor5Resweep",
+      "text": ""
+    },
+    {
+      "from": "LobbyCheck",
+      "to": "LobbyChoice",
+      "text": ""
+    },
+    {
+      "from": "LobbyChoice",
+      "to": "AssemblyUpdate",
+      "text": "1. Every visitor matches the log."
+    },
+    {
+      "from": "LobbyChoice",
+      "to": "ContractorSearch",
+      "text": "2. One contractor badge is missing."
+    },
+    {
+      "from": "LobbyChoice",
+      "to": "RadioFallback",
+      "text": "3. [Fallback] The lobby radio failed."
+    },
+    {
+      "from": "ContractorSearch",
+      "to": "ContractorChoice",
+      "text": ""
+    },
+    {
+      "from": "ContractorChoice",
+      "to": "AssemblyUpdate",
+      "text": "1. The contractor is already at the assembly point."
+    },
+    {
+      "from": "ContractorChoice",
+      "to": "Floor2Escalation",
+      "text": "2. The contractor was last seen on Floor 2."
+    },
+    {
+      "from": "ContractorChoice",
+      "to": "Floor5Blocked",
+      "text": "3. The contractor was in the Floor 5 lab."
+    },
+    {
+      "from": "RadioFallback",
+      "to": "FallbackChoice",
+      "text": ""
+    },
+    {
+      "from": "FallbackChoice",
+      "to": "AssemblyUpdate",
+      "text": "1. [Fallback] Use the backup handset."
+    },
+    {
+      "from": "FallbackChoice",
+      "to": "RunnerDispatch",
+      "text": "2. Send a runner to the command desk."
+    },
+    {
+      "from": "FallbackChoice",
+      "to": "BroadcastRepeat",
+      "text": "3. Wait for command to call back."
+    },
+    {
+      "from": "RunnerDispatch",
+      "to": "CommandReview",
+      "text": ""
+    },
+    {
+      "from": "MobilityAssist",
+      "to": "MobilityChoice",
+      "text": ""
+    },
+    {
+      "from": "MobilityChoice",
+      "to": "StairChairDeploy",
+      "text": "1. Dispatch the stair-chair team."
+    },
+    {
+      "from": "MobilityChoice",
+      "to": "RefugeMonitor",
+      "text": "2. Hold position in the refuge area and monitor."
+    },
+    {
+      "from": "MobilityChoice",
+      "to": "ElevatorDenied",
+      "text": "3. Someone requested the elevator by mistake."
+    },
+    {
+      "from": "StairChairDeploy",
+      "to": "StairChairOutcome",
+      "text": ""
+    },
+    {
+      "from": "StairChairOutcome",
+      "to": "AssemblyUpdate",
+      "text": "1. The transfer reaches the stair landing."
+    },
+    {
+      "from": "StairChairOutcome",
+      "to": "CrowdControl",
+      "text": "2. The stairs are too crowded for the transfer."
+    },
+    {
+      "from": "StairChairOutcome",
+      "to": "RefugeMonitor",
+      "text": "3. The evacuee asks to pause in the refuge area."
+    },
+    {
+      "from": "RefugeMonitor",
+      "to": "RefugeChoice",
+      "text": ""
+    },
+    {
+      "from": "RefugeChoice",
+      "to": "StairChairDeploy",
+      "text": "1. Command approves assisted descent now."
+    },
+    {
+      "from": "RefugeChoice",
+      "to": "CommandReview",
+      "text": "2. Command keeps the refuge area occupied for the next cycle."
+    },
+    {
+      "from": "RefugeChoice",
+      "to": "CrowdControl",
+      "text": "3. A second evacuee arrives and needs crowd control."
+    },
+    {
+      "from": "ElevatorDenied",
+      "to": "MobilityChoice",
+      "text": ""
+    },
+    {
+      "from": "CrowdControl",
+      "to": "CrowdControlChoice",
+      "text": ""
+    },
+    {
+      "from": "CrowdControlChoice",
+      "to": "CommandReview",
+      "text": "1. Open the secondary stairwell."
+    },
+    {
+      "from": "CrowdControlChoice",
+      "to": "RefugeMonitor",
+      "text": "2. Pause the descent and retry from the refuge area."
+    },
+    {
+      "from": "CrowdControlChoice",
+      "to": "BroadcastRepeat",
+      "text": "3. Repeat the floor broadcast for spacing."
+    },
+    {
+      "from": "CommandReview",
+      "to": "ClearStatusChoice",
+      "text": ""
+    },
+    {
+      "from": "ClearStatusChoice",
+      "to": "HeadcountConfirm",
+      "text": "1. All zones report clear."
+    },
+    {
+      "from": "ClearStatusChoice",
+      "to": "Floor5Blocked",
+      "text": "2. Floor 5 still needs alternate routing."
+    },
+    {
+      "from": "ClearStatusChoice",
+      "to": "HeadcountMismatch",
+      "text": "3. Headcount does not match at assembly."
+    },
+    {
+      "from": "ClearStatusChoice",
+      "to": "ShelterInPlace",
+      "text": "4. Weather outside becomes unsafe."
+    },
+    {
+      "from": "HeadcountConfirm",
+      "to": "DrillCloseChoice",
+      "text": ""
+    },
+    {
+      "from": "DrillCloseChoice",
+      "to": "DrillSuccess",
+      "text": "1. Close the drill as a clean run."
+    },
+    {
+      "from": "DrillCloseChoice",
+      "to": "DrillCorrective",
+      "text": "2. Close the drill and log a corrective action."
+    },
+    {
+      "from": "DrillCloseChoice",
+      "to": "CommandReview",
+      "text": "3. Recheck one more time before closing."
+    },
+    {
+      "from": "DrillSuccess",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "DrillCorrective",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "HeadcountMismatch",
+      "to": "HeadcountChoice",
+      "text": ""
+    },
+    {
+      "from": "HeadcountChoice",
+      "to": "LobbyCheck",
+      "text": "1. Recheck the lobby sign-in sheets."
+    },
+    {
+      "from": "HeadcountChoice",
+      "to": "ResweepDispatch",
+      "text": "2. Send a targeted resweep request."
+    },
+    {
+      "from": "HeadcountChoice",
+      "to": "ControllerInject",
+      "text": "3. Treat it as a controller inject and continue."
+    },
+    {
+      "from": "ResweepDispatch",
+      "to": "ResweepDispatchChoice",
+      "text": ""
+    },
+    {
+      "from": "ResweepDispatchChoice",
+      "to": "Floor2Ready",
+      "text": "1. Send the team back to Floor 2."
+    },
+    {
+      "from": "ResweepDispatchChoice",
+      "to": "Floor5Blocked",
+      "text": "2. Send the team back to Floor 5."
+    },
+    {
+      "from": "ResweepDispatchChoice",
+      "to": "MobilityAssist",
+      "text": "3. Ask accessibility staff to verify the refuge area."
+    },
+    {
+      "from": "ControllerInject",
+      "to": "HeadcountConfirm",
+      "text": ""
+    },
+    {
+      "from": "ShelterInPlace",
+      "to": "ShelterChoice",
+      "text": ""
+    },
+    {
+      "from": "ShelterChoice",
+      "to": "CoveredGarage",
+      "text": "1. Move everyone to the covered garage."
+    },
+    {
+      "from": "ShelterChoice",
+      "to": "BroadcastRepeat",
+      "text": "2. Pause and restart the floor broadcast."
+    },
+    {
+      "from": "ShelterChoice",
+      "to": "CommandReview",
+      "text": "3. Keep the current assembly point and re-evaluate."
+    },
+    {
+      "from": "CoveredGarage",
+      "to": "HeadcountConfirm",
+      "text": ""
+    },
+    {
+      "from": "BroadcastRepeat",
+      "to": "BroadcastRepeatChoice",
+      "text": ""
+    },
+    {
+      "from": "BroadcastRepeatChoice",
+      "to": "CommandReview",
+      "text": "1. Repeat the all-clear request."
+    },
+    {
+      "from": "BroadcastRepeatChoice",
+      "to": "Floor2Ready",
+      "text": "2. Repeat Floor 2 sweep instructions."
+    },
+    {
+      "from": "BroadcastRepeatChoice",
+      "to": "MobilityAssist",
+      "text": "3. Repeat mobility assistance instructions."
+    },
+    {
+      "from": "AssemblyUpdate",
+      "to": "AssemblyChoice",
+      "text": ""
+    },
+    {
+      "from": "AssemblyChoice",
+      "to": "CommandReview",
+      "text": "1. Send the update to command."
+    },
+    {
+      "from": "AssemblyChoice",
+      "to": "HeadcountMismatch",
+      "text": "2. Start a manual headcount check."
+    },
+    {
+      "from": "AssemblyChoice",
+      "to": "LobbyCheck",
+      "text": "3. Ask lobby to verify visitor badges again."
+    }
+  ]
+}

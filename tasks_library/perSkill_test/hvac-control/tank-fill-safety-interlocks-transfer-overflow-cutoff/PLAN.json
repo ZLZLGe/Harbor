@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "tank-fill-safety-interlocks-transfer-overflow-cutoff",
+  "taskRole": "transfer",
+  "title": "Transfer: Tank Fill Overflow Interlock",
+  "goal": "实现储液罐自动灌装控制：把液位提升到目标区间并稳定维持，同时在脉冲测试和自动灌装过程中都要执行 92% 高液位联锁，触发时必须立即关闭进液阀、冻结继续加液动作并记录每次联锁事件，最终输出一份证明未发生溢流的运行摘要。",
+  "primaryOutputFile": "fill_interlock_summary.json",
+  "difficulty": "medium",
+  "category": "industrial-automation",
+  "skillBenefitRationale": "任务核心不是复杂建模，而是把高液位联锁放在所有阀门指令之前并留下可审计记录；只要安全联锁设计正确，其余控制逻辑可以很朴素，因此唯一关键技能就是 safety-interlocks。",
+  "targetSkillDirName": "safety-interlocks",
+  "targetSkillName": "safety-interlocks"
+}

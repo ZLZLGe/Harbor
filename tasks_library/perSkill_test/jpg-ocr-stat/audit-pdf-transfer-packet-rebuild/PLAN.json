@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "audit-pdf-transfer-packet-rebuild",
+  "taskRole": "transfer",
+  "title": "Transfer | 审计材料 PDF 组包重排",
+  "goal": "按照给定清单从多份源 PDF 中抽取指定页、修正方向、按顺序重组，并生成一份可直接审阅的审计材料合并包。",
+  "primaryOutputFile": "/app/workspace/audit_review_packet.pdf",
+  "difficulty": "hard",
+  "category": "document transformation",
+  "skillBenefitRationale": "核心工作是页级拆分、旋转、重排与合并 PDF，属于典型的 PDF 文档重组场景，离开该 skill 无法高质量完成。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

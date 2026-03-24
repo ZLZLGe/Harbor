@@ -1,0 +1,32 @@
+version = "0.0"
+
+[metadata]
+id = "datacenter-failover-pddl-skills-transfer-service-recovery"
+name = "Transfer | 数据中心故障切换恢复规划"
+description = "读取恢复清单中的全部数据中心故障切换 PDDL 实例，为每个集群生成恢复关键服务、切换流量并重建副本的顺序计划并写入输出文件。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "research"
+tags = ["pddl", "planning", "datacenter-failover"]
+primary_output_file = "recovery_plans/cluster_a_recovery.txt"
+source_task_id = "pddl-tpp-planning"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

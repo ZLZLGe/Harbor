@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cold-chain-yaml-config-transfer-defrost-policy",
+  "taskRole": "transfer",
+  "title": "Transfer: Cold-Chain Defrost Policy",
+  "goal": "构建一个冷库运维任务：读取 freezer_policy.yaml 与 temperature_log.csv，根据温度波动和报警窗口生成新的 defrost_policy.yaml，并输出异常时段汇总。",
+  "primaryOutputFile": "defrost_policy.yaml",
+  "difficulty": "medium",
+  "category": "facilities-operations",
+  "skillBenefitRationale": "这里把 yaml-config 迁移到冷链策略配置场景，核心是读取嵌套阈值、班次窗口和设备分组配置，再把分析后的策略结果写成新的 YAML。任务不依赖其他 shipped skills，yaml-config 是唯一关键能力。",
+  "targetSkillDirName": "yaml-config",
+  "targetSkillName": "yaml-config"
+}

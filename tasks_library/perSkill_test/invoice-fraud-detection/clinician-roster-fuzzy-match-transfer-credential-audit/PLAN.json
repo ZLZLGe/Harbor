@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "clinician-roster-fuzzy-match-transfer-credential-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Audit Clinician Roster Aliases Against a Licensing Registry",
+  "goal": "Match messy clinician names from shift rosters to a licensing registry despite initials, token order changes, and minor spelling errors, then output unresolved or mismatched credential cases to /root/license_exceptions.csv.",
+  "primaryOutputFile": "/root/license_exceptions.csv",
+  "difficulty": "hard",
+  "category": "compliance-audit",
+  "skillBenefitRationale": "This task transfers the skill from company-name reconciliation to person-name reconciliation, where fuzzy matching is essential to connect roster aliases to the correct licensed clinician record.",
+  "targetSkillDirName": "fuzzy-match",
+  "targetSkillName": "fuzzy-match"
+}

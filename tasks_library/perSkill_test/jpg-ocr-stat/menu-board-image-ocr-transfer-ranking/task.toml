@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "menu-board-image-ocr-transfer-ranking"
+name = "Transfer | Menu Board Price Ranking"
+description = "OCR a folder of cafe menu board images, extract each listed item and price, and write a Markdown report with per-board cheapest items plus the overall median price."
+author_name = "Yuanli Wang"
+author_email = "yuanliw@bu.edu"
+difficulty = "hard"
+category = "retail analytics"
+tags = ["image ocr", "menu boards", "markdown report"]
+primary_output_file = "/app/workspace/menu_price_report.md"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

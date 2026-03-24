@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "seedling-trays-gpt-multimodal-transfer-germination-map"
+name = "Transfer: 育苗盘发芽穴位识别与汇总"
+description = "分析育苗盘俯拍图片，识别每盘已发芽的穴位坐标并将汇总结果写入 /app/trays/germination_report.csv。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "seedling germination analysis"
+tags = ["image understanding", "agriculture", "grid localization", "csv output"]
+primary_output_file = "/app/trays/germination_report.csv"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

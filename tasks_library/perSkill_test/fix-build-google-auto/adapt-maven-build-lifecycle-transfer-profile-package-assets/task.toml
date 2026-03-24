@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "adapt-maven-build-lifecycle-transfer-profile-package-assets"
+name = "Transfer: 修复基于 Profile 的 Maven 打包生命周期"
+description = "修复 app/pom.xml，让生产 profile 在打包前处理资源并生成包含预期配置文件的制品。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = ["Java", "Maven", "profile", "packaging", "build-lifecycle"]
+primary_output_file = "app/pom.xml"
+source_task_id = "fix-build-google-auto"
+task_role = "transfer"
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

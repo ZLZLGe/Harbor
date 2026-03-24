@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "booking-policies-python-scala-oop-transfer-pricing",
+  "taskRole": "transfer",
+  "title": "Transfer: 预订定价策略翻译",
+  "goal": "将一个 Python 预订定价策略模块翻译为 Scala 2.13：模块包含订单与房型数据类、折扣策略抽象类及多个实现、策略注册表、类方法构造器和费用汇总逻辑。",
+  "primaryOutputFile": "/root/BookingPolicies.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "该任务把同一 skill 迁移到业务规则引擎场景，重点仍是把 Python 的策略模式、注册表对象、数据类与继承关系翻译成清晰的 Scala OOP 结构，不依赖其他技能。",
+  "targetSkillDirName": "python-scala-oop",
+  "targetSkillName": "python-scala-oop"
+}

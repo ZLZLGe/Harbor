@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "covenant-scorecard-pdf-similar-breach-audit",
+  "taskRole": "similar",
+  "title": "Similar: 契约约束违约审计",
+  "goal": "读取贷款契约说明 PDF 中的财务约束定义、阈值表和豁免条款，再结合提供的季度财务工作簿，计算哪些测试期触发违约，并将最严重违约期、对应指标和偏离幅度写入 `/root/covenant_breach_summary.json`。",
+  "primaryOutputFile": "/root/covenant_breach_summary.json",
+  "difficulty": "hard",
+  "category": "financial-modeling",
+  "skillBenefitRationale": "任务的关键在于先从契约 PDF 中可靠提取规则文本和表格阈值，再据此解释工作簿数据；若不能正确处理 PDF，后续计算无法成立，因此 `pdf` 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

@@ -1,0 +1,14 @@
+{"event_id":"EVT-1001","product_id":"AX5_DRV","station":"FINAL_TEST","line_id":"PILOT-A1","engineer_id":"ENG-LI","test_item":"OUTPUT_12V","symptom_code":"F901","raw_reason_text":"12V output dead，J9开路样子; U17脚位浮高"}
+{"event_id":"EVT-1002","product_id":"AX5_DRV","station":"FINAL_TEST","line_id":"PILOT-A1","engineer_id":"ENG-QI","test_item":"FAN_TACH","symptom_code":"F315","raw_reason_text":"fan不转，tach no pulse，重测还是挂"}
+{"event_id":"EVT-1003","product_id":"AX5_DRV","station":"BURN_IN","line_id":"PILOT-A2","engineer_id":"ENG-ZHOU","test_item":"THERMAL_SOAK","symptom_code":"B112","raw_reason_text":"老化2h后 OTP trip，自动关机"}
+{"event_id":"EVT-1004","product_id":"AX5_DRV","station":"FINAL_TEST","line_id":"PILOT-A2","engineer_id":"ENG-SUN","test_item":"IDLE_CURRENT","symptom_code":"F228","raw_reason_text":"静态电流偏高，像半短路"}
+{"event_id":"EVT-1005","product_id":"AX5_DRV","station":"FINAL_TEST","line_id":"PILOT-A3","engineer_id":"ENG-WU","test_item":"FIXTURE_LOOP","symptom_code":"F044","raw_reason_text":"换夹具后偶尔OK，治具接触飘"}
+{"event_id":"EVT-1006","product_id":"BZ9_CTRL","station":"FINAL_TEST","line_id":"PILOT-B1","engineer_id":"ENG-HE","test_item":"BOOT_CHECK","symptom_code":"C701","raw_reason_text":"CRC对不上，fw pkg mismatch"}
+{"event_id":"EVT-1007","product_id":"BZ9_CTRL","station":"FLASH","line_id":"PILOT-B1","engineer_id":"ENG-PAN","test_item":"EEPROM_WRITE","symptom_code":"C411","raw_reason_text":"写eeprom失败，重烧也不稳"}
+{"event_id":"EVT-1008","product_id":"BZ9_CTRL","station":"FINAL_TEST","line_id":"PILOT-B2","engineer_id":"ENG-XU","test_item":"CAN_LOOP","symptom_code":"C510","raw_reason_text":"CAN timeout at J3，偶发丢包"}
+{"event_id":"EVT-1009","product_id":"BZ9_CTRL","station":"BURN_IN","line_id":"PILOT-B2","engineer_id":"ENG-HAN","test_item":"AGING_RESET","symptom_code":"B220","raw_reason_text":"老化时 watchdog reset loop; TP12 浮高"}
+{"event_id":"EVT-1010","product_id":"BZ9_CTRL","station":"FINAL_TEST","line_id":"PILOT-B3","engineer_id":"ENG-YAO","test_item":"PROBE_SCAN","symptom_code":"C044","raw_reason_text":"probe pin worn, contact bad"}
+{"event_id":"EVT-1011","product_id":"AX5_DRV","station":"BURN_IN","line_id":"PILOT-A3","engineer_id":"ENG-LU","test_item":"AGING_LIGHT","symptom_code":"B907","raw_reason_text":"老化时灯闪一下就灭, maybe cap issue"}
+{"event_id":"EVT-1012","product_id":"BZ9_CTRL","station":"FINAL_TEST","line_id":"PILOT-B3","engineer_id":"ENG-TAO","test_item":"CAN_LOOP","symptom_code":"C999","raw_reason_text":"J3附近有点怪，debug later"}
+{"event_id":"EVT-1013","product_id":"AX5_DRV","station":"BURN_IN","line_id":"PILOT-A4","engineer_id":"ENG-FEI","test_item":"IDLE_CURRENT","symptom_code":"B331","raw_reason_text":"静态电流高; reseat治具后有时过"}
+{"event_id":"EVT-1014","product_id":"BZ9_CTRL","station":"FINAL_TEST","line_id":"PILOT-B4","engineer_id":"ENG-MA","test_item":"BOOT_CHECK","symptom_code":"C702","raw_reason_text":"CRC fail ; probe wear again"}

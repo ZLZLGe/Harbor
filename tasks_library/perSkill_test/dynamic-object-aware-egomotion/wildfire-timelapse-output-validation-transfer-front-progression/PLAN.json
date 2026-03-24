@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wildfire-timelapse-output-validation-transfer-front-progression",
+  "taskRole": "transfer",
+  "title": "Transfer: 野火时序遥感输出校验",
+  "goal": "分析多时相卫星火场影像序列，输出时间区间到火势阶段标签的 JSON，以及每个采样时刻活跃火线区域的 CSR 稀疏 mask，并确保全部结果先经过本地输出一致性检查。",
+  "primaryOutputFile": "/root/pred_fire_progression.json",
+  "difficulty": "medium",
+  "category": "remote-sensing",
+  "skillBenefitRationale": "该任务把同一 skill 迁移到遥感场景，仍然以结构化产物自检为唯一关键 shipped skill：需要确认时间区间覆盖、标签值域、mask 维度与帧数匹配，以及稀疏编码可被稳定重建。",
+  "targetSkillDirName": "output-validation",
+  "targetSkillName": "output-validation"
+}

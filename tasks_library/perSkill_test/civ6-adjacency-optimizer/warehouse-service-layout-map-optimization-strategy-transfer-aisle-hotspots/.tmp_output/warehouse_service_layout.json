@@ -1,0 +1,190 @@
+{
+  "placements": {
+    "pick_stations": [
+      [
+        2,
+        1
+      ],
+      [
+        7,
+        1
+      ]
+    ],
+    "charging_dock": [
+      6,
+      3
+    ],
+    "buffer_tables": [
+      [
+        2,
+        5
+      ],
+      [
+        5,
+        5
+      ]
+    ]
+  },
+  "shelf_service": {
+    "S1": {
+      "pick_station": {
+        "coord": [
+          2,
+          1
+        ],
+        "distance": 1,
+        "score": 45
+      },
+      "charging_dock": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "buffer_table": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "total": 45
+    },
+    "S2": {
+      "pick_station": {
+        "coord": [
+          7,
+          1
+        ],
+        "distance": 1,
+        "score": 40
+      },
+      "charging_dock": {
+        "coord": [
+          6,
+          3
+        ],
+        "distance": 2,
+        "score": 12
+      },
+      "buffer_table": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "total": 52
+    },
+    "S3": {
+      "pick_station": {
+        "coord": [
+          7,
+          1
+        ],
+        "distance": 2,
+        "score": 10
+      },
+      "charging_dock": {
+        "coord": [
+          6,
+          3
+        ],
+        "distance": 3,
+        "score": 8
+      },
+      "buffer_table": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "total": 18
+    },
+    "S4": {
+      "pick_station": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "charging_dock": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "buffer_table": {
+        "coord": [
+          2,
+          5
+        ],
+        "distance": 1,
+        "score": 21
+      },
+      "total": 21
+    },
+    "S5": {
+      "pick_station": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "charging_dock": {
+        "coord": [
+          6,
+          3
+        ],
+        "distance": 1,
+        "score": 20
+      },
+      "buffer_table": {
+        "coord": [
+          5,
+          5
+        ],
+        "distance": 2,
+        "score": 4
+      },
+      "total": 24
+    },
+    "S6": {
+      "pick_station": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "charging_dock": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "buffer_table": {
+        "coord": [
+          2,
+          5
+        ],
+        "distance": 2,
+        "score": 5
+      },
+      "total": 5
+    },
+    "S7": {
+      "pick_station": {
+        "coord": null,
+        "distance": null,
+        "score": 0
+      },
+      "charging_dock": {
+        "coord": [
+          6,
+          3
+        ],
+        "distance": 3,
+        "score": 4
+      },
+      "buffer_table": {
+        "coord": [
+          5,
+          5
+        ],
+        "distance": 2,
+        "score": 8
+      },
+      "total": 12
+    }
+  },
+  "total_service_score": 177
+}

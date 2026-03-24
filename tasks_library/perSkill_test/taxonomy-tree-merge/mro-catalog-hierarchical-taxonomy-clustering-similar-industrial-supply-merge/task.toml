@@ -1,0 +1,31 @@
+version = "1.0"
+
+[metadata]
+id = "mro-catalog-hierarchical-taxonomy-clustering-similar-industrial-supply-merge"
+name = "Similar: 工业品 MRO 类目树统一"
+description = "整合 Grainger、McMaster-Carr 与 Fastenal 的工业品类目路径，输出统一的五层 MRO 采购 taxonomy 映射与层级树。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "ML/NLP"
+tags = ["taxonomy-alignment", "hierarchical-clustering", "mro", "industrial-supply", "procurement-analytics"]
+primary_output_file = "drafts/mro-catalog-hierarchical-taxonomy-clustering-similar-industrial-supply-merge/instruction.md"
+source_task_id = "taxonomy-tree-merge"
+task_role = "similar"
+
+[reward]
+reward = "(P0_passed/10 * 0.55) + (P1_passed/4 * 0.30) + (P2_passed/2 * 0.15)"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

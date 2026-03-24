@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "volunteer-roster-xlsx-transfer-planning"
+name = "Transfer | 志愿者排班规划工作簿"
+description = "读取志愿者名册、班次需求和可用时段数据，生成含班次分配、人员负载与缺口概览的排班工作簿。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "resource planning"
+tags = ["volunteer scheduling", "resource planning", "spreadsheet", "operations"]
+primary_output_file = "/app/workspace/volunteer_shift_plan.xlsx"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

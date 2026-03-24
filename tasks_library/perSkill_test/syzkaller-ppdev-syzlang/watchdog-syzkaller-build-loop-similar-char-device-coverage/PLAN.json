@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "watchdog-syzkaller-build-loop-similar-char-device-coverage",
+  "taskRole": "similar",
+  "title": "Similar - Add Linux Watchdog Syzlang Coverage",
+  "goal": "Add buildable syzkaller descriptions for the Linux watchdog character device by creating `/opt/syzkaller/sys/linux/dev_watchdog.txt` and `/opt/syzkaller/sys/linux/dev_watchdog.txt.const`, including the `/dev/watchdog#` opener, the core watchdog info struct, timeout/status ioctls, and the constants needed for `make descriptions` plus `make all TARGETOS=linux TARGETARCH=amd64` to pass.",
+  "primaryOutputFile": "/opt/syzkaller/sys/linux/dev_watchdog.txt",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "This stays close to the source task’s core workflow: author a new syzlang file plus const file from scratch, then use repeated syzkaller description and full-build runs to converge on a valid result.",
+  "targetSkillDirName": "syzkaller-build-loop",
+  "targetSkillName": "syzkaller-build-loop"
+}

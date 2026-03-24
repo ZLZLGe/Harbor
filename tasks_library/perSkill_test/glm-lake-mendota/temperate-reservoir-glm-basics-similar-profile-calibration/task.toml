@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "temperate-reservoir-glm-basics-similar-profile-calibration"
+name = "Similar: 温带饮用水库垂向温度校准"
+description = "Calibrate a temperate drinking-water reservoir GLM simulation so the April-November profile RMSE stays below 1.8 C and produce /root/output/temperate_profile.nc."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["glm", "temperature-profile", "calibration", "reservoir-modeling"]
+primary_output_file = "/root/output/temperate_profile.nc"
+source_task_id = "glm-lake-mendota"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

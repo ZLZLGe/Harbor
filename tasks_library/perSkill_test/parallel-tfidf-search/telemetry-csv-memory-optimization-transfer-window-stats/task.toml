@@ -1,0 +1,30 @@
+[task]
+version = "1.0"
+id = "telemetry-csv-memory-optimization-transfer-window-stats"
+name = "Transfer: Low-RAM Telemetry Window Statistics"
+description = "Compute exact rolling window telemetry summaries from a large interleaved CSV and write the solution to /root/workspace/telemetry_window_solution.py."
+
+[metadata]
+id = "telemetry-csv-memory-optimization-transfer-window-stats"
+name = "Transfer: Low-RAM Telemetry Window Statistics"
+description = "Compute exact rolling window telemetry summaries from a large interleaved CSV and write the solution to /root/workspace/telemetry_window_solution.py."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "Time Series"
+tags = ["time-series", "csv", "streaming", "telemetry", "memory"]
+primary_output_file = "/root/workspace/telemetry_window_solution.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 4
+memory_mb = 4096
+storage_mb = 10240

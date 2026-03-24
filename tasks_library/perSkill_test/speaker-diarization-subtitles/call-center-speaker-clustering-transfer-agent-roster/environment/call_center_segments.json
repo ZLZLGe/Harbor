@@ -1,0 +1,245 @@
+{
+  "dataset_id": "call_center_roster_batch_07",
+  "embedding_metric": "cosine",
+  "cluster_id_rule": "Sort calls by call_id, sort segments by segment_index, then assign cluster_XX in first-appearance order.",
+  "speaker_type_rule": {
+    "agent_min_distinct_calls": 2,
+    "caller_max_distinct_calls": 1
+  },
+  "calls": [
+    {
+      "call_id": "call_001",
+      "queue": "billing",
+      "recording_date": "2026-02-01",
+      "segments": [
+        {
+          "segment_id": "call_001_seg_00",
+          "segment_index": 0,
+          "start_sec": 0.0,
+          "end_sec": 1.1,
+          "embedding": [0.92, 0.16, 0.06, 0.04, 0.02, 0.12],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_001_seg_01",
+          "segment_index": 1,
+          "start_sec": 1.3,
+          "end_sec": 2.2,
+          "embedding": [0.58, 0.28, 0.19, 0.51, 0.13, 0.08],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_001_seg_02",
+          "segment_index": 2,
+          "start_sec": 2.6,
+          "end_sec": 3.5,
+          "embedding": [0.9, 0.17, 0.05, 0.05, 0.03, 0.11],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_001_seg_03",
+          "segment_index": 3,
+          "start_sec": 3.8,
+          "end_sec": 4.6,
+          "embedding": [0.56, 0.3, 0.18, 0.49, 0.14, 0.09],
+          "notes": "Short turn embedding extracted upstream."
+        }
+      ]
+    },
+    {
+      "call_id": "call_002",
+      "queue": "shipping",
+      "recording_date": "2026-02-02",
+      "segments": [
+        {
+          "segment_id": "call_002_seg_00",
+          "segment_index": 0,
+          "start_sec": 0.0,
+          "end_sec": 1.1,
+          "embedding": [0.12, 0.91, 0.08, 0.03, 0.1, 0.07],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_002_seg_01",
+          "segment_index": 1,
+          "start_sec": 1.3,
+          "end_sec": 2.2,
+          "embedding": [0.2, 0.57, 0.24, 0.16, 0.54, 0.11],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_002_seg_02",
+          "segment_index": 2,
+          "start_sec": 2.6,
+          "end_sec": 3.5,
+          "embedding": [0.11, 0.89, 0.09, 0.04, 0.11, 0.08],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_002_seg_03",
+          "segment_index": 3,
+          "start_sec": 3.8,
+          "end_sec": 4.6,
+          "embedding": [0.18, 0.55, 0.26, 0.15, 0.56, 0.1],
+          "notes": "Short turn embedding extracted upstream."
+        }
+      ]
+    },
+    {
+      "call_id": "call_003",
+      "queue": "billing",
+      "recording_date": "2026-02-03",
+      "segments": [
+        {
+          "segment_id": "call_003_seg_00",
+          "segment_index": 0,
+          "start_sec": 0.0,
+          "end_sec": 1.1,
+          "embedding": [0.91, 0.15, 0.07, 0.05, 0.02, 0.13],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_003_seg_01",
+          "segment_index": 1,
+          "start_sec": 1.3,
+          "end_sec": 2.2,
+          "embedding": [0.49, 0.17, 0.57, 0.11, 0.18, 0.51],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_003_seg_02",
+          "segment_index": 2,
+          "start_sec": 2.6,
+          "end_sec": 3.5,
+          "embedding": [0.89, 0.18, 0.06, 0.04, 0.02, 0.12],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_003_seg_03",
+          "segment_index": 3,
+          "start_sec": 3.8,
+          "end_sec": 4.6,
+          "embedding": [0.47, 0.16, 0.55, 0.13, 0.17, 0.53],
+          "notes": "Short turn embedding extracted upstream."
+        }
+      ]
+    },
+    {
+      "call_id": "call_004",
+      "queue": "retention",
+      "recording_date": "2026-02-04",
+      "segments": [
+        {
+          "segment_id": "call_004_seg_00",
+          "segment_index": 0,
+          "start_sec": 0.0,
+          "end_sec": 1.1,
+          "embedding": [0.08, 0.07, 0.92, 0.11, 0.05, 0.04],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_004_seg_01",
+          "segment_index": 1,
+          "start_sec": 1.3,
+          "end_sec": 2.2,
+          "embedding": [0.24, 0.42, 0.49, 0.47, 0.14, 0.31],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_004_seg_02",
+          "segment_index": 2,
+          "start_sec": 2.6,
+          "end_sec": 3.5,
+          "embedding": [0.09, 0.06, 0.9, 0.12, 0.04, 0.05],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_004_seg_03",
+          "segment_index": 3,
+          "start_sec": 3.8,
+          "end_sec": 4.6,
+          "embedding": [0.22, 0.44, 0.5, 0.45, 0.15, 0.3],
+          "notes": "Short turn embedding extracted upstream."
+        }
+      ]
+    },
+    {
+      "call_id": "call_005",
+      "queue": "shipping",
+      "recording_date": "2026-02-05",
+      "segments": [
+        {
+          "segment_id": "call_005_seg_00",
+          "segment_index": 0,
+          "start_sec": 0.0,
+          "end_sec": 1.1,
+          "embedding": [0.13, 0.9, 0.07, 0.03, 0.12, 0.07],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_005_seg_01",
+          "segment_index": 1,
+          "start_sec": 1.3,
+          "end_sec": 2.2,
+          "embedding": [0.52, 0.48, 0.16, 0.22, 0.4, 0.19],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_005_seg_02",
+          "segment_index": 2,
+          "start_sec": 2.6,
+          "end_sec": 3.5,
+          "embedding": [0.1, 0.92, 0.08, 0.04, 0.09, 0.09],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_005_seg_03",
+          "segment_index": 3,
+          "start_sec": 3.8,
+          "end_sec": 4.6,
+          "embedding": [0.5, 0.46, 0.17, 0.21, 0.42, 0.2],
+          "notes": "Short turn embedding extracted upstream."
+        }
+      ]
+    },
+    {
+      "call_id": "call_006",
+      "queue": "retention",
+      "recording_date": "2026-02-06",
+      "segments": [
+        {
+          "segment_id": "call_006_seg_00",
+          "segment_index": 0,
+          "start_sec": 0.0,
+          "end_sec": 1.1,
+          "embedding": [0.07, 0.08, 0.91, 0.1, 0.06, 0.04],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_006_seg_01",
+          "segment_index": 1,
+          "start_sec": 1.3,
+          "end_sec": 2.2,
+          "embedding": [0.29, 0.18, 0.44, 0.54, 0.32, 0.49],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_006_seg_02",
+          "segment_index": 2,
+          "start_sec": 2.6,
+          "end_sec": 3.5,
+          "embedding": [0.08, 0.07, 0.89, 0.13, 0.05, 0.05],
+          "notes": "Short turn embedding extracted upstream."
+        },
+        {
+          "segment_id": "call_006_seg_03",
+          "segment_index": 3,
+          "start_sec": 3.8,
+          "end_sec": 4.6,
+          "embedding": [0.31, 0.17, 0.43, 0.52, 0.33, 0.5],
+          "notes": "Short turn embedding extracted upstream."
+        }
+      ]
+    }
+  ]
+}

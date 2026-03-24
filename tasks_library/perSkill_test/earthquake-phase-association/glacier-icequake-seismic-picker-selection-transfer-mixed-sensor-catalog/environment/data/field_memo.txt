@@ -1,0 +1,15 @@
+Glacier deployment memo
+=======================
+
+Site: North margin icefall array, midsummer melt season.
+
+Operational context:
+- This hour is the first continuous test after moving the array closer to the icefall. There is no reviewed local icequake catalog yet.
+- The usable channels are mixed: higher-gain BH/HH seismic channels plus HN strong-motion channels. Analysts want one first-pass candidate list that can generalize across that mixed hardware.
+- The network is sparse and local noise changes quickly as meltwater channels migrate. Simple amplitude-only triggers are producing many extra detections during slush bursts and calving noise.
+- We do not have stable local templates from this glacier front, so methods that depend on pre-existing waveform families are not expected to transfer well.
+
+What the analyst wants:
+- A practical first-pass candidate schedule for follow-up review, not a perfect final catalog.
+- Recovery of smaller mixed-sensor icequakes matters more than ultra-low latency.
+- Calibration and telemetry service windows must be excluded from the review queue.

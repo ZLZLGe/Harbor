@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "event-ops-xlsx-transfer-shift-assignment",
+  "taskRole": "transfer",
+  "title": "Transfer | Event Workbook Shift Assignment",
+  "goal": "根据志愿者名册、可用时段矩阵、岗位资质表和班次需求表，填充 `Assignments` 与 `Coverage Summary` 工作表，生成满足人数与资质约束的排班结果。",
+  "primaryOutputFile": "/root/event_shift_plan.xlsx",
+  "difficulty": "hard",
+  "category": "scheduling",
+  "skillBenefitRationale": "输入输出都围绕复杂工作簿展开，关键在于读取矩阵型表格、写入排班结果和维护模板结构，目标 skill 是唯一关键 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "pedestrian-traffic-counting",
+  "targetSkillDirName": "gemini-video-understanding",
+  "runId": "20260322131102-pedestrian-traffic-counting-gemini-video-understanding-j54fnm",
+  "taskId": "lecture-gemini-video-understanding-transfer-structured-chapters",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/pedestrian-traffic-counting/gemini-video-understanding/20260322131102-pedestrian-traffic-counting-gemini-video-understanding-j54fnm/lecture-gemini-video-understanding-transfer-structured-chapters",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/pedestrian-traffic-counting/lecture-gemini-video-understanding-transfer-structured-chapters",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:lecture-gemini-video-understanding-transfer-structured-chapters instruction.md 未直接出现 `gemini-video-understanding`，不存在技能暴露。; 任务依赖的章节切分、授课模式识别和讲课内容概括都属于当前 shipped skill 能覆盖的视频理解/转录能力，不需要额外 shipped skill。; tests/test_outputs.py 只要求 average_reward > 0.0，章节时间、模式、标题和 summary 只要有极少量关键词命中即可过；错误章节划分仍可能通过，测试不可判定。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 draft 的 instruction.md 都没有直接暴露 shipped skill 的 name 或 dirName，但四个任务的测试整体都偏松，普遍只要求 reward > 0，family 级可判定性不足。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a6a-a689-7010-aa3e-a88c3936314c"
+}

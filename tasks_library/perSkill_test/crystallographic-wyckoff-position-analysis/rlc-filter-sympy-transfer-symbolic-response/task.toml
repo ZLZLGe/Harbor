@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "rlc-filter-sympy-transfer-symbolic-response"
+name = "Transfer: RLC 滤波器的符号传递函数分析"
+description = "Read exact second-order series-RLC filter parameters from CSV, derive symbolic transfer-function polynomials, and report poles, damping class, and asymptotic limits."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "electrical_engineering"
+tags = ["electrical_engineering", "rlc_filters", "transfer_functions", "symbolic_analysis", "exact_arithmetic"]
+primary_output_file = "/root/workspace/rlc_symbolic_response.py"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

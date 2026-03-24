@@ -1,0 +1,147 @@
+{
+  "sourceTaskId": "manufacturing-fjsp-optimization",
+  "targetSkillDirName": "fjsp-baseline-repair-with-downtime-and-policy",
+  "runId": "20260315103217-manufacturing-fjsp-optimization-fjsp-baseline-repair-with-downtime-and-policy-jjmkt2",
+  "taskId": "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/manufacturing-fjsp-optimization/battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315103217-manufacturing-fjsp-optimization-fjsp-baseline-repair-with-downtime-and-policy-jjmkt2/manufacturing-fjsp-optimization/drafts/battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/manufacturing-fjsp-optimization/battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/manufacturing-fjsp-optimization/battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "task.toml metadata.description 缺失或为空",
+    "task.toml metadata.primary_output_file=missing 与 blueprint 不一致",
+    "task.toml metadata.source_task_id=missing 与 sourceTaskId 不一致",
+    "task.toml metadata.task_role=missing 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [
+    "task.toml metadata.description 缺失或为空",
+    "task.toml metadata.primary_output_file=missing 与 blueprint 不一致",
+    "task.toml metadata.source_task_id=missing 与 sourceTaskId 不一致",
+    "task.toml metadata.task_role=missing 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "task.toml",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration",
+        "electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance",
+        "pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock"
+      ],
+      "requestedIssuesByTaskId": {
+        "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "task.toml metadata.description 缺失或为空",
+            "task.toml metadata.primary_output_file=missing 与 blueprint 不一致",
+            "task.toml metadata.source_task_id=missing 与 sourceTaskId 不一致",
+            "task.toml metadata.task_role=missing 与 blueprint 不一致"
+          ],
+          "pass": false
+        },
+        "electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance": {
+          "reviewerIssues": [],
+          "staticIssues": [
+            "task.toml metadata.description 缺失或为空",
+            "task.toml metadata.primary_output_file=missing 与 blueprint 不一致",
+            "task.toml metadata.source_task_id=missing 与 sourceTaskId 不一致",
+            "task.toml metadata.task_role=missing 与 blueprint 不一致"
+          ],
+          "pass": false
+        },
+        "pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock": {
+          "reviewerIssues": [
+            "instruction 只要求产出可行且满足 freeze / budget 的修复排程，但测试只接受隐藏的精确最优解；按任务语义可接受的可行解不止一个，判定口径与指令不一致。; tests 还隐含要求 `solution.json`/`schedule.csv` 的行顺序与评测内部排序完全一致，instruction 未明确这一顺序约束。; testabilityPass=false"
+          ],
+          "staticIssues": [
+            "task.toml metadata.description 缺失或为空",
+            "task.toml metadata.primary_output_file=missing 与 blueprint 不一致",
+            "task.toml metadata.source_task_id=missing 与 sourceTaskId 不一致",
+            "task.toml metadata.task_role=missing 与 blueprint 不一致"
+          ],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10bb-2ec3-7b42-a37b-489c155eb100",
+      "repairSummary": "已修复这 3 个任务，并只改了指定目录内的文件。\n\n- `battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration`：补齐了 `task.toml` 的 `description`、`primary_output_file`、`source_task_id`、`task_role`；重写了 [instruction.md](/tmp/per_skill_repair_workspaces/20260315103217-manufacturing-fjsp-optimization-fjsp-baseline-repair-with-downtime-and-policy-jjmkt2-44e11db8/manufacturing-fjsp-optimization/drafts/battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration/instruction.md)，明确修复顺序、最早可行右移规则、优化目标、tie-break 和输出排序，避免隐藏判定口径。\n- `electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance`：补齐了 `task.toml` 同样缺失的 4 个 metadata 字段；重写了 [instruction.md](/tmp/per_skill_repair_workspaces/20260315103217-manufacturing-fjsp-optimization-fjsp-baseline-repair-with-downtime-and-policy-jjmkt2-44e11db8/manufacturing-fjsp-optimization/drafts/electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance/instruction.md)，把 makespan 改进、局部最早右移、优化目标和输出顺序写明。\n- `pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock`：补齐了 `task.toml` 同样缺失的 4 个 metadata 字段；重写了 [instruction.md](/tmp/per_skill_repair_workspaces/20260315103217-manufacturing-fjsp-optimization-fjsp-baseline-repair-with-downtime-and-policy-jjmkt2-44e11db8/manufacturing-fjsp-optimization/drafts/pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock/instruction.md)，把 reviewer 提到的冻结语义、精确优化口径和 `solution.json`/`schedule.csv` 行顺序要求显式写出。\n\n本地已验证：\n- 三个任务的 `solution/solve.sh` + `tests/test_outputs.py` 全部通过。\n- 三个 `task.toml` 的新增 metadata 字段已按 blueprint 对齐。\n- 三份 `instruction.md` 都没有直接出现当前 shipped skill 的名字或目录名。",
+      "reviewThreadId": "019d10c3-792c-7571-8b87-725ed73804e6",
+      "evaluationByTaskId": {
+        "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration": {
+          "reviewerIssues": [
+            "`tests/test.sh` 没有导出 `TEST_FILE` 环境变量，却在 Python 中直接读取 `os.environ[\"TEST_FILE\"]`，按当前打包方式会先因 `KeyError` 崩溃，导致 verifier 不可用。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock": {
+          "reviewerIssues": [
+            "`tests/test.sh` 在验证时依赖 `apt-get`、`curl` 和在线安装 `uv`，verifier 不是自包含的，存在明显的网络/外部依赖风险。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration",
+        "pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock"
+      ],
+      "requestedIssuesByTaskId": {
+        "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration": {
+          "reviewerIssues": [
+            "`tests/test.sh` 没有导出 `TEST_FILE` 环境变量，却在 Python 中直接读取 `os.environ[\"TEST_FILE\"]`，按当前打包方式会先因 `KeyError` 崩溃，导致 verifier 不可用。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock": {
+          "reviewerIssues": [
+            "`tests/test.sh` 在验证时依赖 `apt-get`、`curl` 和在线安装 `uv`，verifier 不是自包含的，存在明显的网络/外部依赖风险。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10c8-5b20-7503-a088-5073a39b0e5a",
+      "repairSummary": "- `battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration`：修复了 `tests/test.sh` 中 `TEST_FILE` 未传入 Python 子进程的问题，把调用改为 `TEST_FILE=... python3` 内联传参，避免 verifier 因 `KeyError` 崩溃。\n\n- `pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock`：重写了 `tests/test.sh`，去掉 `apt-get`、`curl`、在线安装 `uv` 和 `uvx pytest` 依赖，改为与前一个任务一致的本地 `python3` 自包含执行方式，并保留 `reward.txt` 写入逻辑。\n\n本地已分别执行两个任务的 `solution/solve.sh` 和 `tests/test.sh`，两边 `reward.txt` 都是 `1`。",
+      "reviewThreadId": "019d10cc-6843-7f33-bc80-ef42b25f87d5",
+      "evaluationByTaskId": {
+        "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

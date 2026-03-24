@@ -1,0 +1,82 @@
+{
+  "name": "storm_response_snapshot",
+  "description": "Compact MATPOWER-style transmission snapshot for post-storm islanding triage.",
+  "baseMVA": 100.0,
+  "bus": [
+    [101.0, 3.0, 18.5, 6.0, 0.0, 0.0, 1.0, 1.0, 0.0, 230.0, 1.0, 1.1, 0.9],
+    [205.0, 1.0, 33.25, 10.0, 0.0, 0.0, 1.0, 1.0, 0.0, 230.0, 1.0, 1.1, 0.9],
+    [309.0, 1.0, 26.0, 8.0, 0.0, 0.0, 1.0, 1.0, 0.0, 230.0, 1.0, 1.1, 0.9],
+    [402.0, 2.0, 27.75, 9.0, 0.0, 0.0, 1.0, 1.0, 0.0, 230.0, 1.0, 1.1, 0.9],
+    [511.0, 1.0, 39.5, 12.0, 0.0, 0.0, 1.0, 1.0, 0.0, 115.0, 1.0, 1.1, 0.9],
+    [620.0, 2.0, 16.25, 5.0, 0.0, 0.0, 1.0, 1.0, 0.0, 115.0, 1.0, 1.1, 0.9],
+    [731.0, 1.0, 29.5, 9.0, 0.0, 0.0, 1.0, 1.0, 0.0, 115.0, 1.0, 1.1, 0.9],
+    [845.0, 1.0, 34.25, 11.0, 0.0, 0.0, 1.0, 1.0, 0.0, 115.0, 1.0, 1.1, 0.9]
+  ],
+  "gen": [
+    [101.0, 50.0, 0.0, 40.0, -40.0, 1.0, 100.0, 1.0, 78.5, 0.0],
+    [402.0, 70.0, 0.0, 45.0, -45.0, 1.0, 100.0, 1.0, 86.5, 0.0],
+    [620.0, 35.0, 0.0, 35.0, -35.0, 1.0, 100.0, 1.0, 60.0, 0.0],
+    [845.0, 0.0, 0.0, 20.0, -20.0, 1.0, 100.0, 0.0, 40.0, 0.0]
+  ],
+  "branch": [
+    [101.0, 205.0, 0.01, 0.08, 0.0, 120.0, 120.0, 120.0, 0.0, 0.0, 1.0, -30.0, 30.0],
+    [205.0, 309.0, 0.01, 0.09, 0.0, 110.0, 110.0, 110.0, 0.0, 0.0, 1.0, -30.0, 30.0],
+    [309.0, 402.0, 0.015, 0.1, 0.0, 105.0, 105.0, 105.0, 0.0, 0.0, 1.0, -30.0, 30.0],
+    [309.0, 511.0, 0.02, 0.11, 0.0, 90.0, 90.0, 90.0, 0.0, 0.0, 1.0, -30.0, 30.0],
+    [402.0, 511.0, 0.02, 0.12, 0.0, 95.0, 95.0, 95.0, 0.0, 0.0, 1.0, -30.0, 30.0],
+    [511.0, 620.0, 0.015, 0.1, 0.0, 100.0, 100.0, 100.0, 0.0, 0.0, 1.0, -30.0, 30.0],
+    [620.0, 731.0, 0.01, 0.08, 0.0, 115.0, 115.0, 115.0, 0.0, 0.0, 1.0, -30.0, 30.0],
+    [731.0, 845.0, 0.01, 0.08, 0.0, 115.0, 115.0, 115.0, 0.0, 0.0, 1.0, -30.0, 30.0],
+    [620.0, 845.0, 0.02, 0.1, 0.0, 90.0, 90.0, 90.0, 0.0, 0.0, 1.0, -30.0, 30.0]
+  ],
+  "gencost": [
+    [2.0, 0.0, 0.0, 3.0, 0.01, 12.0, 0.0],
+    [2.0, 0.0, 0.0, 3.0, 0.015, 11.0, 0.0],
+    [2.0, 0.0, 0.0, 3.0, 0.02, 10.0, 0.0],
+    [2.0, 0.0, 0.0, 3.0, 0.03, 14.0, 0.0]
+  ],
+  "column_info": {
+    "bus": {
+      "0": "BUS_I - bus number (1-indexed)",
+      "1": "BUS_TYPE - 1=PQ, 2=PV, 3=Slack",
+      "2": "PD - real power demand (MW)",
+      "3": "QD - reactive power demand (MVAr)",
+      "4": "GS - shunt conductance",
+      "5": "BS - shunt susceptance",
+      "6": "BUS_AREA - area number",
+      "7": "VM - voltage magnitude (pu)",
+      "8": "VA - voltage angle (degrees)",
+      "9": "BASE_KV - base voltage (kV)",
+      "10": "ZONE - loss zone",
+      "11": "VMAX - max voltage (pu)",
+      "12": "VMIN - min voltage (pu)"
+    },
+    "gen": {
+      "0": "GEN_BUS - bus number (1-indexed)",
+      "1": "PG - real power output (MW)",
+      "2": "QG - reactive power output (MVAr)",
+      "3": "QMAX - max reactive power (MVAr)",
+      "4": "QMIN - min reactive power (MVAr)",
+      "5": "VG - voltage setpoint (pu)",
+      "6": "MBASE - machine base (MVA)",
+      "7": "GEN_STATUS - 1=in-service, 0=out-of-service",
+      "8": "PMAX - max real power output (MW)",
+      "9": "PMIN - min real power output (MW)"
+    },
+    "branch": {
+      "0": "F_BUS - from bus (1-indexed)",
+      "1": "T_BUS - to bus (1-indexed)",
+      "2": "BR_R - resistance (pu)",
+      "3": "BR_X - reactance (pu)",
+      "4": "BR_B - total line charging susceptance (pu)",
+      "5": "RATE_A - MVA rating A (long term)",
+      "6": "RATE_B - MVA rating B (short term)",
+      "7": "RATE_C - MVA rating C (emergency)",
+      "8": "TAP - transformer tap ratio",
+      "9": "SHIFT - transformer phase shift (degrees)",
+      "10": "BR_STATUS - 1=in-service, 0=out-of-service",
+      "11": "ANGMIN - min angle difference (degrees)",
+      "12": "ANGMAX - max angle difference (degrees)"
+    }
+  }
+}

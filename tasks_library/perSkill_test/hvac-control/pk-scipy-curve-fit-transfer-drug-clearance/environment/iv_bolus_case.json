@@ -1,0 +1,50 @@
+{
+  "case_id": "ward-7-discharge-iv-042",
+  "drug_name": "gentamicin",
+  "dose_mg": 250.0,
+  "volume_of_distribution_l": 17.5,
+  "discharge_time_hr": 16.0,
+  "subtherapeutic_floor_mg_per_l": 1.2,
+  "samples": [
+    {
+      "time_hr": 0.25,
+      "plasma_concentration_mg_per_l": 13.6176
+    },
+    {
+      "time_hr": 0.75,
+      "plasma_concentration_mg_per_l": 12.4217
+    },
+    {
+      "time_hr": 1.5,
+      "plasma_concentration_mg_per_l": 11.0749
+    },
+    {
+      "time_hr": 2.25,
+      "plasma_concentration_mg_per_l": 9.5256
+    },
+    {
+      "time_hr": 3.0,
+      "plasma_concentration_mg_per_l": 8.5146
+    },
+    {
+      "time_hr": 4.5,
+      "plasma_concentration_mg_per_l": 6.5101
+    },
+    {
+      "time_hr": 6.0,
+      "plasma_concentration_mg_per_l": 4.9003
+    },
+    {
+      "time_hr": 8.0,
+      "plasma_concentration_mg_per_l": 3.5823
+    },
+    {
+      "time_hr": 10.5,
+      "plasma_concentration_mg_per_l": 2.1563
+    },
+    {
+      "time_hr": 12.0,
+      "plasma_concentration_mg_per_l": 1.768
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "emergency-wait-pca-decomposition-transfer-bottleneck-share",
+  "taskRole": "transfer",
+  "title": "Emergency Department Wait Bottleneck Transfer",
+  "goal": "分析急诊等候时长与到诊压力、床位周转、检验周转、排班供给等多类运营指标的关系，对所有相关变量做统一分解后计算各类瓶颈对等候时长的贡献，输出主导类别及其占比。",
+  "primaryOutputFile": "ed_bottleneck_share.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "医疗运营指标往往成组相关，例如不同班次供给和多项周转时间会同时变化。这个场景要求把 PCA 分解从自然科学数据迁移到服务运营数据，仍然依赖全局分解来提取少量可解释因子并完成贡献归因。",
+  "targetSkillDirName": "pca-decomposition",
+  "targetSkillName": "pca-decomposition"
+}

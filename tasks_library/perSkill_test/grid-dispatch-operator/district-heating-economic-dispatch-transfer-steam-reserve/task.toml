@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "district-heating-economic-dispatch-transfer-steam-reserve"
+name = "Transfer: 区域供热蒸汽调度"
+description = "给定供热站蒸汽成本曲线、蒸汽负荷与热备用要求，生成最低燃料成本的蒸汽出力和热备用分配结果并写入 steam_dispatch_report.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "district-heating", "steam-dispatch", "reserve-allocation", "optimization"]
+primary_output_file = "steam_dispatch_report.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240

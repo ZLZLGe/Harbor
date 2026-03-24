@@ -1,0 +1,122 @@
+{
+  "snapshot_id": "regional-maintenance-window-west-03",
+  "region": "West Delta",
+  "window_label": "Night Maintenance Window",
+  "base_mva": 100.0,
+  "reference_bus": 101,
+  "buses": [
+    {
+      "id": 101,
+      "name": "Harbor North",
+      "demand_mw": 0.0
+    },
+    {
+      "id": 205,
+      "name": "Ridge Junction",
+      "demand_mw": 70.0
+    },
+    {
+      "id": 309,
+      "name": "Basin East",
+      "demand_mw": 20.0
+    },
+    {
+      "id": 411,
+      "name": "Valley South",
+      "demand_mw": 90.0
+    },
+    {
+      "id": 620,
+      "name": "Coastal Gate",
+      "demand_mw": 40.0
+    }
+  ],
+  "generators": [
+    {
+      "id": "G-ALPHA",
+      "bus": 101,
+      "baseline_mw": 110.0,
+      "min_mw": 20.0,
+      "max_mw": 160.0,
+      "offer_usd_per_mwh": 12.0
+    },
+    {
+      "id": "G-BRAVO",
+      "bus": 309,
+      "baseline_mw": 80.0,
+      "min_mw": 10.0,
+      "max_mw": 120.0,
+      "offer_usd_per_mwh": 20.0
+    },
+    {
+      "id": "G-CHARLIE",
+      "bus": 620,
+      "baseline_mw": 30.0,
+      "min_mw": 0.0,
+      "max_mw": 100.0,
+      "offer_usd_per_mwh": 33.0
+    }
+  ],
+  "lines": [
+    {
+      "id": "C-101-205",
+      "name": "North Ridge",
+      "from": 101,
+      "to": 205,
+      "reactance_pu": 0.2,
+      "limit_mw": 100.0,
+      "pre_maintenance_limit_mw": 130.0,
+      "maintenance_note": "N-1 thermal margin for conductor inspection"
+    },
+    {
+      "id": "C-205-309",
+      "name": "River Bend",
+      "from": 205,
+      "to": 309,
+      "reactance_pu": 0.25,
+      "limit_mw": 40.0,
+      "pre_maintenance_limit_mw": 70.0,
+      "maintenance_note": "Temporary tower access restriction"
+    },
+    {
+      "id": "C-309-411",
+      "name": "East Span",
+      "from": 309,
+      "to": 411,
+      "reactance_pu": 0.2,
+      "limit_mw": 70.0,
+      "pre_maintenance_limit_mw": 70.0,
+      "maintenance_note": "No derate on this corridor"
+    },
+    {
+      "id": "C-205-411",
+      "name": "Valley Tie",
+      "from": 205,
+      "to": 411,
+      "reactance_pu": 0.4,
+      "limit_mw": 28.0,
+      "pre_maintenance_limit_mw": 55.0,
+      "maintenance_note": "Parallel path unavailable during relay replacement"
+    },
+    {
+      "id": "C-411-620",
+      "name": "South Gate",
+      "from": 411,
+      "to": 620,
+      "reactance_pu": 0.25,
+      "limit_mw": 60.0,
+      "pre_maintenance_limit_mw": 60.0,
+      "maintenance_note": "No derate on this corridor"
+    },
+    {
+      "id": "C-309-620",
+      "name": "Lakeshore",
+      "from": 309,
+      "to": 620,
+      "reactance_pu": 0.3,
+      "limit_mw": 38.0,
+      "pre_maintenance_limit_mw": 45.0,
+      "maintenance_note": "Lower emergency rating for planned switching"
+    }
+  ]
+}

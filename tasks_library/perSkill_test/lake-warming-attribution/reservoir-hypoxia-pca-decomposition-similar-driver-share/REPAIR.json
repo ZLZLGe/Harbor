@@ -1,0 +1,24 @@
+{
+  "sourceTaskId": "lake-warming-attribution",
+  "targetSkillDirName": "pca-decomposition",
+  "runId": "20260320110115-lake-warming-attribution-pca-decomposition-tp74up",
+  "taskId": "reservoir-hypoxia-pca-decomposition-similar-driver-share",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/lake-warming-attribution/reservoir-hypoxia-pca-decomposition-similar-driver-share",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320110115-lake-warming-attribution-pca-decomposition-tp74up/lake-warming-attribution/drafts/reservoir-hypoxia-pca-decomposition-similar-driver-share",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/lake-warming-attribution/reservoir-hypoxia-pca-decomposition-similar-driver-share",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/lake-warming-attribution/reservoir-hypoxia-pca-decomposition-similar-driver-share",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction 只要求做全局降维并施加 orthogonal rotation，没有把 varimax、标准化方式和具体 PCA/得分实现写成唯一算法；测试却精确绑定到标准化后 SVD+varimax 的单一实现。; 当前测试容差很小，无法覆盖其他同样符合 instruction 与 shipped skill 主题的合理实现，因此可判定性不足。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

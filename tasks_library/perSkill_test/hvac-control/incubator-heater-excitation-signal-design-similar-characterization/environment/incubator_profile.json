@@ -1,0 +1,8 @@
+{
+  "baseline_temp_c": 34.6,
+  "nominal_culture_temp_c": 37.0,
+  "noise_std_c": 0.05,
+  "max_safe_temp_c": 38.4,
+  "min_safe_temp_c": 20.0,
+  "dt_sec": 5.0
+}

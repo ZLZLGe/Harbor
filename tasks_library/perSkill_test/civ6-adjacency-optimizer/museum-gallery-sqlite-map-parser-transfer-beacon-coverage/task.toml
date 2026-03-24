@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "museum-gallery-sqlite-map-parser-transfer-beacon-coverage"
+name = "Transfer - 博物馆导览信标部署"
+description = "读取博物馆展厅 SQLite 楼层数据库并输出覆盖全部重点展品的房间级语音导览信标部署方案到 /output/gallery_beacon_plan.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "arts"
+tags = ["sqlite", "map-parsing", "museum-operations", "graph-coverage", "json"]
+primary_output_file = "/output/gallery_beacon_plan.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

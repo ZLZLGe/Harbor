@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "bodycam-evidence-ffmpeg-media-info-transfer-clip-triage"
+name = "Transfer: 执法记录仪证据片段审计"
+description = "Audit a queue of exported evidence clips using media metadata and write /root/evidence_clip_audit.json with anomaly findings plus the best submission candidate."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "forensic-video-audit"
+tags = ["forensic video", "evidence intake", "media metadata", "ffprobe"]
+primary_output_file = "/root/evidence_clip_audit.json"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

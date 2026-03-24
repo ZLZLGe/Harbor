@@ -1,0 +1,30 @@
+{
+  "name": "Jade Reach offshore export grid",
+  "description": "Simplified offshore wind export network with two coastal landing points and one onshore balancing node.",
+  "baseMVA": 100.0,
+  "slack_node": 7001,
+  "landing_points": [6101, 6155],
+  "export_cable_ids": ["E1", "E2", "E3"],
+  "nodes": [
+    {"node": 4101, "label": "Alpha Array", "kind": "offshore_array", "net_injection_MW": 180.0},
+    {"node": 4120, "label": "Bravo Array", "kind": "offshore_array", "net_injection_MW": 140.0},
+    {"node": 4175, "label": "Charlie Array", "kind": "offshore_array", "net_injection_MW": 120.0},
+    {"node": 5201, "label": "North Hub", "kind": "offshore_hub", "net_injection_MW": 0.0},
+    {"node": 5250, "label": "South Hub", "kind": "offshore_hub", "net_injection_MW": 0.0},
+    {"node": 6101, "label": "Cape West Landing", "kind": "landing_point", "net_injection_MW": -180.0},
+    {"node": 6155, "label": "Cape South Landing", "kind": "landing_point", "net_injection_MW": -130.0},
+    {"node": 7001, "label": "Mainland Grid", "kind": "onshore_grid", "net_injection_MW": -130.0}
+  ],
+  "cables": [
+    {"cable_id": "E1", "from_node": 5201, "to_node": 6101, "x_pu": 0.20, "rating_MW": 230.0, "cable_type": "export"},
+    {"cable_id": "E2", "from_node": 5250, "to_node": 6155, "x_pu": 0.22, "rating_MW": 190.0, "cable_type": "export"},
+    {"cable_id": "E3", "from_node": 5250, "to_node": 6101, "x_pu": 0.28, "rating_MW": 150.0, "cable_type": "export"},
+    {"cable_id": "C1", "from_node": 4101, "to_node": 5201, "x_pu": 0.16, "rating_MW": 210.0, "cable_type": "collector"},
+    {"cable_id": "C2", "from_node": 4120, "to_node": 5201, "x_pu": 0.18, "rating_MW": 180.0, "cable_type": "collector"},
+    {"cable_id": "C3", "from_node": 4175, "to_node": 5250, "x_pu": 0.17, "rating_MW": 160.0, "cable_type": "collector"},
+    {"cable_id": "T1", "from_node": 5201, "to_node": 5250, "x_pu": 0.24, "rating_MW": 120.0, "cable_type": "transfer"},
+    {"cable_id": "L1", "from_node": 6101, "to_node": 7001, "x_pu": 0.12, "rating_MW": 260.0, "cable_type": "landing"},
+    {"cable_id": "L2", "from_node": 6155, "to_node": 7001, "x_pu": 0.11, "rating_MW": 220.0, "cable_type": "landing"},
+    {"cable_id": "L3", "from_node": 6101, "to_node": 6155, "x_pu": 0.25, "rating_MW": 90.0, "cable_type": "landing_tie"}
+  ]
+}

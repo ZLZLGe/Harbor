@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "screening-lab-unit-harmonization-transfer-wellness-batch"
+name = "Transfer | 企业体检批量化验统一"
+description = "清洗企业年度体检批量化验导出表并统一关键筛查指标单位，输出可直接用于人群筛查分析的标准化 CSV。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "healthcare"
+tags = ["healthcare", "screening", "wellness", "lab-unit-conversion", "transfer-task"]
+primary_output_file = "/root/wellness_screening_labs_harmonized.csv"
+source_task_id = "lab-unit-harmonization"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

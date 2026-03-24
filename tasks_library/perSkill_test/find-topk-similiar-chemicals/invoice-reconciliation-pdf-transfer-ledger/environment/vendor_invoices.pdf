@@ -1,0 +1,185 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 559 >>
+stream
+BT
+/F1 12 Tf
+72 760 Td
+(Invoice Packet - Page 1) Tj
+0 -18 Td
+(Vendor Invoices - Q2 2026) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Invoice No: INV-1048) Tj
+0 -18 Td
+(Vendor: Northwind Industrial Supply) Tj
+0 -18 Td
+(Issue Date: 2026-03-14) Tj
+0 -18 Td
+(Due Date: 2026-04-15) Tj
+0 -18 Td
+(Amount Due: $1,240.00) Tj
+0 -18 Td
+(Status: Open) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Invoice No: INV-1052) Tj
+0 -18 Td
+(Vendor: Blue Harbor Logistics) Tj
+0 -18 Td
+(Issue Date: 2026-03-18) Tj
+0 -18 Td
+(Due Date: Apr 20, 2026) Tj
+0 -18 Td
+(Amount Due: $845.50) Tj
+0 -18 Td
+(Status: Open) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 793 >>
+stream
+BT
+/F1 12 Tf
+72 760 Td
+(Invoice Packet - Page 2) Tj
+0 -18 Td
+(Vendor Invoices - Q2 2026) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Invoice No: INV-1044) Tj
+0 -18 Td
+(Vendor: Apex Office Furnishings) Tj
+0 -18 Td
+(Issue Date: 2026-03-02) Tj
+0 -18 Td
+(Due Date: 2026/04/05) Tj
+0 -18 Td
+(Amount Due: $2,100.00) Tj
+0 -18 Td
+(Status: Open) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Invoice No: INV-1055) Tj
+0 -18 Td
+(Vendor: Helios Lab Equipment) Tj
+0 -18 Td
+(Issue Date: 2026-03-22) Tj
+0 -18 Td
+(Due Date: 2026-05-01) Tj
+0 -18 Td
+(Amount Due: $3,410.75) Tj
+0 -18 Td
+(Status: Open) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Invoice No: INV-1052) Tj
+0 -18 Td
+(Vendor: Blue Harbor Logistics) Tj
+0 -18 Td
+(Issue Date: 2026-03-18) Tj
+0 -18 Td
+(Due Date: Apr 20, 2026) Tj
+0 -18 Td
+(Amount Due: $845.50) Tj
+0 -18 Td
+(Status: Duplicate copy) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 787 >>
+stream
+BT
+/F1 12 Tf
+72 760 Td
+(Invoice Packet - Page 3) Tj
+0 -18 Td
+(Vendor Invoices - Q2 2026) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Invoice No: INV-1039) Tj
+0 -18 Td
+(Vendor: Cedar Valley Paper Co.) Tj
+0 -18 Td
+(Issue Date: 2026-02-25) Tj
+0 -18 Td
+(Due Date: March 30, 2026) Tj
+0 -18 Td
+(Amount Due: $315.20) Tj
+0 -18 Td
+(Status: Open) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Invoice No: INV-1061) Tj
+0 -18 Td
+(Vendor: Summit Safety Systems) Tj
+0 -18 Td
+(Issue Date: 2026-03-28) Tj
+0 -18 Td
+(Due Date: 2026-05-12) Tj
+0 -18 Td
+(Amount Due: $980.00) Tj
+0 -18 Td
+(Status: Open) Tj
+0 -18 Td
+() Tj
+0 -18 Td
+(Invoice No: INV-1049) Tj
+0 -18 Td
+(Vendor: Northwind Industrial Supply) Tj
+0 -18 Td
+(Issue Date: 2026-03-16) Tj
+0 -18 Td
+(Due Date: 2026-04-15) Tj
+0 -18 Td
+(Amount Due: $620.00) Tj
+0 -18 Td
+(Status: Open) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 8 0 R >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000133 00000 n 
+0000000203 00000 n 
+0000000812 00000 n 
+0000000938 00000 n 
+0000001781 00000 n 
+0000001907 00000 n 
+0000002744 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+2870
+%%EOF

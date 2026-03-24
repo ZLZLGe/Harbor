@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration",
+  "taskRole": "transfer",
+  "title": "Transfer - Battery Module Weld Repair",
+  "goal": "将基线修复迁移到电池模组焊接与检测排程，处理焊机校准停机、备选设备加工时长差异，以及基线机台失效后必须换机的情况，生成预算内的可行修复排程。",
+  "primaryOutputFile": "drafts/battery-module-fjsp-baseline-repair-with-downtime-and-policy-transfer-weld-calibration/task.toml",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "这个迁移任务突出目标 skill 中“非法基线机台修复 + 严格最早可行右移 + 预算感知换机”的组合能力，场景与原始离散装配明显不同，但仍是同一单技能闭环。",
+  "targetSkillDirName": "fjsp-baseline-repair-with-downtime-and-policy",
+  "targetSkillName": "fjsp-baseline-repair-with-downtime-and-policy"
+}

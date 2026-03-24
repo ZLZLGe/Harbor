@@ -1,0 +1,25 @@
+station_id: PS-17
+district: harbor-north
+surge_event_id: evening_draw_spike
+target_pressure_bar: 5.0
+surge_time_s: 12.0
+evaluation_window_s: [12.0, 40.0]
+dip_search_window_s: [12.0, 20.0]
+steady_state_window_s: [34.0, 40.0]
+low_pressure_threshold_bar: 4.5
+sample_period_s: 0.5
+candidates:
+  - legacy_valve_trim
+  - balanced_vfd_pid
+  - buffer_tank_assist
+limits:
+  rise_time_s_max: 8.0
+  overshoot_pct_max: 3.0
+  steady_state_error_bar_max: 0.05
+  low_pressure_duration_s_max: 5.0
+ranking:
+  - thresholds_passed_desc
+  - low_pressure_duration_s_asc
+  - steady_state_error_bar_asc
+  - overshoot_pct_asc
+  - candidate_asc

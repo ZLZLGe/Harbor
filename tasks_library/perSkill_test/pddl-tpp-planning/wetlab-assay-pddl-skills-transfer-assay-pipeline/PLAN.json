@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wetlab-assay-pddl-skills-transfer-assay-pipeline",
+  "taskRole": "transfer",
+  "title": "Transfer | 湿实验批处理流程规划",
+  "goal": "给定湿实验样本处理流程的 PDDL 域和多批次实验问题文件，生成涵盖取样、混配、孵育、清洗与上机顺序的有效实验计划，并保存到指定输出路径。",
+  "primaryOutputFile": "assay_plans/batch_red_plan.txt",
+  "difficulty": "hard",
+  "category": "research",
+  "skillBenefitRationale": "该任务把 PDDL 规划迁移到实验流程编排，依旧只依赖统一的 PDDL 加载、计划生成、验证和保存能力，不需要其他 shipped skill 参与。",
+  "targetSkillDirName": "pddl-skills",
+  "targetSkillName": "pddl-skills"
+}

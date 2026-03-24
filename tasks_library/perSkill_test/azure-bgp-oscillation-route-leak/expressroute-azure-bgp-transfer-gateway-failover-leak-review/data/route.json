@@ -1,0 +1,7 @@
+{
+  "prefix": "10.88.30.0/24",
+  "origin_asn": 65330,
+  "origin_branch": "branch-hou",
+  "incident_id": "er-vpn-failover-2026-02-17",
+  "description": "Branch-hou prefix that should stay primary on ExpressRoute while VPN remains backup-only."
+}

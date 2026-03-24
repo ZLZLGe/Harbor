@@ -1,0 +1,101 @@
+#!/bin/bash
+set -e
+
+python3 <<'PY'
+import numpy as np
+import pandas as pd
+from pathlib import Path
+
+
+DATA_DIR = Path("/root/data")
+OUTPUT_PATH = Path("/root/output/scrap_defect_share.csv")
+
+CATEGORY_COLUMNS = {
+    "Climate": ["ambient_temp_c", "ambient_humidity_pct", "dew_point_c"],
+    "Vibration": ["spindle_vibration_mm_s", "fixture_shock_g", "bearing_temp_c"],
+    "Material": ["incoming_thickness_cv", "supplier_mix_delta_pct", "burr_rate_pct"],
+    "Load": ["cycle_time_sec", "overtime_minutes", "queue_length_units"],
+}
+
+
+def standardize(values):
+    return (values - values.mean(axis=0)) / values.std(axis=0, ddof=0)
+
+
+def varimax(phi, gamma=1.0, q=100, tol=1e-7):
+    p, k = phi.shape
+    rotation = np.eye(k)
+    previous = 0.0
+    for _ in range(q):
+        rotated = phi @ rotation
+        basis, singular, vh = np.linalg.svd(
+            phi.T
+            @ (
+                rotated**3
+                - (gamma / p) * rotated @ np.diag(np.sum(rotated**2, axis=0))
+            ),
+            full_matrices=False,
+        )
+        rotation = basis @ vh
+        current = singular.sum()
+        if previous and current - previous < tol:
+            break
+        previous = current
+    return phi @ rotation, rotation
+
+
+environment = pd.read_csv(DATA_DIR / "line_environment.csv")
+machine = pd.read_csv(DATA_DIR / "machine_condition.csv")
+material = pd.read_csv(DATA_DIR / "incoming_material.csv")
+load = pd.read_csv(DATA_DIR / "line_load.csv")
+quality = pd.read_csv(DATA_DIR / "scrap_quality.csv")
+
+df = (
+    environment.merge(machine, on="shift_id")
+    .merge(material, on="shift_id")
+    .merge(load, on="shift_id")
+    .merge(quality, on="shift_id")
+)
+
+driver_columns = [column for columns in CATEGORY_COLUMNS.values() for column in columns]
+X = standardize(df[driver_columns].to_numpy(dtype=float))
+y = df["scrap_rate_pct"].to_numpy(dtype=float)
+
+u, singular, vh = np.linalg.svd(X, full_matrices=False)
+n_factors = 4
+loadings = vh[:n_factors].T * singular[:n_factors] / np.sqrt(len(df) - 1)
+rotated_loadings, rotation = varimax(loadings)
+scores = (u[:, :n_factors] * singular[:n_factors]) @ rotation
+
+column_index = {name: idx for idx, name in enumerate(driver_columns)}
+factor_to_category = {}
+for factor_idx in range(n_factors):
+    factor_to_category[factor_idx] = max(
+        CATEGORY_COLUMNS,
+        key=lambda category: np.abs(
+            rotated_loadings[
+                [column_index[column] for column in CATEGORY_COLUMNS[category]],
+                factor_idx,
+            ]
+        ).mean(),
+    )
+
+design = np.column_stack([np.ones(len(df)), scores])
+beta = np.linalg.lstsq(design, y, rcond=None)[0][1:]
+
+raw_contributions = {category: 0.0 for category in CATEGORY_COLUMNS}
+for factor_idx, category in factor_to_category.items():
+    raw_contributions[category] += abs(beta[factor_idx]) * scores[:, factor_idx].var(ddof=0)
+
+total_contribution = sum(raw_contributions.values())
+share_pct = {
+    category: 100.0 * contribution / total_contribution
+    for category, contribution in raw_contributions.items()
+}
+
+dominant_category = max(share_pct, key=share_pct.get)
+result = pd.DataFrame(
+    [{"category": dominant_category, "share_pct": round(share_pct[dominant_category], 2)}]
+)
+result.to_csv(OUTPUT_PATH, index=False)
+PY

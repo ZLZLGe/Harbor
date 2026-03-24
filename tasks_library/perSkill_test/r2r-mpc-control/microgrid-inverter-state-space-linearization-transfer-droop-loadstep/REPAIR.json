@@ -1,0 +1,116 @@
+{
+  "sourceTaskId": "r2r-mpc-control",
+  "targetSkillDirName": "state-space-linearization",
+  "runId": "20260322155056-r2r-mpc-control-state-space-linearization-k29lvt",
+  "taskId": "microgrid-inverter-state-space-linearization-transfer-droop-loadstep",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/r2r-mpc-control/state-space-linearization/20260322155056-r2r-mpc-control-state-space-linearization-k29lvt/microgrid-inverter-state-space-linearization-transfer-droop-loadstep",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322155056-r2r-mpc-control-state-space-linearization-k29lvt/r2r-mpc-control/drafts/microgrid-inverter-state-space-linearization-transfer-droop-loadstep",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/r2r-mpc-control/microgrid-inverter-state-space-linearization-transfer-droop-loadstep",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/r2r-mpc-control/microgrid-inverter-state-space-linearization-transfer-droop-loadstep",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "environment/microgrid_droop.py 直接提供了 continuous_jacobian 与 zoh_discretize 等核心能力，显著削弱了对 shipped skill 本身的测量强度。; skillBenefitPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [
+    "instruction.md 未规定离散极点的输出顺序，但测试要求与特定排序后的极点列表完全一致，判定条件不充分。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "artifacts/microgrid_droop_linearization.json",
+    "environment/__pycache__/microgrid_droop.cpython-312.pyc",
+    "environment/microgrid_droop.py",
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep"
+      ],
+      "requestedIssuesByTaskId": {
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep": {
+          "reviewerIssues": [
+            "instruction.md 未规定离散极点的输出顺序，但测试要求与特定排序后的极点列表完全一致，判定条件不充分。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac1-4c97-7d32-8df5-ae338901999a",
+      "repairSummary": "补充了 instruction.md 中对离散极点输出顺序的明确要求：按 real 升序，若 real 相同再按 imag 升序，避免测试依赖隐含排序规则；本地未能完成跑测，因为当前环境缺少 numpy/pip，且 Docker 未接入该 WSL。",
+      "reviewThreadId": "019d1ac3-6c97-7642-a3bf-ebd476b6b32b",
+      "evaluationByTaskId": {
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep": {
+          "reviewerIssues": [
+            "environment/microgrid_droop.py 直接提供了连续 Jacobian、ZOH 离散化、特征值排序和滚动仿真等核心实现，导致任务主体答案在环境中已明显泄露。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep"
+      ],
+      "requestedIssuesByTaskId": {
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep": {
+          "reviewerIssues": [
+            "environment/microgrid_droop.py 直接提供了连续 Jacobian、ZOH 离散化、特征值排序和滚动仿真等核心实现，导致任务主体答案在环境中已明显泄露。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac4-ad07-79a1-ae05-5da7ee569e1f",
+      "repairSummary": "收缩了环境脚本，只保留输入读取与非线性动力学基础接口，移除了 Jacobian、ZOH 离散化、极点排序和滚动仿真等泄露答案的实现；同时把这些核心计算补回到 solution/solve.sh 中并完成验证，确保任务仍可解且 tests/test_outputs.py 通过。",
+      "reviewThreadId": "019d1ac8-812c-7482-9c8d-638a2a8ab015",
+      "evaluationByTaskId": {
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep": {
+          "reviewerIssues": [
+            "仓库内已存在输出文件 `artifacts/microgrid_droop_linearization.json`，会直接泄露标准答案。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 3,
+      "requestedTaskIds": [
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep"
+      ],
+      "requestedIssuesByTaskId": {
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep": {
+          "reviewerIssues": [
+            "仓库内已存在输出文件 `artifacts/microgrid_droop_linearization.json`，会直接泄露标准答案。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1ac9-7218-77e2-8491-2e82061510d2",
+      "repairSummary": "将仓库内预置的标准答案输出改为不含结果的占位 JSON，消除了 `artifacts/microgrid_droop_linearization.json` 对答案的直接泄露；未修改任务说明、测试或解答逻辑。",
+      "reviewThreadId": "019d1acd-a405-7d32-9d88-74deab29354f",
+      "evaluationByTaskId": {
+        "microgrid-inverter-state-space-linearization-transfer-droop-loadstep": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "originErrorCombo": "reviewer__static"
+}

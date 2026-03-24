@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots"
+name = "Similar: Sidewalk Crowd Peak Frames"
+description = "Extract comparable still frames from each sidewalk surveillance clip and report the earliest peak-crowd frame plus its visible pedestrian count in /app/video/pedestrian_peaks.xlsx."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "pedestrian crowd peak detection"
+tags = ["video understanding", "frame comparison", "pedestrian counting", "excel output"]
+primary_output_file = "/app/video/pedestrian_peaks.xlsx"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

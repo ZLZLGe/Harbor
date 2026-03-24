@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "crystallographic-wyckoff-position-analysis",
+  "targetSkillDirName": "pymatgen",
+  "runId": "20260318203251-crystallographic-wyckoff-position-analysis-pymatgen-s4k2o5",
+  "taskId": "surface-slab-pymatgen-transfer-termination-catalog",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/crystallographic-wyckoff-position-analysis/pymatgen/20260318203251-crystallographic-wyckoff-position-analysis-pymatgen-s4k2o5/surface-slab-pymatgen-transfer-termination-catalog",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/crystallographic-wyckoff-position-analysis/surface-slab-pymatgen-transfer-termination-catalog",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:surface-slab-pymatgen-transfer-termination-catalog instruction.md 直接写出了 `center_slab=True` 这一 API 级参数提示；相较 source_task/instruction.md，这更直接暴露了目标 skill 的具体实现路径。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa0-9169-7350-b145-35e9d8030cd6"
+}

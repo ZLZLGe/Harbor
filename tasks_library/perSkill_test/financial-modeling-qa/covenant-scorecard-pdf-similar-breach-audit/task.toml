@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "covenant-scorecard-pdf-similar-breach-audit"
+name = "Similar: Covenant Scorecard Breach Audit"
+description = "Review the covenant package PDF and quarterly workbook, identify each breached test period, and write the required JSON breach summary."
+author_name = "Levi"
+author_email = "levi@harbor.dev"
+difficulty = "hard"
+category = "financial-modeling"
+tags = ["financial-modeling", "pdf-parsing", "covenants"]
+primary_output_file = "/root/covenant_breach_summary.json"
+source_task_id = "financial-modeling-qa"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,163 @@
+{
+  "products": [
+    {
+      "product_id": "AX5_DRV",
+      "entries": [
+        {
+          "code": "AX5-FT-001",
+          "standard_label": "No 12V output: J9 open circuit",
+          "station_scope": ["FINAL_TEST"],
+          "category": "ELECTRICAL",
+          "keywords_examples": [
+            "12V output dead",
+            "J9开路",
+            "no 12v",
+            "output dead",
+            "J9"
+          ]
+        },
+        {
+          "code": "AX5-FT-002",
+          "standard_label": "Fan tach abnormal / fan stall",
+          "station_scope": ["FINAL_TEST"],
+          "category": "FUNCTION",
+          "keywords_examples": [
+            "fan不转",
+            "tach no pulse",
+            "fan stall",
+            "tach"
+          ]
+        },
+        {
+          "code": "AX5-FT-003",
+          "standard_label": "Idle current high / partial short",
+          "station_scope": ["FINAL_TEST", "BURN_IN"],
+          "category": "ELECTRICAL",
+          "keywords_examples": [
+            "静态电流偏高",
+            "静态电流高",
+            "partial short",
+            "半短路",
+            "idle current high"
+          ]
+        },
+        {
+          "code": "AX5-SD-004",
+          "standard_label": "Cold solder suspected: U17",
+          "station_scope": ["FINAL_TEST", "BURN_IN"],
+          "category": "SOLDER",
+          "keywords_examples": [
+            "U17脚位浮高",
+            "U17虚焊",
+            "浮高",
+            "cold solder",
+            "U17"
+          ]
+        },
+        {
+          "code": "AX5-BI-005",
+          "standard_label": "Burn-in thermal shutdown / OTP trip",
+          "station_scope": ["BURN_IN"],
+          "category": "THERMAL",
+          "keywords_examples": [
+            "OTP trip",
+            "自动关机",
+            "thermal shutdown",
+            "过温"
+          ]
+        },
+        {
+          "code": "AX5-GN-006",
+          "standard_label": "Fixture contact unstable / reseat passes",
+          "station_scope": ["FINAL_TEST", "BURN_IN"],
+          "category": "FIXTURE",
+          "keywords_examples": [
+            "换夹具后偶尔OK",
+            "治具接触飘",
+            "reseat治具后有时过",
+            "fixture contact",
+            "reseat passes"
+          ]
+        }
+      ]
+    },
+    {
+      "product_id": "BZ9_CTRL",
+      "entries": [
+        {
+          "code": "BZ9-FT-001",
+          "standard_label": "Firmware package CRC mismatch",
+          "station_scope": ["FINAL_TEST", "FLASH"],
+          "category": "FIRMWARE",
+          "keywords_examples": [
+            "CRC对不上",
+            "CRC fail",
+            "fw pkg mismatch",
+            "package crc"
+          ]
+        },
+        {
+          "code": "BZ9-FT-002",
+          "standard_label": "CAN communication timeout at J3",
+          "station_scope": ["FINAL_TEST"],
+          "category": "COMM",
+          "keywords_examples": [
+            "CAN timeout at J3",
+            "CAN timeout",
+            "丢包",
+            "J3"
+          ]
+        },
+        {
+          "code": "BZ9-FT-003",
+          "standard_label": "EEPROM write failed / reflash unstable",
+          "station_scope": ["FINAL_TEST", "FLASH"],
+          "category": "FIRMWARE",
+          "keywords_examples": [
+            "写eeprom失败",
+            "重烧也不稳",
+            "reflash unstable",
+            "EEPROM write"
+          ]
+        },
+        {
+          "code": "BZ9-BI-004",
+          "standard_label": "Burn-in watchdog reset loop",
+          "station_scope": ["BURN_IN"],
+          "category": "SYSTEM",
+          "keywords_examples": [
+            "watchdog reset loop",
+            "老化时",
+            "reset loop",
+            "watchdog"
+          ]
+        },
+        {
+          "code": "BZ9-SD-005",
+          "standard_label": "Cold solder suspected: TP12",
+          "station_scope": ["FINAL_TEST", "BURN_IN"],
+          "category": "SOLDER",
+          "keywords_examples": [
+            "TP12 浮高",
+            "TP12虚焊",
+            "浮高",
+            "cold solder",
+            "TP12"
+          ]
+        },
+        {
+          "code": "BZ9-GN-006",
+          "standard_label": "Probe wear / bad contact",
+          "station_scope": ["FINAL_TEST", "BURN_IN", "FLASH"],
+          "category": "FIXTURE",
+          "keywords_examples": [
+            "probe pin worn",
+            "contact bad",
+            "probe wear again",
+            "bad contact"
+          ]
+        }
+      ]
+    }
+  ]
+}

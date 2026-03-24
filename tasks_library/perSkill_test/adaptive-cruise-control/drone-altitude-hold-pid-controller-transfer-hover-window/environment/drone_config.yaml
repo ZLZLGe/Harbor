@@ -1,0 +1,18 @@
+drone:
+  initial_altitude_m: 12.0
+  initial_vertical_speed_mps: 0.0
+  max_climb_rate_mps: 3.0
+  max_sink_rate_mps: -3.0
+  max_collective_accel_mps2: 2.8
+  min_collective_accel_mps2: -3.5
+  vertical_damping: 0.55
+
+pid_initial:
+  kp: 0.8
+  ki: 0.01
+  kd: 0.1
+
+simulation:
+  dt: 0.2
+  duration: 90.0
+  integral_limit: 12.0

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "iso-ac-branch-pi-model-similar-peak-hour-feasibility-audit",
+  "taskRole": "similar",
+  "title": "Similar: Peak-Hour AC Feasibility Audit",
+  "goal": "给定一个已求解的次日高峰时段 AC 运行快照（网络参数、母线电压、机组出力），计算含变压器分接头与相移的双向支路潮流，生成最重载支路排序，并输出包含功率平衡残差与越限检查的可行性审计结果。",
+  "primaryOutputFile": "feasibility_audit.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "任务核心是用精确的 AC 支路 pi-model 公式计算双向 P/Q/|S|、支路负载率和母线支路注入汇总；只要这个 shipped skill 用对，任务即可完成，不依赖其他 source-task 技能。",
+  "targetSkillDirName": "ac-branch-pi-model",
+  "targetSkillName": "ac-branch-pi-model"
+}

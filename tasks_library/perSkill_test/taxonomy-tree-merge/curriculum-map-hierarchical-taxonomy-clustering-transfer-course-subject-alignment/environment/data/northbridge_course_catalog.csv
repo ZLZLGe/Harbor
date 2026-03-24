@@ -1,0 +1,19 @@
+catalog_path,course_code,course_title,credits
+Engineering > Computer Science > Programming Foundations > Intro to Programming,CSC101,Introduction to Programming,4
+Engineering > Computer Science > Programming Foundations > Data Structures,CSC201,Data Structures and Algorithms,4
+Engineering > Computer Science > Information Systems > Database Systems,CSC240,Database Systems,3
+Engineering > Computer Science > Systems > Operating Systems,CSC310,Operating Systems,4
+Engineering > Data Science > Applied Analytics > Intro Statistics,DS150,Statistical Reasoning,3
+Science > Mathematics > Calculus Sequence > Calculus I,MAT151,Calculus I,4
+Science > Mathematics > Algebra Sequence > Linear Algebra,MAT221,Linear Algebra,3
+Science > Mathematics > Discrete Mathematics > Logic and Proof,MAT210,Discrete Mathematics,3
+Science > Chemistry > General Chemistry > General Chemistry I,CHM101,General Chemistry I,4
+Science > Chemistry > Organic Chemistry > Organic Chemistry I,CHM241,Organic Chemistry I,4
+Science > Biology > Cell and Molecular > Cell Biology,BIO201,Cell Biology,4
+Science > Biology > Genetics > Principles of Genetics,BIO260,Principles of Genetics,4
+Business > Economics > Principles > Microeconomics,ECO101,Principles of Microeconomics,3
+Business > Economics > Principles > Macroeconomics,ECO102,Principles of Macroeconomics,3
+Humanities > Writing Studies > Composition > Academic Writing,WRT110,Academic Writing,3
+Humanities > Philosophy > Ethics > Applied Ethics,PHI220,Applied Ethics,3
+Engineering > Computer Science > Artificial Intelligence > Machine Learning,CSC360,Machine Learning,3
+Engineering > Computer Science > Networks > Computer Networks,CSC330,Computer Networks,3

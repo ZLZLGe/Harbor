@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "offshore-wind-ac-branch-pi-model-transfer-transformer-audit"
+name = "Transfer: Offshore Wind Transformer Audit"
+description = "Diagnose transformer metering mismatches in an offshore wind export snapshot by recomputing bidirectional AC branch flows and writing transformer_diagnostics.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = [ "energy", "offshore-wind", "transformer-audit", "ac-power-flow",]
+primary_output_file = "transformer_diagnostics.json"
+source_task_id = "energy-ac-optimal-power-flow"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

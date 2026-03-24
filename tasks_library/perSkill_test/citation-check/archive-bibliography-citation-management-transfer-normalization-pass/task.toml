@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "archive-bibliography-citation-management-transfer-normalization-pass"
+name = "Transfer: Archive Bibliography Normalization"
+description = "清洗馆藏项目导出的杂乱 BibTeX，完成 DOI 与页码规范化、重复记录合并，并输出统一格式的干净编目文件。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "research"
+tags = ["citation", "bibtex", "normalization", "deduplication", "cataloging"]
+primary_output_file = "/root/exhibit_catalog_clean.bib"
+source_task_id = "citation-check"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

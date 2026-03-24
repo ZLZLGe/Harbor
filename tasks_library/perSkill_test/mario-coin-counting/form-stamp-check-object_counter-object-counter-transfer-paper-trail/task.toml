@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "form-stamp-check-object_counter-object-counter-transfer-paper-trail"
+name = "Transfer: Form Stamp Tally"
+description = "Count three markup types on four scanned form pages and write the per-page report to /root/form_markup_counts.tsv."
+author_name = "Levi Harbor"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "image-processing"
+tags = ["image-processing", "document-analysis", "template-matching", "tsv"]
+primary_output_file = "/root/form_markup_counts.tsv"
+source_task_id = "mario-coin-counting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

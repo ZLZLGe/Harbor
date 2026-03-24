@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "festival-program-docx-transfer-run-of-show",
+  "taskRole": "transfer",
+  "title": "Transfer: Festival Run-of-Show",
+  "goal": "根据演出日程与联系人数据填充一份音乐节 run-of-show Word 模板，更新正文、页脚和舞台准备嵌套表格中的占位符，并根据是否启用雨天预案决定是否保留对应说明区块，输出最终执行手册。",
+  "primaryOutputFile": "/root/festival_run_of_show_final.docx",
+  "difficulty": "easy",
+  "category": "document-generation",
+  "skillBenefitRationale": "这里把 docx 模板填充能力迁移到活动执行场景，仍然只依赖 Word 文档结构遍历、占位符重建和条件段落处理这一个关键 skill。",
+  "targetSkillDirName": "docx",
+  "targetSkillName": "docx"
+}

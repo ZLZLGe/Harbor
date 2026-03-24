@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "ore-haulage-mesh-analysis-transfer-routing"
+name = "Transfer - Ore Scanner Haulage Routing"
+description = "Identify the main ore parcel in a noisy conveyor STL, recover its ore type code, and write a haulage routing manifest JSON with tonnage and line selection."
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "hard"
+category = "industrial"
+tags = ["binary-stl", "ore-sorting", "haulage", "mesh-analysis"]
+primary_output_file = "/root/ore_manifest.json"
+source_task_id = "3d-scan-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

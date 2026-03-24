@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reconciliation-batch-hibernate-upgrade-transfer-criteria-search"
+name = "Transfer: 对账批处理的 Criteria API 替换"
+description = "将对账批处理仓储中的 Hibernate 旧 Criteria 查询迁移为 JPA Criteria API，并产出可通过分页与汇总测试的 ReconciliationSearchRepository。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["hibernate", "criteria-api", "spring-boot", "batch"]
+primary_output_file = "src/main/java/com/acme/reconcile/persistence/ReconciliationSearchRepository.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

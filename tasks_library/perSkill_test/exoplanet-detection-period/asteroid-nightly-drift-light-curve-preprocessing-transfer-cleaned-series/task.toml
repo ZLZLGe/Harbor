@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "asteroid-nightly-drift-light-curve-preprocessing-transfer-cleaned-series"
+name = "Transfer: 小行星地基测光清洗与归一化"
+description = "Clean and detrend a ground-based asteroid differential photometry series and write the normalized time series to /root/asteroid_cleaned.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "planetary-science"
+tags = ["planetary-science", "asteroid", "photometry", "light-curve", "data-analysis"]
+primary_output_file = "/root/asteroid_cleaned.csv"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

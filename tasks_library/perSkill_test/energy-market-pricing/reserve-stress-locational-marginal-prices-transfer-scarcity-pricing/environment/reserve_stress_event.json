@@ -1,0 +1,29 @@
+{
+  "stress_scenario_id": "reserve_stress_case",
+  "stress_reserve_requirement_MW": 200.0,
+  "reserve_capacity_adjustments": [
+    {
+      "generator_bus": 2,
+      "base_reserve_capacity_MW": 120.0,
+      "stress_reserve_capacity_MW": 90.0
+    }
+  ],
+  "regions": [
+    {
+      "region_id": "upstream_hub",
+      "region_name": "Upstream Hub",
+      "buses": [1, 2]
+    },
+    {
+      "region_id": "south_load_pocket",
+      "region_name": "South Load Pocket",
+      "buses": [3, 4]
+    }
+  ],
+  "binding_threshold_pct": 99.0,
+  "report_top_n_buses": 2,
+  "energy_price_transmission_rule": {
+    "reserve_mcp_increase_threshold_dollars_per_MWh": 1.0,
+    "regional_average_lmp_increase_threshold_dollars_per_MWh": 20.0
+  }
+}

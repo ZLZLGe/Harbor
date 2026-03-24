@@ -1,0 +1,125 @@
+[Start]
+Assistant: Welcome to the warranty desk. I can help with a refund, exchange, or specialist handoff. -> IntentMenu
+
+[IntentMenu]
+1. Request a refund for a sealed order. -> OrderLookup
+2. Report a damaged delivery. -> DamageReport
+3. Ask for an exchange. -> ExchangeIntent
+4. Speak to a returns specialist now. -> HumanQueue
+
+[OrderLookup]
+Assistant: Please confirm the order number and whether the package has been opened. -> LookupChoice
+
+[LookupChoice]
+1. [Within 30 Days] Order is confirmed and the package is still sealed. -> RefundEligible
+2. I cannot find the order number yet. -> MissingOrder
+3. The order was delivered more than 30 days ago. -> PolicyLateReturn
+4. This is a billing or payment dispute. -> HumanQueue
+
+[MissingOrder]
+Assistant: I can keep the case open if you have a receipt email or shipping label photo. -> MissingOrderChoice
+
+[MissingOrderChoice]
+1. Upload the receipt email now. -> OrderRecovered
+2. Continue without proof of purchase. -> RequestDenied
+3. I want a person to review the account. -> HumanQueue
+
+[OrderRecovered]
+PolicyBot: Receipt matched. The order is now attached to this case. -> RefundEligible
+
+[RefundEligible]
+PolicyBot: This order qualifies for an immediate return label and refund review. -> RefundChoice
+
+[RefundChoice]
+1. Refund the original payment method. -> RefundIssued
+2. Convert this into an exchange instead. -> ExchangeIntent
+3. Accept store credit with a bonus voucher. -> StoreCreditOffered
+
+[DamageReport]
+Assistant: I am sorry the item arrived damaged. I need a quick condition check before I proceed. -> DamageEvidenceChoice
+
+[DamageEvidenceChoice]
+1. [Photo Attached] I have box and product photos ready. -> DamageVerified
+2. The item is leaking, sparking, or unsafe to touch. -> SafetyEscalation
+3. I do not have photos yet. -> DamagePhotoRequest
+
+[DamagePhotoRequest]
+Assistant: Please upload clear photos within 48 hours so the claim stays in the fast lane. -> DamagePhotoChoice
+
+[DamagePhotoChoice]
+1. I will send the photos now. -> DamageVerified
+2. I cannot provide photos. -> HumanQueue
+3. Cancel the damage claim. -> RequestClosed
+
+[DamageVerified]
+PolicyBot: The photos confirm transit damage and waive the normal return shipping step. -> DamageResolutionChoice
+
+[DamageResolutionChoice]
+1. Ship a replacement immediately. -> ExchangeCreated
+2. Refund me instead of replacing it. -> RefundIssued
+3. Arrange a specialist callback. -> HumanQueue
+
+[SafetyEscalation]
+Routing: Unsafe-item reports bypass automation and go straight to a human safety specialist. -> HumanQueue
+
+[ExchangeIntent]
+Assistant: I can check stock, review exchange fees, or route a warranty defect to manual review. -> ExchangeCheckChoice
+
+[ExchangeCheckChoice]
+1. [Unopened] I need a different size or color. -> ExchangeStockCheck
+2. The box was opened, but the item was never used. -> ExchangeManualReview
+3. The item was used and is now failing under warranty. -> WarrantyTroubleshoot
+4. I would rather take a refund. -> OrderLookup
+
+[ExchangeStockCheck]
+WarehouseAgent: The preferred replacement can be reserved if inventory is available when the request is confirmed. -> ExchangeStockChoice
+
+[ExchangeStockChoice]
+1. Reserve the in-stock replacement. -> ExchangeCreated
+2. The preferred model is out of stock, so offer store credit. -> StoreCreditOffered
+3. I need help choosing an equivalent item. -> HumanQueue
+
+[ExchangeManualReview]
+PolicyBot: Open-box exchanges may include a restocking fee unless a specialist overrides it. -> ManualReviewChoice
+
+[ManualReviewChoice]
+1. Accept the fee and create the exchange. -> ExchangeCreated
+2. Ask a supervisor to waive the fee. -> HumanQueue
+3. Cancel this exchange request. -> RequestClosed
+
+[WarrantyTroubleshoot]
+Assistant: Before I escalate a warranty defect, please confirm whether the reset checklist fixed the issue. -> WarrantyTroubleshootChoice
+
+[WarrantyTroubleshootChoice]
+1. [Reset Completed] The device works after troubleshooting. -> RequestClosed
+2. The device still fails after troubleshooting. -> HumanQueue
+3. The serial label is missing. -> HumanQueue
+
+[PolicyLateReturn]
+PolicyBot: Standard refunds have expired, but some orders can still receive store credit or a manual exception review. -> LateReturnChoice
+
+[LateReturnChoice]
+1. Accept store credit instead of a refund. -> StoreCreditOffered
+2. Request a manual exception review. -> HumanQueue
+3. Close the case with no action. -> RequestDenied
+
+[HumanQueue]
+Routing: I am transferring this case with the order notes and chat transcript attached. -> HumanHandoffConfirmed
+
+[HumanHandoffConfirmed]
+ReturnsLead: A returns specialist will reply within two business hours with the next steps. -> End
+
+[RefundIssued]
+PolicyBot: Refund approved. The payment reversal starts after the carrier scans the return label. -> End
+
+[StoreCreditOffered]
+PolicyBot: Store credit approved. The credit memo will arrive by email once the case is closed. -> End
+
+[ExchangeCreated]
+WarehouseAgent: Exchange order created. A replacement confirmation and return instructions are on the way. -> End
+
+[RequestDenied]
+PolicyBot: I cannot approve this request automatically without the required policy checks. -> End
+
+[RequestClosed]
+Assistant: Case closed without shipment or refund. You can reopen it later if new documents arrive. -> End

@@ -1,0 +1,35 @@
+version = "1.0"
+
+[metadata]
+id = "pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock"
+name = "Transfer - Pharma Vial Campaign Repair"
+description = "Repair an aseptic vial baseline schedule under cleaning downtime, frozen-batch fields, and policy change budgets."
+author_name = "OpenAI Codex"
+author_email = "noreply@example.com"
+difficulty = "hard"
+category = "manufacturing"
+primary_output_file = "drafts/pharma-vial-fjsp-baseline-repair-with-downtime-and-policy-transfer-aseptic-lock/task.toml"
+source_task_id = "manufacturing-fjsp-optimization"
+task_role = "transfer"
+tags = [
+  "optimization",
+  "manufacturing",
+  "pharmaceutical filling",
+  "aseptic processing",
+  "flexible job shop scheduling",
+  "baseline repair",
+]
+required_skills = [ "fjsp-baseline-repair-with-downtime-and-policy",]
+distractor_skills = [ "batch-record-authoring", "gmp-document-control", "chemistry-stoichiometry",]
+
+[verifier]
+timeout_sec = 450.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

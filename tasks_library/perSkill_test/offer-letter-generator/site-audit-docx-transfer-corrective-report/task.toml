@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "site-audit-docx-transfer-corrective-report"
+name = "Transfer: Site Audit Report"
+description = "Fill a site audit report template with inspection findings, update the compliance matrix, and save the final audit document."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "document-generation"
+tags = ["word", "template", "audit", "compliance", "document-generation"]
+primary_output_file = "/root/site_audit_report_final.docx"
+source_task_id = "offer-letter-generator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

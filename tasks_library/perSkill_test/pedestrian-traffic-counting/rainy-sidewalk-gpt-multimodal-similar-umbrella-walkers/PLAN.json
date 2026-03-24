@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "rainy-sidewalk-gpt-multimodal-similar-umbrella-walkers",
+  "taskRole": "similar",
+  "title": "Similar: 雨天人行道打伞步行者去重计数",
+  "goal": "读取公共步道监控视频，按视频统计打伞步行者的唯一人数；同一人在多个帧中只能计一次，并将结果写入`/app/video/umbrella_counts.xlsx`。",
+  "primaryOutputFile": "/app/video/umbrella_counts.xlsx",
+  "difficulty": "hard",
+  "category": "umbrella pedestrian counting",
+  "skillBenefitRationale": "仍然是多帧视频中的去重计数，但把目标从普通行人换成带明显视觉属性的步行者，能直接检验 gpt-multimodal 在典型视频理解场景中的时序跟踪与属性筛选能力。",
+  "targetSkillDirName": "gpt-multimodal",
+  "targetSkillName": "gpt-multimodal"
+}

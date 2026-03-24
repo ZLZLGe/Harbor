@@ -1,0 +1,11 @@
+trace_id,relative_path,cohort,channels,network_family
+BG.ACR..DP.0346833,campaign/windows/impulsive_local/BG.ACR..DP.0346833.npz,impulsive_local,"DPE,DPN,DPZ",strong_motion
+BG.EPR..DP.0252305,campaign/windows/impulsive_local/BG.EPR..DP.0252305.npz,impulsive_local,"DPE,DPN,DPZ",strong_motion
+BG.RGP..DP.0279913,campaign/windows/impulsive_local/BG.RGP..DP.0279913.npz,impulsive_local,"DPE,DPN,DPZ",strong_motion
+BK.PKD.00.HN.0277003,campaign/windows/dense_short_period/BK.PKD.00.HN.0277003.npz,dense_short_period,"HNE,HNN,HNZ",short_period
+NC.GDXB..HN.0244608,campaign/windows/dense_short_period/NC.GDXB..HN.0244608.npz,dense_short_period,"HNE,HNN,HNZ",short_period
+NC.MDY..HN.0376095,campaign/windows/dense_short_period/NC.MDY..HN.0376095.npz,dense_short_period,"HNE,HNN,HNZ",short_period
+BK.MHC.00.BH.0255749,campaign/windows/mixed_orientation/BK.MHC.00.BH.0255749.npz,mixed_orientation,"BHE,BHN,BHZ",high_gain
+NC.BSG..EL.0091058,campaign/windows/mixed_orientation/NC.BSG..EL.0091058.npz,mixed_orientation,"ELE,ELN,ELZ",high_gain
+NC.CCH1..EP.0332038,campaign/windows/mixed_orientation/NC.CCH1..EP.0332038.npz,mixed_orientation,"EP3,EP2,EP1",mixed_orientation
+NC.MQ1P..EH.0394787,campaign/windows/mixed_orientation/NC.MQ1P..EH.0394787.npz,mixed_orientation,"EHE,EHN,EHZ",high_gain

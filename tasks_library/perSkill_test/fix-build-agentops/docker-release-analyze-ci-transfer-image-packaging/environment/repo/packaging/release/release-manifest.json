@@ -1,0 +1,5 @@
+{
+  "image": "ghcr.io/harbor-labs/harbor-app",
+  "entrypoint": "/opt/harbor/release/entrypoint.sh",
+  "bundle_name": "harbor-release-bundle.tgz"
+}

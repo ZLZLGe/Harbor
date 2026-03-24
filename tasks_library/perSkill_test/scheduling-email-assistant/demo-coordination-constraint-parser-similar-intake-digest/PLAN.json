@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "demo-coordination-constraint-parser-similar-intake-digest",
+  "taskRole": "similar",
+  "title": "Similar | Demo Request Constraint Digest",
+  "goal": "Read inbound product demo request emails and extract each requester’s scheduling constraints into `/root/demo_request_constraints.json`, including acceptable date ranges, preferred time windows, explicit blackout periods, timezone references, and requested session duration.",
+  "primaryOutputFile": "/root/demo_request_constraints.json",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "This stays close to the original email-scheduling domain and tests the skill’s core job: turning messy meeting-request prose into structured scheduling constraints, without reusing the original calendar-reply workflow.",
+  "targetSkillDirName": "constraint-parser",
+  "targetSkillName": "constraint-parser"
+}

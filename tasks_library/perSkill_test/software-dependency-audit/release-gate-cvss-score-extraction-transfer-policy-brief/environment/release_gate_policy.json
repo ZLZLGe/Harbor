@@ -1,0 +1,7 @@
+{
+  "policy_name": "Payments Release Gate Policy",
+  "policy_version": "2026.03",
+  "high_risk_score_floor": 7.0,
+  "block_if_any_score_at_least": 9.0,
+  "block_if_high_risk_count_at_least": 3
+}

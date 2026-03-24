@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "commissioning-baseline-conditioning-transfer-quiet-segment",
+  "taskRole": "transfer",
+  "title": "Transfer - 调试期安静基线筛选",
+  "goal": "对多段干涉仪调试期原始应变记录做统一条件化，并输出每段在 20-200 Hz 与 200-500 Hz 频带的 PSD 汇总表，用于选出最安静的基线片段。",
+  "primaryOutputFile": "/root/commissioning_noise_baseline.csv",
+  "difficulty": "medium",
+  "category": "instrumentation",
+  "skillBenefitRationale": "任务从“发现天体信号”迁移到“比较仪器噪声底”，但决定结果质量的仍然是条件化流程是否正确：先去除低频噪声，再统一采样率、裁掉滤波边缘并稳定估计 PSD；不需要其他 source task skills，唯一关键 shipped skill 仍是 conditioning。",
+  "targetSkillDirName": "conditioning",
+  "targetSkillName": "conditioning"
+}

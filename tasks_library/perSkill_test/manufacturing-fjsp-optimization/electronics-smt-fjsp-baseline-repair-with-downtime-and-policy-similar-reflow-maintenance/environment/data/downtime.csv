@@ -1,0 +1,3 @@
+machine,start,end,reason
+1,4,10,nozzle-change
+2,13,19,reflow-maintenance

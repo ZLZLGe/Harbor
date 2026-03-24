@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "expressroute-azure-bgp-transfer-gateway-failover-leak-review",
+  "taskRole": "transfer",
+  "title": "Transfer - ExpressRoute Gateway Failover Leak Review",
+  "goal": "Evaluate a hybrid ExpressRoute-plus-VPN failover incident, detect whether backup path preferences create instability or leak upstream routes into branch peers, and judge candidate remediations under Azure-managed gateway constraints.",
+  "primaryOutputFile": "/app/output/failover_leak_review.json",
+  "difficulty": "medium",
+  "category": "bgp-route",
+  "skillBenefitRationale": "The scenario shifts from Virtual WAN hub peering to hybrid gateway failover, yet the same azure-bgp expertise remains uniquely necessary: managed-control-plane limits, oscillation detection, valley-free policy checks, and allowed routing-policy mitigations.",
+  "targetSkillDirName": "azure-bgp",
+  "targetSkillName": "azure-bgp"
+}

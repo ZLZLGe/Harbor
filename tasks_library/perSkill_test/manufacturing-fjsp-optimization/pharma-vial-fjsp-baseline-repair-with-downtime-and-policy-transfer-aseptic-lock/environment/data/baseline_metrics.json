@@ -1,0 +1,10 @@
+{
+  "case_id": "pharma_vial_case_001",
+  "baseline": {
+    "makespan": 25,
+    "downtime_violations": 7
+  },
+  "thresholds": {
+    "max_downtime_violations": 0
+  }
+}

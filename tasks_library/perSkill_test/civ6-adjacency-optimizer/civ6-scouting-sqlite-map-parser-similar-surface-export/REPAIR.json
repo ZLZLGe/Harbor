@@ -1,0 +1,61 @@
+{
+  "sourceTaskId": "civ6-adjacency-optimizer",
+  "targetSkillDirName": "sqlite-map-parser",
+  "runId": "20260315205422-civ6-adjacency-optimizer-sqlite-map-parser-hyfoa4",
+  "taskId": "civ6-scouting-sqlite-map-parser-similar-surface-export",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/civ6-adjacency-optimizer/civ6-scouting-sqlite-map-parser-similar-surface-export",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260315205422-civ6-adjacency-optimizer-sqlite-map-parser-hyfoa4/civ6-adjacency-optimizer/drafts/civ6-scouting-sqlite-map-parser-similar-surface-export",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/civ6-adjacency-optimizer/civ6-scouting-sqlite-map-parser-similar-surface-export",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/civ6-adjacency-optimizer/civ6-scouting-sqlite-map-parser-similar-surface-export",
+  "status": "pass",
+  "issueCategories": [
+    "testability",
+    "skill_benefit"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 未直接出现 shipped skill 的 name 或 dirName，技能暴露检查通过。; 测试对 blocked_districts 里的阻塞原因文案做精确比对，但 instruction.md 只要求给出原因列表，没有规定标准措辞，存在多解同判失败。; 任务除 SQLite schema 探查与坐标化导出外，还要求实现一整套 Civ6 区域落位合法性规则，已超出当前唯一 shipped skill 的覆盖范围。; skillBenefitPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 没有直接暴露 sqlite-map-parser，但任务要求精确判断多种 Civ6 区域的可建性并输出精确阻塞原因字符串；这些规则与文案没有在 instruction.md 中充分定义，测试却做整包精确比对，任务对提交者欠定。; 任务核心不再只是 SQLite schema 探查与结构化导出，还依赖未随 shipped skill 提供的 Civ6 领域落位规则知识，超出了当前单技能 family 应强调的能力边界。; skillBenefitPass=false; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "PLAN.json",
+    "solution/solve.sh",
+    "task.toml",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "civ6-scouting-sqlite-map-parser-similar-surface-export"
+      ],
+      "requestedIssuesByTaskId": {
+        "civ6-scouting-sqlite-map-parser-similar-surface-export": {
+          "reviewerIssues": [
+            "instruction.md 没有直接暴露 sqlite-map-parser，但任务要求精确判断多种 Civ6 区域的可建性并输出精确阻塞原因字符串；这些规则与文案没有在 instruction.md 中充分定义，测试却做整包精确比对，任务对提交者欠定。; 任务核心不再只是 SQLite schema 探查与结构化导出，还依赖未随 shipped skill 提供的 Civ6 领域落位规则知识，超出了当前单技能 family 应强调的能力边界。; skillBenefitPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10ba-a396-79d3-8e8e-1fc7650d9e60",
+      "repairSummary": "- `civ6-scouting-sqlite-map-parser-similar-surface-export`：重写了 `instruction.md`，把任务收缩为“原样回显请求 + 导出整张地图地表数据 + 基于明示 blocker code 的通用陆地区块候选标记”，移除了对具体区域类型精确可建性和阻塞文案的隐含依赖；同步更新了 `tests/test_outputs.py`、`tests/test.sh`、`solution/solve.sh`、`task.toml` 和 `PLAN.json`，让测试只校验说明中明确写出的字段、排序、坐标/距离公式和 blocker 规则，并保持 `derivedTaskId`、`taskRole`、`source_task_id`、`primaryOutputFile` 不变，`instruction.md` 里也没有直接点名 shipped skill。\n\n本地已用临时请求文件把 `map_file` 指到工作区真实地图路径后执行参考解，并用等价的 manual verifier 比对通过。",
+      "reviewThreadId": "019d10c7-d1b1-7f50-bff7-381ffca66723",
+      "evaluationByTaskId": {
+        "civ6-scouting-sqlite-map-parser-similar-surface-export": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

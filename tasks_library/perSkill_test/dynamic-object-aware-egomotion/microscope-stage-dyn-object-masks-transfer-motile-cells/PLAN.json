@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "microscope-stage-dyn-object-masks-transfer-motile-cells",
+  "taskRole": "transfer",
+  "title": "Transfer: Microscope Drift Dynamic Masks",
+  "goal": "给定一段显微镜时序视频，其中载物台存在轻微漂移，输出 /root/motile_cells_dyn_masks.npz，按采样帧用 CSR 稀疏格式标出独立游动或形变明显的细胞区域掩码。",
+  "primaryOutputFile": "/root/motile_cells_dyn_masks.npz",
+  "difficulty": "hard",
+  "category": "video-analysis",
+  "skillBenefitRationale": "这里把 dyn-object-masks 迁移到科学视频场景：关键仍是先补偿整体载台漂移，再利用配准后的差分与形态学过滤提取真实运动细胞，无需检测类别或跟踪技能。",
+  "targetSkillDirName": "dyn-object-masks",
+  "targetSkillName": "dyn-object-masks"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "sanctions-screening-fuzzy-match-transfer-signup-triage"
+name = "Transfer: Triage Customer Signups Against a Sanctions Watchlist"
+description = "Screen noisy customer signup names against a sanctions watchlist, keep only reliable review hits, and write them to /root/watchlist_hits.tsv."
+author_name = "Wengao Ye"
+author_email = "wengao.ye@kellogg.ox.ac.uk"
+difficulty = "hard"
+category = "risk-screening"
+tags = ["compliance", "sanctions", "customer-signups", "fuzzy-matching", "tsv"]
+primary_output_file = "/root/watchlist_hits.tsv"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

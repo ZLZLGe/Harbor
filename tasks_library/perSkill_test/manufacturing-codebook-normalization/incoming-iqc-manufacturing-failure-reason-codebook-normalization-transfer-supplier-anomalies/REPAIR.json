@@ -1,0 +1,25 @@
+{
+  "sourceTaskId": "manufacturing-codebook-normalization",
+  "targetSkillDirName": "manufacturing-failure-reason-codebook-normalization",
+  "runId": "20260320112509-manufacturing-codebook-normalization-manufacturing-failure-reason-codebook-normalization-zx18sd",
+  "taskId": "incoming-iqc-manufacturing-failure-reason-codebook-normalization-transfer-supplier-anomalies",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/manufacturing-codebook-normalization/manufacturing-failure-reason-codebook-normalization/20260320112509-manufacturing-codebook-normalization-manufacturing-failure-reason-codebook-normalization-zx18sd/incoming-iqc-manufacturing-failure-reason-codebook-normalization-transfer-supplier-anomalies",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320112509-manufacturing-codebook-normalization-manufacturing-failure-reason-codebook-normalization-zx18sd/manufacturing-codebook-normalization/drafts/incoming-iqc-manufacturing-failure-reason-codebook-normalization-transfer-supplier-anomalies",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/manufacturing-codebook-normalization/incoming-iqc-manufacturing-failure-reason-codebook-normalization-transfer-supplier-anomalies",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/manufacturing-codebook-normalization/incoming-iqc-manufacturing-failure-reason-codebook-normalization-transfer-supplier-anomalies",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

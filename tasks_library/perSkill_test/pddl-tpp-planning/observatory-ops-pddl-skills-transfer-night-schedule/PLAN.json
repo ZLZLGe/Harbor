@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "observatory-ops-pddl-skills-transfer-night-schedule",
+  "taskRole": "transfer",
+  "title": "Transfer | 天文台夜间观测调度",
+  "goal": "给定天文台夜间观测的 PDDL 域与若干观测窗口问题，生成满足姿态切换、校准和下传约束的观测执行计划，并按实例输出文本计划文件。",
+  "primaryOutputFile": "observatory_plans/night_window_plan.txt",
+  "difficulty": "hard",
+  "category": "research",
+  "skillBenefitRationale": "场景从采购物流迁移到观测调度，但核心仍是通用 PDDL 解析、求解、校验与计划落盘；任务成败完全依赖 `pddl-skills` 提供的规划能力。",
+  "targetSkillDirName": "pddl-skills",
+  "targetSkillName": "pddl-skills"
+}

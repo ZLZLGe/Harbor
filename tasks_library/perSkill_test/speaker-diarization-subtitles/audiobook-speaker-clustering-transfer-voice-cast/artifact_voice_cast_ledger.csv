@@ -1,0 +1,13 @@
+row_type,book_id,voice_cast_id,chapter_id,chapter_number,segment_id,start_sec,end_sec,duration_sec,chapter_count,segment_count,total_dialogue_duration_sec,first_chapter_number,transcript_excerpt
+cast_summary,moonlit_ferry,voice_cast_00,,,,,,,3,4,6.34,1,"""Hold the lantern higher,"" Aurelia whispered."
+cast_summary,moonlit_ferry,voice_cast_01,,,,,,,2,2,2.87,1,"Bram answered, ""The river is closer than the map promised."""
+cast_summary,moonlit_ferry,voice_cast_02,,,,,,,3,3,4.74,1,"Cedric muttered, ""I heard the gate move."""
+segment_detail,moonlit_ferry,voice_cast_00,ch01,1,s01,0.00,1.82,1.82,,,,,"""Hold the lantern higher,"" Aurelia whispered."
+segment_detail,moonlit_ferry,voice_cast_01,ch01,1,s02,1.95,3.31,1.36,,,,,"Bram answered, ""The river is closer than the map promised."""
+segment_detail,moonlit_ferry,voice_cast_02,ch01,1,s04,4.96,6.60,1.64,,,,,"Cedric muttered, ""I heard the gate move."""
+segment_detail,moonlit_ferry,voice_cast_00,ch02,2,s05,0.40,1.98,1.58,,,,,"Aurelia said, ""Do not wake the ferryman yet."""
+segment_detail,moonlit_ferry,voice_cast_02,ch02,2,s06,2.18,3.60,1.42,,,,,"""Too late,"" Cedric replied, already knocking."
+segment_detail,moonlit_ferry,voice_cast_00,ch02,2,s08,5.34,6.82,1.48,,,,,"Aurelia laughed softly: ""At least we found a door."""
+segment_detail,moonlit_ferry,voice_cast_02,ch03,3,s09,0.12,1.80,1.68,,,,,"Cedric warned, ""Keep your name to yourself in this town."""
+segment_detail,moonlit_ferry,voice_cast_00,ch03,3,s10,2.02,3.48,1.46,,,,,"Aurelia replied, ""Then lend me one of yours."""
+segment_detail,moonlit_ferry,voice_cast_01,ch03,3,s12,5.02,6.53,1.51,,,,,"""Mine are all expensive,"" Bram said."

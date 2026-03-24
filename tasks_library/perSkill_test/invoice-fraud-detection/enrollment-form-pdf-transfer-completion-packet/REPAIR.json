@@ -1,0 +1,70 @@
+{
+  "sourceTaskId": "invoice-fraud-detection",
+  "targetSkillDirName": "pdf",
+  "runId": "20260320101606-invoice-fraud-detection-pdf-rfz8xq",
+  "taskId": "enrollment-form-pdf-transfer-completion-packet",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/invoice-fraud-detection/enrollment-form-pdf-transfer-completion-packet",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320101606-invoice-fraud-detection-pdf-rfz8xq/invoice-fraud-detection/drafts/enrollment-form-pdf-transfer-completion-packet",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/invoice-fraud-detection/enrollment-form-pdf-transfer-completion-packet",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/invoice-fraud-detection/enrollment-form-pdf-transfer-completion-packet",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 `pdf`（出现在输入/输出文件名扩展名中），构成 shipped skill 暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md directly contains the shipped skill dir/name `pdf` via `.pdf` filenames in the input and output paths, so it leaks the shipped skill.; visibilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "board-book-pdf-transfer-assembly",
+        "enrollment-form-pdf-transfer-completion-packet"
+      ],
+      "requestedIssuesByTaskId": {
+        "board-book-pdf-transfer-assembly": {
+          "reviewerIssues": [
+            "instruction.md directly contains the shipped skill dir/name `pdf` via `.pdf` filenames in the source and output paths, so it leaks the shipped skill.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "enrollment-form-pdf-transfer-completion-packet": {
+          "reviewerIssues": [
+            "instruction.md directly contains the shipped skill dir/name `pdf` via `.pdf` filenames in the input and output paths, so it leaks the shipped skill.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: pdf，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10e0-c507-7113-a6eb-4404877bb329",
+      "repairSummary": "- `board-book-pdf-transfer-assembly`：修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260320101606-invoice-fraud-detection-pdf-rfz8xq-2c6109df/invoice-fraud-detection/drafts/board-book-pdf-transfer-assembly/instruction.md)，去掉了输入/输出路径里的直写扩展名，改成“由 manifest 引用的四个源文件 + 统一三字母后缀”的表述；`derivedTaskId`、`taskRole`、`source_task_id`、测试语义都没动。\n\n- `enrollment-form-pdf-transfer-completion-packet`：修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260320101606-invoice-fraud-detection-pdf-rfz8xq-2c6109df/invoice-fraud-detection/drafts/enrollment-form-pdf-transfer-completion-packet/instruction.md)，去掉了模板和输出文件路径里的直写扩展名，改成“按 stem 找模板 + 输出沿用同一三字母后缀”的表述；其余任务标识和规则映射保持不变。\n\n已确认这两份 `instruction.md` 内不再出现 `pdf`/`PDF`。仓库里没有暴露可直接重跑的 reviewer 或 static validate 命令，所以我没法在本地把 `artifacts/review-result*.json` 刷新。",
+      "reviewThreadId": "019d10e2-dd40-7f11-acdc-32ca253f5864",
+      "evaluationByTaskId": {
+        "board-book-pdf-transfer-assembly": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "enrollment-form-pdf-transfer-completion-packet": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

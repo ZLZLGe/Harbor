@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-tugger-vehicle-dynamics-transfer-convoy"
+name = "Transfer - 仓储牵引车编队安全仿真"
+description = "Simulate a warehouse tugger convoy with emergency-stop and obstacle-stop lead phases and write the full gap and mode log to tugger_gap_log.csv."
+author_name = "Jiachen Li"
+author_email = "jiachenli@utexas.edu"
+difficulty = "medium"
+category = "control-systems"
+tags = ["python", "vehicle-dynamics", "simulation", "warehouse", "convoy-control"]
+primary_output_file = "tugger_gap_log.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

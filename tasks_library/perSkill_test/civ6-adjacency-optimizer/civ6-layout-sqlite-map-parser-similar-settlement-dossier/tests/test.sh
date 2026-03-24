@@ -1,0 +1,31 @@
+#!/bin/bash
+set -euo pipefail
+
+TESTS_DIR="${TESTS_DIR:-/tests}"
+DATA_DIR="${DATA_DIR:-/data}"
+OUTPUT_DIR="${OUTPUT_DIR:-/output}"
+LOG_DIR="${LOG_DIR:-/logs/verifier}"
+
+mkdir -p "${LOG_DIR}/scores" "${LOG_DIR}/solutions"
+cp "${OUTPUT_DIR}/settlement_dossier.json" "${LOG_DIR}/solutions/" 2>/dev/null || true
+
+export DATA_DIR
+export OUTPUT_DIR
+
+set +e
+python3 "${TESTS_DIR}/test_outputs.py" > "${LOG_DIR}/test_output.log" 2>&1
+TEST_EXIT_CODE=$?
+set -e
+
+cat "${LOG_DIR}/test_output.log"
+
+if [ "${TEST_EXIT_CODE}" -eq 0 ]; then
+  SCORE="1.0"
+else
+  SCORE="0.0"
+fi
+
+printf '%s' "${SCORE}" > "${LOG_DIR}/scores/settlement_dossier.txt"
+printf '%s' "${SCORE}" > "${LOG_DIR}/reward.txt"
+
+exit 0

@@ -1,0 +1,103 @@
+{
+  "failover_cycle_detected": true,
+  "failover_cycle": [
+    65310,
+    65311
+  ],
+  "affected_gateways": [
+    65310,
+    65311
+  ],
+  "upstream_route_leak_detected": true,
+  "upstream_route_leaks": [
+    {
+      "leaker_as": 65310,
+      "source_as": 65300,
+      "destination_as": 65311,
+      "source_type": "provider",
+      "destination_type": "peer",
+      "prefix": "10.88.30.0/24",
+      "origin_asn": 65330,
+      "path_label": "ExpressRoute-to-VPN backup peer"
+    }
+  ],
+  "remediation_assessments": {
+    "Tune BGP keepalive on the ExpressRoute customer edge to 10 seconds and holdtime to 30 seconds": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 20
+    },
+    "Apply an outbound filter on the ExpressRoute customer edge ASN 65310 to block Azure-edge-learned routes from ASN 65300 before advertising them to VPN peer ASN 65311": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    },
+    "Update the ExpressRoute failover policy so ASN 65310 no longer prefers branch-hou prefix 10.88.30.0/24 via VPN peer ASN 65311": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": false,
+      "score": 60
+    },
+    "Set failover preference hierarchy to local branch routes > ExpressRoute primary > VPN backup peer paths": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": false,
+      "score": 60
+    },
+    "Apply no-export community on Azure-edge-learned routes before the ExpressRoute customer edge advertises them to the VPN peer": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    },
+    "Install a user defined route override for 10.88.30.0/24 so Azure subnets use the approved ExpressRoute next hop during failover": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": true,
+      "score": 100
+    },
+    "Apply inbound AS-PATH filtering on the VPN customer edge to reject Azure edge ASN 65300 when received from the ExpressRoute peer": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": true,
+      "score": 60
+    },
+    "Clear the failover preference override and pair it with an export filter that blocks Azure-edge-learned routes toward the VPN peer": {
+      "allowed": true,
+      "breaks_cycle": true,
+      "stops_leak": true,
+      "score": 100
+    },
+    "Enable ECMP across ExpressRoute and VPN for the branch-hou prefix during failover": {
+      "allowed": true,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 20
+    },
+    "Disable the ExpressRoute and VPN gateway peering during the incident": {
+      "allowed": false,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 0
+    },
+    "Attach a custom route map directly to the Azure VPN gateway to suppress provider-learned prefixes": {
+      "allowed": false,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 0
+    },
+    "Shut down the VPN gateway connection until the leak alarm clears": {
+      "allowed": false,
+      "breaks_cycle": false,
+      "stops_leak": false,
+      "score": 0
+    }
+  },
+  "forbidden_actions": [
+    "Attach a custom route map directly to the Azure VPN gateway to suppress provider-learned prefixes",
+    "Disable the ExpressRoute and VPN gateway peering during the incident",
+    "Shut down the VPN gateway connection until the leak alarm clears"
+  ]
+}

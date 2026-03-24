@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cluster-schema-pdf-similar-eventspec",
+  "taskRole": "similar",
+  "title": "Similar: 集群事件 PDF 规范提取",
+  "goal": "从集群追踪 schema PDF 中提取 job_events 与 task_events 的字段定义、事件类型编码和时间单位说明，整理成可供下游任务直接消费的结构化规范文件。",
+  "primaryOutputFile": "artifacts/cluster_event_schema.json",
+  "difficulty": "hard",
+  "category": "data-engineering",
+  "skillBenefitRationale": "关键工作是从多页 PDF 中可靠抽取并归一化字段语义；pdf skill 提供的文本/表格提取能力是唯一核心 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

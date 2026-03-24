@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "construction-site-openai-vision-transfer-safety-delta",
+  "taskRole": "transfer",
+  "title": "Transfer: 施工现场安全变化报告",
+  "goal": "对每个施工区域的 before/after 照片做成对比，找出护栏缺失、警示锥移除、孔洞未覆盖和未佩戴安全帽等风险变化，并把按区域汇总的变化统计和风险级别写入 /app/workspace/site_safety_delta.md。",
+  "primaryOutputFile": "/app/workspace/site_safety_delta.md",
+  "difficulty": "hard",
+  "category": "data statistics",
+  "skillBenefitRationale": "关键难点是跨图比较复杂现场照片并识别安全设施与人员防护状态的变化，核心依赖视觉模型的多图对比与场景理解；风险分级和 Markdown 汇总只是常规规则处理。",
+  "targetSkillDirName": "openai-vision",
+  "targetSkillName": "openai-vision"
+}

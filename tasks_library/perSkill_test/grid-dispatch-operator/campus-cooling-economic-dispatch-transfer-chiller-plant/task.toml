@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "campus-cooling-economic-dispatch-transfer-chiller-plant"
+name = "Transfer: 校园冷站冷机调度"
+description = "给定校园冷站冷机的制冷功率曲线、负荷目标和旋转备用要求，生成最低电费的冷量分配结果并输出 cooling_dispatch_summary.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "facilities"
+tags = ["facilities", "campus-cooling", "chiller-plant", "economic-dispatch", "reserve-allocation"]
+primary_output_file = "cooling_dispatch_summary.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240

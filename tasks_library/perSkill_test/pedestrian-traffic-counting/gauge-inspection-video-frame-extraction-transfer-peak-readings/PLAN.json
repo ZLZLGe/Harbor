@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "gauge-inspection-video-frame-extraction-transfer-peak-readings",
+  "taskRole": "transfer",
+  "title": "Transfer: Industrial Gauge Peak Readings",
+  "goal": "读取工业巡检视频，提取仪表画面相关帧，找出每个视频中指针或数字读数达到最大值的时刻，并将视频名、峰值帧标识和最大读数写入 /app/inspection/gauge_maxima.csv。",
+  "primaryOutputFile": "/app/inspection/gauge_maxima.csv",
+  "difficulty": "hard",
+  "category": "industrial gauge monitoring",
+  "skillBenefitRationale": "连续巡检视频里峰值只会出现在少数画面，先提帧再定位读数峰值是解题主路径；frame extraction 是唯一必须依赖的 shipped skill。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

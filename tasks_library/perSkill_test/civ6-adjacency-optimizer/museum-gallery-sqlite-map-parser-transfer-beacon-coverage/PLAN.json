@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "museum-gallery-sqlite-map-parser-transfer-beacon-coverage",
+  "taskRole": "transfer",
+  "title": "Transfer - 博物馆导览信标部署",
+  "goal": "读取博物馆展厅 SQLite 楼层数据库，恢复房间、门连接、展品位置与供电点后，输出语音导览信标部署 JSON，给出能够覆盖全部重点展品的房间级部署方案。",
+  "primaryOutputFile": "/output/gallery_beacon_plan.json",
+  "difficulty": "hard",
+  "category": "arts",
+  "skillBenefitRationale": "房间拓扑、展品归属和可安装点被拆在多张表里，必须先靠 sqlite-map-parser 探索 schema、主外键关系并抽成结构化空间图；一旦数据还原完成，覆盖判断只是常规业务逻辑。",
+  "targetSkillDirName": "sqlite-map-parser",
+  "targetSkillName": "sqlite-map-parser"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "incubator-imc-tuning-rules-similar-recovery",
+  "taskRole": "similar",
+  "title": "Similar - 实验培养箱温度恢复 IMC 整定",
+  "goal": "为实验培养箱的一阶热惯性模型设计 IMC 规则下的 PI 控制器，在开门降温后将腔体温度稳定恢复到 37.0C，并输出整定结果与闭环表现摘要。",
+  "primaryOutputFile": "incubator_controller_bundle.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "这仍是一阶热过程控制，最关键的 shipped skill 就是根据给定的 K、tau 与性能约束选择合适的 lambda，并用 IMC 公式得到稳健的 PI 增益。",
+  "targetSkillDirName": "imc-tuning-rules",
+  "targetSkillName": "imc-tuning-rules"
+}

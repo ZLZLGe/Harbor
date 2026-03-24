@@ -1,0 +1,24 @@
+name: Reusable service analysis
+
+on:
+  workflow_call:
+    inputs:
+      service_name:
+        required: true
+        type: string
+      python_version:
+        required: true
+        type: string
+      artifact_prefix:
+        required: true
+        type: string
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show requested analysis
+        run: |
+          echo "service=${{ inputs.service_name }}"
+          echo "python=${{ inputs.python_version }}"
+          echo "artifact=${{ inputs.artifact_prefix }}"

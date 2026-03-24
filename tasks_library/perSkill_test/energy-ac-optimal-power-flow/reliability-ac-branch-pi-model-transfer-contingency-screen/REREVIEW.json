@@ -1,0 +1,20 @@
+{
+  "sourceTaskId": "energy-ac-optimal-power-flow",
+  "targetSkillDirName": "ac-branch-pi-model",
+  "runId": "20260319045141-energy-ac-optimal-power-flow-ac-branch-pi-model-hebdie",
+  "taskId": "reliability-ac-branch-pi-model-transfer-contingency-screen",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/energy-ac-optimal-power-flow/ac-branch-pi-model/20260319045141-energy-ac-optimal-power-flow-ac-branch-pi-model-hebdie/reliability-ac-branch-pi-model-transfer-contingency-screen",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/energy-ac-optimal-power-flow/reliability-ac-branch-pi-model-transfer-contingency-screen",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:reliability-ac-branch-pi-model-transfer-contingency-screen instruction.md 明确要求对每个场景“compute the bidirectional AC branch flows and apparent power magnitudes”，比 source_task/instruction.md 更直接提示技能。; N-1 场景筛查本身不引入新的专用 skill，核心仍是同一个 AC branch pi-model 加场景遍历与排序。; 测试可判定性良好：expected_report 直接由输入案例重算 worst branch、severity_rank 与 summary。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 满足 1 个 similar + 3 个 transfer，且 3 个 transfer 场景区分度足够。",
+    "family similar 任务贴近 shipped skill 的典型用法，但四个任务的 instruction 都比 source_task/instruction.md 更直接地暴露了核心技能线索。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa3-c221-7b70-85e0-d21992e6b663"
+}

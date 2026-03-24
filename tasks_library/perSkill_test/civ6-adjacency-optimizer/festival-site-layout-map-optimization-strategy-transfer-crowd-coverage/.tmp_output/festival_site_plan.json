@@ -1,0 +1,183 @@
+{
+  "placements": {
+    "stages": [
+      {
+        "site_id": "ST2",
+        "coord": [
+          5,
+          2
+        ]
+      },
+      {
+        "site_id": "ST4",
+        "coord": [
+          3,
+          5
+        ]
+      }
+    ],
+    "supply_stations": [
+      {
+        "site_id": "SU1",
+        "coord": [
+          1,
+          4
+        ]
+      },
+      {
+        "site_id": "SU3",
+        "coord": [
+          6,
+          4
+        ]
+      }
+    ],
+    "first_aid_points": [
+      {
+        "site_id": "MD2",
+        "coord": [
+          6,
+          7
+        ]
+      }
+    ],
+    "power_nodes": [
+      {
+        "site_id": "PW1",
+        "coord": [
+          1,
+          1
+        ]
+      },
+      {
+        "site_id": "PW3",
+        "coord": [
+          7,
+          1
+        ]
+      }
+    ]
+  },
+  "zone_coverage": {
+    "Z1": {
+      "covered_by": {
+        "stages": [
+          "ST4"
+        ],
+        "supply_stations": [
+          "SU1"
+        ],
+        "first_aid_points": []
+      },
+      "component_scores": {
+        "stage": 12,
+        "supply": 21,
+        "first_aid": 0,
+        "dual_service_bonus": 0
+      },
+      "zone_total": 33
+    },
+    "Z2": {
+      "covered_by": {
+        "stages": [
+          "ST2"
+        ],
+        "supply_stations": [
+          "SU3"
+        ],
+        "first_aid_points": []
+      },
+      "component_scores": {
+        "stage": 16,
+        "supply": 24,
+        "first_aid": 0,
+        "dual_service_bonus": 0
+      },
+      "zone_total": 40
+    },
+    "Z3": {
+      "covered_by": {
+        "stages": [],
+        "supply_stations": [],
+        "first_aid_points": []
+      },
+      "component_scores": {
+        "stage": 0,
+        "supply": 0,
+        "first_aid": 0,
+        "dual_service_bonus": 0
+      },
+      "zone_total": 0
+    },
+    "Z4": {
+      "covered_by": {
+        "stages": [
+          "ST4"
+        ],
+        "supply_stations": [],
+        "first_aid_points": []
+      },
+      "component_scores": {
+        "stage": 13,
+        "supply": 0,
+        "first_aid": 0,
+        "dual_service_bonus": 0
+      },
+      "zone_total": 13
+    },
+    "Z5": {
+      "covered_by": {
+        "stages": [],
+        "supply_stations": [
+          "SU3"
+        ],
+        "first_aid_points": [
+          "MD2"
+        ]
+      },
+      "component_scores": {
+        "stage": 0,
+        "supply": 27,
+        "first_aid": 28,
+        "dual_service_bonus": 5
+      },
+      "zone_total": 60
+    },
+    "Z6": {
+      "covered_by": {
+        "stages": [],
+        "supply_stations": [],
+        "first_aid_points": []
+      },
+      "component_scores": {
+        "stage": 0,
+        "supply": 0,
+        "first_aid": 0,
+        "dual_service_bonus": 0
+      },
+      "zone_total": 0
+    }
+  },
+  "power_links": {
+    "stage_links": [
+      {
+        "stage": "ST2",
+        "power_node": "PW3",
+        "score": 12
+      }
+    ],
+    "supply_links": [
+      {
+        "supply_station": "SU1",
+        "power_node": "PW1",
+        "score": 6
+      }
+    ],
+    "total_power_bonus": 18
+  },
+  "score_summary": {
+    "coverage_score": 146,
+    "power_bonus": 18,
+    "total_score": 164
+  }
+}

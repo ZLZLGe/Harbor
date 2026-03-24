@@ -1,0 +1,4 @@
+Campaign notes:
+- Time stamps are in BJD_TDB.
+- Each CSV stores one observing night.
+- Use all nights together when fitting the transit ephemeris.

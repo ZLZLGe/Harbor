@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reaction-stoichiometry-sympy-transfer-balancer",
+  "taskRole": "transfer",
+  "title": "Transfer: Stoichiometric Nullspace Balancer",
+  "goal": "构建一个 Python 程序，从未配平的化学反应式中建立元素守恒方程，求出最小正整数化学计量系数，并输出对应的精确零空间推导结果。",
+  "primaryOutputFile": "/root/workspace/reaction_balancer.py",
+  "difficulty": "medium",
+  "category": "chemistry",
+  "skillBenefitRationale": "核心难点是把守恒条件转成精确符号矩阵并通过零空间得到整数解，依赖 SymPy 的 Matrix、nullspace、gcd/lcm 与有理数化简能力；不需要其他 shipped skill。",
+  "targetSkillDirName": "sympy",
+  "targetSkillName": "sympy"
+}

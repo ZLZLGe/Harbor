@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "release-docs-maven-plugin-configuration-transfer-javadoc-gating"
+name = "Transfer: 修复发布文档的 Maven Javadoc Plugin 配置"
+description = "修复发布文档模块的 docs/pom.xml，让当前 JDK 下的发布构建重新稳定生成并附带 javadoc 制品。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = ["Java", "Maven", "Javadoc", "release-docs", "build"]
+primary_output_file = "docs/pom.xml"
+source_task_id = "fix-build-google-auto"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

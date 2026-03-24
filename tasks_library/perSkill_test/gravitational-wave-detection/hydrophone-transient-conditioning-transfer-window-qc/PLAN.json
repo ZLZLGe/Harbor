@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "hydrophone-transient-conditioning-transfer-window-qc",
+  "taskRole": "transfer",
+  "title": "Transfer - 水听器瞬态检索窗口质控",
+  "goal": "对海底水听器连续记录做条件化处理，生成适合后续瞬态检索的时间窗质量表，给出每个时间窗的有效时长、重采样率和低频噪声指标。",
+  "primaryOutputFile": "/root/hydrophone_window_quality.csv",
+  "difficulty": "hard",
+  "category": "signal-processing",
+  "skillBenefitRationale": "该任务把同一套条件化能力迁移到水声连续观测，重点不再是天体并合而是为后续瞬态检索准备稳定输入；决定成败的仍然是高通、重采样、裁边和 PSD 质量评估，不要求其他 shipped skill，conditioning 是唯一关键 shipped skill。",
+  "targetSkillDirName": "conditioning",
+  "targetSkillName": "conditioning"
+}

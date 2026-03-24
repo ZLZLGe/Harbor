@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "sales-duel-xlsx-similar-matchup-score"
+name = "Similar: Sales Campaign Matchup Workbook"
+description = "Analyze the noisy sales workbook, score each valid campaign with the embedded rules and hidden corrections, and write the odd-vs-even matchup margin to /root/campaign_margin.txt."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "financial modeling"
+tags = ["xlsx", "spreadsheet analysis", "sales scoring", "matchups"]
+primary_output_file = "/root/campaign_margin.txt"
+source_task_id = "financial-modeling-qa"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

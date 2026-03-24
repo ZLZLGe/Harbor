@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "assembly-line-sampling-and-indexing-transfer-state-spans",
+  "taskRole": "transfer",
+  "title": "Transfer | 传送带状态区间索引",
+  "goal": "给定一段传送带生产线视频，按指定帧率采样后输出一个 JSON，把样本索引区间映射到产线状态标签（如空载、正常流动、堆积）；核心是稳定抽样并把状态切换准确落到样本索引边界。",
+  "primaryOutputFile": "/root/pred_line_state_spans.json",
+  "difficulty": "medium",
+  "category": "process-monitoring",
+  "skillBenefitRationale": "任务从相机运动迁移到工业流程分段，不再依赖掩码或运动标签体系，主要考察固定采样后的区间切分与索引对齐能力。",
+  "targetSkillDirName": "sampling-and-indexing",
+  "targetSkillName": "sampling-and-indexing"
+}

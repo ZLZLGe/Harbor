@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "labor-rates-timeseries-detrending-transfer-beveridge-cycle",
+  "taskRole": "transfer",
+  "title": "Transfer: Beveridge 曲线周期相关性",
+  "goal": "对美国 2001-01 到 2024-12 的月度失业率与职位空缺率去趋势，提取周期项后计算两者的 Pearson 相关系数。",
+  "primaryOutputFile": "/root/beveridge-cycle-corr.txt",
+  "difficulty": "medium",
+  "category": "labor-economics",
+  "skillBenefitRationale": "任务把去趋势技能迁移到劳动力市场利率型序列，关键点变成识别“比率序列不应取对数”以及月度数据对应的 HP 参数选择，仍然只依赖 timeseries-detrending。",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending"
+}

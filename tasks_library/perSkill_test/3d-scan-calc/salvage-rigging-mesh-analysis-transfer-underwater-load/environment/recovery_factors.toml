@@ -1,0 +1,6 @@
+[hydrostatics]
+seawater_density_kg_m3 = 1026.0
+gravity_m_s2 = 9.81
+
+[rigging]
+dynamic_amplification_factor = 1.08

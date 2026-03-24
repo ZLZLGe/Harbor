@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "resume-nanogpt-training-transfer-checkpoint-parity",
+  "taskRole": "transfer",
+  "title": "Transfer - Checkpoint Resume Parity Audit",
+  "goal": "为 GPT 训练流程补齐可恢复训练能力，要求一次不中断训练与一次中途保存并恢复的训练在相同步数下产出近似一致的损失曲线与优化器状态统计，并生成一致性报告。",
+  "primaryOutputFile": "resume_consistency_report.json",
+  "difficulty": "hard",
+  "category": "ml-implementation",
+  "skillBenefitRationale": "这个任务把 skill 迁移到训练系统可靠性场景，重点考察训练循环、优化器与 scaler 状态管理、步数调度和可复现实验控制，仍然完全落在 nanoGPT 训练能力范围内。",
+  "targetSkillDirName": "nanogpt-training",
+  "targetSkillName": "nanogpt-training"
+}

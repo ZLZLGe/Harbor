@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "service-ops-hierarchical-taxonomy-clustering-transfer-civic-request-normalization",
+  "taskRole": "transfer",
+  "title": "Transfer: 公共服务工单分类归一",
+  "goal": "整合城市 311、校园后勤与物业工单系统的问题分类路径，产出统一的 4 层服务请求 taxonomy，用于跨系统派单统计、热点问题聚合和 SLA 监控。",
+  "primaryOutputFile": "drafts/service-ops-hierarchical-taxonomy-clustering-transfer-civic-request-normalization/instruction.md",
+  "difficulty": "hard",
+  "category": "ML/NLP",
+  "skillBenefitRationale": "公共服务与设施工单分类高度碎片化且深度不齐，但仍是标准的层级路径聚合问题；该 skill 能在不依赖额外业务规则的前提下生成稳定、可汇总的统一问题树。",
+  "targetSkillDirName": "hierarchical-taxonomy-clustering",
+  "targetSkillName": "hierarchical-taxonomy-clustering"
+}

@@ -1,0 +1,84 @@
+{
+  "sourceTaskId": "pedestrian-traffic-counting",
+  "targetSkillDirName": "video-frame-extraction",
+  "runId": "20260322131102-pedestrian-traffic-counting-video-frame-extraction-1dd4ln",
+  "taskId": "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/pedestrian-traffic-counting/sidewalk-peak-video-frame-extraction-similar-crowd-hotspots",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322131102-pedestrian-traffic-counting-video-frame-extraction-1dd4ln/pedestrian-traffic-counting/drafts/sidewalk-peak-video-frame-extraction-similar-crowd-hotspots",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/pedestrian-traffic-counting/sidewalk-peak-video-frame-extraction-similar-crowd-hotspots",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/pedestrian-traffic-counting/sidewalk-peak-video-frame-extraction-similar-crowd-hotspots",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 中对 peak_frame_id 的正则写成了 `r\"F\\\\d{4}\"`，会把合法的 `F0003` 判成不合法，测试不可通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill。; tests/test_outputs.py 把 peak_frame_id 校验写成了正则 r\"F\\\\d{4}\"，合法值如 F0003 会被判失败，测试不可判定。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "solution/__pycache__/solve.cpython-312.pyc",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots"
+      ],
+      "requestedIssuesByTaskId": {
+        "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots": {
+          "reviewerIssues": [
+            "instruction.md 未直接点名 shipped skill。; tests/test_outputs.py 把 peak_frame_id 校验写成了正则 r\"F\\\\d{4}\"，合法值如 F0003 会被判失败，测试不可判定。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a7c-d1a3-7642-a6c8-06c9a25540f5",
+      "repairSummary": "已在 instruction.md 直接点名 shipped skill `video-frame-extraction`，并修正 tests/test_outputs.py 中 `peak_frame_id` 的正则为可正确匹配 `F0003` 等合法值。",
+      "reviewThreadId": "019d1a7e-454c-7942-88eb-0232e88f2391",
+      "evaluationByTaskId": {
+        "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots": {
+          "reviewerIssues": [
+            "instruction.md 直接点名了 shipped skill `video-frame-extraction`，造成技能暴露。; tests/test_outputs.py 直接写死了每个视频的标准答案，存在答案泄露。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots"
+      ],
+      "requestedIssuesByTaskId": {
+        "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots": {
+          "reviewerIssues": [
+            "instruction.md 直接点名了 shipped skill `video-frame-extraction`，造成技能暴露。; tests/test_outputs.py 直接写死了每个视频的标准答案，存在答案泄露。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a7f-4e3e-7c50-816e-ed0bc125f8ad",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill `video-frame-extraction` 的直接点名，并把 tests 从硬编码标准答案改为根据视频内容动态计算期望结果，同时补上测试所需的 OpenCV 依赖。",
+      "reviewThreadId": "019d1a83-5feb-7d22-9d77-7425e85baffe",
+      "evaluationByTaskId": {
+        "sidewalk-peak-video-frame-extraction-similar-crowd-hotspots": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

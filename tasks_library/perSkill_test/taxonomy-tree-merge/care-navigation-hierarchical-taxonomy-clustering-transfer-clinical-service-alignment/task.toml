@@ -1,0 +1,31 @@
+version = "1.0"
+
+[metadata]
+id = "care-navigation-hierarchical-taxonomy-clustering-transfer-clinical-service-alignment"
+name = "Transfer: 临床服务目录统一"
+description = "整合医院集团、保险目录与远程医疗平台的服务路径，输出统一的五层临床服务 taxonomy、跨源映射和预约导航汇总。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "ML/NLP"
+tags = ["taxonomy-alignment", "clinical-services", "care-navigation", "hierarchical-clustering", "healthcare-operations"]
+primary_output_file = "drafts/care-navigation-hierarchical-taxonomy-clustering-transfer-clinical-service-alignment/instruction.md"
+source_task_id = "taxonomy-tree-merge"
+task_role = "transfer"
+
+[reward]
+reward = "(P0_passed/10 * 0.55) + (P1_passed/4 * 0.30) + (P2_passed/2 * 0.15)"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

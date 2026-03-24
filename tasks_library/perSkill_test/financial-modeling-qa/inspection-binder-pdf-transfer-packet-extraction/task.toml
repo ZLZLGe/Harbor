@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "inspection-binder-pdf-transfer-packet-extraction"
+name = "Transfer: Inspection Binder PDF Packet Extraction"
+description = "Extract the required station inspection pages from the mixed binder PDF and assemble them into /root/site_inspection_packet.pdf."
+author_name = "Levi"
+author_email = "levi@harbor.dev"
+difficulty = "medium"
+category = "document-assembly"
+tags = ["pdf", "page-extraction", "document-assembly"]
+primary_output_file = "/root/site_inspection_packet.pdf"
+source_task_id = "financial-modeling-qa"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

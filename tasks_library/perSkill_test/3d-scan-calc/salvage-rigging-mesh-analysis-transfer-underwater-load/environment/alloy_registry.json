@@ -1,0 +1,19 @@
+{
+  "alloys": [
+    {
+      "alloy_id": 112,
+      "designation": "Duplex Stainless 2205",
+      "density_kg_m3": 7810.0
+    },
+    {
+      "alloy_id": 314,
+      "designation": "Nickel Aluminum Bronze C95800",
+      "density_kg_m3": 8800.0
+    },
+    {
+      "alloy_id": 470,
+      "designation": "Manganese Bronze DZR",
+      "density_kg_m3": 8300.0
+    }
+  ]
+}

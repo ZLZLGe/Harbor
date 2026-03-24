@@ -1,0 +1,54 @@
+{
+  "audit_window_start": "2024-07-15T00:00:00.000000Z",
+  "audit_window_end": "2024-07-16T00:00:00.000000Z",
+  "stations": [
+    {
+      "network": "VG",
+      "station": "ACR",
+      "location": "",
+      "station_name": "Ash Crater Rim",
+      "volcano_name": "Mount Kalama",
+      "latitude": 46.201,
+      "longitude": -122.188,
+      "elevation_m": 1432.0,
+      "expected_channels": [
+        "DPE",
+        "DPN",
+        "DPZ"
+      ],
+      "sample_rate_hz": 5.0
+    },
+    {
+      "network": "VG",
+      "station": "BRP",
+      "location": "",
+      "station_name": "Basalt Rim Pit",
+      "volcano_name": "Mount Kalama",
+      "latitude": 46.215,
+      "longitude": -122.164,
+      "elevation_m": 1324.0,
+      "expected_channels": [
+        "DPE",
+        "DPN",
+        "DPZ"
+      ],
+      "sample_rate_hz": 5.0
+    },
+    {
+      "network": "VG",
+      "station": "NEG",
+      "location": "",
+      "station_name": "North Edge Gully",
+      "volcano_name": "Mount Kalama",
+      "latitude": 46.228,
+      "longitude": -122.203,
+      "elevation_m": 1510.0,
+      "expected_channels": [
+        "DPE",
+        "DPN",
+        "DPZ"
+      ],
+      "sample_rate_hz": 5.0
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "sourceTaskId": "speaker-diarization-subtitles",
+  "targetSkillDirName": "speaker-clustering",
+  "runId": "20260322185640-speaker-diarization-subtitles-speaker-clustering-ld31qr",
+  "taskId": "call-center-speaker-clustering-transfer-agent-roster",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/speaker-diarization-subtitles/call-center-speaker-clustering-transfer-agent-roster",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322185640-speaker-diarization-subtitles-speaker-clustering-ld31qr/speaker-diarization-subtitles/drafts/call-center-speaker-clustering-transfer-agent-roster",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/speaker-diarization-subtitles/call-center-speaker-clustering-transfer-agent-roster",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/speaker-diarization-subtitles/call-center-speaker-clustering-transfer-agent-roster",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 未直接暴露 shipped skill，但测试额外强制要求输出 `distance_threshold` 字段，属于隐藏判题要求，导致任务可见性不足。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 未要求输出 `distance_threshold`，但测试强制校验该字段。; instruction.md 未规定 `agent_roster` 和 `caller_roster` 的排序，但测试要求按 cluster_id 顺序精确匹配。; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "call-center-speaker-clustering-transfer-agent-roster"
+      ],
+      "requestedIssuesByTaskId": {
+        "call-center-speaker-clustering-transfer-agent-roster": {
+          "reviewerIssues": [
+            "instruction.md 未要求输出 `distance_threshold`，但测试强制校验该字段。; instruction.md 未规定 `agent_roster` 和 `caller_roster` 的排序，但测试要求按 cluster_id 顺序精确匹配。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1aa4-7c26-78f2-871a-b019bd0f78a4",
+      "repairSummary": "补充 instruction.md 中缺失的 `distance_threshold` 输出要求，并明确 `agent_roster`、`caller_roster` 需按 `cluster_id` 升序输出，使任务说明与现有测试和解答保持一致；已用等价流程本地验证测试通过。",
+      "reviewThreadId": "019d1aa6-af7b-7733-bf05-30827b71d4dd",
+      "evaluationByTaskId": {
+        "call-center-speaker-clustering-transfer-agent-roster": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "literary-contest-academic-pdf-redaction-transfer-manuscript"
+name = "Transfer | Literary Contest Manuscript Anonymization"
+description = "Prepare a jury-ready anonymous manuscript PDF by removing author identity clues, contact traces, and creator metadata while preserving the literary text structure."
+author_name = "Yueqian Lin"
+author_email = "yl768@duke.edu"
+difficulty = "medium"
+category = "document-editing"
+tags = ["pdf", "redaction", "literary-contest", "metadata", "blind-review"]
+primary_output_file = "/root/jury_ready/manuscript_blinded.pdf"
+source_task_id = "paper-anonymizer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

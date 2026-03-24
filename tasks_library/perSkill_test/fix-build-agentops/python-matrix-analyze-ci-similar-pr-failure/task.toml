@@ -1,0 +1,35 @@
+version = "1.0"
+
+[metadata]
+id = "python-matrix-analyze-ci-similar-pr-failure"
+name = "Similar: 修复 Python PR 测试矩阵失败"
+description = "分析本地提供的 GitHub Actions PR 失败日志，写出诊断报告并修复仓库中的 Python 测试矩阵失败。"
+author_name = "Yifeng He"
+author_email = "yfhe.cs@gmail.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = [
+  "python",
+  "github actions",
+  "ci",
+  "triage",
+  "debugging",
+  "testing"
+]
+primary_output_file = "reports/pr-triage.md"
+source_task_id = "fix-build-agentops"
+task_role = "similar"
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

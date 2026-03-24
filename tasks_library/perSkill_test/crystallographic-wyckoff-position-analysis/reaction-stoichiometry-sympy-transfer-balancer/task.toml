@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reaction-stoichiometry-sympy-transfer-balancer"
+name = "Transfer: Stoichiometric Nullspace Balancer"
+description = "Build a Python program that balances unnormalized chemical equations via exact conservation matrices and writes the resulting nullspace derivations."
+author_name = "Haoran Lyu"
+author_email = "oldjeffspectator@gmail.com"
+difficulty = "medium"
+category = "chemistry"
+tags = ["chemistry", "stoichiometry", "symbolic_math", "nullspace", "reaction_balancing"]
+primary_output_file = "/root/workspace/reaction_balancer.py"
+source_task_id = "crystallographic-wyckoff-position-analysis"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096

@@ -1,0 +1,7 @@
+expected_annual_coverage_km,total_3yr_cost_usd,bundle_id,vendor,buoy_model,sensor_suite
+211.23,545000,CB-917,BlueArc,Skua-V,extreme-range
+200.1,444000,CB-713,Coastline Labs,Albatross-Q,sonar-fusion
+194.4,417000,CB-509,WaveNorth,Osprey-M,storm-watch
+186.3,356000,CB-203,ShoreSight,Pelican-X,imaging-plus
+181.44,332000,CB-815,Harbor Metrics,Petrel-S,balanced-plus
+172.8,296000,CB-101,AquaDynamics,Tern-4,metocean-core

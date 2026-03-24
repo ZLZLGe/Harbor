@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "assembly-line-video-frame-extraction-transfer-cap-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Assembly Line Cap Audit",
+  "goal": "给定饮料产线巡检视频，按节拍抽取传送带区域帧，统计红盖与蓝盖瓶子的数量，并将结果写入 `/app/workspace/cap_audit.xlsx`。",
+  "primaryOutputFile": "/app/workspace/cap_audit.xlsx",
+  "difficulty": "medium",
+  "category": "quality assurance",
+  "skillBenefitRationale": "只有先把产线视频可靠抽帧，后续基于颜色与位置的瓶盖计数才成立；统计与表格输出都不依赖其他 shipped skill，因此唯一关键 shipped skill 是 video-frame-extraction。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

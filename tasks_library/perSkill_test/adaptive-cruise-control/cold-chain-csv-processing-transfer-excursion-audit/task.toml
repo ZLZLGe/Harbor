@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "cold-chain-csv-processing-transfer-excursion-audit"
+name = "Cold Chain Excursion Audit Transfer"
+description = "Analyze refrigerated shipment log CSVs, merge threshold excursions into incident windows, and export shipment_excursion_audit.csv with timing, duration, peak temperature, and door-open context."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "supply-chain-analytics"
+tags = ["python", "pandas", "csv", "cold-chain", "audit"]
+primary_output_file = "shipment_excursion_audit.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "5G"
+allow_internet = false

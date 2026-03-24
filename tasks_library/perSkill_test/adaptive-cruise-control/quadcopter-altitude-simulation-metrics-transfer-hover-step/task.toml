@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "quadcopter-altitude-simulation-metrics-transfer-hover-step"
+name = "Quadcopter Altitude Hold Transfer Scorecard"
+description = "Analyze quadcopter altitude-hold traces, compute step and gust-recovery metrics, and write the ranked comparison to quadcopter_altitude_scorecard.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["quadcopter", "altitude-control", "simulation", "time-series", "control-metrics"]
+primary_output_file = "quadcopter_altitude_scorecard.json"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

@@ -1,0 +1,12 @@
+record_id,title,author,isbn,format,publication_year,owning_branch,copy_count,audience
+BK-100,The Great Gatsby,F. Scott Fitzgerald,978-0-7432-7356-5,hardcover,2004,Central,2,adult
+BK-101,THE GREAT GATSBY,F. Scott Fitzgerald,9780743273565,hardcover,2004,West,1,adult
+BK-102,The Great Gatsby,F. Scott Fitzgerald,9780743273565,ebook,2004,Digital,999,adult
+BK-200,Data Science Handbook,Field Cady,,paperback,2015,North,3,adult
+BK-201,Data-Science Handbook,Field   Cady,,paperback,2015,South,1,adult
+BK-202,Data Science Handbook,Field Cady,,paperback,2017,North,2,adult
+BK-300,Moby-Dick,Herman Melville,978-1-5011-7342-0,paperback,2018,Central,1,adult
+BK-301,Moby Dick,Herman Melville,9781501173420,paperback,2018,East,2,adult
+BK-302,MOBY-DICK,Herman Melville,978 1 5011 7342 0,paperback,2018,West,1,adult
+BK-400,The Great Gatsby,F. Scott Fitzgerald,9780743273565,audiobook,2004,Media,4,adult
+BK-500,Practical Cataloging,Laura Bishop,9780316107333,paperback,2019,Central,2,staff

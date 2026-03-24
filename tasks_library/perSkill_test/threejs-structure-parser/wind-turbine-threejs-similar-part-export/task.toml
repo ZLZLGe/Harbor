@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "wind-turbine-threejs-similar-part-export"
+name = "Similar: 风力发电机分件导出"
+description = "解析风力发电机场景中的具名部件，导出每个部件的单独与合并 OBJ，并生成部件清单 JSON。"
+author_name = "Yipeng Gao"
+author_email = "yipengga@usc.edu"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["3d", "javascript", "obj", "scene-graph", "mesh-export"]
+primary_output_file = "/root/output/wind_turbine_manifest.json"
+source_task_id = "threejs-structure-parser"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

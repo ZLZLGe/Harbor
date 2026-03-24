@@ -1,0 +1,21 @@
+{
+  "sourceTaskId": "civ6-adjacency-optimizer",
+  "targetSkillDirName": "map-optimization-strategy",
+  "runId": "20260315204632-civ6-adjacency-optimizer-map-optimization-strategy-4c6fyf",
+  "taskId": "wetland-reserve-map-optimization-strategy-transfer-habitat-corridor",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/civ6-adjacency-optimizer/map-optimization-strategy/20260315204632-civ6-adjacency-optimizer-map-optimization-strategy-4c6fyf/wetland-reserve-map-optimization-strategy-transfer-habitat-corridor",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/civ6-adjacency-optimizer/wetland-reserve-map-optimization-strategy-transfer-habitat-corridor",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:wetland-reserve-map-optimization-strategy-transfer-habitat-corridor `tests/test_outputs.py` 要求解必须与内部 `compute_optimal_plan` 生成的规范解完全一致，并且 `canonical_key` 对 `nest_boxes`/`buffers` 的列表顺序敏感；但 `instruction.md` 没有声明任何 tie-break 规则，也没有要求这两个列表按固定顺序输出，存在隐藏判题条件。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family reviewer 认为 transfer 多样性不足",
+    "family family 角色配比满足 1 个 similar + 3 个 transfer，但 `cold-chain-warehouse-map-optimization-strategy-transfer-pickface-slotting` 与 `wetland-reserve-map-optimization-strategy-transfer-habitat-corridor` 在四联通网格、入口可达廊道、分区容量、最小间距、路径距离支持奖励等核心结构上过于接近，3 个 transfer 的方法学差异不够大。",
+    "family `mars-colony-map-optimization-strategy-similar-module-cluster` 保留了六边形地图、邻接收益、中心锚点与硬约束验证，足够贴近当前 shipped skill 的典型用法。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0f99-60fc-7883-beaf-7dab3521d3b4"
+}

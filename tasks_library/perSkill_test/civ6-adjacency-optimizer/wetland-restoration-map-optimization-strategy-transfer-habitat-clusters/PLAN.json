@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wetland-restoration-map-optimization-strategy-transfer-habitat-clusters",
+  "taskRole": "transfer",
+  "title": "Wetland Restoration Layout (Transfer)",
+  "goal": "在湿地保护区地图上布置过滤岛、观测点和步道入口，使目标栖息地覆盖分与设施协同分最高，同时避开禁建水道、敏感巢区和相互干扰半径。",
+  "primaryOutputFile": "/output/wetland_restoration_layout.json",
+  "difficulty": "hard",
+  "category": "environment",
+  "skillBenefitRationale": "任务本质是对生态热点做空间筛选、价值排序和簇状布局优化，重点在地图剪枝与锚点扩展，不需要额外的领域专用 shipped skill。",
+  "targetSkillDirName": "map-optimization-strategy",
+  "targetSkillName": "map-optimization-strategy"
+}

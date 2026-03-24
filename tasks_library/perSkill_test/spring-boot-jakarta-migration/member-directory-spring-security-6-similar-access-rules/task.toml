@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "member-directory-spring-security-6-similar-access-rules"
+name = "Similar: 会员目录服务安全配置迁移"
+description = "Migrate the member directory service to the component-based Spring Boot 3 security configuration and restore the required access rules in SecurityConfig.java."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["spring-boot", "spring-security", "migration", "rest-api"]
+primary_output_file = "environment/workspace/src/main/java/com/example/memberdirectory/config/SecurityConfig.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

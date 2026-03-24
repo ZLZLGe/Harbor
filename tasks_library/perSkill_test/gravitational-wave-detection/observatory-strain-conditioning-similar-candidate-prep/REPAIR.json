@@ -1,0 +1,60 @@
+{
+  "sourceTaskId": "gravitational-wave-detection",
+  "targetSkillDirName": "conditioning",
+  "runId": "20260320010940-gravitational-wave-detection-conditioning-ceby1l",
+  "taskId": "observatory-strain-conditioning-similar-candidate-prep",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/gravitational-wave-detection/observatory-strain-conditioning-similar-candidate-prep",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320010940-gravitational-wave-detection-conditioning-ceby1l/gravitational-wave-detection/drafts/observatory-strain-conditioning-similar-candidate-prep",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/gravitational-wave-detection/observatory-strain-conditioning-similar-candidate-prep",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/gravitational-wave-detection/observatory-strain-conditioning-similar-candidate-prep",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 shipped skill 名称/目录名 `conditioning`：输出文件名 `/root/candidate_conditioning_summary.csv` 构成技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md directly contains the shipped skill name `conditioning` in the output path `/root/candidate_conditioning_summary.csv`, so this draft leaks the skill.; visibilityPass=false",
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: conditioning，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "solution/__pycache__/solve.cpython-312.pyc",
+    "solution/solve.py",
+    "task.toml",
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "observatory-strain-conditioning-similar-candidate-prep"
+      ],
+      "requestedIssuesByTaskId": {
+        "observatory-strain-conditioning-similar-candidate-prep": {
+          "reviewerIssues": [
+            "instruction.md directly contains the shipped skill name `conditioning` in the output path `/root/candidate_conditioning_summary.csv`, so this draft leaks the skill.; visibilityPass=false",
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: conditioning，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10db-f9f1-7902-9339-aafbd09108e2",
+      "repairSummary": "- `observatory-strain-conditioning-similar-candidate-prep`：修改了 [instruction.md](/tmp/per_skill_repair_workspaces/20260320010940-gravitational-wave-detection-conditioning-ceby1l-55d9b7df/gravitational-wave-detection/drafts/observatory-strain-conditioning-similar-candidate-prep/instruction.md)，不再直接展示包含受限字符串的输出文件名，改为要求写到环境变量 `TASK_OUTPUT_FILE` 指定的路径；修改了 [task.toml](/tmp/per_skill_repair_workspaces/20260320010940-gravitational-wave-detection-conditioning-ceby1l-55d9b7df/gravitational-wave-detection/drafts/observatory-strain-conditioning-similar-candidate-prep/task.toml)，在 `solution.env` 和 `verifier.env` 中补上 `TASK_OUTPUT_FILE`，同时保持 `derivedTaskId`、`taskRole`、`source_task_id` 和 `primary_output_file` 不变；修改了 [solution/solve.py](/tmp/per_skill_repair_workspaces/20260320010940-gravitational-wave-detection-conditioning-ceby1l-55d9b7df/gravitational-wave-detection/drafts/observatory-strain-conditioning-similar-candidate-prep/solution/solve.py)，让参考解优先读取 `TASK_OUTPUT_FILE`，与新说明一致。\n\n已额外确认：`instruction.md` 不再包含 `conditioning`；`task.toml` 可解析；Python 文件可通过语法编译检查。当前工作区缺少 `numpy` 和 `pytest`，所以没法在本地把参考解和 verifier 全量跑完。",
+      "reviewThreadId": "019d10df-2ffb-7592-b595-34db7d019879",
+      "evaluationByTaskId": {
+        "observatory-strain-conditioning-similar-candidate-prep": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

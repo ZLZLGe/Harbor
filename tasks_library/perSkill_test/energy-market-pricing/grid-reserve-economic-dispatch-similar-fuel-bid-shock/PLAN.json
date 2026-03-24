@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "grid-reserve-economic-dispatch-similar-fuel-bid-shock",
+  "taskRole": "similar",
+  "title": "Similar - Fuel Bid Shock Reserve Dispatch Review",
+  "goal": "Analyze a reserve-co-optimized generator fleet in two scenarios: a base case and a counterfactual where a designated gas peaker's energy bid becomes more expensive. Produce `dispatch_impact.json` with total production cost, system energy price, reserve MCP, generator-level energy and reserve awards, and the units with the largest redispatch between scenarios.",
+  "primaryOutputFile": "dispatch_impact.json",
+  "difficulty": "hard",
+  "category": "energy",
+  "skillBenefitRationale": "This task is a direct application of economic dispatch: the agent must minimize generation cost under generator limits and reserve capacity coupling, then compare marginal outcomes across scenarios. No other shipped skill is needed because there are no network-flow, stochastic, or integer-commitment requirements.",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

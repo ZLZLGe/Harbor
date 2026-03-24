@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "quarry-obspy-data-api-transfer-blast-manifest",
+  "taskRole": "transfer",
+  "title": "Transfer | Quarry Blast Review Manifest",
+  "goal": "Read quarry blast event metadata, station metadata, and waveform snippets, associate each waveform with its blast origin and recording station through ObsPy event and inventory objects, and generate `/root/blast_station_manifest.json` containing event time, station coordinates, trace start offset, duration, and channel set for analyst review.",
+  "primaryOutputFile": "/root/blast_station_manifest.json",
+  "difficulty": "hard",
+  "category": "mining-seismology",
+  "skillBenefitRationale": "The task depends on ObsPy’s event, station, and waveform object model to reconcile heterogeneous blast-monitoring assets into a single manifest. That metadata integration workflow is exactly what the shipped skill provides, without needing any other source-task skill.",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

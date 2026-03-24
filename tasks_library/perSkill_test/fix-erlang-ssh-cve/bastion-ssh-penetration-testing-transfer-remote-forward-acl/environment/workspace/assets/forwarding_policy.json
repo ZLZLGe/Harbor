@@ -1,0 +1,17 @@
+{
+  "allowed_principals": [
+    "ops-bot",
+    "db-admin",
+    "metrics-sidecar"
+  ],
+  "allowed_bind_hosts": [
+    "127.0.0.1",
+    "::1",
+    "localhost"
+  ],
+  "allowed_target_ports": [
+    5432,
+    8080,
+    9000
+  ]
+}

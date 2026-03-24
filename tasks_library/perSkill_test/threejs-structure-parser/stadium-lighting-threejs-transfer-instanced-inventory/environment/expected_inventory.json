@@ -1,0 +1,451 @@
+{
+  "scene_file": "/root/data/stadium_lighting.js",
+  "rig_count": 3,
+  "total_fixture_count": 17,
+  "rigs": [
+    {
+      "rig_name": "center_ring",
+      "fixture_count": 6,
+      "fixture_types": [
+        {
+          "type_name": "ring_spot_bank",
+          "count": 4
+        },
+        {
+          "type_name": "ring_wash_bank",
+          "count": 2
+        }
+      ],
+      "merged_obj_path": "/root/output/rig_meshes/center_ring.obj",
+      "bbox": {
+        "min": [
+          -0.446669,
+          17.482685,
+          -8.107005
+        ],
+        "max": [
+          7.183267,
+          19.633157,
+          -0.096659
+        ]
+      },
+      "fixtures": [
+        {
+          "fixture_name": "ring_spot_bank_00",
+          "source_type": "ring_spot_bank",
+          "center": [
+            -0.070838,
+            18.456399,
+            -1.738323
+          ],
+          "bbox": {
+            "min": [
+              -0.446669,
+              18.032039,
+              -2.290192
+            ],
+            "max": [
+              0.304992,
+              18.880759,
+              -1.186454
+            ]
+          }
+        },
+        {
+          "fixture_name": "ring_spot_bank_01",
+          "source_type": "ring_spot_bank",
+          "center": [
+            6.095453,
+            18.416162,
+            -1.056244
+          ],
+          "bbox": {
+            "min": [
+              5.613936,
+              17.999317,
+              -1.665927
+            ],
+            "max": [
+              6.57697,
+              18.833008,
+              -0.44656
+            ]
+          }
+        },
+        {
+          "fixture_name": "ring_spot_bank_02",
+          "source_type": "ring_spot_bank",
+          "center": [
+            1.230708,
+            19.224522,
+            -7.257922
+          ],
+          "bbox": {
+            "min": [
+              0.841854,
+              18.815887,
+              -7.820151
+            ],
+            "max": [
+              1.619561,
+              19.633157,
+              -6.695692
+            ]
+          }
+        },
+        {
+          "fixture_name": "ring_spot_bank_03",
+          "source_type": "ring_spot_bank",
+          "center": [
+            6.746413,
+            19.138931,
+            -6.26814
+          ],
+          "bbox": {
+            "min": [
+              6.309559,
+              18.696866,
+              -6.852175
+            ],
+            "max": [
+              7.183267,
+              19.580997,
+              -5.684104
+            ]
+          }
+        },
+        {
+          "fixture_name": "ring_wash_bank_00",
+          "source_type": "ring_wash_bank",
+          "center": [
+            2.96704,
+            17.785245,
+            -0.483991
+          ],
+          "bbox": {
+            "min": [
+              2.27991,
+              17.482685,
+              -0.871324
+            ],
+            "max": [
+              3.65417,
+              18.087804,
+              -0.096659
+            ]
+          }
+        },
+        {
+          "fixture_name": "ring_wash_bank_01",
+          "source_type": "ring_wash_bank",
+          "center": [
+            4.014883,
+            18.928461,
+            -7.719672
+          ],
+          "bbox": {
+            "min": [
+              3.327753,
+              18.625901,
+              -8.107005
+            ],
+            "max": [
+              4.702013,
+              19.231021,
+              -7.33234
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rig_name": "north_truss",
+      "fixture_count": 6,
+      "fixture_types": [
+        {
+          "type_name": "beam_spots",
+          "count": 4
+        },
+        {
+          "type_name": "wash_panels",
+          "count": 2
+        }
+      ],
+      "merged_obj_path": "/root/output/rig_meshes/north_truss.obj",
+      "bbox": {
+        "min": [
+          -9.823739,
+          14.112817,
+          3.447716
+        ],
+        "max": [
+          0.499691,
+          15.483307,
+          6.688351
+        ]
+      },
+      "fixtures": [
+        {
+          "fixture_name": "beam_spots_00",
+          "source_type": "beam_spots",
+          "center": [
+            -9.279603,
+            14.679265,
+            6.001167
+          ],
+          "bbox": {
+            "min": [
+              -9.823739,
+              14.267677,
+              5.313984
+            ],
+            "max": [
+              -8.735467,
+              15.090853,
+              6.688351
+            ]
+          }
+        },
+        {
+          "fixture_name": "beam_spots_01",
+          "source_type": "beam_spots",
+          "center": [
+            -6.219066,
+            14.960972,
+            5.538831
+          ],
+          "bbox": {
+            "min": [
+              -6.808039,
+              14.590513,
+              4.824998
+            ],
+            "max": [
+              -5.630093,
+              15.331432,
+              6.252665
+            ]
+          }
+        },
+        {
+          "fixture_name": "beam_spots_02",
+          "source_type": "beam_spots",
+          "center": [
+            -3.148751,
+            15.029646,
+            4.589648
+          ],
+          "bbox": {
+            "min": [
+              -3.631398,
+              14.664348,
+              3.943744
+            ],
+            "max": [
+              -2.666104,
+              15.394945,
+              5.235551
+            ]
+          }
+        },
+        {
+          "fixture_name": "beam_spots_03",
+          "source_type": "beam_spots",
+          "center": [
+            -0.07273,
+            15.113557,
+            4.152553
+          ],
+          "bbox": {
+            "min": [
+              -0.645151,
+              14.743808,
+              3.447716
+            ],
+            "max": [
+              0.499691,
+              15.483307,
+              4.857389
+            ]
+          }
+        },
+        {
+          "fixture_name": "wash_panels_00",
+          "source_type": "wash_panels",
+          "center": [
+            -7.201338,
+            14.396899,
+            6.079168
+          ],
+          "bbox": {
+            "min": [
+              -7.953864,
+              14.112817,
+              5.617354
+            ],
+            "max": [
+              -6.448812,
+              14.680981,
+              6.540981
+            ]
+          }
+        },
+        {
+          "fixture_name": "wash_panels_01",
+          "source_type": "wash_panels",
+          "center": [
+            -2.085187,
+            14.555292,
+            4.181826
+          ],
+          "bbox": {
+            "min": [
+              -2.837713,
+              14.27121,
+              3.720012
+            ],
+            "max": [
+              -1.332661,
+              14.839374,
+              4.643639
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "rig_name": "sideline_catwalk",
+      "fixture_count": 5,
+      "fixture_types": [
+        {
+          "type_name": "followspots",
+          "count": 3
+        },
+        {
+          "type_name": "laser_tiles",
+          "count": 2
+        }
+      ],
+      "merged_obj_path": "/root/output/rig_meshes/sideline_catwalk.obj",
+      "bbox": {
+        "min": [
+          9.670884,
+          10.807216,
+          -16.774225
+        ],
+        "max": [
+          15.336092,
+          12.642677,
+          -11.557413
+        ]
+      },
+      "fixtures": [
+        {
+          "fixture_name": "followspots_00",
+          "source_type": "followspots",
+          "center": [
+            10.63352,
+            12.127125,
+            -12.49408
+          ],
+          "bbox": {
+            "min": [
+              9.670884,
+              11.611573,
+              -13.430747
+            ],
+            "max": [
+              11.596157,
+              12.642677,
+              -11.557413
+            ]
+          }
+        },
+        {
+          "fixture_name": "followspots_01",
+          "source_type": "followspots",
+          "center": [
+            12.621798,
+            11.952226,
+            -14.003604
+          ],
+          "bbox": {
+            "min": [
+              11.697884,
+              11.410173,
+              -14.971285
+            ],
+            "max": [
+              13.545712,
+              12.494279,
+              -13.035924
+            ]
+          }
+        },
+        {
+          "fixture_name": "followspots_02",
+          "source_type": "followspots",
+          "center": [
+            14.485689,
+            11.618946,
+            -15.799387
+          ],
+          "bbox": {
+            "min": [
+              13.635287,
+              11.104198,
+              -16.774225
+            ],
+            "max": [
+              15.336092,
+              12.133695,
+              -14.824549
+            ]
+          }
+        },
+        {
+          "fixture_name": "laser_tiles_00",
+          "source_type": "laser_tiles",
+          "center": [
+            12.007869,
+            11.462509,
+            -12.784683
+          ],
+          "bbox": {
+            "min": [
+              11.409617,
+              11.09874,
+              -13.376414
+            ],
+            "max": [
+              12.606122,
+              11.826277,
+              -12.192952
+            ]
+          }
+        },
+        {
+          "fixture_name": "laser_tiles_01",
+          "source_type": "laser_tiles",
+          "center": [
+            13.070327,
+            11.237812,
+            -15.410173
+          ],
+          "bbox": {
+            "min": [
+              12.499851,
+              10.807216,
+              -16.031253
+            ],
+            "max": [
+              13.640804,
+              11.668409,
+              -14.789092
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

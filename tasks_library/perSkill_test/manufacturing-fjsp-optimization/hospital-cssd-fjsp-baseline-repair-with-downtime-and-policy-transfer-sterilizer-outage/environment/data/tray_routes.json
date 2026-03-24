@@ -1,0 +1,266 @@
+{
+  "units": [
+    {
+      "unit_id": 0,
+      "unit_name": "Washer-A",
+      "stage": "wash"
+    },
+    {
+      "unit_id": 1,
+      "unit_name": "Washer-B",
+      "stage": "wash"
+    },
+    {
+      "unit_id": 2,
+      "unit_name": "Pack-Bench-A",
+      "stage": "inspect_pack"
+    },
+    {
+      "unit_id": 3,
+      "unit_name": "Pack-Bench-B",
+      "stage": "inspect_pack"
+    },
+    {
+      "unit_id": 4,
+      "unit_name": "Sterilizer-A",
+      "stage": "sterilize"
+    },
+    {
+      "unit_id": 5,
+      "unit_name": "Sterilizer-B",
+      "stage": "sterilize"
+    }
+  ],
+  "trays": [
+    {
+      "tray_id": "ER-TRAUMA-SET",
+      "service": "ED",
+      "release_deadline": 68,
+      "steps": [
+        {
+          "step": "wash",
+          "options": [
+            {
+              "unit_id": 0,
+              "duration": 7
+            },
+            {
+              "unit_id": 1,
+              "duration": 9
+            }
+          ]
+        },
+        {
+          "step": "inspect_pack",
+          "options": [
+            {
+              "unit_id": 2,
+              "duration": 5
+            },
+            {
+              "unit_id": 3,
+              "duration": 6
+            }
+          ]
+        },
+        {
+          "step": "sterilize",
+          "options": [
+            {
+              "unit_id": 4,
+              "duration": 14
+            },
+            {
+              "unit_id": 5,
+              "duration": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tray_id": "OR-ORTHO-SET",
+      "service": "OR-3",
+      "release_deadline": 98,
+      "steps": [
+        {
+          "step": "wash",
+          "options": [
+            {
+              "unit_id": 0,
+              "duration": 11
+            },
+            {
+              "unit_id": 1,
+              "duration": 13
+            }
+          ]
+        },
+        {
+          "step": "inspect_pack",
+          "options": [
+            {
+              "unit_id": 2,
+              "duration": 8
+            },
+            {
+              "unit_id": 3,
+              "duration": 7
+            }
+          ]
+        },
+        {
+          "step": "sterilize",
+          "options": [
+            {
+              "unit_id": 4,
+              "duration": 20
+            },
+            {
+              "unit_id": 5,
+              "duration": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tray_id": "GI-LAP-SET",
+      "service": "GI",
+      "release_deadline": 92,
+      "steps": [
+        {
+          "step": "wash",
+          "options": [
+            {
+              "unit_id": 0,
+              "duration": 9
+            },
+            {
+              "unit_id": 1,
+              "duration": 10
+            }
+          ]
+        },
+        {
+          "step": "inspect_pack",
+          "options": [
+            {
+              "unit_id": 2,
+              "duration": 6
+            },
+            {
+              "unit_id": 3,
+              "duration": 7
+            }
+          ]
+        },
+        {
+          "step": "sterilize",
+          "options": [
+            {
+              "unit_id": 4,
+              "duration": 15
+            },
+            {
+              "unit_id": 5,
+              "duration": 14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tray_id": "ENT-MICRO-SET",
+      "service": "ENT",
+      "release_deadline": 106,
+      "steps": [
+        {
+          "step": "wash",
+          "options": [
+            {
+              "unit_id": 0,
+              "duration": 10
+            },
+            {
+              "unit_id": 1,
+              "duration": 8
+            }
+          ]
+        },
+        {
+          "step": "inspect_pack",
+          "options": [
+            {
+              "unit_id": 2,
+              "duration": 7
+            },
+            {
+              "unit_id": 3,
+              "duration": 6
+            }
+          ]
+        },
+        {
+          "step": "sterilize",
+          "options": [
+            {
+              "unit_id": 4,
+              "duration": 16
+            },
+            {
+              "unit_id": 5,
+              "duration": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tray_id": "LDR-CSECTION-SET",
+      "service": "LDR",
+      "release_deadline": 86,
+      "steps": [
+        {
+          "step": "wash",
+          "options": [
+            {
+              "unit_id": 0,
+              "duration": 12
+            },
+            {
+              "unit_id": 1,
+              "duration": 11
+            }
+          ]
+        },
+        {
+          "step": "inspect_pack",
+          "options": [
+            {
+              "unit_id": 2,
+              "duration": 6
+            },
+            {
+              "unit_id": 3,
+              "duration": 5
+            }
+          ]
+        },
+        {
+          "step": "sterilize",
+          "options": [
+            {
+              "unit_id": 4,
+              "duration": 18
+            },
+            {
+              "unit_id": 5,
+              "duration": 16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

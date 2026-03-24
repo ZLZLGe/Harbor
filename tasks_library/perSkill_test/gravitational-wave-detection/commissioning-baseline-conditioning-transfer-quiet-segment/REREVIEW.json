@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "gravitational-wave-detection",
+  "targetSkillDirName": "conditioning",
+  "runId": "20260320010940-gravitational-wave-detection-conditioning-ceby1l",
+  "taskId": "commissioning-baseline-conditioning-transfer-quiet-segment",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/gravitational-wave-detection/conditioning/20260320010940-gravitational-wave-detection-conditioning-ceby1l/commissioning-baseline-conditioning-transfer-quiet-segment",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/gravitational-wave-detection/commissioning-baseline-conditioning-transfer-quiet-segment",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:commissioning-baseline-conditioning-transfer-quiet-segment 测试可判定，排序与打分只是普通表格计算，不构成额外专用 skill 依赖；但 instruction 明写 real FFT、Welch averaging、Hann window、PSD 和 baseline_score 规则，比 source_task 更直接暴露 conditioning 实现，还新增了 source task 未出现的 Welch/Hann/PSD 等具体术语。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer，三个 transfer 的场景、输入资产和输出语义也足够区分；但四个 draft 的 instruction 都比 source_task/instruction.md 更直接地写出了 conditioning 的 FFT/PSD/Welch 等实现细节，存在整组可见性越界问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fad-eca6-7e82-8444-62b4836aef2a"
+}

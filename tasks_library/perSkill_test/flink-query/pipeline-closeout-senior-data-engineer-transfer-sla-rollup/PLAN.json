@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "pipeline-closeout-senior-data-engineer-transfer-sla-rollup",
+  "taskRole": "transfer",
+  "title": "Transfer: Pipeline Closeout SLA Rollup",
+  "goal": "实现一个 Flink 作业，读取 pipeline task lifecycle 与 pipeline close 事件，按 pipelineId 聚合运行过程，在 close 事件到达后输出每条 pipeline 的最长连续积压区间、该区间内受影响 task 数以及总失败 task 数。",
+  "primaryOutputFile": "/app/workspace/pipeline_sla_rollup.txt",
+  "difficulty": "hard",
+  "category": "flink",
+  "skillBenefitRationale": "该任务把 senior-data-engineer 能力迁移到数据平台运维场景，强调生命周期建模、积压区间识别、close 事件触发的最终汇总输出，与归因监控和 CDC 质量治理也彼此明显不同。",
+  "targetSkillDirName": "senior-data-engineer",
+  "targetSkillName": "senior-data-engineer"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "crystal-orbit-sympy-similar-wyckoff-representatives",
+  "taskRole": "similar",
+  "title": "Similar: 符号化 Wyckoff 轨道代表元分析",
+  "goal": "读取一个包含若干分数坐标种子点与对称操作字符串的结构数据文件，使用精确有理数与符号表达式生成每个轨道在模 1 下的唯一坐标集合，输出每类轨道的 multiplicity 以及按固定规则选出的代表元坐标。",
+  "primaryOutputFile": "/root/workspace/wyckoff_orbit_solver.py",
+  "difficulty": "medium",
+  "category": "materials_science",
+  "skillBenefitRationale": "这个任务把 SymPy 放到源任务最接近的晶体对称场景里，但核心不再是浮点近似，而是解析 x/y/z 对称表达式、做模 1 归一化、保留 exact rational 结果，更能覆盖 SymPy 在符号表达式处理和有理数运算上的典型用法。",
+  "targetSkillDirName": "sympy",
+  "targetSkillName": "sympy"
+}

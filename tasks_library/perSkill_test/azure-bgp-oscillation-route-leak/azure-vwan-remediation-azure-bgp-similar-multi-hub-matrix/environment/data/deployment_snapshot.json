@@ -1,0 +1,72 @@
+{
+  "incident_ticket": "INC-3471",
+  "virtual_wan": {
+    "name": "vwan-tri-hub-prod",
+    "asn": 65101,
+    "allowVnetToVnetTraffic": true,
+    "allowBranchToBranchTraffic": true
+  },
+  "hubs": [
+    {
+      "name": "hub-west",
+      "region": "westus2",
+      "asn": 65102,
+      "connected_spokes": ["corp-west", "factory-west"]
+    },
+    {
+      "name": "hub-central",
+      "region": "centralus",
+      "asn": 65103,
+      "connected_spokes": ["shared-central", "branch-central"]
+    },
+    {
+      "name": "hub-east",
+      "region": "eastus2",
+      "asn": 65104,
+      "connected_spokes": ["analytics-east", "branch-east"]
+    }
+  ],
+  "spokes": [
+    {
+      "name": "corp-west",
+      "asn": 65111,
+      "prefix": "10.10.0.0/24",
+      "hub": "hub-west"
+    },
+    {
+      "name": "factory-west",
+      "asn": 65112,
+      "prefix": "10.10.1.0/24",
+      "hub": "hub-west"
+    },
+    {
+      "name": "shared-central",
+      "asn": 65113,
+      "prefix": "10.20.0.0/24",
+      "hub": "hub-central"
+    },
+    {
+      "name": "analytics-east",
+      "asn": 65116,
+      "prefix": "10.30.0.0/24",
+      "hub": "hub-east"
+    },
+    {
+      "name": "branch-east",
+      "asn": 65114,
+      "prefix": "10.44.10.0/24",
+      "hub": "hub-east"
+    },
+    {
+      "name": "branch-central",
+      "asn": 65115,
+      "prefix": "10.55.20.0/24",
+      "hub": "hub-central"
+    }
+  ],
+  "hub_peer_mesh": [
+    ["hub-west", "hub-central"],
+    ["hub-central", "hub-east"],
+    ["hub-east", "hub-west"]
+  ]
+}

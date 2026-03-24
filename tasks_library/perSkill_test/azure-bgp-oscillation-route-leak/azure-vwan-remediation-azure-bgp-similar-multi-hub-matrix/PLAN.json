@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "azure-vwan-remediation-azure-bgp-similar-multi-hub-matrix",
+  "taskRole": "similar",
+  "title": "Azure BGP Similar - Multi-Hub Remediation Matrix",
+  "goal": "分析一个 Azure Virtual WAN 多枢纽双前缀拓扑中的偏好环与 route leak，并判断每个候选改动是否真正修复问题，输出统一修复矩阵。",
+  "primaryOutputFile": "multi_hub_remediation_matrix.json",
+  "difficulty": "medium",
+  "category": "bgp-route",
+  "skillBenefitRationale": "保留 Azure Virtual WAN 场景，但把单一异常扩展为多前缀、多候选修复的典型运维分析，更集中检验 azure-bgp 对偏好环、valley-free 违规和 Azure 允许修复手段的核心能力。",
+  "targetSkillDirName": "azure-bgp",
+  "targetSkillName": "azure-bgp"
+}

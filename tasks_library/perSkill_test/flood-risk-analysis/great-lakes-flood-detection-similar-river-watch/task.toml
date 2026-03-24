@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "great-lakes-flood-detection-similar-river-watch"
+name = "Similar - Great Lakes River Flood Watch"
+description = "Analyze Wisconsin gauge snapshots for a spring high-water window and write a JSON summary of stations that exceeded flood stage."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["hydrology", "flood-monitoring", "json", "time-series", "wisconsin"]
+primary_output_file = "/root/output/river_watch_summary.json"
+source_task_id = "flood-risk-analysis"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

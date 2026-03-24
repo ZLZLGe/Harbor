@@ -1,0 +1,17 @@
+greenhouse:
+  initial_zone_temp_c: 20.5
+  setpoint_temp_c: 22.0
+  min_heater_power_kw: 0.0
+  max_heater_power_kw: 7.0
+  heat_loss_coeff_kw_per_c: 0.2
+  thermal_capacity_kwh_per_c: 3.0
+
+pid_initial:
+  kp: 1.0
+  ki: 0.05
+  kd: 0.02
+
+simulation:
+  dt_minutes: 1.0
+  duration_minutes: 360
+  integral_limit: 40.0

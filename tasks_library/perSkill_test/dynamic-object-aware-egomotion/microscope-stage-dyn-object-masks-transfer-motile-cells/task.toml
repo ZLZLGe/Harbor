@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "microscope-stage-dyn-object-masks-transfer-motile-cells"
+name = "Transfer: Microscope Drift Dynamic Masks"
+description = "Generate /root/motile_cells_dyn_masks.npz from a drifting microscope time-lapse by marking independently motile or visibly deforming cells in CSR sparse mask format."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "video-analysis"
+tags = ["video", "microscopy", "dynamic-objects", "sparse-masks", "stage-drift"]
+primary_output_file = "/root/motile_cells_dyn_masks.npz"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

@@ -1,0 +1,26 @@
+{
+  "scenario_name": "GPU hall load migration between north and south campuses",
+  "baseline_layout_name": "Legacy hall placement",
+  "rebalanced_layout_name": "Campus feeder rebalance plan",
+  "loading_alert_pct": 100.0,
+  "top_angle_change_count": 4,
+  "top_relief_count": 3,
+  "baseline_bus_injections_MW": [
+    {"bus": 5000, "net_injection_MW": 440.0},
+    {"bus": 5100, "net_injection_MW": 0.0},
+    {"bus": 5200, "net_injection_MW": 0.0},
+    {"bus": 6110, "net_injection_MW": -150.0},
+    {"bus": 6120, "net_injection_MW": -130.0},
+    {"bus": 6210, "net_injection_MW": -90.0},
+    {"bus": 6220, "net_injection_MW": -70.0}
+  ],
+  "rebalanced_bus_injections_MW": [
+    {"bus": 5000, "net_injection_MW": 440.0},
+    {"bus": 5100, "net_injection_MW": 0.0},
+    {"bus": 5200, "net_injection_MW": 0.0},
+    {"bus": 6110, "net_injection_MW": -110.0},
+    {"bus": 6120, "net_injection_MW": -100.0},
+    {"bus": 6210, "net_injection_MW": -120.0},
+    {"bus": 6220, "net_injection_MW": -110.0}
+  ]
+}

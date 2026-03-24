@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ward-vitals-csv-processing-transfer-alert-rollup",
+  "taskRole": "transfer",
+  "title": "Ward Vital Alert Rollup Transfer",
+  "goal": "Ingest bedside monitor CSV exports for multiple patients, handle blank sensor readings, and produce a per-alert CSV that collapses consecutive abnormal heart-rate or SpO2 samples into alert windows with patient_id, alert_type, start/end times, lowest or highest observed value, and recovery time.",
+  "primaryOutputFile": "patient_alert_windows.csv",
+  "difficulty": "medium",
+  "category": "healthcare-monitoring",
+  "skillBenefitRationale": "Success depends on time-series CSV processing with pandas-style operations: missing-value handling, threshold filtering, grouping adjacent abnormal rows by patient, deriving recovery metrics, and emitting a clean summary CSV.",
+  "targetSkillDirName": "csv-processing",
+  "targetSkillName": "csv-processing"
+}

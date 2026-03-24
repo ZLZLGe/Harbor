@@ -1,0 +1,8 @@
+Ticker,Issuer,Sector,WeightPct,MarketValueUSDMM,QTDReturnPct
+NVDA,NVIDIA Corp,Semiconductors,9.4,14.2,18.2
+MSFT,Microsoft Corp,Software,8.1,12.2,6.9
+AMZN,Amazon.com Inc.,Consumer Internet,7.6,11.4,4.2
+LLY,Eli Lilly,Health Care,6.3,9.5,11.8
+JPM,JPMorgan Chase,Banks,5.8,8.7,3.1
+XOM,Exxon Mobil,Energy,4.4,6.6,-2.5
+LIN,Linde plc,Industrials,3.9,5.9,2.6

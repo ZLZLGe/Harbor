@@ -1,0 +1,8 @@
+timestamp_utc,alert_name,severity,status,details
+2026-02-14T09:14:55Z,CheckoutLatencyHigh,critical,firing,p95 latency on /v1/checkout/session reached 4.8s
+2026-02-14T09:16:42Z,Checkout5xxRate,critical,firing,5xx rate for checkout-api exceeded 18.7%
+2026-02-14T09:18:07Z,DBPoolSaturation,critical,firing,checkout-api postgres pool at 100% utilization with waiters > 30
+2026-02-14T09:20:11Z,PaymentsProviderLatency,warning,firing,external payments provider p95 increased to 2.1s after backlog began
+2026-02-14T09:34:48Z,DBPoolSaturation,critical,resolved,pool utilization dropped below 65% and waiters returned to zero
+2026-02-14T09:38:59Z,Checkout5xxRate,critical,resolved,5xx rate fell below 0.3%
+2026-02-14T09:39:12Z,CheckoutLatencyHigh,critical,resolved,p95 latency on /v1/checkout/session returned to 420ms

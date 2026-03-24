@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-valve-excitation-signal-design-transfer-level-fit",
+  "taskRole": "transfer",
+  "title": "Transfer - 蓄水罐液位阀门阶跃辨识",
+  "goal": "为蓄水罐进水阀设计开度阶跃试验，在不触发溢流约束的前提下采集液位响应，并输出 `tank_level_response_fit.json`，其中包含阀门激励计划、液位数据和识别得到的液位动态模型。",
+  "primaryOutputFile": "tank_level_response_fit.json",
+  "difficulty": "medium",
+  "category": "process-control",
+  "skillBenefitRationale": "这里的关键不是控制策略，而是如何用一次有效的阀门阶跃把慢速液位动态充分激发出来；激励不足或过强都会直接导致模型不可用。",
+  "targetSkillDirName": "excitation-signal-design",
+  "targetSkillName": "excitation-signal-design"
+}

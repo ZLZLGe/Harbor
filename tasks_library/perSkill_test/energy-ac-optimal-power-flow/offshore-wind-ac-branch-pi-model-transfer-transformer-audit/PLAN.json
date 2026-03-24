@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "offshore-wind-ac-branch-pi-model-transfer-transformer-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Offshore Wind Transformer Audit",
+  "goal": "在海上风电送出网络的运行快照中，计算含非标分接比和相移的变压器支路双向有功、无功与视在功率，并与给定计量期望对比，输出一份用于定位符号、分接头或相移建模错误的诊断报告。",
+  "primaryOutputFile": "transformer_diagnostics.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "是否能精确落地 tap ratio 与 phase shift 下的 AC 支路 pi-model，直接决定诊断结果是否正确；这正是当前唯一关键 shipped skill。",
+  "targetSkillDirName": "ac-branch-pi-model",
+  "targetSkillName": "ac-branch-pi-model"
+}

@@ -1,0 +1,30 @@
+[task]
+version = "1.0"
+id = "photo-dedupe-python-parallelization-transfer-phash-clusters"
+name = "Transfer: Parallel Photo Deduplication via Perceptual Hashing"
+description = "Parallelize a sequential perceptual-hash photo dedupe pipeline and write the compatible solution to /root/workspace/parallel_photo_dedupe.py."
+
+[metadata]
+id = "photo-dedupe-python-parallelization-transfer-phash-clusters"
+name = "Transfer: Parallel Photo Deduplication via Perceptual Hashing"
+description = "Parallelize a sequential perceptual-hash photo dedupe pipeline and write the compatible solution to /root/workspace/parallel_photo_dedupe.py."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "Parallelization"
+tags = ["parallelization", "python", "images", "perceptual-hash", "dedupe"]
+primary_output_file = "/root/workspace/parallel_photo_dedupe.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

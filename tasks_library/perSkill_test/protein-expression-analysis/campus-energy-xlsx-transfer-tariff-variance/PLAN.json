@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "campus-energy-xlsx-transfer-tariff-variance",
+  "taskRole": "transfer",
+  "title": "Transfer: Campus Energy Tariff Variance Review",
+  "goal": "在校园能耗工作簿中，回填指定楼宇的分时电表读数与费率，计算峰谷用电成本、预算偏差和可节省金额，并按楼宇生成节费优先级表。",
+  "primaryOutputFile": "campus_energy_tariff_variance.xlsx",
+  "difficulty": "middle",
+  "category": "data-analysis",
+  "skillBenefitRationale": "把同一 xlsx 技能迁移到能源账单分析，重点仍是公式驱动的工作簿编辑、交叉引用和可复算的成本分析，保持 xlsx 为唯一关键 skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

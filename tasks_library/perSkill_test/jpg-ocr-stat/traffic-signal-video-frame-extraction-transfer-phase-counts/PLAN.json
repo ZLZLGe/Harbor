@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "traffic-signal-video-frame-extraction-transfer-phase-counts",
+  "taskRole": "transfer",
+  "title": "Transfer: Traffic Signal Phase Counts",
+  "goal": "给定多个路口监控视频，按固定时间间隔抽帧，识别每个方向信号灯在红黄绿三种状态下的出现次数，并输出 `/app/workspace/traffic_phase_counts.json`。",
+  "primaryOutputFile": "/app/workspace/traffic_phase_counts.json",
+  "difficulty": "medium",
+  "category": "operations analytics",
+  "skillBenefitRationale": "统计信号状态前，必须先从长监控视频中按规则取出可分析帧；颜色判定和计数逻辑都是常规图像处理，因此唯一关键 shipped skill 是 video-frame-extraction。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

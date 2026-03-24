@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "auto-compiler-maven-plugin-configuration-similar-annotation-processors",
+  "taskRole": "similar",
+  "title": "Similar: 修复注解处理器的 Maven Compiler Plugin 配置",
+  "goal": "修复单模块 Java 库中 `maven-compiler-plugin` 的注解处理器与编译参数配置，让生成源码重新参与正常构建。",
+  "primaryOutputFile": "pom.xml",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "任务核心是定位并修改编译插件的 `<configuration>`、`<annotationProcessorPaths>` 或相关 execution 配置，不依赖其他 shipped skill。",
+  "targetSkillDirName": "maven-plugin-configuration",
+  "targetSkillName": "maven-plugin-configuration"
+}

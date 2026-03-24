@@ -1,0 +1,54 @@
+{
+  "sourceTaskId": "sales-pivot-analysis",
+  "targetSkillDirName": "xlsx",
+  "runId": "20260322160822-sales-pivot-analysis-xlsx-wwugwd",
+  "taskId": "warehouse-aging-xlsx-transfer-restock-priorities",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/sales-pivot-analysis/warehouse-aging-xlsx-transfer-restock-priorities",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322160822-sales-pivot-analysis-xlsx-wwugwd/sales-pivot-analysis/drafts/warehouse-aging-xlsx-transfer-restock-priorities",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/sales-pivot-analysis/warehouse-aging-xlsx-transfer-restock-priorities",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/sales-pivot-analysis/warehouse-aging-xlsx-transfer-restock-priorities",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 直接出现 `xlsx`（输入/输出文件名扩展名），构成 shipped skill 暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现了 `.xlsx`，暴露 shipped skill 名称/目录名 `xlsx`。; instruction.md 说 `InventoryDetail` “至少包含以下列”，但测试要求列集合与顺序完全精确。; visibilityPass=false; testabilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "warehouse-aging-xlsx-transfer-restock-priorities"
+      ],
+      "requestedIssuesByTaskId": {
+        "warehouse-aging-xlsx-transfer-restock-priorities": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了 `.xlsx`，暴露 shipped skill 名称/目录名 `xlsx`。; instruction.md 说 `InventoryDetail` “至少包含以下列”，但测试要求列集合与顺序完全精确。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a8b-09d0-7422-ac28-4cb7cb9cf29e",
+      "repairSummary": "仅修改 instruction.md：去掉了对 `.xlsx`/`xlsx` 的直接暴露，并把 `InventoryDetail` 的要求改为列集合与顺序都必须完全一致、不得增减列；已确认 instruction.md 内不再出现 `xlsx`，但我不确定任务测试是否在当前环境可直接复跑，因为本地缺少 pip、pytest 和 pandas。",
+      "reviewThreadId": "019d1a8d-4fbe-7673-96e7-8286fa88ec45",
+      "evaluationByTaskId": {
+        "warehouse-aging-xlsx-transfer-restock-priorities": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

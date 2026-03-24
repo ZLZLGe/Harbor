@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "audiobook-speaker-clustering-transfer-voice-cast"
+name = "Transfer | 有声书声线 Cast 总表"
+description = "根据多章节有声书对白片段的嵌入做跨章节声线聚类，并输出 /root/voice_cast_ledger.csv 中的 cast 汇总与对白分配台账。"
+author_name = "Levi Chen"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "audio-visual"
+tags = ["speaker-clustering", "audiobook", "voice-cast", "csv"]
+primary_output_file = "/root/voice_cast_ledger.csv"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 4096
+allow_internet = false

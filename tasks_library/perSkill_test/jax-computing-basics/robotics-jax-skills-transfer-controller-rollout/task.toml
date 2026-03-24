@@ -1,0 +1,32 @@
+version = "0.0"
+
+[metadata]
+id = "robotics-jax-skills-transfer-controller-rollout"
+name = "Transfer: Robotics Controller Rollout"
+description = "Simulate the batched robot controller rollout from the provided dynamics inputs and save both the full state tensor and the control cost summary, including `robot_rollout.npy`."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "research"
+tags = ["jax", "robotics", "rollout"]
+primary_output_file = "robot_rollout.npy"
+source_task_id = "jax-computing-basics"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

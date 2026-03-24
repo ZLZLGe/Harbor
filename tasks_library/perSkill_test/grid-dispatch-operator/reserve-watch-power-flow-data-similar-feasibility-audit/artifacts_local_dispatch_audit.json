@@ -1,0 +1,66 @@
+{
+  "checks": {
+    "generation_matches_load": true,
+    "reserve_requirement_met": false,
+    "all_reserves_within_generator_limits": true,
+    "all_generators_within_capacity_coupling": false
+  },
+  "totals": {
+    "load_MW": 144839.06,
+    "scheduled_generation_MW": 144839.06,
+    "generation_minus_load_MW": 0.0,
+    "scheduled_reserve_MW": 4483.85,
+    "reserve_requirement_MW": 5923.5,
+    "reserve_shortfall_MW": 1439.65
+  },
+  "reserve_capacity_violations": [],
+  "capacity_coupling_violations": [
+    {
+      "id": 90,
+      "bus": 58,
+      "scheduled_output_MW": 1673.0,
+      "scheduled_reserve_MW": 90.0,
+      "pmax_MW": 1698.0,
+      "excess_MW": 65.0
+    },
+    {
+      "id": 430,
+      "bus": 1728,
+      "scheduled_output_MW": 1608.0,
+      "scheduled_reserve_MW": 80.0,
+      "pmax_MW": 1638.0,
+      "excess_MW": 50.0
+    },
+    {
+      "id": 212,
+      "bus": 292,
+      "scheduled_output_MW": 1670.0,
+      "scheduled_reserve_MW": 70.0,
+      "pmax_MW": 1710.0,
+      "excess_MW": 30.0
+    }
+  ],
+  "branch_loading_top3": [
+    {
+      "from": 1101,
+      "to": 400,
+      "flow_MW": -870.76,
+      "rating_MW": 390.0,
+      "loading_pct": 223.27
+    },
+    {
+      "from": 1414,
+      "to": 1714,
+      "flow_MW": -778.94,
+      "rating_MW": 637.0,
+      "loading_pct": 122.28
+    },
+    {
+      "from": 1438,
+      "to": 2308,
+      "flow_MW": -519.56,
+      "rating_MW": 438.0,
+      "loading_pct": 118.62
+    }
+  ]
+}

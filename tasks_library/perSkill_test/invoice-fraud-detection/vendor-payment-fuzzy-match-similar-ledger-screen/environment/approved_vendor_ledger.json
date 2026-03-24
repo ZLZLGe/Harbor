@@ -1,0 +1,44 @@
+[
+  {
+    "vendor_id": "V-100",
+    "vendor_name": "Northwind Industrial LLC",
+    "authorized_bank_account": "US00-NW-445566",
+    "active": true
+  },
+  {
+    "vendor_id": "V-101",
+    "vendor_name": "Blue Harbor Supply Company",
+    "authorized_bank_account": "US00-BH-901122",
+    "active": true
+  },
+  {
+    "vendor_id": "V-102",
+    "vendor_name": "Apex Office Systems Ltd",
+    "authorized_bank_account": "US00-AO-778899",
+    "active": true
+  },
+  {
+    "vendor_id": "V-103",
+    "vendor_name": "Greenline Facility Services",
+    "authorized_bank_account": "US00-GF-112233",
+    "active": true
+  },
+  {
+    "vendor_id": "V-104",
+    "vendor_name": "Everstream Logistics Inc",
+    "authorized_bank_account": "US00-EL-554433",
+    "active": true
+  },
+  {
+    "vendor_id": "V-105",
+    "vendor_name": "Maple Bioanalytics Lab",
+    "authorized_bank_account": "US00-MB-665544",
+    "active": true
+  },
+  {
+    "vendor_id": "V-106",
+    "vendor_name": "Summit Restaurant Group",
+    "authorized_bank_account": "US00-SR-221100",
+    "active": true
+  }
+]

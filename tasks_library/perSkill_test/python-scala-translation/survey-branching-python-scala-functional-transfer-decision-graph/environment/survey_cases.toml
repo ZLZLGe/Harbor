@@ -1,0 +1,35 @@
+[thresholds]
+intensive_hours = 30
+
+[rules]
+engineering_departments = ["engineering", "data"]
+
+[scenarios.student_intensive]
+role = "student"
+study_mode = "full_time"
+weekly_hours = 32
+
+[scenarios.student_pending]
+role = "student"
+study_mode = "full_time"
+
+[scenarios.professional_workshop]
+role = "professional"
+department = "data"
+prefers_workshop = true
+
+[scenarios.professional_handbook]
+role = "professional"
+needs_certification = true
+prefers_workshop = false
+
+[scenarios.professional_default]
+role = "professional"
+department = "support"
+needs_certification = false
+
+[scenarios.general_default]
+role = "guest"
+
+[scenarios.root_missing]
+study_mode = "part_time"

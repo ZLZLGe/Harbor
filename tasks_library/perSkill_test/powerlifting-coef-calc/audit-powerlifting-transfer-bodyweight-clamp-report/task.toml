@@ -1,0 +1,38 @@
+version = "1.0"
+
+[metadata]
+id = "audit-powerlifting-transfer-bodyweight-clamp-report"
+name = "Transfer: 极端体重 Dots 边界审计报告"
+description = "根据极端体重选手的称重与三项成绩生成 JSON 审计报告，列出原始体重、实际采用体重、总成绩和最终 Dots 分数，并写入 /root/data/bodyweight_clamp_audit.json。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "easy"
+category = "data-analysis"
+tags = [
+  "json",
+  "sports",
+  "audit",
+  "dots",
+  "powerlifting"
+]
+primary_output_file = "/root/data/bodyweight_clamp_audit.json"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

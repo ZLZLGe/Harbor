@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "civ6-scouting-sqlite-map-parser-similar-surface-export"
+name = "Similar: Civ6 District Surface Exporter"
+description = "Parse a Civilization VI SQLite map plus a scouting request and export full plot surface data with explicit three-ring blocker flags to /output/civ6_district_surface.json."
+author_name = "Songlin Li"
+author_email = "vincent.li.9701@gmail.com"
+difficulty = "hard"
+category = "games"
+tags = ["civ6", "sqlite", "json-export", "spatial-data", "district-planning"]
+primary_output_file = "/output/civ6_district_surface.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "housing-pdf-similar-mediation-intake",
+  "taskRole": "similar",
+  "title": "Similar: Housing Mediation Intake PDF",
+  "goal": "根据租客与房东押金纠纷摘要填写一份住房调解申请 PDF，只填写案情支持的字段，并保留工作人员填写区域与未提及选项为空。",
+  "primaryOutputFile": "/root/housing-mediation-filled.pdf",
+  "difficulty": "easy",
+  "category": "document-processing",
+  "skillBenefitRationale": "这个任务延续源任务的典型模式：把结构化案情信息映射到官方表单的文本框、日期与勾选项中，核心能力完全是 PDF 表单字段识别与填写。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

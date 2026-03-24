@@ -1,0 +1,10 @@
+{
+  "65310": {
+    "prefer_via": 65311,
+    "description": "The ExpressRoute edge prefers the branch-hou prefix through the VPN peer during failover."
+  },
+  "65311": {
+    "prefer_via": 65310,
+    "description": "The VPN edge also prefers the same branch-hou prefix back through the ExpressRoute peer."
+  }
+}

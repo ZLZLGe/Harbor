@@ -1,0 +1,16 @@
+compound_name,smiles,batch_id
+Acetic acid,CC(=O)O,A1
+Ethanoic acid,CC(=O)O,A2
+Propionic acid,CCC(=O)O,A1
+Propanoic acid,CCC(=O)O,B2
+Butyric acid,CCCC(=O)O,A3
+Isobutyric acid,CC(C)C(=O)O,A4
+Lactic acid (R),C[C@H](O)C(=O)O,B1
+Lactic acid (S),C[C@@H](O)C(=O)O,B2
+Pyruvic acid,CC(=O)C(=O)O,C1
+Succinic acid,OC(=O)CCC(=O)O,C2
+Malonic acid,OC(=O)CC(=O)O,C3
+Glycine,NCC(=O)O,D1
+Alanine,CC(N)C(=O)O,D2
+Benzoic acid,O=C(O)c1ccccc1,E1
+Valeric acid,CCCCC(=O)O,E2

@@ -1,0 +1,24 @@
+{
+  "sourceTaskId": "lake-warming-attribution",
+  "targetSkillDirName": "pca-decomposition",
+  "runId": "20260320110115-lake-warming-attribution-pca-decomposition-tp74up",
+  "taskId": "credit-delinquency-pca-decomposition-transfer-pressure-share",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/lake-warming-attribution/credit-delinquency-pca-decomposition-transfer-pressure-share",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320110115-lake-warming-attribution-pca-decomposition-tp74up/lake-warming-attribution/drafts/credit-delinquency-pca-decomposition-transfer-pressure-share",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/lake-warming-attribution/credit-delinquency-pca-decomposition-transfer-pressure-share",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/lake-warming-attribution/credit-delinquency-pca-decomposition-transfer-pressure-share",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "instruction 只限定了统一降维与正交旋转，没有把 varimax、标准化和具体 PCA 得分实现唯一化；测试却精确绑定到标准化后 SVD+varimax。; leave-out MSE 贡献公式本身是清楚的，但前置分解步骤没有被唯一规定，导致最终答案仍然不可稳定判定。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

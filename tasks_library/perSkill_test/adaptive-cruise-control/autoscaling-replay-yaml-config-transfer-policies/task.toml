@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "autoscaling-replay-yaml-config-transfer-policies"
+name = "Transfer: Cloud Autoscaling Replay With YAML Rules"
+description = "Build an autoscaling replay that reads nested YAML policy settings, processes workload CSV metrics, and writes autoscaling_policy.yaml plus replay artifacts."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "cloud-infrastructure"
+tags = ["python", "yaml", "autoscaling", "simulation", "cloud-operations", "csv"]
+primary_output_file = "autoscaling_policy.yaml"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

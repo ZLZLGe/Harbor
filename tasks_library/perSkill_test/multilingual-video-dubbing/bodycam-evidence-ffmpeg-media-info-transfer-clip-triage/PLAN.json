@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bodycam-evidence-ffmpeg-media-info-transfer-clip-triage",
+  "taskRole": "transfer",
+  "title": "Transfer: 执法记录仪证据片段审计",
+  "goal": "审核一组执法记录仪或监控导出片段，识别缺失音轨、异常分辨率、损坏时长或不合规编码的文件，并生成一份证据片段技术审计结果，指出最适合提交取证系统的文件。",
+  "primaryOutputFile": "/root/evidence_clip_audit.json",
+  "difficulty": "medium",
+  "category": "forensic-video-audit",
+  "skillBenefitRationale": "任务把 FFmpeg Media Info 迁移到取证媒体审计场景，重点是流级别信息、时长和编码一致性的核查，唯一关键 shipped skill 仍然是媒体信息分析。",
+  "targetSkillDirName": "ffmpeg-media-info",
+  "targetSkillName": "FFmpeg Media Info"
+}

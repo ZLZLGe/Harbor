@@ -1,0 +1,14 @@
+{
+  "setpoint_c": 37.0,
+  "initial_temp_c": 31.2,
+  "ambient_temp_c": 23.5,
+  "process_gain_c_per_percent": 0.26,
+  "time_constant_s": 70.0,
+  "duration_s": 420.0,
+  "dt_s": 1.0,
+  "heater_min_pct": 0.0,
+  "heater_max_pct": 100.0,
+  "max_safe_temp_c": 39.5,
+  "settling_band_c": 0.2,
+  "steady_state_window_s": 60.0
+}

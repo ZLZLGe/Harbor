@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "highway-stop-go-vehicle-dynamics-similar-assist",
+  "taskRole": "similar",
+  "title": "Similar - 高速停走辅助仿真",
+  "goal": "构建一个高速停走辅助仿真：自车在畅通路段保持目标巡航速度，在遇到前车减速与短时切出后切入事件时，依据安全时距、最小间距与TTC在巡航、跟随、紧急制动三种模式间切换，并输出逐时刻状态轨迹。",
+  "primaryOutputFile": "stop_go_trace.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "核心工作就是离散纵向运动更新、安全跟车距离计算、TTC判断与模式状态机设计，完全由 vehicle-dynamics 技能覆盖。",
+  "targetSkillDirName": "vehicle-dynamics",
+  "targetSkillName": "vehicle-dynamics"
+}

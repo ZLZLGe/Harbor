@@ -1,0 +1,28 @@
+{
+  "sourceTaskId": "fix-erlang-ssh-cve",
+  "targetSkillDirName": "ssh-penetration-testing",
+  "runId": "20260319202133-fix-erlang-ssh-cve-ssh-penetration-testing-gprj0w",
+  "taskId": "sprayguard-ssh-penetration-testing-transfer-password-spray-throttle",
+  "originErrorCombo": "reviewer__static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer__static/fix-erlang-ssh-cve/ssh-penetration-testing/20260319202133-fix-erlang-ssh-cve-ssh-penetration-testing-gprj0w/sprayguard-ssh-penetration-testing-transfer-password-spray-throttle",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260319202133-fix-erlang-ssh-cve-ssh-penetration-testing-gprj0w/fix-erlang-ssh-cve/drafts/sprayguard-ssh-penetration-testing-transfer-password-spray-throttle",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/fix-erlang-ssh-cve/sprayguard-ssh-penetration-testing-transfer-password-spray-throttle",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/fix-erlang-ssh-cve/sprayguard-ssh-penetration-testing-transfer-password-spray-throttle",
+  "status": "pass",
+  "issueCategories": [
+    "visibility",
+    "static"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 明示了“口令喷洒”和“按连接记录失败”的绕过路径；source_task 未出现该具体 skill 名称或同等级别提示，属于可见性越界。; 测试可判定：覆盖跨连接累计失败、封禁仅作用于攻击源、冷却后恢复登录。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

@@ -1,0 +1,25 @@
+{
+  "sourceTaskId": "jax-computing-basics",
+  "targetSkillDirName": "jax-skills",
+  "runId": "20260320101606-jax-computing-basics-jax-skills-0cfckk",
+  "taskId": "robotics-jax-skills-transfer-controller-rollout",
+  "originErrorCombo": "static",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/static/jax-computing-basics/jax-skills/20260320101606-jax-computing-basics-jax-skills-0cfckk/robotics-jax-skills-transfer-controller-rollout",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320101606-jax-computing-basics-jax-skills-0cfckk/jax-computing-basics/drafts/robotics-jax-skills-transfer-controller-rollout",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/candidate/jax-computing-basics/robotics-jax-skills-transfer-controller-rollout",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_static_combo_fixed/pass/jax-computing-basics/robotics-jax-skills-transfer-controller-rollout",
+  "status": "pass",
+  "issueCategories": [
+    "static"
+  ],
+  "originalReviewerIssues": [],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

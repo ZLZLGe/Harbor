@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "greenhouse-frames-openai-vision-transfer-growth-timeline",
+  "taskRole": "transfer",
+  "title": "Transfer: 温室生长时序统计",
+  "goal": "按时间顺序读取同一温室苗床的每日照片，估计每一天的开花株数、成熟果实数和明显病害叶片数，生成 /app/workspace/growth_timeline.tsv，包含逐日统计以及峰值日期。",
+  "primaryOutputFile": "/app/workspace/growth_timeline.tsv",
+  "difficulty": "hard",
+  "category": "data statistics",
+  "skillBenefitRationale": "关键难点是从连续图像中稳定识别植物状态并进行时序变化判断，核心依赖视觉模型的多帧分析与细粒度视觉计数；TSV 输出和峰值统计只是普通脚本逻辑。",
+  "targetSkillDirName": "openai-vision",
+  "targetSkillName": "openai-vision"
+}

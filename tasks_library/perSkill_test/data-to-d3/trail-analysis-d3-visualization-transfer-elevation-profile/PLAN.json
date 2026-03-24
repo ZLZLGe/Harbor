@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "trail-analysis-d3-visualization-transfer-elevation-profile",
+  "taskRole": "transfer",
+  "title": "Transfer: 徒步路线高程剖面浏览器",
+  "goal": "基于徒步路线采样点数据制作单页可视化：输出高程剖面折线/面积图，按坡度区间为路径分段着色，悬停显示距离、高程和坡度，点击途经点名称时同步高亮对应剖面位置与说明面板。",
+  "primaryOutputFile": "/root/output/elevation-profile.html",
+  "difficulty": "medium",
+  "category": "Data Visualization",
+  "skillBenefitRationale": "该任务将 skill 迁移到连续序列与路径表达，检验 D3 在坐标轴、线面生成器、分段着色、十字线/tooltip 与列表联动方面的能力。",
+  "targetSkillDirName": "d3-visualization",
+  "targetSkillName": "d3js-visualization"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "battery-cycling-policies-pareto-optimization-transfer-trials",
+  "taskRole": "transfer",
+  "title": "Transfer: Battery Cycling Policy Frontier",
+  "goal": "Combine repeated lab trial summaries for battery charging policies, enforce a minimum recovered-capacity threshold, and write the Pareto frontier over recovered capacity and degradation rate to `/root/battery_policy_frontier.csv`.",
+  "primaryOutputFile": "/root/battery_policy_frontier.csv",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "唯一关键能力是把多次实验结果转换成双目标候选点并筛出非支配政策；其余工作只是按给定公式聚合实验统计量。",
+  "targetSkillDirName": "pareto-optimization",
+  "targetSkillName": "pareto-optimization"
+}

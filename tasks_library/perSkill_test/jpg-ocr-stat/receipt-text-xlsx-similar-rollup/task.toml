@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "receipt-text-xlsx-similar-rollup"
+name = "Similar | OCR文本小票汇总工作簿"
+description = "读取 OCR 文本小票并生成仅含结果表的汇总工作簿。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "data statistics"
+tags = ["receipt", "ocr text", "spreadsheet", "data extraction"]
+primary_output_file = "/app/workspace/receipt_rollup.xlsx"
+source_task_id = "jpg-ocr-stat"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

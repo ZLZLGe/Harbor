@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "lecture-gemini-video-understanding-transfer-structured-chapters",
+  "taskRole": "transfer",
+  "title": "Transfer: 课堂录像章节提纲生成",
+  "goal": "读取课堂录像，生成一个 JSON 提纲，包含整段摘要、按 MM:SS 划分的章节列表，以及每一章的授课模式标签（讲台讲解、白板书写、实物演示或问答）。",
+  "primaryOutputFile": "/app/lecture/chapter_outline.json",
+  "difficulty": "hard",
+  "category": "lecture video structuring",
+  "skillBenefitRationale": "这里把同一视频理解能力迁移到教学场景，重点不再是计数，而是结合语音内容与视觉变化完成章节切分和模式识别，gemini-video-understanding 是唯一关键能力。",
+  "targetSkillDirName": "gemini-video-understanding",
+  "targetSkillName": "gemini-video-understanding"
+}

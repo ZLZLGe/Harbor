@@ -1,0 +1,96 @@
+{
+  "loads": [
+    {
+      "load_id": "load-401",
+      "carrier_name": "Northline Freight",
+      "warehouse_code": "ATL-DC3",
+      "commodity": "beverage concentrate",
+      "message_bundle": [
+        {
+          "speaker": "Iris Cole",
+          "role": "Carrier Dispatch",
+          "sent_at": "2026-06-02T09:15:00-04:00",
+          "text": "We can bring trailer 48219 in on Tuesday June 9 around 2:00 PM to 4:00 PM. We need about a 90-minute door appointment."
+        },
+        {
+          "speaker": "Marcus Bell",
+          "role": "Warehouse Receiving",
+          "sent_at": "2026-06-02T10:02:00-04:00",
+          "text": "Do not use the Tuesday suggestion. Receiving can only take this load on Wednesday June 10 between 8:00 AM and 11:00 AM. Keep 9:30 AM to 10:00 AM blocked for the yard safety huddle. If Wednesday fills up, Thursday June 11 from 7:30 AM to 9:30 AM is acceptable. For same-day unloading, the truck has to be checked in by 1:00 PM; anything later rolls to the next business day."
+        },
+        {
+          "speaker": "Iris Cole",
+          "role": "Carrier Dispatch",
+          "sent_at": "2026-06-02T10:40:00-04:00",
+          "text": "Understood. We will work from the June 10 morning window and use June 11 only if June 10 is full."
+        }
+      ]
+    },
+    {
+      "load_id": "load-402",
+      "carrier_name": "BlueMesa Logistics",
+      "warehouse_code": "LAX-PROD7",
+      "commodity": "frozen vegetables",
+      "message_bundle": [
+        {
+          "speaker": "Nadia Ruiz",
+          "role": "Carrier Planner",
+          "sent_at": "2026-06-08T08:20:00-07:00",
+          "text": "We are lining up a freezer load for Monday June 15 and can make the gate any time after noon. The unload itself should take 60 minutes."
+        },
+        {
+          "speaker": "Devon Price",
+          "role": "Inbound Supervisor",
+          "sent_at": "2026-06-08T08:44:00-07:00",
+          "text": "Please book this one on June 15 only, between 1:00 PM and 5:00 PM. Block 2:30 PM to 3:00 PM for the dock wash cycle and 4:15 PM to 4:45 PM for export inspection. Because the product cannot sit overnight, the appointment must stay on June 15. Same-day unloading requires arrival by 4:00 PM; later arrivals will be sealed and unloaded the next morning."
+        }
+      ]
+    },
+    {
+      "load_id": "load-403",
+      "carrier_name": "Harbor Cartage",
+      "warehouse_code": "MEM-MTL1",
+      "commodity": "steel coils",
+      "message_bundle": [
+        {
+          "speaker": "Pete Lawson",
+          "role": "Fleet Coordinator",
+          "sent_at": "2026-06-12T06:55:00-05:00",
+          "text": "We first looked at Tuesday June 23 from 5:00 AM to 8:00 AM and we need a full two-hour dock slot."
+        },
+        {
+          "speaker": "Asha Grant",
+          "role": "Yard Scheduler",
+          "sent_at": "2026-06-12T07:18:00-05:00",
+          "text": "June 23 is closed for cycle count, so do not send the truck that day. The workable options are Monday June 22 from 5:00 AM to 7:30 AM or Wednesday June 24 from 5:00 AM to 7:30 AM. On June 24, leave 6:15 AM to 6:45 AM open for the gantry crane test. For same-day unloading, check-in has to happen by 7:00 AM; anything after that can wait on site but will unload the following day."
+        }
+      ]
+    },
+    {
+      "load_id": "load-404",
+      "carrier_name": "Redwood Transfer",
+      "warehouse_code": "PHX-COLD2",
+      "commodity": "vaccine coolers",
+      "message_bundle": [
+        {
+          "speaker": "Mila Foster",
+          "role": "Carrier Dispatch",
+          "sent_at": "2026-06-20T15:05:00-07:00",
+          "text": "We need a 45-minute cold-chain unload and are aiming for Wednesday July 1 if possible."
+        },
+        {
+          "speaker": "Jon Park",
+          "role": "Cold Storage Lead",
+          "sent_at": "2026-06-20T15:33:00-07:00",
+          "text": "Preferred receiving window is July 1 from 6:00 PM to 9:00 PM. If the reefer maintenance overrun pushes us, July 2 from 6:30 PM to 8:30 PM is acceptable. Keep July 1 from 7:00 PM to 7:20 PM blocked for the alarm drill, and keep July 2 from 6:30 PM to 7:00 PM blocked for temperature calibration. Same-day unloading only applies if the truck reaches the gate by 7:30 PM; later arrivals stay in the cold queue until the next morning."
+        },
+        {
+          "speaker": "Mila Foster",
+          "role": "Carrier Dispatch",
+          "sent_at": "2026-06-20T15:48:00-07:00",
+          "text": "Thanks. We will target July 1 first and fall back to July 2 only if needed."
+        }
+      ]
+    }
+  ]
+}

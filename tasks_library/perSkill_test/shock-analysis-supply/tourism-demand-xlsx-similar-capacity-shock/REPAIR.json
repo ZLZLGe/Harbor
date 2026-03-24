@@ -1,0 +1,112 @@
+{
+  "sourceTaskId": "shock-analysis-supply",
+  "targetSkillDirName": "xlsx",
+  "runId": "20260322175652-shock-analysis-supply-xlsx-f7rld7",
+  "taskId": "tourism-demand-xlsx-similar-capacity-shock",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/shock-analysis-supply/tourism-demand-xlsx-similar-capacity-shock",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260322175652-shock-analysis-supply-xlsx-f7rld7/shock-analysis-supply/drafts/tourism-demand-xlsx-similar-capacity-shock",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/shock-analysis-supply/tourism-demand-xlsx-similar-capacity-shock",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/shock-analysis-supply/tourism-demand-xlsx-similar-capacity-shock",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 在模板路径和输出文件名中直接出现了 `xlsx`（通过 `.xlsx` 扩展名），不满足技能隐藏要求。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现 xlsx：模板路径和输出文件名都含 .xlsx，构成 shipped skill 暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "solution/answer-tourism-capacity-shock.xlsx",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "tourism-demand-xlsx-similar-capacity-shock"
+      ],
+      "requestedIssuesByTaskId": {
+        "tourism-demand-xlsx-similar-capacity-shock": {
+          "reviewerIssues": [
+            "instruction.md 直接出现 xlsx：模板路径和输出文件名都含 .xlsx，构成 shipped skill 暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a98-9ebb-7f30-973f-be7ab4481d58",
+      "repairSummary": "将 instruction.md 里的输入模板路径和输出文件名改为“文件名前缀 + 扩展名沿用模板”的表述，移除了对当前 shipped skill 名称 `xlsx` 的直接暴露，其他任务文件未改动。",
+      "reviewThreadId": "019d1a99-f633-7901-a2a5-b50fe2ba3e3a",
+      "evaluationByTaskId": {
+        "tourism-demand-xlsx-similar-capacity-shock": {
+          "reviewerIssues": [
+            "测试未严格校验 `Tourism_Capital!D8:D18` 是否按年份正确链接 `Expansion_Plan`，错误的跨表链接公式也可能通过验证。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 2,
+      "requestedTaskIds": [
+        "tourism-demand-xlsx-similar-capacity-shock"
+      ],
+      "requestedIssuesByTaskId": {
+        "tourism-demand-xlsx-similar-capacity-shock": {
+          "reviewerIssues": [
+            "测试未严格校验 `Tourism_Capital!D8:D18` 是否按年份正确链接 `Expansion_Plan`，错误的跨表链接公式也可能通过验证。; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1a9b-b482-7d80-a98b-97a41a3c9512",
+      "repairSummary": "收紧了 `tests/test_outputs.py` 对 `Tourism_Capital!D8:D18` 的校验：2020-2025 现在必须为 `=0`，2026-2030 必须按年份正确链接 `Expansion_Plan`，并支持正确的直接引用/查找公式，避免错位跨表链接误通过。",
+      "reviewThreadId": "019d1a9e-63c8-7890-aa7b-6179dc1c2856",
+      "evaluationByTaskId": {
+        "tourism-demand-xlsx-similar-capacity-shock": {
+          "reviewerIssues": [
+            "`instruction.md` 没有直接出现 shipped skill 的名称或目录名 `xlsx`，不满足技能不暴露要求。; `solution/solve.sh` 直接复制 `/solution/answer-tourism-capacity-shock.xlsx`，答案文件随任务一起提供，存在明显答案泄露。; `tests/test_outputs.py` 额外要求 `Revenue_Model!B3:B5` 的汇总公式，但 `instruction.md` 没有提出这些输出要求，存在隐藏要求。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      }
+    },
+    {
+      "attempt": 3,
+      "requestedTaskIds": [
+        "tourism-demand-xlsx-similar-capacity-shock"
+      ],
+      "requestedIssuesByTaskId": {
+        "tourism-demand-xlsx-similar-capacity-shock": {
+          "reviewerIssues": [
+            "`instruction.md` 没有直接出现 shipped skill 的名称或目录名 `xlsx`，不满足技能不暴露要求。; `solution/solve.sh` 直接复制 `/solution/answer-tourism-capacity-shock.xlsx`，答案文件随任务一起提供，存在明显答案泄露。; `tests/test_outputs.py` 额外要求 `Revenue_Model!B3:B5` 的汇总公式，但 `instruction.md` 没有提出这些输出要求，存在隐藏要求。; visibilityPass=false; testabilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d1aa0-0adc-7b83-aa10-1ebb1a5af428",
+      "repairSummary": "将 `solve.sh` 从直接拷贝答案改为基于模板写入公式生成结果，移除了 `Revenue_Model!B3:B5` 的隐藏测试要求，并把随任务附带的答案文件覆盖回模板内容以消除明显泄露；`instruction.md` 仍未直接出现 `xlsx`。",
+      "reviewThreadId": "019d1aa4-b942-7992-80e4-bf576bdc1846",
+      "evaluationByTaskId": {
+        "tourism-demand-xlsx-similar-capacity-shock": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

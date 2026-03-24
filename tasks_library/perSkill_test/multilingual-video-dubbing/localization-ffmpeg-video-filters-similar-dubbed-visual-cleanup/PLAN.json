@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "localization-ffmpeg-video-filters-similar-dubbed-visual-cleanup",
+  "taskRole": "similar",
+  "title": "Similar: Dubbed Visual Cleanup",
+  "goal": "Prepare a localization-ready video master by hiding a burned-in source-language subtitle strip, reframing the picture to preserve a clean lower-third area, and compositing a provided channel watermark while keeping the original program audio intact.",
+  "primaryOutputFile": "/outputs/dubbed-visual-cleanup.mp4",
+  "difficulty": "medium",
+  "category": "video-localization",
+  "skillBenefitRationale": "The essential work is a timed FFmpeg filter graph that combines blur or crop-based cleanup, scaling, and overlay placement; no other shipped skill is needed to achieve the required result.",
+  "targetSkillDirName": "ffmpeg-video-filters",
+  "targetSkillName": "FFmpeg Video Filters"
+}

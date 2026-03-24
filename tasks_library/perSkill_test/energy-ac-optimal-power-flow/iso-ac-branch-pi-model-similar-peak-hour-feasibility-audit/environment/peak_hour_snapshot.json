@@ -1,0 +1,202 @@
+{
+  "case_id": "iso-peak-hour-2030-local",
+  "scenario": {
+    "operating_day": "2030-07-18",
+    "hour_ending": "18:00",
+    "notes": "Pre-solved peak-hour AC snapshot for a five-bus coastal corridor. One transformer has off-nominal tap and phase shift."
+  },
+  "baseMVA": 100.0,
+  "buses": [
+    {
+      "id": 101,
+      "name": "North 230",
+      "pd_MW": 65.49905797459378,
+      "qd_MVAr": 32.27531212930774,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.0,
+      "vmin_pu": 0.98,
+      "vmax_pu": 1.05
+    },
+    {
+      "id": 102,
+      "name": "Metro 230",
+      "pd_MW": 131.04537279653005,
+      "qd_MVAr": 43.933427613337095,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.0,
+      "vmin_pu": 0.97,
+      "vmax_pu": 1.05
+    },
+    {
+      "id": 103,
+      "name": "East Auto",
+      "pd_MW": 41.33607059446831,
+      "qd_MVAr": 13.873604791299552,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 10.0,
+      "vmin_pu": 0.98,
+      "vmax_pu": 1.06
+    },
+    {
+      "id": 104,
+      "name": "Harbor 115",
+      "pd_MW": 67.90687371930866,
+      "qd_MVAr": 39.16227183476168,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.0,
+      "vmin_pu": 0.97,
+      "vmax_pu": 1.04
+    },
+    {
+      "id": 105,
+      "name": "South 115",
+      "pd_MW": 45.904881299406,
+      "qd_MVAr": 41.09524095087666,
+      "gs_MW_at_1pu": 0.0,
+      "bs_MVAr_at_1pu": 0.0,
+      "vmin_pu": 0.98,
+      "vmax_pu": 1.05
+    }
+  ],
+  "generators": [
+    {
+      "id": "N1",
+      "bus": 101,
+      "pg_MW": 150.0,
+      "qg_MVAr": 25.0,
+      "pmin_MW": 50.0,
+      "pmax_MW": 220.0,
+      "qmin_MVAr": -80.0,
+      "qmax_MVAr": 120.0
+    },
+    {
+      "id": "E1",
+      "bus": 103,
+      "pg_MW": 170.0,
+      "qg_MVAr": 10.0,
+      "pmin_MW": 60.0,
+      "pmax_MW": 220.0,
+      "qmin_MVAr": -60.0,
+      "qmax_MVAr": 90.0
+    },
+    {
+      "id": "S1",
+      "bus": 105,
+      "pg_MW": 35.0,
+      "qg_MVAr": 5.0,
+      "pmin_MW": 10.0,
+      "pmax_MW": 120.0,
+      "qmin_MVAr": -40.0,
+      "qmax_MVAr": 70.0
+    }
+  ],
+  "branches": [
+    {
+      "id": "L1",
+      "from_bus": 101,
+      "to_bus": 102,
+      "r_pu": 0.01,
+      "x_pu": 0.085,
+      "b_pu": 0.176,
+      "rateA_MVA": 120.0,
+      "tap": 0.0,
+      "shift_deg": 0.0,
+      "angmin_deg": -30.0,
+      "angmax_deg": 30.0
+    },
+    {
+      "id": "T1",
+      "from_bus": 102,
+      "to_bus": 103,
+      "r_pu": 0.017,
+      "x_pu": 0.092,
+      "b_pu": 0.158,
+      "rateA_MVA": 95.0,
+      "tap": 1.04,
+      "shift_deg": 7.5,
+      "angmin_deg": -30.0,
+      "angmax_deg": 30.0
+    },
+    {
+      "id": "L2",
+      "from_bus": 103,
+      "to_bus": 104,
+      "r_pu": 0.032,
+      "x_pu": 0.161,
+      "b_pu": 0.306,
+      "rateA_MVA": 70.0,
+      "tap": 0.0,
+      "shift_deg": 0.0,
+      "angmin_deg": -30.0,
+      "angmax_deg": 30.0
+    },
+    {
+      "id": "L3",
+      "from_bus": 104,
+      "to_bus": 105,
+      "r_pu": 0.01,
+      "x_pu": 0.085,
+      "b_pu": 0.176,
+      "rateA_MVA": 85.0,
+      "tap": 0.0,
+      "shift_deg": 0.0,
+      "angmin_deg": -30.0,
+      "angmax_deg": 30.0
+    },
+    {
+      "id": "L4",
+      "from_bus": 105,
+      "to_bus": 101,
+      "r_pu": 0.039,
+      "x_pu": 0.17,
+      "b_pu": 0.358,
+      "rateA_MVA": 90.0,
+      "tap": 0.0,
+      "shift_deg": 0.0,
+      "angmin_deg": -30.0,
+      "angmax_deg": 30.0
+    },
+    {
+      "id": "L5",
+      "from_bus": 102,
+      "to_bus": 105,
+      "r_pu": 0.02,
+      "x_pu": 0.11,
+      "b_pu": 0.192,
+      "rateA_MVA": 65.0,
+      "tap": 0.0,
+      "shift_deg": 0.0,
+      "angmin_deg": -30.0,
+      "angmax_deg": 30.0
+    }
+  ],
+  "snapshot": {
+    "bus_voltages": [
+      {
+        "bus": 101,
+        "vm_pu": 1.03,
+        "va_deg": 0.0
+      },
+      {
+        "bus": 102,
+        "vm_pu": 1.015,
+        "va_deg": -2.1
+      },
+      {
+        "bus": 103,
+        "vm_pu": 1.01,
+        "va_deg": -4.0
+      },
+      {
+        "bus": 104,
+        "vm_pu": 0.992,
+        "va_deg": -5.7
+      },
+      {
+        "bus": 105,
+        "vm_pu": 1.005,
+        "va_deg": -3.4
+      }
+    ]
+  }
+}

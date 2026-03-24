@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "city-permit-planning-with-files-transfer-submission-checklist",
+  "taskRole": "transfer",
+  "title": "Transfer | Build a Permit Submission Checklist",
+  "goal": "阅读一个市政项目申请包中的表格、往来邮件、图纸、报价单和规则摘录，判断各项申报要求是已满足、缺失还是相互冲突，并输出可提交的检查清单与阻塞项。",
+  "primaryOutputFile": "deliverables/permit_submission_checklist.csv",
+  "difficulty": "medium",
+  "category": "compliance-ops",
+  "skillBenefitRationale": "任务核心不是领域计算，而是对大量异构文件做分阶段梳理、交叉核对和缺口跟踪；持久化计划文件可以稳定管理检查项、证据位置和待补材料。",
+  "targetSkillDirName": "planning-with-files",
+  "targetSkillName": "planning-with-files"
+}

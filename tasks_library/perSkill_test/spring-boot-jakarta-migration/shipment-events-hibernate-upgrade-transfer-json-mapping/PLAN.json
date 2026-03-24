@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "shipment-events-hibernate-upgrade-transfer-json-mapping",
+  "taskRole": "transfer",
+  "title": "Transfer: 物流事件仓储的 JSON 映射迁移",
+  "goal": "在物流事件仓储服务中，替换 Hibernate 5 时代的 @TypeDef/@Type JSONB 映射和旧式自定义类型声明，使事件元数据持久化与读取测试在 Hibernate 6 下恢复。",
+  "primaryOutputFile": "src/main/java/com/acme/logistics/model/ShipmentEvent.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "关键是掌握 Hibernate 6 的类型系统、@JdbcTypeCode 与 JSON 映射变化；这是当前 shipped skill 的直接迁移应用。",
+  "targetSkillDirName": "hibernate-upgrade",
+  "targetSkillName": "hibernate-upgrade"
+}

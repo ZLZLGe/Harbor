@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "repair-dev-bootstrap-uv-package-manager-transfer-local-cli",
+  "taskRole": "transfer",
+  "title": "Transfer: Repair a Developer Bootstrap Script with uv",
+  "goal": "修复一个本地开发引导脚本：它当前手动创建虚拟环境并用 pip 安装依赖，容易出现 Python 版本和入口命令不一致；需要改成用 uv 管理解释器、环境和 CLI 运行方式，让开发者能一条命令完成启动。",
+  "primaryOutputFile": "scripts/bootstrap_env.sh",
+  "difficulty": "easy",
+  "category": "Environment Setup",
+  "skillBenefitRationale": "这个任务把 uv 用在开发环境引导和命令编排上，侧重解释器与虚拟环境管理，和 CI YAML、Docker 分层安装形成清晰区分。",
+  "targetSkillDirName": "uv-package-manager",
+  "targetSkillName": "uv-package-manager"
+}

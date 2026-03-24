@@ -1,0 +1,9 @@
+pid:
+  kp: 4.2
+  ki: 0.12
+  kd: 0.1
+metrics:
+  initial_recovery_mae: 0.020692
+  surge_recovery_mae: 0.040921
+  final_window_mae: 0.006138
+  peak_level_m: 1.901265

@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "desk-lamp-obj-exporter-similar-segment-bundles"
+name = "Similar - Desk Lamp Segment Bundles"
+description = "Parse a segmented Three.js desk lamp scene and export per-segment mesh OBJ files plus merged segment OBJ files under /root/output."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["threejs", "obj", "scene-graph", "mesh-export", "javascript"]
+primary_output_file = "/root/output/links/lamp_head.obj"
+source_task_id = "threejs-structure-parser"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

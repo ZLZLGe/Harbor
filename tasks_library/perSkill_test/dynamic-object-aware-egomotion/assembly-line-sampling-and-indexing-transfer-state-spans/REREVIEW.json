@@ -1,0 +1,20 @@
+{
+  "sourceTaskId": "dynamic-object-aware-egomotion",
+  "targetSkillDirName": "sampling-and-indexing",
+  "runId": "20260319005458-dynamic-object-aware-egomotion-sampling-and-indexing-cpm6ut",
+  "taskId": "assembly-line-sampling-and-indexing-transfer-state-spans",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/dynamic-object-aware-egomotion/sampling-and-indexing/20260319005458-dynamic-object-aware-egomotion-sampling-and-indexing-cpm6ut/assembly-line-sampling-and-indexing-transfer-state-spans",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/dynamic-object-aware-egomotion/assembly-line-sampling-and-indexing-transfer-state-spans",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:assembly-line-sampling-and-indexing-transfer-state-spans instruction 新增左闭右开、全覆盖且不重叠、状态切换对齐采样边界等显式说明，比 source task 更直接提示 sampling/indexing。; draft 缺少 environment/、solution/、tests/，当前没有可执行 verifier，测试不可判定。; visibilityPass=false; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family 四个 draft 当前都只有 PLAN.json、instruction.md、task.toml，缺少 Harbor 必需的 environment/、solution/、tests/，整体都还不具备 reviewer 发布条件。",
+    "family 四个 instruction 相比 source_task/instruction.md 都更直接强调采样编号、边界覆盖或采样序列对齐，存在统一的技能暴露风险。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0fa2-eabf-7e81-b15e-6f4e3973af84"
+}

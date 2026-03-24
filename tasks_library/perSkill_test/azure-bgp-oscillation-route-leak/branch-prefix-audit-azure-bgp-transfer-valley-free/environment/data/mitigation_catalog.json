@@ -1,0 +1,74 @@
+[
+  {
+    "mitigation_id": "mit-01",
+    "change": "Increase BGP hold timers on all VPN hubs to 90 seconds",
+    "azure_supported": true,
+    "policy_level": false,
+    "preserves_connectivity": true,
+    "resolves_path_ids": []
+  },
+  {
+    "mitigation_id": "mit-02",
+    "change": "Add an export filter on vpn-hub-west (ASN 65303) so the retail-east prefix 172.16.10.0/24 learned from Azure transit is not advertised to peer vpn-hub-north (ASN 65304)",
+    "azure_supported": true,
+    "policy_level": true,
+    "preserves_connectivity": true,
+    "resolves_path_ids": ["path-101"]
+  },
+  {
+    "mitigation_id": "mit-03",
+    "change": "Add an export filter on vpn-hub-east (ASN 65302) so the finance-north prefix 172.16.30.0/24 learned from peer vpn-hub-west is not re-advertised to Azure transit ASN 65301",
+    "azure_supported": true,
+    "policy_level": true,
+    "preserves_connectivity": true,
+    "resolves_path_ids": ["path-301"]
+  },
+  {
+    "mitigation_id": "mit-04",
+    "change": "Restart the VPN BGP sessions on all three hubs during the next maintenance window",
+    "azure_supported": true,
+    "policy_level": false,
+    "preserves_connectivity": true,
+    "resolves_path_ids": []
+  },
+  {
+    "mitigation_id": "mit-05",
+    "change": "Enable Virtual WAN routing intent so branch prefixes stay on Azure transit and are not re-exported over hub peer shortcuts",
+    "azure_supported": true,
+    "policy_level": true,
+    "preserves_connectivity": true,
+    "resolves_path_ids": ["path-101", "path-301", "path-302", "path-401"]
+  },
+  {
+    "mitigation_id": "mit-06",
+    "change": "Deploy matched export policies on vpn-hub-east (ASN 65302) and vpn-hub-west (ASN 65303) so the finance-north prefix 172.16.30.0/24 stays off both peer shortcuts and Azure transit reflections",
+    "azure_supported": true,
+    "policy_level": true,
+    "preserves_connectivity": true,
+    "resolves_path_ids": ["path-301", "path-302"]
+  },
+  {
+    "mitigation_id": "mit-07",
+    "change": "Add an export filter on vpn-hub-north (ASN 65304) so the clinic-east prefix 172.16.40.0/24 learned from Azure transit is not advertised to peer vpn-hub-west (ASN 65303)",
+    "azure_supported": true,
+    "policy_level": true,
+    "preserves_connectivity": true,
+    "resolves_path_ids": ["path-401"]
+  },
+  {
+    "mitigation_id": "mit-08",
+    "change": "Disable hub peering between vpn-hub-west and vpn-hub-north",
+    "azure_supported": false,
+    "policy_level": false,
+    "preserves_connectivity": false,
+    "resolves_path_ids": ["path-101"]
+  },
+  {
+    "mitigation_id": "mit-09",
+    "change": "Disable branch-to-branch traffic in the Virtual WAN policy so leaked branch routes can no longer propagate between hubs",
+    "azure_supported": true,
+    "policy_level": true,
+    "preserves_connectivity": false,
+    "resolves_path_ids": ["path-101", "path-301", "path-302", "path-401"]
+  }
+]

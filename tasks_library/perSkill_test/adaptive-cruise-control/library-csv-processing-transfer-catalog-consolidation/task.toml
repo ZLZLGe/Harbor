@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "library-csv-processing-transfer-catalog-consolidation"
+name = "Transfer: Library Catalog Consolidation"
+description = "Read a library catalog export and circulation CSV, identify high-confidence duplicate records, and export the merge review table to catalog_merge_candidates.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "knowledge-management"
+tags = ["python", "csv", "pandas", "library", "metadata", "deduplication"]
+primary_output_file = "catalog_merge_candidates.csv"
+source_task_id = "adaptive-cruise-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory_mb = 2048
+storage_mb = 5120
+allow_internet = true

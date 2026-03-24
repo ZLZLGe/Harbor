@@ -1,0 +1,8 @@
+{"compound_id":"LT-101","name":"Acetanilide backup","series":"legacy anilides","supplier":"NorthPier","smiles":"CC(=O)Nc1ccccc1"}
+{"compound_id":"LT-102","name":"Morpholine anilide","series":"solubilized amides","supplier":"NorthPier","smiles":"O=C(Nc1ccccc1)N1CCOCC1"}
+{"compound_id":"LT-103","name":"Methoxy morpholine benzamide","series":"solubilized amides","supplier":"BlueMesa","smiles":"COc1ccc(cc1)C(=O)N1CCOCC1"}
+{"compound_id":"LT-104","name":"Diethyl benzamide","series":"amide controls","supplier":"BlueMesa","smiles":"CCN(CC)C(=O)c1ccccc1"}
+{"compound_id":"LT-105","name":"Morpholine sulfone","series":"sulfone solubilizers","supplier":"GreenSpoke","smiles":"CCS(=O)(=O)N1CCOCC1"}
+{"compound_id":"LT-106","name":"Ibuprofen","series":"hydrophobe checks","supplier":"GreenSpoke","smiles":"CC(C)Cc1ccc(cc1)[C@@H](C)C(=O)O"}
+{"compound_id":"LT-107","name":"Caffeine","series":"polarity checks","supplier":"NorthPier","smiles":"Cn1c(=O)n(C)c2ncn(C)c2c1=O"}
+{"compound_id":"LT-108","name":"Metformin mimic","series":"polarity checks","supplier":"NorthPier","smiles":"N=C(N)N=C(N)N"}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "screen-rdkit-transfer-substructure-triage",
+  "taskRole": "transfer",
+  "title": "Transfer: SMARTS-Based Substructure Triage",
+  "goal": "对一批候选分子的结构数据执行 SMARTS 子结构筛查，识别并标注命中的风险基团或保留基团，输出逐分子审查报告以及最终通过的候选名单。",
+  "primaryOutputFile": "/root/workspace/substructure_triage.py",
+  "difficulty": "medium",
+  "category": "chemistry",
+  "skillBenefitRationale": "任务关键在于把化学模式表示为查询结构并做子结构匹配，这正是 RDKit 的核心能力；不需要依赖任何其他 shipped skill。",
+  "targetSkillDirName": "rdkit",
+  "targetSkillName": "rdkit"
+}

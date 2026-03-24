@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "aftershock-bulletin-obspy-data-api-similar-quakeml-packet",
+  "taskRole": "similar",
+  "title": "Similar - 余震窗口 QuakeML 整编",
+  "goal": "给定多段连续 MiniSEED、台站通道清单和一份候选事件时间表，整理每个候选事件在固定时窗内的可用记录，过滤掉覆盖不足的候选项，并输出包含 origin time 与支持台站数的 QuakeML 事件目录。",
+  "primaryOutputFile": "/root/aftershock_catalog.xml",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "这个任务贴近 ObsPy Data API 的典型用法：读取连续波形为 Stream/Trace，使用 UTCDateTime 切窗，结合台站元数据核对通道覆盖，再构造 Catalog/Event/Origin 并写出 QuakeML，而不是复写原任务里的自动拾取与关联流程。",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

@@ -1,0 +1,1438 @@
+{
+  "report_version": 1,
+  "tank_id": "TK-204",
+  "target_band_pct": {
+    "low": 84.0,
+    "high": 88.0
+  },
+  "high_level_interlock_pct": 92.0,
+  "reopen_fill_pct": 89.5,
+  "phases": {
+    "pulse_test": {
+      "requested_profile_pct": [
+        80.0,
+        80.0,
+        80.0,
+        80.0,
+        40.0,
+        40.0,
+        0.0,
+        0.0
+      ],
+      "data": [
+        {
+          "time_sec": 2.0,
+          "pre_command_level_pct": 91.55,
+          "measured_level_pct": 91.83,
+          "requested_inlet_pct": 80.0,
+          "applied_inlet_pct": 80.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 4.0,
+          "pre_command_level_pct": 91.83,
+          "measured_level_pct": 92.0,
+          "requested_inlet_pct": 80.0,
+          "applied_inlet_pct": 80.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 6.0,
+          "pre_command_level_pct": 92.0,
+          "measured_level_pct": 92.0,
+          "requested_inlet_pct": 80.0,
+          "applied_inlet_pct": 0.0,
+          "high_level_checked": true,
+          "interlock_active": true,
+          "fill_frozen": true
+        },
+        {
+          "time_sec": 8.0,
+          "pre_command_level_pct": 92.0,
+          "measured_level_pct": 91.92,
+          "requested_inlet_pct": 80.0,
+          "applied_inlet_pct": 0.0,
+          "high_level_checked": true,
+          "interlock_active": true,
+          "fill_frozen": true
+        },
+        {
+          "time_sec": 10.0,
+          "pre_command_level_pct": 91.92,
+          "measured_level_pct": 91.88,
+          "requested_inlet_pct": 40.0,
+          "applied_inlet_pct": 0.0,
+          "high_level_checked": true,
+          "interlock_active": true,
+          "fill_frozen": true
+        },
+        {
+          "time_sec": 12.0,
+          "pre_command_level_pct": 91.88,
+          "measured_level_pct": 91.87,
+          "requested_inlet_pct": 40.0,
+          "applied_inlet_pct": 0.0,
+          "high_level_checked": true,
+          "interlock_active": true,
+          "fill_frozen": true
+        },
+        {
+          "time_sec": 14.0,
+          "pre_command_level_pct": 91.87,
+          "measured_level_pct": 91.75,
+          "requested_inlet_pct": 0.0,
+          "applied_inlet_pct": 0.0,
+          "high_level_checked": true,
+          "interlock_active": true,
+          "fill_frozen": true
+        },
+        {
+          "time_sec": 16.0,
+          "pre_command_level_pct": 91.75,
+          "measured_level_pct": 91.75,
+          "requested_inlet_pct": 0.0,
+          "applied_inlet_pct": 0.0,
+          "high_level_checked": true,
+          "interlock_active": true,
+          "fill_frozen": true
+        }
+      ]
+    },
+    "auto_fill": {
+      "strategy": "band_fill_with_reopen_hysteresis",
+      "data": [
+        {
+          "time_sec": 2.0,
+          "pre_command_level_pct": 76.0,
+          "measured_level_pct": 76.35,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 4.0,
+          "pre_command_level_pct": 76.35,
+          "measured_level_pct": 76.59,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 6.0,
+          "pre_command_level_pct": 76.59,
+          "measured_level_pct": 76.95,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 8.0,
+          "pre_command_level_pct": 76.95,
+          "measured_level_pct": 77.23,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 10.0,
+          "pre_command_level_pct": 77.23,
+          "measured_level_pct": 77.55,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 12.0,
+          "pre_command_level_pct": 77.55,
+          "measured_level_pct": 77.9,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 14.0,
+          "pre_command_level_pct": 77.9,
+          "measured_level_pct": 78.14,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 16.0,
+          "pre_command_level_pct": 78.14,
+          "measured_level_pct": 78.5,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 18.0,
+          "pre_command_level_pct": 78.5,
+          "measured_level_pct": 78.78,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 20.0,
+          "pre_command_level_pct": 78.78,
+          "measured_level_pct": 79.1,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 22.0,
+          "pre_command_level_pct": 79.1,
+          "measured_level_pct": 79.45,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 24.0,
+          "pre_command_level_pct": 79.45,
+          "measured_level_pct": 79.69,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 26.0,
+          "pre_command_level_pct": 79.69,
+          "measured_level_pct": 80.05,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 28.0,
+          "pre_command_level_pct": 80.05,
+          "measured_level_pct": 80.33,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 30.0,
+          "pre_command_level_pct": 80.33,
+          "measured_level_pct": 80.65,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 32.0,
+          "pre_command_level_pct": 80.65,
+          "measured_level_pct": 81.0,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 34.0,
+          "pre_command_level_pct": 81.0,
+          "measured_level_pct": 81.24,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 36.0,
+          "pre_command_level_pct": 81.24,
+          "measured_level_pct": 81.6,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 38.0,
+          "pre_command_level_pct": 81.6,
+          "measured_level_pct": 81.88,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 40.0,
+          "pre_command_level_pct": 81.88,
+          "measured_level_pct": 82.2,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 42.0,
+          "pre_command_level_pct": 82.2,
+          "measured_level_pct": 82.55,
+          "requested_inlet_pct": 100.0,
+          "applied_inlet_pct": 100.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 44.0,
+          "pre_command_level_pct": 82.55,
+          "measured_level_pct": 82.66,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 46.0,
+          "pre_command_level_pct": 82.66,
+          "measured_level_pct": 82.9,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 48.0,
+          "pre_command_level_pct": 82.9,
+          "measured_level_pct": 83.05,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 50.0,
+          "pre_command_level_pct": 83.05,
+          "measured_level_pct": 83.25,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 52.0,
+          "pre_command_level_pct": 83.25,
+          "measured_level_pct": 83.47,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 54.0,
+          "pre_command_level_pct": 83.47,
+          "measured_level_pct": 83.58,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 56.0,
+          "pre_command_level_pct": 83.58,
+          "measured_level_pct": 83.82,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 58.0,
+          "pre_command_level_pct": 83.82,
+          "measured_level_pct": 83.97,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 60.0,
+          "pre_command_level_pct": 83.97,
+          "measured_level_pct": 84.17,
+          "requested_inlet_pct": 65.0,
+          "applied_inlet_pct": 65.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 62.0,
+          "pre_command_level_pct": 84.17,
+          "measured_level_pct": 84.24,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 64.0,
+          "pre_command_level_pct": 84.24,
+          "measured_level_pct": 84.21,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 66.0,
+          "pre_command_level_pct": 84.21,
+          "measured_level_pct": 84.3,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 68.0,
+          "pre_command_level_pct": 84.3,
+          "measured_level_pct": 84.3,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 70.0,
+          "pre_command_level_pct": 84.3,
+          "measured_level_pct": 84.35,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 72.0,
+          "pre_command_level_pct": 84.35,
+          "measured_level_pct": 84.42,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 74.0,
+          "pre_command_level_pct": 84.42,
+          "measured_level_pct": 84.39,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 76.0,
+          "pre_command_level_pct": 84.39,
+          "measured_level_pct": 84.48,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 78.0,
+          "pre_command_level_pct": 84.48,
+          "measured_level_pct": 84.48,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 80.0,
+          "pre_command_level_pct": 84.48,
+          "measured_level_pct": 84.53,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 82.0,
+          "pre_command_level_pct": 84.53,
+          "measured_level_pct": 84.61,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 84.0,
+          "pre_command_level_pct": 84.61,
+          "measured_level_pct": 84.57,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 86.0,
+          "pre_command_level_pct": 84.57,
+          "measured_level_pct": 84.66,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 88.0,
+          "pre_command_level_pct": 84.66,
+          "measured_level_pct": 84.67,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 90.0,
+          "pre_command_level_pct": 84.67,
+          "measured_level_pct": 84.71,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 92.0,
+          "pre_command_level_pct": 84.71,
+          "measured_level_pct": 84.79,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 94.0,
+          "pre_command_level_pct": 84.79,
+          "measured_level_pct": 84.75,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 96.0,
+          "pre_command_level_pct": 84.75,
+          "measured_level_pct": 84.84,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 98.0,
+          "pre_command_level_pct": 84.84,
+          "measured_level_pct": 84.85,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 100.0,
+          "pre_command_level_pct": 84.85,
+          "measured_level_pct": 84.89,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 102.0,
+          "pre_command_level_pct": 84.89,
+          "measured_level_pct": 84.97,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 104.0,
+          "pre_command_level_pct": 84.97,
+          "measured_level_pct": 84.94,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 106.0,
+          "pre_command_level_pct": 84.94,
+          "measured_level_pct": 85.02,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 108.0,
+          "pre_command_level_pct": 85.02,
+          "measured_level_pct": 85.03,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 110.0,
+          "pre_command_level_pct": 85.03,
+          "measured_level_pct": 85.08,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 112.0,
+          "pre_command_level_pct": 85.08,
+          "measured_level_pct": 85.15,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 114.0,
+          "pre_command_level_pct": 85.15,
+          "measured_level_pct": 85.12,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 116.0,
+          "pre_command_level_pct": 85.12,
+          "measured_level_pct": 85.21,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 118.0,
+          "pre_command_level_pct": 85.21,
+          "measured_level_pct": 85.21,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 120.0,
+          "pre_command_level_pct": 85.21,
+          "measured_level_pct": 85.26,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 122.0,
+          "pre_command_level_pct": 85.26,
+          "measured_level_pct": 85.33,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 124.0,
+          "pre_command_level_pct": 85.33,
+          "measured_level_pct": 85.3,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 126.0,
+          "pre_command_level_pct": 85.3,
+          "measured_level_pct": 85.39,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 128.0,
+          "pre_command_level_pct": 85.39,
+          "measured_level_pct": 85.39,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 130.0,
+          "pre_command_level_pct": 85.39,
+          "measured_level_pct": 85.44,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 132.0,
+          "pre_command_level_pct": 85.44,
+          "measured_level_pct": 85.52,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 134.0,
+          "pre_command_level_pct": 85.52,
+          "measured_level_pct": 85.48,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 136.0,
+          "pre_command_level_pct": 85.48,
+          "measured_level_pct": 85.57,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 138.0,
+          "pre_command_level_pct": 85.57,
+          "measured_level_pct": 85.58,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 140.0,
+          "pre_command_level_pct": 85.58,
+          "measured_level_pct": 85.62,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 142.0,
+          "pre_command_level_pct": 85.62,
+          "measured_level_pct": 85.7,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 144.0,
+          "pre_command_level_pct": 85.7,
+          "measured_level_pct": 85.66,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 146.0,
+          "pre_command_level_pct": 85.66,
+          "measured_level_pct": 85.75,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 148.0,
+          "pre_command_level_pct": 85.75,
+          "measured_level_pct": 85.76,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 150.0,
+          "pre_command_level_pct": 85.76,
+          "measured_level_pct": 85.8,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 152.0,
+          "pre_command_level_pct": 85.8,
+          "measured_level_pct": 85.88,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 154.0,
+          "pre_command_level_pct": 85.88,
+          "measured_level_pct": 85.85,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 156.0,
+          "pre_command_level_pct": 85.85,
+          "measured_level_pct": 85.93,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 158.0,
+          "pre_command_level_pct": 85.93,
+          "measured_level_pct": 85.94,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 160.0,
+          "pre_command_level_pct": 85.94,
+          "measured_level_pct": 85.99,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 162.0,
+          "pre_command_level_pct": 85.99,
+          "measured_level_pct": 86.06,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 164.0,
+          "pre_command_level_pct": 86.06,
+          "measured_level_pct": 85.99,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 166.0,
+          "pre_command_level_pct": 85.99,
+          "measured_level_pct": 86.07,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 168.0,
+          "pre_command_level_pct": 86.07,
+          "measured_level_pct": 86.04,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 170.0,
+          "pre_command_level_pct": 86.04,
+          "measured_level_pct": 86.04,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 172.0,
+          "pre_command_level_pct": 86.04,
+          "measured_level_pct": 86.07,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 174.0,
+          "pre_command_level_pct": 86.07,
+          "measured_level_pct": 85.99,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 176.0,
+          "pre_command_level_pct": 85.99,
+          "measured_level_pct": 86.08,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 178.0,
+          "pre_command_level_pct": 86.08,
+          "measured_level_pct": 86.04,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 180.0,
+          "pre_command_level_pct": 86.04,
+          "measured_level_pct": 86.05,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 182.0,
+          "pre_command_level_pct": 86.05,
+          "measured_level_pct": 86.08,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 184.0,
+          "pre_command_level_pct": 86.08,
+          "measured_level_pct": 86.0,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 186.0,
+          "pre_command_level_pct": 86.0,
+          "measured_level_pct": 86.05,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 188.0,
+          "pre_command_level_pct": 86.05,
+          "measured_level_pct": 86.01,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 190.0,
+          "pre_command_level_pct": 86.01,
+          "measured_level_pct": 86.01,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 192.0,
+          "pre_command_level_pct": 86.01,
+          "measured_level_pct": 86.05,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 194.0,
+          "pre_command_level_pct": 86.05,
+          "measured_level_pct": 85.97,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 196.0,
+          "pre_command_level_pct": 85.97,
+          "measured_level_pct": 86.06,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 198.0,
+          "pre_command_level_pct": 86.06,
+          "measured_level_pct": 86.02,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 200.0,
+          "pre_command_level_pct": 86.02,
+          "measured_level_pct": 86.02,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 202.0,
+          "pre_command_level_pct": 86.02,
+          "measured_level_pct": 86.06,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 204.0,
+          "pre_command_level_pct": 86.06,
+          "measured_level_pct": 85.98,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 206.0,
+          "pre_command_level_pct": 85.98,
+          "measured_level_pct": 86.07,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 208.0,
+          "pre_command_level_pct": 86.07,
+          "measured_level_pct": 86.03,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 210.0,
+          "pre_command_level_pct": 86.03,
+          "measured_level_pct": 86.03,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 212.0,
+          "pre_command_level_pct": 86.03,
+          "measured_level_pct": 86.07,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 214.0,
+          "pre_command_level_pct": 86.07,
+          "measured_level_pct": 85.99,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 216.0,
+          "pre_command_level_pct": 85.99,
+          "measured_level_pct": 86.07,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 218.0,
+          "pre_command_level_pct": 86.07,
+          "measured_level_pct": 86.04,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 220.0,
+          "pre_command_level_pct": 86.04,
+          "measured_level_pct": 86.04,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 222.0,
+          "pre_command_level_pct": 86.04,
+          "measured_level_pct": 86.07,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 224.0,
+          "pre_command_level_pct": 86.07,
+          "measured_level_pct": 86.0,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 226.0,
+          "pre_command_level_pct": 86.0,
+          "measured_level_pct": 86.04,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 228.0,
+          "pre_command_level_pct": 86.04,
+          "measured_level_pct": 86.0,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 230.0,
+          "pre_command_level_pct": 86.0,
+          "measured_level_pct": 86.01,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 232.0,
+          "pre_command_level_pct": 86.01,
+          "measured_level_pct": 86.04,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 234.0,
+          "pre_command_level_pct": 86.04,
+          "measured_level_pct": 85.96,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 236.0,
+          "pre_command_level_pct": 85.96,
+          "measured_level_pct": 86.05,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 238.0,
+          "pre_command_level_pct": 86.05,
+          "measured_level_pct": 86.01,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 240.0,
+          "pre_command_level_pct": 86.01,
+          "measured_level_pct": 86.02,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 242.0,
+          "pre_command_level_pct": 86.02,
+          "measured_level_pct": 86.05,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 244.0,
+          "pre_command_level_pct": 86.05,
+          "measured_level_pct": 85.97,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 246.0,
+          "pre_command_level_pct": 85.97,
+          "measured_level_pct": 86.06,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 248.0,
+          "pre_command_level_pct": 86.06,
+          "measured_level_pct": 86.02,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 250.0,
+          "pre_command_level_pct": 86.02,
+          "measured_level_pct": 86.03,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 252.0,
+          "pre_command_level_pct": 86.03,
+          "measured_level_pct": 86.06,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 254.0,
+          "pre_command_level_pct": 86.06,
+          "measured_level_pct": 85.98,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 256.0,
+          "pre_command_level_pct": 85.98,
+          "measured_level_pct": 86.07,
+          "requested_inlet_pct": 24.0,
+          "applied_inlet_pct": 24.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 258.0,
+          "pre_command_level_pct": 86.07,
+          "measured_level_pct": 86.03,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        },
+        {
+          "time_sec": 260.0,
+          "pre_command_level_pct": 86.03,
+          "measured_level_pct": 86.03,
+          "requested_inlet_pct": 12.0,
+          "applied_inlet_pct": 12.0,
+          "high_level_checked": true,
+          "interlock_active": false,
+          "fill_frozen": false
+        }
+      ]
+    }
+  },
+  "safety_log": {
+    "events": [
+      {
+        "phase": "pulse_test",
+        "time_sec": 4.0,
+        "measured_level_pct": 92.0,
+        "requested_inlet_pct": 80.0,
+        "applied_inlet_pct": 0.0,
+        "reason": "high_level_cutoff"
+      }
+    ]
+  },
+  "summary": {
+    "target_band_reached": true,
+    "contiguous_hold_sec": 202.0,
+    "final_level_pct": 86.03,
+    "max_level_pct": 92.0,
+    "interlock_event_count": 1,
+    "never_overflowed": true
+  },
+  "safety_proof": {
+    "all_samples_checked": true,
+    "samples_at_or_above_interlock": 2,
+    "max_applied_inlet_at_or_above_interlock_pct": 0.0,
+    "freeze_respected_until_reopen": true,
+    "overflow_margin_pct": 8.0
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "demography-timeseries-detrending-transfer-fertility-trough",
+  "taskRole": "transfer",
+  "title": "Transfer: 生育率周期低谷识别",
+  "goal": "用 1970 到 2024 年的出生人数与育龄女性人口构造年度一般生育率，对该年频序列去趋势后找出最低的周期缺口年份，并输出该年的周期缺口值。",
+  "primaryOutputFile": "/root/fertility-cycle-trough.csv",
+  "difficulty": "medium",
+  "category": "demography",
+  "skillBenefitRationale": "该任务把技能迁移到人口统计场景，重点是先构造年率序列，再用年度 HP 去趋势识别低于趋势的异常低谷；除了 timeseries-detrending 外不需要其他 shipped skill。",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending"
+}

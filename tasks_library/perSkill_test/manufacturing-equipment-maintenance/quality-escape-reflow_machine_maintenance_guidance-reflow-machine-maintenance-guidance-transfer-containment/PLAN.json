@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "quality-escape-reflow_machine_maintenance_guidance-reflow-machine-maintenance-guidance-transfer-containment",
+  "taskRole": "transfer",
+  "title": "Transfer: Reflow Quality Escape Containment",
+  "goal": "把技能迁移到质量逃逸应急场景：针对某批次 AOI/目检异常上升事件，利用缺陷分布、热电偶数据和 MES 记录判断最可能的回流过程失控模式，输出现场隔离范围、立即处置动作和维修技师操作卡。",
+  "primaryOutputFile": "/app/output/defect_containment_card.json",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "这里不是常规合规问答，而是缺陷应急处置；但根因仍需依赖回流手册阈值、温度曲线计算和缺陷-工艺映射，因此当前 skill 依旧是唯一关键 shipped skill。",
+  "targetSkillDirName": "reflow_machine_maintenance_guidance",
+  "targetSkillName": "reflow_machine_maintenance_guidance"
+}

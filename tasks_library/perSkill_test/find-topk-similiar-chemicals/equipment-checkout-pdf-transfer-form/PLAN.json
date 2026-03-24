@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "equipment-checkout-pdf-transfer-form",
+  "taskRole": "transfer",
+  "title": "Transfer: Equipment Checkout Form",
+  "goal": "读取给定的借用信息并填写`equipment_checkout_form.pdf`中的文本字段与勾选项，生成完整的已填写PDF。",
+  "primaryOutputFile": "/root/workspace/equipment_checkout_filled.pdf",
+  "difficulty": "medium",
+  "category": "operations",
+  "skillBenefitRationale": "关键能力是识别并填写PDF表单或注释区域，完全由`pdf` skill支撑。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

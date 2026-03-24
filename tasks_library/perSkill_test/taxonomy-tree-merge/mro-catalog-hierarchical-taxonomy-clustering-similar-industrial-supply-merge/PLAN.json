@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "mro-catalog-hierarchical-taxonomy-clustering-similar-industrial-supply-merge",
+  "taskRole": "similar",
+  "title": "Similar: 工业品 MRO 类目树统一",
+  "goal": "整合 Grainger、McMaster-Carr 和 Fastenal 三套工业品类目路径，产出统一的 5 层 MRO 采购 taxonomy，用于跨供应商采购分析与类目指标归一。",
+  "primaryOutputFile": "drafts/mro-catalog-hierarchical-taxonomy-clustering-similar-industrial-supply-merge/instruction.md",
+  "difficulty": "hard",
+  "category": "ML/NLP",
+  "skillBenefitRationale": "这是目标 skill 的典型用法：多源层级商品类目合并，但场景从综合电商换到工业品采购，更能检验加权层级嵌入、递归聚类和自动命名是否能处理技术件、耗材与工具的混合树结构。",
+  "targetSkillDirName": "hierarchical-taxonomy-clustering",
+  "targetSkillName": "hierarchical-taxonomy-clustering"
+}

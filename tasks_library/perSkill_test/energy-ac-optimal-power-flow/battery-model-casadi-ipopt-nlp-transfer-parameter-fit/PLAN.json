@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "battery-model-casadi-ipopt-nlp-transfer-parameter-fit",
+  "taskRole": "transfer",
+  "title": "Transfer: Battery RC Parameter Identification",
+  "goal": "根据锂电池脉冲实验数据，拟合带温度项的一阶RC等效电路参数，使端电压轨迹误差最小且参数满足物理边界，并生成`battery_model_fit_report.json`，报告识别参数、残差统计和验证片段误差。",
+  "primaryOutputFile": "battery_model_fit_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这是带边界和多参数耦合的非线性最小二乘问题，自动微分、连续变量建模和IPOPT局部求解正是CasADi+IPOPT的唯一关键 shipped skill。",
+  "targetSkillDirName": "casadi-ipopt-nlp",
+  "targetSkillName": "casadi-ipopt-nlp"
+}

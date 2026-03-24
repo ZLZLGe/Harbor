@@ -1,0 +1,30 @@
+version = "1.0"
+
+[metadata]
+id = "record-canonicalizer-python-scala-functional-similar-mixed-input-pipeline"
+name = "Similar: Python 记录规范化器转 Scala"
+description = "将 Python 记录规范化流水线翻译为 Scala 2.13，并在 /root/RecordCanonicalizer.scala 输出可编译、可验证的函数式实现。"
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "functional", "records"]
+primary_output_file = "/root/RecordCanonicalizer.scala"
+source_task_id = "python-scala-translation"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]

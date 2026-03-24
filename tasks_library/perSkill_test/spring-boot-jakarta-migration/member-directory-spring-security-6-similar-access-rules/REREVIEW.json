@@ -1,0 +1,17 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "spring-security-6",
+  "runId": "20260322195413-spring-boot-jakarta-migration-spring-security-6-avrjso",
+  "taskId": "member-directory-spring-security-6-similar-access-rules",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/spring-boot-jakarta-migration/spring-security-6/20260322195413-spring-boot-jakarta-migration-spring-security-6-avrjso/member-directory-spring-security-6-similar-access-rules",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/spring-boot-jakarta-migration/member-directory-spring-security-6-similar-access-rules",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:member-directory-spring-security-6-similar-access-rules instruction.md 未直接点名 shipped skill，技能暴露检查通过。; 测试对实现细节约束过强：要求配置文件里必须出现 AuthenticationConfiguration 和 getAuthenticationManager()，会误杀其他仍满足题意的 AuthenticationManager 装配方案。; testabilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d1a76-a72b-7271-a49c-7d5545ea9231"
+}

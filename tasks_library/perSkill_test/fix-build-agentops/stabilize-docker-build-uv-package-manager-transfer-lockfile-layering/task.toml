@@ -1,0 +1,35 @@
+version = "1.0"
+
+[metadata]
+id = "stabilize-docker-build-uv-package-manager-transfer-lockfile-layering"
+name = "Transfer: Stabilize a Python Docker Build with uv"
+description = "Rewrite a broken Python image recipe so it installs dependencies from the repository lockfile in cache-friendly layers and starts the app from the resulting container."
+author_name = "OpenAI"
+author_email = "support@openai.com"
+difficulty = "easy"
+category = "Containers"
+tags = [
+  "Python",
+  "Dockerfile",
+  "containers",
+  "build",
+  "lockfile",
+  "uv",
+]
+primary_output_file = "Dockerfile"
+source_task_id = "fix-build-agentops"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 2
+memory = "2G"
+storage = "4G"
+gpus = 0
+allow_internet = true

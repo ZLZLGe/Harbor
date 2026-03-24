@@ -1,0 +1,235 @@
+{
+  "load_blocks": [
+    {
+      "block_id": "night_ventilation",
+      "load_mw": 150.0,
+      "total_cost_dollars_per_hour": 2130.38,
+      "marginal_system_cost_dollars_per_mwh": 15.86,
+      "dispatch": [
+        {
+          "unit_id": "waste_heat_recovery",
+          "output_mw": 55.0
+        },
+        {
+          "unit_id": "coal_boiler_east",
+          "output_mw": 65.0
+        },
+        {
+          "unit_id": "gas_engine_bank",
+          "output_mw": 18.0
+        },
+        {
+          "unit_id": "kiln_offgas_turbine",
+          "output_mw": 12.0
+        },
+        {
+          "unit_id": "standby_turbine",
+          "output_mw": 0.0
+        }
+      ]
+    },
+    {
+      "block_id": "mill_warmup",
+      "load_mw": 170.0,
+      "total_cost_dollars_per_hour": 2459.97,
+      "marginal_system_cost_dollars_per_mwh": 17.42,
+      "dispatch": [
+        {
+          "unit_id": "waste_heat_recovery",
+          "output_mw": 55.0
+        },
+        {
+          "unit_id": "coal_boiler_east",
+          "output_mw": 78.0
+        },
+        {
+          "unit_id": "gas_engine_bank",
+          "output_mw": 25.0
+        },
+        {
+          "unit_id": "kiln_offgas_turbine",
+          "output_mw": 12.0
+        },
+        {
+          "unit_id": "standby_turbine",
+          "output_mw": 0.0
+        }
+      ]
+    },
+    {
+      "block_id": "crusher_push",
+      "load_mw": 188.0,
+      "total_cost_dollars_per_hour": 2780.95,
+      "marginal_system_cost_dollars_per_mwh": 18.29,
+      "dispatch": [
+        {
+          "unit_id": "waste_heat_recovery",
+          "output_mw": 55.0
+        },
+        {
+          "unit_id": "coal_boiler_east",
+          "output_mw": 78.0
+        },
+        {
+          "unit_id": "gas_engine_bank",
+          "output_mw": 43.0
+        },
+        {
+          "unit_id": "kiln_offgas_turbine",
+          "output_mw": 12.0
+        },
+        {
+          "unit_id": "standby_turbine",
+          "output_mw": 0.0
+        }
+      ]
+    },
+    {
+      "block_id": "conveyor_plus_pump",
+      "load_mw": 202.0,
+      "total_cost_dollars_per_hour": 3050.91,
+      "marginal_system_cost_dollars_per_mwh": 20.92,
+      "dispatch": [
+        {
+          "unit_id": "waste_heat_recovery",
+          "output_mw": 55.0
+        },
+        {
+          "unit_id": "coal_boiler_east",
+          "output_mw": 78.0
+        },
+        {
+          "unit_id": "gas_engine_bank",
+          "output_mw": 52.0
+        },
+        {
+          "unit_id": "kiln_offgas_turbine",
+          "output_mw": 17.0
+        },
+        {
+          "unit_id": "standby_turbine",
+          "output_mw": 0.0
+        }
+      ]
+    },
+    {
+      "block_id": "haulage_peak",
+      "load_mw": 214.0,
+      "total_cost_dollars_per_hour": 3306.17,
+      "marginal_system_cost_dollars_per_mwh": 21.69,
+      "dispatch": [
+        {
+          "unit_id": "waste_heat_recovery",
+          "output_mw": 55.0
+        },
+        {
+          "unit_id": "coal_boiler_east",
+          "output_mw": 78.0
+        },
+        {
+          "unit_id": "gas_engine_bank",
+          "output_mw": 52.0
+        },
+        {
+          "unit_id": "kiln_offgas_turbine",
+          "output_mw": 29.0
+        },
+        {
+          "unit_id": "standby_turbine",
+          "output_mw": 0.0
+        }
+      ]
+    },
+    {
+      "block_id": "ore_sorter_restart",
+      "load_mw": 226.0,
+      "total_cost_dollars_per_hour": 3572.3,
+      "marginal_system_cost_dollars_per_mwh": 24.14,
+      "dispatch": [
+        {
+          "unit_id": "waste_heat_recovery",
+          "output_mw": 55.0
+        },
+        {
+          "unit_id": "coal_boiler_east",
+          "output_mw": 78.0
+        },
+        {
+          "unit_id": "gas_engine_bank",
+          "output_mw": 52.0
+        },
+        {
+          "unit_id": "kiln_offgas_turbine",
+          "output_mw": 40.0
+        },
+        {
+          "unit_id": "standby_turbine",
+          "output_mw": 1.0
+        }
+      ]
+    },
+    {
+      "block_id": "shaft_hoist_overlap",
+      "load_mw": 232.0,
+      "total_cost_dollars_per_hour": 3718.46,
+      "marginal_system_cost_dollars_per_mwh": 24.68,
+      "dispatch": [
+        {
+          "unit_id": "waste_heat_recovery",
+          "output_mw": 55.0
+        },
+        {
+          "unit_id": "coal_boiler_east",
+          "output_mw": 78.0
+        },
+        {
+          "unit_id": "gas_engine_bank",
+          "output_mw": 52.0
+        },
+        {
+          "unit_id": "kiln_offgas_turbine",
+          "output_mw": 40.0
+        },
+        {
+          "unit_id": "standby_turbine",
+          "output_mw": 7.0
+        }
+      ]
+    },
+    {
+      "block_id": "full_blend_train",
+      "load_mw": 236.0,
+      "total_cost_dollars_per_hour": 3817.7,
+      "marginal_system_cost_dollars_per_mwh": 25.03,
+      "dispatch": [
+        {
+          "unit_id": "waste_heat_recovery",
+          "output_mw": 55.0
+        },
+        {
+          "unit_id": "coal_boiler_east",
+          "output_mw": 78.0
+        },
+        {
+          "unit_id": "gas_engine_bank",
+          "output_mw": 52.0
+        },
+        {
+          "unit_id": "kiln_offgas_turbine",
+          "output_mw": 40.0
+        },
+        {
+          "unit_id": "standby_turbine",
+          "output_mw": 11.0
+        }
+      ]
+    }
+  ],
+  "standby_breakpoint": {
+    "unit_id": "standby_turbine",
+    "threshold_mw": 10.0,
+    "first_block_id": "full_blend_train",
+    "first_load_mw": 236.0,
+    "dispatch_mw": 11.0
+  }
+}

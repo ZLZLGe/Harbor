@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "documentary-archive-planning-with-files-similar-milestone-sort"
+name = "Similar | Reorganize a Documentary Production Archive"
+description = "Sort an unsorted documentary production archive into six milestone folders, keep filenames unchanged, and write a JSON archive manifest."
+author_name = "Levi Zhang"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "file-management"
+tags = ["file-management", "document-organization", "json", "planning"]
+primary_output_file = "reports/archive_manifest.json"
+source_task_id = "organize-messy-files"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

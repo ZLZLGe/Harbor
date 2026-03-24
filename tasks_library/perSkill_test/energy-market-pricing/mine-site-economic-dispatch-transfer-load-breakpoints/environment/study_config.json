@@ -1,0 +1,4 @@
+{
+  "standby_unit_id": "standby_turbine",
+  "dispatch_threshold_mw": 10.0
+}

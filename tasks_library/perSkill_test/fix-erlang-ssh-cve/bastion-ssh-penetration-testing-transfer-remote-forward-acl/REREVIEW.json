@@ -1,0 +1,20 @@
+{
+  "sourceTaskId": "fix-erlang-ssh-cve",
+  "targetSkillDirName": "ssh-penetration-testing",
+  "runId": "20260319202133-fix-erlang-ssh-cve-ssh-penetration-testing-gprj0w",
+  "taskId": "bastion-ssh-penetration-testing-transfer-remote-forward-acl",
+  "sourceTaskPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished/reviewer/fix-erlang-ssh-cve/ssh-penetration-testing/20260319202133-fix-erlang-ssh-cve-ssh-penetration-testing-gprj0w/bastion-ssh-penetration-testing-transfer-remote-forward-acl",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/pass/fix-erlang-ssh-cve/bastion-ssh-penetration-testing-transfer-remote-forward-acl",
+  "status": "pass",
+  "oldReviewerIssues": [
+    "reviewer:bastion-ssh-penetration-testing-transfer-remote-forward-acl instruction.md 直接引入了 remote forwarding、loopback 绑定/目标、ACL 等 source_task 未出现的具体 SSH 子技能概念，提示过强。; 测试可判定：以固定 JSON 请求检查允许/拒绝决策，覆盖公开绑定、非 loopback 目标、未授权端口和合法 IPv4/IPv6 运维隧道。; visibilityPass=false"
+  ],
+  "oldFamilyObservationIssues": [
+    "family family 结构满足 1 个 similar + 3 个 transfer，且 3 个 transfer 在凭据攻击防护、弱算法审计/配置生成、远程转发 ACL 三个方向上区分明显。",
+    "family similar 任务和 shipped skill 的典型用法贴合度足够高，但四个草稿的 instruction.md 都比 source_task/instruction.md 更直接地点明了 SSH 子技能或具体攻击面，存在统一的可见性越界问题。"
+  ],
+  "newReviewerIssues": [],
+  "newStaticIssues": [],
+  "familyObservationIssues": [],
+  "reviewThreadId": "019d0faa-d4e2-7ba2-acf9-3a00861c77aa"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "lecture-slides-video-frame-extraction-transfer-deck-keyframes",
+  "taskRole": "transfer",
+  "title": "Transfer: Lecture Slide Keyframes",
+  "goal": "读取课堂录屏视频，提取候选帧并去重，保留每个不同幻灯片首次清晰出现的代表帧，输出包含视频名、代表帧文件名和顺序编号的 /app/lectures/slide_keyframes.json。",
+  "primaryOutputFile": "/app/lectures/slide_keyframes.json",
+  "difficulty": "hard",
+  "category": "presentation slide change extraction",
+  "skillBenefitRationale": "录屏里的关键信息以画面切换体现，必须先抽取并比对帧，才能稳定找到每张幻灯片的代表画面；不需要其他 shipped skills。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

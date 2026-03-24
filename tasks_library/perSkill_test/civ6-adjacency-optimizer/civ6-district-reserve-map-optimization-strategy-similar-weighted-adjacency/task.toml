@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "civ6-district-reserve-map-optimization-strategy-similar-weighted-adjacency"
+name = "Civ6 District Reserve Planner (Similar)"
+description = "Find the highest-scoring weighted district layout on a fixed Civ6 hex map with reserved tiles and write the detailed scoring plan to /output/civ6_weighted_reserve_plan.json."
+author_name = "Songlin Li"
+author_email = "vincent.li.9701@gmail.com"
+difficulty = "hard"
+category = "games"
+tags = ["optimization", "constraint-satisfaction", "civ6", "hex-grid", "weighted-scoring"]
+primary_output_file = "/output/civ6_weighted_reserve_plan.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

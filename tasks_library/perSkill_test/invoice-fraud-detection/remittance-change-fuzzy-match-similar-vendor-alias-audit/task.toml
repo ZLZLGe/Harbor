@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "remittance-change-fuzzy-match-similar-vendor-alias-audit"
+name = "Similar: 供应商收款账户变更审计"
+description = "审计供应商收款账户变更申请，将申请名称与主档做模糊归并，并把无法可信匹配或主档字段冲突的申请写入 /root/remittance_alerts.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "data-validation"
+tags = ["finance", "vendor-master", "fuzzy-matching", "json", "csv"]
+primary_output_file = "/root/remittance_alerts.json"
+source_task_id = "invoice-fraud-detection"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

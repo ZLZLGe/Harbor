@@ -1,0 +1,67 @@
+{
+  "book_title": "April 2026 Board Book",
+  "meeting_title": "Harbor Transit Holdings Board of Directors",
+  "meeting_date": "2026-04-18",
+  "meeting_time": "09:00 CST",
+  "meeting_location": "Bund Conference Room 7A",
+  "confidentiality_label": "Confidential Board Materials",
+  "sections": [
+    {
+      "section_code": "A",
+      "section_title": "Opening Session",
+      "items": [
+        {
+          "file": "meeting_core.pdf",
+          "pages": [
+            1,
+            3
+          ]
+        },
+        {
+          "file": "committee_updates.pdf",
+          "pages": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "B",
+      "section_title": "Financial Review",
+      "items": [
+        {
+          "file": "finance_appendix.pdf",
+          "pages": [
+            2,
+            4
+          ]
+        },
+        {
+          "file": "strategy_exhibits.pdf",
+          "pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "section_code": "C",
+      "section_title": "Votes and Follow-up",
+      "items": [
+        {
+          "file": "meeting_core.pdf",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "file": "committee_updates.pdf",
+          "pages": [
+            3,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

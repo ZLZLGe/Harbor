@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "utility-flood-detection-transfer-pump-station-overflow",
+  "taskRole": "transfer",
+  "title": "Transfer - Pump Station Overflow Risk Report",
+  "goal": "Evaluate 15-minute wet-well level readings for pump stations against station-specific overflow thresholds, aggregate to daily maxima, and write `/root/output/pump_station_overflow_report.csv` for stations with at least one overflow-risk day, including overflow-day counts and first overflow date.",
+  "primaryOutputFile": "/root/output/pump_station_overflow_report.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "The scenario moves into wastewater utility monitoring, but the underlying problem is still threshold-based flood event detection over time-series level data. Success depends on the same aggregation and threshold-crossing logic, making flood-detection the only essential shipped skill.",
+  "targetSkillDirName": "flood-detection",
+  "targetSkillName": "flood-detection"
+}

@@ -1,0 +1,4 @@
+label,period_days,reference_epoch_bjd_minus_2457000,comment
+half_alias,3.92108,1.41357,Half-period candidate from the preliminary search
+true_candidate,7.84216,1.41357,Candidate that aligns every observed transit
+double_alias,15.68432,1.41357,Two-times period alias caused by sector gaps

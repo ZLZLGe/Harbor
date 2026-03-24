@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "civ6-layout-sqlite-map-parser-similar-settlement-dossier",
+  "taskRole": "similar",
+  "title": "Similar - Civ6 地图定居点情报",
+  "goal": "读取 WorldBuilder 导出的 .Civ6Map SQLite 文件，恢复地形、地貌、河流与坐标后，输出一个单城定居点情报 JSON，给出最佳城市中心候选及其 3 格范围内与区域规划直接相关的结构化摘要。",
+  "primaryOutputFile": "/output/settlement_dossier.json",
+  "difficulty": "hard",
+  "category": "games",
+  "skillBenefitRationale": "这个任务直接落在 sqlite-map-parser 的典型用法上：先探查 .Civ6Map 的表结构，再把线性 plot ID 还原成坐标，并跨表整合地形、特性、河流等信息形成 JSON；没有这个 skill，后续定居点情报根本无法构建。",
+  "targetSkillDirName": "sqlite-map-parser",
+  "targetSkillName": "sqlite-map-parser"
+}

@@ -1,0 +1,76 @@
+{
+  "matrix": [
+    {
+      "label": "vip-suite-escape",
+      "policy_codes": ["standard", "member", "family"],
+      "payload": {
+        "booking_id": "BK-301",
+        "guest_name": "Mina Chen",
+        "room_type": "suite",
+        "nights": 3,
+        "guests": 3,
+        "season": "peak",
+        "extras": ["breakfast", "parking"],
+        "vip": true,
+        "corporate_account": ""
+      }
+    },
+    {
+      "label": "corporate-loft-stay",
+      "policy_codes": ["standard", "corporate", "long-stay"],
+      "payload": {
+        "booking_id": "BK-302",
+        "guest_name": "Dae Park",
+        "room_type": "loft",
+        "nights": 6,
+        "guests": 2,
+        "season": "shoulder",
+        "extras": ["parking", "late-checkout"],
+        "vip": false,
+        "corporate_account": "NORTHWIND"
+      }
+    },
+    {
+      "label": "villa-reunion",
+      "policy_codes": ["standard", "family", "long-stay"],
+      "payload": {
+        "booking_id": "BK-303",
+        "guest_name": "Alma Ruiz",
+        "room_type": "villa",
+        "nights": 8,
+        "guests": 5,
+        "season": "festival",
+        "extras": ["breakfast", "shuttle"],
+        "vip": false,
+        "corporate_account": ""
+      }
+    }
+  ],
+  "ledger": {
+    "policy_codes": ["member", "corporate"],
+    "payloads": [
+      {
+        "booking_id": "BK-401",
+        "guest_name": "Iris Wu",
+        "room_type": "studio",
+        "nights": 4,
+        "guests": 2,
+        "season": "regular",
+        "extras": ["parking"],
+        "vip": true,
+        "corporate_account": ""
+      },
+      {
+        "booking_id": "BK-402",
+        "guest_name": "Noah Tan",
+        "room_type": "suite",
+        "nights": 5,
+        "guests": 2,
+        "season": "shoulder",
+        "extras": ["late-checkout", "shuttle"],
+        "vip": false,
+        "corporate_account": "LATTICE"
+      }
+    ]
+  }
+}

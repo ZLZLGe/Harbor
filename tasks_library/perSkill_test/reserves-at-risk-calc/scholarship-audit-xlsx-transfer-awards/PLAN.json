@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "scholarship-audit-xlsx-transfer-awards",
+  "taskRole": "transfer",
+  "title": "Transfer: Scholarship Award Audit Workbook",
+  "goal": "Finish a financial-aid workbook by reconciling student roster, grades, and bursar balance sheets, using lookup and aggregation formulas to determine award eligibility, identify mismatches, and fill the final scholarship disbursement review sheet.",
+  "primaryOutputFile": "/root/output/scholarship_audit_result.xlsx",
+  "difficulty": "medium",
+  "category": "education-analysis",
+  "skillBenefitRationale": "This transfers the spreadsheet skill into an academic administration setting where cross-sheet lookups, formula integrity, and workbook preservation are the main challenge. No other shipped skill is needed beyond xlsx.",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

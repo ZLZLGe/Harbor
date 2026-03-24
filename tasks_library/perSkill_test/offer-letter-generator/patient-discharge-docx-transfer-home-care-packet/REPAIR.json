@@ -1,0 +1,80 @@
+{
+  "sourceTaskId": "offer-letter-generator",
+  "targetSkillDirName": "docx",
+  "runId": "20260320135556-offer-letter-generator-docx-tnq4md",
+  "taskId": "patient-discharge-docx-transfer-home-care-packet",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/offer-letter-generator/patient-discharge-docx-transfer-home-care-packet",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260320135556-offer-letter-generator-docx-tnq4md/offer-letter-generator/drafts/patient-discharge-docx-transfer-home-care-packet",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/offer-letter-generator/patient-discharge-docx-transfer-home-care-packet",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/offer-letter-generator/patient-discharge-docx-transfer-home-care-packet",
+  "status": "pass",
+  "issueCategories": [
+    "visibility"
+  ],
+  "originalReviewerIssues": [
+    "instruction.md 中直接出现 `discharge_packet_template.docx` 和 `discharge_packet_final.docx`，按字面命中 shipped skill dirName `docx`，构成技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [
+    "instruction.md 直接出现了当前 shipped skill 的 name/dirName: docx，按当前规则构成技能暴露。; visibilityPass=false"
+  ],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedTaskIds": [
+        "festival-program-docx-transfer-run-of-show",
+        "patient-discharge-docx-transfer-home-care-packet",
+        "site-audit-docx-transfer-corrective-report"
+      ],
+      "requestedIssuesByTaskId": {
+        "festival-program-docx-transfer-run-of-show": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: docx，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "patient-discharge-docx-transfer-home-care-packet": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: docx，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        },
+        "site-audit-docx-transfer-corrective-report": {
+          "reviewerIssues": [
+            "instruction.md 直接出现了当前 shipped skill 的 name/dirName: docx，按当前规则构成技能暴露。; visibilityPass=false"
+          ],
+          "staticIssues": [],
+          "pass": false
+        }
+      },
+      "repairThreadId": "019d10ec-4177-7083-bddf-cf13c24daddd",
+      "repairSummary": "- `festival-program-docx-transfer-run-of-show`: 只修改了 `instruction.md` 首段，把模板文件和输出文件的描述改成“文件名主体 + 与模板相同扩展名”，不再直接展示被禁止的扩展名；其余任务语义、`derivedTaskId`、`taskRole`、`source_task_id` 均未改动。\n- `patient-discharge-docx-transfer-home-care-packet`: 只修改了 `instruction.md` 首段，去掉对模板/输出文件完整文件名的直写，改为不暴露当前 shipped skill 标识的表述；其余元数据和测试约束未改。\n- `site-audit-docx-transfer-corrective-report`: 只修改了 `instruction.md` 首段，同样移除了带禁用扩展名的直接文件名展示，保留原有任务要求与输出语义不变。\n\n我额外检查过，这三个 `instruction.md` 里已经没有 `docx` 或 `.docx` 字样。当前工作区没有现成的本地 reviewer / static validate 入口可直接运行，所以没有执行自动校验。",
+      "reviewThreadId": "019d10ee-2f8d-7532-a3b3-a8cc01ce3039",
+      "evaluationByTaskId": {
+        "festival-program-docx-transfer-run-of-show": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "patient-discharge-docx-transfer-home-care-packet": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        },
+        "site-audit-docx-transfer-corrective-report": {
+          "reviewerIssues": [],
+          "staticIssues": [],
+          "pass": true
+        }
+      }
+    }
+  ]
+}

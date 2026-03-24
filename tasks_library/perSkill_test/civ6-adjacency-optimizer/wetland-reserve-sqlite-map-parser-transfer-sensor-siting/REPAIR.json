@@ -1,0 +1,24 @@
+{
+  "sourceTaskId": "civ6-adjacency-optimizer",
+  "targetSkillDirName": "sqlite-map-parser",
+  "runId": "20260318193712-civ6-adjacency-optimizer-sqlite-map-parser-zpelyy",
+  "taskId": "wetland-reserve-sqlite-map-parser-transfer-sensor-siting",
+  "sourceFailPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_rereview/fail/civ6-adjacency-optimizer/wetland-reserve-sqlite-map-parser-transfer-sensor-siting",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260318193712-civ6-adjacency-optimizer-sqlite-map-parser-zpelyy/civ6-adjacency-optimizer/drafts/wetland-reserve-sqlite-map-parser-transfer-sensor-siting",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/candidate/civ6-adjacency-optimizer/wetland-reserve-sqlite-map-parser-transfer-sensor-siting",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_reviewer_fixed/pass/civ6-adjacency-optimizer/wetland-reserve-sqlite-map-parser-transfer-sensor-siting",
+  "status": "pass",
+  "issueCategories": [
+    "testability"
+  ],
+  "originalReviewerIssues": [
+    "测试对 `candidate_sites[].coverable_habitat_codes`、`deployment_plan.covered_habitat_codes`、`deployment_plan.uncovered_habitat_codes` 和 `deployment_plan.sensors` 的数组顺序有精确要求，但 instruction.md 没有声明这些数组的排序规则，输出不可完全判定。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "baselineReviewerIssues": [],
+  "baselineStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [],
+  "attempts": []
+}

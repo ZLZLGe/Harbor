@@ -1,0 +1,504 @@
+{
+  "nodes": [
+    {
+      "id": "Start",
+      "text": "Welcome to the warranty desk. I can help with a refund, exchange, or specialist handoff.",
+      "speaker": "Assistant",
+      "type": "line"
+    },
+    {
+      "id": "IntentMenu",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "OrderLookup",
+      "text": "Please confirm the order number and whether the package has been opened.",
+      "speaker": "Assistant",
+      "type": "line"
+    },
+    {
+      "id": "LookupChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "MissingOrder",
+      "text": "I can keep the case open if you have a receipt email or shipping label photo.",
+      "speaker": "Assistant",
+      "type": "line"
+    },
+    {
+      "id": "MissingOrderChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "OrderRecovered",
+      "text": "Receipt matched. The order is now attached to this case.",
+      "speaker": "PolicyBot",
+      "type": "line"
+    },
+    {
+      "id": "RefundEligible",
+      "text": "This order qualifies for an immediate return label and refund review.",
+      "speaker": "PolicyBot",
+      "type": "line"
+    },
+    {
+      "id": "RefundChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DamageReport",
+      "text": "I am sorry the item arrived damaged. I need a quick condition check before I proceed.",
+      "speaker": "Assistant",
+      "type": "line"
+    },
+    {
+      "id": "DamageEvidenceChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DamagePhotoRequest",
+      "text": "Please upload clear photos within 48 hours so the claim stays in the fast lane.",
+      "speaker": "Assistant",
+      "type": "line"
+    },
+    {
+      "id": "DamagePhotoChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "DamageVerified",
+      "text": "The photos confirm transit damage and waive the normal return shipping step.",
+      "speaker": "PolicyBot",
+      "type": "line"
+    },
+    {
+      "id": "DamageResolutionChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "SafetyEscalation",
+      "text": "Unsafe-item reports bypass automation and go straight to a human safety specialist.",
+      "speaker": "Routing",
+      "type": "line"
+    },
+    {
+      "id": "ExchangeIntent",
+      "text": "I can check stock, review exchange fees, or route a warranty defect to manual review.",
+      "speaker": "Assistant",
+      "type": "line"
+    },
+    {
+      "id": "ExchangeCheckChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ExchangeStockCheck",
+      "text": "The preferred replacement can be reserved if inventory is available when the request is confirmed.",
+      "speaker": "WarehouseAgent",
+      "type": "line"
+    },
+    {
+      "id": "ExchangeStockChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "ExchangeManualReview",
+      "text": "Open-box exchanges may include a restocking fee unless a specialist overrides it.",
+      "speaker": "PolicyBot",
+      "type": "line"
+    },
+    {
+      "id": "ManualReviewChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "WarrantyTroubleshoot",
+      "text": "Before I escalate a warranty defect, please confirm whether the reset checklist fixed the issue.",
+      "speaker": "Assistant",
+      "type": "line"
+    },
+    {
+      "id": "WarrantyTroubleshootChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "PolicyLateReturn",
+      "text": "Standard refunds have expired, but some orders can still receive store credit or a manual exception review.",
+      "speaker": "PolicyBot",
+      "type": "line"
+    },
+    {
+      "id": "LateReturnChoice",
+      "text": "",
+      "speaker": "",
+      "type": "choice"
+    },
+    {
+      "id": "HumanQueue",
+      "text": "I am transferring this case with the order notes and chat transcript attached.",
+      "speaker": "Routing",
+      "type": "line"
+    },
+    {
+      "id": "HumanHandoffConfirmed",
+      "text": "A returns specialist will reply within two business hours with the next steps.",
+      "speaker": "ReturnsLead",
+      "type": "line"
+    },
+    {
+      "id": "RefundIssued",
+      "text": "Refund approved. The payment reversal starts after the carrier scans the return label.",
+      "speaker": "PolicyBot",
+      "type": "line"
+    },
+    {
+      "id": "StoreCreditOffered",
+      "text": "Store credit approved. The credit memo will arrive by email once the case is closed.",
+      "speaker": "PolicyBot",
+      "type": "line"
+    },
+    {
+      "id": "ExchangeCreated",
+      "text": "Exchange order created. A replacement confirmation and return instructions are on the way.",
+      "speaker": "WarehouseAgent",
+      "type": "line"
+    },
+    {
+      "id": "RequestDenied",
+      "text": "I cannot approve this request automatically without the required policy checks.",
+      "speaker": "PolicyBot",
+      "type": "line"
+    },
+    {
+      "id": "RequestClosed",
+      "text": "Case closed without shipment or refund. You can reopen it later if new documents arrive.",
+      "speaker": "Assistant",
+      "type": "line"
+    }
+  ],
+  "edges": [
+    {
+      "from": "Start",
+      "to": "IntentMenu",
+      "text": ""
+    },
+    {
+      "from": "IntentMenu",
+      "to": "OrderLookup",
+      "text": "1. Request a refund for a sealed order."
+    },
+    {
+      "from": "IntentMenu",
+      "to": "DamageReport",
+      "text": "2. Report a damaged delivery."
+    },
+    {
+      "from": "IntentMenu",
+      "to": "ExchangeIntent",
+      "text": "3. Ask for an exchange."
+    },
+    {
+      "from": "IntentMenu",
+      "to": "HumanQueue",
+      "text": "4. Speak to a returns specialist now."
+    },
+    {
+      "from": "OrderLookup",
+      "to": "LookupChoice",
+      "text": ""
+    },
+    {
+      "from": "LookupChoice",
+      "to": "RefundEligible",
+      "text": "1. [Within 30 Days] Order is confirmed and the package is still sealed."
+    },
+    {
+      "from": "LookupChoice",
+      "to": "MissingOrder",
+      "text": "2. I cannot find the order number yet."
+    },
+    {
+      "from": "LookupChoice",
+      "to": "PolicyLateReturn",
+      "text": "3. The order was delivered more than 30 days ago."
+    },
+    {
+      "from": "LookupChoice",
+      "to": "HumanQueue",
+      "text": "4. This is a billing or payment dispute."
+    },
+    {
+      "from": "MissingOrder",
+      "to": "MissingOrderChoice",
+      "text": ""
+    },
+    {
+      "from": "MissingOrderChoice",
+      "to": "OrderRecovered",
+      "text": "1. Upload the receipt email now."
+    },
+    {
+      "from": "MissingOrderChoice",
+      "to": "RequestDenied",
+      "text": "2. Continue without proof of purchase."
+    },
+    {
+      "from": "MissingOrderChoice",
+      "to": "HumanQueue",
+      "text": "3. I want a person to review the account."
+    },
+    {
+      "from": "OrderRecovered",
+      "to": "RefundEligible",
+      "text": ""
+    },
+    {
+      "from": "RefundEligible",
+      "to": "RefundChoice",
+      "text": ""
+    },
+    {
+      "from": "RefundChoice",
+      "to": "RefundIssued",
+      "text": "1. Refund the original payment method."
+    },
+    {
+      "from": "RefundChoice",
+      "to": "ExchangeIntent",
+      "text": "2. Convert this into an exchange instead."
+    },
+    {
+      "from": "RefundChoice",
+      "to": "StoreCreditOffered",
+      "text": "3. Accept store credit with a bonus voucher."
+    },
+    {
+      "from": "DamageReport",
+      "to": "DamageEvidenceChoice",
+      "text": ""
+    },
+    {
+      "from": "DamageEvidenceChoice",
+      "to": "DamageVerified",
+      "text": "1. [Photo Attached] I have box and product photos ready."
+    },
+    {
+      "from": "DamageEvidenceChoice",
+      "to": "SafetyEscalation",
+      "text": "2. The item is leaking, sparking, or unsafe to touch."
+    },
+    {
+      "from": "DamageEvidenceChoice",
+      "to": "DamagePhotoRequest",
+      "text": "3. I do not have photos yet."
+    },
+    {
+      "from": "DamagePhotoRequest",
+      "to": "DamagePhotoChoice",
+      "text": ""
+    },
+    {
+      "from": "DamagePhotoChoice",
+      "to": "DamageVerified",
+      "text": "1. I will send the photos now."
+    },
+    {
+      "from": "DamagePhotoChoice",
+      "to": "HumanQueue",
+      "text": "2. I cannot provide photos."
+    },
+    {
+      "from": "DamagePhotoChoice",
+      "to": "RequestClosed",
+      "text": "3. Cancel the damage claim."
+    },
+    {
+      "from": "DamageVerified",
+      "to": "DamageResolutionChoice",
+      "text": ""
+    },
+    {
+      "from": "DamageResolutionChoice",
+      "to": "ExchangeCreated",
+      "text": "1. Ship a replacement immediately."
+    },
+    {
+      "from": "DamageResolutionChoice",
+      "to": "RefundIssued",
+      "text": "2. Refund me instead of replacing it."
+    },
+    {
+      "from": "DamageResolutionChoice",
+      "to": "HumanQueue",
+      "text": "3. Arrange a specialist callback."
+    },
+    {
+      "from": "SafetyEscalation",
+      "to": "HumanQueue",
+      "text": ""
+    },
+    {
+      "from": "ExchangeIntent",
+      "to": "ExchangeCheckChoice",
+      "text": ""
+    },
+    {
+      "from": "ExchangeCheckChoice",
+      "to": "ExchangeStockCheck",
+      "text": "1. [Unopened] I need a different size or color."
+    },
+    {
+      "from": "ExchangeCheckChoice",
+      "to": "ExchangeManualReview",
+      "text": "2. The box was opened, but the item was never used."
+    },
+    {
+      "from": "ExchangeCheckChoice",
+      "to": "WarrantyTroubleshoot",
+      "text": "3. The item was used and is now failing under warranty."
+    },
+    {
+      "from": "ExchangeCheckChoice",
+      "to": "OrderLookup",
+      "text": "4. I would rather take a refund."
+    },
+    {
+      "from": "ExchangeStockCheck",
+      "to": "ExchangeStockChoice",
+      "text": ""
+    },
+    {
+      "from": "ExchangeStockChoice",
+      "to": "ExchangeCreated",
+      "text": "1. Reserve the in-stock replacement."
+    },
+    {
+      "from": "ExchangeStockChoice",
+      "to": "StoreCreditOffered",
+      "text": "2. The preferred model is out of stock, so offer store credit."
+    },
+    {
+      "from": "ExchangeStockChoice",
+      "to": "HumanQueue",
+      "text": "3. I need help choosing an equivalent item."
+    },
+    {
+      "from": "ExchangeManualReview",
+      "to": "ManualReviewChoice",
+      "text": ""
+    },
+    {
+      "from": "ManualReviewChoice",
+      "to": "ExchangeCreated",
+      "text": "1. Accept the fee and create the exchange."
+    },
+    {
+      "from": "ManualReviewChoice",
+      "to": "HumanQueue",
+      "text": "2. Ask a supervisor to waive the fee."
+    },
+    {
+      "from": "ManualReviewChoice",
+      "to": "RequestClosed",
+      "text": "3. Cancel this exchange request."
+    },
+    {
+      "from": "WarrantyTroubleshoot",
+      "to": "WarrantyTroubleshootChoice",
+      "text": ""
+    },
+    {
+      "from": "WarrantyTroubleshootChoice",
+      "to": "RequestClosed",
+      "text": "1. [Reset Completed] The device works after troubleshooting."
+    },
+    {
+      "from": "WarrantyTroubleshootChoice",
+      "to": "HumanQueue",
+      "text": "2. The device still fails after troubleshooting."
+    },
+    {
+      "from": "WarrantyTroubleshootChoice",
+      "to": "HumanQueue",
+      "text": "3. The serial label is missing."
+    },
+    {
+      "from": "PolicyLateReturn",
+      "to": "LateReturnChoice",
+      "text": ""
+    },
+    {
+      "from": "LateReturnChoice",
+      "to": "StoreCreditOffered",
+      "text": "1. Accept store credit instead of a refund."
+    },
+    {
+      "from": "LateReturnChoice",
+      "to": "HumanQueue",
+      "text": "2. Request a manual exception review."
+    },
+    {
+      "from": "LateReturnChoice",
+      "to": "RequestDenied",
+      "text": "3. Close the case with no action."
+    },
+    {
+      "from": "HumanQueue",
+      "to": "HumanHandoffConfirmed",
+      "text": ""
+    },
+    {
+      "from": "HumanHandoffConfirmed",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "RefundIssued",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "StoreCreditOffered",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "ExchangeCreated",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "RequestDenied",
+      "to": "End",
+      "text": ""
+    },
+    {
+      "from": "RequestClosed",
+      "to": "End",
+      "text": ""
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "model-qc-power-flow-data-transfer-topology-audit"
+name = "Transfer: Topology Data Quality Audit"
+description = "Audit a MATPOWER snapshot for topology and reference anomalies, then write topology_audit.json with orphan buses, duplicate corridors, branch issues, invalid generator references, and a normalized bus map."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "power-flow", "matpower", "topology-qc", "data-quality"]
+primary_output_file = "topology_audit.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

@@ -1,0 +1,91 @@
+{
+  "study_id": "campus-feeder-recon-2034-09-15T07:30:00+08:00",
+  "bus_voltages": [
+    {
+      "bus": 201,
+      "vm_pu": 1.015,
+      "va_deg": 0.0
+    },
+    {
+      "bus": 202,
+      "vm_pu": 1.003,
+      "va_deg": -0.85
+    },
+    {
+      "bus": 203,
+      "vm_pu": 0.994,
+      "va_deg": -1.62
+    },
+    {
+      "bus": 204,
+      "vm_pu": 0.991,
+      "va_deg": -1.4
+    },
+    {
+      "bus": 205,
+      "vm_pu": 0.986,
+      "va_deg": -2.1
+    },
+    {
+      "bus": 206,
+      "vm_pu": 0.988,
+      "va_deg": -1.95
+    }
+  ],
+  "bus_measurements": [
+    {
+      "bus": 201,
+      "p_load_MW": 0.08,
+      "q_load_MVAr": 0.04,
+      "p_feeder_head_import_MW": 6.03,
+      "q_feeder_head_import_MVAr": 3.55,
+      "p_distributed_generation_MW": 0.0,
+      "q_distributed_generation_MVAr": 0.0
+    },
+    {
+      "bus": 202,
+      "p_load_MW": 0.62,
+      "q_load_MVAr": 0.21,
+      "p_feeder_head_import_MW": 0.0,
+      "q_feeder_head_import_MVAr": 0.0,
+      "p_distributed_generation_MW": 5.27,
+      "q_distributed_generation_MVAr": 8.71
+    },
+    {
+      "bus": 203,
+      "p_load_MW": 1.38,
+      "q_load_MVAr": 0.56,
+      "p_feeder_head_import_MW": 0.0,
+      "q_feeder_head_import_MVAr": 0.0,
+      "p_distributed_generation_MW": 1.71,
+      "q_distributed_generation_MVAr": 1.34
+    },
+    {
+      "bus": 204,
+      "p_load_MW": 5.12,
+      "q_load_MVAr": 8.74,
+      "p_feeder_head_import_MW": 0.0,
+      "q_feeder_head_import_MVAr": 0.0,
+      "p_distributed_generation_MW": 4.82,
+      "q_distributed_generation_MVAr": 0.15
+    },
+    {
+      "bus": 205,
+      "p_load_MW": 4.61,
+      "q_load_MVAr": 2.94,
+      "p_feeder_head_import_MW": 0.0,
+      "q_feeder_head_import_MVAr": 0.0,
+      "p_distributed_generation_MW": 0.0,
+      "q_distributed_generation_MVAr": 0.0
+    },
+    {
+      "bus": 206,
+      "p_load_MW": 5.22,
+      "q_load_MVAr": 0.38,
+      "p_feeder_head_import_MW": 0.0,
+      "q_feeder_head_import_MVAr": 0.0,
+      "p_distributed_generation_MW": 0.0,
+      "q_distributed_generation_MVAr": 0.0
+    }
+  ]
+}

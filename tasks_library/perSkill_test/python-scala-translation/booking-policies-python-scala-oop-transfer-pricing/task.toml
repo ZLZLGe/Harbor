@@ -1,0 +1,30 @@
+version = "1.0"
+
+[metadata]
+id = "booking-policies-python-scala-oop-transfer-pricing"
+name = "Transfer: 预订定价策略翻译"
+description = "将 Python 预订定价策略模块翻译为 Scala 2.13，并输出可编译的 /root/BookingPolicies.scala。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "oop", "pricing"]
+primary_output_file = "/root/BookingPolicies.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]

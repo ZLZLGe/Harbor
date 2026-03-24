@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "conference-session-pptx-similar-index"
+name = "Similar - Normalize Floating Session Titles and Build a Session Index"
+description = "Normalize floating session-title text boxes in an existing summit recap deck and save the updated presentation with a deduplicated Session Index slide."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "office-suite"
+tags = ["pptx", "slides", "ooxml", "formatting", "index"]
+primary_output_file = "/root/AI-Summit-Sessions_processed.pptx"
+source_task_id = "pptx-reference-formatting"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

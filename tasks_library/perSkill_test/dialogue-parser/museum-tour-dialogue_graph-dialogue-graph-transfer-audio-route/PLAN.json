@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "museum-tour-dialogue_graph-dialogue-graph-transfer-audio-route",
+  "taskRole": "transfer",
+  "title": "Transfer: Museum Audio Route Graph Parser",
+  "goal": "解析一份互动博物馆语音导览脚本，把展厅讲解、访客选择和回访路线转换为图结构 JSON，并保留可视化所需的边标签。",
+  "primaryOutputFile": "/app/museum_route.json",
+  "difficulty": "easy",
+  "category": "education",
+  "skillBenefitRationale": "这个任务把技能迁移到导览路线设计，但关键工作依旧是构建和验证分支图、区分叙述节点与选择节点，并导出统一格式；dialogue_graph 足以独立完成。",
+  "targetSkillDirName": "dialogue_graph",
+  "targetSkillName": "dialogue-graph"
+}

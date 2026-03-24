@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "retail-margin-xlsx-similar-pivot-report",
+  "taskRole": "similar",
+  "title": "Similar: Retail Margin Pivot Workbook",
+  "goal": "读取销售明细工作簿与商品主数据工作簿，按 SKU 关联品类与成本，生成一个新的 Excel 报表，其中包含清洗后的 SourceData 工作表、毛利与折扣带字段，以及按地区、品类、销售渠道和折扣带汇总的多张透视表。",
+  "primaryOutputFile": "/root/retail_margin_report.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "这个任务保留了 Excel 作为输入与最终分析载体的核心模式，重点训练多工作簿读取、表间关联、派生列计算和透视表构建，属于 xlsx 技能的典型高频用法。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,34 @@
+version = "1.0"
+
+[metadata]
+id = "electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance"
+name = "Similar - SMT Reflow Baseline Repair"
+description = "Repair an SMT baseline schedule under downtime windows, illegal machine assignments, and tight change-budget limits."
+author_name = "OpenAI Codex"
+author_email = "noreply@example.com"
+difficulty = "medium"
+category = "manufacturing"
+primary_output_file = "drafts/electronics-smt-fjsp-baseline-repair-with-downtime-and-policy-similar-reflow-maintenance/task.toml"
+source_task_id = "manufacturing-fjsp-optimization"
+task_role = "similar"
+tags = [
+  "optimization",
+  "manufacturing",
+  "electronics assembly",
+  "flexible job shop scheduling",
+  "baseline repair",
+]
+required_skills = [ "fjsp-baseline-repair-with-downtime-and-policy",]
+distractor_skills = [ "queueing-analysis", "inventory-balancing", "vision-inspection",]
+
+[verifier]
+timeout_sec = 450.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120

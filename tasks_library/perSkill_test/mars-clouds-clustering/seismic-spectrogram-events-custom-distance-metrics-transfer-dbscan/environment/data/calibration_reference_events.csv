@@ -1,0 +1,7 @@
+station_id,reference_event_id,event_time_sec,event_frequency_hz
+CAL_A,CAL_A_R01,10.0,80.0
+CAL_A,CAL_A_R02,13.8,104.0
+CAL_A,CAL_A_R03,25.5,118.0
+CAL_B,CAL_B_R01,8.5,70.0
+CAL_B,CAL_B_R02,12.2,96.0
+CAL_B,CAL_B_R03,29.5,84.0

@@ -1,0 +1,38 @@
+version = "1.0"
+
+[metadata]
+id = "club-powerlifting-transfer-team-dots-summary"
+name = "Transfer: 俱乐部杯 Dots 团队积分汇总"
+description = "从俱乐部杯报名工作簿中生成个人 Dots 明细和按俱乐部前 3 名成绩汇总的团队积分榜，并保存为 /root/data/team_dots_summary.xlsx。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data-analysis"
+tags = [
+  "excel",
+  "sports",
+  "team-ranking",
+  "formula",
+  "powerlifting"
+]
+primary_output_file = "/root/data/team_dots_summary.xlsx"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]
