@@ -8,7 +8,8 @@
     "batch": "node --import tsx src/cli.ts batch",
     "review": "node --import tsx src/cli.ts review",
     "check": "tsc --noEmit",
-    "test:prompts": "node --import tsx tests/prompts.test.ts"
+    "test:prompts": "node --import tsx tests/prompts.test.ts",
+    "test:validate": "node --import tsx tests/validate.test.ts"
   },
   "dependencies": {
     "@openai/codex-sdk": "^0.114.0",

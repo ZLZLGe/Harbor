@@ -31,6 +31,29 @@ function renderScopeBrief(unit: GenerationUnit): string {
   `);
 }
 
+function renderSourceTaskReferenceRules(assetTargetDir: string): string {
+  return dedent(`
+    源任务参考规则:
+    - source_task/ 只是参考，不是模板；不要机械复写原任务。
+    - 你可以复用、裁剪、重命名 source_task/environment/ 中的输入资产，也可以在 ${assetTargetDir} 下新建全新的输入资产。
+    - 派生任务不要求保留 source task 的原始素材、文件名或目录结构；只要任务目标、验证方式和 shipped skill 约束合理即可。
+  `);
+}
+
+function renderHarborOracleBaseline(): string {
+  return dedent(`
+    Harbor oracle 基线:
+    - Harbor 会执行 /tests/test.sh 作为 verifier 入口。
+    - tests/test.sh 在任何写日志、CTRF 或 reward 之前，必须先执行 mkdir -p /logs/verifier。
+    - Harbor 只识别 /logs/verifier/reward.txt 和 /logs/verifier/reward.json；写到其他位置不会被识别，可能触发 RewardFileNotFoundError。
+    - tests/test.sh 不得只是裸跑 pytest、python3 /tests/test_outputs.py 或其他单条测试命令后直接结束；你必须显式捕获测试退出码并据此写 reward。
+    - 如果使用 set -e 或 pipefail，必须确保测试失败时不会在写 reward 前提前退出。
+    - 是否联网不是默认违规项；如果 verifier 需要联网或外部服务，仍必须保证 Harbor 中可运行，并稳定落盘 reward。
+    - 优先单容器、轻量环境；避免明显超重的镜像构建、多服务编排、长启动链路、运行时大下载或需要长时间预热的模型/服务。
+    - 如果 source task 的旧写法与 Harbor verifier 契约冲突，以 Harbor verifier 契约为准。
+  `);
+}
+
 export function buildTaskBuilderBrief(unit: GenerationUnit): string {
   const sourceTask = unit.sourceTask;
   const visibleSkills = getVisibleSkills(unit);
@@ -55,10 +78,9 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     3. family 固定包含 1 个 similar 任务和 3 个 transfer 任务。
     4. similar 任务用于测试当前 shipped skill 的典型用法，必须足够接近，但不能只是轻微改名。
     5. transfer 任务用于测试当前 shipped skill 在不同场景中的泛化性，三者必须彼此明显不同。
-    6. instruction.md 应尽量避免直接明示技能，也不应新增 source task 中没有的具体 skill 点名。
-       - 以 source_task/instruction.md 为基线判断。
-       - 如果 source task 本身已经直接写出某个技术或技能名称，派生任务沿用同等级别的表述不算违规。
-       - 只有当派生任务比 source task 更直接地提示技能，或引入 source task 没写过的新 skill 名称时，才算越界。
+    6. instruction.md 不要直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName；只有这种直接点名才算技能暴露。
+       - 不要把当前 shipped skill 的 name 或 dirName 写成任务提示、工具名、能力名或解题线索。
+       - 不要让任务依赖 source task 中其他未随当前 per-skill workspace 提供的 skills。
     7. 每个完整任务必须是 Harbor 风格目录，至少包含:
        - task.toml
        - instruction.md
@@ -73,6 +95,8 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     11. environment/skills/ 中只允许保留当前 shipped skills。
     12. 同一 scratch workspace 内，后续任务生成时必须检查 drafts/ 下已经完成的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出物语义和测试判定方式上过于接近。
        - 这里只需要关注当前 workspace 的 drafts/，不需要查看更早之前生成的 integrated_tasks/ 或 manifest。
+    ${renderSourceTaskReferenceRules("drafts/<derived_task_id>/environment/")}
+    ${renderHarborOracleBaseline()}
   `);
 }
 
@@ -122,7 +146,10 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
     - transfer 任务 derivedTaskId 必须包含 "-transfer-"。
     - primaryOutputFile 必须在 4 个任务之间唯一。
     - metadata.name 后续必须能显式显示 Similar/Transfer 角色。
-
+    - 只规划那些能在 Harbor 常规 build/start/verify 时限内完成的任务。
+    - source_task/ 只是参考，不是模板；必要时可以新增全新输入资产，而不是机械复用原始素材。
+    - family 内任务应通过任务目标、输入资产、输出语义和验证方式拉开差异，不要只靠轻微改名或改参数区分。
+    - 如果规划需要联网或外部服务，不要把它视为默认违规项，但仍要保证 Harbor 中可运行，且 verifier 能稳定写 reward。
     返回严格符合 schema 的 JSON，不要输出额外解释。
   `);
 }
@@ -170,8 +197,8 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
 
     已知约束:
     ${skillConstraint}
-    - 你可以从 source_task/environment/ 中选择性复制需要的输入资产到 drafts/${plan.derivedTaskId}/environment/。
-    - 请基于 source_task/environment/Dockerfile 调整出新的 environment/Dockerfile。
+    ${renderSourceTaskReferenceRules(`drafts/${plan.derivedTaskId}/environment/`)}
+    - 请基于 source_task/environment/Dockerfile 调整出新的 environment/Dockerfile；必要时可以做实质性改写。
     - environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
     - task.toml 中 metadata.id 必须等于 "${plan.derivedTaskId}"。
     - task.toml 中 metadata.name 必须显式包含 "${roleLabel}"。
@@ -188,11 +215,22 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
       - source_task_id = "${sourceTask.sourceTaskId}"
       - task_role = "${plan.taskRole}"
     - 如果 task.toml 缺少上述任一 metadata 字段，或者关键字段值不匹配，该任务会在 static validate 阶段直接失败，不能发布。
-    - instruction.md 应尽量避免直接明示要使用技能，也不要引入 source task 没写过的具体 skill 名称。
-    - 以 source_task/instruction.md 为基线：如果 source task 本身已经明确点出同一技术或技能名称，派生任务沿用同等级别表述可以接受，但不要写得比 source task 更直接。
+    - instruction.md 不要直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName；只有这种直接点名才算技能暴露。
     - solution/solve.sh 和 tests/test_outputs.py 必须能验证该任务。
     - primaryOutputFile 必须为 "${plan.primaryOutputFile}"。
     - 当前 source task ID 为 "${sourceTask.sourceTaskId}"。
+    - 下面这些 Harbor oracle 约束默认优先于 source task 中较旧或较松散的写法：
+      - Harbor 会执行 /tests/test.sh 作为 verifier 入口。
+      - tests/test.sh 在任何写日志、CTRF 或 reward 之前，必须先执行 mkdir -p /logs/verifier。
+      - Harbor 只识别 /logs/verifier/reward.txt 和 /logs/verifier/reward.json；写到其他位置不会被识别，可能触发 RewardFileNotFoundError。
+      - tests/test.sh 不得只是裸跑 pytest、python3 /tests/test_outputs.py 或其他单条测试命令后直接结束；你必须显式捕获测试退出码并据此写 reward。
+      - 如果使用 set -e 或 pipefail，必须确保测试失败时不会在写 reward 前提前退出；必要时对测试命令局部 set +e 或采用等价写法。
+      - 无论测试通过还是失败，都必须稳定写出 /logs/verifier/reward.txt 或 /logs/verifier/reward.json；推荐通过写 1，失败写 0。
+      - 应优先采用这个顺序：先 mkdir -p /logs/verifier，再运行测试并捕获退出码，再写 reward，最后再复制可选 artifacts。
+      - 是否联网不是默认违规项；如果 verifier 需要联网或外部服务，仍必须保证 Harbor 中可运行，并稳定落盘 reward。
+      - environment/Dockerfile 应尽量保持轻量、稳定、可在 Harbor 中快速 build/start；避免明显超重的镜像、长启动链路、运行时大下载或多服务编排。
+      - 不要把 Harbor 关键 verifier 依赖留到 tests/test.sh 中临时安装；必须依赖的核心系统包、运行库或重量级 Python 包应尽量前置到 environment/Dockerfile。
+      - environment/Dockerfile 默认只保留 Harbor 实际需要的 skill copy：必须保留 COPY skills /root/.codex/skills，不要额外复制到 /root/.claude/skills、/root/.gemini/skills 等其他代理目录，除非任务在 Harbor 中确实需要。
 
     你需要创建或更新这些文件:
     - task.toml
@@ -206,14 +244,13 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     写完文件后，返回严格符合 schema 的 JSON，总结你写入了哪些文件。
   `);
 }
-
 export function buildReviewerPrompt(unit: GenerationUnit, familyPlan: FamilyPlan): string {
   const taskList = familyPlan.derivedTasks
     .map((task) => `- ${task.derivedTaskId} (${task.taskRole}) -> drafts/${task.derivedTaskId}/`)
     .join("\n");
   const skillReviewRule =
     unit.skillMode === "per-skill"
-      ? `- 每个任务是否只依赖当前唯一 shipped skill：${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"})，而不是偷偷依赖其他专用 skills`
+      ? `- 每个任务是否只依赖当前唯一 shipped skill：${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"})，如果完成任务除了当前 shipped skill 之外，还需要依赖 source task 其他未随当前 per-skill workspace一起提供的 skills，就直接判定失败`
       : `- 任务是否真的能从 shipped skills 受益`;
 
   return dedent(`
@@ -232,11 +269,20 @@ export function buildReviewerPrompt(unit: GenerationUnit, familyPlan: FamilyPlan
 
     审查目标:
     - 对每个任务分别判断：
-      - 先把 source_task/instruction.md 当作基线，而不是脱离 source task 单独判定
-      - instruction.md 是否比 source_task/instruction.md 更直接地明示了技能，或引入了 source task 未出现的具体 skill 名称
-      - 测试是否可判定
+      - instruction.md 是否直接出现了当前 environment/skills/ 里的 shipped skill 的 name 或 dirName；只有这种直接点名才算技能暴露
+      - source_task/ 是否只是参考，而不是机械复写源任务
+      - 是否合理复用或新建输入资产，并与同 family 其他任务拉开差异
+      - 测试是否可判定，尤其要检查：
+        - tests/test.sh 是否先创建 /logs/verifier
+        - reward 是否写到 /logs/verifier/reward.txt 或 /logs/verifier/reward.json，而不是写到其他目录
+        - 是否稳定写出 reward.txt/reward.json，而不是裸跑测试后直接结束
+        - 是否存在 set -e/pipefail 导致写 reward 前提前退出的路径
+        - 如果任务使用联网或外部服务，是否仍能在 Harbor 中稳定运行并稳定写 reward
+        - Dockerfile / test harness 是否明显过重，容易导致 Harbor build/start timeout
+        - environment/Dockerfile 是否只保留 Harbor 需要的 skill copy，避免无谓复制到其他 agent 目录
       ${skillReviewRule}
       - 该任务是否应通过 reviewer
+      - 只要命中上述任一 Harbor testability 问题，就将 testabilityPass 设为 false，并在 issues 中直接点明具体问题
     - 对 family 整体单独给出观察：
       - family 是否满足 1 个 similar + 3 个 transfer
       - 3 个 transfer 任务是否彼此足够不同

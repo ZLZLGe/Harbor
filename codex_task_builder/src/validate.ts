@@ -229,6 +229,33 @@ function parseTaskMetadata(taskToml: string): ParsedTaskMetadata {
   };
 }
 
+function normalizeRelativePathForComparison(value: string): string {
+  const normalized = value.replace(/\\/g, "/");
+  return normalized.startsWith("./") ? normalized.slice(2) : normalized;
+}
+
+function matchesBlueprintPrimaryOutputFile(
+  plan: DerivedTaskPlan,
+  writerPrimaryOutputFile: string,
+): boolean {
+  if (writerPrimaryOutputFile === plan.primaryOutputFile) {
+    return true;
+  }
+
+  if (plan.primaryOutputFile.includes("/") || plan.primaryOutputFile.includes("\\")) {
+    return false;
+  }
+
+  const expectedDraftOutputPath = path.posix.join(
+    "drafts",
+    plan.derivedTaskId,
+    "environment",
+    plan.primaryOutputFile,
+  );
+
+  return normalizeRelativePathForComparison(writerPrimaryOutputFile) === expectedDraftOutputPath;
+}
+
 export async function validateDraftStatic(
   draftDir: string,
   plan: DerivedTaskPlan,
@@ -388,7 +415,7 @@ export async function validateDraftStatic(
     }
   }
 
-  if (writerSummary.primaryOutputFile !== plan.primaryOutputFile) {
+  if (!matchesBlueprintPrimaryOutputFile(plan, writerSummary.primaryOutputFile)) {
     issues.push({
       scope: "static",
       taskId: plan.derivedTaskId,

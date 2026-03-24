@@ -125,7 +125,7 @@ npm run generate-family -- \
 ```bash
 cd /home/levi/Harbor/codex_task_builder
 npm run generate-family -- \
-  --source-task-id citation-check \
+  --source-task-id dynamic-object-aware-egomotion \
   --skill-mode per-skill \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
   --output-root /home/levi/Harbor/tasks_library/perSkill_test
@@ -145,7 +145,7 @@ cd /home/levi/Harbor/codex_task_builder
 export CODEX_TASK_BUILDER_MODEL=gpt-5.4
 npm run batch -- \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
-  --output-root /home/levi/Harbor/tasks_library/integrated_tasks \
+  --output-root /home/levi/Harbor/tasks_library/perSkill_test \
   --skill-mode per-skill \
   --limit 10 \
   --family-concurrency 2
