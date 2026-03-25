@@ -1,0 +1,14 @@
+{
+  "session_id": "cc_train_204",
+  "merge_gap_sec": 0.15,
+  "sides": {
+    "left": {
+      "expected_role": "agent",
+      "display_name": "trainer_agent"
+    },
+    "right": {
+      "expected_role": "customer",
+      "display_name": "mock_customer"
+    }
+  }
+}

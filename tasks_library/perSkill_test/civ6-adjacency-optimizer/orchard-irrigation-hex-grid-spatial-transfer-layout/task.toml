@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "orchard-irrigation-hex-grid-spatial-transfer-layout"
+name = "Transfer: 六角农田喷灌布局优化"
+description = "在 odd-r 六角果园中选择满足非相邻约束的最少喷灌基座，覆盖全部作物并输出基座与覆盖清单。"
+author_name = "Levi Harbor"
+author_email = "levi.harbor@example.com"
+difficulty = "hard"
+category = "agriculture"
+tags = ["hex-grid", "coverage", "optimization", "agriculture", "spatial-reasoning"]
+primary_output_file = "/output/irrigation_layout.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "dynamic-object-aware-egomotion",
+  "targetSkillDirName": "dyn-object-masks",
+  "targetSkillName": "dyn-object-masks",
+  "runId": "20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu",
+  "taskId": "rooftop-dyn-object-masks-transfer-motion-heatmap",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/dynamic-object-aware-egomotion/dyn-object-masks/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/rooftop-dyn-object-masks-transfer-motion-heatmap",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/dynamic-object-aware-egomotion/drafts/rooftop-dyn-object-masks-transfer-motion-heatmap",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/dynamic-object-aware-egomotion/dyn-object-masks/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/rooftop-dyn-object-masks-transfer-motion-heatmap",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/dynamic-object-aware-egomotion/rooftop-dyn-object-masks-transfer-motion-heatmap",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 的 name 或 dirName，技能未暴露。; 任务把输出改成累计活动热力图，并新建了无人机视频与 spec 资产，和 source_task 及其他 transfer 任务有明确区分，不是机械复写。; tests/test_outputs.py 使用 instruction.md 未声明的隐藏数值阈值（MAE、cosine、precision、recall、mass_ratio、centroid distance）判分，属于 Harbor testability 问题。; tests/test_outputs.py 额外要求该素材必须产生非零热力图（total > 0），这是 instruction.md 未声明的素材特定隐藏要求。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "instruction.md",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 `dyn-object-masks`，构成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2445-5a72-7321-a464-201730929322",
+      "repairSummary": "修复了任务说明与测试不一致的问题：在 instruction.md 中直接暴露 shipped skill `dyn-object-masks`，公开评测规则与非零预期；同步将 tests/test_outputs.py 的 precision 阈值调整为与说明一致且 shipped solution 可通过；并移除了 Dockerfile 中会导致构建失败的 pip/setuptools/wheel 升级步骤。",
+      "reviewThreadId": "019d2462-25ac-7080-9822-22bfdb422b5b",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 `dyn-object-masks`，构成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2463-624a-7800-8da2-e57075b2b9f0",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill `dyn-object-masks` 的直接点名，改为不暴露技能名的通用描述，未改动任务目标、输出契约或测试。",
+      "reviewThreadId": "019d2464-728d-7040-a8d8-862c090dfeea",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "powerlifting-wilks-xlsx-similar-division-scoreboard"
+name = "Similar: 力量举 Wilks 分榜工作簿"
+description = "基于给定比赛工作簿，用电子表格公式填充 Scoreboard 分榜并输出 wilks_division_scoreboard.xlsx。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "data-analysis"
+tags = ["excel", "powerlifting", "ranking", "formulas", "wilks"]
+primary_output_file = "wilks_division_scoreboard.xlsx"
+source_task_id = "powerlifting-coef-calc"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

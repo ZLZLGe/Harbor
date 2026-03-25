@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "restock-dispatch-xlsx-transfer-casepack-priority"
+name = "Transfer | 补货优先级派发表"
+description = "在门店补货计划工作簿中计算到货前缺口、整箱建议单量与优先级派发结果，并输出补货预警面板。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "supply-chain-operations"
+tags = ["excel", "supply-chain", "inventory", "replenishment"]
+primary_output_file = "/root/output/restock_dispatch_board.xlsx"
+source_task_id = "reserves-at-risk-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

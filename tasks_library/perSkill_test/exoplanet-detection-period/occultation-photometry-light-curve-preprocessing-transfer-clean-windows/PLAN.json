@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "occultation-photometry-light-curve-preprocessing-transfer-clean-windows",
+  "taskRole": "transfer",
+  "title": "Transfer - 小行星掩星观测窗口清洗",
+  "goal": "提供一份地基小行星掩星观测光度序列，数据中含有云层造成的慢漂移、坏帧标记和宇宙线尖峰。任务要求完成质量筛选、异常值清除和基线归一化，并把清洗后的连续可用观测窗口及每个窗口的归一化亮度统计写入 `/root/occultation_windows.json`。验证重点放在窗口边界是否基于清洗后的有效数据、以及基线起伏是否显著下降。",
+  "primaryOutputFile": "/root/occultation_windows.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "把同一套时序清洗能力迁移到掩星测光场景，关键仍是坏点过滤、尖峰剔除和慢变基线处理，而不是掩星建模本身。",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reporting-fetch-hibernate-upgrade-transfer-n-plus-one"
+name = "Transfer: Reporting Fetch Plan and Query Count Repair"
+description = "修复报表汇总服务在当前 Hibernate 栈下的抓取与去重问题，使日报结果正确且查询次数满足统计约束。"
+author_name = "OpenAI"
+author_email = "assistant@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["hibernate", "reporting", "fetch-plan", "performance", "spring-boot"]
+primary_output_file = "/workspace/src/main/java/com/example/reporting/service/ShipmentSummaryService.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

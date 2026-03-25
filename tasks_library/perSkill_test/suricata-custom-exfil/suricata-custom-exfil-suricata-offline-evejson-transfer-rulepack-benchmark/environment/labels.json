@@ -1,0 +1,32 @@
+{
+  "samples": [
+    {
+      "pcap": "atlas-sync-a.pcap",
+      "label": "exfil"
+    },
+    {
+      "pcap": "boreal-sync-b.pcap",
+      "label": "exfil"
+    },
+    {
+      "pcap": "cirrus-archive.pcap",
+      "label": "exfil"
+    },
+    {
+      "pcap": "dune-cache.pcap",
+      "label": "exfil"
+    },
+    {
+      "pcap": "ember-login.pcap",
+      "label": "benign"
+    },
+    {
+      "pcap": "fern-updates.pcap",
+      "label": "benign"
+    },
+    {
+      "pcap": "glacier-proxy.pcap",
+      "label": "benign"
+    }
+  ]
+}

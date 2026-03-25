@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "jersey3-catalog-api-jakarta-namespace-transfer-jaxrs-jaxb"
+name = "Transfer | Jersey 3 商品目录 API 命名空间迁移"
+description = "修复 Jersey 3 商品目录 API 中遗留的 javax.ws.rs、javax.xml.bind 与 javax.annotation 命名空间，并恢复资源接口与 XML/JSON 序列化测试。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Legacy Systems"
+tags = ["jersey", "jax-rs", "jaxb", "jakarta", "migration"]
+primary_output_file = "environment/workspace/src/main/java/com/example/catalog/api/CatalogResource.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

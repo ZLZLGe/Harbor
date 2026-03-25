@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "deck-ops-pptx-similar-credit-footers",
+  "taskRole": "similar",
+  "title": "Similar: 统一图片署名页脚并生成 Credits 汇总页",
+  "goal": "给定一个已有的摄影作品展示 deck，识别散落在图片上的摄影署名文本框，将它们统一改成右下角页脚样式（Calibri、12pt、斜体、深灰色、单行显示、右对齐），并在末尾新增一页“Image Credits”按有序列表汇总去重后的署名。",
+  "primaryOutputFile": "/root/Case-Study-Credits-cleaned.pptx",
+  "difficulty": "medium",
+  "category": "office-suite",
+  "skillBenefitRationale": "这个任务仍然是典型的现有 PPTX OOXML 编辑：需要定位特定文本框、修改 run 和 paragraph 样式、重设 shape 坐标与尺寸、再追加汇总页。当前 family 里只有 pptx skill 能完整覆盖这条工作流。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

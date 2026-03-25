@@ -1,0 +1,21 @@
+{
+  "employee": {
+    "first_name": "Maya",
+    "last_name": "Chen",
+    "member_id": "A4829071",
+    "date_of_birth": "1989-07-14",
+    "mobile_phone": "415-555-0187"
+  },
+  "coverage": {
+    "medical_plan_display": "Balanced PPO 1000",
+    "tier": "employee_plus_spouse",
+    "effective_date": "2026-07-01"
+  },
+  "household": {
+    "spouse_name": "Jon Chen",
+    "spouse_uses_tobacco": true
+  },
+  "preferences": {
+    "paperless_eob": false
+  }
+}

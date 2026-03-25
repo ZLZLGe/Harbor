@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "scoreboard-image-ocr-transfer-match-rankings",
+  "taskRole": "transfer",
+  "title": "Transfer: Match Rankings from Arena Scoreboard Screens",
+  "goal": "给定多张比赛记分牌截图，提取双方队名与最终比分，生成 `/app/workspace/scoreboard_rankings.csv`，汇总每场胜负关系、分差，并按净胜分与队名规则输出排名。",
+  "primaryOutputFile": "/app/workspace/scoreboard_rankings.csv",
+  "difficulty": "medium",
+  "category": "sports analytics",
+  "skillBenefitRationale": "这里的文字来源从票据转为大字号屏幕截图，要求 OCR 处理高对比但布局稀疏的队名和比分，再驱动后续统计与排序。",
+  "targetSkillDirName": "image-ocr",
+  "targetSkillName": "image-ocr"
+}

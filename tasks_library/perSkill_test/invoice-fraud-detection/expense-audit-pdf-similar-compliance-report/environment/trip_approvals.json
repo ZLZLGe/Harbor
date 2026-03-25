@@ -1,0 +1,44 @@
+[
+  {
+    "approval_code": "TA-4821",
+    "employee_id": "E1001",
+    "approved_city": "Seattle",
+    "approved_amount": 1180.0
+  },
+  {
+    "approval_code": "TA-4822",
+    "employee_id": "E1002",
+    "approved_city": "Chicago",
+    "approved_amount": 860.0
+  },
+  {
+    "approval_code": "TA-4823",
+    "employee_id": "E1003",
+    "approved_city": "Boston",
+    "approved_amount": 640.0
+  },
+  {
+    "approval_code": "TA-4824",
+    "employee_id": "E1004",
+    "approved_city": "Austin",
+    "approved_amount": 930.0
+  },
+  {
+    "approval_code": "TA-4825",
+    "employee_id": "E1005",
+    "approved_city": "Denver",
+    "approved_amount": 720.0
+  },
+  {
+    "approval_code": "TA-4826",
+    "employee_id": "E1006",
+    "approved_city": "Atlanta",
+    "approved_amount": 540.0
+  },
+  {
+    "approval_code": "TA-4827",
+    "employee_id": "E1007",
+    "approved_city": "Seattle",
+    "approved_amount": 780.0
+  }
+]

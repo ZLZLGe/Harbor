@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "robot-patrol-sampling-and-indexing-transfer-event-windows",
+  "taskRole": "transfer",
+  "title": "Transfer: 巡检事件日志重索引",
+  "goal": "给定巡检视频和毫秒级事件日志，把事件时间段重投影到采样后的视频索引上，生成覆盖完整 sample domain 的事件窗口 JSON。",
+  "primaryOutputFile": "/root/event_windows.json",
+  "difficulty": "medium",
+  "category": "multimodal-alignment",
+  "skillBenefitRationale": "核心难点是把连续时间戳稳定换算成离散 sample index，并保证窗口 coverage、边界截断和索引单调性全部正确；任务几乎不依赖额外视觉技能。",
+  "targetSkillDirName": "sampling-and-indexing",
+  "targetSkillName": "sampling-and-indexing"
+}

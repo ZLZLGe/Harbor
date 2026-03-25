@@ -1,0 +1,7 @@
+{
+  "merge_gap_seconds": 0.28,
+  "padding_seconds": 0.08,
+  "target_sample_rate_hz": 16000,
+  "target_channels": 1,
+  "target_sample_width_bytes": 2
+}

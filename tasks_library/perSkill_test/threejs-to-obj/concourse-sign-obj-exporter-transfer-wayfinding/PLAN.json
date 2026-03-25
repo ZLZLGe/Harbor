@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "concourse-sign-obj-exporter-transfer-wayfinding",
+  "taskRole": "transfer",
+  "title": "Transfer: 导视牌坯件 OBJ 导出",
+  "goal": "给定一个由 Shape/ExtrudeGeometry、LatheGeometry 和基础支架件组成的导视牌坯件场景，生成用于 CNC 打样审阅的 `/root/output/wayfinding_sign.obj`，要求保留挤出厚度、安装孔位置和整体朝向，并完成 Blender 友好的坐标系转换；验证可检查关键厚度、开孔位置和最终几何拓扑。",
+  "primaryOutputFile": "/root/output/wayfinding_sign.obj",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "任务核心是把已在 Three.js 中构造好的挤出与旋转体几何稳定导出为 OBJ，重点完全落在导出与变换处理上，不需要 SVG、字体或 CAD 类额外 skill。",
+  "targetSkillDirName": "obj-exporter",
+  "targetSkillName": "obj-exporter"
+}

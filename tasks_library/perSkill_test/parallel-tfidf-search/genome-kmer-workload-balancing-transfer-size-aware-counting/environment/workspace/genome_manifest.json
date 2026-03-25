@@ -1,0 +1,22 @@
+{
+  "default_k": 6,
+  "files": [
+    {
+      "bases": 23876,
+      "path": "/tmp/harbor_review_errors_fixed_candidates/parallel-tfidf-search/workload-balancing/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/genome-kmer-workload-balancing-transfer-size-aware-counting/environment/workspace/genomes/reads_alpha.fasta",
+      "records": 160
+    },
+    {
+      "bases": 26921,
+      "path": "/tmp/harbor_review_errors_fixed_candidates/parallel-tfidf-search/workload-balancing/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/genome-kmer-workload-balancing-transfer-size-aware-counting/environment/workspace/genomes/reads_beta.fasta",
+      "records": 160
+    },
+    {
+      "bases": 3280000,
+      "path": "/tmp/harbor_review_errors_fixed_candidates/parallel-tfidf-search/workload-balancing/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/genome-kmer-workload-balancing-transfer-size-aware-counting/environment/workspace/genomes/ultra_fragments.fasta",
+      "records": 4
+    }
+  ],
+  "total_bases": 3330797,
+  "total_sequences": 324
+}

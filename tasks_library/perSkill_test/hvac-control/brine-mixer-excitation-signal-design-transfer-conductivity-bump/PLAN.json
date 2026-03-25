@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "brine-mixer-excitation-signal-design-transfer-conductivity-bump",
+  "taskRole": "transfer",
+  "title": "Transfer: 盐水混合槽电导率阶跃实验",
+  "goal": "在盐水混合槽模拟器中，选择投料泵的阶跃幅值与保持时间，生成 `conductivity_bump_report.json`，汇报电导率响应、估计混合增益/时间常数，以及实验是否已经接近稳态。验证会根据响应是否明显高于噪声、是否避免浓度上限越界、以及估计参数是否落在容差内打分。",
+  "primaryOutputFile": "conductivity_bump_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "这里把技能迁移到过程控制场景，但核心仍是用一次设计得当的阶跃实验激发一阶动态。任务不依赖复杂控制器或额外领域技能，当前 skill 仍是唯一关键 shipped skill。",
+  "targetSkillDirName": "excitation-signal-design",
+  "targetSkillName": "excitation-signal-design"
+}

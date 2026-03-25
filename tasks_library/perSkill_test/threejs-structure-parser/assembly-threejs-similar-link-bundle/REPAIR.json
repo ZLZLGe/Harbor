@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "threejs-structure-parser",
+  "targetSkillDirName": "threejs",
+  "runId": "20260325050250-threejs-structure-parser-threejs-ekey5y",
+  "taskId": "assembly-threejs-similar-link-bundle",
+  "sourcePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors/threejs-structure-parser/threejs/20260325050250-threejs-structure-parser-threejs-ekey5y/assembly-threejs-similar-link-bundle",
+  "candidatePath": null,
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/pass/threejs-structure-parser/threejs/20260325050250-threejs-structure-parser-threejs-ekey5y/assembly-threejs-similar-link-bundle",
+  "status": "no_op_pass",
+  "changedFiles": [],
+  "initialStaticIssues": [],
+  "finalStaticIssues": [],
+  "reviewerRechecked": false,
+  "finalReviewerIssues": [],
+  "reviewThreadId": null,
+  "notes": [
+    "当前目录本体已满足 static 校验，无需修改任务文件"
+  ]
+}

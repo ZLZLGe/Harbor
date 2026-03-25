@@ -1,0 +1,28 @@
+[task]
+version = "1.0"
+
+[metadata]
+id = "gzip-logs-python-parallelization-transfer-parallel-summarizer"
+name = "Transfer: Parallel Gzip Log Summarizer"
+description = "Parallelize a sequential gzip log summarizer so it emits the same report and writes the solution to /root/workspace/log_summarizer_parallel.py."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Parallelization"
+tags = ["parallelization", "python", "gzip", "logs", "process-pool", "reporting"]
+primary_output_file = "/root/workspace/log_summarizer_parallel.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

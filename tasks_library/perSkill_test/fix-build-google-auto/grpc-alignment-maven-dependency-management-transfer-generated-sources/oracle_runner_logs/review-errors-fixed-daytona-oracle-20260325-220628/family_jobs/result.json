@@ -1,0 +1,36 @@
+{
+    "id": "4bdc248a-b880-4673-80a9-bfc104416deb",
+    "started_at": "2026-03-25T22:35:31.175219",
+    "finished_at": "2026-03-25T22:36:59.319472",
+    "n_total_trials": 5,
+    "stats": {
+        "n_trials": 5,
+        "n_errors": 3,
+        "evals": {
+            "oracle__fix-build-google-auto": {
+                "n_trials": 2,
+                "n_errors": 3,
+                "metrics": [
+                    {
+                        "mean": 0.4
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "package-release-config-maven-bui__beob8o6",
+                            "stabilize-reactor-build-maven-bu__kjYbwFX"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "DaytonaError": [
+                        "platform-bom-maven-dependency-ma__NQokFfL",
+                        "separate-integration-checks-mave__ym76bLT",
+                        "grpc-alignment-maven-dependency-__4cwjkRQ"
+                    ]
+                }
+            }
+        }
+    }
+}

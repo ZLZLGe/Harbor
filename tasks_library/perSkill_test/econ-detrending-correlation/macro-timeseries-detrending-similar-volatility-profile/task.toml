@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "macro-timeseries-detrending-similar-volatility-profile"
+name = "Similar | Quarterly Business-Cycle Volatility Profile"
+description = "Build a quarterly volatility profile from detrended real GDP, consumption, and fixed investment data and save the ranked ratios to cycle_volatility_profile.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "economics"
+tags = ["economics", "macroeconomics", "time-series", "csv", "business-cycle"]
+primary_output_file = "cycle_volatility_profile.csv"
+source_task_id = "econ-detrending-correlation"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

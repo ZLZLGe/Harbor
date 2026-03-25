@@ -1,0 +1,16 @@
+{
+  "speakers": [
+    {
+      "speaker_id": "host",
+      "seat": "center"
+    },
+    {
+      "speaker_id": "guest_left",
+      "seat": "left"
+    },
+    {
+      "speaker_id": "guest_right",
+      "seat": "right"
+    }
+  ]
+}

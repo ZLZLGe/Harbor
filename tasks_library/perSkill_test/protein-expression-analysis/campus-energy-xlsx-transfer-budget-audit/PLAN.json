@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "campus-energy-xlsx-transfer-budget-audit",
+  "taskRole": "transfer",
+  "title": "Transfer | 校园能耗预算审计工作簿",
+  "goal": "在校园能耗台账中，依据分时电表读数和电价表填充楼宇月度费用汇总：分别汇总峰平谷用电量、匹配对应单价、计算总费用与单位面积成本，并输出预算偏差和超预算楼宇排行。",
+  "primaryOutputFile": "energy_budget_audit.xlsx",
+  "difficulty": "middle",
+  "category": "data-analysis",
+  "skillBenefitRationale": "迁移到设施管理与财务分摊场景，核心仍是电子表格中的跨表匹配、分组聚合、成本计算和排名，但输入资产、输出语义与验证口径都明显不同。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

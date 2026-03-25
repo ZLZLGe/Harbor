@@ -1,0 +1,26 @@
+[
+  {
+    "query_id": "Q1",
+    "query": "seawall erosion sediment dredging resilience"
+  },
+  {
+    "query_id": "Q2",
+    "query": "tram voltage depot wiring maintenance dispatch"
+  },
+  {
+    "query_id": "Q3",
+    "query": "zoning variance parcel setback frontage permit"
+  },
+  {
+    "query_id": "Q4",
+    "query": "gallery mural lighting conservation visitor exhibit"
+  },
+  {
+    "query_id": "Q5",
+    "query": "clinic outbreak screening dosage triage laboratory"
+  },
+  {
+    "query_id": "Q6",
+    "query": "stormwater basin runoff culvert monitoring forecast"
+  }
+]

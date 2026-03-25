@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "dc-fan-speed-imc-tuning-rules-transfer-currentlimit"
+name = "Transfer | DC Fan Speed Current-Limited Tuning"
+description = "Choose the fastest current-safe IMC PI tuning for a DC fan speed loop and write motor_speed_tuning_card.json with gains, candidate review, and tracking checkpoints."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["motor-control", "dc-fan", "control-systems", "pi-control", "transfer"]
+primary_output_file = "motor_speed_tuning_card.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 1800.0
+
+[verifier]
+timeout_sec = 1800.0

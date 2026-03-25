@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "document-approval-spring-security-6-transfer-method-security"
+name = "Transfer - Document Approval Method Security Recovery"
+description = "Recover the document approval service security configuration so method-level authorization and the required public endpoints work again in Boot 3."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["spring-boot", "spring-security", "java", "method-security", "migration"]
+primary_output_file = "src/main/java/com/example/approval/security/MethodSecurityConfiguration.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

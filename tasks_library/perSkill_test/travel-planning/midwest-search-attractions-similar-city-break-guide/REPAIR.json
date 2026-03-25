@@ -1,0 +1,52 @@
+{
+  "sourceTaskId": "travel-planning",
+  "targetSkillDirName": "search-attractions",
+  "targetSkillName": "search-attractions",
+  "runId": "20260325053850-travel-planning-search-attractions-hbb6fa",
+  "taskId": "midwest-search-attractions-similar-city-break-guide",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/travel-planning/search-attractions/20260325053850-travel-planning-search-attractions-hbb6fa/midwest-search-attractions-similar-city-break-guide",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325053850-travel-planning-search-attractions-hbb6fa/travel-planning/drafts/midwest-search-attractions-similar-city-break-guide",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/travel-planning/search-attractions/20260325053850-travel-planning-search-attractions-hbb6fa/midwest-search-attractions-similar-city-break-guide",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/travel-planning/midwest-search-attractions-similar-city-break-guide",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "草稿目录根部存在 `.tmp_city_break_guide.json` 完整参考输出；若任务目录按常规整体发布，会形成答案泄露风险，因此该任务当前不应发布。"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    ".tmp_city_break_guide.json",
+    "environment/skills/search-attractions/scripts/__pycache__/search_attractions.cpython-312.pyc",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "`solution/solve.sh` 中内联 Python 依赖 `REQUEST_PATH` 和 `OUTPUT_PATH` 环境变量，但脚本只设置了未导出的 shell 变量，按文件原样执行会因缺少这两个变量而失败。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24d1-075b-7c31-abd2-d8e137422d2e",
+      "repairSummary": "删除了任务根目录中泄露参考答案的 `.tmp_city_break_guide.json`，其余任务文件保持不变，并确认目录下不再有同类临时输出文件。",
+      "reviewThreadId": "019d24d1-ca39-7f20-841a-2d6527e33f39",
+      "reviewerIssues": [
+        "`solution/solve.sh` 中内联 Python 依赖 `REQUEST_PATH` 和 `OUTPUT_PATH` 环境变量，但脚本只设置了未导出的 shell 变量，按文件原样执行会因缺少这两个变量而失败。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24d3-1e41-7573-9fd9-a88dcf1ae428",
+      "repairSummary": "修复了 solution/solve.sh 中未导出 REQUEST_PATH 和 OUTPUT_PATH 的问题，改为导出这两个变量，使内联 Python 按脚本原样执行时能正确读取环境变量并生成结果。",
+      "reviewThreadId": "019d24d4-64a9-7b80-83a8-9ad6031e4e49",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

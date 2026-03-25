@@ -1,0 +1,29 @@
+version = "1.0"
+
+[metadata]
+id = "replay-sanitizer-jackson-security-transfer-corpus-remediation"
+name = "Transfer: Build a Replay Sanitizer for Historical JSON Corpora"
+description = "Repair the offline replay sanitizer so it quarantines structurally risky JSON samples, preserves safe replay candidates, and writes /workspace/output/replay-remediation-manifest.json."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Security"
+tags = ["Java", "Security", "Jackson", "Offline Processing", "JSON"]
+primary_output_file = "/workspace/output/replay-remediation-manifest.json"
+source_task_id = "fix-druid-loophole-cve"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[solution]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "speaker-diarization-subtitles",
+  "targetSkillDirName": "multimodal-fusion",
+  "targetSkillName": "Multimodal Fusion for Speaker Diarization",
+  "runId": "20260325014622-speaker-diarization-subtitles-multimodal-fusion-ex7msn",
+  "taskId": "debate-multimodal-fusion-transfer-podium-map",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/speaker-diarization-subtitles/multimodal-fusion/20260325014622-speaker-diarization-subtitles-multimodal-fusion-ex7msn/debate-multimodal-fusion-transfer-podium-map",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014622-speaker-diarization-subtitles-multimodal-fusion-ex7msn/speaker-diarization-subtitles/drafts/debate-multimodal-fusion-transfer-podium-map",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/speaker-diarization-subtitles/multimodal-fusion/20260325014622-speaker-diarization-subtitles-multimodal-fusion-ex7msn/debate-multimodal-fusion-transfer-podium-map",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/speaker-diarization-subtitles/debate-multimodal-fusion-transfer-podium-map",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "任务目录直接包含完整标准答案文件 `podium_speaking_times.csv`，构成答案泄露；即使 `solution/solve.sh` 没有搬运该文件，出题包也已暴露标准输出，因此不应发布。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "podium_speaking_times.csv"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c2-afc1-71a0-9b9b-1659442e525e",
+      "repairSummary": "删除任务根目录中泄露标准答案的 `podium_speaking_times.csv`，保留现有 instruction、solution 和 tests 不变，使任务仍可解且判定逻辑继续基于输入资产动态计算期望输出。",
+      "reviewThreadId": "019d24c3-ca9f-73f3-974a-ec4e9094be16",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

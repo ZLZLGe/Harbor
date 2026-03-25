@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wildfire-evacuation-hex-grid-spatial-transfer-response",
+  "taskRole": "transfer",
+  "title": "Transfer: 六角网格山火撤离分析",
+  "goal": "在奇数行偏移六角地形上，根据起火点、不可燃障碍、村庄和避难所位置，计算每回合火势到达时间，并为每个村庄输出仍可通行的最近避难路线摘要与总体撤离可行性。",
+  "primaryOutputFile": "/output/wildfire_response.json",
+  "difficulty": "hard",
+  "category": "emergency-response",
+  "skillBenefitRationale": "火势扩散与撤离可达性都依赖六方向邻接、六角距离和分层扩展，hex-grid-spatial 是唯一关键 shipped skill。",
+  "targetSkillDirName": "hex-grid-spatial",
+  "targetSkillName": "hex-grid-spatial"
+}

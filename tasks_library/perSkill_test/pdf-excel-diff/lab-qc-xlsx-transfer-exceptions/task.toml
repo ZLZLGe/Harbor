@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "lab-qc-xlsx-transfer-exceptions"
+name = "Transfer: Lab QC Exception Report"
+description = "Analyze the provided multi-sheet lab QC workbook and write /root/lab_qc_exceptions.json with failed controls, duplicate intake IDs, and duplicate groups whose variance exceeds the batch limit."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-validation"
+tags = ["lab", "qc", "workbook", "validation", "json"]
+primary_output_file = "/root/lab_qc_exceptions.json"
+source_task_id = "pdf-excel-diff"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

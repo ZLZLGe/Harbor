@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "invoice-fraud-detection",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf",
+  "runId": "20260325034928-invoice-fraud-detection-pdf-myjg8k",
+  "taskId": "site-inspection-pdf-transfer-annotated-form",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/invoice-fraud-detection/pdf/20260325034928-invoice-fraud-detection-pdf-myjg8k/site-inspection-pdf-transfer-annotated-form",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325034928-invoice-fraud-detection-pdf-myjg8k/invoice-fraud-detection/drafts/site-inspection-pdf-transfer-annotated-form",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/invoice-fraud-detection/pdf/20260325034928-invoice-fraud-detection-pdf-myjg8k/site-inspection-pdf-transfer-annotated-form",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/invoice-fraud-detection/site-inspection-pdf-transfer-annotated-form",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 `inspection_form.pdf`、`annotated_inspection_form.pdf`，直接暴露了 shipped skill 名 `pdf`。; tests/test_outputs.py 强制要求输出使用 `/FreeText` 注释，并校验隐藏坐标区域、隐藏容差和精确注释数量；这些都不是 instruction.md 明示的输出契约，锁死了实现细节。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接出现了“PDF”，按规则构成对 shipped skill 的直接点名暴露。; tests 只校验必需文本和部分勾选是否存在，未校验 instruction.md 明确要求的重复叠写和额外可见文本/勾选禁止条件，导致评测与任务要求不完全一致。; visibilityPass=false; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2486-12bf-7123-b1e5-cff44afebd50",
+      "repairSummary": "去掉了 instruction.md 中直接暴露 shipped skill 的 `.pdf` 文件名，改为用通用描述指向源文档和主输出文件；同时放宽并对齐了 `tests/test_outputs.py` 的输出契约，改为校验必需的可见文本和勾选是否出现在正确区域、未选框保持空白，不再强制 `/FreeText` 实现或精确注释数量，并已在容器内验证通过（4 passed）。",
+      "reviewThreadId": "019d248d-9a75-79d3-b3f3-1dd2f1e8d2a3",
+      "reviewerIssues": [
+        "instruction.md 直接出现了“PDF”，按规则构成对 shipped skill 的直接点名暴露。; tests 只校验必需文本和部分勾选是否存在，未校验 instruction.md 明确要求的重复叠写和额外可见文本/勾选禁止条件，导致评测与任务要求不完全一致。; visibilityPass=false; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d248e-7bd5-7f72-b26c-2ef63d3cf543",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 名称的直接暴露，并收紧测试以校验填写内容唯一、无重复叠写且不存在额外新增文字或勾选。",
+      "reviewThreadId": "019d2491-d3ce-7ca0-b312-a37aff36e533",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

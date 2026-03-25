@@ -1,0 +1,16 @@
+{
+  "site_name": "North Arm Thermal Curtain Pilot",
+  "simulation_start": "2021-06-01T00:00:00",
+  "lake_depth_m": 18.0,
+  "focus_depths_m": [
+    2.0,
+    8.5,
+    15.5
+  ],
+  "summer_start_date": "2021-07-01",
+  "summer_end_date": "2021-08-31",
+  "target_temperature_window_c": {
+    "min": 14.0,
+    "max": 18.0
+  }
+}

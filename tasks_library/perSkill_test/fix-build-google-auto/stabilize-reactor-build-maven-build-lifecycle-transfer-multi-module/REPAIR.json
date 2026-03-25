@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "fix-build-google-auto",
+  "targetSkillDirName": "maven-build-lifecycle",
+  "targetSkillName": "maven-build-lifecycle",
+  "runId": "20260325003931-fix-build-google-auto-maven-build-lifecycle-5ylqcx",
+  "taskId": "stabilize-reactor-build-maven-build-lifecycle-transfer-multi-module",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/fix-build-google-auto/maven-build-lifecycle/20260325003931-fix-build-google-auto-maven-build-lifecycle-5ylqcx/stabilize-reactor-build-maven-build-lifecycle-transfer-multi-module",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325003931-fix-build-google-auto-maven-build-lifecycle-5ylqcx/fix-build-google-auto/drafts/stabilize-reactor-build-maven-build-lifecycle-transfer-multi-module",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/fix-build-google-auto/maven-build-lifecycle/20260325003931-fix-build-google-auto-maven-build-lifecycle-5ylqcx/stabilize-reactor-build-maven-build-lifecycle-transfer-multi-module",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-google-auto/stabilize-reactor-build-maven-build-lifecycle-transfer-multi-module",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "solution/solve.sh 直接用 heredoc 整文件覆盖根 pom.xml 和 cli-app/pom.xml，暴露完整标准答案，形成答案泄露；按 Harbor 审查口径应判为 testability 失败。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "solution/solve.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2478-cd82-7403-ad91-cfbd902b99ab",
+      "repairSummary": "将 solution/solve.sh 从整文件 heredoc 覆盖改为对现有 POM 做定点 XML 修改，保留相同修复目标并消除标准答案泄露。",
+      "reviewThreadId": "019d247d-335b-7cf2-9337-b755cb32a77c",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

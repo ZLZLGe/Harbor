@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "starspot-rotation-lomb-scargle-periodogram-similar-cadence",
+  "taskRole": "similar",
+  "title": "Similar: Recover a Starspot Rotation Period from a Gappy Light Curve",
+  "goal": "给定一条带有少量耀斑离群点和不规则时间间隔的恒星光变曲线，清洗坏点后恢复恒星自转周期，并将单个周期值（天）写入 `/root/rotation_period.txt`。",
+  "primaryOutputFile": "/root/rotation_period.txt",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "这是 Lomb-Scargle 周期图在不规则采样光变曲线上的典型用法，核心难点就是从带噪调制中找出主周期，不依赖其他 shipped skill。",
+  "targetSkillDirName": "lomb-scargle-periodogram",
+  "targetSkillName": "lomb-scargle-periodogram"
+}

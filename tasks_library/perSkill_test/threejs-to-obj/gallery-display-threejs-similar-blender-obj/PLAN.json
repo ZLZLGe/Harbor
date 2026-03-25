@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "gallery-display-threejs-similar-blender-obj",
+  "taskRole": "similar",
+  "title": "Similar: Export a Gallery Display Assembly to OBJ",
+  "goal": "给定一个包含嵌套 Group、镜像缩放和 InstancedMesh 紧固件的展台场景模块，编写脚本将最终可见装配体烘焙为单个 Blender 可导入的 Z-up OBJ 文件 `/root/output/display.obj`；验证以 OBJ 有效性和与参考几何的点集一致性为主。",
+  "primaryOutputFile": "/root/output/display.obj",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "这仍然是 Three.js 场景解析到 OBJ 导出的典型链路，但通过更复杂的层级、实例化几何和非均匀变换，重点考查加载场景、更新世界矩阵、展开实例、烘焙变换和轴向转换这些核心能力，而不是简单复写源任务。",
+  "targetSkillDirName": "threejs",
+  "targetSkillName": "threejs"
+}

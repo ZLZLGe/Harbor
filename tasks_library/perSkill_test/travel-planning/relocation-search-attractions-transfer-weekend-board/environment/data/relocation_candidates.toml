@@ -1,0 +1,17 @@
+page_title = "Relocation Weekend Comparison Board"
+intro_note = "Use the same page layout for each finalist city so newcomers can compare weekend atmosphere side by side."
+
+[[cities]]
+city = "Denver"
+label = "Denver, CO"
+weekend_angle = "Good fit if the team wants a mix of mountain-adjacent weekends and established city museums."
+
+[[cities]]
+city = "Portland"
+label = "Portland, OR"
+weekend_angle = "Useful reference point for people comparing creative neighborhoods, parks, and waterfront time."
+
+[[cities]]
+city = "Pittsburgh"
+label = "Pittsburgh, PA"
+weekend_angle = "Include options that help compare riverfront landmarks and compact cultural stops."

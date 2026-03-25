@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "fan-bench-excitation-signal-design-transfer-spinup-profiling"
+name = "Transfer: 风机升速剖面测试"
+description = "为离心风机转速模拟器设计一次不过饱和的开环电压阶跃实验，并输出 spinup_trace.csv 记录完整升速轨迹。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["system-identification", "fan-bench", "motor-spinup", "step-test", "csv"]
+primary_output_file = "spinup_trace.csv"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false

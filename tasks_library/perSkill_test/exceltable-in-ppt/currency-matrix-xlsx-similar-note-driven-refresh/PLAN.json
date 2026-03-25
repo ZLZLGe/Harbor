@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "currency-matrix-xlsx-similar-note-driven-refresh",
+  "taskRole": "similar",
+  "title": "Similar: 根据工作簿内备注刷新汇率矩阵",
+  "goal": "给定一个现成的汇率工作簿，工作簿内另有“更新备注”工作表写明某个货币对的新汇率。需要读取备注中的目标货币对与新数值，只更新矩阵中对应的可编辑输入单元格，保留倒数方向与其他派生单元格的公式不变，并输出更新后的工作簿。",
+  "primaryOutputFile": "/root/fx_matrix_updated.xlsx",
+  "difficulty": "medium",
+  "category": "Office Operation",
+  "skillBenefitRationale": "这个任务直接考察 xlsx 在现有工作簿中定位单元格、修改输入值、保留公式并触发重算的典型能力，是对源任务核心表格更新动作的单技能化提炼。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

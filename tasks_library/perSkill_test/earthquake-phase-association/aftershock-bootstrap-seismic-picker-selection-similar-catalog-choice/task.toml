@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "aftershock-bootstrap-seismic-picker-selection-similar-catalog-choice"
+name = "Similar: 临时余震台网的拾取方案选择与目录输出"
+description = "Choose the most suitable candidate picking strategy for a temporary aftershock broadband deployment and export the final de-duplicated event catalog to /root/bootstrap_events.csv."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "seismology"
+tags = ["seismology", "aftershocks", "catalog-building", "method-selection"]
+primary_output_file = "/root/bootstrap_events.csv"
+source_task_id = "earthquake-phase-association"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0

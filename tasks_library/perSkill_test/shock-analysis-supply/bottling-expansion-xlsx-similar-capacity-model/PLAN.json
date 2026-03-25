@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bottling-expansion-xlsx-similar-capacity-model",
+  "taskRole": "similar",
+  "title": "Similar - 装瓶厂扩产冲击模型工作簿",
+  "goal": "基于本地提供的装瓶厂历史产量、设备资本、人工工时和扩产投资计划模板，完善一份扩产冲击模型工作簿；用公式完成跨表链接、效率趋势平滑、基线/扩产产量、折旧和 EBITDA uplift 汇总，并输出 `bottling-expansion-model.xlsx`。",
+  "primaryOutputFile": "bottling-expansion-model.xlsx",
+  "difficulty": "hard",
+  "category": "financial-analysis",
+  "skillBenefitRationale": "核心难点是保留现成多表模板并用电子表格公式串起历史数据、趋势延展、资本递推和情景汇总，直接检验工作簿编辑、公式建模、跨表引用与重算能力；当前 shipped skill 是唯一关键能力。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

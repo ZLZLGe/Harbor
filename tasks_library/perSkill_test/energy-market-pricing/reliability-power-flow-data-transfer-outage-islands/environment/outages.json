@@ -1,0 +1,6 @@
+{
+  "scenario_name": "storm_split_west_to_east",
+  "description": "Wind-driven faults trip several corridor ties and leave multiple pockets separated from the reference area.",
+  "critical_buses": [518, 731, 1007],
+  "outaged_branch_indices": [3, 5, 9, 10, 13]
+}

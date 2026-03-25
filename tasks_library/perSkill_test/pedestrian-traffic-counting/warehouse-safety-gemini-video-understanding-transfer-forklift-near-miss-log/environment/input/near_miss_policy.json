@@ -1,0 +1,26 @@
+{
+  "task": "Forklift near-miss event logging",
+  "actor_order": "List the forklift ID first and the pedestrian ID second.",
+  "timestamp_rule": "Use MM:SS with zero padding. For each continuous approach, record the first second when the minimum clearance is clearly visible.",
+  "near_miss_definition": [
+    "Record an event only when a moving forklift and a pedestrian on foot pass within less than one pedestrian body width in the same open operating lane.",
+    "The moment must show an evasive stop, hesitation, or sidestep by either side.",
+    "Do not log safe passes with clearly larger clearance.",
+    "Do not log interactions separated by a fixed barrier, rack line, or wall.",
+    "Do not duplicate one continuous approach across multiple adjacent frames."
+  ],
+  "summary_codes": {
+    "crossing_conflict": "forklift cut across the pedestrian crossing path at close range",
+    "reverse_conflict": "reversing forklift forced the pedestrian to stop at close range"
+  },
+  "clips": [
+    {
+      "filename": "aisle_alpha.avi",
+      "setting": "Top-view aisle crossing with labeled actors F1, F2, P1, and P2."
+    },
+    {
+      "filename": "dock_beta.avi",
+      "setting": "Top-view dock approach with labeled actors F3, F4, P3, and P4."
+    }
+  ]
+}

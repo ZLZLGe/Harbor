@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "earthquake-phase-association",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection",
+  "runId": "20260324212626-earthquake-phase-association-seismic-picker-selection-reulf0",
+  "taskId": "network-planning-seismic-picker-selection-transfer-method-matrix",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/earthquake-phase-association/seismic-picker-selection/20260324212626-earthquake-phase-association-seismic-picker-selection-reulf0/network-planning-seismic-picker-selection-transfer-method-matrix",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324212626-earthquake-phase-association-seismic-picker-selection-reulf0/earthquake-phase-association/drafts/network-planning-seismic-picker-selection-transfer-method-matrix",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/earthquake-phase-association/seismic-picker-selection/20260324212626-earthquake-phase-association-seismic-picker-selection-reulf0/network-planning-seismic-picker-selection-transfer-method-matrix",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/earthquake-phase-association/network-planning-seismic-picker-selection-transfer-method-matrix",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 对每个 `reason` 施加了 instruction.md 未声明的 30-320 字符隐藏长度阈值；这是 Harbor hidden threshold。; tests/test_outputs.py 额外要求每个场景的 `reason` 命中特定关键词组，超出了 instruction.md 只要求“提到至少两个具体约束”的输出契约，把合法解法锁死到特定表述与约束组合；这是 Harbor hidden requirement。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d245e-c12d-7f42-9547-b2636a7640b0",
+      "repairSummary": "移除了 `reason` 的隐藏长度阈值和每场景固定关键词组校验，改为仅按说明要求校验 1-2 句且提到至少两个具体场景约束；并用任务自带 solution 验证测试可通过。",
+      "reviewThreadId": "019d2461-8c0b-7b11-ad62-93690cd5b808",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cli-golden-testing-python-transfer-output-matrix",
+  "taskRole": "transfer",
+  "title": "Transfer | 为 CLI 报表工具建立参数化黄金输出测试",
+  "goal": "为一个命令行报表工具补写参数化 pytest 回归测试，覆盖多种输入组合、`tmp_path` 输出文件校验和错误消息契约，并生成案例矩阵文件。",
+  "primaryOutputFile": "artifacts/cli_case_matrix.json",
+  "difficulty": "easy",
+  "category": "CLI & Automation",
+  "skillBenefitRationale": "任务重点是用 pytest 参数化和临时目录测试文件型 CLI 输出，验证同一功能在多输入条件下的稳定性；关键能力仍然是 Python 测试编写。",
+  "targetSkillDirName": "testing-python",
+  "targetSkillName": "testing-python"
+}

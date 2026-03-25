@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "invoice-fraud-detection",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf",
+  "runId": "20260325034928-invoice-fraud-detection-pdf-myjg8k",
+  "taskId": "claims-intake-pdf-transfer-fillable-packet",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/invoice-fraud-detection/pdf/20260325034928-invoice-fraud-detection-pdf-myjg8k/claims-intake-pdf-transfer-fillable-packet",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325034928-invoice-fraud-detection-pdf-myjg8k/invoice-fraud-detection/drafts/claims-intake-pdf-transfer-fillable-packet",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/invoice-fraud-detection/pdf/20260325034928-invoice-fraud-detection-pdf-myjg8k/claims-intake-pdf-transfer-fillable-packet",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/invoice-fraud-detection/claims-intake-pdf-transfer-fillable-packet",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 `claim_packet.pdf`、`completed_claim_packet.pdf`，直接暴露了 shipped skill 名 `pdf`。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2485-06fc-7751-a2cf-119af47ce0a7",
+      "repairSummary": "更新 instruction.md，去掉直接出现的输入/输出 .pdf 文件名，改为使用描述性表述和 `primary_output_file` 元数据指向结果文件路径，以消除对 shipped skill `pdf` 的直接暴露。",
+      "reviewThreadId": "019d2486-19a2-7ce1-a14a-cc0365d1c99a",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

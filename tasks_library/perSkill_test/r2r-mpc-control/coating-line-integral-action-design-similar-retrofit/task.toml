@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "coating-line-integral-action-design-similar-retrofit"
+name = "Similar: Coating Line Tension Retrofit"
+description = "Retrofit the provided 4-zone coating-line controller with segmented leaky integral action and write tension_retrofit_results.json showing offset-free tension tracking under the supplied disturbance cases."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control", "mpc", "manufacturing", "tension-control", "simulation", "python"]
+primary_output_file = "tension_retrofit_results.json"
+source_task_id = "r2r-mpc-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

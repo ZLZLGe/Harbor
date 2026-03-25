@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "parking-lot-openai-vision-transfer-occupancy"
+name = "Transfer: Parking Lot Occupancy Counting"
+description = "Count occupied stalls in each parking-lot zone for every capture image and write /app/workspace/parking_occupancy.json."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "data statistics"
+tags = ["vision counting", "json", "parking occupancy"]
+primary_output_file = "/app/workspace/parking_occupancy.json"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

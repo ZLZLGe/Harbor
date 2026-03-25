@@ -1,0 +1,16 @@
+&glm_setup
+   sim_name = 'Mendota Alignment Review'
+/
+&time
+   timefmt = 2
+   start = '2012-07-01 12:00:00'
+   stop = '2012-08-15 12:00:00'
+   dt = 3600
+   timezone = -6
+/
+&init_profiles
+   lake_depth = 25
+   num_depths = 6
+   the_depths = 0, 5, 10, 15, 20, 24
+   the_temps = 24.3, 23.7, 18.9, 11.4, 7.2, 5.4
+/

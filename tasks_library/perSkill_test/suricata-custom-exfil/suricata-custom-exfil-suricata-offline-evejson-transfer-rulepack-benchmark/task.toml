@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "suricata-custom-exfil-suricata-offline-evejson-transfer-rulepack-benchmark"
+name = "Transfer - Rulepack Benchmark"
+description = "离线评测两套候选 TLS 规则包在带标签样本集上的表现，并生成 answer/rulepack-benchmark.json。"
+author_name = "Shenghan Zheng"
+author_email = "shenghan.zheng.gr@dartmouth.edu"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["suricata", "tls", "eve.json", "benchmark", "rulepack"]
+primary_output_file = "answer/rulepack-benchmark.json"
+source_task_id = "suricata-custom-exfil"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

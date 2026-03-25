@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "turbine-sensor-senior-data-scientist-transfer-features"
+name = "Transfer: Turbine Sensor Feature Table"
+description = "Build a leakage-safe turbine feature table from minute-level sensor logs and maintenance labels, and write it to /root/results/turbine_features.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "feature-engineering"
+tags = ["time-series", "feature-engineering", "csv", "manufacturing", "leakage-prevention"]
+primary_output_file = "/root/results/turbine_features.csv"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

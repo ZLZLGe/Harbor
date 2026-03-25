@@ -1,0 +1,42 @@
+[
+  {
+    "account_id": "ACC-042",
+    "account_name": "BlueYonder Health",
+    "aliases": [
+      "BlueYonder Health",
+      "Blue Yonder Health",
+      "BYH"
+    ],
+    "customer_ids": [
+      "CUST-118",
+      "CUST-774"
+    ],
+    "cs_owner_employee_id": "eid_54d12e8f"
+  },
+  {
+    "account_id": "ACC-042-R",
+    "account_name": "BlueYonder Retail",
+    "aliases": [
+      "BlueYonder Retail",
+      "Blue Yonder Retail",
+      "BYR"
+    ],
+    "customer_ids": [
+      "CUST-220",
+      "CUST-221"
+    ],
+    "cs_owner_employee_id": "eid_5b2b5fa1"
+  },
+  {
+    "account_id": "ACC-090",
+    "account_name": "NorthLake Health",
+    "aliases": [
+      "NorthLake Health",
+      "NLH"
+    ],
+    "customer_ids": [
+      "CUST-991"
+    ],
+    "cs_owner_employee_id": "eid_4dcd7280"
+  }
+]

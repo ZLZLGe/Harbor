@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "watchdog-syzlang-ioctl-basics-similar-device-coverage",
+  "taskRole": "similar",
+  "title": "Similar - Watchdog Device Ioctl Coverage",
+  "goal": "基于题目提供的 watchdog UAPI 头文件摘录，从零补出 /dev/watchdog# 的 syzlang 描述与常量文件，覆盖 opener、核心 WDIOC_* ioctl、watchdog_info 结构以及状态/选项 flags，并通过 syzkaller 描述编译和定向签名校验。",
+  "primaryOutputFile": "/opt/syzkaller/sys/linux/dev_watchdog_ctl.txt",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "任务本质是把 ioctl 宏、参数方向、结构体和 flags 正确翻译成 syzlang 的 resource、ptr[in/out]、struct 与 const，完整命中 syzlang ioctl 基础能力，不依赖其他 shipped skill。",
+  "targetSkillDirName": "syzlang-ioctl-basics",
+  "targetSkillName": "syzlang-ioctl-basics"
+}

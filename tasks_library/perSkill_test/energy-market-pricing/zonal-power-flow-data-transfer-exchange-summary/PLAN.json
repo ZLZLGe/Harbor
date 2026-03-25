@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "zonal-power-flow-data-transfer-exchange-summary",
+  "taskRole": "transfer",
+  "title": "Transfer: 分区联络汇总",
+  "goal": "给定 `network.json` 和新增的 `zones.json`（母线到运行分区的映射），生成 `zone_exchange_summary.json`，汇总每个分区的负荷、机组容量、备用容量、平衡母线归属，以及分区间联络线数量和总额定值。",
+  "primaryOutputFile": "zone_exchange_summary.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "关键在于按 bus-zone 映射聚合 MATPOWER 网络中的 bus/gen/branch 数据，并准确识别跨分区联络线；除 `power-flow-data` 外不依赖其他领域技能。",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

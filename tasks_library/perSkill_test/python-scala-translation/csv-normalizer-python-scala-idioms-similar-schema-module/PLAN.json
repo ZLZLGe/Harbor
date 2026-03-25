@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "csv-normalizer-python-scala-idioms-similar-schema-module",
+  "taskRole": "similar",
+  "title": "Similar - Schema-Driven CSV Normalizer Translation",
+  "goal": "把给定的 Python `CsvNormalizer.py` 翻译成 Scala 2.13 模块，保留 schema 列定义、可选字段解析、行级元数据追加和批量迭代处理行为，并用更地道的 Scala 数据建模替代 Python 的可变与宽松类型写法。",
+  "primaryOutputFile": "/root/CsvNormalizer.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "任务核心是将 dataclass、Optional/Union、iterator 和 callable normalizer 等 Python 写法迁移为 case class、Option、sealed ADT 与 collection pipeline，这是当前 skill 的典型用法而不是原题复写。",
+  "targetSkillDirName": "python-scala-idioms",
+  "targetSkillName": "python-scala-idioms"
+}

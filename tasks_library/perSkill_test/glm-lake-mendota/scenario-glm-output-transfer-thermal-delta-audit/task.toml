@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "scenario-glm-output-transfer-thermal-delta-audit"
+name = "Transfer: Two-Scenario Thermal Delta Audit"
+description = "Compare the supplied baseline and intervention GLM outputs across focus depths, then write /root/reports/scenario_delta_summary.json with monthly deltas, summer bottom cooling, and target-window preferences."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["lake-modeling", "netcdf", "scenario-comparison"]
+primary_output_file = "/root/reports/scenario_delta_summary.json"
+source_task_id = "glm-lake-mendota"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

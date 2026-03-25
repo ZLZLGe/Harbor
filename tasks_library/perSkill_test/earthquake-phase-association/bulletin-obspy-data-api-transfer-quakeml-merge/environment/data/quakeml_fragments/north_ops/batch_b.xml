@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<q:quakeml xmlns:q="http://quakeml.org/xmlns/quakeml/1.2" xmlns="http://quakeml.org/xmlns/bed/1.2">
+  <eventParameters publicID="smi:local/eventParameters/north-batch-b">
+    <event publicID="smi:local/bulletin/rgn-240401-01-rev2">
+      <preferredOriginID>smi:local/origin/rgn-240401-01-rev2-main</preferredOriginID>
+      <preferredMagnitudeID>smi:local/magnitude/rgn-240401-01-rev2-main</preferredMagnitudeID>
+      <creationInfo>
+        <agencyID>NORTH</agencyID>
+        <creationTime>2024-04-01T00:27:10.000000Z</creationTime>
+      </creationInfo>
+      <origin publicID="smi:local/origin/rgn-240401-01-rev2-main">
+        <time><value>2024-04-01T00:15:12.600000Z</value></time>
+        <latitude><value>61.246</value></latitude>
+        <longitude><value>-149.810</value></longitude>
+        <depth><value>33500</value></depth>
+        <creationInfo>
+          <creationTime>2024-04-01T00:27:00.000000Z</creationTime>
+        </creationInfo>
+      </origin>
+      <magnitude publicID="smi:local/magnitude/rgn-240401-01-rev2-main">
+        <mag><value>3.6</value></mag>
+        <type>MLv</type>
+        <originID>smi:local/origin/rgn-240401-01-rev2-main</originID>
+      </magnitude>
+    </event>
+    <event publicID="smi:local/bulletin/rgn-240401-03">
+      <preferredOriginID>smi:local/origin/rgn-240401-03-main</preferredOriginID>
+      <creationInfo>
+        <agencyID>NORTH</agencyID>
+        <creationTime>2024-04-01T02:47:05.000000Z</creationTime>
+      </creationInfo>
+      <origin publicID="smi:local/origin/rgn-240401-03-main">
+        <time><value>2024-04-01T02:45:01.900000Z</value></time>
+        <latitude><value>59.881</value></latitude>
+        <longitude><value>-150.445</value></longitude>
+        <depth><value>18700</value></depth>
+        <creationInfo>
+          <creationTime>2024-04-01T02:47:00.000000Z</creationTime>
+        </creationInfo>
+      </origin>
+      <magnitude publicID="smi:local/magnitude/rgn-240401-03-first">
+        <mag><value>4.1</value></mag>
+        <type>Mw</type>
+        <originID>smi:local/origin/rgn-240401-03-main</originID>
+      </magnitude>
+      <magnitude publicID="smi:local/magnitude/rgn-240401-03-second">
+        <mag><value>4.0</value></mag>
+        <type>ML</type>
+        <originID>smi:local/origin/rgn-240401-03-main</originID>
+      </magnitude>
+    </event>
+  </eventParameters>
+</q:quakeml>

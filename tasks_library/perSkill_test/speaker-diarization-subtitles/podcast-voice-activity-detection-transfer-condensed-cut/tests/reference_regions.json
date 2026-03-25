@@ -1,0 +1,24 @@
+{
+  "kept_regions": [
+    {
+      "start": 0.42,
+      "end": 3.38,
+      "duration": 2.96
+    },
+    {
+      "start": 4.37,
+      "end": 6.78,
+      "duration": 2.41
+    },
+    {
+      "start": 8.02,
+      "end": 10.48,
+      "duration": 2.46
+    },
+    {
+      "start": 11.72,
+      "end": 14.68,
+      "duration": 2.96
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "course-gradebook-xlsx-transfer-term-report",
+  "taskRole": "transfer",
+  "title": "Transfer: 课程期末成绩报告",
+  "goal": "在课程成绩册工作簿中填充空白的 `Report` 工作表：根据 `Scores`、`Weights` 和 `GradeBands` 表，使用 Excel 公式计算每名学生的加权总评、缺交标记、字母成绩和是否通过，并保持成绩规则可随权重表联动更新。",
+  "primaryOutputFile": "term_grade_report.xlsx",
+  "difficulty": "easy",
+  "category": "data-analysis",
+  "skillBenefitRationale": "这项任务的核心是跨表引用、加权求和、等级映射和规则联动，关键交付物是可重算的 xlsx 成绩报告，不依赖其他技能。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,31 @@
+version = "1.0"
+
+[metadata]
+id = "concourse-sign-obj-exporter-transfer-wayfinding"
+name = "Transfer: 导视牌坯件 OBJ 导出"
+description = "将由挤出牌面、车削帽头和基础支架件组成的导视牌坯件场景导出为保留厚度、孔位和朝向的 /root/output/wayfinding_sign.obj。"
+author_name = "OpenAI Codex"
+author_email = "support@openai.com"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["threejs", "obj", "javascript", "cnc", "wayfinding"]
+primary_output_file = "/root/output/wayfinding_sign.obj"
+source_task_id = "threejs-to-obj"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+build_timeout_sec = 600.0
+
+[verifier.env]
+
+[solution.env]

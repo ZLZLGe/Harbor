@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "inventory-query-hibernate-upgrade-similar-jpql-criteria",
+  "taskRole": "similar",
+  "title": "Similar: Inventory Query Migration for Hibernate 6",
+  "goal": "规划一个已升级到 Spring Boot 3 的库存服务，故意保留 Hibernate 5 时代的旧式 Criteria API、宽松 HQL 写法和 javax.persistence 导入；任务目标是仅通过修正 Hibernate 6 兼容性问题，让 `mvn test` 通过，并生成正确的库存筛选与批量停用行为。",
+  "primaryOutputFile": "/workspace/src/main/java/com/example/inventory/repository/StockItemRepository.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这个任务贴近 Hibernate 升级的典型用法，核心在于 Hibernate 6 的查询解析、Criteria API 替换、Jakarta 命名空间迁移和实体映射修正，不依赖其他 shipped skill。",
+  "targetSkillDirName": "hibernate-upgrade",
+  "targetSkillName": "hibernate-upgrade"
+}

@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "syzkaller-ppdev-syzlang",
+  "targetSkillDirName": "syzlang-ioctl-basics",
+  "runId": "20260325042042-syzkaller-ppdev-syzlang-syzlang-ioctl-basics-x6stm2",
+  "taskId": "watchdog-syzlang-ioctl-basics-similar-device-coverage",
+  "sourcePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors/syzkaller-ppdev-syzlang/syzlang-ioctl-basics/20260325042042-syzkaller-ppdev-syzlang-syzlang-ioctl-basics-x6stm2/watchdog-syzlang-ioctl-basics-similar-device-coverage",
+  "candidatePath": null,
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/pass/syzkaller-ppdev-syzlang/syzlang-ioctl-basics/20260325042042-syzkaller-ppdev-syzlang-syzlang-ioctl-basics-x6stm2/watchdog-syzlang-ioctl-basics-similar-device-coverage",
+  "status": "no_op_pass",
+  "changedFiles": [],
+  "initialStaticIssues": [],
+  "finalStaticIssues": [],
+  "reviewerRechecked": false,
+  "finalReviewerIssues": [],
+  "reviewThreadId": null,
+  "notes": [
+    "当前目录本体已满足 static 校验，无需修改任务文件"
+  ]
+}

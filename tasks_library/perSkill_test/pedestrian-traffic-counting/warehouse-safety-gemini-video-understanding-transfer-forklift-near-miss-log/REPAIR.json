@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "pedestrian-traffic-counting",
+  "targetSkillDirName": "gemini-video-understanding",
+  "targetSkillName": "gemini-video-understanding",
+  "runId": "20260324201024-pedestrian-traffic-counting-gemini-video-understanding-5vey5j",
+  "taskId": "warehouse-safety-gemini-video-understanding-transfer-forklift-near-miss-log",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pedestrian-traffic-counting/gemini-video-understanding/20260324201024-pedestrian-traffic-counting-gemini-video-understanding-5vey5j/warehouse-safety-gemini-video-understanding-transfer-forklift-near-miss-log",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324201024-pedestrian-traffic-counting-gemini-video-understanding-5vey5j/pedestrian-traffic-counting/drafts/warehouse-safety-gemini-video-understanding-transfer-forklift-near-miss-log",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pedestrian-traffic-counting/gemini-video-understanding/20260324201024-pedestrian-traffic-counting-gemini-video-understanding-5vey5j/warehouse-safety-gemini-video-understanding-transfer-forklift-near-miss-log",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pedestrian-traffic-counting/warehouse-safety-gemini-video-understanding-transfer-forklift-near-miss-log",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 没有直接点名 shipped skill，但 solution/solve.py 在 SCENE_SPECS 中直接硬编码两段视频的事件、actors 与 summary_key，基本不依赖视频内容，形成标准答案泄露。; 该任务可通过硬编码场景规格直接生成正确结果，不能证明 gemini-video-understanding 是完成任务的唯一关键技能，skill benefit 不成立。; skillBenefitPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "solution/solve.py",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "tests/test_outputs.py 直接硬编码了完整期望事件列表，造成答案泄露，用户无需分析视频即可拼出正确输出。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2496-3f66-7da2-bf72-96ae14f8b01a",
+      "repairSummary": "将参考解从硬编码场景规格改为直接解析 AVI 帧内容：按像素检测叉车/行人轨迹、选出真实近失事件，并通过画面标签识别 actors 与基于轨迹变化确定 summary，消除了标准答案泄露。",
+      "reviewThreadId": "019d24a5-7551-7a41-9938-961aa09f63e1",
+      "reviewerIssues": [
+        "tests/test_outputs.py 直接硬编码了完整期望事件列表，造成答案泄露，用户无需分析视频即可拼出正确输出。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24a7-183b-7e32-bff0-a41ec7ee4951",
+      "repairSummary": "将 tests/test_outputs.py 中硬编码的完整期望事件列表改为基于输入视频与 near_miss_policy.json 动态推导期望结果，消除答案泄露并保留原有判题约束。",
+      "reviewThreadId": "019d24ab-0405-7441-bf95-f7a4a11ff396",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

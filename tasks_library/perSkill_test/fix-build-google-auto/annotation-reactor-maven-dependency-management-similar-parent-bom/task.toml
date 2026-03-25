@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "annotation-reactor-maven-dependency-management-similar-parent-bom"
+name = "Similar: Align Parent Dependency Management for an Annotation Processor Reactor"
+description = "Repair the annotation-parent reactor so the parent POM centrally manages the Guava and Auto dependency versions and the rebuilt project passes tests."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = ["java", "maven", "dependency-management", "pom", "reactor"]
+primary_output_file = "/workspace/annotation-parent/pom.xml"
+source_task_id = "fix-build-google-auto"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "network-dialysis-lab-unit-harmonization-similar-longform-intake"
+name = "Similar | 透析入科长表实验室归一化"
+description = "清洗多中心透析入科长表实验室数据、丢弃缺失必需项目的 encounter、统一单位并输出每个 encounter 一行的标准化 CSV。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "healthcare"
+tags = ["dialysis", "clinical-data", "unit-conversion", "long-table", "csv"]
+primary_output_file = "/root/dialysis_intake_panel_harmonized.csv"
+source_task_id = "lab-unit-harmonization"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false

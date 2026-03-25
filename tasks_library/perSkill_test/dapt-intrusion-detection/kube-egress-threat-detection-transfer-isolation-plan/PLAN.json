@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "kube-egress-threat-detection-transfer-isolation-plan",
+  "taskRole": "transfer",
+  "title": "Transfer: Kubernetes Pod Isolation Plan",
+  "goal": "给定 Kubernetes Pod 级别的出站流量画像 JSONL，按题目给定的动作映射规则，把命中的威胁判定转换为 `/root/pod_isolation_plan.yaml`，为每个 Pod 输出处置动作、触发原因和是否需要立即隔离。",
+  "primaryOutputFile": "/root/pod_isolation_plan.yaml",
+  "difficulty": "hard",
+  "category": "security",
+  "skillBenefitRationale": "任务把同一组威胁阈值迁移到容器运行时遥测，重点仍是精确判断三类网络模式；动作映射由题面显式给出，因此不依赖其他领域技能。",
+  "targetSkillDirName": "threat-detection",
+  "targetSkillName": "threat-detection"
+}

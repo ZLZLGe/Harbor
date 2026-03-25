@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "sector-stitch-exoplanet-workflows-similar-ephemeris"
+name = "Similar | 拼接双扇区空间测光并恢复凌星星历"
+description = "拼接两段存在基线偏移与耀发污染的空间测光，恢复行星轨道周期和参考凌星历元并写入 /root/sector_ephemeris.json。"
+author_name = "Levi Harbor"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "exoplanet", "light-curve", "time-series", "python"]
+primary_output_file = "/root/sector_ephemeris.json"
+source_task_id = "exoplanet-detection-period"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+

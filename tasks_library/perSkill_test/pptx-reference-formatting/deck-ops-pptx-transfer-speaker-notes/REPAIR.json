@@ -1,0 +1,50 @@
+{
+  "sourceTaskId": "pptx-reference-formatting",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx",
+  "runId": "20260324213629-pptx-reference-formatting-pptx-irtdrv",
+  "taskId": "deck-ops-pptx-transfer-speaker-notes",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pptx-reference-formatting/pptx/20260324213629-pptx-reference-formatting-pptx-irtdrv/deck-ops-pptx-transfer-speaker-notes",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324213629-pptx-reference-formatting-pptx-irtdrv/pptx-reference-formatting/drafts/deck-ops-pptx-transfer-speaker-notes",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pptx-reference-formatting/pptx/20260324213629-pptx-reference-formatting-pptx-irtdrv/deck-ops-pptx-transfer-speaker-notes",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pptx-reference-formatting/deck-ops-pptx-transfer-speaker-notes",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "drafts/deck-ops-pptx-transfer-speaker-notes/environment/local-output.pptx 暴露了一个可通过当前 verifier 的完整标准答案，形成答案泄露。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/local-output.pptx",
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接出现了 shipped skill 名称 `pptx`（出现在输入和输出文件路径的 `.pptx` 扩展名中），构成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24ab-a3a7-7843-a909-208ac12fa1ed",
+      "repairSummary": "将泄露标准答案的 `environment/local-output.pptx` 替换为与原始输入 deck 相同的非答案副本，保留任务结构并消除可被当前 verifier 直接利用的答案泄露。",
+      "reviewThreadId": "019d24ad-5bb9-7db3-b6ec-48b54d5c7895",
+      "reviewerIssues": [
+        "instruction.md 直接出现了 shipped skill 名称 `pptx`（出现在输入和输出文件路径的 `.pptx` 扩展名中），构成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24ae-22ce-7b32-9caf-bbdb68edbf7d",
+      "repairSummary": "已移除 instruction.md 中通过 `.pptx` 扩展名对 shipped skill 名称的直接暴露，改为用文件名加“现有演示文稿扩展名”的表述，未改动任务逻辑。",
+      "reviewThreadId": "019d24af-22ae-7e63-b3de-0cafebdf669d",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

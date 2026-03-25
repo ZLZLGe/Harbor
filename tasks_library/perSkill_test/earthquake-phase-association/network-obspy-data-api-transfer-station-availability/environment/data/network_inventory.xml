@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FDSNStationXML xmlns="http://www.fdsn.org/xml/station/1" schemaVersion="1.2">
+  <Source>Harbor Task Builder</Source>
+  <Created>2026-03-25T00:00:00Z</Created>
+  <Network code="CI" startDate="2019-07-04T19:00:00Z">
+    <Description>Selected Ridgecrest channels for a network availability audit.</Description>
+    <Station code="CCC" startDate="2019-07-04T19:00:00Z">
+      <Latitude>35.52495</Latitude>
+      <Longitude>-117.36453</Longitude>
+      <Elevation>670.0</Elevation>
+      <Site>
+        <Name>CCC</Name>
+      </Site>
+      <CreationDate>2019-07-04T19:00:00Z</CreationDate>
+      <Channel code="HHE" locationCode="" startDate="2019-07-04T19:00:00Z">
+        <Latitude>35.52495</Latitude>
+        <Longitude>-117.36453</Longitude>
+        <Elevation>670.0</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth>90.0</Azimuth>
+        <Dip>0.0</Dip>
+        <SampleRate>100.0</SampleRate>
+        <Response>
+          <InstrumentSensitivity>
+            <Value>627368612.81</Value>
+            <Frequency>1.0</Frequency>
+            <InputUnits>
+              <Name>COUNTS</Name>
+            </InputUnits>
+            <OutputUnits>
+              <Name>M/S</Name>
+            </OutputUnits>
+          </InstrumentSensitivity>
+        </Response>
+      </Channel>
+      <Channel code="HHN" locationCode="" startDate="2019-07-04T19:00:00Z">
+        <Latitude>35.52495</Latitude>
+        <Longitude>-117.36453</Longitude>
+        <Elevation>670.0</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth>0.0</Azimuth>
+        <Dip>0.0</Dip>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="WNM" startDate="2019-07-04T19:00:00Z">
+      <Latitude>35.8422</Latitude>
+      <Longitude>-117.90616</Longitude>
+      <Elevation>974.3</Elevation>
+      <Site>
+        <Name>WNM</Name>
+      </Site>
+      <CreationDate>2019-07-04T19:00:00Z</CreationDate>
+      <Channel code="EHZ" locationCode="" startDate="2019-07-04T19:00:00Z">
+        <Latitude>35.8422</Latitude>
+        <Longitude>-117.90616</Longitude>
+        <Elevation>974.3</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth>0.0</Azimuth>
+        <Dip>-90.0</Dip>
+        <SampleRate>100.0</SampleRate>
+        <Response>
+          <InstrumentSensitivity>
+            <Value>69306200.0</Value>
+            <Frequency>1.0</Frequency>
+            <InputUnits>
+              <Name>COUNTS</Name>
+            </InputUnits>
+            <OutputUnits>
+              <Name>M/S</Name>
+            </OutputUnits>
+          </InstrumentSensitivity>
+        </Response>
+      </Channel>
+      <Channel code="HNZ" locationCode="" startDate="2019-07-04T19:00:00Z">
+        <Latitude>35.8422</Latitude>
+        <Longitude>-117.90616</Longitude>
+        <Elevation>974.3</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth>0.0</Azimuth>
+        <Dip>-90.0</Dip>
+        <SampleRate>100.0</SampleRate>
+        <Response>
+          <InstrumentSensitivity>
+            <Value>214054.0</Value>
+            <Frequency>1.0</Frequency>
+            <InputUnits>
+              <Name>COUNTS</Name>
+            </InputUnits>
+            <OutputUnits>
+              <Name>M/S**2</Name>
+            </OutputUnits>
+          </InstrumentSensitivity>
+        </Response>
+      </Channel>
+      <Channel code="HNZ" locationCode="2C" startDate="2019-07-04T19:00:00Z">
+        <Latitude>35.8422</Latitude>
+        <Longitude>-117.90616</Longitude>
+        <Elevation>974.3</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth>0.0</Azimuth>
+        <Dip>-90.0</Dip>
+        <SampleRate>100.0</SampleRate>
+      </Channel>
+    </Station>
+    <Station code="LRL" startDate="2019-07-04T19:00:00Z">
+      <Latitude>35.47954</Latitude>
+      <Longitude>-117.68212</Longitude>
+      <Elevation>1340.0</Elevation>
+      <Site>
+        <Name>LRL</Name>
+      </Site>
+      <CreationDate>2019-07-04T19:00:00Z</CreationDate>
+      <Channel code="BHZ" locationCode="" startDate="2019-07-04T19:00:00Z">
+        <Latitude>35.47954</Latitude>
+        <Longitude>-117.68212</Longitude>
+        <Elevation>1340.0</Elevation>
+        <Depth>0.0</Depth>
+        <Azimuth>0.0</Azimuth>
+        <Dip>-90.0</Dip>
+        <SampleRate>40.0</SampleRate>
+        <Response>
+          <InstrumentSensitivity>
+            <Value>631652000.0</Value>
+            <Frequency>1.0</Frequency>
+            <InputUnits>
+              <Name>COUNTS</Name>
+            </InputUnits>
+            <OutputUnits>
+              <Name>M/S</Name>
+            </OutputUnits>
+          </InstrumentSensitivity>
+        </Response>
+      </Channel>
+    </Station>
+  </Network>
+</FDSNStationXML>

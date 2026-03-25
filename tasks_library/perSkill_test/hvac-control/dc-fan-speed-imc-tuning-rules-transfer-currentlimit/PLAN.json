@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "dc-fan-speed-imc-tuning-rules-transfer-currentlimit",
+  "taskRole": "transfer",
+  "title": "Transfer | DC Fan Speed Current-Limited Tuning",
+  "goal": "把 IMC 一阶整定迁移到直流风机转速环：基于已识别的电机速度模型 K、tau 与电流上限约束，选择最快但不过流的 lambda，计算 PI 增益，并生成转速阶跃跟踪、峰值控制量和稳态误差的综合结果。",
+  "primaryOutputFile": "motor_speed_tuning_card.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "场景切到电机后，仍然是典型的一阶对象 IMC PI 整定问题：根据 K、tau 和 lambda 权衡速度与控制力度，再验证闭环表现；当前 shipped skill 仍是唯一关键解法。",
+  "targetSkillDirName": "imc-tuning-rules",
+  "targetSkillName": "imc-tuning-rules"
+}

@@ -1,0 +1,39 @@
+{
+  "sourceTaskId": "econ-detrending-correlation",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending",
+  "runId": "20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx",
+  "taskId": "saas-timeseries-detrending-transfer-lead-lag-cycles",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/econ-detrending-correlation/timeseries-detrending/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/saas-timeseries-detrending-transfer-lead-lag-cycles",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/econ-detrending-correlation/drafts/saas-timeseries-detrending-transfer-lead-lag-cycles",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/econ-detrending-correlation/timeseries-detrending/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/saas-timeseries-detrending-transfer-lead-lag-cycles",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/econ-detrending-correlation/saas-timeseries-detrending-transfer-lead-lag-cycles",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 的 name 或 dirName，技能暴露检查通过。; 任务场景、资产和输出契约均已脱离 source_task 的原始宏观相关系数题型，不是机械复写。; 输入资产为新的 SaaS 月度经营数据，和 family 其他任务在业务场景、判题目标与 JSON 输出上都有明显差异。; 草稿目录直接预置了完整标准答案文件 `lead_lag_cycles.json`，形成答案泄露风险；当前 verifier 还接受当前工作目录下同名文件，存在不经计算直接命中答案的风险。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "lead_lag_cycles.json",
+    "solution/solve.sh",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2462-57ed-7d21-aa0b-91b2e1722007",
+      "repairSummary": "移除了预置答案文件以消除泄露风险，把说明中的输出名改为与 blueprint 一致的 `lead_lag_cycles.json`，并收紧解答/校验逻辑为只认 `/root/lead_lag_cycles.json`，避免从当前目录同名文件直接命中。",
+      "reviewThreadId": "019d2464-c250-7e01-96d6-1391f60a08d0",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

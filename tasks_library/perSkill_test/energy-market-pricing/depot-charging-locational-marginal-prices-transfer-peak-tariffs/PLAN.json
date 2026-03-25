@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "depot-charging-locational-marginal-prices-transfer-peak-tariffs",
+  "taskRole": "transfer",
+  "title": "Transfer | 车场充电峰时节点电价",
+  "goal": "基于电动公交车场的馈线拓扑、24 小时充电需求和充电桩分区数据，分别求解基线与临时旁路电缆投运后的两次网络约束充电调度，生成 `charging_tariffs.json`，其中包含各时段各分区的节点充电边际价格、每个分区的最高价时段、总充电成本变化，以及价格降幅最大的 3 个充电分区。",
+  "primaryOutputFile": "charging_tariffs.json",
+  "difficulty": "hard",
+  "category": "mobility",
+  "skillBenefitRationale": "任务成败取决于能否把馈线节点平衡约束的对偶值正确转换为分时分区充电价格，并用价格变化评估旁路电缆的价值；不依赖其他 shipped skill。",
+  "targetSkillDirName": "locational-marginal-prices",
+  "targetSkillName": "locational-marginal-prices"
+}

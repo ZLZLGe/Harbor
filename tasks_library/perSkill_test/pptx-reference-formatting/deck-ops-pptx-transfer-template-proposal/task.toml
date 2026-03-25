@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "deck-ops-pptx-transfer-template-proposal"
+name = "Transfer: Tailor a Client Proposal from a Brand Template Deck"
+description = "Rework the provided GreenGrid template deck into a six-slide client proposal using the structured brief and bundled proposal images, then save the tailored PPTX to the required output path."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "office-suite"
+tags = ["pptx", "slides", "template-reuse", "branding", "transfer"]
+primary_output_file = "/root/GreenGrid-Proposal-tailored.pptx"
+source_task_id = "pptx-reference-formatting"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

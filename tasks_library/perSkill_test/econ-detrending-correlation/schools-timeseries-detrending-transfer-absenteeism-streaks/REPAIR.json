@@ -1,0 +1,37 @@
+{
+  "sourceTaskId": "econ-detrending-correlation",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending",
+  "runId": "20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx",
+  "taskId": "schools-timeseries-detrending-transfer-absenteeism-streaks",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/econ-detrending-correlation/timeseries-detrending/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/schools-timeseries-detrending-transfer-absenteeism-streaks",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/econ-detrending-correlation/drafts/schools-timeseries-detrending-transfer-absenteeism-streaks",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/econ-detrending-correlation/timeseries-detrending/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/schools-timeseries-detrending-transfer-absenteeism-streaks",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/econ-detrending-correlation/schools-timeseries-detrending-transfer-absenteeism-streaks",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 的 name 或 dirName，技能暴露检查通过。; 任务使用新的 SQLite 输入资产，并把去趋势迁移到率变量的连续压力区间识别，和 source_task 以及其他 sibling drafts 都有明显差异。; tests/test.sh 先创建 `/logs/verifier`，并稳定写入 `/logs/verifier/reward.txt`；pytest 风格测试也通过 pytest 执行，未发现写 reward 前被 `set -e/pipefail` 提前中断的路径。; tests/test_outputs.py 主要校验 instruction.md 已明示的输出契约与结果语义，未发现隐藏字段、隐藏阈值、隐藏 helper 接口或把合法解法锁死到内部实现细节的明显问题。; 未发现 `solution/solve.sh` 复制或搬运随任务提供的完整标准答案文件的泄露问题；完成任务所需核心能力仍集中在当前 shipped skill 的去趋势方法本身。"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "absenteeism_pressure_streaks.md",
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2462-5491-7373-86f6-3f50b8b188dd",
+      "repairSummary": "将 instruction.md 中的输出文件路径从绝对路径 `/root/absenteeism_pressure_streaks.md` 改为与 blueprint/task.toml 一致的 `absenteeism_pressure_streaks.md`，以修复 primaryOutputFile 不一致的问题。",
+      "reviewThreadId": "019d2464-4652-7ec0-a703-339e04acbf05",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

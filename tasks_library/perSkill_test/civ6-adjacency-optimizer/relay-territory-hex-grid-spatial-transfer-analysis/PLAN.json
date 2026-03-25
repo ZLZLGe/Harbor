@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "relay-territory-hex-grid-spatial-transfer-analysis",
+  "taskRole": "transfer",
+  "title": "Transfer: 六角通信服务区归属分析",
+  "goal": "在六角通信网格上，根据既有基站、屏蔽区和巡检点，按六角距离为每个巡检点分配最近基站，并标出所有等距争议格与各基站服务区面积。",
+  "primaryOutputFile": "/output/relay_territories.json",
+  "difficulty": "medium",
+  "category": "infrastructure",
+  "skillBenefitRationale": "求解完全围绕 odd-r 六角距离、邻接边界和区域归属展开，是对 hex-grid-spatial 的空间分析型迁移。",
+  "targetSkillDirName": "hex-grid-spatial",
+  "targetSkillName": "hex-grid-spatial"
+}

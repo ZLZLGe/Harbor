@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "tls-profile-pcap-triage-tshark-transfer-beacon-intervals",
+  "taskRole": "transfer",
+  "title": "Transfer: TLS Beacon Interval Profiling",
+  "goal": "分析 TLS 握手为主的 PCAP，识别周期性 beacon 的客户端连接模式，并生成 `/workspace/outputs/tls_beacon_profile.json`。输出需列出每个命中 beacon 的客户端、目标 IP/端口、SNI、连接次数、近似周期秒数和判定依据；验证重点是是否能仅凭握手元数据与时间分布筛出真正的 beacon 流。",
+  "primaryOutputFile": "/workspace/outputs/tls_beacon_profile.json",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "该题把 tshark 技能迁移到 TLS 元数据与时间序列分析场景，要求用字段提取和时间观察完成网络行为归纳。难点仍然集中在 PCAP triage，而不是其他环境能力。",
+  "targetSkillDirName": "pcap-triage-tshark",
+  "targetSkillName": "pcap-triage-tshark"
+}

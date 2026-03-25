@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "retail-signage-video-frame-extraction-transfer-checkpoint-audit"
+name = "Transfer - 零售标牌检查点抽帧审计"
+description = "按审计清单中的时间点从门店数字标牌视频导出检查点 JPG，并生成记录命中状态、时间戳、输出文件与不可达检查点的 JSON 报告。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "零售媒资审计"
+tags = ["video", "frame extraction", "retail signage", "audit", "json"]
+primary_output_file = "/app/output/checkpoint_audit_report.json"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 300.0

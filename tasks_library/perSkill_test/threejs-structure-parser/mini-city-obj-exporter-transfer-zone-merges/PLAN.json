@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "mini-city-obj-exporter-transfer-zone-merges",
+  "taskRole": "transfer",
+  "title": "Mini City Zone Merges Transfer",
+  "goal": "读取一个程序化城市街区场景，按照 `userData.zone` 或预置语义标签把分散在不同层级的网格重新分组，导出 `/root/output/zones/<zone>.obj` 语义级合并模型，并写出对应的区块清单。",
+  "primaryOutputFile": "/root/output/zones/pedestrian_paths.obj",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "该任务把 OBJ 导出从层级装配迁移到语义聚合，要求把跨层级网格按标签合并后导出，验证的是 OBJ 导出在语义重组场景中的泛化，而不依赖任何其他 shipped skill。",
+  "targetSkillDirName": "obj-exporter",
+  "targetSkillName": "obj-exporter"
+}

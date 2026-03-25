@@ -1,0 +1,82 @@
+{
+  "account_id": "ACC-042",
+  "escalation_id": "ESC-2026-017",
+  "affected_customer_ids": [
+    "CUST-118",
+    "CUST-774"
+  ],
+  "commitments": [
+    {
+      "commitment_id": "COM-2401",
+      "summary": "Backfill tenant-local timestamps in audit exports",
+      "owner_employee_id": "eid_7f4c1a20",
+      "fix_prs": [
+        {
+          "pr_id": "PR-1842",
+          "artifact_pointer": "customer_ops/prs/fix_prs.json#pr_id=PR-1842"
+        }
+      ],
+      "meeting_record": {
+        "meeting_id": "MTG-ESC-021",
+        "artifact_pointer": "customer_ops/meetings/escalation_reviews.json#meeting_id=MTG-ESC-021"
+      },
+      "demo_link": {
+        "url": "https://demo.internal.example.com/byh/audit-export-v2",
+        "artifact_pointer": "customer_ops/demos/demo_catalog.json#demo_id=DEMO-301"
+      },
+      "latest_status": {
+        "state": "delivered",
+        "summary": "Patch is live for CUST-118 and CUST-774, and customer ops validated the tenant-local timestamp columns. Marking COM-2401 delivered.",
+        "artifact_pointer": "customer_ops/slack/escalation_threads.json#message_id=msg-114"
+      }
+    },
+    {
+      "commitment_id": "COM-2402",
+      "summary": "Ship editable SSO role mapping preview with named role templates",
+      "owner_employee_id": "eid_29b3e710",
+      "fix_prs": [
+        {
+          "pr_id": "PR-1860",
+          "artifact_pointer": "customer_ops/prs/fix_prs.json#pr_id=PR-1860"
+        }
+      ],
+      "meeting_record": {
+        "meeting_id": "MTG-ESC-022",
+        "artifact_pointer": "customer_ops/meetings/escalation_reviews.json#meeting_id=MTG-ESC-022"
+      },
+      "demo_link": {
+        "url": "https://demo.internal.example.com/byh/sso-role-mapping-preview",
+        "artifact_pointer": "customer_ops/demos/demo_catalog.json#demo_id=DEMO-302"
+      },
+      "latest_status": {
+        "state": "customer_validation",
+        "summary": "BlueYonder asked for one more named template before sign-off, so COM-2402 remains in customer validation.",
+        "artifact_pointer": "customer_ops/slack/escalation_threads.json#message_id=msg-123"
+      }
+    },
+    {
+      "commitment_id": "COM-2403",
+      "summary": "Provide API retry analytics dashboard and weekly screenshot until GA",
+      "owner_employee_id": "eid_c91aa2d4",
+      "fix_prs": [
+        {
+          "pr_id": "PR-1882",
+          "artifact_pointer": "customer_ops/prs/fix_prs.json#pr_id=PR-1882"
+        }
+      ],
+      "meeting_record": {
+        "meeting_id": "MTG-ESC-023",
+        "artifact_pointer": "customer_ops/meetings/escalation_reviews.json#meeting_id=MTG-ESC-023"
+      },
+      "demo_link": {
+        "url": "https://demo.internal.example.com/byh/retry-analytics-dashboard",
+        "artifact_pointer": "customer_ops/demos/demo_catalog.json#demo_id=DEMO-303"
+      },
+      "latest_status": {
+        "state": "preview_shared",
+        "summary": "Shared the retry analytics dashboard preview and committed to send weekly screenshots until GA.",
+        "artifact_pointer": "customer_ops/slack/escalation_threads.json#message_id=msg-129"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "exceltable-in-ppt",
+  "targetSkillDirName": "xlsx",
+  "runId": "20260324224345-exceltable-in-ppt-xlsx-3tm1g1",
+  "taskId": "gradebook-xlsx-transfer-makeup-merge",
+  "sourcePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors/exceltable-in-ppt/xlsx/20260324224345-exceltable-in-ppt-xlsx-3tm1g1/gradebook-xlsx-transfer-makeup-merge",
+  "candidatePath": null,
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/pass/exceltable-in-ppt/xlsx/20260324224345-exceltable-in-ppt-xlsx-3tm1g1/gradebook-xlsx-transfer-makeup-merge",
+  "status": "no_op_pass",
+  "changedFiles": [],
+  "initialStaticIssues": [],
+  "finalStaticIssues": [],
+  "reviewerRechecked": false,
+  "finalReviewerIssues": [],
+  "reviewThreadId": null,
+  "notes": [
+    "当前目录本体已满足 static 校验，无需修改任务文件"
+  ]
+}

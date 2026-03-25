@@ -1,0 +1,39 @@
+{
+  "sourceTaskId": "energy-market-pricing",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data",
+  "runId": "20260324230053-energy-market-pricing-power-flow-data-vv2p45",
+  "taskId": "storage-power-flow-data-transfer-battery-siting",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/energy-market-pricing/power-flow-data/20260324230053-energy-market-pricing-power-flow-data-vv2p45/storage-power-flow-data-transfer-battery-siting",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324230053-energy-market-pricing-power-flow-data-vv2p45/energy-market-pricing/drafts/storage-power-flow-data-transfer-battery-siting",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/energy-market-pricing/power-flow-data/20260324230053-energy-market-pricing-power-flow-data-vv2p45/storage-power-flow-data-transfer-battery-siting",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/energy-market-pricing/storage-power-flow-data-transfer-battery-siting",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "任务根目录直接包含 `battery_site_ranking.csv`，且其内容与参考解输出一致，构成完整标准答案泄露风险，不应发布。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "battery_site_ranking.csv",
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2465-0d29-7ab3-8edb-31017b78ceb8",
+      "repairSummary": "删除了任务根目录中泄露标准答案的 battery_site_ranking.csv，并把说明、解答脚本与测试中的默认输入输出文件名统一为与 blueprint 一致的相对路径；同时补上了解答脚本对这些变量的导出，已按测试等价逻辑完成本地校验。",
+      "reviewThreadId": "019d2469-4ebc-7451-93e1-2244aa910a20",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

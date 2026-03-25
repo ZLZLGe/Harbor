@@ -1,0 +1,1 @@
+Synthetic dual-sector light curves for authoring provenance.

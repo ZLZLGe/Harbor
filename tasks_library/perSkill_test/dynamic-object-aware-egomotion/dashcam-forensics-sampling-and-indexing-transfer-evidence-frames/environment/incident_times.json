@@ -1,0 +1,30 @@
+[
+  {
+    "event_id": "shoulder_merge",
+    "event_time_ms": 0
+  },
+  {
+    "event_id": "mirror_contact",
+    "event_time_ms": 183
+  },
+  {
+    "event_id": "airbag_glint",
+    "event_time_ms": 300
+  },
+  {
+    "event_id": "hard_brake",
+    "event_time_ms": 548
+  },
+  {
+    "event_id": "cone_rollover",
+    "event_time_ms": 1260
+  },
+  {
+    "event_id": "pedestrian_near_miss",
+    "event_time_ms": 2225
+  },
+  {
+    "event_id": "tailgate_claim",
+    "event_time_ms": 3500
+  }
+]

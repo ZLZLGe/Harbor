@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "habitat-glm-output-transfer-refuge-thickness",
+  "taskRole": "transfer",
+  "title": "Transfer: Cold-Water Refuge Thickness Tracker",
+  "goal": "给定一个湖泊场景的 GLM `output.nc` 和鱼类适温范围配置，按日计算满足温度窗口的冷水栖息地厚度并输出 CSV，同时标记夏季最小厚度和首次栖息地崩塌日期。",
+  "primaryOutputFile": "/root/reports/refuge_thickness_daily.csv",
+  "difficulty": "medium",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "关键能力是把 GLM 垂向温度剖面转换为真实深度剖面，再沿时间轴计算满足条件的深度带厚度；其余逻辑仅是简单聚合。",
+  "targetSkillDirName": "glm-output",
+  "targetSkillName": "glm-output"
+}

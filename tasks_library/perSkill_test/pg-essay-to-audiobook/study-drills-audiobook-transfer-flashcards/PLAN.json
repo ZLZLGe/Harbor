@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "study-drills-audiobook-transfer-flashcards",
+  "taskRole": "transfer",
+  "title": "Transfer - Flashcard Review Drill Audio",
+  "goal": "给定一份 JSON 格式的问答复习卡片，生成一条可循环练习的音频训练轨道，按“问题-停顿-答案”节奏串联并输出到 /root/review-drill-session.wav。验证可检查题答顺序、停顿节奏是否存在，以及最终音频是否覆盖全部卡片内容。",
+  "primaryOutputFile": "/root/review-drill-session.wav",
+  "difficulty": "medium",
+  "category": "speech-synthesis",
+  "skillBenefitRationale": "任务把技能迁移到练习型音频场景，强调节奏控制和短文本拼接，而不是长文朗读；不过仍然完全建立在文本分段、语音合成和音频拼接这些 audiobook skill 的核心能力之上。",
+  "targetSkillDirName": "audiobook",
+  "targetSkillName": "audiobook"
+}

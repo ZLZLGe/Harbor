@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "repair-generated-sources-maven-build-lifecycle-similar-phase-binding",
+  "taskRole": "similar",
+  "title": "Similar: Repair Generated Sources Phase Binding",
+  "goal": "在一个小型单模块 Java 项目中，修复 `pom.xml` 里把源码生成插件绑定到过晚阶段的问题，让 `mvn verify` 能先生成再编译，并产出正确的 `BuildMetadata.java`。",
+  "primaryOutputFile": "target/generated-sources/build-meta/com/acme/build/BuildMetadata.java",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "核心在于识别 Maven 默认生命周期中 `generate-sources`、`compile` 与 `verify` 的先后关系，并把插件执行绑定到正确阶段；不需要其他 shipped skill。",
+  "targetSkillDirName": "maven-build-lifecycle",
+  "targetSkillName": "maven-build-lifecycle"
+}

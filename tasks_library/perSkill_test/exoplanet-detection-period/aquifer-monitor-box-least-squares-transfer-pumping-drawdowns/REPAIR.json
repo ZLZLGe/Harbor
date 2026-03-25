@@ -1,0 +1,50 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares",
+  "runId": "20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr",
+  "taskId": "aquifer-monitor-box-least-squares-transfer-pumping-drawdowns",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/box-least-squares/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/aquifer-monitor-box-least-squares-transfer-pumping-drawdowns",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/exoplanet-detection-period/drafts/aquifer-monitor-box-least-squares-transfer-pumping-drawdowns",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/box-least-squares/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/aquifer-monitor-box-least-squares-transfer-pumping-drawdowns",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/aquifer-monitor-box-least-squares-transfer-pumping-drawdowns",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 用固定 19 点时长网格重算标准答案，而 instruction.md 只要求至少 19 个时长样本；这会把合法解法锁死到隐藏搜索配置。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "tests/test_outputs.py 直接写死最终答案井号为 WELL-B2，存在答案泄露。; tests/test_outputs.py 用固定阈值事件检测来校验结果，未按 instruction.md 要求验证 4 口井统一执行 BLS 周期搜索并按最高 peak power 选井，导致测试与任务要求不一致且可被错误解法绕过。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2469-5337-7811-a2aa-2be00ba001e1",
+      "repairSummary": "移除了 tests/test_outputs.py 中对固定 19 点时长网格的重算校验，改为基于数据本身的稳定抽水信号特征校验最终结果，避免把合法解法锁定到隐藏搜索配置。",
+      "reviewThreadId": "019d246e-67b8-7213-93b9-beade4ee2f8e",
+      "reviewerIssues": [
+        "tests/test_outputs.py 直接写死最终答案井号为 WELL-B2，存在答案泄露。; tests/test_outputs.py 用固定阈值事件检测来校验结果，未按 instruction.md 要求验证 4 口井统一执行 BLS 周期搜索并按最高 peak power 选井，导致测试与任务要求不一致且可被错误解法绕过。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2470-ac66-7ad1-af05-151e1bf1af5b",
+      "repairSummary": "重写测试以按说明独立复现 4 口井统一配置的 BLS 周期搜索、按最高 peak power 选井并精确比对输出，去除了写死 WELL-B2 和固定阈值事件检测造成的答案泄露与校验偏差。",
+      "reviewThreadId": "019d2477-1512-77b2-805c-e14bb652a6e7",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

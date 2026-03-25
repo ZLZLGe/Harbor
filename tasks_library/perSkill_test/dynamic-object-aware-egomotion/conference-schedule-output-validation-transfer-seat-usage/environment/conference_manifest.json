@@ -1,0 +1,25 @@
+{
+  "room_id": "Harbor-Orchid",
+  "slot_count": 8,
+  "slot_windows": [
+    "09:00-09:30",
+    "09:30-10:00",
+    "10:00-10:30",
+    "10:30-11:00",
+    "11:00-11:30",
+    "11:30-12:00",
+    "12:00-12:30",
+    "12:30-13:00"
+  ],
+  "seat_matrix_shape": [3, 5],
+  "seat_matrix_path": "/root/seat_usage_csr.npz",
+  "timeline_path": "/root/room_state_timeline.json",
+  "empty_seat_token": "__",
+  "allowed_states": [
+    "Vacant",
+    "Check-In",
+    "In Session",
+    "Overflow",
+    "Reset"
+  ]
+}

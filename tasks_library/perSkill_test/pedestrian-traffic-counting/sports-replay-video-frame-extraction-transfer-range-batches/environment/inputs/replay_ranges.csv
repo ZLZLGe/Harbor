@@ -1,0 +1,5 @@
+clip_id,source_video,start_frame,end_frame
+red_opening,quarterfinal_north.mp4,5,14
+sideline_reset,quarterfinal_north.mp4,32,39
+south_fastbreak,quarterfinal_south.mp4,12,24
+south_review,quarterfinal_south.mp4,45,52

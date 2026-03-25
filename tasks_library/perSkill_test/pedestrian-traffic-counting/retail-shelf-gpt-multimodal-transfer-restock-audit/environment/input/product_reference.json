@@ -1,0 +1,122 @@
+[
+  {
+    "package_code": "BF",
+    "product_name": "Berry Fizz",
+    "color_name": "berry_red",
+    "rgb": [
+      196,
+      56,
+      74
+    ]
+  },
+  {
+    "package_code": "CB",
+    "product_name": "Choco Bar",
+    "color_name": "cocoa_brown",
+    "rgb": [
+      117,
+      73,
+      46
+    ]
+  },
+  {
+    "package_code": "CP",
+    "product_name": "Citrus Pop",
+    "color_name": "bright_yellow",
+    "rgb": [
+      244,
+      210,
+      58
+    ]
+  },
+  {
+    "package_code": "CR",
+    "product_name": "Cold Brew",
+    "color_name": "espresso_brown",
+    "rgb": [
+      88,
+      62,
+      48
+    ]
+  },
+  {
+    "package_code": "GM",
+    "product_name": "Gum Mint",
+    "color_name": "mint_green",
+    "rgb": [
+      104,
+      219,
+      176
+    ]
+  },
+  {
+    "package_code": "LT",
+    "product_name": "Lemon Tea",
+    "color_name": "amber_orange",
+    "rgb": [
+      238,
+      162,
+      71
+    ]
+  },
+  {
+    "package_code": "OJ",
+    "product_name": "Orange Juice",
+    "color_name": "orange",
+    "rgb": [
+      255,
+      138,
+      56
+    ]
+  },
+  {
+    "package_code": "PB",
+    "product_name": "Protein Bite",
+    "color_name": "plum_purple",
+    "rgb": [
+      145,
+      96,
+      156
+    ]
+  },
+  {
+    "package_code": "SC",
+    "product_name": "Salt Chips",
+    "color_name": "golden_yellow",
+    "rgb": [
+      255,
+      196,
+      63
+    ]
+  },
+  {
+    "package_code": "SW",
+    "product_name": "Spring Water",
+    "color_name": "cool_teal",
+    "rgb": [
+      69,
+      180,
+      197
+    ]
+  },
+  {
+    "package_code": "TW",
+    "product_name": "Tonic Water",
+    "color_name": "pale_blue",
+    "rgb": [
+      154,
+      198,
+      219
+    ]
+  },
+  {
+    "package_code": "YD",
+    "product_name": "Yogurt Drink",
+    "color_name": "pink",
+    "rgb": [
+      236,
+      125,
+      171
+    ]
+  }
+]

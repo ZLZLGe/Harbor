@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "relocation-search-attractions-transfer-weekend-board",
+  "taskRole": "transfer",
+  "title": "Transfer | Relocation Weekend Comparison Board",
+  "goal": "读取候选定居城市清单，生成 `/app/output/relocation_weekend_board.html`。页面按城市渲染对比看板，每城展示 4 个代表性景点卡片，并区分 `must-see` 与 `backup` 两组；每张卡片必须包含名称、地址和官网，用于帮助新人比较不同城市的周末生活氛围。",
+  "primaryOutputFile": "/app/output/relocation_weekend_board.html",
+  "difficulty": "medium",
+  "category": "relocation-research",
+  "skillBenefitRationale": "这个场景把景点检索迁移到定居比较资料制作中，但核心仍然是按城市查询真实景点列表；城市名单由输入提供，因此 search-attractions 是唯一关键 shipped skill。",
+  "targetSkillDirName": "search-attractions",
+  "targetSkillName": "search-attractions"
+}

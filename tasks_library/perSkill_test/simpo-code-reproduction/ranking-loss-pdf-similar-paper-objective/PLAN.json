@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ranking-loss-pdf-similar-paper-objective",
+  "taskRole": "similar",
+  "title": "PDF Similar: 从研究论文复现长度归一化排序损失",
+  "goal": "给定一个带有缺失函数的轻量训练仓库和一份研究论文 PDF，要求根据论文中的目标函数与边际定义实现缺失损失函数，运行固定张量单测，并将最终损失向量保存到 /root/ranking_losses.npz；测试同时校验数值结果与代码路径确实来自被补全函数。",
+  "primaryOutputFile": "/root/ranking_losses.npz",
+  "difficulty": "hard",
+  "category": "code reproduction",
+  "skillBenefitRationale": "关键公式、归一化方式和边际项只在论文 PDF 中给出，解题核心是从 PDF 中准确提取并还原为代码。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

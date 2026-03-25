@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "saas-timeseries-detrending-transfer-lead-lag-cycles",
+  "taskRole": "transfer",
+  "title": "Transfer | Marketing Spend Lead-Lag Cycles",
+  "goal": "给定月度实际营销投放与订阅开通量序列，提取各自周期成分并在 -3 到 +3 个月滞后范围内寻找使周期相关性最大的滞后值，输出包含最佳滞后和对应相关系数的 JSON。",
+  "primaryOutputFile": "lead_lag_cycles.json",
+  "difficulty": "medium",
+  "category": "business",
+  "skillBenefitRationale": "这里把同一套去趋势方法迁移到 SaaS 经营指标，核心难点仍是先剥离增长趋势，再比较周期波动之间的时序关系；不用去趋势就无法稳定得到正确的 lead-lag 结论。",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending"
+}

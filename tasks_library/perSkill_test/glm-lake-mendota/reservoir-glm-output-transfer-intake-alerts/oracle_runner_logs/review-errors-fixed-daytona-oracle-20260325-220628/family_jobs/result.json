@@ -1,0 +1,35 @@
+{
+    "id": "a8588522-6da0-4b6d-9fc1-6df9a7b29823",
+    "started_at": "2026-03-25T22:38:53.700472",
+    "finished_at": "2026-03-25T22:39:38.918588",
+    "n_total_trials": 4,
+    "stats": {
+        "n_trials": 4,
+        "n_errors": 2,
+        "evals": {
+            "oracle__glm-lake-mendota": {
+                "n_trials": 2,
+                "n_errors": 2,
+                "metrics": [
+                    {
+                        "mean": 0.5
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "scenario-glm-output-transfer-the__3FF75kK",
+                            "habitat-glm-output-transfer-refu__2bE9wjz"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "DaytonaError": [
+                        "stratification-glm-calibration-t__DJHZxqh",
+                        "reservoir-glm-output-transfer-in__YNcFDqH"
+                    ]
+                }
+            }
+        }
+    }
+}

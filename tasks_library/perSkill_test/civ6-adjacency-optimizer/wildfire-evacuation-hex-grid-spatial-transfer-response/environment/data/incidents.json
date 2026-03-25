@@ -1,0 +1,17 @@
+{
+  "villages": [
+    {"id": "PINEWATCH", "x": 1, "y": 1},
+    {"id": "EASTVALE", "x": 5, "y": 4},
+    {"id": "LOWBRIDGE", "x": 3, "y": 0},
+    {"id": "EMBER_HOLLOW", "x": 6, "y": 0}
+  ],
+  "shelters": [
+    {"id": "SOUTH_HUB", "x": 0, "y": 0},
+    {"id": "NORTH_PAD", "x": 5, "y": 6},
+    {"id": "EAST_CUT", "x": 7, "y": 3}
+  ],
+  "ignitions": [
+    {"x": 0, "y": 5, "turn": 0},
+    {"x": 7, "y": 1, "turn": 1}
+  ]
+}

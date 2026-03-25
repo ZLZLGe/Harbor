@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "spring-security-6",
+  "targetSkillName": "spring-security-6",
+  "runId": "20260325041535-spring-boot-jakarta-migration-spring-security-6-3qzv16",
+  "taskId": "ops-gateway-spring-security-6-transfer-multi-chain",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/spring-boot-jakarta-migration/spring-security-6/20260325041535-spring-boot-jakarta-migration-spring-security-6-3qzv16/ops-gateway-spring-security-6-transfer-multi-chain",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325041535-spring-boot-jakarta-migration-spring-security-6-3qzv16/spring-boot-jakarta-migration/drafts/ops-gateway-spring-security-6-transfer-multi-chain",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/spring-boot-jakarta-migration/spring-security-6/20260325041535-spring-boot-jakarta-migration-spring-security-6-3qzv16/ops-gateway-spring-security-6-transfer-multi-chain",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/spring-boot-jakarta-migration/ops-gateway-spring-security-6-transfer-multi-chain",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 额外要求 /docs/index.html 响应包含 `Gateway Runbook`，并校验 /internal/** 与 /api/** 成功响应里的 `surface`、`principal`、`mode` 字段；这些都没有在 instruction.md 明示，属于隐藏契约，testability 不通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c9-541e-74f1-ad07-d0e800d9629e",
+      "repairSummary": "补充了 instruction.md 中原本未明示的运行时契约，明确要求 /docs/index.html 保留 `Gateway Runbook`，以及 /internal/ops/status 和 /api/v1/transfers 成功响应中的 `surface`、`principal`、`mode` 取值与现有认证语义保持一致。",
+      "reviewThreadId": "019d24ca-b6aa-7172-ab82-fa25d8136c51",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

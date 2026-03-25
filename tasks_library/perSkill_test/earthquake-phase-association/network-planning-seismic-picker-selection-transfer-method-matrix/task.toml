@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "network-planning-seismic-picker-selection-transfer-method-matrix"
+name = "Transfer: 多监测场景的地震拾取方法推荐矩阵"
+description = "Choose the most suitable phase-picking or detection method for each monitoring deployment scenario and write the recommendation matrix to /root/method_matrix.json."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "seismology"
+tags = ["seismology", "method-selection", "monitoring-planning", "transfer"]
+primary_output_file = "/root/method_matrix.json"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0

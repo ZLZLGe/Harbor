@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "crosswalk-dyn-object-masks-transfer-lane-intrusions"
+name = "Transfer: Crosswalk Lane Intrusion Windows"
+description = "Analyze the crosswalk drive clip and write merged ego-lane intrusion windows to /root/crosswalk_intrusions.json."
+author_name = "Levi"
+author_email = "levi@harbor.local"
+difficulty = "medium"
+category = "video-analysis"
+tags = ["video", "roi", "temporal-windows", "dynamic-objects"]
+primary_output_file = "/root/crosswalk_intrusions.json"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

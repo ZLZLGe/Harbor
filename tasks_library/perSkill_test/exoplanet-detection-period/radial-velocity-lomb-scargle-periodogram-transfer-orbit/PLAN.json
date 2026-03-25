@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "radial-velocity-lomb-scargle-periodogram-transfer-orbit",
+  "taskRole": "transfer",
+  "title": "Transfer: Recover a Planet Period from Uneven Radial-Velocity Visits",
+  "goal": "分析一组时间不均匀的恒星径向速度观测及其测量误差，识别最可能的行星轨道周期，并把主周期及两个次强候选周期写入 `/root/rv_period_report.json`。",
+  "primaryOutputFile": "/root/rv_period_report.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "径向速度周期搜索是 Lomb-Scargle 的直接迁移场景；任务关键在于对不规则观测做周期扫描并区分主峰与混叠峰，而不是依赖凌星或轨道拟合类技能。",
+  "targetSkillDirName": "lomb-scargle-periodogram",
+  "targetSkillName": "lomb-scargle-periodogram"
+}

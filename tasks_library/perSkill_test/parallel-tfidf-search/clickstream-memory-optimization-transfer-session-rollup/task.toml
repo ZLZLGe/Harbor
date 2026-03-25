@@ -1,0 +1,30 @@
+[task]
+version = "1.0"
+id = "clickstream-memory-optimization-transfer-session-rollup"
+name = "Transfer: Streaming Clickstream Session Rollup"
+description = "Process a session-sorted clickstream into per-session CSV rollups while staying within a fixed memory budget."
+
+[metadata]
+id = "clickstream-memory-optimization-transfer-session-rollup"
+name = "Transfer: Streaming Clickstream Session Rollup"
+description = "Write `/root/workspace/session_rollup_solution.py` so it converts a session-sorted NDJSON clickstream into the required per-session CSV rollup within the memory budget."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Memory Optimization"
+tags = ["memory-optimization", "streaming", "clickstream", "csv"]
+primary_output_file = "/root/workspace/session_rollup_solution.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

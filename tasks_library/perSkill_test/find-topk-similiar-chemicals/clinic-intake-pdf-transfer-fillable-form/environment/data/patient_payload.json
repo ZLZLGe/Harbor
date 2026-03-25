@@ -1,0 +1,24 @@
+{
+  "patient": {
+    "legal_name": {
+      "last": "Delgado",
+      "first": "Marina"
+    },
+    "birth_date": "1987-04-19",
+    "contact": {
+      "mobile": "617-555-0148"
+    },
+    "clinical_flags": {
+      "allergies": "Latex; penicillin"
+    },
+    "appointment": {
+      "track": "follow_up"
+    },
+    "preferences": {
+      "sms_reminders": false
+    },
+    "acknowledgements": {
+      "privacy_notice_received": true
+    }
+  }
+}

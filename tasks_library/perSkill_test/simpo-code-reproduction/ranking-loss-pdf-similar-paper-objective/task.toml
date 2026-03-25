@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "ranking-loss-pdf-similar-paper-objective"
+name = "PDF Similar: 复现长度归一化排序损失"
+description = "根据论文 PDF 补全轻量排序仓库中的目标函数并生成 /root/ranking_losses.npz。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "code reproduction"
+tags = ["code-reproduction", "pdf", "ranking-loss", "paper-objective"]
+primary_output_file = "/root/ranking_losses.npz"
+source_task_id = "simpo-code-reproduction"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0

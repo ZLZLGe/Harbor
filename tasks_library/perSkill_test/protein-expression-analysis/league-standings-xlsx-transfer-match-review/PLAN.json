@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "league-standings-xlsx-transfer-match-review",
+  "taskRole": "transfer",
+  "title": "Transfer | 青训联赛积分榜复盘工作簿",
+  "goal": "根据赛程结果表完成联赛复盘工作簿：按球队汇总胜平负、进球、失球、积分和净胜球，按既定 tie-break 规则生成积分榜，并在附表中标出升级区、附加赛区和降级区。",
+  "primaryOutputFile": "league_standings_review.xlsx",
+  "difficulty": "middle",
+  "category": "data-analysis",
+  "skillBenefitRationale": "迁移到体育赛事场景，依赖工作簿内的条件统计、排序和规则化排名，能够测试该技能在非财务、非科研数据上的泛化能力。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

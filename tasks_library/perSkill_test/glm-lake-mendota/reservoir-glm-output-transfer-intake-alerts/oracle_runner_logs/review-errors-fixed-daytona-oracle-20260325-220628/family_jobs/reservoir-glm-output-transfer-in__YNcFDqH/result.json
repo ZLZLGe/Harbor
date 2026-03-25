@@ -1,0 +1,79 @@
+{
+    "id": "d51ac9bc-a4f0-4c33-a963-e3d2eb0a34ed",
+    "task_name": "reservoir-glm-output-transfer-intake-alerts",
+    "trial_name": "reservoir-glm-output-transfer-in__YNcFDqH",
+    "trial_uri": "file:///home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/jobs/review-errors-fixed-daytona-oracle-20260325-220628/reservoir-glm-output-transfer-in__YNcFDqH",
+    "task_id": {
+        "path": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/reservoir-glm-output-transfer-intake-alerts"
+    },
+    "source": "glm-lake-mendota",
+    "task_checksum": "4709bd9507b7e843c5821fc80ec37224e6e401651b4d0ed32dcffb6bf3a0a272",
+    "config": {
+        "task": {
+            "path": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/reservoir-glm-output-transfer-intake-alerts",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "glm-lake-mendota"
+        },
+        "trial_name": "reservoir-glm-output-transfer-in__YNcFDqH",
+        "trials_dir": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/jobs/review-errors-fixed-daytona-oracle-20260325-220628",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "daytona",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "a8588522-6da0-4b6d-9fc1-6df9a7b29823"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "DaytonaError",
+        "exception_message": "Failed to create sandbox: Total CPU limit exceeded. Maximum allowed: 10.\nTo increase concurrency limits, upgrade your organization's Tier by visiting https://app.daytona.io/dashboard/limits.",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 479, in run\n    await self._setup_environment()\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 212, in _setup_environment\n    await self._start_environment_with_retry()\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 193, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 112, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 157, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/_utils.py\", line 111, in inner\n    return call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/__init__.py\", line 393, in <lambda>\n    self._add_action_func(lambda rs: rs.outcome.result())\n                                     ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 116, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/harbor/trial/trial.py\", line 224, in _start_environment_with_retry\n    await asyncio.wait_for(\n  File \"/usr/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/harbor/environments/daytona.py\", line 1046, in start\n    return await self._strategy.start(force_build)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/harbor/environments/daytona.py\", line 219, in start\n    await env._create_sandbox(params=params)\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 193, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 112, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 157, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/_utils.py\", line 111, in inner\n    return call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/__init__.py\", line 413, in exc_check\n    raise retry_exc.reraise()\n          ^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/__init__.py\", line 184, in reraise\n    raise self.last_attempt.result()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 116, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/harbor/environments/daytona.py\", line 836, in _create_sandbox\n    self._sandbox = await daytona.create(\n                    ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/daytona/_utils/errors.py\", line 89, in async_wrapper\n    process_n_raise_exception(e)\n  File \"/home/levi/Harbor/.venv/lib/python3.12/site-packages/daytona/_utils/errors.py\", line 67, in process_n_raise_exception\n    raise DaytonaError(f\"{message_prefix}{msg}\", status_code=status_code, headers=headers) from None\ndaytona.common.errors.DaytonaError: Failed to create sandbox: Total CPU limit exceeded. Maximum allowed: 10.\nTo increase concurrency limits, upgrade your organization's Tier by visiting https://app.daytona.io/dashboard/limits.\n",
+        "occurred_at": "2026-03-25T22:39:15.389921"
+    },
+    "started_at": "2026-03-25T14:39:05.796693Z",
+    "finished_at": "2026-03-25T14:39:16.394642Z",
+    "environment_setup": {
+        "started_at": "2026-03-25T14:39:05.799630Z",
+        "finished_at": "2026-03-25T14:39:14.386831Z"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null
+}

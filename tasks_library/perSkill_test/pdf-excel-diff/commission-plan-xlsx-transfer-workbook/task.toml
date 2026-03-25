@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "commission-plan-xlsx-transfer-workbook"
+name = "Transfer: Commission Payout Workbook"
+description = "Build /root/commission_payouts.xlsx from the provided sales and quota workbooks with formula-driven detail and team summary sheets."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "spreadsheet-modeling"
+tags = ["commission", "sales", "spreadsheet", "formulas", "workbook"]
+primary_output_file = "/root/commission_payouts.xlsx"
+source_task_id = "pdf-excel-diff"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

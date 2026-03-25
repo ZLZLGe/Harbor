@@ -1,0 +1,7 @@
+employee_id,roles,preferred_slots,unavailable_dates
+E01,cashier|barista,morning,
+E02,cashier|stock,morning,
+E03,barista,evening,
+E04,stock|cleaner,evening,
+E05,cleaner|cashier,mid|evening,2026-04-02
+E06,barista|stock,morning|evening,2026-04-03

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "emergency-department-waittime-contribution-analysis-transfer-shares",
+  "taskRole": "transfer",
+  "title": "Transfer: Emergency Department Wait-Time Driver Shares",
+  "goal": "给定急诊每日到诊压力、排班缺口、检查周转和床位流转四类运营表，计算四类瓶颈对平均等待时间的贡献份额，并将完整四行、按贡献降序排列的结果写入 `waittime_driver_shares.csv`。",
+  "primaryOutputFile": "waittime_driver_shares.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "把同一贡献分解方法迁移到医疗运营场景，同时把输出从“只报主导项”改成“完整份额分布”，检验是否真正掌握分组贡献归一化与结果排序，而不是只会复现单一答案格式。",
+  "targetSkillDirName": "contribution-analysis",
+  "targetSkillName": "contribution-analysis"
+}

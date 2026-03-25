@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "sales-table-pptx-similar-revision"
+name = "Similar - 修订销售总览表"
+description = "Read revision instructions from the slide memo, update the specified cells in the native table, and save the revised deck as /root/results-table-revision.pptx."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Office Operation"
+tags = ["pptx", "table", "xml-editing", "office"]
+primary_output_file = "/root/results-table-revision.pptx"
+source_task_id = "exceltable-in-ppt"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

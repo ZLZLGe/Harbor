@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ice-cover-glm-calibration-transfer-under-ice-fit",
+  "taskRole": "transfer",
+  "title": "Transfer - Calibrate Under-Ice Temperature Structure",
+  "goal": "把同一校准技能迁移到冰期湖泊场景：求解者需要针对一段较短冬季模拟窗口调整 GLM 参数，使冰下水温剖面与观测剖面达到目标误差，并将关键日期与分层偏差摘要输出到 `/root/analysis/under_ice_fit_summary.json`。",
+  "primaryOutputFile": "/root/analysis/under_ice_fit_summary.json",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "该任务把 GLM 校准放到冰期热结构场景中，要求求解者理解参数对低温分层和冰下热量分布的影响；核心仍然是唯一 shipped skill 的反复运行与误差最小化。",
+  "targetSkillDirName": "glm-calibration",
+  "targetSkillName": "glm-calibration"
+}

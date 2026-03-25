@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "monona-glm-calibration-similar-seasonal-profile-fit",
+  "taskRole": "similar",
+  "title": "Similar - Calibrate Seasonal Temperature Profiles for Lake Monona",
+  "goal": "为另一座温带分层湖构建一个较短时窗的 GLM 校准任务：求解者需要反复调整 `glm3.nml` 中的关键热量与混合参数，使 2012-2013 年的垂向水温剖面与稀疏实测剖面达到给定 RMSE 阈值，并把最终参数与误差摘要写入 `/root/results/monona_profile_calibration.json`。",
+  "primaryOutputFile": "/root/results/monona_profile_calibration.json",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "这直接对应当前 shipped skill 的典型用法：修改 GLM 参数、运行模型、对齐观测剖面并最小化温度 RMSE，只是换成了新的湖泊、观测节奏和模拟窗口，避免对源任务做机械复写。",
+  "targetSkillDirName": "glm-calibration",
+  "targetSkillName": "glm-calibration"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "documentary-multimodal-fusion-transfer-voiceover-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Documentary Voiceover Audit",
+  "goal": "分析一段纪录片片段中的语音事件，输出`/root/narration_audit.json`，把每段语音标记为`on_camera_speech`、`off_camera_voiceover`或`ambiguous`，并附带起止时间、可见人脸数量和嘴动证据。验证重点是区分镜头内说话与画外旁白。",
+  "primaryOutputFile": "/root/narration_audit.json",
+  "difficulty": "medium",
+  "category": "audio-visual",
+  "skillBenefitRationale": "该任务把多模态融合迁移到旁白审计场景，关键仍是将音频语音活动与画面中的可见说话者对齐，判断语音是否得到视觉支持。",
+  "targetSkillDirName": "multimodal-fusion",
+  "targetSkillName": "Multimodal Fusion for Speaker Diarization"
+}

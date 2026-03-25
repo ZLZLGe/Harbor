@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "tutorial-voice-activity-detection-transfer-overlay-windows",
+  "taskRole": "transfer",
+  "title": "Tutorial Overlay Windows Transfer",
+  "goal": "分析一段教程视频中的讲解时段，输出所有满足最小时长要求的无语音窗口，供编辑在这些窗口内插入提示卡片或遮罩说明。",
+  "primaryOutputFile": "/root/overlay_windows.csv",
+  "difficulty": "medium",
+  "category": "audio-visual",
+  "skillBenefitRationale": "该任务把语音活动检测转成“找静音窗口”的视频编辑调度问题，核心仍然是准确识别语音与非语音边界，但输出语义已从语音片段变为可用空档。",
+  "targetSkillDirName": "voice-activity-detection",
+  "targetSkillName": "Voice Activity Detection (VAD)"
+}

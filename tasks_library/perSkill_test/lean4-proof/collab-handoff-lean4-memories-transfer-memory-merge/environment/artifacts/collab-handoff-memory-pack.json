@@ -1,0 +1,239 @@
+{
+  "handoff_id": "collab-handoff-2026-03-memory-merge",
+  "source_exports": [
+    "/app/handoff_inputs/collaborator_mira_export.json",
+    "/app/handoff_inputs/collaborator_noah_export.json",
+    "/app/handoff_inputs/project_file_inventory.json",
+    "/app/handoff_inputs/conflict_notes.md"
+  ],
+  "merge_summary": {
+    "input_record_counts": {
+      "collaborator_mira_export.json": 4,
+      "collaborator_noah_export.json": 4
+    },
+    "output_record_counts": {
+      "proof_patterns": 1,
+      "failed_approaches": 2,
+      "project_conventions": 1,
+      "theorem_dependencies": 1
+    },
+    "deduplicated_groups": [
+      {
+        "topic": "recursive upper-bound proof pattern",
+        "merged_record_ids": [
+          "mira-pp-recursive-bound-closed-form",
+          "noah-pp-closed-form-tail-control"
+        ],
+        "kept_record_id": "handoff-pp-recursive-bound-canonical",
+        "reason": "Both exports describe the same two-phase success pattern, so they were merged into a single canonical handoff record."
+      },
+      {
+        "topic": "evidence citation convention",
+        "merged_record_ids": [
+          "mira-pc-relative-evidence",
+          "noah-pc-evidence-path-and-line"
+        ],
+        "kept_record_id": "handoff-pc-evidence-citation",
+        "reason": "The handoff should expose only one reviewable citation rule, so the stricter version won and absorbed the simpler one."
+      },
+      {
+        "topic": "positive-tail dependency",
+        "merged_record_ids": [
+          "mira-td-positivity",
+          "noah-td-pow-pos"
+        ],
+        "kept_record_id": "handoff-td-pow-pos",
+        "reason": "The explicit theorem dependency was preferred over the tactic-only note for long-term reuse."
+      }
+    ]
+  },
+  "merged_records": {
+    "proof_patterns": [
+      {
+        "record_id": "handoff-pp-recursive-bound-canonical",
+        "record_type": "ProofPattern",
+        "canonical_title": "Canonical recursive bound pattern: closed form first, then discharge the positive tail",
+        "merged_from": [
+          "mira-pp-recursive-bound-closed-form",
+          "noah-pp-closed-form-tail-control"
+        ],
+        "decision_reason": "Merged the two near-duplicate success records into one canonical pattern. Noah's export supplied broader evidence across multiple sessions, so it anchors the wording, while Mira's constant-minus-nonnegative-tail phrasing and minimal `ring` fallback were preserved.",
+        "source_evidence": [
+          {
+            "file": "Proofs/Sequences/GeomBound.lean",
+            "line_hint": "theorem geom_bound"
+          },
+          {
+            "file": "Proofs/Sequences/ThirdBound.lean",
+            "line_hint": "theorem third_bound"
+          },
+          {
+            "file": "Notes/session-geom-bound.md",
+            "line_hint": "successful two-phase outline"
+          },
+          {
+            "file": "Proofs/Sequences/HalfBound.lean",
+            "line_hint": "theorem half_bound"
+          }
+        ],
+        "goal_signals": [
+          "closed form",
+          "recursive rational sequence",
+          "strict upper bound",
+          "tail positivity",
+          "tail term",
+          "upper bound"
+        ],
+        "recommended_steps": [
+          "Use induction to derive an exact closed form before touching the top-level inequality.",
+          "Rewrite the target as a constant minus a tail term, then prove the tail is nonnegative or positive.",
+          "Normalize the algebraic shape with `ring_nf`, keeping plain `ring` available as a lighter fallback.",
+          "Only after the recurrence is exposed should linear arithmetic or automation close the final bound."
+        ],
+        "helper_lemmas": [
+          "pow_pos",
+          "ring",
+          "ring_nf",
+          "linarith"
+        ]
+      }
+    ],
+    "failed_approaches": [
+      {
+        "record_id": "handoff-fa-simp-recursion-too-early",
+        "record_type": "FailedApproach",
+        "canonical_title": "Do not unfold the recurrence at the top-level goal",
+        "merged_from": [
+          "mira-fa-simp-recursion-too-early"
+        ],
+        "decision_reason": "Kept as a distinct dead end because it warns against premature unfolding rather than premature linear arithmetic.",
+        "source_evidence": [
+          {
+            "file": "Notes/session-half-bound.md",
+            "line_hint": "failed attempt A"
+          }
+        ],
+        "attempted_step": "Run `simp [Seq]` before building the closed form.",
+        "failure_signal": "The goal grows but still has no inequality route.",
+        "better_direction": "Split the work: derive the exact form first, then close the inequality with the tail sign."
+      },
+      {
+        "record_id": "handoff-fa-linarith-before-unfolding",
+        "record_type": "FailedApproach",
+        "canonical_title": "Do not call `linarith` before the recurrence is unfolded",
+        "merged_from": [
+          "noah-fa-linarith-before-unfolding"
+        ],
+        "decision_reason": "Kept as a separate failure mode because it captures a different mistake than early simplification.",
+        "source_evidence": [
+          {
+            "file": "Notes/session-geom-bound.md",
+            "line_hint": "failed attempt B"
+          }
+        ],
+        "attempted_step": "Ask `linarith` to solve the successor case directly from the induction hypothesis.",
+        "failure_signal": "The nonlinear tail term remains opaque and the tactic makes no progress.",
+        "better_direction": "Rewrite the recurrence, substitute the induction hypothesis, and normalize before using linear arithmetic."
+      }
+    ],
+    "project_conventions": [
+      {
+        "record_id": "handoff-pc-evidence-citation",
+        "record_type": "ProjectConvention",
+        "canonical_title": "Canonical evidence citation rule for shared handoff packs",
+        "merged_from": [
+          "mira-pc-relative-evidence",
+          "noah-pc-evidence-path-and-line"
+        ],
+        "decision_reason": "Collapsed the overlapping citation rules into one stricter convention. The merged rule keeps Noah's stronger reviewability requirement and absorbs Mira's relative-path constraint.",
+        "source_evidence": [
+          {
+            "file": "Docs/memory-style.md",
+            "line_hint": "section Evidence"
+          },
+          {
+            "file": "Docs/memory-style.md",
+            "line_hint": "section Reviewability"
+          }
+        ],
+        "rule": "Every handoff memory must cite a repository-relative path plus a local line hint or theorem name.",
+        "reason": "This is the narrowest rule that stays reviewable across collaborators and survives branch changes."
+      }
+    ],
+    "theorem_dependencies": [
+      {
+        "record_id": "handoff-td-pow-pos",
+        "record_type": "TheoremDependency",
+        "canonical_title": "Canonical positive-tail dependency uses an explicit positivity theorem",
+        "merged_from": [
+          "mira-td-positivity",
+          "noah-td-pow-pos"
+        ],
+        "decision_reason": "Preferred the explicit theorem dependency because it is easier to reuse and audit than an automation-only note. The tactic-level idea still survives inside the merged proof pattern instead of remaining a separate dependency record.",
+        "source_evidence": [
+          {
+            "file": "Proofs/Sequences/GeomBound.lean",
+            "line_hint": "have h_pow_pos"
+          },
+          {
+            "file": "Proofs/Sequences/ThirdBound.lean",
+            "line_hint": "have h_den_pos"
+          }
+        ],
+        "theorem": "pow_pos",
+        "why_it_matters": "It gives an explicit positive-denominator bridge before the final inequality-closing step.",
+        "preferred_source": "Proofs/Sequences/GeomBound.lean"
+      }
+    ]
+  },
+  "conflict_resolutions": [
+    {
+      "topic": "recursive upper-bound proof pattern",
+      "winner_record_id": "handoff-pp-recursive-bound-canonical",
+      "loser_record_ids": [
+        "mira-pp-recursive-bound-closed-form",
+        "noah-pp-closed-form-tail-control"
+      ],
+      "resolution_reason": "The final pattern uses Noah's stronger multi-session evidence as the canonical spine while preserving Mira's simpler tail-language and `ring` fallback."
+    },
+    {
+      "topic": "evidence citation convention",
+      "winner_record_id": "handoff-pc-evidence-citation",
+      "loser_record_ids": [
+        "mira-pc-relative-evidence",
+        "noah-pc-evidence-path-and-line"
+      ],
+      "resolution_reason": "A single stricter rule is easier to audit than two overlapping ones, so the canonical convention now requires both a repository-relative path and a local line hint or theorem name."
+    },
+    {
+      "topic": "positive-tail dependency",
+      "winner_record_id": "handoff-td-pow-pos",
+      "loser_record_ids": [
+        "mira-td-positivity"
+      ],
+      "resolution_reason": "The explicit theorem-level dependency is more reusable and easier to verify, so the automation-only note was downgraded into supporting tactic detail inside the merged proof pattern."
+    }
+  ],
+  "dropped_records": [
+    {
+      "record_id": "mira-pc-relative-evidence",
+      "drop_reason": "Absorbed into a stricter canonical citation convention.",
+      "replaced_by": "handoff-pc-evidence-citation"
+    },
+    {
+      "record_id": "noah-pc-evidence-path-and-line",
+      "drop_reason": "Absorbed into the same canonical citation convention instead of surviving as a duplicate.",
+      "replaced_by": "handoff-pc-evidence-citation"
+    },
+    {
+      "record_id": "mira-td-positivity",
+      "drop_reason": "Replaced by an explicit theorem dependency for positive-tail proofs.",
+      "replaced_by": "handoff-td-pow-pos"
+    }
+  ],
+  "handoff_guidance": [
+    "Start future bound proofs by loading the canonical recursive-bound pattern and both failed approaches together; they describe the intended route and the two main dead ends.",
+    "When adding new records, follow the single evidence convention in this handoff pack so later merges do not recreate citation conflicts.",
+    "Treat `pow_pos` as the default reusable dependency for positive-tail arguments and record automation tactics only as supporting details inside a broader pattern."
+  ]
+}

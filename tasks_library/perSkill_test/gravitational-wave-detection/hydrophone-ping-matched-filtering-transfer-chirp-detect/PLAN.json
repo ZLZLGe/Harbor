@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "hydrophone-ping-matched-filtering-transfer-chirp-detect",
+  "taskRole": "transfer",
+  "title": "Transfer | 水听器线性调频脉冲检出",
+  "goal": "在一段含噪水听器录音中，使用给定的几条线性调频参考脉冲做匹配滤波，识别实际出现的脉冲类型、到达采样点和峰值响应，并输出检测结果表。",
+  "primaryOutputFile": "/root/hydrophone_ping_report.csv",
+  "difficulty": "medium",
+  "category": "acoustics",
+  "skillBenefitRationale": "关键步骤是用参考 chirp 对长时序做匹配滤波并据峰值完成检出与分类；不依赖频谱识别器或其他 shipped skill。",
+  "targetSkillDirName": "matched-filtering",
+  "targetSkillName": "matched-filtering"
+}

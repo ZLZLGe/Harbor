@@ -1,0 +1,94 @@
+{
+    "id": "426eddf4-b4e6-4b33-93d2-8833a207900c",
+    "task_name": "package-release-config-maven-build-lifecycle-transfer-profile-filtering",
+    "trial_name": "package-release-config-maven-bui__beob8o6",
+    "trial_uri": "file:///home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-google-auto/jobs/review-errors-fixed-daytona-oracle-20260325-220628/package-release-config-maven-bui__beob8o6",
+    "task_id": {
+        "path": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-google-auto/package-release-config-maven-build-lifecycle-transfer-profile-filtering"
+    },
+    "source": "fix-build-google-auto",
+    "task_checksum": "f72c695e712222532d20c8720f4f308b83ad23b709c176aced774a6a65dc2b92",
+    "config": {
+        "task": {
+            "path": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-google-auto/package-release-config-maven-build-lifecycle-transfer-profile-filtering",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "fix-build-google-auto"
+        },
+        "trial_name": "package-release-config-maven-bui__beob8o6",
+        "trials_dir": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-google-auto/jobs/review-errors-fixed-daytona-oracle-20260325-220628",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "daytona",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "4bdc248a-b880-4673-80a9-bfc104416deb"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-25T14:35:31.180416Z",
+    "finished_at": "2026-03-25T14:36:29.525278Z",
+    "environment_setup": {
+        "started_at": "2026-03-25T14:35:31.184390Z",
+        "finished_at": "2026-03-25T14:35:59.362684Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-25T14:35:59.362697Z",
+        "finished_at": "2026-03-25T14:35:59.362747Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-25T14:35:59.362775Z",
+        "finished_at": "2026-03-25T14:36:11.373470Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-25T14:36:14.676938Z",
+        "finished_at": "2026-03-25T14:36:26.518122Z"
+    }
+}

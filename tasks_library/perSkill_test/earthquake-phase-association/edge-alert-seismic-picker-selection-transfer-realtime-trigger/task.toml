@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "edge-alert-seismic-picker-selection-transfer-realtime-trigger"
+name = "Transfer: 边缘实时地震告警的触发策略选择"
+description = "Choose a practical on-device earthquake trigger strategy for a single-station edge alert box and write the selected method, parameters, and reason to /root/edge_trigger_strategy.json."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "seismology"
+tags = ["seismology", "edge-alerting", "real-time", "method-selection"]
+primary_output_file = "/root/edge_trigger_strategy.json"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0

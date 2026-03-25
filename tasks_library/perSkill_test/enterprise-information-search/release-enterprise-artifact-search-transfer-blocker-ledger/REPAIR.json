@@ -1,0 +1,37 @@
+{
+  "sourceTaskId": "enterprise-information-search",
+  "targetSkillDirName": "enterprise-artifact-search",
+  "targetSkillName": "enterprise-artifact-search",
+  "runId": "20260324213956-enterprise-information-search-enterprise-artifact-search-x7xdj1",
+  "taskId": "release-enterprise-artifact-search-transfer-blocker-ledger",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/enterprise-information-search/enterprise-artifact-search/20260324213956-enterprise-information-search-enterprise-artifact-search-x7xdj1/release-enterprise-artifact-search-transfer-blocker-ledger",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324213956-enterprise-information-search-enterprise-artifact-search-x7xdj1/enterprise-information-search/drafts/release-enterprise-artifact-search-transfer-blocker-ledger",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/enterprise-information-search/enterprise-artifact-search/20260324213956-enterprise-information-search-enterprise-artifact-search-x7xdj1/release-enterprise-artifact-search-transfer-blocker-ledger",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/enterprise-information-search/release-enterprise-artifact-search-transfer-blocker-ledger",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "`tests/test_outputs.py` 将 `latest_status.summary` 和 `latest_status.artifact_pointer` 锁死为固定字符串/固定指针；instruction 只要求给出最近状态证据与摘要，这会把合法解法错误判失败，属于 Harbor testability 问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/release_blocker_ledger.json",
+    "release_blocker_ledger.json",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2465-ec43-76e1-8fab-5546be77824c",
+      "repairSummary": "放宽了 verifier 对 latest_status 的断言：不再锁死固定 summary 和单一 pointer，改为校验摘要非空且 artifact_pointer 指向该 blocker 的最近状态更新证据（允许指向最新 tracker 更新或其对应的具体工件记录）；并用本地解答生成输出后执行了测试逻辑验证通过。",
+      "reviewThreadId": "019d2469-b2ee-7c52-970e-16e0182d48f5",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

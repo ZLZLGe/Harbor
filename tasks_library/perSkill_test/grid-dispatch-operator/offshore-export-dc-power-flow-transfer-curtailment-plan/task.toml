@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "offshore-export-dc-power-flow-transfer-curtailment-plan"
+name = "Transfer: 海上风电集电网限额下的最小弃风方案"
+description = "在海上风电集电网与外送海缆降额场景下求解最小弃风方案，并输出 offshore_curtailment_plan.json 中的汇集站保留出力、关键电缆潮流和总弃风量。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "offshore-wind", "curtailment", "network-optimization", "dc-power-flow"]
+primary_output_file = "offshore_curtailment_plan.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

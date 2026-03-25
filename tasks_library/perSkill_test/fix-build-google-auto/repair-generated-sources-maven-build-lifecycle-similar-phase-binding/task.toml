@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "repair-generated-sources-maven-build-lifecycle-similar-phase-binding"
+name = "Similar: Repair Generated Sources Phase Binding"
+description = "Repair the Maven build so `mvn verify` generates and compiles `BuildMetadata.java` at the required generated-sources path."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = ["Java", "Maven", "generated-sources", "build-lifecycle"]
+primary_output_file = "target/generated-sources/build-meta/com/acme/build/BuildMetadata.java"
+source_task_id = "fix-build-google-auto"
+task_role = "similar"
+
+[agent]
+timeout_sec = 300.0
+
+[verifier]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,37 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing",
+  "runId": "20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke",
+  "taskId": "wearable-ppg-light-curve-preprocessing-transfer-baseline-segments",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/light-curve-preprocessing/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/wearable-ppg-light-curve-preprocessing-transfer-baseline-segments",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/exoplanet-detection-period/drafts/wearable-ppg-light-curve-preprocessing-transfer-baseline-segments",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/light-curve-preprocessing/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/wearable-ppg-light-curve-preprocessing-transfer-baseline-segments",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/wearable-ppg-light-curve-preprocessing-transfer-baseline-segments",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill，任务相对 source_task 也不是机械复写；输入资产与同 family 其他任务差异充分。; drafts 根目录包含完整参考输出 `artifacts_local_ppg_clean_segments.csv`，会向做题者直接暴露标准答案产物，形成答案泄露。; tests/test.sh 已先创建 `/logs/verifier`，并稳定写入 `/logs/verifier/reward.txt`；未发现 `set -e/pipefail` 导致 reward 未落盘的问题。; tests/test_outputs.py 把合法解法锁到隐藏数据细节：要求输出时间戳精确等于预先推导的整套 `expected_timestamps`，硬编码尖峰时间 `4.80/24.68/51.96`，并额外检查 `contact_ok == 1` 与固定 `segment_id=[1,2,3]`；这些都没有在 instruction.md 中作为明确输出契约声明。; tests/test_outputs.py 还加入了 instruction.md 未明示的隐藏阈值，例如 `normalized_signal` 绝对振幅必须小于 `0.08`。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "artifacts_local_ppg_clean_segments.csv",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2470-df23-7c20-97fb-9b209c11d119",
+      "repairSummary": "补充了题面里对饱和尖峰判定与验证口径的显式说明，重写测试以去掉隐藏的硬编码时间戳/contact_ok/振幅阈值约束，并删除了根目录中泄露标准答案的参考输出文件。",
+      "reviewThreadId": "019d2475-87c2-7611-b513-8cbd4e4a7c28",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

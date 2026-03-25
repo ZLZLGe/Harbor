@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<q:quakeml xmlns:q="http://quakeml.org/xmlns/quakeml/1.2" xmlns="http://quakeml.org/xmlns/bed/1.2">
+  <eventParameters publicID="smi:local/eventParameters/north-batch-a">
+    <event publicID="smi:local/bulletin/rgn-240401-01-rev1">
+      <preferredOriginID>smi:local/origin/rgn-240401-01-rev1-main</preferredOriginID>
+      <preferredMagnitudeID>smi:local/magnitude/rgn-240401-01-rev1-main</preferredMagnitudeID>
+      <creationInfo>
+        <agencyID>NORTH</agencyID>
+        <creationTime>2024-04-01T00:19:30.000000Z</creationTime>
+      </creationInfo>
+      <origin publicID="smi:local/origin/rgn-240401-01-rev1-alt">
+        <time><value>2024-04-01T00:15:11.900000Z</value></time>
+        <latitude><value>61.240</value></latitude>
+        <longitude><value>-149.815</value></longitude>
+        <depth><value>35000</value></depth>
+        <creationInfo>
+          <creationTime>2024-04-01T00:18:00.000000Z</creationTime>
+        </creationInfo>
+      </origin>
+      <origin publicID="smi:local/origin/rgn-240401-01-rev1-main">
+        <time><value>2024-04-01T00:15:12.400000Z</value></time>
+        <latitude><value>61.245</value></latitude>
+        <longitude><value>-149.812</value></longitude>
+        <depth><value>34000</value></depth>
+        <creationInfo>
+          <creationTime>2024-04-01T00:19:20.000000Z</creationTime>
+        </creationInfo>
+      </origin>
+      <magnitude publicID="smi:local/magnitude/rgn-240401-01-rev1-alt">
+        <mag><value>3.3</value></mag>
+        <type>Mb</type>
+        <originID>smi:local/origin/rgn-240401-01-rev1-alt</originID>
+      </magnitude>
+      <magnitude publicID="smi:local/magnitude/rgn-240401-01-rev1-main">
+        <mag><value>3.4</value></mag>
+        <type>ML</type>
+        <originID>smi:local/origin/rgn-240401-01-rev1-main</originID>
+      </magnitude>
+    </event>
+    <event publicID="smi:local/bulletin/rgn-240401-02">
+      <preferredOriginID>smi:local/origin/rgn-240401-02-main</preferredOriginID>
+      <preferredMagnitudeID>smi:local/magnitude/rgn-240401-02-main</preferredMagnitudeID>
+      <creationInfo>
+        <agencyID>NORTH</agencyID>
+        <creationTime>2024-04-01T01:10:10.000000Z</creationTime>
+      </creationInfo>
+      <origin publicID="smi:local/origin/rgn-240401-02-main">
+        <time><value>2024-04-01T01:02:33.150000Z</value></time>
+        <latitude><value>60.104</value></latitude>
+        <longitude><value>-152.223</value></longitude>
+        <depth><value>12500</value></depth>
+        <creationInfo>
+          <creationTime>2024-04-01T01:10:00.000000Z</creationTime>
+        </creationInfo>
+      </origin>
+      <magnitude publicID="smi:local/magnitude/rgn-240401-02-main">
+        <mag><value>2.8</value></mag>
+        <type>Md</type>
+        <originID>smi:local/origin/rgn-240401-02-main</originID>
+      </magnitude>
+    </event>
+  </eventParameters>
+</q:quakeml>

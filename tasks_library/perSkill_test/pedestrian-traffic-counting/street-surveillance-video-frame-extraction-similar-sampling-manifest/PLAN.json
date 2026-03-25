@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "street-surveillance-video-frame-extraction-similar-sampling-manifest",
+  "taskRole": "similar",
+  "title": "Similar - 交通监控定时抽帧清单",
+  "goal": "读取多段人行道监控视频，按每2秒1帧抽取JPEG到各自目录，并生成JSON清单，记录源文件、FPS、抽取时间点、相对路径与抽取总数，供后续人工复核。",
+  "primaryOutputFile": "/app/output/surveillance_sampling_manifest.json",
+  "difficulty": "medium",
+  "category": "交通监控预处理",
+  "skillBenefitRationale": "核心难点是稳定读取多段监控视频并按固定时间间隔落盘图像，同时保证命名和清单可复现；这正是视频抽帧技能的典型用法，不需要其他 shipped skill。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

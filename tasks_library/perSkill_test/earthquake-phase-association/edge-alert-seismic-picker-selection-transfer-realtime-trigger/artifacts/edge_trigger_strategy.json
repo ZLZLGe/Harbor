@@ -1,0 +1,26 @@
+{
+  "method_name": "sta_lta",
+  "key_parameters": [
+    {
+      "name": "sta_window_seconds",
+      "value": 0.6
+    },
+    {
+      "name": "lta_window_seconds",
+      "value": 8.0
+    },
+    {
+      "name": "trigger_ratio",
+      "value": 3.4
+    },
+    {
+      "name": "detrigger_ratio",
+      "value": 1.5
+    },
+    {
+      "name": "cooldown_seconds",
+      "value": 2.0
+    }
+  ],
+  "reason": "STA/LTA fits this box because one CPU core must keep up with a 1.2 s trigger budget and there is no accelerator. The site can tolerate some extra internal alerts, and there is no template library for a heavier or template-driven approach."
+}

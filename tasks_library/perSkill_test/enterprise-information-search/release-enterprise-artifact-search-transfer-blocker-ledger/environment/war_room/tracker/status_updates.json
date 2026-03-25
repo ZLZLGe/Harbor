@@ -1,0 +1,145 @@
+[
+  {
+    "update_id": "upd_blk201_01",
+    "blocker_id": "BLK-201",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "tracker",
+    "artifact_path": "war_room/tracker/status_updates.json",
+    "artifact_fragment": "update_id=upd_blk201_01",
+    "timestamp": "2026-03-20T08:15:00Z",
+    "summary": "Security reproduced the export leak with restricted snippets.",
+    "state": "open"
+  },
+  {
+    "update_id": "upd_blk201_02",
+    "blocker_id": "BLK-201",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "chat",
+    "artifact_path": "war_room/chat/war_room_threads.json",
+    "artifact_fragment": "message_id=msg_blk201_r2",
+    "timestamp": "2026-03-21T09:12:00Z",
+    "summary": "Security confirmed the leak still reproduces on rc3 candidate bits.",
+    "state": "open"
+  },
+  {
+    "update_id": "upd_blk201_03",
+    "blocker_id": "BLK-201",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "meeting",
+    "artifact_path": "war_room/meetings/go_no_go_notes.json",
+    "artifact_fragment": "note_id=note_gng_17",
+    "timestamp": "2026-03-21T15:35:00Z",
+    "summary": "War-room agreed to hold release until security reruns export regression after PR-842 merges.",
+    "state": "open"
+  },
+  {
+    "update_id": "upd_blk201_04",
+    "blocker_id": "BLK-201",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "chat",
+    "artifact_path": "war_room/chat/war_room_threads.json",
+    "artifact_fragment": "message_id=msg_blk201_r4",
+    "timestamp": "2026-03-21T17:42:00Z",
+    "summary": "Patch is in PR-842, but security sign-off remains pending so blocker stays open.",
+    "state": "open"
+  },
+  {
+    "update_id": "upd_blk204_01",
+    "blocker_id": "BLK-204",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "tracker",
+    "artifact_path": "war_room/tracker/status_updates.json",
+    "artifact_fragment": "update_id=upd_blk204_01",
+    "timestamp": "2026-03-20T10:10:00Z",
+    "summary": "Reindex run exceeded 95th percentile SLA in us-west-2 and eu-central-1.",
+    "state": "open"
+  },
+  {
+    "update_id": "upd_blk204_02",
+    "blocker_id": "BLK-204",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "meeting",
+    "artifact_path": "war_room/meetings/perf_triage_notes.json",
+    "artifact_fragment": "note_id=perf_note_08",
+    "timestamp": "2026-03-21T11:05:00Z",
+    "summary": "Infra reported the worker-pool patch eliminated saturation in staging.",
+    "state": "monitoring"
+  },
+  {
+    "update_id": "upd_blk204_03",
+    "blocker_id": "BLK-204",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "chat",
+    "artifact_path": "war_room/chat/war_room_threads.json",
+    "artifact_fragment": "message_id=msg_blk204_r3",
+    "timestamp": "2026-03-21T17:05:00Z",
+    "summary": "Soak run passed, but QA has not signed off yet, so blocker remains active.",
+    "state": "monitoring"
+  },
+  {
+    "update_id": "upd_blk207_01",
+    "blocker_id": "BLK-207",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "tracker",
+    "artifact_path": "war_room/tracker/status_updates.json",
+    "artifact_fragment": "update_id=upd_blk207_01",
+    "timestamp": "2026-03-20T09:40:00Z",
+    "summary": "Compliance found missing retention reason code in EU audit export payload.",
+    "state": "open"
+  },
+  {
+    "update_id": "upd_blk207_02",
+    "blocker_id": "BLK-207",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "chat",
+    "artifact_path": "war_room/chat/war_room_threads.json",
+    "artifact_fragment": "message_id=msg_blk207_r2",
+    "timestamp": "2026-03-21T13:48:00Z",
+    "summary": "Compliance confirmed PR-851 contains the required reason code mapping.",
+    "state": "awaiting_signoff"
+  },
+  {
+    "update_id": "upd_blk207_03",
+    "blocker_id": "BLK-207",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "meeting",
+    "artifact_path": "war_room/meetings/go_no_go_notes.json",
+    "artifact_fragment": "note_id=note_gng_21",
+    "timestamp": "2026-03-21T17:20:00Z",
+    "summary": "Release manager recorded that only compliance sign-off is still missing for BLK-207.",
+    "state": "awaiting_signoff"
+  },
+  {
+    "update_id": "upd_blk198_02",
+    "blocker_id": "BLK-198",
+    "release_candidate": "rc_searchflow_2026_04_rc2",
+    "artifact_type": "chat",
+    "artifact_path": "war_room/chat/war_room_threads.json",
+    "artifact_fragment": "message_id=msg_blk198_r2",
+    "timestamp": "2026-03-19T16:10:00Z",
+    "summary": "Closed on rc2 after OCR rollback.",
+    "state": "closed"
+  },
+  {
+    "update_id": "upd_blk209_02",
+    "blocker_id": "BLK-209",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "meeting",
+    "artifact_path": "war_room/meetings/go_no_go_notes.json",
+    "artifact_fragment": "note_id=note_gng_12",
+    "timestamp": "2026-03-21T15:10:00Z",
+    "summary": "Docs screenshots issue was downgraded to post-launch follow-up.",
+    "state": "follow_up"
+  },
+  {
+    "update_id": "upd_blk210_02",
+    "blocker_id": "BLK-210",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "artifact_type": "tracker",
+    "artifact_path": "war_room/tracker/status_updates.json",
+    "artifact_fragment": "update_id=upd_blk210_02",
+    "timestamp": "2026-03-21T16:00:00Z",
+    "summary": "Umbrella ticket marked duplicate of BLK-201.",
+    "state": "duplicate"
+  }
+]

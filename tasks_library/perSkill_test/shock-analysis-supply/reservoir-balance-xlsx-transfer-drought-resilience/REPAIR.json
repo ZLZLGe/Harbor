@@ -1,0 +1,36 @@
+{
+  "sourceTaskId": "shock-analysis-supply",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260325014607-shock-analysis-supply-xlsx-5aocjn",
+  "taskId": "reservoir-balance-xlsx-transfer-drought-resilience",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/shock-analysis-supply/xlsx/20260325014607-shock-analysis-supply-xlsx-5aocjn/reservoir-balance-xlsx-transfer-drought-resilience",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014607-shock-analysis-supply-xlsx-5aocjn/shock-analysis-supply/drafts/reservoir-balance-xlsx-transfer-drought-resilience",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/shock-analysis-supply/xlsx/20260325014607-shock-analysis-supply-xlsx-5aocjn/reservoir-balance-xlsx-transfer-drought-resilience",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/shock-analysis-supply/reservoir-balance-xlsx-transfer-drought-resilience",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 通过 `reservoir-template.xlsx` 和 `reservoir-resilience-model.xlsx` 直接出现了 shipped skill 的 dirName `xlsx`，构成技能暴露。; tests/test_outputs.py 要求 `Monthly_Balance!A2` 必须链接 `Hydrology_Input`，但 instruction.md 明确允许直接保留预填月份，这会误杀合法解法。; tests/test_outputs.py 额外要求 `Monthly_Balance!W2:W13` 存在季度辅助列并据此校验季度标签，但 instruction.md 只要求补齐到 V 列；这是隐藏输出契约，属于 Harbor testability 问题。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24bf-4347-7763-a409-879acdc2c5d7",
+      "repairSummary": "移除了 instruction.md 中对 `xlsx` 的直接暴露；放宽测试以允许 `Monthly_Balance!A` 保留预填月份，并去掉对隐藏 `W` 季度辅助列的要求；同步更新参考解为仅填到 V 列并用固定季度区间汇总。",
+      "reviewThreadId": "019d24c3-49a6-7a21-b1d5-2af82fe54b76",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

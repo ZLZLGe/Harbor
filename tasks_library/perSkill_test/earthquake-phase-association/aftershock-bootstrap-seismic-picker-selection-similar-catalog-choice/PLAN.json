@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "aftershock-bootstrap-seismic-picker-selection-similar-catalog-choice",
+  "taskRole": "similar",
+  "title": "Similar: 临时余震台网的拾取方案选择与目录输出",
+  "goal": "给定临时宽频台网的一段连续波形、台站元数据、少量人工核验窗口和三套候选拾取/检测结果，选择最合适的相位拾取方法并产出最终事件目录 `/root/bootstrap_events.csv`。任务重点是基于场景约束在 STA/LTA、深度学习和模板匹配之间做出正确选择，而不是重复原题的完整关联流程。",
+  "primaryOutputFile": "/root/bootstrap_events.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "这直接对应当前 skill 的典型用法：为稀疏或临时地震台网的目录构建选择合适的自动拾取方案，skill 提供的方法权衡是唯一关键 shipped skill。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

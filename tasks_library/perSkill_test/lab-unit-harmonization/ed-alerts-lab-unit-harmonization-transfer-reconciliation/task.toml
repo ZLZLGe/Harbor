@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "ed-alerts-lab-unit-harmonization-transfer-reconciliation"
+name = "Transfer | 急诊危急检验对账报告"
+description = "清洗急诊危急检验事件流、统一混合单位，并输出按 encounter 汇总的 JSON 对账报告。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "healthcare"
+tags = ["emergency-department", "critical-labs", "json-report", "unit-conversion", "reconciliation"]
+primary_output_file = "/root/ed_alert_lab_reconciliation.json"
+source_task_id = "lab-unit-harmonization"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false

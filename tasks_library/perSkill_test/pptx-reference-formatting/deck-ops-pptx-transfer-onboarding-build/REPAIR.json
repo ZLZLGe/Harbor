@@ -1,0 +1,57 @@
+{
+  "sourceTaskId": "pptx-reference-formatting",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx",
+  "runId": "20260324213629-pptx-reference-formatting-pptx-irtdrv",
+  "taskId": "deck-ops-pptx-transfer-onboarding-build",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pptx-reference-formatting/pptx/20260324213629-pptx-reference-formatting-pptx-irtdrv/deck-ops-pptx-transfer-onboarding-build",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324213629-pptx-reference-formatting-pptx-irtdrv/pptx-reference-formatting/drafts/deck-ops-pptx-transfer-onboarding-build",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pptx-reference-formatting/pptx/20260324213629-pptx-reference-formatting-pptx-irtdrv/deck-ops-pptx-transfer-onboarding-build",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pptx-reference-formatting/deck-ops-pptx-transfer-onboarding-build",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "drafts/deck-ops-pptx-transfer-onboarding-build/tests/test_outputs.py 要求 Workflow slide 必须包含 brief.md 中的 workflow intro，但 drafts/deck-ops-pptx-transfer-onboarding-build/instruction.md 未明示这一输出契约，属于隐藏要求。; drafts/deck-ops-pptx-transfer-onboarding-build/tests/test_outputs.py 通过检查每页 slide XML 中是否直接出现调色板十六进制值、以及 accent 颜色命中次数来判定配色，把合法解法锁定到显式写入这些颜色常量的实现细节，而不是校验结果语义。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    ".pytest_cache/.gitignore",
+    ".pytest_cache/CACHEDIR.TAG",
+    ".pytest_cache/README.md",
+    ".pytest_cache/v/cache/lastfailed",
+    ".pytest_cache/v/cache/nodeids",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312-pytest-8.4.1.pyc",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接出现了 `/root/Support-Onboarding-playbook.pptx`，从而直接点名 shipped skill `pptx`。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24ab-8565-7922-b979-f4617324963b",
+      "repairSummary": "补全了 instruction.md 里 Workflow slide 必须包含 brief intro 的显式要求，并将配色测试从逐页 XML 十六进制硬匹配改为基于 PPT 语义对象与主题色解析的校验；已在任务 Docker 环境中用现有 solution 验证通过（8/8 tests passed）。",
+      "reviewThreadId": "019d24ba-bb23-7511-8764-d0ef516d2f69",
+      "reviewerIssues": [
+        "instruction.md 直接出现了 `/root/Support-Onboarding-playbook.pptx`，从而直接点名 shipped skill `pptx`。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24bb-e9bc-7101-a7b1-4d5633ee3d1d",
+      "repairSummary": "移除了 instruction.md 中直接包含 shipped skill 名称子串的输出文件名，改为引用任务要求的输出路径，其他任务约定保持不变。",
+      "reviewThreadId": "019d24bc-e061-7fa3-bd22-f7d4966f5acd",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

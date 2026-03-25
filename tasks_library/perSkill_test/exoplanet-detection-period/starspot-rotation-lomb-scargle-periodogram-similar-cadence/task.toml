@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "starspot-rotation-lomb-scargle-periodogram-similar-cadence"
+name = "Similar: Recover a Starspot Rotation Period from a Gappy Light Curve"
+description = "Estimate the stellar rotation period from an irregular light curve with flagged points and flare outliers, then write the period in days to /root/rotation_period.txt."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "stellar-rotation", "time-series", "period-search"]
+primary_output_file = "/root/rotation_period.txt"
+source_task_id = "exoplanet-detection-period"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0

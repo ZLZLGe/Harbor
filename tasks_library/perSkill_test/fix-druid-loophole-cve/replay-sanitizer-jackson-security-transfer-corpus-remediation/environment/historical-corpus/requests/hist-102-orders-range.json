@@ -1,0 +1,22 @@
+{
+  "sampleId": "hist-102",
+  "capturedAt": "2024-11-03T08:45:00Z",
+  "request": {
+    "method": "post",
+    "path": "/v1/orders/search",
+    "body": {
+      "dataset": "orders_archive",
+      "filter": {
+        "type": "range",
+        "dimension": "createdAt",
+        "value": "2024-10-01..2024-10-31"
+      },
+      "columns": [
+        "orderId",
+        "status"
+      ],
+      "limit": 25,
+      "note": "month-end replay"
+    }
+  }
+}

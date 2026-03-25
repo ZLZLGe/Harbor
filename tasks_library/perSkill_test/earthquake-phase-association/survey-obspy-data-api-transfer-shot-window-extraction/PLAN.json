@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "survey-obspy-data-api-transfer-shot-window-extraction",
+  "taskRole": "transfer",
+  "title": "Survey Transfer Shot Window Extraction",
+  "goal": "读取连续 MiniSEED、台站清单和人工震源 shot schedule CSV，围绕每个 shot time 提取固定前后窗并汇总每炮命中的 trace 数、窗口起止时间和采样信息，结果写入 /root/shot_window_summary.csv；验证以窗口边界、trace 计数和时间排序为主。",
+  "primaryOutputFile": "/root/shot_window_summary.csv",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "任务把技能迁移到主动源地震勘探切窗场景，依赖 ObsPy 的 read、Stream.slice、Trace.stats 与 UTCDateTime 处理连续波形和时间窗，避免引入任何其他 source skill。",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

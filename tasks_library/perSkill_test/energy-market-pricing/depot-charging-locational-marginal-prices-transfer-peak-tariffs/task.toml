@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "depot-charging-locational-marginal-prices-transfer-peak-tariffs"
+name = "Transfer | 车场充电峰时节点电价"
+description = "基于车场馈线、24 小时分区充电需求和临时旁路电缆方案，分别求解基线与旁路投运场景并输出包含分区分时节点电价、峰价时段、总成本变化和最大降幅分区的 charging_tariffs.json。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "mobility"
+tags = ["mobility", "charging-depot", "network-pricing", "feeder-congestion", "optimization"]
+primary_output_file = "charging_tariffs.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

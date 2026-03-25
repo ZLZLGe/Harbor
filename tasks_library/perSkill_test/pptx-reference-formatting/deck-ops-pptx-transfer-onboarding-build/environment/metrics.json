@@ -1,0 +1,16 @@
+{
+  "slide_title": "Team Readiness Snapshot",
+  "headline_metric": {
+    "label": "Week 2 readiness",
+    "value": "92%",
+    "note": "new hires clearing the mock-queue certification"
+  },
+  "table": {
+    "columns": ["Metric", "Current", "Target"],
+    "rows": [
+      ["Median first response", "11 min", "<= 15 min"],
+      ["Documentation completeness", "96%", ">= 95%"],
+      ["Escalations with repro steps", "88%", ">= 85%"]
+    ]
+  }
+}

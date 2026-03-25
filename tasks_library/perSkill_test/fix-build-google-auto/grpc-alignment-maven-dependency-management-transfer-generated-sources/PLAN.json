@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "grpc-alignment-maven-dependency-management-transfer-generated-sources",
+  "taskRole": "transfer",
+  "title": "Transfer: Align gRPC and Protobuf Dependencies for Generated Sources",
+  "goal": "修复一个 gRPC 网关服务的依赖版本失配问题，通过 BOM 导入或父级集中版本管理统一 `grpc-*` 与 `protobuf-*` 组件，并裁剪冲突的传递依赖，使生成代码编译与冒烟测试恢复通过。",
+  "primaryOutputFile": "/workspace/grpc-gateway/pom.xml",
+  "difficulty": "medium",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "关键在于处理同一生态内的版本联动与传递依赖冲突，避免 generated sources 编译失败，本质上仍是 Maven 依赖解析与管理问题。",
+  "targetSkillDirName": "maven-dependency-management",
+  "targetSkillName": "maven-dependency-management"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "irc-transcript-pcap-triage-tshark-transfer-c2-stream"
+name = "Transfer: IRC C2 Transcript Recovery"
+description = "Analyze the provided mixed IRC PCAP and recover the chronological transcript of only the true C2 command-and-response exchange."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["pcap", "irc", "forensics", "tshark", "c2"]
+primary_output_file = "/workspace/outputs/irc_c2_transcript.txt"
+source_task_id = "suricata-custom-exfil"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

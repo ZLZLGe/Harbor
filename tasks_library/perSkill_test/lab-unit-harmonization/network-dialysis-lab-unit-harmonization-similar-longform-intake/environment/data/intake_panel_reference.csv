@@ -1,0 +1,9 @@
+analyte_code,display_name,output_column,output_unit,required,conventional_min,conventional_max,unit_notes
+CREAT,Serum Creatinine,serum_creatinine_mg_dL,mg/dL,true,0.2,20.0,"may arrive as mg/dL or umol/L"
+BUN,Blood Urea Nitrogen,bun_mg_dL,mg/dL,true,5.0,200.0,"may arrive as mg/dL or mmol/L"
+K,Potassium,potassium_mEq_L,mEq/L,true,2.0,8.5,"mmol/L and mEq/L are interchangeable for potassium"
+CO2,Bicarbonate,bicarbonate_mEq_L,mEq/L,true,5.0,40.0,"mmol/L and mEq/L are interchangeable for bicarbonate"
+HGB,Hemoglobin,hemoglobin_g_dL,g/dL,true,3.0,20.0,"may arrive as g/dL, g/L, or mmol/L"
+ALB,Albumin,albumin_g_dL,g/dL,true,1.0,6.5,"may arrive as g/dL or g/L"
+CA,Calcium,calcium_mg_dL,mg/dL,true,5.0,15.0,"may arrive as mg/dL or mmol/L"
+PHOS,Phosphorus,phosphorus_mg_dL,mg/dL,true,1.0,15.0,"may arrive as mg/dL or mmol/L"

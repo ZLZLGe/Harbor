@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "event-quote-xlsx-transfer-csv-intake",
+  "taskRole": "transfer",
+  "title": "Transfer: 将活动需求 CSV 导入报价工作簿",
+  "goal": "给定一个带有报价公式和汇总页的活动报价模板，以及一份新增活动需求的 CSV。需要把 CSV 中的来宾人数、套餐选择和附加项目导入到模板指定工作表中，让行级金额、税费和汇总页公式正确覆盖新数据并输出新的报价工作簿。",
+  "primaryOutputFile": "/root/event_quote_book.xlsx",
+  "difficulty": "medium",
+  "category": "Office Operation",
+  "skillBenefitRationale": "这个任务把 xlsx 能力迁移到 CSV 导入加模板扩展场景，重点验证工作簿写入、公式延续和汇总结果更新，而不依赖其他文档技能。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

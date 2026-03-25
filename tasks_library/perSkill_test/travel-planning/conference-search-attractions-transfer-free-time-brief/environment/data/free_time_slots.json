@@ -1,0 +1,20 @@
+{
+  "title": "Conference Free-Time City Brief",
+  "slots": [
+    {
+      "slot": "arrival-night",
+      "count": 2,
+      "summary": "Short-list for attendees who still want a worthwhile first evening."
+    },
+    {
+      "slot": "open-morning",
+      "count": 3,
+      "summary": "Standalone options for a free morning before sessions resume."
+    },
+    {
+      "slot": "team-dinner-backup",
+      "count": 2,
+      "summary": "Extra nearby picks to hand out if dinner logistics shift."
+    }
+  ]
+}

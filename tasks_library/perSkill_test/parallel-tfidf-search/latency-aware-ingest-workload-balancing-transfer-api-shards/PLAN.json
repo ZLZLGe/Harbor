@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "latency-aware-ingest-workload-balancing-transfer-api-shards",
+  "taskRole": "transfer",
+  "title": "Transfer: Latency-Aware API Shard Ingest",
+  "goal": "围绕本地 mock HTTP 分片服务，实现自适应并发抓取与合并程序，主文件为 `/root/workspace/balanced_ingest.py`。输入资产包含带随机但可复现延迟和分页大小差异的分片 API；验证检查输出 NDJSON 汇总内容完整无重无漏，并要求总耗时和 worker 空闲分布优于朴素轮询抓取。",
+  "primaryOutputFile": "/root/workspace/balanced_ingest.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "每个分片的返回延迟和页数不可预测，只有动态任务队列或类似策略才能压低 straggler 对总完成时间的影响。",
+  "targetSkillDirName": "workload-balancing",
+  "targetSkillName": "workload-balancing"
+}

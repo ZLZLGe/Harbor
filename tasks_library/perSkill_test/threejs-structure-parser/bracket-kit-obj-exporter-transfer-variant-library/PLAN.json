@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bracket-kit-obj-exporter-transfer-variant-library",
+  "taskRole": "transfer",
+  "title": "Bracket Kit Variant Library Transfer",
+  "goal": "根据一份连接件规格表动态生成多种参数化支架几何体，分别导出到 `/root/output/variants/<variant>.obj`，并再生成一个汇总的套件 OBJ 供统一检视。",
+  "primaryOutputFile": "/root/output/variants/brace_double_slot.obj",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "这里把 OBJ 导出迁移到参数化零件库生成场景，重点变成把程序生成的独立几何体批量导出为可复用 OBJ 资产，依然由 obj-exporter 成为唯一关键 shipped skill。",
+  "targetSkillDirName": "obj-exporter",
+  "targetSkillName": "obj-exporter"
+}

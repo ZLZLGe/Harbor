@@ -1,0 +1,46 @@
+{
+  "events": [
+    {
+      "event_id": "evt_01",
+      "start_sec": 0.0,
+      "end_sec": 4.0,
+      "transcript_hint": "The glacier first retreated faster than anyone on the expedition expected."
+    },
+    {
+      "event_id": "evt_02",
+      "start_sec": 4.0,
+      "end_sec": 8.5,
+      "transcript_hint": "Historian Mara Levin explains what the team saw on arrival."
+    },
+    {
+      "event_id": "evt_03",
+      "start_sec": 8.5,
+      "end_sec": 12.0,
+      "transcript_hint": "The narrator bridges from the interview into a map sequence."
+    },
+    {
+      "event_id": "evt_04",
+      "start_sec": 12.0,
+      "end_sec": 16.0,
+      "transcript_hint": "An archival voiceover describes the 1912 survey route."
+    },
+    {
+      "event_id": "evt_05",
+      "start_sec": 16.0,
+      "end_sec": 21.0,
+      "transcript_hint": "A field scientist starts speaking, but the edit cuts away mid-sentence."
+    },
+    {
+      "event_id": "evt_06",
+      "start_sec": 21.0,
+      "end_sec": 25.0,
+      "transcript_hint": "A two-person exchange continues on camera."
+    },
+    {
+      "event_id": "evt_07",
+      "start_sec": 25.0,
+      "end_sec": 29.5,
+      "transcript_hint": "Ambient commentary continues over a crowd reaction shot."
+    }
+  ]
+}

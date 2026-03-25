@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "suricata-custom-exfil-suricata-offline-evejson-transfer-rulepack-benchmark",
+  "taskRole": "transfer",
+  "title": "Transfer - Rulepack Benchmark",
+  "goal": "给定两份候选规则包和一组带标签的 TLS 外传样本 PCAP，分别离线运行 Suricata，基于 eve.json 统计每个规则包的 TP、FP、FN，并输出包含优胜规则包与指标明细的评测 JSON。",
+  "primaryOutputFile": "answer/rulepack-benchmark.json",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "这是把同一 skill 迁移到规则评测场景：验证重点不在写签名，而在重复离线执行 Suricata 并用 eve.json 做稳定计分，因此无需任何其他 shipped skill。",
+  "targetSkillDirName": "suricata-offline-evejson",
+  "targetSkillName": "suricata-offline-evejson"
+}

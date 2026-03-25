@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reservoir-glm-calibration-transfer-outlet-release"
+name = "Transfer - Calibrate Cold-Pool Release Temperatures"
+description = "Calibrate the reservoir heat and mixing parameters in glm3.nml so the summer release-temperature time series matches observations and export the daily fit table to /root/reports/release_temperature_fit.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["reservoir-modeling", "calibration", "outlet-release", "time-series"]
+primary_output_file = "/root/reports/release_temperature_fit.csv"
+source_task_id = "glm-lake-mendota"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

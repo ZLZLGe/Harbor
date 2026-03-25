@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "turbine-sensor-senior-data-scientist-transfer-features",
+  "taskRole": "transfer",
+  "title": "Transfer: Turbine Sensor Feature Table",
+  "goal": "根据多台设备的分钟级传感器日志和维修标签，生成 /root/results/turbine_features.csv，为每台设备构造滚动窗口均值、标准差、斜率、缺失率、告警计数等特征，并满足给定时间切分下不泄漏未来信息。",
+  "primaryOutputFile": "/root/results/turbine_features.csv",
+  "difficulty": "medium",
+  "category": "feature-engineering",
+  "skillBenefitRationale": "任务核心转为时序特征工程，检验高级数据科学在数据清洗、窗口统计和防泄漏特征构造上的迁移能力。",
+  "targetSkillDirName": "senior-data-scientist",
+  "targetSkillName": "senior-data-scientist"
+}

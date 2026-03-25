@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "binary-merger-matched-filtering-similar-coincident-trigger",
+  "taskRole": "similar",
+  "title": "Similar | 双探测器并合触发定位",
+  "goal": "在 Hanford 和 Livingston 两路已调理应变数据上，对一个小型双黑洞模板库逐个做匹配滤波，找出网络峰值最高的候选事件，并输出最佳模板 ID、事件时间以及两台探测器各自的峰值 SNR。",
+  "primaryOutputFile": "/root/coincident_trigger.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "任务核心就是把候选波形与两路探测器数据做匹配滤波并比较触发峰值；不需要额外 shipped skill，能够直接考察该技能在引力波模板搜索中的典型用法。",
+  "targetSkillDirName": "matched-filtering",
+  "targetSkillName": "matched-filtering"
+}

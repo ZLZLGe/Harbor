@@ -1,0 +1,11 @@
+ticket_id	queue	agent	status	subject	body
+T-1001	billing	Ada	open	Refund for duplicate charge	Customer saw a duplicate card charge and wants a refund on the March invoice.
+T-1002	billing	Bo	solved	Invoice missing tax line	March invoice PDF omits the tax line for the payment record.
+T-1003	billing	Ada	pending	Payment receipt mismatch	Receipt total does not match the charge on the latest statement.
+T-2001	shipping	Cara	open	Tracking link stalled	Parcel tracking page has no delivery scan since Monday.
+T-2002	shipping	Dev	pending	Address change before delivery	Customer needs an address update before courier delivery.
+T-2003	shipping	Cara	solved	Refund for lost parcel	Lost parcel should trigger refund and replacement review.
+T-3001	account	Bo	open	Password reset loop	Login page keeps sending a password reset loop after the email code.
+T-3002	account	Dev	pending	Email login blocked	User cannot login after an email change and needs an address update.
+T-3003	account	Bo	solved	Profile address not saving	Address field fails to save after the password change.
+T-2004	shipping	Ada	open	Courier address correction failed	Courier rejected the address correction and tracking message.

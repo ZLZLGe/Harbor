@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "hydrogen-hub-economic-dispatch-transfer-electrolyzer-shift"
+name = "Transfer: Hydrogen Hub Electrolyzer Shift Dispatch"
+description = "Plan a single-shift hydrogen hub electrolyzer loading schedule that meets the hydrogen target, preserves idle flexibility, and writes the result to electrolyzer_shift.md."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "hydrogen", "electrolyzer", "dispatch"]
+primary_output_file = "electrolyzer_shift.md"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

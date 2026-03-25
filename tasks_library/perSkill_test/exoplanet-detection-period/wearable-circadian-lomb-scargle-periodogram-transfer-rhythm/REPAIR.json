@@ -1,0 +1,39 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "lomb-scargle-periodogram",
+  "targetSkillName": "lomb-scargle-periodogram",
+  "runId": "20260325002018-exoplanet-detection-period-lomb-scargle-periodogram-uj8i9r",
+  "taskId": "wearable-circadian-lomb-scargle-periodogram-transfer-rhythm",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/lomb-scargle-periodogram/20260325002018-exoplanet-detection-period-lomb-scargle-periodogram-uj8i9r/wearable-circadian-lomb-scargle-periodogram-transfer-rhythm",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325002018-exoplanet-detection-period-lomb-scargle-periodogram-uj8i9r/exoplanet-detection-period/drafts/wearable-circadian-lomb-scargle-periodogram-transfer-rhythm",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/lomb-scargle-periodogram/20260325002018-exoplanet-detection-period-lomb-scargle-periodogram-uj8i9r/wearable-circadian-lomb-scargle-periodogram-transfer-rhythm",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/wearable-circadian-lomb-scargle-periodogram-transfer-rhythm",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "草稿根目录直接附带 `circadian_note.md` 完整答案文件，存在答案泄露风险。; `tests/test_outputs.py` 接受相对路径 `circadian_note.md`，且 `tests/test.sh` 未先切到 `/root`；如果 verifier 工作目录可见草稿根目录，测试可能直接读取预置答案并误判通过。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "circadian_note.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2472-2c1e-7223-9a5b-b54c22678747",
+      "repairSummary": "删除草稿根目录泄露答案的 `circadian_note.md`，将测试改为只接受 `/root/circadian_note.md`，并让 verifier 先切到 `/root` 后再运行测试，避免相对路径误判通过。",
+      "reviewThreadId": "019d2474-dc68-7662-8cb0-2df0a72f5181",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

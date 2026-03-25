@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "close-tracker-xlsx-transfer-repair"
+name = "Transfer: Close Tracker Template Repair"
+description = "Repair the provided month-end close tracker template and write the corrected workbook to /root/close_tracker_repaired.xlsx while preserving the existing layout."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "spreadsheet-repair"
+tags = ["spreadsheet", "repair", "formulas", "month-end-close", "template"]
+primary_output_file = "/root/close_tracker_repaired.xlsx"
+source_task_id = "pdf-excel-diff"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

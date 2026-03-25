@@ -1,0 +1,35 @@
+{
+  "shared_domain": "benchmark/domain/shared-domain.pddl",
+  "cases": [
+    {
+      "case_id": "west-link",
+      "problem": "benchmark/problems/west-link.pddl",
+      "plan_path": "results/plans/west-link.plan"
+    },
+    {
+      "case_id": "depot-boost",
+      "problem": "benchmark/problems/depot-boost.pddl",
+      "plan_path": "results/plans/depot-boost.plan"
+    },
+    {
+      "case_id": "dual-run",
+      "problem": "benchmark/problems/dual-run.pddl",
+      "plan_path": "results/plans/dual-run.plan"
+    },
+    {
+      "case_id": "market-sweep",
+      "problem": "benchmark/problems/market-sweep.pddl",
+      "plan_path": "results/plans/market-sweep.plan"
+    },
+    {
+      "case_id": "price-ladder",
+      "problem": "benchmark/problems/price-ladder.pddl",
+      "plan_path": "results/plans/price-ladder.plan"
+    },
+    {
+      "case_id": "three-hub",
+      "problem": "benchmark/problems/three-hub.pddl",
+      "plan_path": "results/plans/three-hub.plan"
+    }
+  ]
+}

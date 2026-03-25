@@ -1,0 +1,26 @@
+version = "0.0"
+
+[metadata]
+id = "benchmark-suite-pddl-skills-similar-plan-bundle"
+name = "Similar | Benchmark Plan Bundle"
+description = "为共享 PDDL domain 的六个 benchmark case 生成计划文件并汇总验证结果到 results/benchmark-plan-index.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "research"
+tags = ["planning", "pddl", "benchmark"]
+primary_output_file = "results/benchmark-plan-index.json"
+source_task_id = "pddl-tpp-planning"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

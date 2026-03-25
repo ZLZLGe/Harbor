@@ -1,0 +1,152 @@
+{
+  "graphs": [
+    {
+      "graphId": "release-train",
+      "tasks": [
+        {
+          "id": "compile-core",
+          "dependencies": [],
+          "priority": 2
+        },
+        {
+          "id": "lint-config",
+          "dependencies": [],
+          "priority": 1
+        },
+        {
+          "id": "package-ui",
+          "dependencies": [
+            "compile-core"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "ship-bundle",
+          "dependencies": [
+            "package-ui",
+            "lint-config"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "announce",
+          "dependencies": [
+            "ship-bundle"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "graphId": "data-pipeline",
+      "tasks": [
+        {
+          "id": "extract",
+          "dependencies": [],
+          "priority": 1
+        },
+        {
+          "id": "reserve-slot",
+          "dependencies": [],
+          "priority": 1
+        },
+        {
+          "id": "transform",
+          "dependencies": [
+            "extract"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "quality-check",
+          "dependencies": [
+            "extract"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "publish",
+          "dependencies": [
+            "quality-check",
+            "transform",
+            "reserve-slot"
+          ],
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "graphId": "ops-drill",
+      "tasks": [
+        {
+          "id": "bootstrap",
+          "dependencies": [],
+          "priority": 1
+        },
+        {
+          "id": "notify",
+          "dependencies": [
+            "audit"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "audit",
+          "dependencies": [
+            "notify"
+          ],
+          "priority": 2
+        },
+        {
+          "id": "repair",
+          "dependencies": [
+            "bootstrap"
+          ],
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "graphId": "broken-config",
+      "tasks": [
+        {
+          "id": "compile",
+          "dependencies": [
+            "fetch"
+          ],
+          "priority": 1
+        },
+        {
+          "id": "publish",
+          "dependencies": [
+            "compile",
+            "sign"
+          ],
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "graphId": "duplicate-check",
+      "tasks": [
+        {
+          "id": "seed",
+          "dependencies": [],
+          "priority": 1
+        },
+        {
+          "id": "seed",
+          "dependencies": [],
+          "priority": 2
+        },
+        {
+          "id": "deploy",
+          "dependencies": [
+            "seed"
+          ],
+          "priority": 3
+        }
+      ]
+    }
+  ]
+}

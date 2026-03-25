@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "aquifer-monitor-box-least-squares-transfer-pumping-drawdowns",
+  "taskRole": "transfer",
+  "title": "Transfer | Aquifer Pumping Drawdowns",
+  "goal": "给定4个观测井的15分钟地下水位异常序列，找出存在规则抽水回落的井，并输出well_id、drawdown_period_hours、median_drawdown_meters与event_count的文本报告。",
+  "primaryOutputFile": "/root/output/pumping_drawdown_report.txt",
+  "difficulty": "medium",
+  "category": "hydrology",
+  "skillBenefitRationale": "这个迁移场景把技能用于地下水抽水回落检测，核心仍是识别周期性、近似箱形的负向事件并估计其重复间隔与持续时间；普通峰谷统计不足以稳定区分真正的抽水节律。",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares"
+}

@@ -1,0 +1,36 @@
+{
+  "slides": {
+    "2": {
+      "title": "Foam-Agent opening frame",
+      "bullets": [
+        "Start with the pain point: CFD workflows still rely on expert handoffs.",
+        "Name retrieval, file generation, and error correction as the three automation moves.",
+        "Land on the practical outcome: more engineers can run simulations from plain language."
+      ]
+    },
+    "3": {
+      "title": "ReAct method setup",
+      "bullets": [
+        "Explain that reasoning traces and external actions are interleaved in one prompting loop.",
+        "Use the Wikipedia example to make the action channel concrete for the audience.",
+        "Bridge to the next slide by saying the core idea survives even when the example is simplified."
+      ]
+    },
+    "5": {
+      "title": "MAST failure taxonomy emphasis",
+      "bullets": [
+        "Frame this slide as a cautionary lens for multi-agent demos that look polished but break in deployment.",
+        "Call out the LLM-as-a-Judge pipeline as the reusable evaluation asset.",
+        "End with the open-sourced dataset as the reason this paper matters beyond taxonomy labels."
+      ]
+    },
+    "6": {
+      "title": "MultiAgentBench closing beat",
+      "bullets": [
+        "Position this benchmark as the evaluation counterpart to the workflow systems shown earlier.",
+        "Mention both collaboration and competition so the scope sounds broader than a single benchmark track.",
+        "Close the rehearsal section by pointing the audience to the released code and data."
+      ]
+    }
+  }
+}

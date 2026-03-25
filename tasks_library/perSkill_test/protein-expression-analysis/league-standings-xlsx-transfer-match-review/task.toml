@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "league-standings-xlsx-transfer-match-review"
+name = "Transfer | 青训联赛积分榜复盘工作簿"
+description = "根据赛程结果表汇总球队战绩、生成带 tie-break 排名的联赛积分榜附表，并输出 league_standings_review.xlsx。"
+author_name = "Levi"
+author_email = "levi@harbor.local"
+difficulty = "middle"
+category = "data-analysis"
+tags = ["excel", "sports", "league-table", "standings", "data-analysis"]
+primary_output_file = "league_standings_review.xlsx"
+source_task_id = "protein-expression-analysis"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

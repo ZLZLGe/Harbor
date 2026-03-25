@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "retry-boundary-testing-python-transfer-mocked-client",
+  "taskRole": "transfer",
+  "title": "Transfer | 用边界 Mock 验证第三方客户端重试语义",
+  "goal": "为一个封装第三方计费接口的模块补充边界 mock 测试，验证重试次数、异常映射和幂等行为，并输出测试审计摘要。",
+  "primaryOutputFile": "reports/mock_retry_audit.txt",
+  "difficulty": "easy",
+  "category": "Integration Reliability",
+  "skillBenefitRationale": "任务核心是使用 pytest 与 mocking 在外部依赖边界上建立可靠测试，证明业务逻辑而非真实服务响应；关键能力是 Python 测试隔离与验证。",
+  "targetSkillDirName": "testing-python",
+  "targetSkillName": "testing-python"
+}

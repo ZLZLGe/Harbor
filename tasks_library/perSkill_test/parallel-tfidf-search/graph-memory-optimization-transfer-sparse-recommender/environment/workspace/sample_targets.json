@@ -1,0 +1,10 @@
+{
+  "num_users": 18,
+  "top_n": 4,
+  "target_user_ids": [
+    2,
+    6,
+    10,
+    14
+  ]
+}

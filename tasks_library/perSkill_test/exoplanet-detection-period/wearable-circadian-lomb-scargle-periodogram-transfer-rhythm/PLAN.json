@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wearable-circadian-lomb-scargle-periodogram-transfer-rhythm",
+  "taskRole": "transfer",
+  "title": "Transfer: Estimate a Wearable Circadian Rhythm from Irregular Samples",
+  "goal": "利用不规则采样的可穿戴体温或活动度序列估计主导昼夜节律周期，并在 `/root/circadian_note.md` 中写出选定周期以及为何拒绝约 12 小时谐波的简短结论。",
+  "primaryOutputFile": "/root/circadian_note.md",
+  "difficulty": "medium",
+  "category": "biomedical-data-analysis",
+  "skillBenefitRationale": "该任务把 Lomb-Scargle 迁移到可穿戴节律分析，重点是从缺测和谐波并存的数据里选出真正的主周期；核心解法仍然只依赖周期图与峰值比较。",
+  "targetSkillDirName": "lomb-scargle-periodogram",
+  "targetSkillName": "lomb-scargle-periodogram"
+}

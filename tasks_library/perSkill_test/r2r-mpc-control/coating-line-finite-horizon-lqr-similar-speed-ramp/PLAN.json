@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "coating-line-finite-horizon-lqr-similar-speed-ramp",
+  "taskRole": "similar",
+  "title": "Similar: Coating Line Speed-Ramp MPC",
+  "goal": "在提供的 4 段涂布线离散状态空间模型与轻量仿真器上，实现滚动控制器，应对 1.5s 时的线速度提升和中间段张力参考切换，并输出 `coating_response_report.json`，其中包含阶段增益摘要、闭环张力/速度轨迹以及稳态误差、超调和控制能量指标。",
+  "primaryOutputFile": "coating_response_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "这个任务直接考查有限时域 LQR 的典型用法：对给定线性系统做反向 Riccati 递推、每步只施加首个控制量、在滚动预测下完成参考跟踪与控制平滑折中，不依赖其他 shipped skill。",
+  "targetSkillDirName": "finite-horizon-lqr",
+  "targetSkillName": "finite-horizon-lqr"
+}

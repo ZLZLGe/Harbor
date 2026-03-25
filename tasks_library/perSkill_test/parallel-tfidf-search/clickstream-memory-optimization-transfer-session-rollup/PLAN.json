@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "clickstream-memory-optimization-transfer-session-rollup",
+  "taskRole": "transfer",
+  "title": "Transfer: Streaming Clickstream Session Rollup",
+  "goal": "处理一个按 session 排序的超大 NDJSON 点击流文件，生成每个 session 的时长、事件数、入口页和转化标记汇总 CSV，并在 verifier 的峰值内存限制下保持结果与参考实现一致。",
+  "primaryOutputFile": "/root/workspace/session_rollup_solution.py",
+  "difficulty": "medium",
+  "category": "Memory Optimization",
+  "skillBenefitRationale": "关键在于流式读取、只保留当前 session 状态并避免整文件反序列化或全量事件缓存，不需要并行或其他额外技能。",
+  "targetSkillDirName": "memory-optimization",
+  "targetSkillName": "memory-optimization"
+}

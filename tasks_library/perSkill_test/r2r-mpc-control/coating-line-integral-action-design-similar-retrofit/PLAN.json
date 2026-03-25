@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "coating-line-integral-action-design-similar-retrofit",
+  "taskRole": "similar",
+  "title": "Similar: Coating Line Tension Retrofit",
+  "goal": "在提供的4段卷对卷涂布线仿真器、名义预测控制脚手架和扰动配置上，为张力控制器补上分段泄漏积分与限幅，输出 `tension_retrofit_results.json`，证明换卷阶跃和持续摩擦偏置下的张力稳态误差被消除。",
+  "primaryOutputFile": "tension_retrofit_results.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "题目会直接提供可运行的闭环控制框架与名义模型，唯一关键难点是如何设计和调节张力通道的积分补偿，使系统在模型失配下实现无静差跟踪且不因积分累积导致饱和。",
+  "targetSkillDirName": "integral-action-design",
+  "targetSkillName": "integral-action-design"
+}

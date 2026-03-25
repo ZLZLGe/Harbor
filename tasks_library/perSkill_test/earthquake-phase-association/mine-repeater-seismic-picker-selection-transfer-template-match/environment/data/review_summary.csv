@@ -1,0 +1,4 @@
+window_id,expected_repeaters,sta_lta_detected,sta_lta_false,deep_learning_detected,deep_learning_false,template_matching_detected,template_matching_false
+W1,4,3,4,3,1,4,0
+W2,5,4,5,4,2,5,1
+W3,3,1,3,2,1,3,0

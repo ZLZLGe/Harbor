@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+
+import csv
+import math
+import os
+import re
+from datetime import datetime
+from pathlib import Path
+
+import pandas as pd
+
+
+TASK_ROOT = Path(os.environ.get("TASK_ROOT", "/root"))
+NML_PATH = TASK_ROOT / "glm3.nml"
+FORCING_PATH = TASK_ROOT / "inputs" / "monona_forcing.csv"
+OUTPUT_DIR = TASK_ROOT / "output"
+OUTPUT_PATH = OUTPUT_DIR / "monona_profiles.csv"
+
+
+def read_nml_value(text, key):
+    match = re.search(rf"{key}\s*=\s*'?([^'\n/]+)'?", text)
+    if not match:
+        raise ValueError(f"Missing {key} in glm3.nml")
+    return match.group(1).strip()
+
+
+def load_config():
+    text = NML_PATH.read_text()
+    return {
+        "start": datetime.strptime(read_nml_value(text, "start"), "%Y-%m-%d %H:%M:%S").date(),
+        "stop": datetime.strptime(read_nml_value(text, "stop"), "%Y-%m-%d %H:%M:%S").date(),
+        "Kw": float(read_nml_value(text, "Kw")),
+        "coef_mix_hyp": float(read_nml_value(text, "coef_mix_hyp")),
+        "wind_factor": float(read_nml_value(text, "wind_factor")),
+        "lw_factor": float(read_nml_value(text, "lw_factor")),
+        "ch": float(read_nml_value(text, "ch")),
+    }
+
+
+def simulate_profiles(config, forcing):
+    rows = []
+    for _, forcing_row in forcing.iterrows():
+        current_date = forcing_row["date"].date()
+        if current_date < config["start"] or current_date > config["stop"]:
+            continue
+
+        day_of_year = int(forcing_row["day_of_year"])
+        season = math.sin(2.0 * math.pi * (day_of_year - 172) / 365.25)
+        stratification = max(0.0, math.sin(2.0 * math.pi * (day_of_year - 110) / 365.25))
+        cooling = max(0.0, -season)
+
+        surface_temp = (
+            6.2
+            + 0.62 * forcing_row["air_temp_c"]
+            + 0.0105 * forcing_row["shortwave_w_m2"]
+            + 0.003 * (forcing_row["longwave_w_m2"] - 300.0)
+            + 7.5 * (config["lw_factor"] - 1.0)
+            + 3400.0 * (config["ch"] - 0.0013)
+            - 1.7 * (config["wind_factor"] - 1.0)
+            + 0.45 * season
+        )
+        deep_temp = (
+            4.7
+            + 0.16 * forcing_row["air_temp_c"]
+            + 0.0012 * forcing_row["shortwave_w_m2"]
+            + 2.6 * (config["lw_factor"] - 1.0)
+            + 1150.0 * (config["ch"] - 0.0013)
+            + 2.2 * (config["coef_mix_hyp"] - 0.5)
+            - 1.4 * (config["Kw"] - 0.3)
+            - 0.25 * cooling
+        )
+        decay_scale = (
+            3.1
+            - 2.0 * stratification
+            + 5.1 * (config["Kw"] - 0.3)
+            - 2.7 * (config["coef_mix_hyp"] - 0.5)
+            + 1.35 * (config["wind_factor"] - 1.0)
+            + 0.7 * (config["lw_factor"] - 1.0)
+        )
+        decay_scale = max(0.9, min(9.5, decay_scale))
+        bend = (
+            0.055
+            + 0.025 * stratification
+            + 0.03 * (config["coef_mix_hyp"] - 0.5)
+            - 0.018 * (config["wind_factor"] - 1.0)
+        )
+
+        for depth_m in range(23):
+            depth = float(depth_m)
+            temperature_c = deep_temp + (surface_temp - deep_temp) * math.exp(-depth / decay_scale)
+            temperature_c -= bend * depth * stratification
+            temperature_c += 0.06 * math.cos(depth / 3.7 + day_of_year / 44.0)
+            rows.append(
+                {
+                    "date": current_date.isoformat(),
+                    "depth_m": depth,
+                    "temperature_c": round(temperature_c, 6),
+                }
+            )
+    return rows
+
+
+def main():
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    forcing = pd.read_csv(FORCING_PATH, parse_dates=["date"])
+    config = load_config()
+    rows = simulate_profiles(config, forcing)
+    with OUTPUT_PATH.open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["date", "depth_m", "temperature_c"])
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+if __name__ == "__main__":
+    main()

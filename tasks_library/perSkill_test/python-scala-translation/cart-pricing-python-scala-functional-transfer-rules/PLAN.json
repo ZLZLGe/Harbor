@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cart-pricing-python-scala-functional-transfer-rules",
+  "taskRole": "transfer",
+  "title": "Transfer: Cart Pricing Rule Engine Translation",
+  "goal": "Translate a Python shopping-cart pricing engine into Scala 2.13, turning discount-rule factories, composed pricing steps, coupon validation, and optional customer context into idiomatic functional Scala code with clear data models and safe error handling.",
+  "primaryOutputFile": "/root/CartPricing.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "This transfers the same translation skill into a finance-style rule engine where closures, function composition, and Python Optional/error patterns must become Scala functions, ADTs, Option, and Either/Try. The shipped skill is still the only key capability.",
+  "targetSkillDirName": "python-scala-functional",
+  "targetSkillName": "python-scala-functional"
+}

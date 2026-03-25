@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "thermal-oven-integral-action-design-transfer-bias-hold"
+name = "Transfer: Two-Zone Oven Bias Hold"
+description = "Tune zone-wise leaky integral heater compensation for the provided two-zone oven MPC scaffold and write heater_integrator_config.json that restores offset-free tracking across the supplied thermal disturbance cases."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control", "mpc", "thermal", "oven", "process-control", "python"]
+primary_output_file = "heater_integrator_config.json"
+source_task_id = "r2r-mpc-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,9 @@
+Family ID: glm-lake-mendota
+Family Dir: /home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota
+Jobs Dir: /home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/jobs
+Job Name: review-errors-fixed-daytona-oracle-20260325-220628
+Runner Log: /home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/oracle_runner_logs/review-errors-fixed-daytona-oracle-20260325-220628/runner.log
+All Tasks: 4
+Run Tasks: 4
+Skipped Existing Tasks: 0
+Command: harbor run -p /home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota -a oracle -e daytona --jobs-dir /home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/jobs --job-name review-errors-fixed-daytona-oracle-20260325-220628 --n-concurrent 3 --force-build --task-name habitat-glm-output-transfer-refuge-thickness --task-name reservoir-glm-output-transfer-intake-alerts --task-name scenario-glm-output-transfer-thermal-delta-audit --task-name stratification-glm-calibration-transfer-phenology-window

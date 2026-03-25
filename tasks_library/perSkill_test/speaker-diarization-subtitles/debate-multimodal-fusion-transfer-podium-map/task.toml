@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "debate-multimodal-fusion-transfer-podium-map"
+name = "Transfer: Debate Podium Speaker Map"
+description = "Map debate speech segments onto fixed podium positions and write /root/podium_speaking_times.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "audio-visual"
+tags = ["debate", "podium-mapping", "multimodal-fusion", "csv"]
+primary_output_file = "/root/podium_speaking_times.csv"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 180.0

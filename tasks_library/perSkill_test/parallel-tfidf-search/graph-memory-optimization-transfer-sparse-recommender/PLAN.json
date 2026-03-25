@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "graph-memory-optimization-transfer-sparse-recommender",
+  "taskRole": "transfer",
+  "title": "Transfer: Sparse Social Graph Recommender",
+  "goal": "将一个使用稠密邻接矩阵实现的好友推荐脚本改成稀疏图表示，在不改变指定用户 top-N 推荐结果的前提下，把内存占用压到 verifier 约束以内。",
+  "primaryOutputFile": "/root/workspace/graph_recommender_solution.py",
+  "difficulty": "medium",
+  "category": "Memory Optimization",
+  "skillBenefitRationale": "主要挑战是把不适合大图的稠密结构替换为紧凑稀疏结构，并控制候选集合与中间计数器的生命周期；memory-optimization 是唯一关键 shipped skill。",
+  "targetSkillDirName": "memory-optimization",
+  "targetSkillName": "memory-optimization"
+}

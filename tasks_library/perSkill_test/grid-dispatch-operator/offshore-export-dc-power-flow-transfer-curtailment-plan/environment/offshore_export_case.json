@@ -1,0 +1,136 @@
+{
+  "case_id": "offshore_export_delta",
+  "baseMVA": 100.0,
+  "objective_total_curtailment_weight": 10000.0,
+  "critical_threshold_pct": 90.0,
+  "buses": [
+    {
+      "id": 901,
+      "name": "临港换流站",
+      "type": "slack"
+    },
+    {
+      "id": 311,
+      "name": "北屿汇集站",
+      "type": "station"
+    },
+    {
+      "id": 325,
+      "name": "东泓汇集站",
+      "type": "station"
+    },
+    {
+      "id": 344,
+      "name": "中湾汇集站",
+      "type": "station"
+    },
+    {
+      "id": 358,
+      "name": "南澜汇集站",
+      "type": "station"
+    }
+  ],
+  "stations": [
+    {
+      "id": "OS1",
+      "name": "北屿汇集站",
+      "bus": 311,
+      "available_MW": 140.0,
+      "priority_weight": 6.0
+    },
+    {
+      "id": "OS2",
+      "name": "东泓汇集站",
+      "bus": 325,
+      "available_MW": 135.0,
+      "priority_weight": 5.0
+    },
+    {
+      "id": "OS3",
+      "name": "中湾汇集站",
+      "bus": 344,
+      "available_MW": 125.0,
+      "priority_weight": 9.0
+    },
+    {
+      "id": "OS4",
+      "name": "南澜汇集站",
+      "bus": 358,
+      "available_MW": 110.0,
+      "priority_weight": 4.0
+    }
+  ],
+  "cables": [
+    {
+      "id": "C_NE",
+      "name": "北东联络海缆",
+      "from": 311,
+      "to": 325,
+      "x_pu": 0.06,
+      "limit_MW": 90.0,
+      "kind": "array"
+    },
+    {
+      "id": "C_MID",
+      "name": "东中主干海缆",
+      "from": 325,
+      "to": 344,
+      "x_pu": 0.08,
+      "limit_MW": 120.0,
+      "kind": "backbone"
+    },
+    {
+      "id": "C_SW",
+      "name": "中南联络海缆",
+      "from": 344,
+      "to": 358,
+      "x_pu": 0.07,
+      "limit_MW": 85.0,
+      "kind": "array"
+    },
+    {
+      "id": "C_RING",
+      "name": "南北环接海缆",
+      "from": 358,
+      "to": 311,
+      "x_pu": 0.09,
+      "limit_MW": 75.0,
+      "kind": "backbone"
+    },
+    {
+      "id": "EXP_N",
+      "name": "北登陆外送海缆",
+      "from": 311,
+      "to": 901,
+      "x_pu": 0.18,
+      "limit_MW": 155.0,
+      "kind": "export"
+    },
+    {
+      "id": "EXP_C",
+      "name": "中央登陆外送海缆",
+      "from": 344,
+      "to": 901,
+      "x_pu": 0.2,
+      "limit_MW": 165.0,
+      "kind": "export"
+    },
+    {
+      "id": "TIE_B",
+      "name": "东南平衡联络缆",
+      "from": 325,
+      "to": 358,
+      "x_pu": 0.11,
+      "limit_MW": 70.0,
+      "kind": "tie"
+    }
+  ],
+  "report_cable_ids": [
+    "EXP_N",
+    "EXP_C",
+    "C_NE",
+    "C_RING",
+    "C_SW",
+    "TIE_B"
+  ]
+}

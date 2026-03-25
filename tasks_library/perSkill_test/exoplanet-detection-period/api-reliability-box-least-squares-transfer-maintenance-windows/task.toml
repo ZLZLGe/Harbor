@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "api-reliability-box-least-squares-transfer-maintenance-windows"
+name = "Transfer | API Maintenance Window Forecast"
+description = "分析 API 五分钟成功率序列中的重复维护窗口，并输出周期、窗口宽度与下一次维护开始时间的 Markdown 摘要。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "operations"
+tags = ["operations", "reliability", "time-series", "api", "markdown"]
+primary_output_file = "/root/output/maintenance_window_forecast.md"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0

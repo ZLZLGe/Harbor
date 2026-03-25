@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "tutorial-voice-activity-detection-transfer-overlay-windows"
+name = "Tutorial Overlay Windows Transfer"
+description = "从教程视频中找出满足时长要求、且不落入禁用视觉区间的无语音窗口，并输出 /root/overlay_windows.csv。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "audio-visual"
+tags = ["voice-activity-detection", "tutorial", "video-editing", "overlay-windows", "transfer"]
+primary_output_file = "/root/overlay_windows.csv"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

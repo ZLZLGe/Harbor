@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bond-portfolio-xlsx-transfer-stress-book",
+  "taskRole": "transfer",
+  "title": "Transfer - 债券组合压力测试工作簿",
+  "goal": "基于给定的债券持仓清单、付息日历、基准收益率曲线和违约回收假设，完成债券组合压力测试工作簿；补齐逐期现金流、贴现估值、久期/凸性、情景损益和组合汇总，并输出 `bond-stress-book.xlsx`。",
+  "primaryOutputFile": "bond-stress-book.xlsx",
+  "difficulty": "hard",
+  "category": "financial-analysis",
+  "skillBenefitRationale": "核心在于按日期和情景表搭建可复算的现金流与估值模型，依赖电子表格中的日期处理、贴现、加权汇总和跨表引用公式，不需要其他 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

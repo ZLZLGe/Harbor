@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "zonal-power-flow-data-transfer-exchange-summary"
+name = "Transfer: 分区联络汇总"
+description = "根据 network.json 与 zones.json 生成 zone_exchange_summary.json，汇总各运行分区的负荷、机组容量、备用容量、平衡母线归属和跨区联络线指标。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "power-grid", "matpower", "zonal-summary", "transfer"]
+primary_output_file = "zone_exchange_summary.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

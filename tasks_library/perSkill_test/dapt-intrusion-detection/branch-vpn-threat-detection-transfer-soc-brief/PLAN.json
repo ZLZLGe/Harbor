@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "branch-vpn-threat-detection-transfer-soc-brief",
+  "taskRole": "transfer",
+  "title": "Transfer: Branch VPN SOC Brief",
+  "goal": "给定分支 VPN 网关按小时汇总的流量特征 CSV，生成 `/root/branch_soc_report.md`，只汇总需要升级的站点，按站点列出命中的威胁类型、对应阈值证据和全局汇总统计。",
+  "primaryOutputFile": "/root/branch_soc_report.md",
+  "difficulty": "hard",
+  "category": "security",
+  "skillBenefitRationale": "这里的输出从结构化判定转成面向值班人员的 Markdown 简报，但真正决定内容的是同一套精确威胁阈值；解析与排版是常规工作，关键技能仍只有 `threat-detection`。",
+  "targetSkillDirName": "threat-detection",
+  "targetSkillName": "threat-detection"
+}

@@ -1,0 +1,148 @@
+{
+  "fire_arrival_turns": [
+    [
+      1,
+      1,
+      2,
+      3,
+      4,
+      null,
+      6,
+      6
+    ],
+    [
+      0,
+      null,
+      3,
+      4,
+      5,
+      null,
+      5,
+      5
+    ],
+    [
+      1,
+      1,
+      2,
+      null,
+      5,
+      5,
+      4,
+      4
+    ],
+    [
+      2,
+      2,
+      3,
+      4,
+      null,
+      4,
+      3,
+      null
+    ],
+    [
+      3,
+      3,
+      null,
+      null,
+      5,
+      4,
+      3,
+      2
+    ],
+    [
+      4,
+      4,
+      5,
+      6,
+      5,
+      null,
+      2,
+      1
+    ],
+    [
+      null,
+      5,
+      5,
+      6,
+      5,
+      4,
+      3,
+      2
+    ]
+  ],
+  "village_routes": [
+    {
+      "feasible": true,
+      "chosen_shelter": "SOUTH_HUB",
+      "travel_turns": 2,
+      "path": [
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "village_id": "PINEWATCH"
+    },
+    {
+      "feasible": true,
+      "chosen_shelter": "NORTH_PAD",
+      "travel_turns": 2,
+      "path": [
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "village_id": "EASTVALE"
+    },
+    {
+      "feasible": true,
+      "chosen_shelter": "SOUTH_HUB",
+      "travel_turns": 3,
+      "path": [
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "village_id": "LOWBRIDGE"
+    },
+    {
+      "village_id": "EMBER_HOLLOW",
+      "feasible": false,
+      "chosen_shelter": null,
+      "travel_turns": null,
+      "path": []
+    }
+  ],
+  "overall_evacuation_feasible": false
+}

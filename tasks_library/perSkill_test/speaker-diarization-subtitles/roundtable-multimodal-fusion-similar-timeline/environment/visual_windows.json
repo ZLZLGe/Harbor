@@ -1,0 +1,46 @@
+{
+  "windows": [
+    {
+      "start_sec": 0.0,
+      "end_sec": 1.85,
+      "visible_face_ids": ["host", "guest_left", "guest_right"],
+      "active_face_id": "host"
+    },
+    {
+      "start_sec": 1.85,
+      "end_sec": 3.35,
+      "visible_face_ids": ["host", "guest_left", "guest_right"],
+      "active_face_id": "guest_left"
+    },
+    {
+      "start_sec": 3.35,
+      "end_sec": 4.05,
+      "visible_face_ids": ["host", "guest_right"],
+      "active_face_id": "guest_right"
+    },
+    {
+      "start_sec": 4.05,
+      "end_sec": 5.15,
+      "visible_face_ids": ["host", "guest_left", "guest_right"],
+      "active_face_id": null
+    },
+    {
+      "start_sec": 5.15,
+      "end_sec": 6.1,
+      "visible_face_ids": ["host", "guest_right"],
+      "active_face_id": "guest_right"
+    },
+    {
+      "start_sec": 6.1,
+      "end_sec": 6.95,
+      "visible_face_ids": ["host", "guest_left", "guest_right"],
+      "active_face_id": "guest_left"
+    },
+    {
+      "start_sec": 6.95,
+      "end_sec": 8.65,
+      "visible_face_ids": ["guest_right"],
+      "active_face_id": null
+    }
+  ]
+}

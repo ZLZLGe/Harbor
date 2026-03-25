@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-balance-xlsx-transfer-drought-resilience",
+  "taskRole": "transfer",
+  "title": "Transfer - 水库抗旱调度工作簿",
+  "goal": "基于月度来水、蒸发、农业与居民用水需求以及生态下泄约束，完成水库抗旱调度工作簿；用递推公式计算库容、缺水、限供触发、应急放水和情景摘要，并输出 `reservoir-resilience-model.xlsx`。",
+  "primaryOutputFile": "reservoir-resilience-model.xlsx",
+  "difficulty": "hard",
+  "category": "operations-analysis",
+  "skillBenefitRationale": "核心在于用工作簿结构和单元格公式实现月度水量平衡、阈值告警和情景汇总，验证的是模板维护、递推公式正确性和重算结果，一项电子表格技能即可完成。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

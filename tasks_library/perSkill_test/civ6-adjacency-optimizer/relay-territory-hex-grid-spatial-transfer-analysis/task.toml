@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "relay-territory-hex-grid-spatial-transfer-analysis"
+name = "Transfer: 六角通信服务区归属分析"
+description = "在 odd-r 六角通信网格上按最近基站划分服务区，输出巡检点归属、等距争议格与各基站服务区面积。"
+author_name = "Levi Harbor"
+author_email = "levi.harbor@example.com"
+difficulty = "medium"
+category = "infrastructure"
+tags = ["hex-grid", "territory-analysis", "infrastructure", "distance", "spatial-reasoning"]
+primary_output_file = "/output/relay_territories.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

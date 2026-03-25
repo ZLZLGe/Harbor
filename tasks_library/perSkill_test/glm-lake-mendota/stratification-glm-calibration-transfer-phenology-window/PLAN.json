@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "stratification-glm-calibration-transfer-phenology-window",
+  "taskRole": "transfer",
+  "title": "Transfer - Match Stratification Onset and Breakdown",
+  "goal": "设计一个基于单季观测剖面的校准任务：求解者需要调整 GLM 参数，使模拟结果在温跃层深度、分层开始时间和秋季翻转时间上接近观测派生指标，并把事件级对比摘要写入 `/root/diagnostics/stratification_phenology_report.json`。",
+  "primaryOutputFile": "/root/diagnostics/stratification_phenology_report.json",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "这里仍然是用参数调优驱动 GLM 贴近观测，但成功标准从点对点温度 RMSE 转成了分层物候与结构诊断，明显区别于常规剖面拟合。",
+  "targetSkillDirName": "glm-calibration",
+  "targetSkillName": "glm-calibration"
+}

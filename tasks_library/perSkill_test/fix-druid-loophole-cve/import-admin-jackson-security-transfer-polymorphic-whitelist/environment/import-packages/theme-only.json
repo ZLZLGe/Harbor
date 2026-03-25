@@ -1,0 +1,10 @@
+{
+  "batchId": "theme-batch-2026-03",
+  "operations": [
+    {
+      "@class": "com.harbor.adminimport.model.ThemeImport",
+      "themeName": "harbor-daybreak",
+      "palette": ["sand", "teal", "navy"]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "documentary-multimodal-fusion-transfer-voiceover-audit"
+name = "Transfer: Documentary Voiceover Audit"
+description = "Audit provided documentary speech events against visual evidence and write /root/narration_audit.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "audio-visual"
+tags = ["documentary", "voiceover-audit", "multimodal"]
+primary_output_file = "/root/narration_audit.json"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 180.0

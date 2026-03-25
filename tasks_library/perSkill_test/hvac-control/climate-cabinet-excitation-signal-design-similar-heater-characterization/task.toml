@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "climate-cabinet-excitation-signal-design-similar-heater-characterization"
+name = "Similar: 恒温柜加热辨识"
+description = "为带噪声的恒温柜热惯性模拟器设计一次安全且信息量足够的开环加热阶跃实验，并输出 chamber_characterization.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["system-identification", "thermal-model", "open-loop-test", "heater-step"]
+primary_output_file = "chamber_characterization.json"
+source_task_id = "hvac-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false

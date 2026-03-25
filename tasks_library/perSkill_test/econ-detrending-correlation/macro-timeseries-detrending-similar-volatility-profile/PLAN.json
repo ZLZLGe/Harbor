@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "macro-timeseries-detrending-similar-volatility-profile",
+  "taskRole": "similar",
+  "title": "Similar | Quarterly Business-Cycle Volatility Profile",
+  "goal": "从季度实值宏观数据中提取 GDP、消费和固定投资的周期成分，使用对数变换与 HP 滤波（λ=1600）计算 1990Q1-2024Q4 各序列相对 GDP 的周期波动率比，并输出按波动率从高到低排序的 CSV。",
+  "primaryOutputFile": "cycle_volatility_profile.csv",
+  "difficulty": "medium",
+  "category": "economics",
+  "skillBenefitRationale": "这仍是典型的宏观商业周期分析场景，但目标从双变量相关性改为相对波动率画像，要求解题者正确选择季度频率的平滑参数、对正值实物量取对数，并基于周期成分做比较。",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending"
+}

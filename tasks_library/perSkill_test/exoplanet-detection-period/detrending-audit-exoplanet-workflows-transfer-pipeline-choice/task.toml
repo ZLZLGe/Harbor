@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "detrending-audit-exoplanet-workflows-transfer-pipeline-choice"
+name = "Transfer | 在候选预处理分支中选出保留浅凌星的正确管线"
+description = "审计同一目标的多条候选去趋势分支，选出既抑制系统噪声又保留浅凌星的正确管线，并将选择结果与证据写入 /root/pipeline_choice.json。"
+author_name = "Levi Harbor"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "exoplanet", "detrending", "light-curve", "time-series", "pipeline-audit"]
+primary_output_file = "/root/pipeline_choice.json"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

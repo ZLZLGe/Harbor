@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "release-enterprise-artifact-search-transfer-blocker-ledger"
+name = "Transfer | 发布阻塞账本"
+description = "在发布 war-room 工件集中锁定指定 release candidate 的真实 blocker，并输出 owner、修复 PR、最近状态证据与缺失 sign-off。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "release-ops"
+tags = ["release-ops", "artifact-search", "blocker-ledger", "war-room"]
+primary_output_file = "/root/release_blocker_ledger.json"
+source_task_id = "enterprise-information-search"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0

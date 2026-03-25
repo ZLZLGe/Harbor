@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "expense-audit-pdf-similar-compliance-report",
+  "taskRole": "similar",
+  "title": "Similar: 差旅报销异常核验",
+  "goal": "分析一份多页差旅报销 PDF，每页一张报销申请；提取员工、出行城市、授权单号、报销金额和收款账号，结合 `employee_roster.csv`、`trip_approvals.json` 与 `policy_limits.json` 按给定优先级规则输出仅包含异常申请的 `/root/expense_exceptions.json`。",
+  "primaryOutputFile": "/root/expense_exceptions.json",
+  "difficulty": "hard",
+  "category": "data-validation",
+  "skillBenefitRationale": "任务核心是对重复版式 PDF 做稳定字段抽取、页号定位和文本归一化；其余对照资料只是普通结构化输入，当前 shipped skill 中的 PDF 提取能力是唯一关键能力。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

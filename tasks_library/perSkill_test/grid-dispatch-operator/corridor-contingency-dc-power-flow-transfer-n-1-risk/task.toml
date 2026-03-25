@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "corridor-contingency-dc-power-flow-transfer-n-1-risk"
+name = "Transfer: 风电外送走廊 N-1 风险排序"
+description = "基于固定注入与单回线停运候选场景执行 DC 潮流分析，输出 contingency_risk_rankings.json 中的场景风险排序与接口影响摘要。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "power-systems", "contingency-analysis", "dc-power-flow", "transmission-risk"]
+primary_output_file = "contingency_risk_rankings.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

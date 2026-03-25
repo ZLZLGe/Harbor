@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "deck-ops-pptx-transfer-template-proposal",
+  "taskRole": "transfer",
+  "title": "Transfer: 基于品牌模板重组客户提案 Deck",
+  "goal": "给定一个品牌模板 deck、proposal_brief.yaml 和配套图片素材，基于模板挑选、复制、重排合适页面，生成一份 6 页的定制客户提案，并替换掉所有占位文本且保留原模板主题与母版风格。",
+  "primaryOutputFile": "/root/GreenGrid-Proposal-tailored.pptx",
+  "difficulty": "medium",
+  "category": "office-suite",
+  "skillBenefitRationale": "这个任务把 pptx skill 迁移到模板复用与内容置换场景，要求分析模板布局、复制/重排 slide、替换占位内容并维持主题一致性。它与纯编辑、notes 写入、从零生成都明显不同，但仍只依赖 pptx skill。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

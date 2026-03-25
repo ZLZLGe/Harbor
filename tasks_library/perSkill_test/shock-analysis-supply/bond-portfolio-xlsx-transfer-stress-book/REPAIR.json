@@ -1,0 +1,36 @@
+{
+  "sourceTaskId": "shock-analysis-supply",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260325014607-shock-analysis-supply-xlsx-5aocjn",
+  "taskId": "bond-portfolio-xlsx-transfer-stress-book",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/shock-analysis-supply/xlsx/20260325014607-shock-analysis-supply-xlsx-5aocjn/bond-portfolio-xlsx-transfer-stress-book",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014607-shock-analysis-supply-xlsx-5aocjn/shock-analysis-supply/drafts/bond-portfolio-xlsx-transfer-stress-book",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/shock-analysis-supply/xlsx/20260325014607-shock-analysis-supply-xlsx-5aocjn/bond-portfolio-xlsx-transfer-stress-book",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/shock-analysis-supply/bond-portfolio-xlsx-transfer-stress-book",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 通过 `bond-stress-template.xlsx` 和 `bond-stress-book.xlsx` 直接出现了 shipped skill 的 dirName `xlsx`，构成技能暴露。; tests/test_outputs.py 对 `Cashflow_Model`/`Scenario_Valuation` 中的 `IF`、`SUMIFS` 等公式形态做硬编码检查，把合法解法锁死到特定内部实现，而不是仅校验 instruction.md 明示的输出契约与结果语义。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24bd-4b93-7d82-bb3b-766efd15198c",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill dirName `xlsx` 的直接暴露，并放宽了 tests/test_outputs.py 对 `IF`/`SUMIFS` 等具体公式形态的硬编码，改为只校验公式存在、必要跨表引用和结果语义。",
+      "reviewThreadId": "019d24bf-60d8-72d0-8517-2499184e7e66",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

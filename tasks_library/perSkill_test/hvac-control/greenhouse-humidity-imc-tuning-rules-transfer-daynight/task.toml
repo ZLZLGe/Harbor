@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "greenhouse-humidity-imc-tuning-rules-transfer-daynight"
+name = "Transfer | Greenhouse Humidity Day-Night Tuning"
+description = "Compute day and night PI humidity tunings from a first-order greenhouse model, then write humidity_controller_plan.json with lambda choices and two 15-minute response summaries."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["greenhouse", "humidity-control", "control-systems", "pi-control", "transfer"]
+primary_output_file = "humidity_controller_plan.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 1800.0
+
+[verifier]
+timeout_sec = 1800.0

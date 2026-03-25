@@ -1,0 +1,11 @@
+service,severity,started_at,ended_at,source,alert_code
+checkout,critical,2026-02-01T10:00:00Z,2026-02-01T10:05:00Z,api-gw,CPU-7
+checkout,critical,2026-02-01T10:08:00Z,2026-02-01T10:12:00Z,worker-1,CPU-7
+checkout,critical,2026-02-01T10:25:00Z,2026-02-01T10:30:00Z,worker-2,DB-9
+checkout,warning,2026-02-01T13:00:00Z,2026-02-01T13:04:00Z,api-gw,LAT-3
+checkout,warning,2026-02-01T13:12:00Z,2026-02-01T13:14:00Z,edge-1,LAT-4
+search,warning,2026-02-01T09:00:00Z,2026-02-01T09:03:00Z,search-1,LAT-2
+search,warning,2026-02-01T09:07:00Z,2026-02-01T09:09:00Z,search-2,LAT-2
+search,warning,2026-02-01T09:20:00Z,2026-02-01T09:23:00Z,search-1,LAT-8
+billing,critical,2026-02-01T11:00:00Z,2026-02-01T11:04:00Z,ledger-1,PAY-1
+billing,critical,2026-02-01T11:05:00Z,2026-02-01T11:06:00Z,ledger-2,PAY-3

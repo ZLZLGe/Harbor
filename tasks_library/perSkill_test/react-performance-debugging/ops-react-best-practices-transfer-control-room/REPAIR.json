@@ -1,0 +1,52 @@
+{
+  "sourceTaskId": "react-performance-debugging",
+  "targetSkillDirName": "react-best-practices",
+  "targetSkillName": "react-best-practices",
+  "runId": "20260324235843-react-performance-debugging-react-best-practices-jjsots",
+  "taskId": "ops-react-best-practices-transfer-control-room",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/react-performance-debugging/react-best-practices/20260324235843-react-performance-debugging-react-best-practices-jjsots/ops-react-best-practices-transfer-control-room",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324235843-react-performance-debugging-react-best-practices-jjsots/react-performance-debugging/drafts/ops-react-best-practices-transfer-control-room",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/react-performance-debugging/react-best-practices/20260324235843-react-performance-debugging-react-best-practices-jjsots/ops-react-best-practices-transfer-control-room",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/react-performance-debugging/ops-react-best-practices-transfer-control-room",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "`instruction.md` 未直接暴露 `react-best-practices`，任务核心也确实是服务端并行取数、会话去重与异步确认链路优化，单靠当前 shipped skill 可以完成。; 任务在业务域、输入资产和主要输出文件上都已与 `source_task/` 拉开，属于合理迁移而不是机械改名。; `solution/solve.sh` 直接完整重写 `src/lib/getControlRoomData.ts`，把标准答案作为脚本正文暴露出来，存在答案泄露。; `tests/test_outputs.py` 超出了 instruction 明示契约，强制页面和接口返回保留固定内容与精确值，例如 `Regional Control Room`、`Mina Chen`、`runbook-evt-204`、`SEV-1 Database saturation` 等；这会把合法解法锁死到给定素材文案，而不是只验语义结果。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill `react-best-practices`，造成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24b6-3bc3-7b73-a7cd-24e007b0c363",
+      "repairSummary": "已在 instruction.md 直接暴露 `react-best-practices`，把 tests/test_outputs.py 改为基于上游动态数据校验语义契约而不锁死固定文案，并将 solution/solve.sh 从整文件重写改为针对关键片段的定向替换以避免答案泄露。",
+      "reviewThreadId": "019d24ba-be17-7280-9edb-2af930757824",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill `react-best-practices`，造成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24bc-3990-70a2-9e46-d78a7251776c",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill `react-best-practices` 的直接点名，改为泛化表述，消除技能暴露且不改变任务目标。",
+      "reviewThreadId": "019d24bc-c149-7490-bef2-4539c83fb20f",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+alert tcp any any -> any 443 (msg:"candidate blue sync-node-a"; flow:established,to_server; content:"sync-node-a.storage-relay.net"; sid:4202001; rev:1;)
+alert tcp any any -> any 443 (msg:"candidate blue sync-node-b"; flow:established,to_server; content:"sync-node-b.storage-relay.net"; sid:4202002; rev:1;)
+alert tcp any any -> any 443 (msg:"candidate blue archive-api"; flow:established,to_server; content:"api.backup-cab.net"; sid:4202003; rev:1;)

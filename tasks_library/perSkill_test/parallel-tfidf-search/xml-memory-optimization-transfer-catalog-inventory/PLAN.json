@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "xml-memory-optimization-transfer-catalog-inventory",
+  "taskRole": "transfer",
+  "title": "Transfer: Streaming XML Catalog Inventory",
+  "goal": "从一个体积很大的商品目录 XML 中提取每个类目的 SKU 数、库存总量和价格区间，输出汇总 JSON，并通过面向低内存 iterparse 解法设计的 verifier。",
+  "primaryOutputFile": "/root/workspace/catalog_inventory_solution.py",
+  "difficulty": "medium",
+  "category": "Memory Optimization",
+  "skillBenefitRationale": "解题重点是避免 DOM 全量驻留、及时清理已处理节点并仅保留聚合态结果；任务不依赖 XML 以外的专门技能。",
+  "targetSkillDirName": "memory-optimization",
+  "targetSkillName": "memory-optimization"
+}

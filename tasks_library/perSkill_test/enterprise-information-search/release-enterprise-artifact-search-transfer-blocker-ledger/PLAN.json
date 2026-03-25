@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "release-enterprise-artifact-search-transfer-blocker-ledger",
+  "taskRole": "transfer",
+  "title": "Transfer | 发布阻塞账本",
+  "goal": "在发布 war-room 工件集中，为指定 release candidate 生成阻塞项账本，输出每个真实 blocker 的 owner 员工 ID、关联修复 PR、最近一次状态更新证据，以及仍缺失的 sign-off。",
+  "primaryOutputFile": "/root/release_blocker_ledger.json",
+  "difficulty": "hard",
+  "category": "release-ops",
+  "skillBenefitRationale": "发布状态分散在聊天、会议纪要和变更 PR 中，关键难点是围绕同一发布候选做多跳检索并排除历史版本和伪 blocker。",
+  "targetSkillDirName": "enterprise-artifact-search",
+  "targetSkillName": "enterprise-artifact-search"
+}

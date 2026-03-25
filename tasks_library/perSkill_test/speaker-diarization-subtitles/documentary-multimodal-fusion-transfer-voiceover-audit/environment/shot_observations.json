@@ -1,0 +1,124 @@
+{
+  "windows": [
+    {
+      "window_id": "w01",
+      "start_sec": 0.0,
+      "end_sec": 2.0,
+      "shot_description": "Aerial glacier B-roll",
+      "visible_face_ids": [],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w02",
+      "start_sec": 2.0,
+      "end_sec": 4.0,
+      "shot_description": "Animated route map",
+      "visible_face_ids": [],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w03",
+      "start_sec": 4.0,
+      "end_sec": 6.0,
+      "shot_description": "Interview close-up on historian",
+      "visible_face_ids": ["historian_mara"],
+      "lip_motion_face_ids": ["historian_mara"]
+    },
+    {
+      "window_id": "w04",
+      "start_sec": 6.0,
+      "end_sec": 8.5,
+      "shot_description": "Interview medium shot",
+      "visible_face_ids": ["historian_mara"],
+      "lip_motion_face_ids": ["historian_mara"]
+    },
+    {
+      "window_id": "w05",
+      "start_sec": 8.5,
+      "end_sec": 10.0,
+      "shot_description": "Guide listening on camera",
+      "visible_face_ids": ["guide_eli"],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w06",
+      "start_sec": 10.0,
+      "end_sec": 12.0,
+      "shot_description": "Map insert with no faces",
+      "visible_face_ids": [],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w07",
+      "start_sec": 12.0,
+      "end_sec": 14.0,
+      "shot_description": "Archival still photograph",
+      "visible_face_ids": [],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w08",
+      "start_sec": 14.0,
+      "end_sec": 16.0,
+      "shot_description": "Ice field time-lapse",
+      "visible_face_ids": [],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w09",
+      "start_sec": 16.0,
+      "end_sec": 18.0,
+      "shot_description": "Field scientist speaking to camera",
+      "visible_face_ids": ["scientist_rao"],
+      "lip_motion_face_ids": ["scientist_rao"]
+    },
+    {
+      "window_id": "w10",
+      "start_sec": 18.0,
+      "end_sec": 19.5,
+      "shot_description": "Mountain cutaway",
+      "visible_face_ids": [],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w11",
+      "start_sec": 19.5,
+      "end_sec": 21.0,
+      "shot_description": "Scientist on camera but not visibly speaking",
+      "visible_face_ids": ["scientist_rao"],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w12",
+      "start_sec": 21.0,
+      "end_sec": 23.0,
+      "shot_description": "Host and guest in frame, guest speaking",
+      "visible_face_ids": ["host_nina", "guest_tomas"],
+      "lip_motion_face_ids": ["guest_tomas"]
+    },
+    {
+      "window_id": "w13",
+      "start_sec": 23.0,
+      "end_sec": 25.0,
+      "shot_description": "Reverse angle of the same exchange",
+      "visible_face_ids": ["host_nina", "guest_tomas"],
+      "lip_motion_face_ids": ["guest_tomas"]
+    },
+    {
+      "window_id": "w14",
+      "start_sec": 25.0,
+      "end_sec": 27.5,
+      "shot_description": "Crowd reaction wide shot",
+      "visible_face_ids": ["crowd_a", "crowd_b", "crowd_c"],
+      "lip_motion_face_ids": []
+    },
+    {
+      "window_id": "w15",
+      "start_sec": 27.5,
+      "end_sec": 29.5,
+      "shot_description": "Single spectator close-up",
+      "visible_face_ids": ["crowd_b"],
+      "lip_motion_face_ids": []
+    }
+  ]
+}

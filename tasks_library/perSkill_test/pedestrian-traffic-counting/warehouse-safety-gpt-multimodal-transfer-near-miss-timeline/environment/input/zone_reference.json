@@ -1,0 +1,36 @@
+{
+  "task_note": "Each clip is represented by one PNG frame per second in chronological order.",
+  "warning_zones": [
+    {
+      "zone_id": "Z1",
+      "label": "Warning Zone 1",
+      "bbox": [
+        46,
+        56,
+        156,
+        202
+      ]
+    },
+    {
+      "zone_id": "Z2",
+      "label": "Warning Zone 2",
+      "bbox": [
+        182,
+        56,
+        292,
+        202
+      ]
+    },
+    {
+      "zone_id": "Z3",
+      "label": "Warning Zone 3",
+      "bbox": [
+        318,
+        56,
+        428,
+        202
+      ]
+    }
+  ],
+  "near_miss_definition": "A near miss occurs when a forklift and a pedestrian are simultaneously inside the same warning zone and pass within a very small visible gap without collision."
+}

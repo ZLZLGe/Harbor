@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "callcenter-multimodal-fusion-transfer-channel-swap"
+name = "Transfer: Split-Screen Channel Swap Audit"
+description = "Audit split-screen call-center evidence and write /root/channel_swap_alerts.json with merged multimodal conflict alerts."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "audio-visual"
+tags = ["call-center", "split-screen", "audit", "multimodal-fusion", "json"]
+primary_output_file = "/root/channel_swap_alerts.json"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 180.0

@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "threejs-to-obj",
+  "targetSkillDirName": "obj-exporter",
+  "targetSkillName": "obj-exporter",
+  "runId": "20260325045141-threejs-to-obj-obj-exporter-aqhjic",
+  "taskId": "concourse-sign-obj-exporter-transfer-wayfinding",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/threejs-to-obj/obj-exporter/20260325045141-threejs-to-obj-obj-exporter-aqhjic/concourse-sign-obj-exporter-transfer-wayfinding",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325045141-threejs-to-obj-obj-exporter-aqhjic/threejs-to-obj/drafts/concourse-sign-obj-exporter-transfer-wayfinding",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/threejs-to-obj/obj-exporter/20260325045141-threejs-to-obj-obj-exporter-aqhjic/concourse-sign-obj-exporter-transfer-wayfinding",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/threejs-to-obj/concourse-sign-obj-exporter-transfer-wayfinding",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 使用了 instruction.md 未明示的数值容差（`TOLERANCE = 1e-5`），属于隐藏阈值；按要求这应判为 testability 失败。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24cf-bf3e-7312-aca7-eb1b9f0e73d3",
+      "repairSummary": "在 instruction.md 中补充了测试所用的显式数值判定规则：厚度和包围盒比较使用绝对误差 1e-5，采样点匹配按小数点后 5 位四舍五入，从而消除 tests/test_outputs.py 的隐藏阈值要求。",
+      "reviewThreadId": "019d24d1-2db9-7c72-9094-b81b2082313f",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "tracked_files": [
+    "Docs/memory-style.md",
+    "Notes/session-geom-bound.md",
+    "Notes/session-half-bound.md",
+    "Proofs/Sequences/GeomBound.lean",
+    "Proofs/Sequences/HalfBound.lean",
+    "Proofs/Sequences/ThirdBound.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "gzip-logs-python-parallelization-transfer-parallel-summarizer",
+  "taskRole": "transfer",
+  "title": "Transfer: Parallel Gzip Log Summarizer",
+  "goal": "把顺序版 gzip 日志汇总器改造成并行文件级处理器：并发解压、解析并聚合大量压缩日志，生成按服务和错误码汇总的报表，要求与顺序版统计结果一致并达到可观加速。",
+  "primaryOutputFile": "/root/workspace/log_summarizer_parallel.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "该任务把 python-parallelization 迁移到粗粒度文件处理场景，重点是把每个压缩日志文件作为独立工作单元交给进程池处理，再做可验证的归并；和检索、I/O 抓取、数值向量化场景都明显不同。",
+  "targetSkillDirName": "python-parallelization",
+  "targetSkillName": "python-parallelization"
+}

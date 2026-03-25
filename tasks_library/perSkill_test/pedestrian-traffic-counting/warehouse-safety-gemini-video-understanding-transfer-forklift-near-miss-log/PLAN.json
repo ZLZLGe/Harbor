@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-safety-gemini-video-understanding-transfer-forklift-near-miss-log",
+  "taskRole": "transfer",
+  "title": "Transfer: Forklift Near-Miss Event Log",
+  "goal": "分析仓库作业视频，识别叉车与行人之间的近距离险情事件，输出包含视频名、MM:SS 时间戳、涉及主体和事件简述的 JSON 事件日志；只记录满足题目定义阈值的险情，不做人数汇总。",
+  "primaryOutputFile": "/app/output/near_miss_events.json",
+  "difficulty": "hard",
+  "category": "warehouse safety monitoring",
+  "skillBenefitRationale": "任务需要从连续视频中判断人车相对运动、接近过程和事件发生时刻，属于典型时序事件抽取，无法靠静态图像或其他未提供技能完成，因此 gemini-video-understanding 是唯一关键技能。",
+  "targetSkillDirName": "gemini-video-understanding",
+  "targetSkillName": "gemini-video-understanding"
+}

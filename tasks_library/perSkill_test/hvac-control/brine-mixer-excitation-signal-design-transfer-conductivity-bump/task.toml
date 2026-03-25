@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "brine-mixer-excitation-signal-design-transfer-conductivity-bump"
+name = "Transfer: 盐水混合槽电导率阶跃实验"
+description = "为盐水混合槽模拟器设计一次不过浓度上限且信息量足够的投料泵阶跃实验，并输出 conductivity_bump_report.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["process-control", "mixing-tank", "conductivity", "step-test", "system-identification"]
+primary_output_file = "conductivity_bump_report.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false

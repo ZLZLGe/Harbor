@@ -1,0 +1,15 @@
+{
+  "coordinate_system": "odd-r",
+  "base_stations": [
+    {"id": "NORTH_RELAY", "x": 1, "y": 4},
+    {"id": "EAST_RELAY", "x": 5, "y": 3},
+    {"id": "SOUTH_RELAY", "x": 2, "y": 0}
+  ],
+  "inspection_points": [
+    {"id": "CP_ALPHA", "x": 0, "y": 1},
+    {"id": "CP_BRAVO", "x": 4, "y": 1},
+    {"id": "CP_CHARLIE", "x": 2, "y": 4},
+    {"id": "CP_DELTA", "x": 3, "y": 3},
+    {"id": "CP_ECHO", "x": 6, "y": 2}
+  ]
+}

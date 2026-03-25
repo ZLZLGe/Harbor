@@ -1,0 +1,9 @@
+{
+  "fallback_zone_by_semantic_tag": {
+    "crosswalk_marking": "pedestrian_paths",
+    "residential_mass": "building_shells",
+    "shop_canopy": "retail_frontage",
+    "street_fixture": "street_furniture",
+    "walkway_surface": "pedestrian_paths"
+  }
+}

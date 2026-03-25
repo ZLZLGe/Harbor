@@ -1,0 +1,10 @@
+{
+  "sample_period_s": 0.05,
+  "max_drive_voltage_v": 10.0,
+  "soft_rpm_ceiling_rpm": 3300.0,
+  "noise_std_rpm": 18.0,
+  "minimum_baseline_s": 1.0,
+  "minimum_hold_s": 8.0,
+  "recommended_voltage_window_v": [5.5, 8.5],
+  "bench_note": "3300 RPM 以上会进入明显的风道限流区，不适合作为辨识用阶跃数据。"
+}

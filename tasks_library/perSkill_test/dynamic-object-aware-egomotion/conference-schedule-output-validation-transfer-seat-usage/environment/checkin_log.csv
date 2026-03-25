@@ -1,0 +1,9 @@
+attendee_id,meeting_id,seat_id,slot_start,slot_end
+li_na,OPS-240,A1,1,5
+gao_peng,OPS-240,A2,1,3
+he_ming,OPS-240,B1,2,4
+qian_ning,OPS-240,C4,3,4
+sun_qi,OPS-240,B4,3,4
+tian_yu,FIN-305,B3,5,7
+zhao_lin,FIN-305,C3,5,6
+wu_fei,FIN-305,A4,6,7

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-aisle-egomotion-estimation-similar-timeline",
+  "taskRole": "similar",
+  "title": "Similar: Warehouse Aisle Motion Timeline",
+  "goal": "给定一段仓库通道巡检视频，按固定采样率提取帧间全局相机运动，并输出压缩后的区间到运动标签映射 `/root/egomotion_segments.json`；允许同一区间包含多个标签。",
+  "primaryOutputFile": "/root/egomotion_segments.json",
+  "difficulty": "medium",
+  "category": "video-analysis",
+  "skillBenefitRationale": "核心是用特征跟踪或光流配合鲁棒变换估计相机自运动，再做多标签方向判定与时间压缩；不依赖检测、分割或其他 shipped skill。",
+  "targetSkillDirName": "egomotion-estimation",
+  "targetSkillName": "egomotion-estimation"
+}

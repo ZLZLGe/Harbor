@@ -1,0 +1,66 @@
+{
+  "sourceTaskId": "shock-analysis-supply",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260325014607-shock-analysis-supply-xlsx-5aocjn",
+  "taskId": "coldchain-ops-xlsx-transfer-shift-cost-plan",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/shock-analysis-supply/xlsx/20260325014607-shock-analysis-supply-xlsx-5aocjn/coldchain-ops-xlsx-transfer-shift-cost-plan",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014607-shock-analysis-supply-xlsx-5aocjn/shock-analysis-supply/drafts/coldchain-ops-xlsx-transfer-shift-cost-plan",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/shock-analysis-supply/xlsx/20260325014607-shock-analysis-supply-xlsx-5aocjn/coldchain-ops-xlsx-transfer-shift-cost-plan",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/shock-analysis-supply/coldchain-ops-xlsx-transfer-shift-cost-plan",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 通过 `coldchain-ops-template.xlsx` 和 `coldchain-ops-plan.xlsx` 直接出现了 shipped skill 的 dirName `xlsx`，构成技能暴露。; tests/test_outputs.py 对 `Cost_Summary`、`Profit_Bridge` 等位置的 `SUMIFS`、`SUM` 等具体公式写法做硬编码检查，合法的等价汇总实现可能被误判，存在实现细节锁定问题。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 只要求使用“标准电子表格文件扩展名”而未明确必须输出 `.xlsx`，但 tests 仅接受 `coldchain-ops-plan.xlsx`，存在可导致误判的隐藏文件名要求。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24be-26d1-7663-9b31-0a20463d70a7",
+      "repairSummary": "移除了 instruction.md 中对带 `xlsx` 文件名的直接点名以避免技能暴露，并放宽了 tests/test_outputs.py 对汇总/排班公式函数写法的硬编码检查，改为检查公式存在性与必要引用，从而接受等价实现。",
+      "reviewThreadId": "019d24c3-abff-7de2-9820-b317193a719c",
+      "reviewerIssues": [
+        "instruction.md 只要求使用“标准电子表格文件扩展名”而未明确必须输出 `.xlsx`，但 tests 仅接受 `coldchain-ops-plan.xlsx`，存在可导致误判的隐藏文件名要求。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "instruction.md 通过输出文件名 `coldchain-ops-plan.xlsx` 直接点名了 shipped skill `xlsx`，造成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c4-5889-7db0-ad1d-4992dcd63099",
+      "repairSummary": "将 instruction.md 的输出要求从“标准电子表格扩展名”改为明确的 `coldchain-ops-plan.xlsx`，消除 tests 里的隐藏文件名要求并保持其余任务内容不变。",
+      "reviewThreadId": "019d24c6-2404-7601-970d-0b9fb16fef2b",
+      "reviewerIssues": [
+        "instruction.md 通过输出文件名 `coldchain-ops-plan.xlsx` 直接点名了 shipped skill `xlsx`，造成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c7-587b-7621-874f-4806cee234a9",
+      "repairSummary": "移除了 instruction.md 中对 `xlsx` 的直接暴露，把输出文件要求改为使用 `coldchain-ops-plan` 主文件名并保留标准电子表格工作簿扩展名，其余任务身份与判题约束保持不变。",
+      "reviewThreadId": "019d24c8-2636-79a0-8202-645f363d6494",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

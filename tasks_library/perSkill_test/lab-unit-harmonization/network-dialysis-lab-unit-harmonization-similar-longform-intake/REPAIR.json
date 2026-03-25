@@ -1,0 +1,66 @@
+{
+  "sourceTaskId": "lab-unit-harmonization",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "targetSkillName": "lab-unit-harmonization",
+  "runId": "20260325040206-lab-unit-harmonization-lab-unit-harmonization-tqvjcu",
+  "taskId": "network-dialysis-lab-unit-harmonization-similar-longform-intake",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/lab-unit-harmonization/lab-unit-harmonization/20260325040206-lab-unit-harmonization-lab-unit-harmonization-tqvjcu/network-dialysis-lab-unit-harmonization-similar-longform-intake",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325040206-lab-unit-harmonization-lab-unit-harmonization-tqvjcu/lab-unit-harmonization/drafts/network-dialysis-lab-unit-harmonization-similar-longform-intake",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/lab-unit-harmonization/lab-unit-harmonization/20260325040206-lab-unit-harmonization-lab-unit-harmonization-tqvjcu/network-dialysis-lab-unit-harmonization-similar-longform-intake",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/lab-unit-harmonization/network-dialysis-lab-unit-harmonization-similar-longform-intake",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "任务目录中存在 `drafts/network-dialysis-lab-unit-harmonization-similar-longform-intake/.tmp_output.csv`，直接暴露完整标准输出，构成答案泄露；按审查要求属于应拦截的问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    ".tmp_output.csv",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "tests/test_outputs.py 直接写出了完整期望输出行，构成答案泄露。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d248b-0411-7df1-a8c2-4e905af669bf",
+      "repairSummary": "删除任务根目录下泄露标准答案的 `.tmp_output.csv`，其余任务文件保持不变。",
+      "reviewThreadId": "019d248b-dc7d-7652-bdfe-c9d34cca199a",
+      "reviewerIssues": [
+        "tests/test_outputs.py 直接写出了完整期望输出行，构成答案泄露。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "任务根目录中的 out.csv 直接给出了目标输出结果，构成答案泄露。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d248c-a310-7d40-8956-d6e680cbce8c",
+      "repairSummary": "将泄露答案的硬编码期望输出改为基于输入 CSV 和参考表动态构造期望结果，并完成本地求解后手动调用测试函数验证通过。",
+      "reviewThreadId": "019d248e-f4c8-75c0-927d-d34617077185",
+      "reviewerIssues": [
+        "任务根目录中的 out.csv 直接给出了目标输出结果，构成答案泄露。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d248f-fcf0-79b1-bc76-abbddc206e13",
+      "repairSummary": "删除了任务根目录中直接泄露标准答案的 `out.csv`，其余任务说明、解答脚本和测试保持不变；并用本地输入路径做了等价验证，确认任务仍可解且测试逻辑一致。",
+      "reviewThreadId": "019d2491-7520-7302-a068-063bd351de5c",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

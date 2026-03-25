@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "survey-triage-transit-least-squares-transfer-candidate-ranking"
+name = "Candidate Ranking Transfer"
+description = "Screen a directory of survey light curves, rank the convincing transit candidates, and write /root/candidate_ranking.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "exoplanet", "survey-triage", "transit-search", "csv"]
+primary_output_file = "/root/candidate_ranking.csv"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0

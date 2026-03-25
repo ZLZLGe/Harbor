@@ -1,0 +1,16 @@
+&glm_setup
+   sim_name = 'ColdPoolRelease'
+   max_layers = 120
+   min_layer_vol = 0.050
+   min_layer_thick = 0.20
+   max_layer_thick = 1.20
+/
+&light
+   Kw = 0.38
+   lw_factor = 1.08
+/
+&mixing
+   coef_mix_hyp = 0.45
+   wind_factor = 0.85
+   ch = 0.00110
+/

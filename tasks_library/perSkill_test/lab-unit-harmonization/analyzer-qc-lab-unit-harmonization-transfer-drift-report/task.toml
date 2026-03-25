@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "analyzer-qc-lab-unit-harmonization-transfer-drift-report"
+name = "Transfer | 分析仪质控漂移汇总"
+description = "清洗分析仪质控日志中的脏数值和混合单位，统一到目标单位后输出按分析仪与日期聚合的漂移报告 CSV。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "healthcare"
+tags = ["laboratory-operations", "quality-control", "unit-conversion", "csv-report", "drift-monitoring"]
+primary_output_file = "/root/analyzer_qc_drift_report.csv"
+source_task_id = "lab-unit-harmonization"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false

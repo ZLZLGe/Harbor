@@ -1,0 +1,5 @@
+{
+  "release_candidate": "rc_searchflow_2026_04_rc3",
+  "release_train": "SearchFlow Enterprise 2026.04",
+  "required_output_file": "/root/release_blocker_ledger.json"
+}

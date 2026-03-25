@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "scoreboard-image-ocr-transfer-match-rankings"
+name = "Transfer: Match Rankings from Arena Scoreboard Screens"
+description = "Extract team names and final scores from arena scoreboard screenshots and write ranked standings to /app/workspace/scoreboard_rankings.csv."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "sports analytics"
+tags = ["ocr", "sports", "csv", "ranking"]
+primary_output_file = "/app/workspace/scoreboard_rankings.csv"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

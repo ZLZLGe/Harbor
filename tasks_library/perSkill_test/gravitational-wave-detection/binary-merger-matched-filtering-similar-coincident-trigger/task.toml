@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "binary-merger-matched-filtering-similar-coincident-trigger"
+name = "Similar | 双探测器并合触发定位"
+description = "在双探测器白化应变数据和小型模板库上逐个计算触发峰值，并将最佳候选事件写入 /root/coincident_trigger.json。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "gravitational-waves", "signal-processing", "numpy", "json"]
+primary_output_file = "/root/coincident_trigger.json"
+source_task_id = "gravitational-wave-detection"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0

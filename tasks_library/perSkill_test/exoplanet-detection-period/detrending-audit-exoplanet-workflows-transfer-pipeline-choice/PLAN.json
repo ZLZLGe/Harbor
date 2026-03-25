@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "detrending-audit-exoplanet-workflows-transfer-pipeline-choice",
+  "taskRole": "transfer",
+  "title": "Transfer | 在候选预处理分支中选出保留浅凌星的正确管线",
+  "goal": "面对同一目标的原始光变和多个候选去趋势版本，判断哪条预处理分支既抑制系统噪声又保留浅凌星信号，基于正确分支恢复周期，并把所选管线与证据写入 /root/pipeline_choice.json。",
+  "primaryOutputFile": "/root/pipeline_choice.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "该任务把 exoplanet-workflows 迁移到流程审计场景，关键难点不是单纯跑算法，而是依据 skill 中“去多少趋势才不会抹掉信号”的原则做管线选择，再完成凌星验证与周期恢复。",
+  "targetSkillDirName": "exoplanet-workflows",
+  "targetSkillName": "exoplanet-workflows"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "packet-sync-matched-filtering-transfer-preamble-lock"
+name = "Transfer | 基带帧前导同步"
+description = "在多段含噪复基带采样和前导模板目录上做复数滑动相关，输出每段数据包的前导 ID、起始索引和峰值匹配分数到 /root/frame_sync_results.csv。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "communications"
+tags = ["communications", "baseband", "synchronization", "signal-processing", "csv"]
+primary_output_file = "/root/frame_sync_results.csv"
+source_task_id = "gravitational-wave-detection"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0

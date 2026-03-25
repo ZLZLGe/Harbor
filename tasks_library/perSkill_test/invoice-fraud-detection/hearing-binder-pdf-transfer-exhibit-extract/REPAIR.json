@@ -1,0 +1,41 @@
+{
+  "sourceTaskId": "invoice-fraud-detection",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf",
+  "runId": "20260325034928-invoice-fraud-detection-pdf-myjg8k",
+  "taskId": "hearing-binder-pdf-transfer-exhibit-extract",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/invoice-fraud-detection/pdf/20260325034928-invoice-fraud-detection-pdf-myjg8k/hearing-binder-pdf-transfer-exhibit-extract",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325034928-invoice-fraud-detection-pdf-myjg8k/invoice-fraud-detection/drafts/hearing-binder-pdf-transfer-exhibit-extract",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/invoice-fraud-detection/pdf/20260325034928-invoice-fraud-detection-pdf-myjg8k/hearing-binder-pdf-transfer-exhibit-extract",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/invoice-fraud-detection/hearing-binder-pdf-transfer-exhibit-extract",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 多处直接写出 `PDF` 和 `.pdf`，直接暴露了 shipped skill 名 `pdf`。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/__pycache__/create_hearing_assets.cpython-312.pyc",
+    "environment/create_hearing_assets.py",
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2485-4cd3-77b2-9a78-cf121c7565a4",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 的直接暴露表述，并把源材料输入路径同步改为不含技能名的文件名；同时核对主输出文件约定，保持 task.toml 与 PLAN.json 仍一致。",
+      "reviewThreadId": "019d2487-d6b8-70e3-b5d3-b1f10ebb41e3",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

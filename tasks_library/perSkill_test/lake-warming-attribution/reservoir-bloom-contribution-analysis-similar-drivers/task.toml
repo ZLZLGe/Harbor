@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reservoir-bloom-contribution-analysis-similar-drivers"
+name = "Similar: Reservoir Bloom Driver Attribution"
+description = "Merge annual reservoir driver tables, perform unified PCA-based R² exclusion attribution, and write the dominant bloom driver share to dominant_bloom_driver.csv."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["water-quality", "reservoir", "attribution", "pca"]
+primary_output_file = "dominant_bloom_driver.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "cli-golden-testing-python-transfer-output-matrix"
+name = "Transfer | 为 CLI 报表工具建立参数化黄金输出测试"
+description = "为一个本地 CLI 报表工具补写参数化 pytest 回归测试，并生成约定结构的案例矩阵 JSON。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "CLI & Automation"
+tags = ["Python", "pytest", "cli", "golden-file", "regression"]
+primary_output_file = "artifacts/cli_case_matrix.json"
+source_task_id = "fix-build-agentops"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 300.0
+
+[verifier]
+timeout_sec = 300.0

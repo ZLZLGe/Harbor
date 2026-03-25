@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ops-react-best-practices-transfer-control-room",
+  "taskRole": "transfer",
+  "title": "Transfer: 运维指挥台服务端去重与并行取数",
+  "goal": "修复一个运维指挥台的服务端性能问题，消除页面各面板的串行取数与重复鉴权请求，并优化事件确认接口的依赖链，让整页在隐藏模拟后端下仍能稳定满足时延和调用次数约束。",
+  "primaryOutputFile": "src/lib/getControlRoomData.ts",
+  "difficulty": "hard",
+  "category": "web-performance",
+  "skillBenefitRationale": "这个迁移场景强调 server-parallel-fetching、server-cache-react 和 async-api-routes，解题关键是用 React/Next 服务器侧最佳实践重组数据流与去重请求，react-best-practices 是唯一关键技能。",
+  "targetSkillDirName": "react-best-practices",
+  "targetSkillName": "react-best-practices"
+}

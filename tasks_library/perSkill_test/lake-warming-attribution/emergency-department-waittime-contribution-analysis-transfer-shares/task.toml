@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "emergency-department-waittime-contribution-analysis-transfer-shares"
+name = "Transfer: Emergency Department Wait-Time Driver Shares"
+description = "Merge daily emergency department operations tables, quantify four bottleneck driver shares for average wait time, and write the ranked result to waittime_driver_shares.csv."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["healthcare-operations", "emergency-department", "attribution", "pca"]
+primary_output_file = "waittime_driver_shares.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

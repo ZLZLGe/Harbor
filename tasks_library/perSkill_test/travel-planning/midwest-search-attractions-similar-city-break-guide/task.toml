@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "midwest-search-attractions-similar-city-break-guide"
+name = "Similar | Midwest City-Break Attraction Guide"
+description = "Read the provided Midwest city-break brief and produce a day-by-day attraction guide JSON at /app/output/city_break_guide.json."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "travel-planning"
+tags = ["travel", "attractions", "city-break", "json"]
+primary_output_file = "/app/output/city_break_guide.json"
+source_task_id = "travel-planning"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

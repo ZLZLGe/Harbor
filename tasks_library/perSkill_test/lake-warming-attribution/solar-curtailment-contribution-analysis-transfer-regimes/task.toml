@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "solar-curtailment-contribution-analysis-transfer-regimes"
+name = "Transfer: Solar Curtailment Regime Attribution"
+description = "Merge block-level solar curtailment driver tables, run the same attribution workflow within two operating regimes, and write dominant driver results to curtailment_regime_attribution.json."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["power-systems", "solar-curtailment", "attribution", "json"]
+primary_output_file = "curtailment_regime_attribution.json"
+source_task_id = "lake-warming-attribution"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

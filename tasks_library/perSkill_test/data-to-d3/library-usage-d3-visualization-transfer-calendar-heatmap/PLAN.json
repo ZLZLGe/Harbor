@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "library-usage-d3-visualization-transfer-calendar-heatmap",
+  "taskRole": "transfer",
+  "title": "Transfer: Library Checkout Calendar Heatmap",
+  "goal": "基于一年每日借阅量 CSV 生成静态 SVG 日历热力图报告，要求包含按月份分组的日期网格、借阅量颜色图例、周末与节假日标记，以及对峰值日期的文本注释。",
+  "primaryOutputFile": "/root/output/library-checkout-heatmap.svg",
+  "difficulty": "medium",
+  "category": "Data Visualization",
+  "skillBenefitRationale": "该任务把 D3 能力迁移到确定性报表场景，核心是时间解析、日历网格布局、顺序色标、SVG 注释和稳定输出；完成任务不需要任何其他 shipped skill。",
+  "targetSkillDirName": "d3-visualization",
+  "targetSkillName": "d3js-visualization"
+}

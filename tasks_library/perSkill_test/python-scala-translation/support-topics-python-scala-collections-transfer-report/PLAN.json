@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "support-topics-python-scala-collections-transfer-report",
+  "taskRole": "transfer",
+  "title": "Support Topic Report Transfer",
+  "goal": "把一个客服工单主题归纳 Python CLI 翻译成 Scala 2.13，输出 /root/SupportTopicReport.scala。输入资产可使用 TSV 工单流和停用词表；Scala 程序需要根据队列、坐席和主题词做分组、词频汇总、交集计算与排序，并生成稳定的 topic report 结果文件。验证方式与 similar 任务不同，重点检查命令行执行后的报表语义而不是类级 API 对应。",
+  "primaryOutputFile": "/root/SupportTopicReport.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "难点仍然集中在把 Python 中围绕列表、字典、集合的统计与重排逻辑迁移到 Scala 集合 API；场景变成文本报表，但不需要额外 NLP、数据库或服务编排技能。",
+  "targetSkillDirName": "python-scala-collections",
+  "targetSkillName": "python-scala-collections"
+}

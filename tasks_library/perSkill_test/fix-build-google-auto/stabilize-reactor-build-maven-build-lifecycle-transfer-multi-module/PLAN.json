@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "stabilize-reactor-build-maven-build-lifecycle-transfer-multi-module",
+  "taskRole": "transfer",
+  "title": "Transfer: Stabilize Multi-Module Reactor Build",
+  "goal": "在一个三模块 Maven 工程中，修复父 POM 的模块声明和构建顺序配置，使 `mvn verify` 能按正确 reactor 顺序构建共享库、服务层和 CLI 模块，并产出 CLI 可执行 JAR。",
+  "primaryOutputFile": "cli-app/target/cli-app-1.0-SNAPSHOT.jar",
+  "difficulty": "medium",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "这里考察的是 multi-module reactor、模块顺序与生命周期阶段传播，不依赖源码调试之外的额外技能，唯一关键能力就是 Maven 构建生命周期配置。",
+  "targetSkillDirName": "maven-build-lifecycle",
+  "targetSkillName": "maven-build-lifecycle"
+}

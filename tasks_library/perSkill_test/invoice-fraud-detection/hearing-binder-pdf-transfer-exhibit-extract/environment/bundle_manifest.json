@@ -1,0 +1,28 @@
+{
+  "requests": [
+    {
+      "case_id": "HB-24-071",
+      "exhibit_id": "EX-05",
+      "start_page": 2,
+      "end_page": 3
+    },
+    {
+      "case_id": "HB-24-071",
+      "exhibit_id": "EX-02",
+      "start_page": 1,
+      "end_page": 2
+    },
+    {
+      "case_id": "HB-24-071",
+      "exhibit_id": "EX-09",
+      "start_page": 1,
+      "end_page": 2
+    },
+    {
+      "case_id": "HB-24-071",
+      "exhibit_id": "EX-05",
+      "start_page": 4,
+      "end_page": 4
+    }
+  ]
+}

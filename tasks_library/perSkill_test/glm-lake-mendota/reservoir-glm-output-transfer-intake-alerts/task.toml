@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reservoir-glm-output-transfer-intake-alerts"
+name = "Transfer: Reservoir Intake Alert Extraction"
+description = "Extract the intake-depth temperature series from the supplied reservoir GLM NetCDF output and write /root/reports/intake_alerts.json with threshold alert periods."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "environmental-modeling"
+tags = ["reservoir-modeling", "netcdf", "alerting"]
+primary_output_file = "/root/reports/intake_alerts.json"
+source_task_id = "glm-lake-mendota"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

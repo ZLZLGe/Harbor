@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "podcast-voice-activity-detection-transfer-condensed-cut"
+name = "Podcast Dead-Air Condense Transfer"
+description = "从原始播客录音中保留有人声的内容并拼接导出 /root/condensed_podcast.wav，同时输出裁切报告。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "audio"
+tags = ["voice-activity-detection", "podcast", "audio-editing", "transfer"]
+primary_output_file = "/root/condensed_podcast.wav"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

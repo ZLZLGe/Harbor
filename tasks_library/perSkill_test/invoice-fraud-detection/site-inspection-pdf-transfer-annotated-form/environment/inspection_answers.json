@@ -1,0 +1,19 @@
+{
+  "site_name": "East Wharf Pump House",
+  "inspection_date": "2026-03-17",
+  "inspector": "Liang Chen",
+  "permit_number": "PT-8841",
+  "shift": "Night",
+  "weather": "Windy",
+  "pump_station_id": "PS-14B",
+  "pressure_psi": 118,
+  "action_notes": "Replace torn hose tag; tighten west rail bolt.",
+  "checks": {
+    "safety_briefing_completed": true,
+    "access_gate_secure": true,
+    "fire_extinguishers_visible": false,
+    "spill_kit_stocked": true,
+    "trip_hazards_observed": false,
+    "follow_up_required": true
+  }
+}

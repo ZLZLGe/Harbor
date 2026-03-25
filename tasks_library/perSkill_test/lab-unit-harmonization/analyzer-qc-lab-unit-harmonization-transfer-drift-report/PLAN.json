@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "analyzer-qc-lab-unit-harmonization-transfer-drift-report",
+  "taskRole": "transfer",
+  "title": "Transfer | 分析仪质控漂移汇总",
+  "goal": "给定医院检验科多台分析仪的质控测量日志和每个质控项目的目标区间，要求清洗混杂的数值表示与单位，把各台设备的结果统一到同一目标单位后，按分析仪和日期汇总生成漂移报告，包含标准化均值、相对目标偏差和超限标记。",
+  "primaryOutputFile": "/root/analyzer_qc_drift_report.csv",
+  "difficulty": "medium",
+  "category": "healthcare",
+  "skillBenefitRationale": "这是把技能迁移到非患者级的检验运营场景：核心仍是实验室指标单位统一和格式清洗，随后的聚合只是普通数据处理，因此唯一关键 shipped skill 仍是当前实验室单位统一技能。",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "targetSkillName": "lab-unit-harmonization"
+}

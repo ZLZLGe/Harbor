@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "roundtable-multimodal-fusion-similar-timeline"
+name = "Similar: Roundtable Active-Speaker Timeline"
+description = "Fuse the provided roundtable audio and visual evidence into /root/speaker_timeline.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "audio-visual"
+tags = ["speaker-diarization", "multimodal-fusion", "timeline"]
+primary_output_file = "/root/speaker_timeline.json"
+source_task_id = "speaker-diarization-subtitles"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0

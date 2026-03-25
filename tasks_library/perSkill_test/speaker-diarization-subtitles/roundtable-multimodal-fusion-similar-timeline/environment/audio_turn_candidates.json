@@ -1,0 +1,40 @@
+{
+  "candidates": [
+    {
+      "start_sec": 0.0,
+      "end_sec": 1.85,
+      "audio_cluster": "cluster_2",
+      "split_by_visual": false
+    },
+    {
+      "start_sec": 1.85,
+      "end_sec": 3.35,
+      "audio_cluster": "cluster_0",
+      "split_by_visual": false
+    },
+    {
+      "start_sec": 3.35,
+      "end_sec": 4.05,
+      "audio_cluster": "cluster_1",
+      "split_by_visual": false
+    },
+    {
+      "start_sec": 4.05,
+      "end_sec": 5.15,
+      "audio_cluster": "cluster_2",
+      "split_by_visual": false
+    },
+    {
+      "start_sec": 5.15,
+      "end_sec": 6.95,
+      "audio_cluster": "cluster_mix",
+      "split_by_visual": true
+    },
+    {
+      "start_sec": 6.95,
+      "end_sec": 8.65,
+      "audio_cluster": "cluster_2",
+      "split_by_visual": false
+    }
+  ]
+}

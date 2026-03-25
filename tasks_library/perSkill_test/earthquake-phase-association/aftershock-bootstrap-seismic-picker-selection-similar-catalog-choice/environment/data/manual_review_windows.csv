@@ -1,0 +1,8 @@
+window_start,window_end,manual_label,notes
+2024-05-12T03:15:00,2024-05-12T03:15:25,earthquake,clear local event across most stations
+2024-05-12T03:18:30,2024-05-12T03:18:50,noise,pump transient without coherent moveout
+2024-05-12T03:21:00,2024-05-12T03:21:20,earthquake,small aftershock visible on at least four stations
+2024-05-12T03:33:00,2024-05-12T03:33:20,earthquake,stronger aftershock with repeated phase onset
+2024-05-12T03:41:45,2024-05-12T03:42:05,noise,vehicle noise near two edge stations
+2024-05-12T03:52:00,2024-05-12T03:52:20,earthquake,compact local event
+2024-05-12T04:02:35,2024-05-12T04:02:55,earthquake,another small local event not represented in the first two templates

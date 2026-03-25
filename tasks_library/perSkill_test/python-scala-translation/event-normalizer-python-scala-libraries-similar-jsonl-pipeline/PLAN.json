@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "event-normalizer-python-scala-libraries-similar-jsonl-pipeline",
+  "taskRole": "similar",
+  "title": "Similar: JSONL 事件归一化 Scala 翻译",
+  "goal": "将一个使用 `json`、`datetime`、`re` 和 `pathlib` 的 Python JSONL 事件归一化模块翻译成 Scala 2.13，要求生成与参考 Python 实现语义一致的事件清洗、时间规范化、字段重命名和批量输出逻辑，并把结果写入固定报表文件。",
+  "primaryOutputFile": "/root/EventNormalizer.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "这个任务直接考察 Python 常见标准库到 Scala 对等库与惯用法的映射，是 `python-scala-libraries` 的典型使用场景，但比原始 tokenizer 任务更聚焦于真实数据管道。",
+  "targetSkillDirName": "python-scala-libraries",
+  "targetSkillName": "python-scala-libraries"
+}

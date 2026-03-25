@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "solar-array-light-curve-preprocessing-transfer-drift-report"
+name = "Transfer - 光伏阵列漂移清洗报告"
+description = "清洗带有维护标记、逆变器尖峰和温度慢漂移的一分钟光伏功率比值序列，并输出汇总预处理结果的 JSON 报告。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "solar", "telemetry", "timeseries", "preprocessing"]
+primary_output_file = "/root/pv_drift_report.json"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

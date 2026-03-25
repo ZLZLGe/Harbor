@@ -1,0 +1,332 @@
+{
+  "scenario_id": "delta_basin_bundle",
+  "map_name": "Delta Basin Bundle",
+  "coordinate_system": "odd-r",
+  "city_center": [
+    4,
+    4
+  ],
+  "city_radius": 3,
+  "required_bundle_size": 3,
+  "occupied_tiles_block_neighbor_tags": true,
+  "candidate_districts": [
+    "CAMPUS",
+    "INDUSTRIAL_ZONE",
+    "COMMERCIAL_HUB",
+    "HOLY_SITE",
+    "THEATER_SQUARE"
+  ],
+  "district_rules": {
+    "CAMPUS": {
+      "requires_any_of_self_tags": [],
+      "forbidden_self_tags": [],
+      "adjacency_from_neighbor_tags": {
+        "mountain": 2,
+        "rainforest": 1
+      },
+      "adjacent_district_bonus": 1
+    },
+    "INDUSTRIAL_ZONE": {
+      "requires_any_of_self_tags": [],
+      "forbidden_self_tags": [
+        "woods"
+      ],
+      "adjacency_from_neighbor_tags": {
+        "quarry": 2,
+        "mine": 1
+      },
+      "adjacent_district_bonus": 1
+    },
+    "COMMERCIAL_HUB": {
+      "requires_any_of_self_tags": [
+        "riverbank"
+      ],
+      "forbidden_self_tags": [],
+      "adjacency_from_neighbor_tags": {
+        "resource": 2
+      },
+      "adjacent_district_bonus": 1
+    },
+    "HOLY_SITE": {
+      "requires_any_of_self_tags": [],
+      "forbidden_self_tags": [],
+      "adjacency_from_neighbor_tags": {
+        "natural_wonder": 2,
+        "woods": 1
+      },
+      "adjacent_district_bonus": 1
+    },
+    "THEATER_SQUARE": {
+      "requires_any_of_self_tags": [],
+      "forbidden_self_tags": [
+        "hill"
+      ],
+      "adjacency_from_neighbor_tags": {
+        "wonder": 2
+      },
+      "adjacent_district_bonus": 1
+    }
+  },
+  "tiles": [
+    {
+      "x": 2,
+      "y": 1,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "buildable": false,
+      "tags": [
+        "mountain"
+      ]
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "buildable": false,
+      "tags": [
+        "mountain"
+      ]
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "buildable": false,
+      "tags": [
+        "mine"
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "buildable": false,
+      "tags": [
+        "rainforest"
+      ]
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "buildable": true,
+      "tags": []
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "buildable": true,
+      "tags": [
+        "hill"
+      ]
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "buildable": true,
+      "tags": [
+        "riverbank"
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "buildable": false,
+      "tags": [
+        "quarry"
+      ]
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "buildable": true,
+      "tags": [
+        "woods"
+      ]
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "buildable": true,
+      "tags": [
+        "riverbank"
+      ]
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "buildable": false,
+      "tags": [
+        "resource"
+      ]
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "buildable": false,
+      "tags": [
+        "quarry"
+      ]
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "buildable": true,
+      "tags": [
+        "woods"
+      ]
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "buildable": true,
+      "tags": [
+        "woods"
+      ]
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "buildable": true,
+      "tags": [
+        "riverbank",
+        "resource"
+      ]
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "buildable": false,
+      "tags": [
+        "natural_wonder"
+      ]
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "buildable": false,
+      "tags": [
+        "natural_wonder"
+      ]
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "buildable": false,
+      "tags": [
+        "woods",
+        "wonder"
+      ]
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "buildable": false,
+      "tags": [
+        "wonder"
+      ]
+    },
+    {
+      "x": 6,
+      "y": 6,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 2,
+      "y": 7,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "buildable": false,
+      "tags": []
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "buildable": false,
+      "tags": []
+    }
+  ]
+}

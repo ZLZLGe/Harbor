@@ -1,0 +1,8 @@
+{
+  "clip_id": "robot_patrol_alpha",
+  "duration_ms": 6000,
+  "sample_origin_ms": 250,
+  "sample_period_ms": 500,
+  "sample_count": 12,
+  "sample_fps": 2.0
+}

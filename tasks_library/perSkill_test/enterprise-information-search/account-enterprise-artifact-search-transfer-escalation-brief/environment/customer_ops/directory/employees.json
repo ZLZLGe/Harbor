@@ -1,0 +1,37 @@
+[
+  {
+    "employee_id": "eid_7f4c1a20",
+    "name": "Maya Chen",
+    "role": "Staff Engineer"
+  },
+  {
+    "employee_id": "eid_29b3e710",
+    "name": "Owen Patel",
+    "role": "Product Manager"
+  },
+  {
+    "employee_id": "eid_c91aa2d4",
+    "name": "Priya Lewis",
+    "role": "Analytics Lead"
+  },
+  {
+    "employee_id": "eid_54d12e8f",
+    "name": "Nora Kim",
+    "role": "Customer Success Manager"
+  },
+  {
+    "employee_id": "eid_5b2b5fa1",
+    "name": "Leo Park",
+    "role": "Customer Success Manager"
+  },
+  {
+    "employee_id": "eid_4dcd7280",
+    "name": "Sara Bell",
+    "role": "Support Director"
+  },
+  {
+    "employee_id": "eid_11cf2094",
+    "name": "Dylan Ortiz",
+    "role": "Principal Engineer"
+  }
+]

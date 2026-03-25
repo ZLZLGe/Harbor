@@ -1,0 +1,58 @@
+[
+  {
+    "doc_id": "POL-ACCESS-RECERT-v2.9",
+    "policy_family": "POL-ACCESS-RECERT",
+    "title": "Privileged Access Recertification Policy",
+    "version": "2.9",
+    "status": "final",
+    "effective_date": "2025-11-20",
+    "control_ids": ["CTRL-104"],
+    "approval_thread_id": "ath-219",
+    "owner_employee_id": "eid_00c91aa1"
+  },
+  {
+    "doc_id": "POL-ACCESS-RECERT-v3.1",
+    "policy_family": "POL-ACCESS-RECERT",
+    "title": "Privileged Access Recertification Policy",
+    "version": "3.1",
+    "status": "final",
+    "effective_date": "2026-02-03",
+    "control_ids": ["CTRL-104", "CTRL-301"],
+    "approval_thread_id": "ath-244",
+    "owner_employee_id": "eid_00c91aa1",
+    "supersedes": "POL-ACCESS-RECERT-v2.9"
+  },
+  {
+    "doc_id": "POL-ACCESS-RECERT-v3.2-draft",
+    "policy_family": "POL-ACCESS-RECERT",
+    "title": "Privileged Access Recertification Policy",
+    "version": "3.2",
+    "status": "draft",
+    "effective_date": "2026-02-14",
+    "control_ids": ["CTRL-104"],
+    "approval_thread_id": "ath-249",
+    "owner_employee_id": "eid_00c91aa1"
+  },
+  {
+    "doc_id": "POL-EXPORT-ACCESS-v3.1",
+    "policy_family": "POL-EXPORT-ACCESS",
+    "title": "Controlled Export Access Policy",
+    "version": "3.1",
+    "status": "final",
+    "effective_date": "2026-02-04",
+    "control_ids": ["CTRL-105"],
+    "approval_thread_id": "ath-245",
+    "owner_employee_id": "eid_b5810cde"
+  },
+  {
+    "doc_id": "POL-ACCESS-RECERT-annex-v1",
+    "policy_family": "POL-ACCESS-RECERT-ANNEX",
+    "title": "Privileged Access Recertification Exception Handling Annex",
+    "version": "1.0",
+    "status": "final",
+    "effective_date": "2026-02-06",
+    "control_ids": ["CTRL-104"],
+    "approval_thread_id": "ath-246",
+    "owner_employee_id": "eid_44fa10c2"
+  }
+]

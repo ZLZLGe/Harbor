@@ -1,0 +1,7 @@
+{"event_id":"evt-100","occurred_at":"2024-06-01T13:15:00Z","event_name":" Login Success ","user":" Alice ","details":"source=web; ip=10.0.0.1"}
+{"event_id":"evt-101","timestamp":"2024-06-01 09:20:00-0400","kind":"signin","actor":"Bob","details":"source=mobile;region=us-east"}
+{"event_id":"evt-102","occurred_at":"2024/06/01 14:30:00 +0000","event_name":"checkout complete","user":" CAROL ","details":"order_id=A-77;amount=19.95"}
+{"event_id":"evt-103","timestamp":"01-06-2024 15:45:00","kind":"Password Reset","actor":"dora  ","details":"channel=email"}
+{"event_id":"evt-104","occurred_at":"2024-06-01 16:00:00Z","event_name":"session-timeout","user":"alice","details":"device=desktop"}
+{"event_id":"evt-105","occurred_at":"2024-06-01T16:05:00Z","event_name":"order placed","user":"Bob ","details":"order_id=B-88; source=web"}
+{"event_id":"evt-106","occurred_at":"2024/06/01 17:10:00 +0200","event_name":"Unknown Event","user":" Erin   Smith ","details":"ticket=77; note=manual review"}

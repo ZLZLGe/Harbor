@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "econ-detrending-correlation",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending",
+  "runId": "20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx",
+  "taskId": "grid-timeseries-detrending-transfer-trough-detection",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/econ-detrending-correlation/timeseries-detrending/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/grid-timeseries-detrending-transfer-trough-detection",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/econ-detrending-correlation/drafts/grid-timeseries-detrending-transfer-trough-detection",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/econ-detrending-correlation/timeseries-detrending/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/grid-timeseries-detrending-transfer-trough-detection",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/econ-detrending-correlation/grid-timeseries-detrending-transfer-trough-detection",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 的 name 或 dirName，技能暴露检查通过。; 任务把去趋势技能迁移到能源负荷异常识别，和 source_task 的宏观相关性题型差异明显，不是机械复写。; 输入资产为新的地区月度负荷面板，和 family 其他任务在领域、输出文件格式与目标函数上都有清晰区分。; 草稿目录直接预置了完整标准答案文件 `grid_trough.txt`，形成答案泄露；更严重的是 `tests/test_outputs.py` 显式接受任务目录中的该文件作为合法输出路径，导致 verifier 可能直接读取随任务提供的答案。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "solution/solve.sh",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2460-dc7c-7c71-998f-88410068b514",
+      "repairSummary": "删除了任务目录中预置的标准答案 `grid_trough.txt`，并收紧测试与参考解的输出路径逻辑，使 verifier 不再接受任务目录内的同名文件作为合法答案；同时用可选 `GRID_TROUGH_PATH` 完成了本地一致性验证。",
+      "reviewThreadId": "019d2463-3712-77b2-9267-a47a5396cd62",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

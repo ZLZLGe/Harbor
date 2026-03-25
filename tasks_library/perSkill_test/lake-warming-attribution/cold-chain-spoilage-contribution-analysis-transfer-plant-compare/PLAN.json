@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cold-chain-spoilage-contribution-analysis-transfer-plant-compare",
+  "taskRole": "transfer",
+  "title": "Transfer: Cold-Chain Spoilage Plant Comparison",
+  "goal": "给定两座冷链仓库各自的温控纪律、作业压力、库存老化和设备可靠性月度表，分别计算每座仓库的驱动贡献，并把各仓库主导类别及其相对次高类别的领先百分点写入 `plant_spoilage_driver_comparison.csv`。",
+  "primaryOutputFile": "plant_spoilage_driver_comparison.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "把贡献分析迁移到跨实体对比场景，要求在并行数据集上做一致的分组归因，并输出“主导项+领先差值”这种比较型结果。它与前两个 transfer 在业务领域、输出语义和验证方式上都明显不同。",
+  "targetSkillDirName": "contribution-analysis",
+  "targetSkillName": "contribution-analysis"
+}

@@ -1,0 +1,37 @@
+{
+  "sourceTaskId": "r2r-mpc-control",
+  "targetSkillDirName": "finite-horizon-lqr",
+  "targetSkillName": "finite-horizon-lqr",
+  "runId": "20260324225604-r2r-mpc-control-finite-horizon-lqr-z9qu3m",
+  "taskId": "coating-line-finite-horizon-lqr-similar-speed-ramp",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/r2r-mpc-control/finite-horizon-lqr/20260324225604-r2r-mpc-control-finite-horizon-lqr-z9qu3m/coating-line-finite-horizon-lqr-similar-speed-ramp",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324225604-r2r-mpc-control-finite-horizon-lqr-z9qu3m/r2r-mpc-control/drafts/coating-line-finite-horizon-lqr-similar-speed-ramp",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/r2r-mpc-control/finite-horizon-lqr/20260324225604-r2r-mpc-control-finite-horizon-lqr-z9qu3m/coating-line-finite-horizon-lqr-similar-speed-ramp",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/r2r-mpc-control/coating-line-finite-horizon-lqr-similar-speed-ramp",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 未验证 `trajectory` 是否能被 `/root/coating_line_simulator.py` 重放，也未验证控制器确实执行滚动闭环；手工构造与参考完全一致的轨迹、任意正数增益摘要和零控制输入即可通过，verifier 不能判定是否真的完成题目要求的控制实现。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/__pycache__/coating_line_simulator.cpython-312.pyc",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24ae-e3fd-76d2-ba27-11d3b3905ef8",
+      "repairSummary": "加强了说明与验证：tests 现在会将 `trajectory.control_inputs` 逐步回放到给定仿真器中重现轨迹，并从回放数据拟合每阶段闭环反馈律，校验控制输入确实来自一致的阶段反馈且与 `stage=0` 增益摘要一致，从而防止伪造轨迹/任意增益摘要通过。",
+      "reviewThreadId": "019d24b4-6c9d-7530-bb6b-47f4a0810940",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

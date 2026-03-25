@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "bottling-line-box-least-squares-transfer-cleaning-cycles"
+name = "Transfer | Bottling Line Cleaning Cycles"
+description = "分析两条灌装线的分钟级归一化吞吐率并输出存在稳定周期性清洗停机的产线停机报告 CSV。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "manufacturing"
+tags = ["manufacturing", "time-series", "operations", "throughput", "csv"]
+primary_output_file = "/root/output/cleaning_shutdown_report.csv"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0

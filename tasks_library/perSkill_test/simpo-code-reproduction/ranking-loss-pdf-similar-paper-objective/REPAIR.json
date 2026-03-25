@@ -1,0 +1,53 @@
+{
+  "sourceTaskId": "simpo-code-reproduction",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf",
+  "runId": "20260325014621-simpo-code-reproduction-pdf-29a5mg",
+  "taskId": "ranking-loss-pdf-similar-paper-objective",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/simpo-code-reproduction/pdf/20260325014621-simpo-code-reproduction-pdf-29a5mg/ranking-loss-pdf-similar-paper-objective",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014621-simpo-code-reproduction-pdf-29a5mg/simpo-code-reproduction/drafts/ranking-loss-pdf-similar-paper-objective",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/simpo-code-reproduction/pdf/20260325014621-simpo-code-reproduction-pdf-29a5mg/ranking-loss-pdf-similar-paper-objective",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/simpo-code-reproduction/ranking-loss-pdf-similar-paper-objective",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 `simpo_objective.pdf`，命中了 shipped skill 名称 `pdf`，存在技能暴露。; environment/Dockerfile 只安装了 `python3`/`numpy`/`pytest`，没有安装 `pypdf`、`pdftotext`、`pdf2image` 等 PDF skill 常用依赖，导致当前唯一 shipped skill 在题目环境里基本不可用。; visibilityPass=false; skillBenefitPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/expected_losses.npz",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "测试文件直接给出了目标函数的精确计算公式与常量，构成答案泄露。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c1-7a2d-73b1-bf84-7fb1ed38b4b4",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 名称的直接暴露，改为指向 docs 目录中的论文原文；同时在 environment/Dockerfile 中补装了当前 PDF skill 常用的系统与 Python 依赖，使题目环境可实际使用该技能。",
+      "reviewThreadId": "019d24c3-3229-7890-a99f-1492dc2d3dbb",
+      "reviewerIssues": [
+        "测试文件直接给出了目标函数的精确计算公式与常量，构成答案泄露。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c3-cc3d-72d2-8334-6b6b41d13db7",
+      "repairSummary": "移除了测试中直接公开目标函数公式与常量的实现，改为从预计算的期望输出文件校验损失向量，保留原有 runner 调用路径检查。",
+      "reviewThreadId": "019d24c7-290d-70c0-a6d4-183488919979",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

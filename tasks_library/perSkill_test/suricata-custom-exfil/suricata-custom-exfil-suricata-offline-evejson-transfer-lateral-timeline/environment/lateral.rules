@@ -1,0 +1,6 @@
+alert tcp any any -> any 445 (msg:"[first-wave] SMB ADMIN$ staging copy"; flow:established,to_server; content:"|fe 53 4d 42|"; depth:4; content:"ADMIN$"; nocase; content:"svcctl"; nocase; sid:3311001; rev:1;)
+alert tcp any any -> any 445 (msg:"[first-wave] RPC service install over svcctl"; flow:established,to_server; content:"|fe 53 4d 42|"; depth:4; content:"CreateServiceW"; nocase; content:"RemComSvc"; nocase; sid:3311002; rev:1;)
+alert tcp any any -> any 445 (msg:"[first-wave] ATSVC scheduled task fanout"; flow:established,to_server; content:"|fe 53 4d 42|"; depth:4; content:"SchRpcRegisterTask"; nocase; content:"ops.bat"; nocase; sid:3311003; rev:1;)
+alert tcp any any -> any 5985 (msg:"[first-wave] WinRM remote command launch"; flow:established,to_server; content:"POST /wsman HTTP/1.1"; depth:32; content:"CommandLine"; nocase; content:"powershell.exe"; nocase; sid:3311004; rev:1;)
+alert tcp any any -> any 3389 (msg:"[noise] RDP cookie reuse"; flow:established,to_server; content:"Cookie|3a| mstshash="; nocase; sid:3311090; rev:1;)
+alert tcp any any -> any 445 (msg:"[follow-up] SMB secret collection"; flow:established,to_server; content:"|fe 53 4d 42|"; depth:4; content:"procdump.exe"; nocase; content:"lsass"; nocase; sid:3311091; rev:1;)

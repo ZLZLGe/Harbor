@@ -1,0 +1,22 @@
+{
+  "sample_time_sec": 5.0,
+  "state_names": ["zone_1_temp_c", "zone_2_temp_c"],
+  "input_names": ["heater_1_kw", "heater_2_kw"],
+  "A_nominal": [
+    [0.9989722222, 0.0003611111],
+    [0.0002954545, 0.9992272727]
+  ],
+  "B_nominal": [
+    [0.0319444444, 0.0],
+    [0.0, 0.0227272727]
+  ],
+  "horizon_steps": 16,
+  "Q_diag": [18.0, 17.0],
+  "R_diag": [0.14, 0.14],
+  "heater_power_limit_kw": [9.0, 8.5],
+  "nominal_ambient_temp_c": 31.0,
+  "nominal_loss_coeff": [0.023, 0.021],
+  "nominal_coupling_coeff": 0.013,
+  "nominal_heater_gain": [1.15, 1.0],
+  "tail_window_steps": 30
+}

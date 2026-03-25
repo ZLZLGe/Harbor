@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reheat-zone-imc-tuning-rules-similar-commissioning",
+  "taskRole": "similar",
+  "title": "Similar | Reheat Zone IMC PI Commissioning",
+  "goal": "已知单区再热盘管的一阶模型参数 K、tau、设定点变化幅度和 3 组候选 lambda，选择满足升温速度、超调与执行器饱和约束的方案，计算 IMC PI 增益，并用提供的离散仿真器生成闭环轨迹与调参结论。",
+  "primaryOutputFile": "reheat_loop_design.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务核心就是把已给定的一阶对象参数映射成合适的 lambda、Kp、Ki，并利用 IMC 对闭环时间常数的含义判断哪组整定满足热响应指标；不需要额外的系统辨识或其他控制方法。",
+  "targetSkillDirName": "imc-tuning-rules",
+  "targetSkillName": "imc-tuning-rules"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "molecule-watchlist-pdf-similar-index",
+  "taskRole": "similar",
+  "title": "Similar: 分子监测名单的 PDF 命中索引",
+  "goal": "给定一份多页分子名录 PDF 和一个待核对监测名单，提取 PDF 中所有分子名，输出按监测名单顺序排列的 JSON 命中索引；每个条目需包含是否命中、所在页码列表、该分子在文档中的出现次数，以及对应页面的页内排序位置。",
+  "primaryOutputFile": "/root/workspace/watchlist_hits.json",
+  "difficulty": "medium",
+  "category": "chemistry",
+  "skillBenefitRationale": "任务核心是稳定地从多页 PDF 中抽取文本并恢复页级位置语义；除基础 Python 处理外，不依赖任何其他 shipped skill，`pdf` 是唯一关键能力。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

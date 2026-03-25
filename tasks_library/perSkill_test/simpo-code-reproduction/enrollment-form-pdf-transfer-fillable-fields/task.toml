@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "enrollment-form-pdf-transfer-fillable-fields"
+name = "PDF Transfer: 可填写参保表字段值映射"
+description = "读取可填写参保登记表和用户资料，生成可直接用于回填 PDF 的 /root/enrollment_field_values.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "form filling"
+tags = ["pdf", "form-filling", "fillable-form", "field-values", "transfer"]
+primary_output_file = "/root/enrollment_field_values.json"
+source_task_id = "simpo-code-reproduction"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0

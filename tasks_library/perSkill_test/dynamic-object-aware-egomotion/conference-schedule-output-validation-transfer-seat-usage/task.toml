@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "conference-schedule-output-validation-transfer-seat-usage"
+name = "Transfer | 会议排期状态与座位占用矩阵"
+description = "根据会议排期、房间座位图和签到记录，输出房间状态时间线 JSON，并为每个时隙生成已占用座位的 CSR 稀疏矩阵。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "operations-planning"
+tags = ["conference", "schedule", "seat-usage", "csr", "validation"]
+primary_output_file = "/root/room_state_timeline.json"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0

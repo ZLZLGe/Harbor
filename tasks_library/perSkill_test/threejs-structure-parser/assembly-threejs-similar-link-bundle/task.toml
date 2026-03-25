@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "assembly-threejs-similar-link-bundle"
+name = "Similar: 装配体分件导出与索引"
+description = "解析给定装配场景中的命名部件归属关系，导出单件与合并 OBJ，并生成稳定排序的部件索引清单。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["scene-graph", "obj-export", "mesh-partition", "json-index"]
+primary_output_file = "/root/output/link_index.json"
+source_task_id = "threejs-structure-parser"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

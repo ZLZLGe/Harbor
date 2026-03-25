@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "trial-screening-lab-unit-harmonization-transfer-si-registry",
+  "taskRole": "transfer",
+  "title": "Transfer | 国际试验筛选实验室 SI 归档",
+  "goal": "给定一份国际多中心 CKD 药物试验的筛选期实验室数据，要求把不同站点上报的美国常用单位与 SI 单位混合结果全部统一为中心实验室要求的 SI 制式，并输出可直接提交给注册库的标准化筛选实验室文件。",
+  "primaryOutputFile": "/root/trial_screening_labs_si.csv",
+  "difficulty": "medium",
+  "category": "healthcare",
+  "skillBenefitRationale": "该任务把同一技能迁移到反向归一化场景：关键难点仍是识别混合单位、处理脏数值表示并按 analyte 选择正确换算方向；除实验室单位统一外没有别的 shipped skill 是关键。",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "targetSkillName": "lab-unit-harmonization"
+}

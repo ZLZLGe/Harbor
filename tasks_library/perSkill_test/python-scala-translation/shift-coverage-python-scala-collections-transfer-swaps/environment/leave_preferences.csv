@@ -1,0 +1,5 @@
+employee_id,date,avoid_slots,priority,note
+E01,2026-04-03,morning,2,coaching
+E02,2026-04-02,evening,3,family-event
+E04,2026-04-02,evening,4,commute
+E05,2026-04-03,mid,5,clinic

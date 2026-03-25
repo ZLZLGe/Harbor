@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sales-commission-xlsx-transfer-payout-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer - 销售佣金结算对账",
+  "goal": "读取佣金结算工作簿中的订单明细、销售人员归属、阶梯提成规则、预支记录和手工结算表，找出重复计提、错误档位、区域规则错配、封顶失效或净额不一致的结算异常，并输出结构化 JSON 异常清单。",
+  "primaryOutputFile": "/root/commission_exceptions.json",
+  "difficulty": "hard",
+  "category": "finance-ops",
+  "skillBenefitRationale": "把 xlsx 从 AP 审计迁移到销售佣金核算场景，核心仍是多表关联、规则应用和数值核对，但输出语义变成结算异常 JSON，场景与验证方式明显不同。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

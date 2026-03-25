@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "regional-redispatch-dc-power-flow-similar-interface-audit",
+  "taskRole": "similar",
+  "title": "Similar: 区域电网拥塞重调度与接口利用率报告",
+  "goal": "基于一个中等规模 MATPOWER 风格网络、日前基线出力、线性报价和机组爬坡约束，完成最小成本拥塞重调度，并生成 `redispatch_market_report.json`，其中包含机组新出力、关键接口潮流与载荷率、总重调度成本以及受限线路摘要。",
+  "primaryOutputFile": "redispatch_market_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "核心难点仍是用 DC 潮流建立母线功率平衡、参考母线、线路限额和接口潮流约束；相较源题去掉备用协同，保留最典型的调度侧用法，使 `dc-power-flow` 成为唯一关键 shipped skill。",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

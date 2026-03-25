@@ -1,0 +1,21 @@
+{
+  "sampleId": "hist-101",
+  "capturedAt": "2024-11-02T10:15:00Z",
+  "request": {
+    "method": "post",
+    "path": "/v1/reports/query",
+    "body": {
+      "dataset": "sales_daily",
+      "filter": {
+        "type": "selector",
+        "dimension": "region",
+        "value": "apac"
+      },
+      "columns": [
+        "region",
+        "revenue"
+      ],
+      "limit": 50
+    }
+  }
+}

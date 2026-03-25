@@ -1,0 +1,94 @@
+{
+    "id": "c386ecf0-c985-4b8d-b491-04915a4cc756",
+    "task_name": "habitat-glm-output-transfer-refuge-thickness",
+    "trial_name": "habitat-glm-output-transfer-refu__2bE9wjz",
+    "trial_uri": "file:///home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/jobs/review-errors-fixed-daytona-oracle-20260325-220628/habitat-glm-output-transfer-refu__2bE9wjz",
+    "task_id": {
+        "path": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/habitat-glm-output-transfer-refuge-thickness"
+    },
+    "source": "glm-lake-mendota",
+    "task_checksum": "24119412b0363ec34a93f6b43d907b2273d080ee6fec369dece2c6a3e7bae556",
+    "config": {
+        "task": {
+            "path": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/habitat-glm-output-transfer-refuge-thickness",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": "glm-lake-mendota"
+        },
+        "trial_name": "habitat-glm-output-transfer-refu__2bE9wjz",
+        "trials_dir": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/jobs/review-errors-fixed-daytona-oracle-20260325-220628",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "daytona",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "a8588522-6da0-4b6d-9fc1-6df9a7b29823"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-25T14:38:53.768395Z",
+    "finished_at": "2026-03-25T14:39:38.915652Z",
+    "environment_setup": {
+        "started_at": "2026-03-25T14:38:53.771218Z",
+        "finished_at": "2026-03-25T14:39:21.015457Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-25T14:39:21.015470Z",
+        "finished_at": "2026-03-25T14:39:21.015503Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-25T14:39:21.015531Z",
+        "finished_at": "2026-03-25T14:39:25.965062Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-25T14:39:27.845822Z",
+        "finished_at": "2026-03-25T14:39:36.583707Z"
+    }
+}

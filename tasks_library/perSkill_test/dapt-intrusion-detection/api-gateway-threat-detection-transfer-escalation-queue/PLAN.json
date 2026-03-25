@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "api-gateway-threat-detection-transfer-escalation-queue",
+  "taskRole": "transfer",
+  "title": "Transfer: API Gateway Escalation Queue",
+  "goal": "给定 SaaS API Gateway 的租户级流量画像表，生成 `/root/gateway_escalations.csv`，为每个租户输出威胁标签、升级优先级和分派队列，其中优先级规则由题面固定说明。",
+  "primaryOutputFile": "/root/gateway_escalations.csv",
+  "difficulty": "hard",
+  "category": "security",
+  "skillBenefitRationale": "任务把威胁判定迁移到多租户网关场景，验证点在于能否继续稳定使用端口扫描、DoS、Beaconing 的精确门槛并据此派生升级结果；不需要额外 shipped skill。",
+  "targetSkillDirName": "threat-detection",
+  "targetSkillName": "threat-detection"
+}

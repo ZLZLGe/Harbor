@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "relocation-search-attractions-transfer-weekend-board"
+name = "Transfer | Relocation Weekend Comparison Board"
+description = "Read the relocation candidate files and produce /app/output/relocation_weekend_board.html as a city-by-city weekend comparison board."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "relocation-research"
+tags = ["relocation", "attractions", "html", "comparison-board"]
+primary_output_file = "/app/output/relocation_weekend_board.html"
+source_task_id = "travel-planning"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

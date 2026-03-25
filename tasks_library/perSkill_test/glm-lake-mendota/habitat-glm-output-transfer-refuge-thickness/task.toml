@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "habitat-glm-output-transfer-refuge-thickness"
+name = "Transfer: Cold-Water Refuge Thickness Tracker"
+description = "Compute daily cold-water refuge thickness from the supplied GLM output and habitat rules, then write /root/reports/refuge_thickness_daily.csv with summer minimum and first-collapse flags."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "environmental-modeling"
+tags = ["lake-modeling", "netcdf", "habitat"]
+primary_output_file = "/root/reports/refuge_thickness_daily.csv"
+source_task_id = "glm-lake-mendota"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

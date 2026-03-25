@@ -1,0 +1,54 @@
+{
+  "grid_connection": {
+    "bus_id": "substation",
+    "max_import_mwh_per_hour": 9,
+    "hourly_energy_price_dollars_per_MWh": [
+      26,
+      26,
+      26,
+      26,
+      26,
+      34,
+      34,
+      34,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      46,
+      72,
+      72,
+      72,
+      72,
+      72,
+      72,
+      40,
+      40
+    ]
+  },
+  "local_backup_price_dollars_per_MWh": 128,
+  "buses": [
+    {"bus_id": "substation", "role": "grid_connection"},
+    {"bus_id": "hub", "role": "switchboard"},
+    {"bus_id": "north", "role": "charging_zone"},
+    {"bus_id": "west", "role": "charging_zone"},
+    {"bus_id": "south", "role": "charging_zone"},
+    {"bus_id": "paint", "role": "charging_zone"}
+  ],
+  "baseline_lines": [
+    {"line_id": "L1", "from_bus": "substation", "to_bus": "hub", "limit_mwh_per_hour": 9},
+    {"line_id": "L2", "from_bus": "hub", "to_bus": "north", "limit_mwh_per_hour": 4},
+    {"line_id": "L3", "from_bus": "hub", "to_bus": "west", "limit_mwh_per_hour": 5},
+    {"line_id": "L4", "from_bus": "west", "to_bus": "south", "limit_mwh_per_hour": 2},
+    {"line_id": "L5", "from_bus": "south", "to_bus": "paint", "limit_mwh_per_hour": 2}
+  ],
+  "temporary_bypass": {
+    "line_id": "B1",
+    "from_bus": "north",
+    "to_bus": "south",
+    "limit_mwh_per_hour": 2
+  }
+}

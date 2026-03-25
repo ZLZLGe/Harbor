@@ -1,0 +1,21 @@
+{
+  "sampleId": "hist-202",
+  "capturedAt": "2024-11-05T14:10:00Z",
+  "request": {
+    "method": "post",
+    "path": "/v1/orders/search",
+    "body": {
+      "dataset": "orders_archive",
+      "filter": {
+        "type": "selector",
+        "dimension": "status",
+        "value": "PENDING"
+      },
+      "payload": {
+        "@class": "com.example.dangerous.Gadget",
+        "target": "/tmp/replay-gadget.txt"
+      },
+      "limit": 5
+    }
+  }
+}

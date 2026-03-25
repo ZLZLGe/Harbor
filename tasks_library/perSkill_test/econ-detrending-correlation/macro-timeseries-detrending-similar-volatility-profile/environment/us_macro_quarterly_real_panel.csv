@@ -1,0 +1,751 @@
+quarter,series_code,series_name,value,unit,seasonal_adjustment
+1988Q1,RGDP,Real Gross Domestic Product,10122.75,billions_of_chained_2017_dollars,SAAR
+1988Q2,RGDP,Real Gross Domestic Product,10272.67,billions_of_chained_2017_dollars,SAAR
+1988Q3,RGDP,Real Gross Domestic Product,10447.31,billions_of_chained_2017_dollars,SAAR
+1988Q4,RGDP,Real Gross Domestic Product,10642.47,billions_of_chained_2017_dollars,SAAR
+1989Q1,RGDP,Real Gross Domestic Product,10852.29,billions_of_chained_2017_dollars,SAAR
+1989Q2,RGDP,Real Gross Domestic Product,11069.4,billions_of_chained_2017_dollars,SAAR
+1989Q3,RGDP,Real Gross Domestic Product,11285.28,billions_of_chained_2017_dollars,SAAR
+1989Q4,RGDP,Real Gross Domestic Product,11490.68,billions_of_chained_2017_dollars,SAAR
+1990Q1,RGDP,Real Gross Domestic Product,11676.29,billions_of_chained_2017_dollars,SAAR
+1990Q2,RGDP,Real Gross Domestic Product,11833.4,billions_of_chained_2017_dollars,SAAR
+1990Q3,RGDP,Real Gross Domestic Product,11954.72,billions_of_chained_2017_dollars,SAAR
+1990Q4,RGDP,Real Gross Domestic Product,12035.0,billions_of_chained_2017_dollars,SAAR
+1991Q1,RGDP,Real Gross Domestic Product,12071.61,billions_of_chained_2017_dollars,SAAR
+1991Q2,RGDP,Real Gross Domestic Product,12064.78,billions_of_chained_2017_dollars,SAAR
+1991Q3,RGDP,Real Gross Domestic Product,12017.64,billions_of_chained_2017_dollars,SAAR
+1991Q4,RGDP,Real Gross Domestic Product,11935.95,billions_of_chained_2017_dollars,SAAR
+1992Q1,RGDP,Real Gross Domestic Product,11827.55,billions_of_chained_2017_dollars,SAAR
+1992Q2,RGDP,Real Gross Domestic Product,11701.71,billions_of_chained_2017_dollars,SAAR
+1992Q3,RGDP,Real Gross Domestic Product,11568.41,billions_of_chained_2017_dollars,SAAR
+1992Q4,RGDP,Real Gross Domestic Product,11437.58,billions_of_chained_2017_dollars,SAAR
+1993Q1,RGDP,Real Gross Domestic Product,11318.57,billions_of_chained_2017_dollars,SAAR
+1993Q2,RGDP,Real Gross Domestic Product,11219.57,billions_of_chained_2017_dollars,SAAR
+1993Q3,RGDP,Real Gross Domestic Product,11147.35,billions_of_chained_2017_dollars,SAAR
+1993Q4,RGDP,Real Gross Domestic Product,11107.01,billions_of_chained_2017_dollars,SAAR
+1994Q1,RGDP,Real Gross Domestic Product,11101.87,billions_of_chained_2017_dollars,SAAR
+1994Q2,RGDP,Real Gross Domestic Product,11133.43,billions_of_chained_2017_dollars,SAAR
+1994Q3,RGDP,Real Gross Domestic Product,11201.39,billions_of_chained_2017_dollars,SAAR
+1994Q4,RGDP,Real Gross Domestic Product,11303.71,billions_of_chained_2017_dollars,SAAR
+1995Q1,RGDP,Real Gross Domestic Product,11436.71,billions_of_chained_2017_dollars,SAAR
+1995Q2,RGDP,Real Gross Domestic Product,11595.21,billions_of_chained_2017_dollars,SAAR
+1995Q3,RGDP,Real Gross Domestic Product,11772.8,billions_of_chained_2017_dollars,SAAR
+1995Q4,RGDP,Real Gross Domestic Product,11962.14,billions_of_chained_2017_dollars,SAAR
+1996Q1,RGDP,Real Gross Domestic Product,12155.36,billions_of_chained_2017_dollars,SAAR
+1996Q2,RGDP,Real Gross Domestic Product,12344.6,billions_of_chained_2017_dollars,SAAR
+1996Q3,RGDP,Real Gross Domestic Product,12522.58,billions_of_chained_2017_dollars,SAAR
+1996Q4,RGDP,Real Gross Domestic Product,12683.11,billions_of_chained_2017_dollars,SAAR
+1997Q1,RGDP,Real Gross Domestic Product,12821.64,billions_of_chained_2017_dollars,SAAR
+1997Q2,RGDP,Real Gross Domestic Product,12935.6,billions_of_chained_2017_dollars,SAAR
+1997Q3,RGDP,Real Gross Domestic Product,13024.61,billions_of_chained_2017_dollars,SAAR
+1997Q4,RGDP,Real Gross Domestic Product,13090.46,billions_of_chained_2017_dollars,SAAR
+1998Q1,RGDP,Real Gross Domestic Product,13136.87,billions_of_chained_2017_dollars,SAAR
+1998Q2,RGDP,Real Gross Domestic Product,13169.16,billions_of_chained_2017_dollars,SAAR
+1998Q3,RGDP,Real Gross Domestic Product,13193.64,billions_of_chained_2017_dollars,SAAR
+1998Q4,RGDP,Real Gross Domestic Product,13217.12,billions_of_chained_2017_dollars,SAAR
+1999Q1,RGDP,Real Gross Domestic Product,13246.27,billions_of_chained_2017_dollars,SAAR
+1999Q2,RGDP,Real Gross Domestic Product,13287.11,billions_of_chained_2017_dollars,SAAR
+1999Q3,RGDP,Real Gross Domestic Product,13344.56,billions_of_chained_2017_dollars,SAAR
+1999Q4,RGDP,Real Gross Domestic Product,13422.05,billions_of_chained_2017_dollars,SAAR
+2000Q1,RGDP,Real Gross Domestic Product,13521.24,billions_of_chained_2017_dollars,SAAR
+2000Q2,RGDP,Real Gross Domestic Product,13641.89,billions_of_chained_2017_dollars,SAAR
+2000Q3,RGDP,Real Gross Domestic Product,13781.75,billions_of_chained_2017_dollars,SAAR
+2000Q4,RGDP,Real Gross Domestic Product,13936.64,billions_of_chained_2017_dollars,SAAR
+2001Q1,RGDP,Real Gross Domestic Product,13932.42,billions_of_chained_2017_dollars,SAAR
+2001Q2,RGDP,Real Gross Domestic Product,13955.86,billions_of_chained_2017_dollars,SAAR
+2001Q3,RGDP,Real Gross Domestic Product,13901.34,billions_of_chained_2017_dollars,SAAR
+2001Q4,RGDP,Real Gross Domestic Product,13955.79,billions_of_chained_2017_dollars,SAAR
+2002Q1,RGDP,Real Gross Domestic Product,14070.66,billions_of_chained_2017_dollars,SAAR
+2002Q2,RGDP,Real Gross Domestic Product,14155.82,billions_of_chained_2017_dollars,SAAR
+2002Q3,RGDP,Real Gross Domestic Product,14206.05,billions_of_chained_2017_dollars,SAAR
+2002Q4,RGDP,Real Gross Domestic Product,14218.48,billions_of_chained_2017_dollars,SAAR
+2003Q1,RGDP,Real Gross Domestic Product,14192.91,billions_of_chained_2017_dollars,SAAR
+2003Q2,RGDP,Real Gross Domestic Product,14131.98,billions_of_chained_2017_dollars,SAAR
+2003Q3,RGDP,Real Gross Domestic Product,14041.02,billions_of_chained_2017_dollars,SAAR
+2003Q4,RGDP,Real Gross Domestic Product,13927.64,billions_of_chained_2017_dollars,SAAR
+2004Q1,RGDP,Real Gross Domestic Product,13801.15,billions_of_chained_2017_dollars,SAAR
+2004Q2,RGDP,Real Gross Domestic Product,13671.9,billions_of_chained_2017_dollars,SAAR
+2004Q3,RGDP,Real Gross Domestic Product,13550.56,billions_of_chained_2017_dollars,SAAR
+2004Q4,RGDP,Real Gross Domestic Product,13447.47,billions_of_chained_2017_dollars,SAAR
+2005Q1,RGDP,Real Gross Domestic Product,13372.06,billions_of_chained_2017_dollars,SAAR
+2005Q2,RGDP,Real Gross Domestic Product,13332.46,billions_of_chained_2017_dollars,SAAR
+2005Q3,RGDP,Real Gross Domestic Product,13335.13,billions_of_chained_2017_dollars,SAAR
+2005Q4,RGDP,Real Gross Domestic Product,13384.65,billions_of_chained_2017_dollars,SAAR
+2006Q1,RGDP,Real Gross Domestic Product,13483.57,billions_of_chained_2017_dollars,SAAR
+2006Q2,RGDP,Real Gross Domestic Product,13632.24,billions_of_chained_2017_dollars,SAAR
+2006Q3,RGDP,Real Gross Domestic Product,13828.78,billions_of_chained_2017_dollars,SAAR
+2006Q4,RGDP,Real Gross Domestic Product,14068.99,billions_of_chained_2017_dollars,SAAR
+2007Q1,RGDP,Real Gross Domestic Product,14346.36,billions_of_chained_2017_dollars,SAAR
+2007Q2,RGDP,Real Gross Domestic Product,14652.23,billions_of_chained_2017_dollars,SAAR
+2007Q3,RGDP,Real Gross Domestic Product,14976.02,billions_of_chained_2017_dollars,SAAR
+2007Q4,RGDP,Real Gross Domestic Product,15305.67,billions_of_chained_2017_dollars,SAAR
+2008Q1,RGDP,Real Gross Domestic Product,15628.3,billions_of_chained_2017_dollars,SAAR
+2008Q2,RGDP,Real Gross Domestic Product,15931.02,billions_of_chained_2017_dollars,SAAR
+2008Q3,RGDP,Real Gross Domestic Product,15912.83,billions_of_chained_2017_dollars,SAAR
+2008Q4,RGDP,Real Gross Domestic Product,15427.49,billions_of_chained_2017_dollars,SAAR
+2009Q1,RGDP,Real Gross Domestic Product,15104.82,billions_of_chained_2017_dollars,SAAR
+2009Q2,RGDP,Real Gross Domestic Product,15068.03,billions_of_chained_2017_dollars,SAAR
+2009Q3,RGDP,Real Gross Domestic Product,15133.19,billions_of_chained_2017_dollars,SAAR
+2009Q4,RGDP,Real Gross Domestic Product,15152.98,billions_of_chained_2017_dollars,SAAR
+2010Q1,RGDP,Real Gross Domestic Product,15133.33,billions_of_chained_2017_dollars,SAAR
+2010Q2,RGDP,Real Gross Domestic Product,15082.51,billions_of_chained_2017_dollars,SAAR
+2010Q3,RGDP,Real Gross Domestic Product,15010.28,billions_of_chained_2017_dollars,SAAR
+2010Q4,RGDP,Real Gross Domestic Product,14927.14,billions_of_chained_2017_dollars,SAAR
+2011Q1,RGDP,Real Gross Domestic Product,14843.44,billions_of_chained_2017_dollars,SAAR
+2011Q2,RGDP,Real Gross Domestic Product,14768.68,billions_of_chained_2017_dollars,SAAR
+2011Q3,RGDP,Real Gross Domestic Product,14710.98,billions_of_chained_2017_dollars,SAAR
+2011Q4,RGDP,Real Gross Domestic Product,14676.63,billions_of_chained_2017_dollars,SAAR
+2012Q1,RGDP,Real Gross Domestic Product,14669.84,billions_of_chained_2017_dollars,SAAR
+2012Q2,RGDP,Real Gross Domestic Product,14692.61,billions_of_chained_2017_dollars,SAAR
+2012Q3,RGDP,Real Gross Domestic Product,14744.75,billions_of_chained_2017_dollars,SAAR
+2012Q4,RGDP,Real Gross Domestic Product,14823.95,billions_of_chained_2017_dollars,SAAR
+2013Q1,RGDP,Real Gross Domestic Product,14926.0,billions_of_chained_2017_dollars,SAAR
+2013Q2,RGDP,Real Gross Domestic Product,15045.07,billions_of_chained_2017_dollars,SAAR
+2013Q3,RGDP,Real Gross Domestic Product,15174.14,billions_of_chained_2017_dollars,SAAR
+2013Q4,RGDP,Real Gross Domestic Product,15305.54,billions_of_chained_2017_dollars,SAAR
+2014Q1,RGDP,Real Gross Domestic Product,15431.52,billions_of_chained_2017_dollars,SAAR
+2014Q2,RGDP,Real Gross Domestic Product,15544.91,billions_of_chained_2017_dollars,SAAR
+2014Q3,RGDP,Real Gross Domestic Product,15639.8,billions_of_chained_2017_dollars,SAAR
+2014Q4,RGDP,Real Gross Domestic Product,15712.07,billions_of_chained_2017_dollars,SAAR
+2015Q1,RGDP,Real Gross Domestic Product,15759.86,billions_of_chained_2017_dollars,SAAR
+2015Q2,RGDP,Real Gross Domestic Product,15783.78,billions_of_chained_2017_dollars,SAAR
+2015Q3,RGDP,Real Gross Domestic Product,15786.94,billions_of_chained_2017_dollars,SAAR
+2015Q4,RGDP,Real Gross Domestic Product,15774.69,billions_of_chained_2017_dollars,SAAR
+2016Q1,RGDP,Real Gross Domestic Product,15754.24,billions_of_chained_2017_dollars,SAAR
+2016Q2,RGDP,Real Gross Domestic Product,15734.07,billions_of_chained_2017_dollars,SAAR
+2016Q3,RGDP,Real Gross Domestic Product,15723.29,billions_of_chained_2017_dollars,SAAR
+2016Q4,RGDP,Real Gross Domestic Product,15731.0,billions_of_chained_2017_dollars,SAAR
+2017Q1,RGDP,Real Gross Domestic Product,15765.69,billions_of_chained_2017_dollars,SAAR
+2017Q2,RGDP,Real Gross Domestic Product,15834.67,billions_of_chained_2017_dollars,SAAR
+2017Q3,RGDP,Real Gross Domestic Product,15943.63,billions_of_chained_2017_dollars,SAAR
+2017Q4,RGDP,Real Gross Domestic Product,16096.23,billions_of_chained_2017_dollars,SAAR
+2018Q1,RGDP,Real Gross Domestic Product,16293.81,billions_of_chained_2017_dollars,SAAR
+2018Q2,RGDP,Real Gross Domestic Product,16535.13,billions_of_chained_2017_dollars,SAAR
+2018Q3,RGDP,Real Gross Domestic Product,16816.23,billions_of_chained_2017_dollars,SAAR
+2018Q4,RGDP,Real Gross Domestic Product,17130.36,billions_of_chained_2017_dollars,SAAR
+2019Q1,RGDP,Real Gross Domestic Product,17468.09,billions_of_chained_2017_dollars,SAAR
+2019Q2,RGDP,Real Gross Domestic Product,17817.57,billions_of_chained_2017_dollars,SAAR
+2019Q3,RGDP,Real Gross Domestic Product,18165.05,billions_of_chained_2017_dollars,SAAR
+2019Q4,RGDP,Real Gross Domestic Product,18495.67,billions_of_chained_2017_dollars,SAAR
+2020Q1,RGDP,Real Gross Domestic Product,18422.27,billions_of_chained_2017_dollars,SAAR
+2020Q2,RGDP,Real Gross Domestic Product,17148.77,billions_of_chained_2017_dollars,SAAR
+2020Q3,RGDP,Real Gross Domestic Product,18304.12,billions_of_chained_2017_dollars,SAAR
+2020Q4,RGDP,Real Gross Domestic Product,18761.73,billions_of_chained_2017_dollars,SAAR
+2021Q1,RGDP,Real Gross Domestic Product,18818.8,billions_of_chained_2017_dollars,SAAR
+2021Q2,RGDP,Real Gross Domestic Product,18808.15,billions_of_chained_2017_dollars,SAAR
+2021Q3,RGDP,Real Gross Domestic Product,18734.67,billions_of_chained_2017_dollars,SAAR
+2021Q4,RGDP,Real Gross Domestic Product,18607.31,billions_of_chained_2017_dollars,SAAR
+2022Q1,RGDP,Real Gross Domestic Product,18438.33,billions_of_chained_2017_dollars,SAAR
+2022Q2,RGDP,Real Gross Domestic Product,18151.17,billions_of_chained_2017_dollars,SAAR
+2022Q3,RGDP,Real Gross Domestic Product,17944.39,billions_of_chained_2017_dollars,SAAR
+2022Q4,RGDP,Real Gross Domestic Product,17741.47,billions_of_chained_2017_dollars,SAAR
+2023Q1,RGDP,Real Gross Domestic Product,17556.85,billions_of_chained_2017_dollars,SAAR
+2023Q2,RGDP,Real Gross Domestic Product,17403.29,billions_of_chained_2017_dollars,SAAR
+2023Q3,RGDP,Real Gross Domestic Product,17291.28,billions_of_chained_2017_dollars,SAAR
+2023Q4,RGDP,Real Gross Domestic Product,17228.7,billions_of_chained_2017_dollars,SAAR
+2024Q1,RGDP,Real Gross Domestic Product,17220.73,billions_of_chained_2017_dollars,SAAR
+2024Q2,RGDP,Real Gross Domestic Product,17269.68,billions_of_chained_2017_dollars,SAAR
+2024Q3,RGDP,Real Gross Domestic Product,17375.09,billions_of_chained_2017_dollars,SAAR
+2024Q4,RGDP,Real Gross Domestic Product,17533.81,billions_of_chained_2017_dollars,SAAR
+2025Q1,RGDP,Real Gross Domestic Product,17740.11,billions_of_chained_2017_dollars,SAAR
+2025Q2,RGDP,Real Gross Domestic Product,17985.97,billions_of_chained_2017_dollars,SAAR
+1988Q1,RPCE,Real Personal Consumption Expenditures,6892.28,billions_of_chained_2017_dollars,SAAR
+1988Q2,RPCE,Real Personal Consumption Expenditures,6995.84,billions_of_chained_2017_dollars,SAAR
+1988Q3,RPCE,Real Personal Consumption Expenditures,7107.66,billions_of_chained_2017_dollars,SAAR
+1988Q4,RPCE,Real Personal Consumption Expenditures,7223.97,billions_of_chained_2017_dollars,SAAR
+1989Q1,RPCE,Real Personal Consumption Expenditures,7340.41,billions_of_chained_2017_dollars,SAAR
+1989Q2,RPCE,Real Personal Consumption Expenditures,7452.27,billions_of_chained_2017_dollars,SAAR
+1989Q3,RPCE,Real Personal Consumption Expenditures,7554.83,billions_of_chained_2017_dollars,SAAR
+1989Q4,RPCE,Real Personal Consumption Expenditures,7643.63,billions_of_chained_2017_dollars,SAAR
+1990Q1,RPCE,Real Personal Consumption Expenditures,7714.92,billions_of_chained_2017_dollars,SAAR
+1990Q2,RPCE,Real Personal Consumption Expenditures,7765.91,billions_of_chained_2017_dollars,SAAR
+1990Q3,RPCE,Real Personal Consumption Expenditures,7795.1,billions_of_chained_2017_dollars,SAAR
+1990Q4,RPCE,Real Personal Consumption Expenditures,7802.38,billions_of_chained_2017_dollars,SAAR
+1991Q1,RPCE,Real Personal Consumption Expenditures,7789.05,billions_of_chained_2017_dollars,SAAR
+1991Q2,RPCE,Real Personal Consumption Expenditures,7757.78,billions_of_chained_2017_dollars,SAAR
+1991Q3,RPCE,Real Personal Consumption Expenditures,7712.3,billions_of_chained_2017_dollars,SAAR
+1991Q4,RPCE,Real Personal Consumption Expenditures,7657.14,billions_of_chained_2017_dollars,SAAR
+1992Q1,RPCE,Real Personal Consumption Expenditures,7597.32,billions_of_chained_2017_dollars,SAAR
+1992Q2,RPCE,Real Personal Consumption Expenditures,7537.89,billions_of_chained_2017_dollars,SAAR
+1992Q3,RPCE,Real Personal Consumption Expenditures,7483.74,billions_of_chained_2017_dollars,SAAR
+1992Q4,RPCE,Real Personal Consumption Expenditures,7439.21,billions_of_chained_2017_dollars,SAAR
+1993Q1,RPCE,Real Personal Consumption Expenditures,7407.98,billions_of_chained_2017_dollars,SAAR
+1993Q2,RPCE,Real Personal Consumption Expenditures,7392.86,billions_of_chained_2017_dollars,SAAR
+1993Q3,RPCE,Real Personal Consumption Expenditures,7395.71,billions_of_chained_2017_dollars,SAAR
+1993Q4,RPCE,Real Personal Consumption Expenditures,7417.43,billions_of_chained_2017_dollars,SAAR
+1994Q1,RPCE,Real Personal Consumption Expenditures,7457.92,billions_of_chained_2017_dollars,SAAR
+1994Q2,RPCE,Real Personal Consumption Expenditures,7516.1,billions_of_chained_2017_dollars,SAAR
+1994Q3,RPCE,Real Personal Consumption Expenditures,7590.01,billions_of_chained_2017_dollars,SAAR
+1994Q4,RPCE,Real Personal Consumption Expenditures,7676.87,billions_of_chained_2017_dollars,SAAR
+1995Q1,RPCE,Real Personal Consumption Expenditures,7773.25,billions_of_chained_2017_dollars,SAAR
+1995Q2,RPCE,Real Personal Consumption Expenditures,7875.27,billions_of_chained_2017_dollars,SAAR
+1995Q3,RPCE,Real Personal Consumption Expenditures,7978.77,billions_of_chained_2017_dollars,SAAR
+1995Q4,RPCE,Real Personal Consumption Expenditures,8079.69,billions_of_chained_2017_dollars,SAAR
+1996Q1,RPCE,Real Personal Consumption Expenditures,8174.25,billions_of_chained_2017_dollars,SAAR
+1996Q2,RPCE,Real Personal Consumption Expenditures,8259.32,billions_of_chained_2017_dollars,SAAR
+1996Q3,RPCE,Real Personal Consumption Expenditures,8332.64,billions_of_chained_2017_dollars,SAAR
+1996Q4,RPCE,Real Personal Consumption Expenditures,8392.95,billions_of_chained_2017_dollars,SAAR
+1997Q1,RPCE,Real Personal Consumption Expenditures,8440.18,billions_of_chained_2017_dollars,SAAR
+1997Q2,RPCE,Real Personal Consumption Expenditures,8475.33,billions_of_chained_2017_dollars,SAAR
+1997Q3,RPCE,Real Personal Consumption Expenditures,8500.44,billions_of_chained_2017_dollars,SAAR
+1997Q4,RPCE,Real Personal Consumption Expenditures,8518.33,billions_of_chained_2017_dollars,SAAR
+1998Q1,RPCE,Real Personal Consumption Expenditures,8532.36,billions_of_chained_2017_dollars,SAAR
+1998Q2,RPCE,Real Personal Consumption Expenditures,8546.18,billions_of_chained_2017_dollars,SAAR
+1998Q3,RPCE,Real Personal Consumption Expenditures,8563.32,billions_of_chained_2017_dollars,SAAR
+1998Q4,RPCE,Real Personal Consumption Expenditures,8587.04,billions_of_chained_2017_dollars,SAAR
+1999Q1,RPCE,Real Personal Consumption Expenditures,8619.99,billions_of_chained_2017_dollars,SAAR
+1999Q2,RPCE,Real Personal Consumption Expenditures,8664.06,billions_of_chained_2017_dollars,SAAR
+1999Q3,RPCE,Real Personal Consumption Expenditures,8720.19,billions_of_chained_2017_dollars,SAAR
+1999Q4,RPCE,Real Personal Consumption Expenditures,8788.34,billions_of_chained_2017_dollars,SAAR
+2000Q1,RPCE,Real Personal Consumption Expenditures,8867.4,billions_of_chained_2017_dollars,SAAR
+2000Q2,RPCE,Real Personal Consumption Expenditures,8955.25,billions_of_chained_2017_dollars,SAAR
+2000Q3,RPCE,Real Personal Consumption Expenditures,9048.82,billions_of_chained_2017_dollars,SAAR
+2000Q4,RPCE,Real Personal Consumption Expenditures,9144.31,billions_of_chained_2017_dollars,SAAR
+2001Q1,RPCE,Real Personal Consumption Expenditures,9149.1,billions_of_chained_2017_dollars,SAAR
+2001Q2,RPCE,Real Personal Consumption Expenditures,9160.75,billions_of_chained_2017_dollars,SAAR
+2001Q3,RPCE,Real Personal Consumption Expenditures,9123.93,billions_of_chained_2017_dollars,SAAR
+2001Q4,RPCE,Real Personal Consumption Expenditures,9137.52,billions_of_chained_2017_dollars,SAAR
+2002Q1,RPCE,Real Personal Consumption Expenditures,9177.04,billions_of_chained_2017_dollars,SAAR
+2002Q2,RPCE,Real Personal Consumption Expenditures,9197.01,billions_of_chained_2017_dollars,SAAR
+2002Q3,RPCE,Real Personal Consumption Expenditures,9197.01,billions_of_chained_2017_dollars,SAAR
+2002Q4,RPCE,Real Personal Consumption Expenditures,9178.02,billions_of_chained_2017_dollars,SAAR
+2003Q1,RPCE,Real Personal Consumption Expenditures,9142.48,billions_of_chained_2017_dollars,SAAR
+2003Q2,RPCE,Real Personal Consumption Expenditures,9094.04,billions_of_chained_2017_dollars,SAAR
+2003Q3,RPCE,Real Personal Consumption Expenditures,9037.31,billions_of_chained_2017_dollars,SAAR
+2003Q4,RPCE,Real Personal Consumption Expenditures,8977.58,billions_of_chained_2017_dollars,SAAR
+2004Q1,RPCE,Real Personal Consumption Expenditures,8920.4,billions_of_chained_2017_dollars,SAAR
+2004Q2,RPCE,Real Personal Consumption Expenditures,8871.25,billions_of_chained_2017_dollars,SAAR
+2004Q3,RPCE,Real Personal Consumption Expenditures,8835.24,billions_of_chained_2017_dollars,SAAR
+2004Q4,RPCE,Real Personal Consumption Expenditures,8816.83,billions_of_chained_2017_dollars,SAAR
+2005Q1,RPCE,Real Personal Consumption Expenditures,8819.62,billions_of_chained_2017_dollars,SAAR
+2005Q2,RPCE,Real Personal Consumption Expenditures,8846.22,billions_of_chained_2017_dollars,SAAR
+2005Q3,RPCE,Real Personal Consumption Expenditures,8898.11,billions_of_chained_2017_dollars,SAAR
+2005Q4,RPCE,Real Personal Consumption Expenditures,8975.57,billions_of_chained_2017_dollars,SAAR
+2006Q1,RPCE,Real Personal Consumption Expenditures,9077.65,billions_of_chained_2017_dollars,SAAR
+2006Q2,RPCE,Real Personal Consumption Expenditures,9202.16,billions_of_chained_2017_dollars,SAAR
+2006Q3,RPCE,Real Personal Consumption Expenditures,9345.72,billions_of_chained_2017_dollars,SAAR
+2006Q4,RPCE,Real Personal Consumption Expenditures,9503.83,billions_of_chained_2017_dollars,SAAR
+2007Q1,RPCE,Real Personal Consumption Expenditures,9671.08,billions_of_chained_2017_dollars,SAAR
+2007Q2,RPCE,Real Personal Consumption Expenditures,9841.34,billions_of_chained_2017_dollars,SAAR
+2007Q3,RPCE,Real Personal Consumption Expenditures,10008.17,billions_of_chained_2017_dollars,SAAR
+2007Q4,RPCE,Real Personal Consumption Expenditures,10165.19,billions_of_chained_2017_dollars,SAAR
+2008Q1,RPCE,Real Personal Consumption Expenditures,10306.52,billions_of_chained_2017_dollars,SAAR
+2008Q2,RPCE,Real Personal Consumption Expenditures,10427.22,billions_of_chained_2017_dollars,SAAR
+2008Q3,RPCE,Real Personal Consumption Expenditures,10373.29,billions_of_chained_2017_dollars,SAAR
+2008Q4,RPCE,Real Personal Consumption Expenditures,10073.43,billions_of_chained_2017_dollars,SAAR
+2009Q1,RPCE,Real Personal Consumption Expenditures,9859.72,billions_of_chained_2017_dollars,SAAR
+2009Q2,RPCE,Real Personal Consumption Expenditures,9799.07,billions_of_chained_2017_dollars,SAAR
+2009Q3,RPCE,Real Personal Consumption Expenditures,9797.25,billions_of_chained_2017_dollars,SAAR
+2009Q4,RPCE,Real Personal Consumption Expenditures,9779.84,billions_of_chained_2017_dollars,SAAR
+2010Q1,RPCE,Real Personal Consumption Expenditures,9751.74,billions_of_chained_2017_dollars,SAAR
+2010Q2,RPCE,Real Personal Consumption Expenditures,9718.27,billions_of_chained_2017_dollars,SAAR
+2010Q3,RPCE,Real Personal Consumption Expenditures,9684.73,billions_of_chained_2017_dollars,SAAR
+2010Q4,RPCE,Real Personal Consumption Expenditures,9656.02,billions_of_chained_2017_dollars,SAAR
+2011Q1,RPCE,Real Personal Consumption Expenditures,9636.38,billions_of_chained_2017_dollars,SAAR
+2011Q2,RPCE,Real Personal Consumption Expenditures,9629.12,billions_of_chained_2017_dollars,SAAR
+2011Q3,RPCE,Real Personal Consumption Expenditures,9636.47,billions_of_chained_2017_dollars,SAAR
+2011Q4,RPCE,Real Personal Consumption Expenditures,9659.5,billions_of_chained_2017_dollars,SAAR
+2012Q1,RPCE,Real Personal Consumption Expenditures,9698.11,billions_of_chained_2017_dollars,SAAR
+2012Q2,RPCE,Real Personal Consumption Expenditures,9751.05,billions_of_chained_2017_dollars,SAAR
+2012Q3,RPCE,Real Personal Consumption Expenditures,9816.03,billions_of_chained_2017_dollars,SAAR
+2012Q4,RPCE,Real Personal Consumption Expenditures,9889.91,billions_of_chained_2017_dollars,SAAR
+2013Q1,RPCE,Real Personal Consumption Expenditures,9968.88,billions_of_chained_2017_dollars,SAAR
+2013Q2,RPCE,Real Personal Consumption Expenditures,10048.78,billions_of_chained_2017_dollars,SAAR
+2013Q3,RPCE,Real Personal Consumption Expenditures,10125.39,billions_of_chained_2017_dollars,SAAR
+2013Q4,RPCE,Real Personal Consumption Expenditures,10194.82,billions_of_chained_2017_dollars,SAAR
+2014Q1,RPCE,Real Personal Consumption Expenditures,10253.82,billions_of_chained_2017_dollars,SAAR
+2014Q2,RPCE,Real Personal Consumption Expenditures,10300.08,billions_of_chained_2017_dollars,SAAR
+2014Q3,RPCE,Real Personal Consumption Expenditures,10332.49,billions_of_chained_2017_dollars,SAAR
+2014Q4,RPCE,Real Personal Consumption Expenditures,10351.26,billions_of_chained_2017_dollars,SAAR
+2015Q1,RPCE,Real Personal Consumption Expenditures,10357.93,billions_of_chained_2017_dollars,SAAR
+2015Q2,RPCE,Real Personal Consumption Expenditures,10355.26,billions_of_chained_2017_dollars,SAAR
+2015Q3,RPCE,Real Personal Consumption Expenditures,10347.04,billions_of_chained_2017_dollars,SAAR
+2015Q4,RPCE,Real Personal Consumption Expenditures,10337.76,billions_of_chained_2017_dollars,SAAR
+2016Q1,RPCE,Real Personal Consumption Expenditures,10332.34,billions_of_chained_2017_dollars,SAAR
+2016Q2,RPCE,Real Personal Consumption Expenditures,10335.73,billions_of_chained_2017_dollars,SAAR
+2016Q3,RPCE,Real Personal Consumption Expenditures,10352.56,billions_of_chained_2017_dollars,SAAR
+2016Q4,RPCE,Real Personal Consumption Expenditures,10386.9,billions_of_chained_2017_dollars,SAAR
+2017Q1,RPCE,Real Personal Consumption Expenditures,10441.93,billions_of_chained_2017_dollars,SAAR
+2017Q2,RPCE,Real Personal Consumption Expenditures,10519.76,billions_of_chained_2017_dollars,SAAR
+2017Q3,RPCE,Real Personal Consumption Expenditures,10621.25,billions_of_chained_2017_dollars,SAAR
+2017Q4,RPCE,Real Personal Consumption Expenditures,10745.88,billions_of_chained_2017_dollars,SAAR
+2018Q1,RPCE,Real Personal Consumption Expenditures,10891.72,billions_of_chained_2017_dollars,SAAR
+2018Q2,RPCE,Real Personal Consumption Expenditures,11055.36,billions_of_chained_2017_dollars,SAAR
+2018Q3,RPCE,Real Personal Consumption Expenditures,11232.07,billions_of_chained_2017_dollars,SAAR
+2018Q4,RPCE,Real Personal Consumption Expenditures,11415.87,billions_of_chained_2017_dollars,SAAR
+2019Q1,RPCE,Real Personal Consumption Expenditures,11599.87,billions_of_chained_2017_dollars,SAAR
+2019Q2,RPCE,Real Personal Consumption Expenditures,11776.66,billions_of_chained_2017_dollars,SAAR
+2019Q3,RPCE,Real Personal Consumption Expenditures,11938.72,billions_of_chained_2017_dollars,SAAR
+2019Q4,RPCE,Real Personal Consumption Expenditures,12079.05,billions_of_chained_2017_dollars,SAAR
+2020Q1,RPCE,Real Personal Consumption Expenditures,11998.19,billions_of_chained_2017_dollars,SAAR
+2020Q2,RPCE,Real Personal Consumption Expenditures,11283.53,billions_of_chained_2017_dollars,SAAR
+2020Q3,RPCE,Real Personal Consumption Expenditures,11835.41,billions_of_chained_2017_dollars,SAAR
+2020Q4,RPCE,Real Personal Consumption Expenditures,12018.28,billions_of_chained_2017_dollars,SAAR
+2021Q1,RPCE,Real Personal Consumption Expenditures,11997.75,billions_of_chained_2017_dollars,SAAR
+2021Q2,RPCE,Real Personal Consumption Expenditures,11949.58,billions_of_chained_2017_dollars,SAAR
+2021Q3,RPCE,Real Personal Consumption Expenditures,11879.52,billions_of_chained_2017_dollars,SAAR
+2021Q4,RPCE,Real Personal Consumption Expenditures,11794.57,billions_of_chained_2017_dollars,SAAR
+2022Q1,RPCE,Real Personal Consumption Expenditures,11702.41,billions_of_chained_2017_dollars,SAAR
+2022Q2,RPCE,Real Personal Consumption Expenditures,11564.53,billions_of_chained_2017_dollars,SAAR
+2022Q3,RPCE,Real Personal Consumption Expenditures,11481.45,billions_of_chained_2017_dollars,SAAR
+2022Q4,RPCE,Real Personal Consumption Expenditures,11413.14,billions_of_chained_2017_dollars,SAAR
+2023Q1,RPCE,Real Personal Consumption Expenditures,11365.22,billions_of_chained_2017_dollars,SAAR
+2023Q2,RPCE,Real Personal Consumption Expenditures,11342.02,billions_of_chained_2017_dollars,SAAR
+2023Q3,RPCE,Real Personal Consumption Expenditures,11346.4,billions_of_chained_2017_dollars,SAAR
+2023Q4,RPCE,Real Personal Consumption Expenditures,11379.72,billions_of_chained_2017_dollars,SAAR
+2024Q1,RPCE,Real Personal Consumption Expenditures,11441.84,billions_of_chained_2017_dollars,SAAR
+2024Q2,RPCE,Real Personal Consumption Expenditures,11531.09,billions_of_chained_2017_dollars,SAAR
+2024Q3,RPCE,Real Personal Consumption Expenditures,11644.48,billions_of_chained_2017_dollars,SAAR
+2024Q4,RPCE,Real Personal Consumption Expenditures,11777.74,billions_of_chained_2017_dollars,SAAR
+2025Q1,RPCE,Real Personal Consumption Expenditures,11925.62,billions_of_chained_2017_dollars,SAAR
+2025Q2,RPCE,Real Personal Consumption Expenditures,12082.12,billions_of_chained_2017_dollars,SAAR
+1988Q1,RPFI,Real Private Fixed Investment,1872.99,billions_of_chained_2017_dollars,SAAR
+1988Q2,RPFI,Real Private Fixed Investment,1949.78,billions_of_chained_2017_dollars,SAAR
+1988Q3,RPFI,Real Private Fixed Investment,2027.04,billions_of_chained_2017_dollars,SAAR
+1988Q4,RPFI,Real Private Fixed Investment,2100.88,billions_of_chained_2017_dollars,SAAR
+1989Q1,RPFI,Real Private Fixed Investment,2167.16,billions_of_chained_2017_dollars,SAAR
+1989Q2,RPFI,Real Private Fixed Investment,2221.9,billions_of_chained_2017_dollars,SAAR
+1989Q3,RPFI,Real Private Fixed Investment,2261.65,billions_of_chained_2017_dollars,SAAR
+1989Q4,RPFI,Real Private Fixed Investment,2283.94,billions_of_chained_2017_dollars,SAAR
+1990Q1,RPFI,Real Private Fixed Investment,2287.6,billions_of_chained_2017_dollars,SAAR
+1990Q2,RPFI,Real Private Fixed Investment,2272.93,billions_of_chained_2017_dollars,SAAR
+1990Q3,RPFI,Real Private Fixed Investment,2241.65,billions_of_chained_2017_dollars,SAAR
+1990Q4,RPFI,Real Private Fixed Investment,2196.72,billions_of_chained_2017_dollars,SAAR
+1991Q1,RPFI,Real Private Fixed Investment,2141.89,billions_of_chained_2017_dollars,SAAR
+1991Q2,RPFI,Real Private Fixed Investment,2081.37,billions_of_chained_2017_dollars,SAAR
+1991Q3,RPFI,Real Private Fixed Investment,2019.34,billions_of_chained_2017_dollars,SAAR
+1991Q4,RPFI,Real Private Fixed Investment,1959.7,billions_of_chained_2017_dollars,SAAR
+1992Q1,RPFI,Real Private Fixed Investment,1905.79,billions_of_chained_2017_dollars,SAAR
+1992Q2,RPFI,Real Private Fixed Investment,1860.29,billions_of_chained_2017_dollars,SAAR
+1992Q3,RPFI,Real Private Fixed Investment,1825.21,billions_of_chained_2017_dollars,SAAR
+1992Q4,RPFI,Real Private Fixed Investment,1801.92,billions_of_chained_2017_dollars,SAAR
+1993Q1,RPFI,Real Private Fixed Investment,1791.17,billions_of_chained_2017_dollars,SAAR
+1993Q2,RPFI,Real Private Fixed Investment,1793.22,billions_of_chained_2017_dollars,SAAR
+1993Q3,RPFI,Real Private Fixed Investment,1807.81,billions_of_chained_2017_dollars,SAAR
+1993Q4,RPFI,Real Private Fixed Investment,1834.21,billions_of_chained_2017_dollars,SAAR
+1994Q1,RPFI,Real Private Fixed Investment,1871.24,billions_of_chained_2017_dollars,SAAR
+1994Q2,RPFI,Real Private Fixed Investment,1917.25,billions_of_chained_2017_dollars,SAAR
+1994Q3,RPFI,Real Private Fixed Investment,1970.15,billions_of_chained_2017_dollars,SAAR
+1994Q4,RPFI,Real Private Fixed Investment,2027.47,billions_of_chained_2017_dollars,SAAR
+1995Q1,RPFI,Real Private Fixed Investment,2086.47,billions_of_chained_2017_dollars,SAAR
+1995Q2,RPFI,Real Private Fixed Investment,2144.3,billions_of_chained_2017_dollars,SAAR
+1995Q3,RPFI,Real Private Fixed Investment,2198.23,billions_of_chained_2017_dollars,SAAR
+1995Q4,RPFI,Real Private Fixed Investment,2245.91,billions_of_chained_2017_dollars,SAAR
+1996Q1,RPFI,Real Private Fixed Investment,2285.58,billions_of_chained_2017_dollars,SAAR
+1996Q2,RPFI,Real Private Fixed Investment,2316.27,billions_of_chained_2017_dollars,SAAR
+1996Q3,RPFI,Real Private Fixed Investment,2337.89,billions_of_chained_2017_dollars,SAAR
+1996Q4,RPFI,Real Private Fixed Investment,2351.26,billions_of_chained_2017_dollars,SAAR
+1997Q1,RPFI,Real Private Fixed Investment,2357.96,billions_of_chained_2017_dollars,SAAR
+1997Q2,RPFI,Real Private Fixed Investment,2360.15,billions_of_chained_2017_dollars,SAAR
+1997Q3,RPFI,Real Private Fixed Investment,2360.36,billions_of_chained_2017_dollars,SAAR
+1997Q4,RPFI,Real Private Fixed Investment,2361.21,billions_of_chained_2017_dollars,SAAR
+1998Q1,RPFI,Real Private Fixed Investment,2365.22,billions_of_chained_2017_dollars,SAAR
+1998Q2,RPFI,Real Private Fixed Investment,2374.58,billions_of_chained_2017_dollars,SAAR
+1998Q3,RPFI,Real Private Fixed Investment,2391.04,billions_of_chained_2017_dollars,SAAR
+1998Q4,RPFI,Real Private Fixed Investment,2415.78,billions_of_chained_2017_dollars,SAAR
+1999Q1,RPFI,Real Private Fixed Investment,2449.3,billions_of_chained_2017_dollars,SAAR
+1999Q2,RPFI,Real Private Fixed Investment,2491.39,billions_of_chained_2017_dollars,SAAR
+1999Q3,RPFI,Real Private Fixed Investment,2541.07,billions_of_chained_2017_dollars,SAAR
+1999Q4,RPFI,Real Private Fixed Investment,2596.54,billions_of_chained_2017_dollars,SAAR
+2000Q1,RPFI,Real Private Fixed Investment,2655.28,billions_of_chained_2017_dollars,SAAR
+2000Q2,RPFI,Real Private Fixed Investment,2714.06,billions_of_chained_2017_dollars,SAAR
+2000Q3,RPFI,Real Private Fixed Investment,2769.18,billions_of_chained_2017_dollars,SAAR
+2000Q4,RPFI,Real Private Fixed Investment,2816.73,billions_of_chained_2017_dollars,SAAR
+2001Q1,RPFI,Real Private Fixed Investment,2795.34,billions_of_chained_2017_dollars,SAAR
+2001Q2,RPFI,Real Private Fixed Investment,2769.1,billions_of_chained_2017_dollars,SAAR
+2001Q3,RPFI,Real Private Fixed Investment,2703.96,billions_of_chained_2017_dollars,SAAR
+2001Q4,RPFI,Real Private Fixed Investment,2664.52,billions_of_chained_2017_dollars,SAAR
+2002Q1,RPFI,Real Private Fixed Investment,2636.39,billions_of_chained_2017_dollars,SAAR
+2002Q2,RPFI,Real Private Fixed Investment,2593.88,billions_of_chained_2017_dollars,SAAR
+2002Q3,RPFI,Real Private Fixed Investment,2539.86,billions_of_chained_2017_dollars,SAAR
+2002Q4,RPFI,Real Private Fixed Investment,2478.05,billions_of_chained_2017_dollars,SAAR
+2003Q1,RPFI,Real Private Fixed Investment,2412.64,billions_of_chained_2017_dollars,SAAR
+2003Q2,RPFI,Real Private Fixed Investment,2347.94,billions_of_chained_2017_dollars,SAAR
+2003Q3,RPFI,Real Private Fixed Investment,2288.01,billions_of_chained_2017_dollars,SAAR
+2003Q4,RPFI,Real Private Fixed Investment,2236.48,billions_of_chained_2017_dollars,SAAR
+2004Q1,RPFI,Real Private Fixed Investment,2196.44,billions_of_chained_2017_dollars,SAAR
+2004Q2,RPFI,Real Private Fixed Investment,2170.36,billions_of_chained_2017_dollars,SAAR
+2004Q3,RPFI,Real Private Fixed Investment,2160.12,billions_of_chained_2017_dollars,SAAR
+2004Q4,RPFI,Real Private Fixed Investment,2167.03,billions_of_chained_2017_dollars,SAAR
+2005Q1,RPFI,Real Private Fixed Investment,2191.87,billions_of_chained_2017_dollars,SAAR
+2005Q2,RPFI,Real Private Fixed Investment,2234.88,billions_of_chained_2017_dollars,SAAR
+2005Q3,RPFI,Real Private Fixed Investment,2295.71,billions_of_chained_2017_dollars,SAAR
+2005Q4,RPFI,Real Private Fixed Investment,2373.33,billions_of_chained_2017_dollars,SAAR
+2006Q1,RPFI,Real Private Fixed Investment,2465.93,billions_of_chained_2017_dollars,SAAR
+2006Q2,RPFI,Real Private Fixed Investment,2570.84,billions_of_chained_2017_dollars,SAAR
+2006Q3,RPFI,Real Private Fixed Investment,2684.48,billions_of_chained_2017_dollars,SAAR
+2006Q4,RPFI,Real Private Fixed Investment,2802.37,billions_of_chained_2017_dollars,SAAR
+2007Q1,RPFI,Real Private Fixed Investment,2919.35,billions_of_chained_2017_dollars,SAAR
+2007Q2,RPFI,Real Private Fixed Investment,3029.89,billions_of_chained_2017_dollars,SAAR
+2007Q3,RPFI,Real Private Fixed Investment,3128.52,billions_of_chained_2017_dollars,SAAR
+2007Q4,RPFI,Real Private Fixed Investment,3210.44,billions_of_chained_2017_dollars,SAAR
+2008Q1,RPFI,Real Private Fixed Investment,3271.95,billions_of_chained_2017_dollars,SAAR
+2008Q2,RPFI,Real Private Fixed Investment,3310.97,billions_of_chained_2017_dollars,SAAR
+2008Q3,RPFI,Real Private Fixed Investment,3226.96,billions_of_chained_2017_dollars,SAAR
+2008Q4,RPFI,Real Private Fixed Investment,2984.83,billions_of_chained_2017_dollars,SAAR
+2009Q1,RPFI,Real Private Fixed Investment,2807.11,billions_of_chained_2017_dollars,SAAR
+2009Q2,RPFI,Real Private Fixed Investment,2728.81,billions_of_chained_2017_dollars,SAAR
+2009Q3,RPFI,Real Private Fixed Investment,2690.29,billions_of_chained_2017_dollars,SAAR
+2009Q4,RPFI,Real Private Fixed Investment,2648.44,billions_of_chained_2017_dollars,SAAR
+2010Q1,RPFI,Real Private Fixed Investment,2607.22,billions_of_chained_2017_dollars,SAAR
+2010Q2,RPFI,Real Private Fixed Investment,2570.1,billions_of_chained_2017_dollars,SAAR
+2010Q3,RPFI,Real Private Fixed Investment,2539.85,billions_of_chained_2017_dollars,SAAR
+2010Q4,RPFI,Real Private Fixed Investment,2518.45,billions_of_chained_2017_dollars,SAAR
+2011Q1,RPFI,Real Private Fixed Investment,2507.13,billions_of_chained_2017_dollars,SAAR
+2011Q2,RPFI,Real Private Fixed Investment,2506.28,billions_of_chained_2017_dollars,SAAR
+2011Q3,RPFI,Real Private Fixed Investment,2515.59,billions_of_chained_2017_dollars,SAAR
+2011Q4,RPFI,Real Private Fixed Investment,2534.01,billions_of_chained_2017_dollars,SAAR
+2012Q1,RPFI,Real Private Fixed Investment,2559.88,billions_of_chained_2017_dollars,SAAR
+2012Q2,RPFI,Real Private Fixed Investment,2590.97,billions_of_chained_2017_dollars,SAAR
+2012Q3,RPFI,Real Private Fixed Investment,2624.64,billions_of_chained_2017_dollars,SAAR
+2012Q4,RPFI,Real Private Fixed Investment,2658.02,billions_of_chained_2017_dollars,SAAR
+2013Q1,RPFI,Real Private Fixed Investment,2688.24,billions_of_chained_2017_dollars,SAAR
+2013Q2,RPFI,Real Private Fixed Investment,2712.68,billions_of_chained_2017_dollars,SAAR
+2013Q3,RPFI,Real Private Fixed Investment,2729.25,billions_of_chained_2017_dollars,SAAR
+2013Q4,RPFI,Real Private Fixed Investment,2736.65,billions_of_chained_2017_dollars,SAAR
+2014Q1,RPFI,Real Private Fixed Investment,2734.52,billions_of_chained_2017_dollars,SAAR
+2014Q2,RPFI,Real Private Fixed Investment,2723.49,billions_of_chained_2017_dollars,SAAR
+2014Q3,RPFI,Real Private Fixed Investment,2705.19,billions_of_chained_2017_dollars,SAAR
+2014Q4,RPFI,Real Private Fixed Investment,2682.04,billions_of_chained_2017_dollars,SAAR
+2015Q1,RPFI,Real Private Fixed Investment,2657.03,billions_of_chained_2017_dollars,SAAR
+2015Q2,RPFI,Real Private Fixed Investment,2633.5,billions_of_chained_2017_dollars,SAAR
+2015Q3,RPFI,Real Private Fixed Investment,2614.85,billions_of_chained_2017_dollars,SAAR
+2015Q4,RPFI,Real Private Fixed Investment,2604.34,billions_of_chained_2017_dollars,SAAR
+2016Q1,RPFI,Real Private Fixed Investment,2604.92,billions_of_chained_2017_dollars,SAAR
+2016Q2,RPFI,Real Private Fixed Investment,2619.11,billions_of_chained_2017_dollars,SAAR
+2016Q3,RPFI,Real Private Fixed Investment,2648.88,billions_of_chained_2017_dollars,SAAR
+2016Q4,RPFI,Real Private Fixed Investment,2695.63,billions_of_chained_2017_dollars,SAAR
+2017Q1,RPFI,Real Private Fixed Investment,2760.04,billions_of_chained_2017_dollars,SAAR
+2017Q2,RPFI,Real Private Fixed Investment,2841.99,billions_of_chained_2017_dollars,SAAR
+2017Q3,RPFI,Real Private Fixed Investment,2940.41,billions_of_chained_2017_dollars,SAAR
+2017Q4,RPFI,Real Private Fixed Investment,3053.19,billions_of_chained_2017_dollars,SAAR
+2018Q1,RPFI,Real Private Fixed Investment,3176.99,billions_of_chained_2017_dollars,SAAR
+2018Q2,RPFI,Real Private Fixed Investment,3307.26,billions_of_chained_2017_dollars,SAAR
+2018Q3,RPFI,Real Private Fixed Investment,3438.3,billions_of_chained_2017_dollars,SAAR
+2018Q4,RPFI,Real Private Fixed Investment,3563.54,billions_of_chained_2017_dollars,SAAR
+2019Q1,RPFI,Real Private Fixed Investment,3675.98,billions_of_chained_2017_dollars,SAAR
+2019Q2,RPFI,Real Private Fixed Investment,3768.83,billions_of_chained_2017_dollars,SAAR
+2019Q3,RPFI,Real Private Fixed Investment,3836.25,billions_of_chained_2017_dollars,SAAR
+2019Q4,RPFI,Real Private Fixed Investment,3874.05,billions_of_chained_2017_dollars,SAAR
+2020Q1,RPFI,Real Private Fixed Investment,3750.55,billions_of_chained_2017_dollars,SAAR
+2020Q2,RPFI,Real Private Fixed Investment,3225.11,billions_of_chained_2017_dollars,SAAR
+2020Q3,RPFI,Real Private Fixed Investment,3492.49,billions_of_chained_2017_dollars,SAAR
+2020Q4,RPFI,Real Private Fixed Investment,3528.82,billions_of_chained_2017_dollars,SAAR
+2021Q1,RPFI,Real Private Fixed Investment,3440.75,billions_of_chained_2017_dollars,SAAR
+2021Q2,RPFI,Real Private Fixed Investment,3343.52,billions_of_chained_2017_dollars,SAAR
+2021Q3,RPFI,Real Private Fixed Investment,3243.88,billions_of_chained_2017_dollars,SAAR
+2021Q4,RPFI,Real Private Fixed Investment,3148.08,billions_of_chained_2017_dollars,SAAR
+2022Q1,RPFI,Real Private Fixed Investment,3061.47,billions_of_chained_2017_dollars,SAAR
+2022Q2,RPFI,Real Private Fixed Investment,2963.09,billions_of_chained_2017_dollars,SAAR
+2022Q3,RPFI,Real Private Fixed Investment,2907.22,billions_of_chained_2017_dollars,SAAR
+2022Q4,RPFI,Real Private Fixed Investment,2870.11,billions_of_chained_2017_dollars,SAAR
+2023Q1,RPFI,Real Private Fixed Investment,2853.0,billions_of_chained_2017_dollars,SAAR
+2023Q2,RPFI,Real Private Fixed Investment,2856.26,billions_of_chained_2017_dollars,SAAR
+2023Q3,RPFI,Real Private Fixed Investment,2879.5,billions_of_chained_2017_dollars,SAAR
+2023Q4,RPFI,Real Private Fixed Investment,2921.55,billions_of_chained_2017_dollars,SAAR
+2024Q1,RPFI,Real Private Fixed Investment,2980.53,billions_of_chained_2017_dollars,SAAR
+2024Q2,RPFI,Real Private Fixed Investment,3053.81,billions_of_chained_2017_dollars,SAAR
+2024Q3,RPFI,Real Private Fixed Investment,3138.07,billions_of_chained_2017_dollars,SAAR
+2024Q4,RPFI,Real Private Fixed Investment,3229.37,billions_of_chained_2017_dollars,SAAR
+2025Q1,RPFI,Real Private Fixed Investment,3323.35,billions_of_chained_2017_dollars,SAAR
+2025Q2,RPFI,Real Private Fixed Investment,3415.46,billions_of_chained_2017_dollars,SAAR
+1988Q1,RGOV,Real Government Consumption and Investment,1921.98,billions_of_chained_2017_dollars,SAAR
+1988Q2,RGOV,Real Government Consumption and Investment,1945.16,billions_of_chained_2017_dollars,SAAR
+1988Q3,RGOV,Real Government Consumption and Investment,1968.69,billions_of_chained_2017_dollars,SAAR
+1988Q4,RGOV,Real Government Consumption and Investment,1991.62,billions_of_chained_2017_dollars,SAAR
+1989Q1,RGOV,Real Government Consumption and Investment,2012.99,billions_of_chained_2017_dollars,SAAR
+1989Q2,RGOV,Real Government Consumption and Investment,2031.87,billions_of_chained_2017_dollars,SAAR
+1989Q3,RGOV,Real Government Consumption and Investment,2047.45,billions_of_chained_2017_dollars,SAAR
+1989Q4,RGOV,Real Government Consumption and Investment,2059.09,billions_of_chained_2017_dollars,SAAR
+1990Q1,RGOV,Real Government Consumption and Investment,2066.39,billions_of_chained_2017_dollars,SAAR
+1990Q2,RGOV,Real Government Consumption and Investment,2069.2,billions_of_chained_2017_dollars,SAAR
+1990Q3,RGOV,Real Government Consumption and Investment,2067.66,billions_of_chained_2017_dollars,SAAR
+1990Q4,RGOV,Real Government Consumption and Investment,2062.18,billions_of_chained_2017_dollars,SAAR
+1991Q1,RGOV,Real Government Consumption and Investment,2053.39,billions_of_chained_2017_dollars,SAAR
+1991Q2,RGOV,Real Government Consumption and Investment,2042.15,billions_of_chained_2017_dollars,SAAR
+1991Q3,RGOV,Real Government Consumption and Investment,2029.41,billions_of_chained_2017_dollars,SAAR
+1991Q4,RGOV,Real Government Consumption and Investment,2016.18,billions_of_chained_2017_dollars,SAAR
+1992Q1,RGOV,Real Government Consumption and Investment,2003.49,billions_of_chained_2017_dollars,SAAR
+1992Q2,RGOV,Real Government Consumption and Investment,1992.26,billions_of_chained_2017_dollars,SAAR
+1992Q3,RGOV,Real Government Consumption and Investment,1983.33,billions_of_chained_2017_dollars,SAAR
+1992Q4,RGOV,Real Government Consumption and Investment,1977.36,billions_of_chained_2017_dollars,SAAR
+1993Q1,RGOV,Real Government Consumption and Investment,1974.83,billions_of_chained_2017_dollars,SAAR
+1993Q2,RGOV,Real Government Consumption and Investment,1976.01,billions_of_chained_2017_dollars,SAAR
+1993Q3,RGOV,Real Government Consumption and Investment,1980.99,billions_of_chained_2017_dollars,SAAR
+1993Q4,RGOV,Real Government Consumption and Investment,1989.64,billions_of_chained_2017_dollars,SAAR
+1994Q1,RGOV,Real Government Consumption and Investment,2001.63,billions_of_chained_2017_dollars,SAAR
+1994Q2,RGOV,Real Government Consumption and Investment,2016.48,billions_of_chained_2017_dollars,SAAR
+1994Q3,RGOV,Real Government Consumption and Investment,2033.54,billions_of_chained_2017_dollars,SAAR
+1994Q4,RGOV,Real Government Consumption and Investment,2052.08,billions_of_chained_2017_dollars,SAAR
+1995Q1,RGOV,Real Government Consumption and Investment,2071.3,billions_of_chained_2017_dollars,SAAR
+1995Q2,RGOV,Real Government Consumption and Investment,2090.39,billions_of_chained_2017_dollars,SAAR
+1995Q3,RGOV,Real Government Consumption and Investment,2108.59,billions_of_chained_2017_dollars,SAAR
+1995Q4,RGOV,Real Government Consumption and Investment,2125.24,billions_of_chained_2017_dollars,SAAR
+1996Q1,RGOV,Real Government Consumption and Investment,2139.85,billions_of_chained_2017_dollars,SAAR
+1996Q2,RGOV,Real Government Consumption and Investment,2152.08,billions_of_chained_2017_dollars,SAAR
+1996Q3,RGOV,Real Government Consumption and Investment,2161.82,billions_of_chained_2017_dollars,SAAR
+1996Q4,RGOV,Real Government Consumption and Investment,2169.19,billions_of_chained_2017_dollars,SAAR
+1997Q1,RGOV,Real Government Consumption and Investment,2174.48,billions_of_chained_2017_dollars,SAAR
+1997Q2,RGOV,Real Government Consumption and Investment,2178.17,billions_of_chained_2017_dollars,SAAR
+1997Q3,RGOV,Real Government Consumption and Investment,2180.85,billions_of_chained_2017_dollars,SAAR
+1997Q4,RGOV,Real Government Consumption and Investment,2183.18,billions_of_chained_2017_dollars,SAAR
+1998Q1,RGOV,Real Government Consumption and Investment,2185.85,billions_of_chained_2017_dollars,SAAR
+1998Q2,RGOV,Real Government Consumption and Investment,2189.49,billions_of_chained_2017_dollars,SAAR
+1998Q3,RGOV,Real Government Consumption and Investment,2194.66,billions_of_chained_2017_dollars,SAAR
+1998Q4,RGOV,Real Government Consumption and Investment,2201.77,billions_of_chained_2017_dollars,SAAR
+1999Q1,RGOV,Real Government Consumption and Investment,2211.06,billions_of_chained_2017_dollars,SAAR
+1999Q2,RGOV,Real Government Consumption and Investment,2222.6,billions_of_chained_2017_dollars,SAAR
+1999Q3,RGOV,Real Government Consumption and Investment,2236.23,billions_of_chained_2017_dollars,SAAR
+1999Q4,RGOV,Real Government Consumption and Investment,2251.62,billions_of_chained_2017_dollars,SAAR
+2000Q1,RGOV,Real Government Consumption and Investment,2268.25,billions_of_chained_2017_dollars,SAAR
+2000Q2,RGOV,Real Government Consumption and Investment,2285.44,billions_of_chained_2017_dollars,SAAR
+2000Q3,RGOV,Real Government Consumption and Investment,2302.4,billions_of_chained_2017_dollars,SAAR
+2000Q4,RGOV,Real Government Consumption and Investment,2318.3,billions_of_chained_2017_dollars,SAAR
+2001Q1,RGOV,Real Government Consumption and Investment,2321.11,billions_of_chained_2017_dollars,SAAR
+2001Q2,RGOV,Real Government Consumption and Investment,2323.04,billions_of_chained_2017_dollars,SAAR
+2001Q3,RGOV,Real Government Consumption and Investment,2317.02,billions_of_chained_2017_dollars,SAAR
+2001Q4,RGOV,Real Government Consumption and Investment,2315.66,billions_of_chained_2017_dollars,SAAR
+2002Q1,RGOV,Real Government Consumption and Investment,2315.99,billions_of_chained_2017_dollars,SAAR
+2002Q2,RGOV,Real Government Consumption and Investment,2312.55,billions_of_chained_2017_dollars,SAAR
+2002Q3,RGOV,Real Government Consumption and Investment,2305.7,billions_of_chained_2017_dollars,SAAR
+2002Q4,RGOV,Real Government Consumption and Investment,2296.02,billions_of_chained_2017_dollars,SAAR
+2003Q1,RGOV,Real Government Consumption and Investment,2284.34,billions_of_chained_2017_dollars,SAAR
+2003Q2,RGOV,Real Government Consumption and Investment,2271.6,billions_of_chained_2017_dollars,SAAR
+2003Q3,RGOV,Real Government Consumption and Investment,2258.87,billions_of_chained_2017_dollars,SAAR
+2003Q4,RGOV,Real Government Consumption and Investment,2247.2,billions_of_chained_2017_dollars,SAAR
+2004Q1,RGOV,Real Government Consumption and Investment,2237.62,billions_of_chained_2017_dollars,SAAR
+2004Q2,RGOV,Real Government Consumption and Investment,2231.06,billions_of_chained_2017_dollars,SAAR
+2004Q3,RGOV,Real Government Consumption and Investment,2228.3,billions_of_chained_2017_dollars,SAAR
+2004Q4,RGOV,Real Government Consumption and Investment,2229.92,billions_of_chained_2017_dollars,SAAR
+2005Q1,RGOV,Real Government Consumption and Investment,2236.31,billions_of_chained_2017_dollars,SAAR
+2005Q2,RGOV,Real Government Consumption and Investment,2247.61,billions_of_chained_2017_dollars,SAAR
+2005Q3,RGOV,Real Government Consumption and Investment,2263.73,billions_of_chained_2017_dollars,SAAR
+2005Q4,RGOV,Real Government Consumption and Investment,2284.32,billions_of_chained_2017_dollars,SAAR
+2006Q1,RGOV,Real Government Consumption and Investment,2308.82,billions_of_chained_2017_dollars,SAAR
+2006Q2,RGOV,Real Government Consumption and Investment,2336.44,billions_of_chained_2017_dollars,SAAR
+2006Q3,RGOV,Real Government Consumption and Investment,2366.21,billions_of_chained_2017_dollars,SAAR
+2006Q4,RGOV,Real Government Consumption and Investment,2397.02,billions_of_chained_2017_dollars,SAAR
+2007Q1,RGOV,Real Government Consumption and Investment,2427.7,billions_of_chained_2017_dollars,SAAR
+2007Q2,RGOV,Real Government Consumption and Investment,2457.05,billions_of_chained_2017_dollars,SAAR
+2007Q3,RGOV,Real Government Consumption and Investment,2483.96,billions_of_chained_2017_dollars,SAAR
+2007Q4,RGOV,Real Government Consumption and Investment,2507.46,billions_of_chained_2017_dollars,SAAR
+2008Q1,RGOV,Real Government Consumption and Investment,2526.79,billions_of_chained_2017_dollars,SAAR
+2008Q2,RGOV,Real Government Consumption and Investment,2541.49,billions_of_chained_2017_dollars,SAAR
+2008Q3,RGOV,Real Government Consumption and Investment,2533.07,billions_of_chained_2017_dollars,SAAR
+2008Q4,RGOV,Real Government Consumption and Investment,2492.98,billions_of_chained_2017_dollars,SAAR
+2009Q1,RGOV,Real Government Consumption and Investment,2462.23,billions_of_chained_2017_dollars,SAAR
+2009Q2,RGOV,Real Government Consumption and Investment,2449.98,billions_of_chained_2017_dollars,SAAR
+2009Q3,RGOV,Real Government Consumption and Investment,2445.02,billions_of_chained_2017_dollars,SAAR
+2009Q4,RGOV,Real Government Consumption and Investment,2438.49,billions_of_chained_2017_dollars,SAAR
+2010Q1,RGOV,Real Government Consumption and Investment,2431.38,billions_of_chained_2017_dollars,SAAR
+2010Q2,RGOV,Real Government Consumption and Investment,2424.64,billions_of_chained_2017_dollars,SAAR
+2010Q3,RGOV,Real Government Consumption and Investment,2419.14,billions_of_chained_2017_dollars,SAAR
+2010Q4,RGOV,Real Government Consumption and Investment,2415.6,billions_of_chained_2017_dollars,SAAR
+2011Q1,RGOV,Real Government Consumption and Investment,2414.51,billions_of_chained_2017_dollars,SAAR
+2011Q2,RGOV,Real Government Consumption and Investment,2416.21,billions_of_chained_2017_dollars,SAAR
+2011Q3,RGOV,Real Government Consumption and Investment,2420.76,billions_of_chained_2017_dollars,SAAR
+2011Q4,RGOV,Real Government Consumption and Investment,2428.02,billions_of_chained_2017_dollars,SAAR
+2012Q1,RGOV,Real Government Consumption and Investment,2437.66,billions_of_chained_2017_dollars,SAAR
+2012Q2,RGOV,Real Government Consumption and Investment,2449.16,billions_of_chained_2017_dollars,SAAR
+2012Q3,RGOV,Real Government Consumption and Investment,2461.86,billions_of_chained_2017_dollars,SAAR
+2012Q4,RGOV,Real Government Consumption and Investment,2475.02,billions_of_chained_2017_dollars,SAAR
+2013Q1,RGOV,Real Government Consumption and Investment,2487.87,billions_of_chained_2017_dollars,SAAR
+2013Q2,RGOV,Real Government Consumption and Investment,2499.68,billions_of_chained_2017_dollars,SAAR
+2013Q3,RGOV,Real Government Consumption and Investment,2509.8,billions_of_chained_2017_dollars,SAAR
+2013Q4,RGOV,Real Government Consumption and Investment,2517.76,billions_of_chained_2017_dollars,SAAR
+2014Q1,RGOV,Real Government Consumption and Investment,2523.28,billions_of_chained_2017_dollars,SAAR
+2014Q2,RGOV,Real Government Consumption and Investment,2526.3,billions_of_chained_2017_dollars,SAAR
+2014Q3,RGOV,Real Government Consumption and Investment,2527.02,billions_of_chained_2017_dollars,SAAR
+2014Q4,RGOV,Real Government Consumption and Investment,2525.86,billions_of_chained_2017_dollars,SAAR
+2015Q1,RGOV,Real Government Consumption and Investment,2523.44,billions_of_chained_2017_dollars,SAAR
+2015Q2,RGOV,Real Government Consumption and Investment,2520.54,billions_of_chained_2017_dollars,SAAR
+2015Q3,RGOV,Real Government Consumption and Investment,2518.03,billions_of_chained_2017_dollars,SAAR
+2015Q4,RGOV,Real Government Consumption and Investment,2516.83,billions_of_chained_2017_dollars,SAAR
+2016Q1,RGOV,Real Government Consumption and Investment,2517.8,billions_of_chained_2017_dollars,SAAR
+2016Q2,RGOV,Real Government Consumption and Investment,2521.75,billions_of_chained_2017_dollars,SAAR
+2016Q3,RGOV,Real Government Consumption and Investment,2529.31,billions_of_chained_2017_dollars,SAAR
+2016Q4,RGOV,Real Government Consumption and Investment,2540.95,billions_of_chained_2017_dollars,SAAR
+2017Q1,RGOV,Real Government Consumption and Investment,2556.9,billions_of_chained_2017_dollars,SAAR
+2017Q2,RGOV,Real Government Consumption and Investment,2577.14,billions_of_chained_2017_dollars,SAAR
+2017Q3,RGOV,Real Government Consumption and Investment,2601.4,billions_of_chained_2017_dollars,SAAR
+2017Q4,RGOV,Real Government Consumption and Investment,2629.13,billions_of_chained_2017_dollars,SAAR
+2018Q1,RGOV,Real Government Consumption and Investment,2659.55,billions_of_chained_2017_dollars,SAAR
+2018Q2,RGOV,Real Government Consumption and Investment,2691.63,billions_of_chained_2017_dollars,SAAR
+2018Q3,RGOV,Real Government Consumption and Investment,2724.18,billions_of_chained_2017_dollars,SAAR
+2018Q4,RGOV,Real Government Consumption and Investment,2755.91,billions_of_chained_2017_dollars,SAAR
+2019Q1,RGOV,Real Government Consumption and Investment,2785.48,billions_of_chained_2017_dollars,SAAR
+2019Q2,RGOV,Real Government Consumption and Investment,2811.61,billions_of_chained_2017_dollars,SAAR
+2019Q3,RGOV,Real Government Consumption and Investment,2833.17,billions_of_chained_2017_dollars,SAAR
+2019Q4,RGOV,Real Government Consumption and Investment,2849.28,billions_of_chained_2017_dollars,SAAR
+2020Q1,RGOV,Real Government Consumption and Investment,2836.59,billions_of_chained_2017_dollars,SAAR
+2020Q2,RGOV,Real Government Consumption and Investment,2745.5,billions_of_chained_2017_dollars,SAAR
+2020Q3,RGOV,Real Government Consumption and Investment,2804.48,billions_of_chained_2017_dollars,SAAR
+2020Q4,RGOV,Real Government Consumption and Investment,2817.25,billions_of_chained_2017_dollars,SAAR
+2021Q1,RGOV,Real Government Consumption and Investment,2805.25,billions_of_chained_2017_dollars,SAAR
+2021Q2,RGOV,Real Government Consumption and Investment,2789.89,billions_of_chained_2017_dollars,SAAR
+2021Q3,RGOV,Real Government Consumption and Investment,2772.48,billions_of_chained_2017_dollars,SAAR
+2021Q4,RGOV,Real Government Consumption and Investment,2754.42,billions_of_chained_2017_dollars,SAAR
+2022Q1,RGOV,Real Government Consumption and Investment,2737.07,billions_of_chained_2017_dollars,SAAR
+2022Q2,RGOV,Real Government Consumption and Investment,2716.3,billions_of_chained_2017_dollars,SAAR
+2022Q3,RGOV,Real Government Consumption and Investment,2704.12,billions_of_chained_2017_dollars,SAAR
+2022Q4,RGOV,Real Government Consumption and Investment,2695.98,billions_of_chained_2017_dollars,SAAR
+2023Q1,RGOV,Real Government Consumption and Investment,2692.53,billions_of_chained_2017_dollars,SAAR
+2023Q2,RGOV,Real Government Consumption and Investment,2694.15,billions_of_chained_2017_dollars,SAAR
+2023Q3,RGOV,Real Government Consumption and Investment,2700.94,billions_of_chained_2017_dollars,SAAR
+2023Q4,RGOV,Real Government Consumption and Investment,2712.73,billions_of_chained_2017_dollars,SAAR
+2024Q1,RGOV,Real Government Consumption and Investment,2729.08,billions_of_chained_2017_dollars,SAAR
+2024Q2,RGOV,Real Government Consumption and Investment,2749.31,billions_of_chained_2017_dollars,SAAR
+2024Q3,RGOV,Real Government Consumption and Investment,2772.58,billions_of_chained_2017_dollars,SAAR
+2024Q4,RGOV,Real Government Consumption and Investment,2797.85,billions_of_chained_2017_dollars,SAAR
+2025Q1,RGOV,Real Government Consumption and Investment,2824.06,billions_of_chained_2017_dollars,SAAR
+2025Q2,RGOV,Real Government Consumption and Investment,2850.08,billions_of_chained_2017_dollars,SAAR
+1988Q1,REXP,Real Exports of Goods and Services,929.41,billions_of_chained_2017_dollars,SAAR
+1988Q2,REXP,Real Exports of Goods and Services,958.79,billions_of_chained_2017_dollars,SAAR
+1988Q3,REXP,Real Exports of Goods and Services,986.71,billions_of_chained_2017_dollars,SAAR
+1988Q4,REXP,Real Exports of Goods and Services,1011.67,billions_of_chained_2017_dollars,SAAR
+1989Q1,REXP,Real Exports of Goods and Services,1032.28,billions_of_chained_2017_dollars,SAAR
+1989Q2,REXP,Real Exports of Goods and Services,1047.34,billions_of_chained_2017_dollars,SAAR
+1989Q3,REXP,Real Exports of Goods and Services,1056.04,billions_of_chained_2017_dollars,SAAR
+1989Q4,REXP,Real Exports of Goods and Services,1058.01,billions_of_chained_2017_dollars,SAAR
+1990Q1,REXP,Real Exports of Goods and Services,1053.41,billions_of_chained_2017_dollars,SAAR
+1990Q2,REXP,Real Exports of Goods and Services,1042.86,billions_of_chained_2017_dollars,SAAR
+1990Q3,REXP,Real Exports of Goods and Services,1027.42,billions_of_chained_2017_dollars,SAAR
+1990Q4,REXP,Real Exports of Goods and Services,1008.43,billions_of_chained_2017_dollars,SAAR
+1991Q1,REXP,Real Exports of Goods and Services,987.4,billions_of_chained_2017_dollars,SAAR
+1991Q2,REXP,Real Exports of Goods and Services,965.85,billions_of_chained_2017_dollars,SAAR
+1991Q3,REXP,Real Exports of Goods and Services,945.24,billions_of_chained_2017_dollars,SAAR
+1991Q4,REXP,Real Exports of Goods and Services,926.84,billions_of_chained_2017_dollars,SAAR
+1992Q1,REXP,Real Exports of Goods and Services,911.68,billions_of_chained_2017_dollars,SAAR
+1992Q2,REXP,Real Exports of Goods and Services,900.57,billions_of_chained_2017_dollars,SAAR
+1992Q3,REXP,Real Exports of Goods and Services,894.06,billions_of_chained_2017_dollars,SAAR
+1992Q4,REXP,Real Exports of Goods and Services,892.47,billions_of_chained_2017_dollars,SAAR
+1993Q1,REXP,Real Exports of Goods and Services,895.87,billions_of_chained_2017_dollars,SAAR
+1993Q2,REXP,Real Exports of Goods and Services,904.13,billions_of_chained_2017_dollars,SAAR
+1993Q3,REXP,Real Exports of Goods and Services,916.9,billions_of_chained_2017_dollars,SAAR
+1993Q4,REXP,Real Exports of Goods and Services,933.61,billions_of_chained_2017_dollars,SAAR
+1994Q1,REXP,Real Exports of Goods and Services,953.52,billions_of_chained_2017_dollars,SAAR
+1994Q2,REXP,Real Exports of Goods and Services,975.69,billions_of_chained_2017_dollars,SAAR
+1994Q3,REXP,Real Exports of Goods and Services,999.07,billions_of_chained_2017_dollars,SAAR
+1994Q4,REXP,Real Exports of Goods and Services,1022.52,billions_of_chained_2017_dollars,SAAR
+1995Q1,REXP,Real Exports of Goods and Services,1044.91,billions_of_chained_2017_dollars,SAAR
+1995Q2,REXP,Real Exports of Goods and Services,1065.19,billions_of_chained_2017_dollars,SAAR
+1995Q3,REXP,Real Exports of Goods and Services,1082.53,billions_of_chained_2017_dollars,SAAR
+1995Q4,REXP,Real Exports of Goods and Services,1096.35,billions_of_chained_2017_dollars,SAAR
+1996Q1,REXP,Real Exports of Goods and Services,1106.39,billions_of_chained_2017_dollars,SAAR
+1996Q2,REXP,Real Exports of Goods and Services,1112.78,billions_of_chained_2017_dollars,SAAR
+1996Q3,REXP,Real Exports of Goods and Services,1115.95,billions_of_chained_2017_dollars,SAAR
+1996Q4,REXP,Real Exports of Goods and Services,1116.64,billions_of_chained_2017_dollars,SAAR
+1997Q1,REXP,Real Exports of Goods and Services,1115.78,billions_of_chained_2017_dollars,SAAR
+1997Q2,REXP,Real Exports of Goods and Services,1114.43,billions_of_chained_2017_dollars,SAAR
+1997Q3,REXP,Real Exports of Goods and Services,1113.65,billions_of_chained_2017_dollars,SAAR
+1997Q4,REXP,Real Exports of Goods and Services,1114.44,billions_of_chained_2017_dollars,SAAR
+1998Q1,REXP,Real Exports of Goods and Services,1117.67,billions_of_chained_2017_dollars,SAAR
+1998Q2,REXP,Real Exports of Goods and Services,1124.01,billions_of_chained_2017_dollars,SAAR
+1998Q3,REXP,Real Exports of Goods and Services,1133.89,billions_of_chained_2017_dollars,SAAR
+1998Q4,REXP,Real Exports of Goods and Services,1147.48,billions_of_chained_2017_dollars,SAAR
+1999Q1,REXP,Real Exports of Goods and Services,1164.66,billions_of_chained_2017_dollars,SAAR
+1999Q2,REXP,Real Exports of Goods and Services,1185.01,billions_of_chained_2017_dollars,SAAR
+1999Q3,REXP,Real Exports of Goods and Services,1207.79,billions_of_chained_2017_dollars,SAAR
+1999Q4,REXP,Real Exports of Goods and Services,1232.0,billions_of_chained_2017_dollars,SAAR
+2000Q1,REXP,Real Exports of Goods and Services,1256.39,billions_of_chained_2017_dollars,SAAR
+2000Q2,REXP,Real Exports of Goods and Services,1279.52,billions_of_chained_2017_dollars,SAAR
+2000Q3,REXP,Real Exports of Goods and Services,1299.9,billions_of_chained_2017_dollars,SAAR
+2000Q4,REXP,Real Exports of Goods and Services,1316.11,billions_of_chained_2017_dollars,SAAR
+2001Q1,REXP,Real Exports of Goods and Services,1306.38,billions_of_chained_2017_dollars,SAAR
+2001Q2,REXP,Real Exports of Goods and Services,1293.91,billions_of_chained_2017_dollars,SAAR
+2001Q3,REXP,Real Exports of Goods and Services,1266.87,billions_of_chained_2017_dollars,SAAR
+2001Q4,REXP,Real Exports of Goods and Services,1248.77,billions_of_chained_2017_dollars,SAAR
+2002Q1,REXP,Real Exports of Goods and Services,1234.87,billions_of_chained_2017_dollars,SAAR
+2002Q2,REXP,Real Exports of Goods and Services,1216.37,billions_of_chained_2017_dollars,SAAR
+2002Q3,REXP,Real Exports of Goods and Services,1194.64,billions_of_chained_2017_dollars,SAAR
+2002Q4,REXP,Real Exports of Goods and Services,1171.27,billions_of_chained_2017_dollars,SAAR
+2003Q1,REXP,Real Exports of Goods and Services,1147.9,billions_of_chained_2017_dollars,SAAR
+2003Q2,REXP,Real Exports of Goods and Services,1126.16,billions_of_chained_2017_dollars,SAAR
+2003Q3,REXP,Real Exports of Goods and Services,1107.5,billions_of_chained_2017_dollars,SAAR
+2003Q4,REXP,Real Exports of Goods and Services,1093.21,billions_of_chained_2017_dollars,SAAR
+2004Q1,REXP,Real Exports of Goods and Services,1084.33,billions_of_chained_2017_dollars,SAAR
+2004Q2,REXP,Real Exports of Goods and Services,1081.64,billions_of_chained_2017_dollars,SAAR
+2004Q3,REXP,Real Exports of Goods and Services,1085.68,billions_of_chained_2017_dollars,SAAR
+2004Q4,REXP,Real Exports of Goods and Services,1096.73,billions_of_chained_2017_dollars,SAAR
+2005Q1,REXP,Real Exports of Goods and Services,1114.82,billions_of_chained_2017_dollars,SAAR
+2005Q2,REXP,Real Exports of Goods and Services,1139.69,billions_of_chained_2017_dollars,SAAR
+2005Q3,REXP,Real Exports of Goods and Services,1170.79,billions_of_chained_2017_dollars,SAAR
+2005Q4,REXP,Real Exports of Goods and Services,1207.24,billions_of_chained_2017_dollars,SAAR
+2006Q1,REXP,Real Exports of Goods and Services,1247.84,billions_of_chained_2017_dollars,SAAR
+2006Q2,REXP,Real Exports of Goods and Services,1291.07,billions_of_chained_2017_dollars,SAAR
+2006Q3,REXP,Real Exports of Goods and Services,1335.14,billions_of_chained_2017_dollars,SAAR
+2006Q4,REXP,Real Exports of Goods and Services,1378.1,billions_of_chained_2017_dollars,SAAR
+2007Q1,REXP,Real Exports of Goods and Services,1417.93,billions_of_chained_2017_dollars,SAAR
+2007Q2,REXP,Real Exports of Goods and Services,1452.75,billions_of_chained_2017_dollars,SAAR
+2007Q3,REXP,Real Exports of Goods and Services,1480.98,billions_of_chained_2017_dollars,SAAR
+2007Q4,REXP,Real Exports of Goods and Services,1501.54,billions_of_chained_2017_dollars,SAAR
+2008Q1,REXP,Real Exports of Goods and Services,1513.89,billions_of_chained_2017_dollars,SAAR
+2008Q2,REXP,Real Exports of Goods and Services,1518.17,billions_of_chained_2017_dollars,SAAR
+2008Q3,REXP,Real Exports of Goods and Services,1480.06,billions_of_chained_2017_dollars,SAAR
+2008Q4,REXP,Real Exports of Goods and Services,1387.52,billions_of_chained_2017_dollars,SAAR
+2009Q1,REXP,Real Exports of Goods and Services,1318.93,billions_of_chained_2017_dollars,SAAR
+2009Q2,REXP,Real Exports of Goods and Services,1287.67,billions_of_chained_2017_dollars,SAAR
+2009Q3,REXP,Real Exports of Goods and Services,1272.72,billions_of_chained_2017_dollars,SAAR
+2009Q4,REXP,Real Exports of Goods and Services,1258.55,billions_of_chained_2017_dollars,SAAR
+2010Q1,REXP,Real Exports of Goods and Services,1246.45,billions_of_chained_2017_dollars,SAAR
+2010Q2,REXP,Real Exports of Goods and Services,1237.47,billions_of_chained_2017_dollars,SAAR
+2010Q3,REXP,Real Exports of Goods and Services,1232.35,billions_of_chained_2017_dollars,SAAR
+2010Q4,REXP,Real Exports of Goods and Services,1231.51,billions_of_chained_2017_dollars,SAAR
+2011Q1,REXP,Real Exports of Goods and Services,1235.07,billions_of_chained_2017_dollars,SAAR
+2011Q2,REXP,Real Exports of Goods and Services,1242.8,billions_of_chained_2017_dollars,SAAR
+2011Q3,REXP,Real Exports of Goods and Services,1254.23,billions_of_chained_2017_dollars,SAAR
+2011Q4,REXP,Real Exports of Goods and Services,1268.59,billions_of_chained_2017_dollars,SAAR
+2012Q1,REXP,Real Exports of Goods and Services,1284.89,billions_of_chained_2017_dollars,SAAR
+2012Q2,REXP,Real Exports of Goods and Services,1301.98,billions_of_chained_2017_dollars,SAAR
+2012Q3,REXP,Real Exports of Goods and Services,1318.62,billions_of_chained_2017_dollars,SAAR
+2012Q4,REXP,Real Exports of Goods and Services,1333.59,billions_of_chained_2017_dollars,SAAR
+2013Q1,REXP,Real Exports of Goods and Services,1345.79,billions_of_chained_2017_dollars,SAAR
+2013Q2,REXP,Real Exports of Goods and Services,1354.35,billions_of_chained_2017_dollars,SAAR
+2013Q3,REXP,Real Exports of Goods and Services,1358.76,billions_of_chained_2017_dollars,SAAR
+2013Q4,REXP,Real Exports of Goods and Services,1358.87,billions_of_chained_2017_dollars,SAAR
+2014Q1,REXP,Real Exports of Goods and Services,1354.99,billions_of_chained_2017_dollars,SAAR
+2014Q2,REXP,Real Exports of Goods and Services,1347.81,billions_of_chained_2017_dollars,SAAR
+2014Q3,REXP,Real Exports of Goods and Services,1338.34,billions_of_chained_2017_dollars,SAAR
+2014Q4,REXP,Real Exports of Goods and Services,1327.88,billions_of_chained_2017_dollars,SAAR
+2015Q1,REXP,Real Exports of Goods and Services,1317.83,billions_of_chained_2017_dollars,SAAR
+2015Q2,REXP,Real Exports of Goods and Services,1309.63,billions_of_chained_2017_dollars,SAAR
+2015Q3,REXP,Real Exports of Goods and Services,1304.66,billions_of_chained_2017_dollars,SAAR
+2015Q4,REXP,Real Exports of Goods and Services,1304.15,billions_of_chained_2017_dollars,SAAR
+2016Q1,REXP,Real Exports of Goods and Services,1309.14,billions_of_chained_2017_dollars,SAAR
+2016Q2,REXP,Real Exports of Goods and Services,1320.43,billions_of_chained_2017_dollars,SAAR
+2016Q3,REXP,Real Exports of Goods and Services,1338.54,billions_of_chained_2017_dollars,SAAR
+2016Q4,REXP,Real Exports of Goods and Services,1363.66,billions_of_chained_2017_dollars,SAAR
+2017Q1,REXP,Real Exports of Goods and Services,1395.65,billions_of_chained_2017_dollars,SAAR
+2017Q2,REXP,Real Exports of Goods and Services,1433.98,billions_of_chained_2017_dollars,SAAR
+2017Q3,REXP,Real Exports of Goods and Services,1477.69,billions_of_chained_2017_dollars,SAAR
+2017Q4,REXP,Real Exports of Goods and Services,1525.37,billions_of_chained_2017_dollars,SAAR
+2018Q1,REXP,Real Exports of Goods and Services,1575.21,billions_of_chained_2017_dollars,SAAR
+2018Q2,REXP,Real Exports of Goods and Services,1625.02,billions_of_chained_2017_dollars,SAAR
+2018Q3,REXP,Real Exports of Goods and Services,1672.33,billions_of_chained_2017_dollars,SAAR
+2018Q4,REXP,Real Exports of Goods and Services,1714.64,billions_of_chained_2017_dollars,SAAR
+2019Q1,REXP,Real Exports of Goods and Services,1749.56,billions_of_chained_2017_dollars,SAAR
+2019Q2,REXP,Real Exports of Goods and Services,1775.09,billions_of_chained_2017_dollars,SAAR
+2019Q3,REXP,Real Exports of Goods and Services,1789.83,billions_of_chained_2017_dollars,SAAR
+2019Q4,REXP,Real Exports of Goods and Services,1793.18,billions_of_chained_2017_dollars,SAAR
+2020Q1,REXP,Real Exports of Goods and Services,1739.56,billions_of_chained_2017_dollars,SAAR
+2020Q2,REXP,Real Exports of Goods and Services,1541.98,billions_of_chained_2017_dollars,SAAR
+2020Q3,REXP,Real Exports of Goods and Services,1631.75,billions_of_chained_2017_dollars,SAAR
+2020Q4,REXP,Real Exports of Goods and Services,1639.5,billions_of_chained_2017_dollars,SAAR
+2021Q1,REXP,Real Exports of Goods and Services,1605.31,billions_of_chained_2017_dollars,SAAR
+2021Q2,REXP,Real Exports of Goods and Services,1570.29,billions_of_chained_2017_dollars,SAAR
+2021Q3,REXP,Real Exports of Goods and Services,1536.78,billions_of_chained_2017_dollars,SAAR
+2021Q4,REXP,Real Exports of Goods and Services,1506.85,billions_of_chained_2017_dollars,SAAR
+2022Q1,REXP,Real Exports of Goods and Services,1482.21,billions_of_chained_2017_dollars,SAAR
+2022Q2,REXP,Real Exports of Goods and Services,1454.66,billions_of_chained_2017_dollars,SAAR
+2022Q3,REXP,Real Exports of Goods and Services,1444.15,billions_of_chained_2017_dollars,SAAR
+2022Q4,REXP,Real Exports of Goods and Services,1441.58,billions_of_chained_2017_dollars,SAAR
+2023Q1,REXP,Real Exports of Goods and Services,1447.08,billions_of_chained_2017_dollars,SAAR
+2023Q2,REXP,Real Exports of Goods and Services,1460.42,billions_of_chained_2017_dollars,SAAR
+2023Q3,REXP,Real Exports of Goods and Services,1481.04,billions_of_chained_2017_dollars,SAAR
+2023Q4,REXP,Real Exports of Goods and Services,1508.03,billions_of_chained_2017_dollars,SAAR
+2024Q1,REXP,Real Exports of Goods and Services,1540.19,billions_of_chained_2017_dollars,SAAR
+2024Q2,REXP,Real Exports of Goods and Services,1576.0,billions_of_chained_2017_dollars,SAAR
+2024Q3,REXP,Real Exports of Goods and Services,1613.76,billions_of_chained_2017_dollars,SAAR
+2024Q4,REXP,Real Exports of Goods and Services,1651.64,billions_of_chained_2017_dollars,SAAR
+2025Q1,REXP,Real Exports of Goods and Services,1687.8,billions_of_chained_2017_dollars,SAAR
+2025Q2,REXP,Real Exports of Goods and Services,1720.57,billions_of_chained_2017_dollars,SAAR

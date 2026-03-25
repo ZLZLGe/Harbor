@@ -1,0 +1,67 @@
+{
+  "sourceTaskId": "pdf-excel-diff",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260324184733-pdf-excel-diff-xlsx-cm8frt",
+  "taskId": "close-tracker-xlsx-transfer-repair",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pdf-excel-diff/xlsx/20260324184733-pdf-excel-diff-xlsx-cm8frt/close-tracker-xlsx-transfer-repair",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324184733-pdf-excel-diff-xlsx-cm8frt/pdf-excel-diff/drafts/close-tracker-xlsx-transfer-repair",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pdf-excel-diff/xlsx/20260324184733-pdf-excel-diff-xlsx-cm8frt/close-tracker-xlsx-transfer-repair",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pdf-excel-diff/close-tracker-xlsx-transfer-repair",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "solution/solve.sh 将 Close Tracker 与 Dashboard 的受测结果缓存值整段硬编码到 `cached_values`，直接暴露了这道题的大部分标准答案，构成答案泄露。"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 在输入和输出文件名中直接出现了 `.xlsx`，构成对 shipped skill `xlsx` 的直接点名。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2492-b57c-7750-a13a-f0b2225254bd",
+      "repairSummary": "移除了 `solution/solve.sh` 中对 Close Tracker 和 Dashboard 缓存结果的整段硬编码，改为基于模板里的现有数据与 Owner Map 动态计算并写回公式缓存，避免答案泄露且保持任务行为不变。",
+      "reviewThreadId": "019d2494-bc0f-7132-be7f-7085a628b4a4",
+      "reviewerIssues": [
+        "instruction.md 在输入和输出文件名中直接出现了 `.xlsx`，构成对 shipped skill `xlsx` 的直接点名。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "tests/test_outputs.py 直接给出了 Close Tracker 和 Dashboard 的精确期望结果，存在答案泄露，任务可被针对性硬编码通过。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2496-20f8-7d72-8653-1416ec43372a",
+      "repairSummary": "移除了 instruction.md 中对 `.xlsx` 的直接提及，改为用 `/root/` 下的文件名前缀描述输入和输出工作簿，消除对 shipped skill `xlsx` 的直接暴露，其余任务逻辑未改动。",
+      "reviewThreadId": "019d2497-2a68-79a2-bfe4-eab6fd885ce6",
+      "reviewerIssues": [
+        "tests/test_outputs.py 直接给出了 Close Tracker 和 Dashboard 的精确期望结果，存在答案泄露，任务可被针对性硬编码通过。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2498-698a-7e42-95d8-1a3deaeb4460",
+      "repairSummary": "移除了 tests 中对 Close Tracker 和 Dashboard 精确结果的硬编码，改为从输入模板动态推导期望值并校验输出，从而消除答案泄露，同时保留原有任务要求与可判定性。",
+      "reviewThreadId": "019d249a-20f3-75e2-a266-32759901a65d",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

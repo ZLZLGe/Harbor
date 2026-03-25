@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "surge-tank-integral-action-design-transfer-leak-rejection",
+  "taskRole": "transfer",
+  "title": "Transfer: Surge Tank Leak Rejection",
+  "goal": "在缓冲罐液位控制任务中，基于给定离散过程模型、现有阀门预测控制器和含持续泄漏的过程仿真器，加入液位误差积分补偿并输出 `level_offset_report.yaml`，使设定点切换后液位恢复到目标范围且超调受控。",
+  "primaryOutputFile": "level_offset_report.yaml",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务不要求辨识新模型或设计新求解器，核心就在于把积分环节接入液位控制回路，用它抵消恒定泄漏引起的静差，并通过简单抗饱和处理保持可用性。",
+  "targetSkillDirName": "integral-action-design",
+  "targetSkillName": "integral-action-design"
+}

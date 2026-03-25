@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "vendor-statement-pdf-transfer-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer: 从对账单 PDF 提取表格并生成对账 CSV",
+  "goal": "给定供应商对账单 PDF，提取其中的表格行项目并计算每个供应商的应付金额、已付金额和差额，输出结构化 CSV 供后续系统导入。",
+  "primaryOutputFile": "/root/workspace/reconciliation.csv",
+  "difficulty": "medium",
+  "category": "finance",
+  "skillBenefitRationale": "任务难点是从 PDF 表格中提取结构化数据并做轻量汇总；表格读取能力完全依赖 `pdf` skill，计算部分只是常规 Python。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "trial-screening-lab-unit-harmonization-transfer-si-registry"
+name = "Transfer | 国际试验筛选实验室 SI 归档"
+description = "清洗国际 CKD 试验筛选期实验室结果、统一混合单位到注册库要求的 SI 制式，并输出可提交的标准化 CSV。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "healthcare"
+tags = ["clinical-trial", "screening", "si-units", "lab-harmonization", "csv"]
+primary_output_file = "/root/trial_screening_labs_si.csv"
+source_task_id = "lab-unit-harmonization"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 1800.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false

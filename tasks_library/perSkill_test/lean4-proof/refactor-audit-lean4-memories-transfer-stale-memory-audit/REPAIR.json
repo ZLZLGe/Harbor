@@ -1,0 +1,50 @@
+{
+  "sourceTaskId": "lean4-proof",
+  "targetSkillDirName": "lean4-memories",
+  "targetSkillName": "lean4-memories",
+  "runId": "20260325053016-lean4-proof-lean4-memories-hnxtiz",
+  "taskId": "refactor-audit-lean4-memories-transfer-stale-memory-audit",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/lean4-proof/lean4-memories/20260325053016-lean4-proof-lean4-memories-hnxtiz/refactor-audit-lean4-memories-transfer-stale-memory-audit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325053016-lean4-proof-lean4-memories-hnxtiz/lean4-proof/drafts/refactor-audit-lean4-memories-transfer-stale-memory-audit",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/lean4-proof/lean4-memories/20260325053016-lean4-proof-lean4-memories-hnxtiz/refactor-audit-lean4-memories-transfer-stale-memory-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/lean4-proof/refactor-audit-lean4-memories-transfer-stale-memory-audit",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接暴露 shipped skill 名称或目录名，source_task 也只是作为参考；审计场景与检索简报、协作合并都足够不同。; tests/test_outputs.py 引入了 instruction.md 未明示的隐藏要求：例如强制 `mem-pp-closed-tail` 的更新建议提到 `geometric_tail_closed_form`，以及强制 `refresh_queue` 前三项采用特定精确顺序。instruction.md 只要求覆盖非 valid 条目并按优先级排序，没有规定必须使用该具体 lemma 名或该唯一排序，因此 testability 不通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了当前 shipped skill `lean4-memories`，构成技能暴露。; instruction.md 只要求 `audited_inputs` 列出实际依赖的输入文件，但 tests/test_outputs.py 强制必须恰好包含 5 个固定路径，测试约束严于题面。; visibilityPass=false; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2490-746b-7b91-8b61-4321a60a5a38",
+      "repairSummary": "已在 instruction.md 直接点名 shipped skill `lean4-memories` 并补充 refresh_queue 的优先级约定；同时放宽 tests/test_outputs.py 中未在说明里明示的隐藏断言，改为只校验 instruction 明确要求的内容，并用参考 solution 做了回归验证。",
+      "reviewThreadId": "019d2494-0e69-7f92-b459-fe8fa083ee6d",
+      "reviewerIssues": [
+        "instruction.md 直接点名了当前 shipped skill `lean4-memories`，构成技能暴露。; instruction.md 只要求 `audited_inputs` 列出实际依赖的输入文件，但 tests/test_outputs.py 强制必须恰好包含 5 个固定路径，测试约束严于题面。; visibilityPass=false; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2495-1e7f-7872-a972-0498b1742096",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 的直接点名，并把 audited_inputs 明确为必须恰好列出 5 个固定输入路径，使题面与现有测试/solution 约束一致。",
+      "reviewThreadId": "019d2496-c217-7152-8e49-e5a0e719ec15",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

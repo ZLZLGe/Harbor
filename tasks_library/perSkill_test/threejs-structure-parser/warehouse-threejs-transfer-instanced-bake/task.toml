@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-threejs-transfer-instanced-bake"
+name = "Transfer: 仓储实例化场景烘焙"
+description = "展开仓储场景中的实例化与普通网格，烘焙完整世界变换，导出单个 OBJ，并生成实例统计清单。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "asset-pipeline"
+tags = ["instanced-mesh", "obj-export", "scene-baking", "warehouse"]
+primary_output_file = "/root/output/baked_scene.obj"
+source_task_id = "threejs-structure-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

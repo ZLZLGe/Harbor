@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "study-drills-audiobook-transfer-flashcards"
+name = "Transfer - Flashcard Review Drill Audio"
+description = "Turn the provided JSON flashcards into a loop-friendly WAV review drill plus a matching timing map at /root/review-drill-session.wav."
+author_name = "Levi Harbor"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "speech-synthesis"
+tags = ["tts", "flashcards", "json", "wav", "study-drill"]
+primary_output_file = "/root/review-drill-session.wav"
+source_task_id = "pg-essay-to-audiobook"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 1500.0
+
+[solution]
+
+[verifier]
+timeout_sec = 300.0

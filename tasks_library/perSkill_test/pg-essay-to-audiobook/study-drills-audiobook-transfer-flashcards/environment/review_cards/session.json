@@ -1,0 +1,35 @@
+{
+  "session_title": "Cell Systems Review Loop",
+  "cards": [
+    {
+      "card_id": "cell-01",
+      "prompt": "Which organelle produces most ATP in a eukaryotic cell?",
+      "answer": "The mitochondrion produces most ATP in a eukaryotic cell.",
+      "think_seconds": 1.4
+    },
+    {
+      "card_id": "cell-02",
+      "prompt": "What do ribosomes build?",
+      "answer": "Ribosomes build proteins by linking amino acids.",
+      "think_seconds": 1.1
+    },
+    {
+      "card_id": "cell-03",
+      "prompt": "Which membrane structure regulates what enters and leaves the cell?",
+      "answer": "The plasma membrane regulates what enters and leaves the cell.",
+      "think_seconds": 1.7
+    },
+    {
+      "card_id": "cell-04",
+      "prompt": "What is the main role of chlorophyll in plants?",
+      "answer": "Chlorophyll captures light energy for photosynthesis.",
+      "think_seconds": 1.5
+    },
+    {
+      "card_id": "cell-05",
+      "prompt": "What does DNA store?",
+      "answer": "DNA stores hereditary instructions for the organism.",
+      "think_seconds": 1.2
+    }
+  ]
+}

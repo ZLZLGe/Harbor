@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "shock-analysis-supply",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260325014607-shock-analysis-supply-xlsx-5aocjn",
+  "taskId": "bottling-expansion-xlsx-similar-capacity-model",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/shock-analysis-supply/xlsx/20260325014607-shock-analysis-supply-xlsx-5aocjn/bottling-expansion-xlsx-similar-capacity-model",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014607-shock-analysis-supply-xlsx-5aocjn/shock-analysis-supply/drafts/bottling-expansion-xlsx-similar-capacity-model",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/shock-analysis-supply/xlsx/20260325014607-shock-analysis-supply-xlsx-5aocjn/bottling-expansion-xlsx-similar-capacity-model",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/shock-analysis-supply/bottling-expansion-xlsx-similar-capacity-model",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 通过 `bottling-expansion-template.xlsx` 和 `bottling-expansion-model.xlsx` 直接出现了 shipped skill 的 dirName `xlsx`，构成技能暴露。; tests/test_outputs.py 强制 `Efficiency_Trend!G` 使用 `SQRT`、`Efficiency_Trend!H` 使用 `TREND` 等特定函数写法，锁死了几何平均与线性延展的内部实现，而不是只校验指令明示的结果语义。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "`Capacity_Model` 的 M 列仅检查是否存在公式而不校验结果，导致未按要求正确计算 `Operating Profit Uplift` 的答案也可能通过测试。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24bd-53b8-73a1-b574-33db0ed026fc",
+      "repairSummary": "移除了 instruction.md 中通过文件名暴露 `xlsx` 的表述，并放宽 tests/test_outputs.py 对 `SQRT`、`TREND`、`MIN` 等具体函数写法的硬编码，改为校验公式存在与结果语义一致。",
+      "reviewThreadId": "019d24bf-7c31-76b1-92c6-35ab343ac059",
+      "reviewerIssues": [
+        "`Capacity_Model` 的 M 列仅检查是否存在公式而不校验结果，导致未按要求正确计算 `Operating Profit Uplift` 的答案也可能通过测试。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c0-ef3c-75a0-8931-a3dbee302186",
+      "repairSummary": "补强了测试：在 `tests/test_outputs.py` 中为 `Capacity_Model` 的 M 列新增 `Operating Profit Uplift` 数值断言，避免仅靠公式存在性通过；并做了语法级校验。",
+      "reviewThreadId": "019d24c2-2c39-7291-9498-903156e15052",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

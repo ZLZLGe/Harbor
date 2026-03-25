@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "wildfire-evacuation-hex-grid-spatial-transfer-response"
+name = "Transfer: 六角网格山火撤离分析"
+description = "根据 odd-r 六角地图上的地形、起火点、村庄和避难所，输出火势到达时间矩阵、每个村庄的最近安全撤离路线摘要和总体撤离可行性。"
+author_name = "Levi Harbor"
+author_email = "levi.harbor@example.com"
+difficulty = "hard"
+category = "emergency-response"
+tags = ["hex-grid", "pathfinding", "fire-spread", "evacuation", "spatial-reasoning"]
+primary_output_file = "/output/wildfire_response.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

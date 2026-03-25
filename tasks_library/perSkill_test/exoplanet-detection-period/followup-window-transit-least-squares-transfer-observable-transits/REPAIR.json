@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "transit-least-squares",
+  "runId": "20260325010044-exoplanet-detection-period-transit-least-squares-37rxgj",
+  "taskId": "followup-window-transit-least-squares-transfer-observable-transits",
+  "sourcePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors/exoplanet-detection-period/transit-least-squares/20260325010044-exoplanet-detection-period-transit-least-squares-37rxgj/followup-window-transit-least-squares-transfer-observable-transits",
+  "candidatePath": null,
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/pass/exoplanet-detection-period/transit-least-squares/20260325010044-exoplanet-detection-period-transit-least-squares-37rxgj/followup-window-transit-least-squares-transfer-observable-transits",
+  "status": "no_op_pass",
+  "changedFiles": [],
+  "initialStaticIssues": [],
+  "finalStaticIssues": [],
+  "reviewerRechecked": false,
+  "finalReviewerIssues": [],
+  "reviewThreadId": null,
+  "notes": [
+    "当前目录本体已满足 static 校验，无需修改任务文件"
+  ]
+}

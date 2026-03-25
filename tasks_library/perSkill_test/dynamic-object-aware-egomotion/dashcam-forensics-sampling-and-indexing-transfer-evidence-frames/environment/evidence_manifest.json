@@ -1,0 +1,6 @@
+{
+  "video_fps": 60.0,
+  "sample_offset_frame": 3,
+  "sample_stride_frames": 10,
+  "sample_count": 21
+}

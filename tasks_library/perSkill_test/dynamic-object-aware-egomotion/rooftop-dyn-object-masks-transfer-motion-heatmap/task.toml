@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "rooftop-dyn-object-masks-transfer-motion-heatmap"
+name = "Transfer: Rooftop Motion Heatmap"
+description = "Analyze the rooftop inspection clip and write a normalized cumulative dynamic-activity heatmap to /root/rooftop_activity_heatmap.npy."
+author_name = "Levi"
+author_email = "levi@harbor.local"
+difficulty = "medium"
+category = "video-analysis"
+tags = ["video", "drone", "heatmap", "dynamic-objects"]
+primary_output_file = "/root/rooftop_activity_heatmap.npy"
+source_task_id = "dynamic-object-aware-egomotion"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

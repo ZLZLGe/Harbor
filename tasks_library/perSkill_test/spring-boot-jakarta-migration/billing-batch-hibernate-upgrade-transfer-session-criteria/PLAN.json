@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "billing-batch-hibernate-upgrade-transfer-session-criteria",
+  "taskRole": "transfer",
+  "title": "Transfer: Billing Batch Hibernate 6 Session Migration",
+  "goal": "规划一个账单归档批处理程序，运行在非 Web 的命令行入口上，代码仍使用 `org.hibernate.Criteria`、旧式 bulk HQL 和过时 ID 生成策略；任务要求迁移到 Hibernate 6 可运行实现，并让批处理在测试中正确归档逾期账单与写入审计记录。",
+  "primaryOutputFile": "/workspace/src/main/java/com/example/billing/job/InvoiceArchiveJob.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这里把同一技能迁移到批处理场景，重点仍是 Hibernate 6 对 Session 查询、Criteria 移除、bulk HQL 语法和主键生成的破坏性变化，关键能力完全落在 hibernate-upgrade 上。",
+  "targetSkillDirName": "hibernate-upgrade",
+  "targetSkillName": "hibernate-upgrade"
+}

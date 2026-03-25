@@ -1,0 +1,92 @@
+[
+  {
+    "capture_id": "branch-office-baseline",
+    "port_entropy": 4.87,
+    "syn_only_ratio": 0.18,
+    "unique_ports": 22,
+    "packets_per_minute_avg": 320,
+    "packets_per_minute_max": 430,
+    "iat_cv": 1.24
+  },
+  {
+    "capture_id": "scanner-evidence",
+    "port_entropy": 6.41,
+    "syn_only_ratio": 0.83,
+    "unique_ports": 188,
+    "packets_per_minute_avg": 140,
+    "packets_per_minute_max": 690,
+    "iat_cv": 0.91
+  },
+  {
+    "capture_id": "volumetric-spike",
+    "port_entropy": 3.12,
+    "syn_only_ratio": 0.37,
+    "unique_ports": 12,
+    "packets_per_minute_avg": 110,
+    "packets_per_minute_max": 2425,
+    "iat_cv": 0.88
+  },
+  {
+    "capture_id": "regular-checkin",
+    "port_entropy": 1.94,
+    "syn_only_ratio": 0.04,
+    "unique_ports": 4,
+    "packets_per_minute_avg": 75,
+    "packets_per_minute_max": 97,
+    "iat_cv": 0.28
+  },
+  {
+    "capture_id": "threshold-port-entropy",
+    "port_entropy": 6.0,
+    "syn_only_ratio": 0.95,
+    "unique_ports": 221,
+    "packets_per_minute_avg": 90,
+    "packets_per_minute_max": 340,
+    "iat_cv": 0.92
+  },
+  {
+    "capture_id": "threshold-dos-ratio",
+    "port_entropy": 5.44,
+    "syn_only_ratio": 0.22,
+    "unique_ports": 45,
+    "packets_per_minute_avg": 50,
+    "packets_per_minute_max": 1000,
+    "iat_cv": 0.77
+  },
+  {
+    "capture_id": "threshold-beacon-cv",
+    "port_entropy": 2.22,
+    "syn_only_ratio": 0.08,
+    "unique_ports": 6,
+    "packets_per_minute_avg": 40,
+    "packets_per_minute_max": 55,
+    "iat_cv": 0.5
+  },
+  {
+    "capture_id": "scan-and-beacon",
+    "port_entropy": 6.72,
+    "syn_only_ratio": 0.76,
+    "unique_ports": 144,
+    "packets_per_minute_avg": 62,
+    "packets_per_minute_max": 310,
+    "iat_cv": 0.33
+  },
+  {
+    "capture_id": "all-signals-hot",
+    "port_entropy": 7.08,
+    "syn_only_ratio": 0.91,
+    "unique_ports": 254,
+    "packets_per_minute_avg": 58,
+    "packets_per_minute_max": 1885,
+    "iat_cv": 0.19
+  },
+  {
+    "capture_id": "wide-but-legit",
+    "port_entropy": 6.58,
+    "syn_only_ratio": 0.64,
+    "unique_ports": 340,
+    "packets_per_minute_avg": 210,
+    "packets_per_minute_max": 390,
+    "iat_cv": 1.05
+  }
+]

@@ -1,0 +1,89 @@
+{
+  "collaborator": "Noah",
+  "exported_at": "2026-03-24T11:35:00Z",
+  "records": [
+    {
+      "record_id": "noah-pp-closed-form-tail-control",
+      "record_type": "ProofPattern",
+      "title": "Closed form first, then bound by proving the tail is positive",
+      "goal_signals": [
+        "recursive rational sequence",
+        "closed form",
+        "strict upper bound",
+        "tail positivity"
+      ],
+      "strategy": "Use induction to derive an exact formula, normalize with `ring_nf`, and finish by proving the subtracted tail is positive.",
+      "tactics": [
+        "induction",
+        "rw",
+        "ring_nf",
+        "linarith"
+      ],
+      "helper_lemmas": [
+        "pow_pos",
+        "ring_nf",
+        "linarith"
+      ],
+      "evidence": [
+        {
+          "file": "Proofs/Sequences/GeomBound.lean",
+          "line_hint": "theorem geom_bound"
+        },
+        {
+          "file": "Proofs/Sequences/ThirdBound.lean",
+          "line_hint": "theorem third_bound"
+        },
+        {
+          "file": "Notes/session-geom-bound.md",
+          "line_hint": "successful two-phase outline"
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "record_id": "noah-fa-linarith-before-unfolding",
+      "record_type": "FailedApproach",
+      "title": "Do not call `linarith` before the recurrence is unfolded",
+      "attempted_step": "Ask `linarith` to solve the successor case directly from the induction hypothesis.",
+      "failure_signal": "The nonlinear tail term remains opaque and the tactic makes no progress.",
+      "better_direction": "Rewrite the recurrence, substitute the induction hypothesis, and normalize before using linear arithmetic.",
+      "evidence": [
+        {
+          "file": "Notes/session-geom-bound.md",
+          "line_hint": "failed attempt B"
+        }
+      ]
+    },
+    {
+      "record_id": "noah-pc-evidence-path-and-line",
+      "record_type": "ProjectConvention",
+      "title": "Evidence citations need relative paths and local line hints",
+      "rule": "Every handoff memory must cite a repository-relative path plus a local line hint or theorem name.",
+      "reason": "Reviewers need enough context to verify a record without reopening the whole session.",
+      "evidence": [
+        {
+          "file": "Docs/memory-style.md",
+          "line_hint": "section Reviewability"
+        }
+      ]
+    },
+    {
+      "record_id": "noah-td-pow-pos",
+      "record_type": "TheoremDependency",
+      "title": "`pow_pos` is the stable bridge for positive-tail bounds",
+      "theorem": "pow_pos",
+      "why_it_matters": "It gives an explicit proof that denominator powers stay positive before finishing the inequality.",
+      "preferred_source": "Proofs/Sequences/GeomBound.lean",
+      "evidence": [
+        {
+          "file": "Proofs/Sequences/GeomBound.lean",
+          "line_hint": "have h_pow_pos"
+        },
+        {
+          "file": "Proofs/Sequences/ThirdBound.lean",
+          "line_hint": "have h_den_pos"
+        }
+      ]
+    }
+  ]
+}

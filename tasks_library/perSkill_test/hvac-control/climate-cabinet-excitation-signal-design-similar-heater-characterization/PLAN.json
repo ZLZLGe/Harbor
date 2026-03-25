@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "climate-cabinet-excitation-signal-design-similar-heater-characterization",
+  "taskRole": "similar",
+  "title": "Similar: 恒温柜加热辨识",
+  "goal": "在带噪声的恒温柜热惯性模拟器中，自行选择安全且信息量足够的加热阶跃实验，生成 `chamber_characterization.json`，其中记录实验配置、原始响应片段、估计的一阶增益/时间常数，以及为何这组数据已经足以支撑后续整定。验证重点放在阶跃幅值、持续时间、采样覆盖和参数可辨识性，而不是完整闭环控制。",
+  "primaryOutputFile": "chamber_characterization.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "它保留了源任务最典型的热系统辨识场景，但把范围收缩到“设计并执行高质量激励实验”。成败主要由阶跃激励是否足够好决定，当前 shipped skill 是唯一关键能力。",
+  "targetSkillDirName": "excitation-signal-design",
+  "targetSkillName": "excitation-signal-design"
+}

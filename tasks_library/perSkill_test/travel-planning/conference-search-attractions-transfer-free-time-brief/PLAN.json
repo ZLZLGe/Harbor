@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "conference-search-attractions-transfer-free-time-brief",
+  "taskRole": "transfer",
+  "title": "Transfer | Conference Free-Time City Brief",
+  "goal": "读取会议主办方提供的会务城市名单和空档场景说明，生成 `/app/output/conference_free_time_brief.md`。文档需要按城市分节，为每城整理 `arrival-night`、`open-morning`、`team-dinner-backup` 三组景点清单，每条都包含名称、地址和官网，供差旅同事直接分发。",
+  "primaryOutputFile": "/app/output/conference_free_time_brief.md",
+  "difficulty": "medium",
+  "category": "business-travel",
+  "skillBenefitRationale": "任务核心是把指定城市的真实景点检索结果重组为商务差旅简报；输入已经给出会议城市，不依赖住宿、餐饮或交通类 skill。",
+  "targetSkillDirName": "search-attractions",
+  "targetSkillName": "search-attractions"
+}

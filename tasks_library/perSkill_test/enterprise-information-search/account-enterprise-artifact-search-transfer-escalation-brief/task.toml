@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "account-enterprise-artifact-search-transfer-escalation-brief"
+name = "Transfer | 客户升级履约简报"
+description = "在客户升级响应工件集中为指定账户生成承诺履约简报，输出受影响 customer ID、承诺 owner、修复 PR、会议记录、演示链接与最新状态证据。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "customer-success"
+tags = ["customer-success", "artifact-search", "escalation", "commitment-tracking"]
+primary_output_file = "/root/customer_escalation_brief.json"
+source_task_id = "enterprise-information-search"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0

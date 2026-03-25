@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "clinic-intake-pdf-transfer-fillable-form",
+  "taskRole": "transfer",
+  "title": "Transfer: 填写可编辑门诊登记 PDF",
+  "goal": "给定一份可填写的门诊登记表 PDF 和患者信息 JSON，识别表单字段并生成填写完成的 PDF，要求文本框、单选项和复选项都被正确写入，输出文件可再次被程序校验。",
+  "primaryOutputFile": "/root/workspace/completed_intake.pdf",
+  "difficulty": "medium",
+  "category": "administration",
+  "skillBenefitRationale": "任务重点是检查 PDF 表单字段、提取字段信息并回填生成新 PDF；这是 `pdf` skill 的直接应用，其他逻辑仅是简单字段映射。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

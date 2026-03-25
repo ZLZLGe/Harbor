@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "incident-form-pdf-transfer-annotation-layout",
+  "taskRole": "transfer",
+  "title": "PDF Transfer: 为不可填写事故表生成精确的 fields.json",
+  "goal": "给定一份不可填写的事故申报 PDF 和待写入内容，先将 PDF 转成页面图像，人工定位标签区与填写区，再生成 /root/incident_fields.json；测试会运行边界框校验脚本并据此生成带注释 PDF，检查框位、尺寸和写入文本位置是否满足要求。",
+  "primaryOutputFile": "/root/incident_fields.json",
+  "difficulty": "hard",
+  "category": "document annotation",
+  "skillBenefitRationale": "核心工作是围绕 PDF 页面坐标、图像转换、边界框验证和注释写回完成布局标注，这正是该 skill 的专长。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

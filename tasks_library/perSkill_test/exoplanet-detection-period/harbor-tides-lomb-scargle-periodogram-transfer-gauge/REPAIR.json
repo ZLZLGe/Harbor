@@ -1,0 +1,54 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "lomb-scargle-periodogram",
+  "targetSkillName": "lomb-scargle-periodogram",
+  "runId": "20260325002018-exoplanet-detection-period-lomb-scargle-periodogram-uj8i9r",
+  "taskId": "harbor-tides-lomb-scargle-periodogram-transfer-gauge",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/lomb-scargle-periodogram/20260325002018-exoplanet-detection-period-lomb-scargle-periodogram-uj8i9r/harbor-tides-lomb-scargle-periodogram-transfer-gauge",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325002018-exoplanet-detection-period-lomb-scargle-periodogram-uj8i9r/exoplanet-detection-period/drafts/harbor-tides-lomb-scargle-periodogram-transfer-gauge",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/lomb-scargle-periodogram/20260325002018-exoplanet-detection-period-lomb-scargle-periodogram-uj8i9r/harbor-tides-lomb-scargle-periodogram-transfer-gauge",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/harbor-tides-lomb-scargle-periodogram-transfer-gauge",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "草稿根目录直接附带 `tide_peak_table.csv` 完整答案文件，存在答案泄露风险。; `tests/test_outputs.py` 接受相对路径 `tide_peak_table.csv`，且 `tests/test.sh` 未先切到 `/root`；如果 verifier 工作目录可见草稿根目录，测试可能直接读取预置答案并误判通过。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tests/test.sh",
+    "tide_peak_table.csv"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 要求“Do not write any extra text outside the CSV file”，但 tests 只校验输出文件内容且不校验标准输出/标准错误，说明与测试不完全一致。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2471-badf-7730-849e-5ab0922c795d",
+      "repairSummary": "删除了草稿根目录泄露答案的 `tide_peak_table.csv`，并收紧 verifier/测试只在 `/root` 下查找输出，同时让参考解只写 `/root/tide_peak_table.csv`，避免相对路径误判通过。",
+      "reviewThreadId": "019d2474-38ed-75a2-8eaf-6b55229de05b",
+      "reviewerIssues": [
+        "instruction.md 要求“Do not write any extra text outside the CSV file”，但 tests 只校验输出文件内容且不校验标准输出/标准错误，说明与测试不完全一致。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2476-7a52-7460-ab32-5f134f46c8b3",
+      "repairSummary": "已将 instruction.md 末尾要求改为仅说明评分只看 `/root/tide_peak_table.csv` 内容，移除与现有 tests 不一致的“禁止输出额外文本”约束。",
+      "reviewThreadId": "019d2477-8a34-73f2-ad1c-689adee1c73c",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

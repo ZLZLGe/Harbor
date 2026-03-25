@@ -1,0 +1,65 @@
+{
+  "pages": [
+    {
+      "lines": [
+        "Region: North Cluster",
+        "",
+        "Vendor: V-104 | Atlas Industrial Supply",
+        "Ref | Posted | Charge | Paid | Memo",
+        "INV-10017 | 2026-01-03 | 1840.00 | 1840.00 | respirators",
+        "INV-10044 | 2026-01-14 | 620.50 | 620.50 | nitrile gloves",
+        "Section subtotal | 2460.50 | 2460.50",
+        "",
+        "Vendor: V-208 | Beacon Clinical Devices",
+        "Ref | Posted | Charge | Paid | Memo",
+        "INV-8810 | 2026-01-07 | 950.00 | 950.00 | monitors",
+        "INV-8841 | 2026-01-24 | 1285.75 | 600.00 | infusion pumps",
+        "Section subtotal | 2235.75 | 1550.00"
+      ]
+    },
+    {
+      "lines": [
+        "Region: Central Cluster",
+        "",
+        "Vendor: V-315 | Cedar Packaging Co",
+        "Ref | Posted | Charge | Paid | Memo",
+        "INV-4402 | 2026-01-05 | 300.00 | 300.00 | sterile wraps",
+        "CRM-4410 | 2026-01-09 | -45.50 | 0.00 | carton credit",
+        "Section subtotal | 254.50 | 300.00",
+        "",
+        "Vendor: V-412 | Delta Process Controls",
+        "Ref | Posted | Charge | Paid | Memo",
+        "INV-7301 | 2026-01-12 | 1500.00 | 1500.00 | valve kits",
+        "INV-7344 | 2026-01-27 | 210.00 | 0.00 | calibration visit",
+        "Section subtotal | 1710.00 | 1500.00"
+      ]
+    },
+    {
+      "lines": [
+        "Region: Catch-up Entries",
+        "",
+        "Vendor: V-104 | Atlas Industrial Supply",
+        "Ref | Posted | Charge | Paid | Memo",
+        "INV-10102 | 2026-02-02 | 410.00 | 0.00 | storage bins",
+        "CRM-10115 | 2026-02-06 | -95.00 | 0.00 | rush fee reversal",
+        "Section subtotal | 315.00 | 0.00",
+        "",
+        "Vendor: V-208 | Beacon Clinical Devices",
+        "Ref | Posted | Charge | Paid | Memo",
+        "INV-8904 | 2026-02-05 | 499.25 | 0.00 | spare probes",
+        "Section subtotal | 499.25 | 0.00",
+        "",
+        "Vendor: V-315 | Cedar Packaging Co",
+        "Ref | Posted | Charge | Paid | Memo",
+        "INV-4478 | 2026-02-11 | 780.00 | 780.00 | pouch rolls",
+        "INV-4491 | 2026-02-16 | 120.00 | 20.00 | labels",
+        "Section subtotal | 900.00 | 800.00",
+        "",
+        "Vendor: V-412 | Delta Process Controls",
+        "Ref | Posted | Charge | Paid | Memo",
+        "INV-7390 | 2026-02-18 | 975.40 | 975.40 | actuator service",
+        "Section subtotal | 975.40 | 975.40"
+      ]
+    }
+  ]
+}

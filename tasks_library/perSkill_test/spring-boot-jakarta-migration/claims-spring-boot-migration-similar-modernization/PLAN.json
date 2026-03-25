@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "claims-spring-boot-migration-similar-modernization",
+  "taskRole": "similar",
+  "title": "Similar: Modernize a Legacy Claims REST Service to Spring Boot 3.2",
+  "goal": "将一个基于 Java 11 和 Spring Boot 2.6 的理赔 REST 微服务升级到 Java 21 和 Spring Boot 3.2。该服务同时包含 JPA 实体、参数校验、旧版 jjwt 0.9、`WebSecurityConfigurerAdapter` 和基于 `RestTemplate` 的外部风控调用；任务目标是在不改变现有 REST 行为语义的前提下完成依赖升级、`javax.*` 到 `jakarta.*` 的迁移、安全配置改造与 HTTP 客户端迁移，并通过 `mvn clean compile` 与 `mvn test`。",
+  "primaryOutputFile": "workspace/src/main/java/com/acme/claims/config/SecurityConfig.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这是当前 skill 最典型的落地路径：同时覆盖 Spring Boot/Java 版本升级、旧依赖清理、Jakarta 命名空间迁移、Spring Security 6 改造和 `RestTemplate` 向 `RestClient` 的迁移。它贴近原任务但更换了业务域和输入资产，不是简单复写。",
+  "targetSkillDirName": "spring-boot-migration",
+  "targetSkillName": "spring-boot-migration"
+}

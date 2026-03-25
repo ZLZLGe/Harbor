@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "radial-velocity-lomb-scargle-periodogram-transfer-orbit"
+name = "Transfer: Recover a Planet Period from Uneven Radial-Velocity Visits"
+description = "Use uneven radial-velocity visits and their uncertainties to recover the strongest orbital period plus two ranked alternatives, then write them to /root/rv_period_report.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "radial-velocity", "time-series", "period-search"]
+primary_output_file = "/root/rv_period_report.json"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0

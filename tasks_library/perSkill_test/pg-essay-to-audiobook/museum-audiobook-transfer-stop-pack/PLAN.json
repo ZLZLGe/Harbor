@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "museum-audiobook-transfer-stop-pack",
+  "taskRole": "transfer",
+  "title": "Transfer - Museum Exhibit Stop Audio Pack",
+  "goal": "给定一个包含展品编号、标题、讲解词和时长提示的 CSV，生成按站点编号命名的语音导览音频包，并将主产物写为 /root/exhibit-stop-pack.zip。验证可检查每个站点音频是否存在、命名与顺序是否正确，以及讲解词与音频内容是否对齐。",
+  "primaryOutputFile": "/root/exhibit-stop-pack.zip",
+  "difficulty": "medium",
+  "category": "speech-synthesis",
+  "skillBenefitRationale": "这里把技能迁移到多片段导览场景，不再是单一长书，而是批量短音频生成与打包；但核心仍依赖文本清洗、逐段 TTS 和音频产物组织，没有引入其他技能前提。",
+  "targetSkillDirName": "audiobook",
+  "targetSkillName": "audiobook"
+}

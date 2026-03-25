@@ -1,0 +1,27 @@
+[task]
+version = "1.0"
+
+[metadata]
+id = "render-simulator-workload-balancing-transfer-weighted-frames"
+name = "Transfer: Weighted Frame Render Scheduling"
+description = "Implement a weighted frame scheduler in `/root/workspace/render_scheduler.py` that writes a render schedule summary JSON and beats a contiguous-interval baseline."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "Parallelization"
+tags = ["parallel", "rendering", "scheduling", "simulation"]
+primary_output_file = "/root/workspace/render_scheduler.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0

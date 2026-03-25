@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "glm-lake-mendota",
+  "targetSkillDirName": "glm-output",
+  "targetSkillName": "glm-output",
+  "runId": "20260325030953-glm-lake-mendota-glm-output-vd4bem",
+  "taskId": "reservoir-glm-output-transfer-intake-alerts",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/glm-lake-mendota/glm-output/20260325030953-glm-lake-mendota-glm-output-vd4bem/reservoir-glm-output-transfer-intake-alerts",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325030953-glm-lake-mendota-glm-output-vd4bem/glm-lake-mendota/drafts/reservoir-glm-output-transfer-intake-alerts",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/glm-lake-mendota/glm-output/20260325030953-glm-lake-mendota-glm-output-vd4bem/reservoir-glm-output-transfer-intake-alerts",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/reservoir-glm-output-transfer-intake-alerts",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 对 alerts[*] 和 longest_alert 使用精确键集合断言，超出了 instruction.md 仅要求“必须包含”这些字段的输出契约，属于隐藏要求。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2482-2ed1-7290-a826-ec2ac959c992",
+      "repairSummary": "放宽 `tests/test_outputs.py` 对 `alerts[*]` 和 `longest_alert` 的断言，只要求包含 instruction.md 规定的必需字段，不再限制精确键集合；并做了语法校验。",
+      "reviewThreadId": "019d2483-5fba-7570-9fbe-d574714cc1d9",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "annotation-reactor-maven-dependency-management-similar-parent-bom",
+  "taskRole": "similar",
+  "title": "Similar: Align Parent Dependency Management for an Annotation Processor Reactor",
+  "goal": "修复一个注解处理器多模块仓库的父 POM，把分散且漂移的 Guava 与 Auto 系列依赖版本收敛到父级 `dependencyManagement`，移除子模块的重复版本声明，使 reactor 构建与单元测试重新通过。",
+  "primaryOutputFile": "/workspace/annotation-parent/pom.xml",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "核心动作是父 POM 版本集中管理、子模块继承与版本漂移消除，属于 Maven 依赖管理的典型用法；不需要其他 shipped skill。",
+  "targetSkillDirName": "maven-dependency-management",
+  "targetSkillName": "maven-dependency-management"
+}

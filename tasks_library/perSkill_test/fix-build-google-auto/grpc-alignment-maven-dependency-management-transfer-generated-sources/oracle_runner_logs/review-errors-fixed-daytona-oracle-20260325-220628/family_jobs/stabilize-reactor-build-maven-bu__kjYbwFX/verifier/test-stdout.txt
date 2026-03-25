@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 4 items
+
+../../tests/test_outputs.py::test_mvn_verify_succeeds PASSED             [ 25%]
+../../tests/test_outputs.py::test_reactor_summary_reports_modules_in_dependency_order PASSED [ 50%]
+../../tests/test_outputs.py::test_cli_jar_exists_and_is_executable PASSED [ 75%]
+../../tests/test_outputs.py::test_cli_jar_contains_all_module_classes PASSED [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../../tests/test_outputs.py::test_mvn_verify_succeeds
+PASSED ../../tests/test_outputs.py::test_reactor_summary_reports_modules_in_dependency_order
+PASSED ../../tests/test_outputs.py::test_cli_jar_exists_and_is_executable
+PASSED ../../tests/test_outputs.py::test_cli_jar_contains_all_module_classes
+============================== 4 passed in 7.65s ===============================

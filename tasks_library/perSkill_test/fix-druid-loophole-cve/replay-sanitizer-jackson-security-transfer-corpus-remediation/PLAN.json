@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "replay-sanitizer-jackson-security-transfer-corpus-remediation",
+  "taskRole": "transfer",
+  "title": "Transfer: Build a Jackson Replay Sanitizer for Historical JSON Corpora",
+  "goal": "实现一个回放前清洗工具，扫描一批历史 JSON 请求样本，区分可安全重放与必须隔离的样本，并输出规范化后的安全清单。恶意样本会混合空字符串键、危险类型字段和嵌套注入结构；验证会检查隔离结果与生成清单的语义正确性。",
+  "primaryOutputFile": "/workspace/output/replay-remediation-manifest.json",
+  "difficulty": "medium",
+  "category": "Security",
+  "skillBenefitRationale": "该任务把 skill 迁移到离线样本治理和预处理流程，强调在真正调用 Jackson 绑定前先做原始 JSON 结构分析，而不是依赖后续业务对象状态。",
+  "targetSkillDirName": "jackson-security",
+  "targetSkillName": "jackson-security"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "document-approval-spring-security-6-transfer-method-security",
+  "taskRole": "transfer",
+  "title": "Transfer - Document Approval Method Security Recovery",
+  "goal": "在一个文档审批服务中，修复升级到 Boot 3 后失效的方法级授权：替换被移除的全局方法安全注解，保留服务层 @PreAuthorize 规则，并补齐最小化的 SecurityFilterChain 以放行登录与健康检查端点，使基于 @WithMockUser 的服务测试重新通过。",
+  "primaryOutputFile": "src/main/java/com/example/approval/security/MethodSecurityConfiguration.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这个场景把 skill 的重心转到 @EnableMethodSecurity 对服务层授权的恢复，而不是单纯 URL 规则迁移。所需关键知识仍完全来自 spring-security-6，且不依赖其他 shipped skill。",
+  "targetSkillDirName": "spring-security-6",
+  "targetSkillName": "spring-security-6"
+}

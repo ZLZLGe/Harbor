@@ -1,0 +1,87 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", sans-serif;
+  background: #edf3f8;
+  color: #142031;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(17, 94, 89, 0.18), transparent 30%),
+    linear-gradient(180deg, #f3f7fb 0%, #e8eef5 100%);
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 20px 56px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2.4rem;
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: #516172;
+}
+
+.operator-chip {
+  border-radius: 999px;
+  background: #102a43;
+  color: #f0f4f8;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(16, 42, 67, 0.08);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 18px 45px rgba(16, 42, 67, 0.08);
+}
+
+.panel h2 {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.panel li + li {
+  margin-top: 10px;
+}
+
+.meta {
+  color: #5f6f80;
+  font-size: 0.92rem;
+}

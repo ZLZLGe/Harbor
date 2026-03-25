@@ -1,0 +1,52 @@
+{
+  "sourceTaskId": "pedestrian-traffic-counting",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction",
+  "runId": "20260324214706-pedestrian-traffic-counting-video-frame-extraction-wgd5vc",
+  "taskId": "street-surveillance-video-frame-extraction-similar-sampling-manifest",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pedestrian-traffic-counting/video-frame-extraction/20260324214706-pedestrian-traffic-counting-video-frame-extraction-wgd5vc/street-surveillance-video-frame-extraction-similar-sampling-manifest",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324214706-pedestrian-traffic-counting-video-frame-extraction-wgd5vc/pedestrian-traffic-counting/drafts/street-surveillance-video-frame-extraction-similar-sampling-manifest",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pedestrian-traffic-counting/video-frame-extraction/20260324214706-pedestrian-traffic-counting-video-frame-extraction-wgd5vc/street-surveillance-video-frame-extraction-similar-sampling-manifest",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pedestrian-traffic-counting/street-surveillance-video-frame-extraction-similar-sampling-manifest",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 把 `fps` 和抽样时间点的数值精度锁死到三位小数，但 instruction.md 只要求写出 JSON 数值，没有明示这一精度约束；这属于隐藏测试要求，testability 不通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "题目要求递归处理多级子目录下的视频，但又将 `frames_dir` 固定为 `review_frames/<视频去扩展名文件名>`，当不同目录下存在同名视频时无法为每个视频提供独立且不冲突的输出目录。; instruction.md 额外要求“不要生成题目未要求的主输出文件路径”，但 tests 未校验这一点，存在未被判定的隐藏要求。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d249b-6467-7392-aff3-5b963eabea4e",
+      "repairSummary": "放宽了 tests/test_outputs.py 对 `fps` 和 `timestamp_seconds` 三位小数的硬编码要求，改为校验其为 JSON 数值并按容差比对，消除了 instruction.md 未声明的隐藏精度约束；同时做了语法编译检查。",
+      "reviewThreadId": "019d249d-08ec-7310-afbb-6e4d8b99ba63",
+      "reviewerIssues": [
+        "题目要求递归处理多级子目录下的视频，但又将 `frames_dir` 固定为 `review_frames/<视频去扩展名文件名>`，当不同目录下存在同名视频时无法为每个视频提供独立且不冲突的输出目录。; instruction.md 额外要求“不要生成题目未要求的主输出文件路径”，但 tests 未校验这一点，存在未被判定的隐藏要求。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d249d-e44b-7af0-a6a7-36b222cf5854",
+      "repairSummary": "修正了帧输出目录规则，改为保留视频在 feeds/ 下的相对子路径以避免多级子目录中同名视频冲突；同步更新 solution 与 tests 校验该规则，并删除 instruction 中未被测试覆盖的隐藏要求。",
+      "reviewThreadId": "019d249f-4707-7ef1-8338-7ca2c5db9cd7",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

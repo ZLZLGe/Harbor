@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "multi-capture-threat-detection-similar-verdict-matrix"
+name = "Similar: Multi-Capture Threat Verdict Matrix"
+description = "Classify each precomputed network capture summary and write the required threat verdicts to /root/capture_verdicts.json."
+author_name = "Codex Task Builder"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "security"
+tags = ["security", "network-telemetry", "classification", "json"]
+primary_output_file = "/root/capture_verdicts.json"
+source_task_id = "dapt-intrusion-detection"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 120.0

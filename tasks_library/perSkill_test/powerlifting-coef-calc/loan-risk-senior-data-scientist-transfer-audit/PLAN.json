@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "loan-risk-senior-data-scientist-transfer-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Loan Risk Model Audit",
+  "goal": "读取贷款违约预测结果与真实标签，生成 /root/results/loan_model_audit.md，写出 ROC-AUC、PR-AUC、Brier score、最优阈值下的混淆矩阵，以及按年龄段和获客渠道分层的性能对比与校准结论。",
+  "primaryOutputFile": "/root/results/loan_model_audit.md",
+  "difficulty": "easy",
+  "category": "model-evaluation",
+  "skillBenefitRationale": "任务把能力迁移到模型评估与分层诊断，验证高级数据科学在指标解释、阈值选择和公平性/校准审查上的综合能力。",
+  "targetSkillDirName": "senior-data-scientist",
+  "targetSkillName": "senior-data-scientist"
+}

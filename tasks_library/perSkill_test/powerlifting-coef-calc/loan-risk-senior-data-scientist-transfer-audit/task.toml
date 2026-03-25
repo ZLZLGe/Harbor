@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "loan-risk-senior-data-scientist-transfer-audit"
+name = "Transfer: Loan Risk Model Audit"
+description = "Audit loan default prediction scores from a CSV and write a Markdown report with overall metrics, threshold diagnostics, slice performance, and calibration findings."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "model-evaluation"
+tags = ["model-evaluation", "classification", "calibration", "markdown", "risk-analytics"]
+primary_output_file = "/root/results/loan_model_audit.md"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,11 @@
+analyte_code,registry_test_name,target_unit,si_min,si_max,conventional_unit,conventional_to_si_factor,target_unit_aliases,conventional_unit_aliases
+CREA,Serum Creatinine,umol/L,20,1800,mg/dL,88.4,"umol/L|µmol/L","mg/dL"
+UREA,Urea Nitrogen,mmol/L,1.8,70,mg/dL,0.357,"mmol/L","mg/dL"
+HGB,Hemoglobin,g/L,40,220,g/dL,10,"g/L","g/dL"
+ALB,Albumin,g/L,10,60,g/dL,10,"g/L","g/dL"
+CA,Calcium,mmol/L,1.0,3.5,mg/dL,0.25,"mmol/L","mg/dL"
+PHOS,Phosphate,mmol/L,0.3,5.0,mg/dL,0.323,"mmol/L","mg/dL"
+URATE,Uric Acid,umol/L,60,1200,mg/dL,59.48,"umol/L|µmol/L","mg/dL"
+GLU,Glucose,mmol/L,2.0,35.0,mg/dL,0.0555,"mmol/L","mg/dL"
+K,Potassium,mmol/L,2.0,7.5,mEq/L,1.0,"mmol/L","mEq/L"
+HCO3,Bicarbonate,mmol/L,5.0,45.0,mEq/L,1.0,"mmol/L","mEq/L"

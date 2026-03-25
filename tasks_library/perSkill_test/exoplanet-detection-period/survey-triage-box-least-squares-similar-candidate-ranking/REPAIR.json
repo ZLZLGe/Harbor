@@ -1,0 +1,57 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares",
+  "runId": "20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr",
+  "taskId": "survey-triage-box-least-squares-similar-candidate-ranking",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/box-least-squares/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/survey-triage-box-least-squares-similar-candidate-ranking",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/exoplanet-detection-period/drafts/survey-triage-box-least-squares-similar-candidate-ranking",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/box-least-squares/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/survey-triage-box-least-squares-similar-candidate-ranking",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/survey-triage-box-least-squares-similar-candidate-ranking",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 的数值精度正则写成了过度转义的 `\\\\s`，无法匹配正常 JSON，合法输出也会被误判失败。; tests/test_outputs.py 用 instruction.md 未明示的精确搜索实现重算期望值，包括固定 24 个时长样本、`objective='snr'` 以及使用 `flux_err`；题面只要求至少 20 个时长样本，测试把合法解法锁死到隐藏实现细节。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    ".pytest_cache/.gitignore",
+    ".pytest_cache/CACHEDIR.TAG",
+    ".pytest_cache/README.md",
+    ".pytest_cache/v/cache/nodeids",
+    ".pytest_cache/v/cache/stepwise",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-311-pytest-8.3.5.pyc",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 要求所有数值字段保留到小数点后 5 位，但 tests/test_outputs.py 只校验不超过 5 位且 solution/solve.sh 也不会补齐尾随零，三者不一致。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d246b-2e45-7771-92bc-ef76b525f08a",
+      "repairSummary": "补齐题面中缺失的公开搜索约束（24 个时长样本、使用 flux_err、按 SNR 排序），并修复 tests/test_outputs.py 里过度转义导致无法匹配正常 JSON 数值字段的精度正则；已在容器中验证 solution 与测试通过。",
+      "reviewThreadId": "019d246e-7ac5-7ca2-ac8e-d89f0f3a3e08",
+      "reviewerIssues": [
+        "instruction.md 要求所有数值字段保留到小数点后 5 位，但 tests/test_outputs.py 只校验不超过 5 位且 solution/solve.sh 也不会补齐尾随零，三者不一致。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2470-72ce-7433-a6a4-08d19ff8f002",
+      "repairSummary": "将 instruction.md 中的数值精度要求改为“最多保留到小数点后 5 位”，并标明示例仅示意合法格式，使 instruction、tests 与 solution 的精度约束保持一致。",
+      "reviewThreadId": "019d2471-7d2b-7b80-95ad-f79590e9597a",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

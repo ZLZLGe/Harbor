@@ -1,0 +1,62 @@
+{
+  "release_candidate": "rc_searchflow_2026_04_rc3",
+  "blockers": [
+    {
+      "blocker_id": "BLK-201",
+      "title": "RBAC document filter leaks restricted snippets in export API",
+      "owner_employee_id": "eid_23bc77d1",
+      "fix_pr": {
+        "pr_id": "PR-842",
+        "artifact_pointer": "war_room/prs/release_fix_prs.json#pr_id=PR-842"
+      },
+      "latest_status": {
+        "summary": "Patch is in PR-842, but security sign-off remains pending so blocker stays open.",
+        "artifact_pointer": "war_room/chat/war_room_threads.json#message_id=msg_blk201_r4"
+      },
+      "missing_signoffs": [
+        {
+          "team": "Security",
+          "artifact_pointer": "war_room/approvals/signoff_matrix.json#blocker_id=BLK-201;team=Security"
+        }
+      ]
+    },
+    {
+      "blocker_id": "BLK-204",
+      "title": "Cross-region reindex saturates ingest workers and misses SLA",
+      "owner_employee_id": "eid_68b12cd7",
+      "fix_pr": {
+        "pr_id": "PR-847",
+        "artifact_pointer": "war_room/prs/release_fix_prs.json#pr_id=PR-847"
+      },
+      "latest_status": {
+        "summary": "Soak run passed, but QA has not signed off yet, so blocker remains active.",
+        "artifact_pointer": "war_room/chat/war_room_threads.json#message_id=msg_blk204_r3"
+      },
+      "missing_signoffs": [
+        {
+          "team": "QA",
+          "artifact_pointer": "war_room/approvals/signoff_matrix.json#blocker_id=BLK-204;team=QA"
+        }
+      ]
+    },
+    {
+      "blocker_id": "BLK-207",
+      "title": "EU audit log payload omits retention reason code",
+      "owner_employee_id": "eid_4fa82c90",
+      "fix_pr": {
+        "pr_id": "PR-851",
+        "artifact_pointer": "war_room/prs/release_fix_prs.json#pr_id=PR-851"
+      },
+      "latest_status": {
+        "summary": "Release manager recorded that only compliance sign-off is still missing for BLK-207.",
+        "artifact_pointer": "war_room/meetings/go_no_go_notes.json#note_id=note_gng_21"
+      },
+      "missing_signoffs": [
+        {
+          "team": "Compliance",
+          "artifact_pointer": "war_room/approvals/signoff_matrix.json#blocker_id=BLK-207;team=Compliance"
+        }
+      ]
+    }
+  ]
+}

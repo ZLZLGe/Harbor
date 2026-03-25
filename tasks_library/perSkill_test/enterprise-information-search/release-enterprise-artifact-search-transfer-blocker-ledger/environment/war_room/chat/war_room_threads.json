@@ -1,0 +1,138 @@
+[
+  {
+    "thread_id": "thread_blk201",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "channel": "release-searchflow-war-room",
+    "blocker_id": "BLK-201",
+    "root_message_id": "msg_blk201_root",
+    "root_user_id": "eid_39de41aa",
+    "root_timestamp": "2026-03-21T08:50:00Z",
+    "text": "Escalating BLK-201 for rc_searchflow_2026_04_rc3: export API still leaks restricted snippets under delegated admin.",
+    "replies": [
+      {
+        "message_id": "msg_blk201_r1",
+        "user_id": "eid_23bc77d1",
+        "timestamp": "2026-03-21T08:58:00Z",
+        "text": "Owner here. We are preparing a targeted export filter fix and will attach the patch PR shortly."
+      },
+      {
+        "message_id": "msg_blk201_r2",
+        "user_id": "eid_b28ef440",
+        "timestamp": "2026-03-21T09:12:00Z",
+        "text": "I reran the export regression on rc_searchflow_2026_04_rc3 and the restricted snippet leak is still reproducible, so BLK-201 stays open."
+      },
+      {
+        "message_id": "msg_blk201_r3",
+        "user_id": "eid_23bc77d1",
+        "timestamp": "2026-03-21T16:20:00Z",
+        "text": "Fix is up in PR-842 against the rc3 release branch."
+      },
+      {
+        "message_id": "msg_blk201_r4",
+        "user_id": "eid_10af4c2b",
+        "timestamp": "2026-03-21T17:42:00Z",
+        "text": "PR-842 merged, but we are still blocked until Security signs off on the export regression rerun."
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_blk204",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "channel": "release-searchflow-war-room",
+    "blocker_id": "BLK-204",
+    "root_message_id": "msg_blk204_root",
+    "root_user_id": "eid_68b12cd7",
+    "root_timestamp": "2026-03-21T10:40:00Z",
+    "text": "BLK-204 update: reindex worker pools are saturating during cross-region catch-up on rc3."
+    ,
+    "replies": [
+      {
+        "message_id": "msg_blk204_r1",
+        "user_id": "eid_a17c55e8",
+        "timestamp": "2026-03-21T10:52:00Z",
+        "text": "Perf traces show worker starvation starts after shard 1600. Candidate patch will move long-tail jobs into a separate queue."
+      },
+      {
+        "message_id": "msg_blk204_r2",
+        "user_id": "eid_68b12cd7",
+        "timestamp": "2026-03-21T15:32:00Z",
+        "text": "PR-847 is merged into the rc3 branch. Staging soak is clean so far."
+      },
+      {
+        "message_id": "msg_blk204_r3",
+        "user_id": "eid_10af4c2b",
+        "timestamp": "2026-03-21T17:05:00Z",
+        "text": "QA has not signed off on the final 4-hour soak yet, so BLK-204 remains active even though metrics look good."
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_blk207",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "channel": "release-searchflow-war-room",
+    "blocker_id": "BLK-207",
+    "root_message_id": "msg_blk207_root",
+    "root_user_id": "eid_4fa82c90",
+    "root_timestamp": "2026-03-21T12:55:00Z",
+    "text": "BLK-207 is the EU audit log reason-code gap on rc3. Treat as launch blocker until compliance re-signs."
+    ,
+    "replies": [
+      {
+        "message_id": "msg_blk207_r1",
+        "user_id": "eid_84d0a6bb",
+        "timestamp": "2026-03-21T13:10:00Z",
+        "text": "The launch blocker is only for rc_searchflow_2026_04_rc3. rc2 was waived after rollback, but this candidate needs the retention reason code restored."
+      },
+      {
+        "message_id": "msg_blk207_r2",
+        "user_id": "eid_4fa82c90",
+        "timestamp": "2026-03-21T13:48:00Z",
+        "text": "PR-851 adds the missing reason code mapping and release notes. Waiting on compliance sign-off before we clear BLK-207."
+      },
+      {
+        "message_id": "msg_blk207_r3",
+        "user_id": "eid_10af4c2b",
+        "timestamp": "2026-03-21T17:00:00Z",
+        "text": "Release sign-off is already recorded for BLK-207. Compliance is the only remaining gate."
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_blk209",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "channel": "release-searchflow-war-room",
+    "blocker_id": "BLK-209",
+    "root_message_id": "msg_blk209_root",
+    "root_user_id": "eid_10af4c2b",
+    "root_timestamp": "2026-03-21T14:20:00Z",
+    "text": "BLK-209 docs screenshots issue is noisy but not customer-blocking."
+    ,
+    "replies": [
+      {
+        "message_id": "msg_blk209_r1",
+        "user_id": "eid_73ce19ef",
+        "timestamp": "2026-03-21T14:28:00Z",
+        "text": "Confirming this should be a post-launch docs follow-up, not a blocker."
+      }
+    ]
+  },
+  {
+    "thread_id": "thread_blk198",
+    "release_candidate": "rc_searchflow_2026_04_rc2",
+    "channel": "release-searchflow-war-room",
+    "blocker_id": "BLK-198",
+    "root_message_id": "msg_blk198_root",
+    "root_user_id": "eid_c31d0e52",
+    "root_timestamp": "2026-03-19T15:00:00Z",
+    "text": "rc2 OCR import crash tracking thread."
+    ,
+    "replies": [
+      {
+        "message_id": "msg_blk198_r2",
+        "user_id": "eid_10af4c2b",
+        "timestamp": "2026-03-19T16:10:00Z",
+        "text": "Closing BLK-198 on rc2 after the OCR rollback. This item does not carry into rc3."
+      }
+    ]
+  }
+]

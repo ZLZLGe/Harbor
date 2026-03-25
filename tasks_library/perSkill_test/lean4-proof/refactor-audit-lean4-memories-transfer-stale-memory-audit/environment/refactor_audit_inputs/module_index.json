@@ -1,0 +1,26 @@
+{
+  "tracked_files": [
+    "Math2001/Tactic/StrongInduction.lean",
+    "Math2001/Rewrites/GeometricTail.lean",
+    "Math2001/NumberTheory/ParityModEq.lean",
+    "docs/reviewing.md"
+  ],
+  "available_theorems": [
+    "geometric_tail_closed_form",
+    "pow_pos_of_pos",
+    "Int.ModEq.pow",
+    "Int.ModEq.add",
+    "Int.ModEq.mul"
+  ],
+  "available_tactics": [
+    "induction'",
+    "ring",
+    "linarith"
+  ],
+  "retired_items": [
+    "Library.Tactic.Induction",
+    "simple_induction",
+    "pow_pos",
+    "mod_cases n % 2"
+  ]
+}

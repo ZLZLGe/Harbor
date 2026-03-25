@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "goalmouth-dyn-object-masks-transfer-occupancy-timeline",
+  "taskRole": "transfer",
+  "title": "Transfer: Goalmouth Occupancy Timeline",
+  "goal": "给定一段横向跟拍的足球门前视频和球门区域多边形，输出每个采样帧内动态目标对球门区域的遮挡比例 CSV 时间序列。",
+  "primaryOutputFile": "/root/goalmouth_occupancy.csv",
+  "difficulty": "medium",
+  "category": "video-analysis",
+  "skillBenefitRationale": "最终只是对指定区域统计动态掩码覆盖率，数值是否准确直接取决于相机运动补偿后的掩码质量，因此 dyn-object-masks 仍是唯一关键 shipped skill。",
+  "targetSkillDirName": "dyn-object-masks",
+  "targetSkillName": "dyn-object-masks"
+}

@@ -1,0 +1,37 @@
+{
+  "sourceTaskId": "econ-detrending-correlation",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending",
+  "runId": "20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx",
+  "taskId": "macro-timeseries-detrending-similar-volatility-profile",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/econ-detrending-correlation/timeseries-detrending/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/macro-timeseries-detrending-similar-volatility-profile",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/econ-detrending-correlation/drafts/macro-timeseries-detrending-similar-volatility-profile",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/econ-detrending-correlation/timeseries-detrending/20260324195647-econ-detrending-correlation-timeseries-detrending-95a2nx/macro-timeseries-detrending-similar-volatility-profile",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/econ-detrending-correlation/macro-timeseries-detrending-similar-volatility-profile",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 的 name 或 dirName，技能暴露检查通过。; 任务目标、输入资产和输出契约相对 source_task 有明显改写，不是机械复写；作为 similar 任务也足够贴近宏观 HP 去趋势的典型用法。; 输入资产为新整理的季度实值宏观面板，和同 family 其他任务的数据形态、频率与输出格式有区分。; 草稿目录直接预置了完整标准答案文件 `cycle_volatility_profile.csv`，形成答案泄露风险；同时 verifier 接受当前工作目录下同名文件，无法保证答案必须由解题过程现算现写。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "cycle_volatility_profile.csv",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2461-5a0a-7741-a021-f9cbe96aa3ce",
+      "repairSummary": "删除任务目录中泄露的标准答案文件，并将解答脚本与校验逻辑收紧为默认只认 `/root/cycle_volatility_profile.csv`；同时加入显式环境变量覆盖以支持本地自测，不再接受当前工作目录下的同名泄露文件。",
+      "reviewThreadId": "019d2464-99b2-7e93-a637-1fe4b04f5c15",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

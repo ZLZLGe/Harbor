@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "dependency-graph-python-scala-idioms-transfer-cli-topology",
+  "taskRole": "transfer",
+  "title": "Transfer - Dependency Graph CLI Translation",
+  "goal": "把 Python 的依赖图规划脚本翻译为 Scala 2.13 命令行程序，读取提供的 JSON 任务图，输出稳定的拓扑执行顺序与循环依赖报告，并以不可变图结构和模式化错误建模替代 Python 的命令式实现。",
+  "primaryOutputFile": "/root/DependencyPlannerApp.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "它把当前 skill 迁移到 CLI 加图算法场景，重点是将 Python 的字典/列表遍历和异常式控制流转换为 Scala 的 ADT、collection combinator 和可组合错误结果，而不依赖其他 shipped skill。",
+  "targetSkillDirName": "python-scala-idioms",
+  "targetSkillName": "python-scala-idioms"
+}

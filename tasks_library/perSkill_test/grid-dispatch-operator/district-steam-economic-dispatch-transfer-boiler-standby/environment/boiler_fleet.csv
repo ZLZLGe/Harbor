@@ -1,0 +1,6 @@
+boiler_id,boiler_class,min_steam_klb_per_hr,max_steam_klb_per_hr,standby_cap_klb_per_hr,incremental_heat_rate_mmbtu_per_klb,standby_cost_dollars_per_klb
+harbor_a,water_tube,40,140,35,0.92,1.10
+harbor_b,package,30,110,45,1.05,0.95
+harbor_c,cogeneration,60,170,30,0.88,1.40
+harbor_d,legacy_firetube,20,90,50,1.18,0.60
+harbor_e,backup_package,0,80,55,1.26,0.35

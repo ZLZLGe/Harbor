@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "survey-triage-box-least-squares-similar-candidate-ranking",
+  "taskRole": "similar",
+  "title": "Similar | Survey Transit Candidate Ranking",
+  "goal": "给定3条已经归一化且完成基础清洗的巡天光变曲线，使用BLS为每条曲线搜索盒状凌星信号，找出最可信的候选体，并将star_id、period_days、duration_hours、depth_ppt与peak_power写入JSON。",
+  "primaryOutputFile": "/root/output/transit_candidate_summary.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "这仍是BLS最典型的巡天凌星搜索场景，但从单条光变求周期改为多候选体比较与参数提取，要求解题者正确设置周期/时长搜索并依据最优峰读取关键凌星参数。",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares"
+}

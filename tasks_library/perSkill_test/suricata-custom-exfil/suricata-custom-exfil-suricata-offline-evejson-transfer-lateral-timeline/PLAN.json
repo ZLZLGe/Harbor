@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "suricata-custom-exfil-suricata-offline-evejson-transfer-lateral-timeline",
+  "taskRole": "transfer",
+  "title": "Transfer - Lateral Movement Timeline",
+  "goal": "针对一份较长的内网横向移动 PCAP 和给定 SMB/Windows 告警规则，离线运行 Suricata，并从 eve.json 提取首轮关键告警时间线，输出包含时间戳、sid、源/目的地址和签名名称的 CSV。",
+  "primaryOutputFile": "answer/lateral-timeline.csv",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "任务从“写规则”迁移到“事件还原”，但仍完全依赖当前 skill：先离线跑 Suricata，再围绕 eve.json 生成结构化时间线，当前 shipped skill 依旧是唯一关键能力。",
+  "targetSkillDirName": "suricata-offline-evejson",
+  "targetSkillName": "suricata-offline-evejson"
+}

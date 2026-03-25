@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "storage-power-flow-data-transfer-battery-siting"
+name = "Transfer: 储能并网点筛选"
+description = "根据 network.json 与 candidate_sites.csv 生成 battery_site_ranking.csv，对候选储能并网母线做 2-hop 负荷、线路、机组与备用指标汇总并排序。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "power-grid", "matpower", "storage", "siting", "csv"]
+primary_output_file = "battery_site_ranking.csv"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

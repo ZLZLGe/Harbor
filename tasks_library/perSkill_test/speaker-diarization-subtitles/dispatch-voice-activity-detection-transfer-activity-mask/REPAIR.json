@@ -1,0 +1,67 @@
+{
+  "sourceTaskId": "speaker-diarization-subtitles",
+  "targetSkillDirName": "voice-activity-detection",
+  "targetSkillName": "Voice Activity Detection (VAD)",
+  "runId": "20260325022002-speaker-diarization-subtitles-voice-activity-detection-i9rgx3",
+  "taskId": "dispatch-voice-activity-detection-transfer-activity-mask",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/speaker-diarization-subtitles/voice-activity-detection/20260325022002-speaker-diarization-subtitles-voice-activity-detection-i9rgx3/dispatch-voice-activity-detection-transfer-activity-mask",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325022002-speaker-diarization-subtitles-voice-activity-detection-i9rgx3/speaker-diarization-subtitles/drafts/dispatch-voice-activity-detection-transfer-activity-mask",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/speaker-diarization-subtitles/voice-activity-detection/20260325022002-speaker-diarization-subtitles-voice-activity-detection-i9rgx3/dispatch-voice-activity-detection-transfer-activity-mask",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/speaker-diarization-subtitles/dispatch-voice-activity-detection-transfer-activity-mask",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "`tests/test_outputs.py` 引入了 instruction.md 未声明的隐藏判定阈值：precision>=0.95、recall>=0.95、mismatches<=1、active bucket 差值<=1，因此 testability 不通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/reference_intervals.json",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 对 active_ratio 只要求保留到 3 位小数以内即可，但 tests/test_outputs.py 实际要求结果接近四舍五入到 3 位小数的精确值，存在说明与校验不一致的隐藏要求。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c2-de12-7613-a069-56d5f8206fa0",
+      "repairSummary": "在 instruction.md 中补充了测试会使用的显式验收阈值，公开说明 bucket precision/recall、mismatch 数量和 active bucket 总数偏差要求，消除 tests/test_outputs.py 中原先未声明的隐藏判定标准。",
+      "reviewThreadId": "019d24c3-aaf9-75c2-99e9-1104b1c55968",
+      "reviewerIssues": [
+        "instruction.md 对 active_ratio 只要求保留到 3 位小数以内即可，但 tests/test_outputs.py 实际要求结果接近四舍五入到 3 位小数的精确值，存在说明与校验不一致的隐藏要求。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "tests/reference_intervals.json 直接泄露了参考人声区间，用户可据此生成标准掩码而无需完成实际音频分析。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c5-bbbf-71a1-a3fe-a255adfeda20",
+      "repairSummary": "将 instruction.md 中 active_ratio 的要求从“3 位小数以内即可”改为“`active_buckets / total_buckets` 四舍五入后保留 3 位小数”，使说明与现有 tests 和 solution 一致，消除隐藏校验要求。",
+      "reviewThreadId": "019d24c6-c0e0-7ec3-916d-699cb55651c6",
+      "reviewerIssues": [
+        "tests/reference_intervals.json 直接泄露了参考人声区间，用户可据此生成标准掩码而无需完成实际音频分析。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c7-8b7a-7923-ae82-aa4796e351ee",
+      "repairSummary": "移除了直接泄露参考人声区间的 tests/reference_intervals.json，把测试改为基于录音信号独立推导参考掩码，并同步收紧了 instruction.md 的验证描述。",
+      "reviewThreadId": "019d24ca-9b2c-7313-bfea-ec0b2b05d60e",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

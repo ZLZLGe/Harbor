@@ -1,0 +1,7 @@
+{
+  "reservoir_name": "Silverwood Reservoir",
+  "simulation_start": "2009-01-01T12:00:00",
+  "lake_depth_m": 25.0,
+  "intake_depth_m": 4.3,
+  "alert_threshold_c": 22.0
+}

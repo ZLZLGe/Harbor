@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reliability-power-flow-data-transfer-outage-islands",
+  "taskRole": "transfer",
+  "title": "Transfer: 故障后孤岛评估",
+  "goal": "给定 `network.json` 和新增的 `outages.json`，移除指定线路后生成 `island_assessment.json`，报告每个孤岛的母线数、负荷总量、机组容量总量、备用容量总量、是否含平衡母线，以及被切离的关键母线列表。",
+  "primaryOutputFile": "island_assessment.json",
+  "difficulty": "hard",
+  "category": "energy",
+  "skillBenefitRationale": "任务关键是依据 branch 端点重建拓扑连通分量，并把 bus/gen/reserve 信息聚合到孤岛级别；不需要 OPF、优化或其他 shipped skill。",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

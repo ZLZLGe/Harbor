@@ -1,0 +1,33 @@
+{
+  "merge_gap_seconds": 0.4,
+  "speech_guard_seconds": 0.12,
+  "timeline_duration_seconds": 66.366,
+  "min_window_seconds": 3.0,
+  "blocked_ranges": [
+    {
+      "start": 2.4,
+      "end": 3.25,
+      "reason": "pointer_callout"
+    },
+    {
+      "start": 14.0,
+      "end": 15.1,
+      "reason": "menu_zoom"
+    },
+    {
+      "start": 19.05,
+      "end": 20.4,
+      "reason": "region_highlight"
+    },
+    {
+      "start": 27.4,
+      "end": 30.2,
+      "reason": "tooltip_anchor"
+    },
+    {
+      "start": 34.9,
+      "end": 37.6,
+      "reason": "step_banner"
+    }
+  ]
+}

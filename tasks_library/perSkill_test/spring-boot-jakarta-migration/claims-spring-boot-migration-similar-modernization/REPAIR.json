@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "spring-boot-migration",
+  "targetSkillName": "spring-boot-migration",
+  "runId": "20260325033416-spring-boot-jakarta-migration-spring-boot-migration-6ygkq1",
+  "taskId": "claims-spring-boot-migration-similar-modernization",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/spring-boot-jakarta-migration/spring-boot-migration/20260325033416-spring-boot-jakarta-migration-spring-boot-migration-6ygkq1/claims-spring-boot-migration-similar-modernization",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325033416-spring-boot-jakarta-migration-spring-boot-migration-6ygkq1/spring-boot-jakarta-migration/drafts/claims-spring-boot-migration-similar-modernization",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/spring-boot-jakarta-migration/spring-boot-migration/20260325033416-spring-boot-jakarta-migration-spring-boot-migration-6ygkq1/claims-spring-boot-migration-similar-modernization",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/spring-boot-jakarta-migration/claims-spring-boot-migration-similar-modernization",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "`instruction.md` 未直接暴露 shipped skill 名称，输入资产也不是对 `source_task/` 的机械复写，similar 场景与当前 skill 的典型用法是贴近的。; `tests/test_outputs.py` 强制 `src/main/java/com/acme/claims/service/RiskGateway.java` 直接使用 `RestClient` 并禁止 `RestTemplate` 字样，但 `instruction.md` 只要求迁移到 Spring Boot 3.2 兼容的 HTTP 客户端写法；这把合法解法锁死到特定实现，属于 Harbor testability 问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 `spring-boot-migration`，造成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c6-e8a3-7263-9bfe-d00a9ecd20e2",
+      "repairSummary": "在 instruction.md 中直接暴露了 shipped skill 名称 `spring-boot-migration`，并把 HTTP 客户端迁移要求明确为可接受 `RestClient` 或 `WebClient`；同时放宽 tests/test_outputs.py 中对 RiskGateway 的实现约束，不再强制必须使用 RestClient，只要求移除 RestTemplate 并采用现代 Spring HTTP 客户端。",
+      "reviewThreadId": "019d24c8-339a-7ee1-9747-edbfaf42ae10",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 `spring-boot-migration`，造成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c9-7cfe-7173-a2e4-917e75325bc3",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 名称 `spring-boot-migration` 的直接点名，改为通用的 Spring Boot 现代化迁移描述，任务目标与其余资产保持不变。",
+      "reviewThreadId": "019d24ca-1d2f-77c2-8364-0961442d8591",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

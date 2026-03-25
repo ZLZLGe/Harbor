@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "access-log-python-scala-libraries-transfer-regex-timeline"
+name = "Transfer: Access Log Session Analysis Scala Translation"
+description = "Translate the provided Python access log session analyzer into Scala 2.13 and make it write the required session_summary.csv output."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "regex", "datetime", "csv", "logs"]
+primary_output_file = "/root/AccessLogAnalyzer.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

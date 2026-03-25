@@ -1,0 +1,62 @@
+[
+  {
+    "pr_id": "PR-842",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "Patch export filter for delegated-admin RBAC snippets",
+    "status": "merged",
+    "author_employee_id": "eid_90ff11c4",
+    "linked_blockers": ["BLK-201"],
+    "target_branch": "release/searchflow/2026.04-rc3",
+    "merged_at": "2026-03-21T16:10:00Z"
+  },
+  {
+    "pr_id": "PR-847",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "Split reindex long-tail jobs into a dedicated queue",
+    "status": "merged",
+    "author_employee_id": "eid_a17c55e8",
+    "linked_blockers": ["BLK-204"],
+    "target_branch": "release/searchflow/2026.04-rc3",
+    "merged_at": "2026-03-21T15:20:00Z"
+  },
+  {
+    "pr_id": "PR-851",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "Restore EU retention reason code in audit export payload",
+    "status": "merged",
+    "author_employee_id": "eid_4fa82c90",
+    "linked_blockers": ["BLK-207"],
+    "target_branch": "release/searchflow/2026.04-rc3",
+    "merged_at": "2026-03-21T13:32:00Z"
+  },
+  {
+    "pr_id": "PR-839",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "Update launch docs screenshots",
+    "status": "open",
+    "author_employee_id": "eid_73ce19ef",
+    "linked_blockers": ["BLK-209"],
+    "target_branch": "release/searchflow/2026.04-rc3",
+    "merged_at": null
+  },
+  {
+    "pr_id": "PR-830",
+    "release_candidate": "rc_searchflow_2026_04_rc2",
+    "title": "Rollback OCR importer on rc2",
+    "status": "merged",
+    "author_employee_id": "eid_c31d0e52",
+    "linked_blockers": ["BLK-198"],
+    "target_branch": "release/searchflow/2026.04-rc2",
+    "merged_at": "2026-03-19T15:48:00Z"
+  },
+  {
+    "pr_id": "PR-860",
+    "release_candidate": "rc_searchassist_2026_04_rc3",
+    "title": "SearchAssist typo cleanup",
+    "status": "merged",
+    "author_employee_id": "eid_d4c2256a",
+    "linked_blockers": ["BLK-301"],
+    "target_branch": "release/searchassist/2026.04-rc3",
+    "merged_at": "2026-03-21T14:05:00Z"
+  }
+]

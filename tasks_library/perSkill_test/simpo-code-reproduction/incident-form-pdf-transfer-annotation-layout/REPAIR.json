@@ -1,0 +1,73 @@
+{
+  "sourceTaskId": "simpo-code-reproduction",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf",
+  "runId": "20260325014621-simpo-code-reproduction-pdf-29a5mg",
+  "taskId": "incident-form-pdf-transfer-annotation-layout",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/simpo-code-reproduction/pdf/20260325014621-simpo-code-reproduction-pdf-29a5mg/incident-form-pdf-transfer-annotation-layout",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014621-simpo-code-reproduction-pdf-29a5mg/simpo-code-reproduction/drafts/incident-form-pdf-transfer-annotation-layout",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/simpo-code-reproduction/pdf/20260325014621-simpo-code-reproduction-pdf-29a5mg/incident-form-pdf-transfer-annotation-layout",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/simpo-code-reproduction/incident-form-pdf-transfer-annotation-layout",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 直接出现 `.pdf` 路径和多处 “PDF” 表述，命中了 shipped skill 名称 `pdf`，存在技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "environment/incident_builder/__pycache__/build_incident_form.cpython-312.pyc",
+    "environment/incident_builder/build_incident_form.py",
+    "environment/incident_builder/claim_payload.b64",
+    "environment/incident_builder/claim_payload.json",
+    "environment/incident_builder/terminal_incident_form.pdf",
+    "environment/incident_builder/write_response_payload.py",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 的示例直接给出了真实答案值 `BUS-204-17`，构成答案泄露。; environment/incident_builder/build_incident_form.py 直接暴露表单版式与精确字段/复选框位置，environment/incident_builder/claim_payload.json 直接暴露待填写内容，任务可被绕过正常分析流程。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c0-e000-7e81-a182-61c2b1a0e80e",
+      "repairSummary": "已仅修改 instruction.md，去掉对 shipped skill 名称的直接暴露：删除了 `.pdf` 路径写法及文中所有“PDF”表述，改为不点名技能的文档描述；未修改 REPAIR.json，也未改动 Harbor 仓库或其他 shipped skill 内容。",
+      "reviewThreadId": "019d24c1-8bd6-75d3-aec0-24c837234696",
+      "reviewerIssues": [
+        "instruction.md 的示例直接给出了真实答案值 `BUS-204-17`，构成答案泄露。; environment/incident_builder/build_incident_form.py 直接暴露表单版式与精确字段/复选框位置，environment/incident_builder/claim_payload.json 直接暴露待填写内容，任务可被绕过正常分析流程。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "测试未校验 `entry_text.font_color` 的显式输出要求，缺少该字段的结果仍可能通过。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c2-827d-76a3-88db-2b9fd52033cc",
+      "repairSummary": "移除了 instruction.md 中的真实答案示例；将环境构建改为从预生成 PDF 资产复制表单、从编码后的数据生成运行时 payload，并在镜像构建后清理构建源文件，从而消除表单坐标与填写内容的直接泄露。",
+      "reviewThreadId": "019d24c8-e06e-75e3-ab0f-9d5bbd32997c",
+      "reviewerIssues": [
+        "测试未校验 `entry_text.font_color` 的显式输出要求，缺少该字段的结果仍可能通过。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24ca-3f95-7263-a928-0952c88f0401",
+      "repairSummary": "补充了说明，明确 `entry_text` 必须显式包含 `font_color`；同时收紧测试，要求每个字段的 `entry_text` 恰好包含 `text`、`font_size`、`font_color`，并校验 `font_color` 为 `000000`，从而防止缺失该字段的结果误通过。",
+      "reviewThreadId": "019d24cb-9a74-7fc1-866c-d0a820c3e2d6",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

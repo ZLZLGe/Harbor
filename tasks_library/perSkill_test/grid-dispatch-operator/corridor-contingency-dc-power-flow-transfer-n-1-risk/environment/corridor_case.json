@@ -1,0 +1,193 @@
+{
+  "case_id": "wind_export_corridor_beta",
+  "description": "Wind export corridor snapshot for single-line contingency screening",
+  "baseMVA": 100.0,
+  "buses": [
+    {
+      "id": 101,
+      "name": "North Hub",
+      "type": "slack",
+      "generation_MW": 140.0,
+      "load_MW": 0.0
+    },
+    {
+      "id": 205,
+      "name": "West Wind Pool",
+      "type": "pq",
+      "generation_MW": 90.0,
+      "load_MW": 0.0
+    },
+    {
+      "id": 309,
+      "name": "Converter Yard",
+      "type": "pq",
+      "generation_MW": 0.0,
+      "load_MW": 35.0
+    },
+    {
+      "id": 412,
+      "name": "Central Industrial",
+      "type": "pq",
+      "generation_MW": 0.0,
+      "load_MW": 70.0
+    },
+    {
+      "id": 518,
+      "name": "Coastal Metro",
+      "type": "pq",
+      "generation_MW": 0.0,
+      "load_MW": 55.0
+    },
+    {
+      "id": 624,
+      "name": "Harbor LNG",
+      "type": "pq",
+      "generation_MW": 0.0,
+      "load_MW": 70.0
+    }
+  ],
+  "branches": [
+    {
+      "id": "L1",
+      "from": 101,
+      "to": 309,
+      "x_pu": 0.2,
+      "limit_MW": 150.0
+    },
+    {
+      "id": "L2",
+      "from": 205,
+      "to": 309,
+      "x_pu": 0.25,
+      "limit_MW": 100.0
+    },
+    {
+      "id": "L3",
+      "from": 309,
+      "to": 412,
+      "x_pu": 0.15,
+      "limit_MW": 150.0
+    },
+    {
+      "id": "L4",
+      "from": 309,
+      "to": 518,
+      "x_pu": 0.22,
+      "limit_MW": 93.0
+    },
+    {
+      "id": "L5",
+      "from": 412,
+      "to": 518,
+      "x_pu": 0.18,
+      "limit_MW": 80.0
+    },
+    {
+      "id": "L6",
+      "from": 412,
+      "to": 624,
+      "x_pu": 0.17,
+      "limit_MW": 69.5
+    },
+    {
+      "id": "L7",
+      "from": 518,
+      "to": 624,
+      "x_pu": 0.16,
+      "limit_MW": 90.0
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "sending_end_export",
+      "description": "Combined export from northern sending buses into the corridor",
+      "limit_MW": 250.0,
+      "elements": [
+        {
+          "branch_id": "L1",
+          "sign": 1
+        },
+        {
+          "branch_id": "L2",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "id": "east_split",
+      "description": "Metro-facing split across the eastern side of the corridor",
+      "limit_MW": 130.0,
+      "elements": [
+        {
+          "branch_id": "L4",
+          "sign": 1
+        },
+        {
+          "branch_id": "L7",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "id": "north_south_balance",
+      "description": "North-to-south transfer through the central spine and harbor tie",
+      "limit_MW": 170.0,
+      "elements": [
+        {
+          "branch_id": "L3",
+          "sign": 1
+        },
+        {
+          "branch_id": "L6",
+          "sign": 1
+        }
+      ]
+    },
+    {
+      "id": "metro_ring",
+      "description": "Loop stress indicator around the metro pocket",
+      "limit_MW": 120.0,
+      "elements": [
+        {
+          "branch_id": "L4",
+          "sign": 1
+        },
+        {
+          "branch_id": "L5",
+          "sign": -1
+        },
+        {
+          "branch_id": "L6",
+          "sign": 1
+        }
+      ]
+    }
+  ],
+  "contingencies": [
+    {
+      "id": "OUT_L3",
+      "label": "309-412 central spine outage",
+      "outaged_branch_id": "L3"
+    },
+    {
+      "id": "OUT_L4",
+      "label": "309-518 metro export outage",
+      "outaged_branch_id": "L4"
+    },
+    {
+      "id": "OUT_L5",
+      "label": "412-518 ring support outage",
+      "outaged_branch_id": "L5"
+    },
+    {
+      "id": "OUT_L6",
+      "label": "412-624 harbor tie outage",
+      "outaged_branch_id": "L6"
+    },
+    {
+      "id": "OUT_L7",
+      "label": "518-624 coastal tie outage",
+      "outaged_branch_id": "L7"
+    }
+  ]
+}

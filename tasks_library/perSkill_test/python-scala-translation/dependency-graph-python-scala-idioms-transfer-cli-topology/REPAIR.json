@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "python-scala-translation",
+  "targetSkillDirName": "python-scala-idioms",
+  "targetSkillName": "python-scala-idioms",
+  "runId": "20260324235837-python-scala-translation-python-scala-idioms-lw4fip",
+  "taskId": "dependency-graph-python-scala-idioms-transfer-cli-topology",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/python-scala-translation/python-scala-idioms/20260324235837-python-scala-translation-python-scala-idioms-lw4fip/dependency-graph-python-scala-idioms-transfer-cli-topology",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324235837-python-scala-translation-python-scala-idioms-lw4fip/python-scala-translation/drafts/dependency-graph-python-scala-idioms-transfer-cli-topology",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/python-scala-translation/python-scala-idioms/20260324235837-python-scala-translation-python-scala-idioms-lw4fip/dependency-graph-python-scala-idioms-transfer-cli-topology",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/python-scala-translation/dependency-graph-python-scala-idioms-transfer-cli-topology",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 在 ContractProbe 中要求 `renderReports` 的输出字符串包含 `\"graphId\": \"ops-drill\"`，把合法 JSON 序列化锁定到特定空格格式；instruction.md 只要求输出 JSON 语义。; tests/test_outputs.py 通过与 sample 输出做整份 JSON 精确相等比较，进一步固定了 `errors` 等数组顺序；instruction.md 只约束输出 shape 与语义，没有承诺该序列化顺序。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24ae-4df9-7083-b950-46a1885a8f31",
+      "repairSummary": "放宽测试到按 JSON 语义校验：ContractProbe 改为解析 `renderReports` 输出而不是匹配空格格式，sample 输出比较改为规范化后比对，避免固定 `errors` 和 `reports` 的序列化顺序。",
+      "reviewThreadId": "019d24af-60be-7b22-99ab-3a49fe3a2c8b",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

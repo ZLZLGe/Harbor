@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "harbor-tides-lomb-scargle-periodogram-transfer-gauge",
+  "taskRole": "transfer",
+  "title": "Transfer: Extract the Dominant Tide Cycle from Gappy Harbor Gauge Data",
+  "goal": "针对存在缺测窗口的港口潮位计序列，找出主导潮汐周期，并将前三个候选周期及对应功率按小时写成 `/root/tide_peak_table.csv`。",
+  "primaryOutputFile": "/root/tide_peak_table.csv",
+  "difficulty": "medium",
+  "category": "earth-science",
+  "skillBenefitRationale": "潮位计数据同样具有不规则采样和缺口，Lomb-Scargle 能直接完成周期检索与候选峰排序；任务本质仍是周期图解释，不需要额外领域技能。",
+  "targetSkillDirName": "lomb-scargle-periodogram",
+  "targetSkillName": "lomb-scargle-periodogram"
+}

@@ -1,0 +1,69 @@
+{
+  "sourceTaskId": "r2r-mpc-control",
+  "targetSkillDirName": "integral-action-design",
+  "targetSkillName": "integral-action-design",
+  "runId": "20260324234838-r2r-mpc-control-integral-action-design-aru84n",
+  "taskId": "thermal-oven-integral-action-design-transfer-bias-hold",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/r2r-mpc-control/integral-action-design/20260324234838-r2r-mpc-control-integral-action-design-aru84n/thermal-oven-integral-action-design-transfer-bias-hold",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324234838-r2r-mpc-control-integral-action-design-aru84n/r2r-mpc-control/drafts/thermal-oven-integral-action-design-transfer-bias-hold",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/r2r-mpc-control/integral-action-design/20260324234838-r2r-mpc-control-integral-action-design-aru84n/thermal-oven-integral-action-design-transfer-bias-hold",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/r2r-mpc-control/thermal-oven-integral-action-design-transfer-bias-hold",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "任务根目录已包含 `heater_integrator_config.json` 可用答案；verifier 会直接读取该文件并复算，因此参赛者即使不产出新文件也可能直接通过。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/__pycache__/heater_controller_scaffold.cpython-312.pyc",
+    "environment/__pycache__/thermal_oven_env.cpython-312.pyc",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 给出的 JSON 示例本身就是满足全部验收指标的可用答案，造成答案泄露并使任务失去有效评测意义。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24af-df6f-7573-8781-13e41fb9bc60",
+      "repairSummary": "删除了任务根目录中预置的可用答案 `heater_integrator_config.json`，消除参赛者无需生成新文件即可通过的泄露；并在本地通过运行官方解后直接调用测试函数验证任务仍可解、判定逻辑保持正常。",
+      "reviewThreadId": "019d24b1-c535-7a21-830f-f81378b8f9a4",
+      "reviewerIssues": [
+        "instruction.md 给出的 JSON 示例本身就是满足全部验收指标的可用答案，造成答案泄露并使任务失去有效评测意义。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "instruction.md 只要求这 3 个字段必须存在，但 tests/test_outputs.py 额外要求顶层键集合必须完全等于这 3 个字段，存在隐藏约束。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24b3-4c9d-79f2-9479-756cbb009b99",
+      "repairSummary": "把 instruction.md 中会直接通过评测的示例数值改成明确仅示意的占位值，并删除根目录预置的可通过答案文件，避免任务泄露答案且仍保持可解可测。",
+      "reviewThreadId": "019d24b5-7e73-73f1-b82a-ee31c4715718",
+      "reviewerIssues": [
+        "instruction.md 只要求这 3 个字段必须存在，但 tests/test_outputs.py 额外要求顶层键集合必须完全等于这 3 个字段，存在隐藏约束。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24b7-30ac-7b61-8154-cb766f04289b",
+      "repairSummary": "补充了 instruction.md 的输出契约说明，明确 `heater_integrator_config.json` 顶层键必须且只能包含这 3 个字段，消除与 tests/test_outputs.py 之间的隐藏约束不一致。",
+      "reviewThreadId": "019d24b8-5cf3-7170-98c2-a79a4cd75544",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "ambient_temp_c": 19.5,
+  "nominal_start_temp_c": 19.5,
+  "sensor_noise_std_c": 0.12,
+  "sample_period_s": 5.0,
+  "max_safe_temp_c": 29.5,
+  "min_safe_temp_c": 5.0,
+  "noise_seed": 20260325
+}

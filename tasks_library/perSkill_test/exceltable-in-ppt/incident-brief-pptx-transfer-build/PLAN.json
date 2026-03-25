@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "incident-brief-pptx-transfer-build",
+  "taskRole": "transfer",
+  "title": "Transfer - 生成事件通报短讲稿",
+  "goal": "根据结构化事件简报与给定品牌素材，新建一个三页演示文稿，包含封面、时间线页和行动表页，并输出完整可打开的汇报 deck。",
+  "primaryOutputFile": "/root/results-incident-brief.pptx",
+  "difficulty": "medium",
+  "category": "Office Operation",
+  "skillBenefitRationale": "该任务考察从零创建演示文稿、组织版式、插入文本与图形化信息的能力，直接对应 pptx 技能的创建工作流，不依赖其他技能。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

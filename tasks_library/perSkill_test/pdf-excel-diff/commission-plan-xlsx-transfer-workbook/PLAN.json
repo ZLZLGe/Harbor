@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "commission-plan-xlsx-transfer-workbook",
+  "taskRole": "transfer",
+  "title": "Transfer: Commission Payout Workbook",
+  "goal": "基于销售明细表和配额表生成 /root/commission_payouts.xlsx，包含按销售计算提成的明细页、按团队汇总的总览页，以及可重算的跨表公式结果。",
+  "primaryOutputFile": "/root/commission_payouts.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet-modeling",
+  "skillBenefitRationale": "任务核心是新建工作簿、写入跨表公式、保持结果可重算并检查公式错误；唯一关键能力就是 xlsx。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

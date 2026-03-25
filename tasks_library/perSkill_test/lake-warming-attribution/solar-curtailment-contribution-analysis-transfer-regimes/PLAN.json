@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "solar-curtailment-contribution-analysis-transfer-regimes",
+  "taskRole": "transfer",
+  "title": "Transfer: Solar Curtailment Regime Attribution",
+  "goal": "给定电网调度区块级天气、负荷吸纳、检修可用率和送出拥塞数据，分别在 `export_constrained` 与 `balanced` 两个运行工况上执行贡献分析，并把每个工况的主导驱动及占比写入 `curtailment_regime_attribution.json`。",
+  "primaryOutputFile": "curtailment_regime_attribution.json",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "同一技能被迁移到电力系统，并要求对两个子样本重复完成分组贡献分析。它测试的不只是单次分解，还包括在分场景数据切片下保持一致建模与结构化JSON输出的能力。",
+  "targetSkillDirName": "contribution-analysis",
+  "targetSkillName": "contribution-analysis"
+}

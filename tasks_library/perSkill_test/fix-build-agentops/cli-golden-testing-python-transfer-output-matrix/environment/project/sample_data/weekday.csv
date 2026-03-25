@@ -1,0 +1,6 @@
+ticket_id,owner,team,status,duration_minutes
+T-100,Ada,api,open,25
+T-101,Jin,api,closed,30
+T-102,Bo,ops,closed,22
+T-103,Bo,ops,cancelled,90
+T-104,Cy,support,open,10

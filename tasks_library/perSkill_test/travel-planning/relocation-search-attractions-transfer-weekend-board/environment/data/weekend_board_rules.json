@@ -1,0 +1,8 @@
+{
+  "group_order": ["must-see", "backup"],
+  "cards_per_group": {
+    "must-see": 2,
+    "backup": 2
+  },
+  "link_text": "Official site"
+}

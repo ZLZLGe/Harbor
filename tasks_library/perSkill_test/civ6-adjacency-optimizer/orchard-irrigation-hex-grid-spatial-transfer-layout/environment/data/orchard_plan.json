@@ -1,0 +1,36 @@
+{
+  "orchard_name": "Sunstream Cooperative Block 7",
+  "coordinate_system": "odd-r",
+  "bounds": {
+    "width": 8,
+    "height": 7
+  },
+  "irrigation_radius": 2,
+  "base_exclusion_distance": 1,
+  "crops": [
+    {"id": "PLOT_01", "crop": "pear", "x": 1, "y": 6},
+    {"id": "PLOT_02", "crop": "pear", "x": 2, "y": 6},
+    {"id": "PLOT_03", "crop": "peach", "x": 2, "y": 5},
+    {"id": "PLOT_04", "crop": "apple", "x": 4, "y": 5},
+    {"id": "PLOT_05", "crop": "apple", "x": 5, "y": 5},
+    {"id": "PLOT_06", "crop": "plum", "x": 5, "y": 4},
+    {"id": "PLOT_07", "crop": "citrus", "x": 1, "y": 3},
+    {"id": "PLOT_08", "crop": "citrus", "x": 2, "y": 3},
+    {"id": "PLOT_09", "crop": "olive", "x": 3, "y": 2},
+    {"id": "PLOT_10", "crop": "fig", "x": 5, "y": 2},
+    {"id": "PLOT_11", "crop": "fig", "x": 6, "y": 2},
+    {"id": "PLOT_12", "crop": "almond", "x": 6, "y": 1}
+  ],
+  "candidate_bases": [
+    {"id": "BASE_A", "x": 1, "y": 5},
+    {"id": "BASE_B", "x": 3, "y": 5},
+    {"id": "BASE_C", "x": 5, "y": 5},
+    {"id": "BASE_D", "x": 1, "y": 4},
+    {"id": "BASE_E", "x": 3, "y": 4},
+    {"id": "BASE_F", "x": 5, "y": 3},
+    {"id": "BASE_G", "x": 2, "y": 2},
+    {"id": "BASE_H", "x": 4, "y": 2},
+    {"id": "BASE_I", "x": 6, "y": 2},
+    {"id": "BASE_J", "x": 3, "y": 1}
+  ]
+}

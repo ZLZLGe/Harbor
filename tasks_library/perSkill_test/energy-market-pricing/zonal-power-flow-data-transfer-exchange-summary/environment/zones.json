@@ -1,0 +1,36 @@
+{
+  "dataset_name": "ops_regions_v1",
+  "description": "Operating zones for the transfer summary. These assignments override the planning-zone values embedded in network.json.",
+  "zone_definitions": [
+    {
+      "zone_id": "north_hub",
+      "zone_name": "North Hub"
+    },
+    {
+      "zone_id": "east_valley",
+      "zone_name": "East Valley"
+    },
+    {
+      "zone_id": "south_coast",
+      "zone_name": "South Coast"
+    },
+    {
+      "zone_id": "west_ridge",
+      "zone_name": "West Ridge"
+    }
+  ],
+  "bus_to_zone": {
+    "101": "north_hub",
+    "118": "north_hub",
+    "145": "north_hub",
+    "205": "east_valley",
+    "244": "east_valley",
+    "289": "east_valley",
+    "310": "south_coast",
+    "355": "south_coast",
+    "390": "south_coast",
+    "470": "west_ridge",
+    "512": "west_ridge",
+    "580": "west_ridge"
+  }
+}

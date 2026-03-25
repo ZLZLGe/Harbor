@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-safety-gpt-multimodal-transfer-near-miss-timeline",
+  "taskRole": "transfer",
+  "title": "Transfer: Warehouse Near-Miss Timeline",
+  "goal": "给定仓库监控短视频，找出叉车与行人在同一警戒区域内近距离交汇的近险事件，按视频输出事件时间段、区域编号和事件次数的 JSON 时间线。",
+  "primaryOutputFile": "/app/output/near_miss_timeline.json",
+  "difficulty": "hard",
+  "category": "warehouse safety event detection",
+  "skillBenefitRationale": "需要跨帧理解人物、车辆、区域和交互关系，并将视觉事件转成时间段级别的结构化结果；这属于多模态时序推理的迁移应用，不需要其他 shipped skill。",
+  "targetSkillDirName": "gpt-multimodal",
+  "targetSkillName": "gpt-multimodal"
+}

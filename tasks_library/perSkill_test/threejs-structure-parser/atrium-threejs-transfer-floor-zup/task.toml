@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "atrium-threejs-transfer-floor-zup"
+name = "Transfer: 建筑楼层 Z-up 导出"
+description = "解析中庭建筑场景中的命名楼层，导出各楼层的 Z-up 合并 OBJ，并生成楼层清单。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "architecture"
+tags = ["architecture", "scene-graph", "obj-export", "z-up"]
+primary_output_file = "/root/output/floor_manifest.json"
+source_task_id = "threejs-structure-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

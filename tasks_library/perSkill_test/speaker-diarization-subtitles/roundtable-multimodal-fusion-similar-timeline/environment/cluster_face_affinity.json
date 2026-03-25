@@ -1,0 +1,22 @@
+{
+  "cluster_0": {
+    "host": 0.06,
+    "guest_left": 0.91,
+    "guest_right": 0.03
+  },
+  "cluster_1": {
+    "host": 0.05,
+    "guest_left": 0.11,
+    "guest_right": 0.84
+  },
+  "cluster_2": {
+    "host": 0.93,
+    "guest_left": 0.04,
+    "guest_right": 0.03
+  },
+  "cluster_mix": {
+    "host": 0.08,
+    "guest_left": 0.44,
+    "guest_right": 0.48
+  }
+}

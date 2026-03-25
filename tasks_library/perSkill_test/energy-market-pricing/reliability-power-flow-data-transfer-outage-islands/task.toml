@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reliability-power-flow-data-transfer-outage-islands"
+name = "Transfer: 故障后孤岛评估"
+description = "根据 network.json 与 outages.json 移除故障线路后生成 island_assessment.json，汇总每个孤岛的负荷、容量、备用与关键母线切离情况。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "energy"
+tags = ["energy", "power-grid", "matpower", "topology", "reliability", "islanding"]
+primary_output_file = "island_assessment.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

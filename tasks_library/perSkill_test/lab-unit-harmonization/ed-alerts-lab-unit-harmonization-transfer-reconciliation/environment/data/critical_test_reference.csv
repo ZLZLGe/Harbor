@@ -1,0 +1,7 @@
+display_order,test_code,standard_name,target_unit,target_min,target_max
+1,K,Potassium,mEq/L,2.0,8.5
+2,GLU,Glucose,mg/dL,20.0,800.0
+3,CREA,Serum Creatinine,mg/dL,0.2,20.0
+4,HGB,Hemoglobin,g/dL,3.0,20.0
+5,LAC,Lactate,mmol/L,0.3,20.0
+6,CA,Calcium,mg/dL,5.0,15.0

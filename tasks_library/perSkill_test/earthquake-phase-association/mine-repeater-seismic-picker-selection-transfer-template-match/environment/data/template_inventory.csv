@@ -1,0 +1,5 @@
+template_id,repeater_family,reviewed_events,median_correlation,dominant_zone
+TMP_W1,RF_WEST_1,18,0.94,west_stope
+TMP_E2,RF_EAST_2,14,0.92,east_panel
+TMP_C3,RF_CROWN_3,9,0.91,crown_pillar
+TMP_P4,RF_PILLAR_4,11,0.93,pillar_north

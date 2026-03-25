@@ -1,0 +1,30 @@
+[task]
+version = "1.0"
+id = "graph-memory-optimization-transfer-sparse-recommender"
+name = "Transfer: Sparse Social Graph Recommender"
+description = "Replace a dense friendship recommender with a memory-bounded sparse implementation that preserves the required top-N recommendations."
+
+[metadata]
+id = "graph-memory-optimization-transfer-sparse-recommender"
+name = "Transfer: Sparse Social Graph Recommender"
+description = "Write `/root/workspace/graph_recommender_solution.py` so it produces the required friendship recommendation report within the memory budget."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Memory Optimization"
+tags = ["memory-optimization", "graph", "recommendation", "sparse"]
+primary_output_file = "/root/workspace/graph_recommender_solution.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

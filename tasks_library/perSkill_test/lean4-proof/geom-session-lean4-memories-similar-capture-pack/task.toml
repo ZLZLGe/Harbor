@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "geom-session-lean4-memories-similar-capture-pack"
+name = "Similar: Geometric-Series Session Memory Pack"
+description = "Read a geometric-series Lean proof session and produce a structured JSON memory pack capturing reusable proof patterns, failed approaches, and project conventions."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "formal method"
+tags = ["formal method", "lean4", "knowledge-capture", "json"]
+primary_output_file = "artifacts/geom-session-memory-pack.json"
+source_task_id = "lean4-proof"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 180.0

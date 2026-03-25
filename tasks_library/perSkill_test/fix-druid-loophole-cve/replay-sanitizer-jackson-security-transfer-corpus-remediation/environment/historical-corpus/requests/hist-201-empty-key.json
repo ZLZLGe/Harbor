@@ -1,0 +1,24 @@
+{
+  "sampleId": "hist-201",
+  "capturedAt": "2024-11-05T09:20:00Z",
+  "request": {
+    "method": "post",
+    "path": "/v1/reports/query",
+    "body": {
+      "dataset": "sales_daily",
+      "filter": {
+        "type": "selector",
+        "dimension": "region",
+        "value": "emea",
+        "": {
+          "enabled": true
+        }
+      },
+      "columns": [
+        "region",
+        "margin"
+      ],
+      "limit": 20
+    }
+  }
+}

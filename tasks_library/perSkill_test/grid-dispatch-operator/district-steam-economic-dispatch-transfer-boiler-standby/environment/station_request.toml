@@ -1,0 +1,6 @@
+station_name = "Riverview District Steam"
+interval_start = "2026-01-12T06:00:00-06:00"
+steam_demand_klb_per_hr = 435.0
+standby_requirement_klb_per_hr = 125.0
+dispatch_step_klb_per_hr = 5.0
+fuel_price_dollars_per_mmbtu = 8.75

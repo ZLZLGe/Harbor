@@ -1,0 +1,15 @@
+[
+  {
+    "meeting_id": "perf_searchflow_20260321",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "SearchFlow rc3 perf triage",
+    "timestamp": "2026-03-21T11:00:00Z",
+    "notes": [
+      {
+        "note_id": "perf_note_08",
+        "speaker": "eid_68b12cd7",
+        "text": "PR-847 removes the ingest starvation pattern in staging; keep BLK-204 in monitoring until QA signs off on the long soak."
+      }
+    ]
+  }
+]

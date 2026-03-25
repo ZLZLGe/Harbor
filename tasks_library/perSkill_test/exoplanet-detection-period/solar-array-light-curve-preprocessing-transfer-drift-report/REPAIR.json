@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing",
+  "runId": "20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke",
+  "taskId": "solar-array-light-curve-preprocessing-transfer-drift-report",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/light-curve-preprocessing/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/solar-array-light-curve-preprocessing-transfer-drift-report",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/exoplanet-detection-period/drafts/solar-array-light-curve-preprocessing-transfer-drift-report",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/light-curve-preprocessing/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/solar-array-light-curve-preprocessing-transfer-drift-report",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/solar-array-light-curve-preprocessing-transfer-drift-report",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill，任务相对 source_task 不是机械复写；输入资产与其他 transfer 任务也拉开了场景差异。; tests/test.sh 已先创建 `/logs/verifier`，使用 pytest 正确执行 pytest 风格测试，并稳定写入 `/logs/verifier/reward.txt`；未发现 `set -e/pipefail` 导致 reward 未落盘的问题。; tests/test_outputs.py 在已要求“按固定规则复算”的基础上，又加入了 instruction.md 未明示的隐藏阈值与隐藏结果要求，例如 `stability_improvement_ratio > 3.0`、`cleaned_std < 0.005`、最长稳定区间 `n_points >= 60`，不符合“只检查 instruction.md 明示契约”的要求。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 `light-curve-preprocessing`，造成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d246e-e829-7391-9187-e5fdc210fcac",
+      "repairSummary": "已在 instruction.md 直接点名 shipped skill `light-curve-preprocessing`，并删除 tests/test_outputs.py 中 instruction 未明示的隐藏阈值检查，仅保留按说明可复算与离散度下降的契约验证。",
+      "reviewThreadId": "019d2471-5129-7583-b569-7e7dd3a5d28a",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 `light-curve-preprocessing`，造成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2472-393f-7961-9ce9-6623735fd532",
+      "repairSummary": "移除了 instruction.md 对 shipped skill 名称 `light-curve-preprocessing` 的直接点名，改为不暴露技能名但保持任务目标与规则不变。",
+      "reviewThreadId": "019d2473-42cf-7a81-99c6-210644f7228b",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

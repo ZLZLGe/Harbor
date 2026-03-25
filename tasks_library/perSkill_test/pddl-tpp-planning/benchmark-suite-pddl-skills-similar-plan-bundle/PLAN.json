@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "benchmark-suite-pddl-skills-similar-plan-bundle",
+  "taskRole": "similar",
+  "title": "Similar | Benchmark Plan Bundle",
+  "goal": "给定 1 个共享 domain 文件和 6 个中小型 classical planning problem 文件，读取任务清单后为每个 case 生成顺序计划并保存到指定 `.plan` 路径，同时生成 `results/benchmark-plan-index.json`，汇总 case id、plan 文件路径、动作步数与是否通过规划器验证。",
+  "primaryOutputFile": "results/benchmark-plan-index.json",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "这和源任务一样考察批量读取 PDDL、生成计划、验证并落盘，是当前 shipped skill 的典型用法；任务只依赖该规划技能，不需要其他 shipped skill。",
+  "targetSkillDirName": "pddl-skills",
+  "targetSkillName": "pddl-skills"
+}

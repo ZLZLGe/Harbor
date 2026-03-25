@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "boot3-invoice-service-jakarta-namespace-similar-audit-filter"
+name = "Similar | Boot 3 发票审计服务命名空间迁移"
+description = "修复 Boot 3 发票审计服务中遗留的 javax.persistence、javax.validation 与 javax.servlet 命名空间问题，并完成指定过滤器输出。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["spring-boot", "jakarta", "migration", "java"]
+primary_output_file = "environment/workspace/src/main/java/com/example/invoice/web/AuditTrailFilter.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "bracket-kit-obj-exporter-transfer-variant-library"
+name = "Bracket Kit Variant Library Transfer"
+description = "Generate the bracket variants described by the provided specification table, export one OBJ per variant, and also write the combined inspection kit OBJ under /root/output/variants."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["threejs", "obj", "parametric-parts", "variant-library", "geometry-export"]
+primary_output_file = "/root/output/variants/brace_double_slot.obj"
+source_task_id = "threejs-structure-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

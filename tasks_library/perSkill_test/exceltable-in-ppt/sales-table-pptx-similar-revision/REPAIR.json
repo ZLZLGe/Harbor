@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "exceltable-in-ppt",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx",
+  "runId": "20260324215737-exceltable-in-ppt-pptx-fq957z",
+  "taskId": "sales-table-pptx-similar-revision",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exceltable-in-ppt/pptx/20260324215737-exceltable-in-ppt-pptx-fq957z/sales-table-pptx-similar-revision",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324215737-exceltable-in-ppt-pptx-fq957z/exceltable-in-ppt/drafts/sales-table-pptx-similar-revision",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exceltable-in-ppt/pptx/20260324215737-exceltable-in-ppt-pptx-fq957z/sales-table-pptx-similar-revision",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exceltable-in-ppt/sales-table-pptx-similar-revision",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 `/root/sales-overview-draft.pptx` 和 `/root/results-table-revision.pptx`，命中当前 shipped skill 的 dirName `pptx`，属于技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2467-2cfd-7260-b0fd-34f7d207288e",
+      "repairSummary": "移除了 instruction.md 中直接出现的 .pptx 路径与扩展名，改为用无扩展名的基名加“扩展名与输入一致”描述，消除对 shipped skill dirName 的直接暴露，任务其余逻辑保持不变。",
+      "reviewThreadId": "019d2468-5322-72f3-a7ae-83eba7f75c3f",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

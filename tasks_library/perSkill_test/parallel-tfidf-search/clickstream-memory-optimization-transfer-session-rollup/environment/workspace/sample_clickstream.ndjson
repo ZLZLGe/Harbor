@@ -1,0 +1,8 @@
+{"session_id":"S0000001","user_id":"U1042","event_time":1735689600,"page":"/home","event_type":"view","device":"desktop","referrer":"search"}
+{"session_id":"S0000001","user_id":"U1042","event_time":1735689630,"page":"/pricing","event_type":"click","device":"desktop","referrer":"search"}
+{"session_id":"S0000001","user_id":"U1042","event_time":1735689685,"page":"/checkout/confirmation","event_type":"purchase","device":"desktop","referrer":"search"}
+{"session_id":"S0000002","user_id":"U2201","event_time":1735689720,"page":"/landing/spring","event_type":"view","device":"mobile","referrer":"email"}
+{"session_id":"S0000002","user_id":"U2201","event_time":1735689780,"page":"/docs/getting-started","event_type":"scroll","device":"mobile","referrer":"email"}
+{"session_id":"S0000003","user_id":"U3317","event_time":1735689815,"page":"/promo/bundle","event_type":"view","device":"tablet","referrer":"social"}
+{"session_id":"S0000004","user_id":"U4470","event_time":1735689890,"page":"/docs/api","event_type":"view","device":"desktop","referrer":"direct"}
+{"session_id":"S0000004","user_id":"U4470","event_time":1735689930,"page":"/support/contact","event_type":"submit_form","device":"desktop","referrer":"direct"}

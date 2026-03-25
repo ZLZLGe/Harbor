@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "transit-d3-visualization-transfer-bus-reliability"
+name = "Transfer: Bus Reliability Small-Multiples Dashboard"
+description = "Build an offline bus reliability dashboard from local transit CSV files and save the result to /root/output/bus-reliability.html."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Data Visualization"
+tags = ["d3.js", "small-multiples", "transit", "csv", "operations-dashboard"]
+primary_output_file = "/root/output/bus-reliability.html"
+source_task_id = "data-to-d3"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

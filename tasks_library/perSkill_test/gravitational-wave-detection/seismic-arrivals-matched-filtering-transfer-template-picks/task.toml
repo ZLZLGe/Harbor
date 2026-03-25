@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "seismic-arrivals-matched-filtering-transfer-template-picks"
+name = "Transfer | 地震微事件模板拾取"
+description = "对连续地震台站波形和两类事件模板做相关扫描，输出每类事件的到时列表与匹配得分到 /root/seismic_arrivals.json。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "geophysics"
+tags = ["geophysics", "seismology", "signal-processing", "numpy", "json"]
+primary_output_file = "/root/seismic_arrivals.json"
+source_task_id = "gravitational-wave-detection"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0

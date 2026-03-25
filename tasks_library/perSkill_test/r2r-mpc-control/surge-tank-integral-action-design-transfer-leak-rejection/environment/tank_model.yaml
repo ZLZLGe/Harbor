@@ -1,0 +1,16 @@
+sample_time_min: 0.1
+a_nominal: 0.988
+b_nominal: 0.00055
+bias_nominal: 0.018
+a_real: 0.9865
+b_real: 0.00058
+bias_real: 0.0178
+physical_valve_max_pct: 92.0
+recovery_band_m: 0.025
+tail_window_steps: 15
+checkpoint_interval_steps: 10
+horizon_steps: 14
+q_level: 1.5
+r_valve: 0.12
+min_level_m: 0.2
+max_level_m: 2.2

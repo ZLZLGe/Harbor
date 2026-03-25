@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "sales-commission-xlsx-transfer-payout-reconciliation"
+name = "Transfer - 销售佣金结算对账"
+description = "审查佣金结算工作簿并输出结构化 JSON 异常清单。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "finance-ops"
+tags = ["xlsx", "finance", "sales-commission", "reconciliation", "json"]
+primary_output_file = "/root/commission_exceptions.json"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "utility-meter-openai-vision-transfer-usage"
+name = "Transfer: Field Meter Reading Usage Extraction"
+description = "Read paired start and end field meter photos and write /app/workspace/meter_usage.csv with usage calculations."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "data statistics"
+tags = ["meter reading", "csv", "image extraction"]
+primary_output_file = "/app/workspace/meter_usage.csv"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

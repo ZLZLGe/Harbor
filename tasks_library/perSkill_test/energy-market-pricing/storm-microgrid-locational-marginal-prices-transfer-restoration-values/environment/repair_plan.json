@@ -1,0 +1,16 @@
+{
+  "repairable_tie_line": {
+    "line_id": "T1",
+    "from_bus": "water_junction",
+    "to_bus": "school_shelter",
+    "limit_mw": 2.0
+  },
+  "observed_shelter_buses": [
+    "east_shelter",
+    "school_shelter"
+  ],
+  "split_check_pair": [
+    "water_junction",
+    "school_shelter"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "survey-triage-transit-least-squares-transfer-candidate-ranking",
+  "taskRole": "transfer",
+  "title": "Candidate Ranking Transfer",
+  "goal": "Screen a directory of light curves from several survey targets, identify which targets contain convincing transit candidates, and produce /root/candidate_ranking.csv with target_id, best_period_days, and detection_score ordered from strongest to weakest candidate.",
+  "primaryOutputFile": "/root/candidate_ranking.csv",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "This transfers transit-least-squares from single-target analysis to batch survey triage, where transit-focused period searches and candidate strength metrics are the essential domain capability.",
+  "targetSkillDirName": "transit-least-squares",
+  "targetSkillName": "transit-least-squares"
+}

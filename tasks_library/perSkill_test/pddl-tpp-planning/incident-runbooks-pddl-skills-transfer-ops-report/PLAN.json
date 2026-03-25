@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "incident-runbooks-pddl-skills-transfer-ops-report",
+  "taskRole": "transfer",
+  "title": "Transfer | Incident Runbook Planner",
+  "goal": "把 5 个运维事故处置场景建模为 PDDL 问题后，输出 `results/incident-runbooks.json`：对每个 incident 记录 `status`（solved/unsolved）、动作序列、动作数和对应的 plan 文件路径；仅对可解 case 保存完整计划文本。",
+  "primaryOutputFile": "results/incident-runbooks.json",
+  "difficulty": "medium",
+  "category": "research",
+  "skillBenefitRationale": "场景迁移到了运维 runbook，但关键工作仍是加载 PDDL、求解、判断不可解并导出结果；当前 shipped skill 是唯一关键能力。",
+  "targetSkillDirName": "pddl-skills",
+  "targetSkillName": "pddl-skills"
+}

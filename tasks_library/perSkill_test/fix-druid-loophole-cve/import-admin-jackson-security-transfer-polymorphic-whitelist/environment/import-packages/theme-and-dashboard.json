@@ -1,0 +1,15 @@
+{
+  "batchId": "release-batch-17",
+  "operations": [
+    {
+      "@class": "com.harbor.adminimport.model.ThemeImport",
+      "themeName": "harbor-night-shift",
+      "palette": ["charcoal", "amber", "fog"]
+    },
+    {
+      "@class": "com.harbor.adminimport.model.DashboardImport",
+      "dashboardName": "ops-overview",
+      "widgets": ["alerts", "deployments", "latency"]
+    }
+  ]
+}

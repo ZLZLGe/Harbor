@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "surge-tank-level-imc-tuning-rules-transfer-disturbance"
+name = "Transfer | Surge Tank Level Disturbance Recovery"
+description = "Evaluate conservative PI tunings for a surge tank level loop, then write surge_tank_level_report.json with the chosen lambda, disturbance recovery trace, and stability report."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control-systems", "process-control", "level-control", "pi-control", "transfer"]
+primary_output_file = "surge_tank_level_report.json"
+source_task_id = "hvac-control"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 1800.0
+
+[verifier]
+timeout_sec = 1800.0

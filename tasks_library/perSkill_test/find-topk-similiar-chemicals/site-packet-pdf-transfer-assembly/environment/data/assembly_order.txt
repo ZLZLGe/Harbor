@@ -1,0 +1,8 @@
+# Build the final packet in this exact order.
+# Format: step | file | page <n> | rotate <degrees clockwise>
+1 | gate_briefing.pdf | page 1 | rotate 0
+2 | crew_packets.pdf | page 2 | rotate 0
+3 | crane_path_sheet.pdf | page 1 | rotate 90
+4 | permit_stack.pdf | page 3 | rotate 0
+5 | permit_stack.pdf | page 1 | rotate 0
+6 | crew_packets.pdf | page 1 | rotate 270

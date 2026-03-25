@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "corridor-contingency-dc-power-flow-transfer-n-1-risk",
+  "taskRole": "transfer",
+  "title": "Transfer: 风电外送走廊 N-1 风险排序",
+  "goal": "针对给定基态注入和若干单回线停运候选场景，逐场景执行 DC 潮流分析，输出 `contingency_risk_rankings.json`，给出每个场景的最重载线路、最大越限百分比、受影响接口以及按风险排序的前三名场景。",
+  "primaryOutputFile": "contingency_risk_rankings.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "任务重点从经济调度迁移到输电运维风险审计，但仍完全依赖 `dc-power-flow` 来重建网络、求解母线相角并计算故障后线路潮流与越限程度，不需要其他 shipped skills。",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

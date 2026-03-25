@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "glm-lake-mendota",
+  "targetSkillDirName": "glm-output",
+  "targetSkillName": "glm-output",
+  "runId": "20260325030953-glm-lake-mendota-glm-output-vd4bem",
+  "taskId": "scenario-glm-output-transfer-thermal-delta-audit",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/glm-lake-mendota/glm-output/20260325030953-glm-lake-mendota-glm-output-vd4bem/scenario-glm-output-transfer-thermal-delta-audit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325030953-glm-lake-mendota-glm-output-vd4bem/glm-lake-mendota/drafts/scenario-glm-output-transfer-thermal-delta-audit",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/glm-lake-mendota/glm-output/20260325030953-glm-lake-mendota-glm-output-vd4bem/scenario-glm-output-transfer-thermal-delta-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/scenario-glm-output-transfer-thermal-delta-audit",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 对 monthly_depth_deltas[*] 和 closer_to_target_by_depth[*] 使用精确键集合断言，超出了 instruction.md 仅要求“必须包含”字段的输出契约，额外禁止了合法附加字段。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2482-665e-7931-9fa0-2763c17bd798",
+      "repairSummary": "放宽了 tests/test_outputs.py 对 monthly_depth_deltas 和 closer_to_target_by_depth 数组元素的键断言，从“精确键集合”改为“必须包含 required 字段”，与 instruction.md 的输出契约保持一致；并做了语法校验。",
+      "reviewThreadId": "019d2483-b8ff-7242-ab69-7e5b6c73d580",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

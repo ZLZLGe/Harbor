@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "suricata-custom-exfil-suricata-offline-evejson-transfer-lateral-timeline"
+name = "Transfer - Lateral Movement Timeline"
+description = "离线回放一份内网横向移动 PCAP，并基于 eve.json 提取首轮关键告警时间线到 answer/lateral-timeline.csv。"
+author_name = "Shenghan Zheng"
+author_email = "shenghan.zheng.gr@dartmouth.edu"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["suricata", "eve.json", "pcap", "timeline", "windows-lateral-movement"]
+primary_output_file = "answer/lateral-timeline.csv"
+source_task_id = "suricata-custom-exfil"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

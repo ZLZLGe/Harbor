@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "mini-city-obj-exporter-transfer-zone-merges"
+name = "Mini City Zone Merges Transfer"
+description = "Regroup the provided mini-city scene by semantic zone, export one merged OBJ per zone, and write the corresponding zone manifest under /root/output/zones."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["threejs", "obj", "semantic-grouping", "scene-graph", "city-block"]
+primary_output_file = "/root/output/zones/pedestrian_paths.obj"
+source_task_id = "threejs-structure-parser"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

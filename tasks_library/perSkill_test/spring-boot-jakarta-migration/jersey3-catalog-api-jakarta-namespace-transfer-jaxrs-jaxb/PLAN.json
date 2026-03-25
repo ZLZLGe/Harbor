@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "jersey3-catalog-api-jakarta-namespace-transfer-jaxrs-jaxb",
+  "taskRole": "transfer",
+  "title": "Transfer | Jersey 3 商品目录 API 命名空间迁移",
+  "goal": "在一个 Jersey 3 商品目录 API 中，修复 `javax.ws.rs`、`javax.xml.bind`、`javax.annotation` 残留，保证资源类、请求响应模型和序列化测试都切换到 Jakarta API，并通过 API 级单元测试。",
+  "primaryOutputFile": "environment/workspace/src/main/java/com/example/catalog/api/CatalogResource.java",
+  "difficulty": "medium",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "该任务把 skill 泛化到 JAX-RS 与 JAXB 组合场景，和 Spring/Tomcat 路线明显不同。主要工作是识别并迁移 REST 注解、XML 绑定注解及生命周期注解，skill 是唯一关键能力。",
+  "targetSkillDirName": "jakarta-namespace",
+  "targetSkillName": "jakarta-namespace"
+}

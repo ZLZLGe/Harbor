@@ -1,0 +1,22 @@
+{
+  "distinct_kmers": 2604,
+  "elapsed_seconds": 0.4555973829992581,
+  "k": 6,
+  "num_workers": 2,
+  "total_bases": 3330797,
+  "total_sequences": 324,
+  "worker_stats": [
+    {
+      "base_load": 1665400,
+      "kmers_emitted": 1664590,
+      "sequence_count": 162,
+      "worker_id": 0
+    },
+    {
+      "base_load": 1665397,
+      "kmers_emitted": 1664587,
+      "sequence_count": 162,
+      "worker_id": 1
+    }
+  ]
+}

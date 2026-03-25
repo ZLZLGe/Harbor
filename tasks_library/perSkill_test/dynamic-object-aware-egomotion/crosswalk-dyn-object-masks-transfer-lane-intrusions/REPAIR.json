@@ -1,0 +1,54 @@
+{
+  "sourceTaskId": "dynamic-object-aware-egomotion",
+  "targetSkillDirName": "dyn-object-masks",
+  "targetSkillName": "dyn-object-masks",
+  "runId": "20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu",
+  "taskId": "crosswalk-dyn-object-masks-transfer-lane-intrusions",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/dynamic-object-aware-egomotion/dyn-object-masks/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/crosswalk-dyn-object-masks-transfer-lane-intrusions",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/dynamic-object-aware-egomotion/drafts/crosswalk-dyn-object-masks-transfer-lane-intrusions",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/dynamic-object-aware-egomotion/dyn-object-masks/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/crosswalk-dyn-object-masks-transfer-lane-intrusions",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/dynamic-object-aware-egomotion/crosswalk-dyn-object-masks-transfer-lane-intrusions",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 的 name 或 dirName，技能未暴露。; 任务将输出语义改为车道侵入时间窗，并新建了视频与 ROI 资产，和 source_task 及 sibling tasks 有明显差异，不是机械复写。; tests/test_outputs.py 使用 instruction.md 未声明的隐藏数值阈值（precision、recall、F1、IoU）判分，属于 Harbor testability 问题。; tests/test_outputs.py 没有检查“连续侵入采样帧必须合并为单个时间窗”的显式契约，允许把一段连续窗口拆成多个相邻窗口仍然通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/reference_dyn_masks.npz",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 的名称 `dyn-object-masks`，造成技能暴露。; tests/reference_dyn_masks.npz 可被直接用于推导标准时间窗，且测试将答案绑定到隐藏参考掩码语义，存在答案泄露并与“等价方法”表述不完全一致。; visibilityPass=false; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2445-5a6e-7821-99c4-f27ce03b5495",
+      "repairSummary": "在 instruction.md 里直接暴露了 shipped skill `dyn-object-masks` 并补充了“连续侵入帧必须合并为单个时间窗”的显式契约；把 tests/test_outputs.py 从隐藏阈值近似判分改成精确语义与精确窗口校验；同步收敛 solution/solve.sh 使其输出与新的显式契约一致。",
+      "reviewThreadId": "019d244c-9972-7641-b01c-97766f4f25fc",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 的名称 `dyn-object-masks`，造成技能暴露。; tests/reference_dyn_masks.npz 可被直接用于推导标准时间窗，且测试将答案绑定到隐藏参考掩码语义，存在答案泄露并与“等价方法”表述不完全一致。; visibilityPass=false; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d244e-b23a-7533-82cc-c124e292ffb3",
+      "repairSummary": "移除了 instruction 里的 skill 直呼，改成公开且可复现的视频处理规则；solution/tests 统一改为按该公开流程计算侵入时间窗，删除了泄露答案的参考掩码文件，并顺手修正了 Dockerfile 里会导致环境构建失败的 numpy 版本冲突。",
+      "reviewThreadId": "019d245f-baab-7fc1-9e69-5c451229eaf3",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

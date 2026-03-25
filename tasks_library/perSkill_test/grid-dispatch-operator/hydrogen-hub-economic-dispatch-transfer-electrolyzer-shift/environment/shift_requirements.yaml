@@ -1,0 +1,8 @@
+hub_name: "Lingang Hydrogen Hub"
+shift_label: "Night Shift B"
+shift_start: "2026-09-03T22:00:00+08:00"
+shift_hours: 8.0
+power_price_dollars_per_MWh: 47.0
+hydrogen_target_kg: 5312.0
+site_power_cap_MW: 34.0
+required_idle_flexibility_MW: 15.0

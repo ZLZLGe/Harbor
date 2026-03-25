@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "archived-essays-audiobook-similar-anthology",
+  "taskRole": "similar",
+  "title": "Similar - Archived Essays Anthology Audiobook",
+  "goal": "给定两篇带导航噪声的离线 HTML 长文快照，提取正文并生成一份带章节开场白的单文件音频读本，输出到 /root/founder-anthology-audiobook.mp3。验证可围绕正文覆盖度、章节顺序和音频时长展开。",
+  "primaryOutputFile": "/root/founder-anthology-audiobook.mp3",
+  "difficulty": "medium",
+  "category": "speech-synthesis",
+  "skillBenefitRationale": "这仍然是长篇文章到音频读本的典型链路，但把实时抓网改成离线网页快照，既保留 HTML 抽取、清洗、分段和 TTS 合成的核心能力，又避免对外部站点可用性的依赖。",
+  "targetSkillDirName": "audiobook",
+  "targetSkillName": "audiobook"
+}

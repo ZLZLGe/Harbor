@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "tess-transit-light-curve-preprocessing-similar-transit-ready-export",
+  "taskRole": "similar",
+  "title": "Similar - TESS 凌星预处理导出",
+  "goal": "提供一份新的 TESS 风格光变输入资产，包含质量标记、少量离群点、明显恒星活动起伏和保留完好的浅凌星信号。任务要求清洗坏点、去除异常值、压平慢变趋势，并将可直接用于后续凌星搜索的预处理结果导出为 `/root/transit_ready_lightcurve.csv`，其中至少包含 time、flat_flux、flux_err 三列。验证重点放在输出是否完成正确清洗与压平、同时保留短时暗化结构。",
+  "primaryOutputFile": "/root/transit_ready_lightcurve.csv",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "这是该技能的典型用法：按质量标记筛选、做离群点剔除、再去趋势以保留短周期暗化事件；不需要额外依赖周期搜索或其他专门技能。",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing"
+}

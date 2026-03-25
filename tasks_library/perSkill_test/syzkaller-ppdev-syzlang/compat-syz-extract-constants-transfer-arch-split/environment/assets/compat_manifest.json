@@ -1,0 +1,54 @@
+{
+  "device": "/dev/demo_compat",
+  "primary_output": "/opt/syzkaller/sys/linux/dev_demo_compat.txt.const",
+  "notes": [
+    "Only the const file is broken; the syzlang scaffold is already present.",
+    "The three size-sensitive ioctls diverge because the referenced structs contain unsigned long or pointers."
+  ],
+  "symbols": [
+    {
+      "name": "DEMO_IOCTL_PEEK",
+      "kind": "ioctl",
+      "encoding": "_IOR('q', 0x20, struct demo_snapshot)",
+      "arch_sensitive": true
+    },
+    {
+      "name": "DEMO_IOCTL_POKE",
+      "kind": "ioctl",
+      "encoding": "_IOW('q', 0x21, struct demo_window)",
+      "arch_sensitive": true
+    },
+    {
+      "name": "DEMO_IOCTL_XACT",
+      "kind": "ioctl",
+      "encoding": "_IOWR('q', 0x22, struct demo_xact)",
+      "arch_sensitive": true
+    },
+    {
+      "name": "DEMO_IOCTL_PING",
+      "kind": "ioctl",
+      "encoding": "_IO('q', 0x23)",
+      "arch_sensitive": false
+    },
+    {
+      "name": "DEMO_MODE_STRICT",
+      "kind": "flag",
+      "arch_sensitive": false
+    },
+    {
+      "name": "DEMO_MODE_BULK",
+      "kind": "flag",
+      "arch_sensitive": false
+    },
+    {
+      "name": "DEMO_FLAG_SHARED",
+      "kind": "flag",
+      "arch_sensitive": false
+    },
+    {
+      "name": "DEMO_FLAG_TRACE",
+      "kind": "flag",
+      "arch_sensitive": false
+    }
+  ]
+}

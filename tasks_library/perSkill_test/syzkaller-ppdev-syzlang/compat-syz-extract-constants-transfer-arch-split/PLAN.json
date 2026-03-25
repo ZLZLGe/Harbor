@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "compat-syz-extract-constants-transfer-arch-split",
+  "taskRole": "transfer",
+  "title": "Transfer: Compat ioctl 跨架构常量修复",
+  "goal": "修复一个故意写错的 `dev_demo_compat.txt.const`：题目提供 mock UAPI 头文件与现成 syzlang 描述，`386` 和 `amd64` 下部分 ioctl 值因结构体大小不同而分叉；需要产出按架构拆分的正确常量映射并通过双架构 verifier。",
+  "primaryOutputFile": "/opt/syzkaller/sys/linux/dev_demo_compat.txt.const",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "唯一关键点是识别 `_IO*` 编码中的 size 差异并生成分架构 `.const`；题目已提供其余描述骨架，不需要其他技能。",
+  "targetSkillDirName": "syz-extract-constants",
+  "targetSkillName": "syz-extract-constants"
+}

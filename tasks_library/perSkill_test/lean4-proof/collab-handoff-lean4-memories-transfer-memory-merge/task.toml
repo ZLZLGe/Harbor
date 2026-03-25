@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "collab-handoff-lean4-memories-transfer-memory-merge"
+name = "Transfer: Collaborator Memory Handoff Merge Pack"
+description = "Merge two collaborator memory exports, resolve documented conflicts, and produce a unified JSON handoff pack with deduplicated records and explicit merge decisions."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "formal method"
+tags = ["formal method", "lean4", "knowledge-handoff", "json"]
+primary_output_file = "artifacts/collab-handoff-memory-pack.json"
+source_task_id = "lean4-proof"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 180.0

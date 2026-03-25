@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "mendota-glm-output-similar-temperature-alignment",
+  "taskRole": "similar",
+  "title": "Similar: Mendota Temperature Alignment Report",
+  "goal": "给定单个 GLM `output.nc`、对应 `glm3.nml` 和观测温度 CSV，生成观测匹配后的温度评估 JSON，至少包含总体 RMSE、表层/深层 RMSE、平均偏差和有效匹配数。",
+  "primaryOutputFile": "/root/reports/temperature_alignment_report.json",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "核心难点是正确读取 GLM NetCDF、把 `z` 从湖底高度转换成水面以下深度，并与观测按时间和深度对齐后计算误差；不需要任何其他 shipped skill。",
+  "targetSkillDirName": "glm-output",
+  "targetSkillName": "glm-output"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "audit-event-python-scala-functional-similar-normalizer",
+  "taskRole": "similar",
+  "title": "Similar: Audit Event Normalizer Translation",
+  "goal": "Translate a Python audit-event normalization module into idiomatic Scala 2.13, preserving its public classes and functions while converting closure-based normalizers, optional metadata handling, and lazy batch processing into functional Scala constructs.",
+  "primaryOutputFile": "/root/EventNormalizer.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "This stays close to the core shipped skill: Python-to-Scala translation of higher-order functions, generators, and optional values into pattern matching, Iterator-based pipelines, and Option-centric Scala code. No other workspace skill is needed.",
+  "targetSkillDirName": "python-scala-functional",
+  "targetSkillName": "python-scala-functional"
+}

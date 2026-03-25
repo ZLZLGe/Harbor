@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "dispatch-voice-activity-detection-transfer-activity-mask",
+  "taskRole": "transfer",
+  "title": "Dispatch Activity Mask Transfer",
+  "goal": "针对一段含噪的调度录音，生成固定时间分辨率的二值语音活动掩码，标明每个时间桶是否存在人声，并附带整体占用统计。",
+  "primaryOutputFile": "/root/speech_activity_mask.csv",
+  "difficulty": "hard",
+  "category": "audio",
+  "skillBenefitRationale": "该任务把语音活动检测迁移到监测分析场景，需要将连续语音检测结果转成稠密时间网格上的活动信号，验证方式也从片段级转为逐桶比对。",
+  "targetSkillDirName": "voice-activity-detection",
+  "targetSkillName": "Voice Activity Detection (VAD)"
+}

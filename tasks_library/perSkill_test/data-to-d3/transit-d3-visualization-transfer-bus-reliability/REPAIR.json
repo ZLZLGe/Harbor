@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "data-to-d3",
+  "targetSkillDirName": "d3-visualization",
+  "targetSkillName": "d3js-visualization",
+  "runId": "20260324190452-data-to-d3-d3-visualization-bos0n2",
+  "taskId": "transit-d3-visualization-transfer-bus-reliability",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/data-to-d3/d3-visualization/20260324190452-data-to-d3-d3-visualization-bos0n2/transit-d3-visualization-transfer-bus-reliability",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324190452-data-to-d3-d3-visualization-bos0n2/data-to-d3/drafts/transit-d3-visualization-transfer-bus-reliability",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/data-to-d3/d3-visualization/20260324190452-data-to-d3-d3-visualization-bos0n2/transit-d3-visualization-transfer-bus-reliability",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/data-to-d3/transit-d3-visualization-transfer-bus-reliability",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接暴露 shipped skill 名称或目录名，但 tests/test_outputs.py 额外要求固定 <title>；instruction.md 只要求可见 page title 和 subtitle。; tests/test_outputs.py 要求 #interval-summary .metric-card 恰好 4 个；instruction.md 只要求展示 on-time rate、late trips、scheduled trips，不应新增未声明的 DOM 数量约束。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 的 name `d3js-visualization` 和 dirName `d3-visualization`，造成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2445-5a5d-71e0-a316-20f5bac34a21",
+      "repairSummary": "已修复 instruction 与 tests 的不一致：在 instruction.md 中直接暴露 shipped skill `d3-visualization` / `d3js-visualization`，并明确 `#interval-summary` 至少展示 on-time rate、late trips、scheduled trips；同时移除 tests/test_outputs.py 中未被说明要求的固定 `<title>` 断言和 `.metric-card` 必须恰好 4 个的隐藏约束。",
+      "reviewThreadId": "019d2449-a671-7943-b712-e2b65453a7fa",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 的 name `d3js-visualization` 和 dirName `d3-visualization`，造成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d244a-8062-7f71-baf0-cf7001445373",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 名称和目录名的直接点名，改为泛化描述，消除技能暴露且不改变任务目标。",
+      "reviewThreadId": "019d244b-8fe9-7102-854d-662e1387213c",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

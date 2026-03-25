@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "edge-alert-seismic-picker-selection-transfer-realtime-trigger",
+  "taskRole": "transfer",
+  "title": "Transfer: 边缘实时地震告警的触发策略选择",
+  "goal": "给定单板 CPU、严格延迟预算、单站连续波形摘要和误报容忍说明，选择适合实时告警的触发方法并输出 `/root/edge_trigger_strategy.json`，其中包含方法名、关键参数和简短理由。验证重点是低资源实时约束下的方法选择是否正确。",
+  "primaryOutputFile": "/root/edge_trigger_strategy.json",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "这把 skill 迁移到边缘实时告警场景，核心判断是速度、易部署性与误报之间的取舍；skill 是唯一关键知识来源。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

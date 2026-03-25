@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ed-alerts-lab-unit-harmonization-transfer-reconciliation",
+  "taskRole": "transfer",
+  "title": "Transfer | 急诊危急检验对账报告",
+  "goal": "给定急诊危急值对账数据流，要求先对每条结果做数值格式清洗和单位统一，再只针对指定的危急检验项目生成一个 JSON 对账报告，列出每个 encounter 的标准化结果、是否发生过单位换算、哪些记录因缺失关键值被排除。",
+  "primaryOutputFile": "/root/ed_alert_lab_reconciliation.json",
+  "difficulty": "medium",
+  "category": "healthcare",
+  "skillBenefitRationale": "这里输出语义从清洗后的全量表转成事件级对账报告，但成败仍取决于实验室结果的单位识别、范围判断和格式规范化；当前技能是唯一关键 shipped skill。",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "targetSkillName": "lab-unit-harmonization"
+}

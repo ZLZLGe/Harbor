@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180">
+  <rect width="720" height="180" rx="28" fill="#0B5D7A"/>
+  <circle cx="96" cy="90" r="44" fill="#FF7A59"/>
+  <path d="M82 90h28M96 76v28" stroke="#F6FBFD" stroke-width="10" stroke-linecap="round"/>
+  <text x="164" y="82" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#F6FBFD">Harbor Support</text>
+  <text x="164" y="122" font-family="Arial, sans-serif" font-size="22" fill="#D9EEF4">Onboarding Crew</text>
+</svg>

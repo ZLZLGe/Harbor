@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "deck-ops-pptx-transfer-onboarding-build"
+name = "Transfer: Build a Support Onboarding Playbook from a Structured Brief"
+description = "Create a new five-slide onboarding presentation from the provided brief, metrics data, and brand assets, then save it to the required PPTX path."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "office-suite"
+tags = ["pptx", "slides", "presentation-creation", "branding", "transfer"]
+primary_output_file = "/root/Support-Onboarding-playbook.pptx"
+source_task_id = "pptx-reference-formatting"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

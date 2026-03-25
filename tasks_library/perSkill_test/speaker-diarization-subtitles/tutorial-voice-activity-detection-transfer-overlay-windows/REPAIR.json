@@ -1,0 +1,58 @@
+{
+  "sourceTaskId": "speaker-diarization-subtitles",
+  "targetSkillDirName": "voice-activity-detection",
+  "targetSkillName": "Voice Activity Detection (VAD)",
+  "runId": "20260325022002-speaker-diarization-subtitles-voice-activity-detection-i9rgx3",
+  "taskId": "tutorial-voice-activity-detection-transfer-overlay-windows",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/speaker-diarization-subtitles/voice-activity-detection/20260325022002-speaker-diarization-subtitles-voice-activity-detection-i9rgx3/tutorial-voice-activity-detection-transfer-overlay-windows",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325022002-speaker-diarization-subtitles-voice-activity-detection-i9rgx3/speaker-diarization-subtitles/drafts/tutorial-voice-activity-detection-transfer-overlay-windows",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/speaker-diarization-subtitles/voice-activity-detection/20260325022002-speaker-diarization-subtitles-voice-activity-detection-i9rgx3/tutorial-voice-activity-detection-transfer-overlay-windows",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/speaker-diarization-subtitles/tutorial-voice-activity-detection-transfer-overlay-windows",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "`tests/test_outputs.py` 引入了 instruction.md 未声明的隐藏判定阈值：BOUNDARY_TOLERANCE_SECONDS=0.45、MIN_REFERENCE_COVERAGE=0.88、MIN_IOU=0.8、TOTAL_DURATION_TOLERANCE_SECONDS=0.8，因此 testability 不通过。; 复用了与 source_task 和 similar 任务完全相同的视频资产，当前窗口结果本质上是同一组语音边界的补集，和 family 内其他任务的输入资产差异拉得不够开。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "environment/overlay_policy.json",
+    "instruction.md",
+    "solution/solve.sh",
+    "task.toml",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/reference_windows.json",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "tests/reference_windows.json 直接暴露了参考窗口答案，任务存在答案泄露。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c3-a614-7742-9ccf-3b68619acd27",
+      "repairSummary": "显式写出了测试阈值；把任务从“纯语音补集”改为“语音补集再扣除 policy 里的 blocked_ranges”，同步更新了说明、solution、reference 和 tests，并修好了 Docker 环境里 webrtcvad 的构建依赖。",
+      "reviewThreadId": "019d24df-6af9-7471-9956-38518f0341e9",
+      "reviewerIssues": [
+        "tests/reference_windows.json 直接暴露了参考窗口答案，任务存在答案泄露。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24e0-2475-7b03-88a8-9e2047194f5c",
+      "repairSummary": "移除了 `tests/reference_windows.json` 中明文参考窗口答案，并把判题改为在测试时基于任务视频和 policy 动态推导参考窗口，保留原有语义校验逻辑且避免答案泄露。",
+      "reviewThreadId": "019d24e3-3a31-7a01-9989-9fb0218b6742",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

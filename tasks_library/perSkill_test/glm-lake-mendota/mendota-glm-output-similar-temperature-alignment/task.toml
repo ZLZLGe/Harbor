@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "mendota-glm-output-similar-temperature-alignment"
+name = "Similar: Mendota Temperature Alignment Report"
+description = "Use the supplied GLM NetCDF output, configuration, and observations to generate /root/reports/temperature_alignment_report.json with aligned temperature error metrics."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["lake-modeling", "netcdf", "temperature-evaluation"]
+primary_output_file = "/root/reports/temperature_alignment_report.json"
+source_task_id = "glm-lake-mendota"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

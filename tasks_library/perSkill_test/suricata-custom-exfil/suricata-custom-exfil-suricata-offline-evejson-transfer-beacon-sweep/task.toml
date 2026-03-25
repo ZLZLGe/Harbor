@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "suricata-custom-exfil-suricata-offline-evejson-transfer-beacon-sweep"
+name = "Transfer - Beacon Sweep Classification"
+description = "离线回放多份 HTTP beacon PCAP，并基于 eve.json 生成 answer/beacon-sweep.json 的样本级分类汇总。"
+author_name = "Shenghan Zheng"
+author_email = "shenghan.zheng.gr@dartmouth.edu"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["suricata", "eve.json", "pcap", "classification", "http"]
+primary_output_file = "answer/beacon-sweep.json"
+source_task_id = "suricata-custom-exfil"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

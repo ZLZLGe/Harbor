@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "regional-redispatch-dc-power-flow-similar-interface-audit"
+name = "Similar: 区域电网拥塞重调度与接口利用率报告"
+description = "基于 MATPOWER 风格区域网络、日前基线出力、线性报价和爬坡约束，完成最小成本拥塞重调度并输出 redispatch_market_report.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "power-systems", "redispatch", "optimization", "matpower"]
+primary_output_file = "redispatch_market_report.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

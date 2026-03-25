@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "jakarta-namespace",
+  "runId": "20260325025540-spring-boot-jakarta-migration-jakarta-namespace-46amoa",
+  "taskId": "jersey3-catalog-api-jakarta-namespace-transfer-jaxrs-jaxb",
+  "sourcePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors/spring-boot-jakarta-migration/jakarta-namespace/20260325025540-spring-boot-jakarta-migration-jakarta-namespace-46amoa/jersey3-catalog-api-jakarta-namespace-transfer-jaxrs-jaxb",
+  "candidatePath": null,
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/pass/spring-boot-jakarta-migration/jakarta-namespace/20260325025540-spring-boot-jakarta-migration-jakarta-namespace-46amoa/jersey3-catalog-api-jakarta-namespace-transfer-jaxrs-jaxb",
+  "status": "no_op_pass",
+  "changedFiles": [],
+  "initialStaticIssues": [],
+  "finalStaticIssues": [],
+  "reviewerRechecked": false,
+  "finalReviewerIssues": [],
+  "reviewThreadId": null,
+  "notes": [
+    "当前目录本体已满足 static 校验，无需修改任务文件"
+  ]
+}

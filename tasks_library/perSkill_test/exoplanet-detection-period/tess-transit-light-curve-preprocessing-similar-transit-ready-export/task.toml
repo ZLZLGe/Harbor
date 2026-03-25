@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "tess-transit-light-curve-preprocessing-similar-transit-ready-export"
+name = "Similar - TESS 凌星预处理导出"
+description = "清洗并压平带有质量标记、离群点和慢变趋势的 TESS 风格光变，并导出可直接用于后续凌星搜索的 CSV。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "tess", "light-curve", "preprocessing", "timeseries"]
+primary_output_file = "/root/transit_ready_lightcurve.csv"
+source_task_id = "exoplanet-detection-period"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

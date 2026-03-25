@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "clinic-intake-pdf-transfer-fillable-form"
+name = "Transfer: 填写可编辑门诊登记 PDF"
+description = "根据患者信息 JSON 识别并填写门诊登记表单字段，输出保留可编辑字段的完成版文档。"
+author_name = "Harbor Task Builder"
+author_email = "taskbuilder@example.com"
+difficulty = "medium"
+category = "administration"
+tags = ["administration", "document-transfer", "forms"]
+primary_output_file = "/root/workspace/completed_intake.pdf"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

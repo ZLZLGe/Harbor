@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "street-surveillance-video-frame-extraction-similar-sampling-manifest"
+name = "Similar - 交通监控定时抽帧清单"
+description = "递归读取监控视频，每 2 秒抽取 1 张 JPEG，并输出包含源文件、FPS、时间点和相对路径的 JSON 清单。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "交通监控预处理"
+tags = ["video", "frame extraction", "surveillance", "json manifest"]
+primary_output_file = "/app/output/surveillance_sampling_manifest.json"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 300.0

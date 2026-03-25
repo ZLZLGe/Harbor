@@ -1,0 +1,14 @@
+{
+  "integral_gain_by_zone": [
+    0.55,
+    0.48
+  ],
+  "leak_by_zone": [
+    0.999,
+    0.998
+  ],
+  "integral_limit_by_zone": [
+    2.2,
+    1.8
+  ]
+}

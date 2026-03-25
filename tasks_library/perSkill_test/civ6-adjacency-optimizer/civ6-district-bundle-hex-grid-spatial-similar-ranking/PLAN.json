@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "civ6-district-bundle-hex-grid-spatial-similar-ranking",
+  "taskRole": "similar",
+  "title": "Similar: 文明6候选区域组合规划",
+  "goal": "在给定单城中心、固定候选区域列表和局部奇数行偏移六角地图的情况下，选出满足放置约束的最佳三区域组合，输出最终布局、每个区域的邻接分和组合总分。",
+  "primaryOutputFile": "/output/civ6_bundle_plan.json",
+  "difficulty": "hard",
+  "category": "games",
+  "skillBenefitRationale": "核心难点是正确处理 odd-r 六角邻居、三环城市范围和区域之间的相邻加成连锁；除该空间技能外不需要额外 shipped skill。",
+  "targetSkillDirName": "hex-grid-spatial",
+  "targetSkillName": "hex-grid-spatial"
+}

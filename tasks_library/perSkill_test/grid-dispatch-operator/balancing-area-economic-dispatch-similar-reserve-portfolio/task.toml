@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "balancing-area-economic-dispatch-similar-reserve-portfolio"
+name = "Similar: Balancing Area Reserve Portfolio Dispatch"
+description = "Optimize a single-interval balancing-area energy and reserve portfolio and write the resulting summary to balancing_dispatch_report.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "economic-dispatch", "reserve-cooptimization", "power-systems"]
+primary_output_file = "balancing_dispatch_report.json"
+source_task_id = "grid-dispatch-operator"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

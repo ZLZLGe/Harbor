@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "storage-power-flow-data-transfer-battery-siting",
+  "taskRole": "transfer",
+  "title": "Transfer: 储能并网点筛选",
+  "goal": "给定 `network.json` 和新增的 `candidate_sites.csv`，生成 `battery_site_ranking.csv`，对候选储能并网母线计算 2-hop 邻域负荷、相邻线路额定值总和、同母线机组容量、可用备用容量及连通性标签，并输出排序结果。",
+  "primaryOutputFile": "battery_site_ranking.csv",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "难点在于把候选站点映射到 MATPOWER 母线，并正确汇总邻域内的负荷、机组和线路指标；这是典型的电网数据格式与拓扑解析问题。",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data"
+}

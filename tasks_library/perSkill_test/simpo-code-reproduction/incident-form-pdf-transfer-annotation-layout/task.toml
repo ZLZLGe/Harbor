@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "incident-form-pdf-transfer-annotation-layout"
+name = "PDF Transfer: 不可填写事故表标注布局"
+description = "分析静态事故报告 PDF 的页面布局并生成 /root/incident_fields.json，用于后续文本注释回填。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "document annotation"
+tags = ["pdf", "document-annotation", "bounding-box", "incident-form", "transfer"]
+primary_output_file = "/root/incident_fields.json"
+source_task_id = "simpo-code-reproduction"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0

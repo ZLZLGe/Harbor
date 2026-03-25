@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "retail-commission-xlsx-transfer-payout-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: 销售提成结算审计表",
+  "goal": "在销售结算工作簿中填充空白的 `Payouts` 工作表：根据订单明细、销售代表规则表和季度加速档位表，使用查找与条件公式计算每笔订单的基础提成、加速奖金、最终应付金额，并标记规则未命中的记录。",
+  "primaryOutputFile": "commission_payout_audit.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "这个任务依赖多表查找、分段提成公式和可复算的结算表搭建，本质上是电子表格公式工程，除了 xlsx 操作不需要其他 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "restock-dispatch-xlsx-transfer-casepack-priority",
+  "taskRole": "transfer",
+  "title": "Transfer | 补货优先级派发表",
+  "goal": "在 `restock_planner.xlsx` 中，结合 `Demand`、`On Hand`、`Inbound`、`Lead Times` 和 `Case Packs` 表，为每个门店-SKU 计算到货前缺口、补货后覆盖天数、按整箱取整的建议下单量，并在 `Dispatch Board` 表输出最紧急的补货优先级与缺货预警，保存为 `/root/output/restock_dispatch_board.xlsx`。",
+  "primaryOutputFile": "/root/output/restock_dispatch_board.xlsx",
+  "difficulty": "medium",
+  "category": "supply-chain-operations",
+  "skillBenefitRationale": "该任务把 xlsx 迁移到供应链补货场景，重点仍是 Excel 内的数据匹配、取整公式、条件标记和汇总输出，不需要其他 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

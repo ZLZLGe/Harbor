@@ -1,0 +1,10 @@
+photo_id,product_name,package_code,target_facings
+cooler_left,Citrus Pop,CP,3
+cooler_left,Berry Fizz,BF,2
+cooler_left,Spring Water,SW,2
+checkout_endcap,Choco Bar,CB,4
+checkout_endcap,Salt Chips,SC,3
+checkout_endcap,Gum Mint,GM,2
+night_fridge,Yogurt Drink,YD,2
+night_fridge,Cold Brew,CR,2
+night_fridge,Orange Juice,OJ,3

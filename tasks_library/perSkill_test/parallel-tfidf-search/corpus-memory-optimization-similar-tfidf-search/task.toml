@@ -1,0 +1,30 @@
+[task]
+version = "1.0"
+id = "corpus-memory-optimization-similar-tfidf-search"
+name = "Similar: Memory-Bounded TF-IDF Search Pipeline"
+description = "Rewrite a memory-hungry TF-IDF archive search pipeline so it produces the same report within a fixed memory budget."
+
+[metadata]
+id = "corpus-memory-optimization-similar-tfidf-search"
+name = "Similar: Memory-Bounded TF-IDF Search Pipeline"
+description = "Rewrite the TF-IDF archive search pipeline so `/root/workspace/memory_search_solution.py` emits the exact report while staying within the memory budget."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Memory Optimization"
+tags = ["memory-optimization", "tf-idf", "streaming", "search"]
+primary_output_file = "/root/workspace/memory_search_solution.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

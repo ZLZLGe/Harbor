@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "ops-gateway-spring-security-6-transfer-multi-chain"
+name = "Transfer - Operations Gateway Multi-Chain Security Upgrade"
+description = "Migrate the operations gateway security setup to ordered filter chains and produce a passing GatewaySecurityChains.java."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["spring-boot", "spring-security", "java", "gateway", "migration"]
+primary_output_file = "src/main/java/com/example/opsgateway/security/GatewaySecurityChains.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

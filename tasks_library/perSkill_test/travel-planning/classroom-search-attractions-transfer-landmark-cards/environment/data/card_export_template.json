@@ -1,0 +1,18 @@
+{
+  "dataset_title": "Student Landmark Card Dataset",
+  "columns": ["city", "card_group", "attraction_name", "address", "website"],
+  "card_groups": [
+    {
+      "card_group": "starter-card",
+      "prompt": "Use one real landmark that can introduce the city to students."
+    },
+    {
+      "card_group": "discussion-card",
+      "prompt": "Use a different real landmark that gives students another comparison point."
+    },
+    {
+      "card_group": "compare-card",
+      "prompt": "Use a third real landmark so every city has three distinct cards."
+    }
+  ]
+}

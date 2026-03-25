@@ -1,0 +1,36 @@
+{
+  "sourceTaskId": "powerlifting-coef-calc",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260324213740-powerlifting-coef-calc-xlsx-mz3esm",
+  "taskId": "retail-commission-xlsx-transfer-payout-audit",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/powerlifting-coef-calc/xlsx/20260324213740-powerlifting-coef-calc-xlsx-mz3esm/retail-commission-xlsx-transfer-payout-audit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324213740-powerlifting-coef-calc-xlsx-mz3esm/powerlifting-coef-calc/drafts/retail-commission-xlsx-transfer-payout-audit",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/powerlifting-coef-calc/xlsx/20260324213740-powerlifting-coef-calc-xlsx-mz3esm/retail-commission-xlsx-transfer-payout-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/powerlifting-coef-calc/retail-commission-xlsx-transfer-payout-audit",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 强行检查 `SUMIFS(` 与 `INDEX(`/`MATCH(` 这样的公式形状，把合法解法锁定到特定内部实现。; tests/test_outputs.py 把缺少销售代表规则时的 `AcceleratorRate` 也判定为空白，但 instruction.md 只要求缺少季度加速规则时返回空白，这属于隐藏语义要求。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24aa-80c8-7072-a902-92d3b1ec1fe1",
+      "repairSummary": "放宽了测试对具体公式实现形状的硬编码要求，改为只校验公式列与必要源表引用；同时修正缺少销售代表规则时 `AcceleratorRate` 的语义，使 tests 与示例解法都仅在缺少季度加速规则时返回空白。",
+      "reviewThreadId": "019d24ac-b6c6-74f0-bc58-f38b89e69112",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

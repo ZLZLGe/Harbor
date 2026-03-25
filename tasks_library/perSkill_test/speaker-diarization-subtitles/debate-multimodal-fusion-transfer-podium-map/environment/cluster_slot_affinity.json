@@ -1,0 +1,22 @@
+{
+  "cluster_alpha": {
+    "left_podium": 0.82,
+    "center_podium": 0.12,
+    "right_podium": 0.06
+  },
+  "cluster_beta": {
+    "left_podium": 0.1,
+    "center_podium": 0.78,
+    "right_podium": 0.12
+  },
+  "cluster_gamma": {
+    "left_podium": 0.05,
+    "center_podium": 0.11,
+    "right_podium": 0.84
+  },
+  "cluster_mix": {
+    "left_podium": 0.48,
+    "center_podium": 0.42,
+    "right_podium": 0.1
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "sourceTaskId": "enterprise-information-search",
+  "targetSkillDirName": "enterprise-artifact-search",
+  "targetSkillName": "enterprise-artifact-search",
+  "runId": "20260324213956-enterprise-information-search-enterprise-artifact-search-x7xdj1",
+  "taskId": "account-enterprise-artifact-search-transfer-escalation-brief",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/enterprise-information-search/enterprise-artifact-search/20260324213956-enterprise-information-search-enterprise-artifact-search-x7xdj1/account-enterprise-artifact-search-transfer-escalation-brief",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324213956-enterprise-information-search-enterprise-artifact-search-x7xdj1/enterprise-information-search/drafts/account-enterprise-artifact-search-transfer-escalation-brief",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/enterprise-information-search/enterprise-artifact-search/20260324213956-enterprise-information-search-enterprise-artifact-search-x7xdj1/account-enterprise-artifact-search-transfer-escalation-brief",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/enterprise-information-search/account-enterprise-artifact-search-transfer-escalation-brief",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "任务目录根部包含完整标准答案文件 `customer_escalation_brief.json`，构成答案泄露，不应发布。; `tests/test_outputs.py` 将 `latest_status.summary` 和 `latest_status.artifact_pointer` 锁死为固定字符串/固定指针；instruction 只要求输出最新状态证据与摘要，这会把合法解法错误判失败，属于 Harbor testability 问题。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "customer_escalation_brief.json",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tmp_output.json"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2465-841a-7fc2-bc7e-2356ae993145",
+      "repairSummary": "删除了任务根目录泄露的标准答案文件，并放宽 `latest_status` 测试：不再硬编码摘要和完整指针字符串，改为校验状态值、Slack 来源文件、以及片段中是否标识正确的最新消息 ID；已用现有解法生成输出并跑通测试函数。",
+      "reviewThreadId": "019d2468-7925-71e0-8fb7-589a3fbbe0e1",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "checkout-ab-senior-data-scientist-transfer-summary"
+name = "Transfer: Checkout Experiment Decision Summary"
+description = "Analyze checkout funnel events from a CSV and write a JSON decision summary with lift, significance, SRM, and launch recommendation."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "experimentation"
+tags = ["ab-testing", "experimentation", "json", "ecommerce", "statistics"]
+primary_output_file = "/root/results/checkout_experiment_summary.json"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

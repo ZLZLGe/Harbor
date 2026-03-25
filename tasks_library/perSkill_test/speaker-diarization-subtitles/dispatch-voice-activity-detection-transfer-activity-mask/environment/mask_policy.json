@@ -1,0 +1,5 @@
+{
+  "bucket_size_seconds": 0.5,
+  "timeline_duration_seconds": 18.0,
+  "speech_seconds_to_activate_bucket": 0.15
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "scenario-glm-output-transfer-thermal-delta-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Two-Scenario Thermal Delta Audit",
+  "goal": "给定基线和干预两套 GLM `output.nc` 以及关注深度列表，生成情景对比 JSON，汇总各深度月均温差、夏季底层降温幅度和更接近目标温度窗口的方案。",
+  "primaryOutputFile": "/root/reports/scenario_delta_summary.json",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "唯一关键能力是读取并对齐两份 GLM 输出的深度温度剖面，然后计算跨情景差值和摘要指标；比较规则本身是直接的结果汇总。",
+  "targetSkillDirName": "glm-output",
+  "targetSkillName": "glm-output"
+}

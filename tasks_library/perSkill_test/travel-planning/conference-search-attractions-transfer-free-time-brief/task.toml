@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "conference-search-attractions-transfer-free-time-brief"
+name = "Transfer | Conference Free-Time City Brief"
+description = "Read the conference city roster and free-time slot rules, then produce a city-by-city markdown brief at /app/output/conference_free_time_brief.md."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "business-travel"
+tags = ["business-travel", "attractions", "markdown", "brief"]
+primary_output_file = "/app/output/conference_free_time_brief.md"
+source_task_id = "travel-planning"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

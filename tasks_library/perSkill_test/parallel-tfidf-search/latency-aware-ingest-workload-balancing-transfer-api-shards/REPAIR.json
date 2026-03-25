@@ -1,0 +1,38 @@
+{
+  "sourceTaskId": "parallel-tfidf-search",
+  "targetSkillDirName": "workload-balancing",
+  "targetSkillName": "workload-balancing",
+  "runId": "20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1",
+  "taskId": "latency-aware-ingest-workload-balancing-transfer-api-shards",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/parallel-tfidf-search/workload-balancing/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/latency-aware-ingest-workload-balancing-transfer-api-shards",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/parallel-tfidf-search/drafts/latency-aware-ingest-workload-balancing-transfer-api-shards",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/parallel-tfidf-search/workload-balancing/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/latency-aware-ingest-workload-balancing-transfer-api-shards",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/parallel-tfidf-search/latency-aware-ingest-workload-balancing-transfer-api-shards",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "`tests/test_outputs.py` 强制 4 个 worker 的 `requests` 和 `busy_seconds` 都必须大于 0，但 instruction.md 只要求 `worker_stats` 真实反映实际完成情况，没有要求所有 worker 都必须非空闲；这是隐藏要求。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2491-adec-7d50-acc4-12282b0f977c",
+      "repairSummary": "放宽了 `worker_stats` 的测试断言，移除对 4 个 worker 都必须非空闲的隐藏要求，并在 `instruction.md` 明确允许空闲 worker，只要求统计真实反映实际完成情况。",
+      "reviewThreadId": "019d2492-f785-7f52-b8e6-ea999e648e07",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

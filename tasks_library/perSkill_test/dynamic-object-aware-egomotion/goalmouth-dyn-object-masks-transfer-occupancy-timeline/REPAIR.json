@@ -1,0 +1,68 @@
+{
+  "sourceTaskId": "dynamic-object-aware-egomotion",
+  "targetSkillDirName": "dyn-object-masks",
+  "targetSkillName": "dyn-object-masks",
+  "runId": "20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu",
+  "taskId": "goalmouth-dyn-object-masks-transfer-occupancy-timeline",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/dynamic-object-aware-egomotion/dyn-object-masks/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/goalmouth-dyn-object-masks-transfer-occupancy-timeline",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/dynamic-object-aware-egomotion/drafts/goalmouth-dyn-object-masks-transfer-occupancy-timeline",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/dynamic-object-aware-egomotion/dyn-object-masks/20260324190452-dynamic-object-aware-egomotion-dyn-object-masks-dn4qmu/goalmouth-dyn-object-masks-transfer-occupancy-timeline",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/dynamic-object-aware-egomotion/goalmouth-dyn-object-masks-transfer-occupancy-timeline",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill 的 name 或 dirName，技能未暴露。; 任务把输出改成球门区域遮挡时间序列 CSV，并新建了视频与 ROI 资产，和 source_task 及其他 transfer 任务有清晰差异，不是机械复写。; tests/test_outputs.py 使用 instruction.md 未声明的隐藏数值阈值（occlusion ratio MAE、max ratio error、pixel MAE、total_relative_err）判分，属于 Harbor testability 问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/reference_dyn_masks.npz",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了当前 shipped skill 名称 `dyn-object-masks`，造成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2445-5a76-7830-8b95-55181b0f6c25",
+      "repairSummary": "修复了 instruction.md：直接点名 shipped skill `dyn-object-masks`，并公开 tests 中使用的四个数值误差阈值，消除技能未暴露和隐藏判分要求问题。",
+      "reviewThreadId": "019d2449-4f13-7080-b461-50aecf5730c5",
+      "reviewerIssues": [
+        "instruction.md 直接点名了当前 shipped skill 名称 `dyn-object-masks`，造成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "tests/reference_dyn_masks.npz 直接提供了可还原目标时间序列的参考掩码，导致任务存在答案泄露。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d244a-74c3-72c1-b024-40437e512fd2",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 名称的直接点名，改为泛化表述，并保持任务目标与验收语义不变。",
+      "reviewThreadId": "019d244b-e36a-75e1-a88b-28de0e0a3394",
+      "reviewerIssues": [
+        "tests/reference_dyn_masks.npz 直接提供了可还原目标时间序列的参考掩码，导致任务存在答案泄露。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d244d-2077-7a90-9ad7-706d2cdcf19e",
+      "repairSummary": "移除了泄露答案的 reference 掩码资产，改为让 verifier 从视频与 ROI 直接估计参考遮挡序列；同步修正了 Docker 依赖冲突和 OpenCV 4.12 下的连通域输入类型问题，容器内验证已通过。",
+      "reviewThreadId": "019d2461-300b-7b13-9b2f-b893a274c0e9",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

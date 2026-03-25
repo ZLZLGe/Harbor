@@ -1,0 +1,5 @@
+scenario_id,station_mix,context,data_availability,latency_budget,compute_budget,analyst_capacity,template_count,source_repeatability,primary_goal,false_positive_tolerance,review_requirement
+city_accelerometer_watch,180 urban accelerometers,Municipal strong-motion confirmation network,continuous city streams,seconds,low,1 duty operator,0,low,fast first-stage trigger for felt shaking,high,quick screen
+dam_regulatory_audit,12 borehole sensors plus 4 surface broadband stations,Reservoir-induced seismicity compliance program,daily reviewed waveforms,days,moderate,6 analysts,12,medium,defensible audited catalog with almost no false positives,very_low,full human review
+temp_nodal_aftershocks,48 temporary nodes plus 4 loaner broadband stations,Post-mainshock temporary deployment in a rural gap,continuous local waveforms,minutes,moderate,2 field staff,0,low,more complete local aftershock catalog,medium,screen only
+template_swarm_archive,25 short-period stations around a repeating swarm,Well-characterized cluster near a geothermal field,continuous archive,hours,high,2 analysts,850,high,detect the smallest recurring events in a known cluster,low,batch review

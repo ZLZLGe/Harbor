@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "rooftop-dyn-object-masks-transfer-motion-heatmap",
+  "taskRole": "transfer",
+  "title": "Transfer: Rooftop Motion Heatmap",
+  "goal": "给定一段无人机屋顶巡检视频，输出一个归一化的累计动态活动热力图 NPY，表示整个片段中动态物体在各像素位置出现的频度。",
+  "primaryOutputFile": "/root/rooftop_activity_heatmap.npy",
+  "difficulty": "medium",
+  "category": "video-analysis",
+  "skillBenefitRationale": "热力图只是逐帧动态掩码的累计与归一化，验证重点仍是补偿相机运动后能否稳定提取移动人员或设备的掩码，不需要额外 shipped skill。",
+  "targetSkillDirName": "dyn-object-masks",
+  "targetSkillName": "dyn-object-masks"
+}

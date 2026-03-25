@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-bloom-contribution-analysis-similar-drivers",
+  "taskRole": "similar",
+  "title": "Similar: Reservoir Bloom Driver Attribution",
+  "goal": "给定按年拆分的水库气象、营养盐、水动力和岸线开发数据，合并后对四类驱动做统一降维与R²剔除分解，输出主导藻华驱动类别及其归一化贡献占比到 `dominant_bloom_driver.csv`。",
+  "primaryOutputFile": "dominant_bloom_driver.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "这是当前技能的典型使用场景：多张表按时间键合并、四组相关变量统一建模、比较去除单组后的R²下降，并只报告主导类别。场景仍在水环境领域，但目标从湖泊增温改为藻华强度，避免简单复写原任务。",
+  "targetSkillDirName": "contribution-analysis",
+  "targetSkillName": "contribution-analysis"
+}

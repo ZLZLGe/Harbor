@@ -1,0 +1,9 @@
+lake_name = "Blue Heron Lake"
+species_name = "Cisco"
+simulation_start = "2019-07-01T00:00:00"
+lake_depth_m = 18.0
+refuge_min_temp_c = 8.5
+refuge_max_temp_c = 11.5
+summer_start_date = "2019-07-03"
+summer_end_date = "2019-07-08"
+collapse_threshold_m = 1.0

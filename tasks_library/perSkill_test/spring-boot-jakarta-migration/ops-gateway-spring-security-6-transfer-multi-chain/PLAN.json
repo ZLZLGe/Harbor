@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ops-gateway-spring-security-6-transfer-multi-chain",
+  "taskRole": "transfer",
+  "title": "Transfer - Operations Gateway Multi-Chain Security Upgrade",
+  "goal": "在一个运维网关服务中，把旧版基于多个适配器类的安全配置迁移为按顺序生效的多个 SecurityFilterChain Bean，使 /actuator/health 与 /docs/** 保持公开、/internal/** 仅限 OPS 角色、/api/** 继续走无状态鉴权，并通过启动后接口行为验证。",
+  "primaryOutputFile": "src/main/java/com/example/opsgateway/security/GatewaySecurityChains.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "任务把同一技能迁移到多链路匹配与过滤器链顺序场景，核心仍是 Spring Security 6 的组件式配置与 requestMatchers 语义，而不是其他框架知识。spring-security-6 仍是唯一决定性交付技能。",
+  "targetSkillDirName": "spring-security-6",
+  "targetSkillName": "spring-security-6"
+}

@@ -1,0 +1,19 @@
+%YAML 1.1
+---
+vars:
+  address-groups:
+    HOME_NET: "any"
+    EXTERNAL_NET: "any"
+
+default-rule-path: /root/rulepack-benchmark/rulepacks
+
+rule-files:
+  - candidate-blue.rules
+
+outputs:
+  - eve-log:
+      enabled: yes
+      filename: eve.json
+      types:
+        - alert:
+            metadata: yes

@@ -1,0 +1,5 @@
+unit_id,min_output_MW,max_output_MW,variable_cost_dollars_per_MWh,fuel_burn_liters_per_MWh
+pier_1,15,85,78,330
+ridge_2,0,70,92,255
+cove_3,0,60,116,205
+airport_4,0,55,143,175

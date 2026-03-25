@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "district-steam-economic-dispatch-transfer-boiler-standby"
+name = "Transfer: District Steam Boiler Standby Dispatch"
+description = "Optimize an hourly district steam boiler schedule with standby coupling and write the resulting commitment to steam_commitment.toml."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "district-steam", "boiler-dispatch", "standby-allocation"]
+primary_output_file = "steam_commitment.toml"
+source_task_id = "grid-dispatch-operator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

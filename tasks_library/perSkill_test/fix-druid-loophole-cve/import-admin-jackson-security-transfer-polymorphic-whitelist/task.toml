@@ -1,0 +1,29 @@
+version = "1.0"
+
+[metadata]
+id = "import-admin-jackson-security-transfer-polymorphic-whitelist"
+name = "Transfer: Lock Down Polymorphic Jackson Imports in an Admin API"
+description = "Patch the admin import API so it blocks unsafe polymorphic Jackson imports, preserves valid import bundles, and outputs /workspace/patches/0001-admin-import-type-whitelist.patch."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "Security"
+tags = ["Java", "Security", "Jackson", "Polymorphism", "Patch"]
+primary_output_file = "/workspace/patches/0001-admin-import-type-whitelist.patch"
+source_task_id = "fix-druid-loophole-cve"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[solution]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

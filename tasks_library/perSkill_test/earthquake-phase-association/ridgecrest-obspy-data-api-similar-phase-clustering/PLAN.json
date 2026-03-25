@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "ridgecrest-obspy-data-api-similar-phase-clustering",
+  "taskRole": "similar",
+  "title": "Ridgecrest Similar Phase Clustering",
+  "goal": "读取连续 MiniSEED、台站表和一份预计算相位拾取 CSV，利用 ObsPy 的波形元数据与 UTC 时间对象把跨台站的 P/S 到时聚合为唯一事件时间表，并将结果写入 /root/associated_events.csv；验证以事件时间容差匹配的精确率/召回率为主。",
+  "primaryOutputFile": "/root/associated_events.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "这个任务仍然围绕地震事件关联，但把难点收敛到 ObsPy 的 read、Stream/Trace.stats 和 UTCDateTime 上，让目标 skill 成为完成时间对齐、台站映射和事件输出的唯一关键 shipped skill。",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

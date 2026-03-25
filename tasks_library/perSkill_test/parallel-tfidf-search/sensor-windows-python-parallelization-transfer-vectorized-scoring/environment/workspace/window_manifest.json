@@ -1,0 +1,17 @@
+{
+  "batch_id": "yard-batch-2026-03-25",
+  "rolling_width": 24,
+  "threshold_z": 2.35,
+  "volatility_floor": 0.65,
+  "spike_top_n": 6,
+  "spike_weight": 0.62,
+  "drift_weight": 0.24,
+  "breach_weight": 0.14,
+  "severity_thresholds": {
+    "watch": 1.2,
+    "elevated": 1.85,
+    "critical": 2.6
+  },
+  "top_summary_count": 8,
+  "hotspot_count": 5
+}

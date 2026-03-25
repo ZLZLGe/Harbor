@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "orchard-irrigation-hex-grid-spatial-transfer-layout",
+  "taskRole": "transfer",
+  "title": "Transfer: 六角农田喷灌布局优化",
+  "goal": "在蜂巢农田上，从候选喷灌基座中选择最少设备，使所有作物格都被半径 2 的喷灌范围覆盖且设备之间不能相邻，输出选中基座、覆盖清单和总设备数。",
+  "primaryOutputFile": "/output/irrigation_layout.json",
+  "difficulty": "hard",
+  "category": "agriculture",
+  "skillBenefitRationale": "任务本质是六角半径覆盖与相邻冲突判断，直接检验 odd-r 六角范围计算能力，不依赖其他 shipped skill。",
+  "targetSkillDirName": "hex-grid-spatial",
+  "targetSkillName": "hex-grid-spatial"
+}

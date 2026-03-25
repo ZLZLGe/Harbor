@@ -1,0 +1,10 @@
+{
+  "city_limits": {
+    "Seattle": 1200.0,
+    "Chicago": 900.0,
+    "Boston": 700.0,
+    "Austin": 950.0,
+    "Denver": 750.0,
+    "Atlanta": 550.0
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "window_id": "WIN-01",
+    "start_bjd": 2461057.1,
+    "end_bjd": 2461057.34,
+    "site": "Andes-1"
+  },
+  {
+    "window_id": "WIN-02",
+    "start_bjd": 2461061.62,
+    "end_bjd": 2461061.95,
+    "site": "Andes-1"
+  },
+  {
+    "window_id": "WIN-03",
+    "start_bjd": 2461068.2,
+    "end_bjd": 2461068.48,
+    "site": "Andes-2"
+  },
+  {
+    "window_id": "WIN-04",
+    "start_bjd": 2461076.18,
+    "end_bjd": 2461076.46,
+    "site": "Andes-2"
+  },
+  {
+    "window_id": "WIN-05",
+    "start_bjd": 2461084.05,
+    "end_bjd": 2461084.33,
+    "site": "Andes-3"
+  },
+  {
+    "window_id": "WIN-06",
+    "start_bjd": 2461090.75,
+    "end_bjd": 2461091.04,
+    "site": "Andes-3"
+  },
+  {
+    "window_id": "WIN-07",
+    "start_bjd": 2461094.1,
+    "end_bjd": 2461094.37,
+    "site": "Andes-1"
+  }
+]

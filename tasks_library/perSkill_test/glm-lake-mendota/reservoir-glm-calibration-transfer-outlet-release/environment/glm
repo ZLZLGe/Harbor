@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+import math
+import os
+import re
+from pathlib import Path
+
+import pandas as pd
+
+
+TASK_ROOT = Path(os.environ.get("TASK_ROOT", "/root"))
+NML_PATH = TASK_ROOT / "glm3.nml"
+FORCING_PATH = TASK_ROOT / "inputs" / "reservoir_forcing.csv"
+SCHEDULE_PATH = TASK_ROOT / "inputs" / "release_schedule.csv"
+OUTPUT_PATH = TASK_ROOT / "output" / "release_temperature_daily.csv"
+PARAM_KEYS = ["Kw", "coef_mix_hyp", "wind_factor", "lw_factor", "ch"]
+
+
+def read_params():
+    text = NML_PATH.read_text()
+    params = {}
+    for key in PARAM_KEYS:
+        match = re.search(rf"{key}\s*=\s*([-0-9.]+)", text)
+        if not match:
+            raise ValueError(f"glm3.nml missing parameter {key}")
+        params[key] = float(match.group(1))
+    return params
+
+
+def simulate(forcing_df, schedule_df, params):
+    frame = forcing_df.merge(schedule_df, on="date", how="inner").sort_values("date").reset_index(drop=True)
+    surface_temp = 12.0
+    deep_temp = 7.8
+    total_days = len(frame)
+    records = []
+
+    for idx, row in frame.iterrows():
+        season = math.sin(2.0 * math.pi * (idx + 15) / total_days)
+        surface_temp = (
+            surface_temp
+            + 0.10 * (row["air_temp_c"] - surface_temp)
+            + 0.0018 * row["shortwave_wm2"] * params["lw_factor"]
+            - 0.55 * params["Kw"]
+            - 0.08 * row["wind_speed_mps"] * params["wind_factor"]
+            + 0.05 * (row["inflow_temp_c"] - surface_temp)
+            + 0.12 * season
+        )
+        exchange = 0.030 * params["coef_mix_hyp"] * (surface_temp - deep_temp) + 250.0 * params["ch"] * (row["release_cms"] / 30.0)
+        attenuation = 0.008 * row["shortwave_wm2"] * math.exp(-params["Kw"] * max(row["withdrawal_depth_m"] - 6.0, 1.0) / 7.5)
+        deep_temp = deep_temp + 0.025 * (row["inflow_temp_c"] - deep_temp) + attenuation + 0.55 * exchange - 0.035 * params["wind_factor"] + 0.03 * season
+        outlet_fraction = min(
+            0.62,
+            max(
+                0.05,
+                0.10 + 0.18 * params["coef_mix_hyp"] - 0.07 * params["Kw"] - 0.012 * (row["withdrawal_depth_m"] - 12.0),
+            ),
+        )
+        release_temp = outlet_fraction * surface_temp + (1.0 - outlet_fraction) * deep_temp + 0.015 * (row["release_cms"] - 24.0)
+        records.append(
+            {
+                "date": row["date"],
+                "simulated_release_temp_c": round(release_temp, 6),
+                "surface_temp_c": round(surface_temp, 6),
+                "deep_temp_c": round(deep_temp, 6),
+                "withdrawal_depth_m": round(row["withdrawal_depth_m"], 6),
+                "release_cms": round(row["release_cms"], 6),
+            }
+        )
+
+    return pd.DataFrame.from_records(records)
+
+
+def main():
+    params = read_params()
+    forcing_df = pd.read_csv(FORCING_PATH)
+    schedule_df = pd.read_csv(SCHEDULE_PATH)
+    output_df = simulate(forcing_df, schedule_df, params)
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    output_df.to_csv(OUTPUT_PATH, index=False)
+
+
+if __name__ == "__main__":
+    main()

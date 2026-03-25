@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "site-inspection-pdf-transfer-annotated-form",
+  "taskRole": "transfer",
+  "title": "Transfer: 非填写巡检表标注录入",
+  "goal": "处理一份不可填写的现场巡检表 PDF 和 `inspection_answers.json`，通过图像化页面分析确定文本框与复选框位置，生成带正确文字和勾选标记的 `/root/annotated_inspection_form.pdf`。",
+  "primaryOutputFile": "/root/annotated_inspection_form.pdf",
+  "difficulty": "hard",
+  "category": "document-annotation",
+  "skillBenefitRationale": "该任务依赖非 fillable PDF 的坐标定位、边界框校验和注释写回，这是当前 PDF skill 的专长；答案数据本身已给定，不需要其他技能。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

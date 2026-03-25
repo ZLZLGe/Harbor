@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-glm-calibration-transfer-outlet-release",
+  "taskRole": "transfer",
+  "title": "Transfer - Calibrate Cold-Pool Release Temperatures",
+  "goal": "把 GLM 参数校准迁移到水库出流场景：求解者需要调节同类热量与混合参数，使夏季调度期的模拟出流温度与观测出流温度时间序列吻合到目标误差范围内，并导出逐日拟合结果到 `/root/reports/release_temperature_fit.csv`。",
+  "primaryOutputFile": "/root/reports/release_temperature_fit.csv",
+  "difficulty": "hard",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "任务仍然只依赖 GLM 参数校准能力，但验证目标从整湖剖面温度转成了出流温度时间序列，能测试该 skill 在运营型水库目标函数上的迁移能力。",
+  "targetSkillDirName": "glm-calibration",
+  "targetSkillName": "glm-calibration"
+}

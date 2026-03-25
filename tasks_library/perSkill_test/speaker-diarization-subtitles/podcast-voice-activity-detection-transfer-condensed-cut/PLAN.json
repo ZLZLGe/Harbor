@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "podcast-voice-activity-detection-transfer-condensed-cut",
+  "taskRole": "transfer",
+  "title": "Podcast Dead-Air Condense Transfer",
+  "goal": "对一段原始播客录音自动移除长静音，只保留检测到的语音内容并按原顺序拼接，导出压缩后的成片音频。",
+  "primaryOutputFile": "/root/condensed_podcast.wav",
+  "difficulty": "hard",
+  "category": "audio",
+  "skillBenefitRationale": "这里把语音活动检测迁移到音频剪辑自动化场景，关键不再是标注区间本身，而是依赖语音边界来驱动保留与裁切。",
+  "targetSkillDirName": "voice-activity-detection",
+  "targetSkillName": "Voice Activity Detection (VAD)"
+}

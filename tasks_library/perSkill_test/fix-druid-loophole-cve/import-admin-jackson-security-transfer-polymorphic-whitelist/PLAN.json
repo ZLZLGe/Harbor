@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "import-admin-jackson-security-transfer-polymorphic-whitelist",
+  "taskRole": "transfer",
+  "title": "Transfer: Lock Down Polymorphic Jackson Imports in an Admin API",
+  "goal": "在一个管理后台导入接口中修复不安全的多态 Jackson 反序列化：现有代码允许请求 JSON 通过类型字段决定具体实现类，测试会投递带危险类型标记的导入包。任务要求将导入链路改成显式白名单或安全类型解析，并保留合法导入能力。",
+  "primaryOutputFile": "/workspace/patches/0001-admin-import-type-whitelist.patch",
+  "difficulty": "hard",
+  "category": "Security",
+  "skillBenefitRationale": "把同一 skill 迁移到多态类型注入场景，核心仍是 Jackson 在 `readValue()` 期间决定实例化行为，要求解题者理解为什么事后校验对象类型已经太晚。",
+  "targetSkillDirName": "jackson-security",
+  "targetSkillName": "jackson-security"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "hydrophone-ping-matched-filtering-transfer-chirp-detect"
+name = "Transfer | 水听器线性调频脉冲检出"
+description = "在含噪水听器录音和三条参考线性调频脉冲上计算响应峰值，并将脉冲类型、到达采样点和峰值响应写入 /root/hydrophone_ping_report.csv。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "acoustics"
+tags = ["acoustics", "hydrophone", "signal-processing", "chirp", "csv"]
+primary_output_file = "/root/hydrophone_ping_report.csv"
+source_task_id = "gravitational-wave-detection"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "coating-line-finite-horizon-lqr-similar-speed-ramp"
+name = "Similar: Coating Line Speed-Ramp MPC"
+description = "Implement a receding-horizon controller for the provided coating-line models and simulator, then write coating_response_report.json with gain summaries, closed-loop trajectories, and tracking metrics."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control", "mpc", "coating-line", "state-space", "python"]
+primary_output_file = "coating_response_report.json"
+source_task_id = "r2r-mpc-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1200.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

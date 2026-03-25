@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "conference-schedule-output-validation-transfer-seat-usage",
+  "taskRole": "transfer",
+  "title": "Transfer | 会议排期状态与座位占用矩阵",
+  "goal": "根据会议排期、房间座位图和签到记录，输出房间状态时间线 JSON，并为每个时隙输出已占用座位的 CSR 稀疏矩阵。",
+  "primaryOutputFile": "/root/room_state_timeline.json",
+  "difficulty": "medium",
+  "category": "operations-planning",
+  "skillBenefitRationale": "该场景的主要风险是时间槽覆盖不完整、状态标签越界、容量不一致以及稀疏座位矩阵编码错误；本地输出验证是保证可提交结果的唯一关键能力。",
+  "targetSkillDirName": "output-validation",
+  "targetSkillName": "output-validation"
+}

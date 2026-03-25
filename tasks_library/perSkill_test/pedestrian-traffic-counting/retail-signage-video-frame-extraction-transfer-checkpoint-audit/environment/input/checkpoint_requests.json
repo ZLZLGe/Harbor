@@ -1,0 +1,47 @@
+{
+  "audit_id": "retail-signage-q2-checkpoints",
+  "requests": [
+    {
+      "checkpoint_id": "cp_store014_opening",
+      "store_code": "store_014",
+      "source_video": "signage_archive/east/store_014/window_loop.mp4",
+      "timestamp_seconds": 0.0
+    },
+    {
+      "checkpoint_id": "cp_store014_midmorning",
+      "store_code": "store_014",
+      "source_video": "signage_archive/east/store_014/window_loop.mp4",
+      "timestamp_seconds": 8.25
+    },
+    {
+      "checkpoint_id": "cp_store014_afterclose",
+      "store_code": "store_014",
+      "source_video": "signage_archive/east/store_014/window_loop.mp4",
+      "timestamp_seconds": 34.5
+    },
+    {
+      "checkpoint_id": "cp_store203_aisle",
+      "store_code": "store_203",
+      "source_video": "signage_archive/west/store_203/checkout_combo.mp4",
+      "timestamp_seconds": 4.0
+    },
+    {
+      "checkpoint_id": "cp_store203_promo",
+      "store_code": "store_203",
+      "source_video": "signage_archive/west/store_203/checkout_combo.mp4",
+      "timestamp_seconds": 17.2
+    },
+    {
+      "checkpoint_id": "cp_store203_finalpass",
+      "store_code": "store_203",
+      "source_video": "signage_archive/west/store_203/checkout_combo.mp4",
+      "timestamp_seconds": 49.9
+    },
+    {
+      "checkpoint_id": "cp_store203_overrun",
+      "store_code": "store_203",
+      "source_video": "signage_archive/west/store_203/checkout_combo.mp4",
+      "timestamp_seconds": 50.0
+    }
+  ]
+}

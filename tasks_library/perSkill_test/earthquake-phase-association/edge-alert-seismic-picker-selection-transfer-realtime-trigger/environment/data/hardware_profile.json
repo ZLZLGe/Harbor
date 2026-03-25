@@ -1,0 +1,10 @@
+{
+  "device_name": "Coast-Edge-01",
+  "cpu_model": "ARM Cortex-A53",
+  "cpu_cores": 4,
+  "reserved_cores_for_trigger": 1,
+  "clock_ghz": 1.4,
+  "memory_mb": 1024,
+  "accelerator": "none",
+  "power_budget_watts": 6.0
+}

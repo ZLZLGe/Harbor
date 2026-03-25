@@ -1,0 +1,22 @@
+{
+  "case_id": "greenhouse-humidity-daynight-03",
+  "process_model": {
+    "K": 0.45,
+    "tau_min": 8.0
+  },
+  "response_horizon_min": 15.0,
+  "modes": {
+    "day": {
+      "initial_humidity_percent": 58.0,
+      "target_humidity_percent": 68.0,
+      "lambda_candidates_min": [4.0, 6.0, 8.0],
+      "preference": "faster"
+    },
+    "night": {
+      "initial_humidity_percent": 72.0,
+      "target_humidity_percent": 80.0,
+      "lambda_candidates_min": [12.0, 14.0, 16.0],
+      "preference": "steadier"
+    }
+  }
+}

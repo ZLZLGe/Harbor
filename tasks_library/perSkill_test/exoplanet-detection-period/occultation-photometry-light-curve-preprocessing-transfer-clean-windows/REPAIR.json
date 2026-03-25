@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing",
+  "runId": "20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke",
+  "taskId": "occultation-photometry-light-curve-preprocessing-transfer-clean-windows",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/light-curve-preprocessing/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/occultation-photometry-light-curve-preprocessing-transfer-clean-windows",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/exoplanet-detection-period/drafts/occultation-photometry-light-curve-preprocessing-transfer-clean-windows",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/light-curve-preprocessing/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/occultation-photometry-light-curve-preprocessing-transfer-clean-windows",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/occultation-photometry-light-curve-preprocessing-transfer-clean-windows",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill，任务也不是对 source_task 的机械复写；输入资产与 family 中其他任务区分合理。; drafts 根目录包含完整参考输出 `artifacts_local_occultation_windows.json`，会向做题者直接暴露标准答案产物，形成答案泄露。; tests/test.sh 已先创建 `/logs/verifier`，并稳定写入 `/logs/verifier/reward.txt`；未发现 `set -e/pipefail` 导致 reward 未落盘的问题。; tests/test_outputs.py 整体以 instruction.md 已声明的 JSON 契约、窗口顺序、统计量和显式阈值为主，未发现必须额外依赖其他未 shipped skills 的问题。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "artifacts_local_occultation_windows.json",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "测试把窗口起止时间固定为仅按 `frame_quality==0` 切分后的边界，与 instruction 要求“基于最终保留下来的观测点切分窗口”不一致，会误判合法解。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d246e-e33a-76e1-ae51-53fe427d004f",
+      "repairSummary": "删除了任务根目录中泄露标准答案的参考输出文件，保留其余任务说明、解法和测试契约不变。",
+      "reviewThreadId": "019d2470-79b2-7bb2-bfcc-a40d1ddbbe48",
+      "reviewerIssues": [
+        "测试把窗口起止时间固定为仅按 `frame_quality==0` 切分后的边界，与 instruction 要求“基于最终保留下来的观测点切分窗口”不一致，会误判合法解。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2472-4b3b-72f0-a0de-dfdb0cbc7c14",
+      "repairSummary": "修正测试对窗口边界的误判：不再把窗口固定为仅按 `frame_quality==0` 分段后的边界，而是基于输出中最终保留的观测点检查 90 秒断窗、最小窗口长度、时间点来源和归一化效果，和 instruction 保持一致。",
+      "reviewThreadId": "019d2475-85a9-7dc3-bfcb-a85d94fada82",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

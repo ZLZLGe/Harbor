@@ -1,0 +1,8 @@
+test_code,qc_level,standard_name,target_unit,target_low,target_high,plausible_low,plausible_high,alternate_units,display_order
+CREA,L1,Serum Creatinine,mg/dL,1.80,2.20,0.20,20.00,umol/L,1
+GLU,L1,Glucose,mg/dL,95.00,105.00,20.00,800.00,mmol/L,2
+GLU,L2,Glucose,mg/dL,190.00,210.00,20.00,800.00,mmol/L,2
+HGB,L1,Hemoglobin,g/dL,8.80,9.60,3.00,20.00,g/L|mmol/L,3
+HGB,L2,Hemoglobin,g/dL,11.50,12.50,3.00,20.00,g/L|mmol/L,3
+CA,L1,Calcium,mg/dL,8.80,9.60,5.00,15.00,mmol/L|mEq/L,4
+PHOS,L1,Phosphorus,mg/dL,4.00,4.60,1.00,15.00,mmol/L,5

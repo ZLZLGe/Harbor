@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "gradebook-xlsx-transfer-makeup-merge",
+  "taskRole": "transfer",
+  "title": "Transfer: 合并补考成绩并重算课程成绩册",
+  "goal": "给定一个包含加权总评公式的课程成绩册，以及一份补考成绩 CSV。需要按学号匹配学生，仅替换指定测验列中允许被补考成绩覆盖的分数，保持评语、出勤和其他列不变，并输出重算后的成绩工作簿。",
+  "primaryOutputFile": "/root/makeup_gradebook.xlsx",
+  "difficulty": "medium",
+  "category": "Office Operation",
+  "skillBenefitRationale": "这个任务把 xlsx 用在教育成绩场景，强调按键匹配更新部分单元格、保护无关区域、保留加权公式和等级计算，和报价导入场景明显不同。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "surge-tank-level-imc-tuning-rules-transfer-disturbance",
+  "taskRole": "transfer",
+  "title": "Transfer | Surge Tank Level Disturbance Recovery",
+  "goal": "把 IMC 一阶整定迁移到缓冲罐液位控制：已提供线性化液位模型 K、tau、阀门上下限和进料扰动时刻，要求选择不会产生明显超调的保守 lambda，计算 PI 参数，并输出扰动恢复过程与液位稳定性报告。",
+  "primaryOutputFile": "surge_tank_level_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务重点是把液位一阶模型转成 IMC PI 整定，并利用 lambda 控制恢复速度和超调风险；解题不依赖额外建模技能，核心价值完全落在 IMC 调参规则。",
+  "targetSkillDirName": "imc-tuning-rules",
+  "targetSkillName": "imc-tuning-rules"
+}

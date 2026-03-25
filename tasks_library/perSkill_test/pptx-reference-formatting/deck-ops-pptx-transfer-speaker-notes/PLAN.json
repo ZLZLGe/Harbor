@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "deck-ops-pptx-transfer-speaker-notes",
+  "taskRole": "transfer",
+  "title": "Transfer: 为宣讲 Deck 批量写入 Speaker Notes",
+  "goal": "给定一个线上宣讲 deck 和一份按页编号组织的 speaker_notes.json，为指定页面批量写入或更新 speaker notes，要求每页 notes 都包含标题和要点列表，同时保持可见幻灯片内容不变。",
+  "primaryOutputFile": "/root/Webinar-Rehearsal-notes-ready.pptx",
+  "difficulty": "medium",
+  "category": "office-suite",
+  "skillBenefitRationale": "这里把 pptx skill 迁移到了 notesSlides 与相关关系文件的编辑，而不是可见正文排版。任务核心仍是理解和修改 PPTX 包结构，且 verifier 可以稳定检查 notes XML 与可见页面未被误改。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

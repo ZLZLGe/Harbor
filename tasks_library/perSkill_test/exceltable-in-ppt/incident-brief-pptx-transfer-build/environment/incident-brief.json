@@ -1,0 +1,55 @@
+{
+  "report_title": "Warehouse Cooling Failure - Overnight Incident Brief",
+  "report_date": "2026-03-24",
+  "location": "Suzhou Fulfillment Center",
+  "severity": "SEV-2",
+  "executive_summary": "A compressor starter failed in Zone B cold storage overnight, driving temperatures above threshold for 72 minutes. The team stabilized the room with a rental chiller before any customer orders shipped, but inbound receiving paused and 14 pallets require a morning quality hold review.",
+  "timeline": [
+    {
+      "time": "00:18",
+      "event": "Temperature alarms triggered in Zone B cold storage."
+    },
+    {
+      "time": "00:31",
+      "event": "Facilities isolated the failed compressor and began manual venting."
+    },
+    {
+      "time": "01:05",
+      "event": "Inventory control paused chilled inbound receiving and started spoilage checks."
+    },
+    {
+      "time": "02:10",
+      "event": "Rental chiller arrived on site and room temperature returned below 4C."
+    },
+    {
+      "time": "03:40",
+      "event": "Incident commander approved a morning quality hold for the affected pallets."
+    }
+  ],
+  "actions": [
+    {
+      "owner": "Mina Zhou",
+      "action": "Replace the failed compressor starter and complete redundancy validation.",
+      "due": "2026-03-25 12:00",
+      "status": "In progress"
+    },
+    {
+      "owner": "Arun Patel",
+      "action": "Finish QA inspection for 14 held pallets and release sellable inventory.",
+      "due": "2026-03-25 10:30",
+      "status": "Queued"
+    },
+    {
+      "owner": "Jules Martin",
+      "action": "Issue customer comms template in case outbound delays exceed two hours.",
+      "due": "2026-03-25 09:00",
+      "status": "Ready"
+    },
+    {
+      "owner": "Nora Kim",
+      "action": "Publish root-cause review agenda and assign attendees for the 48-hour review.",
+      "due": "2026-03-26 08:00",
+      "status": "Not started"
+    }
+  ]
+}

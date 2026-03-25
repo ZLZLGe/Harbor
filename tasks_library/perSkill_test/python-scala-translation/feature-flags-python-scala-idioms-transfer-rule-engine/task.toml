@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "feature-flags-python-scala-idioms-transfer-rule-engine"
+name = "Transfer - Feature Flag Rule Engine Translation"
+description = "Translate the provided Python feature flag rule engine into idiomatic Scala 2.13 with typed rules, deterministic rollout bucketing, and default fallback behavior."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "feature-flags", "rule-engine"]
+primary_output_file = "/root/FeatureFlagEngine.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-safety-gpt-multimodal-transfer-near-miss-timeline"
+name = "Transfer: Warehouse Near-Miss Timeline"
+description = "根据仓库监控抽帧序列识别叉车与行人在同一警戒区内的近险交汇事件，并输出按视频汇总的 JSON 时间线。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "warehouse safety event detection"
+tags = ["video understanding", "warehouse safety", "event timeline", "json output"]
+primary_output_file = "/app/output/near_miss_timeline.json"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+allow_internet = true

@@ -1,0 +1,26 @@
+{
+  "patient": {
+    "full_name": "Naomi Patel",
+    "member_id": "HP-884102",
+    "date_of_birth": "1988-11-04"
+  },
+  "coverage": {
+    "subscriber_relation": "Self",
+    "plan_selection": "PPO Plus"
+  },
+  "encounter": {
+    "claim_reference": "CLM-2026-0417",
+    "date_of_service": "2026-02-14",
+    "diagnosis_icd10": "M25.561",
+    "procedure_cpt": "97110",
+    "provider_npi": "1639458821",
+    "setting": "Office",
+    "charge_amount": 245.75
+  },
+  "authorizations": {
+    "release_medical_records": true,
+    "assignment_of_benefits": true,
+    "accident_related": false,
+    "prior_authorization": "PA-88014"
+  }
+}

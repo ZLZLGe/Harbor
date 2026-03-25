@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "event-normalizer-python-scala-libraries-similar-jsonl-pipeline"
+name = "Similar: JSONL Event Normalization Scala Translation"
+description = "Translate the provided Python JSONL event normalizer into Scala 2.13 and make it write the required daily report JSON."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "jsonl", "data-pipeline"]
+primary_output_file = "/root/EventNormalizer.scala"
+source_task_id = "python-scala-translation"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

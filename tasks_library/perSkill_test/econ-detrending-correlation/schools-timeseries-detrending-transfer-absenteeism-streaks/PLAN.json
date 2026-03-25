@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "schools-timeseries-detrending-transfer-absenteeism-streaks",
+  "taskRole": "transfer",
+  "title": "Transfer | Absenteeism Rate Pressure Streaks",
+  "goal": "给定多个学区的月度缺勤率序列，对每个比率序列直接做 HP 去趋势（不取对数），找出持续高于趋势时间最长的学区，并输出包含学区、起始月、结束月和连续月数的 Markdown 表格。",
+  "primaryOutputFile": "absenteeism_pressure_streaks.md",
+  "difficulty": "medium",
+  "category": "education",
+  "skillBenefitRationale": "该任务把技能迁移到率变量场景，关键在于识别何时不能取对数、但仍要进行趋势-周期分解，再基于周期成分判断持续压力区间。",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending"
+}

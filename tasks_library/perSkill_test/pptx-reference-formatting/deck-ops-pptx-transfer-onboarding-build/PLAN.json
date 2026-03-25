@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "deck-ops-pptx-transfer-onboarding-build",
+  "taskRole": "transfer",
+  "title": "Transfer: 从结构化 Brief 新建 Onboarding 演示文稿",
+  "goal": "给定 brief.md、metrics.json 和少量品牌素材，从零生成一份 5 页的团队 onboarding 演示文稿，包含封面、日程、流程说明、指标页和结束页，并保证整体视觉风格一致。",
+  "primaryOutputFile": "/root/Support-Onboarding-playbook.pptx",
+  "difficulty": "medium",
+  "category": "office-suite",
+  "skillBenefitRationale": "这个任务把同一 skill 迁移到新建演示文稿场景，重点是使用 html-to-pptx 工作流完成版式、文本层级和图表/表格占位内容生成，不依赖其他 shipped skill。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

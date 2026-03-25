@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "protein-expression-analysis",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260324222237-protein-expression-analysis-xlsx-6tu7u3",
+  "taskId": "campus-energy-xlsx-transfer-budget-audit",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/protein-expression-analysis/xlsx/20260324222237-protein-expression-analysis-xlsx-6tu7u3/campus-energy-xlsx-transfer-budget-audit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324222237-protein-expression-analysis-xlsx-6tu7u3/protein-expression-analysis/drafts/campus-energy-xlsx-transfer-budget-audit",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/protein-expression-analysis/xlsx/20260324222237-protein-expression-analysis-xlsx-6tu7u3/campus-energy-xlsx-transfer-budget-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/protein-expression-analysis/campus-energy-xlsx-transfer-budget-audit",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 `energy_budget_audit.xlsx`，按严格规则直接暴露了 shipped skill dirName `xlsx`。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24ac-58e4-7a80-85fe-8436fd81795f",
+      "repairSummary": "移除了 instruction.md 中对目标工作簿 `.xlsx` 文件名的直接暴露，改为不点名扩展名的描述，其他任务文件保持不变。",
+      "reviewThreadId": "019d24ad-3dec-7491-9189-be7f7f3bb648",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

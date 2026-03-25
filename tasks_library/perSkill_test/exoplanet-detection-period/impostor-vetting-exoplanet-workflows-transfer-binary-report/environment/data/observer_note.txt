@@ -1,0 +1,1 @@
+Candidate TOI-4101 follow-up aperture photometry. Time is measured in days from the campaign start. quality_flag = 0 means usable exposure; non-zero rows should be treated with caution. The target shows coherent rotational modulation and a transit-like signal that warrants odd/even vetting.

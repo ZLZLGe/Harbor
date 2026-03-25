@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "lab-qc-xlsx-transfer-exceptions",
+  "taskRole": "transfer",
+  "title": "Transfer: Lab QC Exception Report",
+  "goal": "分析一个多工作表的实验质控工作簿，输出 /root/lab_qc_exceptions.json，汇总失败的对照孔、重复样本编号以及重复测量方差超阈值的批次。",
+  "primaryOutputFile": "/root/lab_qc_exceptions.json",
+  "difficulty": "medium",
+  "category": "data-validation",
+  "skillBenefitRationale": "任务依赖对多 sheet 工作簿的读取、关联和数值分析，验证结果完全建立在电子表格数据处理之上，唯一关键 shipped skill 是 xlsx。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

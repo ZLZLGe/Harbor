@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "coldchain-ops-xlsx-transfer-shift-cost-plan",
+  "taskRole": "transfer",
+  "title": "Transfer - 冷链仓配排班成本工作簿",
+  "goal": "基于门店日需求、仓库班次、设备功率曲线和分时电价模板，完成冷链仓配排班成本工作簿；生成小时负荷、人力排班、超时成本、电费拆分和周度利润桥摘要，并输出 `coldchain-ops-plan.xlsx`。",
+  "primaryOutputFile": "coldchain-ops-plan.xlsx",
+  "difficulty": "medium",
+  "category": "operations-analysis",
+  "skillBenefitRationale": "核心是把小时粒度运营数据整理进多张工作表，并通过查找、条件汇总和递推公式生成班次、人力、电费和利润桥结果，完整体现电子表格建模能力。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

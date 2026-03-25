@@ -1,0 +1,16 @@
+[
+  {
+    "meeting_id": "OPS-240",
+    "title": "渠道周会",
+    "start_slot": 1,
+    "end_slot": 4,
+    "reserved_seats": 3
+  },
+  {
+    "meeting_id": "FIN-305",
+    "title": "预算复盘",
+    "start_slot": 5,
+    "end_slot": 7,
+    "reserved_seats": 2
+  }
+]

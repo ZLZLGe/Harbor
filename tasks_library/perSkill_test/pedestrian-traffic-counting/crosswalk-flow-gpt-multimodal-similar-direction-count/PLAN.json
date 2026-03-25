@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "crosswalk-flow-gpt-multimodal-similar-direction-count",
+  "taskRole": "similar",
+  "title": "Similar: Crosswalk Direction Counting",
+  "goal": "给定数段路口监控短视频，统计每个视频中完整通过斑马线的唯一行人数量，并按左向右与右向左两个方向分别汇总，输出结构化 JSON。",
+  "primaryOutputFile": "/app/output/crosswalk_direction_counts.json",
+  "difficulty": "hard",
+  "category": "crosswalk flow analysis",
+  "skillBenefitRationale": "核心难点是基于多帧视觉内容识别同一行人跨帧出现、判断是否真正完成穿越、并区分运动方向；这正是多模态视觉时序理解的典型用法，且不依赖其他 shipped skill。",
+  "targetSkillDirName": "gpt-multimodal",
+  "targetSkillName": "gpt-multimodal"
+}

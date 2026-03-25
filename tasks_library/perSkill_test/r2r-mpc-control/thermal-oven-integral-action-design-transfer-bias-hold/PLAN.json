@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "thermal-oven-integral-action-design-transfer-bias-hold",
+  "taskRole": "transfer",
+  "title": "Transfer: Two-Zone Oven Bias Hold",
+  "goal": "在双区工业烘箱温控任务中，基于给定状态空间模型、现成MPC求解代码和带环境散热偏差的热仿真器，为加热功率加入积分补偿并输出 `heater_integrator_config.json`，使两区温度在负载切换后保持无静差跟踪。",
+  "primaryOutputFile": "heater_integrator_config.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "基础预测控制与热模型都由题目给出，成败取决于能否把积分项正确接到加热回路上，并通过泄漏和限幅抑制慢热系统中的积分堆积。",
+  "targetSkillDirName": "integral-action-design",
+  "targetSkillName": "integral-action-design"
+}

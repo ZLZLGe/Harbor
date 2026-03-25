@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "powerlifting-coef-calc",
+  "targetSkillDirName": "senior-data-scientist",
+  "targetSkillName": "senior-data-scientist",
+  "runId": "20260324210036-powerlifting-coef-calc-senior-data-scientist-7is8ej",
+  "taskId": "loan-risk-senior-data-scientist-transfer-audit",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/powerlifting-coef-calc/senior-data-scientist/20260324210036-powerlifting-coef-calc-senior-data-scientist-7is8ej/loan-risk-senior-data-scientist-transfer-audit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324210036-powerlifting-coef-calc-senior-data-scientist-7is8ej/powerlifting-coef-calc/drafts/loan-risk-senior-data-scientist-transfer-audit",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/powerlifting-coef-calc/senior-data-scientist/20260324210036-powerlifting-coef-calc-senior-data-scientist-7is8ej/loan-risk-senior-data-scientist-transfer-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/powerlifting-coef-calc/loan-risk-senior-data-scientist-transfer-audit",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "draft 根目录额外包含 tmp_loan_model_audit.md 完整参考输出，可能构成答案泄露风险；虽然 solve.sh 本身不是复制该文件，但发布前不建议保留这个现成答案产物。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tmp_loan_model_audit.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24a8-a283-78e2-a1e4-483a8b6d36fb",
+      "repairSummary": "删除了根目录中会泄露完整参考答案的 tmp_loan_model_audit.md，其余任务文件保持不变。",
+      "reviewThreadId": "019d24a9-5d5e-7550-9cfe-4450db0738bf",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

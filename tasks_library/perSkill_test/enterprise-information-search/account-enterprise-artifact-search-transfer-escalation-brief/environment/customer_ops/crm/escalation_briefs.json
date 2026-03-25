@@ -1,0 +1,70 @@
+[
+  {
+    "escalation_id": "ESC-2026-017",
+    "account_id": "ACC-042",
+    "opened_at": "2026-02-10T09:00:00",
+    "snapshot_at": "2026-02-18T18:30:00",
+    "severity": "sev1",
+    "summary": "Post-SSO cutover regressions caused delayed audit exports, brittle role mapping, and missing retry visibility for BlueYonder Health.",
+    "affected_customer_ids": [
+      "CUST-118",
+      "CUST-774"
+    ],
+    "commitment_refs": [
+      "COM-2401",
+      "COM-2402",
+      "COM-2403",
+      "COM-2404"
+    ],
+    "customer_visible_commitments": [
+      "COM-2401",
+      "COM-2402",
+      "COM-2403"
+    ],
+    "notes": [
+      "Only customer-facing commitments should appear in the fulfillment brief.",
+      "Billing credit discussions stayed internal until delivery risk was resolved."
+    ]
+  },
+  {
+    "escalation_id": "ESC-2025-091",
+    "account_id": "ACC-042",
+    "opened_at": "2025-11-10T08:20:00",
+    "snapshot_at": "2025-11-12T16:00:00",
+    "severity": "sev2",
+    "summary": "Legacy audit export incident for BlueYonder Health during the 2025 compliance push.",
+    "affected_customer_ids": [
+      "CUST-118"
+    ],
+    "commitment_refs": [
+      "COM-2388"
+    ],
+    "customer_visible_commitments": [
+      "COM-2388"
+    ],
+    "notes": [
+      "Closed historical escalation."
+    ]
+  },
+  {
+    "escalation_id": "ESC-2026-021",
+    "account_id": "ACC-042-R",
+    "opened_at": "2026-02-14T11:00:00",
+    "snapshot_at": "2026-02-20T13:45:00",
+    "severity": "sev1",
+    "summary": "Retail kiosk login fallback regression for BlueYonder Retail.",
+    "affected_customer_ids": [
+      "CUST-220",
+      "CUST-221"
+    ],
+    "commitment_refs": [
+      "COM-2410"
+    ],
+    "customer_visible_commitments": [
+      "COM-2410"
+    ],
+    "notes": [
+      "Separate account despite the similar brand name."
+    ]
+  }
+]

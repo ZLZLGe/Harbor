@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "deck-ops-pptx-similar-credit-footers"
+name = "Similar: Normalize Photo Credit Footers and Add an Image Credits Slide"
+description = "Clean a photography showcase deck by turning scattered photo credit text boxes into consistent footers and appending a deduplicated Image Credits slide."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "office-suite"
+tags = ["slides", "ooxml", "formatting", "credits"]
+primary_output_file = "/root/Case-Study-Credits-cleaned.pptx"
+source_task_id = "pptx-reference-formatting"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

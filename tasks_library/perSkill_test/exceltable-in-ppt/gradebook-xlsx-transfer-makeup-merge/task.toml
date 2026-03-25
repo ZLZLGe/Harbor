@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "gradebook-xlsx-transfer-makeup-merge"
+name = "Transfer: 合并补考成绩并重算课程成绩册"
+description = "按学号把补考成绩 CSV 合并进现有课程成绩册，只覆盖允许的测验列并输出重算后的工作簿。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Office Operation"
+tags = ["excel", "gradebook", "csv-merge", "formula-preservation"]
+primary_output_file = "/root/makeup_gradebook.xlsx"
+source_task_id = "exceltable-in-ppt"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

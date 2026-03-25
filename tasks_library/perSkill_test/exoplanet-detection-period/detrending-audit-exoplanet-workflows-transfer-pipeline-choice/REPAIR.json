@@ -1,0 +1,52 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "exoplanet-workflows",
+  "targetSkillName": "exoplanet-workflows",
+  "runId": "20260324225558-exoplanet-detection-period-exoplanet-workflows-jlxqok",
+  "taskId": "detrending-audit-exoplanet-workflows-transfer-pipeline-choice",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/exoplanet-workflows/20260324225558-exoplanet-detection-period-exoplanet-workflows-jlxqok/detrending-audit-exoplanet-workflows-transfer-pipeline-choice",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324225558-exoplanet-detection-period-exoplanet-workflows-jlxqok/exoplanet-detection-period/drafts/detrending-audit-exoplanet-workflows-transfer-pipeline-choice",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/exoplanet-workflows/20260324225558-exoplanet-detection-period-exoplanet-workflows-jlxqok/detrending-audit-exoplanet-workflows-transfer-pipeline-choice",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/detrending-audit-exoplanet-workflows-transfer-pipeline-choice",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 对 evidence 两条字符串加入了关键词白名单与措辞约束（如“系统噪声/残余趋势/散布/噪声”“浅凌星/重复下陷/凌星/下陷”“过度去趋势/压浅/变浅”）；instruction.md 只要求说明选择理由与未选分支问题，这会把合法解法锁死到特定表述，属于 Harbor testability 问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/data/audit_memo.txt",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "environment/data/audit_memo.txt 基本直接透露应选分支为 pipeline_b，存在答案泄露。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d246b-48da-7f83-853a-de19904276e7",
+      "repairSummary": "放宽了 evidence 的测试约束，移除了对白名单关键词和固定措辞的依赖，并在说明中明确 evidence 可使用任意等价表述；同时用解答脚本生成结果后直接调用测试函数做了等价验证。",
+      "reviewThreadId": "019d246d-a58d-7aa1-9ac8-890a32c5a788",
+      "reviewerIssues": [
+        "environment/data/audit_memo.txt 基本直接透露应选分支为 pipeline_b，存在答案泄露。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d246f-5515-7b50-afbe-31eec42e4a0e",
+      "repairSummary": "将审计备忘录改为中性审计提示，移除了对 `pipeline_b` 的直接倾向性描述，保留列说明与任务可解性。",
+      "reviewThreadId": "019d2470-6375-7eb2-8992-2762124ea397",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

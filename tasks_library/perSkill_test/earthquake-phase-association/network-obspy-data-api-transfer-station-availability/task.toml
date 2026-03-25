@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "network-obspy-data-api-transfer-station-availability"
+name = "Network Transfer Station Availability Audit"
+description = "Audit StationXML channel metadata against MiniSEED waveform coverage and write a grouped JSON availability report to /root/network_availability.json."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "seismology"
+tags = ["seismology", "stationxml", "miniseed", "network-qa", "availability"]
+primary_output_file = "/root/network_availability.json"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

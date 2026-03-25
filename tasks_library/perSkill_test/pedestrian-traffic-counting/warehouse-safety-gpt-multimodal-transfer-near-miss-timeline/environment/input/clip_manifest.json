@@ -1,0 +1,18 @@
+{
+  "videos": [
+    {
+      "video_id": "dock_lane_a",
+      "frame_dir": "frames/dock_lane_a",
+      "fps": 1,
+      "duration_seconds": 8,
+      "sampling_note": "One frame represents one second of the original warehouse clip."
+    },
+    {
+      "video_id": "packing_hall_b",
+      "frame_dir": "frames/packing_hall_b",
+      "fps": 1,
+      "duration_seconds": 8,
+      "sampling_note": "One frame represents one second of the original warehouse clip."
+    }
+  ]
+}

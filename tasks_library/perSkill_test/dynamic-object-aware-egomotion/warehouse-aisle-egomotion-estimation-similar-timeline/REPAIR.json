@@ -1,0 +1,73 @@
+{
+  "sourceTaskId": "dynamic-object-aware-egomotion",
+  "targetSkillDirName": "egomotion-estimation",
+  "targetSkillName": "egomotion-estimation",
+  "runId": "20260324194345-dynamic-object-aware-egomotion-egomotion-estimation-2toaje",
+  "taskId": "warehouse-aisle-egomotion-estimation-similar-timeline",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/dynamic-object-aware-egomotion/egomotion-estimation/20260324194345-dynamic-object-aware-egomotion-egomotion-estimation-2toaje/warehouse-aisle-egomotion-estimation-similar-timeline",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324194345-dynamic-object-aware-egomotion-egomotion-estimation-2toaje/dynamic-object-aware-egomotion/drafts/warehouse-aisle-egomotion-estimation-similar-timeline",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/dynamic-object-aware-egomotion/egomotion-estimation/20260324194345-dynamic-object-aware-egomotion-egomotion-estimation-2toaje/warehouse-aisle-egomotion-estimation-similar-timeline",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/dynamic-object-aware-egomotion/warehouse-aisle-egomotion-estimation-similar-timeline",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill，但该任务复用了 source_task 的同一视频素材和完全相同的运动时间线真值，只是去掉动态目标输出并改名，source_task 更像被机械裁剪而非仅作参考。; tests/test_outputs.py 强制要求结果中至少存在一个多标签区间，而 instruction.md 只说明“同一个区间可以有多个标签”，没有声明“必须出现”，属于隐藏要求；按 Harbor 规则这会使 testability 失败。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/.pytest_cache/.gitignore",
+    "tests/.pytest_cache/CACHEDIR.TAG",
+    "tests/.pytest_cache/README.md",
+    "tests/.pytest_cache/v/cache/nodeids",
+    "tests/.pytest_cache/v/cache/stepwise",
+    "tests/expected_timeline.json",
+    "tests/test_outputs.py",
+    "tests/test.sh"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 `egomotion-estimation`，造成技能暴露。; tests/expected_timeline.json 提供了精确答案时间线，且 tests/test.sh 会将其复制到容器内，存在答案泄露。; visibilityPass=false; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2445-5a6b-7882-8b88-8be47323e1a3",
+      "repairSummary": "在 instruction.md 中直接点名 shipped skill `egomotion-estimation`，并移除了 tests/test_outputs.py 里未在说明中声明的“必须存在多标签区间”隐藏要求。",
+      "reviewThreadId": "019d2446-c2ae-7782-afbc-248a17caea30",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 `egomotion-estimation`，造成技能暴露。; tests/expected_timeline.json 提供了精确答案时间线，且 tests/test.sh 会将其复制到容器内，存在答案泄露。; visibilityPass=false; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "tests 以与参考解几乎相同的启发式算法生成真值时间线，而不是按 instruction 所述依据视频内容判定，导致评测标准与任务要求不一致且容易奖励对特定实现的拟合。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2447-b2f8-73c2-8df2-be2dc56fe19a",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill 名称的直接点名，删除了会被复制进容器的精确答案文件，并将测试改为基于视频与 manifest 在测试时重建参考时间线；同时给 solution 增加固定 OpenCV RNG seed 以保持判定稳定。",
+      "reviewThreadId": "019d2453-c060-7a72-90f2-1b1b5fc77772",
+      "reviewerIssues": [
+        "tests 以与参考解几乎相同的启发式算法生成真值时间线，而不是按 instruction 所述依据视频内容判定，导致评测标准与任务要求不一致且容易奖励对特定实现的拟合。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2455-149d-7ae0-ba36-bf92f6215058",
+      "repairSummary": "将评测从运行启发式重建真值时间线改为使用基于视频内容人工标注的固定真值时间线，保留原有区间结构校验和 F1 评分逻辑，从而避免奖励对参考解启发式实现的拟合。",
+      "reviewThreadId": "019d2461-380e-7140-ba0f-907b3727ae6d",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

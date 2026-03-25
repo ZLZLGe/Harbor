@@ -1,0 +1,23 @@
+{
+  "sourceTaskId": "parallel-tfidf-search",
+  "targetSkillDirName": "python-parallelization",
+  "runId": "20260324192548-parallel-tfidf-search-python-parallelization-ax3i3p",
+  "taskId": "sensor-windows-python-parallelization-transfer-vectorized-scoring",
+  "sourcePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors/parallel-tfidf-search/python-parallelization/20260324192548-parallel-tfidf-search-python-parallelization-ax3i3p/sensor-windows-python-parallelization-transfer-vectorized-scoring",
+  "candidatePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/candidate/parallel-tfidf-search/python-parallelization/20260324192548-parallel-tfidf-search-python-parallelization-ax3i3p/sensor-windows-python-parallelization-transfer-vectorized-scoring",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/pass/parallel-tfidf-search/python-parallelization/20260324192548-parallel-tfidf-search-python-parallelization-ax3i3p/sensor-windows-python-parallelization-transfer-vectorized-scoring",
+  "status": "repaired_pass",
+  "changedFiles": [
+    "environment/Dockerfile"
+  ],
+  "initialStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalStaticIssues": [],
+  "reviewerRechecked": true,
+  "finalReviewerIssues": [],
+  "reviewThreadId": "019d242a-68fb-79e3-a8e6-d7e225b35dad",
+  "notes": [
+    "将 environment/Dockerfile 中的 skills 拷贝语句规范化为 COPY skills /root/.codex/skills"
+  ]
+}

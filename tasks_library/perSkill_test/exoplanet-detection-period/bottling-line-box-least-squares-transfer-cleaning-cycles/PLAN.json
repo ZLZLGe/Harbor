@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bottling-line-box-least-squares-transfer-cleaning-cycles",
+  "taskRole": "transfer",
+  "title": "Transfer | Bottling Line Cleaning Cycles",
+  "goal": "分析两条灌装线的分钟级归一化吞吐率序列，识别哪条线存在稳定的周期性清洗停机，并输出line_id、shutdown_period_minutes、shutdown_duration_minutes与downtime_fraction的CSV。",
+  "primaryOutputFile": "/root/output/cleaning_shutdown_report.csv",
+  "difficulty": "medium",
+  "category": "manufacturing",
+  "skillBenefitRationale": "这里把同一技能迁移到制造业吞吐率监控，关键仍是从接近平稳的时间序列中识别短时箱形下挫的重复周期；不用BLS就很难同时稳定恢复停机间隔与停机时长。",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares"
+}

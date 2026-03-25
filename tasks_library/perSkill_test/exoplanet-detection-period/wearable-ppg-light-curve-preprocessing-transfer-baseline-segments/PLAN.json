@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "wearable-ppg-light-curve-preprocessing-transfer-baseline-segments",
+  "taskRole": "transfer",
+  "title": "Transfer - 可穿戴 PPG 基线清洗",
+  "goal": "提供一份可穿戴设备的 PPG 强度时间序列，包含运动质量标记、短时饱和尖峰和明显基线漂移。任务要求移除低质量样本与异常点，压平慢变基线，并输出 `/root/ppg_clean_segments.csv`，仅保留稳定片段中的样本，至少包含 timestamp、normalized_signal、segment_id 三列。验证重点放在稳定片段提取是否正确、以及清洗后残余漂移是否被有效压低。",
+  "primaryOutputFile": "/root/ppg_clean_segments.csv",
+  "difficulty": "medium",
+  "category": "healthcare",
+  "skillBenefitRationale": "虽然场景转到生理传感器，但核心仍是单变量时序预处理：依赖质量标记、离群点剔除和趋势移除来得到可分析信号。",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing"
+}

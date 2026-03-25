@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "compat-syz-extract-constants-transfer-arch-split"
+name = "Transfer: Compat ioctl 跨架构常量修复"
+description = "修复 mock compat ioctl 的错误常量文件，在 amd64 与 386 上产出按架构拆分的 dev_demo_compat.txt.const。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "security"
+tags = ["security", "kernel", "syzkaller", "ioctl", "compat"]
+primary_output_file = "/opt/syzkaller/sys/linux/dev_demo_compat.txt.const"
+source_task_id = "syzkaller-ppdev-syzlang"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+allow_internet = true
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

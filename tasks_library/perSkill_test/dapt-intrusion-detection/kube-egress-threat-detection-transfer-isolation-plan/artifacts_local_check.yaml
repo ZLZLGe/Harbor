@@ -1,0 +1,59 @@
+summary:
+  total_pods: 8
+  immediate_isolation_pods: 4
+  action_counts:
+    allow: 2
+    observe: 1
+    rate_limit: 1
+    isolate: 4
+pods:
+- namespace: frontend
+  pod_name: web-6b9d4
+  action: allow
+  immediate_isolation: false
+  trigger_reasons: []
+- namespace: ops
+  pod_name: scanner-0
+  action: isolate
+  immediate_isolation: true
+  trigger_reasons:
+  - port_scan
+- namespace: media
+  pod_name: transcoder-1
+  action: rate_limit
+  immediate_isolation: false
+  trigger_reasons:
+  - dos_pattern
+- namespace: billing
+  pod_name: reconciler-0
+  action: observe
+  immediate_isolation: false
+  trigger_reasons:
+  - beaconing
+- namespace: core
+  pod_name: metrics-pusher-0
+  action: isolate
+  immediate_isolation: true
+  trigger_reasons:
+  - dos_pattern
+  - beaconing
+- namespace: research
+  pod_name: scan-sidecar-1
+  action: isolate
+  immediate_isolation: true
+  trigger_reasons:
+  - port_scan
+  - beaconing
+- namespace: edge
+  pod_name: egress-gateway-0
+  action: isolate
+  immediate_isolation: true
+  trigger_reasons:
+  - port_scan
+  - dos_pattern
+  - beaconing
+- namespace: jobs
+  pod_name: db-migrator-0
+  action: allow
+  immediate_isolation: false
+  trigger_reasons: []

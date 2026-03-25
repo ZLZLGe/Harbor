@@ -1,0 +1,82 @@
+[
+  {
+    "thread_id": "ath-219",
+    "message_id": "msg_219_1",
+    "doc_id": "POL-ACCESS-RECERT-v2.9",
+    "employee_id": "eid_00c91aa1",
+    "action": "SUBMITTED",
+    "text": "Submitting v2.9 for the FY25-H2 privileged access recertification refresh."
+  },
+  {
+    "thread_id": "ath-219",
+    "message_id": "msg_219_2",
+    "doc_id": "POL-ACCESS-RECERT-v2.9",
+    "employee_id": "eid_11c2f39a",
+    "action": "APPROVED",
+    "text": "Security approved POL-ACCESS-RECERT-v2.9."
+  },
+  {
+    "thread_id": "ath-219",
+    "message_id": "msg_219_3",
+    "doc_id": "POL-ACCESS-RECERT-v2.9",
+    "employee_id": "eid_2bbf9011",
+    "action": "APPROVED",
+    "text": "Operations approved the legacy version for FY25-H2."
+  },
+  {
+    "thread_id": "ath-244",
+    "message_id": "msg_244_1",
+    "doc_id": "POL-ACCESS-RECERT-v3.1",
+    "employee_id": "eid_00c91aa1",
+    "action": "SUBMITTED",
+    "text": "Submitting POL-ACCESS-RECERT-v3.1 for FY26-H1. This update covers quarterly reviewer attestation and evidence retention."
+  },
+  {
+    "thread_id": "ath-244",
+    "message_id": "msg_244_2",
+    "doc_id": "POL-ACCESS-RECERT-v3.1",
+    "employee_id": "eid_99a0ba17",
+    "action": "COMMENT",
+    "text": "Need the quarterly reviewer attestation paragraph before sign-off."
+  },
+  {
+    "thread_id": "ath-244",
+    "message_id": "msg_244_3",
+    "doc_id": "POL-ACCESS-RECERT-v3.1",
+    "employee_id": "eid_11c2f39a",
+    "action": "APPROVED",
+    "text": "Security approval recorded for POL-ACCESS-RECERT-v3.1."
+  },
+  {
+    "thread_id": "ath-244",
+    "message_id": "msg_244_4",
+    "doc_id": "POL-ACCESS-RECERT-v3.1",
+    "employee_id": "eid_7d4e12bc",
+    "action": "APPROVED",
+    "text": "Compliance approval recorded once quarterly scope and evidence retention were updated."
+  },
+  {
+    "thread_id": "ath-245",
+    "message_id": "msg_245_2",
+    "doc_id": "POL-EXPORT-ACCESS-v3.1",
+    "employee_id": "eid_5510ab3d",
+    "action": "APPROVED",
+    "text": "Security approved the export access policy."
+  },
+  {
+    "thread_id": "ath-246",
+    "message_id": "msg_246_2",
+    "doc_id": "POL-ACCESS-RECERT-annex-v1",
+    "employee_id": "eid_7d4e12bc",
+    "action": "APPROVED",
+    "text": "Compliance approved the annex."
+  },
+  {
+    "thread_id": "ath-249",
+    "message_id": "msg_249_1",
+    "doc_id": "POL-ACCESS-RECERT-v3.2-draft",
+    "employee_id": "eid_11c2f39a",
+    "action": "COMMENT",
+    "text": "Draft received, but review stays open pending exception language."
+  }
+]

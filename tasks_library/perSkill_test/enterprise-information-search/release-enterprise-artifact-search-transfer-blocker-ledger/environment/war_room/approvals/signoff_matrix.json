@@ -1,0 +1,92 @@
+[
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "blocker_id": "BLK-201",
+    "team": "Release",
+    "status": "granted",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-201;team=Release",
+    "recorded_at": "2026-03-21T17:30:00Z",
+    "recorded_by": "eid_10af4c2b"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "blocker_id": "BLK-201",
+    "team": "Security",
+    "status": "pending",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-201;team=Security",
+    "recorded_at": "2026-03-21T17:42:00Z",
+    "recorded_by": "eid_39de41aa"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "blocker_id": "BLK-204",
+    "team": "Infra",
+    "status": "granted",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-204;team=Infra",
+    "recorded_at": "2026-03-21T15:25:00Z",
+    "recorded_by": "eid_68b12cd7"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "blocker_id": "BLK-204",
+    "team": "QA",
+    "status": "pending",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-204;team=QA",
+    "recorded_at": "2026-03-21T17:05:00Z",
+    "recorded_by": "eid_73ce19ef"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "blocker_id": "BLK-204",
+    "team": "Release",
+    "status": "granted",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-204;team=Release",
+    "recorded_at": "2026-03-21T17:08:00Z",
+    "recorded_by": "eid_10af4c2b"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "blocker_id": "BLK-207",
+    "team": "Compliance",
+    "status": "pending",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-207;team=Compliance",
+    "recorded_at": "2026-03-21T17:20:00Z",
+    "recorded_by": "eid_84d0a6bb"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "blocker_id": "BLK-207",
+    "team": "Release",
+    "status": "granted",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-207;team=Release",
+    "recorded_at": "2026-03-21T16:58:00Z",
+    "recorded_by": "eid_10af4c2b"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc2",
+    "blocker_id": "BLK-198",
+    "team": "Infra",
+    "status": "granted",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-198;team=Infra",
+    "recorded_at": "2026-03-19T15:55:00Z",
+    "recorded_by": "eid_c31d0e52"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "blocker_id": "BLK-209",
+    "team": "Docs",
+    "status": "waived",
+    "artifact_path": "war_room/approvals/signoff_matrix.json",
+    "artifact_fragment": "blocker_id=BLK-209;team=Docs",
+    "recorded_at": "2026-03-21T15:12:00Z",
+    "recorded_by": "eid_10af4c2b"
+  }
+]

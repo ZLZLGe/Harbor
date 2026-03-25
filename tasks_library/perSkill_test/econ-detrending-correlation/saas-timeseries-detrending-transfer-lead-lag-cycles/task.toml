@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "saas-timeseries-detrending-transfer-lead-lag-cycles"
+name = "Transfer | Marketing Spend Lead-Lag Cycles"
+description = "Extract cyclical components from monthly SaaS marketing spend and subscription starts, find the lag with the highest cycle correlation, and save the result to lead_lag_cycles.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "business"
+tags = ["business", "saas", "marketing", "time-series", "json"]
+primary_output_file = "lead_lag_cycles.json"
+source_task_id = "econ-detrending-correlation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

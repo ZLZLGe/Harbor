@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "retail-commission-xlsx-transfer-payout-audit"
+name = "Transfer: 销售提成结算审计表"
+description = "基于给定销售结算工作簿，用电子表格公式填充 Payouts 审计表并输出 commission_payout_audit.xlsx。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-analysis"
+tags = ["excel", "commission", "audit", "formulas", "lookup"]
+primary_output_file = "commission_payout_audit.xlsx"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

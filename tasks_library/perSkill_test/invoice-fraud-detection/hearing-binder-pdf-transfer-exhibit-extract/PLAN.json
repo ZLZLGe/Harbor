@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "hearing-binder-pdf-transfer-exhibit-extract",
+  "taskRole": "transfer",
+  "title": "Transfer: 听证材料页段抽取装订",
+  "goal": "从一份混合听证材料 PDF 中依据页眉页脚文本识别证据编号和案件编号，按照 `bundle_manifest.json` 指定的顺序抽取并重组所需页段，生成 `/root/hearing_exhibit_bundle.pdf`。",
+  "primaryOutputFile": "/root/hearing_exhibit_bundle.pdf",
+  "difficulty": "medium",
+  "category": "document-processing",
+  "skillBenefitRationale": "关键工作是读取 PDF 页面文本并执行拆分、抽取、重排与合并；清单文件只是简单驱动输入，因此 PDF skill 是唯一关键 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

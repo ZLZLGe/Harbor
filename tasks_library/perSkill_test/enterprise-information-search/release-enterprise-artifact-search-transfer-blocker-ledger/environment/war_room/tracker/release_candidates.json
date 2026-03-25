@@ -1,0 +1,20 @@
+[
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc2",
+    "release_train": "SearchFlow Enterprise 2026.04",
+    "status": "superseded",
+    "snapshot_at": "2026-03-19T09:00:00Z"
+  },
+  {
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "release_train": "SearchFlow Enterprise 2026.04",
+    "status": "go_no_go_pending",
+    "snapshot_at": "2026-03-21T18:00:00Z"
+  },
+  {
+    "release_candidate": "rc_searchassist_2026_04_rc3",
+    "release_train": "SearchAssist Enterprise 2026.04",
+    "status": "go_no_go_pending",
+    "snapshot_at": "2026-03-21T18:00:00Z"
+  }
+]

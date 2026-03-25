@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "collab-handoff-lean4-memories-transfer-memory-merge",
+  "taskRole": "transfer",
+  "title": "Transfer: Merge Collaborators' Lean Memory Exports into One Handoff Pack",
+  "goal": "给定两位协作者分别导出的 Lean 4 memory JSON、当前项目文件清单和少量冲突说明，合并出一份可交接的统一 handoff memory 包，要求去重相近模式、保留证据更强的记录、并对冲突条目给出明确的合并结果与理由。",
+  "primaryOutputFile": "artifacts/collab-handoff-memory-pack.json",
+  "difficulty": "medium",
+  "category": "formal method",
+  "skillBenefitRationale": "这个任务把 lean4-memories 迁移到协作知识整合场景，核心能力是维护跨会话、跨成员的一致项目记忆，而不是依赖其他 theorem-proving skill。",
+  "targetSkillDirName": "lean4-memories",
+  "targetSkillName": "lean4-memories"
+}

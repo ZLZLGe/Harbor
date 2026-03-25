@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "stabilize-reactor-build-maven-build-lifecycle-transfer-multi-module"
+name = "Transfer: Stabilize Multi-Module Reactor Build"
+description = "Repair the multi-module Maven reactor so `mvn verify` builds the shared library, service layer, and CLI modules in order and produces an executable CLI JAR."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Compilation & Build"
+tags = ["Java", "Maven", "multi-module", "reactor", "shade-plugin"]
+primary_output_file = "cli-app/target/cli-app-1.0-SNAPSHOT.jar"
+source_task_id = "fix-build-google-auto"
+task_role = "transfer"
+
+[agent]
+timeout_sec = 300.0
+
+[verifier]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

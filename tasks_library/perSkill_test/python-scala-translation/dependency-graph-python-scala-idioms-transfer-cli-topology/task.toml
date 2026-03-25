@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "dependency-graph-python-scala-idioms-transfer-cli-topology"
+name = "Transfer - Dependency Graph CLI Translation"
+description = "Translate the provided Python dependency-graph planner into an idiomatic Scala 2.13 CLI that emits stable topology reports and cycle diagnostics."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "dependency-graph", "cli", "topology"]
+primary_output_file = "/root/DependencyPlannerApp.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "shift-coverage-python-scala-collections-transfer-swaps",
+  "taskRole": "transfer",
+  "title": "Shift Coverage Planner Transfer",
+  "goal": "围绕排班覆盖场景，把一个 Python 排班建议器迁移或重写为 Scala 2.13，输出 /root/ShiftCoveragePlanner.scala。输入资产可包含班次、员工技能和请假偏好 CSV；Scala 代码需要按日期和岗位做分组，找出覆盖缺口、员工冲突和可行调班建议，并生成稳定的交换建议结果。验证方式可同时检查 CLI 输出文件与关键集合结果，和前两个 transfer 任务的输入语义明显不同。",
+  "primaryOutputFile": "/root/ShiftCoveragePlanner.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "唯一关键 shipped skill 仍是 Python 集合到 Scala 集合的迁移：多层分组、集合差集、排序和聚合是主要工作量；不需要额外算法库、网络服务或未提供技能。",
+  "targetSkillDirName": "python-scala-collections",
+  "targetSkillName": "python-scala-collections"
+}

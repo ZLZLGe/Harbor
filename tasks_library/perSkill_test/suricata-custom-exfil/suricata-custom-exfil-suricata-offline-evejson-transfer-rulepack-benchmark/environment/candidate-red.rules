@@ -1,0 +1,2 @@
+alert tcp any any -> any 443 (msg:"candidate red relay"; flow:established,to_server; content:"storage-relay.net"; sid:4201001; rev:1;)
+alert tcp any any -> any 443 (msg:"candidate red archive"; flow:established,to_server; content:"backup-cab.net"; sid:4201002; rev:1;)

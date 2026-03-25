@@ -1,0 +1,19 @@
+{
+  "slots": [
+    {
+      "slot_id": "left_podium",
+      "display_order": 1,
+      "screen_label": "Left Podium"
+    },
+    {
+      "slot_id": "center_podium",
+      "display_order": 2,
+      "screen_label": "Center Podium"
+    },
+    {
+      "slot_id": "right_podium",
+      "display_order": 3,
+      "screen_label": "Right Podium"
+    }
+  ]
+}

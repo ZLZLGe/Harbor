@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "enrollment-form-pdf-transfer-fillable-fields",
+  "taskRole": "transfer",
+  "title": "PDF Transfer: 为可填写参保表生成合法 field_values.json",
+  "goal": "给定一份可填写的参保登记 PDF 与一份用户资料 JSON，先识别表单真实字段 ID、选项和值约束，再生成 /root/enrollment_field_values.json；测试会用该 JSON 回填 PDF，并验证文本框、单选框、复选框和下拉项是否全部正确。",
+  "primaryOutputFile": "/root/enrollment_field_values.json",
+  "difficulty": "medium",
+  "category": "form filling",
+  "skillBenefitRationale": "解题关键在于从 PDF 表单中提取字段元数据并生成合法 field_values 映射，而不是依赖其他外部技能。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

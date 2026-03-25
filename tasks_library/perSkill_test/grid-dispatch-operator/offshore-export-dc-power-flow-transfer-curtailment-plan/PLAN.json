@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "offshore-export-dc-power-flow-transfer-curtailment-plan",
+  "taskRole": "transfer",
+  "title": "Transfer: 海上风电集电网限额下的最小弃风方案",
+  "goal": "在海上风电集电网与外送电缆降额场景下，基于给定可发出力上限求最小弃风方案，输出 `offshore_curtailment_plan.json`，其中包含各汇集站弃风量、保留出力、关键电缆潮流与载荷率，以及总弃风量。",
+  "primaryOutputFile": "offshore_curtailment_plan.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这里把技能迁移到新能源外送管理，求解最小弃风本质上仍依赖 DC 潮流的线性网络约束来限制电缆流量并验证可行性；除常规线性建模外不要求其他 source task skills。",
+  "targetSkillDirName": "dc-power-flow",
+  "targetSkillName": "dc-power-flow"
+}

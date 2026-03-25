@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "storm-microgrid-locational-marginal-prices-transfer-restoration-values",
+  "taskRole": "transfer",
+  "title": "Transfer | 风暴微电网恢复边际价值",
+  "goal": "基于风暴后孤网微电网资产包、关键负荷惩罚、可调度电源和一条可修复联络线，分别求解基线与联络线修复后的两次恢复优化，生成 `restoration_service_prices.json`，其中包含各母线的边际供电价值、总恢复负荷、价格孤岛数量、关键避难所节点的价值变化，以及修复线路是否消除了原有价格分裂。",
+  "primaryOutputFile": "restoration_service_prices.json",
+  "difficulty": "hard",
+  "category": "resilience",
+  "skillBenefitRationale": "关键能力是从节点供需平衡及负荷削减相关约束的对偶值中读出边际供电价值，并比较拓扑修复前后的空间价格结构；这让当前 skill 成为唯一关键能力。",
+  "targetSkillDirName": "locational-marginal-prices",
+  "targetSkillName": "locational-marginal-prices"
+}

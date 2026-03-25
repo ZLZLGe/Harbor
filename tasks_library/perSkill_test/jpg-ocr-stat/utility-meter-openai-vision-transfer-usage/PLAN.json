@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "utility-meter-openai-vision-transfer-usage",
+  "taskRole": "transfer",
+  "title": "Transfer: Field Meter Reading Usage Extraction",
+  "goal": "给定一组现场拍摄的水表与电表照片，每个表计都有期初与期末两张图，读取数字窗读数并生成 `/app/workspace/meter_usage.csv`，列为 `meter_id,start_reading,end_reading,consumption`。测试校验 CSV schema、数值格式、按 meter_id 排序，以及逐行精确匹配 oracle。",
+  "primaryOutputFile": "/app/workspace/meter_usage.csv",
+  "difficulty": "hard",
+  "category": "data statistics",
+  "skillBenefitRationale": "这里的关键不再是票据文本块，而是从噪声照片中稳定读取表计数字并完成配对计算，体现视觉模型在非文档化数字识别场景中的迁移能力。",
+  "targetSkillDirName": "openai-vision",
+  "targetSkillName": "openai-vision"
+}

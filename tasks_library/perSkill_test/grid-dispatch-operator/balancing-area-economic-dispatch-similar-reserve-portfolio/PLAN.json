@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "balancing-area-economic-dispatch-similar-reserve-portfolio",
+  "taskRole": "similar",
+  "title": "Similar: Balancing Area Reserve Portfolio Dispatch",
+  "goal": "给定一个平衡区的机组成本曲线、出力上下限、可提供备用上限、系统负荷与备用需求，生成 `balancing_dispatch_report.json`，汇总每台机组的能量出力、备用分配、总成本、总备用和未承诺裕度。",
+  "primaryOutputFile": "balancing_dispatch_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这个任务保留了经济调度最典型的核心：在机组容量与备用耦合约束下做单时段成本最小化，但去掉了网络潮流层，能更直接检验 shipped skill 的标准用法。",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

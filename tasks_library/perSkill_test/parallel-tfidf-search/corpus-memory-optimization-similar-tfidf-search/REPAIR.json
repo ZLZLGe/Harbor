@@ -1,0 +1,38 @@
+{
+  "sourceTaskId": "parallel-tfidf-search",
+  "targetSkillDirName": "memory-optimization",
+  "targetSkillName": "memory-optimization",
+  "runId": "20260324184733-parallel-tfidf-search-memory-optimization-fjgiio",
+  "taskId": "corpus-memory-optimization-similar-tfidf-search",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/parallel-tfidf-search/memory-optimization/20260324184733-parallel-tfidf-search-memory-optimization-fjgiio/corpus-memory-optimization-similar-tfidf-search",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324184733-parallel-tfidf-search-memory-optimization-fjgiio/parallel-tfidf-search/drafts/corpus-memory-optimization-similar-tfidf-search",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/parallel-tfidf-search/memory-optimization/20260324184733-parallel-tfidf-search-memory-optimization-fjgiio/corpus-memory-optimization-similar-tfidf-search",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/parallel-tfidf-search/corpus-memory-optimization-similar-tfidf-search",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 中的 RSS_PATTERN 使用了双重转义：`re.compile(r\"Maximum resident set size \\\\(kbytes\\\\):\\\\s+(\\\\d+)\")`，无法匹配 `/usr/bin/time -v` 的实际输出 `Maximum resident set size (kbytes): ...`；`assert match` 会直接失败，导致内存测试不可判定，Harbor testability 不通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2490-adaf-7182-9756-2effa8468fd6",
+      "repairSummary": "修复了内存测试中的 RSS 正则，确保能匹配 `/usr/bin/time -v` 输出；同时把 `environment/Dockerfile` 的 skills 复制指令改为静态检查期望的 `COPY skills /root/.codex/skills`。",
+      "reviewThreadId": "019d2491-dc5d-7c43-ae37-75342e9d68b3",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

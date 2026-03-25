@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "event-quote-xlsx-transfer-csv-intake"
+name = "Transfer: 将活动需求 CSV 导入报价工作簿"
+description = "把新增活动需求 CSV 写入报价模板的录入表，保留公式并输出自动更新后的报价工作簿。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Office Operation"
+tags = ["excel", "csv-import", "quotation-workbook"]
+primary_output_file = "/root/event_quote_book.xlsx"
+source_task_id = "exceltable-in-ppt"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

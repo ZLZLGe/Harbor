@@ -1,0 +1,6 @@
+{
+  "video_path": "/root/warehouse_patrol.mp4",
+  "sample_fps": 5,
+  "output_path": "/root/egomotion_segments.json",
+  "scenario": "warehouse-aisle-patrol"
+}

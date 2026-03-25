@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "assembly-threejs-similar-link-bundle",
+  "taskRole": "similar",
+  "title": "Similar: 装配体分件导出与索引",
+  "goal": "给定一个新的 Three.js 装配体场景文件，其中包含多层命名 Group、少量未命名中间容器和直接由基础几何体构成的 Mesh，要求解析最近命名祖先归属关系，导出每个部件下的单独 mesh OBJ、每个部件的合并 OBJ，并生成一个稳定排序的部件索引清单。",
+  "primaryOutputFile": "/root/output/link_index.json",
+  "difficulty": "medium",
+  "category": "3d-graphics",
+  "skillBenefitRationale": "这项任务直接考察 threejs 技能的典型用法：遍历场景图、按最近命名 Group 做 part partition、烘焙 matrixWorld 到几何体并稳定导出 OBJ；相比源任务增加了结构索引输出，避免简单复写。",
+  "targetSkillDirName": "threejs",
+  "targetSkillName": "threejs"
+}

@@ -1,0 +1,35 @@
+{
+  "domain": "runbooks/domain.pddl",
+  "incidents": [
+    {
+      "incident_id": "checkout-api-memory-leak",
+      "title": "Checkout API memory leak",
+      "problem": "runbooks/problems/checkout-api-memory-leak.pddl",
+      "plan_output": "results/plans/checkout-api-memory-leak.txt"
+    },
+    {
+      "incident_id": "ci-secret-exposure",
+      "title": "CI secret exposure",
+      "problem": "runbooks/problems/ci-secret-exposure.pddl",
+      "plan_output": "results/plans/ci-secret-exposure.txt"
+    },
+    {
+      "incident_id": "analytics-disk-pressure",
+      "title": "Analytics disk pressure",
+      "problem": "runbooks/problems/analytics-disk-pressure.pddl",
+      "plan_output": "results/plans/analytics-disk-pressure.txt"
+    },
+    {
+      "incident_id": "billing-db-replica-loss",
+      "title": "Billing DB replica loss",
+      "problem": "runbooks/problems/billing-db-replica-loss.pddl",
+      "plan_output": "results/plans/billing-db-replica-loss.txt"
+    },
+    {
+      "incident_id": "registry-backup-gap",
+      "title": "Registry backup gap",
+      "problem": "runbooks/problems/registry-backup-gap.pddl",
+      "plan_output": "results/plans/registry-backup-gap.txt"
+    }
+  ]
+}

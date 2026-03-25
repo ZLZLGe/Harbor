@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "multi-capture-threat-detection-similar-verdict-matrix",
+  "taskRole": "similar",
+  "title": "Similar: Multi-Capture Threat Verdict Matrix",
+  "goal": "给定多份网络捕获的预计算特征清单（包含端口熵、SYN-only 比例、唯一端口数、每分钟流量均值/峰值、IAT CV），生成 `/root/capture_verdicts.json`，为每份捕获写出 `has_port_scan`、`has_dos_pattern`、`has_beaconing`、`is_traffic_benign` 和 `dominant_risk`。",
+  "primaryOutputFile": "/root/capture_verdicts.json",
+  "difficulty": "hard",
+  "category": "security",
+  "skillBenefitRationale": "核心难点是严格应用端口扫描、DoS、Beaconing 的精确阈值并保持互斥/组合判定一致；输入已预聚合，不需要其他技能，`threat-detection` 是唯一关键 shipped skill。",
+  "targetSkillDirName": "threat-detection",
+  "targetSkillName": "threat-detection"
+}

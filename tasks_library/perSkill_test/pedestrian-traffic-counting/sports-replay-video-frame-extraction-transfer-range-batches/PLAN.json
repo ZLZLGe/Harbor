@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sports-replay-video-frame-extraction-transfer-range-batches",
+  "taskRole": "transfer",
+  "title": "Transfer - 体育回放区间抽帧批处理",
+  "goal": "根据提供的回放片段配置，为多段体育比赛视频只抽取指定起止帧区间内的PNG序列，并输出CSV汇总每个片段的源视频、区间、落盘帧数与输出目录。",
+  "primaryOutputFile": "/app/output/replay_range_summary.csv",
+  "difficulty": "hard",
+  "category": "体育视频归档",
+  "skillBenefitRationale": "任务重点是按显式帧范围精确抽取并批量组织输出，考察的是视频定位、区间抽帧和结果落盘能力；除基础脚本处理外，不依赖其他 shipped skill。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

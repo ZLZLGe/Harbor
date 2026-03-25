@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "followup-window-transit-least-squares-transfer-observable-transits",
+  "taskRole": "transfer",
+  "title": "Observable Transit Forecast Transfer",
+  "goal": "From a noisy light curve and a file of future observatory visibility windows, recover the planet period and transit epoch, then compute which predicted transits fall inside the allowed windows and write the observable events to /root/observable_transits.json.",
+  "primaryOutputFile": "/root/observable_transits.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "The only nontrivial scientific step is estimating a reliable transit period and T0 from the light curve, which is exactly what transit-least-squares provides; the follow-up window matching is simple downstream logic.",
+  "targetSkillDirName": "transit-least-squares",
+  "targetSkillName": "transit-least-squares"
+}

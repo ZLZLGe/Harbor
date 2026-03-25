@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "followup-window-transit-least-squares-transfer-observable-transits"
+name = "Observable Transit Forecast Transfer"
+description = "Recover a planet ephemeris from a noisy light curve, match future mid-transits against observatory windows, and write the observable events to /root/observable_transits.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "exoplanet", "follow-up", "transit-search", "forecasting"]
+primary_output_file = "/root/observable_transits.json"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0

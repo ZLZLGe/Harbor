@@ -1,0 +1,7 @@
+network,station,latitude,longitude,elevation_m,sensor_type
+XB,BW01,36.1021,-117.8422,1420,broadband
+XB,BW02,36.0875,-117.8014,1515,broadband
+XB,BW03,36.0599,-117.7740,1388,broadband
+XB,BW04,36.0410,-117.8218,1492,broadband
+XB,BW05,36.1217,-117.7865,1468,broadband
+XB,BW06,36.0742,-117.8549,1556,broadband

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "mine-repeater-seismic-picker-selection-transfer-template-match",
+  "taskRole": "transfer",
+  "title": "Transfer: 模板丰富的矿山微震重复事件检测选择",
+  "goal": "给定井下微震阵列连续数据、已有高质量模板事件库和多套候选检测输出，选择最适合重复事件场景的方法并写出 `/root/mine_repeater_events.csv`。验证聚焦于是否优先利用模板丰富、重复性强这一场景特征。",
+  "primaryOutputFile": "/root/mine_repeater_events.csv",
+  "difficulty": "hard",
+  "category": "seismology",
+  "skillBenefitRationale": "该任务把 skill 迁移到模板充足、追求极高灵敏度的矿山微震场景；是否选用模板匹配完全依赖 skill 中的方法优劣对比。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

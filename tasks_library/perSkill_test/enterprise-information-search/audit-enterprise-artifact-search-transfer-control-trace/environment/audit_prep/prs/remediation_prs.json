@@ -1,0 +1,68 @@
+[
+  {
+    "pr_id": "PR-2130",
+    "title": "Backfill FY25-H2 access review snapshots",
+    "control_ids": ["CTRL-104"],
+    "gap_ticket_ids": ["GAP-771"],
+    "audit_cycle": "FY25-H2",
+    "status": "merged",
+    "remediation_scope": "direct_fix",
+    "policy_doc_id": "POL-ACCESS-RECERT-v2.9",
+    "merged_at": "2025-12-19"
+  },
+  {
+    "pr_id": "PR-2142",
+    "title": "Automate quarterly privileged access reviewer attestations",
+    "control_ids": ["CTRL-104"],
+    "gap_ticket_ids": ["GAP-771"],
+    "audit_cycle": "FY26-H1",
+    "status": "merged",
+    "remediation_scope": "direct_fix",
+    "policy_doc_id": "POL-ACCESS-RECERT-v3.1",
+    "merged_at": "2026-02-10"
+  },
+  {
+    "pr_id": "PR-2170",
+    "title": "Persist manager approvals in recert evidence export",
+    "control_ids": ["CTRL-104"],
+    "gap_ticket_ids": ["GAP-778"],
+    "audit_cycle": "FY26-H1",
+    "status": "merged",
+    "remediation_scope": "direct_fix",
+    "policy_doc_id": "POL-ACCESS-RECERT-v3.1",
+    "merged_at": "2026-02-12"
+  },
+  {
+    "pr_id": "PR-2181",
+    "title": "Evidence bundle naming cleanup",
+    "control_ids": ["CTRL-104"],
+    "gap_ticket_ids": [],
+    "audit_cycle": "FY26-H1",
+    "status": "merged",
+    "remediation_scope": "evidence_only",
+    "policy_doc_id": "POL-ACCESS-RECERT-v3.1",
+    "merged_at": "2026-02-13"
+  },
+  {
+    "pr_id": "PR-2194",
+    "title": "Privileged access recert exception draft wiring",
+    "control_ids": ["CTRL-104"],
+    "gap_ticket_ids": ["GAP-778"],
+    "audit_cycle": "FY26-H1",
+    "status": "open",
+    "remediation_scope": "direct_fix",
+    "policy_doc_id": "POL-ACCESS-RECERT-v3.2-draft",
+    "merged_at": null
+  },
+  {
+    "pr_id": "PR-2201",
+    "title": "Rotate export service credentials",
+    "control_ids": ["CTRL-105"],
+    "gap_ticket_ids": ["GAP-881"],
+    "audit_cycle": "FY26-H1",
+    "status": "merged",
+    "remediation_scope": "direct_fix",
+    "policy_doc_id": "POL-EXPORT-ACCESS-v3.1",
+    "merged_at": "2026-02-11"
+  }
+]

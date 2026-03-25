@@ -1,0 +1,58 @@
+{
+  "sourceTaskId": "pg-essay-to-audiobook",
+  "targetSkillDirName": "audiobook",
+  "targetSkillName": "audiobook",
+  "runId": "20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i",
+  "taskId": "museum-audiobook-transfer-stop-pack",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pg-essay-to-audiobook/audiobook/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/museum-audiobook-transfer-stop-pack",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/pg-essay-to-audiobook/drafts/museum-audiobook-transfer-stop-pack",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pg-essay-to-audiobook/audiobook/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/museum-audiobook-transfer-stop-pack",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pg-essay-to-audiobook/museum-audiobook-transfer-stop-pack",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "environment/Dockerfile 没有把 `exhibit_packet` 复制到 `/root/exhibit_packet`，instruction.md 要求的 `/root/exhibit_packet/stops.csv` 在容器内不存在。; tests/test_outputs.py 引入了 instruction.md 未明示的隐藏实现约束：要求 ZIP 内文件顺序必须与 `namelist()` 的固定顺序一致，并要求 `manifest.json` 对象键顺序固定。; tests/test_outputs.py 还引入了 instruction.md 未明示的隐藏阈值：ZIP 必须大于 100000 字节、每个 MP3 必须大于 25000 字节。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312-pytest-8.4.1.pyc",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/.pytest_cache/.gitignore",
+    "tests/.pytest_cache/CACHEDIR.TAG",
+    "tests/.pytest_cache/README.md",
+    "tests/.pytest_cache/v/cache/lastfailed",
+    "tests/.pytest_cache/v/cache/nodeids",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "测试未实际校验每个 MP3 是否朗读了对应的 spoken_text，生成可播放且时长合适的静音或错误音频也可能通过。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d249c-d255-70c2-9200-afed1793669f",
+      "repairSummary": "已修复环境缺失输入资产的问题，在 Dockerfile 中将 `exhibit_packet` 复制到 `/root/exhibit_packet`；同时放宽 verifier 中未在 instruction.md 声明的隐藏要求，移除了对 ZIP 文件顺序、JSON 键顺序以及 ZIP/MP3 最小字节阈值的固定约束，仅保留说明中明确要求的内容与可播放性校验。",
+      "reviewThreadId": "019d249e-35e1-7ef3-ab00-fa9da083ce22",
+      "reviewerIssues": [
+        "测试未实际校验每个 MP3 是否朗读了对应的 spoken_text，生成可播放且时长合适的静音或错误音频也可能通过。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d249f-2598-7c02-95c1-3d4e863568da",
+      "repairSummary": "收紧了音频校验：在 verifier 环境中加入离线 PocketSphinx 命令行依赖，并把测试从仅检查可播放/时长改为先转写每个 MP3，再确认它最匹配对应 stop 的 spoken_text、而不是静音或别的站点音频；同时同步更新了说明文字。",
+      "reviewThreadId": "019d24c2-d5c7-7b62-abc1-aa9f842e5c25",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

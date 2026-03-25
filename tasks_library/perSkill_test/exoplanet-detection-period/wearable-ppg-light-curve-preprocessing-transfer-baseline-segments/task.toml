@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "wearable-ppg-light-curve-preprocessing-transfer-baseline-segments"
+name = "Transfer - 可穿戴 PPG 基线清洗"
+description = "清洗带有运动质量标记、短时饱和尖峰和慢变基线漂移的可穿戴 PPG 序列，并导出仅包含稳定片段样本的 CSV。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "healthcare"
+tags = ["healthcare", "ppg", "wearable", "timeseries", "preprocessing"]
+primary_output_file = "/root/ppg_clean_segments.csv"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "threejs-structure-parser",
+  "targetSkillDirName": "obj-exporter",
+  "targetSkillName": "obj-exporter",
+  "runId": "20260325042907-threejs-structure-parser-obj-exporter-oggp8p",
+  "taskId": "bracket-kit-obj-exporter-transfer-variant-library",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/threejs-structure-parser/obj-exporter/20260325042907-threejs-structure-parser-obj-exporter-oggp8p/bracket-kit-obj-exporter-transfer-variant-library",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325042907-threejs-structure-parser-obj-exporter-oggp8p/threejs-structure-parser/drafts/bracket-kit-obj-exporter-transfer-variant-library",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/threejs-structure-parser/obj-exporter/20260325042907-threejs-structure-parser-obj-exporter-oggp8p/bracket-kit-obj-exporter-transfer-variant-library",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/threejs-structure-parser/bracket-kit-obj-exporter-transfer-variant-library",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 用 `actual_manifest == expected_payload[\"manifest\"]` 直接比较完整 manifest，实际把 `variant_names` 与 `component_names` 的数组顺序锁死为规格文件顺序，但 instruction.md 只声明字段内容，没有声明这些数组必须按该顺序输出，属于把合法解法锁死到未明示的内部细节。; tests/test_outputs.py 的 `test_kit_offsets_increase_across_variants` 额外要求 manifest 中 `variant_names` 对应的 `kit_offset` 必须单调递增；instruction.md 只要求写出 `variant_names` 与各自 `kit_offset`，并未声明需要按 offset 排序，这是隐藏要求，因此命中 Harbor testability 问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24ce-a61d-7380-acb0-30dd76230100",
+      "repairSummary": "放宽了 manifest 校验，改为只检查 `variant_names` 和 `component_names` 的内容而不锁定数组顺序，并移除了对 `kit_offset` 必须按 `variant_names` 单调递增的隐藏要求，改为仅校验 `variant_names` 与 `variants` 条目一致。",
+      "reviewThreadId": "019d24d0-738f-7b30-8725-b9b24b9660ac",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "sourceTaskId": "parallel-tfidf-search",
+  "targetSkillDirName": "workload-balancing",
+  "targetSkillName": "workload-balancing",
+  "runId": "20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1",
+  "taskId": "genome-kmer-workload-balancing-transfer-size-aware-counting",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/parallel-tfidf-search/workload-balancing/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/genome-kmer-workload-balancing-transfer-size-aware-counting",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/parallel-tfidf-search/drafts/genome-kmer-workload-balancing-transfer-size-aware-counting",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/parallel-tfidf-search/workload-balancing/20260324201414-parallel-tfidf-search-workload-balancing-jzxkh1/genome-kmer-workload-balancing-transfer-size-aware-counting",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/parallel-tfidf-search/genome-kmer-workload-balancing-transfer-size-aware-counting",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 只写 `max(worker base_load) - min(worker base_load)` 必须显著小于朴素版，但 `tests/test_outputs.py` 额外引入未公开阈值 `LOAD_SPREAD_RATIO_TARGET = 0.25`，属于隐藏阈值。; `tests/test_outputs.py` 用候选实现写入报告中的 `elapsed_seconds` 直接做性能判定，没有独立测量真实运行时间，性能要求可被伪造。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "environment/Dockerfile 未保留 COPY skills /root/.codex/skills"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "environment/workspace/__pycache__/build_genome_assets.cpython-312.pyc",
+    "environment/workspace/__pycache__/genome_fixture.cpython-312.pyc",
+    "environment/workspace/__pycache__/kmer_counter_balanced.cpython-312.pyc",
+    "environment/workspace/__pycache__/kmer_counter_baseline.cpython-312.pyc",
+    "environment/workspace/b0.json",
+    "environment/workspace/b1.json",
+    "environment/workspace/b2.json",
+    "environment/workspace/bal_counts.json",
+    "environment/workspace/bal_report.json",
+    "environment/workspace/balanced_0_counts.json",
+    "environment/workspace/balanced_0_report.json",
+    "environment/workspace/balanced_1_counts.json",
+    "environment/workspace/balanced_1_report.json",
+    "environment/workspace/balanced_2_counts.json",
+    "environment/workspace/balanced_2_report.json",
+    "environment/workspace/balanced_warm_counts.json",
+    "environment/workspace/balanced_warm_report.json",
+    "environment/workspace/br.json",
+    "environment/workspace/br0.json",
+    "environment/workspace/br1.json",
+    "environment/workspace/br2.json",
+    "environment/workspace/bw.json",
+    "environment/workspace/genome_manifest.json",
+    "environment/workspace/kmer_counter_balanced.py",
+    "environment/workspace/n0.json",
+    "environment/workspace/n1.json",
+    "environment/workspace/n2.json",
+    "environment/workspace/naive_0_counts.json",
+    "environment/workspace/naive_0_report.json",
+    "environment/workspace/naive_1_counts.json",
+    "environment/workspace/naive_1_report.json",
+    "environment/workspace/naive_2_counts.json",
+    "environment/workspace/naive_2_report.json",
+    "environment/workspace/naive_counts.json",
+    "environment/workspace/naive_report.json",
+    "environment/workspace/naive_warm_counts.json",
+    "environment/workspace/naive_warm_report.json",
+    "environment/workspace/nr.json",
+    "environment/workspace/nr0.json",
+    "environment/workspace/nr1.json",
+    "environment/workspace/nr2.json",
+    "environment/workspace/nw.json",
+    "environment/workspace/seq_counts.json",
+    "environment/workspace/seq_report.json",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "`environment/workspace/kmer_counter_balanced.py` 已预置完整可用实现，且与 `solution/solve.sh` 写入内容一致，存在答案泄露。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2491-1f36-7e71-9505-d2a94b587582",
+      "repairSummary": "公开了负载均衡阈值并说明性能由验证器独立 wall-clock 计时；测试改为真实计时判定且不再依赖候选报告耗时；同时恢复 Dockerfile 中的 skills COPY 语句。",
+      "reviewThreadId": "019d2496-3457-7301-a63f-6880e05cfde7",
+      "reviewerIssues": [
+        "`environment/workspace/kmer_counter_balanced.py` 已预置完整可用实现，且与 `solution/solve.sh` 写入内容一致，存在答案泄露。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "environment/workspace/ 预置了大量 balanced、naive、seq 的 counts/report JSON，直接泄露目标输出与负载分配结果，任务答案可被抄录。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2496-df78-7373-91fb-6696f972d7d7",
+      "repairSummary": "移除了 environment/workspace/kmer_counter_balanced.py 中预置的完整答案实现，改为最小占位 stub，保留任务入口与求解路径不变，消除答案泄露。",
+      "reviewThreadId": "019d2498-3e3a-7803-8f0f-eb4c96d34c7b",
+      "reviewerIssues": [
+        "environment/workspace/ 预置了大量 balanced、naive、seq 的 counts/report JSON，直接泄露目标输出与负载分配结果，任务答案可被抄录。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2498-f862-7c12-bb99-574fdb1f9ede",
+      "repairSummary": "清理了 environment/workspace 中预置的 balanced/naive/seq 计数与报告 JSON、校验/临时产物，并删除了预置的 kmer_counter_balanced.py，保留输入资产、生成脚本和基线实现，消除可直接抄录的目标输出泄露。",
+      "reviewThreadId": "019d249b-5ca7-7070-a37f-ff4c7bfaec28",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

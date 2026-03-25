@@ -1,0 +1,80 @@
+[
+  {
+    "blocker_id": "BLK-201",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "RBAC document filter leaks restricted snippets in export API",
+    "status": "open",
+    "severity": "blocker",
+    "owner_employee_id": "eid_23bc77d1",
+    "component": "document-export",
+    "tracking_issue": "SEC-778",
+    "latest_update_ref": "upd_blk201_04",
+    "signoff_template": ["Security", "Release"],
+    "notes": "Still blocks go/no-go until security verifies the export fix."
+  },
+  {
+    "blocker_id": "BLK-204",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "Cross-region reindex saturates ingest workers and misses SLA",
+    "status": "monitoring",
+    "severity": "blocker",
+    "owner_employee_id": "eid_68b12cd7",
+    "component": "reindex",
+    "tracking_issue": "OPS-921",
+    "latest_update_ref": "upd_blk204_03",
+    "signoff_template": ["Infra", "QA", "Release"],
+    "notes": "Patch is merged but QA sign-off is still outstanding."
+  },
+  {
+    "blocker_id": "BLK-207",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "EU audit log payload omits retention reason code",
+    "status": "awaiting_signoff",
+    "severity": "blocker",
+    "owner_employee_id": "eid_4fa82c90",
+    "component": "audit-log",
+    "tracking_issue": "COMP-644",
+    "latest_update_ref": "upd_blk207_03",
+    "signoff_template": ["Compliance", "Release"],
+    "notes": "Fix is ready but compliance sign-off is still missing."
+  },
+  {
+    "blocker_id": "BLK-198",
+    "release_candidate": "rc_searchflow_2026_04_rc2",
+    "title": "Legacy OCR worker crashes on TIFF batch import",
+    "status": "open",
+    "severity": "blocker",
+    "owner_employee_id": "eid_c31d0e52",
+    "component": "ocr-import",
+    "tracking_issue": "OPS-887",
+    "latest_update_ref": "upd_blk198_02",
+    "signoff_template": ["Infra", "Release"],
+    "notes": "Belonged to rc2 and was not carried forward."
+  },
+  {
+    "blocker_id": "BLK-209",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "Docs portal still references old onboarding screenshots",
+    "status": "follow_up",
+    "severity": "medium",
+    "owner_employee_id": "eid_10af4c2b",
+    "component": "docs-portal",
+    "tracking_issue": "DOC-112",
+    "latest_update_ref": "upd_blk209_02",
+    "signoff_template": ["Docs"],
+    "notes": "Triaged as post-launch follow-up, not a launch blocker."
+  },
+  {
+    "blocker_id": "BLK-210",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "RBAC export blocker umbrella ticket",
+    "status": "duplicate",
+    "severity": "blocker",
+    "owner_employee_id": "eid_10af4c2b",
+    "component": "document-export",
+    "tracking_issue": "REL-501",
+    "latest_update_ref": "upd_blk210_02",
+    "signoff_template": ["Release"],
+    "notes": "Duplicate umbrella for BLK-201."
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing",
+  "runId": "20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke",
+  "taskId": "tess-transit-light-curve-preprocessing-similar-transit-ready-export",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/light-curve-preprocessing/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/tess-transit-light-curve-preprocessing-similar-transit-ready-export",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/exoplanet-detection-period/drafts/tess-transit-light-curve-preprocessing-similar-transit-ready-export",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/light-curve-preprocessing/20260324234256-exoplanet-detection-period-light-curve-preprocessing-9f2gke/tess-transit-light-curve-preprocessing-similar-transit-ready-export",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/tess-transit-light-curve-preprocessing-similar-transit-ready-export",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接点名 shipped skill，且任务目标相对 source_task 不是机械复写；输入资产也与同 family 其他任务有区分。; drafts 根目录包含完整参考输出 `artifacts_local_transit_ready_lightcurve.csv`，会向做题者直接暴露标准答案产物，形成答案泄露。; tests/test.sh 已先创建 `/logs/verifier`，并稳定写入 `/logs/verifier/reward.txt`；未发现 `set -e/pipefail` 导致 reward 未落盘的问题。; tests/test_outputs.py 引入了 instruction.md 未明示的隐藏判定：例如允许删点上限、`flat_flux` 偏离 1 的 `0.0025` 阈值、`0.99-1.01` 幅度阈值，以及固定 `period=3.204`、`t0=2459001.42` 的凌星保留检查，导致测试依赖隐藏数据细节而非仅校验明示输出契约。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "artifacts_local_transit_ready_lightcurve.csv",
+    "instruction.md",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill `light-curve-preprocessing`，造成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d246e-ec75-7a10-9b1b-cb66c9d45953",
+      "repairSummary": "已在 instruction.md 直接点名 shipped skill `light-curve-preprocessing`，把原先隐藏在测试里的行数/压平/保留浅暗化阈值显式写进任务说明，并同步精简 tests/test_outputs.py 只校验这些明示契约；同时删除根目录泄露答案的参考产物 `artifacts_local_transit_ready_lightcurve.csv`。",
+      "reviewThreadId": "019d2473-c9e3-78b1-83ce-755a4a3c76b0",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill `light-curve-preprocessing`，造成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "instruction.md 允许 `flat_flux` 落在 `[0.99, 1.01]` 边界上，但 tests/test_outputs.py 却用严格大于和小于判定，说明与测试不一致。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2474-e768-76c2-af9f-0b44dcb4b005",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill `light-curve-preprocessing` 的直接点名，保留其余任务说明、输入输出契约和评测要求不变。",
+      "reviewThreadId": "019d2476-00b1-7600-9341-337fd8544e67",
+      "reviewerIssues": [
+        "instruction.md 允许 `flat_flux` 落在 `[0.99, 1.01]` 边界上，但 tests/test_outputs.py 却用严格大于和小于判定，说明与测试不一致。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2477-480f-7e21-96cd-9e2ee100b9fd",
+      "repairSummary": "将 instruction.md 中 flat_flux 的范围说明从包含边界的 [0.99, 1.01] 改为与测试一致的严格区间 (0.99, 1.01)，修复说明与评测不一致问题。",
+      "reviewThreadId": "019d2478-c7f3-79d0-a301-91bd916cbd30",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

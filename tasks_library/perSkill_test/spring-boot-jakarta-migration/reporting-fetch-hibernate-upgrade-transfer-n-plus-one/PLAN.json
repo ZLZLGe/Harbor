@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reporting-fetch-hibernate-upgrade-transfer-n-plus-one",
+  "taskRole": "transfer",
+  "title": "Transfer: Reporting Fetch Plan and Query Count Repair",
+  "goal": "规划一个报表聚合服务，功能结果本身正确，但升级后因 Hibernate 6 的抓取行为变化触发 N+1 查询和重复结果；任务要求通过合适的 fetch 策略、查询改写或实体图修正性能回归，并让 verifier 根据 Hibernate statistics 判定查询次数达标。",
+  "primaryOutputFile": "/workspace/src/main/java/com/example/reporting/service/ShipmentSummaryService.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这个迁移场景强调 Hibernate 6 升级后的抓取语义、`join fetch` 行为和性能诊断，是对同一技能的明显泛化，验证点依然集中在 ORM 升级本身。",
+  "targetSkillDirName": "hibernate-upgrade",
+  "targetSkillName": "hibernate-upgrade"
+}

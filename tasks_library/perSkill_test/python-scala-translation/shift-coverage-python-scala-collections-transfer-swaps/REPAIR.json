@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "python-scala-translation",
+  "targetSkillDirName": "python-scala-collections",
+  "runId": "20260324222257-python-scala-translation-python-scala-collections-ws6adu",
+  "taskId": "shift-coverage-python-scala-collections-transfer-swaps",
+  "sourcePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors/python-scala-translation/python-scala-collections/20260324222257-python-scala-translation-python-scala-collections-ws6adu/shift-coverage-python-scala-collections-transfer-swaps",
+  "candidatePath": null,
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/pass/python-scala-translation/python-scala-collections/20260324222257-python-scala-translation-python-scala-collections-ws6adu/shift-coverage-python-scala-collections-transfer-swaps",
+  "status": "no_op_pass",
+  "changedFiles": [],
+  "initialStaticIssues": [],
+  "finalStaticIssues": [],
+  "reviewerRechecked": false,
+  "finalReviewerIssues": [],
+  "reviewThreadId": null,
+  "notes": [
+    "当前目录本体已满足 static 校验，无需修改任务文件"
+  ]
+}

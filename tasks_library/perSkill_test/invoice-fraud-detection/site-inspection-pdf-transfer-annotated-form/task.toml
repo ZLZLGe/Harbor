@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "site-inspection-pdf-transfer-annotated-form"
+name = "Transfer: 非填写巡检表标注录入"
+description = "根据 inspection_answers.json 在不可填写的巡检表原 PDF 上添加文字和勾选标记，生成 /root/annotated_inspection_form.pdf。"
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "hard"
+category = "document-annotation"
+tags = ["pdf", "annotation", "inspection", "checkboxes", "document-transfer"]
+primary_output_file = "/root/annotated_inspection_form.pdf"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

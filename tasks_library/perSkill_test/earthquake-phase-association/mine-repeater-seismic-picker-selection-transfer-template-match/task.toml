@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "mine-repeater-seismic-picker-selection-transfer-template-match"
+name = "Transfer: 模板丰富的矿山微震重复事件检测选择"
+description = "Choose the most suitable candidate detection family for template-rich underground repeater monitoring and export the cleaned final detections to /root/mine_repeater_events.csv."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "seismology"
+tags = ["seismology", "microseismicity", "template-selection", "repeater-detection"]
+primary_output_file = "/root/mine_repeater_events.csv"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0

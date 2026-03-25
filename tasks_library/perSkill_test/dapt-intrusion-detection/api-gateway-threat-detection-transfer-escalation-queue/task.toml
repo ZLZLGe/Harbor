@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "api-gateway-threat-detection-transfer-escalation-queue"
+name = "Transfer: API Gateway Escalation Queue"
+description = "Read tenant-level API gateway telemetry and write /root/gateway_escalations.csv with threat labels, escalation priority, and dispatch queue assignments."
+author_name = "Codex Task Builder"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "security"
+tags = ["security", "api-gateway", "csv", "escalation"]
+primary_output_file = "/root/gateway_escalations.csv"
+source_task_id = "dapt-intrusion-detection"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 120.0

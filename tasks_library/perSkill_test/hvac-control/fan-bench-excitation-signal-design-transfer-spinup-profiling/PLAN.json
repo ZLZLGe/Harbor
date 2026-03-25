@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "fan-bench-excitation-signal-design-transfer-spinup-profiling",
+  "taskRole": "transfer",
+  "title": "Transfer: 风机升速剖面测试",
+  "goal": "在离心风机转速模拟器中，为未知惯性与增益的电机设计不过饱和的电压阶跃测试，输出 `spinup_trace.csv`，包含基线段、加压段和保持段的时间、电压、RPM 轨迹。验证会直接从轨迹检查是否捕获了足够清晰的启动瞬态，并据此复算参数误差与实验信息量。",
+  "primaryOutputFile": "spinup_trace.csv",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "任务把同一套阶跃激励原则迁移到机电系统；一旦获得覆盖启动过程的高质量输入输出数据，后续参数恢复很直接，真正关键仍是激励信号设计。",
+  "targetSkillDirName": "excitation-signal-design",
+  "targetSkillName": "excitation-signal-design"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "district-steam-economic-dispatch-transfer-boiler-standby",
+  "taskRole": "transfer",
+  "title": "Transfer: District Steam Boiler Standby Dispatch",
+  "goal": "给定区域蒸汽站的锅炉热耗成本、最小/最大蒸汽出力、可提供热备用上限、当前蒸汽需求与备用要求，生成 `steam_commitment.toml`，输出各锅炉蒸汽负荷、热备用、总燃料成本和剩余热备用裕度。",
+  "primaryOutputFile": "steam_commitment.toml",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这个迁移任务把发电机经济调度改写为锅炉蒸汽分配问题，数学核心仍是带成本曲线和容量耦合的资源分派，因此当前 shipped skill 依然是唯一关键能力。",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

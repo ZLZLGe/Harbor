@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "network-dialysis-lab-unit-harmonization-similar-longform-intake",
+  "taskRole": "similar",
+  "title": "Similar | 透析入科长表实验室归一化",
+  "goal": "给定来自多家肾内科门诊的长表化透析入科实验室结果，要求按 encounter 维度丢弃任一必需检验缺失的记录，清洗科学计数法、欧洲小数和空白字符，识别同一检验项目在不同来源中混用的单位并统一到美国常用单位，最后透视成每个 encounter 一行的标准化 CSV。",
+  "primaryOutputFile": "/root/dialysis_intake_panel_harmonized.csv",
+  "difficulty": "medium",
+  "category": "healthcare",
+  "skillBenefitRationale": "这是当前技能的典型落地场景：多来源临床实验室数据、混合单位、脏数字格式和基于项目参考范围的单位判定都直接依赖该技能，且不需要其他 shipped skill。",
+  "targetSkillDirName": "lab-unit-harmonization",
+  "targetSkillName": "lab-unit-harmonization"
+}

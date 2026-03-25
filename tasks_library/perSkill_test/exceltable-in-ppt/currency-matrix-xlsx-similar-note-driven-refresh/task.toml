@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "currency-matrix-xlsx-similar-note-driven-refresh"
+name = "Similar: 根据工作簿备注刷新汇率矩阵"
+description = "读取现有汇率工作簿中备注表的待执行更新，只改动矩阵里对应的可编辑输入单元格并输出刷新后的工作簿。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Office Operation"
+tags = ["excel", "currency-matrix", "formula-preservation"]
+primary_output_file = "/root/fx_matrix_updated.xlsx"
+source_task_id = "exceltable-in-ppt"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

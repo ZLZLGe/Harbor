@@ -1,0 +1,94 @@
+{
+  "snapshot_name": "coastal_storm_islanded_microgrid",
+  "interval_hours": 1,
+  "buses": [
+    {
+      "bus_id": "port_blackstart",
+      "label": "港区黑启动母线",
+      "demand_mw": 0.0,
+      "unserved_penalty_dollars_per_mwh": 0.0,
+      "bus_role": "supply"
+    },
+    {
+      "bus_id": "harbor_clinic",
+      "label": "港区诊疗站",
+      "demand_mw": 3.0,
+      "unserved_penalty_dollars_per_mwh": 1400.0,
+      "bus_role": "medical"
+    },
+    {
+      "bus_id": "water_junction",
+      "label": "净水厂联络母线",
+      "demand_mw": 2.0,
+      "unserved_penalty_dollars_per_mwh": 900.0,
+      "bus_role": "water"
+    },
+    {
+      "bus_id": "school_shelter",
+      "label": "学校安置点",
+      "demand_mw": 2.0,
+      "unserved_penalty_dollars_per_mwh": 800.0,
+      "bus_role": "shelter"
+    },
+    {
+      "bus_id": "east_shelter",
+      "label": "东岸避难所",
+      "demand_mw": 3.0,
+      "unserved_penalty_dollars_per_mwh": 1300.0,
+      "bus_role": "shelter"
+    },
+    {
+      "bus_id": "cold_storage",
+      "label": "冷链仓库",
+      "demand_mw": 2.0,
+      "unserved_penalty_dollars_per_mwh": 500.0,
+      "bus_role": "commercial"
+    }
+  ],
+  "dispatchable_resources": [
+    {
+      "resource_id": "diesel_port_1",
+      "bus_id": "port_blackstart",
+      "max_output_mw": 6.0,
+      "marginal_cost_dollars_per_mwh": 120.0
+    },
+    {
+      "resource_id": "battery_water_1",
+      "bus_id": "water_junction",
+      "max_output_mw": 1.5,
+      "marginal_cost_dollars_per_mwh": 180.0
+    },
+    {
+      "resource_id": "diesel_school_1",
+      "bus_id": "school_shelter",
+      "max_output_mw": 2.5,
+      "marginal_cost_dollars_per_mwh": 260.0
+    }
+  ],
+  "baseline_lines": [
+    {
+      "line_id": "F1",
+      "from_bus": "port_blackstart",
+      "to_bus": "harbor_clinic",
+      "limit_mw": 4.0
+    },
+    {
+      "line_id": "F2",
+      "from_bus": "harbor_clinic",
+      "to_bus": "water_junction",
+      "limit_mw": 2.0
+    },
+    {
+      "line_id": "F3",
+      "from_bus": "school_shelter",
+      "to_bus": "east_shelter",
+      "limit_mw": 3.0
+    },
+    {
+      "line_id": "F4",
+      "from_bus": "east_shelter",
+      "to_bus": "cold_storage",
+      "limit_mw": 1.0
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sales-table-pptx-similar-revision",
+  "taskRole": "similar",
+  "title": "Similar - 修订销售总览表",
+  "goal": "在现有演示文稿中读取侧边文本框里的修订指令，更新同页原生 PowerPoint 表格中的指定单元格，并同步刷新页脚里的“Last revised”日期；除这些目标单元格与页脚外，其余版式、文本和对象都保持不变。",
+  "primaryOutputFile": "/root/results-table-revision.pptx",
+  "difficulty": "medium",
+  "category": "Office Operation",
+  "skillBenefitRationale": "这个任务完全依赖对 .pptx 包内幻灯片 XML 与表格结构的读取、定位、修改和重新打包，是 pptx 技能的典型编辑用法，不需要其他 shipped skill。",
+  "targetSkillDirName": "pptx",
+  "targetSkillName": "pptx"
+}

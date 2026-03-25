@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "platform-bom-maven-dependency-management-transfer-shared-versions",
+  "taskRole": "transfer",
+  "title": "Transfer: Repair a Shared Platform BOM for Downstream Modules",
+  "goal": "修复一个内部平台 BOM 工程，使下游两个模块通过继承或导入该 BOM 获得统一的 Jackson、JUnit 与日志版本；要求下游模块保留无版本依赖声明并通过 reactor 测试。",
+  "primaryOutputFile": "/workspace/platform-bom/pom.xml",
+  "difficulty": "medium",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "重点是设计和修正 BOM 型 POM 的 `dependencyManagement`，让下游模块统一解析版本；唯一关键能力就是 Maven 依赖管理。",
+  "targetSkillDirName": "maven-dependency-management",
+  "targetSkillName": "maven-dependency-management"
+}

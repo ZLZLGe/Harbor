@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "callcenter-multimodal-fusion-transfer-channel-swap",
+  "taskRole": "transfer",
+  "title": "Transfer: Split-Screen Channel Swap Audit",
+  "goal": "分析一段双人分屏客服培训视频，输出`/root/channel_swap_alerts.json`，列出疑似串音、左右角色错配或越画面发声的时间段，并记录该时段左右画面的人脸可见性、嘴动状态和音频侧活跃说话人。验证重点是多模态冲突告警的召回与误报控制。",
+  "primaryOutputFile": "/root/channel_swap_alerts.json",
+  "difficulty": "medium",
+  "category": "audio-visual",
+  "skillBenefitRationale": "该任务把多模态融合迁移到质检告警场景，核心仍是结合音频说话活动与左右分屏的视觉说话证据，识别归因冲突而不是生成标准 diarization 产物。",
+  "targetSkillDirName": "multimodal-fusion",
+  "targetSkillName": "Multimodal Fusion for Speaker Diarization"
+}

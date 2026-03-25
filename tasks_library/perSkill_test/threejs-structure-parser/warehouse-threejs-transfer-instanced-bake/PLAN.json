@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-threejs-transfer-instanced-bake",
+  "taskRole": "transfer",
+  "title": "Transfer: 仓储实例化场景烘焙",
+  "goal": "给定一个仓储货架场景，其中大量箱体和紧固件通过 THREE.InstancedMesh 生成，要求展开所有实例、应用完整世界变换、合并为一个 OBJ，并输出一份实例统计清单，记录各 instanced 节点展开后的实例数量。",
+  "primaryOutputFile": "/root/output/baked_scene.obj",
+  "difficulty": "medium",
+  "category": "asset-pipeline",
+  "skillBenefitRationale": "这项任务聚焦 threejs 技能中的 InstancedMesh 展开与几何烘焙能力，和源任务的按部件拆分不同，强调实例化资产的整体验证与导出。",
+  "targetSkillDirName": "threejs",
+  "targetSkillName": "threejs"
+}

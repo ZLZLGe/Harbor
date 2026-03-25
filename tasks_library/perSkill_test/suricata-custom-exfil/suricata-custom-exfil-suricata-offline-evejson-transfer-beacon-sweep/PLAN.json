@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "suricata-custom-exfil-suricata-offline-evejson-transfer-beacon-sweep",
+  "taskRole": "transfer",
+  "title": "Transfer - Beacon Sweep Classification",
+  "goal": "给定现成规则集和多份 HTTP beacon PCAP，离线运行 Suricata 并基于 eve.json 生成一份样本级汇总 JSON，输出每个 pcap 的命中 sid 列表、告警次数以及 `infected`/`clean` 判定。",
+  "primaryOutputFile": "answer/beacon-sweep.json",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "这里把 skill 迁移到批量样本归类场景，关键能力是对多个 PCAP 做离线回放并从 eve.json 提取可验证结论；不需要额外协议分析类 shipped skill。",
+  "targetSkillDirName": "suricata-offline-evejson",
+  "targetSkillName": "suricata-offline-evejson"
+}

@@ -1,0 +1,26 @@
+version = "0.0"
+
+[metadata]
+id = "incident-runbooks-pddl-skills-transfer-ops-report"
+name = "Transfer | Incident Runbook Planner"
+description = "为五个运维事故场景生成处置结果汇总，并仅为可解场景输出有效计划文本到 results/incident-runbooks.json。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "research"
+tags = ["planning", "pddl", "operations", "runbook"]
+primary_output_file = "results/incident-runbooks.json"
+source_task_id = "pddl-tpp-planning"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

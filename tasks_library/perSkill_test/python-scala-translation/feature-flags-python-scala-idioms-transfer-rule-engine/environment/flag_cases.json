@@ -1,0 +1,24 @@
+{
+  "cases": [
+    {
+      "flagKey": "search-ranking",
+      "bucketKey": "alice",
+      "attributes": {
+        "plan": "pro",
+        "region": "us-east",
+        "suspended": false
+      },
+      "expectedVariant": "ranking-v2"
+    },
+    {
+      "flagKey": "search-ranking",
+      "bucketKey": "bob",
+      "attributes": {
+        "plan": "pro",
+        "region": "us-east",
+        "suspended": false
+      },
+      "expectedVariant": "ranking-v1"
+    }
+  ]
+}

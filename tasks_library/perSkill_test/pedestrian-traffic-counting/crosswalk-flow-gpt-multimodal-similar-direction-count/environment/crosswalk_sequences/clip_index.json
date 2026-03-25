@@ -1,0 +1,64 @@
+{
+  "videos": [
+    {
+      "video_id": "canal_square",
+      "frames_dir": "canal_square/frames",
+      "frame_files": [
+        "frame_001.png",
+        "frame_002.png",
+        "frame_003.png",
+        "frame_004.png",
+        "frame_005.png",
+        "frame_006.png",
+        "frame_007.png",
+        "frame_008.png",
+        "frame_009.png",
+        "frame_010.png",
+        "frame_011.png",
+        "frame_012.png"
+      ],
+      "frame_count": 12,
+      "frame_rate_fps": 2
+    },
+    {
+      "video_id": "market_turn",
+      "frames_dir": "market_turn/frames",
+      "frame_files": [
+        "frame_001.png",
+        "frame_002.png",
+        "frame_003.png",
+        "frame_004.png",
+        "frame_005.png",
+        "frame_006.png",
+        "frame_007.png",
+        "frame_008.png",
+        "frame_009.png",
+        "frame_010.png",
+        "frame_011.png",
+        "frame_012.png"
+      ],
+      "frame_count": 12,
+      "frame_rate_fps": 2
+    },
+    {
+      "video_id": "station_lane",
+      "frames_dir": "station_lane/frames",
+      "frame_files": [
+        "frame_001.png",
+        "frame_002.png",
+        "frame_003.png",
+        "frame_004.png",
+        "frame_005.png",
+        "frame_006.png",
+        "frame_007.png",
+        "frame_008.png",
+        "frame_009.png",
+        "frame_010.png",
+        "frame_011.png",
+        "frame_012.png"
+      ],
+      "frame_count": 12,
+      "frame_rate_fps": 2
+    }
+  ]
+}

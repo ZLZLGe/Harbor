@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "storm-microgrid-locational-marginal-prices-transfer-restoration-values"
+name = "Transfer | 风暴微电网恢复边际价值"
+description = "基于风暴后孤网微电网资产包与联络线修复方案，分别求解修复前后的恢复优化并输出包含母线边际供电价值、恢复负荷、价格孤岛和关键避难所价值变化的 restoration_service_prices.json。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "resilience"
+tags = ["resilience", "microgrid", "restoration", "nodal-pricing", "storm-recovery"]
+primary_output_file = "restoration_service_prices.json"
+source_task_id = "energy-market-pricing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

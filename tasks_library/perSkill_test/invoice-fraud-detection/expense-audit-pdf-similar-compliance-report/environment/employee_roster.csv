@@ -1,0 +1,8 @@
+employee_id,employee_name,payout_account,department
+E1001,Alice Wong,AC-7788-01,Sales
+E1002,Bruno Diaz,AC-7788-02,Operations
+E1003,Carla Reed,AC-7788-03,Finance
+E1004,Deepak Nair,AC-7788-04,Product
+E1005,Elena Park,AC-7788-05,People
+E1006,Felix Moore,AC-7788-06,Legal
+E1007,Gina Patel,AC-7788-07,Marketing

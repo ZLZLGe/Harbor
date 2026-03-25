@@ -1,0 +1,5 @@
+ticket_id,owner,team,status,duration_minutes
+W-200,Ada,api,closed,40
+W-201,Dia,support,closed,40
+W-202,Ada,api,open,20
+W-203,Eli,ops,cancelled,120

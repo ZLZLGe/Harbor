@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "impostor-vetting-exoplanet-workflows-transfer-binary-report"
+name = "Transfer | 判定凌星候选是否为食双星假阳性"
+description = "分析带有星斑调制与交替食深的候选体测光，恢复最佳候选周期并输出食双星鉴别报告到 /root/vetting_report.md。"
+author_name = "Levi Harbor"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "exoplanet", "vetting", "light-curve", "time-series"]
+primary_output_file = "/root/vetting_report.md"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

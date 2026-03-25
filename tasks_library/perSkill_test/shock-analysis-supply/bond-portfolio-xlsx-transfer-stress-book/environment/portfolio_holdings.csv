@@ -1,0 +1,5 @@
+Bond_ID,Issuer,Rating_Bucket,Coupon_Rate,Position_Face,Coupon_Frequency,Curve_Tenor_Years,Spread_Bps,Stress_Default_Flag
+ALPHA28,Alpha Rail,A,0.042,2000000,2,3,90,0
+BRAVO30,Bravo Ports,BBB,0.051,1500000,2,5,130,0
+COBALT29,Cobalt Retail,BB,0.068,1200000,2,3,260,1
+DELTA31,Delta Leisure,B,0.074,900000,2,7,340,1

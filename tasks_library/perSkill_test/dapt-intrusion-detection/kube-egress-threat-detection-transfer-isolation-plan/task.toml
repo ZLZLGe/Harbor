@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "kube-egress-threat-detection-transfer-isolation-plan"
+name = "Transfer: Kubernetes Pod Isolation Plan"
+description = "Read Pod-level egress profiles and write /root/pod_isolation_plan.yaml with the required actions, trigger reasons, and isolation decisions."
+author_name = "Codex Task Builder"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "security"
+tags = ["security", "kubernetes", "egress-telemetry", "yaml"]
+primary_output_file = "/root/pod_isolation_plan.yaml"
+source_task_id = "dapt-intrusion-detection"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 120.0

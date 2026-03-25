@@ -1,0 +1,33 @@
+{
+  "city_center": [
+    4,
+    4
+  ],
+  "chosen_districts": [
+    {
+      "district": "CAMPUS",
+      "location": [
+        4,
+        3
+      ],
+      "adjacency": 6
+    },
+    {
+      "district": "COMMERCIAL_HUB",
+      "location": [
+        5,
+        4
+      ],
+      "adjacency": 6
+    },
+    {
+      "district": "THEATER_SQUARE",
+      "location": [
+        4,
+        5
+      ],
+      "adjacency": 5
+    }
+  ],
+  "total_adjacency": 17
+}

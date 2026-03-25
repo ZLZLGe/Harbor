@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "civ6-district-bundle-hex-grid-spatial-similar-ranking"
+name = "Similar: 文明6候选区域组合规划"
+description = "在固定城市中心与候选区域规则下，找出 odd-r 六角地图上的最佳三区域组合并输出布局与邻接分。"
+author_name = "Songlin Li"
+author_email = "vincent.li.9701@gmail.com"
+difficulty = "hard"
+category = "games"
+tags = ["civ6", "hex-grid", "optimization", "spatial-reasoning"]
+primary_output_file = "/output/civ6_bundle_plan.json"
+source_task_id = "civ6-adjacency-optimizer"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

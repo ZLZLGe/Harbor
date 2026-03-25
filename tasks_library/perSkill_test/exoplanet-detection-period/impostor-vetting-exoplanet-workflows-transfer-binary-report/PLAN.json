@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "impostor-vetting-exoplanet-workflows-transfer-binary-report",
+  "taskRole": "transfer",
+  "title": "Transfer | 判定凌星候选是否为食双星假阳性",
+  "goal": "分析一条带有星斑调制和交替食深的候选体测光序列，恢复最佳周期，检查奇偶事件一致性，并将“行星 / 食双星”判定及关键证据写入 /root/vetting_report.md。",
+  "primaryOutputFile": "/root/vetting_report.md",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "该任务把 exoplanet-workflows 从“找周期”迁移到“候选体验证与假阳性排查”：仍然依赖同一套清洗、去趋势、周期搜索、混叠检查和信号验证原则，但输出变为定性审查报告。",
+  "targetSkillDirName": "exoplanet-workflows",
+  "targetSkillName": "exoplanet-workflows"
+}

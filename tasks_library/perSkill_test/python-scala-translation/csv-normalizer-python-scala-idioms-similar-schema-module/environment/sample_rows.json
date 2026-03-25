@@ -1,0 +1,18 @@
+[
+  {
+    "sku": "A-100",
+    "site": "north-hub",
+    "qty": "12",
+    "unit_price": "1.995",
+    "active": "YES",
+    "labels": "Fresh | Promo "
+  },
+  {
+    "sku": "B-220",
+    "warehouse": "reserve",
+    "qty": "oops",
+    "unit_price": "",
+    "active": "no",
+    "labels": ""
+  }
+]

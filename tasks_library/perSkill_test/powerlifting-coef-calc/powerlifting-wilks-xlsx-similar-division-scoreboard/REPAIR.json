@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "powerlifting-coef-calc",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260324213740-powerlifting-coef-calc-xlsx-mz3esm",
+  "taskId": "powerlifting-wilks-xlsx-similar-division-scoreboard",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/powerlifting-coef-calc/xlsx/20260324213740-powerlifting-coef-calc-xlsx-mz3esm/powerlifting-wilks-xlsx-similar-division-scoreboard",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324213740-powerlifting-coef-calc-xlsx-mz3esm/powerlifting-coef-calc/drafts/powerlifting-wilks-xlsx-similar-division-scoreboard",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/powerlifting-coef-calc/xlsx/20260324213740-powerlifting-coef-calc-xlsx-mz3esm/powerlifting-wilks-xlsx-similar-division-scoreboard",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/powerlifting-coef-calc/powerlifting-wilks-xlsx-similar-division-scoreboard",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 要求 `Wilks` 公式字符串必须包含 `IF(`，把合法解法锁定到特定实现细节，而不是只校验结果语义。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24aa-73ca-7640-8fc1-9e97c5ecef40",
+      "repairSummary": "放宽了 `Wilks` 公式测试，不再把实现锁定为特定 `IF(` 写法，改为校验公式语义约束与缓存结果；同时补充了前 7 列必须引用 `MeetResults` 对应单元格的检查。",
+      "reviewThreadId": "019d24ad-a0fd-7672-a5ba-5e11c0f99d0b",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

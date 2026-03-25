@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "claims-spring-boot-migration-similar-modernization"
+name = "Similar: Modernize a Legacy Claims REST Service to Spring Boot 3.2"
+description = "Upgrade the legacy claims REST service to Java 21 and Spring Boot 3.2 while preserving its security and risk-screening behavior, with the primary deliverable in workspace/src/main/java/com/acme/claims/config/SecurityConfig.java."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["spring-boot", "java", "jakarta", "security", "migration"]
+primary_output_file = "workspace/src/main/java/com/acme/claims/config/SecurityConfig.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "training-block-senior-data-scientist-similar-readout",
+  "taskRole": "similar",
+  "title": "Similar: Strength Block Experiment Readout",
+  "goal": "给定包含力量举运动员基线测试、结营测试和训练组别的 Excel 工作簿，生成 /root/results/training_block_readout.xlsx：按运动员计算三项总成绩变化与体重标准化增幅，并在 Summary 工作表中汇总 treatment/control 的均值差、95% 置信区间、Cohen's d 和样本量平衡检查。",
+  "primaryOutputFile": "/root/results/training_block_readout.xlsx",
+  "difficulty": "easy",
+  "category": "experimentation",
+  "skillBenefitRationale": "任务核心是把实验设计思路、统计汇总和可复核的表格产物结合起来，正好检验高级数据科学在实验分析与业务解读上的典型能力。",
+  "targetSkillDirName": "senior-data-scientist",
+  "targetSkillName": "senior-data-scientist"
+}

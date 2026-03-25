@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "kanban-board-openai-vision-transfer-status-shifts"
+name = "Transfer: Kanban Board Status Shift Tracking"
+description = "Compare two kanban board snapshots, track each card's column movement, and write /app/workspace/kanban_status_diff.ndjson."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "data statistics"
+tags = ["kanban", "ndjson", "vision diff"]
+primary_output_file = "/app/workspace/kanban_status_diff.ndjson"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

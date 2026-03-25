@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "parking-lot-openai-vision-transfer-occupancy",
+  "taskRole": "transfer",
+  "title": "Transfer: Parking Lot Occupancy Counting",
+  "goal": "给定若干俯拍停车场分区图片，统计每张图中各分区已占车位数与总占用数，输出 `/app/workspace/parking_occupancy.json`。结果需要包含每个时间点的 `zone_counts`、`total_occupied` 和全局峰值时段，测试按 JSON schema、键集合、数值一致性和 oracle 精确比对。",
+  "primaryOutputFile": "/app/workspace/parking_occupancy.json",
+  "difficulty": "medium",
+  "category": "data statistics",
+  "skillBenefitRationale": "该任务把技能迁移到纯视觉计数与空间理解，不依赖传统 OCR 流程，仍然只有视觉模型对复杂场景中的车辆与区域关系判断是关键能力。",
+  "targetSkillDirName": "openai-vision",
+  "targetSkillName": "openai-vision"
+}

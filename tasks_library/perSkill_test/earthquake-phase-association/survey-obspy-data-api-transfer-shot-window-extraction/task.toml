@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "survey-obspy-data-api-transfer-shot-window-extraction"
+name = "Survey Transfer Shot Window Extraction"
+description = "Extract fixed windows around scheduled survey shots from continuous MiniSEED data and write a per-shot summary CSV to /root/shot_window_summary.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "seismology"
+tags = ["seismology", "active-source", "miniseed", "time-window", "survey"]
+primary_output_file = "/root/shot_window_summary.csv"
+source_task_id = "earthquake-phase-association"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

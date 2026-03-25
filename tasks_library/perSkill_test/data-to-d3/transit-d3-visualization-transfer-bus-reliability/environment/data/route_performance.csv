@@ -1,0 +1,33 @@
+route_id,route_name,time_bin,scheduled_trips,on_time_trips
+R8,Route 8 Downtown,06:00,6,5
+R8,Route 8 Downtown,08:00,8,7
+R8,Route 8 Downtown,10:00,7,6
+R8,Route 8 Downtown,12:00,7,6
+R8,Route 8 Downtown,14:00,8,7
+R8,Route 8 Downtown,16:00,9,7
+R8,Route 8 Downtown,18:00,8,6
+R8,Route 8 Downtown,20:00,6,5
+R21,Route 21 Crosstown,06:00,5,4
+R21,Route 21 Crosstown,08:00,7,4
+R21,Route 21 Crosstown,10:00,6,4
+R21,Route 21 Crosstown,12:00,6,4
+R21,Route 21 Crosstown,14:00,7,5
+R21,Route 21 Crosstown,16:00,8,4
+R21,Route 21 Crosstown,18:00,7,4
+R21,Route 21 Crosstown,20:00,5,3
+R44,Route 44 Harbor,06:00,4,4
+R44,Route 44 Harbor,08:00,6,5
+R44,Route 44 Harbor,10:00,6,5
+R44,Route 44 Harbor,12:00,7,6
+R44,Route 44 Harbor,14:00,6,5
+R44,Route 44 Harbor,16:00,7,5
+R44,Route 44 Harbor,18:00,7,5
+R44,Route 44 Harbor,20:00,4,4
+R52,Route 52 Night Owl,06:00,3,3
+R52,Route 52 Night Owl,08:00,4,3
+R52,Route 52 Night Owl,10:00,4,4
+R52,Route 52 Night Owl,12:00,5,4
+R52,Route 52 Night Owl,14:00,4,4
+R52,Route 52 Night Owl,16:00,5,4
+R52,Route 52 Night Owl,18:00,5,4
+R52,Route 52 Night Owl,20:00,4,3

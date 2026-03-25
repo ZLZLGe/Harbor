@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "csv-normalizer-python-scala-idioms-similar-schema-module"
+name = "Similar - Schema-Driven CSV Normalizer Translation"
+description = "Translate the provided Python CSV normalizer into an idiomatic Scala 2.13 module that preserves schema-driven parsing and batch normalization behavior."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["translation", "scala", "python", "csv", "normalization"]
+primary_output_file = "/root/CsvNormalizer.scala"
+source_task_id = "python-scala-translation"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

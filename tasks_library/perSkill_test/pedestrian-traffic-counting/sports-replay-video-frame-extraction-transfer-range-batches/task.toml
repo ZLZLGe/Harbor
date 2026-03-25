@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "sports-replay-video-frame-extraction-transfer-range-batches"
+name = "Transfer - 体育回放区间抽帧批处理"
+description = "按回放片段配置从多段比赛视频提取指定帧区间的 PNG 序列，并输出汇总每段来源、区间、帧数和输出目录的 CSV。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "体育视频归档"
+tags = ["video", "frame extraction", "sports replay", "csv"]
+primary_output_file = "/app/output/replay_range_summary.csv"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 300.0

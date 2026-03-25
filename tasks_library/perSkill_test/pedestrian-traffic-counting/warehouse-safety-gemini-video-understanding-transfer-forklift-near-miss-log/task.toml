@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-safety-gemini-video-understanding-transfer-forklift-near-miss-log"
+name = "Transfer: Forklift Near-Miss Event Log"
+description = "Review top-view warehouse surveillance clips and write a JSON event log of only the forklift-pedestrian near misses that satisfy the stated threshold."
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "hard"
+category = "warehouse safety monitoring"
+tags = ["video-understanding", "warehouse-safety", "near-miss-detection", "json-output"]
+primary_output_file = "/app/output/near_miss_events.json"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+allow_internet = true

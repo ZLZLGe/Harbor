@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "billing-batch-hibernate-upgrade-transfer-session-criteria"
+name = "Transfer: Billing Batch Hibernate 6 Session Migration"
+description = "修复命令行账单归档批处理中的 Hibernate 6 兼容性问题，使逾期账单归档与审计写入行为正确并通过测试。"
+author_name = "OpenAI"
+author_email = "assistant@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["hibernate", "billing", "batch", "spring-boot", "jakarta"]
+primary_output_file = "/workspace/src/main/java/com/example/billing/job/InvoiceArchiveJob.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

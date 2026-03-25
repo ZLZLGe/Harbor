@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "training-block-senior-data-scientist-similar-readout"
+name = "Similar: Strength Block Experiment Readout"
+description = "Build an Excel readout that summarizes athlete-level strength changes and treatment-versus-control experiment statistics."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "experimentation"
+tags = ["excel", "experimentation", "sports-analytics", "statistics"]
+primary_output_file = "/root/results/training_block_readout.xlsx"
+source_task_id = "powerlifting-coef-calc"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

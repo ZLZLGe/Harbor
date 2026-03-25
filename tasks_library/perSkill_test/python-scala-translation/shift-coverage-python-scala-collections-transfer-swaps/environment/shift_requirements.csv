@@ -1,0 +1,9 @@
+date,slot,role,required_staff
+2026-04-02,morning,cashier,2
+2026-04-02,morning,barista,1
+2026-04-02,evening,stock,2
+2026-04-02,evening,cleaner,1
+2026-04-03,morning,cashier,1
+2026-04-03,morning,barista,1
+2026-04-03,mid,cleaner,1
+2026-04-03,evening,stock,3

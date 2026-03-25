@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "inventory-query-hibernate-upgrade-similar-jpql-criteria"
+name = "Similar: Inventory Query Migration for Hibernate 6"
+description = "修复库存仓储层中的 Hibernate 6 兼容性问题，使库存筛选与批量停用行为正确并让主要输出文件通过测试。"
+author_name = "OpenAI"
+author_email = "assistant@example.com"
+difficulty = "hard"
+category = "Legacy Systems"
+tags = ["hibernate", "spring-boot", "jakarta", "jpa", "inventory"]
+primary_output_file = "/workspace/src/main/java/com/example/inventory/repository/StockItemRepository.java"
+source_task_id = "spring-boot-jakarta-migration"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

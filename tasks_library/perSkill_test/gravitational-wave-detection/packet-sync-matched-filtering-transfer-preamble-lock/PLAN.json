@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "packet-sync-matched-filtering-transfer-preamble-lock",
+  "taskRole": "transfer",
+  "title": "Transfer | 基带帧前导同步",
+  "goal": "在多段含噪复基带采样中，对给定前导序列模板做匹配滤波，确定每个数据包的起始索引和所用前导 ID，并生成汇总结果。",
+  "primaryOutputFile": "/root/frame_sync_results.csv",
+  "difficulty": "medium",
+  "category": "communications",
+  "skillBenefitRationale": "前导同步直接依赖模板与接收序列的匹配峰值来完成时延估计和模板选择，不需要解调、纠错或其他 shipped skill。",
+  "targetSkillDirName": "matched-filtering",
+  "targetSkillName": "matched-filtering"
+}

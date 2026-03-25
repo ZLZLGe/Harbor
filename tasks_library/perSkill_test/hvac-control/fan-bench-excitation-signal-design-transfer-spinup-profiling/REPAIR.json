@@ -1,0 +1,19 @@
+{
+  "sourceTaskId": "hvac-control",
+  "targetSkillDirName": "excitation-signal-design",
+  "runId": "20260325025055-hvac-control-excitation-signal-design-pta2pj",
+  "taskId": "fan-bench-excitation-signal-design-transfer-spinup-profiling",
+  "sourcePath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors/hvac-control/excitation-signal-design/20260325025055-hvac-control-excitation-signal-design-pta2pj/fan-bench-excitation-signal-design-transfer-spinup-profiling",
+  "candidatePath": null,
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/static_validation_errors_FIXED/pass/hvac-control/excitation-signal-design/20260325025055-hvac-control-excitation-signal-design-pta2pj/fan-bench-excitation-signal-design-transfer-spinup-profiling",
+  "status": "no_op_pass",
+  "changedFiles": [],
+  "initialStaticIssues": [],
+  "finalStaticIssues": [],
+  "reviewerRechecked": false,
+  "finalReviewerIssues": [],
+  "reviewThreadId": null,
+  "notes": [
+    "当前目录本体已满足 static 校验，无需修改任务文件"
+  ]
+}

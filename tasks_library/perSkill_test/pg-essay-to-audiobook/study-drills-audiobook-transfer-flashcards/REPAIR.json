@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "pg-essay-to-audiobook",
+  "targetSkillDirName": "audiobook",
+  "targetSkillName": "audiobook",
+  "runId": "20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i",
+  "taskId": "study-drills-audiobook-transfer-flashcards",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pg-essay-to-audiobook/audiobook/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/study-drills-audiobook-transfer-flashcards",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/pg-essay-to-audiobook/drafts/study-drills-audiobook-transfer-flashcards",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pg-essay-to-audiobook/audiobook/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/study-drills-audiobook-transfer-flashcards",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pg-essay-to-audiobook/study-drills-audiobook-transfer-flashcards",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 引入了 instruction.md 未明示的隐藏实现约束：要求 `review-drill-timeline.json` 顶层键顺序固定，且每张卡片对象的键顺序也必须固定。; tests/test_outputs.py 还引入了 instruction.md 未明示的隐藏阈值：总时长必须大于 20 秒、WAV 必须大于 500000 字节，并用未声明的 RMS 数值阈值判断静音段与有声段。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d249f-3029-7513-a621-b69802905ce5",
+      "repairSummary": "放宽了输出测试里的隐藏约束：不再要求 JSON 顶层键和卡片对象键的固定顺序，移除了未在 instruction.md 声明的最小时长、文件大小和固定 RMS 阈值检查，改为只验证声明的静音段确为静音、声明的语音段确实有音频。",
+      "reviewThreadId": "019d24a1-1425-7c31-93c3-0f297134f1e1",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

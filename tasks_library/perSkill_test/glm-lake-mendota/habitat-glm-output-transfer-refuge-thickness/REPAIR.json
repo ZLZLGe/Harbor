@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "glm-lake-mendota",
+  "targetSkillDirName": "glm-output",
+  "targetSkillName": "glm-output",
+  "runId": "20260325030953-glm-lake-mendota-glm-output-vd4bem",
+  "taskId": "habitat-glm-output-transfer-refuge-thickness",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/glm-lake-mendota/glm-output/20260325030953-glm-lake-mendota-glm-output-vd4bem/habitat-glm-output-transfer-refuge-thickness",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325030953-glm-lake-mendota-glm-output-vd4bem/glm-lake-mendota/drafts/habitat-glm-output-transfer-refuge-thickness",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/glm-lake-mendota/glm-output/20260325030953-glm-lake-mendota-glm-output-vd4bem/habitat-glm-output-transfer-refuge-thickness",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/habitat-glm-output-transfer-refuge-thickness",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 硬编码 summer_minimum_flag 和 first_collapse_flag 的具体日期（2019-07-06、2019-07-05）；这些结果未在 instruction.md 明示，属于隐藏要求。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2480-ab8f-79a3-bb3e-bfec6fe4e7c0",
+      "repairSummary": "移除了 tests/test_outputs.py 中对 summer_minimum_flag 和 first_collapse_flag 具体日期及固定崩塌存在性的硬编码断言，改为仅校验按题面规则推导出的期望结果，消除隐藏要求。",
+      "reviewThreadId": "019d2482-8482-7963-9f21-382289d55f11",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

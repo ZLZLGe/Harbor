@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "pedestrian-traffic-counting",
+  "targetSkillDirName": "gpt-multimodal",
+  "targetSkillName": "gpt-multimodal",
+  "runId": "20260324205923-pedestrian-traffic-counting-gpt-multimodal-b0nhaa",
+  "taskId": "retail-shelf-gpt-multimodal-transfer-restock-audit",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pedestrian-traffic-counting/gpt-multimodal/20260324205923-pedestrian-traffic-counting-gpt-multimodal-b0nhaa/retail-shelf-gpt-multimodal-transfer-restock-audit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324205923-pedestrian-traffic-counting-gpt-multimodal-b0nhaa/pedestrian-traffic-counting/drafts/retail-shelf-gpt-multimodal-transfer-restock-audit",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pedestrian-traffic-counting/gpt-multimodal/20260324205923-pedestrian-traffic-counting-gpt-multimodal-b0nhaa/retail-shelf-gpt-multimodal-transfer-restock-audit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pedestrian-traffic-counting/retail-shelf-gpt-multimodal-transfer-restock-audit",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "task.toml 未显式设置 allow_internet = true；我不确定 Harbor 默认是否放行联网，但当前唯一 shipped skill 的常规用法依赖外部 API，这会影响 Harbor 中的稳定可用性。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "task.toml"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2497-8768-7b70-ba8d-1c90a3658e26",
+      "repairSummary": "已在 `task.toml` 的 `[agent]` 段显式添加 `allow_internet = true`，其余任务文件与元数据身份字段保持不变。",
+      "reviewThreadId": "019d2498-4ec9-77c1-9922-613014786320",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

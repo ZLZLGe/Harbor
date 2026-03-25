@@ -1,0 +1,53 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "transit-least-squares",
+  "targetSkillName": "transit-least-squares",
+  "runId": "20260325010044-exoplanet-detection-period-transit-least-squares-37rxgj",
+  "taskId": "survey-triage-transit-least-squares-transfer-candidate-ranking",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/transit-least-squares/20260325010044-exoplanet-detection-period-transit-least-squares-37rxgj/survey-triage-transit-least-squares-transfer-candidate-ranking",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325010044-exoplanet-detection-period-transit-least-squares-37rxgj/exoplanet-detection-period/drafts/survey-triage-transit-least-squares-transfer-candidate-ranking",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/transit-least-squares/20260325010044-exoplanet-detection-period-transit-least-squares-37rxgj/survey-triage-transit-least-squares-transfer-candidate-ranking",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/survey-triage-transit-least-squares-transfer-candidate-ranking",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 没有直接点名 shipped skill，但该任务的 environment/Dockerfile 只安装了 `numpy`/`pandas`/`pytest`，未安装 `transitleastsquares` 或 `lightkurve`，导致当前唯一 shipped skill 在任务环境里实际上不可用。; solution/solve.sh 与 tests/test_outputs.py 都围绕自定义相位分箱打分扫描展开，而不是以当前 shipped skill 作为核心解题能力；在 per-skill family 下，这会削弱任务对 `transit-least-squares` 的有效考察，因此不应通过 reviewer。; skillBenefitPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 transit-least-squares，造成技能暴露。; tests/test_outputs.py 直接写死了候选 target_id 与精确周期答案，存在答案泄露。; visibilityPass=false; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2472-d09e-7fb3-a520-06c2ed086be1",
+      "repairSummary": "将任务改为直接点名并依赖 shipped skill `transit-least-squares`：说明改成用 TLS 搜索和 `tls_sde` 排名，环境安装 `transitleastsquares`，官方解法与测试都从自定义相位打分改为基于 TLS 的周期与 SDE 验证。",
+      "reviewThreadId": "019d247c-5f65-79d1-a968-322a00ec59e3",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill 名称 transit-least-squares，造成技能暴露。; tests/test_outputs.py 直接写死了候选 target_id 与精确周期答案，存在答案泄露。; visibilityPass=false; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d247d-fc28-7220-a46d-fc9d69b12d4e",
+      "repairSummary": "移除了 instruction.md 中对 shipped skill 名称的直接点名，并将 tests/test_outputs.py 改为根据输入数据动态计算候选与周期/分数，消除答案硬编码泄露。",
+      "reviewThreadId": "019d2484-bbf2-7a12-89e9-d1ccd7c87057",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

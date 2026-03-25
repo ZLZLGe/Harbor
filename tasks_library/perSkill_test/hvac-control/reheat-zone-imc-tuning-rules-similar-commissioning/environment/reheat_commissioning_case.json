@@ -1,0 +1,27 @@
+{
+  "case_id": "reheat-zone-commissioning-07",
+  "process": {
+    "K": 0.12,
+    "tau_sec": 300.0
+  },
+  "operating_point": {
+    "initial_zone_temp_c": 18.5,
+    "ambient_temp_c": 18.5,
+    "setpoint_c": 24.5,
+    "valve_min_percent": 0.0,
+    "valve_max_percent": 100.0
+  },
+  "simulation": {
+    "dt_sec": 10.0,
+    "duration_sec": 1800.0,
+    "integral_clamp_error_seconds": 1200.0
+  },
+  "candidate_lambda_sec": [90.0, 180.0, 360.0],
+  "acceptance": {
+    "max_rise_time_sec": 500.0,
+    "max_overshoot_percent": 3.0,
+    "max_settling_time_sec": 650.0,
+    "max_saturation_ratio": 0.02,
+    "settling_band_c": 0.25
+  }
+}

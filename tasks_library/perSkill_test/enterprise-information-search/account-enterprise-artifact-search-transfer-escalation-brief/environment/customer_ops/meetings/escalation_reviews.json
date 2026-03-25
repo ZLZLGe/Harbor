@@ -1,0 +1,82 @@
+[
+  {
+    "meeting_id": "MTG-ESC-021",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "held_at": "2026-02-12T16:00:00",
+    "title": "BlueYonder Health escalation review",
+    "decisions": [
+      {
+        "commitment_id": "COM-2401",
+        "decision": "commit_to_customer",
+        "summary": "Commit to backfill tenant-local timestamps in audit exports in the next patch train."
+      },
+      {
+        "commitment_id": "COM-2404",
+        "decision": "internal_follow_up",
+        "summary": "Billing credit stays internal until delivery risk is cleared."
+      }
+    ]
+  },
+  {
+    "meeting_id": "MTG-ESC-022",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "held_at": "2026-02-15T11:30:00",
+    "title": "BlueYonder Health identity workstream sync",
+    "decisions": [
+      {
+        "commitment_id": "COM-2402",
+        "decision": "commit_to_customer",
+        "summary": "Commit to share an editable role mapping preview with named role templates."
+      },
+      {
+        "commitment_id": "COM-2404",
+        "decision": "internal_follow_up",
+        "summary": "Billing credit remains a support-only lever."
+      }
+    ]
+  },
+  {
+    "meeting_id": "MTG-ESC-023",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "held_at": "2026-02-18T10:00:00",
+    "title": "BlueYonder Health analytics follow-up",
+    "decisions": [
+      {
+        "commitment_id": "COM-2403",
+        "decision": "commit_to_customer",
+        "summary": "Commit to provide a retry analytics dashboard and weekly screenshots until the GA cut."
+      }
+    ]
+  },
+  {
+    "meeting_id": "MTG-ESC-011",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2025-091",
+    "held_at": "2025-11-11T14:00:00",
+    "title": "BlueYonder Health legacy export incident",
+    "decisions": [
+      {
+        "commitment_id": "COM-2388",
+        "decision": "commit_to_customer",
+        "summary": "Legacy export timestamp backfill for the 2025 compliance push."
+      }
+    ]
+  },
+  {
+    "meeting_id": "MTG-ESC-121",
+    "account_id": "ACC-042-R",
+    "escalation_id": "ESC-2026-021",
+    "held_at": "2026-02-17T09:00:00",
+    "title": "BlueYonder Retail login fallback review",
+    "decisions": [
+      {
+        "commitment_id": "COM-2410",
+        "decision": "commit_to_customer",
+        "summary": "Commit to ship a retail kiosk fallback auth mode."
+      }
+    ]
+  }
+]

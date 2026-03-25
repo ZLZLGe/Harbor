@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "earthquake-phase-association",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection",
+  "runId": "20260324212626-earthquake-phase-association-seismic-picker-selection-reulf0",
+  "taskId": "edge-alert-seismic-picker-selection-transfer-realtime-trigger",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/earthquake-phase-association/seismic-picker-selection/20260324212626-earthquake-phase-association-seismic-picker-selection-reulf0/edge-alert-seismic-picker-selection-transfer-realtime-trigger",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324212626-earthquake-phase-association-seismic-picker-selection-reulf0/earthquake-phase-association/drafts/edge-alert-seismic-picker-selection-transfer-realtime-trigger",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/earthquake-phase-association/seismic-picker-selection/20260324212626-earthquake-phase-association-seismic-picker-selection-reulf0/edge-alert-seismic-picker-selection-transfer-realtime-trigger",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/earthquake-phase-association/edge-alert-seismic-picker-selection-transfer-realtime-trigger",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 对 `reason` 施加了 instruction.md 未声明的 20-240 字符隐藏长度阈值；这是 Harbor hidden threshold，需将 testabilityPass 设为 false。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d245d-73cb-7621-a6c6-a7a1841e5291",
+      "repairSummary": "移除了 tests/test_outputs.py 中对 `reason` 的未声明 20-240 字符隐藏长度阈值，并用本地输入路径运行参考解后手动复现其余断言完成验证。",
+      "reviewThreadId": "019d2461-6ffb-7ff0-bce4-564da313e944",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

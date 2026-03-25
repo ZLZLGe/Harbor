@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "occultation-photometry-light-curve-preprocessing-transfer-clean-windows"
+name = "Transfer - 小行星掩星观测窗口清洗"
+description = "清洗带有坏帧、宇宙线尖峰和云层慢漂移的地基掩星测光序列，并导出连续可用窗口及其归一化亮度统计 JSON。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "astronomy"
+tags = ["astronomy", "occultation", "photometry", "light-curve", "preprocessing"]
+primary_output_file = "/root/occultation_windows.json"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

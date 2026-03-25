@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "midwest-search-attractions-similar-city-break-guide",
+  "taskRole": "similar",
+  "title": "Similar | Midwest City-Break Attraction Guide",
+  "goal": "根据给定的城市顺序、停留天数和出游偏好，生成 `/app/output/city_break_guide.json`。输出按天组织，每天包含 `current_city`、`focus`、`morning_attractions`、`afternoon_attractions`、`evening_attractions`，每个景点条目都需要带上名称、地址和官网，并且都必须来自对应城市的景点查询结果。",
+  "primaryOutputFile": "/app/output/city_break_guide.json",
+  "difficulty": "medium",
+  "category": "travel-planning",
+  "skillBenefitRationale": "这是 search-attractions 的典型用法：围绕指定城市检索真实景点并整理成可执行的观光安排。城市顺序和天数由输入直接提供，不需要其他已 shipped skill。",
+  "targetSkillDirName": "search-attractions",
+  "targetSkillName": "search-attractions"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sector-stitch-exoplanet-workflows-similar-ephemeris",
+  "taskRole": "similar",
+  "title": "Similar | 拼接双扇区空间测光并恢复凌星星历",
+  "goal": "拼接两段存在基线偏移和耀发污染的空间望远镜光变曲线，完成质量筛选、去恒星活动趋势、凌星周期搜索与精修，并将轨道周期和参考凌星历元写入 /root/sector_ephemeris.json。",
+  "primaryOutputFile": "/root/sector_ephemeris.json",
+  "difficulty": "medium",
+  "category": "astronomy",
+  "skillBenefitRationale": "这是 exoplanet-workflows 的典型应用：需要按完整凌星工作流完成质控、预处理、周期搜索、候选验证和星历精修；相对源任务新增了双扇区拼接与结构化星历输出，不是简单复写。",
+  "targetSkillDirName": "exoplanet-workflows",
+  "targetSkillName": "exoplanet-workflows"
+}

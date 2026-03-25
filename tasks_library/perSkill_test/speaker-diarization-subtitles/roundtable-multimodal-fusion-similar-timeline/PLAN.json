@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "roundtable-multimodal-fusion-similar-timeline",
+  "taskRole": "similar",
+  "title": "Similar: Roundtable Active-Speaker Timeline",
+  "goal": "对一段多人圆桌访谈视频做多模态说话人分离，输出`/root/speaker_timeline.json`；文件按时间顺序给出每个发言片段的`speaker_id`、`start_sec`、`end_sec`、`visible_face_count`、`lip_motion_confirmed`和`visual_confidence`。验证重点是发言切分、说话人切换，以及视觉证据与时间轴的一致性。",
+  "primaryOutputFile": "/root/speaker_timeline.json",
+  "difficulty": "hard",
+  "category": "audio-visual",
+  "skillBenefitRationale": "这是当前 skill 的典型落点：先用音频得到候选说话段，再用人脸可见性和嘴部运动做时间对齐与置信度修正，比原任务更聚焦于多模态融合本身，不依赖转写。",
+  "targetSkillDirName": "multimodal-fusion",
+  "targetSkillName": "Multimodal Fusion for Speaker Diarization"
+}

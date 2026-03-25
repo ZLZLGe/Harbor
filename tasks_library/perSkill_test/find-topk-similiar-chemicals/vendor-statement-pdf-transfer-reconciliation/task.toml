@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "vendor-statement-pdf-transfer-reconciliation"
+name = "Transfer: 从供应商对账单生成对账 CSV"
+description = "从多页供应商对账单文档中提取有效明细行并按供应商汇总生成对账 CSV。"
+author_name = "Harbor Task Builder"
+author_email = "taskbuilder@example.com"
+difficulty = "medium"
+category = "finance"
+tags = ["finance", "document-transfer", "csv"]
+primary_output_file = "/root/workspace/reconciliation.csv"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

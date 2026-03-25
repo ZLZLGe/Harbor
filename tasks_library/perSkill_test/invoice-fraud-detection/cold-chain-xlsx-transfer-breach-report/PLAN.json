@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "cold-chain-xlsx-transfer-breach-report",
+  "taskRole": "transfer",
+  "title": "Transfer - 冷链运输超限报告",
+  "goal": "分析冷链运输工作簿中的传感器时序、线路 SLA、装车宽限期和货运批次映射，识别累计温度超限、超时未恢复或传感器缺测导致不可判定的批次，并输出 CSV 违规报告，包含批次、线路、超限分钟数和违规类别。",
+  "primaryOutputFile": "/root/cold_chain_breaches.csv",
+  "difficulty": "hard",
+  "category": "operations-analytics",
+  "skillBenefitRationale": "这里把 xlsx 迁移到运营时序监控场景，重点是从多 sheet 工作簿提取规则和日志、做分组聚合与阈值判断，输出变为面向运营的 CSV 报告，和前两个 transfer 任务明显不同。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

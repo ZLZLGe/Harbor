@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "audit-enterprise-artifact-search-transfer-control-trace"
+name = "Transfer | 合规控制证据链"
+description = "在审计准备工件集中为指定合规控制回溯最新版策略文档、补救 PR、审批员工与例外 URL，并输出带 artifact 指针的证据链。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "compliance-audit"
+tags = ["compliance-audit", "artifact-search", "control-trace", "evidence-chain"]
+primary_output_file = "/root/control_audit_trace.json"
+source_task_id = "enterprise-information-search"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0

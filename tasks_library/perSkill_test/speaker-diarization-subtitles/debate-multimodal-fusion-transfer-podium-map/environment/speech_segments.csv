@@ -1,0 +1,8 @@
+segment_id,start_sec,end_sec,audio_cluster,transcript_hint
+seg_01,0.00,1.60,cluster_alpha,Opening answer from the left podium.
+seg_02,1.60,3.10,cluster_beta,Center podium responds with a policy contrast.
+seg_03,3.10,4.80,cluster_alpha,Left podium continues after a camera cut.
+seg_04,4.80,6.40,cluster_gamma,Right podium delivers a rebuttal.
+seg_05,6.40,8.10,cluster_beta,Moderator audio mix still belongs to a podium speaker.
+seg_06,8.10,9.90,cluster_mix,Cross-talk resolves into one dominant speaker.
+seg_07,9.90,11.60,cluster_gamma,Closing line lands on the right side of the stage.

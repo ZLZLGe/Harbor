@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "classroom-search-attractions-transfer-landmark-cards",
+  "taskRole": "transfer",
+  "title": "Transfer | Student Landmark Card Dataset",
+  "goal": "根据教师给定的城市列表和导出模板，生成 `/app/output/landmark_cards.csv`。每行是一张地标卡片，包含 `city`、`card_group`、`attraction_name`、`address`、`website`；每个城市固定产出 3 张卡片，供学生做城市对比展示。",
+  "primaryOutputFile": "/app/output/landmark_cards.csv",
+  "difficulty": "easy",
+  "category": "education-content",
+  "skillBenefitRationale": "唯一关键步骤是为每个指定城市获取真实景点并整理成结构化教学数据，search-attractions 足以支撑整个任务。",
+  "targetSkillDirName": "search-attractions",
+  "targetSkillName": "search-attractions"
+}

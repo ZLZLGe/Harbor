@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "hydrogen-hub-economic-dispatch-transfer-electrolyzer-shift",
+  "taskRole": "transfer",
+  "title": "Transfer: Hydrogen Hub Electrolyzer Shift Dispatch",
+  "goal": "给定制氢园区一班次的产氢目标、各电解槽堆的负荷上下限、单位电耗或磨损成本、站内总功率上限与可留作弹性的空载余量要求，生成 `electrolyzer_shift.md`，说明各堆负荷分配、总耗电成本、达成的产氢量和保留弹性。",
+  "primaryOutputFile": "electrolyzer_shift.md",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "该任务把经济调度迁移到电解槽负荷分配场景，本质仍是把固定需求分摊到多台有不同边际成本和容量限制的设备上，能检验 skill 在非传统电网设备上的泛化。",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "meter-image-ocr-transfer-usage-deltas"
+name = "Transfer: Meter Reading Consumption Summary from Photo Logs"
+description = "Extract the reading date and meter value from each log photo and write sorted usage deltas to /app/workspace/meter_consumption.json."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "time-series statistics"
+tags = ["ocr", "meter", "json", "time-series"]
+primary_output_file = "/app/workspace/meter_consumption.json"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

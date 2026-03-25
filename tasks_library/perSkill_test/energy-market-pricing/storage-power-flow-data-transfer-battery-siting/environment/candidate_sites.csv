@@ -1,0 +1,9 @@
+candidate_id,site_name,interconnection_bus,region,proposed_storage_mw
+BAT-101,Harbor South,316,coastal,150
+BAT-102,Metro East,356,metro,200
+BAT-103,River Bend,2363,river,250
+BAT-104,Pine Ridge,64,uplands,120
+BAT-105,Mesa Terminal,200,desert,180
+BAT-106,Delta Junction,1501,delta,100
+BAT-107,Granite Spur,1269,foothills,90
+BAT-108,Valley Tap,2505,valley,110

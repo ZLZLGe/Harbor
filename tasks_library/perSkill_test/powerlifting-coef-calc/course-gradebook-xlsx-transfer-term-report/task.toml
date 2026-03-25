@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "course-gradebook-xlsx-transfer-term-report"
+name = "Transfer: 课程期末成绩报告"
+description = "基于给定课程成绩册，用电子表格公式填充 Report 并输出 term_grade_report.xlsx。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "data-analysis"
+tags = ["excel", "gradebook", "education", "formulas", "report"]
+primary_output_file = "term_grade_report.xlsx"
+source_task_id = "powerlifting-coef-calc"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0

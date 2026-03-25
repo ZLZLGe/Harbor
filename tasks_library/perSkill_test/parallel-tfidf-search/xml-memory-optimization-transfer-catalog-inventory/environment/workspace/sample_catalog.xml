@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog currency="USD" source="sample">
+  <product sku="APP-0001">
+    <category id="appliances" name="Appliances" />
+    <inventory quantity="8" />
+    <pricing current="249.99" />
+    <metadata>
+      <vendor>vendor-1</vendor>
+    </metadata>
+  </product>
+  <product sku="APP-0002">
+    <category id="appliances" name="Appliances" />
+    <inventory quantity="3" />
+    <pricing current="179.50" />
+    <metadata>
+      <vendor>vendor-2</vendor>
+    </metadata>
+  </product>
+  <product sku="BOOK-0100">
+    <category id="books" name="Books" />
+    <inventory quantity="40" />
+    <pricing current="14.95" />
+    <metadata>
+      <vendor>vendor-3</vendor>
+    </metadata>
+  </product>
+  <product sku="BOOK-0101">
+    <category id="books" name="Books" />
+    <inventory quantity="12" />
+    <pricing current="9.99" />
+    <metadata>
+      <vendor>vendor-3</vendor>
+    </metadata>
+  </product>
+  <product sku="MUSIC-0700">
+    <category id="music" name="Music" />
+    <inventory quantity="25" />
+    <pricing current="29.00" />
+    <metadata>
+      <vendor>vendor-4</vendor>
+    </metadata>
+  </product>
+</catalog>

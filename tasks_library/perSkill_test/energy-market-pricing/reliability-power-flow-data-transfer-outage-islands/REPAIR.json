@@ -1,0 +1,36 @@
+{
+  "sourceTaskId": "energy-market-pricing",
+  "targetSkillDirName": "power-flow-data",
+  "targetSkillName": "power-flow-data",
+  "runId": "20260324230053-energy-market-pricing-power-flow-data-vv2p45",
+  "taskId": "reliability-power-flow-data-transfer-outage-islands",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/energy-market-pricing/power-flow-data/20260324230053-energy-market-pricing-power-flow-data-vv2p45/reliability-power-flow-data-transfer-outage-islands",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324230053-energy-market-pricing-power-flow-data-vv2p45/energy-market-pricing/drafts/reliability-power-flow-data-transfer-outage-islands",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/energy-market-pricing/power-flow-data/20260324230053-energy-market-pricing-power-flow-data-vv2p45/reliability-power-flow-data-transfer-outage-islands",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/energy-market-pricing/reliability-power-flow-data-transfer-outage-islands",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "任务根目录直接包含 `island_assessment.generated.json`，且其内容与参考解输出一致，构成完整标准答案泄露风险，不应发布。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "island_assessment.generated.json"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2463-60b6-75a0-9e1d-5978923dbc1a",
+      "repairSummary": "删除了任务根目录中泄露标准答案的 `island_assessment.generated.json`，保留现有 `island_assessment.json` 作为任务主输出定义；并用本地手工校验确认解题脚本仍生成与测试逻辑一致的结果。",
+      "reviewThreadId": "019d2465-6c3b-7c00-9aa5-b1a2b9f36ff4",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

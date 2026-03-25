@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "reheat-zone-imc-tuning-rules-similar-commissioning"
+name = "Similar | Reheat Zone IMC PI Commissioning"
+description = "Evaluate three candidate lambda values for a first-order reheat loop, choose the feasible PI tuning, and write reheat_loop_design.json with gains, metrics, and trajectory."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["hvac", "control-systems", "reheat", "pi-control", "commissioning"]
+primary_output_file = "reheat_loop_design.json"
+source_task_id = "hvac-control"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 1800.0
+
+[verifier]
+timeout_sec = 1800.0

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "dashcam-forensics-sampling-and-indexing-transfer-evidence-frames",
+  "taskRole": "transfer",
+  "title": "Transfer: 行车取证关键帧索引包",
+  "goal": "给定行车记录仪视频和若干事故时间点，选择各事件最近的合法采样帧，生成证据索引 JSON，并按 sample index 命名导出对应 JPEG。",
+  "primaryOutputFile": "/root/evidence_index.json",
+  "difficulty": "medium",
+  "category": "video-forensics",
+  "skillBenefitRationale": "任务重点是最近采样帧选择规则、端点处理和导出命名的一致性，验证的是离散采样索引映射是否准确，而不是复杂取证算法。",
+  "targetSkillDirName": "sampling-and-indexing",
+  "targetSkillName": "sampling-and-indexing"
+}

@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "retail-shelf-gpt-multimodal-transfer-restock-audit"
+name = "Transfer: Retail Shelf Restock Audit"
+description = "根据便利店货架图片与陈列清单统计指定商品的可见陈列面数，并输出缺货审计 CSV。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "retail shelf auditing"
+tags = ["image understanding", "retail audit", "shelf counting", "csv output"]
+primary_output_file = "/app/output/shelf_audit.csv"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+allow_internet = true

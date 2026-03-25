@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "network-planning-seismic-picker-selection-transfer-method-matrix",
+  "taskRole": "transfer",
+  "title": "Transfer: 多监测场景的地震拾取方法推荐矩阵",
+  "goal": "给定多个监测部署 brief（如临时节点阵列、城市加速度计网络、人工复核优先的监管项目、已有模板的余震序列），为每个场景选择最合适的方法并输出 `/root/method_matrix.json`。验证依据是每个场景的推荐方法及其理由是否与场景约束一致。",
+  "primaryOutputFile": "/root/method_matrix.json",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "该任务把 skill 迁移到多场景监测方案规划而非直接跑数据，要求系统化应用 STA/LTA、深度学习、模板匹配和人工方法的适用边界，仍然只依赖当前 skill。",
+  "targetSkillDirName": "seismic-picker-selection",
+  "targetSkillName": "seismic-picker-selection"
+}

@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "exoplanet-workflows",
+  "targetSkillName": "exoplanet-workflows",
+  "runId": "20260324225558-exoplanet-detection-period-exoplanet-workflows-jlxqok",
+  "taskId": "impostor-vetting-exoplanet-workflows-transfer-binary-report",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/exoplanet-workflows/20260324225558-exoplanet-detection-period-exoplanet-workflows-jlxqok/impostor-vetting-exoplanet-workflows-transfer-binary-report",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324225558-exoplanet-detection-period-exoplanet-workflows-jlxqok/exoplanet-detection-period/drafts/impostor-vetting-exoplanet-workflows-transfer-binary-report",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/exoplanet-workflows/20260324225558-exoplanet-detection-period-exoplanet-workflows-jlxqok/impostor-vetting-exoplanet-workflows-transfer-binary-report",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/impostor-vetting-exoplanet-workflows-transfer-binary-report",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 对 Evidence 小节加入了未在 instruction.md 明示的字面约束：必须出现“奇偶”字样；语义正确但换一种表述的合法答案可能被误判失败，属于 Harbor testability 问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d246c-bdaa-7173-897d-a85434e615f5",
+      "repairSummary": "移除了 tests/test_outputs.py 中对 Evidence 小节必须包含“奇偶”字样的隐藏字面约束，保留其余结构与语义校验不变。",
+      "reviewThreadId": "019d246e-d9d1-7453-9a6f-35631db6cb69",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "package-release-config-maven-build-lifecycle-transfer-profile-filtering"
+name = "Transfer: Package Release Config With Profile Filtering"
+description = "Fix the Maven release packaging flow so `mvn -Prelease package` produces `target/classes/release/build-info.properties` with the expected filtered release metadata."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "Compilation & Build"
+tags = ["Java", "Maven", "profiles", "resource-filtering", "package"]
+primary_output_file = "target/classes/release/build-info.properties"
+source_task_id = "fix-build-google-auto"
+task_role = "transfer"
+
+[agent]
+timeout_sec = 300.0
+
+[verifier]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

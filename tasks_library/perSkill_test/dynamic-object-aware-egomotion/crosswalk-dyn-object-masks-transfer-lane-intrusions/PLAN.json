@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "crosswalk-dyn-object-masks-transfer-lane-intrusions",
+  "taskRole": "transfer",
+  "title": "Transfer: Crosswalk Lane Intrusion Windows",
+  "goal": "给定一段车载穿越人行横道的视频和预定义 ego-lane ROI，多段输出动态目标侵入自车车道的时间区间 JSON。",
+  "primaryOutputFile": "/root/crosswalk_intrusions.json",
+  "difficulty": "medium",
+  "category": "video-analysis",
+  "skillBenefitRationale": "区间判断只需要把高质量动态掩码与给定 ROI 做时序求交并合并片段，不依赖检测、跟踪或分类；真正困难仍是移动相机下的动态掩码提取。",
+  "targetSkillDirName": "dyn-object-masks",
+  "targetSkillName": "dyn-object-masks"
+}

@@ -1,0 +1,41 @@
+{
+  "sourceTaskId": "simpo-code-reproduction",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf",
+  "runId": "20260325014621-simpo-code-reproduction-pdf-29a5mg",
+  "taskId": "enrollment-form-pdf-transfer-fillable-fields",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/simpo-code-reproduction/pdf/20260325014621-simpo-code-reproduction-pdf-29a5mg/enrollment-form-pdf-transfer-fillable-fields",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014621-simpo-code-reproduction-pdf-29a5mg/simpo-code-reproduction/drafts/enrollment-form-pdf-transfer-fillable-fields",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/simpo-code-reproduction/pdf/20260325014621-simpo-code-reproduction-pdf-29a5mg/enrollment-form-pdf-transfer-fillable-fields",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/simpo-code-reproduction/enrollment-form-pdf-transfer-fillable-fields",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 直接出现 `.pdf` 路径和 “PDF” 表述，命中了 shipped skill 名称 `pdf`，存在技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/Dockerfile",
+    "environment/enrollment_builder/__pycache__/build_enrollment_form.cpython-312.pyc",
+    "instruction.md",
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c0-11a1-7e91-b36d-e437e90f79b0",
+      "repairSummary": "移除了 instruction.md 中对 `.pdf`/`PDF` 的直接暴露，并把环境、解法与测试统一改为使用无扩展名的表单路径；输出文件约定仍保持为 /root/enrollment_field_values.json。",
+      "reviewThreadId": "019d24c1-f83d-7381-9596-43f9e92f9b70",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

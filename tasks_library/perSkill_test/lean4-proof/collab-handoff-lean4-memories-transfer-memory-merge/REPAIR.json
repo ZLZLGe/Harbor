@@ -1,0 +1,52 @@
+{
+  "sourceTaskId": "lean4-proof",
+  "targetSkillDirName": "lean4-memories",
+  "targetSkillName": "lean4-memories",
+  "runId": "20260325053016-lean4-proof-lean4-memories-hnxtiz",
+  "taskId": "collab-handoff-lean4-memories-transfer-memory-merge",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/lean4-proof/lean4-memories/20260325053016-lean4-proof-lean4-memories-hnxtiz/collab-handoff-lean4-memories-transfer-memory-merge",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325053016-lean4-proof-lean4-memories-hnxtiz/lean4-proof/drafts/collab-handoff-lean4-memories-transfer-memory-merge",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/lean4-proof/lean4-memories/20260325053016-lean4-proof-lean4-memories-hnxtiz/collab-handoff-lean4-memories-transfer-memory-merge",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/lean4-proof/collab-handoff-lean4-memories-transfer-memory-merge",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接暴露 shipped skill 名称或目录名，且任务只依赖当前 shipped skill 可成立；协作合并场景也与其他 transfer 任务明显不同。; tests/test_outputs.py 把结果锁死到大量未在 instruction.md 承诺的内部命名细节：例如固定 canonical record_id、conflict topic 文案、dropped_records 的 `replaced_by` 值等。instruction.md 只要求语义上的合并结果与理由，没有要求这些精确 ID/命名，因此属于隐藏实现要求。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/artifacts/collab-handoff-memory-pack.json",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill `lean4-memories`，构成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d248e-341b-7f52-bfbe-f17d0ee2178f",
+      "repairSummary": "在 instruction.md 直接暴露 shipped skill `lean4-memories`，并放宽 tests/test_outputs.py 中对 canonical 记录 ID、topic 文案、replaced_by 等未在说明中承诺的硬编码要求，改为校验与 instruction 和输入资产一致的语义合并结果；已用示例解做本地自检通过。",
+      "reviewThreadId": "019d2492-46ef-7312-9b1e-0cafd40e6423",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill `lean4-memories`，构成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2493-770d-78e1-9f6f-8892368e5faa",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill `lean4-memories` 的直接点名，改为泛化表述，保留原任务目标、输入输出契约和现有测试/solution 不变。",
+      "reviewThreadId": "019d2494-5ea9-73e2-a505-5ade3c0b1fed",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

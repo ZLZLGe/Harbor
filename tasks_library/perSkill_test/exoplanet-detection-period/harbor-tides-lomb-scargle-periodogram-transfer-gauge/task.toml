@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "harbor-tides-lomb-scargle-periodogram-transfer-gauge"
+name = "Transfer: Extract the Dominant Tide Cycle from Gappy Harbor Gauge Data"
+description = "Recover the three strongest tidal-cycle candidates from an uneven harbor gauge record and write their periods and powers to /root/tide_peak_table.csv."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "earth-science"
+tags = ["earth-science", "tides", "harbor", "time-series", "period-search"]
+primary_output_file = "/root/tide_peak_table.csv"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0

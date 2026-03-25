@@ -1,0 +1,56 @@
+{
+  "sourceTaskId": "exoplanet-detection-period",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares",
+  "runId": "20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr",
+  "taskId": "bottling-line-box-least-squares-transfer-cleaning-cycles",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/exoplanet-detection-period/box-least-squares/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/bottling-line-box-least-squares-transfer-cleaning-cycles",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/exoplanet-detection-period/drafts/bottling-line-box-least-squares-transfer-cleaning-cycles",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/exoplanet-detection-period/box-least-squares/20260324222217-exoplanet-detection-period-box-least-squares-4zbpjr/bottling-line-box-least-squares-transfer-cleaning-cycles",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/exoplanet-detection-period/bottling-line-box-least-squares-transfer-cleaning-cycles",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 用 instruction.md 未明示的精确搜索实现重算期望值，包括固定 25 个时长样本和 `objective='snr'`；题面只要求至少 25 个时长样本，测试把合法解法锁死到隐藏实现细节。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    ".pytest_cache/.gitignore",
+    ".pytest_cache/CACHEDIR.TAG",
+    ".pytest_cache/README.md",
+    ".pytest_cache/v/cache/nodeids",
+    ".pytest_cache/v/cache/stepwise",
+    "tests/__pycache__/test_outputs.cpython-311-pytest-8.3.5.pyc",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "tests/test_outputs.py 用基于阈值和停机间隔的启发式规则判定期望答案，没有按 instruction.md 与 solution/solve.sh 所要求的最高功率峰口径校验结果。; tests/test_outputs.py 只校验数值字段小数位不超过 5 位，但 instruction.md 明确要求 3 个数值字段固定保留到小数点后 5 位。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d246a-8eb5-7b73-805b-832adeb492f2",
+      "repairSummary": "放宽了测试对隐藏 BLS 实现细节的依赖，改为直接从原始吞吐率序列提取稳定重复停机模式并做宽容校验，不再锁死到固定 25 个时长样本和 `objective='snr'`。",
+      "reviewThreadId": "019d2470-5223-7632-b6be-c1a118c999fc",
+      "reviewerIssues": [
+        "tests/test_outputs.py 用基于阈值和停机间隔的启发式规则判定期望答案，没有按 instruction.md 与 solution/solve.sh 所要求的最高功率峰口径校验结果。; tests/test_outputs.py 只校验数值字段小数位不超过 5 位，但 instruction.md 明确要求 3 个数值字段固定保留到小数点后 5 位。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2472-42fe-7080-b08e-b3149d469f03",
+      "repairSummary": "将 tests/test_outputs.py 改为按 instruction.md 与 solution/solve.sh 一致的 BLS 最高功率峰口径计算期望答案，并把 3 个数值字段的格式校验收紧为必须固定保留 5 位小数；已在任务环境容器内验证 solution 与测试全部通过。",
+      "reviewThreadId": "019d2477-a11d-7443-a488-1ca023fd4e7f",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "package-release-config-maven-build-lifecycle-transfer-profile-filtering",
+  "taskRole": "transfer",
+  "title": "Transfer: Package Release Config With Profile Filtering",
+  "goal": "在一个带 `dev`/`release` 配置的 Maven 应用中，调整 profile、资源过滤和打包流程，使 `mvn -Prelease package` 生成带正确版本号与环境标记的发布配置文件。",
+  "primaryOutputFile": "target/classes/release/build-info.properties",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "任务重点是 profile 激活、resource filtering 与 `package` 前资源处理阶段的联动，完全落在 Maven build lifecycle 的典型能力范围内。",
+  "targetSkillDirName": "maven-build-lifecycle",
+  "targetSkillName": "maven-build-lifecycle"
+}

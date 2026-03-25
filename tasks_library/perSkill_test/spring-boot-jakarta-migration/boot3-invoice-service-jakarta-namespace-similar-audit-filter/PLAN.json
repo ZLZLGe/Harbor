@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "boot3-invoice-service-jakarta-namespace-similar-audit-filter",
+  "taskRole": "similar",
+  "title": "Similar | Boot 3 发票审计服务命名空间迁移",
+  "goal": "在一个已切到 Spring Boot 3 的发票审计服务中，修复遗留 `javax.persistence`、`javax.validation`、`javax.servlet` 导致的编译与测试失败；要求实体、请求 DTO、审计过滤器以及相关测试辅助类全部完成命名空间迁移，并通过 `mvn test`。",
+  "primaryOutputFile": "environment/workspace/src/main/java/com/example/invoice/web/AuditTrailFilter.java",
+  "difficulty": "hard",
+  "category": "Legacy Systems",
+  "skillBenefitRationale": "这是 Jakarta 命名空间迁移在 Spring Boot 3 升级中的典型用法，但场景从原任务的用户服务改成发票审计服务，并把重点收束到跨实体、校验、Servlet 过滤器和测试代码的一致迁移上。除 `javax.*` 到 `jakarta.*` 的系统性替换外，不依赖其他 shipped skill。",
+  "targetSkillDirName": "jakarta-namespace",
+  "targetSkillName": "jakarta-namespace"
+}

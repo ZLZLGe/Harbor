@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "grpc-alignment-maven-dependency-management-transfer-generated-sources"
+name = "Transfer: Align gRPC and Protobuf Dependencies for Generated Sources"
+description = "Repair the grpc-gateway build so generated sources compile against a single managed gRPC and Protobuf runtime and the smoke tests pass."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Compilation & Build"
+tags = ["java", "maven", "grpc", "protobuf", "dependency-management"]
+primary_output_file = "/workspace/grpc-gateway/pom.xml"
+source_task_id = "fix-build-google-auto"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

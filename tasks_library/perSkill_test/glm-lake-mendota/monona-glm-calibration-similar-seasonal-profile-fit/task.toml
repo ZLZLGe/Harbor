@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "monona-glm-calibration-similar-seasonal-profile-fit"
+name = "Similar - Calibrate Seasonal Temperature Profiles for Lake Monona"
+description = "Calibrate the key thermal and mixing parameters in glm3.nml so the 2012-2013 Lake Monona temperature profiles meet the stated RMSE limits and summarize the result in /root/results/monona_profile_calibration.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["lake-modeling", "calibration", "time-series", "temperature-profiles"]
+primary_output_file = "/root/results/monona_profile_calibration.json"
+source_task_id = "glm-lake-mendota"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

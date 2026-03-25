@@ -1,0 +1,53 @@
+{
+  "sourceTaskId": "jpg-ocr-stat",
+  "targetSkillDirName": "openai-vision",
+  "targetSkillName": "openai-vision",
+  "runId": "20260325045107-jpg-ocr-stat-openai-vision-52jh0l",
+  "taskId": "utility-meter-openai-vision-transfer-usage",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/jpg-ocr-stat/openai-vision/20260325045107-jpg-ocr-stat-openai-vision-52jh0l/utility-meter-openai-vision-transfer-usage",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325045107-jpg-ocr-stat-openai-vision-52jh0l/jpg-ocr-stat/drafts/utility-meter-openai-vision-transfer-usage",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/jpg-ocr-stat/openai-vision/20260325045107-jpg-ocr-stat-openai-vision-52jh0l/utility-meter-openai-vision-transfer-usage",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/jpg-ocr-stat/utility-meter-openai-vision-transfer-usage",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "`environment/workspace/meter_usage.csv` 预置了与 `tests/meter_usage_oracle.csv` 完全一致的最终答案，直接暴露了标准输出，构成答案泄露。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/workspace/meter_usage.csv",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/meter_usage_oracle.csv",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "tests/meter_usage_oracle.csv 直接泄露了最终答案，任务可绕过图像识别直接生成正确输出。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d248a-5e81-7f12-a534-3d71afa2a045",
+      "repairSummary": "删除了 environment/workspace 中预置的最终答案 CSV，消除 oracle 泄露；并做了本地等价验证，确认任务仍能生成与 tests oracle 一致的输出。",
+      "reviewThreadId": "019d248c-3f0d-75d3-a267-0d9bbc096665",
+      "reviewerIssues": [
+        "tests/meter_usage_oracle.csv 直接泄露了最终答案，任务可绕过图像识别直接生成正确输出。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d248d-1424-7711-8654-3743cae3d5bd",
+      "repairSummary": "移除了直接泄露最终答案的 tests/meter_usage_oracle.csv，把测试改为校验输出 CSV 的规范与不可逆摘要，并同步更新了说明文字，避免通过读取 oracle 绕过识别。",
+      "reviewThreadId": "019d248f-b305-7442-82b5-191b34fc21b3",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "bulletin-obspy-data-api-transfer-quakeml-merge",
+  "taskRole": "transfer",
+  "title": "Bulletin Transfer QuakeML Merge",
+  "goal": "读取多个 QuakeML 碎片目录，提取每个事件的优选 origin 与 magnitude，按时间和事件标识去重后合并为统一地震简报 CSV，并写入 /root/regional_bulletin.csv；验证关注事件条目、排序和关键字段数值。",
+  "primaryOutputFile": "/root/regional_bulletin.csv",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "任务把技能迁移到事件元数据整理场景，核心完全依赖 ObsPy 的 read_events、Catalog、Event、Origin 和 Magnitude 数据模型，而不需要其他 shipped skill。",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

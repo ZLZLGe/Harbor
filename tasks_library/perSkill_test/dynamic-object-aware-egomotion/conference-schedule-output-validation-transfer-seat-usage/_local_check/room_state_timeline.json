@@ -1,0 +1,102 @@
+{
+  "room_id": "Harbor-Orchid",
+  "seat_matrix_shape": [
+    3,
+    5
+  ],
+  "seat_matrix_path": "/root/seat_usage_csr.npz",
+  "timeline": [
+    {
+      "slot_idx": 0,
+      "window": "09:00-09:30",
+      "state": "Vacant",
+      "meeting_id": null,
+      "meeting_title": null,
+      "occupied_count": 0,
+      "occupied_seat_ids": []
+    },
+    {
+      "slot_idx": 1,
+      "window": "09:30-10:00",
+      "state": "Check-In",
+      "meeting_id": "OPS-240",
+      "meeting_title": "渠道周会",
+      "occupied_count": 2,
+      "occupied_seat_ids": [
+        "A1",
+        "A2"
+      ]
+    },
+    {
+      "slot_idx": 2,
+      "window": "10:00-10:30",
+      "state": "In Session",
+      "meeting_id": "OPS-240",
+      "meeting_title": "渠道周会",
+      "occupied_count": 3,
+      "occupied_seat_ids": [
+        "A1",
+        "A2",
+        "B1"
+      ]
+    },
+    {
+      "slot_idx": 3,
+      "window": "10:30-11:00",
+      "state": "Overflow",
+      "meeting_id": "OPS-240",
+      "meeting_title": "渠道周会",
+      "occupied_count": 4,
+      "occupied_seat_ids": [
+        "A1",
+        "B1",
+        "B4",
+        "C4"
+      ]
+    },
+    {
+      "slot_idx": 4,
+      "window": "11:00-11:30",
+      "state": "Reset",
+      "meeting_id": null,
+      "meeting_title": null,
+      "occupied_count": 1,
+      "occupied_seat_ids": [
+        "A1"
+      ]
+    },
+    {
+      "slot_idx": 5,
+      "window": "11:30-12:00",
+      "state": "Check-In",
+      "meeting_id": "FIN-305",
+      "meeting_title": "预算复盘",
+      "occupied_count": 2,
+      "occupied_seat_ids": [
+        "B3",
+        "C3"
+      ]
+    },
+    {
+      "slot_idx": 6,
+      "window": "12:00-12:30",
+      "state": "In Session",
+      "meeting_id": "FIN-305",
+      "meeting_title": "预算复盘",
+      "occupied_count": 2,
+      "occupied_seat_ids": [
+        "A4",
+        "B3"
+      ]
+    },
+    {
+      "slot_idx": 7,
+      "window": "12:30-13:00",
+      "state": "Vacant",
+      "meeting_id": null,
+      "meeting_title": null,
+      "occupied_count": 0,
+      "occupied_seat_ids": []
+    }
+  ]
+}

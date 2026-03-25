@@ -1,0 +1,48 @@
+{
+  "dataset_name": "market_congestion_upgrade_screening",
+  "description": "Candidate transmission constraints for pre-screening before a market congestion upgrade study.",
+  "candidates": [
+    {
+      "constraint_id": "C-1930-2363-241",
+      "branch_index": 241,
+      "label": "South interface pocket",
+      "upgrade_type": "thermal review"
+    },
+    {
+      "constraint_id": "C-356-2363-3846",
+      "branch_index": 3846,
+      "label": "West load corridor",
+      "upgrade_type": "reconductoring review"
+    },
+    {
+      "constraint_id": "C-1472-2267-1328",
+      "branch_index": 1328,
+      "label": "Generator export path",
+      "upgrade_type": "series equipment review"
+    },
+    {
+      "constraint_id": "C-2618-947-3703",
+      "branch_index": 3703,
+      "label": "Voltage-support transfer path",
+      "upgrade_type": "breaker-and-rating review"
+    },
+    {
+      "constraint_id": "C-824-947-3460",
+      "branch_index": 3460,
+      "label": "Remote plant spur",
+      "upgrade_type": "screen-only"
+    },
+    {
+      "constraint_id": "C-2486-14-647",
+      "branch_index": 647,
+      "label": "Peripheral radial tie",
+      "upgrade_type": "screen-only"
+    },
+    {
+      "constraint_id": "C-1880-2633-3625",
+      "branch_index": 3625,
+      "label": "East generation outlet",
+      "upgrade_type": "transformer review"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "feature-flags-python-scala-idioms-transfer-rule-engine",
+  "taskRole": "transfer",
+  "title": "Transfer - Feature Flag Rule Engine Translation",
+  "goal": "把 Python 的特性开关规则引擎翻译为 Scala 2.13，实现用户属性匹配、百分比发布、嵌套条件组合和默认回退，并确保规则模型与求值逻辑采用 Scala 风格的 ADT 与模式匹配。",
+  "primaryOutputFile": "/root/FeatureFlagEngine.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "这里要把动态 dict/list 规则和 `None`/布尔分支改造成强类型规则树、Option/Either 和表达式式求值，直接考察该 skill 在规则引擎场景中的迁移能力。",
+  "targetSkillDirName": "python-scala-idioms",
+  "targetSkillName": "python-scala-idioms"
+}

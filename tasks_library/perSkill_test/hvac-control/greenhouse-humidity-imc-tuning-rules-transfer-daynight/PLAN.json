@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "greenhouse-humidity-imc-tuning-rules-transfer-daynight",
+  "taskRole": "transfer",
+  "title": "Transfer | Greenhouse Humidity Day-Night Tuning",
+  "goal": "把 IMC 一阶整定迁移到温室湿度喷雾回路：基于已给出的湿度对象 K、tau 以及白天/夜间两套目标，分别选择偏快与偏稳的 lambda，输出对应 PI 增益，并生成两段 15 分钟闭环湿度响应摘要。",
+  "primaryOutputFile": "humidity_controller_plan.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "虽然对象从温度变成湿度，但关键仍是依据一阶模型用 IMC 规则选 lambda 并计算 PI 增益，再比较不同 lambda 带来的响应速度与稳健性；该技能是唯一关键能力。",
+  "targetSkillDirName": "imc-tuning-rules",
+  "targetSkillName": "imc-tuning-rules"
+}

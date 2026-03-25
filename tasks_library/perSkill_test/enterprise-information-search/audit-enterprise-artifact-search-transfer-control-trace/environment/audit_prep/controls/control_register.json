@@ -1,0 +1,29 @@
+[
+  {
+    "control_id": "CTRL-104",
+    "title": "Quarterly privileged access recertification for search production systems",
+    "policy_family": "POL-ACCESS-RECERT",
+    "audit_cycles": ["FY25-H2", "FY26-H1"],
+    "gap_ticket_ids": ["GAP-771", "GAP-778"],
+    "candidate_exception_ids": ["EX-104-A", "EX-104-B", "EX-104-C"],
+    "aliases": ["Privileged Access Review", "Production Access Recertification"]
+  },
+  {
+    "control_id": "CTRL-105",
+    "title": "Controlled export access approval logging",
+    "policy_family": "POL-EXPORT-ACCESS",
+    "audit_cycles": ["FY26-H1"],
+    "gap_ticket_ids": ["GAP-881"],
+    "candidate_exception_ids": ["EX-105-A"],
+    "aliases": ["Export Access Logging"]
+  },
+  {
+    "control_id": "CTRL-204",
+    "title": "Quarterly contractor endpoint attestation",
+    "policy_family": "POL-ENDPOINT-ATTEST",
+    "audit_cycles": ["FY26-H1"],
+    "gap_ticket_ids": ["GAP-990"],
+    "candidate_exception_ids": [],
+    "aliases": ["Contractor Endpoint Review"]
+  }
+]

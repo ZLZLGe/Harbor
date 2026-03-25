@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "reservoir-glm-output-transfer-intake-alerts",
+  "taskRole": "transfer",
+  "title": "Transfer: Reservoir Intake Alert Extraction",
+  "goal": "给定一个水库场景的 GLM `output.nc` 和取水口配置文件，提取取水深度处的温度时间序列并输出告警 JSON，包含超阈值起止时间、最长连续超标时段和峰值温度。",
+  "primaryOutputFile": "/root/reports/intake_alerts.json",
+  "difficulty": "medium",
+  "category": "environmental-modeling",
+  "skillBenefitRationale": "任务是否完成完全取决于能否从 GLM 输出中定位指定深度的温度并处理层坐标；告警判定只是对提取结果做直接阈值汇总。",
+  "targetSkillDirName": "glm-output",
+  "targetSkillName": "glm-output"
+}

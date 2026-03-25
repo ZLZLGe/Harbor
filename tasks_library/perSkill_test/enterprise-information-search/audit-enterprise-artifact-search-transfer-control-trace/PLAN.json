@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "audit-enterprise-artifact-search-transfer-control-trace",
+  "taskRole": "transfer",
+  "title": "Transfer | 合规控制证据链",
+  "goal": "在审计准备工件集中，为指定合规控制生成可追溯证据链，输出最新版策略文档 ID、对应补救 PR 列表、审批员工 ID、例外说明 URL，以及支持这些结论的 artifact 指针。",
+  "primaryOutputFile": "/root/control_audit_trace.json",
+  "difficulty": "hard",
+  "category": "compliance-audit",
+  "skillBenefitRationale": "任务核心是把控制项、政策文档、审批讨论、补救代码变更和例外链接跨工件串联起来，重点在证据链回溯而不是业务计算。",
+  "targetSkillDirName": "enterprise-artifact-search",
+  "targetSkillName": "enterprise-artifact-search"
+}

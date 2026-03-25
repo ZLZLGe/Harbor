@@ -1,0 +1,43 @@
+[
+  {
+    "exception_id": "EX-104-A",
+    "control_id": "CTRL-104",
+    "audit_cycle": "FY25-H2",
+    "status": "expired",
+    "active": false,
+    "url": "https://audit.example.internal/exceptions/EX-104-A",
+    "approval_date": "2025-12-02",
+    "linked_policy_doc_id": "POL-ACCESS-RECERT-v2.9"
+  },
+  {
+    "exception_id": "EX-104-B",
+    "control_id": "CTRL-104",
+    "audit_cycle": "FY26-H1",
+    "status": "approved",
+    "active": true,
+    "url": "https://audit.example.internal/exceptions/EX-104-B",
+    "approval_date": "2026-02-12",
+    "linked_policy_doc_id": "POL-ACCESS-RECERT-v3.1",
+    "justification": "Legacy contractor identities still require manual attestation import."
+  },
+  {
+    "exception_id": "EX-104-C",
+    "control_id": "CTRL-104",
+    "audit_cycle": "FY26-H1",
+    "status": "draft",
+    "active": false,
+    "url": "https://audit.example.internal/exceptions/EX-104-C",
+    "approval_date": null,
+    "linked_policy_doc_id": "POL-ACCESS-RECERT-v3.2-draft"
+  },
+  {
+    "exception_id": "EX-105-A",
+    "control_id": "CTRL-105",
+    "audit_cycle": "FY26-H1",
+    "status": "approved",
+    "active": true,
+    "url": "https://audit.example.internal/exceptions/EX-105-A",
+    "approval_date": "2026-02-09",
+    "linked_policy_doc_id": "POL-EXPORT-ACCESS-v3.1"
+  }
+]

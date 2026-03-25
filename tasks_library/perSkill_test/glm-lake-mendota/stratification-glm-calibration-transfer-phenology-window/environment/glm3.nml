@@ -1,0 +1,12 @@
+&simulation
+  start = '2015-04-01 00:00:00'
+  stop = '2015-10-31 00:00:00'
+/
+
+&mixing
+  Kw = 0.200000
+  coef_mix_hyp = 0.500000
+  wind_factor = 1.000000
+  lw_factor = 1.000000
+  ch = 0.001360
+/

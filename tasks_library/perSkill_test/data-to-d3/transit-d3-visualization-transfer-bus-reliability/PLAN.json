@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transit-d3-visualization-transfer-bus-reliability",
+  "taskRole": "transfer",
+  "title": "Transfer: Bus Reliability Small-Multiples Dashboard",
+  "goal": "Build a D3 operations dashboard from local transit CSV files that plots bus route on-time performance through the day using small-multiple line charts, includes a hover focus or brush to inspect a time window, and updates a detail table with the worst-performing stops and delay counts for the selected route or interval.",
+  "primaryOutputFile": "/root/output/bus-reliability.html",
+  "difficulty": "medium",
+  "category": "Data Visualization",
+  "skillBenefitRationale": "This applies the skill in a clearly different setting centered on time scales, axes, line generation, focus interactions, and stateful cross-filtering, while still making D3 the only critical shipped skill.",
+  "targetSkillDirName": "d3-visualization",
+  "targetSkillName": "d3js-visualization"
+}

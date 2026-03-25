@@ -1,0 +1,20 @@
+version = "1.0"
+
+[metadata]
+id = "campus-energy-xlsx-transfer-budget-audit"
+name = "Transfer | 校园能耗预算审计工作簿"
+description = "根据楼宇分时电表读数、电价表和楼宇预算信息补全月度能耗审计工作簿，并输出 energy_budget_audit.xlsx。"
+author_name = "Levi"
+author_email = "levi@harbor.local"
+difficulty = "middle"
+category = "data-analysis"
+tags = ["excel", "energy", "budget", "audit", "data-analysis"]
+primary_output_file = "energy_budget_audit.xlsx"
+source_task_id = "protein-expression-analysis"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

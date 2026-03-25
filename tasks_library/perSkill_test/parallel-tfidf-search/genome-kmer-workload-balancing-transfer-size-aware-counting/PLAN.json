@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "genome-kmer-workload-balancing-transfer-size-aware-counting",
+  "taskRole": "transfer",
+  "title": "Transfer: Size-Aware Genome K-mer Counting",
+  "goal": "针对长度差异巨大的 FASTA 片段集合，实现并行 k-mer 统计器，主文件为 `/root/workspace/kmer_counter_balanced.py`。输入资产是多份短读段与超长片段混合的基因序列文件；验证检查 k-mer 计数与顺序基线完全一致，同时要求每个 worker 的累计碱基负载接近均衡，并在中等规模数据上优于朴素平均分片。",
+  "primaryOutputFile": "/root/workspace/kmer_counter_balanced.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "片段长度可以直接估计，任务关键在于把已知成本转成加权分配，避免少数超长序列把某个 worker 拖慢。",
+  "targetSkillDirName": "workload-balancing",
+  "targetSkillName": "workload-balancing"
+}

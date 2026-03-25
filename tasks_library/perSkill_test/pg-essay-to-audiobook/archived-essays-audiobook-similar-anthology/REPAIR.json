@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "pg-essay-to-audiobook",
+  "targetSkillDirName": "audiobook",
+  "targetSkillName": "audiobook",
+  "runId": "20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i",
+  "taskId": "archived-essays-audiobook-similar-anthology",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/pg-essay-to-audiobook/audiobook/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/archived-essays-audiobook-similar-anthology",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/pg-essay-to-audiobook/drafts/archived-essays-audiobook-similar-anthology",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/pg-essay-to-audiobook/audiobook/20260324193432-pg-essay-to-audiobook-audiobook-5rgr4i/archived-essays-audiobook-similar-anthology",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/pg-essay-to-audiobook/archived-essays-audiobook-similar-anthology",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 直接出现了 shipped skill 的 dirName/name `audiobook`，因为输出路径写成了 `/root/founder-anthology-audiobook.mp3`，构成技能暴露。; tests/test_outputs.py 引入了 instruction.md 未明示的隐藏阈值：按约 80-260 WPM 推导音频时长区间，并强制 MP3 大于 500000 字节。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "tests/test_outputs.py 直接内嵌了两篇文章的完整期望正文，造成答案泄露。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d249b-767a-73e1-b3c3-1049c699663f",
+      "repairSummary": "instruction 改为引用 task.toml 的主输出路径，去掉了直接出现的 `audiobook`；tests 删除了未在说明中声明的音频时长/WPM 与文件大小隐藏阈值，仅保留脚本内容与 MP3 可解码校验。",
+      "reviewThreadId": "019d249d-7a03-7bf3-bac0-0a1f3932e266",
+      "reviewerIssues": [
+        "tests/test_outputs.py 直接内嵌了两篇文章的完整期望正文，造成答案泄露。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d249e-5170-7c71-9e21-443a3d10b794",
+      "repairSummary": "移除了测试中硬编码的两篇文章全文，改为从输入 HTML 快照动态提取期望正文进行校验，并删除了遗留的泄露字节码文件。",
+      "reviewThreadId": "019d24a3-4963-7503-b4ba-c1a2bb6c737f",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "corpus-memory-optimization-similar-tfidf-search",
+  "taskRole": "similar",
+  "title": "Similar: Memory-Bounded TF-IDF Search Pipeline",
+  "goal": "重写一个会在大语料上占用过多内存的 TF-IDF 建索引与批量检索脚本，使其在固定内存预算内完成索引构建和查询，同时保持与基线完全一致的 top-k 结果与索引统计输出。",
+  "primaryOutputFile": "/root/workspace/memory_search_solution.py",
+  "difficulty": "medium",
+  "category": "Memory Optimization",
+  "skillBenefitRationale": "任务核心是消除重复中间结构、压缩 posting 与文档向量表示、按批处理语料并避免整批物化；memory-optimization 是唯一关键 shipped skill。",
+  "targetSkillDirName": "memory-optimization",
+  "targetSkillName": "memory-optimization"
+}

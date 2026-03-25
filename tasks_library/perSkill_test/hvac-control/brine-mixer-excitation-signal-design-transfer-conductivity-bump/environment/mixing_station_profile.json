@@ -1,0 +1,11 @@
+{
+  "initial_conductivity_ms_cm": 1.15,
+  "noise_std_ms_cm": 0.035,
+  "sample_period_s": 2.0,
+  "minimum_baseline_s": 16.0,
+  "minimum_hold_s": 160.0,
+  "recommended_step_window_lpm": [2.4, 4.2],
+  "max_safe_conductivity_ms_cm": 7.2,
+  "max_pump_lpm": 6.0,
+  "random_seed": 1729
+}

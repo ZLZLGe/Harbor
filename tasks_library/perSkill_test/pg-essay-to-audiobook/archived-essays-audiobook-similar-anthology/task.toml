@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "archived-essays-audiobook-similar-anthology"
+name = "Similar - Archived Essays Anthology Audiobook"
+description = "Extract the clean body text from two offline essay snapshots and turn them into a single chaptered MP3 anthology at /root/founder-anthology-audiobook.mp3."
+author_name = "Levi Harbor"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "speech-synthesis"
+tags = ["tts", "html-cleaning", "offline-inputs", "audio-production", "anthology"]
+primary_output_file = "/root/founder-anthology-audiobook.mp3"
+source_task_id = "pg-essay-to-audiobook"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 1500.0
+
+[solution]
+
+[verifier]
+timeout_sec = 300.0

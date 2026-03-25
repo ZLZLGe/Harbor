@@ -1,0 +1,38 @@
+[
+  {
+    "meeting_id": "gng_searchflow_20260321",
+    "release_candidate": "rc_searchflow_2026_04_rc3",
+    "title": "SearchFlow Enterprise rc3 go/no-go",
+    "timestamp": "2026-03-21T15:00:00Z",
+    "notes": [
+      {
+        "note_id": "note_gng_12",
+        "speaker": "eid_10af4c2b",
+        "text": "BLK-209 is downgraded to a post-launch docs follow-up and is not part of the release blocker list anymore."
+      },
+      {
+        "note_id": "note_gng_17",
+        "speaker": "eid_39de41aa",
+        "text": "For BLK-201, hold the release until the export regression is rerun after PR-842. Security still treats it as an open blocker."
+      },
+      {
+        "note_id": "note_gng_21",
+        "speaker": "eid_10af4c2b",
+        "text": "For BLK-207, release sign-off is already in, and compliance is the only missing gate before we can clear the blocker."
+      }
+    ]
+  },
+  {
+    "meeting_id": "gng_searchassist_20260321",
+    "release_candidate": "rc_searchassist_2026_04_rc3",
+    "title": "SearchAssist Enterprise rc3 go/no-go",
+    "timestamp": "2026-03-21T15:00:00Z",
+    "notes": [
+      {
+        "note_id": "note_sa_03",
+        "speaker": "eid_10af4c2b",
+        "text": "SearchAssist blocker list is independent of SearchFlow."
+      }
+    ]
+  }
+]

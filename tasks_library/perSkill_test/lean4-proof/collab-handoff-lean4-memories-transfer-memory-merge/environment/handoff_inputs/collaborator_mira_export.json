@@ -1,0 +1,78 @@
+{
+  "collaborator": "Mira",
+  "exported_at": "2026-03-24T09:10:00Z",
+  "records": [
+    {
+      "record_id": "mira-pp-recursive-bound-closed-form",
+      "record_type": "ProofPattern",
+      "title": "Recursive upper bounds via closed form plus nonnegative tail",
+      "goal_signals": [
+        "recursive rational sequence",
+        "upper bound",
+        "tail term"
+      ],
+      "strategy": "Prove an exact closed form by induction, then rewrite the bound as a constant minus a nonnegative tail.",
+      "tactics": [
+        "induction",
+        "rw",
+        "ring"
+      ],
+      "helper_lemmas": [
+        "pow_pos",
+        "ring"
+      ],
+      "evidence": [
+        {
+          "file": "Proofs/Sequences/HalfBound.lean",
+          "line_hint": "theorem half_bound"
+        },
+        {
+          "file": "Notes/session-half-bound.md",
+          "line_hint": "closed form then compare against 2"
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "record_id": "mira-fa-simp-recursion-too-early",
+      "record_type": "FailedApproach",
+      "title": "Do not unfold the recurrence at the top-level goal",
+      "attempted_step": "Run `simp [Seq]` before building the closed form.",
+      "failure_signal": "The goal grows but still has no inequality route.",
+      "better_direction": "Split the work: derive the exact form first, then close the inequality with the tail sign.",
+      "evidence": [
+        {
+          "file": "Notes/session-half-bound.md",
+          "line_hint": "failed attempt A"
+        }
+      ]
+    },
+    {
+      "record_id": "mira-pc-relative-evidence",
+      "record_type": "ProjectConvention",
+      "title": "Use repository-relative evidence paths",
+      "rule": "Every memory note should cite repository-relative file paths.",
+      "reason": "Absolute paths become stale in handoff documents.",
+      "evidence": [
+        {
+          "file": "Docs/memory-style.md",
+          "line_hint": "section Evidence"
+        }
+      ]
+    },
+    {
+      "record_id": "mira-td-positivity",
+      "record_type": "TheoremDependency",
+      "title": "`positivity` can finish tail-sign subgoals",
+      "theorem": "positivity",
+      "why_it_matters": "Once the denominator is visibly positive, automation can often close the tail positivity step.",
+      "preferred_source": "Proofs/Sequences/HalfBound.lean",
+      "evidence": [
+        {
+          "file": "Proofs/Sequences/HalfBound.lean",
+          "line_hint": "have h_tail_nonneg"
+        }
+      ]
+    }
+  ]
+}

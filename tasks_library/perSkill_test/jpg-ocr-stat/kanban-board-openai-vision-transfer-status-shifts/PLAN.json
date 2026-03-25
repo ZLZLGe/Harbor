@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "kanban-board-openai-vision-transfer-status-shifts",
+  "taskRole": "transfer",
+  "title": "Transfer: Kanban Board Status Shift Tracking",
+  "goal": "给定同一看板在早晚两个时刻的照片，识别卡片文本并判断每张卡片的列位变化，生成 `/app/workspace/kanban_status_diff.ndjson`；每行记录一个任务卡的 `card_text`,`from_column`,`to_column`,`change_type`。测试校验 NDJSON 可解析性、字段完整性、去重规则和与 oracle 的逐记录一致性。",
+  "primaryOutputFile": "/app/workspace/kanban_status_diff.ndjson",
+  "difficulty": "hard",
+  "category": "data statistics",
+  "skillBenefitRationale": "该任务强调多图比较与文本关联，需要视觉模型同时完成读字、定位列结构和跨时刻匹配，是与单图 OCR、数字读表、场景计数都明显不同的迁移方向。",
+  "targetSkillDirName": "openai-vision",
+  "targetSkillName": "openai-vision"
+}

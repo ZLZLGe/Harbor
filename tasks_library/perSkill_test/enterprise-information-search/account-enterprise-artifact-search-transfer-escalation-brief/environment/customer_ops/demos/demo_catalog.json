@@ -1,0 +1,52 @@
+[
+  {
+    "demo_id": "DEMO-099",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2402",
+    "url": "https://demo.internal.example.com/byh/role-mapping-prototype",
+    "status": "canceled",
+    "shared_at": "2026-02-21T13:00:00",
+    "audience": "internal"
+  },
+  {
+    "demo_id": "DEMO-301",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2401",
+    "url": "https://demo.internal.example.com/byh/audit-export-v2",
+    "status": "shared",
+    "shared_at": "2026-02-24T09:15:00",
+    "audience": "customer"
+  },
+  {
+    "demo_id": "DEMO-302",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2402",
+    "url": "https://demo.internal.example.com/byh/sso-role-mapping-preview",
+    "status": "shared",
+    "shared_at": "2026-02-27T15:00:00",
+    "audience": "customer"
+  },
+  {
+    "demo_id": "DEMO-303",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2403",
+    "url": "https://demo.internal.example.com/byh/retry-analytics-dashboard",
+    "status": "shared",
+    "shared_at": "2026-02-28T10:20:00",
+    "audience": "customer"
+  },
+  {
+    "demo_id": "DEMO-401",
+    "account_id": "ACC-042-R",
+    "escalation_id": "ESC-2026-021",
+    "commitment_id": "COM-2410",
+    "url": "https://demo.internal.example.com/byr/fallback-auth",
+    "status": "shared",
+    "shared_at": "2026-02-28T09:10:00",
+    "audience": "customer"
+  }
+]

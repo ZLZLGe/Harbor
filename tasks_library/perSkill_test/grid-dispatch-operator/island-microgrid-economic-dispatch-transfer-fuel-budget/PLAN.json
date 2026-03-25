@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "island-microgrid-economic-dispatch-transfer-fuel-budget",
+  "taskRole": "transfer",
+  "title": "Transfer: Island Microgrid Fuel-Budget Dispatch",
+  "goal": "给定孤网微电网 24 小时负荷曲线、柴油机组成本参数、出力边界和全天燃料预算，生成 `microgrid_schedule.csv`，按小时列出各机组出力、系统总发电与累计燃料消耗，确保每小时供需平衡且不超预算。",
+  "primaryOutputFile": "microgrid_schedule.csv",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这里把同一套经济调度能力迁移到多时段孤网场景，关键仍然是把负荷分配给成本最低且受容量约束的机组，只额外加入一个轻量的跨时段燃料总量约束。",
+  "targetSkillDirName": "economic-dispatch",
+  "targetSkillName": "economic-dispatch"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "refactor-audit-lean4-memories-transfer-stale-memory-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Audit Stale Lean Proof Memories After a Refactor",
+  "goal": "给定一次 Lean 4 库重构后的文件快照、构建报错摘录和旧版 memory bank，产出一份 memory audit，逐条判断哪些历史记忆仍有效、哪些需要降级置信度、哪些应标记为 deprecated，并补充针对失效原因的更新建议。",
+  "primaryOutputFile": "artifacts/refactor-memory-audit.yaml",
+  "difficulty": "medium",
+  "category": "formal method",
+  "skillBenefitRationale": "这个任务把 lean4-memories 迁移到“记忆治理与失效审计”场景，强调长期维护项目记忆质量，是与检索、录入、协作明显不同的另一类能力。",
+  "targetSkillDirName": "lean4-memories",
+  "targetSkillName": "lean4-memories"
+}

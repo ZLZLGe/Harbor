@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "checkout-ab-senior-data-scientist-transfer-summary",
+  "taskRole": "transfer",
+  "title": "Transfer: Checkout Experiment Decision Summary",
+  "goal": "基于电商结账漏斗事件 CSV，生成 /root/results/checkout_experiment_summary.json，输出 control/treatment 的转化率、绝对与相对 lift、两比例检验 p 值、SRM 检查结果，以及是否建议上线的结论。",
+  "primaryOutputFile": "/root/results/checkout_experiment_summary.json",
+  "difficulty": "easy",
+  "category": "experimentation",
+  "skillBenefitRationale": "任务把同一套实验分析能力迁移到电商场景，重点验证样本分配检查、显著性检验和决策表达，而不是电子表格操作本身。",
+  "targetSkillDirName": "senior-data-scientist",
+  "targetSkillName": "senior-data-scientist"
+}

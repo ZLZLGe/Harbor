@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "account-enterprise-artifact-search-transfer-escalation-brief",
+  "taskRole": "transfer",
+  "title": "Transfer | 客户升级履约简报",
+  "goal": "在客户升级响应工件集中，为指定账户生成承诺履约简报，输出受影响 customer ID、承诺交付项、负责 owner 员工 ID、对应修复 PR/会议记录/演示链接，并标注每项承诺的最新状态证据。",
+  "primaryOutputFile": "/root/customer_escalation_brief.json",
+  "difficulty": "hard",
+  "category": "customer-success",
+  "skillBenefitRationale": "客户承诺横跨 CRM 摘要、Slack、会议纪要、PR 和 demo 链接，关键在于正确对齐同一客户、同一承诺事项及其最新证据。",
+  "targetSkillDirName": "enterprise-artifact-search",
+  "targetSkillName": "enterprise-artifact-search"
+}

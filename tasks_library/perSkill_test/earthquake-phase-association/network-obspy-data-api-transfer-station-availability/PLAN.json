@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "network-obspy-data-api-transfer-station-availability",
+  "taskRole": "transfer",
+  "title": "Network Transfer Station Availability Audit",
+  "goal": "读取 StationXML 台站清单和一天的 MiniSEED 记录，按台站和通道生成网络运行可用性报告，统计每个通道的录波覆盖时长、采样率和响应信息是否齐全，并写入 /root/network_availability.json；验证以聚合后的覆盖统计和元数据一致性为主。",
+  "primaryOutputFile": "/root/network_availability.json",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "这个场景把技能迁移到台网运维 QA，关键动作是用 ObsPy 的 read_inventory、read、Inventory 层级和 Trace.stats 做通道匹配与覆盖汇总，目标 skill 仍是唯一关键能力。",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

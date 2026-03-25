@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "claims-intake-pdf-transfer-fillable-packet",
+  "taskRole": "transfer",
+  "title": "Transfer: 可填写理赔表自动回填",
+  "goal": "给定一个可填写的医疗理赔 PDF 套件和 `claim_case.json`，先识别表单字段与可选值，再把患者信息、诊疗编码、日期、金额和勾选项准确写入，生成 `/root/completed_claim_packet.pdf`。",
+  "primaryOutputFile": "/root/completed_claim_packet.pdf",
+  "difficulty": "medium",
+  "category": "form-filling",
+  "skillBenefitRationale": "难点在于识别 fillable PDF 的字段结构、校验合法选项并正确回填；外部数据已结构化提供，不需要任何其他 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

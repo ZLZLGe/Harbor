@@ -1,0 +1,25 @@
+{
+  "trip_name": "Midwest City-Break Loop",
+  "city_stays": [
+    {
+      "city": "Chicago",
+      "days": 2,
+      "focus_keywords": ["architecture", "lakefront", "museum"]
+    },
+    {
+      "city": "Milwaukee",
+      "days": 1,
+      "focus_keywords": ["public market", "beer history", "harbor"]
+    },
+    {
+      "city": "Minneapolis",
+      "days": 2,
+      "focus_keywords": ["riverfront", "arts campus", "mill history"]
+    }
+  ],
+  "selection_rules": {
+    "morning_count": 2,
+    "afternoon_count": 2,
+    "evening_count": 1
+  }
+}

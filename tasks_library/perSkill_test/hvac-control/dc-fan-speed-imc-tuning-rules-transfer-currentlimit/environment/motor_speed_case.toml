@@ -1,0 +1,12 @@
+case_id = "dc-fan-currentlimit-05"
+response_horizon_sec = 0.60
+candidate_lambda_sec = [0.06, 0.09, 0.12, 0.15, 0.24]
+
+[process_model]
+K_rpm_per_amp = 95.0
+tau_sec = 0.18
+
+[operating_point]
+initial_speed_rpm = 900.0
+target_speed_rpm = 1800.0
+current_limit_a = 21.0

@@ -1,0 +1,88 @@
+{
+  "windows": [
+    {
+      "window_id": "w01",
+      "start_sec": 0.0,
+      "end_sec": 1.6,
+      "visible_slots": ["left_podium", "center_podium", "right_podium"],
+      "lip_motion_slots": ["left_podium"]
+    },
+    {
+      "window_id": "w02",
+      "start_sec": 1.6,
+      "end_sec": 3.1,
+      "visible_slots": ["left_podium", "center_podium", "right_podium"],
+      "lip_motion_slots": ["center_podium"]
+    },
+    {
+      "window_id": "w03",
+      "start_sec": 3.1,
+      "end_sec": 4.05,
+      "visible_slots": ["left_podium", "center_podium"],
+      "lip_motion_slots": ["left_podium"]
+    },
+    {
+      "window_id": "w04",
+      "start_sec": 4.05,
+      "end_sec": 4.8,
+      "visible_slots": ["left_podium", "center_podium", "right_podium"],
+      "lip_motion_slots": []
+    },
+    {
+      "window_id": "w05",
+      "start_sec": 4.8,
+      "end_sec": 5.55,
+      "visible_slots": ["center_podium", "right_podium"],
+      "lip_motion_slots": ["right_podium"]
+    },
+    {
+      "window_id": "w06",
+      "start_sec": 5.55,
+      "end_sec": 6.4,
+      "visible_slots": ["right_podium"],
+      "lip_motion_slots": ["right_podium"]
+    },
+    {
+      "window_id": "w07",
+      "start_sec": 6.4,
+      "end_sec": 7.45,
+      "visible_slots": ["left_podium", "center_podium", "right_podium"],
+      "lip_motion_slots": []
+    },
+    {
+      "window_id": "w08",
+      "start_sec": 7.45,
+      "end_sec": 8.1,
+      "visible_slots": ["center_podium", "right_podium"],
+      "lip_motion_slots": ["right_podium"]
+    },
+    {
+      "window_id": "w09",
+      "start_sec": 8.1,
+      "end_sec": 8.85,
+      "visible_slots": ["left_podium", "center_podium"],
+      "lip_motion_slots": ["left_podium"]
+    },
+    {
+      "window_id": "w10",
+      "start_sec": 8.85,
+      "end_sec": 9.9,
+      "visible_slots": ["center_podium", "right_podium"],
+      "lip_motion_slots": ["center_podium"]
+    },
+    {
+      "window_id": "w11",
+      "start_sec": 9.9,
+      "end_sec": 10.55,
+      "visible_slots": ["center_podium", "right_podium"],
+      "lip_motion_slots": ["right_podium"]
+    },
+    {
+      "window_id": "w12",
+      "start_sec": 10.55,
+      "end_sec": 11.6,
+      "visible_slots": ["left_podium", "center_podium", "right_podium"],
+      "lip_motion_slots": []
+    }
+  ]
+}

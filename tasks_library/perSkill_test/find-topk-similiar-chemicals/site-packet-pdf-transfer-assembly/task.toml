@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "site-packet-pdf-transfer-assembly"
+name = "Transfer: 重组现场资料包 PDF"
+description = "根据装订说明从多份现场资料中抽取、旋转并重组页面，输出最终现场资料包。"
+author_name = "Harbor Task Builder"
+author_email = "taskbuilder@example.com"
+difficulty = "medium"
+category = "operations"
+tags = ["operations", "document-transfer", "pdf-assembly"]
+primary_output_file = "/root/workspace/site_packet.pdf"
+source_task_id = "find-topk-similiar-chemicals"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 900.0
+
+[verifier]
+timeout_sec = 900.0

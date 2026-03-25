@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "shift-coverage-python-scala-collections-transfer-swaps"
+name = "Shift Coverage Planner Transfer"
+description = "Translate the provided Python shift coverage planner into Scala 2.13 and write the result to /root/ShiftCoveragePlanner.scala."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["scala", "python", "collections", "csv", "shift-planning"]
+primary_output_file = "/root/ShiftCoveragePlanner.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0

@@ -1,0 +1,53 @@
+{
+  "sourceTaskId": "fix-build-agentops",
+  "targetSkillDirName": "testing-python",
+  "targetSkillName": "testing-python",
+  "runId": "20260325001951-fix-build-agentops-testing-python-r8en3a",
+  "taskId": "async-contract-testing-python-transfer-inmemory-service",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/fix-build-agentops/testing-python/20260325001951-fix-build-agentops-testing-python-r8en3a/async-contract-testing-python-transfer-inmemory-service",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325001951-fix-build-agentops-testing-python-r8en3a/fix-build-agentops/drafts/async-contract-testing-python-transfer-inmemory-service",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/fix-build-agentops/testing-python/20260325001951-fix-build-agentops-testing-python-r8en3a/async-contract-testing-python-transfer-inmemory-service",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-agentops/async-contract-testing-python-transfer-inmemory-service",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 通过 REQUIRED_SOURCE_TOKENS 强制测试文件直接出现 dispatch-board、queued、after-hours 等字面量，导致用常量、夹具或其他等价断言方式验证同一契约的合法解法也可能失败，属于把结果检查锁死到源码写法。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/project/notes/async_contract_report.md",
+    "environment/project/tests/__pycache__/test_dispatch_contract.cpython-312.pyc",
+    "environment/project/tests/test_dispatch_contract.py",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "environment/project 中已预置完成后的 tests/test_dispatch_contract.py 和 notes/async_contract_report.md，直接泄露答案并使任务失去有效性。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2476-5a9b-7b40-9d78-1d68812ee332",
+      "repairSummary": "放宽了 verifier 对 `tests/test_dispatch_contract.py` 的源码字面量限制，改为基于 AST 校验必要的异步测试结构、接口覆盖和失败场景；同时把报告校验改得更宽松，避免把合法解法锁死在特定写法上。",
+      "reviewThreadId": "019d247b-4444-7e50-8e83-0e16f5e3bb90",
+      "reviewerIssues": [
+        "environment/project 中已预置完成后的 tests/test_dispatch_contract.py 和 notes/async_contract_report.md，直接泄露答案并使任务失去有效性。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d247c-5e90-75f3-981e-071efc9ff063",
+      "repairSummary": "移除了 environment/project 中预置的完成态报告，并把泄露答案的测试替换成未完成的脆弱本地端口版起始测试，保留任务语义但不再直接暴露解法。",
+      "reviewThreadId": "019d247e-b25e-7632-895e-7d21a7a737c8",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

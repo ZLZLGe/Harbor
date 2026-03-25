@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "aquifer-monitor-box-least-squares-transfer-pumping-drawdowns"
+name = "Transfer | Aquifer Pumping Drawdowns"
+description = "分析四口观测井的十五分钟地下水位异常序列并输出存在规则抽水回落的井、回落周期、中位回落深度与事件数文本报告。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "hydrology"
+tags = ["hydrology", "groundwater", "time-series", "pumping", "text-report"]
+primary_output_file = "/root/output/pumping_drawdown_report.txt"
+source_task_id = "exoplanet-detection-period"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0

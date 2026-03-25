@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "fix-build-google-auto",
+  "targetSkillDirName": "maven-dependency-management",
+  "targetSkillName": "maven-dependency-management",
+  "runId": "20260325010621-fix-build-google-auto-maven-dependency-management-ifjqif",
+  "taskId": "platform-bom-maven-dependency-management-transfer-shared-versions",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/fix-build-google-auto/maven-dependency-management/20260325010621-fix-build-google-auto-maven-dependency-management-ifjqif/platform-bom-maven-dependency-management-transfer-shared-versions",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325010621-fix-build-google-auto-maven-dependency-management-ifjqif/fix-build-google-auto/drafts/platform-bom-maven-dependency-management-transfer-shared-versions",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/fix-build-google-auto/maven-dependency-management/20260325010621-fix-build-google-auto-maven-dependency-management-ifjqif/platform-bom-maven-dependency-management-transfer-shared-versions",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-google-auto/platform-bom-maven-dependency-management-transfer-shared-versions",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 强制根 POM 导入 `com.fasterxml.jackson:jackson-bom`，但 instruction.md 只要求统一管理 Jackson 相关版本，没有明示必须使用这个 BOM，属于隐藏实现约束并把合法解法锁死到特定实现。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d247a-3313-7692-8e40-eec31fd97a7f",
+      "repairSummary": "放宽了 Jackson 校验：测试现在接受根 POM 通过导入 `jackson-bom` 或显式管理下游所需 Jackson 依赖来统一版本，不再把解法锁死到单一实现。",
+      "reviewThreadId": "019d247d-4514-7d73-9db9-8b9d14f5abc2",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

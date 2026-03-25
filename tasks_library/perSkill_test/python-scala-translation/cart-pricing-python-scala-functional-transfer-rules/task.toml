@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "cart-pricing-python-scala-functional-transfer-rules"
+name = "Transfer: Cart Pricing Rule Engine Translation"
+description = "Translate the provided Python cart pricing rule engine into idiomatic Scala 2.13 and write the result to /root/CartPricing.scala."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["scala", "python", "translation", "pricing", "functional"]
+primary_output_file = "/root/CartPricing.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0

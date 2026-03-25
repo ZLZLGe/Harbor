@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "retail-signage-video-frame-extraction-transfer-checkpoint-audit",
+  "taskRole": "transfer",
+  "title": "Transfer - 零售标牌检查点抽帧审计",
+  "goal": "按审计清单中给定的精确时间戳，从门店数字标牌视频中抽取检查点JPG，使用确定性命名保存，并生成JSON报告列出每个请求的命中状态、时间戳、输出文件和不可达检查点。",
+  "primaryOutputFile": "/app/output/checkpoint_audit_report.json",
+  "difficulty": "medium",
+  "category": "零售媒资审计",
+  "skillBenefitRationale": "任务要求围绕精确时间点抽帧与审计报告生成展开，重点是时间定位、单帧导出和稳定命名；除通用脚本逻辑外，不需要任何其他 shipped skill。",
+  "targetSkillDirName": "video-frame-extraction",
+  "targetSkillName": "video-frame-extraction"
+}

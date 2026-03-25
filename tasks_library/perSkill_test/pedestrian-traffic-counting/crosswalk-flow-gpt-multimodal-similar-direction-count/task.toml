@@ -1,0 +1,27 @@
+version = "1.0"
+
+[metadata]
+id = "crosswalk-flow-gpt-multimodal-similar-direction-count"
+name = "Similar: Crosswalk Direction Counting"
+description = "统计每段路口斑马线短视频中完整穿越的唯一行人数量，并按左右方向输出 JSON 结果。"
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "hard"
+category = "crosswalk flow analysis"
+tags = ["video understanding", "crosswalk counting", "direction classification", "json output"]
+primary_output_file = "/app/output/crosswalk_direction_counts.json"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "similar"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+allow_internet = true

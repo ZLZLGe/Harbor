@@ -1,0 +1,67 @@
+{
+  "kit_name": "field_bracket_library",
+  "overview_file": "brace_kit_overview.obj",
+  "variants": [
+    {
+      "name": "brace_single_slot",
+      "kit_offset": [0, 0, 0],
+      "components": [
+        { "name": "base_plate", "kind": "box", "size": [12, 1, 6], "center": [0, 0.5, 0] },
+        { "name": "upright_plate", "kind": "box", "size": [1, 8, 5], "center": [-5, 5, 0] },
+        { "name": "rib_left", "kind": "box", "size": [3.5, 4, 0.6], "center": [-3.25, 3, -1.9] },
+        { "name": "rib_right", "kind": "box", "size": [3.5, 4, 0.6], "center": [-3.25, 3, 1.9] },
+        { "name": "slot_rail_main", "kind": "box", "size": [0.8, 3.6, 1.0], "center": [-4.1, 5.2, 0] },
+        { "name": "top_bridge", "kind": "box", "size": [2.4, 0.8, 5.0], "center": [-3.8, 8.6, 0] },
+        { "name": "mount_boss_front", "kind": "cylinder", "radius": 0.55, "length": 1.6, "axis": "z", "center": [2.8, 1.7, 1.8] },
+        { "name": "mount_boss_back", "kind": "cylinder", "radius": 0.55, "length": 1.6, "axis": "z", "center": [2.8, 1.7, -1.8] }
+      ]
+    },
+    {
+      "name": "brace_double_slot",
+      "kit_offset": [18, 0, 0],
+      "components": [
+        { "name": "base_plate", "kind": "box", "size": [14, 1, 6.5], "center": [0, 0.5, 0] },
+        { "name": "upright_plate", "kind": "box", "size": [1, 9, 5.5], "center": [-6, 5.5, 0] },
+        { "name": "rib_left", "kind": "box", "size": [4, 4.6, 0.6], "center": [-4, 3.3, -2.1] },
+        { "name": "rib_right", "kind": "box", "size": [4, 4.6, 0.6], "center": [-4, 3.3, 2.1] },
+        { "name": "slot_rail_upper", "kind": "box", "size": [0.8, 3.0, 1.0], "center": [-5.15, 6.6, -1.15] },
+        { "name": "slot_rail_lower", "kind": "box", "size": [0.8, 3.0, 1.0], "center": [-5.15, 4.0, 1.15] },
+        { "name": "top_bridge", "kind": "box", "size": [2.8, 0.8, 5.5], "center": [-4.6, 9.6, 0] },
+        { "name": "mount_boss_front", "kind": "cylinder", "radius": 0.55, "length": 1.6, "axis": "z", "center": [3.2, 1.8, 2.0] },
+        { "name": "mount_boss_back", "kind": "cylinder", "radius": 0.55, "length": 1.6, "axis": "z", "center": [3.2, 1.8, -2.0] },
+        { "name": "rear_pad", "kind": "box", "size": [2.6, 1.2, 1.6], "center": [3.9, 1.6, 0] }
+      ]
+    },
+    {
+      "name": "brace_offset_bridge",
+      "kit_offset": [38, 0, 0],
+      "components": [
+        { "name": "base_plate", "kind": "box", "size": [13, 1, 5.5], "center": [0, 0.5, 0] },
+        { "name": "upright_plate", "kind": "box", "size": [1, 7.5, 4.8], "center": [-5.4, 4.75, 0.6] },
+        { "name": "rib_back", "kind": "box", "size": [3.2, 3.8, 0.6], "center": [-3.6, 2.9, -1.6] },
+        { "name": "slot_rail_upper", "kind": "box", "size": [0.8, 2.8, 0.9], "center": [-4.65, 5.8, 1.35] },
+        { "name": "slot_rail_lower", "kind": "box", "size": [0.8, 2.8, 0.9], "center": [-4.65, 3.2, -0.45] },
+        { "name": "bridge_arm", "kind": "box", "size": [4.2, 0.8, 1.2], "center": [-1.8, 7.6, 1.8] },
+        { "name": "mount_boss_front", "kind": "cylinder", "radius": 0.5, "length": 1.4, "axis": "z", "center": [2.7, 1.55, 1.4] },
+        { "name": "mount_boss_back", "kind": "cylinder", "radius": 0.5, "length": 1.4, "axis": "z", "center": [2.7, 1.55, -1.6] },
+        { "name": "end_stop", "kind": "box", "size": [1.4, 1.6, 2.0], "center": [5.2, 1.8, -1.1] }
+      ]
+    },
+    {
+      "name": "brace_service_riser",
+      "kit_offset": [57, 0, 0],
+      "components": [
+        { "name": "base_plate", "kind": "box", "size": [15, 1, 7], "center": [0, 0.5, 0] },
+        { "name": "upright_plate", "kind": "box", "size": [1, 10, 5], "center": [-6.4, 6, 0] },
+        { "name": "rib_left", "kind": "box", "size": [4.2, 5.2, 0.6], "center": [-4.3, 3.6, -2.3] },
+        { "name": "rib_right", "kind": "box", "size": [4.2, 5.2, 0.6], "center": [-4.3, 3.6, 2.3] },
+        { "name": "slot_rail_upper", "kind": "box", "size": [0.8, 2.8, 1.0], "center": [-5.55, 7.4, 0] },
+        { "name": "slot_rail_mid", "kind": "box", "size": [0.8, 2.8, 1.0], "center": [-5.55, 5.0, 0] },
+        { "name": "service_bridge", "kind": "box", "size": [5.0, 0.8, 1.2], "center": [-1.6, 10.4, -1.9] },
+        { "name": "sensor_pad", "kind": "box", "size": [2.4, 1.2, 2.2], "center": [4.1, 1.6, 0] },
+        { "name": "mount_boss_left", "kind": "cylinder", "radius": 0.6, "length": 1.6, "axis": "z", "center": [3.4, 1.7, 2.2] },
+        { "name": "mount_boss_right", "kind": "cylinder", "radius": 0.6, "length": 1.6, "axis": "z", "center": [3.4, 1.7, -2.2] }
+      ]
+    }
+  ]
+}

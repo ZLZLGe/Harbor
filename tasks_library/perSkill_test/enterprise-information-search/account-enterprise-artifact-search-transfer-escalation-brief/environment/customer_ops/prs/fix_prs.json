@@ -1,0 +1,62 @@
+[
+  {
+    "pr_id": "PR-1830",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2401",
+    "title": "Prep migration for audit export timestamp backfill",
+    "status": "merged",
+    "change_type": "prep_only",
+    "merged_at": "2026-02-18T09:40:00"
+  },
+  {
+    "pr_id": "PR-1842",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2401",
+    "title": "Backfill tenant-local audit export timestamps",
+    "status": "merged",
+    "change_type": "direct_fix",
+    "merged_at": "2026-02-20T11:40:00"
+  },
+  {
+    "pr_id": "PR-1860",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2402",
+    "title": "SSO role mapping preview with named templates",
+    "status": "merged",
+    "change_type": "direct_fix",
+    "merged_at": "2026-02-25T19:05:00"
+  },
+  {
+    "pr_id": "PR-1868",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2402",
+    "title": "Follow-up cleanup for preview copy",
+    "status": "open",
+    "change_type": "follow_up",
+    "merged_at": null
+  },
+  {
+    "pr_id": "PR-1882",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "commitment_id": "COM-2403",
+    "title": "Add retry analytics dashboard data feed",
+    "status": "merged",
+    "change_type": "direct_fix",
+    "merged_at": "2026-02-27T08:55:00"
+  },
+  {
+    "pr_id": "PR-1889",
+    "account_id": "ACC-042-R",
+    "escalation_id": "ESC-2026-021",
+    "commitment_id": "COM-2410",
+    "title": "Retail kiosk fallback auth mode",
+    "status": "merged",
+    "change_type": "direct_fix",
+    "merged_at": "2026-02-27T18:10:00"
+  }
+]

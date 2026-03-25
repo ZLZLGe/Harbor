@@ -1,0 +1,9 @@
+{
+  "processing_target": "continuous first-stage on-device trigger",
+  "channel_count": 1,
+  "max_trigger_latency_seconds": 1.2,
+  "max_processing_ms_per_second": 80,
+  "max_false_triggers_per_day": 4,
+  "regional_confirmation_seconds": 15,
+  "target_event_style": "clear nearby impulsive events"
+}

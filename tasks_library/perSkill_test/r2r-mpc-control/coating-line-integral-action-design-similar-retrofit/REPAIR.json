@@ -1,0 +1,38 @@
+{
+  "sourceTaskId": "r2r-mpc-control",
+  "targetSkillDirName": "integral-action-design",
+  "targetSkillName": "integral-action-design",
+  "runId": "20260324234838-r2r-mpc-control-integral-action-design-aru84n",
+  "taskId": "coating-line-integral-action-design-similar-retrofit",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/r2r-mpc-control/integral-action-design/20260324234838-r2r-mpc-control-integral-action-design-aru84n/coating-line-integral-action-design-similar-retrofit",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260324234838-r2r-mpc-control-integral-action-design-aru84n/r2r-mpc-control/drafts/coating-line-integral-action-design-similar-retrofit",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/r2r-mpc-control/integral-action-design/20260324234838-r2r-mpc-control-integral-action-design-aru84n/coating-line-integral-action-design-similar-retrofit",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/r2r-mpc-control/coating-line-integral-action-design-similar-retrofit",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "任务根目录已包含 `tension_retrofit_results.json` 完整答案；`tests/test_outputs.py` 会直接读取该文件，导致不生成任何新输出也可能通过 verifier。; `tests/test_outputs.py` 只检查报告内 `trace`/指标自洽，没有把报告中的 `controller_settings` 回放到仿真器验证，允许伪造满足阈值的轨迹，不能稳健检验积分改造能力。; visibilityPass=false; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/__pycache__/coating_line_env.cpython-312.pyc",
+    "environment/__pycache__/controller_scaffold.cpython-312.pyc",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24af-7c44-7ab1-802a-eb2b7f61f7ea",
+      "repairSummary": "删除了任务根目录中预置的完整答案文件，并把说明与 verifier 对齐到“按报告的 controller_settings 回放控制器”的契约；tests 现在会用报告参数重跑仿真并校验轨迹、指标和阈值，避免伪造结果直接通过。",
+      "reviewThreadId": "019d24b2-a3a5-71c0-a75f-e8d20a6a746f",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

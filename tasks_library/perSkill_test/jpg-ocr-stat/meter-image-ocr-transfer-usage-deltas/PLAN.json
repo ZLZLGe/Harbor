@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "meter-image-ocr-transfer-usage-deltas",
+  "taskRole": "transfer",
+  "title": "Transfer: Meter Reading Consumption Summary from Photo Logs",
+  "goal": "给定一组水表或电表读数照片，识别每张图里的采集日期与表盘读数，按时间顺序生成 `/app/workspace/meter_consumption.json`，其中包含每次读数、相邻两次增量和总消耗量。",
+  "primaryOutputFile": "/app/workspace/meter_consumption.json",
+  "difficulty": "medium",
+  "category": "time-series statistics",
+  "skillBenefitRationale": "任务把 OCR 迁移到稀疏数字显示场景，结果统计完全依赖从照片中正确读出日期与读数，没有其他 shipped skill 可以替代这个关键步骤。",
+  "targetSkillDirName": "image-ocr",
+  "targetSkillName": "image-ocr"
+}

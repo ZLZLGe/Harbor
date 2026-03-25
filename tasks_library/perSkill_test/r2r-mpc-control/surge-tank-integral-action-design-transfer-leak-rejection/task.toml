@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "surge-tank-integral-action-design-transfer-leak-rejection"
+name = "Transfer: Surge Tank Leak Rejection"
+description = "Add integral level compensation to the provided surge-tank valve controller and write level_offset_report.yaml demonstrating offset-free recovery under the supplied leak-disturbance cases."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control", "process-control", "mpc", "surge-tank", "simulation", "yaml"]
+primary_output_file = "level_offset_report.yaml"
+source_task_id = "r2r-mpc-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

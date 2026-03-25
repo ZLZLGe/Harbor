@@ -1,0 +1,5 @@
+grpc-alignment-maven-dependency-management-transfer-generated-sources
+package-release-config-maven-build-lifecycle-transfer-profile-filtering
+platform-bom-maven-dependency-management-transfer-shared-versions
+separate-integration-checks-maven-build-lifecycle-transfer-failsafe-verify
+stabilize-reactor-build-maven-build-lifecycle-transfer-multi-module

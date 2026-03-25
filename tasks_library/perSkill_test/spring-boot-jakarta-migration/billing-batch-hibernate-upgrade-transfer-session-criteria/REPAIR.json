@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "spring-boot-jakarta-migration",
+  "targetSkillDirName": "hibernate-upgrade",
+  "targetSkillName": "hibernate-upgrade",
+  "runId": "20260325022357-spring-boot-jakarta-migration-hibernate-upgrade-pf24fl",
+  "taskId": "billing-batch-hibernate-upgrade-transfer-session-criteria",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/spring-boot-jakarta-migration/hibernate-upgrade/20260325022357-spring-boot-jakarta-migration-hibernate-upgrade-pf24fl/billing-batch-hibernate-upgrade-transfer-session-criteria",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325022357-spring-boot-jakarta-migration-hibernate-upgrade-pf24fl/spring-boot-jakarta-migration/drafts/billing-batch-hibernate-upgrade-transfer-session-criteria",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/spring-boot-jakarta-migration/hibernate-upgrade/20260325022357-spring-boot-jakarta-migration-hibernate-upgrade-pf24fl/billing-batch-hibernate-upgrade-transfer-session-criteria",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/spring-boot-jakarta-migration/billing-batch-hibernate-upgrade-transfer-session-criteria",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 直接要求主文件包含 `CriteriaBuilder`，但 instruction.md 只要求移除旧式 Criteria API 并修复兼容性；这把合法解法锁死到特定实现细节，属于 Harbor testability 问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24c4-00e2-7262-8e17-a795e2570e5d",
+      "repairSummary": "放宽了输出测试，移除了对 `InvoiceArchiveJob.java` 必须包含 `CriteriaBuilder` 的实现细节断言，保留对旧 Hibernate 写法移除和 Jakarta 迁移的兼容性校验。",
+      "reviewThreadId": "019d24c4-e896-73a0-87c5-e98dc7e1b6cb",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

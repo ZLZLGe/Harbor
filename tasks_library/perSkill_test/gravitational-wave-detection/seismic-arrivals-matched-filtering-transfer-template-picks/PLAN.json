@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "seismic-arrivals-matched-filtering-transfer-template-picks",
+  "taskRole": "transfer",
+  "title": "Transfer | 地震微事件模板拾取",
+  "goal": "对连续地震台站波形和两类已给模板进行匹配滤波，输出每类重复事件的到时列表与对应匹配得分，用于区分微震与爆破。",
+  "primaryOutputFile": "/root/seismic_arrivals.json",
+  "difficulty": "medium",
+  "category": "geophysics",
+  "skillBenefitRationale": "连续噪声中的模板拾取本质上就是 matched filtering 的应用，验证只围绕到时和模板类别展开，不要求其他领域专用技能。",
+  "targetSkillDirName": "matched-filtering",
+  "targetSkillName": "matched-filtering"
+}

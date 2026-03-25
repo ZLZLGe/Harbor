@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "async-contract-testing-python-transfer-inmemory-service"
+name = "Transfer | 用异步内存测试替换服务契约脆弱用例"
+description = "将一个异步工具服务的脆弱网络测试改写为稳定的进程内 pytest 合约测试，并生成接口覆盖说明。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "API & Services"
+tags = ["Python", "pytest", "asyncio", "contracts", "service-testing"]
+primary_output_file = "notes/async_contract_report.md"
+source_task_id = "fix-build-agentops"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 300.0
+
+[verifier]
+timeout_sec = 300.0

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "irc-transcript-pcap-triage-tshark-transfer-c2-stream",
+  "taskRole": "transfer",
+  "title": "Transfer: IRC C2 Transcript Recovery",
+  "goal": "在多条明文 IRC 会话混杂的 PCAP 中，找出真正的 C2 控制流并恢复命令顺序，生成 `/workspace/outputs/irc_c2_transcript.txt`。输出需按时间顺序列出恶意会话中的关键命令与响应，不应混入正常聊天流；验证重点是 stream 选择是否正确、命令顺序是否完整。",
+  "primaryOutputFile": "/workspace/outputs/irc_c2_transcript.txt",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "这题强调 tshark 的 follow stream 与 ASCII 会话复原能力，和原题的 HTTP 字段筛选明显不同。唯一关键技能仍是 PCAP 取证本身，不需要额外 shipped skill。",
+  "targetSkillDirName": "pcap-triage-tshark",
+  "targetSkillName": "pcap-triage-tshark"
+}

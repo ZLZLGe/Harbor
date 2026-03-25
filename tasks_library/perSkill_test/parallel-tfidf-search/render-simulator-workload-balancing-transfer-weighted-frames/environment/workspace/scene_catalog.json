@@ -1,0 +1,41 @@
+{
+  "farm_name": "Harbor Local Render Farm",
+  "scenes": [
+    {
+      "scene_id": "city_sunrise",
+      "scene_name": "City Sunrise",
+      "department": "exterior-lighting",
+      "note": "Early establishing shots with modest volumetrics."
+    },
+    {
+      "scene_id": "interior_dialogue",
+      "scene_name": "Interior Dialogue",
+      "department": "layout",
+      "note": "Mostly static dialogue coverage with light reflections."
+    },
+    {
+      "scene_id": "credits_glow",
+      "scene_name": "Credits Glow",
+      "department": "compositing",
+      "note": "Short glow passes for the end-credit treatment."
+    },
+    {
+      "scene_id": "ocean_caustics",
+      "scene_name": "Ocean Caustics",
+      "department": "fx-water",
+      "note": "Water caustics and foam caches produce medium-cost frames."
+    },
+    {
+      "scene_id": "asteroid_chase",
+      "scene_name": "Asteroid Chase",
+      "department": "fx-destruction",
+      "note": "Dense debris simulation and motion blur."
+    },
+    {
+      "scene_id": "storm_pass",
+      "scene_name": "Storm Pass",
+      "department": "fx-atmosphere",
+      "note": "Heavy atmospheric scattering and rain interaction."
+    }
+  ]
+}

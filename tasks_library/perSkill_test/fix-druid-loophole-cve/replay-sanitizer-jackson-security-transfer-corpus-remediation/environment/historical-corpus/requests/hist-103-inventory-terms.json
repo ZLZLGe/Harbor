@@ -1,0 +1,22 @@
+{
+  "sampleId": "hist-103",
+  "capturedAt": "2024-11-04T12:05:00Z",
+  "request": {
+    "method": "get",
+    "path": "/v1/inventory/query",
+    "body": {
+      "dataset": "inventory_snapshot",
+      "filter": {
+        "type": "terms",
+        "dimension": "warehouse",
+        "value": "w1,w2"
+      },
+      "columns": [
+        "sku",
+        "warehouse",
+        "available"
+      ],
+      "limit": 100
+    }
+  }
+}

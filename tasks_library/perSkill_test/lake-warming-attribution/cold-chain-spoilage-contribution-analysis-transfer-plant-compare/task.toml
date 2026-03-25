@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "cold-chain-spoilage-contribution-analysis-transfer-plant-compare"
+name = "Transfer: Cold-Chain Spoilage Plant Comparison"
+description = "Analyze monthly cold-chain spoilage drivers for two warehouses, then write each plant's dominant category and its lead over the runner-up to plant_spoilage_driver_comparison.csv."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "data-processing"
+tags = ["cold-chain", "warehouse-operations", "attribution", "plant-comparison"]
+primary_output_file = "plant_spoilage_driver_comparison.csv"
+source_task_id = "lake-warming-attribution"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

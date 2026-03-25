@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "solar-array-light-curve-preprocessing-transfer-drift-report",
+  "taskRole": "transfer",
+  "title": "Transfer - 光伏阵列漂移清洗报告",
+  "goal": "提供一分钟采样的光伏阵列功率比值序列，包含维护标记、逆变器尖峰和温度导致的缓慢漂移。任务要求过滤坏样本、去除尖峰并压平长期漂移，然后将清洗结果的关键汇总写入 `/root/pv_drift_report.json`，包括移除点数、清洗后散度指标和最长稳定发电区间。验证重点放在汇总值是否来自正确的预处理结果，以及输出是否反映出明显改善的稳定性。",
+  "primaryOutputFile": "/root/pv_drift_report.json",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这里把光变预处理方法迁移到能源遥测，仍然只依赖质量筛选、异常值处理和去趋势，不要求额外的电力系统分析技能。",
+  "targetSkillDirName": "light-curve-preprocessing",
+  "targetSkillName": "light-curve-preprocessing"
+}

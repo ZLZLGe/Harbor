@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "war-packaging-maven-dependency-management-transfer-provided-scope",
+  "taskRole": "transfer",
+  "title": "Transfer: Fix WAR Packaging by Correcting Scope and Exclusions",
+  "goal": "修复一个 WAR Web 应用的依赖声明：将 Servlet API 调整为 `provided`，排除误引入的嵌入式容器传递依赖，保证 `mvn package` 产出的 WAR 不再包含容器类且集成校验通过。",
+  "primaryOutputFile": "/workspace/web-portal/pom.xml",
+  "difficulty": "easy",
+  "category": "Compilation & Build",
+  "skillBenefitRationale": "任务只围绕 scope 与 exclusions 调整，验证关注打包结果中的依赖集合是否正确，完全落在 Maven 依赖管理能力范围内。",
+  "targetSkillDirName": "maven-dependency-management",
+  "targetSkillName": "maven-dependency-management"
+}

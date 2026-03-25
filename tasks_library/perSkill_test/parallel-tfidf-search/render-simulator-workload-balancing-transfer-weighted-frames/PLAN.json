@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "render-simulator-workload-balancing-transfer-weighted-frames",
+  "taskRole": "transfer",
+  "title": "Transfer: Weighted Frame Render Scheduling",
+  "goal": "为本地渲染农场模拟器实现帧调度器，主文件为 `/root/workspace/render_scheduler.py`。输入资产提供每帧的预测成本、真实渲染耗时和场景清单；验证检查所有帧都被正确处理、输出调度汇总 JSON 的聚合指标正确，并要求最终 makespan 明显优于连续区间分配基线。",
+  "primaryOutputFile": "/root/workspace/render_scheduler.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "该任务把文本检索中的负载均衡迁移到已知权重的调度场景，唯一关键点是利用帧成本做更合理的 worker 分派以减少尾部完成时间。",
+  "targetSkillDirName": "workload-balancing",
+  "targetSkillName": "workload-balancing"
+}

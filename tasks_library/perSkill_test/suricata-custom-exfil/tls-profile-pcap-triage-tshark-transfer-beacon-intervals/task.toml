@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "tls-profile-pcap-triage-tshark-transfer-beacon-intervals"
+name = "Transfer: TLS Beacon Interval Profiling"
+description = "Analyze the provided TLS handshake PCAP and write a JSON profile of only the client-to-destination groups that satisfy the stated beacon timing rules."
+author_name = "Levi"
+author_email = "levi@example.com"
+difficulty = "medium"
+category = "Security & CTF"
+tags = ["pcap", "tls", "beacon", "forensics", "tshark"]
+primary_output_file = "/workspace/outputs/tls_beacon_profile.json"
+source_task_id = "suricata-custom-exfil"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

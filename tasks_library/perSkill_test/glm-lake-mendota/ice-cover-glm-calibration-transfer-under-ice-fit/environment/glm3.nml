@@ -1,0 +1,18 @@
+&glm_setup
+   sim_name = 'North Star Bay'
+/
+&time
+   start = '2021-12-01 00:00:00'
+   stop = '2022-03-15 00:00:00'
+/
+&light
+   Kw = 0.3000
+/
+&mixing
+   coef_mix_hyp = 0.5000
+/
+&meteorology
+   wind_factor = 1.0000
+   lw_factor = 1.0000
+   ch = 0.001300
+/

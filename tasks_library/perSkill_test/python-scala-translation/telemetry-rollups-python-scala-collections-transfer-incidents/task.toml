@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "telemetry-rollups-python-scala-collections-transfer-incidents"
+name = "Telemetry Incident Rollups Transfer"
+description = "Repair and complete the provided Scala incident rollup port so it matches the Python reference and writes the final code to /root/TelemetryIncidentRollups.scala."
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["scala", "python", "collections", "telemetry", "incident-rollups"]
+primary_output_file = "/root/TelemetryIncidentRollups.scala"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 600.0
+
+[verifier]
+timeout_sec = 600.0

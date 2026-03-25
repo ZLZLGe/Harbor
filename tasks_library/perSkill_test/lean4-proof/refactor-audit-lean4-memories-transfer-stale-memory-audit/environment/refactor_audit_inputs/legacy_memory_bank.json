@@ -1,0 +1,46 @@
+{
+  "project": "math2001-sequences",
+  "exported_at": "2026-02-10T09:00:00Z",
+  "records": [
+    {
+      "record_id": "mem-pp-closed-tail",
+      "record_type": "ProofPattern",
+      "title": "Recursive upper bound via closed-form tail",
+      "confidence": 0.92,
+      "summary": "Rewrite the sequence as 2 - 1 / 2^n, prove the closed form with simple_induction after importing Library.Tactic.Induction, then finish the inequality with ring and pow_pos.",
+      "last_used_in": "workspace/solution.lean"
+    },
+    {
+      "record_id": "mem-fa-unfold-top",
+      "record_type": "FailedApproach",
+      "title": "Top-level unfolding before finding a closed form",
+      "confidence": 0.88,
+      "summary": "If a bound goal is attacked by repeatedly unfolding the recurrence at the top level, the proof state grows but the target inequality does not get simpler. Switch to a closed-form lemma first.",
+      "last_used_in": "workspace/solution.lean"
+    },
+    {
+      "record_id": "mem-pc-traceable-citation",
+      "record_type": "ProjectConvention",
+      "title": "Traceable evidence citation",
+      "confidence": 0.83,
+      "summary": "Every reusable record should cite a repository-relative path together with either a local line hint or an explicit theorem name so later reviewers can reopen the evidence quickly.",
+      "last_used_in": "notes/reviewing.md"
+    },
+    {
+      "record_id": "mem-td-pow-pos",
+      "record_type": "TheoremDependency",
+      "title": "Nonnegative tail denominator via pow_pos",
+      "confidence": 0.95,
+      "summary": "When the tail contains 1 / 2^n, use pow_pos to show the denominator is positive before closing the final inequality.",
+      "last_used_in": "workspace/solution.lean"
+    },
+    {
+      "record_id": "mem-pp-modcases-parity",
+      "record_type": "ProofPattern",
+      "title": "Parity shortcut with mod_cases n % 2",
+      "confidence": 0.81,
+      "summary": "For parity subgoals over naturals, run mod_cases n % 2 immediately and close both branches with the old parity helper imports.",
+      "last_used_in": "workspace/Library/Theory/Parity.lean"
+    }
+  ]
+}

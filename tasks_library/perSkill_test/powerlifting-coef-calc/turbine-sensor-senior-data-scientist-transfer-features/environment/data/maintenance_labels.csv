@@ -1,0 +1,7 @@
+turbine_id,snapshot_ts,split,failure_within_24h
+T-100,2025-02-01T03:59,train,0
+T-100,2025-02-01T04:59,validation,1
+T-200,2025-02-01T03:59,train,0
+T-200,2025-02-01T05:29,test,1
+T-300,2025-02-01T04:29,validation,0
+T-300,2025-02-01T05:19,test,1

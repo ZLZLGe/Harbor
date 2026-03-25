@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "grid-timeseries-detrending-transfer-trough-detection"
+name = "Transfer | Grid Demand Trough Detection"
+description = "Detect the deepest negative cyclical trough across four regional monthly electricity demand series and write the region-month answer to grid_trough.txt."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "energy"
+tags = ["energy", "electricity", "time-series", "detrending", "text-output"]
+primary_output_file = "grid_trough.txt"
+source_task_id = "econ-detrending-correlation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

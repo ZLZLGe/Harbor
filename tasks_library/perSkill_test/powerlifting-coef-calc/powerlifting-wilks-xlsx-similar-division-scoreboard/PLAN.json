@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "powerlifting-wilks-xlsx-similar-division-scoreboard",
+  "taskRole": "similar",
+  "title": "Similar: 力量举 Wilks 分榜工作簿",
+  "goal": "在力量举比赛工作簿中填充空白的 `Scoreboard` 工作表：从原始成绩表复制姓名、性别、体重和三项最佳试举列，追加 `TotalKg`、`Wilks` 和 `DivisionRank` 三列，全部使用 Excel 公式完成，并把分数保留到 3 位小数。",
+  "primaryOutputFile": "wilks_division_scoreboard.xlsx",
+  "difficulty": "easy",
+  "category": "data-analysis",
+  "skillBenefitRationale": "任务核心是跨工作表引用、公式列追加、分组排名公式和工作簿结果校验，唯一关键能力就是对 xlsx 文件做结构化编辑与公式构建。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

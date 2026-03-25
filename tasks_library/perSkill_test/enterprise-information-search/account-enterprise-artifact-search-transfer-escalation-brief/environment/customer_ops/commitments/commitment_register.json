@@ -1,0 +1,74 @@
+[
+  {
+    "commitment_id": "COM-2401",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "summary": "Backfill tenant-local timestamps in audit exports",
+    "owner_employee_id": "eid_7f4c1a20",
+    "customer_committed": true,
+    "status": "active",
+    "source_meeting_id": "MTG-ESC-021",
+    "linked_issue": "BUG-771",
+    "superseded_by": null
+  },
+  {
+    "commitment_id": "COM-2402",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "summary": "Ship editable SSO role mapping preview with named role templates",
+    "owner_employee_id": "eid_29b3e710",
+    "customer_committed": true,
+    "status": "active",
+    "source_meeting_id": "MTG-ESC-022",
+    "linked_issue": "BUG-793",
+    "superseded_by": null
+  },
+  {
+    "commitment_id": "COM-2403",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "summary": "Provide API retry analytics dashboard and weekly screenshot until GA",
+    "owner_employee_id": "eid_c91aa2d4",
+    "customer_committed": true,
+    "status": "active",
+    "source_meeting_id": "MTG-ESC-023",
+    "linked_issue": "BUG-804",
+    "superseded_by": null
+  },
+  {
+    "commitment_id": "COM-2404",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2026-017",
+    "summary": "Offer one-time billing credit after closeout",
+    "owner_employee_id": "eid_54d12e8f",
+    "customer_committed": false,
+    "status": "internal_only",
+    "source_meeting_id": "MTG-ESC-022",
+    "linked_issue": "CS-119",
+    "superseded_by": null
+  },
+  {
+    "commitment_id": "COM-2388",
+    "account_id": "ACC-042",
+    "escalation_id": "ESC-2025-091",
+    "summary": "Backfill legacy audit export timestamps",
+    "owner_employee_id": "eid_7f4c1a20",
+    "customer_committed": true,
+    "status": "closed",
+    "source_meeting_id": "MTG-ESC-011",
+    "linked_issue": "BUG-701",
+    "superseded_by": "COM-2401"
+  },
+  {
+    "commitment_id": "COM-2410",
+    "account_id": "ACC-042-R",
+    "escalation_id": "ESC-2026-021",
+    "summary": "Add retail kiosk fallback auth mode",
+    "owner_employee_id": "eid_11cf2094",
+    "customer_committed": true,
+    "status": "active",
+    "source_meeting_id": "MTG-ESC-121",
+    "linked_issue": "BUG-990",
+    "superseded_by": null
+  }
+]

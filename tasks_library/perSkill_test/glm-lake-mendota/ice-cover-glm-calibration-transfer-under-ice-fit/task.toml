@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "ice-cover-glm-calibration-transfer-under-ice-fit"
+name = "Transfer - Calibrate Under-Ice Temperature Structure"
+description = "Calibrate the winter GLM parameter set so the simulated under-ice profiles reproduce the observed ice-event dates and profile diagnostics, then summarize the fit in /root/analysis/under_ice_fit_summary.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["lake-modeling", "calibration", "ice-cover", "winter-profiles"]
+primary_output_file = "/root/analysis/under_ice_fit_summary.json"
+source_task_id = "glm-lake-mendota"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

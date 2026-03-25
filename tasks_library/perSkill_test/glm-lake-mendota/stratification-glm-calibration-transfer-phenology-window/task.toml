@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "stratification-glm-calibration-transfer-phenology-window"
+name = "Transfer - Match Stratification Onset and Breakdown"
+description = "Calibrate the seasonal thermal and mixing parameters in glm3.nml so a single-season lake simulation reproduces observed thermocline depth diagnostics, sampled stratification onset/breakdown dates, and a JSON summary at /root/diagnostics/stratification_phenology_report.json."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "environmental-modeling"
+tags = ["lake-modeling", "calibration", "stratification", "phenology"]
+primary_output_file = "/root/diagnostics/stratification_phenology_report.json"
+source_task_id = "glm-lake-mendota"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

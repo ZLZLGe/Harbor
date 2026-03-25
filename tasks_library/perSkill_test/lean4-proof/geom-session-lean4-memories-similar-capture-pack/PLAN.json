@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "geom-session-lean4-memories-similar-capture-pack",
+  "taskRole": "similar",
+  "title": "Similar: Capture Lean Proof Memories for a Geometric-Series Session",
+  "goal": "围绕一个与源题同类但不相同的 Lean 4 归纳证明会话，读取给定的 theorem 文件、失败尝试片段和简短项目约定说明，整理出一份结构化 memory pack，至少包含 1 条成功的 ProofPattern、1 条 FailedApproach 和 1 条 ProjectConvention，供后续同类数列上界证明直接复用。",
+  "primaryOutputFile": "artifacts/geom-session-memory-pack.json",
+  "difficulty": "medium",
+  "category": "formal method",
+  "skillBenefitRationale": "这个任务直接检验 lean4-memories 的典型核心用法：把一次 Lean 证明会话沉淀为可复用、可检索、可避免重复踩坑的项目记忆。",
+  "targetSkillDirName": "lean4-memories",
+  "targetSkillName": "lean4-memories"
+}

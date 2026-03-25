@@ -1,0 +1,57 @@
+cover:
+  kicker: Tailored client proposal
+  title: GreenGrid x North Harbor Logistics
+  subtitle: Phoenix Cross-Dock Energy Retrofit Proposal
+  tagline: Pilot scope to cut evening demand spikes without slowing trailer turns
+  image: site-aerial.png
+
+opportunity:
+  title: Where the facility is losing margin today
+  intro: The Phoenix cross-dock carries refrigeration, yard equipment, and evening loading into the highest utility price window.
+  bullets:
+    - Summer demand penalties rose 18% year over year across the site.
+    - Backup generation protects uptime but does not reduce utility demand charges.
+  stat_label: Estimated annual peak-demand spend
+  stat_value: "$1.4M"
+  image: operations-dashboard.png
+
+solution:
+  title: What GreenGrid will deploy first
+  intro: The initial package couples onsite generation, dispatch control, and operator visibility around the existing operating rhythm.
+  pillars:
+    - Battery dispatch tuned to dock and refrigeration loads
+    - Solar canopy above employee parking and trailer staging
+    - Live supervisor dashboard for charge state and savings
+  footer: All measures are designed for an operating facility with no full-day shutdown.
+
+pilot_plan:
+  title: 12-week pilot plan
+  phases:
+    - window: Weeks 1-2
+      heading: Baseline and utility data
+      detail: Meter audit, load segmentation, and tariff review.
+    - window: Weeks 3-6
+      heading: Controls and battery setup
+      detail: Dispatch rules, interconnection path, and operator testing.
+    - window: Weeks 7-12
+      heading: Live pilot and executive readout
+      detail: Site trial, savings capture, and board-ready summary.
+
+proof_points:
+  title: Why this proposal is practical
+  quote: GreenGrid reduced our evening demand spikes in the first billing cycle without changing dock schedules.
+  attribution: Maya Chen, COO, WestPort Foods
+  stats:
+    - label: Peak demand reduction
+      value: 22%
+    - label: Payback outlook
+      value: 2.8 years
+  image: team-workshop.png
+
+next_steps:
+  title: Next steps to launch the pilot
+  steps:
+    - Confirm the pilot site walk and interval meter export.
+    - Finalize utility coordination and canopy permitting assumptions.
+    - Review the investment memo and approve pilot kickoff.
+  footer: GreenGrid will return a full investment model within five business days of the site walk.

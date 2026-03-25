@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "branch-vpn-threat-detection-transfer-soc-brief"
+name = "Transfer: Branch VPN SOC Brief"
+description = "Read hourly branch VPN gateway features and write /root/branch_soc_report.md with the required escalation summary and site evidence."
+author_name = "Codex Task Builder"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "security"
+tags = ["security", "vpn", "markdown", "soc-brief"]
+primary_output_file = "/root/branch_soc_report.md"
+source_task_id = "dapt-intrusion-detection"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 120.0

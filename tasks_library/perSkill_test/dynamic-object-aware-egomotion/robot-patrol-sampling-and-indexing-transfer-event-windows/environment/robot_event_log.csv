@@ -1,0 +1,9 @@
+event,start_ms,end_ms
+warmup_alarm,-200,200
+obstacle,600,2100
+thermal_hotspot,1500,3400
+badge_scan,2200,2800
+spill,3100,4600
+dock_align,4550,5600
+siren_test,5200,5400
+post_run_report,6200,7000

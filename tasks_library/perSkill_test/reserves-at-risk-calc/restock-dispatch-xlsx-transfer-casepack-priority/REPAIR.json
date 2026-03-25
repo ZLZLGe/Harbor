@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "reserves-at-risk-calc",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx",
+  "runId": "20260325004737-reserves-at-risk-calc-xlsx-2j1ne3",
+  "taskId": "restock-dispatch-xlsx-transfer-casepack-priority",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/reserves-at-risk-calc/xlsx/20260325004737-reserves-at-risk-calc-xlsx-2j1ne3/restock-dispatch-xlsx-transfer-casepack-priority",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325004737-reserves-at-risk-calc-xlsx-2j1ne3/reserves-at-risk-calc/drafts/restock-dispatch-xlsx-transfer-casepack-priority",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/reserves-at-risk-calc/xlsx/20260325004737-reserves-at-risk-calc-xlsx-2j1ne3/restock-dispatch-xlsx-transfer-casepack-priority",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/reserves-at-risk-calc/restock-dispatch-xlsx-transfer-casepack-priority",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 在输入/输出文件路径中直接出现 `.xlsx`，直接点名了 shipped skill dirName `xlsx`，存在技能暴露。; visibilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d24bd-380e-7f11-b651-f09513315567",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill 名称的直接暴露，把输入/输出工作簿路径里的 `.xlsx` 改为分段写法，任务语义与要求保持不变。",
+      "reviewThreadId": "019d24be-39e8-7b13-86bf-f688c0ef74db",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

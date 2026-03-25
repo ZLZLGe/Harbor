@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "cold-chain-xlsx-transfer-breach-report"
+name = "Transfer - 冷链运输超限报告"
+description = "分析冷链运输监控工作簿并输出批次级 CSV 违规报告。"
+author_name = "Codex"
+author_email = "codex@example.com"
+difficulty = "hard"
+category = "operations-analytics"
+tags = ["xlsx", "cold-chain", "logistics", "time-series", "csv"]
+primary_output_file = "/root/cold_chain_breaches.csv"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

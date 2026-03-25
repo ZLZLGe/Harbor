@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "grid-timeseries-detrending-transfer-trough-detection",
+  "taskRole": "transfer",
+  "title": "Transfer | Grid Demand Trough Detection",
+  "goal": "对 4 个地区的月度电力负荷正值序列做对数变换与 HP 滤波（λ=14400），找出所有地区-月份组合中相对趋势偏离最深的负向周期谷值，并将地区与月份写入文本文件。",
+  "primaryOutputFile": "grid_trough.txt",
+  "difficulty": "medium",
+  "category": "energy",
+  "skillBenefitRationale": "这个迁移任务把技能用于基础设施需求异常识别，验证重点不再是相关性而是周期缺口定位，只有正确提取趋势与周期后才能区分“绝对低点”和“相对趋势最弱”的时点。",
+  "targetSkillDirName": "timeseries-detrending",
+  "targetSkillName": "timeseries-detrending"
+}

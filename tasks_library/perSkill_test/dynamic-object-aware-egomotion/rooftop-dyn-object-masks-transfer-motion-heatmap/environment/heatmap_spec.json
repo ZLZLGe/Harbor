@@ -1,0 +1,8 @@
+{
+  "sample_fps": 4,
+  "expected_shape": [
+    180,
+    320
+  ],
+  "normalization": "Count dynamic-foreground hits per sampled frame at each pixel and divide the full map by its global maximum. If no dynamic pixels are detected, return an all-zero map."
+}

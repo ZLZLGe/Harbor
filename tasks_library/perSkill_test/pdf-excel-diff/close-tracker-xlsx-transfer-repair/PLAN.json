@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "close-tracker-xlsx-transfer-repair",
+  "taskRole": "transfer",
+  "title": "Transfer: Close Tracker Template Repair",
+  "goal": "修复一个因插列导致公式引用错位的月结跟踪模板，输出 /root/close_tracker_repaired.xlsx，要求保留原有版式和工作表结构，并消除公式错误。",
+  "primaryOutputFile": "/root/close_tracker_repaired.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet-repair",
+  "skillBenefitRationale": "重点在于编辑现有 Excel 模板、修正跨表引用、保留格式并重新计算校验，这正是 xlsx 的直接应用场景。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

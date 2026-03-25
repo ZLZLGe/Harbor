@@ -1,0 +1,34 @@
+{
+  "sourceTaskId": "fix-build-agentops",
+  "targetSkillDirName": "testing-python",
+  "targetSkillName": "testing-python",
+  "runId": "20260325001951-fix-build-agentops-testing-python-r8en3a",
+  "taskId": "retry-boundary-testing-python-transfer-mocked-client",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/fix-build-agentops/testing-python/20260325001951-fix-build-agentops-testing-python-r8en3a/retry-boundary-testing-python-transfer-mocked-client",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325001951-fix-build-agentops-testing-python-r8en3a/fix-build-agentops/drafts/retry-boundary-testing-python-transfer-mocked-client",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/fix-build-agentops/testing-python/20260325001951-fix-build-agentops-testing-python-r8en3a/retry-boundary-testing-python-transfer-mocked-client",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-agentops/retry-boundary-testing-python-transfer-mocked-client",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 同时用源码 token 检查和 create_autospec/Mock(/patch( 子串限制具体 mock 写法，像 patch.object 等合法的 unittest.mock 边界 mock 方案会被误判失败，属于隐藏实现要求。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2477-8901-7fd0-b77a-17275d9dbfa3",
+      "repairSummary": "放宽了 `tests/test_outputs.py` 对 `unittest.mock` 的校验：改为基于 AST 识别合法 mock 用法，接受 `patch.object`、模块别名和直接导入等边界 mock 方案，不再强依赖 `create_autospec`/`Mock(`/`patch(` 子串。",
+      "reviewThreadId": "019d2480-0d48-7900-802d-29cb3ac1a3b1",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

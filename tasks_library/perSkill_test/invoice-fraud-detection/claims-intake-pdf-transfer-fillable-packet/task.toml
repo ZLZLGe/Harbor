@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "claims-intake-pdf-transfer-fillable-packet"
+name = "Transfer: 可填写理赔表自动回填"
+description = "根据案件 JSON 将两页可填写理赔表准确回填并生成 /root/completed_claim_packet.pdf。"
+author_name = "OpenAI Codex"
+author_email = "codex@openai.com"
+difficulty = "medium"
+category = "form-filling"
+tags = ["pdf", "acroform", "claims", "insurance", "form-filling"]
+primary_output_file = "/root/completed_claim_packet.pdf"
+source_task_id = "invoice-fraud-detection"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

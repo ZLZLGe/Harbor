@@ -1,0 +1,28 @@
+[task]
+version = "1.0"
+
+[metadata]
+id = "sensor-windows-python-parallelization-transfer-vectorized-scoring"
+name = "Transfer: Vectorized Sensor Window Scoring"
+description = "Rewrite a sequential sensor-window anomaly scorer so it matches the baseline outputs while writing the vectorized implementation to /root/workspace/vectorized_scores.py."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "Parallelization"
+tags = ["parallelization", "python", "numpy", "vectorization", "time-series", "anomaly-scoring"]
+primary_output_file = "/root/workspace/vectorized_scores.py"
+source_task_id = "parallel-tfidf-search"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

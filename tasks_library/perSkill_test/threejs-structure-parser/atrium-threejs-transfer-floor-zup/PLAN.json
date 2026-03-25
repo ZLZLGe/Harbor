@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "atrium-threejs-transfer-floor-zup",
+  "taskRole": "transfer",
+  "title": "Transfer: 建筑楼层 Z-up 导出",
+  "goal": "给定一个多层中庭建筑的 Three.js 场景，要求按命名楼层 Group 收集其直属几何，导出每层的合并 OBJ，并在导出前把场景从 Y-up 统一转换到 Z-up，同时生成楼层清单文件记录每层名称、父层级和导出文件名。",
+  "primaryOutputFile": "/root/output/floor_manifest.json",
+  "difficulty": "medium",
+  "category": "architecture",
+  "skillBenefitRationale": "这项任务把 threejs 技能迁移到建筑资产整理场景，重点考察楼层级分组、子层级截断、坐标轴转换和确定性 OBJ 导出，和 URDF、实例展开任务明显不同。",
+  "targetSkillDirName": "threejs",
+  "targetSkillName": "threejs"
+}

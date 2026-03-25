@@ -1,0 +1,4 @@
+{
+  "photo_order": ["cooler_left", "checkout_endcap", "night_fridge"],
+  "note": "This file only documents the input photo order for asset generation."
+}

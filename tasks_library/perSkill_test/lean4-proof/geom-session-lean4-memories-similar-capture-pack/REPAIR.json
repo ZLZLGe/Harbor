@@ -1,0 +1,50 @@
+{
+  "sourceTaskId": "lean4-proof",
+  "targetSkillDirName": "lean4-memories",
+  "targetSkillName": "lean4-memories",
+  "runId": "20260325053016-lean4-proof-lean4-memories-hnxtiz",
+  "taskId": "geom-session-lean4-memories-similar-capture-pack",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/lean4-proof/lean4-memories/20260325053016-lean4-proof-lean4-memories-hnxtiz/geom-session-lean4-memories-similar-capture-pack",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325053016-lean4-proof-lean4-memories-hnxtiz/lean4-proof/drafts/geom-session-lean4-memories-similar-capture-pack",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/lean4-proof/lean4-memories/20260325053016-lean4-proof-lean4-memories-hnxtiz/geom-session-lean4-memories-similar-capture-pack",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/lean4-proof/geom-session-lean4-memories-similar-capture-pack",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "instruction.md 未直接暴露 shipped skill 名称或目录名，且任务形态贴近会话记忆沉淀这一典型用法；但 tests/test_outputs.py 把合法答案锁到未明示的实现细节：它固定检查 `proof_patterns[0]` 和 `failed_approaches[0]`，而 instruction.md 只要求“至少 1 条”并未规定顺序。; tests/test_outputs.py 额外要求 project_conventions 同时覆盖“证据可追溯”与“失败记录要带 better direction”两类规则；instruction.md 只要求至少有 1 条项目约定，未明示这两个子类型都必须出现，属于隐藏要求，因此 testability 不通过。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "instruction.md",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 直接点名了 shipped skill `lean4-memories`，构成技能暴露。; visibilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2490-2a25-7b32-a170-60afeca82e02",
+      "repairSummary": "点名暴露了 shipped skill `lean4-memories`，并把测试改为按任一合法条目判定，移除了对数组首项和隐藏双 convention 要求的依赖；同时用标准库脚本手工校验了解法输出与新测试一致。",
+      "reviewThreadId": "019d2492-8b2f-7b81-a2f4-1027f041757f",
+      "reviewerIssues": [
+        "instruction.md 直接点名了 shipped skill `lean4-memories`，构成技能暴露。; visibilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2492-fe66-79e3-b1e3-a54b81c033d9",
+      "repairSummary": "移除了 instruction.md 中对当前 shipped skill `lean4-memories` 的直接点名，改为不暴露技能名的通用任务描述；其余文件未改动。",
+      "reviewThreadId": "019d2493-9a10-7f50-b10a-23c2c040325d",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

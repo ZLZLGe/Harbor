@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "telemetry-rollups-python-scala-collections-transfer-incidents",
+  "taskRole": "transfer",
+  "title": "Telemetry Incident Rollups Transfer",
+  "goal": "提供 Python 参考实现和一份故意不完整的 Scala 端口，要求修复并完成 /root/TelemetryIncidentRollups.scala。输入资产可包含服务告警 CSV 与窗口配置；最终 Scala 代码需要正确合并时间窗口、按服务和严重级别分桶、去重告警来源并产出 incident 摘要。验证方式侧重修复后的 Scala 测试与生成摘要内容，而不是单纯从零翻译。",
+  "primaryOutputFile": "/root/TelemetryIncidentRollups.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "核心仍是把 Python 的嵌套 map/list/set 处理、groupBy、fold 和 sort 迁移成 Scala 的集合表达；任务差异在于 repair 场景，但不引入并发、流处理框架或其他 shipped skill。",
+  "targetSkillDirName": "python-scala-collections",
+  "targetSkillName": "python-scala-collections"
+}

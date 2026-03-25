@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "api-reliability-box-least-squares-transfer-maintenance-windows",
+  "taskRole": "transfer",
+  "title": "Transfer | API Maintenance Window Forecast",
+  "goal": "对API每5分钟成功率序列搜索重复维护窗口，输出recurrence_hours、window_minutes、first_window_start_utc与next_window_start_utc的Markdown摘要。",
+  "primaryOutputFile": "/root/output/maintenance_window_forecast.md",
+  "difficulty": "medium",
+  "category": "operations",
+  "skillBenefitRationale": "该任务把BLS迁移到运维可靠性分析，重复维护窗口会表现为近似盒状的短窗成功率下陷；要同时得到周期、窗口宽度和基准时刻，BLS是唯一关键能力。",
+  "targetSkillDirName": "box-least-squares",
+  "targetSkillName": "box-least-squares"
+}

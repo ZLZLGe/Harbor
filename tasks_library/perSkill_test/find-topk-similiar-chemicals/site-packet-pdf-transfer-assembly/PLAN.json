@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "site-packet-pdf-transfer-assembly",
+  "taskRole": "transfer",
+  "title": "Transfer: 重组现场资料包 PDF",
+  "goal": "给定若干现场资料 PDF 和一份装订说明，按指定页序抽取、旋转、重排并合并页面，生成一份最终现场资料包 PDF；验证将检查页数、页面顺序和关键页文本是否落在正确位置。",
+  "primaryOutputFile": "/root/workspace/site_packet.pdf",
+  "difficulty": "medium",
+  "category": "operations",
+  "skillBenefitRationale": "任务关键在于 PDF 的拆分、旋转、重组与合并，属于纯文档操作场景；不需要其他 shipped skill。",
+  "targetSkillDirName": "pdf",
+  "targetSkillName": "pdf"
+}

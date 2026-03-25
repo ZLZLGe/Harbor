@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "async-contract-testing-python-transfer-inmemory-service",
+  "taskRole": "transfer",
+  "title": "Transfer | 用异步内存测试替换服务契约脆弱用例",
+  "goal": "将一个异步工具服务的脆弱网络测试改造成稳定的内存内 pytest 合约测试，验证多个异步调用路径和返回结构，并记录覆盖的接口契约。",
+  "primaryOutputFile": "notes/async_contract_report.md",
+  "difficulty": "easy",
+  "category": "API & Services",
+  "skillBenefitRationale": "任务要求编写 async pytest 测试、组织夹具并避免真实网络依赖，直接考察异步接口测试与契约验证能力。",
+  "targetSkillDirName": "testing-python",
+  "targetSkillName": "testing-python"
+}

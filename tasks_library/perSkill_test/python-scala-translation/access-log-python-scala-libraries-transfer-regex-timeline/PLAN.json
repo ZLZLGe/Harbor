@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "access-log-python-scala-libraries-transfer-regex-timeline",
+  "taskRole": "transfer",
+  "title": "Transfer: 访问日志会话分析 Scala 翻译",
+  "goal": "将一个使用 `re`、`datetime` 和基础集合操作的 Python 访问日志分析器翻译成 Scala，解析日志行、识别会话窗口、聚合状态码统计，并输出 `session_summary.csv`。",
+  "primaryOutputFile": "/root/AccessLogAnalyzer.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "skillBenefitRationale": "该任务把技能迁移到日志解析与时间序列聚合场景，关键在于 Python 正则、时间处理和文本 I/O 到 Scala 的等价实现。",
+  "targetSkillDirName": "python-scala-libraries",
+  "targetSkillName": "python-scala-libraries"
+}

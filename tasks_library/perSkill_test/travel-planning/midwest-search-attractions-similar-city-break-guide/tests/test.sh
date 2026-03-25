@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -u
+
+mkdir -p /logs/verifier
+
+pytest /tests/test_outputs.py -q
+status=$?
+
+if [ "$status" -eq 0 ]; then
+  echo 1 > /logs/verifier/reward.txt
+else
+  echo 0 > /logs/verifier/reward.txt
+fi
+
+if [ -f /app/output/city_break_guide.json ]; then
+  cp /app/output/city_break_guide.json /logs/verifier/city_break_guide.json
+fi
+
+exit "$status"

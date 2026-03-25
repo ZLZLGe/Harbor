@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "debate-multimodal-fusion-transfer-podium-map",
+  "taskRole": "transfer",
+  "title": "Transfer: Debate Podium Speaker Map",
+  "goal": "处理一段辩论或发布会视频，输出`/root/podium_speaking_times.csv`，把语音片段归因到`left_podium`、`center_podium`、`right_podium`等固定视觉位置，并统计各位置的总发言时长与发言次数。验证重点是空间位置归因和聚合统计的正确性。",
+  "primaryOutputFile": "/root/podium_speaking_times.csv",
+  "difficulty": "hard",
+  "category": "audio-visual",
+  "skillBenefitRationale": "这里把 skill 迁移到固定空间槽位映射问题：不仅要做音频侧分离，还要利用人物位置和嘴动，把说话簇稳定绑定到画面中的具体讲台位置。",
+  "targetSkillDirName": "multimodal-fusion",
+  "targetSkillName": "Multimodal Fusion for Speaker Diarization"
+}

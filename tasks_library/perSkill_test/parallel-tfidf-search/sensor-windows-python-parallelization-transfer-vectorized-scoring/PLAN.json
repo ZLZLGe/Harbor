@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "sensor-windows-python-parallelization-transfer-vectorized-scoring",
+  "taskRole": "transfer",
+  "title": "Transfer: Vectorized Sensor Window Scoring",
+  "goal": "重写顺序版传感器窗口异常打分程序：对大批量时间窗做滚动统计和异常分数计算，输出与基线数值一致或在容差内一致，并通过数据并行/vectorization 明显缩短运行时间。",
+  "primaryOutputFile": "/root/workspace/vectorized_scores.py",
+  "difficulty": "medium",
+  "category": "Parallelization",
+  "skillBenefitRationale": "这道题使用 python-parallelization 的数据并行分支，把低效的 Python 循环迁移为 NumPy 向量化或按块并行计算；关键能力仍是识别可并行的数据形态并安全保持数值结果。",
+  "targetSkillDirName": "python-parallelization",
+  "targetSkillName": "python-parallelization"
+}

@@ -1,0 +1,79 @@
+{
+  "sourceTaskId": "glm-lake-mendota",
+  "targetSkillDirName": "glm-calibration",
+  "targetSkillName": "glm-calibration",
+  "runId": "20260325014622-glm-lake-mendota-glm-calibration-jf63hi",
+  "taskId": "stratification-glm-calibration-transfer-phenology-window",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/glm-lake-mendota/glm-calibration/20260325014622-glm-lake-mendota-glm-calibration-jf63hi/stratification-glm-calibration-transfer-phenology-window",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325014622-glm-lake-mendota-glm-calibration-jf63hi/glm-lake-mendota/drafts/stratification-glm-calibration-transfer-phenology-window",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/glm-lake-mendota/glm-calibration/20260325014622-glm-lake-mendota-glm-calibration-jf63hi/stratification-glm-calibration-transfer-phenology-window",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/glm-lake-mendota/stratification-glm-calibration-transfer-phenology-window",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "tests/test_outputs.py 额外校验了 /root/output/seasonal_profiles.csv 的精确深度网格 EXPECTED_DEPTHS，但 instruction.md 只要求覆盖日期窗口，没有把该深度层设置列为输出契约；这属于隐藏实现细节，命中 Harbor testability 问题。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "environment/diagnostics/stratification_phenology_report.json",
+    "environment/glm3.nml",
+    "environment/output/seasonal_profiles.csv",
+    "instruction.md",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py",
+    "tmp_eval/glm3.nml",
+    "tmp_eval/inputs/observed_stratification_profiles.csv",
+    "tmp_eval/inputs/seasonal_forcing.csv",
+    "tmp_eval2/glm3.nml",
+    "tmp_eval2/inputs/observed_stratification_profiles.csv",
+    "tmp_eval2/inputs/seasonal_forcing.csv",
+    "tmp_eval3/glm3.nml",
+    "tmp_eval3/inputs/observed_stratification_profiles.csv",
+    "tmp_eval3/inputs/seasonal_forcing.csv",
+    "tmp_eval3/output/seasonal_profiles.csv"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "环境预置了最终校准后的 `/root/glm3.nml`、`/root/output/seasonal_profiles.csv` 和 `/root/diagnostics/stratification_phenology_report.json`，直接泄露答案并使任务无需实际完成校准。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d247f-cd26-7af3-9524-da460b0a6316",
+      "repairSummary": "移除了 tests/test_outputs.py 中对 seasonal_profiles.csv 精确深度网格的隐藏断言，只保留 instruction.md 已明确要求的日期窗口校验，并手动执行测试函数验证通过。",
+      "reviewThreadId": "019d2483-b1ba-71b1-99eb-c8afc0c4b818",
+      "reviewerIssues": [
+        "环境预置了最终校准后的 `/root/glm3.nml`、`/root/output/seasonal_profiles.csv` 和 `/root/diagnostics/stratification_phenology_report.json`，直接泄露答案并使任务无需实际完成校准。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [
+        "instruction.md 的示例 JSON 直接泄露了关键目标答案，包括 onset、breakdown 和 matched_profile_count 等结果。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2484-74b8-78c0-a65e-fd289ad0f0ec",
+      "repairSummary": "重置了环境中的初始 glm 参数为未校准状态，并删除预置的最终模型输出与诊断报告，避免直接泄露答案；同时验证了解题脚本在干净任务根目录下仍可生成通过测试的结果。",
+      "reviewThreadId": "019d2488-f1ef-76f0-827c-8f3d943ba607",
+      "reviewerIssues": [
+        "instruction.md 的示例 JSON 直接泄露了关键目标答案，包括 onset、breakdown 和 matched_profile_count 等结果。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 3,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d248a-1bf5-7472-8fdd-3f602592a012",
+      "repairSummary": "移除了 instruction.md 示例 JSON 中直接泄露答案的 onset、breakdown、matched_profile_count 等具体结果，改为仅展示字段结构并明确说明示例值不是正确答案。",
+      "reviewThreadId": "019d248b-509f-7982-ab00-e52fe5e16bab",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

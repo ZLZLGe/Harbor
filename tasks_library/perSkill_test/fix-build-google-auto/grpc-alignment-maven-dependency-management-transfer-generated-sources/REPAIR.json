@@ -1,0 +1,53 @@
+{
+  "sourceTaskId": "fix-build-google-auto",
+  "targetSkillDirName": "maven-dependency-management",
+  "targetSkillName": "maven-dependency-management",
+  "runId": "20260325010621-fix-build-google-auto-maven-dependency-management-ifjqif",
+  "taskId": "grpc-alignment-maven-dependency-management-transfer-generated-sources",
+  "sourceInputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors/fix-build-google-auto/maven-dependency-management/20260325010621-fix-build-google-auto-maven-dependency-management-ifjqif/grpc-alignment-maven-dependency-management-transfer-generated-sources",
+  "sourceScratchDraftPath": "/home/levi/Harbor/codex_task_builder_runs/scratch/20260325010621-fix-build-google-auto-maven-dependency-management-ifjqif/fix-build-google-auto/drafts/grpc-alignment-maven-dependency-management-transfer-generated-sources",
+  "candidatePath": "/tmp/harbor_review_errors_fixed_candidates/fix-build-google-auto/maven-dependency-management/20260325010621-fix-build-google-auto-maven-dependency-management-ifjqif/grpc-alignment-maven-dependency-management-transfer-generated-sources",
+  "outputPath": "/home/levi/Harbor/tasks_library/perSkill_unpublished_20260325_scratch_slice/review_errors_FIXED/pass/fix-build-google-auto/grpc-alignment-maven-dependency-management-transfer-generated-sources",
+  "status": "pass",
+  "originalReviewerIssues": [
+    "solution/solve.sh 直接用 here-doc 覆盖写出完整的 `/workspace/grpc-gateway/pom.xml` 标准答案，属于暴露完整答案而不是基于输入资产求解，存在答案泄露。; testabilityPass=false"
+  ],
+  "originalStaticIssues": [
+    "writer 返回的 primaryOutputFile 与 blueprint 不一致"
+  ],
+  "finalReviewerIssues": [],
+  "finalStaticIssues": [],
+  "changedFiles": [
+    "solution/solve.sh",
+    "tests/__pycache__/test_outputs.cpython-312.pyc",
+    "tests/test_outputs.py"
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "requestedReviewerIssues": [
+        "instruction.md 明确要求不要改项目坐标，但现有 tests 未校验该约束，导致任务要求与判题标准不完全一致。; testabilityPass=false"
+      ],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d2478-fea9-7643-98f8-094a6be9f82d",
+      "repairSummary": "将 solution/solve.sh 改为基于现有 pom.xml 的增量 XML 修改脚本，按任务要求添加集中版本管理、移除显式版本并补齐 protobuf 排除项，消除整文件覆盖式答案泄露。",
+      "reviewThreadId": "019d247d-15a8-7680-8ee8-34e1ab251e2d",
+      "reviewerIssues": [
+        "instruction.md 明确要求不要改项目坐标，但现有 tests 未校验该约束，导致任务要求与判题标准不完全一致。; testabilityPass=false"
+      ],
+      "staticIssues": [],
+      "pass": false
+    },
+    {
+      "attempt": 2,
+      "requestedReviewerIssues": [],
+      "requestedStaticIssues": [],
+      "repairThreadId": "019d247f-665f-7840-afdc-99fe2e5e5fb5",
+      "repairSummary": "补充了判题测试，新增对 Maven 项目坐标（groupId、artifactId、version）保持不变的校验，使 instruction.md 中“不要改项目坐标”的约束与 tests 一致。",
+      "reviewThreadId": "019d2480-a108-7c93-be2e-2107068ec79d",
+      "reviewerIssues": [],
+      "staticIssues": [],
+      "pass": true
+    }
+  ]
+}

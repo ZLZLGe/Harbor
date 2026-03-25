@@ -1,0 +1,81 @@
+{
+  "windows": [
+    {
+      "window_id": "w01",
+      "start_sec": 0.0,
+      "end_sec": 1.2,
+      "audio_side_active": "left",
+      "audio_speaker_role": "agent"
+    },
+    {
+      "window_id": "w02",
+      "start_sec": 1.2,
+      "end_sec": 2.1,
+      "audio_side_active": "left",
+      "audio_speaker_role": "agent"
+    },
+    {
+      "window_id": "w03",
+      "start_sec": 2.1,
+      "end_sec": 3.0,
+      "audio_side_active": "left",
+      "audio_speaker_role": "agent"
+    },
+    {
+      "window_id": "w04",
+      "start_sec": 3.0,
+      "end_sec": 3.9,
+      "audio_side_active": "right",
+      "audio_speaker_role": "customer"
+    },
+    {
+      "window_id": "w05",
+      "start_sec": 3.9,
+      "end_sec": 4.7,
+      "audio_side_active": "right",
+      "audio_speaker_role": "customer"
+    },
+    {
+      "window_id": "w06",
+      "start_sec": 4.82,
+      "end_sec": 5.5,
+      "audio_side_active": "right",
+      "audio_speaker_role": "customer"
+    },
+    {
+      "window_id": "w07",
+      "start_sec": 5.5,
+      "end_sec": 6.2,
+      "audio_side_active": "left",
+      "audio_speaker_role": "customer"
+    },
+    {
+      "window_id": "w08",
+      "start_sec": 6.2,
+      "end_sec": 6.9,
+      "audio_side_active": "left",
+      "audio_speaker_role": "customer"
+    },
+    {
+      "window_id": "w09",
+      "start_sec": 6.9,
+      "end_sec": 7.8,
+      "audio_side_active": "right",
+      "audio_speaker_role": "customer"
+    },
+    {
+      "window_id": "w10",
+      "start_sec": 7.8,
+      "end_sec": 8.6,
+      "audio_side_active": "left",
+      "audio_speaker_role": "agent"
+    },
+    {
+      "window_id": "w11",
+      "start_sec": 8.6,
+      "end_sec": 9.4,
+      "audio_side_active": "right",
+      "audio_speaker_role": "customer"
+    }
+  ]
+}

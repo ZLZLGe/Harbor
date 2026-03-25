@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "retail-shelf-gpt-multimodal-transfer-restock-audit",
+  "taskRole": "transfer",
+  "title": "Transfer: Retail Shelf Restock Audit",
+  "goal": "给定一组便利店货架照片和目标陈列清单，识别每张照片中各指定商品的可见陈列面数，判断缺货或少摆情况，并输出 CSV 审核表。",
+  "primaryOutputFile": "/app/output/shelf_audit.csv",
+  "difficulty": "medium",
+  "category": "retail shelf auditing",
+  "skillBenefitRationale": "任务依赖对静态图像中的商品外观、货架位置和重复陈列面的视觉识别与计数，再映射到指定表结构；关键能力完全来自多模态图像理解。",
+  "targetSkillDirName": "gpt-multimodal",
+  "targetSkillName": "gpt-multimodal"
+}

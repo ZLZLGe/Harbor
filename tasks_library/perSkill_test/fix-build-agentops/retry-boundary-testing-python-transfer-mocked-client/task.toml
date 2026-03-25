@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "retry-boundary-testing-python-transfer-mocked-client"
+name = "Transfer | 用边界 Mock 验证第三方客户端重试语义"
+description = "为一个封装第三方计费客户端的模块补写 pytest 边界 mock 测试，并输出重试语义审计摘要。"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "easy"
+category = "Integration Reliability"
+tags = ["Python", "pytest", "mocking", "retry", "idempotency"]
+primary_output_file = "reports/mock_retry_audit.txt"
+source_task_id = "fix-build-agentops"
+task_role = "transfer"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0
+
+[agent]
+timeout_sec = 300.0
+
+[verifier]
+timeout_sec = 300.0
