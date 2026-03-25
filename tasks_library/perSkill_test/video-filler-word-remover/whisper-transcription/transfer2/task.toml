@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Support Call Disfluency Window Report"
+description = "Compute filler-density metrics across fixed 30-second windows from support transcript words."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "media-processing"
+tags = ["transcription", "windowed-analysis", "filler-words", "json"]
+primary_output_file = "/root/transfer2_window_report.json"
+source_task_id = "video-filler-word-remover"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,11 @@
+{
+  "source_task_id": "scheduling-email-assistant",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Interview Availability Constraint Matrix",
+  "goal": "Read the bundled candidate availability sheet and save a normalized interview-constraint matrix.",
+  "primaryOutputFile": "/root/transfer2_interview_constraints.json",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "The task moves the same natural-language constraint extraction skill into interview coordination notes stored in a CSV roster."
+}

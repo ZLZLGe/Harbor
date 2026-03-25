@@ -1,0 +1,4 @@
+scenario_id,dataset_size,gpu_available,torch2_available,io_bound,sample_rate_mismatch
+regional_backfill,large,yes,yes,no,yes
+field_triage,small,no,yes,yes,no
+nodal_replay,large,no,no,yes,yes

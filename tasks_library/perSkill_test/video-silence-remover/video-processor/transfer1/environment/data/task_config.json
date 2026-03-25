@@ -1,0 +1,9 @@
+{
+  "input_video": "/root/data/input.mp4",
+  "remove_segments": [
+    "/root/data/remove_segments.json"
+  ],
+  "output_video": "/root/compliance_trimmed.mp4",
+  "summary_json": "/root/compliance_trim_summary.json",
+  "report_json": "/root/compliance_trimmed_report.json"
+}

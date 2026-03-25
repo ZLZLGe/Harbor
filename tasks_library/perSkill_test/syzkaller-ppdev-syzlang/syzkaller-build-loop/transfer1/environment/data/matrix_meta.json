@@ -1,0 +1,13 @@
+{
+  "target_file": "/opt/syzkaller/sys/linux/dev_ppdev_matrix.txt",
+  "matrix_output": "/root/transfer1_ppdev_signature_matrix.tsv",
+  "includes": [
+    "linux/ppdev.h"
+  ],
+  "resource": "resource fd_ppdev[fd]",
+  "open_dev": "syz_open_dev$ppdev_matrix(dev ptr[in, string[\"/dev/parport#\"]], id intptr, flags flags[open_flags]) fd_ppdev",
+  "commands_run": [
+    "cd /opt/syzkaller && make descriptions",
+    "cd /opt/syzkaller && make all TARGETOS=linux TARGETARCH=amd64"
+  ]
+}

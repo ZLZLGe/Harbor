@@ -1,0 +1,14 @@
+[
+  {"sa2_code": 1001, "sa2_name": "Riverbend East", "state": "NSW", "population_2024": 128400, "earners": 56200, "median_income": 51000},
+  {"sa2_code": 1002, "sa2_name": "Harbor Point", "state": "NSW", "population_2024": 96400, "earners": 44150, "median_income": 68000},
+  {"sa2_code": 1003, "sa2_name": "Cedar Plains", "state": "NSW", "population_2024": 73250, "earners": 31840, "median_income": 59000},
+  {"sa2_code": 2001, "sa2_name": "Tramway North", "state": "VIC", "population_2024": 143200, "earners": 66510, "median_income": 72000},
+  {"sa2_code": 2002, "sa2_name": "Orchard Vale", "state": "VIC", "population_2024": 88750, "earners": 40120, "median_income": 54000},
+  {"sa2_code": 2003, "sa2_name": "Glassford", "state": "VIC", "population_2024": 55200, "earners": 24780, "median_income": 47000},
+  {"sa2_code": 3001, "sa2_name": "Coral Reach", "state": "QLD", "population_2024": 121900, "earners": 53110, "median_income": 61000},
+  {"sa2_code": 3002, "sa2_name": "Rangeview", "state": "QLD", "population_2024": 68400, "earners": 28990, "median_income": 45000},
+  {"sa2_code": 3003, "sa2_name": "Sunridge", "state": "QLD", "population_2024": 93150, "earners": 41230, "median_income": 76000},
+  {"sa2_code": 4001, "sa2_name": "Ironbark", "state": "SA", "population_2024": 60280, "earners": 26110, "median_income": 43000},
+  {"sa2_code": 4002, "sa2_name": "Windermere", "state": "SA", "population_2024": 78420, "earners": 35240, "median_income": 52000},
+  {"sa2_code": 4003, "sa2_name": "Mallee Gate", "state": "SA", "population_2024": 49750, "earners": 21980, "median_income": 39000}
+]

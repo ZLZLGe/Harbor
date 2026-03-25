@@ -1,0 +1,6 @@
+[
+  {"campaign_id": "aftershock_dense", "waveforms_requested": 1200, "station_count": 18, "geographic_scope": "regional", "need_station_metadata": true},
+  {"campaign_id": "local_recheck", "waveforms_requested": 40, "station_count": 4, "geographic_scope": "single-network", "need_station_metadata": false},
+  {"campaign_id": "portable_array", "waveforms_requested": 180, "station_count": 24, "geographic_scope": "single-network", "need_station_metadata": true},
+  {"campaign_id": "continental_mix", "waveforms_requested": 220, "station_count": 12, "geographic_scope": "multi-region", "need_station_metadata": true}
+]

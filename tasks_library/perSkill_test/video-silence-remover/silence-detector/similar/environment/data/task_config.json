@@ -1,0 +1,8 @@
+{
+  "input_energies": "/root/data/lecture_energies.json",
+  "output_json": "/root/lecture_silence.json",
+  "summary_json": "/root/lecture_silence_summary.json",
+  "threshold_multiplier": 1.8,
+  "initial_window": 4,
+  "smoothing_window": 3
+}

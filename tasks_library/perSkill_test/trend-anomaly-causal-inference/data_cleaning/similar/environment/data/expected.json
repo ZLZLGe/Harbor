@@ -1,0 +1,41 @@
+{
+  "row_count": 6,
+  "required_non_null": [
+    "respondent_id",
+    "order_date",
+    "category",
+    "household_size"
+  ],
+  "unique_subset": [
+    "respondent_id",
+    "order_date",
+    "category",
+    "spend"
+  ],
+  "numeric_columns": [
+    "household_size",
+    "spend"
+  ],
+  "max_values": {
+    "spend": 600
+  },
+  "min_values": {
+    "household_size": 1
+  },
+  "value_checks": [
+    {
+      "match": {
+        "respondent_id": "R005"
+      },
+      "column": "contact_email",
+      "value": "eve@example.com"
+    },
+    {
+      "match": {
+        "respondent_id": "R007"
+      },
+      "column": "region",
+      "value": "South"
+    }
+  ]
+}

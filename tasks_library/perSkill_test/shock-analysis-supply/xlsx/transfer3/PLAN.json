@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Grid Loss Upgrade Model",
+  "goal": "Restore the grid upgrade workbook so it projects billed energy, annual savings, and cumulative net benefit with formulas.",
+  "primaryOutputFile": "/root/energy_transfer_completed.xlsx",
+  "skillScope": "xlsx"
+}

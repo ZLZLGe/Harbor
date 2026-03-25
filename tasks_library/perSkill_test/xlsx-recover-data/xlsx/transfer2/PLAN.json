@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Share Allocation Audit",
+  "goal": "Recover allocation and growth-linked placeholders in a worksheet audit package.",
+  "primaryOutputFile": "/root/shares_transfer_recovered.xlsx",
+  "skillScope": "xlsx"
+}

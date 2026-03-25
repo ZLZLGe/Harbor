@@ -1,0 +1,77 @@
+{
+  "target_file": "/opt/syzkaller/sys/linux/dev_ppdev.txt",
+  "summary_file": "/root/similar_ppdev_build_summary.json",
+  "includes": [
+    "linux/ppdev.h",
+    "linux/parport.h"
+  ],
+  "resource": "resource fd_ppdev[fd]",
+  "open_dev": "syz_open_dev$ppdev(dev ptr[in, string[\"/dev/parport#\"]], id intptr, flags flags[open_flags]) fd_ppdev",
+  "ioctls": [
+    {"name": "PPCLAIM", "direction": "none", "type": null},
+    {"name": "PPRELEASE", "direction": "none", "type": null},
+    {"name": "PPYIELD", "direction": "none", "type": null},
+    {"name": "PPEXCL", "direction": "none", "type": null},
+    {"name": "PPSETMODE", "direction": "in", "type": "int32"},
+    {"name": "PPGETMODE", "direction": "out", "type": "int32"},
+    {"name": "PPGETMODES", "direction": "out", "type": "int32"},
+    {"name": "PPNEGOT", "direction": "in", "type": "flags[ieee1284_modes, int32]"},
+    {"name": "PPRDATA", "direction": "out", "type": "int8"},
+    {"name": "PPWDATA", "direction": "in", "type": "int8"},
+    {"name": "PPDATADIR", "direction": "in", "type": "int32"},
+    {"name": "PPRSTATUS", "direction": "out", "type": "int8"},
+    {"name": "PPRCONTROL", "direction": "out", "type": "int8"},
+    {"name": "PPWCONTROL", "direction": "in", "type": "int8"},
+    {"name": "PPFCONTROL", "direction": "in", "type": "ppdev_frob_struct"},
+    {"name": "PPWCTLONIRQ", "direction": "in", "type": "int8"},
+    {"name": "PPCLRIRQ", "direction": "out", "type": "int32"},
+    {"name": "PPGETTIME", "direction": "out", "type": "timeval"},
+    {"name": "PPSETTIME", "direction": "in", "type": "timeval"},
+    {"name": "PPGETFLAGS", "direction": "out", "type": "int32"},
+    {"name": "PPSETFLAGS", "direction": "in", "type": "flags[ppdev_flags, int32]"},
+    {"name": "PPGETPHASE", "direction": "out", "type": "int32"},
+    {"name": "PPSETPHASE", "direction": "in", "type": "int32"}
+  ],
+  "structs": [
+    {
+      "name": "ppdev_frob_struct",
+      "fields": [
+        {"name": "mask", "type": "int8"},
+        {"name": "val", "type": "int8"}
+      ]
+    }
+  ],
+  "flag_sets": [
+    {
+      "name": "ieee1284_modes",
+      "members": [
+        "IEEE1284_MODE_NIBBLE",
+        "IEEE1284_MODE_BYTE",
+        "IEEE1284_MODE_COMPAT",
+        "IEEE1284_MODE_BECP",
+        "IEEE1284_MODE_ECP",
+        "IEEE1284_MODE_ECPRLE",
+        "IEEE1284_MODE_ECPSWE",
+        "IEEE1284_MODE_EPP",
+        "IEEE1284_MODE_EPPSL",
+        "IEEE1284_MODE_EPPSWE",
+        "IEEE1284_DEVICEID",
+        "IEEE1284_EXT_LINK",
+        "IEEE1284_ADDR",
+        "IEEE1284_DATA"
+      ]
+    },
+    {
+      "name": "ppdev_flags",
+      "members": [
+        "PP_FASTWRITE",
+        "PP_FASTREAD",
+        "PP_W91284PIC"
+      ]
+    }
+  ],
+  "commands_run": [
+    "cd /opt/syzkaller && make descriptions",
+    "cd /opt/syzkaller && make all TARGETOS=linux TARGETARCH=amd64"
+  ]
+}

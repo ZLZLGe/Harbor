@@ -1,0 +1,5 @@
+case_id,preferred_method
+alpha,sta_lta
+beta,deep_learning
+gamma,template_matching
+delta,manual

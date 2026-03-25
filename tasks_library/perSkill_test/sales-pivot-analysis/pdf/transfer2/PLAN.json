@@ -1,0 +1,11 @@
+{
+  "sourceTaskId": "sales-pivot-analysis",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Clinic Capacity Risk Flags",
+  "goal": "Extract clinic scheduling rows from a multi-page PDF packet and produce district capacity and risk flags as JSON.",
+  "primaryOutputFile": "/root/transfer2_capacity_flags.json",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "The task depends on accurate extraction of repeated PDF tables before utilization and watchlist calculations can be computed."
+}

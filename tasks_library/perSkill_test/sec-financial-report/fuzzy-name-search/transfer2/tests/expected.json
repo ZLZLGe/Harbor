@@ -1,0 +1,22 @@
+[
+  {
+    "alias": "palantir techologies",
+    "issuer_name": "palantir technologies inc",
+    "cusip": "69608A108"
+  },
+  {
+    "alias": "micro stratagy",
+    "issuer_name": "microstrategy incorporated",
+    "cusip": "594972408"
+  },
+  {
+    "alias": "snow flake",
+    "issuer_name": "snowflake inc",
+    "cusip": "833445109"
+  },
+  {
+    "alias": "sirius ex em",
+    "issuer_name": "sirius xm holdings inc",
+    "cusip": "82968B103"
+  }
+]

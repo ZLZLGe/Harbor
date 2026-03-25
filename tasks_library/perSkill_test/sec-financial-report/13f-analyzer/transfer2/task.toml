@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Crowding Watchlist Leaders"
+description = "Report the top q3 holder for each watchlist CUSIP using the 13F holding analyzer."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "finance"
+tags = ["finance", "skillsbench", "sec-financial-report", "13f-analyzer", "transfer"]
+primary_output_file = "/root/q3_crowding_watchlist.csv"
+source_task_id = "sec-financial-report"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

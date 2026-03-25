@@ -1,0 +1,11 @@
+{
+  "source_task_id": "scheduling-email-assistant",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Meeting Request Constraint Digest",
+  "goal": "Read the bundled meeting requests and save a normalized summary of each sender's scheduling constraints.",
+  "primaryOutputFile": "/root/similar_constraints_digest.json",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "The task stays close to the source task by requiring extraction of durations, date choices, allowed windows, and explicit exceptions from natural-language scheduling emails."
+}

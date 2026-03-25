@@ -1,0 +1,30 @@
+{
+  "row_count": 8,
+  "required_columns": [
+    "auto_reload",
+    "fare_type_Standard",
+    "fare_type_Student",
+    "home_zone_North",
+    "home_zone_South",
+    "avg_trip_minutes_x_monthly_trips"
+  ],
+  "removed_columns": [
+    "fare_type",
+    "home_zone",
+    "survey_wave"
+  ],
+  "binary_columns": [
+    "auto_reload"
+  ],
+  "minmax_columns": [
+    "avg_trip_minutes",
+    "monthly_trips"
+  ],
+  "value_checks": [
+    {
+      "id": "R-308",
+      "column": "fare_type_Student",
+      "value": 1
+    }
+  ]
+}

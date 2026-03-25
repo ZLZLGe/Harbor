@@ -1,0 +1,6 @@
+{
+  "repo_root": "/root/quota_lang",
+  "primary_output_file": "/root/quota_lang/fuzz.py",
+  "fuzz_log_file": "/root/quota_lang/fuzz.log",
+  "target_symbol": "parse_program"
+}

@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Interview Availability Constraint Matrix"
+description = "Normalize bundled interview availability notes into a machine-checkable JSON matrix."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "Scheduling"
+tags = ["scheduling", "interview", "constraints", "csv"]
+primary_output_file = "/root/transfer2_interview_constraints.json"
+source_task_id = "scheduling-email-assistant"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

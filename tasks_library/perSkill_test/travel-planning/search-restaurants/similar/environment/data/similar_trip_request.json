@@ -1,0 +1,33 @@
+{
+  "trip_name": "Ohio tasting route",
+  "stops": [
+    {
+      "slot": "day1_dinner",
+      "city": "Columbus",
+      "requested_cuisine": "Mediterranean",
+      "max_average_cost": 30,
+      "min_aggregate_rating": 4.0
+    },
+    {
+      "slot": "day2_lunch",
+      "city": "Cleveland",
+      "requested_cuisine": "Chinese",
+      "max_average_cost": 30,
+      "min_aggregate_rating": 3.0
+    },
+    {
+      "slot": "day3_dinner",
+      "city": "Cincinnati",
+      "requested_cuisine": "Italian",
+      "max_average_cost": 25,
+      "min_aggregate_rating": 3.0
+    },
+    {
+      "slot": "day4_brunch",
+      "city": "Dayton",
+      "requested_cuisine": "American",
+      "max_average_cost": 20,
+      "min_aggregate_rating": 4.5
+    }
+  ]
+}

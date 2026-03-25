@@ -1,0 +1,6 @@
+{
+  "repo_root": "/root/coupon_yaml",
+  "primary_output_file": "/root/coupon_yaml/fuzz.py",
+  "fuzz_log_file": "/root/coupon_yaml/fuzz.log",
+  "target_symbol": "parse_coupon_note"
+}

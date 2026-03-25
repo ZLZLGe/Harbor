@@ -1,0 +1,27 @@
+{
+  "text_file": "sys/linux/dev_capring.txt",
+  "const_file": "sys/linux/dev_capring.txt.const",
+  "arch_line": "arches = amd64, 386",
+  "required_regexes": [
+    {
+      "pattern": "resource\\s+fd_capring\\s*\\[\\s*fd\\s*\\]",
+      "message": "resource must be fd_capring"
+    },
+    {
+      "pattern": "syz_open_dev\\$capring\\s*\\([^\\n]*\\)\\s+fd_capring",
+      "message": "opener must return fd_capring"
+    },
+    {
+      "pattern": "read\\$capring\\s*\\([^\\n]*ptr\\s*\\[\\s*out\\s*,\\s*array\\[int8,\\s*64\\]\\s*\\]",
+      "message": "read$capring direction is wrong"
+    },
+    {
+      "pattern": "write\\$capring\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*array\\[int8,\\s*64\\]\\s*\\]",
+      "message": "write$capring direction is wrong"
+    }
+  ],
+  "constants": {
+    "CAPRING_GET_SLOT": 2147771185,
+    "CAPRING_ENABLE_TRACE": 25395
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "input_segments": [
+    "/root/data/setup.json",
+    "/root/data/quiet_spans.json",
+    "/root/data/wrap.json"
+  ],
+  "output_json": "/root/qa_all_segments.json",
+  "summary_json": "/root/qa_segment_summary.json"
+}

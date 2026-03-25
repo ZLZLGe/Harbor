@@ -1,0 +1,32 @@
+[
+  {
+    "id": "comp-4001",
+    "threadId": "thr-4001",
+    "from": "tradeops@northline.example.com",
+    "to": "opsdesk@example.com",
+    "subject": "Export packet missing attachment",
+    "date": "2026-04-01T08:00:00Z",
+    "labels": ["INBOX", "UNREAD"],
+    "body": "The signed shipment packet is missing the export certificate attachment. We cannot release the container until compliance confirms the document set."
+  },
+  {
+    "id": "comp-4002",
+    "threadId": "thr-4002",
+    "from": "accountlead@bayshore.example.com",
+    "to": "opsdesk@example.com",
+    "subject": "Request for pricing exception",
+    "date": "2026-04-01T09:00:00Z",
+    "labels": ["INBOX", "UNREAD"],
+    "body": "The counterparty is asking for a pricing exception outside the approved rate card. They want written approval before noon."
+  },
+  {
+    "id": "comp-4003",
+    "threadId": "thr-4003",
+    "from": "vendorcare@weekendhaul.example.com",
+    "to": "opsdesk@example.com",
+    "subject": "Weekend loading request",
+    "date": "2026-04-01T10:00:00Z",
+    "labels": ["INBOX", "UNREAD"],
+    "body": "The vendor asked for weekend loading on Saturday morning without the required insurance rider. Please confirm whether we should reject the booking."
+  }
+]

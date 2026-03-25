@@ -1,0 +1,8 @@
+{
+  "input_audio": "/root/data/briefing_block.wav",
+  "output_json": "/root/briefing_energy.json",
+  "summary_json": "/root/briefing_energy_summary.json",
+  "window_seconds": 2.0,
+  "activity_threshold": 4200.0,
+  "expected_window_count": 5
+}

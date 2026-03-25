@@ -1,0 +1,6 @@
+{
+  "repo_root": "/root/wiretoken",
+  "primary_output_file": "/root/wiretoken/fuzz.py",
+  "fuzz_log_file": "/root/wiretoken/fuzz.log",
+  "target_symbol": "parse_frame"
+}

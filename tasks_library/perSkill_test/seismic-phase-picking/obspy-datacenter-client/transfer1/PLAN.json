@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "seismic-phase-picking",
+  "targetSkill": "obspy-datacenter-client",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Station Channel Availability Audit",
+  "goal": "Retrieve channel metadata from a bundled inventory mirror and assemble a station-channel audit table.",
+  "primaryOutputFile": "/root/transfer1_station_channel_audit.csv",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "This task is easiest when the obspy-datacenter-client skill is applied correctly."
+}

@@ -1,0 +1,11 @@
+{
+  "source_task_id": "scheduling-email-assistant",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Compliance Escalation Mail Pack",
+  "goal": "Read bundled contract-exception emails, send escalation messages to compliance, and save a log of the sent message ids.",
+  "primaryOutputFile": "/root/transfer3_escalation_log.json",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "The task transfers the Gmail skill into escalation handling by requiring local reads and outbound messages to a third-party compliance address."
+}

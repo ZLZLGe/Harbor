@@ -1,0 +1,11 @@
+{
+  "input_video": "/root/data/input_video.mp4",
+  "output_wav": "/root/lecture_audio.wav",
+  "summary_json": "/root/lecture_audio_manifest.json",
+  "sample_rate": 16000,
+  "duration_limit": null,
+  "expected_channels": 1,
+  "expected_sample_width": 2,
+  "duration_min": 540.0,
+  "duration_max": 660.0
+}

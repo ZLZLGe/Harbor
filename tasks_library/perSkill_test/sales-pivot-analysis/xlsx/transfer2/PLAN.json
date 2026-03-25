@@ -1,0 +1,13 @@
+{
+  "sourceTaskId": "sales-pivot-analysis",
+  "skillMode": "per-skill",
+  "targetSkill": "xlsx",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer 2 - Retail Margin Pack Workbook",
+  "goal": "Create a retail margin workbook with revenue calculations and four pivot tables covering orders, promo spend, and net revenue by territory, format, and return band.",
+  "primaryOutputFile": "/root/retail_margin_pack.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "The task relies on spreadsheet calculations plus several pivot tables over a scenario-shifted operational dataset."
+}

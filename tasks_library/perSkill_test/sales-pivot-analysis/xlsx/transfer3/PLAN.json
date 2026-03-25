@@ -1,0 +1,13 @@
+{
+  "sourceTaskId": "sales-pivot-analysis",
+  "skillMode": "per-skill",
+  "targetSkill": "xlsx",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer 3 - Training Grant Dashboard Workbook",
+  "goal": "Create a training grant workbook with completion and spend calculations plus four pivot tables summarizing participants, completions, and grant spend by region, track, and completion band.",
+  "primaryOutputFile": "/root/training_grant_dashboard.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "The task requires spreadsheet enrichment and multiple pivot summaries over a recontextualized planning dataset."
+}

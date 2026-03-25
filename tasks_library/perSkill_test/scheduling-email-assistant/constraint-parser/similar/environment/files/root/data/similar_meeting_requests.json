@@ -1,0 +1,20 @@
+[
+  {
+    "request_id": "roadmap-review",
+    "from_email": "maya.chen@example.com",
+    "subject": "Roadmap review next week",
+    "body": "Hi team,\n\nCan we line up a roadmap review next week?\nDuration: 1.0 hour\nPreferred windows:\n- Available: Monday, April 06, 2026 from 09:00 AM to 11:30 AM\n- Available: Tuesday, April 07, 2026 from 01:00 PM to 03:00 PM\n- Avoid: Monday, April 06, 2026 from 10:00 AM to 10:30 AM\n\nThanks,\nMaya\n"
+  },
+  {
+    "request_id": "budget-checkin",
+    "from_email": "oliver.grant@example.net",
+    "subject": "Budget checkpoint",
+    "body": "Hello,\n\nI need a budget checkpoint before the board packet goes out.\nDuration: 0.5 hour\nCandidate times:\n- Available: Wednesday, April 08, 2026 from 02:00 PM to 04:00 PM\n- Avoid: Wednesday, April 08, 2026 from 03:00 PM to 03:30 PM\n- Available: Thursday, April 09, 2026 from 09:30 AM to 11:00 AM\n\nBest,\nOliver\n"
+  },
+  {
+    "request_id": "vendor-sync",
+    "from_email": "nina.patel@example.org",
+    "subject": "Vendor sync availability",
+    "body": "Hi,\n\nPlease slot a vendor sync while our integration lead is in town.\nDuration: 1.5 hours\nOpen slots:\n- Available: Friday, April 10, 2026 from 08:30 AM to 11:30 AM\n- Avoid: Friday, April 10, 2026 from 09:30 AM to 10:00 AM\n- Avoid: Friday, April 10, 2026 from 11:00 AM to 11:30 AM\n\nRegards,\nNina\n"
+  }
+]

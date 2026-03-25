@@ -1,0 +1,14 @@
+{
+  "segments": [
+    {
+      "start": 4,
+      "end": 6,
+      "duration": 2
+    },
+    {
+      "start": 10,
+      "end": 12,
+      "duration": 2
+    }
+  ]
+}

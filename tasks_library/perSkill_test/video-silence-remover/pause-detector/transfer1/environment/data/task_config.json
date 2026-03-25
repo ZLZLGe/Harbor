@@ -1,0 +1,9 @@
+{
+  "input_energies": "/root/data/call_energies.json",
+  "output_json": "/root/call_pauses.json",
+  "summary_json": "/root/call_pause_summary.json",
+  "start_time": 1,
+  "threshold_ratio": 0.6,
+  "min_duration": 2,
+  "window_size": 5
+}

@@ -1,0 +1,3 @@
+arches = amd64
+
+BPORT_QUERY_PORT = 1

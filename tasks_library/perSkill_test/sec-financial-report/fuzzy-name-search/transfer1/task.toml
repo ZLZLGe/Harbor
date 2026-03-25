@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Manager Alias Resolution Table"
+description = "Resolve a batch of misspelled 13F manager references into canonical filing manager metadata."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "finance"
+tags = ["finance", "skillsbench", "sec-financial-report", "fuzzy-name-search", "transfer"]
+primary_output_file = "/root/fund_resolution_table.csv"
+source_task_id = "sec-financial-report"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,55 @@
+{
+  "analysis_id": "transfer3-connection-screen-001",
+  "minimum_layover_minutes": 45,
+  "maximum_layover_minutes": 240,
+  "candidates": [
+    {
+      "connection_id": "CX1",
+      "travel_date": "2022-04-05",
+      "first_leg": {
+        "origin": "Boston",
+        "destination": "New York"
+      },
+      "second_leg": {
+        "origin": "New York",
+        "destination": "Chicago"
+      }
+    },
+    {
+      "connection_id": "CX2",
+      "travel_date": "2022-02-21",
+      "first_leg": {
+        "origin": "Boston",
+        "destination": "Washington"
+      },
+      "second_leg": {
+        "origin": "Washington",
+        "destination": "Chicago"
+      }
+    },
+    {
+      "connection_id": "CX3",
+      "travel_date": "2022-07-29",
+      "first_leg": {
+        "origin": "Atlanta",
+        "destination": "Washington"
+      },
+      "second_leg": {
+        "origin": "Washington",
+        "destination": "Boston"
+      }
+    },
+    {
+      "connection_id": "CX4",
+      "travel_date": "2022-05-25",
+      "first_leg": {
+        "origin": "Houston",
+        "destination": "Dallas"
+      },
+      "second_leg": {
+        "origin": "Dallas",
+        "destination": "New York"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "time_series_anomaly_detection",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Department Admission Anomaly Scan",
+  "goal": "Rank care departments by anomalous March admission volume shifts.",
+  "primaryOutputFile": "/root/transfer1_department_anomaly_index.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the time_series_anomaly_detection skill is applied correctly."
+}

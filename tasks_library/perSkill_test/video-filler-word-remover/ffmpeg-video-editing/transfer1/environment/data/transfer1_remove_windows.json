@@ -1,0 +1,6 @@
+[
+  {"reason": "crosstalk", "start": 14.0, "end": 16.4},
+  {"reason": "mic-bump", "start": 27.8, "end": 29.1},
+  {"reason": "off-topic", "start": 43.5, "end": 46.0},
+  {"reason": "door-noise", "start": 60.0, "end": 61.2}
+]

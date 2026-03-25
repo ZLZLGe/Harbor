@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "shock-analysis-demand",
+  "targetSkill": "xlsx",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Fleet Electrification Workbook",
+  "goal": "Complete a fleet electrification workbook that derives annual savings, charger needs, capex, and emissions reductions by route.",
+  "primaryOutputFile": "/root/fleet_electrification_transfer_completed.xlsx",
+  "difficulty": "medium",
+  "category": "transport-planning",
+  "skillBenefitRationale": "The task relies on spreadsheet formulas that tie route data, tariffs, and summary metrics together."
+}

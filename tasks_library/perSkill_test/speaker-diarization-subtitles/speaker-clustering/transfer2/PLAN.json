@@ -1,0 +1,14 @@
+{
+  "category": "audio-visual",
+  "derivedTaskId": "transfer2",
+  "difficulty": "medium",
+  "goal": "Group panel mic-check signatures into four speaker buckets and publish a JSON rollup by seat and segment id.",
+  "primaryOutputFile": "/root/output/transfer2_room_rollup.json",
+  "skillBenefitRationale": "This task depends on grouping segment-level voice signatures into stable speaker identities with only the shipped speaker-clustering skill available.",
+  "skillMode": "per-skill",
+  "sourceTaskId": "speaker-diarization-subtitles",
+  "targetSkillDirName": "speaker-clustering",
+  "targetSkillName": "Speaker Clustering Methods",
+  "taskRole": "transfer",
+  "title": "Transfer - Panel Mic Rollup"
+}

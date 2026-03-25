@@ -1,0 +1,46 @@
+{
+  "sourceTaskId": "virtualhome-agent-planning",
+  "familyTheme": "Single-skill PDDL planning transfer set covering airport dispatch, warehouse restocking, lab assay workflows, and drone survey routing.",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - Airport Taxiway Batch Dispatch",
+      "goal": "Generate valid PDDL plans for the bundled airport ground-traffic cases and summarize the resulting plan bundle in a JSON manifest.",
+      "primaryOutputFile": "/root/similar_airport_manifest.json",
+      "difficulty": "medium",
+      "category": "Research",
+      "skillBenefitRationale": "The task depends on loading PDDL domain/problem pairs, synthesizing classical plans, validating them, and exporting the plans in a reproducible batch workflow."
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Warehouse Restock Dispatch",
+      "goal": "Generate valid PDDL plans for the bundled warehouse restocking cases and summarize them in a dispatch CSV.",
+      "primaryOutputFile": "/root/transfer1_warehouse_dispatch.csv",
+      "difficulty": "medium",
+      "category": "Operations",
+      "skillBenefitRationale": "The task transfers the same PDDL loading, planning, validation, and plan-export workflow into a warehouse logistics setting with different assets and a CSV-style deliverable."
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Lab Assay Runbook",
+      "goal": "Generate valid PDDL plans for the bundled assay workflow cases and summarize them in a Markdown runbook.",
+      "primaryOutputFile": "/root/transfer2_lab_runbook.md",
+      "difficulty": "medium",
+      "category": "Science",
+      "skillBenefitRationale": "The task keeps the same planning workflow but transfers it to laboratory processing pipelines, where valid PDDL plans must be generated and summarized as a runbook instead of raw plan files alone."
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Drone Survey Digest",
+      "goal": "Generate valid PDDL plans for the bundled drone survey cases and summarize them in a plain-text digest.",
+      "primaryOutputFile": "/root/transfer3_survey_digest.txt",
+      "difficulty": "medium",
+      "category": "Field Operations",
+      "skillBenefitRationale": "The task transfers the same PDDL planning workflow into drone survey routing and capture operations, while changing both the domain assets and the required deliverable format."
+    }
+  ]
+}

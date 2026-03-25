@@ -1,0 +1,11 @@
+{
+  "source_task_id": "travel-planning",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Texas Training Hub Selection",
+  "goal": "Select four Texas training hubs from the bundled state lookup and save the result as a JSON rotation plan.",
+  "primaryOutputFile": "/root/transfer1_training_hubs.json",
+  "difficulty": "medium",
+  "category": "operations-planning",
+  "skillBenefitRationale": "The task requires enumerating real Texas cities from the bundled dataset before applying deterministic string-based hub rules."
+}

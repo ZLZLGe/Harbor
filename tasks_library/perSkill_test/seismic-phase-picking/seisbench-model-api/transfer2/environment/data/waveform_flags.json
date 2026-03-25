@@ -1,0 +1,5 @@
+[
+  {"record_id": "quiet_borehole", "amplitude_scale": 1e-13},
+  {"record_id": "regional_broadband", "amplitude_scale": 2e-09},
+  {"record_id": "aftershock_stack", "amplitude_scale": 1e-10}
+]

@@ -1,0 +1,10 @@
+[
+  {"lane_id": "L-01", "hub": "HubA", "on_time_pct": 91, "late_stops": 7, "fuel_variance_pct": 5, "gross_margin": 18000},
+  {"lane_id": "L-02", "hub": "HubA", "on_time_pct": 84, "late_stops": 11, "fuel_variance_pct": 9, "gross_margin": 14500},
+  {"lane_id": "L-03", "hub": "HubB", "on_time_pct": 96, "late_stops": 3, "fuel_variance_pct": -2, "gross_margin": 22000},
+  {"lane_id": "L-04", "hub": "HubB", "on_time_pct": 88, "late_stops": 9, "fuel_variance_pct": 4, "gross_margin": 17000},
+  {"lane_id": "L-05", "hub": "HubC", "on_time_pct": 79, "late_stops": 13, "fuel_variance_pct": 11, "gross_margin": 16000},
+  {"lane_id": "L-06", "hub": "HubC", "on_time_pct": 94, "late_stops": 4, "fuel_variance_pct": 2, "gross_margin": 21000},
+  {"lane_id": "L-07", "hub": "HubD", "on_time_pct": 86, "late_stops": 8, "fuel_variance_pct": 6, "gross_margin": 13000},
+  {"lane_id": "L-08", "hub": "HubD", "on_time_pct": 97, "late_stops": 2, "fuel_variance_pct": -1, "gross_margin": 24000}
+]

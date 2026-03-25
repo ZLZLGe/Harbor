@@ -1,0 +1,53 @@
+{
+  "target_file": "sys/linux/dev_sensorhub_ctl.txt",
+  "required_regexes": [
+    {
+      "pattern": "include\\s*<linux/types\\.h>",
+      "message": "missing linux/types.h include"
+    },
+    {
+      "pattern": "resource\\s+fd_sensorhub\\s*\\[\\s*fd\\s*\\]",
+      "message": "missing fd_sensorhub resource"
+    },
+    {
+      "pattern": "syz_open_dev\\$sensorhub\\s*\\([^\\n]*\"/dev/sensorhub#\"[^\\n]*\\)\\s+fd_sensorhub",
+      "message": "missing sensorhub opener"
+    },
+    {
+      "pattern": "sensor_threshold\\s*\\{[\\s\\S]*channel\\s+int16[\\s\\S]*limit\\s+int32[\\s\\S]*hysteresis\\s+int16[\\s\\S]*\\}",
+      "message": "missing sensor_threshold struct"
+    },
+    {
+      "pattern": "sensor_snapshot\\s*\\{[\\s\\S]*ambient\\s+int32[\\s\\S]*surface\\s+int32[\\s\\S]*humidity\\s+int16[\\s\\S]*\\}",
+      "message": "missing sensor_snapshot struct"
+    },
+    {
+      "pattern": "sensor_modes\\s*=\\s*SENSOR_MODE_IDLE,\\s*SENSOR_MODE_FAST,\\s*SENSOR_MODE_STREAM",
+      "message": "missing sensor_modes flags"
+    },
+    {
+      "pattern": "ioctl\\$SNS_ENABLE\\s*\\(\\s*fd\\s+fd_sensorhub\\s*,\\s*cmd\\s+const\\[SNS_ENABLE\\]\\s*\\)",
+      "message": "missing SNS_ENABLE ioctl"
+    },
+    {
+      "pattern": "ioctl\\$SNS_DISABLE\\s*\\(\\s*fd\\s+fd_sensorhub\\s*,\\s*cmd\\s+const\\[SNS_DISABLE\\]\\s*\\)",
+      "message": "missing SNS_DISABLE ioctl"
+    },
+    {
+      "pattern": "ioctl\\$SNS_GET_SNAPSHOT\\s*\\([^\\n]*ptr\\s*\\[\\s*out\\s*,\\s*sensor_snapshot\\s*\\]",
+      "message": "SNS_GET_SNAPSHOT must use ptr[out, sensor_snapshot]"
+    },
+    {
+      "pattern": "ioctl\\$SNS_SET_THRESH\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*sensor_threshold\\s*\\]",
+      "message": "SNS_SET_THRESH must use ptr[in, sensor_threshold]"
+    },
+    {
+      "pattern": "ioctl\\$SNS_SET_MODE\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*flags\\[sensor_modes,\\s*int32\\]\\s*\\]",
+      "message": "SNS_SET_MODE must use ptr[in, flags[sensor_modes, int32]]"
+    }
+  ],
+  "forbidden_substrings": [
+    "TODO",
+    "???"
+  ]
+}

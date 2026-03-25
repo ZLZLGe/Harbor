@@ -1,0 +1,12 @@
+[
+  {"store_id": "S101", "region": "North", "orders": 420, "revenue": 126000, "returns": 18, "labor_hours": 310},
+  {"store_id": "S102", "region": "North", "orders": 360, "revenue": 95400, "returns": 12, "labor_hours": 280},
+  {"store_id": "S201", "region": "South", "orders": 510, "revenue": 153000, "returns": 25, "labor_hours": 355},
+  {"store_id": "S202", "region": "South", "orders": 275, "revenue": 74250, "returns": 8, "labor_hours": 190},
+  {"store_id": "S203", "region": "South", "orders": 305, "revenue": 83875, "returns": 11, "labor_hours": 205},
+  {"store_id": "S301", "region": "East", "orders": 445, "revenue": 120150, "returns": 20, "labor_hours": 300},
+  {"store_id": "S302", "region": "East", "orders": 395, "revenue": 104675, "returns": 14, "labor_hours": 260},
+  {"store_id": "S401", "region": "West", "orders": 330, "revenue": 99000, "returns": 16, "labor_hours": 240},
+  {"store_id": "S402", "region": "West", "orders": 290, "revenue": 87000, "returns": 10, "labor_hours": 225},
+  {"store_id": "S403", "region": "West", "orders": 260, "revenue": 67600, "returns": 9, "labor_hours": 210}
+]

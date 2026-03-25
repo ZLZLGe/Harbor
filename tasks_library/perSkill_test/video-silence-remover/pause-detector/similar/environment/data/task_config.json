@@ -1,0 +1,9 @@
+{
+  "input_energies": "/root/data/lecture_energies.json",
+  "output_json": "/root/lecture_pauses.json",
+  "summary_json": "/root/lecture_pause_summary.json",
+  "start_time": 2,
+  "threshold_ratio": 0.55,
+  "min_duration": 2,
+  "window_size": 5
+}

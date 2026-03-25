@@ -1,0 +1,25 @@
+{
+  "summary_format": "csv_dispatch",
+  "scenario": "warehouse_dispatch",
+  "summary_output": "/root/transfer1_warehouse_dispatch.csv",
+  "cases": [
+    {
+      "case_id": "dock_to_shelf",
+      "domain": "/root/warehouse_cases/domain.pddl",
+      "problem": "/root/warehouse_cases/dock_to_shelf.pddl",
+      "plan_output": "/root/warehouse_plans/dock_to_shelf.plan"
+    },
+    {
+      "case_id": "inspection_rebalance",
+      "domain": "/root/warehouse_cases/domain.pddl",
+      "problem": "/root/warehouse_cases/inspection_rebalance.pddl",
+      "plan_output": "/root/warehouse_plans/inspection_rebalance.plan"
+    },
+    {
+      "case_id": "overflow_clearance",
+      "domain": "/root/warehouse_cases/domain.pddl",
+      "problem": "/root/warehouse_cases/overflow_clearance.pddl",
+      "plan_output": "/root/warehouse_plans/overflow_clearance.plan"
+    }
+  ]
+}

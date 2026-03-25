@@ -1,0 +1,23 @@
+[
+  {
+    "id": "evt-u1",
+    "summary": "Safety refresher",
+    "start": "2026-07-01T09:00:00Z",
+    "end": "2026-07-01T10:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-u2",
+    "summary": "Forklift briefing",
+    "start": "2026-07-01T11:00:00Z",
+    "end": "2026-07-01T12:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-u3",
+    "summary": "Hazmat drill",
+    "start": "2026-07-02T14:00:00Z",
+    "end": "2026-07-02T15:30:00Z",
+    "status": "confirmed"
+  }
+]

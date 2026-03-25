@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "did_causal_analysis",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Rider Demand DID Summary",
+  "goal": "Rank the strongest positive intensive and extensive margin drivers for a rider-demand change.",
+  "primaryOutputFile": "/root/transfer2_driver_report.json",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the did_causal_analysis skill is applied correctly."
+}

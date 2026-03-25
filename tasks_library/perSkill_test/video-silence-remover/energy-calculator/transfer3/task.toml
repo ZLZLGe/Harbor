@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer3 - QA Cue Energy Trace"
+description = "Generate a quarter-second RMS energy trace and activity summary for a QA cue track."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "audio-analysis"
+tags = ["audio-analysis", "skillsbench", "video-silence-remover", "energy-calculator", "transfer3"]
+primary_output_file = "/root/qa_energy.json"
+source_task_id = "video-silence-remover"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

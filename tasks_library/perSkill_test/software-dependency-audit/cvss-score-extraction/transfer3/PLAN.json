@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "software-dependency-audit",
+  "targetSkill": "cvss-score-extraction",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Package Score Matrix",
+  "goal": "Aggregate advisory CVSS selections into a package-level triage matrix for backlog planning.",
+  "primaryOutputFile": "/root/transfer3_package_matrix.tsv",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "This task is easiest when the target skill is applied correctly."
+}

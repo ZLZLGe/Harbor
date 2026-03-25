@@ -1,0 +1,7 @@
+{
+  "original_video": "/root/data/original.mp4",
+  "compressed_video": "/root/data/compressed.mp4",
+  "segments_json": "/root/data/segments.json",
+  "output_json": "/root/briefing_report.json",
+  "summary_json": "/root/briefing_report_brief.json"
+}

@@ -1,0 +1,9 @@
+stream_id,event_order,p_pick_idx,s_pick_idx,sp_gap_samples
+stream_alpha,1,6000,6060,60
+stream_alpha,2,20000,20127,127
+stream_bravo,1,6000,6261,261
+stream_bravo,2,20000,20176,176
+stream_charlie,1,6000,6067,67
+stream_charlie,2,20000,20116,116
+stream_delta,1,6000,6093,93
+stream_delta,2,20001,20079,78

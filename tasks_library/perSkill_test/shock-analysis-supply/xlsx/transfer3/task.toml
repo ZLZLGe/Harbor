@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Grid Loss Upgrade Model"
+description = "Finish a grid loss workbook by rebuilding formulas for projected demand, billed energy, cash benefit, and cumulative net benefit."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "financial-analysis"
+tags = ["excel", "xlsx", "utilities", "energy", "formulas"]
+primary_output_file = "/root/energy_transfer_completed.xlsx"
+source_task_id = "shock-analysis-supply"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 3072
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "evt-f1",
+    "summary": "Gate camera maintenance",
+    "start": "2026-05-02T07:30:00Z",
+    "end": "2026-05-02T08:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-f2",
+    "summary": "Cold-room compressor vendor",
+    "start": "2026-05-02T08:45:00Z",
+    "end": "2026-05-02T09:30:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-f3",
+    "summary": "Lunch briefing",
+    "start": "2026-05-02T11:30:00Z",
+    "end": "2026-05-02T12:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-f4",
+    "summary": "Fire panel test",
+    "start": "2026-05-03T14:00:00Z",
+    "end": "2026-05-03T16:00:00Z",
+    "status": "confirmed"
+  }
+]

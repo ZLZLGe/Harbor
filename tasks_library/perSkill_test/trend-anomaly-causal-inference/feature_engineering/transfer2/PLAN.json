@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "feature_engineering",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Rider Profile Feature Pack",
+  "goal": "Engineer a numeric rider-profile table for service behavior modeling.",
+  "primaryOutputFile": "/root/transfer2_rider_features.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the feature_engineering skill is applied correctly."
+}

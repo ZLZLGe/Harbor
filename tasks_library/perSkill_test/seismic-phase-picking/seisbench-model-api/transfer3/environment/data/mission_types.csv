@@ -1,0 +1,5 @@
+mission_id,target_task
+sequence_watch,phase_picking
+basin_screen,detection
+noisy_patch,denoising
+depth_check,depth_estimation

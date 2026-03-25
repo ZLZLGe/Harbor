@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Retrospective Filler Frequency Digest",
+  "goal": "Aggregate detected filler events into a ranked summary with first/last timestamps.",
+  "primaryOutputFile": "/root/transfer1_filler_summary.json",
+  "source_task_id": "video-filler-word-remover",
+  "skillScope": "whisper-transcription"
+}

@@ -1,0 +1,10 @@
+respondent_id,order_date,category,spend,household_size,contact_email,region
+R001,2021-03-01,Pantry,120,3 people, Alice@example.com , North 
+R001,2021-03-01,Pantry,120,3 people, Alice@example.com , North 
+R002,2021-03-02,Office,85,2-person home,bob@example.com,South
+R003,2021-03-03,,60,1 person,chris@example.com,East
+R004,2021-03-03,Pets,1000,6 people,dina+alerts@example.com,West
+R005,2021-03-04,Garden,90,,eve at example.com <eve@example.com>,West
+R006,2021-03-05,Pantry,110,4 persons,,North
+,2021-03-06,Office,95,1 person, frank@example.com , South 
+R007,2021-03-06,Office,95,1 person, frank@example.com , South 

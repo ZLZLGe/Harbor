@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Specialty Service Matrix"
+description = "Map specialized seismic acquisition scenarios to the correct service family."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "seismology"
+tags = ["science", "earth-science", "seismology", "services", "transfer"]
+primary_output_file = "/root/transfer3_specialty_services.csv"
+source_task_id = "seismic-phase-picking"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 1024
+storage_mb = 1024
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

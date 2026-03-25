@@ -1,0 +1,10 @@
+{
+  "mode": "single_trace",
+  "input_dir": "/root/data/raw",
+  "output_file": "/root/similar_phase_picks.csv",
+  "fieldnames": [
+    "file_name",
+    "p_pick_idx",
+    "s_pick_idx"
+  ]
+}

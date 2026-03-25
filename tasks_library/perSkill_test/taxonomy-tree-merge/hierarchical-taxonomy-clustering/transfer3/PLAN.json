@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Home Storage Search Routing",
+  "goal": "Convert varied home-storage browse paths into one shared search-route taxonomy with TSV and markdown outputs.",
+  "primaryOutputFile": "/root/output/transfer3_search_routes.tsv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "The task requires grouping similar catalog paths and assigning one consistent hierarchy plus stable route slugs for search pages.",
+  "targetSkillDirName": "hierarchical-taxonomy-clustering",
+  "targetSkillName": "hierarchical-taxonomy-clustering"
+}

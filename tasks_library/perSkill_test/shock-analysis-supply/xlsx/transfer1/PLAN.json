@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Tourism Capacity Forecast",
+  "goal": "Restore the tourism capacity forecast workbook so it projects visitors, spending, and revenue with formulas.",
+  "primaryOutputFile": "/root/tourism_transfer_completed.xlsx",
+  "skillScope": "xlsx"
+}

@@ -1,0 +1,16 @@
+{
+  "requests": [
+    {
+      "component": "frame_module",
+      "crate_label": "crate-shell"
+    },
+    {
+      "component": "climate_module",
+      "crate_label": "crate-climate"
+    },
+    {
+      "component": "water_module",
+      "crate_label": "crate-water"
+    }
+  ]
+}

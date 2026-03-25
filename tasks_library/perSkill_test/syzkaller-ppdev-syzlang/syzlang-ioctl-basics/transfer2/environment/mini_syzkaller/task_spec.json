@@ -1,0 +1,45 @@
+{
+  "target_file": "sys/linux/dev_capring.txt",
+  "required_regexes": [
+    {
+      "pattern": "include\\s*<linux/types\\.h>",
+      "message": "missing linux/types.h include"
+    },
+    {
+      "pattern": "resource\\s+fd_capring\\s*\\[\\s*fd\\s*\\]",
+      "message": "missing fd_capring resource"
+    },
+    {
+      "pattern": "syz_open_dev\\$capring\\s*\\([^\\n]*\"/dev/capring#\"[^\\n]*\\)\\s+fd_capring",
+      "message": "missing capring opener"
+    },
+    {
+      "pattern": "capring_frame\\s*\\{[\\s\\S]*frame_id\\s+int32[\\s\\S]*slot\\s+int16[\\s\\S]*priority\\s+int16[\\s\\S]*\\}",
+      "message": "missing capring_frame struct"
+    },
+    {
+      "pattern": "read\\$capring\\s*\\([^\\n]*ptr\\s*\\[\\s*out\\s*,\\s*array\\[int8,\\s*64\\]\\s*\\][^\\n]*len\\[buf\\]",
+      "message": "missing read$capring specialization"
+    },
+    {
+      "pattern": "write\\$capring\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*array\\[int8,\\s*64\\]\\s*\\][^\\n]*len\\[buf\\]",
+      "message": "missing write$capring specialization"
+    },
+    {
+      "pattern": "ioctl\\$CAPRING_SET_SLOT\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*int32\\s*\\]",
+      "message": "CAPRING_SET_SLOT must use ptr[in, int32]"
+    },
+    {
+      "pattern": "ioctl\\$CAPRING_GET_SLOT\\s*\\([^\\n]*ptr\\s*\\[\\s*out\\s*,\\s*int32\\s*\\]",
+      "message": "CAPRING_GET_SLOT must use ptr[out, int32]"
+    },
+    {
+      "pattern": "ioctl\\$CAPRING_SUBMIT\\s*\\([^\\n]*ptr\\s*\\[\\s*in\\s*,\\s*capring_frame\\s*\\]",
+      "message": "CAPRING_SUBMIT must use ptr[in, capring_frame]"
+    }
+  ],
+  "forbidden_substrings": [
+    "TODO",
+    "???"
+  ]
+}

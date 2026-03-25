@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Filler Window Montage",
+  "goal": "Extract listed filler windows and concatenate them into a single montage video.",
+  "primaryOutputFile": "/root/similar_filler_montage.mp4",
+  "source_task_id": "video-filler-word-remover",
+  "skillScope": "ffmpeg-video-editing"
+}

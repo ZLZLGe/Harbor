@@ -1,0 +1,79 @@
+{
+  "input_file": "/root/data/raw.csv",
+  "output_file": "/root/transfer2_sensor_readings_cleaned.csv",
+  "summary_file": "/root/transfer2_sensor_readings_summary.json",
+  "pipeline_name": "Field Sensors",
+  "steps": [
+    {
+      "strategy": "remove_duplicates",
+      "description": "Remove duplicate sensor readings",
+      "kwargs": {
+        "subset": [
+          "sensor_id",
+          "reading_date",
+          "plot",
+          "moisture_pct"
+        ]
+      }
+    },
+    {
+      "strategy": "drop_missing",
+      "description": "Drop rows missing critical identifiers",
+      "kwargs": {
+        "columns": [
+          "sensor_id",
+          "reading_date",
+          "plot"
+        ]
+      }
+    },
+    {
+      "strategy": "process_text",
+      "description": "Extract battery hours",
+      "kwargs": {
+        "columns": [
+          "battery_note"
+        ],
+        "operation": "extract_numbers"
+      }
+    },
+    {
+      "strategy": "impute_median",
+      "description": "Impute missing battery hours",
+      "kwargs": {
+        "columns": [
+          "battery_note"
+        ]
+      }
+    },
+    {
+      "strategy": "process_text",
+      "description": "Extract technician emails",
+      "kwargs": {
+        "columns": [
+          "technician_email"
+        ],
+        "operation": "extract_email"
+      }
+    },
+    {
+      "strategy": "cap_outliers_iqr",
+      "description": "Cap impossible moisture spikes",
+      "kwargs": {
+        "columns": [
+          "moisture_pct"
+        ],
+        "multiplier": 1.5
+      }
+    }
+  ],
+  "numeric_columns": [
+    "battery_note",
+    "moisture_pct"
+  ],
+  "strip_columns": [],
+  "sort_by": [
+    "sensor_id",
+    "reading_date"
+  ]
+}

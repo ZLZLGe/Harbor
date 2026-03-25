@@ -1,0 +1,11 @@
+{
+  "source_task_id": "travel-planning",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Florida Outreach Schedule",
+  "goal": "Select four Florida outreach cities from the bundled state lookup and save the result as a JSON schedule seed.",
+  "primaryOutputFile": "/root/transfer3_outreach_schedule.json",
+  "difficulty": "medium",
+  "category": "field-operations",
+  "skillBenefitRationale": "The task requires enumerating real Florida cities from the bundled dataset before applying deterministic outreach slot rules."
+}

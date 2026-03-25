@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "seismic-phase-picking",
+  "targetSkill": "seisbench-model-api",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Small Batch First-Arrival Picks",
+  "goal": "Pick one P arrival and one S arrival for each standalone waveform trace.",
+  "primaryOutputFile": "/root/similar_phase_picks.csv",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "The SeisBench model API is directly helpful for turning waveform streams into reliable arrival picks."
+}

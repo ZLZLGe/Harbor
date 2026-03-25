@@ -1,0 +1,6 @@
+[
+  {"window_id": "handoff_intro", "purpose": "handoff-context", "start": 9.0, "end": 11.8},
+  {"window_id": "handoff_risk", "purpose": "risk-note", "start": 24.0, "end": 27.0},
+  {"window_id": "handoff_action", "purpose": "action-items", "start": 39.5, "end": 42.6},
+  {"window_id": "handoff_close", "purpose": "closing", "start": 55.0, "end": 57.4}
+]

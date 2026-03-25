@@ -1,0 +1,24 @@
+{
+  "lanes": [
+    {
+      "lane_id": "BAL-1",
+      "city_a": "Cleveland",
+      "city_b": "Detroit"
+    },
+    {
+      "lane_id": "BAL-2",
+      "city_a": "Columbus",
+      "city_b": "Cleveland"
+    },
+    {
+      "lane_id": "BAL-3",
+      "city_a": "Miami",
+      "city_b": "Orlando"
+    },
+    {
+      "lane_id": "BAL-4",
+      "city_a": "Milwaukee",
+      "city_b": "Madison"
+    }
+  ]
+}

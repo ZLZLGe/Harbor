@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Offline Demand Shock Workbook"
+description = "Complete the macro demand shock spreadsheet and save the finished workbook with linked formulas across all scenario sheets."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "financial-analysis"
+tags = ["excel", "xlsx", "macro", "scenario-modeling"]
+primary_output_file = "/root/macro_demand_similar_completed.xlsx"
+source_task_id = "shock-analysis-demand"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240

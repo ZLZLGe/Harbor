@@ -1,0 +1,11 @@
+{
+  "source_task_id": "travel-planning",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Same-Day Connection Screen",
+  "goal": "Screen candidate two-leg same-day connections from the bundled flight data and select the cheapest feasible connection within the layover window.",
+  "primaryOutputFile": "/root/transfer3_connection_screen.json",
+  "difficulty": "medium",
+  "category": "travel-planning",
+  "skillBenefitRationale": "The task depends on exact flight lookups for both legs of each candidate connection and deterministic screening against layover timing rules."
+}

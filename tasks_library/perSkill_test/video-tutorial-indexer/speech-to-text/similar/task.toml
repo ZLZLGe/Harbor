@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Tutorial Excerpt Chapter Index"
+description = "Find the start time for each requested chapter in a short tutorial excerpt and save a compact JSON index."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "multimodal-processing"
+tags = ["video", "speech-to-text", "timestamps", "tutorial", "json"]
+primary_output_file = "/root/similar_chapter_index.json"
+source_task_id = "video-tutorial-indexer"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 8192
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

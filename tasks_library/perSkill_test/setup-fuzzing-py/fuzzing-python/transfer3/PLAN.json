@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "setup-fuzzing-py",
+  "targetSkill": "fuzzing-python",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Archive Header Fuzz Driver",
+  "goal": "Create a working Python fuzz driver around a bytes-based archive header decoder and verify it can quick-run without crashing.",
+  "primaryOutputFile": "/root/archive_header/fuzz.py",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "This task is easiest when the fuzzing-python skill is applied to structure a correct fuzz.py entrypoint around the repo's main parser boundary and quick-run it successfully."
+}

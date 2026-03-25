@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Support Call Disfluency Window Report",
+  "goal": "Convert filler detections into fixed 30-second window metrics for cadence analysis.",
+  "primaryOutputFile": "/root/transfer2_window_report.json",
+  "source_task_id": "video-filler-word-remover",
+  "skillScope": "whisper-transcription"
+}

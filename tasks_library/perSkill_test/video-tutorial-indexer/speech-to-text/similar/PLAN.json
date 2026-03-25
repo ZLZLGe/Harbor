@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "video-tutorial-indexer",
+  "targetSkill": "speech-to-text",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Tutorial Excerpt Chapter Index",
+  "goal": "Locate the spoken chapter transitions in a short tutorial excerpt and export a compact chapter index.",
+  "primaryOutputFile": "/root/similar_chapter_index.json",
+  "difficulty": "medium",
+  "category": "multimodal-processing",
+  "skillBenefitRationale": "This task is easiest when the speech-to-text skill is used to transcribe the excerpt and align the requested chapter titles."
+}

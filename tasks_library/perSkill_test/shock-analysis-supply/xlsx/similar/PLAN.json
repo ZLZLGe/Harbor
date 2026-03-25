@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Local Supply Shock Workbook",
+  "goal": "Complete the local supply shock workbook with depreciation, productivity, and projection formulas and save the finished model.",
+  "primaryOutputFile": "/root/manufacturer_similar_completed.xlsx",
+  "skillScope": "xlsx"
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "request_id": "day1_brief",
+    "event_count": 2,
+    "event_ids": [
+      "evt-101",
+      "evt-102"
+    ],
+    "max_magnitude": 4.8,
+    "mean_depth_km": 9.0,
+    "largest_event_place": "Harbor Shelf"
+  },
+  {
+    "request_id": "operations_window",
+    "event_count": 2,
+    "event_ids": [
+      "evt-103",
+      "evt-104"
+    ],
+    "max_magnitude": 5.1,
+    "mean_depth_km": 11.5,
+    "largest_event_place": "Cinder Basin"
+  },
+  {
+    "request_id": "late_night",
+    "event_count": 1,
+    "event_ids": [
+      "evt-105"
+    ],
+    "max_magnitude": 4.1,
+    "mean_depth_km": 4.0,
+    "largest_event_place": "North Spur"
+  }
+]

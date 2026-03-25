@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Tower Component OBJ Handoff"
+description = "Export per-mesh and merged component OBJ files from the bundled Three.js tower scene and summarize them in JSON."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "3d-graphics"
+tags = ["threejs", "3d", "obj", "geometry", "hierarchy"]
+primary_output_file = "/root/similar_component_manifest.json"
+source_task_id = "threejs-structure-parser"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,8 @@
+{
+  "input_segments": [
+    "/root/data/lead_in.json",
+    "/root/data/gaps.json"
+  ],
+  "output_json": "/root/briefing_all_segments.json",
+  "summary_json": "/root/briefing_segment_summary.json"
+}

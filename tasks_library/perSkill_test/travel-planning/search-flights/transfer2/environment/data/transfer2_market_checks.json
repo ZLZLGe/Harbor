@@ -1,0 +1,41 @@
+{
+  "report_id": "transfer2-market-audit-001",
+  "markets": [
+    {
+      "market_id": "M1",
+      "origin": "Chicago",
+      "destination": "New York",
+      "flight_date": "2022-03-01"
+    },
+    {
+      "market_id": "M2",
+      "origin": "Boston",
+      "destination": "New York",
+      "flight_date": "2022-04-05"
+    },
+    {
+      "market_id": "M3",
+      "origin": "Atlanta",
+      "destination": "Washington",
+      "flight_date": "2022-07-29"
+    },
+    {
+      "market_id": "M4",
+      "origin": "Seattle",
+      "destination": "San Francisco",
+      "flight_date": "2022-01-07"
+    },
+    {
+      "market_id": "M5",
+      "origin": "Houston",
+      "destination": "Dallas",
+      "flight_date": "2022-02-21"
+    },
+    {
+      "market_id": "M6",
+      "origin": "Minneapolis",
+      "destination": "Cleveland",
+      "flight_date": "2022-01-16"
+    }
+  ]
+}

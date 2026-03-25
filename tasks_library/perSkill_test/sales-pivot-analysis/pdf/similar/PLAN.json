@@ -1,0 +1,11 @@
+{
+  "sourceTaskId": "sales-pivot-analysis",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - State Demographic PDF Summary",
+  "goal": "Extract the demographic table from a multi-page PDF packet and produce a state rollup JSON with quartile-based earners summaries.",
+  "primaryOutputFile": "/root/similar_demographic_summary.json",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "The task depends on accurately extracting a repeated table from a multi-page PDF before grouping and quartile calculations can be performed."
+}

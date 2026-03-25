@@ -1,0 +1,30 @@
+[
+  {
+    "factory": "createBaseModule",
+    "name": "center_base",
+    "position": [0.0, 0.0, 0.0],
+    "rotation": [0.0, 0.0, 0.0],
+    "scale": [1.0, 1.0, 1.0]
+  },
+  {
+    "factory": "createSensorArch",
+    "name": "front_sensor_arch",
+    "position": [0.25, 0.0, 0.18],
+    "rotation": [0.0, 0.2617993878, 0.0],
+    "scale": [1.0, 1.0, 1.0]
+  },
+  {
+    "factory": "createPanelWing",
+    "name": "left_panel",
+    "position": [-1.85, 0.0, 0.9],
+    "rotation": [0.0, -0.6981317008, 0.0],
+    "scale": [1.0, 1.0, 1.0]
+  },
+  {
+    "factory": "createPanelWing",
+    "name": "right_panel",
+    "position": [1.92, 0.0, -0.72],
+    "rotation": [0.0, 2.2689280276, 0.0],
+    "scale": [0.9, 1.05, 1.0]
+  }
+]

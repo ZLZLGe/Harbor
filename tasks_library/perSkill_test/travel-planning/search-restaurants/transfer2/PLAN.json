@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Meal Reimbursement Claim Audit",
+  "goal": "Validate reimbursement claims by cross-checking restaurant names, cuisines, costs, and ratings.",
+  "primaryOutputFile": "/root/transfer2_claim_audit.json",
+  "difficulty": "medium",
+  "category": "audit",
+  "skillBenefitRationale": "The task transfers restaurant lookup into a verification workflow where city-scoped retrieval is needed to audit submitted records."
+}

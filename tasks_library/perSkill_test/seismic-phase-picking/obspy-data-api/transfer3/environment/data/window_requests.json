@@ -1,0 +1,27 @@
+[
+  {
+    "file_name": "BG.AL6..DP.0301915.npz",
+    "window_start_utc": "2014-01-03T03:54:45.050Z",
+    "window_end_utc": "2014-01-03T03:54:47.000Z"
+  },
+  {
+    "file_name": "BG.STY..DP.0409927.npz",
+    "window_start_utc": "2020-08-09T17:20:08.340Z",
+    "window_end_utc": "2020-08-09T17:20:09.730Z"
+  },
+  {
+    "file_name": "BK.VAK.00.HH.0263144.npz",
+    "window_start_utc": "2011-08-24T19:10:05.680Z",
+    "window_end_utc": "2011-08-24T19:10:09.560Z"
+  },
+  {
+    "file_name": "CI.SMM..BH.0392114.npz",
+    "window_start_utc": "2019-07-20T01:28:40.910Z",
+    "window_end_utc": "2019-07-20T01:28:46.570Z"
+  },
+  {
+    "file_name": "NC.GDXB..HN.0211075.npz",
+    "window_start_utc": "2008-02-19T09:07:22.570Z",
+    "window_end_utc": "2008-02-19T09:07:24.030Z"
+  }
+]

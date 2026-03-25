@@ -1,0 +1,11 @@
+{
+  "input_video": "/root/data/input_video.mp4",
+  "output_wav": "/root/preview_audio.wav",
+  "summary_json": "/root/preview_audio_manifest.json",
+  "sample_rate": 8000,
+  "duration_limit": 45,
+  "expected_channels": 1,
+  "expected_sample_width": 2,
+  "duration_min": 44.0,
+  "duration_max": 46.0
+}

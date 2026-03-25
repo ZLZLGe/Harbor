@@ -1,0 +1,5 @@
+[
+  {"scenario_id": "broadband_local", "amplitude_scale": 1e-12},
+  {"scenario_id": "nodal_dense", "amplitude_scale": 5e-09},
+  {"scenario_id": "temporary_array", "amplitude_scale": 1e-10}
+]

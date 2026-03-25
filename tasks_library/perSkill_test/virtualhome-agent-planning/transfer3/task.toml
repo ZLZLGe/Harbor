@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Drone Survey Digest"
+description = "Solve the bundled drone survey PDDL cases and write a text digest that summarizes the resulting plans."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "Field Operations"
+tags = ["planning", "pddl", "drone", "text"]
+primary_output_file = "/root/transfer3_survey_digest.txt"
+source_task_id = "virtualhome-agent-planning"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

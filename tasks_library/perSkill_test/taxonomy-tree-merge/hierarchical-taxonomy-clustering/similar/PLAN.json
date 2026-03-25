@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Camp Taxonomy Consolidation",
+  "goal": "Merge small outdoor retail category exports into a shared five-level camping taxonomy.",
+  "primaryOutputFile": "/root/output/similar_outdoor_taxonomy_full.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "The task rewards building one coherent hierarchy from multiple seller-specific category paths with different naming conventions.",
+  "targetSkillDirName": "hierarchical-taxonomy-clustering",
+  "targetSkillName": "hierarchical-taxonomy-clustering"
+}

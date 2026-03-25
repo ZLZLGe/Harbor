@@ -1,0 +1,9 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Chapter Sampler Manifest",
+  "goal": "Extract fixed-length chapter sampler clips and publish a manifest CSV plus a stitched reel.",
+  "primaryOutputFile": "/root/transfer2_sampler_manifest.csv",
+  "source_task_id": "video-filler-word-remover",
+  "skillScope": "ffmpeg-video-editing"
+}

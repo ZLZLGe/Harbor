@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Local Supply Shock Workbook"
+description = "Complete a local supply shock workbook by restoring depreciation, productivity, and projection formulas."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "hard"
+category = "financial-analysis"
+tags = ["excel", "xlsx", "macroeconomics", "forecasting", "formulas"]
+primary_output_file = "/root/manufacturer_similar_completed.xlsx"
+source_task_id = "shock-analysis-supply"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 3072
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,3 @@
+resource fd_ppdev[fd]
+
+syz_open_dev$ppdev_merge(dev ptr[in, string["/dev/parport#"]], id intptr, flags flags[open_flags]) fd_ppdev

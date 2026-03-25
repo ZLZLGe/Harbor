@@ -1,0 +1,7 @@
+request_id,priority,origin,destination,flight_date
+A1,critical,Chicago,New York,2022-03-01
+A2,high,Boston,Washington,2022-02-21
+A3,normal,Seattle,San Francisco,2022-01-07
+A4,high,Minneapolis,Cleveland,2022-01-16
+A5,critical,Houston,Dallas,2022-02-21
+A6,low,Miami,Denver,2022-02-30

@@ -1,0 +1,20 @@
+{
+  "const_file": "sys/linux/dev_ppdiag.txt.const",
+  "arch_line": "arches = amd64, 386",
+  "constants": {
+    "PPDIAG_CLAIM": 28736,
+    "PPDIAG_RELEASE": 28737,
+    "PPDIAG_GETMODE": 2147774530,
+    "PPDIAG_SETMODE": 1074032707,
+    "PPDIAG_READ_STATUS": 2147577924,
+    "PPDIAG_WRITE_CTRL": 1073836101,
+    "PPDIAG_FROB": 1073901638,
+    "PPDIAG_MODE_COMPAT": 1,
+    "PPDIAG_MODE_ECP": 16,
+    "PPDIAG_MODE_EPP": 256
+  },
+  "forbidden_substrings": [
+    "TODO",
+    "???"
+  ]
+}

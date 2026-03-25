@@ -1,0 +1,2 @@
+# yamlishconf
+Tiny config loader.

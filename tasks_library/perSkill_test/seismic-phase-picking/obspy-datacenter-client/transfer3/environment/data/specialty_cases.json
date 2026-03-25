@@ -1,0 +1,7 @@
+[
+  {"request_id": "edge_buffer", "scenario_type": "neic_edge"},
+  {"request_id": "legacy_resp", "scenario_type": "response_archive"},
+  {"request_id": "live_feed", "scenario_type": "real_time_feed"},
+  {"request_id": "mine_server", "scenario_type": "earthworm_server"},
+  {"request_id": "synthetic_check", "scenario_type": "synthetic_waveforms"}
+]

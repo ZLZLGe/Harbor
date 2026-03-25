@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "speaker-diarization-subtitles",
+  "targetSkill": "voice-activity-detection",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Pickup Cue Sheet From Activity Draft",
+  "goal": "Turn a fragmented speech-activity draft into padded pickup cues for review clips.",
+  "primaryOutputFile": "/root/pickup_cues.tsv",
+  "difficulty": "medium",
+  "category": "audio-visual",
+  "skillBenefitRationale": "The voice-activity-detection skill is directly useful for merging fragmented activity boundaries before generating downstream review cues."
+}

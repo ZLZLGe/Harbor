@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "seismic-phase-picking",
+  "targetSkill": "obspy-datacenter-client",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Bulletin Digest by Operational Window",
+  "goal": "Retrieve earthquake bulletins from a bundled mirror and summarize each operational window in JSON.",
+  "primaryOutputFile": "/root/transfer2_event_digest.json",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "This task is easiest when the obspy-datacenter-client skill is applied correctly."
+}

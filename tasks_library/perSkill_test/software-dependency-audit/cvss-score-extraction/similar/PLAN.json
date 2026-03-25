@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "software-dependency-audit",
+  "targetSkill": "cvss-score-extraction",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - CVSS Source Priority Extraction",
+  "goal": "Choose the correct CVSS source and score for each dependency advisory using the documented fallback order.",
+  "primaryOutputFile": "/root/similar_cvss_selection.json",
+  "difficulty": "medium",
+  "category": "security",
+  "skillBenefitRationale": "This task is easiest when the target skill is applied correctly."
+}

@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "trend-anomaly-causal-inference",
+  "targetSkill": "data_cleaning",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Applicant Intake Cleanup",
+  "goal": "Clean a scholarship intake roster before later outcome analysis.",
+  "primaryOutputFile": "/root/transfer3_applicant_intake_cleaned.csv",
+  "difficulty": "medium",
+  "category": "data-science",
+  "skillBenefitRationale": "This task is easiest when the single shipped skill data_cleaning is applied correctly."
+}

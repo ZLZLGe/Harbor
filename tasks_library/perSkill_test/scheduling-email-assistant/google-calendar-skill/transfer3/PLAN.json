@@ -1,0 +1,11 @@
+{
+  "source_task_id": "scheduling-email-assistant",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Training Calendar Update Log",
+  "goal": "Update bundled training events in the local calendar and save a log of the new times.",
+  "primaryOutputFile": "/root/transfer3_update_log.json",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "The task transfers the calendar skill into operations planning by updating existing local events according to a bundled change log."
+}

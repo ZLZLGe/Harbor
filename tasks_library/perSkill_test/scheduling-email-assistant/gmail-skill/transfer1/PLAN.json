@@ -1,0 +1,11 @@
+{
+  "source_task_id": "scheduling-email-assistant",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Vendor Inbox Triage Board",
+  "goal": "Search the bundled vendor inbox, read matching messages, apply triage labels, and save a report of the actions taken.",
+  "primaryOutputFile": "/root/transfer1_triage_report.json",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "The task transfers the same Gmail mailbox-management benefit into operational triage, requiring local search, read, and label actions over a bundled inbox."
+}

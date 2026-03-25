@@ -1,0 +1,11 @@
+{
+  "source_task_id": "scheduling-email-assistant",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Facility Inspection Conflict Audit",
+  "goal": "Inspect the bundled calendar for overlaps with facility inspection windows and save a conflict report.",
+  "primaryOutputFile": "/root/transfer1_conflict_audit.json",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "The task transfers the same calendar listing skill into facilities auditing by checking time-window conflicts against a bundled event schedule."
+}

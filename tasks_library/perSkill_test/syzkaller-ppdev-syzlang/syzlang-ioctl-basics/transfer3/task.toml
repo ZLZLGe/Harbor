@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Bridge Port Control Syzlang"
+description = "Write the syzlang description for a bridge-port control interface using ifreq-based ioctls."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "security"
+tags = ["security", "fuzzing", "kernel", "syzkaller", "syzlang"]
+primary_output_file = "/opt/syzkaller/sys/linux/dev_bridge_port.txt"
+source_task_id = "syzkaller-ppdev-syzlang"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

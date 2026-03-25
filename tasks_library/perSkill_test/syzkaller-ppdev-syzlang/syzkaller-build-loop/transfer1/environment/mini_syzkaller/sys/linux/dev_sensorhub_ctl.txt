@@ -1,0 +1,22 @@
+include <linux/types.h>
+
+resource fd_sensor[fd]
+
+sensor_threshold {
+	channel	int16
+	limit	int32
+	hysteresis	int16
+}
+
+sensor_snapshot {
+	ambient	int32
+	surface	int32
+	humidity	int16
+}
+
+sensor_modes = SENSOR_MODE_IDLE, SENSOR_MODE_FAST
+
+syz_open_dev$sensorhub(dev ptr[in, string["/dev/sensorhub#"]], id intptr, flags flags[open_flags]) fd_sensor
+
+ioctl$SNS_GET_SNAPSHOT(fd fd_sensor, cmd const[SNS_GET_SNAPSHOT], arg ptr[in, sensor_snapshot])
+ioctl$SNS_SET_THRESH(fd fd_sensor, cmd const[SNS_SET_THRESH], arg ptr[out, sensor_threshold])

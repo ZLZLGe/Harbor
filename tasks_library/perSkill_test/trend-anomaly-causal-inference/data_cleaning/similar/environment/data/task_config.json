@@ -1,0 +1,91 @@
+{
+  "input_file": "/root/data/raw.csv",
+  "output_file": "/root/similar_shopper_orders_cleaned.csv",
+  "summary_file": "/root/similar_shopper_orders_summary.json",
+  "pipeline_name": "Shopper Ledger",
+  "steps": [
+    {
+      "strategy": "remove_duplicates",
+      "description": "Remove duplicate orders",
+      "kwargs": {
+        "subset": [
+          "respondent_id",
+          "order_date",
+          "category",
+          "spend"
+        ]
+      }
+    },
+    {
+      "strategy": "drop_missing",
+      "description": "Drop rows missing critical fields",
+      "kwargs": {
+        "columns": [
+          "respondent_id",
+          "order_date",
+          "category"
+        ]
+      }
+    },
+    {
+      "strategy": "process_text",
+      "description": "Extract numeric household sizes",
+      "kwargs": {
+        "columns": [
+          "household_size"
+        ],
+        "operation": "extract_numbers"
+      }
+    },
+    {
+      "strategy": "impute_median",
+      "description": "Impute missing household sizes",
+      "kwargs": {
+        "columns": [
+          "household_size"
+        ]
+      }
+    },
+    {
+      "strategy": "process_text",
+      "description": "Extract contact emails",
+      "kwargs": {
+        "columns": [
+          "contact_email"
+        ],
+        "operation": "extract_email"
+      }
+    },
+    {
+      "strategy": "process_text",
+      "description": "Trim region labels",
+      "kwargs": {
+        "columns": [
+          "region"
+        ],
+        "operation": "clean_whitespace"
+      }
+    },
+    {
+      "strategy": "cap_outliers_iqr",
+      "description": "Cap spend spikes",
+      "kwargs": {
+        "columns": [
+          "spend"
+        ],
+        "multiplier": 1.5
+      }
+    }
+  ],
+  "numeric_columns": [
+    "household_size",
+    "spend"
+  ],
+  "strip_columns": [
+    "region"
+  ],
+  "sort_by": [
+    "respondent_id",
+    "order_date"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 5,
+      "duration": 5,
+      "type": "opening"
+    },
+    {
+      "start": 14,
+      "end": 18,
+      "duration": 4,
+      "type": "pause"
+    },
+    {
+      "start": 27,
+      "end": 30,
+      "duration": 3,
+      "type": "pause"
+    }
+  ]
+}

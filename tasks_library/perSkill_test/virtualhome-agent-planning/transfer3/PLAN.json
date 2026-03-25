@@ -1,0 +1,11 @@
+{
+  "source_task_id": "virtualhome-agent-planning",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Drone Survey Digest",
+  "goal": "Generate valid PDDL plans for the bundled drone survey cases and summarize them in a plain-text digest.",
+  "primaryOutputFile": "/root/transfer3_survey_digest.txt",
+  "difficulty": "medium",
+  "category": "Field Operations",
+  "skillBenefitRationale": "The task transfers the same PDDL planning workflow into drone survey routing and capture operations, while changing both the domain assets and the required deliverable format."
+}

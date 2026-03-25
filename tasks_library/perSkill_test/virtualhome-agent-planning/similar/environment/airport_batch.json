@@ -1,0 +1,25 @@
+{
+  "summary_format": "json_manifest",
+  "scenario": "airport_dispatch",
+  "summary_output": "/root/similar_airport_manifest.json",
+  "cases": [
+    {
+      "case_id": "ground_alpha",
+      "domain": "/root/airport_cases/domain01.pddl",
+      "problem": "/root/airport_cases/task01.pddl",
+      "plan_output": "/root/airport_plans/ground_alpha.plan"
+    },
+    {
+      "case_id": "ground_bravo",
+      "domain": "/root/airport_cases/domain02.pddl",
+      "problem": "/root/airport_cases/task02.pddl",
+      "plan_output": "/root/airport_plans/ground_bravo.plan"
+    },
+    {
+      "case_id": "ground_charlie",
+      "domain": "/root/airport_cases/domain03.pddl",
+      "problem": "/root/airport_cases/task03.pddl",
+      "plan_output": "/root/airport_plans/ground_charlie.plan"
+    }
+  ]
+}

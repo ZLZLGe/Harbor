@@ -1,0 +1,13 @@
+{
+  "sourceTaskId": "sales-pivot-analysis",
+  "skillMode": "per-skill",
+  "targetSkill": "xlsx",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Income Band Review Workbook",
+  "goal": "Build an Excel workbook from regional income data with enriched source rows and four pivot tables covering earners, incomes, and estimated payroll by bands and prefixes.",
+  "primaryOutputFile": "/root/income_band_review.xlsx",
+  "difficulty": "medium",
+  "category": "data-analysis",
+  "skillBenefitRationale": "The task requires creating a multi-sheet workbook, adding calculated columns, and configuring pivot tables programmatically in XLSX format."
+}

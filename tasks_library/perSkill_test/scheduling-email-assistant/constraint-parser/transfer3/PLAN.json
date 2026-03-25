@@ -1,0 +1,11 @@
+{
+  "source_task_id": "scheduling-email-assistant",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Loading Dock Constraint Ledger",
+  "goal": "Read the bundled dock booking memos and save a CSV ledger of arrival windows, blackout periods, and unload durations.",
+  "primaryOutputFile": "/root/transfer3_loading_constraints.csv",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "The task applies the same constraint extraction pattern to logistics memos with allowed windows, exceptions, and duration requirements in a new output format."
+}

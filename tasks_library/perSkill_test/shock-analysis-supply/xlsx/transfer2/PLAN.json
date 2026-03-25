@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Port Capacity Expansion Model",
+  "goal": "Restore the port expansion workbook so it projects throughput, capacity, revenue, and the remaining gap with formulas.",
+  "primaryOutputFile": "/root/port_transfer_completed.xlsx",
+  "skillScope": "xlsx"
+}

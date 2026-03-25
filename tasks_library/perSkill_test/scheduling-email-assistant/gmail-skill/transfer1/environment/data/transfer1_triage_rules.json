@@ -1,0 +1,23 @@
+{
+  "board_id": "vendor-triage-04",
+  "rules": [
+    {
+      "rule_id": "late_arrival",
+      "query": "label:INBOX is:unread from:logistics.example.com",
+      "contains_phrase": "miss the 06:00 dock window by 75 minutes",
+      "add_label": "UrgentVendor"
+    },
+    {
+      "rule_id": "invoice_hold",
+      "query": "label:INBOX is:unread subject:invoice",
+      "contains_phrase": "hold payment until the discrepancy is resolved",
+      "add_label": "BillingReview"
+    },
+    {
+      "rule_id": "temperature_breach",
+      "query": "label:INBOX is:unread from:coldchain.example.com",
+      "contains_phrase": "temperature excursion above 9C",
+      "add_label": "ColdChainAlert"
+    }
+  ]
+}

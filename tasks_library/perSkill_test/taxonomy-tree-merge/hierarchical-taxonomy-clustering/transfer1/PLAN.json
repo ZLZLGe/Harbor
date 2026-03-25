@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Grocery Promo Taxonomy Rollup",
+  "goal": "Map varied grocery category labels into a shared promo reporting taxonomy with CSV and JSON outputs.",
+  "primaryOutputFile": "/root/output/transfer1_grocery_rollup.csv",
+  "difficulty": "medium",
+  "category": "data-processing",
+  "skillBenefitRationale": "The task requires clustering related retail category paths across multiple formats and naming one consistent hierarchy for reporting.",
+  "targetSkillDirName": "hierarchical-taxonomy-clustering",
+  "targetSkillName": "hierarchical-taxonomy-clustering"
+}

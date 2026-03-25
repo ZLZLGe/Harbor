@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "shock-analysis-demand",
+  "targetSkill": "xlsx",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Offline Demand Shock Workbook",
+  "goal": "Complete a workbook that models an eight-year public investment demand shock with three scenario variants.",
+  "primaryOutputFile": "/root/macro_demand_similar_completed.xlsx",
+  "difficulty": "medium",
+  "category": "financial-analysis",
+  "skillBenefitRationale": "The task depends on building cross-sheet formulas and preserving workbook structure in a spreadsheet."
+}

@@ -1,0 +1,23 @@
+{
+  "batch_id": "meeting-replies-01",
+  "replies": [
+    {
+      "request_message_id": "msg-1001",
+      "date": "Thursday, January 08, 2026",
+      "time": "12:00 PM - 01:00 PM",
+      "duration_hours": "1.0"
+    },
+    {
+      "request_message_id": "msg-1002",
+      "date": "Friday, January 09, 2026",
+      "time": "11:00 AM - 12:30 PM",
+      "duration_hours": "1.5"
+    },
+    {
+      "request_message_id": "msg-1003",
+      "date": "Tuesday, January 06, 2026",
+      "time": "09:30 AM - 10:15 AM",
+      "duration_hours": "0.75"
+    }
+  ]
+}

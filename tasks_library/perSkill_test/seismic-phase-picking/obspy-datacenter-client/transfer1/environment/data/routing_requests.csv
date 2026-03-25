@@ -1,0 +1,5 @@
+request_id,region_code,datacenter_hint
+eu_unknown,EU,
+us_unknown,US,
+known_regional,US,NCEDC
+global_unknown,GLOBAL,

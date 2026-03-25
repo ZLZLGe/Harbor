@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "video-tutorial-indexer",
+  "targetSkill": "speech-to-text",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Cleanup Stage Window Brief",
+  "goal": "Map a later tutorial excerpt into ordered stage windows and deliver the result as a markdown brief.",
+  "primaryOutputFile": "/root/transfer2_stage_windows.md",
+  "difficulty": "medium",
+  "category": "multimodal-processing",
+  "skillBenefitRationale": "A transcription of the excerpt makes it much easier to align the requested stage labels with their spoken transitions."
+}

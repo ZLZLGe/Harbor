@@ -1,0 +1,51 @@
+[
+  {
+    "id": "evt-101",
+    "summary": "Executive sync",
+    "start": "2026-01-08T10:00:00Z",
+    "end": "2026-01-08T12:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-102",
+    "summary": "Vendor review",
+    "start": "2026-01-08T13:00:00Z",
+    "end": "2026-01-08T15:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-103",
+    "summary": "Morning standup",
+    "start": "2026-01-09T09:00:00Z",
+    "end": "2026-01-09T11:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-104",
+    "summary": "Finance signoff",
+    "start": "2026-01-09T12:30:00Z",
+    "end": "2026-01-09T14:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-107",
+    "summary": "Change freeze overnight window",
+    "start": "2026-01-08T15:00:00Z",
+    "end": "2026-01-09T11:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-105",
+    "summary": "Design review",
+    "start": "2026-01-06T10:15:00Z",
+    "end": "2026-01-06T11:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "evt-106",
+    "summary": "Quarterly town hall",
+    "start": "2026-01-07T09:00:00Z",
+    "end": "2026-01-07T12:00:00Z",
+    "status": "confirmed"
+  }
+]

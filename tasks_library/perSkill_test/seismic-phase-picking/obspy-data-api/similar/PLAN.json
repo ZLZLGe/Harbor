@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Seismic Arrival Timeline Audit",
+  "goal": "Convert the provided P and S pick indices for bundled waveform traces into a clean arrival timeline summary with vertical-component peak measurements.",
+  "primaryOutputFile": "/root/similar_phase_timeline.csv",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "`obspy-data-api` is the only critical shipped skill because the task depends on converting custom waveform arrays into trace objects with start times, sample rates, and channel metadata before deriving UTC arrival times and vertical-trace measurements.",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

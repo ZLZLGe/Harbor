@@ -1,0 +1,9 @@
+{
+  "input_energies": "/root/data/briefing_energies.json",
+  "output_json": "/root/briefing_pauses.json",
+  "summary_json": "/root/briefing_pause_summary.json",
+  "start_time": 3,
+  "threshold_ratio": 0.5,
+  "min_duration": 2,
+  "window_size": 5
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer 2 - Relative Arrival Signal Audit",
+  "goal": "Measure how strongly bundled traces amplify from the pre-arrival baseline into the arrival and coda windows, then report per-file energy ratios.",
+  "primaryOutputFile": "/root/transfer2_signal_audit.csv",
+  "difficulty": "medium",
+  "category": "seismology",
+  "skillBenefitRationale": "`obspy-data-api` is the only critical shipped skill because the task depends on reliable sample-rate, timing, and channel metadata when extracting and auditing phase-relative waveform windows.",
+  "targetSkillDirName": "obspy-data-api",
+  "targetSkillName": "obspy-data-api"
+}

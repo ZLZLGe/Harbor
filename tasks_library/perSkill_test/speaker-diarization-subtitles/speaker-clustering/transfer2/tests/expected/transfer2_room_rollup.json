@@ -1,0 +1,54 @@
+{
+  "buckets": [
+    {
+      "first_seen_sec": 0.0,
+      "seats": [
+        "A1"
+      ],
+      "segment_ids": [
+        "M-001",
+        "M-005"
+      ],
+      "speaker_label": "speaker_01",
+      "total_duration_sec": 1.0
+    },
+    {
+      "first_seen_sec": 0.7,
+      "seats": [
+        "B2"
+      ],
+      "segment_ids": [
+        "M-002",
+        "M-006"
+      ],
+      "speaker_label": "speaker_02",
+      "total_duration_sec": 1.0
+    },
+    {
+      "first_seen_sec": 1.4,
+      "seats": [
+        "C3"
+      ],
+      "segment_ids": [
+        "M-003",
+        "M-007"
+      ],
+      "speaker_label": "speaker_03",
+      "total_duration_sec": 1.05
+    },
+    {
+      "first_seen_sec": 2.05,
+      "seats": [
+        "D4"
+      ],
+      "segment_ids": [
+        "M-004",
+        "M-008"
+      ],
+      "speaker_label": "speaker_04",
+      "total_duration_sec": 1.08
+    }
+  ],
+  "speaker_count": 4,
+  "total_duration_sec": 4.13
+}

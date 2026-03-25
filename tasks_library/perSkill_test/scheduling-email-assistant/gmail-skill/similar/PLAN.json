@@ -1,0 +1,11 @@
+{
+  "source_task_id": "scheduling-email-assistant",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Offline Meeting Reply Batch",
+  "goal": "Read bundled meeting-request emails from the local mailbox and send reply emails using the approved proposal slots.",
+  "primaryOutputFile": "/root/similar_sent_results.json",
+  "difficulty": "medium",
+  "category": "Scheduling",
+  "skillBenefitRationale": "The task remains close to the source task by requiring email reads and outbound replies for meeting coordination, but it uses a bundled offline mailbox instead of live Gmail."
+}

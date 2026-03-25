@@ -1,0 +1,32 @@
+[
+  {
+    "pack_id": "pack_a",
+    "files": [
+      "NC.GDXB..HN.0415528.npz",
+      "NC.MRD.02.EH.0245623.npz",
+      "BG.ACR..DP.0346833.npz",
+      "NC.MQ1P..EH.0394787.npz",
+      "NC.BJOB..HN.0244462.npz"
+    ]
+  },
+  {
+    "pack_id": "pack_b",
+    "files": [
+      "NC.GDXB..HN.0211075.npz",
+      "NC.JSB..HN.0405110.npz",
+      "NC.MRD.02.EH.0234076.npz",
+      "PB.B046..EH.0283603.npz",
+      "TA.P01C..BH.0201171.npz"
+    ]
+  },
+  {
+    "pack_id": "pack_c",
+    "files": [
+      "NC.MMT..EH.0365369.npz",
+      "NC.SN03.01.HN.0315477.npz",
+      "PB.B065..EH.0398802.npz",
+      "NC.CCH1..EP.0332038.npz",
+      "NC.BJO..EH.0170855.npz"
+    ]
+  }
+]
