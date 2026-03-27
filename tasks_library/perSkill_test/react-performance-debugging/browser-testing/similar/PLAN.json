@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "react-performance-debugging",
+  "targetSkill": "browser-testing",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Storefront Performance Diagnosis",
+  "goal": "Interpret storefront browser and API measurements and produce a structured performance diagnosis report.",
+  "primaryOutputFile": "/root/storefront_perf_diagnosis.json",
+  "difficulty": "medium",
+  "category": "web-performance",
+  "skillBenefitRationale": "The task depends on reading browser waterfall timings, bundle data, and known performance thresholds to prioritize the storefront bottlenecks."
+}

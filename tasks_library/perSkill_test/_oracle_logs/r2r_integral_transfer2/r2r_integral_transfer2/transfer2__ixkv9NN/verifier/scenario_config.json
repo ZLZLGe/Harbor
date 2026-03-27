@@ -1,0 +1,78 @@
+{
+  "dt": 0.01,
+  "num_sections": 6,
+  "EA": 2400.0,
+  "J": 0.95,
+  "R": 0.04,
+  "fb": 10.0,
+  "L": 1.0,
+  "v0": 0.01,
+  "duration": 6.0,
+  "control_limit": 12.0,
+  "tail_window_fraction": 0.2,
+  "focus_section": 1,
+  "reference_schedule": [
+    {
+      "start": 0.0,
+      "tensions": [
+        24,
+        22,
+        26,
+        30,
+        28,
+        26
+      ]
+    },
+    {
+      "start": 0.6,
+      "tensions": [
+        24,
+        32,
+        26,
+        30,
+        28,
+        26
+      ]
+    },
+    {
+      "start": 2.5,
+      "tensions": [
+        24,
+        32,
+        26,
+        24,
+        28,
+        26
+      ]
+    }
+  ],
+  "stage_labels": [
+    "baseline",
+    "coat-buildup",
+    "cooldown-trim"
+  ],
+  "disturbance_schedule": [
+    {
+      "start": 0.9,
+      "torque_bias": [
+        0,
+        -0.12,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "start": 2.8,
+      "torque_bias": [
+        0,
+        0,
+        0,
+        0.1,
+        0,
+        0
+      ]
+    }
+  ]
+}

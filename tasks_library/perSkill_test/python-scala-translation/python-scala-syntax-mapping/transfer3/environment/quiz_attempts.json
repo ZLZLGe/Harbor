@@ -1,0 +1,32 @@
+[
+  {
+    "participant": "alex",
+    "answers": {
+      "Q1": "val x = 5",
+      "Q2": "val x: Int = 5",
+      "Q3": "for (i <- 0 to 9) println(i)",
+      "Q4": "s\"Hello, $name!\"",
+      "Q5": "ready && !blocked"
+    }
+  },
+  {
+    "participant": "li",
+    "answers": {
+      "Q1": "val x = 5",
+      "Q2": "val x: Int = 5",
+      "Q3": "for (i <- 0 until 10) println(i)",
+      "Q4": "s\"Hello, $name!\"",
+      "Q5": "ready && !blocked"
+    }
+  },
+  {
+    "participant": "mia",
+    "answers": {
+      "Q1": "var x = 5",
+      "Q2": "val x: Int = 5",
+      "Q3": "for (i <- 0 until 10) println(i)",
+      "Q4": "s\"Hello, ${name}!\"",
+      "Q5": "ready || !blocked"
+    }
+  }
+]

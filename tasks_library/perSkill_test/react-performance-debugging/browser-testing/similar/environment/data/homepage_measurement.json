@@ -1,0 +1,27 @@
+{
+  "url": "http://localhost:3000",
+  "totalMs": 1523,
+  "requests": [
+    {
+      "url": "http://localhost:3000/",
+      "ms": 45.2
+    },
+    {
+      "url": "http://localhost:3000/api/user",
+      "ms": 401.1
+    },
+    {
+      "url": "http://localhost:3000/api/products",
+      "ms": 512.3
+    },
+    {
+      "url": "http://localhost:3000/api/reviews",
+      "ms": 302.0
+    }
+  ],
+  "metrics": {
+    "JSHeapUsedSize": 4521984,
+    "LayoutCount": 12,
+    "ScriptDuration": 0.234
+  }
+}

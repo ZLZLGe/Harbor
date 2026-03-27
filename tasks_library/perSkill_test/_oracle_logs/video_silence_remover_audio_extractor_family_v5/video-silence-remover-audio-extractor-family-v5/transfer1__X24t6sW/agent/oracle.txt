@@ -1,0 +1,6 @@
+Extracting audio from: /root/data/input_video.mp4
+Sample rate: 8000 Hz
+Duration limit: 45s
+
+Audio extracted to: /root/preview_audio.wav
+File size: 0.69 MB

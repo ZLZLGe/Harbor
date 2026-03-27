@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Syntax Mapping Team Playbook"
+description = "Generate a markdown migration playbook that organizes Python to Scala syntax mappings by section."
+author_name = "Local Builder"
+author_email = "local.builder@harbor.test"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["python", "scala", "markdown", "migration"]
+primary_output_file = "/outputs/syntax_mapping_playbook.md"
+source_task_id = "python-scala-translation"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

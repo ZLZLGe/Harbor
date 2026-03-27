@@ -1,0 +1,4 @@
+repo,target,test_signal,missing_case,priority
+mailroompkg,mailroompkg.attachments.parse_attachment_manifest,tests/test_attachments.py,truncated attachment list entries,P1
+quotaflags,quotaflags.policy.load_quota_policy,tests/test_policy.py,negative or reversed quota limits,P1
+slugrender,slugrender.template.load_template_bundle,tests/test_template.py,missing template keys in bundle objects,P1

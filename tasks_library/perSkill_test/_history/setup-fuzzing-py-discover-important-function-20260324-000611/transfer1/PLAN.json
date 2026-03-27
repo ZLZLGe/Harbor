@@ -1,0 +1,12 @@
+{
+  "source_task_id": "setup-fuzzing-py",
+  "skill_slug": "discover-important-function",
+  "derived_task_id": "transfer1",
+  "task_role": "transfer",
+  "title": "Transfer - Python Boundary Regression Queue",
+  "goal": "Inspect several Python packages and produce a regression probe queue for the riskiest boundary functions.",
+  "primary_output_file": "/root/transfer1_regression_queue.csv",
+  "difficulty": "medium",
+  "category": "security",
+  "skill_benefit_rationale": "The skill transfers from fuzz-target discovery to ranking boundary functions that deserve targeted release probes."
+}

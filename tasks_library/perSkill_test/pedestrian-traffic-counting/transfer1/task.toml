@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Peak Minute Pedestrian Timeline"
+description = "Derive per-video peak-minute pedestrian flow summaries from event timelines."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "pedestrian traffic counting"
+tags = ["video understanding", "timeline", "json"]
+primary_output_file = "/root/transfer1_timeline.json"
+source_task_id = "pedestrian-traffic-counting"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

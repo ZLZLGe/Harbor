@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Blind Review PDF Redaction",
+  "goal": "Redact identifying information from three submission PDFs while preserving references and structure.",
+  "primaryOutputFile": "/root/redacted/similar/paper1.pdf",
+  "difficulty": "medium",
+  "category": "document-editing",
+  "skillBenefitRationale": "Exact-match redaction before references is the core capability under test."
+}

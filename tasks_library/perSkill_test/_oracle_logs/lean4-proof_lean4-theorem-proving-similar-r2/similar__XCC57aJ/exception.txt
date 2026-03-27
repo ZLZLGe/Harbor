@@ -1,0 +1,339 @@
+Traceback (most recent call last):
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 479, in run
+    await self._setup_environment()
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 212, in _setup_environment
+    await self._start_environment_with_retry()
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 193, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 224, in _start_environment_with_retry
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 238, in start
+    await self._run_docker_compose_command(["build"])
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 219, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment similar. Command: docker compose -p similar__xcc57aj --project-directory /home/lenovo/skill/Harbor/tasks_library/perSkill_test/lean4-proof_lean4-theorem-proving/similar/environment -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-base.yaml -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-no-network.yaml build. Return code: 1. Stdout:  Image hb__similar Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 666B done
+#1 DONE 0.0s
+
+#2 [ 1/17] FROM docker.io/library/ubuntu:24.04@sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c
+#2 resolve docker.io/library/ubuntu:24.04@sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c 0.0s done
+#2 CACHED
+
+#3 [internal] load build definition from Dockerfile
+#3 transferring dockerfile: 1.40kB done
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/ubuntu:24.04
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 316.12kB 0.0s done
+#6 DONE 0.0s
+
+#7 [ 2/18] RUN set -eux;     for i in 1 2 3; do       apt-get update && apt-get install -y --no-install-recommends ca-certificates python3 && break;       echo "apt retry $i";       sleep 5;     done;     rm -rf /var/lib/apt/lists/*
+#7 0.279 + apt-get update
+#7 2.146 Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#7 2.716 Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#7 4.116 Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#7 5.825 Get:4 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#7 5.874 Get:5 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [3429 kB]
+#7 7.574 Get:6 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
+#7 7.938 Get:7 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1504 kB]
+#7 8.866 Get:8 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#7 10.15 Get:9 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#7 10.44 Get:10 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1954 kB]
+#7 11.68 Get:11 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [34.8 kB]
+#7 15.94 Get:12 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#7 18.48 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2334 kB]
+#7 20.80 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2154 kB]
+#7 22.72 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+#7 25.96 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [3601 kB]
+#7 28.04 Get:17 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [36.1 kB]
+#7 29.34 Get:18 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.5 kB]
+#7 30.07 Get:19 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [695 B]
+#7 30.09 Fetched 37.3 MB in 29s (1295 kB/s)
+#7 30.09 Reading package lists...
+#7 32.28 + apt-get install -y --no-install-recommends ca-certificates python3
+#7 32.29 Reading package lists...
+#7 34.19 Building dependency tree...
+#7 34.65 Reading state information...
+#7 35.08 The following additional packages will be installed:
+#7 35.08   libexpat1 libpython3-stdlib libpython3.12-minimal libpython3.12-stdlib
+#7 35.08   libreadline8t64 libsqlite3-0 media-types netbase openssl python3-minimal
+#7 35.08   python3.12 python3.12-minimal readline-common tzdata
+#7 35.08 Suggested packages:
+#7 35.08   python3-doc python3-tk python3-venv python3.12-venv python3.12-doc binutils
+#7 35.08   binfmt-support readline-doc
+#7 35.15 The following NEW packages will be installed:
+#7 35.15   ca-certificates libexpat1 libpython3-stdlib libpython3.12-minimal
+#7 35.15   libpython3.12-stdlib libreadline8t64 libsqlite3-0 media-types netbase
+#7 35.16   openssl python3 python3-minimal python3.12 python3.12-minimal
+#7 35.16   readline-common tzdata
+#7 54.32 0 upgraded, 16 newly installed, 0 to remove and 10 not upgraded.
+#7 54.32 Need to get 8428 kB of archives.
+#7 54.32 After this operation, 30.3 MB of additional disk space will be used.
+#7 54.32 Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-minimal amd64 3.12.3-1ubuntu0.12 [837 kB]
+#7 56.76 Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libexpat1 amd64 2.6.1-2ubuntu0.4 [88.2 kB]
+#7 59.22 Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3.12-minimal amd64 3.12.3-1ubuntu0.12 [2334 kB]
+#7 60.33 Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-minimal amd64 3.12.3-0ubuntu2.1 [27.4 kB]
+#7 61.10 Get:5 http://archive.ubuntu.com/ubuntu noble/main amd64 media-types all 10.1.0 [27.5 kB]
+#7 76.76 Get:6 http://archive.ubuntu.com/ubuntu noble/main amd64 netbase all 6.4 [13.1 kB]
+#7 78.19 Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 tzdata all 2025b-0ubuntu0.24.04.1 [276 kB]
+#7 80.20 Get:8 http://archive.ubuntu.com/ubuntu noble/main amd64 readline-common all 8.2-4build1 [56.5 kB]
+#7 81.22 Get:9 http://archive.ubuntu.com/ubuntu noble/main amd64 libreadline8t64 amd64 8.2-4build1 [153 kB]
+#7 82.55 Get:10 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libsqlite3-0 amd64 3.45.1-1ubuntu2.5 [701 kB]
+#7 84.95 Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-stdlib amd64 3.12.3-1ubuntu0.12 [2069 kB]
+#7 87.06 Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3.12 amd64 3.12.3-1ubuntu0.12 [651 kB]
+#7 87.74 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3-stdlib amd64 3.12.3-0ubuntu2.1 [10.1 kB]
+#7 88.70 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3 amd64 3.12.3-0ubuntu2.1 [23.0 kB]
+#7 90.16 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 openssl amd64 3.0.13-0ubuntu3.7 [1003 kB]
+#7 91.23 Get:16 http://archive.ubuntu.com/ubuntu noble/main amd64 ca-certificates all 20240203 [159 kB]
+#7 91.36 debconf: delaying package configuration, since apt-utils is not installed
+#7 91.42 Fetched 8428 kB in 55s (154 kB/s)
+#7 91.46 Selecting previously unselected package libpython3.12-minimal:amd64.
+#7 91.46 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4381 files and directories currently installed.)
+#7 91.47 Preparing to unpack .../libpython3.12-minimal_3.12.3-1ubuntu0.12_amd64.deb ...
+#7 91.47 Unpacking libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.12) ...
+#7 91.58 Selecting previously unselected package libexpat1:amd64.
+#7 91.58 Preparing to unpack .../libexpat1_2.6.1-2ubuntu0.4_amd64.deb ...
+#7 91.58 Unpacking libexpat1:amd64 (2.6.1-2ubuntu0.4) ...
+#7 91.62 Selecting previously unselected package python3.12-minimal.
+#7 91.62 Preparing to unpack .../python3.12-minimal_3.12.3-1ubuntu0.12_amd64.deb ...
+#7 91.63 Unpacking python3.12-minimal (3.12.3-1ubuntu0.12) ...
+#7 91.71 Setting up libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.12) ...
+#7 91.72 Setting up libexpat1:amd64 (2.6.1-2ubuntu0.4) ...
+#7 91.74 Setting up python3.12-minimal (3.12.3-1ubuntu0.12) ...
+#7 92.50 Selecting previously unselected package python3-minimal.
+#7 92.50 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4700 files and directories currently installed.)
+#7 92.50 Preparing to unpack .../0-python3-minimal_3.12.3-0ubuntu2.1_amd64.deb ...
+#7 92.51 Unpacking python3-minimal (3.12.3-0ubuntu2.1) ...
+#7 92.54 Selecting previously unselected package media-types.
+#7 92.54 Preparing to unpack .../1-media-types_10.1.0_all.deb ...
+#7 92.54 Unpacking media-types (10.1.0) ...
+#7 92.58 Selecting previously unselected package netbase.
+#7 92.58 Preparing to unpack .../2-netbase_6.4_all.deb ...
+#7 92.58 Unpacking netbase (6.4) ...
+#7 92.62 Selecting previously unselected package tzdata.
+#7 92.62 Preparing to unpack .../3-tzdata_2025b-0ubuntu0.24.04.1_all.deb ...
+#7 92.62 Unpacking tzdata (2025b-0ubuntu0.24.04.1) ...
+#7 92.72 Selecting previously unselected package readline-common.
+#7 92.73 Preparing to unpack .../4-readline-common_8.2-4build1_all.deb ...
+#7 92.73 Unpacking readline-common (8.2-4build1) ...
+#7 92.77 Selecting previously unselected package libreadline8t64:amd64.
+#7 92.77 Preparing to unpack .../5-libreadline8t64_8.2-4build1_amd64.deb ...
+#7 92.77 Adding 'diversion of /lib/x86_64-linux-gnu/libhistory.so.8 to /lib/x86_64-linux-gnu/libhistory.so.8.usr-is-merged by libreadline8t64'
+#7 92.78 Adding 'diversion of /lib/x86_64-linux-gnu/libhistory.so.8.2 to /lib/x86_64-linux-gnu/libhistory.so.8.2.usr-is-merged by libreadline8t64'
+#7 92.79 Adding 'diversion of /lib/x86_64-linux-gnu/libreadline.so.8 to /lib/x86_64-linux-gnu/libreadline.so.8.usr-is-merged by libreadline8t64'
+#7 92.79 Adding 'diversion of /lib/x86_64-linux-gnu/libreadline.so.8.2 to /lib/x86_64-linux-gnu/libreadline.so.8.2.usr-is-merged by libreadline8t64'
+#7 92.80 Unpacking libreadline8t64:amd64 (8.2-4build1) ...
+#7 92.84 Selecting previously unselected package libsqlite3-0:amd64.
+#7 92.84 Preparing to unpack .../6-libsqlite3-0_3.45.1-1ubuntu2.5_amd64.deb ...
+#7 92.84 Unpacking libsqlite3-0:amd64 (3.45.1-1ubuntu2.5) ...
+#7 92.88 Selecting previously unselected package libpython3.12-stdlib:amd64.
+#7 92.89 Preparing to unpack .../7-libpython3.12-stdlib_3.12.3-1ubuntu0.12_amd64.deb ...
+#7 92.89 Unpacking libpython3.12-stdlib:amd64 (3.12.3-1ubuntu0.12) ...
+#7 93.03 Selecting previously unselected package python3.12.
+#7 93.04 Preparing to unpack .../8-python3.12_3.12.3-1ubuntu0.12_amd64.deb ...
+#7 93.04 Unpacking python3.12 (3.12.3-1ubuntu0.12) ...
+#7 93.09 Selecting previously unselected package libpython3-stdlib:amd64.
+#7 93.09 Preparing to unpack .../9-libpython3-stdlib_3.12.3-0ubuntu2.1_amd64.deb ...
+#7 93.10 Unpacking libpython3-stdlib:amd64 (3.12.3-0ubuntu2.1) ...
+#7 93.15 Setting up python3-minimal (3.12.3-0ubuntu2.1) ...
+#7 93.32 Selecting previously unselected package python3.
+#7 93.32 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 5706 files and directories currently installed.)
+#7 93.33 Preparing to unpack .../python3_3.12.3-0ubuntu2.1_amd64.deb ...
+#7 93.33 Unpacking python3 (3.12.3-0ubuntu2.1) ...
+#7 93.37 Selecting previously unselected package openssl.
+#7 93.37 Preparing to unpack .../openssl_3.0.13-0ubuntu3.7_amd64.deb ...
+#7 93.38 Unpacking openssl (3.0.13-0ubuntu3.7) ...
+#7 93.44 Selecting previously unselected package ca-certificates.
+#7 93.44 Preparing to unpack .../ca-certificates_20240203_all.deb ...
+#7 93.45 Unpacking ca-certificates (20240203) ...
+#7 93.55 Setting up media-types (10.1.0) ...
+#7 93.57 Setting up libsqlite3-0:amd64 (3.45.1-1ubuntu2.5) ...
+#7 93.59 Setting up tzdata (2025b-0ubuntu0.24.04.1) ...
+#7 93.73 
+#7 93.73 Current default time zone: 'Etc/UTC'
+#7 93.74 Local time is now:      Thu Mar 26 13:28:07 UTC 2026.
+#7 93.74 Universal Time is now:  Thu Mar 26 13:28:07 UTC 2026.
+#7 93.74 Run 'dpkg-reconfigure tzdata' if you wish to change it.
+#7 93.74 
+#7 93.75 Setting up netbase (6.4) ...
+#7 93.79 Setting up openssl (3.0.13-0ubuntu3.7) ...
+#7 93.80 Setting up readline-common (8.2-4build1) ...
+#7 93.82 Setting up ca-certificates (20240203) ...
+#7 94.40 Updating certificates in /etc/ssl/certs...
+#7 95.29 146 added, 0 removed; done.
+#7 95.33 Setting up libreadline8t64:amd64 (8.2-4build1) ...
+#7 95.34 Setting up libpython3.12-stdlib:amd64 (3.12.3-1ubuntu0.12) ...
+#7 95.35 Setting up python3.12 (3.12.3-1ubuntu0.12) ...
+#7 96.38 Setting up libpython3-stdlib:amd64 (3.12.3-0ubuntu2.1) ...
+#7 96.41 Setting up python3 (3.12.3-0ubuntu2.1) ...
+#7 96.66 Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+#7 96.71 Processing triggers for ca-certificates (20240203) ...
+#7 96.72 Updating certificates in /etc/ssl/certs...
+#7 97.65 0 added, 0 removed; done.
+#7 97.65 Running hooks in /etc/ca-certificates/update.d...
+#7 97.65 done.
+#7 97.68 + break
+#7 97.68 + rm -rf /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-backports_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-backports_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-backports_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-backports_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-updates_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-updates_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-updates_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-updates_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble-updates_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble_InRelease /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/archive.ubuntu.com_ubuntu_dists_noble_universe_binary-amd64_Packages.lz4 /var/lib/apt/lists/auxfiles /var/lib/apt/lists/lock /var/lib/apt/lists/partial /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_noble-security_InRelease /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_noble-security_main_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_noble-security_multiverse_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_noble-security_restricted_binary-amd64_Packages.lz4 /var/lib/apt/lists/security.ubuntu.com_ubuntu_dists_noble-security_universe_binary-amd64_Packages.lz4
+#7 DONE 97.8s
+
+#8 [ 3/18] RUN python3 - <<'PY'
+#8 DONE 6.6s
+
+#9 [ 4/18] RUN sh /tmp/elan-3.1.1/elan-init.sh -y --default-toolchain none
+#9 0.302 elan: need 'curl' (command not found)
+#9 ERROR: process "/bin/sh -c sh /tmp/elan-3.1.1/elan-init.sh -y --default-toolchain none" did not complete successfully: exit code: 1
+------
+ > [ 4/18] RUN sh /tmp/elan-3.1.1/elan-init.sh -y --default-toolchain none:
+0.302 elan: need 'curl' (command not found)
+------
+Dockerfile:26
+
+--------------------
+
+  24 |     PY
+
+  25 |     
+
+  26 | >>> RUN sh /tmp/elan-3.1.1/elan-init.sh -y --default-toolchain none
+
+  27 |     
+
+  28 |     ENV PATH="/root/.elan/bin:${PATH}"
+
+--------------------
+
+failed to solve: process "/bin/sh -c sh /tmp/elan-3.1.1/elan-init.sh -y --default-toolchain none" did not complete successfully: exit code: 1
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/executor/runcexecutor.exitError
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/executor/runcexecutor/executor.go:391
+
+github.com/moby/buildkit/executor/runcexecutor.(*runcExecutor).Run
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/executor/runcexecutor/executor.go:339
+
+github.com/moby/buildkit/solver/llbsolver/ops.(*ExecOp).Exec
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/llbsolver/ops/exec.go:498
+
+github.com/moby/buildkit/solver.(*sharedOp).Exec.func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/jobs.go:1181
+
+github.com/moby/buildkit/util/flightcontrol.(*call[...]).run
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/util/flightcontrol/flightcontrol.go:122
+
+sync.(*Once).doSlow
+
+	/usr/local/go/src/sync/once.go:78
+
+sync.(*Once).Do
+
+	/usr/local/go/src/sync/once.go:69
+
+runtime.goexit
+
+	/usr/local/go/src/runtime/asm_amd64.s:1693
+
+
+
+52418 v0.31.1-desktop.1 /usr/local/lib/docker/cli-plugins/docker-buildx bake --file - --progress rawjson --metadata-file /tmp/compose-build-metadataFile-86460f7c-1b2b-41f6-ba2e-cd2710a5ecd1.json --allow fs.read=/home/lenovo/skill/Harbor/tasks_library/perSkill_test/lean4-proof_lean4-theorem-proving/similar/environment
+
+google.golang.org/grpc.(*ClientConn).Invoke
+
+	google.golang.org/grpc@v1.76.0/call.go:35
+
+github.com/moby/buildkit/api/services/control.(*controlClient).Solve
+
+	github.com/moby/buildkit@v0.27.0/api/services/control/control_grpc.pb.go:88
+
+github.com/moby/buildkit/client.(*Client).solve.func2
+
+	github.com/moby/buildkit@v0.27.0/client/solve.go:319
+
+golang.org/x/sync/errgroup.(*Group).Go.func1
+
+	golang.org/x/sync@v0.19.0/errgroup/errgroup.go:93
+
+runtime.goexit
+
+	runtime/asm_amd64.s:1693
+
+
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/solver.(*edge).execOp
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/edge.go:963
+
+github.com/moby/buildkit/solver/internal/pipe.NewWithFunction[...].func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/internal/pipe/pipe.go:78
+
+runtime.goexit
+
+	/usr/local/go/src/runtime/asm_amd64.s:1693
+
+
+
+52418 v0.31.1-desktop.1 /usr/local/lib/docker/cli-plugins/docker-buildx bake --file - --progress rawjson --metadata-file /tmp/compose-build-metadataFile-86460f7c-1b2b-41f6-ba2e-cd2710a5ecd1.json --allow fs.read=/home/lenovo/skill/Harbor/tasks_library/perSkill_test/lean4-proof_lean4-theorem-proving/similar/environment
+
+github.com/moby/buildkit/client.(*Client).solve.func2
+
+	github.com/moby/buildkit@v0.27.0/client/solve.go:321
+
+golang.org/x/sync/errgroup.(*Group).Go.func1
+
+	golang.org/x/sync@v0.19.0/errgroup/errgroup.go:93
+
+
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/solver/llbsolver/ops.(*ExecOp).Exec
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/llbsolver/ops/exec.go:519
+
+github.com/moby/buildkit/solver.(*sharedOp).Exec.func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/jobs.go:1181
+
+
+
+. Stderr: None. 

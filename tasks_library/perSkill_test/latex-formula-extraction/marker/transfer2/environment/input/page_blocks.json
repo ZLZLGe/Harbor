@@ -1,0 +1,23 @@
+[
+  {
+    "page": 1,
+    "blocks": [
+      {"type": "text", "id": "T-001", "content": "intro"},
+      {"type": "display_formula", "id": "F-001", "content": "\\rho_c(\\tau)=..."}
+    ]
+  },
+  {
+    "page": 2,
+    "blocks": [
+      {"type": "display_formula", "id": "F-002", "content": "H_{i,M}=..."},
+      {"type": "display_formula", "id": "F-003", "content": "P_e(t)=..."},
+      {"type": "text", "id": "T-002", "content": "caption"}
+    ]
+  },
+  {
+    "page": 3,
+    "blocks": [
+      {"type": "text", "id": "T-003", "content": "conclusion"}
+    ]
+  }
+]

@@ -1,0 +1,323 @@
+Traceback (most recent call last):
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 479, in run
+    await self._setup_environment()
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 212, in _setup_environment
+    await self._start_environment_with_retry()
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 193, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 224, in _start_environment_with_retry
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 238, in start
+    await self._run_docker_compose_command(["build"])
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 219, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment similar. Command: docker compose -p similar__vi9m34w --project-directory /home/lenovo/skill/Harbor/tasks_library/perSkill_test/mario-coin-counting_image_editing/similar/environment -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-base.yaml -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-no-network.yaml build. Return code: 1. Stdout:  Image hb__similar Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 666B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 503B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.11-slim
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 11.81kB done
+#5 DONE 0.0s
+
+#6 [1/8] FROM docker.io/library/python:3.11-slim@sha256:9358444059ed78e2975ada2c189f1c1a3144a5dab6f35bff8c981afb38946634
+#6 resolve docker.io/library/python:3.11-slim@sha256:9358444059ed78e2975ada2c189f1c1a3144a5dab6f35bff8c981afb38946634 0.0s done
+#6 CACHED
+
+#7 [2/8] RUN apt-get -o Acquire::Retries=5 update &&     apt-get -o Acquire::Retries=5 install -y --no-install-recommends     imagemagick     python3-pil     python3-pytest     && rm -rf /var/lib/apt/lists/*
+#7 0.945 Hit:1 http://deb.debian.org/debian trixie InRelease
+#7 2.924 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#7 3.672 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#7 7.314 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9671 kB]
+#7 8.411 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+#7 10.09 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [114 kB]
+#7 10.13 Fetched 9881 kB in 10s (1010 kB/s)
+#7 10.13 Reading package lists...
+#7 11.59 Reading package lists...
+#7 13.23 Building dependency tree...
+#7 13.79 Reading state information...
+#7 14.15 The following additional packages will be installed:
+#7 14.15   fontconfig-config fonts-dejavu-core fonts-dejavu-mono hicolor-icon-theme
+#7 14.15   imagemagick-7-common imagemagick-7.q16 libatomic1 libbrotli1 libdav1d7
+#7 14.15   libde265-0 libdeflate0 libexpat1 libfftw3-double3 libfontconfig1
+#7 14.15   libfreetype6 libfribidi0 libglib2.0-0t64 libgomp1 libgraphite2-3
+#7 14.15   libharfbuzz0b libheif-plugin-dav1d libheif-plugin-libde265 libheif1
+#7 14.15   libimagequant0 libjbig0 libjpeg62-turbo liblcms2-2 liblerc4 liblqr-1-0
+#7 14.15   libltdl7 libmagickcore-7.q16-10 libmagickwand-7.q16-10 libopenjp2-7
+#7 14.15   libpng16-16t64 libpython3-stdlib libpython3.13-minimal libpython3.13-stdlib
+#7 14.15   libraqm0 libraw23t64 libsharpyuv0 libtiff6 libwebp7 libwebpdemux2
+#7 14.15   libwebpmux3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxml2
+#7 14.15   media-types python3 python3-iniconfig python3-minimal python3-packaging
+#7 14.16   python3-pluggy python3.13 python3.13-minimal
+#7 14.16 Suggested packages:
+#7 14.16   imagemagick-7-doc autotrace cups-bsd | lpr | lprng curl enscript ffmpeg gimp
+#7 14.16   gnuplot grads graphviz groff-base hp2xx html2ps libwmf-bin mplayer povray
+#7 14.16   radiance sane-utils texlive-base-bin transfig libraw-bin xdg-utils
+#7 14.16   libfftw3-bin libfftw3-dev low-memory-monitor libheif-plugin-ffmpegdec
+#7 14.16   libheif-plugin-jpegdec libheif-plugin-jpegenc libheif-plugin-j2kdec
+#7 14.16   libheif-plugin-j2kenc libheif-plugin-kvazaar libheif-plugin-rav1e
+#7 14.16   libheif-plugin-svtenc liblcms2-utils libmagickcore-7.q16-10-extra
+#7 14.16   python3-doc python3-tk python3-venv python-pil-doc python3.13-venv
+#7 14.16   python3.13-doc binutils binfmt-support
+#7 14.16 Recommended packages:
+#7 14.16   libmagickcore-7.q16-10-extra ghostscript netpbm libglib2.0-data
+#7 14.16   shared-mime-info xdg-user-dirs libheif-plugin-x265 libheif-plugin-aomenc
+#7 14.16   fonts-urw-base35 python3-olefile python3-pygments
+#7 14.48 The following NEW packages will be installed:
+#7 14.48   fontconfig-config fonts-dejavu-core fonts-dejavu-mono hicolor-icon-theme
+#7 14.48   imagemagick imagemagick-7-common imagemagick-7.q16 libatomic1 libbrotli1
+#7 14.48   libdav1d7 libde265-0 libdeflate0 libexpat1 libfftw3-double3 libfontconfig1
+#7 14.48   libfreetype6 libfribidi0 libglib2.0-0t64 libgomp1 libgraphite2-3
+#7 14.48   libharfbuzz0b libheif-plugin-dav1d libheif-plugin-libde265 libheif1
+#7 14.48   libimagequant0 libjbig0 libjpeg62-turbo liblcms2-2 liblerc4 liblqr-1-0
+#7 14.48   libltdl7 libmagickcore-7.q16-10 libmagickwand-7.q16-10 libopenjp2-7
+#7 14.48   libpng16-16t64 libpython3-stdlib libpython3.13-minimal libpython3.13-stdlib
+#7 14.48   libraqm0 libraw23t64 libsharpyuv0 libtiff6 libwebp7 libwebpdemux2
+#7 14.48   libwebpmux3 libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxml2
+#7 14.48   media-types python3 python3-iniconfig python3-minimal python3-packaging
+#7 14.49   python3-pil python3-pluggy python3-pytest python3.13 python3.13-minimal
+#7 16.65 0 upgraded, 62 newly installed, 0 to remove and 0 not upgraded.
+#7 16.65 Need to get 22.1 MB of archives.
+#7 16.65 After this operation, 71.5 MB of additional disk space will be used.
+#7 16.65 Get:1 http://deb.debian.org/debian trixie/main amd64 libexpat1 amd64 2.7.1-2 [108 kB]
+#7 17.64 Get:2 http://deb.debian.org/debian trixie/main amd64 libgomp1 amd64 14.2.0-19 [137 kB]
+#7 19.13 Get:3 http://deb.debian.org/debian trixie/main amd64 libfftw3-double3 amd64 3.3.10-2+b1 [781 kB]
+#7 20.16 Get:4 http://deb.debian.org/debian trixie/main amd64 libbrotli1 amd64 1.1.0-2+b7 [307 kB]
+#7 21.62 Get:5 http://deb.debian.org/debian trixie/main amd64 libpng16-16t64 amd64 1.6.48-1+deb13u3 [283 kB]
+#7 23.03 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 libfreetype6 amd64 2.13.3+dfsg-1+deb13u1 [452 kB]
+#7 24.55 Get:7 http://deb.debian.org/debian trixie/main amd64 fonts-dejavu-mono all 2.37-8 [489 kB]
+#7 25.93 Get:8 http://deb.debian.org/debian trixie/main amd64 fonts-dejavu-core all 2.37-8 [840 kB]
+#7 27.11 Get:9 http://deb.debian.org/debian trixie/main amd64 fontconfig-config amd64 2.15.0-2.3 [318 kB]
+#7 28.16 Get:10 http://deb.debian.org/debian trixie/main amd64 libfontconfig1 amd64 2.15.0-2.3 [392 kB]
+#7 29.11 Get:11 http://deb.debian.org/debian trixie/main amd64 libsharpyuv0 amd64 1.5.0-0.1 [116 kB]
+#7 30.17 Get:12 http://deb.debian.org/debian trixie/main amd64 libdav1d7 amd64 1.5.1-1 [559 kB]
+#7 31.75 Get:13 http://deb.debian.org/debian trixie/main amd64 libheif-plugin-dav1d amd64 1.19.8-1 [11.7 kB]
+#7 33.02 Get:14 http://deb.debian.org/debian trixie/main amd64 libde265-0 amd64 1.0.15-1+b3 [189 kB]
+#7 33.64 Get:15 http://deb.debian.org/debian trixie/main amd64 libheif-plugin-libde265 amd64 1.19.8-1 [15.3 kB]
+#7 34.90 Get:16 http://deb.debian.org/debian trixie/main amd64 libheif1 amd64 1.19.8-1 [520 kB]
+#7 37.36 Get:17 http://deb.debian.org/debian trixie/main amd64 libjbig0 amd64 2.1-6.1+b2 [32.1 kB]
+#7 39.65 Get:18 http://deb.debian.org/debian trixie/main amd64 libjpeg62-turbo amd64 1:2.1.5-4 [168 kB]
+#7 40.91 Get:19 http://deb.debian.org/debian trixie/main amd64 liblcms2-2 amd64 2.16-2 [160 kB]
+#7 42.14 Get:20 http://deb.debian.org/debian trixie/main amd64 libatomic1 amd64 14.2.0-19 [9308 B]
+#7 43.80 Get:21 http://deb.debian.org/debian trixie/main amd64 libglib2.0-0t64 amd64 2.84.4-3~deb13u2 [1518 kB]
+#7 45.58 Get:22 http://deb.debian.org/debian trixie/main amd64 liblqr-1-0 amd64 0.4.2-2.1+b2 [29.5 kB]
+#7 47.66 Get:23 http://deb.debian.org/debian trixie/main amd64 libltdl7 amd64 2.5.4-4 [416 kB]
+#7 48.55 Get:24 http://deb.debian.org/debian trixie/main amd64 libopenjp2-7 amd64 2.5.3-2.1~deb13u1 [205 kB]
+#7 49.47 Get:25 http://deb.debian.org/debian trixie/main amd64 libraw23t64 amd64 0.21.4-2 [390 kB]
+#7 53.33 Get:26 http://deb.debian.org/debian trixie/main amd64 libdeflate0 amd64 1.23-2 [47.3 kB]
+#7 54.68 Get:27 http://deb.debian.org/debian trixie/main amd64 liblerc4 amd64 4.0.0+ds-5 [183 kB]
+#7 55.63 Get:28 http://deb.debian.org/debian trixie/main amd64 libwebp7 amd64 1.5.0-0.1 [318 kB]
+#7 57.60 Get:29 http://deb.debian.org/debian trixie/main amd64 libtiff6 amd64 4.7.0-3+deb13u1 [346 kB]
+#7 58.54 Get:30 http://deb.debian.org/debian trixie/main amd64 libwebpdemux2 amd64 1.5.0-0.1 [113 kB]
+#7 59.61 Get:31 http://deb.debian.org/debian trixie/main amd64 libwebpmux3 amd64 1.5.0-0.1 [126 kB]
+#7 60.34 Get:32 http://deb.debian.org/debian trixie/main amd64 libxau6 amd64 1:1.0.11-1 [20.4 kB]
+#7 64.43 Get:33 http://deb.debian.org/debian trixie/main amd64 libxdmcp6 amd64 1:1.1.5-1 [27.8 kB]
+#7 69.30 Err:34 http://deb.debian.org/debian trixie/main amd64 libxcb1 amd64 1.17.0-2+b1
+#7 69.30   502  Bad Gateway [IP: 199.232.162.132 80]
+#7 70.39 Get:35 http://deb.debian.org/debian trixie/main amd64 libx11-data all 2:1.8.12-1 [343 kB]
+#7 71.89 Get:36 http://deb.debian.org/debian trixie/main amd64 libx11-6 amd64 2:1.8.12-1 [815 kB]
+#7 72.83 Get:37 http://deb.debian.org/debian trixie/main amd64 libxext6 amd64 2:1.3.4-1+b3 [50.4 kB]
+#7 74.36 Get:38 http://deb.debian.org/debian trixie/main amd64 libxml2 amd64 2.12.7+dfsg+really2.9.14-2.1+deb13u2 [698 kB]
+#7 75.30 Get:39 http://deb.debian.org/debian-security trixie-security/main amd64 imagemagick-7-common all 8:7.1.1.43+dfsg1-1+deb13u7 [73.8 kB]
+#7 78.54 Get:40 http://deb.debian.org/debian-security trixie-security/main amd64 libmagickcore-7.q16-10 amd64 8:7.1.1.43+dfsg1-1+deb13u7 [1854 kB]
+#7 80.61 Get:41 http://deb.debian.org/debian-security trixie-security/main amd64 libmagickwand-7.q16-10 amd64 8:7.1.1.43+dfsg1-1+deb13u7 [347 kB]
+#7 84.40 Get:42 http://deb.debian.org/debian trixie/main amd64 libpython3.13-minimal amd64 3.13.5-2 [862 kB]
+#7 88.37 Get:43 http://deb.debian.org/debian trixie/main amd64 python3.13-minimal amd64 3.13.5-2 [2224 kB]
+#7 89.50 Get:44 http://deb.debian.org/debian trixie/main amd64 python3-minimal amd64 3.13.5-1 [27.2 kB]
+#7 94.37 Err:45 http://deb.debian.org/debian trixie/main amd64 media-types all 13.0.0
+#7 94.37   502  Bad Gateway [IP: 199.232.162.132 80]
+#7 96.91 Get:46 http://deb.debian.org/debian trixie/main amd64 libpython3.13-stdlib amd64 3.13.5-2 [1956 kB]
+#7 99.20 Get:47 http://deb.debian.org/debian trixie/main amd64 python3.13 amd64 3.13.5-2 [757 kB]
+#7 99.79 Get:48 http://deb.debian.org/debian trixie/main amd64 libpython3-stdlib amd64 3.13.5-1 [10.2 kB]
+#7 100.6 Get:49 http://deb.debian.org/debian trixie/main amd64 python3 amd64 3.13.5-1 [28.2 kB]
+#7 101.5 Get:50 http://deb.debian.org/debian trixie/main amd64 hicolor-icon-theme all 0.18-2 [11.8 kB]
+#7 104.6 Get:51 http://deb.debian.org/debian-security trixie-security/main amd64 imagemagick-7.q16 amd64 8:7.1.1.43+dfsg1-1+deb13u7 [732 kB]
+#7 105.8 Get:52 http://deb.debian.org/debian-security trixie-security/main amd64 imagemagick amd64 8:7.1.1.43+dfsg1-1+deb13u7 [26.3 kB]
+#7 106.6 Get:53 http://deb.debian.org/debian trixie/main amd64 libfribidi0 amd64 1.0.16-1 [26.5 kB]
+#7 109.1 Get:54 http://deb.debian.org/debian trixie/main amd64 libgraphite2-3 amd64 1.3.14-2+b1 [75.4 kB]
+#7 110.8 Get:55 http://deb.debian.org/debian trixie/main amd64 libharfbuzz0b amd64 10.2.0-1+b1 [479 kB]
+#7 112.6 Get:56 http://deb.debian.org/debian trixie/main amd64 libimagequant0 amd64 2.18.0-1+b2 [35.2 kB]
+#7 113.3 Get:57 http://deb.debian.org/debian trixie/main amd64 libraqm0 amd64 0.10.2-1 [13.9 kB]
+#7 113.9 Get:58 http://deb.debian.org/debian trixie/main amd64 python3-iniconfig all 1.1.1-2 [6396 B]
+#7 115.1 Get:59 http://deb.debian.org/debian trixie/main amd64 python3-packaging all 25.0-1 [56.6 kB]
+#7 116.8 Get:60 http://deb.debian.org/debian trixie/main amd64 python3-pil amd64 11.1.0-5+deb13u1 [512 kB]
+#7 118.1 Get:61 http://deb.debian.org/debian trixie/main amd64 python3-pluggy all 1.5.0-1 [26.9 kB]
+#7 119.8 Get:62 http://deb.debian.org/debian trixie/main amd64 python3-pytest all 8.3.5-2 [250 kB]
+#7 119.8 Fetched 21.9 MB in 1min 42s (215 kB/s)
+#7 119.8 E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb1_1.17.0-2%2bb1_amd64.deb  502  Bad Gateway [IP: 199.232.162.132 80]
+#7 119.8 E: Failed to fetch http://deb.debian.org/debian/pool/main/m/media-types/media-types_13.0.0_all.deb  502  Bad Gateway [IP: 199.232.162.132 80]
+#7 119.8 E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+#7 ERROR: process "/bin/sh -c apt-get -o Acquire::Retries=5 update &&     apt-get -o Acquire::Retries=5 install -y --no-install-recommends     imagemagick     python3-pil     python3-pytest     && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+------
+ > [2/8] RUN apt-get -o Acquire::Retries=5 update &&     apt-get -o Acquire::Retries=5 install -y --no-install-recommends     imagemagick     python3-pil     python3-pytest     && rm -rf /var/lib/apt/lists/*:
+113.3 Get:57 http://deb.debian.org/debian trixie/main amd64 libraqm0 amd64 0.10.2-1 [13.9 kB]
+113.9 Get:58 http://deb.debian.org/debian trixie/main amd64 python3-iniconfig all 1.1.1-2 [6396 B]
+115.1 Get:59 http://deb.debian.org/debian trixie/main amd64 python3-packaging all 25.0-1 [56.6 kB]
+116.8 Get:60 http://deb.debian.org/debian trixie/main amd64 python3-pil amd64 11.1.0-5+deb13u1 [512 kB]
+118.1 Get:61 http://deb.debian.org/debian trixie/main amd64 python3-pluggy all 1.5.0-1 [26.9 kB]
+119.8 Get:62 http://deb.debian.org/debian trixie/main amd64 python3-pytest all 8.3.5-2 [250 kB]
+119.8 Fetched 21.9 MB in 1min 42s (215 kB/s)
+119.8 E: Failed to fetch http://deb.debian.org/debian/pool/main/libx/libxcb/libxcb1_1.17.0-2%2bb1_amd64.deb  502  Bad Gateway [IP: 199.232.162.132 80]
+119.8 E: Failed to fetch http://deb.debian.org/debian/pool/main/m/media-types/media-types_13.0.0_all.deb  502  Bad Gateway [IP: 199.232.162.132 80]
+119.8 E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+------
+Dockerfile:6
+
+--------------------
+
+   5 |     
+
+   6 | >>> RUN apt-get -o Acquire::Retries=5 update && \
+
+   7 | >>>     apt-get -o Acquire::Retries=5 install -y --no-install-recommends \
+
+   8 | >>>     imagemagick \
+
+   9 | >>>     python3-pil \
+
+  10 | >>>     python3-pytest \
+
+  11 | >>>     && rm -rf /var/lib/apt/lists/*
+
+  12 |     
+
+--------------------
+
+failed to solve: process "/bin/sh -c apt-get -o Acquire::Retries=5 update &&     apt-get -o Acquire::Retries=5 install -y --no-install-recommends     imagemagick     python3-pil     python3-pytest     && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/executor/runcexecutor.exitError
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/executor/runcexecutor/executor.go:391
+
+github.com/moby/buildkit/executor/runcexecutor.(*runcExecutor).Run
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/executor/runcexecutor/executor.go:339
+
+github.com/moby/buildkit/solver/llbsolver/ops.(*ExecOp).Exec
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/llbsolver/ops/exec.go:498
+
+github.com/moby/buildkit/solver.(*sharedOp).Exec.func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/jobs.go:1181
+
+github.com/moby/buildkit/util/flightcontrol.(*call[...]).run
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/util/flightcontrol/flightcontrol.go:122
+
+sync.(*Once).doSlow
+
+	/usr/local/go/src/sync/once.go:78
+
+sync.(*Once).Do
+
+	/usr/local/go/src/sync/once.go:69
+
+runtime.goexit
+
+	/usr/local/go/src/runtime/asm_amd64.s:1693
+
+
+
+31779 v0.31.1-desktop.1 /usr/local/lib/docker/cli-plugins/docker-buildx bake --file - --progress rawjson --metadata-file /tmp/compose-build-metadataFile-848134b9-e204-4aa7-9b6a-ab1743d4a239.json --allow fs.read=/home/lenovo/skill/Harbor/tasks_library/perSkill_test/mario-coin-counting_image_editing/similar/environment
+
+google.golang.org/grpc.(*ClientConn).Invoke
+
+	google.golang.org/grpc@v1.76.0/call.go:35
+
+github.com/moby/buildkit/api/services/control.(*controlClient).Solve
+
+	github.com/moby/buildkit@v0.27.0/api/services/control/control_grpc.pb.go:88
+
+github.com/moby/buildkit/client.(*Client).solve.func2
+
+	github.com/moby/buildkit@v0.27.0/client/solve.go:319
+
+golang.org/x/sync/errgroup.(*Group).Go.func1
+
+	golang.org/x/sync@v0.19.0/errgroup/errgroup.go:93
+
+runtime.goexit
+
+	runtime/asm_amd64.s:1693
+
+
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/solver.(*edge).execOp
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/edge.go:963
+
+github.com/moby/buildkit/solver/internal/pipe.NewWithFunction[...].func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/internal/pipe/pipe.go:78
+
+runtime.goexit
+
+	/usr/local/go/src/runtime/asm_amd64.s:1693
+
+
+
+31779 v0.31.1-desktop.1 /usr/local/lib/docker/cli-plugins/docker-buildx bake --file - --progress rawjson --metadata-file /tmp/compose-build-metadataFile-848134b9-e204-4aa7-9b6a-ab1743d4a239.json --allow fs.read=/home/lenovo/skill/Harbor/tasks_library/perSkill_test/mario-coin-counting_image_editing/similar/environment
+
+github.com/moby/buildkit/client.(*Client).solve.func2
+
+	github.com/moby/buildkit@v0.27.0/client/solve.go:321
+
+golang.org/x/sync/errgroup.(*Group).Go.func1
+
+	golang.org/x/sync@v0.19.0/errgroup/errgroup.go:93
+
+
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/solver/llbsolver/ops.(*ExecOp).Exec
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/llbsolver/ops/exec.go:519
+
+github.com/moby/buildkit/solver.(*sharedOp).Exec.func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/jobs.go:1181
+
+
+
+. Stderr: None. 

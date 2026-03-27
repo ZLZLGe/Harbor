@@ -1,0 +1,11 @@
+{
+  "pageTotalBudgetMs": 700,
+  "apiBudgetMs": 500,
+  "bundleBudgetKb": 300,
+  "layoutCountFollowupThreshold": 50,
+  "statusLabels": [
+    "BLOCK",
+    "PASS_WITH_FOLLOWUP",
+    "PASS"
+  ]
+}

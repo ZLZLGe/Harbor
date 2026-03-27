@@ -1,0 +1,13 @@
+{
+  "sourceTaskId": "react-performance-debugging",
+  "skillMode": "per-skill",
+  "targetSkill": "react-best-practices",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Storefront Latency Cleanup",
+  "goal": "Repair a sluggish storefront by removing request waterfalls, reducing initial bundle cost, and stopping avoidable card rerenders.",
+  "primaryOutputFile": "/app/src/app/page.tsx",
+  "difficulty": "hard",
+  "category": "web-performance",
+  "skillBenefitRationale": "This task is easiest when the single shipped skill react-best-practices is applied correctly."
+}

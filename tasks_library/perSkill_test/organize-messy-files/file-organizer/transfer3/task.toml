@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Finance Filing Index Builder"
+description = "File scattered finance documents into year/type folders and build an index CSV with destination metadata."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "file-management"
+tags = ["file-management", "finance-docs", "transfer", "skillsbench"]
+primary_output_file = "/root/transfer3_finance_index.csv"
+source_task_id = "organize-messy-files"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 240.0
+
+[agent]
+timeout_sec = 300.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

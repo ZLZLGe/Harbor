@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Donation Page Layout Shift Audit"
+description = "Summarize a donation page CLS capture into a remediation memo."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "web-performance"
+tags = ["layout-shift", "cls", "browser-debugging", "ux"]
+primary_output_file = "/root/donation_layout_shift_audit.md"
+source_task_id = "react-performance-debugging"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096

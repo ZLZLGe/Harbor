@@ -1,0 +1,8 @@
+Combining segments...
+  Input: /root/data/intro.json
+  Input: /root/data/holds.json
+  Input: /root/data/handoff.json
+
+Combined 4 segments
+Total duration to remove: 14s
+Results saved to: /root/compliance_all_segments.json

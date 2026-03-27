@@ -1,0 +1,13 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Sensor Stream Fusion Consistency",
+  "goal": "Apply doubly stochastic stream mixing and branch redistribution to sensor sequences, then report consistency and drift metrics.",
+  "primaryOutputFile": "/root/transfer2_sensor_fusion_report.json",
+  "difficulty": "medium",
+  "category": "signal-processing",
+  "skillBenefitRationale": "Reuses mHC mixing math in non-language multi-sensor stream fusion.",
+  "source_task_id": "mhc-layer-impl",
+  "targetSkillDirName": "mhc-algorithm",
+  "targetSkillName": "mhc-algorithm"
+}

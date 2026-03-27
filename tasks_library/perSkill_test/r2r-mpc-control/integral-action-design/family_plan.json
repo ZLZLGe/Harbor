@@ -1,0 +1,46 @@
+{
+  "sourceTaskId": "r2r-mpc-control",
+  "familyTheme": "Offset-bias correction in closed-loop industrial control with bounded decayed error memory.",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - R2R Tension Offset Audit",
+      "goal": "Run the provided 6-section line model with a bounded decayed error-memory control augmentation and report offset-reduction KPIs.",
+      "primaryOutputFile": "/root/similar_tension_offset_report.json",
+      "difficulty": "medium",
+      "category": "control-systems",
+      "skillBenefitRationale": "The task depends on designing and tuning a leaky accumulated-error correction term with anti-windup to remove steady-state tension bias."
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Multi-Zone Oven Bias Rebalance",
+      "goal": "Stabilize a 4-zone thermal process under heater bias and summarize tracking quality across a staged recipe profile.",
+      "primaryOutputFile": "/root/transfer1_oven_balance_report.json",
+      "difficulty": "medium",
+      "category": "control-systems",
+      "skillBenefitRationale": "The same decayed accumulated-error design transfers to thermal zones where constant disturbances create persistent offset."
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Reservoir Network Stability Check",
+      "goal": "Control a coupled three-reservoir level model with valve bias and produce a stability report comparing baseline vs corrected control.",
+      "primaryOutputFile": "/root/transfer2_reservoir_stability.json",
+      "difficulty": "medium",
+      "category": "control-systems",
+      "skillBenefitRationale": "The accumulated-error correction with leakage and clipping must generalize to coupled fluid-level dynamics."
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Dual-Winder Cyclic Tracking Quality",
+      "goal": "Track cyclic setpoints in a two-axis winding pair with actuator bias and report cycle-end tracking and control-quality metrics.",
+      "primaryOutputFile": "/root/transfer3_winder_quality.json",
+      "difficulty": "medium",
+      "category": "control-systems",
+      "skillBenefitRationale": "The bounded decayed accumulated-error term is reused for cyclic tracking with persistent actuator bias and saturation limits."
+    }
+  ]
+}

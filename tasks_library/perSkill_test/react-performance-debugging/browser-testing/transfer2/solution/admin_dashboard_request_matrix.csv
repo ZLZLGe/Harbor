@@ -1,0 +1,6 @@
+request_url,duration_ms,loading_pattern,criticality,recommended_action
+http://localhost:3000/api/summary,420,sequential,critical,start-in-parallel
+http://localhost:3000/api/routes,310,sequential,critical,start-in-parallel
+http://localhost:3000/api/incidents,280,sequential,critical,start-in-parallel
+http://localhost:3000/api/weather,190,sequential,progressive,defer-after-first-paint
+http://localhost:3000/api/audit-log,260,sequential,progressive,defer-until-tab-open

@@ -1,0 +1,2 @@
+Wrote 6 link OBJ files to /root/output/meshes
+Wrote /root/output/pallet_sorter.urdf

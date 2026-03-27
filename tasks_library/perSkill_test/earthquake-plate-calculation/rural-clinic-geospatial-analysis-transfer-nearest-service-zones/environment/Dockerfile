@@ -21,10 +21,10 @@ COPY county_boundaries.geojson /root/county_boundaries.geojson
 COPY rural_clinics.geojson /root/rural_clinics.geojson
 COPY rural_settlements.geojson /root/rural_settlements.geojson
 
-COPY skills /root/.claude/skills
-COPY skills /root/.codex/skills
-COPY skills /root/.opencode/skill
-COPY skills /root/.goose/skills
-COPY skills /root/.factory/skills
-COPY skills /root/.agents/skills
-COPY skills /root/.gemini/skills
+# codex-hide-skill COPY skills /root/.claude/skills
+# codex-hide-skill COPY skills /root/.codex/skills
+# codex-hide-skill COPY skills /root/.opencode/skill
+# codex-hide-skill COPY skills /root/.goose/skills
+# codex-hide-skill COPY skills /root/.factory/skills
+# codex-hide-skill COPY skills /root/.agents/skills
+# codex-hide-skill COPY skills /root/.gemini/skills

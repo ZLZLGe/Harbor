@@ -1,0 +1,8 @@
+Combining segments...
+  Input: /root/data/setup.json
+  Input: /root/data/quiet_spans.json
+  Input: /root/data/wrap.json
+
+Combined 5 segments
+Total duration to remove: 16s
+Results saved to: /root/qa_all_segments.json

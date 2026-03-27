@@ -1,0 +1,16 @@
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+__________ test_content_matches_selected_candidate_and_tokens_removed __________
+
+    def test_content_matches_selected_candidate_and_tokens_removed():
+        doc = Document(OUTPUT_FILE)
+        text = get_all_text(doc)
+        leftovers = re.findall(r"\{\{[A-Z0-9_]+\}\}", text)
+>       assert not leftovers, f"Unreplaced placeholders remain: {leftovers}"
+E       AssertionError: Unreplaced placeholders remain: ['{{COMPANY_NAME}}', '{{STREET_ADDRESS}}', '{{HR_TITLE}}', '{{COMPANY_NAME}}', '{{START_DATE}}', '{{DOC_ID}}', '{{COMPANY_NAME}}']
+E       assert not ['{{COMPANY_NAME}}', '{{STREET_ADDRESS}}', '{{HR_TITLE}}', '{{COMPANY_NAME}}', '{{START_DATE}}', '{{DOC_ID}}', ...]
+
+/tests/test_outputs.py:53: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_content_matches_selected_candidate_and_tokens_removed
+1 failed, 1 passed in 0.08s

@@ -1,0 +1,9 @@
+{
+  "app_name": "mhc-similar-trainer",
+  "python_version": "3.11",
+  "packages": ["torch", "einops", "numpy", "huggingface_hub"],
+  "gpu": "A100",
+  "timeout_seconds": 5400,
+  "function_name": "train_model",
+  "entrypoint": "main"
+}

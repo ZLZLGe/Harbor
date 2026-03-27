@@ -1,0 +1,12 @@
+{
+  "source_task_id": "setup-fuzzing-py",
+  "skill_slug": "discover-important-function",
+  "derived_task_id": "transfer3",
+  "task_role": "transfer",
+  "title": "Transfer - Python Oracle Handoff Notes",
+  "goal": "Inspect Python repositories and summarize the main function-under-test plus the oracle already implied by unit tests.",
+  "primary_output_file": "/root/transfer3_handoff_notes.json",
+  "difficulty": "medium",
+  "category": "security",
+  "skill_benefit_rationale": "The skill transfers from target localization to extracting the most relevant tests and the concrete invariants they already encode."
+}

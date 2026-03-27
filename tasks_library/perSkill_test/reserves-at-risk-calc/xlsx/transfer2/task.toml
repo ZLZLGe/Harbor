@@ -1,0 +1,28 @@
+
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer2 - Municipal Cash Ladder Workbook"
+description = "Complete the cash ladder workbook with matched yields, quarter rollups, and dashboard metrics."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "financial-analysis"
+tags = ["excel", "xlsx", "cash-management", "treasury"]
+primary_output_file = "/root/cash_ladder_transfer2_completed.xlsx"
+source_task_id = "reserves-at-risk-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+allow_internet = false

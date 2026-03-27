@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Audio Briefing Opus Export"
+description = "Export the source timeline audio as an Opus briefing file with a compact manifest."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "multimodal-video-dubbing"
+tags = ["audio conversion", "opus", "manifest"]
+primary_output_file = "/root/transfer1_briefing.opus"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

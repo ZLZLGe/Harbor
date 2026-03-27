@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Formula Catalog JSON for Audit Intake"
+description = "Build a structured JSON catalog of standalone formulas from a PDF and include a corrected entry for the bracket typo."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "document-normalization"
+tags = ["pdf", "latex", "json", "catalog"]
+primary_output_file = "/root/transfer1_formula_catalog.json"
+source_task_id = "latex-formula-extraction"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

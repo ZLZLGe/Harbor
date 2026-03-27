@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Optimizer Schedule Comparison"
+description = "Compare optimizer traces and cosine-warmup learning rates for a tiny GPT run."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "ml-optimization"
+tags = ["nanogpt", "optimizer", "adamw", "learning-rate"]
+primary_output_file = "/root/transfer2_optimizer_report.json"
+source_task_id = "mhc-layer-impl"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

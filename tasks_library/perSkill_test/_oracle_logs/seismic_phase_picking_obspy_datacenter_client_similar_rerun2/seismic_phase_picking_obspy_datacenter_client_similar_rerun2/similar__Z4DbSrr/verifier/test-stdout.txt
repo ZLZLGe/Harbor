@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.15, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 2 items
+
+../tests/test_outputs.py FF                                              [100%]
+
+=================================== FAILURES ===================================
+______________________ test_metrics_csv_matches_expected _______________________
+
+    def test_metrics_csv_matches_expected():
+        output_path = Path("/root/similar_waveform_metrics.csv")
+>       assert output_path.exists(), "missing /root/similar_waveform_metrics.csv"
+E       AssertionError: missing /root/similar_waveform_metrics.csv
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/root/similar_waveform_metrics.csv').exists
+
+/tests/test_outputs.py:9: AssertionError
+______________________ test_summary_json_matches_expected ______________________
+
+    def test_summary_json_matches_expected():
+        output_path = Path("/root/similar_waveform_summary.json")
+>       assert output_path.exists(), "missing /root/similar_waveform_summary.json"
+E       AssertionError: missing /root/similar_waveform_summary.json
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/root/similar_waveform_summary.json').exists
+
+/tests/test_outputs.py:14: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_metrics_csv_matches_expected - Assertio...
+FAILED ../tests/test_outputs.py::test_summary_json_matches_expected - Asserti...
+============================== 2 failed in 0.02s ===============================

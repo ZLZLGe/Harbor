@@ -1,0 +1,1 @@
+MSG|4|PING|SUM

@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Receipt Amount Bands",
+  "goal": "Classify receipts into spend bands and export weighted distribution metrics.",
+  "primaryOutputFile": "/root/transfer2_amount_bands.csv",
+  "difficulty": "medium",
+  "category": "data statistics",
+  "skillBenefitRationale": "The task transfers raw receipt extraction into risk-style amount segmentation analytics."
+}

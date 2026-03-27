@@ -1,0 +1,4 @@
+request_id,starttime,endtime,minmagnitude
+day1_brief,2024-07-01T00:00:00,2024-07-02T00:00:00,3.0
+operations_window,2024-07-02T00:00:00,2024-07-04T00:00:00,2.5
+late_night,2024-07-04T00:00:00,2024-07-05T00:00:00,4.0

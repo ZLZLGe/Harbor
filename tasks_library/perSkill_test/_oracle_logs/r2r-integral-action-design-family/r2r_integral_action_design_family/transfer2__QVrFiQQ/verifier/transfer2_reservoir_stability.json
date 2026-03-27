@@ -1,0 +1,26 @@
+{
+  "scenario": "reservoir_network",
+  "controller": {
+    "gamma": 0.94,
+    "c_i": [
+      0.42,
+      0.39,
+      0.37
+    ],
+    "max_integral": [
+      1.8,
+      1.6,
+      1.6
+    ]
+  },
+  "baseline_tail_rmse": 1.2331687388944987,
+  "controlled_tail_rmse": 0.677485861296529,
+  "improvement_ratio": 0.4506138211840529,
+  "overshoot_per_tank": [
+    1.1793743954798153,
+    1.0073293274897743,
+    1.125315818261102
+  ],
+  "integral_energy": 0.5006876919665311,
+  "trace_file": "/root/transfer2_reservoir_trace.json"
+}

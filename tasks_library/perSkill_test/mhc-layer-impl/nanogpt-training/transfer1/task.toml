@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Token Shard Loader Audit"
+description = "Generate a deterministic next-token batch audit from concatenated token shards."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "ml-data-processing"
+tags = ["nanogpt", "tokenized-data", "batching", "data-loader"]
+primary_output_file = "/root/transfer1_loader_report.json"
+source_task_id = "mhc-layer-impl"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

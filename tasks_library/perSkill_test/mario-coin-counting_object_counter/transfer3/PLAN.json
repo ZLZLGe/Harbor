@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Ranked Frame Scoreboard TSV",
+  "goal": "Generate a ranked TSV scoreboard of frame severity derived from template-counted objects.",
+  "primaryOutputFile": "/root/transfer3_ranked_scoreboard.tsv",
+  "difficulty": "medium",
+  "category": "image-processing",
+  "skillBenefitRationale": "The ranking pipeline requires accurate template matching counts before deterministic scoring and bucketing."
+}

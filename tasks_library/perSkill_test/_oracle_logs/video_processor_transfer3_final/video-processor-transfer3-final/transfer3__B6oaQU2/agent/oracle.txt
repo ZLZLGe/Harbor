@@ -1,0 +1,16 @@
+Loading video: data/webinar_source.mp4
+Video duration: 600.00s (10.00 min)
+
+Loading removal segments from 1 file(s)...
+Loaded 7 segments to remove
+Total removal: 135.00s (2.25 min)
+Segments to keep: 7
+Processing video (this may take 10-20 minutes)...
+
+✓ Processing complete!
+  Original: 600.00s (10.00 min)
+  Output: 465.00s (7.75 min)
+  Saved: 135.00s (2.25 min)
+  Compression: 22.5%
+
+Report saved to: webinar_digest_report.json

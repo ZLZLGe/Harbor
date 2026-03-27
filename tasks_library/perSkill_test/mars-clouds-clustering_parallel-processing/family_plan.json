@@ -1,0 +1,49 @@
+{
+  "sourceTaskId": "mars-clouds-clustering",
+  "skillMode": "per-skill",
+  "targetSkillDirName": "parallel-processing",
+  "targetSkillName": "parallel-processing",
+  "familyTheme": "Parallel parameter evaluation and batch optimization tasks spanning Mars analysis, rover routing, habitat controls, and alert calibration.",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - Mars Sweep Frontier",
+      "goal": "Evaluate a full Mars scoring grid and export the Pareto frontier of F1-versus-delta trade-offs.",
+      "primaryOutputFile": "/outputs/similar_frontier.csv",
+      "difficulty": "hard",
+      "category": "data-science",
+      "skillBenefitRationale": "The task requires evaluating dozens of parameter combinations independently, making multi-core batch execution substantially faster and less error-prone than manual sequential runs."
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Rover Route Batch Ranking",
+      "goal": "Evaluate all candidate inspection policies and write the top-ranked configurations into a deterministic CSV.",
+      "primaryOutputFile": "/outputs/transfer1_route_rankings.csv",
+      "difficulty": "medium",
+      "category": "operations-analytics",
+      "skillBenefitRationale": "Each policy can be scored independently across route records, so parallel execution is the natural way to scale the exhaustive search."
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Habitat Zone Plan",
+      "goal": "Select the best control policy for each habitat zone and export a JSON plan with aggregate summary metrics.",
+      "primaryOutputFile": "/outputs/transfer2_zone_plan.json",
+      "difficulty": "medium",
+      "category": "simulation",
+      "skillBenefitRationale": "Per-zone policy search is embarrassingly parallel and benefits from concise parallel map-style computation across independent zones."
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Alert Calibration Matrix",
+      "goal": "Score all alert threshold combinations on historical events and output a Pareto-optimal calibration matrix.",
+      "primaryOutputFile": "/outputs/transfer3_alert_matrix.csv",
+      "difficulty": "medium",
+      "category": "risk-modeling",
+      "skillBenefitRationale": "Independent threshold simulations over many configurations are ideal for parallel batch processing and reproducible grid evaluation."
+    }
+  ]
+}

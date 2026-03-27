@@ -1,0 +1,10 @@
+[
+  {"case_id": "S1", "category": "variable_declaration", "python": "x = 5"},
+  {"case_id": "S2", "category": "typed_variable", "python": "x: int = 5"},
+  {"case_id": "S3", "category": "tuple_unpacking", "python": "x, y = 1, 2"},
+  {"case_id": "S4", "category": "conditional_expression", "python": "if x > 0: positive elif x < 0: negative else: zero"},
+  {"case_id": "S5", "category": "range_loop", "python": "for i in range(10): print(i)"},
+  {"case_id": "S6", "category": "filter_comprehension", "python": "evens = [x for x in numbers if x % 2 == 0]"},
+  {"case_id": "S7", "category": "string_format", "python": "f\"Hello, {name}!\""},
+  {"case_id": "S8", "category": "boolean_operators", "python": "ready and not blocked"}
+]

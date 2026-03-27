@@ -1,0 +1,32 @@
+{
+    "id": "a904a42a-8bd4-436c-aa02-e6d18c7d90d1",
+    "started_at": "2026-03-25T01:05:39.439474",
+    "finished_at": "2026-03-25T01:06:25.008093",
+    "n_total_trials": 4,
+    "stats": {
+        "n_trials": 4,
+        "n_errors": 0,
+        "evals": {
+            "oracle__pause-detector": {
+                "n_trials": 4,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "similar__Unz4xxW",
+                            "transfer1__qRXqzK2",
+                            "transfer2__rKF4ssG",
+                            "transfer3__UznzgvC"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

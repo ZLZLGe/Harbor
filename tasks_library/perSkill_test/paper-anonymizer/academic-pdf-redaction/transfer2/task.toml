@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Section-Constrained Anonymization QA"
+description = "Generate redacted PDFs and a markdown QA note with retention checks for anonymization quality."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "document-editing"
+tags = ["pdf", "redaction", "qa", "transfer"]
+primary_output_file = "/root/reports/transfer2_quality.md"
+source_task_id = "paper-anonymizer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 900.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 8192
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

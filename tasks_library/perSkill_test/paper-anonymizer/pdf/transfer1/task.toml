@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Build Review Packet"
+description = "Assemble a 3-page packet by merging the first page from each source PDF in a fixed order."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "document-processing"
+tags = ["pdf", "merge", "packet", "transfer"]
+primary_output_file = "/root/output/transfer1_packet.pdf"
+source_task_id = "paper-anonymizer"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 8192
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

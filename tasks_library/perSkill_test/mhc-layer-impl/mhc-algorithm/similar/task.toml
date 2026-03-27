@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - mHC Residual Mixing Stability Audit"
+description = "Apply log-space Sinkhorn projection and a single mHC-style residual mixing step, then report stability metrics."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "ml-implementation"
+tags = ["mhc", "sinkhorn", "matrix-normalization", "residual-streams", "numpy"]
+primary_output_file = "/root/similar_mhc_stability_report.json"
+source_task_id = "mhc-layer-impl"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

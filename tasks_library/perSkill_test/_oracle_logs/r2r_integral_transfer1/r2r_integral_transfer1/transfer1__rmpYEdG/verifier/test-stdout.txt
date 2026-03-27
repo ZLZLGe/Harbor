@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 5 items
+
+../tests/test_outputs.py::test_files_exist PASSED                        [ 20%]
+../tests/test_outputs.py::test_log_structure PASSED                      [ 40%]
+../tests/test_outputs.py::test_metrics_thresholds PASSED                 [ 60%]
+../tests/test_outputs.py::test_metrics_files_match_recomputed_values PASSED [ 80%]
+../tests/test_outputs.py::test_primary_output_matches_mode PASSED        [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_files_exist
+PASSED ../tests/test_outputs.py::test_log_structure
+PASSED ../tests/test_outputs.py::test_metrics_thresholds
+PASSED ../tests/test_outputs.py::test_metrics_files_match_recomputed_values
+PASSED ../tests/test_outputs.py::test_primary_output_matches_mode
+============================== 5 passed in 0.48s ===============================

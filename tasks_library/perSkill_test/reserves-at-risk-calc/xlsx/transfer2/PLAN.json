@@ -1,0 +1,11 @@
+{
+  "sourceTaskId": "reserves-at-risk-calc",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Municipal Cash Ladder Workbook",
+  "goal": "Complete a treasury workbook with yield matching, quarter aggregation, and weighted dashboard metrics.",
+  "primaryOutputFile": "/root/cash_ladder_transfer2_completed.xlsx",
+  "difficulty": "medium",
+  "category": "financial-analysis",
+  "skillBenefitRationale": "The task depends on lookup formulas, conditional aggregation, and weighted spreadsheet summaries."
+}

@@ -1,0 +1,29 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1774511927.5933018,
+            "stop": 1774511927.9563575
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_transfer3_balance_pack_outputs_are_exact",
+                "status": "passed",
+                "duration": 0.0022625639830948785,
+                "start": 1774511927.9533012,
+                "stop": 1774511927.9560206,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

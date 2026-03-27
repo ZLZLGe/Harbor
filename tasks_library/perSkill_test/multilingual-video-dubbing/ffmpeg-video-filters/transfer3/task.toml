@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Compliance Watermark Master"
+description = "Create a mastered delivery copy with deterministic corner-mark styling and strict stream format."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "multimodal-video-dubbing"
+tags = ["video", "watermark", "filters", "master"]
+primary_output_file = "/outputs/transfer3_watermark_master.mp4"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

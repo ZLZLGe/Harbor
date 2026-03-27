@@ -1,0 +1,49 @@
+{
+  "sourceTaskId": "python-scala-translation",
+  "skillMode": "per-skill",
+  "targetSkillDirName": "python-scala-libraries",
+  "targetSkillName": "python-scala-libraries",
+  "familyTheme": "Standard-library mapping from Python ecosystem to Scala",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - Core Translation Delivery",
+      "goal": "Translate the Python tokenizer module to maintainable Scala while preserving behavior.",
+      "primaryOutputFile": "/root/libraries_similar.scala",
+      "difficulty": "medium",
+      "category": "Code Translation",
+      "skillBenefitRationale": "Single-skill guidance improves translation precision for this focus area."
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Security Log Translation Delivery",
+      "goal": "Deliver the same migration quality for a security-log backend adaptation context.",
+      "primaryOutputFile": "/root/libraries_transfer1.scala",
+      "difficulty": "medium",
+      "category": "Code Translation",
+      "skillBenefitRationale": "Tests generalization of the same skill in a different deployment narrative."
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Risk Engine Translation Delivery",
+      "goal": "Deliver the same migration quality for a risk-analytics service adaptation context.",
+      "primaryOutputFile": "/root/libraries_transfer2.scala",
+      "difficulty": "medium",
+      "category": "Code Translation",
+      "skillBenefitRationale": "Tests generalization under stricter maintainability framing."
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Telemetry Platform Translation Delivery",
+      "goal": "Deliver the same migration quality for a telemetry ingestion adaptation context.",
+      "primaryOutputFile": "/root/libraries_transfer3.scala",
+      "difficulty": "medium",
+      "category": "Code Translation",
+      "skillBenefitRationale": "Tests generalization in a multi-tenant operations scenario."
+    }
+  ]
+}

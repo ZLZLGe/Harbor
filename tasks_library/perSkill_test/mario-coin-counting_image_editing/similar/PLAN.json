@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Mario Grayscale Panel Strip",
+  "goal": "Create a deterministic four-panel grayscale strip from Mario sprite references.",
+  "primaryOutputFile": "/root/mario_keyframe_strip.png",
+  "difficulty": "easy",
+  "category": "image-processing",
+  "skillBenefitRationale": "Requires reproducible command-line image normalization, blending, and composition."
+}

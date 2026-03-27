@@ -1,0 +1,14 @@
+{
+  "route": "/compare",
+  "initialJsKb": 812,
+  "largestModules": [
+    {
+      "name": "mathjs",
+      "kb": 701
+    },
+    {
+      "name": "lodash",
+      "kb": 72
+    }
+  ]
+}

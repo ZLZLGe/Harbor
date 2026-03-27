@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Formula Errata Markdown Brief"
+description = "Create a concise errata brief that lists extracted formulas and documents one syntax correction."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "quality-assurance"
+tags = ["pdf", "latex", "markdown", "errata"]
+primary_output_file = "/root/transfer3_formula_errata.md"
+source_task_id = "latex-formula-extraction"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

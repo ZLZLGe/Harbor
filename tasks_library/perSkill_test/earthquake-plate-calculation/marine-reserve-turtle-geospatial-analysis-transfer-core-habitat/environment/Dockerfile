@@ -21,10 +21,10 @@ COPY pelagia_turtle_pings.csv /root/pelagia_turtle_pings.csv
 COPY pelagia_marine_reserve.geojson /root/pelagia_marine_reserve.geojson
 COPY pelagia_reserve_boundary.geojson /root/pelagia_reserve_boundary.geojson
 
-COPY skills /root/.claude/skills
-COPY skills /root/.codex/skills
-COPY skills /root/.opencode/skill
-COPY skills /root/.goose/skills
-COPY skills /root/.factory/skills
-COPY skills /root/.agents/skills
-COPY skills /root/.gemini/skills
+# codex-hide-skill COPY skills /root/.claude/skills
+# codex-hide-skill COPY skills /root/.codex/skills
+# codex-hide-skill COPY skills /root/.opencode/skill
+# codex-hide-skill COPY skills /root/.goose/skills
+# codex-hide-skill COPY skills /root/.factory/skills
+# codex-hide-skill COPY skills /root/.agents/skills
+# codex-hide-skill COPY skills /root/.gemini/skills

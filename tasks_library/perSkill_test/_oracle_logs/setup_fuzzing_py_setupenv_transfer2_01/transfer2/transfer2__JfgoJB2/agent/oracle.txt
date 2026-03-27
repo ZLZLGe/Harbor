@@ -1,0 +1,5 @@
+Using CPython 3.12.13 interpreter at: /usr/local/bin/python
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+warning: Requirements file `requirements.txt` does not contain any dependencies
+Checked in 163ms

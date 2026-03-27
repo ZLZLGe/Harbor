@@ -1,0 +1,26 @@
+{
+  "original_duration_seconds": 55.0,
+  "compressed_duration_seconds": 40.0,
+  "removed_duration_seconds": 15.0,
+  "compression_percentage": 27.27,
+  "segments_removed": [
+    {
+      "start": 4,
+      "end": 10,
+      "duration": 6,
+      "type": "opening"
+    },
+    {
+      "start": 19,
+      "end": 23,
+      "duration": 4,
+      "type": "pause"
+    },
+    {
+      "start": 34,
+      "end": 39,
+      "duration": 5,
+      "type": "pause"
+    }
+  ]
+}

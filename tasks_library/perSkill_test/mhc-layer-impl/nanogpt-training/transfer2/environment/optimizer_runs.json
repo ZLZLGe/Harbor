@@ -1,0 +1,18 @@
+{
+  "scenario": "tiny-gpt-optimizer-ablation",
+  "adamw": {
+    "val_loss": [5.10, 4.96, 4.88, 4.81, 4.74, 4.69],
+    "grad_norm": [1.80, 1.76, 1.91, 1.72, 1.69, 1.77]
+  },
+  "muon": {
+    "val_loss": [5.07, 4.93, 4.82, 4.73, 4.66, 4.60],
+    "grad_norm": [1.62, 1.58, 1.65, 1.60, 1.57, 1.63]
+  },
+  "schedule": {
+    "warmup_steps": 3,
+    "max_steps": 12,
+    "max_lr": 0.0006,
+    "min_lr": 0.0001
+  },
+  "checkpoints": [0, 1, 2, 3, 6, 11]
+}

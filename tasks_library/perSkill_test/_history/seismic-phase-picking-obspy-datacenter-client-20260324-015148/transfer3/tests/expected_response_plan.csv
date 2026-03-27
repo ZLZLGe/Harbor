@@ -1,0 +1,4 @@
+event_id,event_place,station_id,channel_id,distance_km,request_start,request_end
+plan-201,Summit West,RC.PIN1,RC.PIN1.00.BHZ,7.219,2024-08-10T11:59:40,2024-08-10T12:01:30
+plan-202,Dry Lake,RC.PIN3,RC.PIN3.--.EHZ,9.079,2024-08-10T13:29:30,2024-08-10T13:32:00
+plan-203,Granite Gap,RC.PIN4,RC.PIN4.00.BHZ,47.962,2024-08-10T15:09:15,2024-08-10T15:13:00

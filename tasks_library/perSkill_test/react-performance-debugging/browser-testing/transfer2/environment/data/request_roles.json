@@ -1,0 +1,32 @@
+[
+  {
+    "url": "http://localhost:3000/api/summary",
+    "criticality": "critical",
+    "loading_pattern": "sequential",
+    "recommended_action": "start-in-parallel"
+  },
+  {
+    "url": "http://localhost:3000/api/routes",
+    "criticality": "critical",
+    "loading_pattern": "sequential",
+    "recommended_action": "start-in-parallel"
+  },
+  {
+    "url": "http://localhost:3000/api/incidents",
+    "criticality": "critical",
+    "loading_pattern": "sequential",
+    "recommended_action": "start-in-parallel"
+  },
+  {
+    "url": "http://localhost:3000/api/weather",
+    "criticality": "progressive",
+    "loading_pattern": "sequential",
+    "recommended_action": "defer-after-first-paint"
+  },
+  {
+    "url": "http://localhost:3000/api/audit-log",
+    "criticality": "progressive",
+    "loading_pattern": "sequential",
+    "recommended_action": "defer-until-tab-open"
+  }
+]

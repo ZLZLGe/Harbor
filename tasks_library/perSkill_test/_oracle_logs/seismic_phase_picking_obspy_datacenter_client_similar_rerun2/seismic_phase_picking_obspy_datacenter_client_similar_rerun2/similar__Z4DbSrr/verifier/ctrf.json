@@ -1,0 +1,44 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 2,
+            "passed": 0,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1774287184.658485,
+            "stop": 1774287184.6776388
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_metrics_csv_matches_expected",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0008152520022122189,
+                "start": 1774287184.6667247,
+                "stop": 1774287184.67576,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_metrics_csv_matches_expected():\n        output_path = Path(\"/root/similar_waveform_metrics.csv\")\n>       assert output_path.exists(), \"missing /root/similar_waveform_metrics.csv\"\nE       AssertionError: missing /root/similar_waveform_metrics.csv\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/root/similar_waveform_metrics.csv').exists\n\n/tests/test_outputs.py:9: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_summary_json_matches_expected",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0004461640000954503,
+                "start": 1774287184.6759677,
+                "stop": 1774287184.677448,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_summary_json_matches_expected():\n        output_path = Path(\"/root/similar_waveform_summary.json\")\n>       assert output_path.exists(), \"missing /root/similar_waveform_summary.json\"\nE       AssertionError: missing /root/similar_waveform_summary.json\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/root/similar_waveform_summary.json').exists\n\n/tests/test_outputs.py:14: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

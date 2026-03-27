@@ -1,0 +1,21 @@
+{
+  "segments": [
+    {
+      "start": 1,
+      "end": 2,
+      "duration": 1
+    },
+    {
+      "start": 7,
+      "end": 9,
+      "duration": 2
+    },
+    {
+      "start": 14,
+      "end": 17,
+      "duration": 3
+    }
+  ],
+  "total_segments": 3,
+  "total_duration_seconds": 6
+}

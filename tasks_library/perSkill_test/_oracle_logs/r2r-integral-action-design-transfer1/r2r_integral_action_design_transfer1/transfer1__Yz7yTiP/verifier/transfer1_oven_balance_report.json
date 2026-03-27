@@ -1,0 +1,29 @@
+{
+  "scenario": "batch_oven_zones",
+  "controller": {
+    "gamma": 0.95,
+    "c_i": [
+      0.08,
+      0.085,
+      0.078,
+      0.082
+    ],
+    "max_integral": [
+      2.5,
+      2.0,
+      2.5,
+      2.0
+    ]
+  },
+  "tail_mae_baseline": 8.747798415254461,
+  "tail_mae_controlled": 5.015589883569622,
+  "improvement_ratio": 0.4266454660382425,
+  "zone_peak_deviation": [
+    21.491576918685837,
+    12.259504371853268,
+    7.232405658230334,
+    8.683867294166816
+  ],
+  "integral_clip_count": 36,
+  "timeline_file": "/root/transfer1_oven_timeline.json"
+}

@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Web Preview VP9 Package"
+description = "Create a web-friendly VP9/Opus preview file and a machine-readable QC summary."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "multimodal-video-dubbing"
+tags = ["web delivery", "vp9", "quality control"]
+primary_output_file = "/root/transfer2_preview.webm"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 400.0
+
+[agent]
+timeout_sec = 400.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

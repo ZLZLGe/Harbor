@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Page Split Manifest",
+  "goal": "Split selected pages from a source PDF and document the outputs in a CSV manifest.",
+  "primaryOutputFile": "/root/reports/transfer2_split_manifest.csv",
+  "difficulty": "medium",
+  "category": "document-processing",
+  "skillBenefitRationale": "Page-level extraction and writing are a direct transfer of PDF toolkit primitives."
+}

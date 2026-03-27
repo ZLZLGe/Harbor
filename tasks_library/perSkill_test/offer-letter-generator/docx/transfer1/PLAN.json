@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Candidate Pool Offer Generation",
+  "goal": "Select one candidate from a pool file and fill the offer-letter template for that candidate.",
+  "primaryOutputFile": "/root/transfer1_selected_offer_letter.docx",
+  "difficulty": "medium",
+  "category": "document-generation",
+  "skillBenefitRationale": "The task keeps the template-filling core skill but transfers to a record-selection workflow with multi-candidate input."
+}

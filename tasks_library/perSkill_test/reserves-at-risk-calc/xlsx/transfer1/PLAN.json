@@ -1,0 +1,11 @@
+{
+  "sourceTaskId": "reserves-at-risk-calc",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Jet Fuel Hedge Workbook",
+  "goal": "Complete a hedge workbook that translates rolling volatility into notional and margin metrics.",
+  "primaryOutputFile": "/root/jet_fuel_transfer1_completed.xlsx",
+  "difficulty": "medium",
+  "category": "financial-analysis",
+  "skillBenefitRationale": "The task requires spreadsheet formula authoring across pricing, hedge, and summary tabs."
+}

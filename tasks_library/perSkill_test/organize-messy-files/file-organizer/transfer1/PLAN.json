@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Duplicate Cleanup And Filing",
+  "goal": "Apply organization logic to duplicate resolution and canonical retention.",
+  "primaryOutputFile": "/root/transfer1_keep_decisions.csv",
+  "difficulty": "medium",
+  "category": "file-management",
+  "skillBenefitRationale": "Requires structured file triage, duplicate handling, and deterministic placement decisions."
+}

@@ -1,0 +1,39 @@
+import json
+from pathlib import Path
+
+OUTPUT = Path("/root/storefront_perf_diagnosis.json")
+
+EXPECTED = {
+    "report_version": "1.0",
+    "scenario": "storefront-react-performance",
+    "homepage_total_ms": 1523,
+    "products_api_total_ms": 1114,
+    "checkout_total_ms": 923,
+    "compare_initial_js_kb": 812,
+    "top_bottleneck": "compare_page_eager_bundle",
+    "root_causes": [
+        "homepage_fetches_are_sequential",
+        "products_api_blocks_on_analytics_logging",
+        "checkout_profile_fetch_starts_after_user_lookup",
+        "compare_page_eagerly_loads_lodash_and_mathjs",
+    ],
+    "priority_order": [
+        "parallelize_homepage_fetches",
+        "make_api_logging_non_blocking_and_overlap_checkout_calls",
+        "split_heavy_compare_dependencies_out_of_initial_bundle",
+    ],
+    "must_preserve": [
+        "data-testid=advanced-content",
+        "performance.mark() in ProductCard",
+    ],
+}
+
+
+def main() -> None:
+    assert OUTPUT.exists(), f"missing output file: {OUTPUT}"
+    actual = json.loads(OUTPUT.read_text())
+    assert actual == EXPECTED, f"unexpected diagnosis report: {actual}"
+
+
+if __name__ == "__main__":
+    main()

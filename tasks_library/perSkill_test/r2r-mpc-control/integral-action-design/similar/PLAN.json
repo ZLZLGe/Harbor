@@ -1,0 +1,11 @@
+{
+  "source_task_id": "r2r-mpc-control",
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - R2R Tension Offset Audit",
+  "goal": "Run the provided 6-section line model with a bounded decayed error-memory control augmentation and report offset-reduction KPIs.",
+  "primaryOutputFile": "/root/similar_tension_offset_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "A bounded decayed accumulated-error term is the key mechanism for eliminating steady-state offset under persistent section disturbances."
+}

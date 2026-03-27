@@ -1,0 +1,32 @@
+{
+  "title": "Transfer - Multi-Stage Bias Audit",
+  "summary": "Summarize recovery quality across the two reference-change stages and the final tail window.",
+  "focus_section": 2,
+  "baseline_focus_tail_error": 1.4745709290491018,
+  "corrected_focus_tail_error": 0.7942495350494727,
+  "baseline_overall_tail_error": 0.7795643122852809,
+  "corrected_overall_tail_error": 0.5156943842226724,
+  "improvement_ratio": 0.46136905359876046,
+  "max_tension": 31.252548437225535,
+  "min_tension": 21.97194748240358,
+  "stages": [
+    {
+      "stage": "baseline",
+      "baseline_focus_error": 0.007504561837396705,
+      "corrected_focus_error": 0.008421514962463414,
+      "corrected_overall_error": 0.011717171538873866
+    },
+    {
+      "stage": "coat-buildup",
+      "baseline_focus_error": 5.314149127382616,
+      "corrected_focus_error": 4.518539092163121,
+      "corrected_overall_error": 1.7114281793889097
+    },
+    {
+      "stage": "cooldown-trim",
+      "baseline_focus_error": 1.9045851658734299,
+      "corrected_focus_error": 1.0631599971278323,
+      "corrected_overall_error": 0.6975476982665157
+    }
+  ]
+}

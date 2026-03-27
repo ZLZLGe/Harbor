@@ -1,0 +1,95 @@
+{
+  "requests_processed": 5,
+  "windows": [
+    {
+      "file_name": "BG.AL6..DP.0301915.npz",
+      "window_start_utc": "2014-01-03T03:54:45.050Z",
+      "window_end_utc": "2014-01-03T03:54:47.000Z",
+      "start_idx": 5965,
+      "end_idx": 6160,
+      "sample_count": 195,
+      "channel_codes": [
+        "DPE",
+        "DPN",
+        "DPZ"
+      ],
+      "peak_channel": "DPE",
+      "peak_offset_samples": 158,
+      "window_duration_seconds": 1.95,
+      "window_peak_abs_scaled": 0.000657,
+      "window_mean_abs_scaled": 8.2e-05
+    },
+    {
+      "file_name": "BG.STY..DP.0409927.npz",
+      "window_start_utc": "2020-08-09T17:20:08.340Z",
+      "window_end_utc": "2020-08-09T17:20:09.730Z",
+      "start_idx": 5980,
+      "end_idx": 6119,
+      "sample_count": 139,
+      "channel_codes": [
+        "DPE",
+        "DPN",
+        "DPZ"
+      ],
+      "peak_channel": "DPE",
+      "peak_offset_samples": 86,
+      "window_duration_seconds": 1.39,
+      "window_peak_abs_scaled": 8.4e-05,
+      "window_mean_abs_scaled": 1.6e-05
+    },
+    {
+      "file_name": "BK.VAK.00.HH.0263144.npz",
+      "window_start_utc": "2011-08-24T19:10:05.680Z",
+      "window_end_utc": "2011-08-24T19:10:09.560Z",
+      "start_idx": 5951,
+      "end_idx": 6339,
+      "sample_count": 388,
+      "channel_codes": [
+        "HHE",
+        "HHN",
+        "HHZ"
+      ],
+      "peak_channel": "HHZ",
+      "peak_offset_samples": 58,
+      "window_duration_seconds": 3.88,
+      "window_peak_abs_scaled": 7.6e-05,
+      "window_mean_abs_scaled": 1e-05
+    },
+    {
+      "file_name": "CI.SMM..BH.0392114.npz",
+      "window_start_utc": "2019-07-20T01:28:40.910Z",
+      "window_end_utc": "2019-07-20T01:28:46.570Z",
+      "start_idx": 5970,
+      "end_idx": 6536,
+      "sample_count": 566,
+      "channel_codes": [
+        "BHE",
+        "BHN",
+        "BHZ"
+      ],
+      "peak_channel": "BHE",
+      "peak_offset_samples": 532,
+      "window_duration_seconds": 5.66,
+      "window_peak_abs_scaled": 7.6e-05,
+      "window_mean_abs_scaled": 1.3e-05
+    },
+    {
+      "file_name": "NC.GDXB..HN.0211075.npz",
+      "window_start_utc": "2008-02-19T09:07:22.570Z",
+      "window_end_utc": "2008-02-19T09:07:24.030Z",
+      "start_idx": 5975,
+      "end_idx": 6121,
+      "sample_count": 146,
+      "channel_codes": [
+        "HNE",
+        "HNN",
+        "HNZ"
+      ],
+      "peak_channel": "HNE",
+      "peak_offset_samples": 88,
+      "window_duration_seconds": 1.46,
+      "window_peak_abs_scaled": 140.747352,
+      "window_mean_abs_scaled": 17.576776
+    }
+  ]
+}

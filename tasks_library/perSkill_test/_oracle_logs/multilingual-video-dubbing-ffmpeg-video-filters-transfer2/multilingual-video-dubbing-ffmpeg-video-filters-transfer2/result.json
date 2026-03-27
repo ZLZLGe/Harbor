@@ -1,0 +1,29 @@
+{
+    "id": "eeba117d-09ed-4fb5-9fc1-7d982a240bc7",
+    "started_at": "2026-03-26T17:49:18.076228",
+    "finished_at": "2026-03-26T17:49:41.937485",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "transfer2__GmtbNiR"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

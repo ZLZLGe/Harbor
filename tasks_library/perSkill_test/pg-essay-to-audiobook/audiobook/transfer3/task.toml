@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Casefile Section Audio Assembly"
+description = "Assemble a deduplicated sectioned WAV casefile narration from CSV fragments and emit cue lines."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "speech-synthesis"
+tags = ["tts", "csv", "dedup", "cue-sheet", "wav"]
+primary_output_file = "/root/transfer3_casefile_audio.wav"
+source_task_id = "pg-essay-to-audiobook"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

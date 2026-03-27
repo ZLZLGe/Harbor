@@ -1,0 +1,94 @@
+{
+    "id": "cca29831-710b-4f4a-8f49-3496cb46062f",
+    "task_name": "similar",
+    "trial_name": "similar__bsUeEuA",
+    "trial_uri": "file:///home/lenovo/skill/Harbor/tasks_library/perSkill_test/_oracle_logs/reserves_at_risk_calc_xlsx_similar_ok2/similar_ok2/similar__bsUeEuA",
+    "task_id": {
+        "path": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/reserves-at-risk-calc/xlsx/similar"
+    },
+    "source": null,
+    "task_checksum": "3aaf2ad0e982330f1049bba53f8353eb6c52ba5a385bdb3bace33c4e0fbe1e7b",
+    "config": {
+        "task": {
+            "path": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/reserves-at-risk-calc/xlsx/similar",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "similar__bsUeEuA",
+        "trials_dir": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/_oracle_logs/reserves_at_risk_calc_xlsx_similar_ok2/similar_ok2",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "4666c7b9-7ff6-4212-8895-eae58182c9f6"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-25T11:13:11.434584Z",
+    "finished_at": "2026-03-25T11:13:20.984623Z",
+    "environment_setup": {
+        "started_at": "2026-03-25T11:13:11.435310Z",
+        "finished_at": "2026-03-25T11:13:16.740362Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-25T11:13:16.740436Z",
+        "finished_at": "2026-03-25T11:13:16.740548Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-25T11:13:16.740622Z",
+        "finished_at": "2026-03-25T11:13:17.369732Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-25T11:13:17.369880Z",
+        "finished_at": "2026-03-25T11:13:18.415634Z"
+    }
+}

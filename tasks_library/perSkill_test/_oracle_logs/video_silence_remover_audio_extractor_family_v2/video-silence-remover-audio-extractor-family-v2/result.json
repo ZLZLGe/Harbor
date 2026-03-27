@@ -1,0 +1,30 @@
+{
+    "id": "e338080c-e2eb-4ddf-ad64-44bca9b842a2",
+    "started_at": "2026-03-25T00:42:49.505648",
+    "finished_at": "2026-03-25T00:46:41.393400",
+    "n_total_trials": 4,
+    "stats": {
+        "n_trials": 4,
+        "n_errors": 4,
+        "evals": {
+            "oracle__audio-extractor": {
+                "n_trials": 0,
+                "n_errors": 4,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RewardFileNotFoundError": [
+                        "similar__hx9ntBQ",
+                        "transfer1__oTGFcjN",
+                        "transfer2__mufkRNB",
+                        "transfer3__3QSHvb5"
+                    ]
+                }
+            }
+        }
+    }
+}

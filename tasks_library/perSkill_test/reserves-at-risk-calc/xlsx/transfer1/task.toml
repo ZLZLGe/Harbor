@@ -1,0 +1,28 @@
+
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer1 - Jet Fuel Hedge Workbook"
+description = "Complete the hedge workbook with rolling price formulas, hedge notional calculations, and a summary sheet."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "financial-analysis"
+tags = ["excel", "xlsx", "hedging", "energy"]
+primary_output_file = "/root/jet_fuel_transfer1_completed.xlsx"
+source_task_id = "reserves-at-risk-calc"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+allow_internet = false

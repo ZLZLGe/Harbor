@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Habitat Zone Plan",
+  "goal": "Select the best control policy for each habitat zone and export a JSON plan with aggregate summary metrics.",
+  "primaryOutputFile": "/outputs/transfer2_zone_plan.json",
+  "difficulty": "medium",
+  "category": "simulation",
+  "skillBenefitRationale": "Per-zone policy search is embarrassingly parallel and benefits from concise parallel map-style computation across independent zones."
+}

@@ -1,0 +1,33 @@
+{
+  "time_grid": {
+    "start": 0.0,
+    "stop": 4.0,
+    "points": 121
+  },
+  "cases": [
+    {
+      "case_id": "bell_exchange",
+      "initial_state": "phi_plus",
+      "exchange_j": 0.18,
+      "detuning": 0.04,
+      "gamma_relax": 0.06,
+      "gamma_dephase": 0.03
+    },
+    {
+      "case_id": "biased_pair",
+      "initial_state": "psi_plus",
+      "exchange_j": 0.14,
+      "detuning": -0.06,
+      "gamma_relax": 0.08,
+      "gamma_dephase": 0.02
+    },
+    {
+      "case_id": "partial_superposition",
+      "initial_state": "partial",
+      "exchange_j": 0.12,
+      "detuning": 0.02,
+      "gamma_relax": 0.04,
+      "gamma_dephase": 0.05
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Generating compression report...
+  Original: /root/data/original.mp4
+  Compressed: /root/data/compressed.mp4
+
+Original: 55.0s
+Compressed: 40.0s
+Removed: 15.0s
+Compression: 27.3%
+Report saved to: /root/compliance_report.json

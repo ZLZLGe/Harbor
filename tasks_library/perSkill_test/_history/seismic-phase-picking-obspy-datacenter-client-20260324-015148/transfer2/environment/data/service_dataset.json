@@ -1,0 +1,55 @@
+{
+  "source": "Mock Bulletin Mirror",
+  "events": [
+    {
+      "event_id": "evt-101",
+      "time": "2024-07-01T00:15:00",
+      "latitude": 34.01,
+      "longitude": -117.11,
+      "depth_km": 6.0,
+      "magnitude": 3.4,
+      "magnitude_type": "Mw",
+      "place": "Delta Ridge"
+    },
+    {
+      "event_id": "evt-102",
+      "time": "2024-07-01T10:30:00",
+      "latitude": 34.32,
+      "longitude": -117.54,
+      "depth_km": 12.0,
+      "magnitude": 4.8,
+      "magnitude_type": "Mw",
+      "place": "Harbor Shelf"
+    },
+    {
+      "event_id": "evt-103",
+      "time": "2024-07-02T08:45:00",
+      "latitude": 34.5,
+      "longitude": -117.91,
+      "depth_km": 8.0,
+      "magnitude": 2.9,
+      "magnitude_type": "Ml",
+      "place": "Mesa South"
+    },
+    {
+      "event_id": "evt-104",
+      "time": "2024-07-03T14:20:00",
+      "latitude": 34.78,
+      "longitude": -118.15,
+      "depth_km": 15.0,
+      "magnitude": 5.1,
+      "magnitude_type": "Mw",
+      "place": "Cinder Basin"
+    },
+    {
+      "event_id": "evt-105",
+      "time": "2024-07-04T03:05:00",
+      "latitude": 35.02,
+      "longitude": -118.46,
+      "depth_km": 4.0,
+      "magnitude": 4.1,
+      "magnitude_type": "Mw",
+      "place": "North Spur"
+    }
+  ]
+}

@@ -22,14 +22,14 @@ COPY bus_stops.csv /root/bus_stops.csv
 
 # Copy skills to agent-specific locations
 # Claude Code
-COPY skills /root/.claude/skills
+# codex-hide-skill COPY skills /root/.claude/skills
 # Codex
-COPY skills /root/.codex/skills
+# codex-hide-skill COPY skills /root/.codex/skills
 # OpenCode
-COPY skills /root/.opencode/skill
-COPY skills /root/.goose/skills
-COPY skills /root/.factory/skills
+# codex-hide-skill COPY skills /root/.opencode/skill
+# codex-hide-skill COPY skills /root/.goose/skills
+# codex-hide-skill COPY skills /root/.factory/skills
 # Goose/Amp (portable agents format)
-COPY skills /root/.agents/skills
+# codex-hide-skill COPY skills /root/.agents/skills
 # Gemini
-COPY skills /root/.gemini/skills
+# codex-hide-skill COPY skills /root/.gemini/skills

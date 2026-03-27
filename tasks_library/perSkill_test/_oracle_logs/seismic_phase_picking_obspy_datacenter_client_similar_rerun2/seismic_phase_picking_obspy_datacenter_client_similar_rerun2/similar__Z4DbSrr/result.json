@@ -1,0 +1,94 @@
+{
+    "id": "6a8fa8dd-6156-4569-9de4-41a8bc65cfec",
+    "task_name": "similar",
+    "trial_name": "similar__Z4DbSrr",
+    "trial_uri": "file:///home/lenovo/skill/Harbor/tasks_library/perSkill_test/_oracle_logs/seismic_phase_picking_obspy_datacenter_client_similar_rerun2/seismic_phase_picking_obspy_datacenter_client_similar_rerun2/similar__Z4DbSrr",
+    "task_id": {
+        "path": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/seismic-phase-picking/obspy-datacenter-client/similar"
+    },
+    "source": null,
+    "task_checksum": "f592da45682cb738ad82db3e89d3d9a6ed50aef30aed1f257dc4f766ec67da29",
+    "config": {
+        "task": {
+            "path": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/seismic-phase-picking/obspy-datacenter-client/similar",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "similar__Z4DbSrr",
+        "trials_dir": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/_oracle_logs/seismic_phase_picking_obspy_datacenter_client_similar_rerun2/seismic_phase_picking_obspy_datacenter_client_similar_rerun2",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "360eb964-5423-4378-8eb9-c6620306242d"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-23T17:32:51.860196Z",
+    "finished_at": "2026-03-23T17:33:07.318722Z",
+    "environment_setup": {
+        "started_at": "2026-03-23T17:32:51.861331Z",
+        "finished_at": "2026-03-23T17:33:01.909122Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-23T17:33:01.909172Z",
+        "finished_at": "2026-03-23T17:33:01.909274Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-23T17:33:01.909328Z",
+        "finished_at": "2026-03-23T17:33:03.730853Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-23T17:33:03.731604Z",
+        "finished_at": "2026-03-23T17:33:04.757608Z"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "id": "bedd4208-2aab-498f-8d12-35e79d7044c2",
+    "started_at": "2026-03-25T01:13:35.525014",
+    "finished_at": "2026-03-25T01:17:05.193562",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "transfer3__B6oaQU2"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

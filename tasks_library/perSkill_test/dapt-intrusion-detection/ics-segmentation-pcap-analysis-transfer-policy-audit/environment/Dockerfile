@@ -21,12 +21,12 @@ COPY packets.pcap /root/packets.pcap
 COPY asset_inventory.csv /root/asset_inventory.csv
 COPY zone_policy.json /root/zone_policy.json
 
-COPY skills /root/.claude/skills
-COPY skills /root/.codex/skills
-COPY skills /root/.opencode/skills
-COPY skills /root/.opencode/skill
-COPY skills /root/.goose/skills
-COPY skills /root/.factory/skills
-COPY skills /root/.agents/skills
-COPY skills /root/.gemini/skills
-COPY skills /root/skills
+# codex-hide-skill COPY skills /root/.claude/skills
+# codex-hide-skill COPY skills /root/.codex/skills
+# codex-hide-skill COPY skills /root/.opencode/skills
+# codex-hide-skill COPY skills /root/.opencode/skill
+# codex-hide-skill COPY skills /root/.goose/skills
+# codex-hide-skill COPY skills /root/.factory/skills
+# codex-hide-skill COPY skills /root/.agents/skills
+# codex-hide-skill COPY skills /root/.gemini/skills
+# codex-hide-skill COPY skills /root/skills

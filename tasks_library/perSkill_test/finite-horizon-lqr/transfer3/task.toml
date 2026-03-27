@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Battery Balancing Action Pack"
+description = "Compute a finite-horizon balancing rollout and export early controls, terminal state, and quadratic score."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "energy-control"
+tags = ["battery", "balancing", "quadratic", "state-space"]
+primary_output_file = "/root/transfer3_balance_actions.json"
+source_task_id = "r2r-mpc-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

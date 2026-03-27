@@ -1,0 +1,6 @@
+Extracting audio from: /root/data/input_video.mp4
+Sample rate: 22050 Hz
+Duration limit: 30s
+
+Audio extracted to: /root/qa_monitor.wav
+File size: 1.26 MB

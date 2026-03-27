@@ -1,0 +1,8 @@
+section,rank,text
+alpha,2,"Recheck loading dock camera angle after 18:00 for blind spots [3]."
+alpha,1,"Confirm visitor badges are logged before entering storage wing."
+beta,1,"The perimeter sensor reboot cleared stale alerts overnight."
+beta,3,"Recheck loading dock camera angle after 18:00 for blind spots [9]."
+gamma,1,"Escalate unresolved access requests within two hours."
+gamma,2,"Attach photo proof at https://ops.example.local/evidence when closing incidents."
+delta,1,"Archive incident summaries in the weekly review binder."

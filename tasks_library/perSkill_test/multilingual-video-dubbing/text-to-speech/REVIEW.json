@@ -1,0 +1,72 @@
+{
+  "taskResults": [
+    {
+      "derivedTaskId": "similar",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true,
+      "oracle": {
+        "jobName": "mvd_tts_similar_20260326_r2",
+        "meanReward": 1.0,
+        "rewards": [1.0]
+      }
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true,
+      "oracle": {
+        "jobName": "mvd_tts_transfer1_20260326",
+        "meanReward": 1.0,
+        "rewards": [1.0]
+      }
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true,
+      "oracle": {
+        "jobName": "mvd_tts_transfer2_20260326",
+        "meanReward": 1.0,
+        "rewards": [1.0]
+      }
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true,
+      "oracle": {
+        "jobName": "mvd_tts_transfer3_20260326",
+        "meanReward": 1.0,
+        "rewards": [1.0]
+      }
+    }
+  ],
+  "familyObservations": {
+    "issues": [],
+    "diversityPass": true,
+    "roleLayoutPass": true,
+    "notes": [
+      "Family includes exactly one similar task and three transfer tasks.",
+      "Primary output files are all distinct.",
+      "Each task keeps only the text-to-speech shipped skill and passed oracle validation."
+    ],
+    "familyOracle": {
+      "jobName": "mvd_tts_family_20260326",
+      "meanReward": 1.0,
+      "trials": 4,
+      "rewards": [1.0, 1.0, 1.0, 1.0]
+    }
+  }
+}

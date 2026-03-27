@@ -1,0 +1,50 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.0.2"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 2,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1774371159.020238,
+            "stop": 1774371164.0235844
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_output_files_exist",
+                "status": "passed",
+                "duration": 0.6225069955689833,
+                "start": 1774371159.3349366,
+                "stop": 1774371159.3360217,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_fields_and_metrics",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.9292029935750179,
+                "start": 1774371159.33645,
+                "stop": 1774371159.3545017,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_report_fields_and_metrics():\n        report = load_report()\n        required_fields = [\n            \"original_duration\",\n            \"output_duration\",\n            \"removed_duration\",\n            \"compression_percentage\",\n            \"segments_removed\",\n            \"segments_kept\",\n        ]\n        for field in required_fields:\n            assert field in report, f\"Missing field: {field}\"\n    \n        assert report[\"segments_removed\"] == EXPECTED_REMOVED_COUNT\n>       assert report[\"segments_kept\"] == EXPECTED_KEPT_COUNT\nE       assert 6 == 5\n\n/tests/test_outputs.py:112: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_output_matches_expected_plan",
+                "status": "passed",
+                "duration": 4667.975538002793,
+                "start": 1774371159.3548422,
+                "stop": 1774371164.023403,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

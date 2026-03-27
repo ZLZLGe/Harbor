@@ -1,0 +1,29 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1774444203.0777092,
+            "stop": 1774444203.8913631
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_relaxation_csv_matches_reference",
+                "status": "passed",
+                "duration": 0.26598097200258053,
+                "start": 1774444203.624662,
+                "stop": 1774444203.891193,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

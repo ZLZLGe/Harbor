@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+collected 4 items
+
+../tests/test_outputs.py ....                                            [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_manifest_exists
+PASSED ../tests/test_outputs.py::test_manifest_matches_expected_structure
+PASSED ../tests/test_outputs.py::test_obj_files_exist_and_match_reference_geometry
+PASSED ../tests/test_outputs.py::test_only_expected_obj_files_are_present
+============================== 4 passed in 0.38s ===============================

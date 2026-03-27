@@ -1,0 +1,57 @@
+{
+  "sourceTaskId": "mhc-layer-impl",
+  "skillMode": "per-skill",
+  "targetSkillDirName": "mhc-algorithm",
+  "targetSkillName": "mhc-algorithm",
+  "familyTheme": "Use doubly stochastic residual-mixing matrices (mHC / Sinkhorn-Knopp) to stabilize multi-stream computations across training-like and transfer scenarios.",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - mHC Residual Mixing Stability Audit",
+      "goal": "Project residual logits to doubly stochastic matrices with Sinkhorn-Knopp, run one mHC-style stream-mixing pass, and report stability metrics.",
+      "primaryOutputFile": "/root/similar_mhc_stability_report.json",
+      "difficulty": "medium",
+      "category": "ml-implementation",
+      "skillBenefitRationale": "The task directly requires the mHC core operation: log-space Sinkhorn projection plus residual stream mixing under doubly stochastic constraints.",
+      "targetSkillDirName": "mhc-algorithm",
+      "targetSkillName": "mhc-algorithm"
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Expert Router Balance Projection",
+      "goal": "Convert expert-routing logits into doubly stochastic dispatch matrices and summarize load-balance and entropy diagnostics.",
+      "primaryOutputFile": "/root/transfer1_router_balance_report.json",
+      "difficulty": "medium",
+      "category": "ml-implementation",
+      "skillBenefitRationale": "Sinkhorn-based doubly stochastic projection is transferred from residual-mixing matrices to expert router balancing while preserving the same mathematical constraints.",
+      "targetSkillDirName": "mhc-algorithm",
+      "targetSkillName": "mhc-algorithm"
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Sensor Stream Fusion Consistency",
+      "goal": "Apply mHC-style stream mixing to multi-sensor sequence features and output consistency and drift metrics.",
+      "primaryOutputFile": "/root/transfer2_sensor_fusion_report.json",
+      "difficulty": "medium",
+      "category": "signal-processing",
+      "skillBenefitRationale": "The same doubly stochastic residual mixing used in mHC is adapted to cross-sensor stream fusion, testing generalization beyond language-model residual blocks.",
+      "targetSkillDirName": "mhc-algorithm",
+      "targetSkillName": "mhc-algorithm"
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Forecast Ensemble Stabilization",
+      "goal": "Stabilize multi-model forecast streams with Sinkhorn-projected blend matrices and report variance and calibration deltas.",
+      "primaryOutputFile": "/root/transfer3_forecast_stability_report.json",
+      "difficulty": "medium",
+      "category": "time-series",
+      "skillBenefitRationale": "Doubly stochastic mHC-style mixing is migrated to ensemble forecasting, where controlled stream blending reduces variance spikes while preserving aggregate scale.",
+      "targetSkillDirName": "mhc-algorithm",
+      "targetSkillName": "mhc-algorithm"
+    }
+  ]
+}

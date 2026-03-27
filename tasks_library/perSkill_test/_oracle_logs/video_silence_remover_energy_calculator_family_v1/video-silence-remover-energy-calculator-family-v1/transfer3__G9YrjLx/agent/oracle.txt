@@ -1,0 +1,7 @@
+Calculating energy from: /root/data/qa_cues.wav
+Window size: 0.25s
+
+Energy calculated for 4.0s of audio
+Energy range: 0.0 - 6717.1
+Mean energy: 2187.2
+Results saved to: /root/qa_energy.json

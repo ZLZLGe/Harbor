@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.13, pytest-9.0.2, pluggy-1.6.0 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /tests
+collecting ... collected 4 items
+
+../tests/test_outputs.py::test_report_mentions_strategy PASSED           [ 25%]
+../tests/test_outputs.py::test_driver_uses_global_instrumentation PASSED [ 50%]
+../tests/test_outputs.py::test_log_records_run PASSED                    [ 75%]
+../tests/test_outputs.py::test_driver_runs_again PASSED                  [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_report_mentions_strategy
+PASSED ../tests/test_outputs.py::test_driver_uses_global_instrumentation
+PASSED ../tests/test_outputs.py::test_log_records_run
+PASSED ../tests/test_outputs.py::test_driver_runs_again
+============================== 4 passed in 13.70s ==============================

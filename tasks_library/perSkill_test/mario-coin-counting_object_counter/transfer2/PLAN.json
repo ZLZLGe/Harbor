@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Shift Risk Markdown Report",
+  "goal": "Produce a markdown report over manifest-listed frames using counted object totals and derived risk scores.",
+  "primaryOutputFile": "/root/transfer2_shift_report.md",
+  "difficulty": "medium",
+  "category": "image-processing",
+  "skillBenefitRationale": "Accurate frame-level object counts are required before shift-level risk scoring can be computed correctly."
+}

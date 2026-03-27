@@ -1,0 +1,7 @@
+rank	path	symbol	risk_kind	test_signal
+1	opssuite/ingest/http_payload.py	opssuite.ingest.http_payload.parse_ingest_request	json	tests/test_ingest.py
+2	opssuite/ingest/batch_loader.py	opssuite.ingest.batch_loader.load_batch_manifest	json	tests/test_ingest.py
+3	opssuite/auth/token_file.py	opssuite.auth.token_file.decode_token_blob	binary	tests/test_auth.py
+4	opssuite/export/archive_index.py	opssuite.export.archive_index.load_archive_index	index	tests/test_export.py
+5	opssuite/policies/yaml_rules.py	opssuite.policies.yaml_rules.parse_rules_doc	yaml	tests/test_policies.py
+6	opssuite/templates/route_template.py	opssuite.templates.route_template.parse_route_template	template	tests/test_templates.py

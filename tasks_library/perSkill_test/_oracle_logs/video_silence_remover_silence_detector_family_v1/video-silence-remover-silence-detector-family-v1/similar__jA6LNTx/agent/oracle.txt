@@ -1,0 +1,5 @@
+Detecting initial silence from: /root/data/lecture_energies.json
+Parameters: multiplier=1.8, initial=4s, smoothing=3s
+
+Initial silence detected: 4s (0.07 min)
+Results saved to: /root/lecture_silence.json

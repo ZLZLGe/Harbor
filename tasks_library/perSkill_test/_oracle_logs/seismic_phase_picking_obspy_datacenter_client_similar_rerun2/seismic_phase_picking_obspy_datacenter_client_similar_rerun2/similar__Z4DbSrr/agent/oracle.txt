@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<stdin>", line 29, in <module>
+  File "/usr/local/lib/python3.11/site-packages/obspy/clients/fdsn/client.py", line 872, in get_waveforms
+    data_stream = self._download(url, use_gzip=False)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/obspy/clients/fdsn/client.py", line 1486, in _download
+    raise_on_error(code, data)
+  File "/usr/local/lib/python3.11/site-packages/obspy/clients/fdsn/client.py", line 1831, in raise_on_error
+    line for line in server_info.splitlines() if line)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RemoteDisconnected' object has no attribute 'splitlines'

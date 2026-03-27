@@ -1,0 +1,7 @@
+{
+  "scenario": "web_tension_line",
+  "initial_error_norm": 8.501911549763383,
+  "final_error_norm": 7.874407308276292,
+  "total_cost": 3356.645716349332,
+  "max_abs_control": 10.355526902690213
+}

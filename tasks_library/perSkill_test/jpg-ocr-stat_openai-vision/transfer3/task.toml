@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Weekday Spend Dashboard"
+description = "Compute weekday-level receipt count, total amount, and average amount in TSV format."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "data statistics"
+tags = ["receipt analytics", "time grouping", "tsv"]
+primary_output_file = "/root/transfer3_weekday_report.tsv"
+source_task_id = "jpg-ocr-stat"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 1
+gpus = 0
+memory = "1G"
+storage = "4G"
+allow_internet = false

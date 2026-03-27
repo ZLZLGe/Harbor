@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Admin Dashboard Request Matrix"
+description = "Classify dashboard network requests into an optimization matrix based on a browser waterfall capture."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "web-performance"
+tags = ["dashboard", "waterfall-analysis", "csv", "browser-debugging"]
+primary_output_file = "/root/admin_dashboard_request_matrix.csv"
+source_task_id = "react-performance-debugging"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096

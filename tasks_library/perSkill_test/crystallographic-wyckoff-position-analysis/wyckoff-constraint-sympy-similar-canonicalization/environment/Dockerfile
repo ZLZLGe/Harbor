@@ -14,21 +14,21 @@ COPY wyckoff_constraint_cases.json /root/data/wyckoff_constraint_cases.json
 
 # Copy skills to agent-specific locations
 # Claude Code
-COPY skills /root/.claude/skills
+# codex-hide-skill COPY skills /root/.claude/skills
 # Codex
-COPY skills /root/.codex/skills
+# codex-hide-skill COPY skills /root/.codex/skills
 # OpenCode
-COPY skills /root/.opencode/skill
+# codex-hide-skill COPY skills /root/.opencode/skill
 # Goose
-COPY skills /root/.goose/skills
+# codex-hide-skill COPY skills /root/.goose/skills
 # Factory
-COPY skills /root/.factory/skills
+# codex-hide-skill COPY skills /root/.factory/skills
 # Portable agents format (Goose, Amp)
-COPY skills /root/.agents/skills
+# codex-hide-skill COPY skills /root/.agents/skills
 # Gemini
-COPY skills /root/.gemini/skills
+# codex-hide-skill COPY skills /root/.gemini/skills
 # Required for Harbor
-COPY skills /etc/claude-code/.claude/skills
+# codex-hide-skill COPY skills /etc/claude-code/.claude/skills
 
 WORKDIR /root
 

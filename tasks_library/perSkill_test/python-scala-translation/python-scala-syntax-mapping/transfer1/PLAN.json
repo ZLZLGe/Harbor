@@ -1,0 +1,7 @@
+{
+  "source_task_id": "python-scala-translation",
+  "target_skill": "python-scala-syntax-mapping",
+  "task_role": "transfer",
+  "primary_output_file": "/outputs/syntax_mapping_audit.csv",
+  "goal": "Audit proposed Scala rewrites and emit a correction report in CSV."
+}

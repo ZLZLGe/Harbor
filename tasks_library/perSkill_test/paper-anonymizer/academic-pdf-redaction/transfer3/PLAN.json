@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Multi-File Redaction Manifest",
+  "goal": "Anonymize three PDFs and produce a JSON manifest with validation metrics.",
+  "primaryOutputFile": "/root/reports/transfer3_manifest.json",
+  "difficulty": "medium",
+  "category": "document-editing",
+  "skillBenefitRationale": "Skill-guided exact redaction is validated via manifest-level accounting checks."
+}

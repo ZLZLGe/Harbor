@@ -1,0 +1,30 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+collected 3 items
+
+../tests/test_outputs.py ..F                                             [100%]
+
+=================================== FAILURES ===================================
+___________________ test_mesh_files_match_reference_geometry ___________________
+
+    def test_mesh_files_match_reference_geometry():
+        expected = load_expected()
+        expected_names = {f"{entry['name']}.obj" for entry in expected["meshes"]}
+        actual_names = {name for name in os.listdir(MESH_DIR) if name.endswith(".obj")}
+        assert actual_names == expected_names
+    
+        for entry in expected["meshes"]:
+            mesh_path = os.path.join(MESH_DIR, f"{entry['name']}.obj")
+            metrics = parse_obj_metrics(mesh_path)
+            assert metrics["vertex_count"] == entry["vertex_count"]
+>           assert metrics["face_count"] == entry["face_count"]
+E           assert 12 == 8
+
+/tests/test_outputs.py:94: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_urdf_exists
+PASSED ../tests/test_outputs.py::test_urdf_matches_expected_structure
+FAILED ../tests/test_outputs.py::test_mesh_files_match_reference_geometry - a...
+========================= 1 failed, 2 passed in 0.25s ==========================

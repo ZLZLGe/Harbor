@@ -1,0 +1,11 @@
+{
+  "url": "http://localhost:3000/donate",
+  "cls": 0.312,
+  "rating": "poor",
+  "metrics": {
+    "CumulativeLayoutShift": 0.312,
+    "LayoutCount": 68,
+    "RecalcStyleCount": 44
+  },
+  "scrollCapture": true
+}

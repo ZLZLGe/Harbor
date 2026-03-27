@@ -1,0 +1,29 @@
+{
+    "id": "94b1c4df-3f83-4dd3-8946-ea5ed89e116d",
+    "started_at": "2026-03-26T21:11:53.430832",
+    "finished_at": "2026-03-26T21:12:01.950172",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "similar__7FiBwmy"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

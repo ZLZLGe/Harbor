@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Template Object Ledger",
+  "goal": "Read the provided image manifest and produce a per-frame CSV ledger of coin, enemy, and turtle counts.",
+  "primaryOutputFile": "/root/similar_counting_results.csv",
+  "difficulty": "medium",
+  "category": "image-processing",
+  "skillBenefitRationale": "The workflow depends on reliable template-based object counting across repeated sprite instances where naive pixel scans are brittle."
+}

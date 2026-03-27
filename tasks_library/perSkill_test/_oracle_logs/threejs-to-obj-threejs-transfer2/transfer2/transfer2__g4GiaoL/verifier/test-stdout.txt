@@ -1,0 +1,50 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+collected 3 items
+
+../tests/test_outputs.py .FF                                             [100%]
+
+=================================== FAILURES ===================================
+_____________________ test_urdf_matches_expected_structure _____________________
+
+    def test_urdf_matches_expected_structure():
+        expected = load_expected()
+        tree = ET.parse(URDF_PATH)
+        robot = tree.getroot()
+    
+        assert robot.tag == "robot"
+        assert robot.attrib["name"] == expected["robot_name"]
+    
+        links = []
+        for link in robot.findall("link"):
+            mesh = link.find("./visual/geometry/mesh")
+            links.append((link.attrib["name"], mesh.attrib["filename"]))
+>       assert links == [(name, f"meshes/{name}.obj") for name in expected["links"]]
+E       AssertionError: assert [('base_link'...r_hinge.obj')] == [('base_link'...r_hinge.obj')]
+E         At index 1 diff: ('cable_guide', 'meshes/cable_guide.obj') != ('counterweight_link', 'meshes/counterweight_link.obj')
+E         Left contains one more item: ('sensor_hinge', 'meshes/sensor_hinge.obj')
+E         Use -v to get more diff
+
+/tests/test_outputs.py:69: AssertionError
+___________________ test_mesh_files_match_reference_geometry ___________________
+
+    def test_mesh_files_match_reference_geometry():
+        expected = load_expected()
+        expected_names = {f"{entry['name']}.obj" for entry in expected["meshes"]}
+        actual_names = {name for name in os.listdir(MESH_DIR) if name.endswith(".obj")}
+        assert actual_names == expected_names
+    
+        for entry in expected["meshes"]:
+            mesh_path = os.path.join(MESH_DIR, f"{entry['name']}.obj")
+            metrics = parse_obj_metrics(mesh_path)
+>           assert metrics["vertex_count"] == entry["vertex_count"]
+E           assert 24 == 36
+
+/tests/test_outputs.py:93: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_urdf_exists
+FAILED ../tests/test_outputs.py::test_urdf_matches_expected_structure - Asser...
+FAILED ../tests/test_outputs.py::test_mesh_files_match_reference_geometry - a...
+========================= 2 failed, 1 passed in 0.21s ==========================

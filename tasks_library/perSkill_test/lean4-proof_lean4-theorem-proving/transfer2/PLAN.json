@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Packet queue recurrence",
+  "goal": "Prove the closed form of a queue growth recurrence in Lean.",
+  "primaryOutputFile": "/app/workspace/transfer2.lean",
+  "difficulty": "easy",
+  "category": "formal-method",
+  "skillBenefitRationale": "The Lean skill helps structure induction and simplification safely.",
+  "targetSkillDirName": "lean4-theorem-proving",
+  "targetSkillName": "lean4-theorem-proving"
+}

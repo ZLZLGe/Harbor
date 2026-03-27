@@ -1,0 +1,7 @@
+Combining segments...
+  Input: /root/data/opening.json
+  Input: /root/data/pauses.json
+
+Combined 3 segments
+Total duration to remove: 11s
+Results saved to: /root/lecture_all_segments.json

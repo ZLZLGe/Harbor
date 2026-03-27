@@ -1,0 +1,20 @@
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'W-220'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'H-90'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'W-220'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'H-90'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'W-220'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'H-90'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'W-220'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'H-90'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'W-220'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'H-90'
+[Parsed_drawbox_1 @ 0x7e1f44001200] [Eval @ 0x7e1f597df8e0] Undefined constant or missing '(' in 'W-220'
+[Parsed_drawbox_1 @ 0x7e1f44001200] Error when evaluating the expression 'W-220'.
+[Parsed_drawbox_1 @ 0x7e1f44001200] Failed to configure input pad on Parsed_drawbox_1
+[vf#0:0 @ 0x5a630c849c40] Error reinitializing filters!
+[vf#0:0 @ 0x5a630c849c40] Task finished with error code: -22 (Invalid argument)
+[vf#0:0 @ 0x5a630c849c40] Terminating thread with return code -22 (Invalid argument)
+[vost#0:0/libx264 @ 0x5a630c843240] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0x5a630c843240] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0x5a630c843240] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0x5a630c849f40] Nothing was written into output file, because at least one of its streams received no packets.

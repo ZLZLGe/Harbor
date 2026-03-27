@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Mario Grayscale Panel Strip"
+description = "Build a deterministic four-panel grayscale strip from Mario sprite references."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "easy"
+category = "image-processing"
+tags = ["image-editing", "sprites", "composition", "imagemagick"]
+primary_output_file = "/root/mario_keyframe_strip.png"
+source_task_id = "mario-coin-counting"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 1
+gpus = 0
+memory = "3G"
+storage = "8G"
+allow_internet = false

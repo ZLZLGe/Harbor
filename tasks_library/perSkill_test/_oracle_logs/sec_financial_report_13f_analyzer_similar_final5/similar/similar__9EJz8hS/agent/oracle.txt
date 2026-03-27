@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+  File "/usr/local/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', '/root/.codex/skills/13f-analyzer/scripts/one_fund_analysis.py', '--quarter', '2025-q3', '--accession_number', '2000000001-25-000101', '--baseline_quarter', '2025-q2', '--baseline_accession_number', '2000000001-25-000001']' returned non-zero exit status 1.

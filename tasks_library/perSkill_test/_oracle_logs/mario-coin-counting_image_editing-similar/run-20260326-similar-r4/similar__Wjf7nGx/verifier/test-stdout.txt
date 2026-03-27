@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tests/test_outputs.py", line 55, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/tests/test_outputs.py", line 45, in main
+    raise AssertionError("missing output strip")
+AssertionError: missing output strip

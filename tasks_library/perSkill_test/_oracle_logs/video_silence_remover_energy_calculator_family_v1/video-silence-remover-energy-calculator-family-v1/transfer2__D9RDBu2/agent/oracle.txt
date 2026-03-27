@@ -1,0 +1,7 @@
+Calculating energy from: /root/data/briefing_block.wav
+Window size: 2.0s
+
+Energy calculated for 10.0s of audio
+Energy range: 1060.2 - 8343.4
+Mean energy: 4312.9
+Results saved to: /root/briefing_energy.json

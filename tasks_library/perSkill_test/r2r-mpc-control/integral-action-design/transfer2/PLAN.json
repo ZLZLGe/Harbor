@@ -1,0 +1,11 @@
+{
+  "source_task_id": "r2r-mpc-control",
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Reservoir Network Stability Check",
+  "goal": "Control a coupled three-reservoir level model with valve bias and produce a stability report comparing baseline vs corrected control.",
+  "primaryOutputFile": "/root/transfer2_reservoir_stability.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "Coupled level dynamics under leak bias need bounded decayed accumulated-error correction to remove persistent tracking offset."
+}

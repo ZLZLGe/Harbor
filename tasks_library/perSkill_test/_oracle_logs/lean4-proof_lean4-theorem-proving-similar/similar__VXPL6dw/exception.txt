@@ -1,0 +1,314 @@
+Traceback (most recent call last):
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 479, in run
+    await self._setup_environment()
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 212, in _setup_environment
+    await self._start_environment_with_retry()
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 193, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 112, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 157, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/_utils.py", line 111, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 116, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 224, in _start_environment_with_retry
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 238, in start
+    await self._run_docker_compose_command(["build"])
+  File "/mnt/e/tools/uv-data/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py", line 219, in _run_docker_compose_command
+    raise RuntimeError(
+RuntimeError: Docker compose command failed for environment similar. Command: docker compose -p similar__vxpl6dw --project-directory /home/lenovo/skill/Harbor/tasks_library/perSkill_test/lean4-proof_lean4-theorem-proving/similar/environment -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-base.yaml -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml -f /home/lenovo/.local/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-no-network.yaml build. Return code: 1. Stdout:  Image hb__similar Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 666B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.14kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:24.04
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [ 1/17] FROM docker.io/library/ubuntu:24.04@sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c
+#6 resolve docker.io/library/ubuntu:24.04@sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c
+#6 resolve docker.io/library/ubuntu:24.04@sha256:186072bba1b2f436cbb91ef2567abca677337cfc786c86e107d25b7072feef0c 0.0s done
+#6 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 316.12kB done
+#5 DONE 0.0s
+
+#7 [ 2/17] RUN apt-get update && apt-get install -y --no-install-recommends     ca-certificates     curl     git     python3     unzip  && rm -rf /var/lib/apt/lists/*
+#7 2.104 Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#7 2.125 Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#7 34.35 Get:3 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#7 36.55 Get:4 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1954 kB]
+#7 37.94 Get:5 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [34.8 kB]
+#7 48.32 Get:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#7 50.77 Get:7 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
+#7 55.80 Get:8 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#7 58.65 Ign:9 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages
+#7 61.58 Ign:10 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages
+#7 63.52 Ign:11 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages
+#7 66.09 Get:9 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1504 kB]
+#7 76.94 Get:12 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#7 80.94 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+#7 84.41 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2154 kB]
+#7 89.84 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [3601 kB]
+#7 91.80 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2334 kB]
+#7 92.73 Get:17 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [695 B]
+#7 93.75 Get:18 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.5 kB]
+#7 94.92 Get:19 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [36.1 kB]
+#7 102.5 Get:11 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [3429 kB]
+#7 111.9 Get:10 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#7 112.0 Fetched 37.3 MB in 1min 49s (343 kB/s)
+#7 112.0 Reading package lists...
+#7 113.3 Reading package lists...
+#7 114.5 Building dependency tree...
+#7 114.9 Reading state information...
+#7 115.3 The following additional packages will be installed:
+#7 115.3   git-man libbrotli1 libcurl3t64-gnutls libcurl4t64 liberror-perl libexpat1
+#7 115.3   libgdbm-compat4t64 libgdbm6t64 libgssapi-krb5-2 libk5crypto3 libkeyutils1
+#7 115.3   libkrb5-3 libkrb5support0 libldap2 libnghttp2-14 libperl5.38t64 libpsl5t64
+#7 115.3   libpython3-stdlib libpython3.12-minimal libpython3.12-stdlib libreadline8t64
+#7 115.3   librtmp1 libsasl2-2 libsasl2-modules-db libsqlite3-0 libssh-4 media-types
+#7 115.3   netbase openssl perl perl-modules-5.38 python3-minimal python3.12
+#7 115.3   python3.12-minimal readline-common tzdata
+#7 115.3 Suggested packages:
+#7 115.3   gettext-base git-daemon-run | git-daemon-sysvinit git-doc git-email git-gui
+#7 115.3   gitk gitweb git-cvs git-mediawiki git-svn gdbm-l10n krb5-doc krb5-user
+#7 115.3   perl-doc libterm-readline-gnu-perl | libterm-readline-perl-perl make
+#7 115.3   libtap-harness-archive-perl python3-doc python3-tk python3-venv
+#7 115.3   python3.12-venv python3.12-doc binutils binfmt-support readline-doc zip
+#7 115.3 Recommended packages:
+#7 115.3   patch less ssh-client krb5-locales libldap-common publicsuffix
+#7 115.3   libsasl2-modules
+#7 115.4 The following NEW packages will be installed:
+#7 115.5   ca-certificates curl git git-man libbrotli1 libcurl3t64-gnutls libcurl4t64
+#7 115.5   liberror-perl libexpat1 libgdbm-compat4t64 libgdbm6t64 libgssapi-krb5-2
+#7 115.5   libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2 libnghttp2-14
+#7 115.5   libperl5.38t64 libpsl5t64 libpython3-stdlib libpython3.12-minimal
+#7 115.5   libpython3.12-stdlib libreadline8t64 librtmp1 libsasl2-2 libsasl2-modules-db
+#7 115.5   libsqlite3-0 libssh-4 media-types netbase openssl perl perl-modules-5.38
+#7 115.5   python3 python3-minimal python3.12 python3.12-minimal readline-common tzdata
+#7 115.5   unzip
+#7 121.3 0 upgraded, 41 newly installed, 0 to remove and 10 not upgraded.
+#7 121.3 Need to get 24.2 MB of archives.
+#7 121.3 After this operation, 113 MB of additional disk space will be used.
+#7 121.3 Ign:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-minimal amd64 3.12.3-1ubuntu0.12
+#7 122.3 Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libexpat1 amd64 2.6.1-2ubuntu0.4 [88.2 kB]
+#7 123.2 Get:1 http://security.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-minimal amd64 3.12.3-1ubuntu0.12 [837 kB]
+#7 127.2 Ign:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3.12-minimal amd64 3.12.3-1ubuntu0.12
+#7 128.1 Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3-minimal amd64 3.12.3-0ubuntu2.1 [27.4 kB]
+#7 129.2 Get:3 http://security.ubuntu.com/ubuntu noble-updates/main amd64 python3.12-minimal amd64 3.12.3-1ubuntu0.12 [2334 kB]
+#7 130.3 Get:5 http://archive.ubuntu.com/ubuntu noble/main amd64 media-types all 10.1.0 [27.5 kB]
+#7 144.6 Get:6 http://archive.ubuntu.com/ubuntu noble/main amd64 netbase all 6.4 [13.1 kB]
+#7 147.3 Get:7 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 tzdata all 2025b-0ubuntu0.24.04.1 [276 kB]
+#7 150.9 Get:8 http://archive.ubuntu.com/ubuntu noble/main amd64 readline-common all 8.2-4build1 [56.5 kB]
+#7 152.3 Get:9 http://archive.ubuntu.com/ubuntu noble/main amd64 libreadline8t64 amd64 8.2-4build1 [153 kB]
+#7 159.2 Get:10 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libsqlite3-0 amd64 3.45.1-1ubuntu2.5 [701 kB]
+#7 162.7 Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-stdlib amd64 3.12.3-1ubuntu0.12 [2069 kB]
+#7 164.7 Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3.12 amd64 3.12.3-1ubuntu0.12 [651 kB]
+#7 166.2 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3-stdlib amd64 3.12.3-0ubuntu2.1 [10.1 kB]
+#7 171.1 Ign:14 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3 amd64 3.12.3-0ubuntu2.1
+#7 173.6 Get:14 http://security.ubuntu.com/ubuntu noble-updates/main amd64 python3 amd64 3.12.3-0ubuntu2.1 [23.0 kB]
+#7 174.0 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl-modules-5.38 all 5.38.2-3.2ubuntu0.2 [3110 kB]
+#7 174.9 Get:16 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm6t64 amd64 1.23-5.1build1 [34.4 kB]
+#7 176.7 Get:17 http://archive.ubuntu.com/ubuntu noble/main amd64 libgdbm-compat4t64 amd64 1.23-5.1build1 [6710 B]
+#7 196.4 Get:18 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libperl5.38t64 amd64 5.38.2-3.2ubuntu0.2 [4874 kB]
+#7 198.2 Get:19 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 perl amd64 5.38.2-3.2ubuntu0.2 [231 kB]
+#7 200.3 Get:20 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 openssl amd64 3.0.13-0ubuntu3.7 [1003 kB]
+#7 202.6 Get:21 http://archive.ubuntu.com/ubuntu noble/main amd64 ca-certificates all 20240203 [159 kB]
+#7 207.5 Ign:22 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libkrb5support0 amd64 1.20.1-6ubuntu2.6
+#7 212.8 Err:22 http://security.ubuntu.com/ubuntu noble-updates/main amd64 libkrb5support0 amd64 1.20.1-6ubuntu2.6
+#7 212.8   502  Bad Gateway [IP: 91.189.91.82 80]
+#7 219.3 Get:23 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libk5crypto3 amd64 1.20.1-6ubuntu2.6 [82.0 kB]
+#7 220.9 Get:24 http://archive.ubuntu.com/ubuntu noble/main amd64 libkeyutils1 amd64 1.6.3-3build1 [9490 B]
+#7 222.2 Get:25 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libkrb5-3 amd64 1.20.1-6ubuntu2.6 [348 kB]
+#7 223.3 Get:26 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libgssapi-krb5-2 amd64 1.20.1-6ubuntu2.6 [143 kB]
+#7 224.2 Get:27 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libnghttp2-14 amd64 1.59.0-1ubuntu0.2 [74.3 kB]
+#7 225.8 Get:28 http://archive.ubuntu.com/ubuntu noble/main amd64 libpsl5t64 amd64 0.21.2-1.1build1 [57.1 kB]
+#7 228.3 Get:29 http://archive.ubuntu.com/ubuntu noble/main amd64 libbrotli1 amd64 1.1.0-2build2 [331 kB]
+#7 231.7 Get:30 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-5ubuntu3.1 [20.4 kB]
+#7 233.2 Get:31 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-5ubuntu3.1 [53.2 kB]
+#7 234.9 Get:32 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libldap2 amd64 2.6.10+dfsg-0ubuntu0.24.04.1 [198 kB]
+#7 239.7 Err:33 http://archive.ubuntu.com/ubuntu noble/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2build7
+#7 239.7   502  Bad Gateway [IP: 91.189.91.83 80]
+#7 243.5 Get:34 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libssh-4 amd64 0.10.6-2ubuntu0.4 [190 kB]
+#7 245.8 Get:35 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcurl4t64 amd64 8.5.0-2ubuntu10.8 [342 kB]
+#7 246.9 Get:36 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 curl amd64 8.5.0-2ubuntu10.8 [227 kB]
+#7 251.2 Get:37 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcurl3t64-gnutls amd64 8.5.0-2ubuntu10.8 [334 kB]
+#7 252.5 Get:38 http://archive.ubuntu.com/ubuntu noble/main amd64 liberror-perl all 0.17029-2 [25.6 kB]
+#7 276.2 Get:39 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git-man all 1:2.43.0-1ubuntu7.3 [1100 kB]
+#7 295.4 Get:40 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git amd64 1:2.43.0-1ubuntu7.3 [3680 kB]
+#7 297.1 Get:41 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 unzip amd64 6.0-28ubuntu4.1 [174 kB]
+#7 297.1 Fetched 24.1 MB in 2min 56s (137 kB/s)
+#7 297.1 E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/k/krb5/libkrb5support0_1.20.1-6ubuntu2.6_amd64.deb  502  Bad Gateway [IP: 91.189.91.82 80]
+#7 297.1 E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/r/rtmpdump/librtmp1_2.4%2b20151223.gitfa8646d.1-2build7_amd64.deb  502  Bad Gateway [IP: 91.189.91.83 80]
+#7 297.1 E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+#7 ERROR: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends     ca-certificates     curl     git     python3     unzip  && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+------
+ > [ 2/17] RUN apt-get update && apt-get install -y --no-install-recommends     ca-certificates     curl     git     python3     unzip  && rm -rf /var/lib/apt/lists/*:
+246.9 Get:36 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 curl amd64 8.5.0-2ubuntu10.8 [227 kB]
+251.2 Get:37 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libcurl3t64-gnutls amd64 8.5.0-2ubuntu10.8 [334 kB]
+252.5 Get:38 http://archive.ubuntu.com/ubuntu noble/main amd64 liberror-perl all 0.17029-2 [25.6 kB]
+276.2 Get:39 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git-man all 1:2.43.0-1ubuntu7.3 [1100 kB]
+295.4 Get:40 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 git amd64 1:2.43.0-1ubuntu7.3 [3680 kB]
+297.1 Get:41 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 unzip amd64 6.0-28ubuntu4.1 [174 kB]
+297.1 Fetched 24.1 MB in 2min 56s (137 kB/s)
+297.1 E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/k/krb5/libkrb5support0_1.20.1-6ubuntu2.6_amd64.deb  502  Bad Gateway [IP: 91.189.91.82 80]
+297.1 E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/r/rtmpdump/librtmp1_2.4%2b20151223.gitfa8646d.1-2build7_amd64.deb  502  Bad Gateway [IP: 91.189.91.83 80]
+297.1 E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+------
+Dockerfile:5
+
+--------------------
+
+   4 |     
+
+   5 | >>> RUN apt-get update && apt-get install -y --no-install-recommends \
+
+   6 | >>>     ca-certificates \
+
+   7 | >>>     curl \
+
+   8 | >>>     git \
+
+   9 | >>>     python3 \
+
+  10 | >>>     unzip \
+
+  11 | >>>  && rm -rf /var/lib/apt/lists/*
+
+  12 |     
+
+--------------------
+
+failed to solve: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends     ca-certificates     curl     git     python3     unzip  && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/executor/runcexecutor.exitError
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/executor/runcexecutor/executor.go:391
+
+github.com/moby/buildkit/executor/runcexecutor.(*runcExecutor).Run
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/executor/runcexecutor/executor.go:339
+
+github.com/moby/buildkit/solver/llbsolver/ops.(*ExecOp).Exec
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/llbsolver/ops/exec.go:498
+
+github.com/moby/buildkit/solver.(*sharedOp).Exec.func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/jobs.go:1181
+
+github.com/moby/buildkit/util/flightcontrol.(*call[...]).run
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/util/flightcontrol/flightcontrol.go:122
+
+sync.(*Once).doSlow
+
+	/usr/local/go/src/sync/once.go:78
+
+sync.(*Once).Do
+
+	/usr/local/go/src/sync/once.go:69
+
+runtime.goexit
+
+	/usr/local/go/src/runtime/asm_amd64.s:1693
+
+
+
+45347 v0.31.1-desktop.1 /usr/local/lib/docker/cli-plugins/docker-buildx bake --file - --progress rawjson --metadata-file /tmp/compose-build-metadataFile-27e28d93-9b8c-403b-bfb2-942bb6a96f73.json --allow fs.read=/home/lenovo/skill/Harbor/tasks_library/perSkill_test/lean4-proof_lean4-theorem-proving/similar/environment
+
+google.golang.org/grpc.(*ClientConn).Invoke
+
+	google.golang.org/grpc@v1.76.0/call.go:35
+
+github.com/moby/buildkit/api/services/control.(*controlClient).Solve
+
+	github.com/moby/buildkit@v0.27.0/api/services/control/control_grpc.pb.go:88
+
+github.com/moby/buildkit/client.(*Client).solve.func2
+
+	github.com/moby/buildkit@v0.27.0/client/solve.go:319
+
+golang.org/x/sync/errgroup.(*Group).Go.func1
+
+	golang.org/x/sync@v0.19.0/errgroup/errgroup.go:93
+
+runtime.goexit
+
+	runtime/asm_amd64.s:1693
+
+
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/solver.(*edge).execOp
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/edge.go:963
+
+github.com/moby/buildkit/solver/internal/pipe.NewWithFunction[...].func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/internal/pipe/pipe.go:78
+
+runtime.goexit
+
+	/usr/local/go/src/runtime/asm_amd64.s:1693
+
+
+
+45347 v0.31.1-desktop.1 /usr/local/lib/docker/cli-plugins/docker-buildx bake --file - --progress rawjson --metadata-file /tmp/compose-build-metadataFile-27e28d93-9b8c-403b-bfb2-942bb6a96f73.json --allow fs.read=/home/lenovo/skill/Harbor/tasks_library/perSkill_test/lean4-proof_lean4-theorem-proving/similar/environment
+
+github.com/moby/buildkit/client.(*Client).solve.func2
+
+	github.com/moby/buildkit@v0.27.0/client/solve.go:321
+
+golang.org/x/sync/errgroup.(*Group).Go.func1
+
+	golang.org/x/sync@v0.19.0/errgroup/errgroup.go:93
+
+
+
+119  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+
+github.com/moby/buildkit/solver/llbsolver/ops.(*ExecOp).Exec
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/llbsolver/ops/exec.go:519
+
+github.com/moby/buildkit/solver.(*sharedOp).Exec.func2
+
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/jobs.go:1181
+
+
+
+. Stderr: None. 

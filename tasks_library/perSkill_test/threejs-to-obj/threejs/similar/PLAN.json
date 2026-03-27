@@ -1,0 +1,14 @@
+{
+  "sourceTaskId": "threejs-to-obj",
+  "targetSkill": "threejs",
+  "derivedTask": {
+    "derivedTaskId": "similar",
+    "taskRole": "similar",
+    "title": "Similar - Link OBJ Bundle",
+    "goal": "Export one OBJ per named part from a Three.js scene and write a manifest with deterministic ordering and baked geometry statistics.",
+    "primaryOutputFile": "/root/output/link_manifest.json",
+    "difficulty": "medium",
+    "category": "3d-graphics",
+    "skillBenefitRationale": "The task depends on identifying named Group links, assigning meshes to the nearest named ancestor, expanding InstancedMesh nodes, baking world transforms, and rotating into Blender Z-up space."
+  }
+}

@@ -1,0 +1,2 @@
+cp: cannot stat '{/root/preview_audio.wav}': No such file or directory
+cp: cannot stat '{/root/preview_audio_manifest.json}': No such file or directory

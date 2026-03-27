@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Rover Route Batch Ranking",
+  "goal": "Evaluate all candidate inspection policies and write the top-ranked configurations into a deterministic CSV.",
+  "primaryOutputFile": "/outputs/transfer1_route_rankings.csv",
+  "difficulty": "medium",
+  "category": "operations-analytics",
+  "skillBenefitRationale": "Each policy can be scored independently across route records, so parallel execution is the natural way to scale the exhaustive search."
+}

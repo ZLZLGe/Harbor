@@ -1,0 +1,27 @@
+{
+  "LLM": [
+    "llm_attention_survey.pdf",
+    "agent_memory_notes.docx",
+    "tokenizer_design_overview.txt"
+  ],
+  "trapped_ion_and_qc": [
+    "ion_trap_gate_fidelity.pdf",
+    "qc_lab_meeting.pptx",
+    "pauli_noise_budget.docx"
+  ],
+  "black_hole": [
+    "event_horizon_entropy.pdf",
+    "bh_ringdown_summary.txt",
+    "hawking_temp_table.csv"
+  ],
+  "DNA": [
+    "dna_motif_discovery.pdf",
+    "crispr_protocol_v2.docx",
+    "genome_alignment_notes.txt"
+  ],
+  "music_history": [
+    "baroque_orchestration_timeline.pdf",
+    "opera_premiere_catalog.csv",
+    "jazz_lineage_notes.txt"
+  ]
+}

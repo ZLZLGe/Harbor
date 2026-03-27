@@ -1,0 +1,27 @@
+{
+    "id": "84212019-ef1f-4e98-b914-c693f0c45d77",
+    "started_at": "2026-03-24T13:59:13.478763",
+    "finished_at": "2026-03-24T13:59:53.990645",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RewardFileNotFoundError": [
+                        "similar__UFdm4cA"
+                    ]
+                }
+            }
+        }
+    }
+}

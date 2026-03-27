@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Mars Sweep Frontier",
+  "goal": "Evaluate a full Mars scoring grid and export the Pareto frontier of F1-versus-delta trade-offs.",
+  "primaryOutputFile": "/outputs/similar_frontier.csv",
+  "difficulty": "hard",
+  "category": "data-science",
+  "skillBenefitRationale": "The task requires evaluating dozens of parameter combinations independently, making multi-core batch execution substantially faster and less error-prone than manual sequential runs."
+}

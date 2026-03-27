@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Reservoir Network Stability Check"
+description = "Stabilize a coupled reservoir model under valve bias with bounded decayed error-memory correction."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control", "fluid", "coupled-system", "offset-correction", "python"]
+primary_output_file = "/root/transfer2_reservoir_stability.json"
+source_task_id = "r2r-mpc-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

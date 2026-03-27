@@ -1,0 +1,31 @@
+#!/bin/bash
+set -euo pipefail
+
+python3 - <<'PY'
+import json
+from pathlib import Path
+
+
+notes = {
+    "packetlabels": {
+        "selected_function": "packetlabels.labels.decode_label_frame",
+        "important_test": "tests/test_labels.py",
+        "inferred_oracle": "The current tests prove that a two-line UTF-8 frame decodes into exactly two structured label rows.",
+        "review_note": "Try malformed line counts and rows with missing comma-separated fields.",
+    },
+    "schemabook": {
+        "selected_function": "schemabook.bundle.validate_schema_keys",
+        "important_test": "tests/test_bundle.py",
+        "inferred_oracle": "The existing tests prove that schemas missing a fields key are reported by name.",
+        "review_note": "Try bundles where schemas are nested, empty, or missing name fields.",
+    },
+    "windowcalc": {
+        "selected_function": "windowcalc.schedule.load_window_table",
+        "important_test": "tests/test_schedule.py",
+        "inferred_oracle": "The current tests prove that the CSV loader preserves the hours column for a single maintenance window.",
+        "review_note": "Try duplicate headers, blank rows, and non-numeric duration values.",
+    },
+}
+
+Path("/root/transfer3_handoff_notes.json").write_text(json.dumps(notes, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+PY

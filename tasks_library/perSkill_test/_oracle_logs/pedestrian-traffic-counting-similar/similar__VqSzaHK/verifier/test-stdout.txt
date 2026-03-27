@@ -1,0 +1,1 @@
+/tests/test.sh: line 4: uvx: command not found

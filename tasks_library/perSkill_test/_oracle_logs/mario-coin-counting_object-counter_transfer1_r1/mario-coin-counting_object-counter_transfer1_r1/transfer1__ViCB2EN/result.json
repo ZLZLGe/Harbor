@@ -1,0 +1,94 @@
+{
+    "id": "169e76da-887a-4976-a44d-8ff7b8d0fcf0",
+    "task_name": "transfer1",
+    "trial_name": "transfer1__ViCB2EN",
+    "trial_uri": "file:///home/lenovo/skill/Harbor/tasks_library/perSkill_test/_oracle_logs/mario-coin-counting_object-counter_transfer1_r1/mario-coin-counting_object-counter_transfer1_r1/transfer1__ViCB2EN",
+    "task_id": {
+        "path": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/mario-coin-counting_object_counter/transfer1"
+    },
+    "source": null,
+    "task_checksum": "7f75f7b06b9b07c12f2994a792f223f84f3ab36eb1de68f402b23f27fc210d7c",
+    "config": {
+        "task": {
+            "path": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/mario-coin-counting_object_counter/transfer1",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "transfer1__ViCB2EN",
+        "trials_dir": "/home/lenovo/skill/Harbor/tasks_library/perSkill_test/_oracle_logs/mario-coin-counting_object-counter_transfer1_r1/mario-coin-counting_object-counter_transfer1_r1",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "4ce9cff6-2f4a-4d95-a697-5afb405cf7d0"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-26T14:07:27.995464Z",
+    "finished_at": "2026-03-26T14:07:49.547208Z",
+    "environment_setup": {
+        "started_at": "2026-03-26T14:07:28.102943Z",
+        "finished_at": "2026-03-26T14:07:34.765016Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-26T14:07:34.765079Z",
+        "finished_at": "2026-03-26T14:07:34.765253Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-26T14:07:34.765339Z",
+        "finished_at": "2026-03-26T14:07:40.718385Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-26T14:07:40.718544Z",
+        "finished_at": "2026-03-26T14:07:46.483051Z"
+    }
+}

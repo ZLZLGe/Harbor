@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Sensor Stream Fusion Consistency"
+description = "Use Sinkhorn-constrained stream mixing to fuse sensor features and quantify consistency and drift."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "signal-processing"
+tags = ["sinkhorn", "stream-fusion", "sensor", "matrix-mixing", "numpy"]
+primary_output_file = "/root/transfer2_sensor_fusion_report.json"
+source_task_id = "mhc-layer-impl"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

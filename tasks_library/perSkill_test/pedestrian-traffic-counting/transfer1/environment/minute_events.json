@@ -1,0 +1,28 @@
+{
+  "videos": [
+    {
+      "video": "cam-east.mp4",
+      "events": [
+        {"timestamp": "00:05", "track_id": "p1", "actor_type": "pedestrian", "zone": "north"},
+        {"timestamp": "00:22", "track_id": "p2", "actor_type": "pedestrian", "zone": "north"},
+        {"timestamp": "00:40", "track_id": "c1", "actor_type": "cyclist", "zone": "bike_lane"},
+        {"timestamp": "01:10", "track_id": "p2", "actor_type": "pedestrian", "zone": "south"},
+        {"timestamp": "01:22", "track_id": "p3", "actor_type": "pedestrian", "zone": "south"},
+        {"timestamp": "01:50", "track_id": "p4", "actor_type": "pedestrian", "zone": "north"},
+        {"timestamp": "02:09", "track_id": "p5", "actor_type": "pedestrian", "zone": "north"}
+      ]
+    },
+    {
+      "video": "cam-west.mp4",
+      "events": [
+        {"timestamp": "03:01", "track_id": "w1", "actor_type": "pedestrian", "zone": "plaza"},
+        {"timestamp": "03:10", "track_id": "w2", "actor_type": "pedestrian", "zone": "plaza"},
+        {"timestamp": "03:44", "track_id": "w3", "actor_type": "pedestrian", "zone": "crosswalk"},
+        {"timestamp": "04:00", "track_id": "w3", "actor_type": "pedestrian", "zone": "crosswalk"},
+        {"timestamp": "04:15", "track_id": "w4", "actor_type": "pedestrian", "zone": "crosswalk"},
+        {"timestamp": "04:28", "track_id": "bus1", "actor_type": "vehicle", "zone": "road"},
+        {"timestamp": "05:05", "track_id": "w5", "actor_type": "pedestrian", "zone": "plaza"}
+      ]
+    }
+  ]
+}

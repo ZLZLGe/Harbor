@@ -1,0 +1,7 @@
+{
+  "sample_rate": 16000,
+  "channels": 1,
+  "sample_width_bytes": 2,
+  "frame_count": 9600058,
+  "duration_seconds": 600.004
+}

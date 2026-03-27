@@ -1,0 +1,5 @@
+model_name,token_budget_m,deadline_minutes,priority
+NanoGPT-Base,120,180,medium
+Adapter-Delta,420,75,high
+MHC-Full-124M,860,50,critical
+QuickEval-Lite,90,25,low

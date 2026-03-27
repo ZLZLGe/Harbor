@@ -1,0 +1,8 @@
+{
+  "firstPaintBudgetMs": 700,
+  "notes": [
+    "summary, routes, and incidents panels are visible on the initial viewport",
+    "weather can appear after the first meaningful paint",
+    "audit log lives behind a secondary tab"
+  ]
+}

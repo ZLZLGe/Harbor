@@ -1,0 +1,18 @@
+=== R2R MPC Control - Oracle Solution ===
+
+System params: {'EA': 2400.0, 'J': 0.95, 'R': 0.04, 'fb': 10.0, 'L': 1.0, 'v0': 0.01, 'dt': 0.01, 'num_sections': 6, 'max_safe_tension': 50.0, 'min_safe_tension': 5.0}
+
+Phase 1: Designing MPC controller...
+  Horizon N: 9
+
+Phase 2: Running closed-loop control...
+  Logged 509 timesteps
+
+Phase 3: Calculating metrics...
+  Steady-state error: 0.365 N
+  Settling time: 3.78 s
+  Max tension: 45.5 N
+  Min tension: 19.3 N
+
+=== Solution complete ===
+Oracle solution completed successfully.

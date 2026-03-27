@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/tests/test_outputs.py", line 27, in <module>
+    main()
+  File "/tests/test_outputs.py", line 22, in main
+    test_exact_output()
+  File "/tests/test_outputs.py", line 18, in test_exact_output
+    assert rows == EXPECTED_ROWS
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError

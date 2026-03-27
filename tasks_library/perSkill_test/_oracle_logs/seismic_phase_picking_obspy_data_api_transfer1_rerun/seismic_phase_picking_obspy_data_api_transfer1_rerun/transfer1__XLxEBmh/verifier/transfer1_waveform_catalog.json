@@ -1,0 +1,239 @@
+{
+  "summary": {
+    "total_files": 10,
+    "network_counts": {
+      "BG": 2,
+      "BK": 2,
+      "CI": 2,
+      "NC": 2,
+      "PB": 1,
+      "PG": 1
+    },
+    "earliest_start_utc": "2004-03-14T15:09:53.350000Z",
+    "latest_end_utc": "2020-12-01T02:37:14.500000Z",
+    "mean_duration_seconds": 119.99,
+    "max_distance_km": 93.2
+  },
+  "files": [
+    {
+      "file_name": "BG.BRP..DP.0414480.npz",
+      "network": "BG",
+      "station": "BRP",
+      "location_code": "--",
+      "channel_codes": [
+        "DPE",
+        "DPN",
+        "DPZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2020-12-01T02:35:14.510000Z",
+      "end_utc": "2020-12-01T02:37:14.500000Z",
+      "event_time_utc": "2020-12-01T02:36:12.900000Z",
+      "distance_km": 7.1,
+      "event_magnitude": 1.83,
+      "peak_component": "DPN",
+      "peak_abs_scaled": 0.00278,
+      "mean_snr": 23.1106
+    },
+    {
+      "file_name": "BG.DRK..DP.0351524.npz",
+      "network": "BG",
+      "station": "DRK",
+      "location_code": "--",
+      "channel_codes": [
+        "DPE",
+        "DPN",
+        "DPZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2016-12-14T19:37:06.660000Z",
+      "end_utc": "2016-12-14T19:39:06.650000Z",
+      "event_time_utc": "2016-12-14T19:38:05.240000Z",
+      "distance_km": 5.8,
+      "event_magnitude": 0.69,
+      "peak_component": "DPN",
+      "peak_abs_scaled": 0.001067,
+      "mean_snr": 5.3818
+    },
+    {
+      "file_name": "BK.DANT.00.BH.0373267.npz",
+      "network": "BK",
+      "station": "DANT",
+      "location_code": "00",
+      "channel_codes": [
+        "BHE",
+        "BHN",
+        "BHZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2018-03-02T21:16:24.920000Z",
+      "end_utc": "2018-03-02T21:18:24.910000Z",
+      "event_time_utc": "2018-03-02T21:17:19.250000Z",
+      "distance_km": 31.1,
+      "event_magnitude": 0.87,
+      "peak_component": "BHN",
+      "peak_abs_scaled": 2.6e-05,
+      "mean_snr": 0.9862
+    },
+    {
+      "file_name": "BK.PKD.00.HN.0277003.npz",
+      "network": "BK",
+      "station": "PKD",
+      "location_code": "00",
+      "channel_codes": [
+        "HNE",
+        "HNN",
+        "HNZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2012-06-13T01:31:35.820000Z",
+      "end_utc": "2012-06-13T01:33:35.810000Z",
+      "event_time_utc": "2012-06-13T01:32:29.900000Z",
+      "distance_km": 31.1,
+      "event_magnitude": 1.56,
+      "peak_component": "HNE",
+      "peak_abs_scaled": 2.431086,
+      "mean_snr": 2.619
+    },
+    {
+      "file_name": "CI.BAR..BH.0267435.npz",
+      "network": "CI",
+      "station": "BAR",
+      "location_code": "--",
+      "channel_codes": [
+        "BHE",
+        "BHN",
+        "BHZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2011-11-18T14:13:44.190000Z",
+      "end_utc": "2011-11-18T14:15:44.180000Z",
+      "event_time_utc": "2011-11-18T14:14:35.930000Z",
+      "distance_km": 49.2,
+      "event_magnitude": 3.23,
+      "peak_component": "BHN",
+      "peak_abs_scaled": 0.000284,
+      "mean_snr": 1.4199
+    },
+    {
+      "file_name": "CI.TIN..HH.0279511.npz",
+      "network": "CI",
+      "station": "TIN",
+      "location_code": "--",
+      "channel_codes": [
+        "HHE",
+        "HHN",
+        "HHZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2012-08-14T14:28:56.070000Z",
+      "end_utc": "2012-08-14T14:30:56.060000Z",
+      "event_time_utc": "2012-08-14T14:29:39.850000Z",
+      "distance_km": 93.2,
+      "event_magnitude": 2.76,
+      "peak_component": "HHN",
+      "peak_abs_scaled": 7.3e-05,
+      "mean_snr": 1.1899
+    },
+    {
+      "file_name": "NC.BBGB..HH.0363645.npz",
+      "network": "NC",
+      "station": "BBGB",
+      "location_code": "--",
+      "channel_codes": [
+        "HHE",
+        "HHN",
+        "HHZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2017-08-19T02:58:22.140000Z",
+      "end_utc": "2017-08-19T03:00:22.130000Z",
+      "event_time_utc": "2017-08-19T02:59:19.700000Z",
+      "distance_km": 4.6,
+      "event_magnitude": 1.31,
+      "peak_component": "HHE",
+      "peak_abs_scaled": 0.000228,
+      "mean_snr": 2.8617
+    },
+    {
+      "file_name": "NC.BJOB..HN.0244462.npz",
+      "network": "NC",
+      "station": "BJOB",
+      "location_code": "--",
+      "channel_codes": [
+        "HNE",
+        "HNN",
+        "HNZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2010-05-25T09:27:40.360000Z",
+      "end_utc": "2010-05-25T09:29:40.350000Z",
+      "event_time_utc": "2010-05-25T09:28:38.390000Z",
+      "distance_km": 8.3,
+      "event_magnitude": 1.94,
+      "peak_component": "HNN",
+      "peak_abs_scaled": 1051.906224,
+      "mean_snr": 76.1888
+    },
+    {
+      "file_name": "PB.B046..EH.0283603.npz",
+      "network": "PB",
+      "station": "B046",
+      "location_code": "--",
+      "channel_codes": [
+        "EH2",
+        "EH1",
+        "EHZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2012-11-07T17:35:16.950000Z",
+      "end_utc": "2012-11-07T17:37:16.940000Z",
+      "event_time_utc": "2012-11-07T17:36:12.160000Z",
+      "distance_km": 9.0,
+      "event_magnitude": 1.37,
+      "peak_component": "EH1",
+      "peak_abs_scaled": 1.8e-05,
+      "mean_snr": 1.0182
+    },
+    {
+      "file_name": "PG.PB..EH.0163793.npz",
+      "network": "PG",
+      "station": "PB",
+      "location_code": "--",
+      "channel_codes": [
+        "EHE",
+        "EHN",
+        "EHZ"
+      ],
+      "trace_count": 3,
+      "sample_rate_hz": 100.0,
+      "duration_seconds": 119.99,
+      "start_utc": "2004-03-14T15:09:53.350000Z",
+      "end_utc": "2004-03-14T15:11:53.340000Z",
+      "event_time_utc": "2004-03-14T15:10:49.600000Z",
+      "distance_km": 18.9,
+      "event_magnitude": 1.98,
+      "peak_component": "EHE",
+      "peak_abs_scaled": 7e-06,
+      "mean_snr": 1.0541
+    }
+  ]
+}

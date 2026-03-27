@@ -1,0 +1,6 @@
+{
+  "detected_silence_end": 4,
+  "baseline_energy": 0.8800000000000001,
+  "threshold": 1.7600000000000002,
+  "has_initial_silence": true
+}

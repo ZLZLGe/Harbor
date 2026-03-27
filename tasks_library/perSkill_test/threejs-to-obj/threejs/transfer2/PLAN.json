@@ -1,0 +1,14 @@
+{
+  "sourceTaskId": "threejs-to-obj",
+  "targetSkill": "threejs",
+  "derivedTask": {
+    "derivedTaskId": "transfer2",
+    "taskRole": "transfer",
+    "title": "Transfer - Minimal URDF Package",
+    "goal": "Convert a Three.js pallet-sorter scene into a minimal URDF plus deterministic per-link OBJ meshes.",
+    "primaryOutputFile": "/root/output/pallet_sorter.urdf",
+    "difficulty": "medium",
+    "category": "3d-graphics",
+    "skillBenefitRationale": "The task depends on treating named groups as links, preserving nearest-named-ancestor ownership, exporting per-link OBJ files, and building a minimal URDF articulation graph."
+  }
+}

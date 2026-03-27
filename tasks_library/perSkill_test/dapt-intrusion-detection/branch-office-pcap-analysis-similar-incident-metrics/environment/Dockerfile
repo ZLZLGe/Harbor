@@ -24,12 +24,12 @@ WORKDIR /root
 COPY branch_office_incident.pcap /root/branch_office_incident.pcap
 COPY branch_incident_metrics_template.csv /root/branch_incident_metrics.csv
 
-COPY skills /root/.claude/skills
-COPY skills /root/.codex/skills
-COPY skills /root/.opencode/skills
-COPY skills /root/.opencode/skill
-COPY skills /root/.goose/skills
-COPY skills /root/.factory/skills
-COPY skills /root/.agents/skills
-COPY skills /root/.gemini/skills
-COPY skills /root/skills
+# codex-hide-skill COPY skills /root/.claude/skills
+# codex-hide-skill COPY skills /root/.codex/skills
+# codex-hide-skill COPY skills /root/.opencode/skills
+# codex-hide-skill COPY skills /root/.opencode/skill
+# codex-hide-skill COPY skills /root/.goose/skills
+# codex-hide-skill COPY skills /root/.factory/skills
+# codex-hide-skill COPY skills /root/.agents/skills
+# codex-hide-skill COPY skills /root/.gemini/skills
+# codex-hide-skill COPY skills /root/skills

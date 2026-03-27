@@ -1,0 +1,34 @@
+{
+  "videos": [
+    {
+      "filename": "test1.mp4",
+      "tracks": [
+        {"track_id": "p-01", "label": "pedestrian", "frames": [1, 2, 3, 5]},
+        {"track_id": "p-02", "label": "pedestrian", "frames": [2, 3, 4]},
+        {"track_id": "p-01", "label": "pedestrian", "frames": [8, 9]},
+        {"track_id": "c-01", "label": "cyclist", "frames": [1, 2, 3]},
+        {"track_id": "p-03", "label": "pedestrian", "frames": [10, 11]}
+      ]
+    },
+    {
+      "filename": "test2.mp4",
+      "tracks": [
+        {"track_id": "p-11", "label": "pedestrian", "frames": [1, 2]},
+        {"track_id": "p-12", "label": "pedestrian", "frames": [2, 3, 4, 5]},
+        {"track_id": "v-02", "label": "vehicle", "frames": [1, 2, 3]},
+        {"track_id": "p-13", "label": "pedestrian", "frames": [7, 8]},
+        {"track_id": "p-12", "label": "pedestrian", "frames": [9, 10]}
+      ]
+    },
+    {
+      "filename": "test3.mp4",
+      "tracks": [
+        {"track_id": "p-21", "label": "pedestrian", "frames": [3, 4, 5]},
+        {"track_id": "p-22", "label": "pedestrian", "frames": [6]},
+        {"track_id": "p-23", "label": "pedestrian", "frames": [9, 10]},
+        {"track_id": "p-22", "label": "pedestrian", "frames": [11, 12]},
+        {"track_id": "dog-1", "label": "animal", "frames": [2, 3]}
+      ]
+    }
+  ]
+}

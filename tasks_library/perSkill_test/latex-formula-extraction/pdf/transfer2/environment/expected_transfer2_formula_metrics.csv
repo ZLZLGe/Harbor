@@ -1,0 +1,6 @@
+formula_id,page,char_count,operator_count,contains_greek,status
+F1,1,170,8,yes,original
+F2,2,54,3,yes,original
+F3,2,131,6,yes,original
+F4,3,116,7,no,original
+F5,3,131,6,yes,corrected

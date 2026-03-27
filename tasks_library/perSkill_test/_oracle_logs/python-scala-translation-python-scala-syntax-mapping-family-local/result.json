@@ -1,0 +1,31 @@
+{
+    "id": "80d8c6d6-a286-47ee-8464-1d5edb44731c",
+    "started_at": "2026-03-27T11:37:13.150537",
+    "finished_at": null,
+    "n_total_trials": 4,
+    "stats": {
+        "n_trials": 4,
+        "n_errors": 4,
+        "evals": {
+            "oracle__python-scala-syntax-mapping": {
+                "n_trials": 0,
+                "n_errors": 4,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "CancelledError": [
+                        "transfer1__M9HJJNf",
+                        "similar__gPEfgje",
+                        "transfer2__J64cx4x",
+                        "transfer3__QpdgAxT"
+                    ]
+                }
+            }
+        }
+    },
+    "trial_results": []
+}

@@ -1,0 +1,16 @@
+Loading video: data/townhall_source.mp4
+Video duration: 600.00s (10.00 min)
+
+Loading removal segments from 2 file(s)...
+Loaded 6 segments to remove
+Total removal: 114.00s (1.90 min)
+Segments to keep: 6
+Processing video (this may take 10-20 minutes)...
+
+✓ Processing complete!
+  Original: 600.00s (10.00 min)
+  Output: 486.00s (8.10 min)
+  Saved: 114.00s (1.90 min)
+  Compression: 19.0%
+
+Report saved to: townhall_condensed_report.json

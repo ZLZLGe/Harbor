@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Finance Filing Index Builder",
+  "goal": "Transfer organization skills to compliance-style finance filing and indexing.",
+  "primaryOutputFile": "/root/transfer3_finance_index.csv",
+  "difficulty": "medium",
+  "category": "file-management",
+  "skillBenefitRationale": "Requires consistent filing into hierarchical folders and producing a reliable index artifact."
+}

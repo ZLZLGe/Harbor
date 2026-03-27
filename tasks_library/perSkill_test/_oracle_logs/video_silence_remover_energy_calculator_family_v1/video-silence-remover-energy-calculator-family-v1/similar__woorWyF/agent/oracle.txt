@@ -1,0 +1,7 @@
+Calculating energy from: /root/data/lecture_track.wav
+Window size: 1.0s
+
+Energy calculated for 8.0s of audio
+Energy range: 0.0 - 8484.8
+Mean energy: 3720.8
+Results saved to: /root/lecture_energy.json

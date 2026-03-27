@@ -18,10 +18,10 @@ RUN pip3 install --break-system-packages \
 COPY robotic_joint_runs.csv /root/robotic_joint_runs.csv
 COPY validation_spec.yaml /root/validation_spec.yaml
 
-COPY skills /root/.claude/skills
-COPY skills /root/.codex/skills
-COPY skills /root/.opencode/skill
-COPY skills /root/.goose/skills
-COPY skills /root/.factory/skills
-COPY skills /root/.agents/skills
-COPY skills /root/.gemini/skills
+# codex-hide-skill COPY skills /root/.claude/skills
+# codex-hide-skill COPY skills /root/.codex/skills
+# codex-hide-skill COPY skills /root/.opencode/skill
+# codex-hide-skill COPY skills /root/.goose/skills
+# codex-hide-skill COPY skills /root/.factory/skills
+# codex-hide-skill COPY skills /root/.agents/skills
+# codex-hide-skill COPY skills /root/.gemini/skills

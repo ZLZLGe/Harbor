@@ -1,0 +1,32 @@
+{
+    "id": "5c2cd54a-b5c8-4c93-812d-5ede037234c8",
+    "started_at": "2026-03-25T01:13:18.322932",
+    "finished_at": "2026-03-25T01:13:34.147326",
+    "n_total_trials": 4,
+    "stats": {
+        "n_trials": 4,
+        "n_errors": 0,
+        "evals": {
+            "oracle__segment-combiner": {
+                "n_trials": 4,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "similar__TQA8LXk",
+                            "transfer1__26NSTfk",
+                            "transfer2__XsAff3y",
+                            "transfer3__u4tNRbc"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

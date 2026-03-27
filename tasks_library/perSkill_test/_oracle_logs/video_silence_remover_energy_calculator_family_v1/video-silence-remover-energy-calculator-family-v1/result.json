@@ -1,0 +1,32 @@
+{
+    "id": "ae3654b4-41be-4041-a31f-411953e3b1d6",
+    "started_at": "2026-03-25T01:01:13.808582",
+    "finished_at": "2026-03-25T01:01:37.968891",
+    "n_total_trials": 4,
+    "stats": {
+        "n_trials": 4,
+        "n_errors": 0,
+        "evals": {
+            "oracle__energy-calculator": {
+                "n_trials": 4,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "similar__woorWyF",
+                            "transfer1__kpgXhip",
+                            "transfer2__D9RDBu2",
+                            "transfer3__G9YrjLx"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

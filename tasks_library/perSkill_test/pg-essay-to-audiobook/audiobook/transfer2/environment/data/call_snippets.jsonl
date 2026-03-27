@@ -1,0 +1,6 @@
+{"session_id": 41, "speaker": "Coach", "priority": 3, "publish": true, "text": "Open with a calm recap and confirm the objective for this sprint review."}
+{"session_id": 38, "speaker": "Lead", "priority": 1, "publish": true, "text": "This note is low priority and should be skipped."}
+{"session_id": 42, "speaker": "Analyst", "priority": 2, "publish": true, "text": "Escalate repeated handoff failures to the duty coordinator [4]."}
+{"session_id": 41, "speaker": "Observer", "priority": 2, "publish": false, "text": "Do not publish this rehearsal transcript."}
+{"session_id": 45, "speaker": "Coach", "priority": 4, "publish": true, "text": "Share the closure checklist at https://ops.example.local/closeout and collect verbal confirmation."}
+{"session_id": 44, "speaker": "Lead", "priority": 2, "publish": true, "text": "When the line is noisy, switch to the backup script and restate timestamps clearly."}

@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Mario Image Audit CSV",
+  "goal": "Generate transformed sprite variants and export a deterministic grayscale statistics audit table.",
+  "primaryOutputFile": "/root/mario_image_audit.csv",
+  "difficulty": "medium",
+  "category": "image-processing",
+  "skillBenefitRationale": "Combines image manipulation with structured, reproducible output generation and validation."
+}

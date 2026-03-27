@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "transfer3"
+name = "Transfer - Search Release Gate Decision"
+description = "Compare before and after search-page performance captures and write a release decision note."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "web-performance"
+tags = ["before-after", "release-gate", "search", "browser-debugging"]
+primary_output_file = "/root/search_release_gate.txt"
+source_task_id = "react-performance-debugging"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096

@@ -1,0 +1,14 @@
+{
+  "sourceTaskId": "threejs-to-obj",
+  "targetSkill": "threejs",
+  "derivedTask": {
+    "derivedTaskId": "transfer1",
+    "taskRole": "transfer",
+    "title": "Transfer - Ownership Report",
+    "goal": "Audit a Three.js scene graph and write a deterministic JSON report describing part ownership, hierarchy, and primitive counts.",
+    "primaryOutputFile": "/root/output/ownership_report.json",
+    "difficulty": "medium",
+    "category": "3d-graphics",
+    "skillBenefitRationale": "The task depends on recognizing named Group links, assigning meshes to the nearest named ancestor, skipping empty groups, and separating mesh counts from InstancedMesh expansion counts."
+  }
+}

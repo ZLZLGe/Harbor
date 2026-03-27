@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Compliance Watermark Master",
+  "goal": "Render a compliance-marked delivery copy with deterministic overlay styling.",
+  "primaryOutputFile": "/outputs/transfer3_watermark_master.mp4",
+  "difficulty": "medium",
+  "category": "multimodal-video-dubbing",
+  "skillBenefitRationale": "The task requires deterministic multi-filter composition including overlay-style drawing filters."
+}

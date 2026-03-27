@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Page Formula Count CSV",
+  "goal": "Produce a page-level display-formula count table from extracted markdown block records.",
+  "primaryOutputFile": "/root/transfer2_page_formula_counts.csv",
+  "difficulty": "easy",
+  "category": "latex-extraction",
+  "skillBenefitRationale": "The task transfers formula extraction outputs into structured per-page analytics suitable for downstream pipelines."
+}

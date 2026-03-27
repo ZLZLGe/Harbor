@@ -1,0 +1,31 @@
+{
+  "drift_detuning": 0.08,
+  "target_gate": "rx_pi_over_2",
+  "probe_states": ["0", "1", "+", "-", "+i", "-i"],
+  "cases": [
+    {
+      "case_id": "balanced_xy",
+      "segments": [
+        {"duration": 0.30, "ux": 1.15, "uy": 0.05},
+        {"duration": 0.28, "ux": 1.10, "uy": -0.08},
+        {"duration": 0.24, "ux": 0.95, "uy": 0.02}
+      ]
+    },
+    {
+      "case_id": "overrotate_x",
+      "segments": [
+        {"duration": 0.36, "ux": 1.25, "uy": 0.00},
+        {"duration": 0.30, "ux": 1.20, "uy": -0.04},
+        {"duration": 0.22, "ux": 1.05, "uy": 0.00}
+      ]
+    },
+    {
+      "case_id": "detuning_compensated",
+      "segments": [
+        {"duration": 0.26, "ux": 1.05, "uy": 0.12},
+        {"duration": 0.27, "ux": 1.08, "uy": -0.10},
+        {"duration": 0.26, "ux": 1.02, "uy": 0.06}
+      ]
+    }
+  ]
+}

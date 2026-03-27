@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Job Scheduler Class Hierarchy Translation",
+  "goal": "Translate batch job classes from Python to Scala OOP hierarchy.",
+  "primaryOutputFile": "/app/workspace/transfer1.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "source_task_id": "python-scala-translation",
+  "targetSkillDirName": "python-scala-oop",
+  "targetSkillName": "python-scala-oop"
+}

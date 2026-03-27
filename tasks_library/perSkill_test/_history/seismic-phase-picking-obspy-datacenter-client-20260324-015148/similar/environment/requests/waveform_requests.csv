@@ -1,0 +1,4 @@
+request_id,network,station,location,channel,starttime,endtime
+ridgecrest_z,QA,AA01,00,BHZ,2024-04-01T00:00:00,2024-04-01T00:00:06
+aftershock_n,QA,BB02,10,BHN,2024-04-01T01:00:00,2024-04-01T01:00:04
+caldera_z,QB,CC03,--,EHZ,2024-04-02T06:30:00,2024-04-02T06:30:06

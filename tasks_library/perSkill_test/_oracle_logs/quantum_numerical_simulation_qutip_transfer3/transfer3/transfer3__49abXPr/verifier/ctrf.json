@@ -1,0 +1,29 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1774444497.039996,
+            "stop": 1774444497.683178
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_gate_audit_matches_reference",
+                "status": "passed",
+                "duration": 0.01639839900235529,
+                "start": 1774444497.6661053,
+                "stop": 1774444497.6830325,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

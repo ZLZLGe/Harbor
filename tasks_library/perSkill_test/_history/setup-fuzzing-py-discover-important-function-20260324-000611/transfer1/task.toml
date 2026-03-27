@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Python Boundary Regression Queue"
+description = "Build a CSV queue of the highest-priority boundary functions that need new regression probes before release."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "security"
+tags = ["security", "python", "code-review", "skillsbench", "setup-fuzzing-py", "discover-important-function", "transfer1"]
+primary_output_file = "/root/transfer1_regression_queue.csv"
+source_task_id = "setup-fuzzing-py"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 180.0
+
+[agent]
+timeout_sec = 300.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 300.0
+cpus = 1
+memory_mb = 1024
+storage_mb = 2048
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

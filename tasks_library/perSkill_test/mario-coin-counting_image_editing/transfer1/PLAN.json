@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Mario Icon Atlas",
+  "goal": "Create a normalized icon atlas with deterministic per-icon transforms and layout.",
+  "primaryOutputFile": "/root/mario_icon_atlas.png",
+  "difficulty": "easy",
+  "category": "image-processing",
+  "skillBenefitRationale": "Requires batch image transformation and deterministic composition in command-line workflows."
+}

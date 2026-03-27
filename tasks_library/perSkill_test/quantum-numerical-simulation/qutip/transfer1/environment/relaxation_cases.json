@@ -1,0 +1,39 @@
+{
+  "time_grid": {
+    "start": 0.0,
+    "stop": 8.0,
+    "points": 161
+  },
+  "cases": [
+    {
+      "case_id": "coherent_cooling",
+      "hilbert_dim": 18,
+      "alpha_real": 1.8,
+      "alpha_imag": 0.4,
+      "initial_thermal_n": 0.3,
+      "bath_thermal_n": 0.1,
+      "kappa": 0.42,
+      "detuning": 0.15
+    },
+    {
+      "case_id": "warm_bath_relaxation",
+      "hilbert_dim": 18,
+      "alpha_real": 1.2,
+      "alpha_imag": -0.9,
+      "initial_thermal_n": 0.5,
+      "bath_thermal_n": 0.25,
+      "kappa": 0.30,
+      "detuning": -0.10
+    },
+    {
+      "case_id": "fast_decay_offset",
+      "hilbert_dim": 18,
+      "alpha_real": -1.5,
+      "alpha_imag": 0.7,
+      "initial_thermal_n": 0.2,
+      "bath_thermal_n": 0.05,
+      "kappa": 0.55,
+      "detuning": 0.22
+    }
+  ]
+}

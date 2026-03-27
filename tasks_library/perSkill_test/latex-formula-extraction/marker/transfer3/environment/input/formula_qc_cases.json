@@ -1,0 +1,17 @@
+[
+  {
+    "formula_id": "F-001",
+    "requires_fix": false,
+    "note": "clean extraction"
+  },
+  {
+    "formula_id": "F-002",
+    "requires_fix": true,
+    "note": "left/right bracket mismatch"
+  },
+  {
+    "formula_id": "F-003",
+    "requires_fix": false,
+    "note": "tag removed successfully"
+  }
+]

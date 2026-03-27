@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Plugin Registry Object Model Translation",
+  "goal": "Translate plugin registry classes into Scala traits, case classes, mutable state handling, and companion object constructors.",
+  "primaryOutputFile": "/app/workspace/transfer3.scala",
+  "difficulty": "medium",
+  "category": "Code Translation",
+  "source_task_id": "python-scala-translation",
+  "targetSkillDirName": "python-scala-oop",
+  "targetSkillName": "python-scala-oop"
+}

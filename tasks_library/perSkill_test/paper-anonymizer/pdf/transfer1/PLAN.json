@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Build Review Packet",
+  "goal": "Merge selected pages from multiple PDFs into one packet and write a source mapping index.",
+  "primaryOutputFile": "/root/output/transfer1_packet.pdf",
+  "difficulty": "medium",
+  "category": "document-processing",
+  "skillBenefitRationale": "Cross-document page selection and merge workflows test PDF manipulation transfer."
+}

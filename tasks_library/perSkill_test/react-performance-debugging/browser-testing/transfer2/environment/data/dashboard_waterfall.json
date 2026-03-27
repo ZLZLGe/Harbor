@@ -1,0 +1,31 @@
+{
+  "url": "http://localhost:3000/ops",
+  "totalMs": 1460,
+  "requests": [
+    {
+      "url": "http://localhost:3000/api/summary",
+      "ms": 420
+    },
+    {
+      "url": "http://localhost:3000/api/routes",
+      "ms": 310
+    },
+    {
+      "url": "http://localhost:3000/api/incidents",
+      "ms": 280
+    },
+    {
+      "url": "http://localhost:3000/api/weather",
+      "ms": 190
+    },
+    {
+      "url": "http://localhost:3000/api/audit-log",
+      "ms": 260
+    }
+  ],
+  "metrics": {
+    "JSHeapUsedSize": 3812032,
+    "LayoutCount": 9,
+    "ScriptDuration": 0.122
+  }
+}

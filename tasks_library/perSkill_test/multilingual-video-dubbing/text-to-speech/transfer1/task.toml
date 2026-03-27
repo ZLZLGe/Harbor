@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Podcast Promo Window Mix"
+description = "Master one narration segment, align it to a cue window, and blend it into a podcast bed with QC metadata."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "multimodal-video-dubbing"
+tags = ["audio", "podcast", "speech", "loudness", "timing"]
+primary_output_file = "/outputs/episode_mix.wav"
+source_task_id = "multilingual-video-dubbing"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false

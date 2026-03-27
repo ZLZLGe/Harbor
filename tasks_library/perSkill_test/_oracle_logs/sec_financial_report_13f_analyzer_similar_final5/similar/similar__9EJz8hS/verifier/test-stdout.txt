@@ -1,0 +1,42 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______________________________ test_output_exists ______________________________
+
+    def test_output_exists():
+>       assert OUTPUT.exists(), "Missing /root/aurora_rotation_summary.json"
+E       AssertionError: Missing /root/aurora_rotation_summary.json
+E       assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/root/aurora_rotation_summary.json').exists
+
+/tests/test_outputs.py:10: AssertionError
+_____________________________ test_summary_matches _____________________________
+
+    def test_summary_matches():
+>       payload = json.loads(OUTPUT.read_text())
+
+/tests/test_outputs.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/local/lib/python3.12/pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/root/aurora_rotation_summary.json'), mode = 'r'
+buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/root/aurora_rotation_summary.json'
+
+/usr/local/lib/python3.12/pathlib.py:1013: FileNotFoundError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_output_exists - AssertionError: Missing...
+FAILED ../tests/test_outputs.py::test_summary_matches - FileNotFoundError: [E...
+2 failed in 0.04s

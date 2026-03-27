@@ -1,0 +1,23 @@
+..F                                                                      [100%]
+=================================== FAILURES ===================================
+____________________ test_relocation_conditional_processed _____________________
+
+    def test_relocation_conditional_processed():
+        doc = Document(OUTPUT_FILE)
+        text = get_all_text(doc)
+    
+        assert "{{IF_RELOCATION}}" not in text
+        assert "{{END_IF_RELOCATION}}" not in text
+    
+        with open(DATA_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    
+        if str(data.get("RELOCATION_PACKAGE", "")).lower() == "yes":
+>           assert str(data["RELOCATION_AMOUNT"]) in text
+E           AssertionError: assert '15,000' in 'EMPLOYMENT OFFER\nNexus Technologies Inc.\n\nDate: January 15, 2024\n\nSarah Chen\n456 Oak Avenue, Apt 7B\nSan Jose, ...\nEquity Grant:\n5,000 shares\nDocument ID: OFFER-2024-00847\nConfidential - Nexus Technologies Inc. Internal Use Only'
+E            +  where '15,000' = str('15,000')
+
+/tests/test_outputs.py:84: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_relocation_conditional_processed - Asse...
+1 failed, 2 passed in 0.11s

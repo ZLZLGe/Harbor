@@ -1,0 +1,21 @@
+Calculating energy from: /root/data/transfer3_take_a.wav
+Window size: 1.0s
+
+Energy calculated for 5.0s of audio
+Energy range: 126.9 - 155.1
+Mean energy: 141.0
+Results saved to: /tmp/transfer3_take_a.json
+Calculating energy from: /root/data/transfer3_take_b.wav
+Window size: 1.0s
+
+Energy calculated for 5.0s of audio
+Energy range: 226.0 - 254.1
+Mean energy: 239.9
+Results saved to: /tmp/transfer3_take_b.json
+Calculating energy from: /root/data/transfer3_take_c.wav
+Window size: 1.0s
+
+Energy calculated for 5.0s of audio
+Energy range: 63.2 - 77.3
+Mean energy: 70.2
+Results saved to: /tmp/transfer3_take_c.json

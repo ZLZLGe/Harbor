@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Python Scala Syntax Mapping Reference"
+description = "Build a canonical JSON reference that maps provided Python syntax snippets to their Scala equivalents."
+author_name = "Local Builder"
+author_email = "local.builder@harbor.test"
+difficulty = "medium"
+category = "Code Translation"
+tags = ["python", "scala", "syntax", "mapping"]
+primary_output_file = "/outputs/syntax_mapping_reference.json"
+source_task_id = "python-scala-translation"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

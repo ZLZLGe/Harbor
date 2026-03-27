@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "multilingual-video-dubbing",
+  "skillMode": "per-skill",
+  "targetSkill": {
+    "name": "TTS Audio Mastering",
+    "slug": "text-to-speech"
+  },
+  "familyTheme": "Single-skill TTS mastering across timed dubbing, podcast promo mixing, announcement pack generation, and kiosk narration overlay.",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - Timed Dub Segment Delivery",
+      "goal": "Generate one mastered narration segment, align it to a subtitle window, and produce a dubbed video plus a structured report.",
+      "primaryOutputFile": "/outputs/dubbed.mp4",
+      "difficulty": "medium",
+      "category": "multimodal-video-dubbing",
+      "skillBenefitRationale": "Directly evaluates cleanup, loudness normalization, and strict timing alignment for a dub segment."
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Podcast Promo Window Mix",
+      "goal": "Master a narration clip and place it inside a podcast bed while preserving timing and loudness constraints.",
+      "primaryOutputFile": "/outputs/episode_mix.wav",
+      "difficulty": "medium",
+      "category": "multimodal-video-dubbing",
+      "skillBenefitRationale": "Transfers the same mastering and timing controls into an audio-only promo workflow."
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Public Address Prompt Pack",
+      "goal": "Create a multi-item prompt pack where each prompt is duration-targeted and loudness-normalized.",
+      "primaryOutputFile": "/outputs/prompt_manifest.json",
+      "difficulty": "medium",
+      "category": "multimodal-video-dubbing",
+      "skillBenefitRationale": "Transfers mastering rules to batch prompt generation with per-item quality constraints."
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Museum Kiosk Narration Overlay",
+      "goal": "Master a narration segment and mix it into an ambient kiosk bed at an exact exhibit window.",
+      "primaryOutputFile": "/outputs/kiosk_mix.wav",
+      "difficulty": "medium",
+      "category": "multimodal-video-dubbing",
+      "skillBenefitRationale": "Transfers mastering and alignment to an ambient installation playback context."
+    }
+  ]
+}

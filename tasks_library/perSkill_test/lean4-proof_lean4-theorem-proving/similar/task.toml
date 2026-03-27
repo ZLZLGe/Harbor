@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Lean4 Linear Recurrence Warmup"
+description = "Complete a Lean proof for a linear recurrence closed form."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "easy"
+category = "formal-method"
+tags = ["lean4", "theorem-proving", "induction"]
+primary_output_file = "/app/workspace/similar.lean"
+source_task_id = "lean4-proof"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+gpus = 0
+memory = "4G"
+storage = "10G"
+allow_internet = false

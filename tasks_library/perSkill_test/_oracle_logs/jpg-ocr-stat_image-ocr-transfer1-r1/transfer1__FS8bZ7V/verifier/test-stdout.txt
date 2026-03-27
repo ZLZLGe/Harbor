@@ -1,0 +1,42 @@
+Get:1 http://mirrors.ustc.edu.cn/ubuntu noble InRelease [256 kB]
+Get:2 http://mirrors.ustc.edu.cn/ubuntu noble-updates InRelease [126 kB]
+Get:3 http://mirrors.ustc.edu.cn/ubuntu noble/multiverse amd64 Packages [331 kB]
+Get:4 http://mirrors.ustc.edu.cn/ubuntu noble/main amd64 Packages [1808 kB]
+Get:5 http://mirrors.ustc.edu.cn/ubuntu noble/restricted amd64 Packages [117 kB]
+Get:6 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 Packages [19.3 MB]
+Get:7 http://mirrors.ustc.edu.cn/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+Ign:8 http://mirrors.ustc.edu.cn/ubuntu noble-updates/main amd64 Packages
+Get:9 http://mirrors.ustc.edu.cn/ubuntu noble-updates/universe amd64 Packages [2154 kB]
+Get:10 http://mirrors.ustc.edu.cn/ubuntu noble-updates/restricted amd64 Packages [3601 kB]
+Get:8 http://mirrors.ustc.edu.cn/ubuntu noble-updates/main amd64 Packages [2334 kB]
+Fetched 30.1 MB in 1min 27s (346 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libxslt1.1 python3-et-xmlfile python3-iniconfig python3-lxml
+  python3-packaging python3-pluggy
+Suggested packages:
+  python-lxml-doc python-openpyxl-doc
+Recommended packages:
+  python3-bs4 python3-cssselect python3-html5lib python3-pil python3-pygments
+The following NEW packages will be installed:
+  libxslt1.1 python3-et-xmlfile python3-iniconfig python3-lxml
+  python3-openpyxl python3-packaging python3-pluggy python3-pytest
+0 upgraded, 8 newly installed, 0 to remove and 10 not upgraded.
+Need to get 1945 kB of archives.
+After this operation, 7905 kB of additional disk space will be used.
+Err:1 http://mirrors.ustc.edu.cn/ubuntu noble-updates/main amd64 libxslt1.1 amd64 1.1.39-0exp1ubuntu0.24.04.3
+  502  Bad Gateway [IP: 202.141.160.110 80]
+Get:2 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-et-xmlfile all 1.0.1-2.1 [9224 B]
+Get:3 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-iniconfig all 1.1.1-2 [6024 B]
+Get:4 http://mirrors.ustc.edu.cn/ubuntu noble/main amd64 python3-lxml amd64 5.2.1-1 [1243 kB]
+Get:5 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-openpyxl all 3.1.2+dfsg-6 [152 kB]
+Get:6 http://mirrors.ustc.edu.cn/ubuntu noble/main amd64 python3-packaging all 24.0-1 [41.1 kB]
+Get:7 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-pluggy all 1.4.0-1 [20.4 kB]
+Get:8 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-pytest all 7.4.4-1 [305 kB]
+Fetched 1777 kB in 31s (57.4 kB/s)
+E: Failed to fetch http://mirrors.ustc.edu.cn/ubuntu/pool/main/libx/libxslt/libxslt1.1_1.1.39-0exp1ubuntu0.24.04.3_amd64.deb  502  Bad Gateway [IP: 202.141.160.110 80]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+/usr/bin/python3: No module named pytest

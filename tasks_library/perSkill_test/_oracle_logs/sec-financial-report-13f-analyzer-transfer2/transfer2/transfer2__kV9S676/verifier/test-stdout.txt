@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tests/test_outputs.py", line 8, in <module>
+    expected = json.load(open(EXPECTED))
+                         ^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tests/expected_output.json'

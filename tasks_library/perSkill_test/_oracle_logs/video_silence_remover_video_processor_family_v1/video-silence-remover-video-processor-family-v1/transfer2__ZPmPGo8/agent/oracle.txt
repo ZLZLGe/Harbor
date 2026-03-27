@@ -1,0 +1,16 @@
+Loading video: /root/data/input.mp4
+Video duration: 20.00s (0.33 min)
+
+Loading removal segments from 1 file(s)...
+Loaded 3 segments to remove
+Total removal: 8.00s (0.13 min)
+Segments to keep: 3
+Processing video (this may take 10-20 minutes)...
+
+✓ Processing complete!
+  Original: 20.00s (0.33 min)
+  Output: 12.00s (0.20 min)
+  Saved: 8.00s (0.13 min)
+  Compression: 40.0%
+
+Report saved to: /root/briefing_trimmed_report.json

@@ -1,0 +1,25 @@
+[
+  {
+    "section": "Declarations",
+    "entries": [
+      {"python": "x = 5", "scala": "val x = 5"},
+      {"python": "x: int = 5", "scala": "val x: Int = 5"},
+      {"python": "x, y = 1, 2", "scala": "val (x, y) = (1, 2)"}
+    ]
+  },
+  {
+    "section": "Control Flow",
+    "entries": [
+      {"python": "for i in range(10): print(i)", "scala": "for (i <- 0 until 10) println(i)"},
+      {"python": "while condition: do_something()", "scala": "while (condition) { doSomething() }"},
+      {"python": "and / or / not", "scala": "&& / || / !"}
+    ]
+  },
+  {
+    "section": "Collections And Strings",
+    "entries": [
+      {"python": "evens = [x for x in numbers if x % 2 == 0]", "scala": "val evens = numbers.filter(_ % 2 == 0)"},
+      {"python": "f\"Hello, {name}!\"", "scala": "s\"Hello, $name!\""}
+    ]
+  }
+]

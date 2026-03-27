@@ -1,0 +1,32 @@
+{
+    "id": "e4f43ca7-eaa3-4680-94d1-a097c0f9febb",
+    "started_at": "2026-03-26T20:43:58.031387",
+    "finished_at": "2026-03-26T20:44:53.805257",
+    "n_total_trials": 4,
+    "stats": {
+        "n_trials": 4,
+        "n_errors": 0,
+        "evals": {
+            "oracle__multilingual-video-dubbing_ffmpeg-video-filters": {
+                "n_trials": 4,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "similar__3gjR2rF",
+                            "transfer1__7kZi5k5",
+                            "transfer2__p7wgL74",
+                            "transfer3__hrMcCUd"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

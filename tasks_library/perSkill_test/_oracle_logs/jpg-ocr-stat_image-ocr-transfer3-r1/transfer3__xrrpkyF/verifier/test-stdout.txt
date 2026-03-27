@@ -1,0 +1,126 @@
+Err:1 http://mirrors.ustc.edu.cn/ubuntu noble InRelease
+  502  Bad Gateway [IP: 202.141.160.110 80]
+Get:2 http://mirrors.ustc.edu.cn/ubuntu noble-updates InRelease [126 kB]
+Ign:3 http://mirrors.ustc.edu.cn/ubuntu noble-updates/multiverse amd64 Packages
+Get:4 http://mirrors.ustc.edu.cn/ubuntu noble-updates/universe amd64 Packages [2154 kB]
+Get:5 http://mirrors.ustc.edu.cn/ubuntu noble-updates/restricted amd64 Packages [3601 kB]
+Get:6 http://mirrors.ustc.edu.cn/ubuntu noble-updates/main amd64 Packages [2334 kB]
+Get:3 http://mirrors.ustc.edu.cn/ubuntu noble-updates/multiverse amd64 Packages [38.1 kB]
+Reading package lists...
+E: Failed to fetch http://mirrors.ustc.edu.cn/ubuntu/dists/noble/InRelease  502  Bad Gateway [IP: 202.141.160.110 80]
+E: The repository 'http://mirrors.ustc.edu.cn/ubuntu noble InRelease' is not signed.
+apt install attempt 1 failed, retrying...
+Get:1 http://mirrors.ustc.edu.cn/ubuntu noble InRelease [256 kB]
+Hit:2 http://mirrors.ustc.edu.cn/ubuntu noble-updates InRelease
+Get:3 http://mirrors.ustc.edu.cn/ubuntu noble/main amd64 Packages [1808 kB]
+Get:4 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 Packages [19.3 MB]
+Get:5 http://mirrors.ustc.edu.cn/ubuntu noble/multiverse amd64 Packages [331 kB]
+Get:6 http://mirrors.ustc.edu.cn/ubuntu noble/restricted amd64 Packages [117 kB]
+Fetched 21.8 MB in 32s (681 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libxslt1.1 python3-et-xmlfile python3-iniconfig python3-lxml
+  python3-packaging python3-pluggy
+Suggested packages:
+  python-lxml-doc python-openpyxl-doc
+Recommended packages:
+  python3-bs4 python3-cssselect python3-html5lib python3-pil python3-pygments
+The following NEW packages will be installed:
+  libxslt1.1 python3-et-xmlfile python3-iniconfig python3-lxml
+  python3-openpyxl python3-packaging python3-pluggy python3-pytest
+0 upgraded, 8 newly installed, 0 to remove and 10 not upgraded.
+Need to get 1945 kB of archives.
+After this operation, 7905 kB of additional disk space will be used.
+Get:1 http://mirrors.ustc.edu.cn/ubuntu noble-updates/main amd64 libxslt1.1 amd64 1.1.39-0exp1ubuntu0.24.04.3 [168 kB]
+Get:2 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-et-xmlfile all 1.0.1-2.1 [9224 B]
+Err:3 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-iniconfig all 1.1.1-2
+  502  Bad Gateway [IP: 202.141.160.110 80]
+Get:4 http://mirrors.ustc.edu.cn/ubuntu noble/main amd64 python3-lxml amd64 5.2.1-1 [1243 kB]
+Get:5 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-openpyxl all 3.1.2+dfsg-6 [152 kB]
+Get:6 http://mirrors.ustc.edu.cn/ubuntu noble/main amd64 python3-packaging all 24.0-1 [41.1 kB]
+Get:7 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-pluggy all 1.4.0-1 [20.4 kB]
+Get:8 http://mirrors.ustc.edu.cn/ubuntu noble/universe amd64 python3-pytest all 7.4.4-1 [305 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1939 kB in 25s (78.7 kB/s)
+Selecting previously unselected package libxslt1.1:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10533 files and directories currently installed.)
+Preparing to unpack .../0-libxslt1.1_1.1.39-0exp1ubuntu0.24.04.3_amd64.deb ...
+Unpacking libxslt1.1:amd64 (1.1.39-0exp1ubuntu0.24.04.3) ...
+Selecting previously unselected package python3-et-xmlfile.
+Preparing to unpack .../1-python3-et-xmlfile_1.0.1-2.1_all.deb ...
+Unpacking python3-et-xmlfile (1.0.1-2.1) ...
+Selecting previously unselected package python3-lxml:amd64.
+Preparing to unpack .../2-python3-lxml_5.2.1-1_amd64.deb ...
+Unpacking python3-lxml:amd64 (5.2.1-1) ...
+Selecting previously unselected package python3-openpyxl.
+Preparing to unpack .../3-python3-openpyxl_3.1.2+dfsg-6_all.deb ...
+Unpacking python3-openpyxl (3.1.2+dfsg-6) ...
+Selecting previously unselected package python3-packaging.
+Preparing to unpack .../4-python3-packaging_24.0-1_all.deb ...
+Unpacking python3-packaging (24.0-1) ...
+Selecting previously unselected package python3-pluggy.
+Preparing to unpack .../5-python3-pluggy_1.4.0-1_all.deb ...
+Unpacking python3-pluggy (1.4.0-1) ...
+Selecting previously unselected package python3-pytest.
+Preparing to unpack .../6-python3-pytest_7.4.4-1_all.deb ...
+Unpacking python3-pytest (7.4.4-1) ...
+dpkg: dependency problems prevent configuration of python3-pytest:
+ python3-pytest depends on python3-iniconfig; however:
+  Package python3-iniconfig is not installed.
+
+dpkg: error processing package python3-pytest (--configure):
+ dependency problems - leaving unconfigured
+Setting up python3-packaging (24.0-1) ...
+Setting up python3-pluggy (1.4.0-1) ...
+Setting up libxslt1.1:amd64 (1.1.39-0exp1ubuntu0.24.04.3) ...
+Setting up python3-et-xmlfile (1.0.1-2.1) ...
+Setting up python3-lxml:amd64 (5.2.1-1) ...
+Setting up python3-openpyxl (3.1.2+dfsg-6) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.7) ...
+Errors were encountered while processing:
+ python3-pytest
+E: Failed to fetch http://mirrors.ustc.edu.cn/ubuntu/pool/universe/p/python-iniconfig/python3-iniconfig_1.1.1-2_all.deb  502  Bad Gateway [IP: 202.141.160.110 80]
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+apt install attempt 2 failed, retrying...
+Hit:1 http://mirrors.ustc.edu.cn/ubuntu noble InRelease
+Hit:2 http://mirrors.ustc.edu.cn/ubuntu noble-updates InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pytest is already the newest version (7.4.4-1).
+python3-openpyxl is already the newest version (3.1.2+dfsg-6).
+You might want to run 'apt --fix-broken install' to correct these.
+The following packages have unmet dependencies:
+ python3-pytest : Depends: python3-iniconfig but it is not going to be installed
+E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).
+apt install attempt 3 failed, retrying...
+Hit:1 http://mirrors.ustc.edu.cn/ubuntu noble InRelease
+Hit:2 http://mirrors.ustc.edu.cn/ubuntu noble-updates InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pytest is already the newest version (7.4.4-1).
+python3-openpyxl is already the newest version (3.1.2+dfsg-6).
+You might want to run 'apt --fix-broken install' to correct these.
+The following packages have unmet dependencies:
+ python3-pytest : Depends: python3-iniconfig but it is not going to be installed
+E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).
+apt install attempt 4 failed, retrying...
+Hit:1 http://mirrors.ustc.edu.cn/ubuntu noble InRelease
+Hit:2 http://mirrors.ustc.edu.cn/ubuntu noble-updates InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pytest is already the newest version (7.4.4-1).
+python3-openpyxl is already the newest version (3.1.2+dfsg-6).
+You might want to run 'apt --fix-broken install' to correct these.
+The following packages have unmet dependencies:
+ python3-pytest : Depends: python3-iniconfig but it is not going to be installed
+E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).
+apt install attempt 5 failed, retrying...

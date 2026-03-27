@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Keyword Inventory Report",
+  "goal": "Extract text from PDFs and produce a markdown keyword-count matrix.",
+  "primaryOutputFile": "/root/reports/transfer3_keyword_inventory.md",
+  "difficulty": "medium",
+  "category": "document-analysis",
+  "skillBenefitRationale": "Text extraction and structured reporting transfer the PDF toolkit into analysis workflows."
+}

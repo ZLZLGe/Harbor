@@ -1,0 +1,22 @@
+{
+  "scenario": "slitter_rewind_pair",
+  "dt": 0.05,
+  "steps": 360,
+  "tail_window": 120,
+  "initial_state": [31.0, 29.0],
+  "reference_center": [32.0, 30.0],
+  "reference_amp": [2.8, 2.1],
+  "reference_period_steps": 90,
+  "alpha": [0.958, 0.955],
+  "coupling": [
+    [0.000, 0.018],
+    [0.015, 0.000]
+  ],
+  "beta": [0.130, 0.125],
+  "disturbance": [0.220, -0.180],
+  "nominal_gain": [0.62, 0.58],
+  "feedforward": [0.0, 0.0],
+  "gamma": 0.93,
+  "c_i": [0.40, 0.36],
+  "max_integral": [1.7, 1.5]
+}

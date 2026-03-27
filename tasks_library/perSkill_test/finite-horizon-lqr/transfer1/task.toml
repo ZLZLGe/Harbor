@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Gimbal Stabilization Sequence"
+description = "Generate a clipped finite-horizon control sequence for a gimbal model and export it as CSV."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "robotics-control"
+tags = ["gimbal", "control", "state-space", "csv"]
+primary_output_file = "/root/transfer1_gimbal_sequence.csv"
+source_task_id = "r2r-mpc-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

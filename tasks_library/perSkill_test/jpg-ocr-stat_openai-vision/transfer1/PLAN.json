@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Monthly Receipt Cashflow JSON",
+  "goal": "Aggregate receipt totals into month-level finance summaries.",
+  "primaryOutputFile": "/root/transfer1_monthly_totals.json",
+  "difficulty": "medium",
+  "category": "data statistics",
+  "skillBenefitRationale": "The task transfers receipt extraction into financial trend summarization by month."
+}

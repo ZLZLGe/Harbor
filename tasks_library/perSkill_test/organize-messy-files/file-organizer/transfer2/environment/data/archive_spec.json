@@ -1,0 +1,13 @@
+{
+  "records": [
+    {"file": "alpha_requirements.md", "bucket": "active", "project": "alpha"},
+    {"file": "alpha_sprint_board.csv", "bucket": "active", "project": "alpha"},
+    {"file": "beta_contract.pdf", "bucket": "archive", "project": "beta"},
+    {"file": "beta_retrospective.txt", "bucket": "archive", "project": "beta"},
+    {"file": "gamma_release_notes.md", "bucket": "active", "project": "gamma"},
+    {"file": "gamma_uat_checklist.txt", "bucket": "active", "project": "gamma"},
+    {"file": "delta_migration_plan.docx", "bucket": "archive", "project": "delta"},
+    {"file": "delta_cost_report.xlsx", "bucket": "archive", "project": "delta"},
+    {"file": "ops_incident_log.txt", "bucket": "active", "project": "ops"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "sourceTaskId": "reserves-at-risk-calc",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Cold Chain Buffer Workbook",
+  "goal": "Complete an inventory stress workbook that scores stock buffers under a downside scenario.",
+  "primaryOutputFile": "/root/cold_chain_transfer3_completed.xlsx",
+  "difficulty": "medium",
+  "category": "financial-analysis",
+  "skillBenefitRationale": "The task requires multi-sheet spreadsheet formulas, inventory stress modeling, and summary logic."
+}

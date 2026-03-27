@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Transfer - Section-Constrained Anonymization QA",
+  "goal": "Anonymize two PDFs and output a markdown QA table with retention ratios.",
+  "primaryOutputFile": "/root/reports/transfer2_quality.md",
+  "difficulty": "medium",
+  "category": "document-editing",
+  "skillBenefitRationale": "Redaction plus post-check reporting validates controlled anonymization quality."
+}

@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "similar",
+  "taskRole": "similar",
+  "title": "Similar - Receipt Ledger Export",
+  "goal": "Build a strict receipt ledger from the provided receipt image set.",
+  "primaryOutputFile": "/root/similar_receipt_rows.csv",
+  "difficulty": "medium",
+  "category": "data statistics",
+  "skillBenefitRationale": "The task is an image-led receipt extraction scenario aligned with OCR-style workflows."
+}

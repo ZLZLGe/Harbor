@@ -1,0 +1,28 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - NanoGPT Stability Trace Summary"
+description = "Summarize baseline vs mHC-style training traces into a stability metrics report."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "ml-implementation"
+tags = ["nanogpt", "training-loop", "stability", "metrics"]
+primary_output_file = "/root/similar_report.json"
+source_task_id = "mhc-layer-impl"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+gpus = 0
+memory = "2G"
+storage = "4G"
+allow_internet = false

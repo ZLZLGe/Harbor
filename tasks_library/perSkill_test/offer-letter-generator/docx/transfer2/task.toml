@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Offer Letter Data Merge"
+description = "Merge two structured inputs into one offer-letter output document."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "document-generation"
+tags = ["docx", "word", "template", "data-merge", "transfer"]
+primary_output_file = "/root/transfer2_merged_offer_letter.docx"
+source_task_id = "offer-letter-generator"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

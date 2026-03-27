@@ -1,0 +1,17 @@
+[
+  {
+    "id": "gate_a_update",
+    "text": "Gate A twenty one now boards zone one.",
+    "target_duration_sec": 2.5
+  },
+  {
+    "id": "weather_notice",
+    "text": "Heavy rain is expected after six PM. Carry umbrellas.",
+    "target_duration_sec": 3.0
+  },
+  {
+    "id": "safety_reminder",
+    "text": "Please keep walkways clear and keep your luggage with you.",
+    "target_duration_sec": 2.9
+  }
+]

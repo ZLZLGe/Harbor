@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - Modal GPU Training Scaffold"
+description = "Build a single Modal GPU training scaffold from a structured specification and emit a launch summary JSON."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "ml-implementation"
+tags = ["modal", "gpu", "training", "similar"]
+primary_output_file = "/root/modal_jobs/similar/train_modal.py"
+source_task_id = "mhc-layer-impl"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 240.0
+
+[agent]
+timeout_sec = 900.0
+reasoning_effort = "medium"
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

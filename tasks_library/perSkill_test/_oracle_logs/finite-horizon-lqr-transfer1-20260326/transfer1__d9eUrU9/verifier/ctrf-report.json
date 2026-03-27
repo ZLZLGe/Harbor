@@ -1,0 +1,29 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1774511645.5081956,
+            "stop": 1774511645.74691
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_transfer1_sequence_is_correct_and_clipped",
+                "status": "passed",
+                "duration": 0.001277274001040496,
+                "start": 1774511645.7451057,
+                "stop": 1774511645.746668,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

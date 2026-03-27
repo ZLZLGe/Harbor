@@ -1,0 +1,29 @@
+{
+    "id": "00863bad-58fd-43fc-a240-2632fd42646f",
+    "started_at": "2026-03-26T23:38:30.434411",
+    "finished_at": "2026-03-26T23:40:53.933080",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "transfer3__CYdaGfx"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

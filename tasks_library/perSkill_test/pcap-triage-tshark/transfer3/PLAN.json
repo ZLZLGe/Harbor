@@ -1,0 +1,11 @@
+{
+  "source_task_id": "suricata-custom-exfil",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Digest Fingerprint Ledger",
+  "goal": "Inspect the digest batch HTTP PCAP and write a TSV ledger of batch fingerprints.",
+  "primaryOutputFile": "/root/transfer3_digest_fingerprints.tsv",
+  "difficulty": "medium",
+  "category": "Security & CTF",
+  "skillBenefitRationale": "The task benefits from stream-oriented HTTP request inspection and extracting fields from both the URI query string and raw text body."
+}

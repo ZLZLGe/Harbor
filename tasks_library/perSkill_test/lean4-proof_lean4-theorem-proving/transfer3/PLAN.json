@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Checkpoint timeline recurrence",
+  "goal": "Prove the exact value of a timeline checkpoint sequence.",
+  "primaryOutputFile": "/app/workspace/transfer3.lean",
+  "difficulty": "easy",
+  "category": "formal-method",
+  "skillBenefitRationale": "The skill supports reliable Lean induction proof construction and iterative checking.",
+  "targetSkillDirName": "lean4-theorem-proving",
+  "targetSkillName": "lean4-theorem-proving"
+}

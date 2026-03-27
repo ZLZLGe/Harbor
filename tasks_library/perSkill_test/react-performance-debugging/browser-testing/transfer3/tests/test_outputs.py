@@ -1,0 +1,21 @@
+from pathlib import Path
+
+OUTPUT = Path("/root/search_release_gate.txt")
+
+EXPECTED = """STATUS: PASS_WITH_FOLLOWUP
+PAGE_TOTAL_MS_DELTA: 1180 -> 690 (-41.5%)
+API_TOTAL_MS_DELTA: 840 -> 430 (-48.8%)
+BUNDLE_DELTA_KB: 512 -> 278 (-45.7%)
+REMAINING_RISK: LayoutCount is still 54, so monitor rerender churn on chart filters.
+NEXT_MEASUREMENT: Re-run the search-detail capture after enabling cached chart legends.
+"""
+
+
+def main() -> None:
+    assert OUTPUT.exists(), f"missing output file: {OUTPUT}"
+    actual = OUTPUT.read_text()
+    assert actual == EXPECTED, actual
+
+
+if __name__ == "__main__":
+    main()
