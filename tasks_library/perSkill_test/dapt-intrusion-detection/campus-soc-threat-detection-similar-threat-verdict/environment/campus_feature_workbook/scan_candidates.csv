@@ -1,5 +1,0 @@
-source_ip,total_tcp_packets,unique_dst_ports,dst_port_entropy,syn_only_ratio,analyst_note
-10.77.4.19,231,148,6.27,0.81,Only candidate that satisfies all three scan conditions
-10.77.4.44,611,914,4.83,0.14,High port count alone should not trigger a scan verdict
-10.77.8.3,129,118,6.41,0.64,Entropy and volume are high but SYN-only ratio stays below threshold
-10.77.9.25,46,121,6.55,0.91,Volume is below the minimum packet count gate

@@ -1,6 +1,0 @@
-{
-  "prefix": "10.44.8.0/24",
-  "origin_asn": 65131,
-  "branch_id": "branch-bos",
-  "description": "Migrating Boston branch prefix advertised through the west hub"
-}

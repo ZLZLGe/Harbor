@@ -1,7 +1,0 @@
-{
-  "prefix": "10.77.32.0/24",
-  "origin_asn": 65231,
-  "origin_vnet": "spoke-analytics",
-  "route_server": "ars-prod-eastus",
-  "description": "Analytics spoke prefix learned through Azure Route Server service insertion"
-}
