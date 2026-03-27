@@ -1,6 +1,0 @@
-request_id,station_id,channel_id,sample_rate_hz,start_date,end_date
-broadband_core,QA.NR01,QA.NR01.00.BHN,40.0,2023-01-01T00:00:00,open
-broadband_core,QA.NR01,QA.NR01.00.BHZ,40.0,2023-01-01T00:00:00,open
-rapid_deploy,QA.NR02,QA.NR02.10.HHE,100.0,2024-01-01T00:00:00,2024-06-30T23:59:59
-rapid_deploy,QA.NR02,QA.NR02.10.HHZ,100.0,2024-01-01T00:00:00,open
-valley_vertical,QB.ST05,QB.ST05.--.ENZ,20.0,2022-05-01T00:00:00,open

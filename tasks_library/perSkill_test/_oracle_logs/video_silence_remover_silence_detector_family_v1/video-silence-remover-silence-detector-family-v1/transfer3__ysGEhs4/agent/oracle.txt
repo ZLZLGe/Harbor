@@ -1,5 +1,0 @@
-Detecting initial silence from: /root/data/qa_energies.json
-Parameters: multiplier=1.7, initial=4s, smoothing=5s
-
-Initial silence detected: 3s (0.05 min)
-Results saved to: /root/qa_silence.json

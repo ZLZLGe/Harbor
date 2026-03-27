@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/tests/test_outputs.py", line 73, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/tests/test_outputs.py", line 59, in main
-    assert frame_count == 6
-           ^^^^^^^^^^^^^^^^
-AssertionError

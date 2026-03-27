@@ -1,1 +1,0 @@
-transfer3 verifier checks passed

@@ -1,8 +1,0 @@
-{
-  "window_count": 12,
-  "loudest_window_index": 9,
-  "quietest_window_index": 11,
-  "active_window_count": 5,
-  "activity_threshold": 2400.0,
-  "mean_energy": 2928.1515324910483
-}

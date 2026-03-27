@@ -1,5 +1,0 @@
-Detecting pauses from: /root/data/lecture_energies.json
-Parameters: start=2s, ratio=0.55, min=2s, window=5s
-
-Found 3 pauses totaling 7s (0.12 min)
-Results saved to: /root/lecture_pauses.json

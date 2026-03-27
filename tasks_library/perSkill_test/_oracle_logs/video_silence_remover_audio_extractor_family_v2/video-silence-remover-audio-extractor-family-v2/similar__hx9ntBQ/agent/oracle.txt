@@ -1,5 +1,0 @@
-Extracting audio from: /root/data/input_video.mp4
-Sample rate: 16000 Hz
-
-Audio extracted to: /root/lecture_audio.wav
-File size: 18.31 MB

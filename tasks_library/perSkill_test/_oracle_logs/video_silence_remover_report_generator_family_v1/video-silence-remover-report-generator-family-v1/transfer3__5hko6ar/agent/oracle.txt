@@ -1,9 +1,0 @@
-Generating compression report...
-  Original: /root/data/original.mp4
-  Compressed: /root/data/compressed.mp4
-
-Original: 75.0s
-Compressed: 57.0s
-Removed: 18.0s
-Compression: 24.0%
-Report saved to: /root/qa_report.json

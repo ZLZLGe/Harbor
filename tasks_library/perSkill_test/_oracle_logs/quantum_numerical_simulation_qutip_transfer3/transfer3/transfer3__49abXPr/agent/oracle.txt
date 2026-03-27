@@ -1,2 +1,0 @@
-/usr/local/lib/python3.11/site-packages/qutip/__init__.py:24: UserWarning: matplotlib not found: Graphics will not work.
-  warnings.warn("matplotlib not found: Graphics will not work.")

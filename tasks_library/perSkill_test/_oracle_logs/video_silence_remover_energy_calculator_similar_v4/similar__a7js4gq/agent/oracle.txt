@@ -1,7 +1,0 @@
-Calculating energy from: /root/data/similar_lesson.wav
-Window size: 1.0s
-
-Energy calculated for 16.0s of audio
-Energy range: 42.0 - 1767.3
-Mean energy: 914.4
-Results saved to: /tmp/similar_energies.json

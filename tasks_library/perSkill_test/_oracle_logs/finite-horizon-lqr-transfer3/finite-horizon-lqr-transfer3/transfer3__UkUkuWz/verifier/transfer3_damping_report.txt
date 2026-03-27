@@ -1,6 +1,0 @@
-scenario=vibration_damping
-horizon=12
-total_cost=11.123342
-final_error_norm=0.246670
-peak_actuation=0.529710
-final_state=[0.04439923784939294, 0.0084388798161021, -0.1660400773190575, 0.17673219691266787]

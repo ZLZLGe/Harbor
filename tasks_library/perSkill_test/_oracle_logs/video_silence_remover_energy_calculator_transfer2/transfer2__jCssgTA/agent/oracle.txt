@@ -1,7 +1,0 @@
-Calculating energy from: /root/data/transfer2_ward_monitor.wav
-Window size: 1.0s
-
-Energy calculated for 12.0s of audio
-Energy range: 27.8 - 706.7
-Mean energy: 215.5
-Results saved to: /tmp/transfer2_energies.json

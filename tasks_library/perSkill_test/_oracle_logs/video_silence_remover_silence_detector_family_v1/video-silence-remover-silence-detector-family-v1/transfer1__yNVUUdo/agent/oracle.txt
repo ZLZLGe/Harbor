@@ -1,5 +1,0 @@
-Detecting initial silence from: /root/data/compliance_energies.json
-Parameters: multiplier=2.0, initial=5s, smoothing=4s
-
-Initial silence detected: 4s (0.07 min)
-Results saved to: /root/compliance_silence.json

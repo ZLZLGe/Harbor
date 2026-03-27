@@ -1,4 +1,0 @@
-request_id,network,station,channel,starttime,endtime
-broadband_core,QA,NR*,BH?,2024-05-01T12:00:00,2024-05-01T12:00:00
-rapid_deploy,QA,NR*,HH?,2024-05-01T12:00:00,2024-05-01T12:00:00
-valley_vertical,QB,ST05,*Z,2024-07-01T00:00:00,2024-07-01T00:00:00

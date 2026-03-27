@@ -1,9 +1,0 @@
-Generating compression report...
-  Original: /root/data/original.mp4
-  Compressed: /root/data/compressed.mp4
-
-Original: 42.0s
-Compressed: 30.0s
-Removed: 12.0s
-Compression: 28.6%
-Report saved to: /root/lecture_report.json

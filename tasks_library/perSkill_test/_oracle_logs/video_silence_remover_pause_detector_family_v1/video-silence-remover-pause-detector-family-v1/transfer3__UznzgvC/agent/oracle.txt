@@ -1,5 +1,0 @@
-Detecting pauses from: /root/data/qa_energies.json
-Parameters: start=0s, ratio=0.55, min=3s, window=5s
-
-Found 3 pauses totaling 11s (0.18 min)
-Results saved to: /root/qa_pauses.json

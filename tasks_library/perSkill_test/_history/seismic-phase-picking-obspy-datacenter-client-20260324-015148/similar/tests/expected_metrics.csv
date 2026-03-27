@@ -1,4 +1,0 @@
-request_id,trace_id,sample_count,peak_abs,mean_abs,rms
-aftershock_n,QA.BB02.10.BHN,8,8.000000,3.750000,4.609772
-caldera_z,QB.CC03.--.EHZ,6,5.000000,3.166667,3.719319
-ridgecrest_z,QA.AA01.00.BHZ,6,6.000000,3.500000,4.062019

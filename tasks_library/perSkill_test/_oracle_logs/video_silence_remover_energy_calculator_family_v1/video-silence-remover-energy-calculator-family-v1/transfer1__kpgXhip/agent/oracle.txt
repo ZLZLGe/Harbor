@@ -1,7 +1,0 @@
-Calculating energy from: /root/data/call_preview.wav
-Window size: 0.5s
-
-Energy calculated for 6.0s of audio
-Energy range: 353.1 - 6929.2
-Mean energy: 2928.2
-Results saved to: /root/call_energy.json

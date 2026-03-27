@@ -1,5 +1,0 @@
-Detecting initial silence from: /root/data/briefing_energies.json
-Parameters: multiplier=1.6, initial=3s, smoothing=2s
-
-Initial silence detected: 3s (0.05 min)
-Results saved to: /root/briefing_silence.json

@@ -1,4 +1,0 @@
-Using CPython 3.12.13 interpreter at: /usr/local/bin/python3
-Creating virtual environment at: .venv
-Resolved 1 package in 1ms
-Checked in 0.00ms

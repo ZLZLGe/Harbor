@@ -1,7 +1,0 @@
-Combining segments...
-  Input: /root/data/lead_in.json
-  Input: /root/data/gaps.json
-
-Combined 3 segments
-Total duration to remove: 6s
-Results saved to: /root/briefing_all_segments.json

@@ -1,9 +1,0 @@
-Generating compression report...
-  Original: /root/data/original.mp4
-  Compressed: /root/data/compressed.mp4
-
-Original: 18.0s
-Compressed: 12.0s
-Removed: 6.0s
-Compression: 33.3%
-Report saved to: /root/briefing_report.json

@@ -1,4 +1,0 @@
-event_id,lead_seconds,lag_seconds,network,channel_glob
-plan-201,20,90,RC,*Z
-plan-202,30,120,RC,*Z
-plan-203,45,180,RC,*Z

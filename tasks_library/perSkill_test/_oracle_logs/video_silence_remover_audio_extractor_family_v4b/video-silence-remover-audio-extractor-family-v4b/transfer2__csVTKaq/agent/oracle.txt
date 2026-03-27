@@ -1,6 +1,0 @@
-Extracting audio from: /root/data/input_video.mp4
-Sample rate: 16000 Hz
-Duration limit: 120s
-
-Audio extracted to: /root/evidence_excerpt.wav
-File size: 3.66 MB

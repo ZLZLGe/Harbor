@@ -1,5 +1,0 @@
-Detecting pauses from: /root/data/call_energies.json
-Parameters: start=1s, ratio=0.6, min=2s, window=5s
-
-Found 2 pauses totaling 5s (0.08 min)
-Results saved to: /root/call_pauses.json

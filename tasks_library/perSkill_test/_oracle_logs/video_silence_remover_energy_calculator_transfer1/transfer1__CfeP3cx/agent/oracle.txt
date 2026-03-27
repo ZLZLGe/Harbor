@@ -1,7 +1,0 @@
-Calculating energy from: /root/data/transfer1_support_call.wav
-Window size: 1.0s
-
-Energy calculated for 18.0s of audio
-Energy range: 41.9 - 1661.3
-Mean energy: 808.8
-Results saved to: /tmp/transfer1_energies.json

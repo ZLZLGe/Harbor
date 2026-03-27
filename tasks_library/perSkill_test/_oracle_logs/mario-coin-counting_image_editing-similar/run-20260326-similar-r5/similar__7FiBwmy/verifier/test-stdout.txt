@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/tests/test_outputs.py", line 55, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/tests/test_outputs.py", line 50, in main
-    assert sha256_file(OUTPUT) == sha256_file(expected), "strip content mismatch"
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: strip content mismatch

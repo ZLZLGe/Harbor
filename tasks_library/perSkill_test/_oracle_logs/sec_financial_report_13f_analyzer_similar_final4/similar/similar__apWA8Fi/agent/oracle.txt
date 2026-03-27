@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "<stdin>", line 70, in <module>
-  File "<stdin>", line 50, in find_accession
-KeyError: 'VIKING GLOBAL INVESTORS LP'
