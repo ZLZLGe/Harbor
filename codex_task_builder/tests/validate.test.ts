@@ -2,7 +2,12 @@ import assert from "node:assert/strict";
 import os from "node:os";
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import { validateDraftStatic } from "../src/validate.js";
+import {
+  buildHarborRuntimeCommand,
+  resolveRuntimeEnvironment,
+  runRuntimePreflight,
+  validateDraftStatic,
+} from "../src/validate.js";
 import type { DerivedTaskPlan, WriterSummary } from "../src/schema.js";
 
 const sourceTaskId = "weighted-gdp-calc";
@@ -121,6 +126,89 @@ const rootOutputPlan: DerivedTaskPlan = {
     "drafts/clinic-ops-xlsx-transfer-shift-conflict-audit/environment/clinic_shift_conflicts.json",
   );
   assert.ok(issues.includes("writer 返回的 primaryOutputFile 与 blueprint 不一致"));
+}
+
+assert.equal(resolveRuntimeEnvironment({}), "daytona");
+assert.equal(resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "docker" }), "docker");
+assert.equal(resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "DAYTONA" }), "daytona");
+assert.throws(
+  () => resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "modal" }),
+  /CODEX_TASK_BUILDER_RUNTIME_ENV/,
+);
+
+{
+  const command = buildHarborRuntimeCommand({
+    taskDir: "/tmp/task",
+    logsDir: "/tmp/logs",
+    jobName: "job-1",
+    runtimeEnvironment: "daytona",
+  });
+  assert.deepEqual(command, [
+    "harbor",
+    "run",
+    "-p",
+    "/tmp/task",
+    "-a",
+    "oracle",
+    "-e",
+    "daytona",
+    "--force-build",
+    "--jobs-dir",
+    "/tmp/logs",
+    "--job-name",
+    "job-1",
+  ]);
+}
+
+{
+  const command = buildHarborRuntimeCommand({
+    taskDir: "/tmp/task",
+    logsDir: "/tmp/logs",
+    jobName: "job-2",
+    runtimeEnvironment: "docker",
+  });
+  assert.equal(command[7], "docker");
+}
+
+{
+  const harborOnlyRunner = async (command: string, args: string[]) => {
+    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
+      return { code: 0, stdout: "", stderr: "" };
+    }
+    if (command === "bash" && args[1] === "harbor --version") {
+      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
+    }
+    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
+  };
+
+  const preflight = await runRuntimePreflight("daytona", {}, harborOnlyRunner);
+  assert.equal(preflight.ok, false);
+  assert.match(preflight.summary, /DAYTONA_API_KEY/);
+}
+
+{
+  const dockerRunner = async (command: string, args: string[]) => {
+    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
+      return { code: 0, stdout: "", stderr: "" };
+    }
+    if (command === "bash" && args[1] === "harbor --version") {
+      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
+    }
+    if (command === "bash" && args[1] === "command -v docker >/dev/null 2>&1") {
+      return { code: 0, stdout: "", stderr: "" };
+    }
+    if (command === "docker" && args[0] === "info") {
+      return { code: 0, stdout: "docker info ok\n", stderr: "" };
+    }
+    if (command === "bash" && args[1].includes("docker build --pull -q - <<'EOF'")) {
+      return { code: 0, stdout: "", stderr: "" };
+    }
+    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
+  };
+
+  const preflight = await runRuntimePreflight("docker", {}, dockerRunner);
+  assert.equal(preflight.ok, true);
+  assert.match(preflight.summary, /harbor \+ docker preflight 通过/);
 }
 
 console.log("validate.test.ts passed");

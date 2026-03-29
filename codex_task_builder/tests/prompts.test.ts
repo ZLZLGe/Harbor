@@ -98,6 +98,17 @@ assert.match(brief, /在 drafts\/<derived_task_id>\/environment\/ 下新建全�
 assert.match(brief, /Harbor 会执行 \/tests\/test\.sh 作为 verifier 入口/);
 assert.match(brief, /\/logs\/verifier\/reward\.txt/);
 assert.match(brief, /如果 source task 的旧写法与 Harbor verifier 契约冲突/);
+assert.match(brief, /关键文件职责:/);
+assert.match(brief, /solution\/solve\.sh 是参考解脚本/);
+assert.match(brief, /不得只是复制、移动、重命名或直接输出随任务一起提供的完整标准答案文件/);
+assert.match(brief, /tests\/test_outputs\.py 只应校验 instruction\.md 明确要求的输出契约/);
+assert.match(brief, /如果 tests\/test_outputs\.py 使用 pytest 风格测试，tests\/test\.sh 必须用 pytest 执行它/);
+assert.match(brief, /task\.toml 环境配额:/);
+assert.match(brief, /task\.toml 必须包含 \[environment\]/);
+assert.match(brief, /cpus = 2/);
+assert.match(brief, /memory_mb = 2048/);
+assert.match(brief, /storage_mb = 5120/);
+assert.match(brief, /gpus = 0/);
 
 assert.match(plannerPrompt, /只规划那些能在 Harbor 常规 build\/start\/verify 时限内完成的任务/);
 assert.match(plannerPrompt, /source_task\/ 只是参考，不是模板/);
@@ -126,7 +137,16 @@ assert.match(writerPrompt, /\/logs\/verifier\/reward\.txt/);
 assert.match(writerPrompt, /\/logs\/verifier\/reward\.json/);
 assert.match(writerPrompt, /是否联网不是默认违规项/);
 assert.match(writerPrompt, /不要把 Harbor 关键 verifier 依赖留到 tests\/test\.sh 中临时安装/);
-assert.match(writerPrompt, /不要额外复制到 \/root\/\.claude\/skills、\/root\/\.gemini\/skills/);
+assert.match(writerPrompt, /task\.toml 必须包含 \[environment\]，并固定写为:/);
+assert.match(writerPrompt, /cpus = 2/);
+assert.match(writerPrompt, /memory_mb = 2048/);
+assert.match(writerPrompt, /storage_mb = 5120/);
+assert.match(writerPrompt, /gpus = 0/);
+assert.match(writerPrompt, /solution\/solve\.sh 是参考解脚本/);
+assert.match(writerPrompt, /不要把预置答案藏在 environment\/、solution\/ 或其他目录里再由 solve\.sh 直接搬运/);
+assert.match(writerPrompt, /tests\/test_outputs\.py 只应校验 instruction\.md 明确要求的输出契约/);
+assert.match(writerPrompt, /不要把合法解法锁死到某个内部函数名、唯一中间步骤、固定日志文本或其他未承诺的实现细节/);
+assert.match(writerPrompt, /如果 tests\/test_outputs\.py 使用 pytest 风格测试，tests\/test\.sh 必须用 pytest 执行它/);
 
 assert.match(reviewerPrompt, /tests\/test\.sh 是否先创建 \/logs\/verifier/);
 assert.match(reviewerPrompt, /source_task\/ 是否只是参考，而不是机械复写源任务/);
@@ -134,8 +154,11 @@ assert.match(reviewerPrompt, /是否合理复用或新建输入资产/);
 assert.match(reviewerPrompt, /reward 是否写到 \/logs\/verifier\/reward\.txt 或 \/logs\/verifier\/reward\.json/);
 assert.match(reviewerPrompt, /是否稳定写出 reward\.txt\/reward\.json/);
 assert.match(reviewerPrompt, /set -e\/pipefail 导致写 reward 前提前退出/);
+assert.match(reviewerPrompt, /solution\/solve\.sh 是否只是复制、搬运或暴露随任务提供的完整标准答案/);
+assert.match(reviewerPrompt, /tests\/test_outputs\.py 是否只检查 instruction\.md 明示的输出契约，而没有引入隐藏要求/);
+assert.match(reviewerPrompt, /tests\/test_outputs\.py 是否把合法解法锁死到某种内部实现细节，而不是校验结果语义/);
+assert.match(reviewerPrompt, /如果 tests\/test_outputs\.py 是 pytest 风格测试，tests\/test\.sh 是否通过 pytest 正确执行它/);
 assert.match(reviewerPrompt, /如果任务使用联网或外部服务，是否仍能在 Harbor 中稳定运行并稳定写 reward/);
-assert.match(reviewerPrompt, /Dockerfile \/ test harness 是否明显过重/);
 assert.match(reviewerPrompt, /testabilityPass 设为 false/);
 
 console.log("prompts.test.ts passed");

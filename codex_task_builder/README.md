@@ -31,7 +31,8 @@
 - `npm`
 - 本机可用的 `codex` CLI
 - 有效的模型认证环境变量，例如 `OPENAI_API_KEY`
-- 如果要做运行校验，需要本机有 `harbor` CLI 与 `docker`
+- 如果要做运行校验，默认需要本机有 `harbor` CLI，并且当前 shell 已导出 `DAYTONA_API_KEY`
+- 如果想切回旧的 docker 路线，需要额外导出 `CODEX_TASK_BUILDER_RUNTIME_ENV=docker`，并保证本机有 `docker`
 
 安装依赖：
 
@@ -65,6 +66,7 @@ npm run inventory -- --source-root /home/levi/Harbor/tasks_library/skillsbench/t
 
 ```bash
 cd /home/levi/Harbor/codex_task_builder
+export DAYTONA_API_KEY="your_daytona_api_key_here"
 npm run generate-family -- \
   --source-task-id citation-check \
   --skill-mode all \
@@ -94,6 +96,7 @@ npm run generate-family -- \
 
 ```bash
 cd /home/levi/Harbor/codex_task_builder
+export DAYTONA_API_KEY="your_daytona_api_key_here"
 npm run batch -- \
   --source-root /home/levi/Harbor/tasks_library/skillsbench/tasks \
   --output-root /home/levi/Harbor/tasks_library/integrated_tasks \
@@ -104,7 +107,9 @@ npm run batch -- \
 
 说明：
 
-- `batch` 在真正启动 planner 之前，会先做一次运行时 preflight（`harbor` + `docker`）
+- `generate-family` 和 `batch` 在真正启动 planner 之前，都会先做一次运行时 preflight
+- 默认 preflight 检查 `harbor` CLI 与 `DAYTONA_API_KEY`
+- 当 `CODEX_TASK_BUILDER_RUNTIME_ENV=docker` 时，preflight 会改为检查 `harbor` CLI 与 `docker`
 - 如果 preflight 失败，本轮 batch 会直接返回失败结果，不会启动生成
 
 重新执行最近一次 reviewer：
@@ -120,17 +125,24 @@ npm run review -- \
 
 - `OPENAI_API_KEY`
   - 提供给 `codex` CLI 的模型认证
+- `DAYTONA_API_KEY`
+  - 默认 runtime 校验后端 Daytona 的认证环境变量
 - `CODEX_PATH`
   - 可选，覆盖默认 `codex` 可执行文件路径
 - `CODEX_TASK_BUILDER_MODEL`
   - 可选，指定模型
 - `CODEX_TASK_BUILDER_NETWORK_ACCESS`
   - 可选，值为 `1` 时开启网络访问
+- `CODEX_TASK_BUILDER_RUNTIME_ENV`
+  - 可选，默认值为 `daytona`
+  - 当前只支持 `daytona` 和 `docker`
+  - 设为 `docker` 时，会切回旧的 docker runtime 校验路径
 
 示例：
 
 ```bash
 export OPENAI_API_KEY="your_api_key_here"
+export DAYTONA_API_KEY="your_daytona_api_key_here"
 export CODEX_TASK_BUILDER_MODEL="gpt-5.2"
 export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 ```
@@ -146,7 +158,8 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 - 已有同名 `derived_task_id/` 目录时会跳过该任务，不会覆盖
 - 同一 scratch workspace 内，后续 writer 会先直接检查 `drafts/` 下已经生成好的 sibling tasks，并尽量避免与它们在场景、输入资产、输出目标和测试方式上重复；这属于 prompt 级软约束，不是硬校验
 - `task.toml` 的关键 metadata（如 `description`、`primary_output_file`、`source_task_id`、`task_role`）现在属于 static validate 硬门槛；缺失或不匹配会直接阻止发布
-- runtime 校验对齐 Harbor 官方 oracle：调用 `harbor run -p <task_dir> -a oracle --force-build --jobs-dir <logs_dir> --job-name <job_name>`
+- runtime 校验对齐 Harbor 官方 oracle：默认调用 `harbor run -p <task_dir> -a oracle -e daytona --force-build --jobs-dir <logs_dir> --job-name <job_name>`
+- 如果设置 `CODEX_TASK_BUILDER_RUNTIME_ENV=docker`，则会改为 `-e docker`
 - 如果手动调用 Harbor，`harbor run -p` 应指向 `integrated_tasks/<source_task_id>/` 这一级 family 目录，或更深一层的单任务目录；不能直接指向 `integrated_tasks/` 根目录
 - 运行时宿主异常仍会记作 runtime 失败，但会在日志和 metadata 里单独标明
 - 当前实现不会做删除操作
@@ -162,3 +175,5 @@ export CODEX_TASK_BUILDER_NETWORK_ACCESS=1
 
 - `/home/levi/Harbor/docs/codex_task_builder_usage_zh.md`
 - `/home/levi/Harbor/docs/codex_sdk_full_task_builder_plan.md`
+
+/home/levi/Harbor/codex_task_builder/tmp/review_errors_codex_repair_20260325.ts 用这个进行重新review 修复

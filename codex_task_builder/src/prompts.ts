@@ -54,6 +54,29 @@ function renderHarborOracleBaseline(): string {
   `);
 }
 
+function renderTaskArtifactContracts(): string {
+  return dedent(`
+    关键文件职责:
+    - solution/solve.sh 是参考解脚本；它应基于题目提供的输入资产生成可通过测试的结果，不是给最终做题者直接照抄的答案清单。
+    - solution/solve.sh 不得只是复制、移动、重命名或直接输出随任务一起提供的完整标准答案文件；不要把预置答案产物藏在 environment/、solution/ 或其他目录后再由 solve.sh 直接搬运。
+    - tests/test_outputs.py 只应校验 instruction.md 明确要求的输出契约、允许使用的接口和可观察结果；不要引入 instruction.md 未声明的隐藏字段、隐藏阈值、隐藏步骤、隐藏 helper 函数或隐藏导出接口。
+    - tests/test_outputs.py 应尽量面向结果语义而非具体实现；不要把合法解法锁死到某个内部函数名、唯一中间步骤、固定日志文本或其他未承诺的实现细节。
+    - 如果 tests/test_outputs.py 使用 pytest 风格测试，tests/test.sh 必须用 pytest 执行它，而不是直接 python3 /tests/test_outputs.py。
+  `);
+}
+
+function renderEnvironmentResourceRules(): string {
+  return dedent(`
+    task.toml 环境配额:
+    - task.toml 必须包含 [environment]。
+    - [environment] 必须固定为:
+      - cpus = 2
+      - memory_mb = 2048
+      - storage_mb = 5120
+      - gpus = 0
+  `);
+}
+
 export function buildTaskBuilderBrief(unit: GenerationUnit): string {
   const sourceTask = unit.sourceTask;
   const visibleSkills = getVisibleSkills(unit);
@@ -96,6 +119,8 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     12. 同一 scratch workspace 内，后续任务生成时必须检查 drafts/ 下已经完成的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出物语义和测试判定方式上过于接近。
        - 这里只需要关注当前 workspace 的 drafts/，不需要查看更早之前生成的 integrated_tasks/ 或 manifest。
     ${renderSourceTaskReferenceRules("drafts/<derived_task_id>/environment/")}
+    ${renderTaskArtifactContracts()}
+    ${renderEnvironmentResourceRules()}
     ${renderHarborOracleBaseline()}
   `);
 }
@@ -215,8 +240,17 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
       - source_task_id = "${sourceTask.sourceTaskId}"
       - task_role = "${plan.taskRole}"
     - 如果 task.toml 缺少上述任一 metadata 字段，或者关键字段值不匹配，该任务会在 static validate 阶段直接失败，不能发布。
+    - task.toml 必须包含 [environment]，并固定写为:
+      - cpus = 2
+      - memory_mb = 2048
+      - storage_mb = 5120
+      - gpus = 0
     - instruction.md 不要直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName；只有这种直接点名才算技能暴露。
-    - solution/solve.sh 和 tests/test_outputs.py 必须能验证该任务。
+    - solution/solve.sh 是参考解脚本；它必须基于题目输入资产生成可通过测试的结果，不是给最终做题者直接照抄的答案文件。
+    - solution/solve.sh 不得只是复制、移动、重命名或直接输出随任务一起提供的完整标准答案产物；不要把预置答案藏在 environment/、solution/ 或其他目录里再由 solve.sh 直接搬运。
+    - tests/test_outputs.py 只应校验 instruction.md 明确要求的输出契约、允许使用的接口和可观察结果；不要引入 instruction.md 未声明的隐藏字段、隐藏阈值、隐藏步骤、隐藏 helper 函数或隐藏导出接口。
+    - tests/test_outputs.py 应尽量面向结果语义而非具体实现；不要把合法解法锁死到某个内部函数名、唯一中间步骤、固定日志文本或其他未承诺的实现细节。
+    - 如果 tests/test_outputs.py 使用 pytest 风格测试，tests/test.sh 必须用 pytest 执行它，而不是直接 python3 /tests/test_outputs.py。
     - primaryOutputFile 必须为 "${plan.primaryOutputFile}"。
     - 当前 source task ID 为 "${sourceTask.sourceTaskId}"。
     - 下面这些 Harbor oracle 约束默认优先于 source task 中较旧或较松散的写法：
@@ -230,7 +264,6 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
       - 是否联网不是默认违规项；如果 verifier 需要联网或外部服务，仍必须保证 Harbor 中可运行，并稳定落盘 reward。
       - environment/Dockerfile 应尽量保持轻量、稳定、可在 Harbor 中快速 build/start；避免明显超重的镜像、长启动链路、运行时大下载或多服务编排。
       - 不要把 Harbor 关键 verifier 依赖留到 tests/test.sh 中临时安装；必须依赖的核心系统包、运行库或重量级 Python 包应尽量前置到 environment/Dockerfile。
-      - environment/Dockerfile 默认只保留 Harbor 实际需要的 skill copy：必须保留 COPY skills /root/.codex/skills，不要额外复制到 /root/.claude/skills、/root/.gemini/skills 等其他代理目录，除非任务在 Harbor 中确实需要。
 
     你需要创建或更新这些文件:
     - task.toml
@@ -277,9 +310,11 @@ export function buildReviewerPrompt(unit: GenerationUnit, familyPlan: FamilyPlan
         - reward 是否写到 /logs/verifier/reward.txt 或 /logs/verifier/reward.json，而不是写到其他目录
         - 是否稳定写出 reward.txt/reward.json，而不是裸跑测试后直接结束
         - 是否存在 set -e/pipefail 导致写 reward 前提前退出的路径
+        - solution/solve.sh 是否只是复制、搬运或暴露随任务提供的完整标准答案，形成答案泄露
+        - tests/test_outputs.py 是否只检查 instruction.md 明示的输出契约，而没有引入隐藏要求、隐藏阈值、隐藏 helper 函数或隐藏导出接口
+        - tests/test_outputs.py 是否把合法解法锁死到某种内部实现细节，而不是校验结果语义
+        - 如果 tests/test_outputs.py 是 pytest 风格测试，tests/test.sh 是否通过 pytest 正确执行它，而不是直接 python3 /tests/test_outputs.py
         - 如果任务使用联网或外部服务，是否仍能在 Harbor 中稳定运行并稳定写 reward
-        - Dockerfile / test harness 是否明显过重，容易导致 Harbor build/start timeout
-        - environment/Dockerfile 是否只保留 Harbor 需要的 skill copy，避免无谓复制到其他 agent 目录
       ${skillReviewRule}
       - 该任务是否应通过 reviewer
       - 只要命中上述任一 Harbor testability 问题，就将 testabilityPass 设为 false，并在 issues 中直接点明具体问题

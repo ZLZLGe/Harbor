@@ -17,6 +17,8 @@ export type ValidationIssue = {
   taskId?: string;
 };
 
+export type RuntimeEnvironment = "daytona" | "docker";
+
 export type RuntimeFailureKind = "harbor-preflight" | "harbor-run" | "harbor-reward";
 
 export type RuntimePreflightResult = {
@@ -34,6 +36,8 @@ export type ReviewValidationResult = {
   taskIssuesById: Map<string, ValidationIssue[]>;
   familyObservationIssues: ValidationIssue[];
 };
+
+type CommandRunner = typeof runCommand;
 
 export function validateFamilyStructure(familyPlan: FamilyPlan): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
@@ -518,6 +522,55 @@ function isDockerEnvironmentFailure(output: string): boolean {
   );
 }
 
+function readEnvValue(env: NodeJS.ProcessEnv, key: string): string | null {
+  const raw = env[key];
+  if (typeof raw !== "string") {
+    return null;
+  }
+
+  const trimmed = raw.trim();
+  return trimmed.length > 0 ? trimmed : null;
+}
+
+export function resolveRuntimeEnvironment(env: NodeJS.ProcessEnv = process.env): RuntimeEnvironment {
+  const rawValue = readEnvValue(env, "CODEX_TASK_BUILDER_RUNTIME_ENV");
+  if (!rawValue) {
+    return "daytona";
+  }
+
+  const normalized = rawValue.toLowerCase();
+  if (normalized === "daytona" || normalized === "docker") {
+    return normalized;
+  }
+
+  throw new Error(
+    `不支持的 CODEX_TASK_BUILDER_RUNTIME_ENV: ${rawValue}；仅支持 daytona 或 docker`,
+  );
+}
+
+export function buildHarborRuntimeCommand(options: {
+  taskDir: string;
+  logsDir: string;
+  jobName: string;
+  runtimeEnvironment: RuntimeEnvironment;
+}): string[] {
+  return [
+    "harbor",
+    "run",
+    "-p",
+    options.taskDir,
+    "-a",
+    "oracle",
+    "-e",
+    options.runtimeEnvironment,
+    "--force-build",
+    "--jobs-dir",
+    options.logsDir,
+    "--job-name",
+    options.jobName,
+  ];
+}
+
 function runtimeIssue(taskId: string, message: string): ValidationIssue {
   return {
     scope: "runtime",
@@ -589,10 +642,14 @@ function extractPrimaryReward(rewards: unknown): number | null {
   return null;
 }
 
-export async function runRuntimePreflight(): Promise<RuntimePreflightResult> {
+export async function runRuntimePreflight(
+  runtimeEnvironment: RuntimeEnvironment,
+  env: NodeJS.ProcessEnv = process.env,
+  commandRunner: CommandRunner = runCommand,
+): Promise<RuntimePreflightResult> {
   const details: string[] = [];
 
-  const harborCheck = await runCommand("bash", ["-lc", "command -v harbor >/dev/null 2>&1"]);
+  const harborCheck = await commandRunner("bash", ["-lc", "command -v harbor >/dev/null 2>&1"], { env });
   if (harborCheck.code !== 0) {
     return {
       ok: false,
@@ -601,7 +658,7 @@ export async function runRuntimePreflight(): Promise<RuntimePreflightResult> {
     };
   }
 
-  const harborVersion = await runCommand("bash", ["-lc", "harbor --version"]);
+  const harborVersion = await commandRunner("bash", ["-lc", "harbor --version"], { env });
   if (harborVersion.code !== 0) {
     const summary = compactOutputSummary(`${harborVersion.stdout}\n${harborVersion.stderr}`);
     return {
@@ -610,9 +667,26 @@ export async function runRuntimePreflight(): Promise<RuntimePreflightResult> {
       details: ["harbor --version 返回非零退出码", summary],
     };
   }
+  details.push(`runtime environment: ${runtimeEnvironment}`);
   details.push(`harbor --version: ${compactOutputSummary(`${harborVersion.stdout}\n${harborVersion.stderr}`)}`);
 
-  const dockerCheck = await runCommand("bash", ["-lc", "command -v docker >/dev/null 2>&1"]);
+  if (runtimeEnvironment === "daytona") {
+    if (!readEnvValue(env, "DAYTONA_API_KEY")) {
+      return {
+        ok: false,
+        summary: "当前环境未设置 DAYTONA_API_KEY",
+        details: ["DAYTONA_API_KEY 缺失或为空"],
+      };
+    }
+
+    return {
+      ok: true,
+      summary: "harbor + daytona preflight 通过",
+      details,
+    };
+  }
+
+  const dockerCheck = await commandRunner("bash", ["-lc", "command -v docker >/dev/null 2>&1"], { env });
   if (dockerCheck.code !== 0) {
     return {
       ok: false,
@@ -621,7 +695,7 @@ export async function runRuntimePreflight(): Promise<RuntimePreflightResult> {
     };
   }
 
-  const dockerInfo = await runCommand("docker", ["info"]);
+  const dockerInfo = await commandRunner("docker", ["info"], { env });
   if (dockerInfo.code !== 0) {
     const summary = compactOutputSummary(`${dockerInfo.stdout}\n${dockerInfo.stderr}`);
     return {
@@ -631,10 +705,10 @@ export async function runRuntimePreflight(): Promise<RuntimePreflightResult> {
     };
   }
 
-  const smokeBuild = await runCommand("bash", [
+  const smokeBuild = await commandRunner("bash", [
     "-lc",
     "docker build --pull -q - <<'EOF'\nFROM busybox:1.36\nRUN true\nEOF",
-  ]);
+  ], { env });
   if (smokeBuild.code !== 0) {
     const summary = compactOutputSummary(`${smokeBuild.stdout}\n${smokeBuild.stderr}`);
     return {
@@ -654,39 +728,52 @@ export async function runRuntimePreflight(): Promise<RuntimePreflightResult> {
 export async function runRuntimeValidation(
   workspace: FamilyWorkspace,
   plan: DerivedTaskPlan,
+  runtimeEnvironment: RuntimeEnvironment,
+  env: NodeJS.ProcessEnv = process.env,
+  commandRunner: CommandRunner = runCommand,
 ): Promise<RuntimeValidationResult> {
   const issues: ValidationIssue[] = [];
   const taskDir = path.join(workspace.draftsDir, plan.derivedTaskId);
   const logsDir = path.join(workspace.artifactsDir, "runtime-logs", plan.derivedTaskId);
   await ensureDir(logsDir);
 
-  const harborCheck = await runCommand("bash", ["-lc", "command -v harbor >/dev/null 2>&1"]);
-  const dockerCheck = await runCommand("bash", ["-lc", "command -v docker >/dev/null 2>&1"]);
-  if (harborCheck.code !== 0 || dockerCheck.code !== 0) {
+  const harborCheck = await commandRunner("bash", ["-lc", "command -v harbor >/dev/null 2>&1"], { env });
+  if (harborCheck.code !== 0) {
     return {
-      issues: [runtimeIssue(plan.derivedTaskId, "harbor/docker 环境失败，详见 artifacts/runtime-logs")],
+      issues: [runtimeIssue(plan.derivedTaskId, `harbor runtime 环境失败（${runtimeEnvironment}），详见 artifacts/runtime-logs`)],
+      failureKind: "harbor-preflight",
+    };
+  }
+
+  if (runtimeEnvironment === "docker") {
+    const dockerCheck = await commandRunner("bash", ["-lc", "command -v docker >/dev/null 2>&1"], { env });
+    if (dockerCheck.code !== 0) {
+      return {
+        issues: [runtimeIssue(plan.derivedTaskId, "harbor runtime 环境失败（docker），详见 artifacts/runtime-logs")],
+        failureKind: "harbor-preflight",
+      };
+    }
+  } else if (!readEnvValue(env, "DAYTONA_API_KEY")) {
+    return {
+      issues: [runtimeIssue(plan.derivedTaskId, "harbor runtime 环境失败（daytona 缺少 DAYTONA_API_KEY），详见 artifacts/runtime-logs")],
       failureKind: "harbor-preflight",
     };
   }
 
   const jobName = `harbor-oracle-${slugify(workspace.runId)}-${slugify(plan.derivedTaskId)}`;
-  const harborCommand = [
-    "harbor",
-    "run",
-    "-p",
+  const harborCommand = buildHarborRuntimeCommand({
     taskDir,
-    "-a",
-    "oracle",
-    "--force-build",
-    "--jobs-dir",
     logsDir,
-    "--job-name",
     jobName,
-  ]
+    runtimeEnvironment,
+  })
     .map(shellEscape)
     .join(" ");
 
-  const runResult = await runCommand("bash", ["-lc", harborCommand], { cwd: workspace.rootDir });
+  const runResult = await commandRunner("bash", ["-lc", harborCommand], {
+    cwd: workspace.rootDir,
+    env,
+  });
   await writeText(path.join(logsDir, "harbor-run.log"), `${runResult.stdout}${runResult.stderr}`);
 
   const jobDir = path.join(logsDir, jobName);

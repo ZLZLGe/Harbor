@@ -31,11 +31,13 @@ import {
 } from "./workspace.js";
 import {
   collectFamilyObservationIssues,
+  resolveRuntimeEnvironment,
   runRuntimePreflight,
   runRuntimeValidation,
   validateDraftStatic,
   validateFamilyStructure,
   validateReviewerResult,
+  type RuntimeEnvironment,
   type RuntimePreflightResult,
   type RuntimeFailureKind,
   type ValidationIssue,
@@ -48,6 +50,7 @@ type FamilyExecutionResult = {
   skillMode: SkillMode;
   targetSkillDirName?: string;
   targetSkillName?: string;
+  runtimeEnvironment?: RuntimeEnvironment;
   runId?: string;
   status: "completed" | "failed" | "skipped";
   issues: string[];
@@ -120,12 +123,16 @@ function sortIssues(issues: ValidationIssue[]): string[] {
   return issues.map((issue) => `${issue.scope}${issue.taskId ? `:${issue.taskId}` : ""} ${issue.message}`);
 }
 
-function buildScopeMetadata(unit: GenerationUnit): Record<string, unknown> {
+function buildScopeMetadata(
+  unit: GenerationUnit,
+  runtimeEnvironment?: RuntimeEnvironment,
+): Record<string, unknown> {
   return {
     skillMode: unit.skillMode,
     targetSkillDirName: unit.targetSkill?.dirName,
     targetSkillName: unit.targetSkill?.name,
     scopeSlug: unit.scopeSlug,
+    ...(runtimeEnvironment ? { runtimeEnvironment } : {}),
   };
 }
 
@@ -188,12 +195,14 @@ function annotateFamilyPlan(unit: GenerationUnit, familyPlan: FamilyPlan): Famil
 function buildFailedExecutionResult(
   unit: GenerationUnit,
   error: unknown,
+  runtimeEnvironment?: RuntimeEnvironment,
 ): FamilyExecutionResult {
   return {
     sourceTaskId: unit.sourceTask.sourceTaskId,
     skillMode: unit.skillMode,
     targetSkillDirName: unit.targetSkill?.dirName,
     targetSkillName: unit.targetSkill?.name,
+    runtimeEnvironment,
     status: "failed",
     issues: [error instanceof Error ? error.message : String(error)],
     familyObservationIssues: [],
@@ -229,6 +238,7 @@ async function executeFamilyGeneration(
   unit: GenerationUnit,
   options: {
     outputRoot: string;
+    runtimeEnvironment: RuntimeEnvironment;
   },
 ): Promise<FamilyExecutionResult> {
   const sourceTask = unit.sourceTask;
@@ -238,7 +248,7 @@ async function executeFamilyGeneration(
     sourceTaskId: unit.sourceTask.sourceTaskId,
     phase: "workspace",
     status: "completed",
-    metadata: { rootDir: workspace.rootDir, ...buildScopeMetadata(unit) },
+    metadata: { rootDir: workspace.rootDir, ...buildScopeMetadata(unit, options.runtimeEnvironment) },
   });
 
   const codex = new CodexTaskBuilderClient();
@@ -258,7 +268,7 @@ async function executeFamilyGeneration(
     phase: "planner",
     status: "completed",
     threadId: familyPlanResult.threadId,
-    metadata: buildScopeMetadata(unit),
+    metadata: buildScopeMetadata(unit, options.runtimeEnvironment),
   });
 
   const blockingFamilyIssues = validateFamilyStructure(familyPlan);
@@ -270,10 +280,11 @@ async function executeFamilyGeneration(
       phase: "validate",
       status: "failed",
       issues,
+      metadata: buildScopeMetadata(unit, options.runtimeEnvironment),
     });
     await writeRunSummary(workspace.runId, {
       sourceTaskId: sourceTask.sourceTaskId,
-      ...buildScopeMetadata(unit),
+      ...buildScopeMetadata(unit, options.runtimeEnvironment),
       status: "failed",
       issues,
       familyObservationIssues,
@@ -287,6 +298,7 @@ async function executeFamilyGeneration(
       skillMode: unit.skillMode,
       targetSkillDirName: unit.targetSkill?.dirName,
       targetSkillName: unit.targetSkill?.name,
+      runtimeEnvironment: options.runtimeEnvironment,
       runId: workspace.runId,
       status: "failed",
       issues,
@@ -314,7 +326,7 @@ async function executeFamilyGeneration(
       status: "completed",
       threadId: writerResult.threadId,
       draftDir,
-      metadata: buildScopeMetadata(unit),
+      metadata: buildScopeMetadata(unit, options.runtimeEnvironment),
     });
   }
 
@@ -344,7 +356,7 @@ async function executeFamilyGeneration(
     threadId: reviewResult.threadId,
     issues: [...reviewerIssues, ...mergedFamilyObservationIssues],
     metadata: {
-      ...buildScopeMetadata(unit),
+      ...buildScopeMetadata(unit, options.runtimeEnvironment),
       passedTaskIds: reviewerPassedTaskIds,
       failedTaskIds: reviewerFailedTaskIds,
       familyObservationIssues: mergedFamilyObservationIssues,
@@ -362,7 +374,7 @@ async function executeFamilyGeneration(
       threadId: reviewResult.threadId,
       draftDir: path.join(workspace.draftsDir, plan.derivedTaskId),
       issues: taskReviewerIssues,
-      metadata: buildScopeMetadata(unit),
+      metadata: buildScopeMetadata(unit, options.runtimeEnvironment),
     });
   }
 
@@ -385,7 +397,7 @@ async function executeFamilyGeneration(
 
     const runtimeValidation =
       reviewerIssuesForTask.length === 0 && staticIssues.length === 0
-        ? await runRuntimeValidation(workspace, plan)
+        ? await runRuntimeValidation(workspace, plan, options.runtimeEnvironment)
         : { issues: [] };
     const runtimeIssues = runtimeValidation.issues;
     const validateIssues = [...reviewerIssuesForTask, ...staticIssues, ...runtimeIssues];
@@ -411,7 +423,7 @@ async function executeFamilyGeneration(
       draftDir,
       issues: sortIssues(validateIssues),
       metadata: {
-        ...buildScopeMetadata(unit),
+        ...buildScopeMetadata(unit, options.runtimeEnvironment),
         ...(runtimeValidation.failureKind ? { runtimeFailureKind: runtimeValidation.failureKind } : {}),
       },
     });
@@ -428,7 +440,7 @@ async function executeFamilyGeneration(
     status: "completed",
     issues: failedValidationIssues,
     metadata: {
-      ...buildScopeMetadata(unit),
+      ...buildScopeMetadata(unit, options.runtimeEnvironment),
       eligibleTaskIds: taskStates.filter((task) => task.eligibleForPublish).map((task) => task.derivedTaskId),
       ineligibleTaskIds: taskStates.filter((task) => !task.eligibleForPublish).map((task) => task.derivedTaskId),
       runtimeFailureKindsByTaskId,
@@ -460,7 +472,7 @@ async function executeFamilyGeneration(
         draftDir: taskState.draftDir,
         issues: sortIssues(taskState.validateIssues),
         metadata: {
-          ...buildScopeMetadata(unit),
+          ...buildScopeMetadata(unit, options.runtimeEnvironment),
           ...(taskState.runtimeFailureKind ? { runtimeFailureKind: taskState.runtimeFailureKind } : {}),
         },
       });
@@ -480,7 +492,7 @@ async function executeFamilyGeneration(
         draftDir: taskState.draftDir,
         issues: ["publish 未返回该任务结果"],
         metadata: {
-          ...buildScopeMetadata(unit),
+          ...buildScopeMetadata(unit, options.runtimeEnvironment),
           ...(taskState.runtimeFailureKind ? { runtimeFailureKind: taskState.runtimeFailureKind } : {}),
         },
       });
@@ -497,7 +509,7 @@ async function executeFamilyGeneration(
         status: "completed",
         draftDir: taskState.draftDir,
         publishedDir: publishTaskResult.taskDir,
-        metadata: buildScopeMetadata(unit),
+        metadata: buildScopeMetadata(unit, options.runtimeEnvironment),
       });
       continue;
     }
@@ -512,7 +524,7 @@ async function executeFamilyGeneration(
       draftDir: taskState.draftDir,
       publishedDir: publishTaskResult.taskDir,
       issues: [publishTaskResult.reason ?? "目标任务目录已存在，按配置跳过发布"],
-      metadata: buildScopeMetadata(unit),
+      metadata: buildScopeMetadata(unit, options.runtimeEnvironment),
     });
   }
 
@@ -533,7 +545,7 @@ async function executeFamilyGeneration(
       publishedTaskIds.length > 0 || skippedTaskIds.length > 0 ? publishResult.familyDir : undefined,
     issues: finalIssues,
     metadata: {
-      ...buildScopeMetadata(unit),
+      ...buildScopeMetadata(unit, options.runtimeEnvironment),
       publishedTaskIds,
       skippedTaskIds,
       failedTaskIds,
@@ -543,7 +555,7 @@ async function executeFamilyGeneration(
   });
   await writeRunSummary(workspace.runId, {
     sourceTaskId: sourceTask.sourceTaskId,
-    ...buildScopeMetadata(unit),
+    ...buildScopeMetadata(unit, options.runtimeEnvironment),
     status: finalStatus,
     issues: finalIssues,
     familyObservationIssues: mergedFamilyObservationIssues,
@@ -561,6 +573,7 @@ async function executeFamilyGeneration(
     skillMode: unit.skillMode,
     targetSkillDirName: unit.targetSkill?.dirName,
     targetSkillName: unit.targetSkill?.name,
+    runtimeEnvironment: options.runtimeEnvironment,
     runId: workspace.runId,
     status: finalStatus,
     issues: finalIssues,
@@ -573,15 +586,16 @@ async function executeFamilyGeneration(
   };
 }
 
-async function buildBatchPreflightFailureResults(
+async function buildRuntimePreflightFailureResults(
   units: GenerationUnit[],
+  runtimeEnvironment: RuntimeEnvironment,
   preflight: RuntimePreflightResult,
 ): Promise<FamilyExecutionResult[]> {
   const results: FamilyExecutionResult[] = [];
 
   for (const unit of units) {
     const runId = makeRunId(`${unit.sourceTask.sourceTaskId}-${unit.scopeSlug}-runtime-preflight`);
-    const issues = [`runtime harbor/docker preflight 失败: ${preflight.summary}`];
+    const issues = [`runtime ${runtimeEnvironment} preflight 失败: ${preflight.summary}`];
     await appendManifest({
       runId,
       sourceTaskId: unit.sourceTask.sourceTaskId,
@@ -589,9 +603,10 @@ async function buildBatchPreflightFailureResults(
       status: "failed",
       issues,
       metadata: {
-        ...buildScopeMetadata(unit),
+        ...buildScopeMetadata(unit, runtimeEnvironment),
         runtimePreflight: {
           passed: false,
+          runtimeEnvironment,
           summary: preflight.summary,
           details: preflight.details,
         },
@@ -599,7 +614,7 @@ async function buildBatchPreflightFailureResults(
     });
     await writeRunSummary(runId, {
       sourceTaskId: unit.sourceTask.sourceTaskId,
-      ...buildScopeMetadata(unit),
+      ...buildScopeMetadata(unit, runtimeEnvironment),
       status: "failed",
       issues,
       familyObservationIssues: [],
@@ -608,6 +623,7 @@ async function buildBatchPreflightFailureResults(
       failedTaskIds: [],
       runtimePreflight: {
         passed: false,
+        runtimeEnvironment,
         summary: preflight.summary,
         details: preflight.details,
       },
@@ -617,6 +633,7 @@ async function buildBatchPreflightFailureResults(
       skillMode: unit.skillMode,
       targetSkillDirName: unit.targetSkill?.dirName,
       targetSkillName: unit.targetSkill?.name,
+      runtimeEnvironment,
       runId,
       status: "failed",
       issues,
@@ -660,7 +677,11 @@ async function reviewLatestRun(sourceTaskId: string, sourceRoot: string): Promis
   console.log(JSON.stringify(review.data, null, 2));
 }
 
-async function batchGenerate(sourceRoot: string, options: Options): Promise<void> {
+async function batchGenerate(
+  sourceRoot: string,
+  options: Options,
+  runtimeEnvironment: RuntimeEnvironment,
+): Promise<void> {
   const allTasks = await discoverSourceTasks(sourceRoot);
   const match = getStringOption(options, "match");
   const limit = getNumberOption(options, "limit", allTasks.length);
@@ -674,9 +695,9 @@ async function batchGenerate(sourceRoot: string, options: Options): Promise<void
   const units = filtered.flatMap((task) => buildGenerationUnits(task, skillMode));
 
   if (units.length > 0) {
-    const preflight = await runRuntimePreflight();
+    const preflight = await runRuntimePreflight(runtimeEnvironment);
     if (!preflight.ok) {
-      const results = await buildBatchPreflightFailureResults(units, preflight);
+      const results = await buildRuntimePreflightFailureResults(units, runtimeEnvironment, preflight);
       console.log(JSON.stringify(results, null, 2));
       return;
     }
@@ -693,10 +714,11 @@ async function batchGenerate(sourceRoot: string, options: Options): Promise<void
         results.push(
           await executeFamilyGeneration(current, {
             outputRoot,
+            runtimeEnvironment,
           }),
         );
       } catch (error) {
-        results.push(buildFailedExecutionResult(current, error));
+        results.push(buildFailedExecutionResult(current, error, runtimeEnvironment));
       }
     }
   }
@@ -724,18 +746,33 @@ async function main(): Promise<void> {
       if (!sourceTaskId) {
         throw new Error("generate-family 需要 --source-task-id");
       }
+      const runtimeEnvironment = resolveRuntimeEnvironment();
       const sourceTask = await discoverSourceTaskById(sourceTaskId, sourceRoot);
       const units = buildGenerationUnits(sourceTask, skillMode);
+      if (units.length > 0) {
+        const preflight = await runRuntimePreflight(runtimeEnvironment);
+        if (!preflight.ok) {
+          const results = await buildRuntimePreflightFailureResults(units, runtimeEnvironment, preflight);
+          const payload = results.length === 1 ? results[0] : results;
+          console.log(JSON.stringify(payload, null, 2));
+          const issues = results.flatMap((result) => result.issues);
+          if (issues.length > 0) {
+            console.error(formatIssueList(issues));
+          }
+          return;
+        }
+      }
       const results: FamilyExecutionResult[] = [];
       for (const unit of units) {
         try {
           results.push(
             await executeFamilyGeneration(unit, {
               outputRoot,
+              runtimeEnvironment,
             }),
           );
         } catch (error) {
-          results.push(buildFailedExecutionResult(unit, error));
+          results.push(buildFailedExecutionResult(unit, error, runtimeEnvironment));
         }
       }
       const payload = results.length === 1 ? results[0] : results;
@@ -747,7 +784,8 @@ async function main(): Promise<void> {
       return;
     }
     case "batch": {
-      await batchGenerate(sourceRoot, options);
+      const runtimeEnvironment = resolveRuntimeEnvironment();
+      await batchGenerate(sourceRoot, options, runtimeEnvironment);
       return;
     }
     case "review": {
