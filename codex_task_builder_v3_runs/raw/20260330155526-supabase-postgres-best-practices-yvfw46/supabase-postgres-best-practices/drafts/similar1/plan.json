@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "similar1",
+  "taskRole": "similar",
+  "roleOrdinal": 1,
+  "title": "Optimize a Slow Support Dashboard Without Changing Its Results",
+  "goal": "Produce `answer/support_dashboard_fix.sql` that updates a seeded helpdesk database with the right query rewrites and indexes so the dashboard workload keeps the same results while avoiding sequential scans and unnecessary heap fetches.",
+  "primaryOutputFile": "answer/support_dashboard_fix.sql",
+  "difficulty": "medium",
+  "category": "SQL query and indexing optimization",
+  "skillBenefitRationale": "This task benefits directly from the Supabase Postgres guidance on missing indexes, composite indexes, partial indexes, covering indexes, and EXPLAIN-based diagnosis, which are all needed to choose the minimal high-impact fixes instead of guessing.",
+  "bundleId": "supabase-postgres-best-practices"
+}

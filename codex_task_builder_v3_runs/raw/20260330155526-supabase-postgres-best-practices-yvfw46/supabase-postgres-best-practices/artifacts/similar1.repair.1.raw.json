@@ -1,0 +1,4 @@
+{
+  "threadId": "019d3f99-bb86-7352-af80-e02b8a5d72bb",
+  "raw": "{\"changedFiles\":[\"drafts/similar1/tests/test.sh\",\"drafts/similar1/solution/solve.sh\"],\"summary\":\"仅修复 reviewer 提到的脚本权限问题：将 tests/test.sh 和 solution/solve.sh 从 0644 调整为可执行的 0755，已确认两个脚本现在都可直接执行。\"}"
+}

@@ -1,0 +1,4 @@
+{
+  "threadId": "019d3f9c-5603-7660-a8ae-dc40cb3de7e4",
+  "raw": "{\"familyObservations\":{\"diversityPass\":true,\"issues\":[\"未发现 final-root 或已发布 family 目录中的历史任务，因此历史撞题检查仅能基于本轮 drafts。\"],\"roleLayoutPass\":true},\"taskResults\":[{\"derivedTaskId\":\"similar1\",\"issues\":[],\"pass\":true,\"skillBenefitPass\":true,\"testabilityPass\":true,\"visibilityPass\":true},{\"derivedTaskId\":\"transfer1\",\"issues\":[],\"pass\":true,\"skillBenefitPass\":true,\"testabilityPass\":true,\"visibilityPass\":true}]}"
+}

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "roleOrdinal": 1,
+  "title": "Stabilize a Multi-Tenant Worker Queue Under Contention",
+  "goal": "Produce `answer/worker_queue_patch.sql` that fixes a seeded background-job database by implementing non-blocking queue claiming, tenant-safe row-level security, and the supporting indexes needed for concurrent worker and isolation tests to pass.",
+  "primaryOutputFile": "answer/worker_queue_patch.sql",
+  "difficulty": "medium-hard",
+  "category": "Concurrency and multi-tenant security remediation",
+  "skillBenefitRationale": "This task uses a different scenario from pure query tuning and requires combining queue locking patterns such as `FOR UPDATE SKIP LOCKED`, short-transaction thinking, RLS correctness and performance rules, and index design from the Supabase Postgres bundle.",
+  "bundleId": "supabase-postgres-best-practices"
+}

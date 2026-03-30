@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "issues": [],
+  "evidence": {
+    "logsDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1",
+    "runtimeDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1",
+    "daytonaLogRoot": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1",
+    "runtimeLogIndexPath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/log-index.json",
+    "logFilePath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/harbor-run.log",
+    "jobDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-transfer1-cycle-0-attempt-1",
+    "jobLogPath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-transfer1-cycle-0-attempt-1/job.log",
+    "trialDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-transfer1-cycle-0-attempt-1/transfer1__ZeisyfU",
+    "trialLogPath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-transfer1-cycle-0-attempt-1/transfer1__ZeisyfU/trial.log",
+    "resultPath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/result.json",
+    "verifierStdoutPath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-transfer1-cycle-0-attempt-1/transfer1__ZeisyfU/verifier/test-stdout.txt",
+    "rewardPath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-transfer1-cycle-0-attempt-1/transfer1__ZeisyfU/verifier/reward.txt",
+    "artifactManifestPath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-transfer1-cycle-0-attempt-1/transfer1__ZeisyfU/artifacts/manifest.json",
+    "command": [
+      "harbor",
+      "run",
+      "-p",
+      "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/drafts/transfer1",
+      "-a",
+      "oracle",
+      "-e",
+      "daytona",
+      "--force-build",
+      "--jobs-dir",
+      "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/transfer1/cycle-0-attempt-1",
+      "--job-name",
+      "harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-transfer1-cycle-0-attempt-1"
+    ],
+    "summary": "reward=1",
+    "reward": 1
+  }
+}

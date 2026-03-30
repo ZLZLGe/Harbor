@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer 1 - Stabilize a Multi-Tenant Worker Queue Under Contention"
+description = "Repair a seeded Postgres job queue by making claims non-blocking, enforcing tenant-safe row-level security, and adding the indexes required for concurrent worker and isolation checks."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium-hard"
+category = "Concurrency and multi-tenant security remediation"
+tags = ["postgres", "sql", "concurrency", "worker-queue", "rls", "indexes", "skip-locked"]
+primary_output_file = "answer/worker_queue_patch.sql"
+source_skill_bundle_id = "supabase-postgres-best-practices"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

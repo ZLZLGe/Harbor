@@ -1,0 +1,31 @@
+{
+  "bundleId": "supabase-postgres-best-practices",
+  "runtimeEnvironment": "daytona",
+  "status": "completed",
+  "issues": [],
+  "familyObservationIssues": [
+    "未发现 final-root 或已发布 family 目录中的历史任务，因此历史撞题检查仅能基于本轮 drafts。",
+    "未发现已发布任务目录，历史去重只能基于当前 drafts 与给定 family 规划判断。"
+  ],
+  "publishedTaskIds": [
+    "similar1",
+    "transfer1"
+  ],
+  "quarantinedTaskIds": [],
+  "workspace": {
+    "runId": "20260330155526-supabase-postgres-best-practices-yvfw46",
+    "bundleId": "supabase-postgres-best-practices",
+    "rootDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices",
+    "sourceBundleDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/source_bundle",
+    "builderRefsDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/builder_refs",
+    "harborBuilderRefDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/builder_refs/harbor",
+    "draftsDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/drafts",
+    "artifactsDir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts",
+    "briefPath": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/TASK_BUILDER_BRIEF.md"
+  },
+  "finalDirs": [
+    "/home/levi/Harbor/tasks_library/auto_harbor_tasks_v3/supabase-postgres-best-practices/similar1",
+    "/home/levi/Harbor/tasks_library/auto_harbor_tasks_v3/supabase-postgres-best-practices/transfer1"
+  ],
+  "quarantineDirs": []
+}

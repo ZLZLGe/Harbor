@@ -1,0 +1,20 @@
+{
+  "derivedTaskId": "transfer1",
+  "draftRelativePath": "drafts/transfer1",
+  "primaryOutputFile": "answer/worker_queue_patch.sql",
+  "filesWritten": [
+    "drafts/transfer1/task.toml",
+    "drafts/transfer1/instruction.md",
+    "drafts/transfer1/environment/Dockerfile",
+    "drafts/transfer1/environment/bin/start-postgres.sh",
+    "drafts/transfer1/environment/bin/stop-postgres.sh",
+    "drafts/transfer1/environment/bin/reset-worker-queue-db.sh",
+    "drafts/transfer1/environment/probes/ready_claim_probe.sql",
+    "drafts/transfer1/environment/probes/tenant_backlog_probe.sql",
+    "drafts/transfer1/environment/worker_queue_seed.sql",
+    "drafts/transfer1/solution/solve.sh",
+    "drafts/transfer1/tests/test.sh",
+    "drafts/transfer1/tests/test_outputs.py"
+  ],
+  "summary": "已完成 drafts/transfer1 的完整 Harbor 派生任务草稿：构建了多租户 worker queue 的种子数据库、英文 instruction、Docker 环境、oracle 解法与并发/RLS/EXPLAIN verifier。plan.json 保持与给定 blueprint 一致未改动。本地仅完成了 shell 语法、Python 语法和 task.toml 结构自检；由于当前宿主环境缺少题目容器里的 postgres 运行条件（例如 postgres 系统用户与 Docker 运行链路），我不确定完整 verifier 在宿主机上是否可直接跑通，因此没有在本机完成端到端执行。"
+}

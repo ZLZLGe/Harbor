@@ -1,0 +1,48 @@
+{
+  "entries": [
+    {
+      "label": "runtime-dir",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1"
+    },
+    {
+      "label": "harbor-run-log",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-run.log"
+    },
+    {
+      "label": "job-dir",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1"
+    },
+    {
+      "label": "job-log",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1/job.log"
+    },
+    {
+      "label": "trial-dir",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1/similar1__xFXBZo3"
+    },
+    {
+      "label": "trial-log",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1/similar1__xFXBZo3/trial.log"
+    },
+    {
+      "label": "trial-result",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1/similar1__xFXBZo3/result.json"
+    },
+    {
+      "label": "stable-result",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/result.json"
+    },
+    {
+      "label": "verifier-stdout",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1/similar1__xFXBZo3/verifier/test-stdout.txt"
+    },
+    {
+      "label": "reward-file",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1/similar1__xFXBZo3/verifier/reward.txt"
+    },
+    {
+      "label": "artifact-manifest",
+      "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1/similar1__xFXBZo3/artifacts/manifest.json"
+    }
+  ]
+}

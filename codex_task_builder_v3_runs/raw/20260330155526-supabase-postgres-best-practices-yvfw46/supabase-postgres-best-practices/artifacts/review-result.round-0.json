@@ -1,0 +1,29 @@
+{
+  "taskResults": [
+    {
+      "derivedTaskId": "similar1",
+      "pass": false,
+      "issues": [
+        "`drafts/similar1/tests/test.sh` 和 `drafts/similar1/solution/solve.sh` 都不是可执行文件（当前权限为 0644）；Harbor 直接调用 verifier/oracle 脚本时有明显运行失败风险，因此不应发布。"
+      ],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": false
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true
+    }
+  ],
+  "familyObservations": {
+    "issues": [
+      "未发现已发布任务目录，历史去重只能基于当前 drafts 与给定 family 规划判断。"
+    ],
+    "diversityPass": true,
+    "roleLayoutPass": true
+  }
+}

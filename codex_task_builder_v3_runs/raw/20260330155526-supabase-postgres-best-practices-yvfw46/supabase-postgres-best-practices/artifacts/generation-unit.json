@@ -1,0 +1,26 @@
+{
+  "bundle": {
+    "bundleId": "supabase-postgres-best-practices",
+    "bundleDir": "/home/levi/Harbor/skills/supabase-postgres-best-practices",
+    "skills": [
+      {
+        "name": "supabase-postgres-best-practices",
+        "dirName": "supabase-postgres-best-practices",
+        "relativeDir": ".",
+        "shippedDirName": "supabase-postgres-best-practices",
+        "skillDir": "/home/levi/Harbor/skills/supabase-postgres-best-practices",
+        "skillMdPath": "/home/levi/Harbor/skills/supabase-postgres-best-practices/SKILL.md"
+      }
+    ]
+  },
+  "similarCount": 1,
+  "transferCount": 1,
+  "pendingSimilarOrdinals": [
+    1
+  ],
+  "pendingTransferOrdinals": [
+    1
+  ],
+  "finalFamilyDir": "/home/levi/Harbor/tasks_library/auto_harbor_tasks_v3/supabase-postgres-best-practices",
+  "publishedTasks": []
+}

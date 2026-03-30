@@ -1,0 +1,26 @@
+version = "1.0"
+
+[metadata]
+id = "similar1"
+name = "Similar 1 - Optimize a Slow Support Dashboard Without Changing Its Results"
+description = "Tune a seeded Postgres helpdesk dashboard by rewriting the slow reply view and adding the right indexes so the published workload keeps the same rows while avoiding sequential scans and unnecessary heap fetches."
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "SQL query and indexing optimization"
+tags = ["postgres", "sql", "dashboard", "query-optimization", "indexes", "explain"]
+primary_output_file = "answer/support_dashboard_fix.sql"
+source_skill_bundle_id = "supabase-postgres-best-practices"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+cpus = 2
+memory_mb = 2048
+storage_mb = 5120
+gpus = 0

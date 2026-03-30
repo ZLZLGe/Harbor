@@ -1,0 +1,27 @@
+{
+  "taskResults": [
+    {
+      "derivedTaskId": "similar1",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true
+    }
+  ],
+  "familyObservations": {
+    "issues": [
+      "未发现 final-root 或已发布 family 目录中的历史任务，因此历史撞题检查仅能基于本轮 drafts。"
+    ],
+    "diversityPass": true,
+    "roleLayoutPass": true
+  }
+}

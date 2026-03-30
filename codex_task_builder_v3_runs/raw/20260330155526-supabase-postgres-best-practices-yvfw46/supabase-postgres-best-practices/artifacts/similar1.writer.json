@@ -1,0 +1,22 @@
+{
+  "derivedTaskId": "similar1",
+  "draftRelativePath": "drafts/similar1",
+  "primaryOutputFile": "answer/support_dashboard_fix.sql",
+  "filesWritten": [
+    "drafts/similar1/task.toml",
+    "drafts/similar1/instruction.md",
+    "drafts/similar1/environment/Dockerfile",
+    "drafts/similar1/environment/bin/start-postgres.sh",
+    "drafts/similar1/environment/bin/stop-postgres.sh",
+    "drafts/similar1/environment/bin/reset-support-db.sh",
+    "drafts/similar1/environment/support_seed.sql",
+    "drafts/similar1/environment/workload/agent_load.sql",
+    "drafts/similar1/environment/workload/enterprise_backlog.sql",
+    "drafts/similar1/environment/workload/latest_customer_reply.sql",
+    "drafts/similar1/environment/workload/reply_lookup_diagnostic.sql",
+    "drafts/similar1/solution/solve.sh",
+    "drafts/similar1/tests/test.sh",
+    "drafts/similar1/tests/test_outputs.py"
+  ],
+  "summary": "Created the full Similar 1 Harbor draft under drafts/similar1: English task metadata/instructions, a Postgres-based environment with seeded helpdesk data and workload SQL, oracle solve.sh, and a verifier that checks result preservation plus plan-level optimization constraints. I preserved the existing blueprint in drafts/similar1/plan.json. Static validation passed for Python and bash syntax; I could not run the full containerized/Postgres end-to-end verification here because the host environment does not have Docker or local Postgres/psql installed."
+}

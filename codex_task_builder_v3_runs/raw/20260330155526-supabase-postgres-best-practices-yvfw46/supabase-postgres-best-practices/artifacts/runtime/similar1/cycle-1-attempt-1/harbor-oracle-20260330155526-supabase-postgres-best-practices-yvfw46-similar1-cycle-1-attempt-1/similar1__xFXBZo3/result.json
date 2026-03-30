@@ -1,0 +1,94 @@
+{
+    "id": "f16e8d7b-2de4-49c1-9b1c-e22004131221",
+    "task_name": "similar1",
+    "trial_name": "similar1__xFXBZo3",
+    "trial_uri": "file:///home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1/similar1__xFXBZo3",
+    "task_id": {
+        "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/drafts/similar1"
+    },
+    "source": null,
+    "task_checksum": "5d78b5782fc5a4e0a1ffc36f7bbb1581b9c3cb976a8d24cd75ec05053d659651",
+    "config": {
+        "task": {
+            "path": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/drafts/similar1",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "similar1__xFXBZo3",
+        "trials_dir": "/home/levi/Harbor/codex_task_builder_v3_runs/raw/20260330155526-supabase-postgres-best-practices-yvfw46/supabase-postgres-best-practices/artifacts/runtime/similar1/cycle-1-attempt-1/harbor-oracle-20260330155526-supabase-postgres-best-practices-yvfw46-similar1-cycle-1-attempt-1",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {},
+            "env": {}
+        },
+        "environment": {
+            "type": "daytona",
+            "import_path": null,
+            "force_build": true,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "6c1f2c58-480e-4052-8eeb-6bb7969aef24"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-03-30T16:44:13.879627Z",
+    "finished_at": "2026-03-30T16:45:14.801140Z",
+    "environment_setup": {
+        "started_at": "2026-03-30T16:44:13.897284Z",
+        "finished_at": "2026-03-30T16:44:47.818488Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-03-30T16:44:47.818754Z",
+        "finished_at": "2026-03-30T16:44:47.818989Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-03-30T16:44:47.819261Z",
+        "finished_at": "2026-03-30T16:44:52.698793Z"
+    },
+    "verifier": {
+        "started_at": "2026-03-30T16:44:54.630765Z",
+        "finished_at": "2026-03-30T16:45:12.664279Z"
+    }
+}
