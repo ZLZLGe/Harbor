@@ -1,0 +1,610 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: databases
+category_name: Databases
+category_skill_count: 9319
+subcategory_slug: nosql-databases
+subcategory_name: NoSQL Databases
+subcategory_skill_count: 898
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=nosql-databases
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 898
+  total_pages: 18
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: wshobson-agents-plugins-llm-application-dev-skills-vector-index-tuning-skill-md
+  name: vector-index-tuning
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Optimize vector index performance for latency, recall, and memory.
+    Use when tuning HNSW parameters, selecting quantization strategies, or scaling
+    vector search infrastructure.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/vector-index-tuning
+  updated_at: '1772898797'
+- rank: 2
+  id: sickn33-antigravity-awesome-skills-skills-azure-resource-manager-redis-dotnet-skill-md
+  name: azure-resource-manager-redis-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Resource Manager SDK for Redis in .NET.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-resource-manager-redis-dotnet
+  updated_at: '1772354305'
+- rank: 3
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-elasticsearch-skill-md
+  name: elasticsearch
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Elasticsearch expert for queries, mappings, aggregations, index management,
+    and cluster operations
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/elasticsearch
+  updated_at: '1772056827'
+- rank: 4
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-redis-expert-skill-md
+  name: redis-expert
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Redis expert for data structures, caching patterns, Lua scripting,
+    and cluster operations
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/redis-expert
+  updated_at: '1772056827'
+- rank: 5
+  id: dagger-dagger-skills-cache-expert-skill-md
+  name: cache-expert
+  author: dagger
+  stars: 15576
+  forks: 855
+  description: Covers Dagger Engine caching internals including cache key derivation,
+    invalidation, and the immutable DAG model. Use when debugging cache misses, unexpected
+    invalidations, or implementing caching-related engine features.
+  github_url: https://github.com/dagger/dagger/tree/main/skills/cache-expert
+  updated_at: '1770840864'
+- rank: 6
+  id: abpframework-abp-claude-skills-abp-mongodb-skill-md
+  name: abp-mongodb
+  author: abpframework
+  stars: 14190
+  forks: 3682
+  description: ABP MongoDB patterns - AbpMongoDbContext, IMongoCollection, MongoDbRepository,
+    no migrations, embedded documents vs references, manual UpdateAsync required.
+    Use when working in MongoDB projects or implementing MongoDB repositories in ABP.
+  github_url: https://github.com/abpframework/abp/tree/dev/.claude/skills/abp-mongodb
+  updated_at: '1773049965'
+- rank: 7
+  id: alirezarezvani-claude-skills-engineering-monorepo-navigator-skill-md
+  name: monorepo-navigator
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Monorepo Navigator
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering/monorepo-navigator
+  updated_at: '1773256936'
+- rank: 8
+  id: civitai-civitai-claude-skills-meilisearch-admin-skill-md
+  name: meilisearch-admin
+  author: civitai
+  stars: 7058
+  forks: 711
+  description: Check Meilisearch index status, tasks, health, and settings. Use for
+    debugging search issues, monitoring indexing tasks, and inspecting index configuration.
+    Read-only admin operations.
+  github_url: https://github.com/civitai/civitai/tree/main/.claude/skills/meilisearch-admin
+  updated_at: '1772607693'
+- rank: 9
+  id: civitai-civitai-claude-skills-redis-inspect-skill-md
+  name: redis-inspect
+  author: civitai
+  stars: 7058
+  forks: 711
+  description: Inspect Redis cache keys, values, and TTLs for debugging. Supports
+    both main cache and system cache. Use for debugging cache issues, checking cached
+    values, and monitoring cache state. Read-only by default.
+  github_url: https://github.com/civitai/civitai/tree/main/.claude/skills/redis-inspect
+  updated_at: '1768956602'
+- rank: 10
+  id: clidey-whodb-cli-external-plugin-whodb-skills-whodb-skill-md
+  name: whodb
+  author: clidey
+  stars: 4688
+  forks: 180
+  description: Database operations including querying, schema exploration, and data
+    analysis. Activates for tasks involving PostgreSQL, MySQL, MariaDB, SQLite, MongoDB,
+    Redis, Elasticsearch, or ClickHouse databases.
+  github_url: https://github.com/clidey/whodb/tree/main/cli/external-plugin/whodb/skills/whodb
+  updated_at: '1766947443'
+- rank: 11
+  id: tanstack-db-packages-db-skills-db-core-collection-setup-skill-md
+  name: db-core-collection-setup
+  author: TanStack
+  stars: 3685
+  forks: 198
+  description: 'Creating typed collections with createCollection. Adapter selection:
+    queryCollectionOptions (REST/TanStack Query), electricCollectionOptions (ElectricSQL
+    real-time sync), powerSyncCollectionOptions (PowerSync SQLite), rxdbCollectionOptions
+    (RxDB), trailbaseCollectionOptions (TrailBase), localOnlyCollectionOptions, localStorageCollectionOptions.
+    CollectionConfig options: getKey, schema, sync, gcTime, autoIndex (default off),
+    defaultIndexType, syncMode (eager/on-demand, plus progressive for Electric). StandardSchema
+    validation with Zod/Valibot/ArkType. Collection lifecycle (idle/loading/ready/error).
+    Adapter-specific sync patterns including Electric txid tracking, Query direct
+    writes, and PowerSync query-driven sync with onLoad/onLoadSubset hooks.'
+  github_url: https://github.com/TanStack/db/tree/main/packages/db/skills/db-core/collection-setup
+  updated_at: '1774646770'
+- rank: 12
+  id: parcadei-continuous-claude-v3-claude-skills-index-at-creation-skill-md
+  name: index-at-creation
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Index at Creation Time
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/index-at-creation
+  updated_at: '1768010064'
+- rank: 13
+  id: openclaw-skills-skills-1999azzar-memory-cache-skill-md
+  name: memory-cache
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'High-performance temporary storage system using Redis. Supports namespaced
+    keys (mema:*), TTL management, and session context caching. Use for: (1) Saving
+    agent state, (2) Caching API results, (3) Sharing data between sub-agents.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1999azzar/memory-cache
+  updated_at: '1771387366'
+- rank: 14
+  id: openclaw-skills-skills-alirezarezvani-monorepo-navigator-skill-md
+  name: monorepo-navigator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Monorepo Navigator
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alirezarezvani/monorepo-navigator
+  updated_at: '1773436116'
+- rank: 15
+  id: serverpod-serverpod-packages-serverpod-skills-serverpod-caching-skill-md
+  name: serverpod-caching
+  author: serverpod
+  stars: 3136
+  forks: 347
+  description: Serverpod caching — local and Redis caches, cache keys, lifetime, CacheMissHandler.
+    Use when caching data, optimizing queries, or working with session.caches.
+  github_url: https://github.com/serverpod/serverpod/tree/main/packages/serverpod/skills/serverpod-caching
+  updated_at: '1772120895'
+- rank: 16
+  id: kylecorry31-trail-sense-agents-skills-trail-sense-database-persistence-skill-md
+  name: trail-sense-database-persistence
+  author: kylecorry31
+  stars: 2564
+  forks: 144
+  description: Add new Room database persistence to Trail-Sense Android app. Use when
+    the user asks to create, add, or implement database persistence for a model, including
+    Entity, DAO, Repository, and AppDatabase migration. Covers entity-to-model mapping,
+    index configuration, and standard CRUD operations.
+  github_url: https://github.com/kylecorry31/Trail-Sense/tree/main/.agents/skills/trail-sense-database-persistence
+  updated_at: '1770505381'
+- rank: 17
+  id: upstash-ratelimit-js-skills-skill-md
+  name: upstash-ratelimit-ts
+  author: upstash
+  stars: 2025
+  forks: 47
+  description: Lightweight guidance for using the Redis Rate Limit TypeScript SDK,
+    including setup steps, basic usage, and pointers to advanced algorithm, features,
+    pricing, and traffic‑protection docs.
+  github_url: https://github.com/upstash/ratelimit-js/tree/main/skills
+  updated_at: '1772481238'
+- rank: 18
+  id: mrgoonie-claudekit-skills-claude-skills-databases-skill-md
+  name: databases
+  author: mrgoonie
+  stars: 1908
+  forks: 379
+  description: Work with MongoDB (document database, BSON documents, aggregation pipelines,
+    Atlas cloud) and PostgreSQL (relational database, SQL queries, psql CLI, pgAdmin).
+    Use when designing database schemas, writing queries and aggregations, optimizing
+    indexes for performance, performing database migrations, configuring replication
+    and sharding, implementing backup and restore strategies, managing database users
+    and permissions, analyzing query performance, or administering production databases.
+  github_url: https://github.com/mrgoonie/claudekit-skills/tree/main/.claude/skills/databases
+  updated_at: '1762426148'
+- rank: 19
+  id: theorcdev-8bitcn-ui-claude-skills-js-set-map-lookups-skill-md
+  name: js-set-map-lookups
+  author: TheOrcDev
+  stars: 1768
+  forks: 108
+  description: Use Set and Map for O(1) membership lookups instead of array.includes().
+    Apply when checking membership repeatedly or performing frequent lookups against
+    a collection.
+  github_url: https://github.com/TheOrcDev/8bitcn-ui/tree/main/.claude/skills/js-set-map-lookups
+  updated_at: '1768554577'
+- rank: 20
+  id: jeremylongshore-claude-code-plugins-plus-skills-plugins-api-development-api-cache-manager-skills-managing-api-cache-skill-md
+  name: managing-api-cache
+  author: jeremylongshore
+  stars: 1735
+  forks: 229
+  description: 'Implement intelligent API response caching with Redis, Memcached,
+    and CDN integration.
+
+    Use when optimizing API performance with caching.
+
+    Trigger with phrases like "add caching", "optimize API performance", or "implement
+    cache layer".'
+  github_url: https://github.com/jeremylongshore/claude-code-plugins-plus-skills/tree/main/plugins/api-development/api-cache-manager/skills/managing-api-cache
+  updated_at: '1774161776'
+- rank: 21
+  id: jeremylongshore-claude-code-plugins-plus-skills-skills-06-backend-dev-redis-cache-manager-skill-md
+  name: redis-cache-manager
+  author: jeremylongshore
+  stars: 1735
+  forks: 229
+  description: 'Manage redis cache manager operations. Auto-activating skill for Backend
+    Development.
+
+    Triggers on: redis cache manager, redis cache manager
+
+    Part of the Backend Development skill category. Use when working with redis cache
+    manager functionality. Trigger with phrases like "redis cache manager", "redis
+    manager", "redis".'
+  github_url: https://github.com/jeremylongshore/claude-code-plugins-plus-skills/tree/main/skills/06-backend-dev/redis-cache-manager
+  updated_at: '1774161776'
+- rank: 22
+  id: tableproapp-tablepro-claude-skills-add-database-engine-skill-md
+  name: add-database-engine
+  author: TableProApp
+  stars: 1734
+  forks: 105
+  description: Guided implementation for adding a new database engine to TablePro.
+    Pre-loaded with all integration points, file locations, patterns, and the complete
+    checklist derived from Redis implementation experience. Use when asked to add
+    support for a new database type (e.g., Cassandra, DynamoDB, ClickHouse).
+  github_url: https://github.com/TableProApp/TablePro/tree/main/.claude/skills/add-database-engine
+  updated_at: '1772882289'
+- rank: 23
+  id: timescale-pg-aiguide-skills-pgvector-semantic-search-skill-md
+  name: pgvector-semantic-search
+  author: timescale
+  stars: 1658
+  forks: 82
+  description: 'Use this skill for setting up vector similarity search with pgvector
+    for AI/ML embeddings, RAG applications, or semantic search.
+
+
+    **Trigger when user asks to:**
+
+    - Store or search vector embeddings in PostgreSQL
+
+    - Set up semantic search, similarity search, or nearest neighbor search
+
+    - Create HNSW or IVFFlat indexes for vectors
+
+    - Implement RAG (Retrieval Augmented Generation) with PostgreSQL
+
+    - Optimize pgvector performance, recall, or memory usage
+
+    - Use binary quantization for large vector datasets
+
+
+    **Keywords:** pgvector, embeddings, semantic search, vector similarity, HNSW,
+    IVFFlat, halfvec, cosine distance, nearest neighbor, RAG, LLM, AI search
+
+
+    Covers: halfvec storage, HNSW index configuration (m, ef_construction, ef_search),
+    quantization strategies, filtered search, bulk loading, and performance tuning.'
+  github_url: https://github.com/timescale/pg-aiguide/tree/main/skills/pgvector-semantic-search
+  updated_at: '1770049327'
+- rank: 24
+  id: dadoonet-fscrawler-claude-skills-start-elasticsearch-skill-md
+  name: start-elasticsearch
+  author: dadoonet
+  stars: 1434
+  forks: 306
+  description: This skill can help to start Elasticsearch locally, using start-local
+    project from Elastic.
+  github_url: https://github.com/dadoonet/fscrawler/tree/master/.claude/skills/start-elasticsearch
+  updated_at: '1774376026'
+- rank: 25
+  id: itsmostafa-aws-agent-skills-skills-dynamodb-skill-md
+  name: dynamodb
+  author: itsmostafa
+  stars: 1057
+  forks: 437
+  description: AWS DynamoDB NoSQL database for scalable data storage. Use when designing
+    table schemas, writing queries, configuring indexes, managing capacity, implementing
+    single-table design, or troubleshooting performance issues.
+  github_url: https://github.com/itsmostafa/aws-agent-skills/tree/main/skills/dynamodb
+  updated_at: '1767889227'
+- rank: 26
+  id: tencentcloudbase-cloudbase-mcp-config-claude-skills-no-sql-web-sdk-skill-md
+  name: cloudbase-document-database-web-sdk
+  author: TencentCloudBase
+  stars: 984
+  forks: 124
+  description: Use CloudBase document database Web SDK to query, create, update, and
+    delete data. Supports complex queries, pagination, aggregation, and geolocation
+    queries.
+  github_url: https://github.com/TencentCloudBase/CloudBase-MCP/tree/main/config/.claude/skills/no-sql-web-sdk
+  updated_at: '1767597580'
+- rank: 27
+  id: rohitg00-awesome-claude-code-toolkit-skills-redis-patterns-skill-md
+  name: redis-patterns
+  author: rohitg00
+  stars: 933
+  forks: 230
+  description: Redis patterns including caching strategies, pub/sub, streams for event
+    processing, Lua scripts, and data structures
+  github_url: https://github.com/rohitg00/awesome-claude-code-toolkit/tree/main/skills/redis-patterns
+  updated_at: '1770239308'
+- rank: 28
+  id: upstash-redis-js-skills-skill-md
+  name: redis-js
+  author: upstash
+  stars: 933
+  forks: 88
+  description: Work with the Upstash Redis JavaScript/TypeScript SDK for serverless
+    Redis operations. Use for caching, session storage, rate limiting, leaderboards,
+    full-text search (querying, filtering, aggregating with @upstash/redis search
+    extension), and all Redis data structures. Supports automatic serialization/deserialization
+    of JavaScript types. Search also available via @upstash/search-redis and @upstash/search-ioredis
+    adapters for TCP clients.
+  github_url: https://github.com/upstash/redis-js/tree/main/skills
+  updated_at: '1774111548'
+- rank: 29
+  id: modu-ai-moai-adk-internal-template-templates-claude-skills-moai-domain-database-skill-md
+  name: moai-domain-database
+  author: modu-ai
+  stars: 879
+  forks: 154
+  description: Database specialist covering PostgreSQL, MongoDB, Redis, Oracle, and
+    advanced data patterns for modern applications. Use when user asks about database
+    schema design, query optimization, indexing strategies, data modeling, migrations,
+    ORM configuration, or database performance tuning. Do NOT use for API design or
+    server-side business logic (use moai-domain-backend instead).
+  github_url: https://github.com/modu-ai/moai-adk/tree/main/internal/template/templates/.claude/skills/moai-domain-database
+  updated_at: '1772453598'
+- rank: 30
+  id: llama-farm-llamafarm-claude-skills-rag-skills-skill-md
+  name: rag-skills
+  author: llama-farm
+  stars: 829
+  forks: 49
+  description: RAG-specific best practices for LlamaIndex, ChromaDB, and Celery workers.
+    Covers ingestion, retrieval, embeddings, and performance.
+  github_url: https://github.com/llama-farm/llamafarm/tree/main/.claude/skills/rag-skills
+  updated_at: '1768370471'
+- rank: 31
+  id: dadbodgeoff-drift-drift-v1-depreciated-skills-caching-strategies-skill-md
+  name: caching-strategies
+  author: dadbodgeoff
+  stars: 765
+  forks: 63
+  description: Implement multi-layer caching with Redis, in-memory, and HTTP caching.
+    Covers cache invalidation, stampede prevention, and cache-aside patterns.
+  github_url: https://github.com/dadbodgeoff/drift/tree/main/drift v1 depreciated/skills/caching-strategies
+  updated_at: '1770925398'
+- rank: 32
+  id: charleswiltgen-axiom-claude-plugin-plugins-axiom-skills-axiom-cloudkit-ref-skill-md
+  name: axiom-cloudkit-ref
+  author: CharlesWiltgen
+  stars: 687
+  forks: 54
+  description: Use when implementing 'CloudKit sync', 'CKSyncEngine', 'CKRecord',
+    'CKDatabase', 'SwiftData CloudKit', 'shared database', 'public database', 'CloudKit
+    zones', 'conflict resolution' - comprehensive CloudKit database APIs and modern
+    sync patterns reference
+  github_url: https://github.com/CharlesWiltgen/Axiom/tree/main/.claude-plugin/plugins/axiom/skills/axiom-cloudkit-ref
+  updated_at: '1771305308'
+- rank: 33
+  id: stacksjs-stacks-claude-skills-stacks-cache-skill-md
+  name: stacks-cache
+  author: stacksjs
+  stars: 618
+  forks: 14
+  description: Use when implementing caching in Stacks — memory cache, Redis cache,
+    cache-aside pattern (getOrSet), TTL management, cache stats, or cache configuration.
+    Covers @stacksjs/cache and config/cache.ts.
+  github_url: https://github.com/stacksjs/stacks/tree/main/.claude/skills/stacks-cache
+  updated_at: '1774138909'
+- rank: 34
+  id: fcakyon-claude-codex-settings-plugins-mongodb-tools-skills-mongodb-usage-skill-md
+  name: mongodb-usage
+  author: fcakyon
+  stars: 547
+  forks: 49
+  description: This skill should be used when user asks to "query MongoDB", "show
+    database collections", "get collection schema", "list MongoDB databases", "search
+    records in MongoDB", or "check database indexes".
+  github_url: https://github.com/fcakyon/claude-codex-settings/tree/main/plugins/mongodb-tools/skills/mongodb-usage
+  updated_at: '1765974388'
+- rank: 35
+  id: fcakyon-claude-codex-settings-plugins-mongodb-tools-skills-setup-skill-md
+  name: setup
+  author: fcakyon
+  stars: 547
+  forks: 49
+  description: This skill should be used when user encounters "MongoDB connection
+    failed", "authentication failed", "MongoDB MCP error", "connection string invalid",
+    "authSource error", or needs help configuring MongoDB integration.
+  github_url: https://github.com/fcakyon/claude-codex-settings/tree/main/plugins/mongodb-tools/skills/setup
+  updated_at: '1765974388'
+- rank: 36
+  id: sundial-org-awesome-openclaw-skills-skills-database-skill-md
+  name: database
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Database management and queries. Connect to SQL and NoSQL databases,
+    run queries, and manage schemas.
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/database
+  updated_at: '1769929037'
+- rank: 37
+  id: sundial-org-awesome-openclaw-skills-skills-redis-skill-md
+  name: redis
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Redis database management. Key-value operations, caching, pub/sub,
+    and data structure commands.
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/redis
+  updated_at: '1769929037'
+- rank: 38
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-ai-agents-conversational-skills-chroma-integration-skill-md
+  name: chroma-integration
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Chroma local vector database setup and operations for development and
+    production
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/ai-agents-conversational/skills/chroma-integration
+  updated_at: '1769263287'
+- rank: 39
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-performance-optimization-skills-distributed-caching-skill-md
+  name: distributed-caching
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Expert skill for distributed cache design, implementation, and optimization
+    using Redis and Memcached. Design cache architectures, configure eviction policies,
+    implement caching patterns (cache-aside, write-through, write-behind), monitor
+    cache performance, and optimize memory usage.
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/performance-optimization/skills/distributed-caching
+  updated_at: '1769262019'
+- rank: 40
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-web-development-skills-mongodb-skill-md
+  name: mongodb
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: MongoDB schema design, aggregation pipelines, indexing strategies,
+    and performance.
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/web-development/skills/mongodb
+  updated_at: '1769264313'
+- rank: 41
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-ai-agents-conversational-skills-qdrant-integration-skill-md
+  name: qdrant-integration
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Qdrant vector database with filtering, payloads, and quantization support
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/ai-agents-conversational/skills/qdrant-integration
+  updated_at: '1769263287'
+- rank: 42
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-web-development-skills-redis-skill-md
+  name: redis
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Redis caching patterns, pub/sub, sessions, rate limiting, and data
+    structures.
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/web-development/skills/redis
+  updated_at: '1769264313'
+- rank: 43
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-ai-agents-conversational-skills-redis-memory-backend-skill-md
+  name: redis-memory-backend
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Redis backend for conversation state persistence and caching
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/ai-agents-conversational/skills/redis-memory-backend
+  updated_at: '1769263414'
+- rank: 44
+  id: incidentfox-incidentfox-sre-agent-claude-skills-observability-elasticsearch-skill-md
+  name: elasticsearch-analysis
+  author: incidentfox
+  stars: 497
+  forks: 55
+  description: Elasticsearch/OpenSearch log analysis using Lucene query syntax and
+    Query DSL. Use when investigating issues via ELK stack, OpenSearch, or any Elasticsearch-based
+    logging.
+  github_url: https://github.com/incidentfox/incidentfox/tree/main/sre-agent/.claude/skills/observability-elasticsearch
+  updated_at: '1771522075'
+- rank: 45
+  id: microsoftdocs-agent-skills-skills-azure-cache-redis-skill-md
+  name: azure-cache-redis
+  author: MicrosoftDocs
+  stars: 450
+  forks: 41
+  description: Expert knowledge for Azure Cache for Redis development including troubleshooting,
+    best practices, decision making, architecture & design patterns, security, configuration,
+    integrations & coding patterns, and deployment. Use when configuring geo-replication,
+    persistence, VNet/Private Link, CLI/PowerShell automation, or Blob import/export,
+    and other Azure Cache for Redis related development tasks. Not for Azure Managed
+    Redis (use azure-managed-redis), Azure HPC Cache (use azure-hpc-cache), Azure
+    Blob Storage (use azure-blob-storage), Azure Table Storage (use azure-table-storage).
+  github_url: https://github.com/MicrosoftDocs/Agent-Skills/tree/main/skills/azure-cache-redis
+  updated_at: '1773740030'
+- rank: 46
+  id: popup-studio-ai-bkit-claude-code-skills-bkend-data-skill-md
+  name: bkend-data
+  author: popup-studio-ai
+  stars: 445
+  forks: 111
+  description: 'bkend.ai database — CRUD, column types, filtering, sorting, relations,
+    indexing.
+
+    Triggers: bkend table, CRUD, column, filter, sort, relation, 테이블, 데이터.'
+  github_url: https://github.com/popup-studio-ai/bkit-claude-code/tree/main/skills/bkend-data
+  updated_at: '1774684023'
+- rank: 47
+  id: syi0808-screenize-claude-skills-sqlite-vectordb-skill-md
+  name: sqlite-vectordb
+  author: syi0808
+  stars: 381
+  forks: 20
+  description: SQLite vector DB for work log storage and semantic search. Use for
+    indexing work logs, generating embeddings, semantic search, and DB maintenance.
+  github_url: https://github.com/syi0808/screenize/tree/main/.claude/skills/sqlite-vectordb
+  updated_at: '1769913156'
+- rank: 48
+  id: syi0808-screenize-claude-skills-work-logger-skill-md
+  name: work-logger
+  author: syi0808
+  stars: 381
+  forks: 20
+  description: Document completed work with vector database indexing. Use `/log-work`
+    after completing any significant task (feature, bug fix, refactoring, configuration
+    change) to record what was done, decisions made, and files changed.
+  github_url: https://github.com/syi0808/screenize/tree/main/.claude/skills/work-logger
+  updated_at: '1769913156'
+- rank: 49
+  id: hoangnguyen0403-agent-skills-standard-skills-database-database-redis-skill-md
+  name: database-redis
+  author: HoangNguyen0403
+  stars: 369
+  forks: 103
+  description: 'Optimize Redis caching, key management, and performance. Use when
+    implementing Redis caching strategies, managing key namespaces, or optimizing
+    Redis performance. (triggers: **/*.ts, **/*.js, **/redis.config.ts, redis, cache,
+    ttl, eviction)'
+  github_url: https://github.com/HoangNguyen0403/agent-skills-standard/tree/develop/skills/database/database-redis
+  updated_at: '1774416908'
+- rank: 50
+  id: hoangnguyen0403-agent-skills-standard-skills-nestjs-nestjs-search-skill-md
+  name: nestjs-search
+  author: HoangNguyen0403
+  stars: 369
+  forks: 103
+  description: 'Integrate Elasticsearch and implement search index Sync patterns in
+    NestJS. Use when integrating Elasticsearch or implementing search index sync in
+    NestJS. (triggers: **/*.service.ts, **/search/**, Elasticsearch, CQRS, Synchronization)'
+  github_url: https://github.com/HoangNguyen0403/agent-skills-standard/tree/develop/skills/nestjs/nestjs-search
+  updated_at: '1774416908'

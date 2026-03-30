@@ -1,0 +1,548 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: testing-and-security
+category_name: Testing & Security
+category_skill_count: 70866
+subcategory_slug: code-quality
+subcategory_name: Code Quality
+subcategory_skill_count: 29635
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=code-quality
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 29635
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-agents-skills-openclaw-release-maintainer-skill-md
+  name: openclaw-release-maintainer
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Maintainer workflow for OpenClaw releases, prereleases, changelog release
+    notes, and publish validation. Use when Codex needs to prepare or verify stable
+    or beta release steps, align version naming, assemble release notes, check release
+    auth requirements, or validate publish-time commands and artifacts.
+  github_url: https://github.com/openclaw/openclaw/tree/main/.agents/skills/openclaw-release-maintainer
+  updated_at: '1774325566'
+- rank: 2
+  id: facebook-react-claude-skills-fix-skill-md
+  name: fix
+  author: facebook
+  stars: 244234
+  forks: 50870
+  description: Use when you have lint errors, formatting issues, or before committing
+    code to ensure it passes CI.
+  github_url: https://github.com/facebook/react/tree/main/.claude/skills/fix
+  updated_at: '1769217366'
+- rank: 3
+  id: facebook-react-claude-skills-flow-skill-md
+  name: flow
+  author: facebook
+  stars: 244234
+  forks: 50870
+  description: Use when you need to run Flow type checking, or when seeing Flow type
+    errors in React code.
+  github_url: https://github.com/facebook/react/tree/main/.claude/skills/flow
+  updated_at: '1769217366'
+- rank: 4
+  id: facebook-react-claude-skills-verify-skill-md
+  name: verify
+  author: facebook
+  stars: 244234
+  forks: 50870
+  description: Use when you want to validate changes before committing, or when you
+    need to check all React contribution requirements.
+  github_url: https://github.com/facebook/react/tree/main/.claude/skills/verify
+  updated_at: '1769217366'
+- rank: 5
+  id: microsoft-vscode-github-skills-add-policy-skill-md
+  name: add-policy
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Use when adding, modifying, or reviewing VS Code configuration policies.
+    Covers the full policy lifecycle from registration to export to platform-specific
+    artifacts. Run on ANY change that adds a `policy:` field to a configuration property.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/add-policy
+  updated_at: '1773103084'
+- rank: 6
+  id: microsoft-vscode-github-skills-hygiene-skill-md
+  name: hygiene
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Use when making code changes to ensure they pass VS Code's hygiene
+    checks. Covers the pre-commit hook, unicode restrictions, string quoting rules,
+    copyright headers, indentation, formatting, ESLint, and stylelint. Run the hygiene
+    check before declaring work complete.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/hygiene
+  updated_at: '1771534503'
+- rank: 7
+  id: microsoft-vscode-github-skills-tool-rename-deprecation-skill-md
+  name: tool-rename-deprecation
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Ensure renamed built-in tool references preserve backward compatibility.
+    Use when renaming a toolReferenceName, tool set referenceName, or any tool identifier.
+    Run on ANY change to tool registration code. Covers legacyToolReferenceFullNames
+    for tools and legacyFullNames for tool sets.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/tool-rename-deprecation
+  updated_at: '1771541563'
+- rank: 8
+  id: n8n-io-n8n-claude-skills-spec-driven-development-skill-md
+  name: spec-driven-development
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Keeps implementation and specs in sync. Use when working on a feature
+    that has a spec in .claude/specs/, when the user says /spec, or when starting
+    implementation of a documented feature. Also use when the user asks to verify
+    implementation against a spec or update a spec after changes.
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/spec-driven-development
+  updated_at: '1773225229'
+- rank: 9
+  id: huggingface-transformers-ai-skills-add-or-fix-type-checking-skill-md
+  name: add-or-fix-type-checking
+  author: huggingface
+  stars: 158497
+  forks: 32652
+  description: Fixes broken typing checks detected by ty, make typing, or make check-repo.
+    Use when typing errors appear in local runs, CI, or PR logs.
+  github_url: https://github.com/huggingface/transformers/tree/main/.ai/skills/add-or-fix-type-checking
+  updated_at: '1773998916'
+- rank: 10
+  id: langgenius-dify-agents-skills-backend-code-review-skill-md
+  name: backend-code-review
+  author: langgenius
+  stars: 134812
+  forks: 20985
+  description: Review backend code for quality, security, maintainability, and best
+    practices based on established checklist rules. Use when the user requests a review,
+    analysis, or improvement of backend files (e.g., `.py`) under the `api/` directory.
+    Do NOT use for frontend files (e.g., `.tsx`, `.ts`, `.js`). Supports pending-change
+    review, code snippets review, and file-focused review.
+  github_url: https://github.com/langgenius/dify/tree/main/.agents/skills/backend-code-review
+  updated_at: '1772259468'
+- rank: 11
+  id: langgenius-dify-agents-skills-component-refactoring-skill-md
+  name: component-refactoring
+  author: langgenius
+  stars: 134812
+  forks: 20985
+  description: Refactor high-complexity React components in Dify frontend. Use when
+    `pnpm analyze-component --json` shows complexity > 50 or lineCount > 300, when
+    the user asks for code splitting, hook extraction, or complexity reduction, or
+    when `pnpm analyze-component` warns to refactor before testing; avoid for simple/well-structured
+    components, third-party wrappers, or when the user explicitly wants testing without
+    refactoring.
+  github_url: https://github.com/langgenius/dify/tree/main/.agents/skills/component-refactoring
+  updated_at: '1773639509'
+- rank: 12
+  id: obra-superpowers-skills-receiving-code-review-skill-md
+  name: receiving-code-review
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when receiving code review feedback, before implementing suggestions,
+    especially if feedback seems unclear or technically questionable - requires technical
+    rigor and verification, not performative agreement or blind implementation
+  github_url: https://github.com/obra/superpowers/tree/main/skills/receiving-code-review
+  updated_at: '1766559799'
+- rank: 13
+  id: obra-superpowers-skills-requesting-code-review-skill-md
+  name: requesting-code-review
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when completing tasks, implementing major features, or before merging
+    to verify work meets requirements
+  github_url: https://github.com/obra/superpowers/tree/main/skills/requesting-code-review
+  updated_at: '1773280076'
+- rank: 14
+  id: obra-superpowers-skills-test-driven-development-skill-md
+  name: test-driven-development
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when implementing any feature or bugfix, before writing implementation
+    code
+  github_url: https://github.com/obra/superpowers/tree/main/skills/test-driven-development
+  updated_at: '1766018692'
+- rank: 15
+  id: obra-superpowers-skills-verification-before-completion-skill-md
+  name: verification-before-completion
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when about to claim work is complete, fixed, or passing, before
+    committing or creating PRs - requires running verification commands and confirming
+    output before making any success claims; evidence before assertions always
+  github_url: https://github.com/obra/superpowers/tree/main/skills/verification-before-completion
+  updated_at: '1760719236'
+- rank: 16
+  id: obra-superpowers-skills-writing-plans-skill-md
+  name: writing-plans
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when you have a spec or requirements for a multi-step task, before
+    touching code
+  github_url: https://github.com/obra/superpowers/tree/main/skills/writing-plans
+  updated_at: '1774461833'
+- rank: 17
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-agent-eval-skill-md
+  name: agent-eval
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 编码代理（Claude Code、Aider、Codex等）在自定义任务上的直接比较，包含通过率、成本、时间和一致性指标
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/agent-eval
+  updated_at: '1774068958'
+- rank: 18
+  id: affaan-m-everything-claude-code-skills-configure-ecc-skill-md
+  name: configure-ecc
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Interactive installer for Everything Claude Code — guides users through
+    selecting and installing skills and rules to user-level or project-level directories,
+    verifies paths, and optionally optimizes installed files.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/configure-ecc
+  updated_at: '1773693323'
+- rank: 19
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Claude Code 세션에서 재사용 가능한 패턴을 자동으로 추출하여 향후 사용을 위한 학습된 스킬로 저장합니다.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/continuous-learning
+  updated_at: '1773386274'
+- rank: 20
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-cpp-coding-standards-skill-md
+  name: cpp-coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 基于C++核心指南（isocpp.github.io）的C++编码标准。在编写、审查或重构C++代码时使用，以强制实施现代、安全和惯用的实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/cpp-coding-standards
+  updated_at: '1772519307'
+- rank: 21
+  id: affaan-m-everything-claude-code-skills-cpp-coding-standards-skill-md
+  name: cpp-coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: C++ coding standards based on the C++ Core Guidelines (isocpp.github.io).
+    Use when writing, reviewing, or refactoring C++ code to enforce modern, safe,
+    and idiomatic practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/cpp-coding-standards
+  updated_at: '1771862457'
+- rank: 22
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-django-verification-skill-md
+  name: django-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Django项目的验证循环：迁移、代码检查、带覆盖率的测试、安全扫描，以及在发布或PR前的部署就绪检查。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/django-verification
+  updated_at: '1774219164'
+- rank: 23
+  id: affaan-m-everything-claude-code-agents-skills-eval-harness-skill-md
+  name: eval-harness
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Formal evaluation framework for Claude Code sessions implementing eval-driven
+    development (EDD) principles
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/eval-harness
+  updated_at: '1772045129'
+- rank: 24
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-eval-harness-skill-md
+  name: eval-harness
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 평가 주도 개발(EDD) 원칙을 구현하는 Claude Code 세션용 공식 평가 프레임워크
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/eval-harness
+  updated_at: '1773116940'
+- rank: 25
+  id: affaan-m-everything-claude-code-skills-eval-harness-skill-md
+  name: eval-harness
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Formal evaluation framework for Claude Code sessions implementing eval-driven
+    development (EDD) principles
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/eval-harness
+  updated_at: '1772664486'
+- rank: 26
+  id: affaan-m-everything-claude-code-docs-tr-skills-laravel-verification-skill-md
+  name: laravel-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Verification loop for Laravel projects: env checks, linting, static
+    analysis, tests with coverage, security scans, and deployment readiness.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/laravel-verification
+  updated_at: '1774219024'
+- rank: 27
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-laravel-verification-skill-md
+  name: laravel-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Verification loop for Laravel projects: env checks, linting, static
+    analysis, tests with coverage, security scans, and deployment readiness.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/laravel-verification
+  updated_at: '1774068958'
+- rank: 28
+  id: affaan-m-everything-claude-code-skills-laravel-verification-skill-md
+  name: laravel-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Verification loop for Laravel projects: env checks, linting, static
+    analysis, tests with coverage, security scans, and deployment readiness.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/laravel-verification
+  updated_at: '1773693323'
+- rank: 29
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-perl-patterns-skill-md
+  name: perl-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 现代 Perl 5.36+ 的惯用法、最佳实践和约定，用于构建稳健、可维护的 Perl 应用程序。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/perl-patterns
+  updated_at: '1774219164'
+- rank: 30
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-plankton-code-quality-skill-md
+  name: plankton-code-quality
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用Plankton进行编写时代码质量强制执行——通过钩子在每次文件编辑时自动格式化、代码检查和Claude驱动的修复。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/plankton-code-quality
+  updated_at: '1774219164'
+- rank: 31
+  id: affaan-m-everything-claude-code-skills-plankton-code-quality-skill-md
+  name: plankton-code-quality
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Write-time code quality enforcement using Plankton — auto-formatting,
+    linting, and Claude-powered fixes on every file edit via hooks.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/plankton-code-quality
+  updated_at: '1774141805'
+- rank: 32
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-python-patterns-skill-md
+  name: python-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Pythonic 惯用法、PEP 8 标准、类型提示以及构建稳健、高效且可维护的 Python 应用程序的最佳实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/python-patterns
+  updated_at: '1772519307'
+- rank: 33
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-quality-nonconformance-skill-md
+  name: quality-nonconformance
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '为受监管制造业中的质量控制、不合格调查、根本原因分析、纠正措施和供应商质量管理提供编码化专业知识。基于在FDA、IATF 16949和AS9100环境中拥有15年以上经验的质量工程师的见解。包括不合格报告生命周期管理、纠正与预防措施系统、统计过程控制解释和审核方法。适用于调查不合格、进行根本原因分析、管理纠正与预防措施、解释统计过程控制数据或处理供应商质量问题。license:
+    Apache-2.0'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/quality-nonconformance
+  updated_at: '1773395144'
+- rank: 34
+  id: affaan-m-everything-claude-code-docs-tr-skills-springboot-verification-skill-md
+  name: springboot-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Verification loop for Spring Boot projects: build, static analysis,
+    tests with coverage, security scans, and diff review before release or PR.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/springboot-verification
+  updated_at: '1774219024'
+- rank: 35
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-springboot-verification-skill-md
+  name: springboot-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot项目验证循环：构建、静态分析、测试覆盖、安全扫描，以及发布或PR前的差异审查。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/springboot-verification
+  updated_at: '1774219164'
+- rank: 36
+  id: affaan-m-everything-claude-code-skills-springboot-verification-skill-md
+  name: springboot-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Verification loop for Spring Boot projects: build, static analysis,
+    tests with coverage, security scans, and diff review before release or PR.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/springboot-verification
+  updated_at: '1771862457'
+- rank: 37
+  id: affaan-m-everything-claude-code-agents-skills-verification-loop-skill-md
+  name: verification-loop
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: A comprehensive verification system for Claude Code sessions.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/verification-loop
+  updated_at: '1772045129'
+- rank: 38
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-verification-loop-skill-md
+  name: verification-loop
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Claude Code 세션을 위한 포괄적인 검증 시스템.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/verification-loop
+  updated_at: '1773386274'
+- rank: 39
+  id: affaan-m-everything-claude-code-docs-tr-skills-verification-loop-skill-md
+  name: verification-loop
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Claude Code oturumları için kapsamlı doğrulama sistemi.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/verification-loop
+  updated_at: '1774219024'
+- rank: 40
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-verification-loop-skill-md
+  name: verification-loop
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Claude Code 会话的全面验证系统。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/verification-loop
+  updated_at: '1774219164'
+- rank: 41
+  id: affaan-m-everything-claude-code-kiro-skills-verification-loop-skill-md
+  name: verification-loop
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: A comprehensive verification system for Kiro sessions.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/verification-loop
+  updated_at: '1774241745'
+- rank: 42
+  id: affaan-m-everything-claude-code-skills-verification-loop-skill-md
+  name: verification-loop
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: A comprehensive verification system for Claude Code sessions.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/verification-loop
+  updated_at: '1771862457'
+- rank: 43
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-code-reviewer-skill-md
+  name: code-reviewer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Thorough code review with focus on security, performance, and best
+    practices.
+
+    Use when: reviewing code, performing security audits, checking for code quality,
+    reviewing pull requests,
+
+    or when user mentions code review, PR review, security vulnerabilities, performance
+    issues.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/code-reviewer
+  updated_at: '1770167437'
+- rank: 44
+  id: google-gemini-gemini-cli-gemini-skills-code-reviewer-skill-md
+  name: code-reviewer
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill to review code. It supports both local changes (staged
+    or working tree) and remote Pull Requests (by ID or URL). It focuses on correctness,
+    maintainability, and adherence to project standards.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/code-reviewer
+  updated_at: '1768980516'
+- rank: 45
+  id: google-gemini-gemini-cli-gemini-skills-pr-creator-skill-md
+  name: pr-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill when asked to create a pull request (PR). It ensures
+    all PRs follow the repository's established templates and standards.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/pr-creator
+  updated_at: '1770701890'
+- rank: 46
+  id: google-gemini-gemini-cli-gemini-skills-string-reviewer-skill-md
+  name: string-reviewer
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill when asked to review text and user-facing strings within
+    the codebase. It ensures that these strings follow rules on clarity, usefulness,
+    brevity and style.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/string-reviewer
+  updated_at: '1772837171'
+- rank: 47
+  id: pytorch-pytorch-claude-skills-pr-review-skill-md
+  name: pr-review
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Review PyTorch pull requests for code quality, test coverage, security,
+    and backward compatibility. Use when reviewing PRs, when asked to review code
+    changes, or when the user mentions "review PR", "code review", or "check this
+    PR".
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/pr-review
+  updated_at: '1774632647'
+- rank: 48
+  id: pytorch-pytorch-claude-skills-pyrefly-type-coverage-skill-md
+  name: pyrefly-type-coverage
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Migrate a file to use stricter Pyrefly type checking with annotations
+    required for all functions, classes, and attributes.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/pyrefly-type-coverage
+  updated_at: '1770193040'
+- rank: 49
+  id: storybookjs-storybook-agents-skills-fix-linting-types-on-pr-skill-md
+  name: fix-linting-types-on-pr
+  author: storybookjs
+  stars: 89554
+  forks: 9960
+  description: Checks out a PR (including fork PRs), fixes all linting and TypeScript
+    errors, then pushes the changes back. Use when asked to fix lint, types, or TS
+    errors on a PR.
+  github_url: https://github.com/storybookjs/storybook/tree/next/.agents/skills/fix-linting-types-on-pr
+  updated_at: '1774004679'
+- rank: 50
+  id: anthropics-claude-code-plugins-claude-opus-4-5-migration-skills-claude-opus-4-5-migration-skill-md
+  name: claude-opus-4-5-migration
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: Migrate prompts and code from Claude Sonnet 4.0, Sonnet 4.5, or Opus
+    4.1 to Opus 4.5. Use when the user wants to update their codebase, prompts, or
+    API calls to use Opus 4.5. Handles model string updates and prompt adjustments
+    for known Opus 4.5 behavioral differences. Does NOT migrate Haiku 4.5.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/claude-opus-4-5-migration/skills/claude-opus-4-5-migration
+  updated_at: '1763969049'

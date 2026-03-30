@@ -1,0 +1,602 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: tools
+category_name: Tools
+category_skill_count: 168203
+subcategory_slug: system-admin
+subcategory_name: System Administration
+subcategory_skill_count: 32566
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=system-admin
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 32566
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-eightctl-skill-md
+  name: eightctl
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Control Eight Sleep pods (status, temperature, alarms, schedules).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/eightctl
+  updated_at: '1773234790'
+- rank: 2
+  id: openclaw-openclaw-skills-healthcheck-skill-md
+  name: healthcheck
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Host security hardening and risk-tolerance configuration for OpenClaw
+    deployments. Use when a user asks for security audits, firewall/SSH/update hardening,
+    risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or
+    version status checks on a machine running OpenClaw (laptop, workstation, Pi,
+    VPS).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/healthcheck
+  updated_at: '1770132094'
+- rank: 3
+  id: openclaw-openclaw-skills-mcporter-skill-md
+  name: mcporter
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Use the mcporter CLI to list, configure, auth, and call MCP servers/tools
+    directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type
+    generation.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/mcporter
+  updated_at: '1769862085'
+- rank: 4
+  id: openclaw-openclaw-skills-openhue-skill-md
+  name: openhue
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Control Philips Hue lights and scenes via the OpenHue CLI.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/openhue
+  updated_at: '1771374500'
+- rank: 5
+  id: openclaw-openclaw-agents-skills-parallels-discord-roundtrip-skill-md
+  name: parallels-discord-roundtrip
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Run the macOS Parallels smoke harness with Discord end-to-end roundtrip
+    verification, including guest send, host verification, host reply, and guest readback.
+  github_url: https://github.com/openclaw/openclaw/tree/main/.agents/skills/parallels-discord-roundtrip
+  updated_at: '1773720079'
+- rank: 6
+  id: openclaw-openclaw-skills-sonoscli-skill-md
+  name: sonoscli
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Control Sonos speakers (discover/status/play/volume/group).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/sonoscli
+  updated_at: '1771638762'
+- rank: 7
+  id: openclaw-openclaw-skills-things-mac-skill-md
+  name: things-mac
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Manage Things 3 via the `things` CLI on macOS (add/update projects+todos
+    via URL scheme; read/search/list from the local Things database). Use when a user
+    asks OpenClaw to add a task to Things, list inbox/today/upcoming, search tasks,
+    or inspect projects/areas/tags.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/things-mac
+  updated_at: '1769862085'
+- rank: 8
+  id: openclaw-openclaw-skills-tmux-skill-md
+  name: tmux
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Remote-control tmux sessions for interactive CLIs by sending keystrokes
+    and scraping pane output.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/tmux
+  updated_at: '1774333273'
+- rank: 9
+  id: microsoft-vscode-src-vs-sessions-skills-act-on-feedback-skill-md
+  name: act-on-feedback
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Act on user feedback attached to the current session. Use when the
+    user submits feedback on the session's changes via the Submit Feedback button.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/act-on-feedback
+  updated_at: '1774570130'
+- rank: 10
+  id: microsoft-vscode-github-skills-agent-sessions-layout-skill-md
+  name: agent-sessions-layout
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Agent Sessions workbench layout — covers the fixed layout structure,
+    grid configuration, part visibility, editor modal, titlebar, sidebar footer, and
+    implementation requirements. Use when implementing features or fixing issues in
+    the Agent Sessions workbench layout.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/agent-sessions-layout
+  updated_at: '1772600179'
+- rank: 11
+  id: microsoft-vscode-github-skills-chat-customizations-editor-skill-md
+  name: chat-customizations-editor
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Use when working on the Chat Customizations editor — the management
+    UI for agents, skills, instructions, hooks, prompts, MCP servers, and plugins.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/chat-customizations-editor
+  updated_at: '1774648107'
+- rank: 12
+  id: microsoft-vscode-src-vs-sessions-skills-create-draft-pr-skill-md
+  name: create-draft-pr
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Create a draft pull request for the current session. Use when the user
+    wants to open a draft PR with the session's changes.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/create-draft-pr
+  updated_at: '1774570130'
+- rank: 13
+  id: microsoft-vscode-src-vs-sessions-skills-create-pr-skill-md
+  name: create-pr
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Create a pull request for the current session. Use when the user wants
+    to open a PR with the session's changes.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/create-pr
+  updated_at: '1774570130'
+- rank: 14
+  id: microsoft-vscode-src-vs-sessions-skills-generate-run-commands-skill-md
+  name: generate-run-commands
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Generate or modify run commands for the current session. Use when the
+    user wants to set up or update run commands that appear in the session's Run button.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/generate-run-commands
+  updated_at: '1774570130'
+- rank: 15
+  id: microsoft-vscode-src-vs-sessions-skills-sync-upstream-skill-md
+  name: sync-upstream
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Update a stale session branch by rebasing onto the latest origin. Use
+    when the upstream has moved significantly and the session needs to catch up, resolving
+    conflicts by preserving upstream changes and adapting session work to fit.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/sync-upstream
+  updated_at: '1774681322'
+- rank: 16
+  id: microsoft-vscode-src-vs-sessions-skills-update-pr-skill-md
+  name: update-pr
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Update the pull request for the current session. Use when the user
+    wants to push new changes to an existing PR.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/update-pr
+  updated_at: '1774570130'
+- rank: 17
+  id: n8n-io-n8n-packages-n8n-cli-skills-n8n-cli-skill-md
+  name: n8n-cli
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Use the n8n CLI to manage workflows, credentials, executions, and more
+    on an n8n instance. Use when the user asks to interact with n8n, automate workflows,
+    manage credentials, or operate their instance from the command line.
+  github_url: https://github.com/n8n-io/n8n/tree/master/packages/@n8n/cli/skills/n8n-cli
+  updated_at: '1774015895'
+- rank: 18
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-bun-runtime-skill-md
+  name: bun-runtime
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Bun 作为运行时、包管理器、打包器和测试运行器。何时选择 Bun 而非 Node、迁移注意事项以及 Vercel 支持。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/bun-runtime
+  updated_at: '1774068958'
+- rank: 19
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-dmux-workflows-skill-md
+  name: dmux-workflows
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用dmux（AI代理的tmux窗格管理器）进行多代理编排。跨Claude Code、Codex、OpenCode及其他工具的并行代理工作流模式。适用于并行运行多个代理会话或协调多代理开发工作流时。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/dmux-workflows
+  updated_at: '1774219164'
+- rank: 20
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-enterprise-agent-ops-skill-md
+  name: enterprise-agent-ops
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 通过可观测性、安全边界和生命周期管理来操作长期运行的代理工作负载。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/enterprise-agent-ops
+  updated_at: '1772923682'
+- rank: 21
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-rust-patterns-skill-md
+  name: rust-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 地道的Rust模式、所有权、错误处理、特质、并发，以及构建安全、高性能应用程序的最佳实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/rust-patterns
+  updated_at: '1774219164'
+- rank: 22
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 在添加身份验证、处理用户输入、处理机密信息、创建API端点或实现支付/敏感功能时使用此技能。提供全面的安全检查清单和模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/security-review
+  updated_at: '1772519307'
+- rank: 23
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-security-scan-skill-md
+  name: security-scan
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用AgentShield扫描您的Claude代码配置（.claude/目录），以发现安全漏洞、配置错误和注入风险。检查CLAUDE.md、settings.json、MCP服务器、钩子和代理定义。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/security-scan
+  updated_at: '1772519307'
+- rank: 24
+  id: affaan-m-everything-claude-code-skills-security-scan-skill-md
+  name: security-scan
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Scan your Claude Code configuration (.claude/ directory) for security
+    vulnerabilities, misconfigurations, and injection risks using AgentShield. Checks
+    CLAUDE.md, settings.json, MCP servers, hooks, and agent definitions.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/security-scan
+  updated_at: '1771862457'
+- rank: 25
+  id: shadcn-ui-ui-skills-shadcn-skill-md
+  name: shadcn
+  author: shadcn-ui
+  stars: 110916
+  forks: 8342
+  description: Manages shadcn components and projects — adding, searching, fixing,
+    debugging, styling, and composing UI. Provides project context, component docs,
+    and usage examples. Applies when working with shadcn/ui, component registries,
+    presets, --preset codes, or any project with a components.json file. Also triggers
+    for "shadcn init", "create an app with --preset", or "switch to --preset".
+  github_url: https://github.com/shadcn-ui/ui/tree/main/skills/shadcn
+  updated_at: '1773721573'
+- rank: 26
+  id: browser-use-browser-use-skills-remote-browser-skill-md
+  name: remote-browser
+  author: browser-use
+  stars: 84818
+  forks: 9821
+  description: Controls a local browser from a sandboxed remote machine. Use when
+    the agent is running in a sandbox (no GUI) and needs to navigate websites, interact
+    with web pages, fill forms, take screenshots, or expose local dev servers via
+    tunnels.
+  github_url: https://github.com/browser-use/browser-use/tree/main/skills/remote-browser
+  updated_at: '1773977260'
+- rank: 27
+  id: lobehub-lobehub-agents-skills-add-setting-env-skill-md
+  name: add-setting-env
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Guide for adding environment variables to configure user settings.
+    Use when implementing server-side environment variables that control default values
+    for user settings. Triggers on env var configuration or setting default value
+    tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/add-setting-env
+  updated_at: '1769178618'
+- rank: 28
+  id: openbb-finance-openbb-openbb-platform-extensions-mcp-server-openbb-mcp-server-skills-configure-mcp-server-skill-md
+  name: configure-mcp-server
+  author: OpenBB-finance
+  stars: 63693
+  forks: 6276
+  description: This guide covers installation, configuration, authentication, tool
+    discovery, prompt management, and client integration for `openbb-mcp-server`.
+  github_url: https://github.com/OpenBB-finance/OpenBB/tree/develop/openbb_platform/extensions/mcp_server/openbb_mcp_server/skills/configure_mcp_server
+  updated_at: '1773866339'
+- rank: 29
+  id: openbb-finance-openbb-openbb-platform-extensions-mcp-server-openbb-mcp-server-skills-work-with-server-skill-md
+  name: work-with-server
+  author: OpenBB-finance
+  stars: 63693
+  forks: 6276
+  description: This guide explains how to call tools, interpret responses, discover
+    capabilities, use prompts, and handle errors when interacting with an OpenBB MCP
+    server.
+  github_url: https://github.com/OpenBB-finance/OpenBB/tree/develop/openbb_platform/extensions/mcp_server/openbb_mcp_server/skills/work_with_server
+  updated_at: '1773866339'
+- rank: 30
+  id: garrytan-gstack-autoplan-skill-md
+  name: autoplan
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Auto-review pipeline — reads the full CEO, design, and eng review
+    skills from disk
+
+    and runs them sequentially with auto-decisions using 6 decision principles. Surfaces
+
+    taste decisions (close approaches, borderline scope, codex disagreements) at a
+    final
+
+    approval gate. One command, fully reviewed plan out.
+
+    Use when asked to "auto review", "autoplan", "run all reviews", "review this plan
+
+    automatically", or "make the decisions for me".
+
+    Proactively suggest when the user has a plan file and wants to run the full review
+
+    gauntlet without answering 15-30 intermediate questions.'
+  github_url: https://github.com/garrytan/gstack/tree/main/autoplan
+  updated_at: '1774634818'
+- rank: 31
+  id: garrytan-gstack-freeze-skill-md
+  name: freeze
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Restrict file edits to a specific directory for the session. Blocks
+    Edit and
+
+    Write outside the allowed path. Use when debugging to prevent accidentally
+
+    "fixing" unrelated code, or when you want to scope changes to one module.
+
+    Use when asked to "freeze", "restrict edits", "only edit this folder",
+
+    or "lock down edits".'
+  github_url: https://github.com/garrytan/gstack/tree/main/freeze
+  updated_at: '1774708524'
+- rank: 32
+  id: bytedance-deer-flow-skills-public-vercel-deploy-claimable-skill-md
+  name: vercel-deploy
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Deploy applications and websites to Vercel. Use this skill when the
+    user requests deployment actions such as "Deploy my app", "Deploy this to production",
+    "Create a preview deployment", "Deploy and give me the link", or "Push this live".
+    No authentication required - returns preview URL and claimable deployment link.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/vercel-deploy-claimable
+  updated_at: '1770009921'
+- rank: 33
+  id: tldraw-tldraw-apps-mcp-app-claude-skills-add-app-to-server-skill-md
+  name: add-app-to-server
+  author: tldraw
+  stars: 46086
+  forks: 3105
+  description: This skill should be used when the user asks to "add an app to my MCP
+    server", "add UI to my MCP server", "add a view to my MCP tool", "enrich MCP tools
+    with UI", "add interactive UI to existing server", "add MCP Apps to my server",
+    or needs to add interactive UI capabilities to an existing MCP server that already
+    has tools. Provides guidance for analyzing existing tools and adding MCP Apps
+    UI resources.
+  github_url: https://github.com/tldraw/tldraw/tree/main/apps/mcp-app/.claude/skills/add-app-to-server
+  updated_at: '1772512923'
+- rank: 34
+  id: getsentry-sentry-agents-skills-setup-dev-skill-md
+  name: setup-dev
+  author: getsentry
+  stars: 43460
+  forks: 4642
+  description: Set up and manage the Sentry development environment using devenv.
+    Handles fresh setup, updating existing environments, starting dev services, and
+    troubleshooting. Use when asked to "set up sentry", "setup dev environment", "get
+    sentry running", "start dev server", "devenv setup", "devservices not working",
+    "sentry won't start", or any development environment issue.
+  github_url: https://github.com/getsentry/sentry/tree/master/.agents/skills/setup-dev
+  updated_at: '1773959415'
+- rank: 35
+  id: bmad-code-org-bmad-method-src-core-skills-bmad-init-skill-md
+  name: bmad-init
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Initialize BMad project configuration and load config variables. Use
+    when any skill needs module-specific configuration values, or when setting up
+    a new BMad project.
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-init
+  updated_at: '1774579574'
+- rank: 36
+  id: trpc-trpc-packages-server-skills-adapter-fastify-skill-md
+  name: adapter-fastify
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Mount tRPC as a Fastify plugin with fastifyTRPCPlugin from @trpc/server/adapters/fastify.
+    Configure prefix, trpcOptions (router, createContext, onError). Enable WebSocket
+    subscriptions with useWSS and @fastify/websocket. Set routerOptions.maxParamLength
+    for batch requests. Requires Fastify v5+. FastifyTRPCPluginOptions for type-safe
+    onError. CreateFastifyContextOptions provides req, res.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/adapter-fastify
+  updated_at: '1774697990'
+- rank: 37
+  id: trpc-trpc-packages-server-skills-caching-skill-md
+  name: caching
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Set HTTP cache headers on tRPC query responses via responseMeta callback
+    for CDN and browser caching. Configure Cache-Control, s-maxage, stale-while-revalidate.
+    Handle caching with batching and authenticated requests. Avoid caching mutations,
+    errors, and authenticated responses.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/caching
+  updated_at: '1774697990'
+- rank: 38
+  id: trpc-trpc-packages-server-skills-error-handling-skill-md
+  name: error-handling
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Throw typed errors with TRPCError and error codes (NOT_FOUND, UNAUTHORIZED,
+    BAD_REQUEST, INTERNAL_SERVER_ERROR), configure errorFormatter for client-side
+    Zod error display, handle errors globally with onError callback, map tRPC errors
+    to HTTP status codes with getHTTPStatusCodeFromError().
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/error-handling
+  updated_at: '1774697990'
+- rank: 39
+  id: trpc-trpc-packages-client-skills-links-skill-md
+  name: links
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: 'Configure the tRPC client link chain: httpLink, httpBatchLink, httpBatchStreamLink,
+    splitLink, loggerLink, wsLink, createWSClient, httpSubscriptionLink, unstable_localLink,
+    retryLink. Choose the right terminating link. Route subscriptions via splitLink.
+    Build custom links for SOA routing. Link options: url, headers, transformer, maxURLLength,
+    maxItems, connectionParams, EventSource ponyfill.'
+  github_url: https://github.com/trpc/trpc/tree/main/packages/client/skills/links
+  updated_at: '1774697990'
+- rank: 40
+  id: trpc-trpc-packages-server-skills-server-setup-skill-md
+  name: server-setup
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Initialize tRPC with initTRPC.create(), define routers with t.router(),
+    create procedures with .query()/.mutation()/.subscription(), configure context
+    with createContext(), export AppRouter type, merge routers with t.mergeRouters(),
+    lazy-load routers with lazy().
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/server-setup
+  updated_at: '1774697990'
+- rank: 41
+  id: trpc-trpc-packages-server-skills-subscriptions-skill-md
+  name: subscriptions
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: 'Set up real-time event streams with async generator subscriptions
+    using .subscription(async function*() { yield }). SSE via httpSubscriptionLink
+    is recommended over WebSocket. Use tracked(id, data) from @trpc/server for reconnection
+    recovery with lastEventId. WebSocket via wsLink and createWSClient from @trpc/client,
+    applyWSSHandler from @trpc/server/adapters/ws. Configure SSE ping with initTRPC.create({
+    sse: { ping: { enabled, intervalMs } } }). AbortSignal via opts.signal for cleanup.
+    splitLink to route subscriptions.'
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/subscriptions
+  updated_at: '1774697990'
+- rank: 42
+  id: agno-agi-agno-cookbook-05-agent-os-skills-sample-skills-system-info-skill-md
+  name: system-info
+  author: agno-agi
+  stars: 38991
+  forks: 5168
+  description: Get system information using executable scripts
+  github_url: https://github.com/agno-agi/agno/tree/main/cookbook/05_agent_os/skills/sample_skills/system-info
+  updated_at: '1770824045'
+- rank: 43
+  id: hkuds-nanobot-nanobot-skills-cron-skill-md
+  name: cron
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Schedule reminders and recurring tasks.
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/cron
+  updated_at: '1771317052'
+- rank: 44
+  id: hkuds-nanobot-nanobot-skills-tmux-skill-md
+  name: tmux
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Remote-control tmux sessions for interactive CLIs by sending keystrokes
+    and scraping pane output.
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/tmux
+  updated_at: '1769971542'
+- rank: 45
+  id: moeru-ai-airi-agents-skills-pnpm-skill-md
+  name: pnpm
+  author: moeru-ai
+  stars: 35987
+  forks: 3579
+  description: Node.js package manager with strict dependency resolution. Use when
+    running pnpm specific commands, configuring workspaces, or managing dependencies
+    with catalogs, patches, or overrides.
+  github_url: https://github.com/moeru-ai/airi/tree/main/.agents/skills/pnpm
+  updated_at: '1773591546'
+- rank: 46
+  id: backstage-backstage-docs-well-known-skills-plugin-new-frontend-system-support-skill-md
+  name: plugin-new-frontend-system-support
+  author: backstage
+  stars: 32961
+  forks: 7211
+  description: Add new frontend system support to an existing Backstage plugin while
+    keeping the old system working. Use this skill for published or shared plugins
+    that need to work in both old and new frontend system apps.
+  github_url: https://github.com/backstage/backstage/tree/master/docs/.well-known/skills/plugin-new-frontend-system-support
+  updated_at: '1774432368'
+- rank: 47
+  id: wshobson-agents-plugins-incident-response-skills-incident-runbook-templates-skill-md
+  name: incident-runbook-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create structured incident response runbooks with step-by-step procedures,
+    escalation paths, and recovery actions. Use this skill when building a service
+    outage runbook for a payment processing system; creating database incident procedures
+    covering connection pool exhaustion, replication lag, and disk space alerts; onboarding
+    new on-call engineers who need step-by-step recovery guides written for a 3 AM
+    brain; or standardizing escalation matrices across multiple engineering teams.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/incident-response/skills/incident-runbook-templates
+  updated_at: '1774541149'
+- rank: 48
+  id: wshobson-agents-plugins-cicd-automation-skills-secrets-management-skill-md
+  name: secrets-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement secure secrets management for CI/CD pipelines using Vault,
+    AWS Secrets Manager, or native platform solutions. Use when handling sensitive
+    credentials, rotating secrets, or securing CI/CD environments.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/secrets-management
+  updated_at: '1772898797'
+- rank: 49
+  id: wshobson-agents-plugins-agent-teams-skills-task-coordination-strategies-skill-md
+  name: task-coordination-strategies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent
+    work with proper task descriptions and workload balancing. Use this skill when
+    breaking down work for agent teams, managing task dependencies, or monitoring
+    team progress.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/task-coordination-strategies
+  updated_at: '1770331350'
+- rank: 50
+  id: wshobson-agents-plugins-agent-teams-skills-team-communication-protocols-skill-md
+  name: team-communication-protocols
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Structured messaging protocols for agent team communication including
+    message type selection, plan approval, shutdown procedures, and anti-patterns
+    to avoid. Use this skill when establishing communication norms for a newly spawned
+    team, when deciding whether to send a direct message or a broadcast, when a team-lead
+    needs to review and approve an implementer's plan before work begins, when orchestrating
+    a graceful team shutdown after all tasks are complete, or when debugging why teammates
+    are not coordinating correctly at integration points.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/team-communication-protocols
+  updated_at: '1774541117'

@@ -1,0 +1,645 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: documentation
+category_name: Documentation
+category_skill_count: 48837
+subcategory_slug: technical-docs
+subcategory_name: Technical Docs
+subcategory_skill_count: 18262
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=technical-docs
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 18262
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: n8n-io-n8n-claude-skills-create-skill-skill-md
+  name: create-skill
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Guides users through creating effective Agent Skills. Use when you
+    want to create, write, or author a new skill, or asks about skill structure, best
+    practices, or SKILL.md format.
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/create-skill
+  updated_at: '1774364653'
+- rank: 2
+  id: vercel-next-js-agents-skills-write-api-reference-skill-md
+  name: write-api-reference
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: 'Produces API reference documentation for Next.js APIs: functions,
+    components, file conventions, directives, and config options.
+
+
+    **Auto-activation:** User asks to write, create, or draft an API reference page.
+    Also triggers on paths like `docs/01-app/03-api-reference/`, or keywords like
+    "API reference", "props", "parameters", "returns", "signature".
+
+
+    **Input sources:** Next.js source code, existing API reference pages, or user-provided
+    specifications.
+
+
+    **Output type:** A markdown (.mdx) API reference page with YAML frontmatter, usage
+    example, reference section, behavior notes, and examples.'
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/write-api-reference
+  updated_at: '1773432871'
+- rank: 3
+  id: vercel-next-js-agents-skills-write-guide-skill-md
+  name: write-guide
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: 'Generates technical guides that teach real-world use cases through
+    progressive examples.
+
+
+    **Auto-activation:** User asks to write, create, or draft a guide or tutorial.
+    Also use when converting feature documentation, API references, or skill knowledge
+    into step-by-step learning content.
+
+
+    **Input sources:** Feature skills, API documentation, existing code examples,
+    or user-provided specifications.
+
+
+    **Output type:** A markdown guide with YAML frontmatter, introduction, 2-4 progressive
+    steps, and next steps section.'
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/write-guide
+  updated_at: '1773432871'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-codebase-onboarding-skill-md
+  name: codebase-onboarding
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 分析一个陌生的代码库，并生成一个结构化的入门指南，包括架构图、关键入口点、规范和一个起始的CLAUDE.md文件。适用于加入新项目或首次在代码仓库中设置Claude
+    Code时。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/codebase-onboarding
+  updated_at: '1774219164'
+- rank: 5
+  id: affaan-m-everything-claude-code-skills-codebase-onboarding-skill-md
+  name: codebase-onboarding
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Analyze an unfamiliar codebase and generate a structured onboarding
+    guide with architecture map, key entry points, conventions, and a starter CLAUDE.md.
+    Use when joining a new project or setting up Claude Code for the first time in
+    a repo.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/codebase-onboarding
+  updated_at: '1773991220'
+- rank: 6
+  id: affaan-m-everything-claude-code-agents-skills-everything-claude-code-skill-md
+  name: everything-claude-code-conventions
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Development conventions and patterns for everything-claude-code. JavaScript
+    project with conventional commits.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/everything-claude-code
+  updated_at: '1774009223'
+- rank: 7
+  id: affaan-m-everything-claude-code-claude-skills-everything-claude-code-skill-md
+  name: everything-claude-code-conventions
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Development conventions and patterns for everything-claude-code. JavaScript
+    project with conventional commits.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.claude/skills/everything-claude-code
+  updated_at: '1774009223'
+- rank: 8
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-search-first-skill-md
+  name: search-first
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 研究优先于编码的工作流程。在编写自定义代码之前，搜索现有的工具、库和模式。调用研究员代理。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/search-first
+  updated_at: '1774219164'
+- rank: 9
+  id: affaan-m-everything-claude-code-skills-search-first-skill-md
+  name: search-first
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Research-before-coding workflow. Search for existing tools, libraries,
+    and patterns before writing custom code. Invokes the researcher agent.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/search-first
+  updated_at: '1772302003'
+- rank: 10
+  id: anthropics-skills-skills-doc-coauthoring-skill-md
+  name: doc-coauthoring
+  author: anthropics
+  stars: 105006
+  forks: 11595
+  description: Guide users through a structured workflow for co-authoring documentation.
+    Use when user wants to write documentation, proposals, technical specs, decision
+    docs, or similar structured content. This workflow helps users efficiently transfer
+    context, refine content through iteration, and verify the doc works for readers.
+    Trigger when user mentions writing docs, creating proposals, drafting specs, or
+    similar documentation tasks.
+  github_url: https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring
+  updated_at: '1764867706'
+- rank: 11
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-technical-writer-skill-md
+  name: technical-writer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Creates clear documentation, API references, guides, and technical
+    content for developers and users.
+
+    Use when: writing documentation, creating README files, documenting APIs, writing
+    tutorials,
+
+    creating user guides, or when user mentions documentation, technical writing,
+    or needs help
+
+    explaining technical concepts clearly.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/technical-writer
+  updated_at: '1770167437'
+- rank: 12
+  id: google-gemini-gemini-cli-gemini-skills-docs-writer-skill-md
+  name: docs-writer
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Always use this skill when the task involves writing, reviewing, or
+    editing files in the `/docs` directory or any `.md` files in the repository.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/docs-writer
+  updated_at: '1774571540'
+- rank: 13
+  id: pytorch-pytorch-claude-skills-docstring-skill-md
+  name: docstring
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Write docstrings for PyTorch functions and methods following PyTorch
+    conventions. Use when writing or updating docstrings in PyTorch code.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/docstring
+  updated_at: '1761670167'
+- rank: 14
+  id: pytorch-pytorch-claude-skills-document-public-apis-skill-md
+  name: document-public-apis
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Document undocumented public APIs in PyTorch by removing functions
+    from coverage_ignore_functions and coverage_ignore_classes in docs/source/conf.py,
+    running Sphinx coverage, and adding the appropriate autodoc directives to the
+    correct .md or .rst doc files. Use when a user asks to remove functions from conf.py
+    ignore lists.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/document-public-apis
+  updated_at: '1771966723'
+- rank: 15
+  id: fastapi-fastapi-fastapi-agents-skills-fastapi-skill-md
+  name: fastapi
+  author: fastapi
+  stars: 96639
+  forks: 8956
+  description: FastAPI best practices and conventions. Use when working with FastAPI
+    APIs and Pydantic models for them. Keeps FastAPI code clean and up to date with
+    the latest features and patterns, updated with new versions. Write new code or
+    refactor and update old code.
+  github_url: https://github.com/fastapi/fastapi/tree/master/fastapi/.agents/skills/fastapi
+  updated_at: '1772359557'
+- rank: 16
+  id: microsoft-playwright-claude-skills-playwright-dev-skill-md
+  name: playwright-dev
+  author: microsoft
+  stars: 85159
+  forks: 5371
+  description: Explains how to develop Playwright - add APIs, MCP tools, CLI commands,
+    and vendor dependencies.
+  github_url: https://github.com/microsoft/playwright/tree/main/.claude/skills/playwright-dev
+  updated_at: '1774555125'
+- rank: 17
+  id: browser-use-browser-use-skills-open-source-skill-md
+  name: open-source
+  author: browser-use
+  stars: 84818
+  forks: 9821
+  description: Documentation reference for writing Python code using the browser-use
+    open-source library. Use this skill whenever the user needs help with Agent, Browser,
+    or Tools configuration, is writing code that imports from browser_use, asks about
+    @sandbox deployment, supported LLM models, Actor API, custom tools, lifecycle
+    hooks, MCP server setup, or monitoring/observability with Laminar or OpenLIT.
+    Also trigger for questions about browser-use installation, prompting strategies,
+    or sensitive data handling. Do NOT use this for Cloud API/SDK usage or pricing
+    — use the cloud skill instead. Do NOT use this for directly automating a browser
+    via CLI commands — use the browser-use skill instead.
+  github_url: https://github.com/browser-use/browser-use/tree/main/skills/open-source
+  updated_at: '1774144766'
+- rank: 18
+  id: anthropics-claude-code-plugins-plugin-dev-skills-command-development-skill-md
+  name: command-development
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: This skill should be used when the user asks to "create a slash command",
+    "add a command", "write a custom command", "define command arguments", "use command
+    frontmatter", "organize commands", "create command with file references", "interactive
+    command", "use AskUserQuestion in command", or needs guidance on slash command
+    structure, YAML frontmatter fields, dynamic arguments, bash execution in commands,
+    user interaction patterns, or command development best practices for Claude Code.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/command-development
+  updated_at: '1763381340'
+- rank: 19
+  id: anthropics-claude-code-plugins-plugin-dev-skills-hook-development-skill-md
+  name: hook-development
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: This skill should be used when the user asks to "create a hook", "add
+    a PreToolUse/PostToolUse/Stop hook", "validate tool use", "implement prompt-based
+    hooks", "use ${CLAUDE_PLUGIN_ROOT}", "set up event-driven automation", "block
+    dangerous commands", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop,
+    SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides
+    comprehensive guidance for creating and implementing Claude Code plugin hooks
+    with focus on advanced prompt-based hooks API.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/hook-development
+  updated_at: '1763381340'
+- rank: 20
+  id: anthropics-claude-code-plugins-plugin-dev-skills-skill-development-skill-md
+  name: skill-development
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: This skill should be used when the user wants to "create a skill",
+    "add a skill to plugin", "write a new skill", "improve skill description", "organize
+    skill content", or needs guidance on skill structure, progressive disclosure,
+    or skill development best practices for Claude Code plugins.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/skill-development
+  updated_at: '1763381340'
+- rank: 21
+  id: zed-industries-zed-factory-skills-humanizer-skill-md
+  name: humanizer
+  author: zed-industries
+  stars: 78049
+  forks: 7589
+  description: Remove signs of AI-generated writing from text. Use after drafting
+    to make copy sound more natural and human-written. Based on Wikipedia's "Signs
+    of AI writing" guide.
+  github_url: https://github.com/zed-industries/zed/tree/main/.factory/skills/humanizer
+  updated_at: '1771966732'
+- rank: 22
+  id: lobehub-lobehub-agents-skills-cli-skill-md
+  name: cli
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: LobeHub CLI (@lobehub/cli) development guide. Use when working on CLI
+    commands, adding new subcommands, fixing CLI bugs, or understanding CLI architecture.
+    Triggers on CLI development, command implementation, or `lh` command questions.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/cli
+  updated_at: '1774278091'
+- rank: 23
+  id: openai-codex-codex-rs-skills-src-assets-samples-skill-creator-skill-md
+  name: skill-creator
+  author: openai
+  stars: 68113
+  forks: 9132
+  description: Guide for creating effective skills. This skill should be used when
+    users want to create a new skill (or update an existing skill) that extends Codex's
+    capabilities with specialized knowledge, workflows, or tool integrations.
+  github_url: https://github.com/openai/codex/tree/main/codex-rs/skills/src/assets/samples/skill-creator
+  updated_at: '1773711371'
+- rank: 24
+  id: leonardomso-33-js-concepts-claude-skills-concept-workflow-skill-md
+  name: concept-workflow
+  author: leonardomso
+  stars: 66302
+  forks: 9192
+  description: End-to-end workflow for creating complete JavaScript concept documentation,
+    orchestrating all skills from research to final review
+  github_url: https://github.com/leonardomso/33-js-concepts/tree/master/.claude/skills/concept-workflow
+  updated_at: '1767707911'
+- rank: 25
+  id: leonardomso-33-js-concepts-claude-skills-write-concept-skill-md
+  name: write-concept
+  author: leonardomso
+  stars: 66302
+  forks: 9192
+  description: Write or review JavaScript concept documentation pages for the 33 JavaScript
+    Concepts project, following strict structure and quality guidelines
+  github_url: https://github.com/leonardomso/33-js-concepts/tree/master/.claude/skills/write-concept
+  updated_at: '1767706636'
+- rank: 26
+  id: openbb-finance-openbb-openbb-platform-extensions-mcp-server-openbb-mcp-server-skills-develop-extension-skill-md
+  name: develop-extension
+  author: OpenBB-finance
+  stars: 63693
+  forks: 6276
+  description: This is a complete guide for creating a new OpenBB Platform extension
+    from scratch. Follow every phase in order. When the user says "build me an application
+    that does X", use this guide to scaffold, implement, install, and verify the extension.
+  github_url: https://github.com/OpenBB-finance/OpenBB/tree/develop/openbb_platform/extensions/mcp_server/openbb_mcp_server/skills/develop_extension
+  updated_at: '1773866339'
+- rank: 27
+  id: microsoft-ai-agents-for-beginners-translations-da-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Bruges når brugeren beder om at oprette, opsætte eller redigere Jupyter-notebooks
+    (`.ipynb`) til eksperimenter, udforskninger eller vejledninger; foretræk de medfølgende
+    skabeloner og kør hjælpeskriptet `new_notebook.py` for at generere en ren start-notebook.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/da/.agents/skills/jupyter-notebook
+  updated_at: '1771575305'
+- rank: 28
+  id: microsoft-ai-agents-for-beginners-translations-lt-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Naudokite, kai vartotojas prašo sukurti, paruošti arba redaguoti Jupyter
+    užrašų knygeles (`.ipynb`) eksperimentams, tyrimams arba pamokoms; teikite pirmenybę
+    pridedamiems šablonams ir paleiskite pagalbinį scenarijų `new_notebook.py`, kad
+    sugeneruotumėte švarų pradinį užrašų knygelę.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/lt/.agents/skills/jupyter-notebook
+  updated_at: '1771489000'
+- rank: 29
+  id: microsoft-ai-agents-for-beginners-translations-ne-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: प्रयोगकर्ताले प्रयोग, अन्वेषण, वा ट्युटोरियलका लागि Jupyter नोटबुकहरू
+    (`.ipynb`) बनाउन, ढाँचा तयार गर्न, वा सम्पादन गर्न अनुरोध गरेमा प्रयोग गर्नुहोस्;
+    समावेश गरिएको टेम्प्लेटलाई प्राथमिकता दिनुहोस् र सफा सुरुवाती नोटबुक उत्पन्न गर्न
+    सहायक स्क्रिप्ट `new_notebook.py` चलाउनुहोस्।
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ne/.agents/skills/jupyter-notebook
+  updated_at: '1771555375'
+- rank: 30
+  id: microsoft-ai-agents-for-beginners-translations-pl-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Użyj, gdy użytkownik prosi o utworzenie, przygotowanie szkieletu lub
+    edycję notatników Jupyter (`.ipynb`) do eksperymentów, eksploracji lub samouczków;
+    preferuj dołączone szablony i uruchom skrypt pomocniczy `new_notebook.py`, aby
+    wygenerować czysty notebook początkowy.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/pl/.agents/skills/jupyter-notebook
+  updated_at: '1771474489'
+- rank: 31
+  id: microsoft-ai-agents-for-beginners-translations-bg-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Запитвайте официалната документация на Microsoft, за да намерите концепции,
+    уроци и примери за код за Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
+    и други. Използва Microsoft Learn MCP като по подразбиране, като за съдържание,
+    което се намира извън learn.microsoft.com, използва Context7 и Aspire MCP.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/bg/.agents/skills/microsoft-docs
+  updated_at: '1771510784'
+- rank: 32
+  id: microsoft-ai-agents-for-beginners-translations-cs-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Prohledávejte oficiální dokumentaci Microsoftu, abyste našli koncepty,
+    návody a ukázky kódu napříč Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
+    a dalšími. Jako výchozí používá Microsoft Learn MCP; pro obsah, který se nachází
+    mimo learn.microsoft.com, používá Context7 a Aspire MCP.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/cs/.agents/skills/microsoft-docs
+  updated_at: '1771519725'
+- rank: 33
+  id: microsoft-ai-agents-for-beginners-translations-da-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Søg i den officielle Microsoft-dokumentation for at finde koncepter,
+    vejledninger og kodeeksempler på tværs af Azure, .NET, Agent Framework, Aspire,
+    VS Code, GitHub og mere. Bruger Microsoft Learn MCP som standard, samt Context7
+    og Aspire MCP til indhold, der findes uden for learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/da/.agents/skills/microsoft-docs
+  updated_at: '1771575305'
+- rank: 34
+  id: microsoft-ai-agents-for-beginners-translations-el-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Αναζητήστε επίσημη τεκμηρίωση της Microsoft για να βρείτε έννοιες,
+    σεμινάρια και παραδείγματα κώδικα σε Azure, .NET, Agent Framework, Aspire, VS
+    Code, GitHub και άλλα. Χρησιμοποιεί το Microsoft Learn MCP ως προεπιλογή, με το
+    Context7 και το Aspire MCP για περιεχόμενο που βρίσκεται εκτός learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/el/.agents/skills/microsoft-docs
+  updated_at: '1771548375'
+- rank: 35
+  id: microsoft-ai-agents-for-beginners-translations-en-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Query official Microsoft documentation to find concepts, tutorials,
+    and code examples across Azure, .NET, Agent Framework, Aspire, VS Code, GitHub,
+    and more. Uses Microsoft Learn MCP as the default, with Context7 and Aspire MCP
+    for content that lives outside learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/en/.agents/skills/microsoft-docs
+  updated_at: '1771447586'
+- rank: 36
+  id: microsoft-ai-agents-for-beginners-translations-es-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Consulta la documentación oficial de Microsoft para encontrar conceptos,
+    tutoriales y ejemplos de código en Azure, .NET, Agent Framework, Aspire, VS Code,
+    GitHub y más. Utiliza Microsoft Learn MCP como predeterminado, con Context7 y
+    Aspire MCP para contenido que se encuentra fuera de learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/es/.agents/skills/microsoft-docs
+  updated_at: '1771447586'
+- rank: 37
+  id: microsoft-ai-agents-for-beginners-translations-et-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Küsib ametlikku Microsofti dokumentatsiooni, et leida mõisteid, juhendeid
+    ja koodinäiteid Azure'i, .NET-i, Agent Frameworki, Aspire'i, VS Code'i, GitHubi
+    ja muu kohta. Vaikimisi kasutatakse Microsoft Learn MCP-i; Context7 ja Aspire
+    MCP-i kasutatakse sisu jaoks, mis asub väljaspool learn.microsoft.com-i.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/et/.agents/skills/microsoft-docs
+  updated_at: '1771568238'
+- rank: 38
+  id: microsoft-ai-agents-for-beginners-translations-fi-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Kysy virallista Microsoftin dokumentaatiota löytääksesi käsitteitä,
+    opetusohjelmia ja koodiesimerkkejä Azureen, .NET:iin, Agent Frameworkiin, Aspireen,
+    VS Codeen, GitHubiin ja muihin liittyen. Käyttää oletuksena Microsoft Learn MCP:tä,
+    sekä Context7:ää ja Aspire MCP:tä sisällölle, joka sijaitsee learn.microsoft.comin
+    ulkopuolella.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/fi/.agents/skills/microsoft-docs
+  updated_at: '1771575305'
+- rank: 39
+  id: microsoft-ai-agents-for-beginners-translations-fr-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Interroger la documentation officielle de Microsoft pour trouver des
+    concepts, des tutoriels et des exemples de code couvrant Azure, .NET, Agent Framework,
+    Aspire, VS Code, GitHub, et plus encore. Utilise Microsoft Learn MCP par défaut,
+    avec Context7 et Aspire MCP pour le contenu qui se trouve en dehors de learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/fr/.agents/skills/microsoft-docs
+  updated_at: '1771447586'
+- rank: 40
+  id: microsoft-ai-agents-for-beginners-translations-it-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Interroga la documentazione ufficiale Microsoft per trovare concetti,
+    tutorial ed esempi di codice relativi ad Azure, .NET, Agent Framework, Aspire,
+    VS Code, GitHub e altro. Usa Microsoft Learn MCP come predefinito, con Context7
+    e Aspire MCP per i contenuti che si trovano al di fuori di learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/it/.agents/skills/microsoft-docs
+  updated_at: '1771474489'
+- rank: 41
+  id: microsoft-ai-agents-for-beginners-translations-ja-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 公式の Microsoft ドキュメントを検索して、Azure、.NET、Agent Framework、Aspire、VS Code、GitHub
+    などの概念、チュートリアル、コード例を見つけます。既定では Microsoft Learn MCP を使用し、learn.microsoft.com の外にあるコンテンツには
+    Context7 と Aspire MCP を使用します。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ja/.agents/skills/microsoft-docs
+  updated_at: '1771582575'
+- rank: 42
+  id: microsoft-ai-agents-for-beginners-translations-kn-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: ಅಧಿಕೃತ Microsoft ಡಾಕ್ಯುಮೆಂಟೇಶನ್ ಅನ್ನು ಪ್ರಶ್ನೆ ಮಾಡಿ Azure, .NET, Agent
+    Framework, Aspire, VS Code, GitHub ಮತ್ತು ಇತರೆ ಸಂಬಂಧಿತ ವಿಷಯಗಳ ಮೇಲೆ ತತ್ವಗಳು, ಟ್ಯುಟೋರಿಯಲ್ಗಳು
+    ಮತ್ತು ಕೋಡ್ ಉದಾಹರಣೆಗಳನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ. ಡೀಫಾಲ್ಟ್‌ವಾಗಿ Microsoft Learn MCP ಅನ್ನು
+    ಬಳಸುತ್ತದೆ; learn.microsoft.com ಹೊರಗಿನ ವಿಷಯಗಳಿಗೆ Context7 ಮತ್ತು Aspire MCP ಅನ್ನು
+    ಬಳಸಲಾಗುತ್ತದೆ.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/kn/.agents/skills/microsoft-docs
+  updated_at: '1772897589'
+- rank: 43
+  id: microsoft-ai-agents-for-beginners-translations-lt-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Ieškokite oficialioje Microsoft dokumentacijoje sąvokų, pamokų ir kodo
+    pavyzdžių apie Azure, .NET, Agent Framework, Aspire, VS Code, GitHub ir dar daugiau.
+    Naudoja Microsoft Learn MCP kaip numatytąjį, o Context7 ir Aspire MCP — turiniui,
+    esantį už learn.microsoft.com ribų.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/lt/.agents/skills/microsoft-docs
+  updated_at: '1771489000'
+- rank: 44
+  id: microsoft-ai-agents-for-beginners-translations-ms-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Kueri dokumentasi rasmi Microsoft untuk mencari konsep, tutorial, dan
+    contoh kod merentas Azure, .NET, Agent Framework, Aspire, VS Code, GitHub, dan
+    banyak lagi. Menggunakan Microsoft Learn MCP sebagai lalai, dengan Context7 dan
+    Aspire MCP untuk kandungan yang berada di luar learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ms/.agents/skills/microsoft-docs
+  updated_at: '1771541208'
+- rank: 45
+  id: microsoft-ai-agents-for-beginners-translations-nl-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Doorzoek de officiële Microsoft-documentatie om concepten, tutorials
+    en codevoorbeelden te vinden voor Azure, .NET, Agent Framework, Aspire, VS Code,
+    GitHub en meer. Gebruikt Microsoft Learn MCP als standaard, met Context7 en Aspire
+    MCP voor inhoud die buiten learn.microsoft.com staat.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/nl/.agents/skills/microsoft-docs
+  updated_at: '1771562196'
+- rank: 46
+  id: microsoft-ai-agents-for-beginners-translations-no-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Søk i offisiell Microsoft-dokumentasjon for å finne konsepter, veiledninger
+    og kodeeksempler på tvers av Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
+    og mer. Bruker Microsoft Learn MCP som standard, med Context7 og Aspire MCP for
+    innhold som ligger utenfor learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/no/.agents/skills/microsoft-docs
+  updated_at: '1771575305'
+- rank: 47
+  id: microsoft-ai-agents-for-beginners-translations-pcm-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Na to search official Microsoft documentation make you fit find concepts,
+    tutorials, and code examples for Azure, .NET, Agent Framework, Aspire, VS Code,
+    GitHub, and plenty more. E dey use Microsoft Learn MCP as the default, together
+    with Context7 and Aspire MCP for content wey dey outside learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/pcm/.agents/skills/microsoft-docs
+  updated_at: '1771568238'
+- rank: 48
+  id: microsoft-ai-agents-for-beginners-translations-pl-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Przeszukaj oficjalną dokumentację Microsoft, aby znaleźć koncepcje,
+    samouczki i przykłady kodu dotyczące Azure, .NET, Agent Framework, Aspire, VS
+    Code, GitHub i innych. Domyślnie używa Microsoft Learn MCP, a dla treści znajdujących
+    się poza learn.microsoft.com korzysta z Context7 i Aspire MCP.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/pl/.agents/skills/microsoft-docs
+  updated_at: '1771474489'
+- rank: 49
+  id: microsoft-ai-agents-for-beginners-translations-pt-br-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Consultar a documentação oficial da Microsoft para encontrar conceitos,
+    tutoriais e exemplos de código sobre Azure, .NET, Agent Framework, Aspire, VS
+    Code, GitHub e muito mais. Usa o Microsoft Learn MCP como padrão, com Context7
+    e Aspire MCP para conteúdo que esteja fora do learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/pt-BR/.agents/skills/microsoft-docs
+  updated_at: '1771527606'
+- rank: 50
+  id: microsoft-ai-agents-for-beginners-translations-pt-pt-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Consultar a documentação oficial da Microsoft para encontrar conceitos,
+    tutoriais e exemplos de código sobre Azure, .NET, Agent Framework, Aspire, VS
+    Code, GitHub e mais. Utiliza o Microsoft Learn MCP como predefinição, com o Context7
+    e o Aspire MCP para conteúdo que se encontra fora do learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/pt-PT/.agents/skills/microsoft-docs
+  updated_at: '1771527606'

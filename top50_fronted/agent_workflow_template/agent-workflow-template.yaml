@@ -1,0 +1,110 @@
+# 模板唯一标识；用于在后续映射或注入阶段稳定引用这个模板。
+template_id: llm-ai-agent-workflow-v1
+
+# 模板适用范围；这里固定到 skillsmp 的 data-and-ai / llm-ai 小类，
+# 能力原型聚焦在 agent workflow，而不是整个 llm-ai 小类的所有能力。
+scope:
+  category_slug: data-and-ai
+  subcategory_slug: llm-ai
+  capability_archetype: agent_workflow
+
+# 4 个 family 角色的职责分工；
+# 不描述 pipeline，只描述这 4 个任务在同一能力原型下应该如何彼此区分。
+family_spec:
+  similar_focus: >
+    使用目标 skill 最典型的 agent 工作流能力，完成一次“目标分解 -> 执行 -> 交付”的主线任务。
+    任务应自然体现该 skill 的核心收益，而不是为了凑 family 强行变形。
+  transfer1_focus: >
+    保持 agent 工作流主线不变，但切换任务背景与输入材料类型；
+    例如从需求整理切到知识整合、从操作说明切到记录归档、从单源材料切到多源材料。
+  transfer2_focus: >
+    保持 agent 工作流主线不变，但切换最终主输出形态；
+    例如把主输出从结构化 JSON 切到 Markdown 报告、CSV 行动表、执行摘要或决策清单。
+  transfer3_focus: >
+    保持 agent 工作流主线不变，但把重点切到审计、诊断、恢复、纠错或约束满足；
+    让 skill 的规划、协调、检查或回滚能力成为主要价值点。
+
+# 中文 instruction 生成骨架；
+# shared_sections 定义所有角色都应出现的说明段落，
+# role_specific_guidance 用于告诉生成器每个角色应如何落题。
+instruction_scaffold_zh:
+  shared_sections:
+    - 任务背景：交代任务目标、上下文和工作对象。
+    - 输入资产位置：明确数据、文档、日志或配置片段所在路径。
+    - 目标输出路径：明确 primary_output_file 以及需要写出的关键结果文件。
+    - 必做动作：明确需要完成的规划、执行、汇总、校验或整理动作。
+    - 成功条件：明确字段、结构、排序、一致性或约束满足规则。
+    - 明确禁止事项：例如不要访问 tests 目录、不要依赖未提供的外部资源、不要添加多余字段。
+  role_specific_guidance:
+    similar: >
+      选择最符合目标 skill 常见使用场景的任务背景。输入材料复杂度应中等，既能体现工作流收益，
+      又不应让任务退化成单步提取或单轮问答。
+    transfer1: >
+      更换场景与素材，但仍需体现“接收目标 -> 分解 -> 处理 -> 交付”的多步链路。
+      变化重点放在输入材料形态、业务背景或资料组织方式。
+    transfer2: >
+      更换主输出物类型，但仍需保留结构化、可校验交付。
+      变化重点放在交付介质和结果组织方式，而不是换成完全不同的能力原型。
+    transfer3: >
+      强调诊断、审计、恢复、纠错或约束核验中的 agent 工作流能力。
+      任务应要求 skill 对中间状态、风险点或规则冲突进行处理，而不是只给出最终答案。
+
+# 任务包各组成部分的最小生成约束；
+# 这里不是让模板穷举所有字段，而是给后续生成器提供“如何落成 Harbor 真任务包”的核心指导。
+task_package_contract:
+  task_toml:
+    description: >
+      metadata.name 应显式包含 Similar 或 Transfer；metadata.description 应只描述任务目标和交付物；
+      primary_output_file 必须与 instruction 中声明的主输出路径一致；task_role 必须与 family 角色一致。
+  instruction_md:
+    description: >
+      instruction 只描述任务目标、输入、输出、规则和成功条件；
+      不直接点名 skill，不把解法步骤写成“请使用某技能”，而是让 skill 通过任务形态自然发挥作用。
+  environment:
+    description: >
+      输入资产应以本地可复现材料为主，可包含 brief、logs、notes、json、csv、markdown、配置片段等；
+      资产布局应简单清晰，方便 agent 读取，也方便 verifier 做对照。
+  environment_skills:
+    description: >
+      environment/skills/ 中只保留当前目标 skill；
+      任务必须在只提供这一个 shipped skill 的前提下成立，不能隐式依赖其他专用 skill。
+  solution:
+    description: >
+      solution/solve.sh 只能依赖 environment 提供的材料，必须产出主输出文件；
+      如有中间产物，可作为辅产物存在，但不能替代主输出，也不能读取 /tests/** 作为运行期输入。
+  tests:
+    description: >
+      tests 应验证主输出的结构、字段、排序、一致性与任务完成度；
+      verifier 应优先检查可观察结果，而不是要求暴露思维链或隐藏中间推理。
+
+# 输入输出契约；
+# allowed_inputs 限定这类模板适合接什么材料，
+# primary_output_patterns 给出主输出的推荐形态，
+# optional_secondary_outputs 允许少量辅产物，但不应喧宾夺主。
+io_contract:
+  allowed_inputs:
+    - brief_markdown
+    - logs
+    - notes
+    - json_records
+    - csv_tables
+    - config_snippets
+    - reference_docs
+  primary_output_patterns:
+    - report_json
+    - decision_log_json
+    - execution_summary_md
+    - action_plan_json
+    - structured_report_md
+  optional_secondary_outputs:
+    - trace_json
+    - audit_csv
+    - checklist_md
+
+# 模板级质量目标；
+# 用于约束后续生成出来的 family 是否仍然属于这个模板，而不是漂移成别的能力原型。
+quality_targets:
+  - similar 应贴近 agent-workflow 类 skill 的典型收益。
+  - 三个 transfer 必须彼此明显不同，且差异点要来自场景、输出或约束，而不是只改文件名。
+  - 输出必须结构化且可稳定判定。
+  - 任务应体现“规划/执行/汇总”链路，而不是退化成单步问答或纯内容生成。

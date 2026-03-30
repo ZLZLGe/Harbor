@@ -1,0 +1,661 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: data-and-ai
+category_name: Data & AI
+category_skill_count: 72353
+subcategory_slug: data-analysis
+subcategory_name: Data Analysis
+subcategory_skill_count: 5830
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=data-analysis
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 5830
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-data-analyst-skill-md
+  name: data-analyst
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'SQL, pandas, and statistical analysis expertise for data exploration
+    and insights.
+
+    Use when: analyzing data, writing SQL queries, using pandas, performing statistical
+    analysis,
+
+    or when user mentions data analysis, SQL, pandas, statistics, or needs help exploring
+    datasets.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/data-analyst
+  updated_at: '1770167437'
+- rank: 2
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-visualization-expert-skill-md
+  name: visualization-expert
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Chart selection and data visualization guidance for effective data
+    communication.
+
+    Use when: creating visualizations, choosing chart types, designing dashboards,
+    or when user
+
+    mentions data visualization, charts, graphs, or needs help presenting data visually.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/visualization-expert
+  updated_at: '1770167437'
+- rank: 3
+  id: wshobson-agents-plugins-security-scanning-skills-attack-tree-construction-skill-md
+  name: attack-tree-construction
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build comprehensive attack trees to visualize threat paths. Use when
+    mapping attack scenarios, identifying defense gaps, or communicating security
+    risks to stakeholders.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/attack-tree-construction
+  updated_at: '1772898797'
+- rank: 4
+  id: wshobson-agents-plugins-business-analytics-skills-data-storytelling-skill-md
+  name: data-storytelling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Transform data into compelling narratives using visualization, context,
+    and persuasive structure. Use when presenting analytics to stakeholders, creating
+    data reports, or building executive presentations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/data-storytelling
+  updated_at: '1772898797'
+- rank: 5
+  id: wshobson-agents-plugins-data-engineering-skills-dbt-transformation-patterns-skill-md
+  name: dbt-transformation-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master dbt (data build tool) for analytics engineering with model organization,
+    testing, documentation, and incremental strategies. Use when building data transformations,
+    creating data models, or implementing analytics engineering best practices.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/data-engineering/skills/dbt-transformation-patterns
+  updated_at: '1772898797'
+- rank: 6
+  id: wshobson-agents-plugins-observability-monitoring-skills-grafana-dashboards-skill-md
+  name: grafana-dashboards
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create and manage production Grafana dashboards for real-time visualization
+    of system and application metrics. Use when building monitoring dashboards, visualizing
+    metrics, or creating operational observability interfaces.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/observability-monitoring/skills/grafana-dashboards
+  updated_at: '1772898797'
+- rank: 7
+  id: wshobson-agents-plugins-business-analytics-skills-kpi-dashboard-design-skill-md
+  name: kpi-dashboard-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design effective KPI dashboards with metrics selection, visualization
+    best practices, and real-time monitoring patterns. Use this skill when building
+    an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing
+    an operations center with live service health and request throughput; creating
+    a cohort retention analysis view for a product team; or debugging a dashboard
+    where metrics contradict each other due to inconsistent calculation methodology.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/kpi-dashboard-design
+  updated_at: '1774541149'
+- rank: 8
+  id: wshobson-agents-plugins-startup-business-analyst-skills-market-sizing-analysis-skill-md
+  name: market-sizing-analysis
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Calculate TAM/SAM/SOM for market opportunities using top-down, bottom-up,
+    and value theory methodologies. Use this skill when sizing markets, estimating
+    addressable revenue, validating market opportunity for a new venture, or building
+    investor-ready market analysis for a startup pitch or business plan.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/market-sizing-analysis
+  updated_at: '1774489443'
+- rank: 9
+  id: wshobson-agents-plugins-agent-teams-skills-multi-reviewer-patterns-skill-md
+  name: multi-reviewer-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Coordinate parallel code reviews across multiple quality dimensions
+    with finding deduplication, severity calibration, and consolidated reporting.
+    Use this skill when organizing multi-reviewer code reviews, calibrating finding
+    severity, or consolidating review results.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/multi-reviewer-patterns
+  updated_at: '1770331350'
+- rank: 10
+  id: wshobson-agents-plugins-developer-essentials-skills-sql-optimization-patterns-skill-md
+  name: sql-optimization-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master SQL query optimization, indexing strategies, and EXPLAIN analysis
+    to dramatically improve database performance and eliminate slow queries. Use when
+    debugging slow queries, designing database schemas, or optimizing application
+    performance.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/sql-optimization-patterns
+  updated_at: '1772898797'
+- rank: 11
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-financial-modeling-skill-md
+  name: startup-financial-modeling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build comprehensive 3-5 year financial models with revenue projections,
+    cost structures, cash flow analysis, and scenario planning for early-stage startups.
+    Use this skill when creating financial projections, calculating burn rate or runway,
+    modeling fundraising scenarios, or preparing investor-ready financials for a seed
+    or Series A raise.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-financial-modeling
+  updated_at: '1774489443'
+- rank: 12
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-metrics-framework-skill-md
+  name: startup-metrics-framework
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Track, calculate, and optimize key performance metrics for SaaS, marketplace,
+    consumer, and B2B startups from seed through Series A, including unit economics,
+    growth efficiency, and cash management. Use this skill when defining a metrics
+    framework, calculating CAC/LTV/burn multiple, benchmarking business health, or
+    preparing metrics dashboards for investors or board reporting.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-metrics-framework
+  updated_at: '1774489443'
+- rank: 13
+  id: wshobson-agents-plugins-startup-business-analyst-skills-team-composition-analysis-skill-md
+  name: team-composition-analysis
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design optimal team structures, hiring plans, compensation strategies,
+    and equity allocation for early-stage startups from pre-seed through Series A.
+    Use this skill when planning headcount, determining which roles to hire next,
+    setting compensation or equity ranges, designing org structure, or building a
+    hiring budget aligned to funding milestones.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/team-composition-analysis
+  updated_at: '1774489443'
+- rank: 14
+  id: sickn33-antigravity-awesome-skills-skills-oral-health-analyzer-skill-md
+  name: oral-health-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析口腔健康数据、识别口腔问题模式、评估口腔健康状况、提供个性化口腔健康建议。支持与营养、慢性病、用药等其他健康数据的关联分析。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/oral-health-analyzer
+  updated_at: '1773994629'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-plotly-skill-md
+  name: plotly
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Interactive visualization library. Use when you need hover info, zoom,
+    pan, or web-embeddable charts. Best for dashboards, exploratory analysis, and
+    presentations. For static publication figures use matplotlib or scientific-visualization.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/plotly
+  updated_at: '1773994629'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-seaborn-skill-md
+  name: seaborn
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Seaborn is a Python visualization library for creating publication-quality
+    statistical graphics. Use this skill for dataset-oriented plotting, multivariate
+    analysis, automatic statistical estimation, and complex multi-panel figures with
+    minimal code.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seaborn
+  updated_at: '1773994629'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-sexual-health-analyzer-skill-md
+  name: sexual-health-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Sexual Health Analyzer
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sexual-health-analyzer
+  updated_at: '1773994629'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-travel-health-analyzer-skill-md
+  name: travel-health-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析旅行健康数据、评估目的地健康风险、提供疫苗接种建议、生成多语言紧急医疗信息卡片。支持WHO/CDC数据集成的专业级旅行健康风险评估。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/travel-health-analyzer
+  updated_at: '1773994629'
+- rank: 19
+  id: github-awesome-copilot-skills-powerbi-modeling-skill-md
+  name: powerbi-modeling
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Power BI semantic modeling assistant for building optimized data models.
+    Use when working with Power BI semantic models, creating measures, designing star
+    schemas, configuring relationships, implementing RLS, or optimizing model performance.
+    Triggers on queries about DAX calculations, table relationships, dimension/fact
+    table design, naming conventions, model documentation, cardinality, cross-filter
+    direction, calculation groups, and data model best practices. Always connects
+    to the active model first using power-bi-modeling MCP tools to understand the
+    data structure before providing guidance.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/powerbi-modeling
+  updated_at: '1770112195'
+- rank: 20
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-clinical-decision-support-skill-md
+  name: clinical-decision-support
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Generate professional clinical decision support (CDS) documents for
+    pharmaceutical and clinical research settings, including patient cohort analyses
+    (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based
+    guidelines with decision algorithms). Supports GRADE evidence grading, statistical
+    analysis (hazard ratios, survival curves, waterfall plots), biomarker integration,
+    and regulatory compliance. Outputs publication-ready LaTeX/PDF format optimized
+    for drug development, clinical research, and evidence synthesis.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/clinical-decision-support
+  updated_at: '1766265230'
+- rank: 21
+  id: davila7-claude-code-templates-cli-tool-components-skills-enterprise-communication-excel-analysis-skill-md
+  name: excel-analysis
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Analyze Excel spreadsheets, create pivot tables, generate charts, and
+    perform data analysis. Use when analyzing Excel files, spreadsheets, tabular data,
+    or .xlsx files.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/enterprise-communication/excel-analysis
+  updated_at: '1760736454'
+- rank: 22
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-market-research-reports-skill-md
+  name: market-research-reports
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Generate comprehensive market research reports (50+ pages) in the style
+    of top consulting firms (McKinsey, BCG, Gartner). Features professional LaTeX
+    formatting, extensive visual generation with scientific-schematics and generate-image,
+    deep integration with research-lookup for data gathering, and multi-framework
+    strategic analysis including Porter's Five Forces, PESTLE, SWOT, TAM/SAM/SOM,
+    and BCG Matrix.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/market-research-reports
+  updated_at: '1766265230'
+- rank: 23
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-scientific-schematics-skill-md
+  name: scientific-schematics
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Create publication-quality scientific diagrams using Nano Banana Pro
+    AI with smart iterative refinement. Uses Gemini 3 Pro for quality review. Only
+    regenerates if quality is below threshold for your document type. Specialized
+    in neural network architectures, system diagrams, flowcharts, biological pathways,
+    and complex scientific visualizations.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/scientific-schematics
+  updated_at: '1766265230'
+- rank: 24
+  id: elastic-kibana-agents-skills-validate-oas-skill-md
+  name: validate-oas
+  author: elastic
+  stars: 21027
+  forks: 8547
+  description: Use when you only need a quick VALID or NOT VALID result for a scoped
+    Kibana OAS area, without detailed issue analysis.
+  github_url: https://github.com/elastic/kibana/tree/main/.agents/skills/validate-oas
+  updated_at: '1773934187'
+- rank: 25
+  id: iofficeai-aionui-src-process-resources-skills-officecli-data-dashboard-skill-md
+  name: data-dashboard
+  author: iOfficeAI
+  stars: 20352
+  forks: 1624
+  description: 'Use this skill when the user wants to create a data dashboard, analytics
+    dashboard, KPI dashboard, or executive summary from CSV/tabular data in Excel
+    format. Trigger on: ''dashboard'', ''KPI report'', ''analytics summary'', ''data
+    visualization'', ''CSV to Excel dashboard'', ''executive dashboard'', ''metrics
+    dashboard''. Output is always a single .xlsx file.'
+  github_url: https://github.com/iOfficeAI/AionUi/tree/main/src/process/resources/skills/officecli-data-dashboard
+  updated_at: '1774670026'
+- rank: 26
+  id: eosphoros-ai-db-gpt-skills-walmart-sales-analyzer-skill-md
+  name: walmart-sales-analyzer
+  author: eosphoros-ai
+  stars: 18388
+  forks: 2595
+  description: Analyze Walmart sales data to explore trends between store sales and
+    unemployment rates. Generate insightful visualizations and a beautiful HTML report
+    with deep analysis. Suitable for quick insights into the relationship between
+    sales data and macroeconomic factors.
+  github_url: https://github.com/eosphoros-ai/DB-GPT/tree/main/skills/walmart-sales-analyzer
+  updated_at: '1773633342'
+- rank: 27
+  id: langchain-ai-deepagents-examples-text-to-sql-agent-skills-query-writing-skill-md
+  name: query-writing
+  author: langchain-ai
+  stars: 17871
+  forks: 2512
+  description: Writes and executes SQL queries from simple SELECTs to complex multi-table
+    JOINs, aggregations, and subqueries. Use when the user asks to query a database,
+    write SQL, run a SELECT statement, retrieve data, filter records, or generate
+    reports from database tables.
+  github_url: https://github.com/langchain-ai/deepagents/tree/main/examples/text-to-sql-agent/skills/query-writing
+  updated_at: '1773720926'
+- rank: 28
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-anndata-skill-md
+  name: anndata
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Data structure for annotated matrices in single-cell analysis. Use
+    when working with .h5ad files or integrating with the scverse ecosystem. This
+    is the data format skill—for analysis workflows use scanpy; for probabilistic
+    models use scvi-tools; for population-scale queries use cellxgene-census.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/anndata
+  updated_at: '1772554803'
+- rank: 29
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-cellxgene-census-skill-md
+  name: cellxgene-census
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query the CELLxGENE Census (61M+ cells) programmatically. Use when
+    you need expression data across tissues, diseases, or cell types from the largest
+    curated single-cell atlas. Best for population-scale queries, reference atlas
+    comparisons. For analyzing your own data use scanpy or scvi-tools.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/cellxgene-census
+  updated_at: '1772554803'
+- rank: 30
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-clinical-decision-support-skill-md
+  name: clinical-decision-support
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Generate professional clinical decision support (CDS) documents for
+    pharmaceutical and clinical research settings, including patient cohort analyses
+    (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based
+    guidelines with decision algorithms). Supports GRADE evidence grading, statistical
+    analysis (hazard ratios, survival curves, waterfall plots), biomarker integration,
+    and regulatory compliance. Outputs publication-ready LaTeX/PDF format optimized
+    for drug development, clinical research, and evidence synthesis.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/clinical-decision-support
+  updated_at: '1772554803'
+- rank: 31
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-dask-skill-md
+  name: dask
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Distributed computing for larger-than-RAM pandas/NumPy workflows. Use
+    when you need to scale existing pandas/NumPy code beyond memory or across clusters.
+    Best for parallel file processing, distributed ML, integration with existing pandas
+    code. For out-of-core analytics on single machine use vaex; for in-memory speed
+    use polars.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/dask
+  updated_at: '1772554803'
+- rank: 32
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-datacommons-client-skill-md
+  name: datacommons-client
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Work with Data Commons, a platform providing programmatic access to
+    public statistical data from global sources. Use this skill when working with
+    demographic data, economic indicators, health statistics, environmental data,
+    or any public datasets available through Data Commons. Applicable for querying
+    population statistics, GDP figures, unemployment rates, disease prevalence, geographic
+    entity resolution, and exploring relationships between statistical entities.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/datacommons-client
+  updated_at: '1772554803'
+- rank: 33
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-deeptools-skill-md
+  name: deeptools
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA,
+    fingerprints), heatmaps/profiles (TSS, peaks), for ChIP-seq, RNA-seq, ATAC-seq
+    visualization.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/deeptools
+  updated_at: '1772554803'
+- rank: 34
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-exploratory-data-analysis-skill-md
+  name: exploratory-data-analysis
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Perform comprehensive exploratory data analysis on scientific data
+    files across 200+ file formats. This skill should be used when analyzing any scientific
+    data file to understand its structure, content, quality, and characteristics.
+    Automatically detects file type and generates detailed markdown reports with format-specific
+    analysis, quality metrics, and downstream analysis recommendations. Covers chemistry,
+    bioinformatics, microscopy, spectroscopy, proteomics, metabolomics, and general
+    scientific data formats.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/exploratory-data-analysis
+  updated_at: '1772554803'
+- rank: 35
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-geopandas-skill-md
+  name: geopandas
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Python library for working with geospatial vector data including shapefiles,
+    GeoJSON, and GeoPackage files. Use when working with geographic data for spatial
+    analysis, geometric operations, coordinate transformations, spatial joins, overlay
+    operations, choropleth mapping, or any task involving reading/writing/analyzing
+    vector geographic data. Supports PostGIS databases, interactive maps, and integration
+    with matplotlib/folium/cartopy. Use for tasks like buffer analysis, spatial joins
+    between datasets, dissolving boundaries, clipping data, calculating areas/distances,
+    reprojecting coordinate systems, creating maps, or converting between spatial
+    file formats.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/geopandas
+  updated_at: '1772554803'
+- rank: 36
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-hypogenic-skill-md
+  name: hypogenic
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Automated LLM-driven hypothesis generation and testing on tabular datasets.
+    Use when you want to systematically explore hypotheses about patterns in empirical
+    data (e.g., deception detection, content analysis). Combines literature insights
+    with data-driven hypothesis testing. For manual hypothesis formulation use hypothesis-generation;
+    for creative ideation use scientific-brainstorming.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/hypogenic
+  updated_at: '1772554803'
+- rank: 37
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-infographics-skill-md
+  name: infographics
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Create professional infographics using Nano Banana Pro AI with smart
+    iterative refinement. Uses Gemini 3 Pro for quality review. Integrates research-lookup
+    and web search for accurate data. Supports 10 infographic types, 8 industry styles,
+    and colorblind-safe palettes.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/infographics
+  updated_at: '1771878965'
+- rank: 38
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-market-research-reports-skill-md
+  name: market-research-reports
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Generate comprehensive market research reports (50+ pages) in the style
+    of top consulting firms (McKinsey, BCG, Gartner). Features professional LaTeX
+    formatting, extensive visual generation with scientific-schematics and generate-image,
+    deep integration with research-lookup for data gathering, and multi-framework
+    strategic analysis including Porter Five Forces, PESTLE, SWOT, TAM/SAM/SOM, and
+    BCG Matrix.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/market-research-reports
+  updated_at: '1772554803'
+- rank: 39
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-matlab-skill-md
+  name: matlab
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: MATLAB and GNU Octave numerical computing for matrix operations, data
+    analysis, visualization, and scientific computing. Use when writing MATLAB/Octave
+    scripts for linear algebra, signal processing, image processing, differential
+    equations, optimization, statistics, or creating scientific visualizations. Also
+    use when the user needs help with MATLAB syntax, functions, or wants to convert
+    between MATLAB and Python code. Scripts can be executed with MATLAB or the open-source
+    GNU Octave interpreter.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/matlab
+  updated_at: '1767636922'
+- rank: 40
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-matplotlib-skill-md
+  name: matplotlib
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Low-level plotting library for full customization. Use when you need
+    fine-grained control over every plot element, creating novel plot types, or integrating
+    with specific scientific workflows. Export to PNG/PDF/SVG for publication. For
+    quick statistical plots use seaborn; for interactive plots use plotly; for publication-ready
+    multi-panel figures with journal styling, use scientific-visualization.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/matplotlib
+  updated_at: '1772554803'
+- rank: 41
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-networkx-skill-md
+  name: networkx
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive toolkit for creating, analyzing, and visualizing complex
+    networks and graphs in Python. Use when working with network/graph data structures,
+    analyzing relationships between entities, computing graph algorithms (shortest
+    paths, centrality, clustering), detecting communities, generating synthetic networks,
+    or visualizing network topologies. Applicable to social networks, biological networks,
+    transportation systems, citation networks, and any domain involving pairwise relationships.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/networkx
+  updated_at: '1772554803'
+- rank: 42
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-neurokit2-skill-md
+  name: neurokit2
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive biosignal processing toolkit for analyzing physiological
+    data including ECG, EEG, EDA, RSP, PPG, EMG, and EOG signals. Use this skill when
+    processing cardiovascular signals, brain activity, electrodermal responses, respiratory
+    patterns, muscle activity, or eye movements. Applicable for heart rate variability
+    analysis, event-related potentials, complexity measures, autonomic nervous system
+    assessment, psychophysiology research, and multi-modal physiological signal integration.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/neurokit2
+  updated_at: '1772554803'
+- rank: 43
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-plotly-skill-md
+  name: plotly
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Interactive visualization library. Use when you need hover info, zoom,
+    pan, or web-embeddable charts. Best for dashboards, exploratory analysis, and
+    presentations. For static publication figures use matplotlib or scientific-visualization.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/plotly
+  updated_at: '1772554803'
+- rank: 44
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-polars-skill-md
+  name: polars
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Fast in-memory DataFrame library for datasets that fit in RAM. Use
+    when pandas is too slow but data still fits in memory. Lazy evaluation, parallel
+    execution, Apache Arrow backend. Best for 1-100GB datasets, ETL pipelines, faster
+    pandas replacement. For larger-than-RAM data use dask or vaex.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/polars
+  updated_at: '1772554803'
+- rank: 45
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-pydeseq2-skill-md
+  name: pydeseq2
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Differential gene expression analysis (Python DESeq2). Identify DE
+    genes from bulk RNA-seq counts, Wald tests, FDR correction, volcano/MA plots,
+    for RNA-seq analysis.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pydeseq2
+  updated_at: '1772554803'
+- rank: 46
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-reactome-database-skill-md
+  name: reactome-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query Reactome REST API for pathway analysis, enrichment, gene-pathway
+    mapping, disease pathways, molecular interactions, expression analysis, for systems
+    biology studies.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/reactome-database
+  updated_at: '1772554803'
+- rank: 47
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-scientific-schematics-skill-md
+  name: scientific-schematics
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Create publication-quality scientific diagrams using Nano Banana 2
+    AI with smart iterative refinement. Uses Gemini 3.1 Pro Preview for quality review.
+    Only regenerates if quality is below threshold for your document type. Specialized
+    in neural network architectures, system diagrams, flowcharts, biological pathways,
+    and complex scientific visualizations.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/scientific-schematics
+  updated_at: '1772734097'
+- rank: 48
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-scientific-visualization-skill-md
+  name: scientific-visualization
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Meta-skill for publication-ready figures. Use when creating journal
+    submission figures requiring multi-panel layouts, significance annotations, error
+    bars, colorblind-safe palettes, and specific journal formatting (Nature, Science,
+    Cell). Orchestrates matplotlib/seaborn/plotly with publication styles. For quick
+    exploration use seaborn or plotly directly.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/scientific-visualization
+  updated_at: '1772554803'
+- rank: 49
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-scikit-survival-skill-md
+  name: scikit-survival
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive toolkit for survival analysis and time-to-event modeling
+    in Python using scikit-survival. Use this skill when working with censored survival
+    data, performing time-to-event analysis, fitting Cox models, Random Survival Forests,
+    Gradient Boosting models, or Survival SVMs, evaluating survival predictions with
+    concordance index or Brier score, handling competing risks, or implementing any
+    survival analysis workflow with the scikit-survival library.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/scikit-survival
+  updated_at: '1772554803'
+- rank: 50
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-scvi-tools-skill-md
+  name: scvi-tools
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Deep generative models for single-cell omics. Use when you need probabilistic
+    batch correction (scVI), transfer learning, differential expression with uncertainty,
+    or multi-modal integration (TOTALVI, MultiVI). Best for advanced modeling, batch
+    effects, multimodal data. For standard analysis pipelines use scanpy.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/scvi-tools
+  updated_at: '1772554803'

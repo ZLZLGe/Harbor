@@ -1,0 +1,586 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: package-distribution
+subcategory_name: Package & Distribution
+subcategory_skill_count: 5514
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=package-distribution
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 5514
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-agents-skills-bun-runtime-skill-md
+  name: bun-runtime
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Bun as runtime, package manager, bundler, and test runner. When to
+    choose Bun vs Node, migration notes, and Vercel support.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/bun-runtime
+  updated_at: '1773695038'
+- rank: 2
+  id: affaan-m-everything-claude-code-cursor-skills-bun-runtime-skill-md
+  name: bun-runtime
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Bun as runtime, package manager, bundler, and test runner. When to
+    choose Bun vs Node, migration notes, and Vercel support.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/bun-runtime
+  updated_at: '1773695020'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-tr-skills-python-patterns-skill-md
+  name: python-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Pythonic idiomlar, PEP 8 standartları, type hint'ler ve sağlam, verimli
+    ve bakımı kolay Python uygulamaları oluşturmak için en iyi uygulamalar.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/python-patterns
+  updated_at: '1774219024'
+- rank: 4
+  id: affaan-m-everything-claude-code-skills-python-patterns-skill-md
+  name: python-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Pythonic idioms, PEP 8 standards, type hints, and best practices for
+    building robust, efficient, and maintainable Python applications.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/python-patterns
+  updated_at: '1771862457'
+- rank: 5
+  id: lobehub-lobehub-agents-skills-version-release-skill-md
+  name: version-release
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Version release workflow. Use when the user mentions 'release', 'hotfix',
+    'version upgrade', 'weekly release', or '发版'/'发布'/'小班车'. Provides guides for Minor
+    Release and Patch Release workflows.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/version-release
+  updated_at: '1773647294'
+- rank: 6
+  id: openhands-openhands-agents-skills-update-sdk-skill-md
+  name: update-sdk
+  author: OpenHands
+  stars: 70011
+  forks: 8772
+  description: This skill should be used when the user asks to "update SDK", "bump
+    SDK version", "pin SDK to a commit", "test unreleased SDK", "update agent-server
+    image", "bump the version", "prepare a release", "what files change for a release",
+    or needs to know how SDK packages are managed in the OpenHands repository. For
+    detailed reference material, see references/docker-image-locations.md and references/sdk-pinning-examples.md
+    in this skill directory.
+  github_url: https://github.com/OpenHands/OpenHands/tree/main/.agents/skills/update-sdk
+  updated_at: '1773077010'
+- rank: 7
+  id: microsoft-ai-agents-for-beginners-translations-zh-cn-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 在用户请求为实验、探索或教程创建、搭建或编辑 Jupyter 笔记本（`.ipynb`）时使用；优先使用捆绑的模板并运行辅助脚本 `new_notebook.py`
+    来生成一个干净的起始笔记本。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/zh-CN/.agents/skills/jupyter-notebook
+  updated_at: '1771481062'
+- rank: 8
+  id: tldraw-tldraw-claude-skills-update-release-notes-skill-md
+  name: update-release-notes
+  author: tldraw
+  stars: 46086
+  forks: 3105
+  description: Update the release notes file at `apps/docs/content/releases/next.mdx`
+    in the tldraw/tldraw repo based on PRs since the previous release, or archive
+    `next.mdx` to a versioned file when a new version is published.
+  github_url: https://github.com/tldraw/tldraw/tree/main/.claude/skills/update-release-notes
+  updated_at: '1774174239'
+- rank: 9
+  id: remix-run-remix-agents-skills-add-package-skill-md
+  name: add-package
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Create or align a package in the Remix monorepo to match existing package
+    conventions. Use when adding a brand new package under packages/, or when fixing
+    an existing package's structure, test setup, TypeScript/build config, code style,
+    and README layout to match the rest of Remix 3.
+  github_url: https://github.com/remix-run/remix/tree/main/.agents/skills/add-package
+  updated_at: '1773435941'
+- rank: 10
+  id: remix-run-remix-agents-skills-make-change-file-skill-md
+  name: make-change-file
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Create or update Remix repo change files under `packages/*/.changes`.
+    Use when a user asks for release notes, a change file, a missing changelog entry,
+    a prerelease note, or an update to existing unpublished release notes.
+  github_url: https://github.com/remix-run/remix/tree/main/.agents/skills/make-change-file
+  updated_at: '1773435941'
+- rank: 11
+  id: remix-run-remix-agents-skills-publish-placeholder-package-skill-md
+  name: publish-placeholder-package
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Publish a placeholder npm package at version 0.0.0 so package names
+    are reserved and npm OIDC permissions can be configured before CI publishing.
+    Use when creating a brand-new package that is not ready for full release.
+  github_url: https://github.com/remix-run/remix/tree/main/.agents/skills/publish-placeholder-package
+  updated_at: '1773435941'
+- rank: 12
+  id: remix-run-remix-agents-skills-write-readme-skill-md
+  name: write-readme
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Write or rewrite package README files in the style used by the Remix
+    repository. Use when drafting a new package README, revising an existing README,
+    or reviewing README structure, examples, installation instructions, and section
+    ordering for Remix packages.
+  github_url: https://github.com/remix-run/remix/tree/main/.agents/skills/write-readme
+  updated_at: '1773435941'
+- rank: 13
+  id: wshobson-agents-plugins-documentation-generation-skills-changelog-automation-skill-md
+  name: changelog-automation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Automate changelog generation from commits, PRs, and releases following
+    Keep a Changelog format. Use when setting up release workflows, generating release
+    notes, or standardizing commit conventions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/documentation-generation/skills/changelog-automation
+  updated_at: '1772898797'
+- rank: 14
+  id: wshobson-agents-plugins-framework-migration-skills-dependency-upgrade-skill-md
+  name: dependency-upgrade
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Manage major dependency version upgrades with compatibility analysis,
+    staged rollout, and comprehensive testing. Use when upgrading framework versions,
+    updating major dependencies, or managing breaking changes in libraries.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/dependency-upgrade
+  updated_at: '1772898797'
+- rank: 15
+  id: wshobson-agents-plugins-developer-essentials-skills-monorepo-management-skill-md
+  name: monorepo-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master monorepo management with Turborepo, Nx, and pnpm workspaces
+    to build efficient, scalable multi-package repositories with optimized builds
+    and dependency management. Use when setting up monorepos, optimizing builds, or
+    managing shared dependencies.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/monorepo-management
+  updated_at: '1772898797'
+- rank: 16
+  id: wshobson-agents-plugins-python-development-skills-python-configuration-skill-md
+  name: python-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python configuration management via environment variables and typed
+    settings. Use when externalizing config, setting up pydantic-settings, managing
+    secrets, or implementing environment-specific behavior.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-configuration
+  updated_at: '1769791934'
+- rank: 17
+  id: wshobson-agents-plugins-python-development-skills-python-packaging-skill-md
+  name: python-packaging
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create distributable Python packages with proper project structure,
+    setup.py/pyproject.toml, and publishing to PyPI. Use when packaging Python libraries,
+    creating CLI tools, or distributing Python code.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-packaging
+  updated_at: '1774489667'
+- rank: 18
+  id: wshobson-agents-plugins-python-development-skills-python-project-structure-skill-md
+  name: python-project-structure
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python project organization, module architecture, and public API design.
+    Use when setting up new projects, organizing modules, defining public interfaces
+    with __all__, or planning directory layouts.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-project-structure
+  updated_at: '1769791934'
+- rank: 19
+  id: wshobson-agents-plugins-developer-essentials-skills-turborepo-caching-skill-md
+  name: turborepo-caching
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure Turborepo for efficient monorepo builds with local and remote
+    caching. Use when setting up Turborepo, optimizing build pipelines, or implementing
+    distributed caching.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/turborepo-caching
+  updated_at: '1772898797'
+- rank: 20
+  id: cockroachdb-cockroach-claude-skills-bump-cluster-ui-skill-md
+  name: bump-cluster-ui
+  author: cockroachdb
+  stars: 31973
+  forks: 4104
+  description: Bump cluster-ui package version after a release branch cut. Creates
+    two PRs — one to drop the prerelease suffix on the release branch and one to increment
+    the minor version on master.
+  github_url: https://github.com/cockroachdb/cockroach/tree/master/.claude/skills/bump-cluster-ui
+  updated_at: '1774457781'
+- rank: 21
+  id: nrwl-nx-claude-skills-nx-gradle-plugin-version-bump-skill-md
+  name: nx-gradle-plugin-version-bump
+  author: nrwl
+  stars: 28427
+  forks: 2694
+  description: Bump the dev.nx.gradle.project-graph plugin version. Use when updating
+    the Gradle project graph plugin version across the codebase, creating the migration
+    files, and updating migrations.json.
+  github_url: https://github.com/nrwl/nx/tree/master/.claude/skills/nx-gradle-plugin-version-bump
+  updated_at: '1774378184'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-azure-containerregistry-py-skill-md
+  name: azure-containerregistry-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Container Registry SDK for Python. Use for managing container
+    images, artifacts, and repositories.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-containerregistry-py
+  updated_at: '1772354305'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-azure-storage-file-share-py-skill-md
+  name: azure-storage-file-share-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Storage File Share SDK for Python. Use for SMB file shares, directories,
+    and file operations in the cloud.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-storage-file-share-py
+  updated_at: '1772354305'
+- rank: 24
+  id: sickn33-antigravity-awesome-skills-skills-devcontainer-setup-skill-md
+  name: devcontainer-setup
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go),
+    and persistent volumes. Use when adding devcontainer support to a project, setting
+    up isolated development environments, or configuring sandboxed Claude Code workspaces.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/devcontainer-setup
+  updated_at: '1773994005'
+- rank: 25
+  id: sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-playwright-skill-skill-md
+  name: playwright-skill
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'IMPORTANT - Path Resolution: This skill can be installed in different
+    locations (plugin system, manual installation, global, or project-specific). Before
+    executing any commands, determine the skill directory based on where you loaded
+    this SKILL.md file, and use that path in all commands below.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-awesome-skills-claude/skills/playwright-skill
+  updated_at: '1774603096'
+- rank: 26
+  id: sickn33-antigravity-awesome-skills-skills-python-development-python-scaffold-skill-md
+  name: python-development-python-scaffold
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a Python project architecture expert specializing in scaffolding
+    production-ready Python applications. Generate complete project structures with
+    modern tooling (uv, FastAPI, Django), type hint
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/python-development-python-scaffold
+  updated_at: '1772180381'
+- rank: 27
+  id: sickn33-antigravity-awesome-skills-skills-python-packaging-skill-md
+  name: python-packaging
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive guide to creating, structuring, and distributing Python
+    packages using modern packaging tools, pyproject.toml, and publishing to PyPI.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/python-packaging
+  updated_at: '1773994005'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-python-pro-skill-md
+  name: python-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Python 3.12+ with modern features, async programming, performance
+    optimization, and production-ready practices. Expert in the latest Python ecosystem
+    including uv, ruff, pydantic, and FastAPI.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/python-pro
+  updated_at: '1772354305'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-uv-package-manager-skill-md
+  name: uv-package-manager
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive guide to using uv, an extremely fast Python package installer
+    and resolver written in Rust, for modern Python project management and dependency
+    workflows.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/uv-package-manager
+  updated_at: '1773994005'
+- rank: 30
+  id: github-awesome-copilot-skills-aws-cdk-python-setup-skill-md
+  name: aws-cdk-python-setup
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Setup and initialization guide for developing AWS CDK (Cloud Development
+    Kit) applications in Python. This skill enables users to configure environment
+    prerequisites, create new CDK projects, manage dependencies, and deploy to AWS.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/aws-cdk-python-setup
+  updated_at: '1773878530'
+- rank: 31
+  id: github-awesome-copilot-skills-dataverse-python-quickstart-skill-md
+  name: dataverse-python-quickstart
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate Python SDK setup + CRUD + bulk + paging snippets using official
+    patterns.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/dataverse-python-quickstart
+  updated_at: '1771904373'
+- rank: 32
+  id: github-awesome-copilot-skills-python-mcp-server-generator-skill-md
+  name: python-mcp-server-generator
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate a complete MCP server project in Python with tools, resources,
+    and proper configuration
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/python-mcp-server-generator
+  updated_at: '1771904373'
+- rank: 33
+  id: github-awesome-copilot-skills-sandbox-npm-install-skill-md
+  name: sandbox-npm-install
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Install npm packages in a Docker sandbox environment. Use this skill
+    whenever you need to install, reinstall, or update node_modules inside a container
+    where the workspace is mounted via virtiofs. Native binaries (esbuild, lightningcss,
+    rollup) crash on virtiofs, so packages must be installed on the local ext4 filesystem
+    and symlinked back.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/sandbox-npm-install
+  updated_at: '1773617252'
+- rank: 34
+  id: github-awesome-copilot-skills-update-llms-skill-md
+  name: update-llms
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Update the llms.txt file in the root folder to reflect changes in documentation
+    or specifications following the llms.txt specification at https://llmstxt.org/
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/update-llms
+  updated_at: '1771904373'
+- rank: 35
+  id: wilsonfreitas-awesome-quant-claude-skills-update-pypi-dates-skill-md
+  name: update-pypi-dates
+  author: wilsonfreitas
+  stars: 25170
+  forks: 3330
+  description: Check PyPI projects for last updated dates and update README.md entries.
+    Use this skill to keep PyPI project information current with latest release dates
+    from PyPI. Run periodically to maintain up-to-date metadata on Python packages
+    listed in awesome-quant.
+  github_url: https://github.com/wilsonfreitas/awesome-quant/tree/main/.claude/skills/update-pypi-dates
+  updated_at: '1774185499'
+- rank: 36
+  id: paddlepaddle-paddle-agents-skills-paddle-build-skill-md
+  name: paddle-build
+  author: PaddlePaddle
+  stars: 23784
+  forks: 5977
+  description: Use when needing to compile, rebuild, or install Paddle from source
+    after code changes. Covers cmake configuration, ninja incremental build, wheel
+    packaging, and common build failure diagnosis.
+  github_url: https://github.com/PaddlePaddle/Paddle/tree/develop/.agents/skills/paddle-build
+  updated_at: '1774538844'
+- rank: 37
+  id: davila7-claude-code-templates-cli-tool-components-skills-pocketbase-pb-deploy-skill-md
+  name: pocketbase-deploy
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Production deployment for PocketBase. Use when deploying PocketBase
+    to a server, setting up Docker, configuring systemd, reverse proxy (nginx/Caddy),
+    TLS, SMTP, backups, S3 storage, rate limiting, or hardening for production. Provides
+    ready-to-use configs.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/pocketbase/pb-deploy
+  updated_at: '1773187929'
+- rank: 38
+  id: vercel-ai-skills-list-npm-package-content-skill-md
+  name: list-npm-package-content
+  author: vercel
+  stars: 23052
+  forks: 4071
+  description: List the contents of an npm package tarball before publishing. Use
+    when the user wants to see what files are included in an npm bundle, verify package
+    contents, or debug npm publish issues.
+  github_url: https://github.com/vercel/ai/tree/main/skills/list-npm-package-content
+  updated_at: '1769474497'
+- rank: 39
+  id: dotnet-core-github-skills-update-distro-packages-skill-md
+  name: update-distro-packages
+  author: dotnet
+  stars: 21936
+  forks: 4948
+  description: 'Create and update per-distro package files in release-notes/{version}/distros/
+    that document .NET runtime dependencies and package availability for each Linux
+    distribution. USE FOR: setting up distros/ for a new .NET version, updating dependency
+    package names when distro versions change, auditing package data. DO NOT USE FOR:
+    supported-os.json changes (use update-supported-os skill), os-packages.json (legacy
+    format).'
+  github_url: https://github.com/dotnet/core/tree/main/.github/skills/update-distro-packages
+  updated_at: '1774455739'
+- rank: 40
+  id: dotnet-core-github-skills-update-os-packages-skill-md
+  name: update-os-packages
+  author: dotnet
+  stars: 21936
+  forks: 4948
+  description: 'Audit and update os-packages.json/md files that document required
+    Linux packages for each .NET release. Uses the dotnet-release tool to verify package
+    names against distro archives and regenerate markdown. USE FOR: adding packages
+    for new distro versions, fixing incorrect package names, periodic package audits.
+    DO NOT USE FOR: supported-os.json changes (use update-supported-os skill), editing
+    os-packages.md directly (it is generated from JSON).'
+  github_url: https://github.com/dotnet/core/tree/main/.github/skills/update-os-packages
+  updated_at: '1773778965'
+- rank: 41
+  id: elastic-kibana-x-pack-solutions-security-plugins-security-solution-agents-skills-cypress-to-scout-migration-skill-md
+  name: security-cypress-to-scout-migration
+  author: elastic
+  stars: 21027
+  forks: 8547
+  description: 'Security Solution specific extensions for Cypress-to-Scout migration.
+    Adds Security Solution conventions, paths, packages, roles, and API services on
+    top of the general cypress-to-scout-migration skill. Use when: (1) migrating a
+    Security Solution Cypress test (.cy.ts) to Scout, (2) working in x-pack/solutions/security/
+    and asked about Cypress-to-Scout migration, (3) need Security-specific Scout tags,
+    roles, or API services for a migration, (4) asked about MKI pipelines for Security
+    Solution.'
+  github_url: https://github.com/elastic/kibana/tree/main/x-pack/solutions/security/plugins/security_solution/.agents/skills/cypress-to-scout-migration
+  updated_at: '1772780186'
+- rank: 42
+  id: skyvern-ai-skyvern-claude-skills-bump-version-skill-md
+  name: bump-version
+  author: Skyvern-AI
+  stars: 20978
+  forks: 1874
+  description: Bump Skyvern OSS version, build Python and TypeScript SDKs with Fern,
+    and create release PR. Use when releasing a new version or when the user asks
+    to bump version.
+  github_url: https://github.com/Skyvern-AI/skyvern/tree/main/.claude/skills/bump-version
+  updated_at: '1772492864'
+- rank: 43
+  id: dyad-sh-dyad-claude-skills-promote-beta-to-stable-skill-md
+  name: dyadpromote-beta-to-stable
+  author: dyad-sh
+  stars: 20007
+  forks: 2304
+  description: Promote the latest pre-release to a stable release by creating a release
+    branch, bumping the version, and pushing.
+  github_url: https://github.com/dyad-sh/dyad/tree/main/.claude/skills/promote-beta-to-stable
+  updated_at: '1773077705'
+- rank: 44
+  id: dromara-sa-token-agents-skills-upgrade-version-skill-md
+  name: upgrade-version
+  author: dromara
+  stars: 18711
+  forks: 2888
+  description: 将 Sa-Token 项目版本号升级到指定新版本。每次调用时先读取当前版本并提示用户，待用户输入目标版本后再执行批量修改。修改范围：pom.xml、核心常量、Demo
+    子项目及文档。当用户要求升级版本、修改版本号、或 version bump 时使用。
+  github_url: https://github.com/dromara/Sa-Token/tree/dev/.agents/skills/upgrade-version
+  updated_at: '1773136580'
+- rank: 45
+  id: screenpipe-screenpipe-claude-skills-release-skill-md
+  name: release
+  author: screenpipe
+  stars: 17618
+  forks: 1516
+  description: Release the screenpipe monorepo. Bumps versions, triggers GitHub Actions
+    for app, CLI, MCP, and JS packages.
+  github_url: https://github.com/screenpipe/screenpipe/tree/main/.claude/skills/release
+  updated_at: '1773884200'
+- rank: 46
+  id: rendercv-rendercv-claude-skills-publish-rendercv-typst-package-skill-md
+  name: publish-rendercv-typst-package
+  author: rendercv
+  stars: 16119
+  forks: 1151
+  description: Create a PR to publish a new version of the rendercv-typst package
+    to the Typst Universe (typst/packages repository). Validates package integrity,
+    forks/clones the repo, copies files, and opens a PR.
+  github_url: https://github.com/rendercv/rendercv/tree/main/.claude/skills/publish-rendercv-typst-package
+  updated_at: '1774028684'
+- rank: 47
+  id: udecode-plate-agents-skills-update-tech-stack-skill-md
+  name: update-tech-stack
+  author: udecode
+  stars: 16084
+  forks: 964
+  description: Update tech stack documentation based on dependency changes and technical
+    evolution
+  github_url: https://github.com/udecode/plate/tree/main/.agents/skills/update-tech-stack
+  updated_at: '1774632415'
+- rank: 48
+  id: flet-dev-flet-codex-skills-flet-deprecation-skill-md
+  name: flet-deprecation
+  author: flet-dev
+  stars: 15813
+  forks: 641
+  description: Use when adding or changing deprecations for Python controls/APIs in
+    sdk/python/packages/, including V.deprecated fields, deprecated decorators, version
+    lifecycle, and docs admonitions/labels.
+  github_url: https://github.com/flet-dev/flet/tree/main/.codex/skills/flet-deprecation
+  updated_at: '1773970629'
+- rank: 49
+  id: flet-dev-flet-codex-skills-implement-flet-extension-skill-md
+  name: implement-flet-extension
+  author: flet-dev
+  stars: 15813
+  forks: 641
+  description: Implement a new Flet extension/control that wraps a third-party Flutter
+    package end-to-end, including dependency selection, version pinning, compatibility
+    checks, Python/Flutter integration, docs, examples, tests, and CI updates. Use
+    when adding any flet_* package backed by an external pub.dev package.
+  github_url: https://github.com/flet-dev/flet/tree/main/.codex/skills/implement-flet-extension
+  updated_at: '1773946365'
+- rank: 50
+  id: flet-dev-flet-codex-skills-prepare-flet-release-skill-md
+  name: prepare-flet-release
+  author: flet-dev
+  stars: 15813
+  forks: 641
+  description: Use when asked to prepare new Flet release by bumping versions and
+    author release notes.
+  github_url: https://github.com/flet-dev/flet/tree/main/.codex/skills/prepare-flet-release
+  updated_at: '1774539264'

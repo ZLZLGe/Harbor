@@ -1,0 +1,605 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: databases
+category_name: Databases
+category_skill_count: 9319
+subcategory_slug: database-tools
+subcategory_name: Database Tools
+subcategory_skill_count: 3928
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=database-tools
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 3928
+  total_pages: 79
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: langgenius-dify-agents-skills-frontend-query-mutation-skill-md
+  name: frontend-query-mutation
+  author: langgenius
+  stars: 134812
+  forks: 20985
+  description: Guide for implementing Dify frontend query and mutation patterns with
+    TanStack Query and oRPC. Trigger when creating or updating contracts in web/contract,
+    wiring router composition, consuming consoleQuery or marketplaceQuery in components
+    or services, deciding whether to call queryOptions() directly or extract a helper
+    or use-* hook, handling conditional queries, cache invalidation, mutation error
+    handling, or migrating legacy service calls to contract-first query and mutation
+    helpers.
+  github_url: https://github.com/langgenius/dify/tree/main/.agents/skills/frontend-query-mutation
+  updated_at: '1773639509'
+- rank: 2
+  id: affaan-m-everything-claude-code-docs-tr-skills-database-migrations-skill-md
+  name: database-migrations
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Şema değişiklikleri, veri migration'ları, rollback'ler ve PostgreSQL,
+    MySQL ve yaygın ORM'ler (Prisma, Drizzle, Django, TypeORM, golang-migrate) arasında
+    sıfır kesinti deployment'ları için veritabanı migration en iyi uygulamaları.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/database-migrations
+  updated_at: '1774219024'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-database-migrations-skill-md
+  name: database-migrations
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 数据库迁移最佳实践，涵盖模式变更、数据迁移、回滚以及零停机部署，适用于PostgreSQL、MySQL及常用ORM（Prisma、Drizzle、Django、TypeORM、golang-migrate）。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/database-migrations
+  updated_at: '1774219164'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: PostgreSQL database patterns for query optimization, schema design,
+    indexing, and security. Based on Supabase best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/postgres-patterns
+  updated_at: '1772569955'
+- rank: 5
+  id: lobehub-lobehub-agents-skills-db-migrations-skill-md
+  name: db-migrations
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Use when generating or regenerating Drizzle migration files, changing
+    database schema tables or columns, resolving migration sequence conflicts after
+    rebase, reviewing migration SQL for idempotent patterns, or renaming migration
+    files.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/db-migrations
+  updated_at: '1774278091'
+- rank: 6
+  id: lobehub-lobehub-agents-skills-drizzle-skill-md
+  name: drizzle
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Drizzle ORM schema and database guide. Use when working with database
+    schemas (src/database/schemas/*), defining tables, creating migrations, or database
+    model code. Triggers on Drizzle schema definition, database migrations, or ORM
+    usage questions.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/drizzle
+  updated_at: '1772464681'
+- rank: 7
+  id: tryghost-ghost-claude-skills-create-database-migration-skill-md
+  name: create-database-migration
+  author: TryGhost
+  stars: 52172
+  forks: 11396
+  description: Create a database migration to add a table, add columns to an existing
+    table, add a setting, or otherwise change the schema of Ghost's MySQL database.
+    Use this skill whenever the task involves modifying Ghost's database schema —
+    including adding, removing, or renaming columns or tables, adding new settings,
+    creating indexes, updating data, or any change that requires a migration file
+    in ghost/core. Also use when the user references schema.js, knex-migrator, the
+    migrations directory, or asks to "add a field" or "add a column" to any Ghost
+    model/table. Even if the user frames it as a feature or Linear issue, if the implementation
+    requires a schema change, this skill applies.
+  github_url: https://github.com/TryGhost/Ghost/tree/main/.claude/skills/create-database-migration
+  updated_at: '1774541899'
+- rank: 8
+  id: getsentry-sentry-agents-skills-cell-architecture-skill-md
+  name: cell-architecture
+  author: getsentry
+  stars: 43460
+  forks: 4642
+  description: 'Reference and active migration guide for Sentry''s cell architecture.
+    Explains what cells and localities are and why they''re different, how requests
+    reach cells via Synapse API routing, ingestion routing, and the control silo gateway,
+    and how to safely query cross-cell data without silently missing results. The
+    migration section covers how to do migration work: draining the URL_NAME_TO_ACTION
+    registry in test_urls.py to zero (with a recipe for each action type), rolling
+    deploy safety and the two-phase pattern required by independent sentry/getsentry
+    deploys, and the region -> cell rename including what not to rename (DB columns,
+    AWS refs, uptime regions, billing address). Also documents known issues with proposed
+    fixes: org listing and creation without a slug, integration TeamLinkageView routing,
+    Jira cross-cell fan-out, and relocation endpoint routing.'
+  github_url: https://github.com/getsentry/sentry/tree/master/.agents/skills/cell-architecture
+  updated_at: '1774641755'
+- rank: 9
+  id: getsentry-sentry-agents-skills-generate-migration-skill-md
+  name: generate-migration
+  author: getsentry
+  stars: 43460
+  forks: 4642
+  description: Generate Django database migrations for Sentry. Use when creating migrations,
+    adding/removing columns or tables, adding indexes, or resolving migration conflicts.
+  github_url: https://github.com/getsentry/sentry/tree/master/.agents/skills/generate-migration
+  updated_at: '1771618506'
+- rank: 10
+  id: twentyhq-twenty-cursor-skills-syncable-entity-runner-and-actions-skill-md
+  name: syncable-entity-runner-and-actions
+  author: twentyhq
+  stars: 42296
+  forks: 5615
+  description: Implement action handlers for executing workspace migrations in Twenty.
+    Use when creating database operations for syncable entities, implementing universal-to-flat
+    entity transpilation, or handling create/update/delete actions in the runner layer.
+  github_url: https://github.com/twentyhq/twenty/tree/main/.cursor/skills/syncable-entity-runner-and-actions
+  updated_at: '1770981511'
+- rank: 11
+  id: backstage-backstage-docs-well-known-skills-app-frontend-system-migration-skill-md
+  name: app-frontend-system-migration
+  author: backstage
+  stars: 32961
+  forks: 7211
+  description: Migrate a Backstage app from the old frontend system to the new one.
+    Use this skill when converting an app to use the new extension-based frontend
+    system, including the hybrid migration phase and the full migration of routes,
+    sidebar, plugins, APIs, themes, and other app-level concerns.
+  github_url: https://github.com/backstage/backstage/tree/master/docs/.well-known/skills/app-frontend-system-migration
+  updated_at: '1774429701'
+- rank: 12
+  id: wshobson-agents-plugins-framework-migration-skills-database-migration-skill-md
+  name: database-migration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Execute database migrations across ORMs and platforms with zero-downtime
+    strategies, data transformation, and rollback procedures. Use when migrating databases,
+    changing schemas, performing data transformations, or implementing zero-downtime
+    deployment strategies.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/database-migration
+  updated_at: '1772898797'
+- rank: 13
+  id: wshobson-agents-plugins-developer-essentials-skills-sql-optimization-patterns-skill-md
+  name: sql-optimization-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master SQL query optimization, indexing strategies, and EXPLAIN analysis
+    to dramatically improve database performance and eliminate slow queries. Use when
+    debugging slow queries, designing database schemas, or optimizing application
+    performance.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/sql-optimization-patterns
+  updated_at: '1772898797'
+- rank: 14
+  id: symfony-symfony-agents-skills-symfony-merge-up-skill-md
+  name: symfony-merge-up
+  author: symfony
+  stars: 30991
+  forks: 9814
+  description: Cascade-merge maintained Symfony branches from oldest to newest (e.g.
+    6.4 → 7.4 → 8.0 → 8.1). Use when the user says "merge branches", "merge up", "cascade
+    merge", "sync branches", or "update branches".
+  github_url: https://github.com/symfony/symfony/tree/8.1/.agents/skills/symfony-merge-up
+  updated_at: '1774689620'
+- rank: 15
+  id: heroui-inc-heroui-skills-heroui-migration-skill-md
+  name: heroui-migration
+  author: heroui-inc
+  stars: 28716
+  forks: 2092
+  description: 'HeroUI v2 to v3 migration guide for agents. Use when migrating HeroUI
+    v2 apps to v3, upgrading components, or accessing migration documentation. Keywords:
+    HeroUI migration, v2 to v3, migration guide, upgrade HeroUI.'
+  github_url: https://github.com/heroui-inc/heroui/tree/v3/skills/heroui-migration
+  updated_at: '1774178425'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-azure-resource-manager-postgresql-dotnet-skill-md
+  name: azure-resource-manager-postgresql-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure PostgreSQL Flexible Server SDK for .NET. Database management
+    for PostgreSQL Flexible Server deployments.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-resource-manager-postgresql-dotnet
+  updated_at: '1772354305'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-bazel-build-optimization-skill-md
+  name: bazel-build-optimization
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Optimize Bazel builds for large-scale monorepos. Use when configuring
+    Bazel, implementing remote execution, or optimizing build performance for enterprise
+    codebases.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bazel-build-optimization
+  updated_at: '1772180381'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-context-management-context-restore-skill-md
+  name: context-management-context-restore
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Use when working with context management context restore
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/context-management-context-restore
+  updated_at: '1772180381'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-database-migration-skill-md
+  name: database-migration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master database schema and data migrations across ORMs (Sequelize,
+    TypeORM, Prisma), including rollback strategies and zero-downtime deployments.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-migration
+  updated_at: '1773994005'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-database-optimizer-skill-md
+  name: database-optimizer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert database optimizer specializing in modern performance tuning,
+    query optimization, and scalable architectures.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-optimizer
+  updated_at: '1772354305'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-framework-migration-deps-upgrade-skill-md
+  name: framework-migration-deps-upgrade
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a dependency management expert specializing in safe, incremental
+    upgrades of project dependencies. Plan and execute dependency updates with minimal
+    risk, proper testing, and clear migration pa
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/framework-migration-deps-upgrade
+  updated_at: '1772180381'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-odoo-backup-strategy-skill-md
+  name: odoo-backup-strategy
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Complete Odoo backup and restore strategy: database dumps, filestore
+    backup, automated scheduling, cloud storage upload, and tested restore procedures.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/odoo-backup-strategy
+  updated_at: '1772656832'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-prisma-expert-skill-md
+  name: prisma-expert
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are an expert in Prisma ORM with deep knowledge of schema design,
+    migrations, query optimization, relations modeling, and database operations across
+    PostgreSQL, MySQL, and SQLite.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/prisma-expert
+  updated_at: '1773994005'
+- rank: 24
+  id: sickn33-antigravity-awesome-skills-skills-similarity-search-patterns-skill-md
+  name: similarity-search-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Implement efficient similarity search with vector databases. Use when
+    building semantic search, implementing nearest neighbor queries, or optimizing
+    retrieval performance.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/similarity-search-patterns
+  updated_at: '1772180381'
+- rank: 25
+  id: github-awesome-copilot-skills-creating-oracle-to-postgres-master-migration-plan-skill-md
+  name: creating-oracle-to-postgres-master-migration-plan
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Discovers all projects in a .NET solution, classifies each for Oracle-to-PostgreSQL
+    migration eligibility, and produces a persistent master migration plan. Use when
+    starting a multi-project Oracle-to-PostgreSQL migration, creating a migration
+    inventory, or assessing which .NET projects contain Oracle dependencies.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/creating-oracle-to-postgres-master-migration-plan
+  updated_at: '1773186366'
+- rank: 26
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-brightdata-local-search-skill-md
+  name: brightdata-local-search
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Set up and run local web searches using Bright Data SERP API with the
+    unfancy-search pipeline (query expansion, SERP retrieval, RRF reranking).
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/brightdata-local-search
+  updated_at: '1773805643'
+- rank: 27
+  id: davila7-claude-code-templates-cli-tool-components-skills-database-neon-instagres-skill-md
+  name: neon-instagres
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Instantly provision production-ready Postgres databases with Neon Instagres.
+    Use when setting up databases, when users mention PostgreSQL/Postgres, database
+    setup, or need a development database. Works with Drizzle, Prisma, raw SQL.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/database/neon-instagres
+  updated_at: '1774484357'
+- rank: 28
+  id: davila7-claude-code-templates-cli-tool-components-skills-pocketbase-pb-migrations-skill-md
+  name: pocketbase-migrations
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Schema migrations and versioning for PocketBase. Use when creating
+    migrations, managing schema versions, syncing collections between environments,
+    using automigrate, or creating collections programmatically. Covers migrate commands,
+    migration file format, snapshot imports, and the _migrations tracking table.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/pocketbase/pb-migrations
+  updated_at: '1773187929'
+- rank: 29
+  id: saleor-saleor-claude-skills-saleor-django-migration-skill-md
+  name: saleor-django-migration
+  author: saleor
+  stars: 22748
+  forks: 5964
+  description: Generate Django schema migrations for the Saleor codebase using manage.py
+    makemigrations. Use when (1) a new Django model is created, (2) model fields are
+    added/altered/removed, (3) user explicitly asks to create a migration. This skill
+    covers ONLY synchronous schema migrations (CreateModel, AddField, AlterField,
+    RemoveField, etc.) — NOT data migrations with RunPython or RunSQL. If unsure whether
+    the migration is schema-only, ask the user.
+  github_url: https://github.com/saleor/saleor/tree/main/.claude/skills/saleor-django-migration
+  updated_at: '1772695600'
+- rank: 30
+  id: letta-ai-letta-skills-db-migrations-schema-changes-skill-md
+  name: db-migrations-and-schema-changes
+  author: letta-ai
+  stars: 21783
+  forks: 2300
+  description: Workflows and commands for managing Alembic database migrations and
+    schema changes in the letta-cloud core app, including using uv, just, LETTA_PG_URI,
+    and switching between SQLite and Postgres.
+  github_url: https://github.com/letta-ai/letta/tree/main/.skills/db-migrations-schema-changes
+  updated_at: '1768244268'
+- rank: 31
+  id: dotnet-efcore-agents-skills-bulk-operations-skill-md
+  name: bulk-operations
+  author: dotnet
+  stars: 14610
+  forks: 3366
+  description: Implementation details for EF Core ExecuteUpdate/ExecuteDelete bulk
+    operations. Use when changing UpdateExpression/DeleteExpression LINQ translation
+    or the corresponding SQL AST nodes.
+  github_url: https://github.com/dotnet/efcore/tree/main/.agents/skills/bulk-operations
+  updated_at: '1773448335'
+- rank: 32
+  id: dotnet-efcore-agents-skills-migrations-skill-md
+  name: migrations
+  author: dotnet
+  stars: 14610
+  forks: 3366
+  description: Implementation details for EF Core migrations. Use when changing MigrationsSqlGenerator,
+    model diffing, migration operations, HistoryRepository, the Migrator or related
+    classes.
+  github_url: https://github.com/dotnet/efcore/tree/main/.agents/skills/migrations
+  updated_at: '1773448335'
+- rank: 33
+  id: prowler-cloud-prowler-skills-django-migration-psql-skill-md
+  name: django-migration-psql
+  author: prowler-cloud
+  stars: 13422
+  forks: 2059
+  description: 'Reviews Django migration files for PostgreSQL best practices specific
+    to Prowler. Trigger: When creating migrations, running makemigrations/pgmakemigrations,
+    reviewing migration PRs, adding indexes or constraints to database tables, modifying
+    existing migration files, or writing data backfill migrations. Always use this
+    skill when you see AddIndex, CreateModel, AddConstraint, RunPython, bulk_create,
+    bulk_update, or backfill operations in migration files.'
+  github_url: https://github.com/prowler-cloud/prowler/tree/master/skills/django-migration-psql
+  updated_at: '1773337063'
+- rank: 34
+  id: electric-sql-electric-packages-typescript-client-skills-electric-postgres-security-skill-md
+  name: electric-postgres-security
+  author: electric-sql
+  stars: 10029
+  forks: 317
+  description: Pre-deploy security checklist for Postgres with Electric. Checks REPLICATION
+    role, SELECT grants, CREATE on database, table ownership, REPLICA IDENTITY FULL
+    on all synced tables, publication management (auto vs manual with ELECTRIC_MANUAL_TABLE_PUBLISHING),
+    connection pooler exclusion for DATABASE_URL (use direct connection), and ELECTRIC_POOLED_DATABASE_URL
+    for pooled queries. Load before deploying Electric to production or when diagnosing
+    Postgres permission errors.
+  github_url: https://github.com/electric-sql/electric/tree/main/packages/typescript-client/skills/electric-postgres-security
+  updated_at: '1772832427'
+- rank: 35
+  id: awslabs-mcp-src-aurora-dsql-mcp-server-skills-dsql-skill-skill-md
+  name: dsql
+  author: awslabs
+  stars: 8596
+  forks: 1390
+  description: Build with Aurora DSQL - manage schemas, execute queries, and handle
+    migrations with DSQL-specific requirements. Use when developing a scalable or
+    distributed database/application or user requests DSQL.
+  github_url: https://github.com/awslabs/mcp/tree/main/src/aurora-dsql-mcp-server/skills/dsql-skill
+  updated_at: '1772571426'
+- rank: 36
+  id: alirezarezvani-claude-skills-engineering-release-manager-skill-md
+  name: release-manager
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Use when the user asks to plan releases, manage changelogs, coordinate
+    deployments, create release branches, or automate versioning.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering/release-manager
+  updated_at: '1774267137'
+- rank: 37
+  id: jeffallan-claude-skills-skills-database-optimizer-skill-md
+  name: database-optimizer
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Optimizes database queries and improves performance across PostgreSQL
+    and MySQL systems. Use when investigating slow queries, analyzing execution plans,
+    or optimizing database performance. Invoke for index design, query rewrites, configuration
+    tuning, partitioning strategies, lock contention resolution.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/database-optimizer
+  updated_at: '1774303327'
+- rank: 38
+  id: jeffallan-claude-skills-skills-postgres-pro-skill-md
+  name: postgres-pro
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Use when optimizing PostgreSQL queries, configuring replication, or
+    implementing advanced database features. Invoke for EXPLAIN analysis, JSONB operations,
+    extension usage, VACUUM tuning, performance monitoring.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/postgres-pro
+  updated_at: '1772832479'
+- rank: 39
+  id: stagewise-io-stagewise-apps-browser-bundled-plugins-supabase-skill-md
+  name: supabase
+  author: stagewise-io
+  stars: 6509
+  forks: 450
+  description: Complete guide for the Supabase plugin — Management API access for
+    running SQL queries, listing projects, managing edge functions, secrets, migrations,
+    and inspecting project health.
+  github_url: https://github.com/stagewise-io/stagewise/tree/main/apps/browser/bundled/plugins/supabase
+  updated_at: '1773588949'
+- rank: 40
+  id: instructure-canvas-lms-claude-skills-squash-migrations-skill-md
+  name: squash-migrations
+  author: instructure
+  stars: 6503
+  forks: 2891
+  description: Guidelines for squashing old Canvas database migrations
+  github_url: https://github.com/instructure/canvas-lms/tree/master/.claude/skills/squash-migrations
+  updated_at: '1774630436'
+- rank: 41
+  id: kiranism-next-shadcn-dashboard-starter-agents-skills-tanstack-query-skill-md
+  name: tanstack-query
+  author: Kiranism
+  stars: 6173
+  forks: 1455
+  description: TanStack Query v5 data fetching patterns including useSuspenseQuery,
+    useQuery, mutations, cache management, and API service integration. Use when fetching
+    data, managing server state, or working with TanStack Query hooks.
+  github_url: https://github.com/Kiranism/next-shadcn-dashboard-starter/tree/main/.agents/skills/tanstack-query
+  updated_at: '1774681916'
+- rank: 42
+  id: netalertx-netalertx-github-skills-database-reset-skill-md
+  name: reset-netalertx-database
+  author: netalertx
+  stars: 5949
+  forks: 374
+  description: Wipe and regenerate the NetAlertX database and config. Use this when
+    asked to reset database, wipe db, fresh database, clean slate, or start fresh.
+  github_url: https://github.com/netalertx/NetAlertX/tree/main/.github/skills/database-reset
+  updated_at: '1769377557'
+- rank: 43
+  id: microsoft-aspire-github-skills-dependency-update-skill-md
+  name: dependency-update
+  author: microsoft
+  stars: 5741
+  forks: 850
+  description: Guides dependency version updates by checking nuget.org for latest
+    versions, triggering the dotnet-migrate-package Azure DevOps pipeline, and monitoring
+    runs. Use this when asked to update external NuGet dependencies.
+  github_url: https://github.com/microsoft/aspire/tree/main/.github/skills/dependency-update
+  updated_at: '1774649165'
+- rank: 44
+  id: mengxi-ream-read-frog-agents-skills-migration-scripts-skill-md
+  name: migration-scripts
+  author: mengxi-ream
+  stars: 4980
+  forks: 325
+  description: Use when writing or reviewing database/config migration scripts or
+    migration registries. Enforces frozen-snapshot migrations, safe registration,
+    and lean import boundaries.
+  github_url: https://github.com/mengxi-ream/read-frog/tree/main/.agents/skills/migration-scripts
+  updated_at: '1773625748'
+- rank: 45
+  id: clidey-whodb-cli-external-plugin-whodb-skills-whodb-skill-md
+  name: whodb
+  author: clidey
+  stars: 4688
+  forks: 180
+  description: Database operations including querying, schema exploration, and data
+    analysis. Activates for tasks involving PostgreSQL, MySQL, MariaDB, SQLite, MongoDB,
+    Redis, Elasticsearch, or ClickHouse databases.
+  github_url: https://github.com/clidey/whodb/tree/main/cli/external-plugin/whodb/skills/whodb
+  updated_at: '1766947443'
+- rank: 46
+  id: baserow-baserow-agents-skills-add-django-config-env-var-skill-md
+  name: add-django-config-env-var
+  author: baserow
+  stars: 4498
+  forks: 555
+  description: Add a new environment variable for a Django setting in Baserow and
+    propagate it to the few repo files that usually need it. Use this when a request
+    says a config env var must be added in several places or references `INTEGRATION_LOCAL_BASEROW_PAGE_SIZE_LIMIT`
+    as the pattern to follow.
+  github_url: https://github.com/baserow/baserow/tree/develop/.agents/skills/add-django-config-env-var
+  updated_at: '1774357001'
+- rank: 47
+  id: blockscout-blockscout-agents-skills-ecto-migration-skill-md
+  name: ecto-migration
+  author: blockscout
+  stars: 4469
+  forks: 3019
+  description: Generates Ecto migrations for the Blockscout Elixir project using mix
+    ecto.gen.migration command. Use when you need to create database schema changes,
+    add tables, modify columns, or manage database structure.
+  github_url: https://github.com/blockscout/blockscout/tree/master/.agents/skills/ecto-migration
+  updated_at: '1772814452'
+- rank: 48
+  id: blockscout-blockscout-agents-skills-efficient-list-building-skill-md
+  name: efficient-list-building
+  author: blockscout
+  stars: 4469
+  forks: 3019
+  description: Build lists efficiently using prepend operations and Enum.reverse/1
+    instead of append. Appending to lists is O(n) while prepending is O(1). Use [head
+    | tail] notation and reverse at the end when order matters.
+  github_url: https://github.com/blockscout/blockscout/tree/master/.agents/skills/efficient-list-building
+  updated_at: '1772814452'
+- rank: 49
+  id: blockscout-blockscout-agents-skills-heavy-db-index-operation-skill-md
+  name: heavy-db-index-operation
+  author: blockscout
+  stars: 4469
+  forks: 3019
+  description: Generate background migration modules for creating, dropping, or renaming
+    database indexes on large tables using the Explorer.Migrator.HeavyDbIndexOperation
+    framework. Automatically updates the BackgroundMigrations cache module with proper
+    tracking. These migrations run in the background with progress tracking and dependency
+    management. Use this skill for requests on creating background migrations to delete
+    / create / rename indexes on large tables (logs, internal_transactions, token_transfers,
+    addresses, transactions, blocks, etc.) to avoid blocking the database.
+  github_url: https://github.com/blockscout/blockscout/tree/master/.agents/skills/heavy-db-index-operation
+  updated_at: '1772814452'
+- rank: 50
+  id: datadog-datadog-agent-claude-skills-omnibus-to-bazel-skill-md
+  name: omnibus-to-bazel
+  author: DataDog
+  stars: 3555
+  forks: 1394
+  description: Convert an omnibus/config/software/<name>.rb dependency to a Bazel
+    third-party dep under deps/. Use when asked to migrate, convert, or add a dep
+    from omnibus to Bazel.
+  github_url: https://github.com/DataDog/datadog-agent/tree/main/.claude/skills/omnibus-to-bazel
+  updated_at: '1772753512'

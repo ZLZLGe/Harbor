@@ -1,0 +1,582 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: data-and-ai
+category_name: Data & AI
+category_skill_count: 72353
+subcategory_slug: llm-ai
+subcategory_name: LLM & AI
+subcategory_skill_count: 44821
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=llm-ai
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 44821
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-clawhub-skill-md
+  name: clawhub
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Use the ClawHub CLI to search, install, update, and publish agent skills
+    from clawhub.com. Use when you need to fetch new skills on the fly, sync installed
+    skills to latest or a specific version, or publish new/updated skill folders with
+    the npm-installed clawhub CLI.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/clawhub
+  updated_at: '1769862085'
+- rank: 2
+  id: openclaw-openclaw-skills-coding-agent-skill-md
+  name: coding-agent
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'Delegate coding tasks to Codex, Claude Code, or Pi agents via background
+    process. Use when: (1) building/creating new features or apps, (2) reviewing PRs
+    (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that
+    needs file exploration. NOT for: simple one-liner fixes (just edit), reading code
+    (use read tool), thread-bound ACP harness requests in chat (for example spawn/run
+    Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:"acp"),
+    or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print
+    --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/coding-agent
+  updated_at: '1774333273'
+- rank: 3
+  id: openclaw-openclaw-extensions-feishu-skills-feishu-wiki-skill-md
+  name: feishu-wiki
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Feishu knowledge base navigation. Activate when user mentions knowledge
+    base, wiki, or wiki links.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-wiki
+  updated_at: '1770337930'
+- rank: 4
+  id: openclaw-openclaw-skills-gemini-skill-md
+  name: gemini
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Gemini CLI for one-shot Q&A, summaries, and generation.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/gemini
+  updated_at: '1773234790'
+- rank: 5
+  id: openclaw-openclaw-skills-model-usage-skill-md
+  name: model-usage
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Use CodexBar CLI local cost usage to summarize per-model usage for
+    Codex or Claude, including the current (most recent) model or a full model breakdown.
+    Trigger when asked for model-level usage/cost data from codexbar, or when you
+    need a scriptable per-model summary from codexbar cost JSON.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/model-usage
+  updated_at: '1771832063'
+- rank: 6
+  id: openclaw-openclaw-skills-openai-whisper-skill-md
+  name: openai-whisper
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Local speech-to-text with the Whisper CLI (no API key).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/openai-whisper
+  updated_at: '1773234790'
+- rank: 7
+  id: openclaw-openclaw-skills-openai-whisper-api-skill-md
+  name: openai-whisper-api
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Transcribe audio via OpenAI Audio Transcriptions API (Whisper).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/openai-whisper-api
+  updated_at: '1774617806'
+- rank: 8
+  id: openclaw-openclaw-extensions-open-prose-skills-prose-skill-md
+  name: prose
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: OpenProse VM skill pack. Activate on any `prose` command, .prose files,
+    or OpenProse mentions; orchestrates multi-agent workflows.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/open-prose/skills/prose
+  updated_at: '1773433179'
+- rank: 9
+  id: openclaw-openclaw-skills-sag-skill-md
+  name: sag
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: ElevenLabs text-to-speech with mac-style say UX.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/sag
+  updated_at: '1774236549'
+- rank: 10
+  id: openclaw-openclaw-skills-sherpa-onnx-tts-skill-md
+  name: sherpa-onnx-tts
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Local text-to-speech via sherpa-onnx (offline, no cloud)
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/sherpa-onnx-tts
+  updated_at: '1773234790'
+- rank: 11
+  id: openclaw-openclaw-skills-skill-creator-skill-md
+  name: skill-creator
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Create, edit, improve, or audit AgentSkills. Use when creating a new
+    skill from scratch or when asked to improve, review, audit, tidy up, or clean
+    up an existing skill or SKILL.md file. Also use when editing or restructuring
+    a skill directory (moving files to references/ or scripts/, removing stale content,
+    validating against the AgentSkills spec). Triggers on phrases like "create a skill",
+    "author a skill", "tidy up a skill", "improve this skill", "review the skill",
+    "clean up the skill", "audit the skill".
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/skill-creator
+  updated_at: '1772961180'
+- rank: 12
+  id: openclaw-openclaw-skills-voice-call-skill-md
+  name: voice-call
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Start voice calls via the OpenClaw voice-call plugin.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/voice-call
+  updated_at: '1769862085'
+- rank: 13
+  id: n8n-io-n8n-claude-skills-n8n-conventions-skill-md
+  name: n8n-conventions
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Quick reference for n8n patterns. Full docs /AGENTS.md
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/n8n-conventions
+  updated_at: '1770374178'
+- rank: 14
+  id: f-prompts-chat-plugins-claude-prompts-chat-skills-prompt-lookup-skill-md
+  name: prompt-lookup
+  author: f
+  stars: 154455
+  forks: 20287
+  description: Activates when the user asks about AI prompts, needs prompt templates,
+    wants to search for prompts, or mentions prompts.chat. Use for discovering, retrieving,
+    and improving prompts.
+  github_url: https://github.com/f/prompts.chat/tree/main/plugins/claude/prompts.chat/skills/prompt-lookup
+  updated_at: '1768513117'
+- rank: 15
+  id: f-prompts-chat-plugins-claude-prompts-chat-skills-skill-lookup-skill-md
+  name: skill-lookup
+  author: f
+  stars: 154455
+  forks: 20287
+  description: Search, retrieve, and install Agent Skills from the prompts.chat registry
+    using MCP tools. Use when the user asks to find skills, browse skill catalogs,
+    install a skill for Claude, or extend Claude's capabilities with reusable AI agent
+    components.
+  github_url: https://github.com/f/prompts.chat/tree/main/plugins/claude/prompts.chat/skills/skill-lookup
+  updated_at: '1771320590'
+- rank: 16
+  id: affaan-m-everything-claude-code-skills-agent-harness-construction-skill-md
+  name: agent-harness-construction
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Design and optimize AI agent action spaces, tool definitions, and observation
+    formatting for higher completion rates.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/agent-harness-construction
+  updated_at: '1772664486'
+- rank: 17
+  id: affaan-m-everything-claude-code-skills-ai-first-engineering-skill-md
+  name: ai-first-engineering
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Engineering operating model for teams where AI agents generate a large
+    share of implementation output.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/ai-first-engineering
+  updated_at: '1772664486'
+- rank: 18
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-ai-regression-testing-skill-md
+  name: ai-regression-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: AI辅助开发的回归测试策略。沙盒模式API测试，无需依赖数据库，自动化的缺陷检查工作流程，以及捕捉AI盲点的模式，其中同一模型编写和审查代码。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/ai-regression-testing
+  updated_at: '1774219164'
+- rank: 19
+  id: affaan-m-everything-claude-code-skills-blueprint-skill-md
+  name: blueprint
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Turn a one-line objective into a step-by-step construction plan for
+    multi-session, multi-agent engineering projects. Each step has a self-contained
+    context brief so a fresh agent can execute it cold. Includes adversarial review
+    gate, dependency graph, parallel step detection, anti-pattern catalog, and plan
+    mutation protocol. TRIGGER when: user requests a plan, blueprint, or roadmap for
+    a complex multi-PR task, or describes work that needs multiple sessions. DO NOT
+    TRIGGER when: task is completable in a single PR or fewer than 3 tool calls, or
+    user says "just do it".'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/blueprint
+  updated_at: '1773195780'
+- rank: 20
+  id: affaan-m-everything-claude-code-agents-skills-claude-api-skill-md
+  name: claude-api
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Anthropic Claude API patterns for Python and TypeScript. Covers Messages
+    API, streaming, tool use, vision, extended thinking, batches, prompt caching,
+    and Claude Agent SDK. Use when building applications with the Claude API or Anthropic
+    SDKs.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/claude-api
+  updated_at: '1773353277'
+- rank: 21
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-claude-api-skill-md
+  name: claude-api
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Anthropic Claude API 的 Python 和 TypeScript 使用模式。涵盖 Messages API、流式处理、工具使用、视觉功能、扩展思维、批量处理、提示缓存和
+    Claude Agent SDK。适用于使用 Claude API 或 Anthropic SDK 构建应用程序的场景。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/claude-api
+  updated_at: '1773395144'
+- rank: 22
+  id: affaan-m-everything-claude-code-skills-claude-api-skill-md
+  name: claude-api
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Anthropic Claude API patterns for Python and TypeScript. Covers Messages
+    API, streaming, tool use, vision, extended thinking, batches, prompt caching,
+    and Claude Agent SDK. Use when building applications with the Claude API or Anthropic
+    SDKs.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/claude-api
+  updated_at: '1773352145'
+- rank: 23
+  id: affaan-m-everything-claude-code-skills-claude-devfleet-skill-md
+  name: claude-devfleet
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Orchestrate multi-agent coding tasks via Claude DevFleet — plan projects,
+    dispatch parallel agents in isolated worktrees, monitor progress, and read structured
+    reports.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/claude-devfleet
+  updated_at: '1773693350'
+- rank: 24
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 自动从Claude Code会话中提取可重复使用的模式，并将其保存为学习到的技能以供将来使用。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/continuous-learning
+  updated_at: '1772923682'
+- rank: 25
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Automatically extract reusable patterns from Claude Code sessions and
+    save them as learned skills for future use.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/continuous-learning
+  updated_at: '1772664486'
+- rank: 26
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-continuous-learning-v2-skill-md
+  name: continuous-learning-v2
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 基于本能的学习系统，通过钩子观察会话，创建带置信度评分的原子本能，并将其进化为技能/命令/代理。v2.1版本增加了项目范围的本能，以防止跨项目污染。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/continuous-learning-v2
+  updated_at: '1774219164'
+- rank: 27
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-continuous-learning-v2-skill-md
+  name: continuous-learning-v2
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Instinct-based learning system that observes sessions via hooks, creates
+    atomic instincts with confidence scoring, and evolves them into skills/commands/agents.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/continuous-learning-v2
+  updated_at: '1772032842'
+- rank: 28
+  id: affaan-m-everything-claude-code-agents-skills-dmux-workflows-skill-md
+  name: dmux-workflows
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Multi-agent orchestration using dmux (tmux pane manager for AI agents).
+    Patterns for parallel agent workflows across Claude Code, Codex, OpenCode, and
+    other harnesses. Use when running multiple agent sessions in parallel or coordinating
+    multi-agent development workflows.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/dmux-workflows
+  updated_at: '1773352145'
+- rank: 29
+  id: affaan-m-everything-claude-code-skills-dmux-workflows-skill-md
+  name: dmux-workflows
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Multi-agent orchestration using dmux (tmux pane manager for AI agents).
+    Patterns for parallel agent workflows across Claude Code, Codex, OpenCode, and
+    other harnesses. Use when running multiple agent sessions in parallel or coordinating
+    multi-agent development workflows.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/dmux-workflows
+  updated_at: '1774141805'
+- rank: 30
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-iterative-retrieval-skill-md
+  name: iterative-retrieval
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 서브에이전트 컨텍스트 문제를 해결하기 위한 점진적 컨텍스트 검색 개선 패턴
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/iterative-retrieval
+  updated_at: '1773116940'
+- rank: 31
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-iterative-retrieval-skill-md
+  name: iterative-retrieval
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 逐步优化上下文检索以解决子代理上下文问题的模式
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/iterative-retrieval
+  updated_at: '1774219164'
+- rank: 32
+  id: affaan-m-everything-claude-code-skills-iterative-retrieval-skill-md
+  name: iterative-retrieval
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Pattern for progressively refining context retrieval to solve the subagent
+    context problem
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/iterative-retrieval
+  updated_at: '1773121783'
+- rank: 33
+  id: affaan-m-everything-claude-code-skills-skill-comply-skill-md
+  name: skill-comply
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Visualize whether skills, rules, and agent definitions are actually
+    followed — auto-generates scenarios at 3 prompt strictness levels, runs agents,
+    classifies behavioral sequences, and reports compliance rates with full tool call
+    timelines
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/skill-comply
+  updated_at: '1774241509'
+- rank: 34
+  id: affaan-m-everything-claude-code-skills-team-builder-skill-md
+  name: team-builder
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Interactive agent picker for composing and dispatching parallel teams
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/team-builder
+  updated_at: '1773693338'
+- rank: 35
+  id: anthropics-skills-skills-claude-api-skill-md
+  name: claude-api
+  author: anthropics
+  stars: 105006
+  forks: 11595
+  description: 'Build apps with the Claude API or Anthropic SDK. TRIGGER when: code
+    imports `anthropic`/`@anthropic-ai/sdk`/`claude_agent_sdk`, or user asks to use
+    Claude API, Anthropic SDKs, or Agent SDK. DO NOT TRIGGER when: code imports `openai`/other
+    AI SDK, general programming, or ML/data-science tasks.'
+  github_url: https://github.com/anthropics/skills/tree/main/skills/claude-api
+  updated_at: '1774451446'
+- rank: 36
+  id: google-gemini-gemini-cli-packages-cli-src-commands-extensions-examples-skills-skills-greeter-skill-md
+  name: greeter
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: A friendly greeter skill
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/packages/cli/src/commands/extensions/examples/skills/skills/greeter
+  updated_at: '1768929286'
+- rank: 37
+  id: google-gemini-gemini-cli-packages-core-src-skills-builtin-skill-creator-skill-md
+  name: skill-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Guide for creating effective skills. This skill should be used when
+    users want to create a new skill (or update an existing skill) that extends Gemini
+    CLI's capabilities with specialized knowledge, workflows, or tool integrations.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/packages/core/src/skills/builtin/skill-creator
+  updated_at: '1772499739'
+- rank: 38
+  id: pytorch-pytorch-claude-skills-skill-writer-skill-md
+  name: skill-writer
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Guide users through creating Agent Skills for Claude Code. Use when
+    the user wants to create, write, author, or design a new Skill, or needs help
+    with SKILL.md files, frontmatter, or skill structure.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/skill-writer
+  updated_at: '1761670167'
+- rank: 39
+  id: lobehub-lobehub-agents-skills-add-provider-doc-skill-md
+  name: add-provider-doc
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Guide for adding new AI provider documentation. Use when adding documentation
+    for a new AI provider (like OpenAI, Anthropic, etc.), including usage docs, environment
+    variables, Docker config, and image resources. Triggers on provider documentation
+    tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/add-provider-doc
+  updated_at: '1771693763'
+- rank: 40
+  id: mem0ai-mem0-mem0-plugin-skills-mem0-skill-md
+  name: mem0
+  author: mem0ai
+  stars: 51327
+  forks: 5741
+  description: Integrate Mem0 Platform into AI applications for persistent memory,
+    personalization, and semantic search. Use this skill when the user mentions "mem0",
+    "memory layer", "remember user preferences", "persistent context", "personalization",
+    or needs to add long-term memory to chatbots, agents, or AI apps. Covers Python
+    and TypeScript SDKs, framework integrations (LangChain, CrewAI, Vercel AI SDK,
+    OpenAI Agents SDK, Pipecat), and the full Platform API. Use even when the user
+    doesn't explicitly say "mem0" but describes needing conversation memory, user
+    context retention, or knowledge retrieval across sessions.
+  github_url: https://github.com/mem0ai/mem0/tree/main/mem0-plugin/skills/mem0
+  updated_at: '1774475159'
+- rank: 41
+  id: mem0ai-mem0-skills-mem0-skill-md
+  name: mem0
+  author: mem0ai
+  stars: 51327
+  forks: 5741
+  description: Integrate Mem0 Platform into AI applications for persistent memory,
+    personalization, and semantic search. Use this skill when the user mentions "mem0",
+    "memory layer", "remember user preferences", "persistent context", "personalization",
+    or needs to add long-term memory to chatbots, agents, or AI apps. Covers Python
+    and TypeScript SDKs, framework integrations (LangChain, CrewAI, Vercel AI SDK,
+    OpenAI Agents SDK, Pipecat), and the full Platform API. Use even when the user
+    doesn't explicitly say "mem0" but describes needing conversation memory, user
+    context retention, or knowledge retrieval across sessions.
+  github_url: https://github.com/mem0ai/mem0/tree/main/skills/mem0
+  updated_at: '1774394880'
+- rank: 42
+  id: bytedance-deer-flow-skills-public-bootstrap-skill-md
+  name: bootstrap
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: 'Generate a personalized SOUL.md through a warm, adaptive onboarding
+    conversation. Trigger when the user wants to create, set up, or initialize their
+    AI partner''s identity — e.g., "create my SOUL.md", "bootstrap my agent", "set
+    up my AI partner", "define who you are", "let''s do onboarding", "personalize
+    this AI", "make you mine", or when a SOUL.md is missing. Also trigger for updates:
+    "update my SOUL.md", "change my AI''s personality", "tweak the soul".'
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/bootstrap
+  updated_at: '1772544721'
+- rank: 43
+  id: bytedance-deer-flow-skills-public-video-generation-skill-md
+  name: video-generation
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Use this skill when the user requests to generate, create, or imagine
+    videos. Supports structured prompts and reference image for guided generation.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/video-generation
+  updated_at: '1773651192'
+- rank: 44
+  id: composiohq-awesome-claude-skills-connect-skill-md
+  name: connect
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Connect Claude to any app. Send emails, create issues, post messages,
+    update databases - take real actions across Gmail, Slack, GitHub, Notion, and
+    1000+ services.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/connect
+  updated_at: '1768122512'
+- rank: 45
+  id: composiohq-awesome-claude-skills-connect-apps-skill-md
+  name: connect-apps
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Connect Claude to external apps like Gmail, Slack, GitHub. Use this
+    skill when the user wants to send emails, create issues, post messages, or take
+    actions in external services.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/connect-apps
+  updated_at: '1768203099'
+- rank: 46
+  id: composiohq-awesome-claude-skills-content-research-writer-skill-md
+  name: content-research-writer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Assists in writing high-quality content by conducting research, adding
+    citations, improving hooks, iterating on outlines, and providing real-time feedback
+    on each section. Transforms your writing process from solo effort to collaborative
+    partnership.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer
+  updated_at: '1760692175'
+- rank: 47
+  id: composiohq-awesome-claude-skills-developer-growth-analysis-skill-md
+  name: developer-growth-analysis
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Analyzes your recent Claude Code chat history to identify coding patterns,
+    development gaps, and areas for improvement, curates relevant learning resources
+    from HackerNews, and automatically sends a personalized growth report to your
+    Slack DMs.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/developer-growth-analysis
+  updated_at: '1762790232'
+- rank: 48
+  id: composiohq-awesome-claude-skills-meeting-insights-analyzer-skill-md
+  name: meeting-insights-analyzer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Analyzes meeting transcripts and recordings to uncover behavioral patterns,
+    communication insights, and actionable feedback. Identifies when you avoid conflict,
+    use filler words, dominate conversations, or miss opportunities to listen. Perfect
+    for professionals seeking to improve their communication and leadership skills.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/meeting-insights-analyzer
+  updated_at: '1760692175'
+- rank: 49
+  id: composiohq-awesome-claude-skills-skill-share-skill-md
+  name: skill-share
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: A skill that creates new Claude skills and automatically shares them
+    on Slack using Rube for seamless team collaboration and skill discovery.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/skill-share
+  updated_at: '1762521158'
+- rank: 50
+  id: tldraw-tldraw-claude-skills-skill-creator-skill-md
+  name: skill-creator
+  author: tldraw
+  stars: 46086
+  forks: 3105
+  description: Guide for creating effective skills. This skill should be used when
+    users want to create a new skill (or update an existing skill) that extends Claude's
+    capabilities with specialized knowledge, workflows, or tool integrations.
+  github_url: https://github.com/tldraw/tldraw/tree/main/.claude/skills/skill-creator
+  updated_at: '1767786062'

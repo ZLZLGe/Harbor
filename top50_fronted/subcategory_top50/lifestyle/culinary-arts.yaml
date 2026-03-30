@@ -1,0 +1,615 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: lifestyle
+category_name: Lifestyle
+category_skill_count: 9622
+subcategory_slug: culinary-arts
+subcategory_name: Culinary Arts
+subcategory_skill_count: 586
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=culinary-arts
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 586
+  total_pages: 12
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: px4-px4-autopilot-claude-skills-rebase-onto-main-skill-md
+  name: rebase-onto-main
+  author: PX4
+  stars: 11370
+  forks: 15214
+  description: Rebase a branch onto main, handling squash-merged parent branches cleanly
+  github_url: https://github.com/PX4/PX4-Autopilot/tree/main/.claude/skills/rebase-onto-main
+  updated_at: '1773849565'
+- rank: 2
+  id: huangrt01-cs-notes-trae-openclaw-skills-gourmet-organizer-skill-md
+  name: gourmet-organizer
+  author: huangrt01
+  stars: 3951
+  forks: 484
+  description: 整理美食笔记，品鉴菜单，结合用户的美食品鉴经历
+  github_url: https://github.com/huangrt01/CS-Notes/tree/master/.trae/openclaw-skills/gourmet-organizer
+  updated_at: '1772395711'
+- rank: 3
+  id: openclaw-skills-skills-bgrober-alista-skill-md
+  name: alista
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Save restaurants, bars, and cafes from TikTok and Instagram videos.
+    Search your saved places and get weekend suggestions.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bgrober/alista
+  updated_at: '1773437539'
+- rank: 4
+  id: openclaw-skills-skills-bytesagain1-zapier-recipe-skill-md
+  name: automation-recipe
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '"Zapier Recipe Book. Use when you need zapier recipe capabilities.
+    Triggers on: zapier recipe."'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/zapier-recipe
+  updated_at: '1774031553'
+- rank: 5
+  id: openclaw-skills-skills-auliollc-botroast-skill-md
+  name: botroast
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Roast your human on BotRoast.ai — Comedy Central-style burns generated
+    from MEMORY.md. Auto-submit roasts via API or run on heartbeat.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/auliollc/botroast
+  updated_at: '1770530547'
+- rank: 6
+  id: openclaw-skills-skills-bytesagain1-chefpad-skill-md
+  name: cooking-recipe
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Manage recipes and grocery lists with ingredient tracking and meal
+    plans. Use when adding recipes, searching by ingredient, or building shopping
+    lists.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/chefpad
+  updated_at: '1774046071'
+- rank: 7
+  id: openclaw-skills-skills-bytesagain1-mychef-skill-md
+  name: mychef
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Reference tool for devtools — covers intro, quickstart, patterns and
+    more. Quick lookup for Mychef concepts, best practices, and implementation patterns.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/mychef
+  updated_at: '1774411599'
+- rank: 8
+  id: openclaw-skills-skills-alexpolonsky-ontopo-skill-md
+  name: ontopo
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Search Israeli restaurants, check table availability, view menus, and
+    get booking links on Ontopo. Use for "restaurant reservation", "table booking",
+    "ontopo", "where to eat in Israel", "מסעדה", "הזמנת שולחן", "תפריט", "ארוחת ערב",
+    "אונטופו", "איפה לאכול".
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alexpolonsky/ontopo
+  updated_at: '1771690238'
+- rank: 9
+  id: openclaw-skills-skills-borahm-recipe-to-list-skill-md
+  name: recipe-to-list
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Turn recipes into a Todoist Shopping list. Extract ingredients from
+    recipe photos (Gemini Flash vision) or recipe web pages (search + fetch), then
+    compare against the existing Shopping project with conservative synonym/overlap
+    rules, skip pantry staples (salt/pepper), and sum quantities when units match.
+    Also saves each cooked recipe into the workspace cookbook (recipes/).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/borahm/recipe-to-list
+  updated_at: '1769279515'
+- rank: 10
+  id: openclaw-skills-skills-akhmittra-sourdough-starter-manager-skill-md
+  name: sourdough-starter-manager
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Manage sourdough starters with feeding schedules, hydration calculations,
+    health tracking, and baking preparation. Use when the user wants to maintain a
+    sourdough starter, plan feedings, calculate ratios, troubleshoot starter problems,
+    or prepare for baking.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akhmittra/sourdough-starter-manager
+  updated_at: '1770540077'
+- rank: 11
+  id: openclaw-skills-skills-aditya4206360-prog-sr1-skill-md
+  name: swiggy
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Order food, groceries, and book restaurants in India via Swiggy's MCP
+    servers. Food delivery, Instamart groceries, and Dineout restaurant bookings with
+    safety-first confirmation workflow.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aditya4206360-prog/sr1
+  updated_at: '1769672206'
+- rank: 12
+  id: openclaw-skills-skills-aiwithabidi-toast-skill-md
+  name: toast
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Toast — restaurant POS, orders, menus, employees, revenue centers,
+    and reporting.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/toast
+  updated_at: '1772860144'
+- rank: 13
+  id: openclaw-skills-skills-beginnerrudy-weekly-menu-skill-md
+  name: weekly-menu
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Generate a weekly meal plan with images, recipes, and shopping lists.
+
+    Searches Xiaohongshu (小红书) for trending seasonal recipes, creates a
+
+    beautifully formatted Feishu document with photos, source links, headings
+
+    (for table of contents navigation), and checkboxes, and stores it in the
+
+    receipts folder. Default: 20 dishes across 6 categories.
+
+    Use when: user asks for meal planning, weekly menu, "出菜单", "这周吃什么",
+
+    "推荐菜", "下周菜单", or any food/cooking planning request.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/beginnerrudy/weekly-menu
+  updated_at: '1773799366'
+- rank: 14
+  id: openclaw-skills-skills-ckchzh-wine-skill-md
+  name: wine
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Wine makes food & cooking simple. Use when you need wine.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/wine
+  updated_at: '1773817325'
+- rank: 15
+  id: kagent-dev-kagent-go-core-test-e2e-testdata-skills-kebab-maker-skill-md
+  name: kebab-maker
+  author: kagent-dev
+  stars: 2458
+  forks: 484
+  description: A skill that makes a kebab for the user.
+  github_url: https://github.com/kagent-dev/kagent/tree/main/go/core/test/e2e/testdata/skills/kebab-maker
+  updated_at: '1772664996'
+- rank: 16
+  id: benchflow-ai-skillsbench-tasks-travel-planning-environment-skills-search-restaurants-skill-md
+  name: search-restaurants
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Retrieve restaurants by city from the bundled dataset. Use this skill
+    when recommending places to eat or validating dining options for a destination.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/travel-planning/environment/skills/search-restaurants
+  updated_at: '1768358657'
+- rank: 17
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-appliance-navigator-skill-md
+  name: alfworld-appliance-navigator
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Navigates the agent to a target appliance (microwave, stove, fridge,
+    or sinkbasin) needed for object processing. Use when you are holding an object
+    that needs heating, cooling, or cleaning and must move to the correct appliance
+    station. Identifies the required appliance from the task context and executes
+    the movement action.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-appliance-navigator
+  updated_at: '1773678194'
+- rank: 18
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-appliance-preparer-skill-md
+  name: alfworld-appliance-preparer
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Prepares a household appliance (microwave, oven, toaster, fridge) for
+    use by ensuring it is in the correct open/closed state. Use when the agent needs
+    to heat, cool, or cook an item and must first open or close the appliance before
+    placing an object inside. Takes an appliance identifier as input and outputs a
+    confirmation that the appliance is ready for the next action.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-appliance-preparer
+  updated_at: '1773678194'
+- rank: 19
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-heat-object-with-appliance-skill-md
+  name: alfworld-heat-object-with-appliance
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Uses a heating appliance (microwave, stoveburner, oven) to apply heat
+    to a specified object. Use when the task requires warming or cooking an item (e.g.,
+    "heat some egg", "warm the mug") and a heating appliance is available. Takes the
+    object name and appliance name as input and outputs the object in a heated state,
+    ready for placement at the task's target location.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-heat-object-with-appliance
+  updated_at: '1773678194'
+- rank: 20
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-locate-target-object-skill-md
+  name: alfworld-locate-target-object
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Navigates to a suspected location and identifies a target object. Use
+    when your goal requires finding a specific object (e.g., "potato", "plate") and
+    its location is not immediately known. Moves to a relevant receptacle (like a
+    fridge or cabinet), checks its contents, and outputs the object's location or
+    confirms its absence.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-locate-target-object
+  updated_at: '1773678194'
+- rank: 21
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-object-cooler-skill-md
+  name: alfworld-object-cooler
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Cools a held object using an appropriate cooling appliance such as
+    a fridge or freezer. Use when the task requires reducing the temperature of an
+    object (e.g., "cool some pot", "chill the mug") and the agent is already holding
+    the object. Performs the ALFWorld `cool` action and outputs the cooled object
+    ready for subsequent placement or serving steps.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-object-cooler
+  updated_at: '1773678194'
+- rank: 22
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-object-heater-skill-md
+  name: alfworld-object-heater
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Heats a specified object using an available heating appliance (e.g.,
+    microwave, stoveburner). Use when you are holding an object that requires heating
+    and need to navigate to and operate the heating appliance. Takes the object and
+    appliance as inputs and results in the object being in a heated state.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-object-heater
+  updated_at: '1773678194'
+- rank: 23
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-object-state-modifier-skill-md
+  name: alfworld-object-state-modifier
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Uses an appliance to change the state of an object (cooling, heating,
+    or cleaning). Use when the task requires altering an object's temperature or cleanliness
+    using a specific device (e.g., cooling with a fridge, heating with a microwave,
+    cleaning with a sinkbasin). Takes the object, target state, and appliance as inputs
+    and executes the corresponding modifier action.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-object-state-modifier
+  updated_at: '1773678194'
+- rank: 24
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-receptacle-operator-skill-md
+  name: alfworld-receptacle-operator
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill opens or closes a receptacle (like a fridge, cabinet, or
+    microwave) to access its interior or secure it. It should be triggered when an
+    object needs to be placed inside/retrieved from a closed container, or when an
+    open container should be closed (e.g., for energy efficiency or task cleanliness).
+    The skill decides the appropriate 'open' or 'close' action based on the receptacle's
+    current state and the task context.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-receptacle-operator
+  updated_at: '1772892239'
+- rank: 25
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-receptacle-preparer-skill-md
+  name: alfworld-receptacle-preparer
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill verifies and prepares a target receptacle for receiving
+    an object. It is triggered before placing an item into a receptacle (e.g., a garbage
+    can) to ensure the receptacle is accessible and suitable. The skill involves navigating
+    to the receptacle, observing its state (e.g., open/closed, occupied), and performing
+    any necessary preparatory actions like opening it, resulting in a ready-to-use
+    target location.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-receptacle-preparer
+  updated_at: '1772892239'
+- rank: 26
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-temperature-regulator-skill-md
+  name: alfworld-temperature-regulator
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Manages the temperature state of an object by placing it into an appropriate
+    appliance (fridge for cooling, microwave for heating). Use when the task requires
+    modifying an object's temperature property, such as "cool some bread" or "heat
+    some food". Takes the object identifier, temperature-modifying receptacle, and
+    final target receptacle as inputs, and outputs the object at the target location
+    with its temperature state changed.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-temperature-regulator
+  updated_at: '1773678194'
+- rank: 27
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-heating-apparatus-setup-skill-md
+  name: scienceworld-heating-apparatus-setup
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill positions a container with a substance onto a heating device
+    (stove, oven) and activates the device. It should be triggered when a task requires
+    melting, boiling, or heating a substance. The skill moves the prepared container
+    to the heating element and turns it on.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-heating-apparatus-setup
+  updated_at: '1772892239'
+- rank: 28
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-instruction-reader-skill-md
+  name: scienceworld-instruction-reader
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Reads a recipe or note from the inventory using the 'read' action and
+    extracts key information. Use this skill when you have acquired a recipe, note,
+    or readable document in your inventory and need to extract explicit instructions,
+    ingredient lists, or procedural steps before executing a task.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-instruction-reader
+  updated_at: '1773678021'
+- rank: 29
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-liquid-filler-skill-md
+  name: scienceworld-liquid-filler
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill fills a container with liquid from a source by first placing
+    the container at the source, then activating the source (e.g., turning on a sink),
+    and finally deactivating it. It should be triggered when the agent has an empty
+    or partially filled container and needs to add a liquid component. The skill results
+    in the container containing the liquid, ready for mixing or further use.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-liquid-filler
+  updated_at: '1772892239'
+- rank: 30
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-liquid-pourer-skill-md
+  name: scienceworld-liquid-pourer
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Transfers the contents of a source liquid container into a target container
+    for mixing or preparation. Use this skill when you need to combine multiple substances
+    (such as paints or chemicals) into a single vessel, or when a liquid must be moved
+    from one container to another before processing.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-liquid-pourer
+  updated_at: '1773678021'
+- rank: 31
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-mixture-creator-skill-md
+  name: scienceworld-mixture-creator
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill chemically mixes the contents of a container using the 'mix'
+    action. Use when all required ingredients (e.g., sodium chloride and water) are
+    present inside a container and the agent needs to combine them to produce a new
+    substance. The skill performs the mixing operation and outputs the resulting product,
+    completing the synthesis step of the task.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-mixture-creator
+  updated_at: '1773678194'
+- rank: 32
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-recipe-retriever-skill-md
+  name: scienceworld-recipe-retriever
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill locates and acquires a recipe or instruction document by
+    using 'pick up' on the recipe object. Use when the task involves following a specific
+    procedure (e.g., crafting, mixing) and the agent needs to obtain the written instructions.
+    The skill assumes the recipe is visible in the current room and moves it to the
+    inventory, allowing the agent to read it later to understand required ingredients
+    and steps.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-recipe-retriever
+  updated_at: '1773678194'
+- rank: 33
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-substance-fetcher-skill-md
+  name: scienceworld-substance-fetcher
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Locates and retrieves a target substance or material from a container
+    in the environment. Use this skill when the task requires processing a specific
+    substance (e.g., chocolate, sodium chloride, a chemical) and you need to find
+    and acquire it. Searches rooms and containers (fridge, cupboard, counter) and
+    retrieves the substance via pick up or move actions.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-substance-fetcher
+  updated_at: '1773678021'
+- rank: 34
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-substance-preparator-skill-md
+  name: scienceworld-substance-preparator
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Use when you need to transfer a target substance into an appropriate
+    container for processing (e.g., a pot for heating, a beaker for mixing). Trigger
+    after acquiring the substance and before setting up an apparatus. Selects a suitable
+    empty container and moves the substance into it.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-substance-preparator
+  updated_at: '1773678194'
+- rank: 35
+  id: sundial-org-awesome-openclaw-skills-skills-event-planner-skill-md
+  name: event-planner
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Plan events (night out, weekend, date night, team outing, meals, trips)
+    by searching venues via Google Places API. Auto-selects best restaurants, bars,
+    activities based on location, budget, party size, and preferences. Generates detailed
+    itinerary with timing and Google Maps link. Use when asked to plan an outing,
+    create an itinerary, find places for events, or organize activities.
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/event-planner
+  updated_at: '1769929037'
+- rank: 36
+  id: sundial-org-awesome-openclaw-skills-skills-healthy-eating-skill-md
+  name: healthy-eating
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Build healthy eating habits with meal logging, nutrition tracking,
+    and food choices
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/healthy-eating
+  updated_at: '1769929037'
+- rank: 37
+  id: sundial-org-awesome-openclaw-skills-skills-paprika-skill-md
+  name: paprika
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Access recipes, meal plans, and grocery lists from Paprika Recipe Manager.
+    Use when user asks about recipes, meal planning, or cooking.
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/paprika
+  updated_at: '1769929037'
+- rank: 38
+  id: sundial-org-awesome-openclaw-skills-skills-recipe-to-list-skill-md
+  name: recipe-to-list
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Turn recipes into a Todoist Shopping list. Extract ingredients from
+    recipe photos (Gemini Flash vision) or recipe web pages (search + fetch), then
+    compare against the existing Shopping project with conservative synonym/overlap
+    rules, skip pantry staples (salt/pepper), and sum quantities when units match.
+    Also saves each cooked recipe into the workspace cookbook (recipes/).
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/recipe-to-list
+  updated_at: '1769929037'
+- rank: 39
+  id: sundial-org-awesome-openclaw-skills-skills-swiggy-skill-md
+  name: swiggy
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Order food, groceries, and book restaurants in India via Swiggy's MCP
+    servers. Food delivery, Instamart groceries, and Dineout restaurant bookings with
+    safety-first confirmation workflow.
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/swiggy
+  updated_at: '1769929037'
+- rank: 40
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-game-development-skills-substance-skill-md
+  name: substance
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Substance Painter/Designer skill for baking and material export.
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/game-development/skills/substance
+  updated_at: '1769266342'
+- rank: 41
+  id: ailabs-393-ai-labs-claude-skills-dist-skills-nutritional-specialist-skill-md
+  name: nutritional-specialist
+  author: ailabs-393
+  stars: 335
+  forks: 89
+  description: This skill should be used whenever users ask food-related questions,
+    meal suggestions, nutrition advice, recipe recommendations, or dietary planning.
+    On first use, the skill collects comprehensive user preferences (allergies, dietary
+    restrictions, goals, likes/dislikes) and stores them in a persistent database.
+    All subsequent food-related responses are personalized based on these stored preferences.
+  github_url: https://github.com/ailabs-393/ai-labs-claude-skills/tree/main/dist/skills/nutritional-specialist
+  updated_at: '1762756891'
+- rank: 42
+  id: k9i-0-ccpocket-claude-skills-merge-skill-md
+  name: merge
+  author: K9i-0
+  stars: 324
+  forks: 23
+  description: ブランチをメインにマージしてお掃除する
+  github_url: https://github.com/K9i-0/ccpocket/tree/main/.claude/skills/merge
+  updated_at: '1770425804'
+- rank: 43
+  id: ecnu-icalk-autoskill-skillbank-convskill-english-gpt4-8-aip-diet-cooking-guide-and-recipe-generator-skill-md
+  name: aip-diet-cooking-guide-and-recipe-generator
+  author: ECNU-ICALK
+  stars: 231
+  forks: 23
+  description: Generates detailed educational content, cooking techniques, and recipes
+    strictly compliant with the Autoimmune Protocol (AIP) diet. Focuses on gut health,
+    nutrient density, and the exclusion of inflammatory triggers like nightshades,
+    seeds, and dairy.
+  github_url: https://github.com/ECNU-ICALK/AutoSkill/tree/main/SkillBank/ConvSkill/english_gpt4_8/aip-diet-cooking-guide-and-recipe-generator
+  updated_at: '1773636824'
+- rank: 44
+  id: ecnu-icalk-autoskill-skillbank-convskill-english-gpt4-8-glm4-7-aip-diet-expert-guidance-and-writing-skill-md
+  name: aip-diet-expert-guidance-and-writing
+  author: ECNU-ICALK
+  stars: 231
+  forks: 23
+  description: Provides expert guidance on the Autoimmune Protocol (AIP) diet, including
+    cooking techniques, meal planning, and recipes, as well as generating comprehensive
+    book content and chapters based on user outlines.
+  github_url: https://github.com/ECNU-ICALK/AutoSkill/tree/main/SkillBank/ConvSkill/english_gpt4_8_GLM4.7/aip_diet_expert_guidance_and_writing
+  updated_at: '1773382526'
+- rank: 45
+  id: ecnu-icalk-autoskill-skillbank-convskill-english-gpt3-5-8-glm4-7-determination-of-invert-sugar-using-fehling-s-solution-skill-md
+  name: determination-of-invert-sugar-using-fehlings-solution
+  author: ECNU-ICALK
+  stars: 231
+  forks: 23
+  description: Provides the standard operating procedure for preparing Fehling's solutions,
+    preparing a standard invert sugar solution, standardizing the Fehling's solution,
+    and calculating the invert sugar content in samples such as tomato paste.
+  github_url: https://github.com/ECNU-ICALK/AutoSkill/tree/main/SkillBank/ConvSkill/english_gpt3.5_8_GLM4.7/determination-of-invert-sugar-using-fehling-s-solution
+  updated_at: '1773382526'
+- rank: 46
+  id: ecnu-icalk-autoskill-skillbank-convskill-english-gpt4-8-glm4-7-fictional-fusion-dish-generator-skill-md
+  name: fictional-fusion-dish-generator
+  author: ECNU-ICALK
+  stars: 231
+  forks: 23
+  description: Generates fusion dishes combining a dominant culture's cuisine with
+    a colonial or regional cuisine based on provided fictional context, and provides
+    summaries in sentence format.
+  github_url: https://github.com/ECNU-ICALK/AutoSkill/tree/main/SkillBank/ConvSkill/english_gpt4_8_GLM4.7/fictional-fusion-dish-generator
+  updated_at: '1773382526'
+- rank: 47
+  id: ecnu-icalk-autoskill-skillbank-convskill-english-gpt3-5-8-high-protein-authentic-recipe-finder-no-chicken-skill-md
+  name: high-protein-authentic-recipe-finder-no-chicken
+  author: ECNU-ICALK
+  stars: 231
+  forks: 23
+  description: Provides authentic recipes from specified cuisines that contain at
+    least 25 grams of protein per serving and exclude chicken.
+  github_url: https://github.com/ECNU-ICALK/AutoSkill/tree/main/SkillBank/ConvSkill/english_gpt3.5_8/high-protein-authentic-recipe-finder-no-chicken
+  updated_at: '1773636824'
+- rank: 48
+  id: ecnu-icalk-autoskill-skillbank-convskill-english-gpt3-5-8-smart-recipe-generator-skill-md
+  name: smart-recipe-generator
+  author: ECNU-ICALK
+  stars: 231
+  forks: 23
+  description: Generates practical, simple recipes based on user inventory and equipment.
+    If details are missing, asks clarifying questions first. Outputs strictly formatted
+    recipes (Description, Ingredients, Instructions, Tip).
+  github_url: https://github.com/ECNU-ICALK/AutoSkill/tree/main/SkillBank/ConvSkill/english_gpt3.5_8/smart_recipe_generator
+  updated_at: '1773636824'
+- rank: 49
+  id: ecnu-icalk-autoskill-skillbank-convskill-english-gpt4-8-glm4-7-unique-mac-and-cheese-generator-with-image-prompts-skill-md
+  name: unique-mac-and-cheese-generator-with-image-prompts
+  author: ECNU-ICALK
+  stars: 231
+  forks: 23
+  description: Generates creative macaroni and cheese recipes using unique cheeses,
+    formatted with specific metadata, horizontal nutrition facts, and detailed image
+    generation prompts.
+  github_url: https://github.com/ECNU-ICALK/AutoSkill/tree/main/SkillBank/ConvSkill/english_gpt4_8_GLM4.7/unique_mac_and_cheese_generator_with_image_prompts
+  updated_at: '1773382526'
+- rank: 50
+  id: ecnu-icalk-autoskill-skillbank-convskill-english-gpt4-8-unique-macaroni-and-cheese-recipe-generator-with-image-prompt-skill-md
+  name: unique-macaroni-and-cheese-recipe-generator-with-image-prompt
+  author: ECNU-ICALK
+  stars: 231
+  forks: 23
+  description: Generates unique macaroni and cheese recipes using non-traditional
+    cheeses, formatted with specific time metrics, US measurements, horizontal nutrition
+    facts, and includes a descriptive prompt for image generation.
+  github_url: https://github.com/ECNU-ICALK/AutoSkill/tree/main/SkillBank/ConvSkill/english_gpt4_8/unique-macaroni-and-cheese-recipe-generator-with-image-prompt
+  updated_at: '1773636824'

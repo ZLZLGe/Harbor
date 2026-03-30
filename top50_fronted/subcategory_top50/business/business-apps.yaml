@@ -1,0 +1,649 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: business
+category_name: Business
+category_skill_count: 121378
+subcategory_slug: business-apps
+subcategory_name: Business Apps
+subcategory_skill_count: 1581
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=business-apps
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 1581
+  total_pages: 32
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: microsoft-ai-agents-for-beginners-translations-cs-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Použijte, když uživatel požádá o vytvoření, inicializaci nebo úpravu
+    Jupyter notebooků (`.ipynb`) pro experimenty, průzkumy nebo návody; upřednostněte
+    zabudované šablony a spusťte pomocný skript `new_notebook.py`, abyste vygenerovali
+    čistý výchozí notebook.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/cs/.agents/skills/jupyter-notebook
+  updated_at: '1771519725'
+- rank: 2
+  id: wshobson-agents-plugins-payment-processing-skills-billing-automation-skill-md
+  name: billing-automation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build automated billing systems for recurring payments, invoicing,
+    subscription lifecycle, and dunning management. Use when implementing subscription
+    billing, automating invoicing, or managing recurring payment systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/billing-automation
+  updated_at: '1772898797'
+- rank: 3
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-metrics-framework-skill-md
+  name: startup-metrics-framework
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Track, calculate, and optimize key performance metrics for SaaS, marketplace,
+    consumer, and B2B startups from seed through Series A, including unit economics,
+    growth efficiency, and cash management. Use this skill when defining a metrics
+    framework, calculating CAC/LTV/burn multiple, benchmarking business health, or
+    preparing metrics dashboards for investors or board reporting.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-metrics-framework
+  updated_at: '1774489443'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-pipedrive-automation-skill-md
+  name: pipedrive-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Automate Pipedrive CRM operations including deals, contacts, organizations,
+    activities, notes, and pipeline management via Rube MCP (Composio). Always search
+    tools first for current schemas.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pipedrive-automation
+  updated_at: '1773994005'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-sales-automator-skill-md
+  name: sales-automator
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Draft cold emails, follow-ups, and proposal templates. Creates
+
+    pricing pages, case studies, and sales scripts. Use PROACTIVELY for sales
+
+    outreach or lead nurturing.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sales-automator
+  updated_at: '1772354305'
+- rank: 6
+  id: github-awesome-copilot-skills-prd-skill-md
+  name: prd
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate high-quality Product Requirements Documents (PRDs) for software
+    systems and AI-powered features. Includes executive summaries, user stories, technical
+    specifications, and risk analysis.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/prd
+  updated_at: '1769103412'
+- rank: 7
+  id: davila7-claude-code-templates-cli-tool-components-skills-creative-design-executing-marketing-campaigns-skill-md
+  name: executing-marketing-campaigns
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Plans, creates, and optimizes marketing campaigns including content
+    strategy, social media, email, and analytics. Helps develop go-to-market strategies,
+    campaign messaging, and performance measurement.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/creative-design/executing-marketing-campaigns
+  updated_at: '1766259071'
+- rank: 8
+  id: davila7-claude-code-templates-cli-tool-components-skills-productivity-notion-spec-to-implementation-skill-md
+  name: notion-spec-to-implementation
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Turn Notion specs into implementation plans, tasks, and progress tracking;
+    use when implementing PRDs/feature specs and creating Notion plans + tasks from
+    them.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/productivity/notion-spec-to-implementation
+  updated_at: '1767012349'
+- rank: 9
+  id: googleworkspace-cli-skills-gws-gmail-forward-skill-md
+  name: gws-gmail-forward
+  author: googleworkspace
+  stars: 22843
+  forks: 1108
+  description: 'Gmail: Forward a message to new recipients.'
+  github_url: https://github.com/googleworkspace/cli/tree/main/skills/gws-gmail-forward
+  updated_at: '1774550706'
+- rank: 10
+  id: googleworkspace-cli-skills-gws-gmail-send-skill-md
+  name: gws-gmail-send
+  author: googleworkspace
+  stars: 22843
+  forks: 1108
+  description: 'Gmail: Send an email.'
+  github_url: https://github.com/googleworkspace/cli/tree/main/skills/gws-gmail-send
+  updated_at: '1774550706'
+- rank: 11
+  id: openai-skills-skills-curated-notion-spec-to-implementation-skill-md
+  name: notion-spec-to-implementation
+  author: openai
+  stars: 15590
+  forks: 928
+  description: Turn Notion specs into implementation plans, tasks, and progress tracking;
+    use when implementing PRDs/feature specs and creating Notion plans + tasks from
+    them.
+  github_url: https://github.com/openai/skills/tree/main/skills/.curated/notion-spec-to-implementation
+  updated_at: '1770047998'
+- rank: 12
+  id: anthropics-knowledge-work-plugins-sales-skills-create-an-asset-skill-md
+  name: create-an-asset
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Generate tailored sales assets (landing pages, decks, one-pagers, workflow
+    demos) from your deal context. Describe your prospect, audience, and goal — get
+    a polished, branded asset ready to share with customers.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/sales/skills/create-an-asset
+  updated_at: '1769726177'
+- rank: 13
+  id: anthropics-knowledge-work-plugins-finance-skills-journal-entry-prep-skill-md
+  name: journal-entry-prep
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Prepare journal entries with proper debits, credits, and supporting
+    documentation for month-end close. Use when booking accruals, prepaid amortization,
+    fixed asset depreciation, payroll entries, revenue recognition, or any manual
+    journal entry.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/finance/skills/journal-entry-prep
+  updated_at: '1773417477'
+- rank: 14
+  id: unopim-unopim-github-skills-unopim-data-transfer-skill-md
+  name: unopim-data-transfer
+  author: unopim
+  stars: 9409
+  forks: 127
+  description: Import/export pipeline for UnoPim. Activates when configuring imports,
+    exports, debugging job pipelines, or creating data transfer profiles; or when
+    the user mentions import, export, CSV, Excel, job, queue, batch, or data transfer.
+  github_url: https://github.com/unopim/unopim/tree/master/.github/skills/unopim-data-transfer
+  updated_at: '1774455201'
+- rank: 15
+  id: alirezarezvani-claude-skills-project-management-atlassian-templates-skill-md
+  name: atlassian-templates
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Atlassian Template and Files Creator/Modifier expert for creating,
+    modifying, and managing Jira and Confluence templates, blueprints, custom layouts,
+    reusable components, and standardized content structures. Use when building org-wide
+    templates, custom blueprints, page layouts, and automated content generation.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/project-management/atlassian-templates
+  updated_at: '1773132529'
+- rank: 16
+  id: alirezarezvani-claude-skills-product-team-product-manager-toolkit-skill-md
+  name: product-manager-toolkit
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Comprehensive toolkit for product managers including RICE prioritization,
+    customer interview analysis, PRD templates, discovery frameworks, and go-to-market
+    strategies. Use for feature prioritization, user research synthesis, requirement
+    documentation, and product strategy development.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit
+  updated_at: '1773132529'
+- rank: 17
+  id: alirezarezvani-claude-skills-product-team-product-strategist-skill-md
+  name: product-strategist
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Strategic product leadership toolkit for Head of Product covering OKR
+    cascade generation, quarterly planning, competitive landscape analysis, product
+    vision documents, and team scaling proposals. Use when creating quarterly OKR
+    documents, defining product goals or KPIs, building product roadmaps, running
+    competitive analysis, drafting team structure or hiring plans, aligning product
+    strategy across engineering and design, or generating cascaded goal hierarchies
+    from company to team level.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-strategist
+  updated_at: '1773132529'
+- rank: 18
+  id: nvidia-openshell-agents-skills-sbom-skill-md
+  name: sbom
+  author: NVIDIA
+  stars: 3985
+  forks: 395
+  description: Generate and manage Software Bill of Materials (SBOMs) for the OpenShell
+    project. Covers SBOM generation with Syft, license resolution via public registries,
+    and CSV export for compliance review. Trigger keywords - SBOM, sbom, bill of materials,
+    license audit, license resolution, generate sbom, sbom csv, dependency license,
+    supply chain, license scan.
+  github_url: https://github.com/NVIDIA/OpenShell/tree/main/.agents/skills/sbom
+  updated_at: '1773268440'
+- rank: 19
+  id: parcadei-continuous-claude-v3-claude-skills-plan-agent-skill-md
+  name: planning-agent
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Planning agent that creates implementation plans and handoffs from
+    conversation context
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/plan-agent
+  updated_at: '1769079254'
+- rank: 20
+  id: openclaw-skills-skills-1kalin-afrexai-invoice-engine-skill-md
+  name: afrexai-invoice-engine
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Generate, manage, and track professional invoices with payment terms,
+    recurring billing, overdue automation, and financial reporting. Use when creating
+    invoices, tracking payments, managing clients, or reviewing revenue.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1kalin/afrexai-invoice-engine
+  updated_at: '1771092260'
+- rank: 21
+  id: openclaw-skills-skills-byungkyu-brevo-api-skill-md
+  name: brevo
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Brevo API integration with managed OAuth. Email marketing, transactional
+    emails, SMS, contacts, and CRM.
+
+    Use this skill when users want to send emails, manage contacts, create campaigns,
+    or work with Brevo lists and templates.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/brevo-api
+  updated_at: '1770804128'
+- rank: 22
+  id: openclaw-skills-skills-businessbrainsolutions-charmie-crm-lite-skill-md
+  name: charmie-crm-lite
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Lightweight CRM with SQLite – manage contacts. Upgrade to Pro for email,
+    messaging, and more.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/businessbrainsolutions/charmie-crm-lite
+  updated_at: '1773754843'
+- rank: 23
+  id: openclaw-skills-skills-byungkyu-clickfunnels-skill-md
+  name: clickfunnels
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'ClickFunnels API integration with managed OAuth. Manage contacts,
+    products, orders, courses, forms, and webhooks.
+
+    Use this skill when users want to create sales funnels, manage contacts, process
+    orders, or build marketing automation.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/clickfunnels
+  updated_at: '1770800582'
+- rank: 24
+  id: openclaw-skills-skills-1kalin-afrexai-crm-updater-skill-md
+  name: crm-manager
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Manages a local CSV-based CRM with pipeline tracking
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1kalin/afrexai-crm-updater
+  updated_at: '1770954051'
+- rank: 25
+  id: openclaw-skills-skills-1kalin-crm-manager-skill-md
+  name: crm-manager
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Manages a local CSV-based CRM with pipeline tracking
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1kalin/crm-manager
+  updated_at: '1770953863'
+- rank: 26
+  id: openclaw-skills-skills-alech44-founder-briefing-skill-md
+  name: founder-briefing
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Generate real-estate buyer lead follow-up plans from open house notes,
+    inquiry messages, or CRM exports. Use when the user asks to prioritize leads,
+    write personalized SMS/email follow-ups, handle objections, or produce a 7-day
+    cadence to book buyer appointments.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alech44/founder-briefing
+  updated_at: '1773727764'
+- rank: 27
+  id: openclaw-skills-skills-10xcoldleads-highlevel-skill-md
+  name: highlevel
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Connect your AI assistant to GoHighLevel CRM via the official API v2.
+    Manage contacts, conversations, calendars, pipelines, invoices, payments, workflows,
+    and 30+ endpoint groups through natural language. Includes interactive setup wizard
+    and 100+ pre-built, safe API commands. Python 3.6+ stdlib only — zero external
+    dependencies.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/10xcoldleads/highlevel
+  updated_at: '1771210946'
+- rank: 28
+  id: openclaw-skills-skills-1kalin-afrexai-invoice-gen-skill-md
+  name: invoice-generator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Creates professional invoices in markdown and HTML
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1kalin/afrexai-invoice-gen
+  updated_at: '1770954021'
+- rank: 29
+  id: openclaw-skills-skills-1kalin-ai-invoice-generator-skill-md
+  name: invoice-generator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Creates professional invoices in markdown and HTML
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1kalin/ai-invoice-generator
+  updated_at: '1770950407'
+- rank: 30
+  id: openclaw-skills-skills-chenzhuowen-invoice-qr-scanner-skill-md
+  name: invoice-qr-scanner
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Scan QR codes from invoice receipts and automatically fill electronic
+    invoice applications. Use when user asks to scan QR codes from images, complete
+    electronic invoice applications, or process invoice receipts that contain QR codes
+    for online billing systems.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chenzhuowen/invoice-qr-scanner
+  updated_at: '1772815124'
+- rank: 31
+  id: openclaw-skills-skills-byungkyu-jobber-skill-md
+  name: jobber
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Jobber API integration with managed OAuth. Manage clients, jobs, invoices,
+    quotes, properties, and team members for field service businesses.
+
+    Use this skill when users want to create and manage service jobs, clients, quotes,
+    invoices, or access scheduling data.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/jobber
+  updated_at: '1770791713'
+- rank: 32
+  id: openclaw-skills-skills-byungkyu-keap-skill-md
+  name: keap
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Keap API integration with managed OAuth. Manage contacts, companies,
+    tags, tasks, orders, opportunities, and campaigns for CRM and marketing automation.
+
+    Use this skill when users want to create and manage contacts, apply tags, track
+    opportunities, or automate marketing workflows in Keap.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/keap
+  updated_at: '1770796962'
+- rank: 33
+  id: openclaw-skills-skills-0x7466-kimai-time-tracking-skill-md
+  name: kimai-time-tracking
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Complete Kimai time-tracking API integration. Manage timesheets, customers,
+    projects, activities, teams, invoices and exports via REST API. Supports time
+    tracking workflows, reporting, and administrative operations. Keywords - kimai,
+    zeiterfassung, timesheet, tracking, project, customer, activity, invoice, export,
+    timer, stunden
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0x7466/kimai-time-tracking
+  updated_at: '1770586320'
+- rank: 34
+  id: openclaw-skills-skills-byungkyu-kit-skill-md
+  name: kit
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Kit (formerly ConvertKit) API integration with managed OAuth. Manage
+    email subscribers, forms, tags, sequences, broadcasts, and custom fields.
+
+    Use this skill when users want to manage their email marketing lists, create or
+    update subscribers, manage tags, or work with email sequences and broadcasts.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/kit
+  updated_at: '1770791607'
+- rank: 35
+  id: openclaw-skills-skills-bojieli-pine-voice-skill-md
+  name: pine-voice
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Give your agent a real phone. It dials, waits on hold, negotiates your
+    bills, and returns a full transcript.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bojieli/pine-voice
+  updated_at: '1771693696'
+- rank: 36
+  id: openclaw-skills-skills-byungkyu-pipedrive-api-skill-md
+  name: pipedrive
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Pipedrive API integration with managed OAuth. Manage deals, persons,
+    organizations, activities, and pipelines. Use this skill when users want to interact
+    with Pipedrive CRM. For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/pipedrive-api
+  updated_at: '1770780769'
+- rank: 37
+  id: openclaw-skills-skills-alirezarezvani-product-manager-toolkit-skill-md
+  name: product-manager-toolkit
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Comprehensive toolkit for product managers including RICE prioritization,
+    customer interview analysis, PRD templates, discovery frameworks, and go-to-market
+    strategies. Use for feature prioritization, user research synthesis, requirement
+    documentation, and product strategy development.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alirezarezvani/product-manager-toolkit
+  updated_at: '1773295530'
+- rank: 38
+  id: openclaw-skills-skills-52yuanchangxing-quote-invoice-workbench-skill-md
+  name: quote-invoice-workbench
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Turn messy service pricing notes into professional quotes, SOW line
+    items, and invoice drafts with assumptions clearly surfaced.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/52yuanchangxing/quote-invoice-workbench
+  updated_at: '1773484452'
+- rank: 39
+  id: openclaw-skills-skills-52yuanchangxing-receipt-expense-workbench-skill-md
+  name: receipt-expense-workbench
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Normalize receipts, reimbursement slips, and invoices into a clean
+    expense ledger with category mapping and anomaly flags.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/52yuanchangxing/receipt-expense-workbench
+  updated_at: '1773484469'
+- rank: 40
+  id: openclaw-skills-skills-1970168137-sales-dialogue-skill-md
+  name: sales-dialogue
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Generate persuasive sales scripts, competitive comparison talking points,
+    and real-time response recommendations
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1970168137/sales-dialogue
+  updated_at: '1774168690'
+- rank: 41
+  id: openclaw-skills-skills-arvorco-salesforce-skill-md
+  name: salesforce
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Query and manage Salesforce CRM data via the Salesforce CLI (`sf`).
+    Run SOQL/SOSL queries, inspect object schemas, create/update/delete records, bulk
+    import/export, execute Apex, deploy metadata, and make raw REST API calls.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/arvorco/salesforce
+  updated_at: '1769535216'
+- rank: 42
+  id: openclaw-skills-skills-byungkyu-salesforce-api-skill-md
+  name: salesforce
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Salesforce CRM API integration with managed OAuth. Query records with
+    SOQL, manage sObjects (Contacts, Accounts, Leads, Opportunities), and perform
+    batch operations. Use this skill when users want to interact with Salesforce data.
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/salesforce-api
+  updated_at: '1770773652'
+- rank: 43
+  id: openclaw-skills-skills-byungkyu-stripe-api-skill-md
+  name: stripe
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Stripe API integration with managed OAuth. Manage customers, subscriptions,
+    invoices, products, prices, and payments.
+
+    Use this skill when users want to process payments, manage billing, or handle
+    subscriptions with Stripe.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/stripe-api
+  updated_at: '1770773658'
+- rank: 44
+  id: openclaw-skills-skills-byungkyu-tally-api-skill-md
+  name: tally
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Tally API integration with managed OAuth. Manage forms, submissions,
+    workspaces, and webhooks.
+
+    Use this skill when users want to create or manage Tally forms, retrieve form
+    submissions, or work with workspaces.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/tally-api
+  updated_at: '1770800622'
+- rank: 45
+  id: openclaw-skills-skills-bigjoehuang-vidau-video-generator-skill-md
+  name: vidau-video-generator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Use Vidau Open API to generate short videos with Veo3, Sora2, and other
+    models, or query account credits. Register at superaiglobal.com and configure
+    API Key.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bigjoehuang/vidau-video-generator
+  updated_at: '1773758046'
+- rank: 46
+  id: openclaw-skills-skills-aiwithabidi-wave-skill-md
+  name: wave
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Wave accounting — invoices, customers, transactions, accounts, products,
+    taxes. Small business accounting CLI.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/wave
+  updated_at: '1773021906'
+- rank: 47
+  id: openclaw-skills-skills-byungkyu-zoho-bigin-skill-md
+  name: zoho-bigin
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Zoho Bigin API integration with managed OAuth. Manage contacts, companies,
+    pipelines, and products in Bigin CRM.
+
+    Use this skill when users want to read, create, update, or delete CRM records,
+    search contacts, or manage sales pipelines.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/zoho-bigin
+  updated_at: '1770789722'
+- rank: 48
+  id: openclaw-skills-skills-byungkyu-zoho-books-skill-md
+  name: zoho-books
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Zoho Books API integration with managed OAuth. Manage invoices, contacts,
+    bills, expenses, and other accounting data.
+
+    Use this skill when users want to read, create, update, or delete invoices, contacts,
+    bills, expenses, or other financial records in Zoho Books.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/zoho-books
+  updated_at: '1770795269'
+- rank: 49
+  id: openclaw-skills-skills-byungkyu-zoho-crm-skill-md
+  name: zoho-crm
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Zoho CRM API integration with managed OAuth. Manage leads, contacts,
+    accounts, deals, and other CRM records.
+
+    Use this skill when users want to read, create, update, or delete CRM records,
+    search contacts, manage sales pipelines, access organization settings, manage
+    users, or retrieve module metadata in Zoho CRM.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/zoho-crm
+  updated_at: '1771362146'
+- rank: 50
+  id: openclaw-skills-skills-byungkyu-zoho-inventory-skill-md
+  name: zoho-inventory
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Zoho Inventory API integration with managed OAuth. Manage items, sales
+    orders, invoices, purchase orders, bills, contacts, and shipments.
+
+    Use this skill when users want to read, create, update, or delete inventory items,
+    sales orders, invoices, purchase orders, bills, or other inventory records in
+    Zoho Inventory.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/zoho-inventory
+  updated_at: '1770789747'

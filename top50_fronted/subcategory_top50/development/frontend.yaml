@@ -1,0 +1,593 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: frontend
+subcategory_name: Frontend
+subcategory_skill_count: 17262
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=frontend
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 17262
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: facebook-react-claude-skills-extract-errors-skill-md
+  name: extract-errors
+  author: facebook
+  stars: 244234
+  forks: 50870
+  description: Use when adding new error messages to React, or seeing "unknown error
+    code" warnings.
+  github_url: https://github.com/facebook/react/tree/main/.claude/skills/extract-errors
+  updated_at: '1769217366'
+- rank: 2
+  id: vercel-next-js-agents-skills-react-vendoring-skill-md
+  name: react-vendoring
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: React vendoring and react-server layer boundaries. Use when editing
+    entry-base.ts, $$compiled.internal.d.ts, compiled/react* packages, or taskfile.js
+    copy_vendor_react. Covers the entry-base.ts boundary (all react-server-dom-webpack/*
+    imports must go through it), vendored React channels, type declarations, Turbopack
+    remap to react-server-dom-turbopack, ComponentMod access patterns, and ESLint
+    suppression for guarded requires.
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/react-vendoring
+  updated_at: '1771263147'
+- rank: 3
+  id: affaan-m-everything-claude-code-agents-skills-coding-standards-skill-md
+  name: coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Universal coding standards, best practices, and patterns for TypeScript,
+    JavaScript, React, and Node.js development.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/coding-standards
+  updated_at: '1772045129'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-coding-standards-skill-md
+  name: coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: TypeScript, JavaScript, React, Node.js 개발을 위한 범용 코딩 표준, 모범 사례 및 패턴.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/coding-standards
+  updated_at: '1773386274'
+- rank: 5
+  id: affaan-m-everything-claude-code-kiro-skills-coding-standards-skill-md
+  name: coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Universal coding standards, best practices, and patterns for TypeScript,
+    JavaScript, React, and Node.js development.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/coding-standards
+  updated_at: '1774241745'
+- rank: 6
+  id: affaan-m-everything-claude-code-skills-coding-standards-skill-md
+  name: coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Universal coding standards, best practices, and patterns for TypeScript,
+    JavaScript, React, and Node.js development.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/coding-standards
+  updated_at: '1771862457'
+- rank: 7
+  id: affaan-m-everything-claude-code-agents-skills-documentation-lookup-skill-md
+  name: documentation-lookup
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use up-to-date library and framework docs via Context7 MCP instead
+    of training data. Activates for setup questions, API references, code examples,
+    or when the user names a framework (e.g. React, Next.js, Prisma).
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/documentation-lookup
+  updated_at: '1773695038'
+- rank: 8
+  id: affaan-m-everything-claude-code-cursor-skills-documentation-lookup-skill-md
+  name: documentation-lookup
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use up-to-date library and framework docs via Context7 MCP instead
+    of training data. Activates for setup questions, API references, code examples,
+    or when the user names a framework (e.g. React, Next.js, Prisma).
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/documentation-lookup
+  updated_at: '1773695020'
+- rank: 9
+  id: affaan-m-everything-claude-code-agents-skills-frontend-patterns-skill-md
+  name: frontend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Frontend development patterns for React, Next.js, state management,
+    performance optimization, and UI best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/frontend-patterns
+  updated_at: '1772045129'
+- rank: 10
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-frontend-patterns-skill-md
+  name: frontend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: React、Next.js、状态管理、性能优化和UI最佳实践的前端开发模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/frontend-patterns
+  updated_at: '1772519307'
+- rank: 11
+  id: affaan-m-everything-claude-code-kiro-skills-frontend-patterns-skill-md
+  name: frontend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Frontend development patterns for React, Next.js, state management,
+    performance optimization, and UI best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/frontend-patterns
+  updated_at: '1774241745'
+- rank: 12
+  id: affaan-m-everything-claude-code-skills-frontend-patterns-skill-md
+  name: frontend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Frontend development patterns for React, Next.js, state management,
+    performance optimization, and UI best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/frontend-patterns
+  updated_at: '1771862457'
+- rank: 13
+  id: angular-angular-skills-dev-skills-angular-developer-skill-md
+  name: angular-developer
+  author: angular
+  stars: 100120
+  forks: 27146
+  description: Generates Angular code and provides architectural guidance. Trigger
+    when creating projects, components, or services, or for best practices on reactivity
+    (signals, linkedSignal, resource), forms, dependency injection, routing, SSR,
+    accessibility (ARIA), animations, styling (component styles, Tailwind CSS), testing,
+    or CLI tooling.
+  github_url: https://github.com/angular/angular/tree/main/skills/dev-skills/angular-developer
+  updated_at: '1774546157'
+- rank: 14
+  id: lobehub-lobehub-agents-skills-i18n-skill-md
+  name: i18n
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Internationalization guide using react-i18next. Use when adding translations,
+    creating i18n keys, or working with localized text in React components (.tsx files).
+    Triggers on translation tasks, locale management, or i18n implementation.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/i18n
+  updated_at: '1773907981'
+- rank: 15
+  id: lobehub-lobehub-agents-skills-modal-skill-md
+  name: modal
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Modal imperative API guide. Use when creating modal dialogs using createModal
+    from @lobehub/ui. Triggers on modal component implementation or dialog creation
+    tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/modal
+  updated_at: '1770786288'
+- rank: 16
+  id: lobehub-lobehub-agents-skills-react-skill-md
+  name: react
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: React component development guide. Use when working with React components
+    (.tsx files), creating UI, using @lobehub/ui components, implementing routing,
+    or building frontend features. Triggers on React component creation, modification,
+    layout implementation, or navigation tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/react
+  updated_at: '1774427257'
+- rank: 17
+  id: lobehub-lobehub-agents-skills-zustand-skill-md
+  name: zustand
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Zustand state management guide. Use when working with store code (src/store/**),
+    implementing actions, managing state, or creating slices. Triggers on Zustand
+    store development, state management questions, or action implementation.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/zustand
+  updated_at: '1771693763'
+- rank: 18
+  id: remix-run-react-router-agents-skills-fix-bug-skill-md
+  name: fix-bug
+  author: remix-run
+  stars: 56336
+  forks: 10839
+  description: 'Fix a reported bug in React Router from a GitHub issue. Use when the
+    user provides a GitHub issue URL and asks to fix a bug, investigate an issue,
+    or reproduce a problem. Handles the full workflow: fetching the issue, finding
+    the reproduction, writing a failing test, and implementing the fix.'
+  github_url: https://github.com/remix-run/react-router/tree/main/.agents/skills/fix-bug
+  updated_at: '1773853655'
+- rank: 19
+  id: nextlevelbuilder-ui-ux-pro-max-skill-claude-skills-ui-styling-skill-md
+  name: ckmui-styling
+  author: nextlevelbuilder
+  stars: 53137
+  forks: 5136
+  description: Create beautiful, accessible user interfaces with shadcn/ui components
+    (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based
+    visual designs. Use when building user interfaces, implementing design systems,
+    creating responsive layouts, adding accessible components (dialogs, dropdowns,
+    forms, tables), customizing themes and colors, implementing dark mode, generating
+    visual designs and posters, or establishing consistent styling patterns across
+    applications.
+  github_url: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-styling
+  updated_at: '1773119164'
+- rank: 20
+  id: nextlevelbuilder-ui-ux-pro-max-skill-claude-skills-ui-ux-pro-max-skill-md
+  name: ui-ux-pro-max
+  author: nextlevelbuilder
+  stars: 53137
+  forks: 5136
+  description: 'UI/UX design intelligence for web and mobile. Includes 50+ styles,
+    161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and
+    25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native,
+    Flutter, Tailwind, shadcn/ui, and HTML/CSS). Actions: plan, build, create, design,
+    implement, review, fix, improve, optimize, enhance, refactor, and check UI/UX
+    code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS,
+    portfolio, blog, and mobile app. Elements: button, modal, navbar, sidebar, card,
+    table, form, and chart. Styles: glassmorphism, claymorphism, minimalism, brutalism,
+    neumorphism, bento grid, dark mode, responsive, skeuomorphism, and flat design.
+    Topics: color systems, accessibility, animation, layout, typography, font pairing,
+    spacing, interaction states, shadow, and gradient. Integrations: shadcn/ui MCP
+    for component search and examples.'
+  github_url: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/ui-ux-pro-max
+  updated_at: '1773122648'
+- rank: 21
+  id: upstash-context7-plugins-claude-context7-skills-context7-mcp-skill-md
+  name: context7-mcp
+  author: upstash
+  stars: 50877
+  forks: 2405
+  description: This skill should be used when the user asks about libraries, frameworks,
+    API references, or needs code examples. Activates for setup questions, code generation
+    involving libraries, or mentions of specific frameworks like React, Vue, Next.js,
+    Prisma, Supabase, etc.
+  github_url: https://github.com/upstash/context7/tree/master/plugins/claude/context7/skills/context7-mcp
+  updated_at: '1773235030'
+- rank: 22
+  id: metabase-metabase-claude-skills-emotion-migrate-skill-md
+  name: emotion-migrate
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Migrate Emotion styled-components to Mantine components with style
+    props and CSS modules. Use when converting .styled.tsx files or removing @emotion
+    imports from components.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/emotion-migrate
+  updated_at: '1773944519'
+- rank: 23
+  id: penpot-penpot-opencode-skills-frontend-skill-md
+  name: penpot-frontend
+  author: penpot
+  stars: 45072
+  forks: 2632
+  description: Guidelines and workflows for the Penpot ClojureScript React frontend.
+  github_url: https://github.com/penpot/penpot/tree/develop/.opencode/skills/frontend
+  updated_at: '1774479029'
+- rank: 24
+  id: getsentry-sentry-agents-skills-design-system-skill-md
+  name: design-system
+  author: getsentry
+  stars: 43460
+  forks: 4642
+  description: Guide for using Sentry's layout and text primitives. Use when implementing
+    UI components, layouts, or typography. Enforces use of core components over styled
+    components.
+  github_url: https://github.com/getsentry/sentry/tree/master/.agents/skills/design-system
+  updated_at: '1774537361'
+- rank: 25
+  id: remotion-dev-remotion-claude-skills-docs-demo-skill-md
+  name: docs-demo
+  author: remotion-dev
+  stars: 41027
+  forks: 2624
+  description: Add an interactive demo to the Remotion documentation. Use when creating
+    a new <Demo> component for docs pages.
+  github_url: https://github.com/remotion-dev/remotion/tree/main/.claude/skills/docs-demo
+  updated_at: '1769857726'
+- rank: 26
+  id: calcom-cal-com-agents-skills-vercel-react-best-practices-skill-md
+  name: vercel-react-best-practices
+  author: calcom
+  stars: 40740
+  forks: 12330
+  description: React and Next.js performance optimization guidelines from Vercel Engineering.
+    This skill should be used when writing, reviewing, or refactoring React/Next.js
+    code to ensure optimal performance patterns. Triggers on tasks involving React
+    components, Next.js pages, data fetching, bundle optimization, or performance
+    improvements.
+  github_url: https://github.com/calcom/cal.com/tree/main/agents/skills/vercel-react-best-practices
+  updated_at: '1770124481'
+- rank: 27
+  id: trpc-trpc-packages-client-skills-client-setup-skill-md
+  name: client-setup
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Create a vanilla tRPC client with createTRPCClient<AppRouter>(), configure
+    link chain with httpBatchLink/httpLink, dynamic headers for auth, transformer
+    on links (not client constructor). Infer types with inferRouterInputs and inferRouterOutputs.
+    AbortController signal support. TRPCClientError typing.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/client/skills/client-setup
+  updated_at: '1774697990'
+- rank: 28
+  id: trpc-trpc-packages-tanstack-react-query-skills-react-query-classic-migration-skill-md
+  name: react-query-classic-migration
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: 'Migrate from @trpc/react-query (classic) to @trpc/tanstack-react-query.
+    Run npx @trpc/upgrade CLI for automated codemod. Manually migrate remaining patterns:
+    hook-based to options-factory, utils.invalidate to queryClient.invalidateQueries
+    with queryFilter, provider changes.'
+  github_url: https://github.com/trpc/trpc/tree/main/packages/tanstack-react-query/skills/react-query-classic-migration
+  updated_at: '1774697990'
+- rank: 29
+  id: trpc-trpc-packages-tanstack-react-query-skills-react-query-setup-skill-md
+  name: react-query-setup
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Set up @trpc/tanstack-react-query with createTRPCContext(), TRPCProvider,
+    useTRPC() hook, queryOptions/mutationOptions factories, query invalidation via
+    queryClient.invalidateQueries with queryFilter, and type inference with inferInput/inferOutput.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/tanstack-react-query/skills/react-query-setup
+  updated_at: '1774697990'
+- rank: 30
+  id: moeru-ai-airi-agents-skills-unocss-skill-md
+  name: unocss
+  author: moeru-ai
+  stars: 35987
+  forks: 3579
+  description: UnoCSS instant atomic CSS engine, superset of Tailwind CSS. Use when
+    configuring UnoCSS, writing utility rules, shortcuts, or working with presets
+    like Wind, Icons, Attributify.
+  github_url: https://github.com/moeru-ai/airi/tree/main/.agents/skills/unocss
+  updated_at: '1773591546'
+- rank: 31
+  id: moeru-ai-airi-agents-skills-vue-skill-md
+  name: vue
+  author: moeru-ai
+  stars: 35987
+  forks: 3579
+  description: Vue 3 Composition API, script setup macros, reactivity system, and
+    built-in components. Use when writing Vue SFCs, defineProps/defineEmits/defineModel,
+    watchers, or using Transition/Teleport/Suspense/KeepAlive.
+  github_url: https://github.com/moeru-ai/airi/tree/main/.agents/skills/vue
+  updated_at: '1773591546'
+- rank: 32
+  id: moeru-ai-airi-agents-skills-vueuse-functions-skill-md
+  name: vueuse-functions
+  author: moeru-ai
+  stars: 35987
+  forks: 3579
+  description: Apply VueUse composables where appropriate to build concise, maintainable
+    Vue.js / Nuxt features.
+  github_url: https://github.com/moeru-ai/airi/tree/main/.agents/skills/vueuse-functions
+  updated_at: '1773591546'
+- rank: 33
+  id: wshobson-agents-plugins-framework-migration-skills-angular-migration-skill-md
+  name: angular-migration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Migrate from AngularJS to Angular using hybrid mode, incremental component
+    rewriting, and dependency injection updates. Use when upgrading AngularJS applications,
+    planning framework migrations, or modernizing legacy Angular code.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/angular-migration
+  updated_at: '1772898797'
+- rank: 34
+  id: wshobson-agents-plugins-ui-design-skills-mobile-android-design-skill-md
+  name: mobile-android-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Material Design 3 and Jetpack Compose patterns for building
+    native Android apps. Use when designing Android interfaces, implementing Compose
+    UI, or following Google's Material Design guidelines.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-android-design
+  updated_at: '1772898797'
+- rank: 35
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-nextjs-app-router-patterns-skill-md
+  name: nextjs-app-router-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Next.js 14+ App Router with Server Components, streaming, parallel
+    routes, and advanced data fetching. Use when building Next.js applications, implementing
+    SSR/SSG, or optimizing React Server Components.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/nextjs-app-router-patterns
+  updated_at: '1772898797'
+- rank: 36
+  id: wshobson-agents-plugins-framework-migration-skills-react-modernization-skill-md
+  name: react-modernization
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Upgrade React applications to latest versions, migrate from class components
+    to hooks, and adopt concurrent features. Use when modernizing React codebases,
+    migrating to React Hooks, or upgrading to latest React versions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/react-modernization
+  updated_at: '1772898797'
+- rank: 37
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-react-native-architecture-skill-md
+  name: react-native-architecture
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build production React Native apps with Expo, navigation, native modules,
+    offline sync, and cross-platform patterns. Use when developing mobile apps, implementing
+    native integrations, or architecting React Native projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/react-native-architecture
+  updated_at: '1772898797'
+- rank: 38
+  id: wshobson-agents-plugins-ui-design-skills-react-native-design-skill-md
+  name: react-native-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master React Native styling, navigation, and Reanimated animations
+    for cross-platform mobile development. Use when building React Native apps, implementing
+    navigation patterns, or creating performant animations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/react-native-design
+  updated_at: '1772898797'
+- rank: 39
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-react-state-management-skill-md
+  name: react-state-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master modern React state management with Redux Toolkit, Zustand, Jotai,
+    and React Query. Use when setting up global state, managing server state, or choosing
+    between state management solutions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/react-state-management
+  updated_at: '1772898797'
+- rank: 40
+  id: wshobson-agents-plugins-ui-design-skills-responsive-design-skill-md
+  name: responsive-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement modern responsive layouts using container queries, fluid
+    typography, CSS Grid, and mobile-first breakpoint strategies. Use when building
+    adaptive interfaces, implementing fluid layouts, or creating component-level responsive
+    behavior.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/responsive-design
+  updated_at: '1772898797'
+- rank: 41
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-tailwind-design-system-skill-md
+  name: tailwind-design-system
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build scalable design systems with Tailwind CSS v4, design tokens,
+    component libraries, and responsive patterns. Use when creating component libraries,
+    implementing design systems, or standardizing UI patterns.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/tailwind-design-system
+  updated_at: '1774489944'
+- rank: 42
+  id: wshobson-agents-plugins-javascript-typescript-skills-typescript-advanced-types-skill-md
+  name: typescript-advanced-types
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master TypeScript's advanced type system including generics, conditional
+    types, mapped types, template literals, and utility types for building type-safe
+    applications. Use when implementing complex type logic, creating reusable type
+    utilities, or ensuring compile-time type safety in TypeScript projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/javascript-typescript/skills/typescript-advanced-types
+  updated_at: '1772898797'
+- rank: 43
+  id: wshobson-agents-plugins-ui-design-skills-web-component-design-skill-md
+  name: web-component-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master React, Vue, and Svelte component patterns including CSS-in-JS,
+    composition strategies, and reusable component architecture. Use when building
+    UI component libraries, designing component APIs, or implementing frontend design
+    systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/web-component-design
+  updated_at: '1772898797'
+- rank: 44
+  id: cockroachdb-cockroach-pkg-ui-claude-skills-react-class-to-functional-skill-md
+  name: react-class-to-functional
+  author: cockroachdb
+  stars: 31973
+  forks: 4104
+  description: Convert React class components to functional components with hooks
+  github_url: https://github.com/cockroachdb/cockroach/tree/master/pkg/ui/.claude/skills/react-class-to-functional
+  updated_at: '1770747777'
+- rank: 45
+  id: cockroachdb-cockroach-pkg-ui-claude-skills-redux-to-swr-skill-md
+  name: redux-to-swr
+  author: cockroachdb
+  stars: 31973
+  forks: 4104
+  description: Migrate React components from Redux + Saga to SWR hooks. Use when converting
+    data fetching from Redux store (reducers, sagas, selectors, connect HOC) to SWR-based
+    hooks in CockroachDB DB Console or cluster-ui.
+  github_url: https://github.com/cockroachdb/cockroach/tree/master/pkg/ui/.claude/skills/redux-to-swr
+  updated_at: '1774554891'
+- rank: 46
+  id: heroui-inc-heroui-skills-heroui-native-skill-md
+  name: heroui-native
+  author: heroui-inc
+  stars: 28716
+  forks: 2092
+  description: 'HeroUI Native component library for React Native (Tailwind v4 via
+    Uniwind). Use when building mobile UIs with HeroUI Native — creating Buttons,
+    Cards, TextFields, Dialogs; installing heroui-native; configuring dark/light themes;
+    or fetching component docs. Keywords: HeroUI Native, heroui-native, React Native
+    UI, Uniwind, mobile components.'
+  github_url: https://github.com/heroui-inc/heroui/tree/v3/skills/heroui-native
+  updated_at: '1774541149'
+- rank: 47
+  id: heroui-inc-heroui-skills-heroui-react-skill-md
+  name: heroui-react
+  author: heroui-inc
+  stars: 28716
+  forks: 2092
+  description: 'HeroUI v3 React component library (Tailwind CSS v4 + React Aria).
+    Use when building UIs with HeroUI — creating Buttons, Modals, Forms, Cards; installing
+    @heroui/react; configuring dark/light themes with oklch variables; or fetching
+    component docs. Keywords: HeroUI, Hero UI, heroui, @heroui/react, @heroui/styles.'
+  github_url: https://github.com/heroui-inc/heroui/tree/v3/skills/heroui-react
+  updated_at: '1774541149'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-angular-migration-skill-md
+  name: angular-migration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master AngularJS to Angular migration, including hybrid apps, component
+    conversion, dependency injection changes, and routing migration.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/angular-migration
+  updated_at: '1773994005'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-angular-state-management-skill-md
+  name: angular-state-management
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master modern Angular state management with Signals, NgRx, and RxJS.
+    Use when setting up global state, managing component stores, choosing between
+    state solutions, or migrating from legacy patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/angular-state-management
+  updated_at: '1772180381'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-angular-ui-patterns-skill-md
+  name: angular-ui-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Modern Angular UI patterns for loading states, error handling, and
+    data display. Use when building UI components, handling async data, or managing
+    component states.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/angular-ui-patterns
+  updated_at: '1772180381'

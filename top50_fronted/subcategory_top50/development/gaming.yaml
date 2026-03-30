@@ -1,0 +1,569 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: gaming
+subcategory_name: Game Development
+subcategory_skill_count: 10385
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=gaming
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 10385
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-extensions-open-prose-skills-prose-skill-md
+  name: prose
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: OpenProse VM skill pack. Activate on any `prose` command, .prose files,
+    or OpenProse mentions; orchestrates multi-agent workflows.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/open-prose/skills/prose
+  updated_at: '1773433179'
+- rank: 2
+  id: affaan-m-everything-claude-code-docs-tr-skills-golang-patterns-skill-md
+  name: golang-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: İdiomatic Go desenler, en iyi uygulamalar ve sağlam, verimli ve bakımı
+    kolay Go uygulamaları oluşturmak için konvansiyonlar.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/golang-patterns
+  updated_at: '1774219024'
+- rank: 3
+  id: storybookjs-storybook-agents-skills-storybook-upgrade-skill-md
+  name: storybook-upgrade
+  author: storybookjs
+  stars: 89554
+  forks: 9960
+  description: Upgrade Storybook to a specific version (canary or release). Use this
+    when upgrading Storybook packages in an external app, reproduction, or test project.
+  github_url: https://github.com/storybookjs/storybook/tree/next/.agents/skills/storybook-upgrade
+  updated_at: '1773466855'
+- rank: 4
+  id: bytedance-deer-flow-skills-public-surprise-me-skill-md
+  name: surprise-me
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Create a delightful, unexpected "wow" experience for the user by dynamically
+    discovering and creatively combining other enabled skills. Triggers when the user
+    says "surprise me" or any request expressing a desire for an unexpected creative
+    showcase. Also triggers when the user is bored, wants inspiration, or asks for
+    "something interesting".
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/surprise-me
+  updated_at: '1770432703'
+- rank: 5
+  id: bmad-code-org-bmad-method-src-core-skills-bmad-brainstorming-skill-md
+  name: bmad-brainstorming
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Facilitate interactive brainstorming sessions using diverse creative
+    techniques and ideation methods. Use when the user says help me brainstorm or
+    help me ideate.
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-brainstorming
+  updated_at: '1774073483'
+- rank: 6
+  id: wshobson-agents-plugins-game-development-skills-godot-gdscript-patterns-skill-md
+  name: godot-gdscript-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Godot 4 GDScript patterns including signals, scenes, state machines,
+    and optimization. Use when building Godot games, implementing game systems, or
+    learning GDScript best practices.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/game-development/skills/godot-gdscript-patterns
+  updated_at: '1774489980'
+- rank: 7
+  id: wshobson-agents-plugins-game-development-skills-unity-ecs-patterns-skill-md
+  name: unity-ecs-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Unity ECS (Entity Component System) with DOTS, Jobs, and Burst
+    for high-performance game development. Use when building data-oriented games,
+    optimizing performance, or working with large entity counts.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/game-development/skills/unity-ecs-patterns
+  updated_at: '1772898797'
+- rank: 8
+  id: sickn33-antigravity-awesome-skills-skills-game-development-2d-games-skill-md
+  name: 2d-games
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 2D game development principles. Sprites, tilemaps, physics, camera.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/2d-games
+  updated_at: '1772180381'
+- rank: 9
+  id: sickn33-antigravity-awesome-skills-skills-game-development-3d-games-skill-md
+  name: 3d-games
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 3D game development principles. Rendering, shaders, physics, cameras.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/3d-games
+  updated_at: '1772180381'
+- rank: 10
+  id: sickn33-antigravity-awesome-skills-skills-3d-web-experience-skill-md
+  name: 3d-web-experience
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You bring the third dimension to the web. You know when 3D enhances
+    and when it's just showing off. You balance visual impact with performance. You
+    make 3D accessible to users who've never touched a 3D app. You create moments
+    of wonder without sacrificing usability.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/3d-web-experience
+  updated_at: '1773994005'
+- rank: 11
+  id: sickn33-antigravity-awesome-skills-skills-algorithmic-art-skill-md
+  name: algorithmic-art
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Algorithmic philosophies are computational aesthetic movements that
+    are then expressed through code. Output .md files (philosophy), .html files (interactive
+    viewer), and .js files (generative algorithms).
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/algorithmic-art
+  updated_at: '1773994005'
+- rank: 12
+  id: sickn33-antigravity-awesome-skills-skills-avalonia-zafiro-development-skill-md
+  name: avalonia-zafiro-development
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Mandatory skills, conventions, and behavioral rules for Avalonia UI
+    development using the Zafiro toolkit.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/avalonia-zafiro-development
+  updated_at: '1772180381'
+- rank: 13
+  id: sickn33-antigravity-awesome-skills-skills-game-development-game-art-skill-md
+  name: game-art
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Game art principles. Visual style selection, asset pipeline, animation
+    workflow.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/game-art
+  updated_at: '1772180381'
+- rank: 14
+  id: sickn33-antigravity-awesome-skills-skills-game-development-game-audio-skill-md
+  name: game-audio
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Game audio principles. Sound design, music integration, adaptive audio
+    systems.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/game-audio
+  updated_at: '1772180381'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-game-development-game-design-skill-md
+  name: game-design
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Game design principles. GDD structure, balancing, player psychology,
+    progression.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/game-design
+  updated_at: '1772180381'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-game-development-skill-md
+  name: game-development
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Game development orchestrator. Routes to platform-specific skills based
+    on project needs.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development
+  updated_at: '1772180381'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-godot-gdscript-patterns-skill-md
+  name: godot-gdscript-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Godot 4 GDScript patterns including signals, scenes, state machines,
+    and optimization. Use when building Godot games, implementing game systems, or
+    learning GDScript best practices.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/godot-gdscript-patterns
+  updated_at: '1772180381'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-hig-inputs-skill-md
+  name: hig-inputs
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Check for .claude/apple-design-context.md before asking questions.
+    Use existing context and only ask for information not already covered.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hig-inputs
+  updated_at: '1773994005'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-iconsax-library-skill-md
+  name: iconsax-library
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Extensive icon library and AI-driven icon generation skill for premium
+    UI/UX design.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/iconsax-library
+  updated_at: '1773994005'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-magic-ui-generator-skill-md
+  name: magic-ui-generator
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Utilizes Magic by 21st.dev to generate, compare, and integrate multiple
+    production-ready UI component variations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/magic-ui-generator
+  updated_at: '1773994005'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-makepad-animation-skill-md
+  name: makepad-animation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'CRITICAL: Use for Makepad animation system. Triggers on:
+
+    makepad animation, makepad animator, makepad hover, makepad state,
+
+    makepad transition, "from: { all: Forward", makepad pressed,
+
+    makepad 动画, makepad 状态, makepad 过渡, makepad 悬停效果'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-animation
+  updated_at: '1773994629'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-game-development-mobile-games-skill-md
+  name: mobile-games
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Mobile game development principles. Touch input, battery, performance,
+    app stores.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/mobile-games
+  updated_at: '1772180381'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-game-development-multiplayer-skill-md
+  name: multiplayer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Multiplayer game development principles. Architecture, networking,
+    synchronization.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/multiplayer
+  updated_at: '1772180381'
+- rank: 24
+  id: sickn33-antigravity-awesome-skills-skills-game-development-pc-games-skill-md
+  name: pc-games
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: PC and console game development principles. Engine selection, platform
+    features, optimization strategies.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/pc-games
+  updated_at: '1772180381'
+- rank: 25
+  id: sickn33-antigravity-awesome-skills-skills-scroll-experience-skill-md
+  name: scroll-experience
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You see scrolling as a narrative device, not just navigation. You create
+    moments of delight as users scroll. You know when to use subtle animations and
+    when to go cinematic. You balance performance with visual impact. You make websites
+    feel like movies you control with your thumb.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/scroll-experience
+  updated_at: '1773994005'
+- rank: 26
+  id: sickn33-antigravity-awesome-skills-skills-shader-programming-glsl-skill-md
+  name: shader-programming-glsl
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for
+    web and game engines, covering syntax, uniforms, and common effects.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/shader-programming-glsl
+  updated_at: '1772180381'
+- rank: 27
+  id: sickn33-antigravity-awesome-skills-skills-steve-jobs-skill-md
+  name: steve-jobs
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Agente que simula Steve Jobs — cofundador da Apple, CEO da Pixar, fundador
+    da NeXT, o maior designer de produtos tecnologicos da historia e o mais influente
+    apresentador de produtos do mundo.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/steve-jobs
+  updated_at: '1773994005'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-threejs-animation-skill-md
+  name: threejs-animation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Three.js animation - keyframe animation, skeletal animation, morph
+    targets, animation mixing. Use when animating objects, playing GLTF animations,
+    creating procedural motion, or blending animations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-animation
+  updated_at: '1773994629'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-threejs-fundamentals-skill-md
+  name: threejs-fundamentals
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Three.js scene setup, cameras, renderer, Object3D hierarchy, coordinate
+    systems. Use when setting up 3D scenes, creating cameras, configuring renderers,
+    managing object hierarchies, or working with transforms.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-fundamentals
+  updated_at: '1773994629'
+- rank: 30
+  id: sickn33-antigravity-awesome-skills-skills-threejs-interaction-skill-md
+  name: threejs-interaction
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Three.js interaction - raycasting, controls, mouse/touch input, object
+    selection. Use when handling user input, implementing click detection, adding
+    camera controls, or creating interactive 3D experiences.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-interaction
+  updated_at: '1773994629'
+- rank: 31
+  id: sickn33-antigravity-awesome-skills-skills-threejs-skills-skill-md
+  name: threejs-skills
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Create 3D scenes, interactive experiences, and visual effects using
+    Three.js. Use when user requests 3D graphics, WebGL experiences, 3D visualizations,
+    animations, or interactive 3D elements.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-skills
+  updated_at: '1773994005'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-unity-developer-skill-md
+  name: unity-developer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build Unity games with optimized C# scripts, efficient rendering, and
+    proper asset management. Masters Unity 6 LTS, URP/HDRP pipelines, and cross-platform
+    deployment.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/unity-developer
+  updated_at: '1772354305'
+- rank: 33
+  id: sickn33-antigravity-awesome-skills-skills-unity-ecs-patterns-skill-md
+  name: unity-ecs-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Production patterns for Unity's Data-Oriented Technology Stack (DOTS)
+    including Entity Component System, Job System, and Burst Compiler.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/unity-ecs-patterns
+  updated_at: '1773994005'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-game-development-web-games-skill-md
+  name: web-games
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Web browser game development principles. Framework selection, WebGPU,
+    optimization, PWA.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/game-development/web-games
+  updated_at: '1772180381'
+- rank: 35
+  id: github-awesome-copilot-skills-game-engine-skill-md
+  name: game-engine
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Expert skill for building web-based game engines and games using HTML5,
+    Canvas, WebGL, and JavaScript. Use when asked to create games, build game engines,
+    implement game physics, handle collision detection, set up game loops, manage
+    sprites, add game controls, or work with 2D/3D rendering. Covers techniques for
+    platformers, breakout-style games, maze games, tilemaps, audio, multiplayer via
+    WebRTC, and publishing games.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/game-engine
+  updated_at: '1771821119'
+- rank: 36
+  id: clockworklabs-spacetimedb-skills-spacetimedb-unity-skill-md
+  name: spacetimedb-unity
+  author: clockworklabs
+  stars: 24258
+  forks: 960
+  description: Integrate SpacetimeDB with Unity game projects. Use when building Unity
+    clients with MonoBehaviour lifecycle, FrameTick, and PlayerPrefs token persistence.
+  github_url: https://github.com/clockworklabs/SpacetimeDB/tree/master/skills/spacetimedb-unity
+  updated_at: '1772578057'
+- rank: 37
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-feature-design-assistant-skill-md
+  name: feature-design-assistant
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Turn ideas into fully formed designs and specs through natural collaborative
+    dialogue. Use when planning new features, designing architecture, or making significant
+    changes to the codebase.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/feature-design-assistant
+  updated_at: '1767959780'
+- rank: 38
+  id: davila7-claude-code-templates-cli-tool-components-skills-video-manim-skill-md
+  name: manim
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Comprehensive guide for Manim Community - Python framework for creating
+    mathematical animations and educational videos with programmatic control
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/video/manim
+  updated_at: '1769049346'
+- rank: 39
+  id: mastra-ai-mastra-claude-skills-ralph-plan-skill-md
+  name: ralph-plan
+  author: mastra-ai
+  stars: 22413
+  forks: 1805
+  description: Interactive planning assistant that helps create focused, well-structured
+    ralph-loop commands through collaborative conversation
+  github_url: https://github.com/mastra-ai/mastra/tree/main/.claude/skills/ralph-plan
+  updated_at: '1769023260'
+- rank: 40
+  id: agentscope-ai-agentscope-examples-agent-a2ui-agent-samples-general-agent-skills-a2ui-response-generator-skill-md
+  name: a2ui-response-generator
+  author: agentscope-ai
+  stars: 21418
+  forks: 2108
+  description: A skill that can retrieve A2UI UI JSON schematics and UI templates
+    that best show the response. This skill is essential and must be used before generating
+    A2UI (Agent to UI) JSON responses.
+  github_url: https://github.com/agentscope-ai/agentscope/tree/main/examples/agent/a2ui_agent/samples/general_agent/skills/A2UI_response_generator
+  updated_at: '1769667213'
+- rank: 41
+  id: maaassistantarknights-maaassistantarknights-claude-skills-pallas-style-reply-skill-md
+  name: pallas-style-reply
+  author: MaaAssistantArknights
+  stars: 20067
+  forks: 2531
+  description: 以《明日方舟》帕拉斯的人设与语气生成强角色扮演式回复。用于用户明确要求“帕拉斯风格”“帕拉斯口吻”“像帕拉斯一样说话”“Pallas
+    roleplay”时，输出带有米诺斯祭司、英雄叙事、荣誉与信念色彩的中文回复，同时保持内容可理解、可执行。
+  github_url: https://github.com/MaaAssistantArknights/MaaAssistantArknights/tree/dev-v2/.claude/skills/pallas-style-reply
+  updated_at: '1773771059'
+- rank: 42
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-simpy-skill-md
+  name: simpy
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Process-based discrete-event simulation framework in Python. Use this
+    skill when building simulations of systems with processes, queues, resources,
+    and time-based events such as manufacturing systems, service operations, network
+    traffic, logistics, or any system where entities interact with shared resources
+    over time.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/simpy
+  updated_at: '1772554803'
+- rank: 43
+  id: agent0ai-agent-zero-skills-create-skill-skill-md
+  name: create-skill
+  author: agent0ai
+  stars: 16449
+  forks: 3388
+  description: Wizard for creating new Agent Zero skills. Guides users through creating
+    well-structured SKILL.md files. Use when users want to create custom skills.
+  github_url: https://github.com/agent0ai/agent-zero/tree/main/skills/create-skill
+  updated_at: '1770655741'
+- rank: 44
+  id: rightnow-ai-openfang-crates-openfang-hands-bundled-browser-skill-md
+  name: browser-automation
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Playwright-based browser automation patterns for autonomous web interaction
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-hands/bundled/browser
+  updated_at: '1774485187'
+- rank: 45
+  id: nousresearch-hermes-agent-skills-mlops-models-audiocraft-skill-md
+  name: audiocraft-audio-generation
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: PyTorch library for audio generation including text-to-music (MusicGen)
+    and text-to-sound (AudioGen). Use when you need to generate music from text descriptions,
+    create sound effects, or perform melody-conditioned music generation.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/mlops/models/audiocraft
+  updated_at: '1773052553'
+- rank: 46
+  id: nousresearch-hermes-agent-skills-gaming-pokemon-player-skill-md
+  name: pokemon-player
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Play Pokemon games autonomously via headless emulation. Starts a game
+    server, reads structured game state from RAM, makes strategic decisions, and sends
+    button inputs — all from the terminal.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/gaming/pokemon-player
+  updated_at: '1773113378'
+- rank: 47
+  id: muratcankoylan-agent-skills-for-context-engineering-skills-hosted-agents-skill-md
+  name: hosted-agents
+  author: muratcankoylan
+  stars: 14418
+  forks: 1124
+  description: This skill should be used when the user asks to "build background agent",
+    "create hosted coding agent", "set up sandboxed execution", "implement multiplayer
+    agent", or mentions background agents, sandboxed VMs, agent infrastructure, Modal
+    sandboxes, self-spawning agents, or remote coding environments.
+  github_url: https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/main/skills/hosted-agents
+  updated_at: '1773795476'
+- rank: 48
+  id: pbakaus-impeccable-agents-skills-animate-skill-md
+  name: animate
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Review a feature and enhance it with purposeful animations, micro-interactions,
+    and motion effects that improve usability and delight. Use when the user mentions
+    adding animation, transitions, micro-interactions, motion design, hover effects,
+    or making the UI feel more alive.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.agents/skills/animate
+  updated_at: '1774392752'
+- rank: 49
+  id: pbakaus-impeccable-agents-skills-bolder-skill-md
+  name: bolder
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Amplify safe or boring designs to make them more visually interesting
+    and stimulating. Increases impact while maintaining usability. Use when the user
+    says the design looks bland, generic, too safe, lacks personality, or wants more
+    visual impact and character.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.agents/skills/bolder
+  updated_at: '1774392752'
+- rank: 50
+  id: pbakaus-impeccable-agents-skills-colorize-skill-md
+  name: colorize
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Add strategic color to features that are too monochromatic or lack
+    visual interest, making interfaces more engaging and expressive. Use when the
+    user mentions the design looking gray, dull, lacking warmth, needing more color,
+    or wanting a more vibrant or expressive palette.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.agents/skills/colorize
+  updated_at: '1774392752'

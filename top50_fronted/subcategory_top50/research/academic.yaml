@@ -1,0 +1,649 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: research
+category_name: Research
+category_skill_count: 23700
+subcategory_slug: academic
+subcategory_name: Academic
+subcategory_skill_count: 8053
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=academic
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 8053
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-goplaces-skill-md
+  name: goplaces
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Query Google Places API (New) via the goplaces CLI for text search,
+    place details, resolve, and reviews. Use for human-friendly place lookup or JSON
+    output for scripts.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/goplaces
+  updated_at: '1769862085'
+- rank: 2
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-academic-researcher-skill-md
+  name: academic-researcher
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Academic research assistant for literature reviews, paper analysis,
+    and scholarly writing.
+
+    Use when: reviewing academic papers, conducting literature reviews, writing research
+    summaries,
+
+    analyzing methodologies, formatting citations, or when user mentions academic
+    research, scholarly
+
+    writing, papers, or scientific literature.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/academic-researcher
+  updated_at: '1770167437'
+- rank: 3
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-deep-research-skill-md
+  name: deep-research
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Comprehensive research assistant that synthesizes information from
+    multiple sources with citations.
+
+    Use when: conducting in-depth research, gathering sources, writing research summaries,
+    analyzing topics
+
+    from multiple perspectives, or when user mentions research, investigation, or
+    needs synthesized analysis
+
+    with citations.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/deep-research
+  updated_at: '1770167437'
+- rank: 4
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-editor-skill-md
+  name: editor
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Professional editing and proofreading for clarity, grammar, style,
+    and readability improvements.
+
+    Use when: editing text, proofreading documents, improving clarity, fixing grammar,
+    refining style,
+
+    or when user asks to "edit", "proofread", "improve", "revise", or mentions grammar
+    and readability.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/editor
+  updated_at: '1770167437'
+- rank: 5
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-fact-checker-skill-md
+  name: fact-checker
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Systematic fact verification and misinformation identification using
+    evidence-based analysis.
+
+    Use when: verifying claims, checking facts, identifying misinformation, evaluating
+    source credibility,
+
+    or when user asks to "fact check", "verify", "is this true", or mentions claims
+    that need validation.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/fact-checker
+  updated_at: '1770167437'
+- rank: 6
+  id: composiohq-awesome-claude-skills-content-research-writer-skill-md
+  name: content-research-writer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Assists in writing high-quality content by conducting research, adding
+    citations, improving hooks, iterating on outlines, and providing real-time feedback
+    on each section. Transforms your writing process from solo effort to collaborative
+    partnership.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer
+  updated_at: '1760692175'
+- rank: 7
+  id: code-yeongyu-oh-my-openagent-opencode-skills-pre-publish-review-skill-md
+  name: pre-publish-review
+  author: code-yeongyu
+  stars: 44356
+  forks: 3299
+  description: 'Nuclear-grade 16-agent pre-publish release gate. Runs /get-unpublished-changes
+    to detect all changes since last npm release, spawns up to 10 ultrabrain agents
+    for deep per-change analysis, invokes /review-work (5 agents) for holistic review,
+    and 1 oracle for overall release synthesis. Use before EVERY npm publish. Triggers:
+    ''pre-publish review'', ''review before publish'', ''release review'', ''pre-release
+    review'', ''ready to publish?'', ''can I publish?'', ''pre-publish'', ''safe to
+    publish'', ''publishing review'', ''pre-publish check''.'
+  github_url: https://github.com/code-yeongyu/oh-my-openagent/tree/dev/.opencode/skills/pre-publish-review
+  updated_at: '1773459958'
+- rank: 8
+  id: bmad-code-org-bmad-method-src-core-skills-bmad-advanced-elicitation-skill-md
+  name: bmad-advanced-elicitation
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Push the LLM to reconsider, refine, and improve its recent output.
+    Use when user asks for deeper critique or mentions a known deeper critique method,
+    e.g. socratic, first principles, pre-mortem, red team.
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-advanced-elicitation
+  updated_at: '1774073483'
+- rank: 9
+  id: bmad-code-org-bmad-method-src-core-skills-bmad-editorial-review-prose-skill-md
+  name: bmad-editorial-review-prose
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Clinical copy-editor that reviews text for communication issues. Use
+    when user says review for prose or improve the prose
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-editorial-review-prose
+  updated_at: '1774073483'
+- rank: 10
+  id: bmad-code-org-bmad-method-src-bmm-skills-4-implementation-bmad-retrospective-skill-md
+  name: bmad-retrospective
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Post-epic review to extract lessons and assess success. Use when the
+    user says "run a retrospective" or "lets retro the epic [epic]"
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/bmm-skills/4-implementation/bmad-retrospective
+  updated_at: '1774073483'
+- rank: 11
+  id: bmad-code-org-bmad-method-src-core-skills-bmad-review-adversarial-general-skill-md
+  name: bmad-review-adversarial-general
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Perform a Cynical Review and produce a findings report. Use when the
+    user requests a critical review of something
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-review-adversarial-general
+  updated_at: '1774073483'
+- rank: 12
+  id: anthropics-claude-cookbooks-claude-skills-cookbook-audit-skill-md
+  name: cookbook-audit
+  author: anthropics
+  stars: 36501
+  forks: 3958
+  description: Audit an Anthropic Cookbook notebook based on a rubric. Use whenever
+    a notebook review or audit is requested.
+  github_url: https://github.com/anthropics/claude-cookbooks/tree/main/.claude/skills/cookbook-audit
+  updated_at: '1771354210'
+- rank: 13
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-paper-publisher-skill-md
+  name: hugging-face-paper-publisher
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Publish and manage research papers on Hugging Face Hub. Supports creating
+    paper pages, linking papers to models/datasets, claiming authorship, and generating
+    professional markdown-based research articles.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-paper-publisher
+  updated_at: '1769157944'
+- rank: 14
+  id: wshobson-agents-plugins-llm-application-dev-skills-hybrid-search-implementation-skill-md
+  name: hybrid-search-implementation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Combine vector and keyword search for improved retrieval. Use when
+    implementing RAG systems, building search engines, or when neither approach alone
+    provides sufficient recall.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/hybrid-search-implementation
+  updated_at: '1772898797'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-citation-management-skill-md
+  name: citation-management
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Manage citations systematically throughout the research and writing
+    process.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/citation-management
+  updated_at: '1773994629'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-claude-scientific-skills-skill-md
+  name: claude-scientific-skills
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Scientific research and analysis skills
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claude-scientific-skills
+  updated_at: '1772180381'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-comprehensive-review-full-review-skill-md
+  name: comprehensive-review-full-review
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Use when working with comprehensive review full review
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/comprehensive-review-full-review
+  updated_at: '1772180381'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-postmortem-writing-skill-md
+  name: postmortem-writing
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive guide to writing effective, blameless postmortems that
+    drive organizational learning and prevent incident recurrence.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/postmortem-writing
+  updated_at: '1773994005'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-search-specialist-skill-md
+  name: search-specialist
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert web researcher using advanced search techniques and
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/search-specialist
+  updated_at: '1772180381'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-seo-content-skill-md
+  name: seo-content
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Content quality and E-E-A-T analysis with AI citation readiness assessment.
+    Use when user says "content quality", "E-E-A-T", "content analysis", "readability
+    check", "thin content", or "content audit".
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-content
+  updated_at: '1774083913'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-seo-content-auditor-skill-md
+  name: seo-content-auditor
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Analyzes provided content for quality, E-E-A-T signals, and SEO best
+    practices. Scores content and provides improvement recommendations based on established
+    guidelines.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-content-auditor
+  updated_at: '1772354305'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-seo-geo-skill-md
+  name: seo-geo
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Optimize content for AI Overviews, ChatGPT, Perplexity, and other AI
+    search systems. Use when improving GEO, AI citations, llms.txt readiness, crawler
+    accessibility, and passage-level citability.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-geo
+  updated_at: '1774083913'
+- rank: 23
+  id: assafelovic-gpt-researcher-claude-skill-md
+  name: gpt-researcher
+  author: assafelovic
+  stars: 26040
+  forks: 3475
+  description: GPT Researcher is an autonomous deep research agent that conducts web
+    and local research, producing detailed reports with citations. Use this skill
+    when helping developers understand, extend, debug, or integrate with GPT Researcher
+    - including adding features, understanding the architecture, working with the
+    API, customizing research workflows, adding new retrievers, integrating MCP data
+    sources, or troubleshooting research pipelines.
+  github_url: https://github.com/assafelovic/gpt-researcher/tree/main/.claude
+  updated_at: '1769879249'
+- rank: 24
+  id: wilsonfreitas-awesome-quant-claude-skills-review-pr-skill-md
+  name: review-pr
+  author: wilsonfreitas
+  stars: 25170
+  forks: 3330
+  description: Review and validate pull requests that add new library entries to the
+    awesome-quant README.md. Use this skill whenever the user asks to review PRs,
+    check contributions, validate submissions, triage pull requests, or mentions anything
+    about incoming entries or additions to the curated list. Also triggers for "review
+    pr", "check prs", "merge contributions", or any PR-related workflow in this repo.
+  github_url: https://github.com/wilsonfreitas/awesome-quant/tree/main/.claude/skills/review-pr
+  updated_at: '1774264004'
+- rank: 25
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-citation-management-skill-md
+  name: citation-management
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Comprehensive citation management for academic research. Search Google
+    Scholar and PubMed for papers, extract accurate metadata, validate citations,
+    and generate properly formatted BibTeX entries. This skill should be used when
+    you need to find papers, verify citation information, convert DOIs to BibTeX,
+    or ensure reference accuracy in scientific writing.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/citation-management
+  updated_at: '1766265230'
+- rank: 26
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-clinical-decision-support-skill-md
+  name: clinical-decision-support
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Generate professional clinical decision support (CDS) documents for
+    pharmaceutical and clinical research settings, including patient cohort analyses
+    (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based
+    guidelines with decision algorithms). Supports GRADE evidence grading, statistical
+    analysis (hazard ratios, survival curves, waterfall plots), biomarker integration,
+    and regulatory compliance. Outputs publication-ready LaTeX/PDF format optimized
+    for drug development, clinical research, and evidence synthesis.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/clinical-decision-support
+  updated_at: '1766265230'
+- rank: 27
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-literature-review-skill-md
+  name: literature-review
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Conduct comprehensive, systematic literature reviews using multiple
+    academic databases (PubMed, arXiv, bioRxiv, Semantic Scholar, etc.). This skill
+    should be used when conducting systematic literature reviews, meta-analyses, research
+    synthesis, or comprehensive literature searches across biomedical, scientific,
+    and technical domains. Creates professionally formatted markdown documents and
+    PDFs with verified citations in multiple citation styles (APA, Nature, Vancouver,
+    etc.).
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/literature-review
+  updated_at: '1766265230'
+- rank: 28
+  id: davila7-claude-code-templates-cli-tool-components-skills-ai-research-ml-paper-writing-skill-md
+  name: ml-paper-writing
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Write publication-ready ML/AI papers for NeurIPS, ICML, ICLR, ACL,
+    AAAI, COLM. Use when drafting papers from research repos, structuring arguments,
+    verifying citations, or preparing camera-ready submissions. Includes LaTeX templates,
+    reviewer guidelines, and citation verification workflows.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/ai-research/ml-paper-writing
+  updated_at: '1769665019'
+- rank: 29
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-peer-review-skill-md
+  name: peer-review
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Systematic peer review toolkit. Evaluate methodology, statistics, design,
+    reproducibility, ethics, figure integrity, reporting standards, for manuscript
+    and grant review across disciplines.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/peer-review
+  updated_at: '1766265230'
+- rank: 30
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-research-grants-skill-md
+  name: research-grants
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Write competitive research proposals for NSF, NIH, DOE, and DARPA.
+    Agency-specific formatting, review criteria, budget preparation, broader impacts,
+    significance statements, innovation narratives, and compliance with submission
+    requirements.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/research-grants
+  updated_at: '1766265230'
+- rank: 31
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-research-lookup-skill-md
+  name: research-lookup
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Look up current research information using Perplexity's Sonar Pro Search
+    or Sonar Reasoning Pro models through OpenRouter. Automatically selects the best
+    model based on query complexity. Search academic papers, recent studies, technical
+    documentation, and general research information with citations.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/research-lookup
+  updated_at: '1766265230'
+- rank: 32
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-scientific-writing-skill-md
+  name: scientific-writing
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: 'Core skill for the deep research and writing tool. Write scientific
+    manuscripts in full paragraphs (never bullet points). Use two-stage process: (1)
+    create section outlines with key points using research-lookup, (2) convert to
+    flowing prose. IMRAD structure, citations (APA/AMA/Vancouver), figures/tables,
+    reporting guidelines (CONSORT/STROBE/PRISMA), for research papers and journal
+    submissions.'
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/scientific-writing
+  updated_at: '1766265230'
+- rank: 33
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-venue-templates-skill-md
+  name: venue-templates
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Access comprehensive LaTeX templates, formatting requirements, and
+    submission guidelines for major scientific publication venues (Nature, Science,
+    PLOS, IEEE, ACM), academic conferences (NeurIPS, ICML, CVPR, CHI), research posters,
+    and grant proposals (NSF, NIH, DOE, DARPA). This skill should be used when preparing
+    manuscripts for journal submission, conference papers, research posters, or grant
+    proposals and need venue-specific formatting requirements and templates.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/venue-templates
+  updated_at: '1766265230'
+- rank: 34
+  id: googleworkspace-cli-skills-recipe-collect-form-responses-skill-md
+  name: recipe-collect-form-responses
+  author: googleworkspace
+  stars: 22843
+  forks: 1108
+  description: Retrieve and review responses from a Google Form.
+  github_url: https://github.com/googleworkspace/cli/tree/main/skills/recipe-collect-form-responses
+  updated_at: '1774550706'
+- rank: 35
+  id: superclaude-org-superclaude-framework-plugins-superclaude-skills-deep-research-skill-md
+  name: deep-research
+  author: SuperClaude-Org
+  stars: 21998
+  forks: 1863
+  description: Activate deep research mode for systematic investigation. Use when
+    the user asks to research, investigate, explore, or needs current information
+    with citations.
+  github_url: https://github.com/SuperClaude-Org/SuperClaude_Framework/tree/master/plugins/superclaude/skills/deep-research
+  updated_at: '1774200817'
+- rank: 36
+  id: dyad-sh-dyad-claude-skills-pr-fix-comments-skill-md
+  name: dyadpr-fixcomments
+  author: dyad-sh
+  stars: 20007
+  forks: 2304
+  description: Read all unresolved GitHub PR comments from trusted authors and address
+    or resolve them appropriately.
+  github_url: https://github.com/dyad-sh/dyad/tree/main/.claude/skills/pr-fix-comments
+  updated_at: '1773095033'
+- rank: 37
+  id: virattt-dexter-src-skills-x-research-skill-md
+  name: x-research
+  author: virattt
+  stars: 19977
+  forks: 2410
+  description: 'X/Twitter public sentiment research. Searches X for real-time perspectives,
+    market sentiment, expert opinions, breaking news, and community discourse. Use
+    when: user asks "what are people saying about", "X/Twitter sentiment", "check
+    X for", "search twitter for", "what''s CT saying about", or wants public opinion
+    on a stock, sector, company, or market event.'
+  github_url: https://github.com/virattt/dexter/tree/main/src/skills/x-research
+  updated_at: '1772845872'
+- rank: 38
+  id: dailydotdev-daily-skills-daily-dev-skill-md
+  name: dailydev
+  author: dailydotdev
+  stars: 19724
+  forks: 560
+  description: Overcome LLM knowledge cutoffs with real-time developer content. daily.dev
+    aggregates articles from thousands of sources, validated by community engagement,
+    with structured taxonomy for precise discovery.
+  github_url: https://github.com/dailydotdev/daily/tree/master/skills/daily.dev
+  updated_at: '1773148350'
+- rank: 39
+  id: langchain-ai-deepagents-libs-cli-examples-skills-arxiv-search-skill-md
+  name: arxiv-search
+  author: langchain-ai
+  stars: 17871
+  forks: 2512
+  description: Searches arXiv for preprints and academic papers, retrieves abstracts,
+    and filters by topic. Use when the user asks to find research papers, search arXiv,
+    look up preprints, find academic articles in physics, math, CS, biology, statistics,
+    or related fields.
+  github_url: https://github.com/langchain-ai/deepagents/tree/main/libs/cli/examples/skills/arxiv-search
+  updated_at: '1773720926'
+- rank: 40
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-arxiv-database-skill-md
+  name: arxiv-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Search and retrieve preprints from arXiv via the Atom API. Use this
+    skill when searching for papers in physics, mathematics, computer science, quantitative
+    biology, quantitative finance, statistics, electrical engineering, or economics
+    by keywords, authors, arXiv IDs, date ranges, or categories.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/arxiv-database
+  updated_at: '1773132140'
+- rank: 41
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-bgpt-paper-search-skill-md
+  name: bgpt-paper-search
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Search scientific papers and retrieve structured experimental data
+    extracted from full-text studies via the BGPT MCP server. Returns 25+ fields per
+    paper including methods, results, sample sizes, quality scores, and conclusions.
+    Use for literature reviews, evidence synthesis, and finding experimental details
+    not available in abstracts alone.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/bgpt-paper-search
+  updated_at: '1771969351'
+- rank: 42
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-biorxiv-database-skill-md
+  name: biorxiv-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Efficient database search tool for bioRxiv preprint server. Use this
+    skill when searching for life sciences preprints by keywords, authors, date ranges,
+    or categories, retrieving paper metadata, downloading PDFs, or conducting literature
+    reviews.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/biorxiv-database
+  updated_at: '1772554803'
+- rank: 43
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-citation-management-skill-md
+  name: citation-management
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive citation management for academic research. Search Google
+    Scholar and PubMed for papers, extract accurate metadata, validate citations,
+    and generate properly formatted BibTeX entries. This skill should be used when
+    you need to find papers, verify citation information, convert DOIs to BibTeX,
+    or ensure reference accuracy in scientific writing.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/citation-management
+  updated_at: '1772554803'
+- rank: 44
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-clinical-decision-support-skill-md
+  name: clinical-decision-support
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Generate professional clinical decision support (CDS) documents for
+    pharmaceutical and clinical research settings, including patient cohort analyses
+    (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based
+    guidelines with decision algorithms). Supports GRADE evidence grading, statistical
+    analysis (hazard ratios, survival curves, waterfall plots), biomarker integration,
+    and regulatory compliance. Outputs publication-ready LaTeX/PDF format optimized
+    for drug development, clinical research, and evidence synthesis.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/clinical-decision-support
+  updated_at: '1772554803'
+- rank: 45
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-denario-skill-md
+  name: denario
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Multiagent AI system for scientific research assistance that automates
+    research workflows from data analysis to publication. This skill should be used
+    when generating research ideas from datasets, developing research methodologies,
+    executing computational experiments, performing literature searches, or generating
+    publication-ready papers in LaTeX format. Supports end-to-end research pipelines
+    with customizable agent orchestration.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/denario
+  updated_at: '1772554803'
+- rank: 46
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-hypogenic-skill-md
+  name: hypogenic
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Automated LLM-driven hypothesis generation and testing on tabular datasets.
+    Use when you want to systematically explore hypotheses about patterns in empirical
+    data (e.g., deception detection, content analysis). Combines literature insights
+    with data-driven hypothesis testing. For manual hypothesis formulation use hypothesis-generation;
+    for creative ideation use scientific-brainstorming.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/hypogenic
+  updated_at: '1772554803'
+- rank: 47
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-literature-review-skill-md
+  name: literature-review
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Conduct comprehensive, systematic literature reviews using multiple
+    academic databases (PubMed, arXiv, bioRxiv, Semantic Scholar, etc.). This skill
+    should be used when conducting systematic literature reviews, meta-analyses, research
+    synthesis, or comprehensive literature searches across biomedical, scientific,
+    and technical domains. Creates professionally formatted markdown documents and
+    PDFs with verified citations in multiple citation styles (APA, Nature, Vancouver,
+    etc.).
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/literature-review
+  updated_at: '1772554803'
+- rank: 48
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-openalex-database-skill-md
+  name: openalex-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query and analyze scholarly literature using the OpenAlex database.
+    This skill should be used when searching for academic papers, analyzing research
+    trends, finding works by authors or institutions, tracking citations, discovering
+    open access publications, or conducting bibliometric analysis across 240M+ scholarly
+    works. Use for literature searches, research output analysis, citation analysis,
+    and academic database queries.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/openalex-database
+  updated_at: '1772554803'
+- rank: 49
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-paper-2-web-skill-md
+  name: paper-2-web
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: This skill should be used when converting academic papers into promotional
+    and presentation formats including interactive websites (Paper2Web), presentation
+    videos (Paper2Video), and conference posters (Paper2Poster). Use this skill for
+    tasks involving paper dissemination, conference preparation, creating explorable
+    academic homepages, generating video abstracts, or producing print-ready posters
+    from LaTeX or PDF sources.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/paper-2-web
+  updated_at: '1772554803'
+- rank: 50
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-peer-review-skill-md
+  name: peer-review
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Structured manuscript/grant review with checklist-based evaluation.
+    Use when writing formal peer reviews with specific criteria methodology assessment,
+    statistical validity, reporting standards compliance (CONSORT/STROBE), and constructive
+    feedback. Best for actual review writing, manuscript revision. For evaluating
+    claims/evidence quality use scientific-critical-thinking; for quantitative scoring
+    frameworks use scholar-evaluation.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/peer-review
+  updated_at: '1772554803'

@@ -1,0 +1,569 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: data-and-ai
+category_name: Data & AI
+category_skill_count: 72353
+subcategory_slug: data-engineering
+subcategory_name: Data Engineering
+subcategory_skill_count: 11944
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=data-engineering
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 11944
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-ai-first-engineering-skill-md
+  name: ai-first-engineering
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 团队中人工智能代理生成大部分实施输出的工程运营模型。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/ai-first-engineering
+  updated_at: '1772923682'
+- rank: 2
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-architecture-decision-records-skill-md
+  name: architecture-decision-records
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 在Claude Code会话期间，将做出的架构决策捕获为结构化的架构决策记录（ADR）。自动检测决策时刻，记录上下文、考虑的替代方案和理由。维护一个ADR日志，以便未来的开发人员理解代码库为何以当前方式构建。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/architecture-decision-records
+  updated_at: '1774219164'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-claude-devfleet-skill-md
+  name: claude-devfleet
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 通过Claude DevFleet协调多智能体编码任务——规划项目、在隔离的工作树中并行调度智能体、监控进度并读取结构化报告。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/claude-devfleet
+  updated_at: '1774219164'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-clickhouse-io-skill-md
+  name: clickhouse-io
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 고성능 분석 워크로드를 위한 ClickHouse 데이터베이스 패턴, 쿼리 최적화, 분석 및 데이터 엔지니어링 모범 사례.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/clickhouse-io
+  updated_at: '1773386274'
+- rank: 5
+  id: affaan-m-everything-claude-code-skills-clickhouse-io-skill-md
+  name: clickhouse-io
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: ClickHouse database patterns, query optimization, analytics, and data
+    engineering best practices for high-performance analytical workloads.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/clickhouse-io
+  updated_at: '1771862457'
+- rank: 6
+  id: affaan-m-everything-claude-code-skills-content-hash-cache-pattern-skill-md
+  name: content-hash-cache-pattern
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Cache expensive file processing results using SHA-256 content hashes
+    — path-independent, auto-invalidating, with service layer separation.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/content-hash-cache-pattern
+  updated_at: '1771862457'
+- rank: 7
+  id: affaan-m-everything-claude-code-agents-skills-crosspost-skill-md
+  name: crosspost
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Multi-platform content distribution across X, LinkedIn, Threads, and
+    Bluesky. Adapts content per platform using content-engine patterns. Never posts
+    identical content cross-platform. Use when the user wants to distribute content
+    across social platforms.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/crosspost
+  updated_at: '1773518125'
+- rank: 8
+  id: affaan-m-everything-claude-code-skills-crosspost-skill-md
+  name: crosspost
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Multi-platform content distribution across X, LinkedIn, Threads, and
+    Bluesky. Adapts content per platform using content-engine patterns. Never posts
+    identical content cross-platform. Use when the user wants to distribute content
+    across social platforms.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/crosspost
+  updated_at: '1773518125'
+- rank: 9
+  id: affaan-m-everything-claude-code-skills-deployment-patterns-skill-md
+  name: deployment-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Deployment workflows, CI/CD pipeline patterns, Docker containerization,
+    health checks, rollback strategies, and production readiness checklists for web
+    applications.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/deployment-patterns
+  updated_at: '1771862457'
+- rank: 10
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-inventory-demand-planning-skill-md
+  name: inventory-demand-planning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '为多地点零售商提供需求预测、安全库存优化、补货规划及促销提升估算的编码化专业知识。基于拥有15年以上管理数百个SKU经验的需求规划师的专业知识。包括预测方法选择、ABC/XYZ分析、季节性过渡管理及供应商谈判框架。适用于预测需求、设定安全库存、规划补货、管理促销或优化库存水平时使用。license:
+    Apache-2.0'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/inventory-demand-planning
+  updated_at: '1773395144'
+- rank: 11
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-kotlin-exposed-patterns-skill-md
+  name: kotlin-exposed-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: JetBrains Exposed ORM 模式，包括 DSL 查询、DAO 模式、事务、HikariCP 连接池、Flyway 迁移和仓库模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/kotlin-exposed-patterns
+  updated_at: '1773395144'
+- rank: 12
+  id: affaan-m-everything-claude-code-skills-kotlin-exposed-patterns-skill-md
+  name: kotlin-exposed-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: JetBrains Exposed ORM patterns including DSL queries, DAO pattern,
+    transactions, HikariCP connection pooling, Flyway migrations, and repository pattern.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/kotlin-exposed-patterns
+  updated_at: '1773203152'
+- rank: 13
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: PostgreSQL database patterns for query optimization, schema design,
+    indexing, and security. Based on Supabase best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/postgres-patterns
+  updated_at: '1772569955'
+- rank: 14
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-ralphinho-rfc-pipeline-skill-md
+  name: ralphinho-rfc-pipeline
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 基于RFC驱动的多智能体DAG执行模式，包含质量门、合并队列和工作单元编排。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/ralphinho-rfc-pipeline
+  updated_at: '1772923682'
+- rank: 15
+  id: affaan-m-everything-claude-code-skills-ralphinho-rfc-pipeline-skill-md
+  name: ralphinho-rfc-pipeline
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: RFC-driven multi-agent DAG execution pattern with quality gates, merge
+    queues, and work unit orchestration.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/ralphinho-rfc-pipeline
+  updated_at: '1772664486'
+- rank: 16
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-data-analyst-skill-md
+  name: data-analyst
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'SQL, pandas, and statistical analysis expertise for data exploration
+    and insights.
+
+    Use when: analyzing data, writing SQL queries, using pandas, performing statistical
+    analysis,
+
+    or when user mentions data analysis, SQL, pandas, statistics, or needs help exploring
+    datasets.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/data-analyst
+  updated_at: '1770167437'
+- rank: 17
+  id: lobehub-lobehub-agents-skills-drizzle-skill-md
+  name: drizzle
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Drizzle ORM schema and database guide. Use when working with database
+    schemas (src/database/schemas/*), defining tables, creating migrations, or database
+    model code. Triggers on Drizzle schema definition, database migrations, or ORM
+    usage questions.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/drizzle
+  updated_at: '1772464681'
+- rank: 18
+  id: twentyhq-twenty-cursor-skills-syncable-entity-cache-and-transform-skill-md
+  name: syncable-entity-cache-and-transform
+  author: twentyhq
+  stars: 42296
+  forks: 5615
+  description: Create cache services and transformation utilities for syncable entities
+    in Twenty. Use when implementing entity-to-flat conversions, input DTO transpilation
+    to universal flat entities, or cache recomputation for syncable entities.
+  github_url: https://github.com/twentyhq/twenty/tree/main/.cursor/skills/syncable-entity-cache-and-transform
+  updated_at: '1770981511'
+- rank: 19
+  id: paperclipai-paperclip-skills-para-memory-files-skill-md
+  name: para-memory-files
+  author: paperclipai
+  stars: 36317
+  forks: 5256
+  description: 'File-based memory system using Tiago Forte''s PARA method. Use this
+    skill whenever you need to store, retrieve, update, or organize knowledge across
+    sessions. Covers three memory layers: (1) Knowledge graph in PARA folders with
+    atomic YAML facts, (2) Daily notes as raw timeline, (3) Tacit knowledge about
+    user patterns. Also handles planning files, memory decay, weekly synthesis, and
+    recall via qmd. Trigger on any memory operation: saving facts, writing daily notes,
+    creating entities, running weekly synthesis, recalling past context, or managing
+    plans.'
+  github_url: https://github.com/paperclipai/paperclip/tree/master/skills/para-memory-files
+  updated_at: '1772464029'
+- rank: 20
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-datasets-skill-md
+  name: hugging-face-datasets
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Create and manage datasets on Hugging Face Hub. Supports initializing
+    repos, defining configs/system prompts, streaming row updates, and SQL-based dataset
+    querying/transformation. Designed to work alongside HF MCP server for comprehensive
+    dataset workflows.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-datasets
+  updated_at: '1769157944'
+- rank: 21
+  id: wshobson-agents-plugins-data-engineering-skills-airflow-dag-patterns-skill-md
+  name: airflow-dag-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build production Apache Airflow DAGs with best practices for operators,
+    sensors, testing, and deployment. Use when creating data pipelines, orchestrating
+    workflows, or scheduling batch jobs.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/data-engineering/skills/airflow-dag-patterns
+  updated_at: '1772898797'
+- rank: 22
+  id: wshobson-agents-plugins-data-engineering-skills-data-quality-frameworks-skill-md
+  name: data-quality-frameworks
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement data quality validation with Great Expectations, dbt tests,
+    and data contracts. Use when building data quality pipelines, implementing validation
+    rules, or establishing data contracts.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/data-engineering/skills/data-quality-frameworks
+  updated_at: '1772898797'
+- rank: 23
+  id: wshobson-agents-plugins-business-analytics-skills-data-storytelling-skill-md
+  name: data-storytelling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Transform data into compelling narratives using visualization, context,
+    and persuasive structure. Use when presenting analytics to stakeholders, creating
+    data reports, or building executive presentations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/data-storytelling
+  updated_at: '1772898797'
+- rank: 24
+  id: wshobson-agents-plugins-framework-migration-skills-database-migration-skill-md
+  name: database-migration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Execute database migrations across ORMs and platforms with zero-downtime
+    strategies, data transformation, and rollback procedures. Use when migrating databases,
+    changing schemas, performing data transformations, or implementing zero-downtime
+    deployment strategies.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/database-migration
+  updated_at: '1772898797'
+- rank: 25
+  id: wshobson-agents-plugins-data-engineering-skills-dbt-transformation-patterns-skill-md
+  name: dbt-transformation-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master dbt (data build tool) for analytics engineering with model organization,
+    testing, documentation, and incremental strategies. Use when building data transformations,
+    creating data models, or implementing analytics engineering best practices.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/data-engineering/skills/dbt-transformation-patterns
+  updated_at: '1772898797'
+- rank: 26
+  id: wshobson-agents-plugins-business-analytics-skills-kpi-dashboard-design-skill-md
+  name: kpi-dashboard-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design effective KPI dashboards with metrics selection, visualization
+    best practices, and real-time monitoring patterns. Use this skill when building
+    an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing
+    an operations center with live service health and request throughput; creating
+    a cohort retention analysis view for a product team; or debugging a dashboard
+    where metrics contradict each other due to inconsistent calculation methodology.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/kpi-dashboard-design
+  updated_at: '1774541149'
+- rank: 27
+  id: wshobson-agents-plugins-machine-learning-ops-skills-ml-pipeline-workflow-skill-md
+  name: ml-pipeline-workflow
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build end-to-end MLOps pipelines from data preparation through model
+    training, validation, and production deployment. Use when creating ML pipelines,
+    implementing MLOps practices, or automating model training and deployment workflows.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/machine-learning-ops/skills/ml-pipeline-workflow
+  updated_at: '1773644132'
+- rank: 28
+  id: wshobson-agents-plugins-backend-development-skills-projection-patterns-skill-md
+  name: projection-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build read models and projections from event streams. Use when implementing
+    CQRS read sides, building materialized views, or optimizing query performance
+    in event-sourced systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/projection-patterns
+  updated_at: '1772898797'
+- rank: 29
+  id: wshobson-agents-plugins-data-engineering-skills-spark-optimization-skill-md
+  name: spark-optimization
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Optimize Apache Spark jobs with partitioning, caching, shuffle optimization,
+    and memory tuning. Use when improving Spark performance, debugging slow jobs,
+    or scaling data processing pipelines.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/data-engineering/skills/spark-optimization
+  updated_at: '1772898797'
+- rank: 30
+  id: wshobson-agents-plugins-developer-essentials-skills-sql-optimization-patterns-skill-md
+  name: sql-optimization-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master SQL query optimization, indexing strategies, and EXPLAIN analysis
+    to dramatically improve database performance and eliminate slow queries. Use when
+    debugging slow queries, designing database schemas, or optimizing application
+    performance.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/sql-optimization-patterns
+  updated_at: '1772898797'
+- rank: 31
+  id: posthog-posthog-agents-skills-django-migrations-skill-md
+  name: django-migrations
+  author: PostHog
+  stars: 32259
+  forks: 2440
+  description: Django migration patterns and safety workflow for PostHog. Use when
+    creating, adjusting, or reviewing Django/Postgres migrations, including non-blocking
+    index/constraint changes, multi-phase schema changes, data backfills, migration
+    conflict rebasing, and product model moves that require SeparateDatabaseAndState.
+  github_url: https://github.com/PostHog/posthog/tree/master/.agents/skills/django-migrations
+  updated_at: '1772120966'
+- rank: 32
+  id: posthog-posthog-agents-skills-implementing-warehouse-sources-skill-md
+  name: implementing-warehouse-sources
+  author: PostHog
+  stars: 32259
+  forks: 2440
+  description: Implement and extend PostHog Data warehouse import sources. Use when
+    adding a new source under posthog/temporal/data_imports/sources, adding datasets/endpoints
+    to an existing source, or adding incremental sync support, pagination, credentials
+    validation, and source tests.
+  github_url: https://github.com/PostHog/posthog/tree/master/.agents/skills/implementing-warehouse-sources
+  updated_at: '1773928125'
+- rank: 33
+  id: cockroachdb-cockroach-claude-skills-system-table-change-skill-md
+  name: system-table-change
+  author: cockroachdb
+  stars: 31973
+  forks: 4104
+  description: Use when adding, removing, or modifying columns/indexes on system tables.
+    Provides a checklist covering schema definitions, migrations, version gates, golden
+    files, and test hashes.
+  github_url: https://github.com/cockroachdb/cockroach/tree/master/.claude/skills/system-table-change
+  updated_at: '1773290694'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-airflow-dag-patterns-skill-md
+  name: airflow-dag-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build production Apache Airflow DAGs with best practices for operators,
+    sensors, testing, and deployment. Use when creating data pipelines, orchestrating
+    workflows, or scheduling batch jobs.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/airflow-dag-patterns
+  updated_at: '1772180381'
+- rank: 35
+  id: sickn33-antigravity-awesome-skills-skills-azure-ai-transcription-py-skill-md
+  name: azure-ai-transcription-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure AI Transcription SDK for Python. Use for real-time and batch
+    speech-to-text transcription with timestamps and diarization.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-transcription-py
+  updated_at: '1772354305'
+- rank: 36
+  id: sickn33-antigravity-awesome-skills-skills-azure-cosmos-ts-skill-md
+  name: azure-cosmos-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Cosmos DB JavaScript/TypeScript SDK (@azure/cosmos) for data
+    plane operations. Use for CRUD operations on documents, queries, bulk operations,
+    and container management.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-cosmos-ts
+  updated_at: '1772354305'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-azure-eventhub-py-skill-md
+  name: azure-eventhub-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Event Hubs SDK for Python streaming. Use for high-throughput
+    event ingestion, producers, consumers, and checkpointing.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-eventhub-py
+  updated_at: '1772354305'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-azure-functions-skill-md
+  name: azure-functions
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Modern .NET execution model with process isolation
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-functions
+  updated_at: '1773994005'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-azure-messaging-webpubsubservice-py-skill-md
+  name: azure-messaging-webpubsubservice-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Web PubSub Service SDK for Python. Use for real-time messaging,
+    WebSocket connections, and pub/sub patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-messaging-webpubsubservice-py
+  updated_at: '1772354305'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-azure-mgmt-fabric-py-skill-md
+  name: azure-mgmt-fabric-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Fabric Management SDK for Python. Use for managing Microsoft
+    Fabric capacities and resources.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-mgmt-fabric-py
+  updated_at: '1772354305'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-azure-resource-manager-durabletask-dotnet-skill-md
+  name: azure-resource-manager-durabletask-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Resource Manager SDK for Durable Task Scheduler in .NET.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-resource-manager-durabletask-dotnet
+  updated_at: '1772354305'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-azure-servicebus-dotnet-skill-md
+  name: azure-servicebus-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Service Bus SDK for .NET. Enterprise messaging with queues, topics,
+    subscriptions, and sessions.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-servicebus-dotnet
+  updated_at: '1772354305'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-azure-storage-file-datalake-py-skill-md
+  name: azure-storage-file-datalake-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Data Lake Storage Gen2 SDK for Python. Use for hierarchical file
+    systems, big data analytics, and file/directory operations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-storage-file-datalake-py
+  updated_at: '1772354305'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-azure-storage-queue-py-skill-md
+  name: azure-storage-queue-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Queue Storage SDK for Python. Use for reliable message queuing,
+    task distribution, and asynchronous processing.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-storage-queue-py
+  updated_at: '1772354305'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-azure-storage-queue-ts-skill-md
+  name: azure-storage-queue-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Queue Storage JavaScript/TypeScript SDK (@azure/storage-queue)
+    for message queue operations. Use for sending, receiving, peeking, and deleting
+    messages in queues.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-storage-queue-ts
+  updated_at: '1772354305'
+- rank: 46
+  id: sickn33-antigravity-awesome-skills-skills-cc-skill-clickhouse-io-skill-md
+  name: cc-skill-clickhouse-io
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: ClickHouse database patterns, query optimization, analytics, and data
+    engineering best practices for high-performance analytical workloads.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cc-skill-clickhouse-io
+  updated_at: '1772180381'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-cloudflare-workers-expert-skill-md
+  name: cloudflare-workers-expert
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert in Cloudflare Workers and the Edge Computing ecosystem. Covers
+    Wrangler, KV, D1, Durable Objects, and R2 storage.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cloudflare-workers-expert
+  updated_at: '1772180381'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-data-engineer-skill-md
+  name: data-engineer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build scalable data pipelines, modern data warehouses, and real-time
+    streaming architectures. Implements Apache Spark, dbt, Airflow, and cloud-native
+    data platforms.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/data-engineer
+  updated_at: '1772354305'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-data-engineering-data-pipeline-skill-md
+  name: data-engineering-data-pipeline
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a data pipeline architecture expert specializing in scalable,
+    reliable, and cost-effective data pipelines for batch and streaming data processing.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/data-engineering-data-pipeline
+  updated_at: '1772180381'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-scala-pro-skill-md
+  name: scala-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master enterprise-grade Scala development with functional programming,
+    distributed systems, and big data processing. Expert in Apache Pekko, Akka, Spark,
+    ZIO/Cats Effect, and reactive architectures.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/scala-pro
+  updated_at: '1772354305'
