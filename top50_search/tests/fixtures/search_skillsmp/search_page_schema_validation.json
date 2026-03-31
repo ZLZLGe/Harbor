@@ -1,0 +1,24 @@
+{
+  "skills": [
+    {
+      "skill_id": "sv-01",
+      "name": "Schema Validation Agent",
+      "author": "Vault",
+      "description": "Detect schema mismatch across feeds.",
+      "githubUrl": "https://github.com/vault/schema-validation/tree/main/skills/schema-validation",
+      "skillsmp_url": "https://skillsmp.com/skills/sv-01",
+      "star_count": 24,
+      "fork_count": 7
+    },
+    {
+      "skill_id": "shared-skill",
+      "name": "Shared Data Toolkit",
+      "author": "DataOps",
+      "description": "Shared toolkit for data quality practices.",
+      "githubUrl": "https://github.com/dataops/shared-toolkit/tree/main/skills/shared-toolkit",
+      "skillsmp_url": "https://skillsmp.com/skills/shared-skill",
+      "star_count": 11,
+      "fork_count": 1
+    }
+  ]
+}

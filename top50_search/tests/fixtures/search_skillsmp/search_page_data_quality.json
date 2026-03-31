@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "id": "dq-001",
+      "name": "Data Quality Checklist",
+      "author": "DataOps",
+      "description": "Guided data quality exercises for pipelines.",
+      "github_url": "https://github.com/dataops/data-quality-checklist/tree/main/skills/data-quality-checklist",
+      "url": "https://skillsmp.com/skills/dq-001",
+      "stars": 15,
+      "forks": 2
+    },
+    {
+      "id": "shared-skill",
+      "name": "Shared Data Toolkit",
+      "author": "DataOps",
+      "description": "Shared toolkit that spans data quality practices.",
+      "github_url": "https://github.com/dataops/shared-toolkit/tree/main/skills/shared-toolkit",
+      "url": "https://skillsmp.com/skills/shared-skill",
+      "stars": 11,
+      "forks": 1
+    }
+  ]
+}
