@@ -1,0 +1,71 @@
+bucket_review_rules:
+  _shared:
+    enabled: true
+    summary: >
+      Keep only skills that can be reconstructed into self-contained Harbor tasks with
+      low environment reproduction cost and deterministic, programmatically verifiable
+      acceptance criteria.
+    keep_rules:
+      - id: bucket_fit
+        required: true
+        text: >
+          The skill maps cleanly to the target bucket and exposes one bounded problem
+          surface instead of a generic meta workflow or marketplace capability.
+      - id: concrete_artifacts
+        required: false
+        text: >
+          The bundle includes concrete artifacts that can seed a Harbor task, such as
+          schemas, examples, scripts, templates, configs, reference tables, or checklists.
+      - id: self_contained_context
+        required: true
+        text: >
+          The key task information can be made self-contained inside instruction.md and
+          provided assets without relying on hidden domain knowledge or undocumented steps.
+      - id: reproducible_environment
+        required: true
+        text: >
+          The environment can be reproduced locally with stable dependencies and without
+          requiring private SaaS access, fragile live systems, or expensive infrastructure.
+      - id: verifier_ready
+        required: false
+        text: >
+          The expected outputs, paths, fields, tolerances, and edge cases are explicit
+          enough to support clear pytest-style verifier units with deterministic pass/fail behavior.
+    drop_rules:
+      - id: meta_only
+        text: >
+          The bundle is mainly about installation, publishing, marketplace listing,
+          session management, agent routing, or generic role instructions.
+      - id: external_dependency_heavy
+        text: >
+          Solving or verifying the task would require private accounts, live mutable APIs,
+          human approvals, or infrastructure that is difficult to reproduce locally.
+      - id: enterprise_live_system_dependency
+        text: >
+          The skill mainly depends on querying or updating a live enterprise system through
+          MCP tools, private admin consoles, or organization-specific backends rather than
+          supplied local task assets.
+      - id: subjective_acceptance
+        text: >
+          Correctness depends on subjective quality judgment, open-ended research, or
+          ambiguous acceptance criteria that cannot be checked programmatically.
+      - id: broad_or_aggregator
+        text: >
+          The skill is too broad, multi-domain, or aggregator-oriented to yield a single
+          bounded Harbor task with a stable verifier.
+      - id: missing_execution_contract
+        text: >
+          The bundle lacks the concrete input-output contract needed to specify expected
+          files, fields, structure, or tolerances for deterministic verification.
+      - id: reference_only
+        text: >
+          The bundle is primarily a reference note, advisory checklist, or pattern catalog,
+          including user-invocable false reference material, rather than an executable skill
+          with a bounded task contract.
+    review_instructions: >
+      Review the bundle as a Harbor task source. Prefer dropping borderline skills.
+      Return matched_keep_rules and matched_drop_rules as rule ids exactly from the config.
+      Only mark selected=true when every required keep rule is satisfied and no drop rule applies.
+    preferred_model: gpt-5.4
+    max_markdown_files: 1
+    max_total_characters: 2000

@@ -1,0 +1,68 @@
+# 数据质量需求配置文件
+# Data Quality Requirements Configuration
+
+requirements:
+  # S1: 输入规范
+  input:
+    supported_formats: ["csv", "json", "parquet", "sqlite", "postgresql"]
+    encoding: "utf-8"
+    max_file_size_mb: 1000
+  
+  # S2.1: 完整性要求
+  completeness:
+    min_threshold: 0.95        # 最小完整性95%
+    critical_fields:           # 必填字段
+      - "id"
+      - "created_at"
+    allow_empty_strings: false
+    
+  # S2.2: 准确性要求  
+  accuracy:
+    outlier_method: "iqr"      # 异常值检测方法: iqr, zscore
+    outlier_threshold: 1.5     # IQR倍数阈值
+    zscore_threshold: 3.0      # Z-Score阈值
+    numeric_ranges:
+      age: { min: 0, max: 150 }
+      score: { min: 0, max: 100 }
+    
+  # S2.3: 一致性要求
+  consistency:
+    date_format: "%Y-%m-%d"    # 标准日期格式
+    datetime_format: "%Y-%m-%d %H:%M:%S"
+    email_pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'
+    phone_pattern: '^\\+?[1-9]\\d{1,14}$'
+    allowed_status_values: ["active", "inactive", "pending", "deleted"]
+    case_sensitive: false
+    
+  # S2.4: 时效性要求
+  timeliness:
+    max_data_age_hours: 24     # 数据最大年龄24小时
+    update_frequency: "daily"  # 期望更新频率
+    timestamp_column: "updated_at"
+    allow_future_dates: false
+    
+  # S3: 报告配置
+  report:
+    output_formats: ["json", "html", "markdown"]
+    include_sample_issues: true
+    sample_size: 10
+    generate_recommendations: true
+    
+  # S4: 集成配置
+  integration:
+    webhook_url: null
+    alert_threshold: 80        # 低于此分数告警
+    fail_on_critical: true
+    
+  # S5: 指标权重
+  scoring:
+    weights:
+      completeness: 0.30
+      accuracy: 0.30
+      consistency: 0.20
+      timeliness: 0.20
+    grade_thresholds:
+      A: 90
+      B: 80
+      C: 70
+      D: 60

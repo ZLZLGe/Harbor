@@ -1,0 +1,119 @@
+# tests/adversarial_test_cases.yaml
+# S7: 对抗测试用例定义
+
+test_cases:
+  - id: TC001
+    name: completeness_null_attack
+    description: 完整性攻击 - 随机设置10%字段为NULL
+    pollution_type: null_injection
+    target_field: email
+    pollution_ratio: 0.10
+    expected_detection:
+      - missing_values
+      - completeness_rate_drop
+    severity: critical
+
+  - id: TC002
+    name: completeness_empty_attack
+    description: 完整性攻击 - 插入空字符串
+    pollution_type: empty_string
+    target_field: name
+    pollution_ratio: 0.05
+    expected_detection:
+      - empty_values
+    severity: warning
+
+  - id: TC003
+    name: accuracy_outlier_attack
+    description: 准确性攻击 - 插入超出范围的异常值
+    pollution_type: outlier_injection
+    target_field: age
+    outlier_values: [999, -10, 1500]
+    pollution_ratio: 0.02
+    expected_detection:
+      - out_of_range
+      - outliers
+    severity: critical
+
+  - id: TC004
+    name: accuracy_numeric_anomaly
+    description: 准确性攻击 - 数值字段插入非数字
+    pollution_type: type_mismatch
+    target_field: score
+    pollution_ratio: 0.03
+    expected_detection:
+      - invalid_numeric
+    severity: warning
+
+  - id: TC005
+    name: consistency_format_attack
+    description: 一致性攻击 - 混合日期格式
+    pollution_type: format_inconsistency
+    target_field: created_at
+    formats: ["%Y-%m-%d", "%d/%m/%Y", "%m-%d-%Y"]
+    pollution_ratio: 0.08
+    expected_detection:
+      - format_inconsistency
+    severity: warning
+
+  - id: TC006
+    name: consistency_email_format
+    description: 一致性攻击 - 无效email格式
+    pollution_type: pattern_violation
+    target_field: email
+    invalid_values: ["invalid", "no-at-sign", "@nodomain"]
+    pollution_ratio: 0.05
+    expected_detection:
+      - invalid_format
+    severity: warning
+
+  - id: TC007
+    name: consistency_duplication_attack
+    description: 一致性攻击 - 插入重复记录
+    pollution_type: duplication
+    duplication_ratio: 0.05
+    expected_detection:
+      - duplicate_records
+    severity: critical
+
+  - id: TC008
+    name: timeliness_stale_attack
+    description: 时效性攻击 - 过时数据
+    pollution_type: stale_timestamp
+    target_field: updated_at
+    age_hours: 168  # 7天
+    pollution_ratio: 0.08
+    expected_detection:
+      - stale_data
+    severity: warning
+
+  - id: TC009
+    name: timeliness_future_attack
+    description: 时效性攻击 - 未来时间戳
+    pollution_type: future_timestamp
+    target_field: created_at
+    future_days: 30
+    pollution_ratio: 0.02
+    expected_detection:
+      - future_dates
+    severity: warning
+
+  - id: TC010
+    name: combined_attack
+    description: 组合攻击 - 同时注入多种问题
+    pollution_types:
+      - null_injection: 0.05
+      - outlier_injection: 0.02
+      - duplication: 0.03
+    expected_detection:
+      - multiple_issues
+    severity: critical
+
+# 通过标准
+success_criteria:
+  min_detection_rate: 0.80  # 80%检测率
+  max_false_positive_rate: 0.05  # 5%误报率
+  required_detections:
+    - completeness_null_attack
+    - accuracy_outlier_attack
+    - consistency_duplication_attack

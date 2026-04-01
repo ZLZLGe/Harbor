@@ -1,0 +1,43 @@
+# 管道集成配置
+# Pipeline Integration Configuration
+
+triggers:
+  # ETL完成后触发
+  post_etl:
+    enabled: true
+    webhook_url: "http://localhost:8080/dq-audit"
+    timeout_seconds: 300
+    
+  # 定时触发
+  scheduled:
+    enabled: true
+    cron: "0 */6 * * *"  # 每6小时执行一次
+    timezone: "Asia/Shanghai"
+    
+  # 数据变更触发
+  on_change:
+    enabled: false
+    min_rows_changed: 100
+    check_interval_minutes: 5
+
+# CI/CD集成
+ci_cd:
+  quality_gate:
+    enabled: true
+    min_score: 80           # 质量门禁分数
+    block_on_critical: true # 关键问题阻止合并
+    
+# 通知配置
+notifications:
+  on_failure: true
+  on_warning: true
+  channels:
+    email:
+      enabled: false
+      recipients: []
+    slack:
+      enabled: false
+      webhook_url: null
+    webhook:
+      enabled: false
+      url: null

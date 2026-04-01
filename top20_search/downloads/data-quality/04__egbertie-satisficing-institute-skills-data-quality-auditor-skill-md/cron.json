@@ -1,0 +1,19 @@
+{
+  "jobs": [
+    {
+      "name": "data-quality-auditor-daily",
+      "schedule": "0 8 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/data-quality-auditor && python3 scripts/audit.py --source examples/sample_data.csv --output reports/daily_audit"
+    },
+    {
+      "name": "data-quality-auditor-trend-update",
+      "schedule": "0 */6 * * *",
+      "command": "cd /root/.openclaw/workspace/skills/data-quality-auditor && python3 scripts/generate_report.py --input reports/latest_audit.json --update-trends"
+    },
+    {
+      "name": "data-quality-auditor-s7-test",
+      "schedule": "0 2 * * 0",
+      "command": "cd /root/.openclaw/workspace/skills/data-quality-auditor && python3 scripts/adversarial_test.py"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+domains:
+  - slug: data-ml-engineering
+    name: Data ML Engineering
+    description: Primary domain covering data governance, quality, and engineering workflows.
+
+search_buckets:
+  - slug: data-quality
+    name: Data Quality
+    domain: data-ml-engineering
+    description: Initial bucket for experiments around schema validation, dataset cleaning, and reconciliation practices.
+    seed_queries:
+      - data quality auditor
+      - csv cleanroom
+      - data profiling
+      - schema validation
+      - data audit
+      - data validation
+      - dataset cleaning
+      - table reconciliation
+    expand_queries:
+      - deduplication
+      - cleanup plan
+      - consistency check
+      - anomaly detection
+      - record matching
+      - csv validation
+      - open data quality
+      - missing values
+    exclude_terms:
+      - install skill
+      - publish skill
+      - registry
+      - marketplace
+      - agent dispatcher
+      - session manager
+      - search skills
+      - workflow hub
+      - framework
+      - reference
+      - senior data engineer
+      - analytics tracking
+      - data engineering review
+    candidate_limit: 100
+    selected_target: 20
+    target_limit: 20
+
+  - slug: xlsx
+    name: XLSX
+    domain: data-ml-engineering
+    description: Spreadsheet parsing, formula integrity, and workbook automation skills.
+    seed_queries:
+      - xlsx
+      - spreadsheet
+    expand_queries:
+      - excel formulas
+      - workbook automation
+    exclude_terms:
+      - install skill
+      - registry
+    candidate_limit: 100
+    selected_target: 20
+    target_limit: 20
+
+  - slug: portfolio-management
+    name: Portfolio Management
+    domain: data-ml-engineering
+    description: Portfolio analytics, risk checks, and allocation workflow skills.
+    seed_queries:
+      - portfolio management
+      - portfolio analytics
+    expand_queries:
+      - rebalancing
+      - risk budgeting
+    exclude_terms:
+      - install skill
+      - registry
+    candidate_limit: 100
+    selected_target: 20
+    target_limit: 20
+
+  - slug: debugging
+    name: Debugging
+    domain: data-ml-engineering
+    description: Deterministic debugging and regression triage workflows.
+    seed_queries:
+      - debugging
+      - regression debugging
+    expand_queries:
+      - root cause analysis
+      - trace analysis
+    exclude_terms:
+      - install skill
+      - registry
+    candidate_limit: 100
+    selected_target: 20
+    target_limit: 20
+
+  - slug: bioinformatics
+    name: Bioinformatics
+    domain: data-ml-engineering
+    description: Bioinformatics data processing and quality-control workflows.
+    seed_queries:
+      - bioinformatics
+      - genomics quality control
+    expand_queries:
+      - single-cell qc
+      - sequence analysis
+    exclude_terms:
+      - install skill
+      - registry
+    candidate_limit: 100
+    selected_target: 20
+    target_limit: 20

@@ -1,0 +1,163 @@
+{
+  "report_id": "dq-20260321-192723",
+  "generated_at": "2026-03-21T19:27:23.447241",
+  "dataset_name": "sample_data",
+  "record_count": 10,
+  "overall_score": 93.15,
+  "grade": "A",
+  "dimensions": {
+    "completeness": {
+      "dimension": "completeness",
+      "score": 97.5,
+      "weight": 0.3,
+      "issues": [
+        {
+          "dimension": "completeness",
+          "severity": "critical",
+          "field": "email",
+          "issue_type": "missing_values",
+          "description": "缺失率 10.00%",
+          "affected_count": 1,
+          "sample_values": [
+            NaN
+          ],
+          "suggestion": "检查数据源，考虑设置默认值或完善采集流程"
+        },
+        {
+          "dimension": "completeness",
+          "severity": "critical",
+          "field": "age",
+          "issue_type": "missing_values",
+          "description": "缺失率 10.00%",
+          "affected_count": 1,
+          "sample_values": [
+            NaN
+          ],
+          "suggestion": "检查数据源，考虑设置默认值或完善采集流程"
+        }
+      ],
+      "metrics": {
+        "null_count": "2",
+        "completeness_rate": 0.975
+      }
+    },
+    "accuracy": {
+      "dimension": "accuracy",
+      "score": 85,
+      "weight": 0.3,
+      "issues": [
+        {
+          "dimension": "accuracy",
+          "severity": "critical",
+          "field": "score",
+          "issue_type": "out_of_range",
+          "description": "数值超出范围 [0, 100]",
+          "affected_count": 1,
+          "sample_values": [
+            999
+          ],
+          "suggestion": "检查数据采集逻辑，验证score的合理范围"
+        },
+        {
+          "dimension": "accuracy",
+          "severity": "warning",
+          "field": "score",
+          "issue_type": "outliers",
+          "description": "检测到 1 个异常值 (IQR方法)",
+          "affected_count": 1,
+          "sample_values": [
+            999
+          ],
+          "suggestion": "审查异常值是否为真实数据或采集错误"
+        }
+      ],
+      "metrics": {
+        "outlier_method": "iqr"
+      }
+    },
+    "consistency": {
+      "dimension": "consistency",
+      "score": 92,
+      "weight": 0.2,
+      "issues": [
+        {
+          "dimension": "consistency",
+          "severity": "warning",
+          "field": "email",
+          "issue_type": "invalid_format",
+          "description": "发现 9 条无效email格式",
+          "affected_count": 9,
+          "sample_values": [
+            "alice@example.com",
+            "bob@example.com",
+            "charlie@example.com",
+            "diana@example.com",
+            "frank@example.com"
+          ],
+          "suggestion": "添加前端email格式验证"
+        }
+      ],
+      "metrics": {
+        "duplicate_count": 0
+      }
+    },
+    "timeliness": {
+      "dimension": "timeliness",
+      "score": 100,
+      "weight": 0.2,
+      "issues": [],
+      "metrics": {
+        "max_age_hours": 24
+      }
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "high",
+      "dimension": "completeness",
+      "field": "email",
+      "issue": "缺失率 10.00%",
+      "suggestion": "检查数据源，考虑设置默认值或完善采集流程",
+      "affected_count": 1
+    },
+    {
+      "priority": "high",
+      "dimension": "completeness",
+      "field": "age",
+      "issue": "缺失率 10.00%",
+      "suggestion": "检查数据源，考虑设置默认值或完善采集流程",
+      "affected_count": 1
+    },
+    {
+      "priority": "high",
+      "dimension": "accuracy",
+      "field": "score",
+      "issue": "数值超出范围 [0, 100]",
+      "suggestion": "检查数据采集逻辑，验证score的合理范围",
+      "affected_count": 1
+    },
+    {
+      "priority": "medium",
+      "dimension": "consistency",
+      "field": "email",
+      "issue": "发现 9 条无效email格式",
+      "suggestion": "添加前端email格式验证",
+      "affected_count": 9
+    },
+    {
+      "priority": "medium",
+      "dimension": "accuracy",
+      "field": "score",
+      "issue": "检测到 1 个异常值 (IQR方法)",
+      "suggestion": "审查异常值是否为真实数据或采集错误",
+      "affected_count": 1
+    }
+  ],
+  "limitations": [
+    "本工具仅检测技术性数据质量问题，不保证数据的业务正确性",
+    "无法判断文本内容的语义正确性",
+    "无法检测跨系统的隐含逻辑错误",
+    "关键业务决策前请进行人工审核"
+  ],
+  "adversarial_test_results": null
+}

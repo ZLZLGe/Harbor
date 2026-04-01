@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数据质量报告 - sample_data</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; }
+        h1 { color: #333; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
+        .score { font-size: 48px; font-weight: bold; text-align: center; margin: 20px 0; }
+        .grade-A { color: #4CAF50; }
+        .grade-B { color: #8BC34A; }
+        .grade-C { color: #FFC107; }
+        .grade-D { color: #FF9800; }
+        .grade-F { color: #F44336; }
+        .dimension { margin: 20px 0; padding: 15px; border-left: 4px solid #4CAF50; background: #f9f9f9; }
+        .issue { margin: 10px 0; padding: 10px; background: #fff3cd; border-radius: 4px; }
+        .issue.critical { background: #f8d7da; }
+        .recommendation { margin: 10px 0; padding: 15px; background: #e3f2fd; border-radius: 4px; }
+        .limitations { margin-top: 30px; padding: 20px; background: #fff8e1; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #4CAF50; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 数据质量报告</h1>
+        <p><strong>数据集:</strong> sample_data | <strong>记录数:</strong> 10</p>
+        <p><strong>生成时间:</strong> 2026-03-21T19:27:23.447241</p>
+        
+        <div class="score grade-A">93.15分 (A级)</div>
+        
+        <h2>📈 维度评分</h2>
+        <table>
+            <tr><th>维度</th><th>得分</th><th>权重</th><th>问题数</th></tr>
+            
+            <tr>
+                <td>completeness</td>
+                <td>97.5</td>
+                <td>0.3</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>accuracy</td>
+                <td>85</td>
+                <td>0.3</td>
+                <td>2</td>
+            </tr>
+            
+            <tr>
+                <td>consistency</td>
+                <td>92</td>
+                <td>0.2</td>
+                <td>1</td>
+            </tr>
+            
+            <tr>
+                <td>timeliness</td>
+                <td>100</td>
+                <td>0.2</td>
+                <td>0</td>
+            </tr>
+            
+        </table>
+        
+        <h2>⚠️ 发现的问题</h2>
+        
+            
+            <div class="issue critical">
+                <strong>[CRITICAL]</strong> email: 缺失率 10.00%
+                <br><small>建议: 检查数据源，考虑设置默认值或完善采集流程</small>
+            </div>
+            
+            <div class="issue critical">
+                <strong>[CRITICAL]</strong> age: 缺失率 10.00%
+                <br><small>建议: 检查数据源，考虑设置默认值或完善采集流程</small>
+            </div>
+            
+        
+            
+            <div class="issue critical">
+                <strong>[CRITICAL]</strong> score: 数值超出范围 [0, 100]
+                <br><small>建议: 检查数据采集逻辑，验证score的合理范围</small>
+            </div>
+            
+            <div class="issue warning">
+                <strong>[WARNING]</strong> score: 检测到 1 个异常值 (IQR方法)
+                <br><small>建议: 审查异常值是否为真实数据或采集错误</small>
+            </div>
+            
+        
+            
+            <div class="issue warning">
+                <strong>[WARNING]</strong> email: 发现 9 条无效email格式
+                <br><small>建议: 添加前端email格式验证</small>
+            </div>
+            
+        
+            
+        
+        
+        <h2>💡 改进建议</h2>
+        
+        <div class="recommendation">
+            <strong>[HIGH]</strong> 缺失率 10.00%
+            <br>→ 检查数据源，考虑设置默认值或完善采集流程
+        </div>
+        
+        <div class="recommendation">
+            <strong>[HIGH]</strong> 缺失率 10.00%
+            <br>→ 检查数据源，考虑设置默认值或完善采集流程
+        </div>
+        
+        <div class="recommendation">
+            <strong>[HIGH]</strong> 数值超出范围 [0, 100]
+            <br>→ 检查数据采集逻辑，验证score的合理范围
+        </div>
+        
+        <div class="recommendation">
+            <strong>[MEDIUM]</strong> 发现 9 条无效email格式
+            <br>→ 添加前端email格式验证
+        </div>
+        
+        <div class="recommendation">
+            <strong>[MEDIUM]</strong> 检测到 1 个异常值 (IQR方法)
+            <br>→ 审查异常值是否为真实数据或采集错误
+        </div>
+        
+        
+        <div class="limitations">
+            <h3>⚠️ 局限说明 (S6)</h3>
+            <ul>
+            
+                <li>本工具仅检测技术性数据质量问题，不保证数据的业务正确性</li>
+            
+                <li>无法判断文本内容的语义正确性</li>
+            
+                <li>无法检测跨系统的隐含逻辑错误</li>
+            
+                <li>关键业务决策前请进行人工审核</li>
+            
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+        
