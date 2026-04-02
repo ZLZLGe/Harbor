@@ -1,0 +1,613 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: devops
+category_name: DevOps
+category_skill_count: 59551
+subcategory_slug: git-workflows
+subcategory_name: Git Workflows
+subcategory_skill_count: 31804
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=git-workflows
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 31804
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-gh-issues-skill-md
+  name: gh-issues
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'Fetch GitHub issues, spawn sub-agents to implement fixes and open
+    PRs, then monitor and address PR review comments. Usage: /gh-issues [owner/repo]
+    [--label bug] [--limit 5] [--milestone v1.0] [--assignee @me] [--fork user/repo]
+    [--watch] [--interval 5] [--reviews-only] [--cron] [--dry-run] [--model glm-5]
+    [--notify-channel -1002381931352]'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/gh-issues
+  updated_at: '1774333273'
+- rank: 2
+  id: openclaw-openclaw-skills-github-skill-md
+  name: github
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'GitHub operations via `gh` CLI: issues, PRs, CI runs, code review,
+    API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on
+    issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex
+    web UI interactions requiring manual browser flows (use browser tooling when available),
+    bulk operations across many repos (script with gh api), or when gh auth is not
+    configured.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/github
+  updated_at: '1771374688'
+- rank: 3
+  id: openclaw-openclaw-agents-skills-openclaw-ghsa-maintainer-skill-md
+  name: openclaw-ghsa-maintainer
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Maintainer workflow for OpenClaw GitHub Security Advisories (GHSA).
+    Use when Codex needs to inspect, patch, validate, or publish a repo advisory,
+    verify private-fork state, prepare advisory Markdown or JSON payloads safely,
+    handle GHSA API-specific publish constraints, or confirm advisory publish success.
+  github_url: https://github.com/openclaw/openclaw/tree/main/.agents/skills/openclaw-ghsa-maintainer
+  updated_at: '1773893478'
+- rank: 4
+  id: openclaw-openclaw-agents-skills-security-triage-skill-md
+  name: security-triage
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Triage GitHub security advisories for OpenClaw with high-confidence
+    close/keep decisions, exact tag and commit verification, trust-model checks, optional
+    hardening notes, and a final reply ready to post and copy to clipboard.
+  github_url: https://github.com/openclaw/openclaw/tree/main/.agents/skills/security-triage
+  updated_at: '1774196178'
+- rank: 5
+  id: microsoft-vscode-github-skills-author-contributions-skill-md
+  name: author-contributions
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Identify all files a specific author contributed to on a branch vs
+    its upstream, tracing code through renames. Use when asked who edited what, what
+    code an author contributed, or to audit authorship before a merge. This skill
+    should be run as a subagent — it performs many git operations and returns a concise
+    table.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/author-contributions
+  updated_at: '1771337679'
+- rank: 6
+  id: significant-gravitas-autogpt-claude-skills-worktree-skill-md
+  name: worktree
+  author: Significant-Gravitas
+  stars: 182900
+  forks: 46219
+  description: Set up a new git worktree for parallel development. Creates the worktree,
+    copies .env files, installs dependencies, and generates Prisma client. TRIGGER
+    when user asks to set up a worktree, work on a branch in isolation, or needs a
+    separate environment for a branch or PR.
+  github_url: https://github.com/Significant-Gravitas/AutoGPT/tree/master/.claude/skills/worktree
+  updated_at: '1773657305'
+- rank: 7
+  id: n8n-io-n8n-claude-skills-create-issue-skill-md
+  name: create-issue
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Create Linear tickets or GitHub issues following n8n conventions. Use
+    when the user asks to create a ticket, file a bug, open an issue, or says /create-issue.
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/create-issue
+  updated_at: '1774259587'
+- rank: 8
+  id: n8n-io-n8n-claude-skills-create-pr-skill-md
+  name: create-pr
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Creates GitHub pull requests with properly formatted titles that pass
+    the check-pr-title CI validation. Use when creating PRs, submitting changes for
+    review, or when the user says /pr or asks to create a pull request.
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/create-pr
+  updated_at: '1774614720'
+- rank: 9
+  id: electron-electron-claude-skills-electron-chromium-upgrade-skill-md
+  name: electron-chromium-upgrade
+  author: electron
+  stars: 120681
+  forks: 17080
+  description: Guide for performing Chromium version upgrades in the Electron project.
+    Use when working on the roller/chromium/main branch to fix patch conflicts during
+    `e sync --3`. Covers the patch application workflow, conflict resolution, analyzing
+    upstream Chromium changes, and proper commit formatting for patch fixes.
+  github_url: https://github.com/electron/electron/tree/main/.claude/skills/electron-chromium-upgrade
+  updated_at: '1772513684'
+- rank: 10
+  id: obra-superpowers-skills-using-git-worktrees-skill-md
+  name: using-git-worktrees
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when starting feature work that needs isolation from current workspace
+    or before executing implementation plans - creates isolated git worktrees with
+    smart directory selection and safety verification
+  github_url: https://github.com/obra/superpowers/tree/main/skills/using-git-worktrees
+  updated_at: '1769726805'
+- rank: 11
+  id: affaan-m-everything-claude-code-skills-swift-concurrency-6-2-skill-md
+  name: swift-concurrency-6-2
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Swift 6.2 Approachable Concurrency — single-threaded by default, @concurrent
+    for explicit background offloading, isolated conformances for main actor types.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/swift-concurrency-6-2
+  updated_at: '1771911565'
+- rank: 12
+  id: google-gemini-gemini-cli-gemini-skills-ci-skill-md
+  name: ci
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: A specialized skill for Gemini CLI that provides high-performance,
+    fail-fast monitoring of GitHub Actions workflows and automated local verification
+    of CI failures. It handles run discovery automatically—simply provide the branch
+    name.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/ci
+  updated_at: '1774406995'
+- rank: 13
+  id: google-gemini-gemini-cli-gemini-skills-code-reviewer-skill-md
+  name: code-reviewer
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill to review code. It supports both local changes (staged
+    or working tree) and remote Pull Requests (by ID or URL). It focuses on correctness,
+    maintainability, and adherence to project standards.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/code-reviewer
+  updated_at: '1768980516'
+- rank: 14
+  id: google-gemini-gemini-cli-gemini-skills-docs-changelog-skill-md
+  name: docs-changelog
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Generates and formats changelog files for a new release based on provided
+    version and raw changelog data.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/docs-changelog
+  updated_at: '1772075521'
+- rank: 15
+  id: google-gemini-gemini-cli-gemini-skills-github-issue-creator-skill-md
+  name: github-issue-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill when asked to create a GitHub issue. It handles different
+    issue types (bug, feature, etc.) using repository templates and ensures proper
+    labeling.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/github-issue-creator
+  updated_at: '1772320942'
+- rank: 16
+  id: google-gemini-gemini-cli-gemini-skills-pr-address-comments-skill-md
+  name: pr-address-comments
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill if the user asks you to help them address GitHub PR
+    comments for their current branch of the Gemini CLI. Requires `gh` CLI tool.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/pr-address-comments
+  updated_at: '1771975588'
+- rank: 17
+  id: google-gemini-gemini-cli-gemini-skills-pr-creator-skill-md
+  name: pr-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill when asked to create a pull request (PR). It ensures
+    all PRs follow the repository's established templates and standards.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/pr-creator
+  updated_at: '1770701890'
+- rank: 18
+  id: pytorch-pytorch-claude-skills-pr-review-skill-md
+  name: pr-review
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Review PyTorch pull requests for code quality, test coverage, security,
+    and backward compatibility. Use when reviewing PRs, when asked to review code
+    changes, or when the user mentions "review PR", "code review", or "check this
+    PR".
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/pr-review
+  updated_at: '1774632647'
+- rank: 19
+  id: ant-design-ant-design-agents-skills-commit-msg-skill-md
+  name: antd-commit-msg
+  author: ant-design
+  stars: 97773
+  forks: 54581
+  description: Generate a single-line commit message for ant-design by reading the
+    project's git staged area and recent commit style. Use when the user asks for
+    a commit message, says "msg", "commit msg", "写提交信息", or wants one-line text that
+    covers all staged changes. Output should match the repository's existing commit
+    style and summarize all staged changes in one line.
+  github_url: https://github.com/ant-design/ant-design/tree/master/.agents/skills/commit-msg
+  updated_at: '1773996065'
+- rank: 20
+  id: ant-design-ant-design-agents-skills-create-pr-skill-md
+  name: antd-create-pr
+  author: ant-design
+  stars: 97773
+  forks: 54581
+  description: Create pull requests for ant-design using the repository's official
+    PR templates. Use when the user asks to create a PR, open a pull request, write
+    PR title/body, summarize branch changes for a PR, or prepare an ant-design PR
+    in Chinese or English. The skill must choose `.github/PULL_REQUEST_TEMPLATE_CN.md`
+    or `.github/PULL_REQUEST_TEMPLATE.md` based on the user's language habit and keep
+    the content aligned with ant-design's PR sections.
+  github_url: https://github.com/ant-design/ant-design/tree/master/.agents/skills/create-pr
+  updated_at: '1773996065'
+- rank: 21
+  id: ant-design-ant-design-agents-skills-issue-reply-skill-md
+  name: antd-issue-reply
+  author: ant-design
+  stars: 97773
+  forks: 54581
+  description: Help maintainers reply to Ant Design GitHub issues following official
+    guidelines. Use this skill when the user asks to handle issues, reply to issues,
+    process issues, check issues, or manage issues for ant-design/ant-design repository.
+    Also use when the user mentions "issue" in the context of antd, Ant Design, or
+    GitHub issue management. This skill provides guidelines for classifying issues
+    (Bug vs Feature Request), handling dosubot replies, using proper labels, writing
+    polite responses, and knowing when to close issues.
+  github_url: https://github.com/ant-design/ant-design/tree/master/.agents/skills/issue-reply
+  updated_at: '1773996065'
+- rank: 22
+  id: home-assistant-core-claude-skills-github-pr-reviewer-skill-md
+  name: github-pr-reviewer
+  author: home-assistant
+  stars: 85889
+  forks: 37095
+  description: Review a GitHub pull request and provide feedback comments. Use when
+    the user says "review the current PR" or asks to review a specific PR.
+  github_url: https://github.com/home-assistant/core/tree/dev/.claude/skills/github-pr-reviewer
+  updated_at: '1772562111'
+- rank: 23
+  id: openai-codex-codex-skills-babysit-pr-skill-md
+  name: babysit-pr
+  author: openai
+  stars: 68113
+  forks: 9132
+  description: Babysit a GitHub pull request after creation by continuously polling
+    CI checks/workflow runs, new review comments, and mergeability state until the
+    PR is ready to merge (or merged/closed). Diagnose failures, retry likely flaky
+    failures up to 3 times, auto-fix/push branch-related issues when appropriate,
+    and stop only when user help is required (for example CI infrastructure issues,
+    exhausted flaky retries, or ambiguous/blocking situations). Use when the user
+    asks Codex to monitor a PR, watch CI, handle review comments, or keep an eye on
+    failures and feedback on an open PR.
+  github_url: https://github.com/openai/codex/tree/main/.codex/skills/babysit-pr
+  updated_at: '1771803388'
+- rank: 24
+  id: cline-cline-agents-skills-create-pull-request-skill-md
+  name: create-pull-request
+  author: cline
+  stars: 59565
+  forks: 6059
+  description: Create a GitHub pull request following project conventions. Use when
+    the user asks to create a PR, submit changes for review, or open a pull request.
+    Handles commit analysis, branch management, PR template usage, and PR creation
+    using the gh CLI tool.
+  github_url: https://github.com/cline/cline/tree/main/.agents/skills/create-pull-request
+  updated_at: '1771893092'
+- rank: 25
+  id: bytedance-deer-flow-skills-public-github-deep-research-skill-md
+  name: github-deep-research
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Conduct multi-round deep research on any GitHub Repo. Use when users
+    request comprehensive analysis, timeline reconstruction, competitive analysis,
+    or in-depth investigation of GitHub. Produces structured markdown reports with
+    executive summaries, chronological timelines, metrics analysis, and Mermaid diagrams.
+    Triggers on Github repository URL or open source projects.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/github-deep-research
+  updated_at: '1774576454'
+- rank: 26
+  id: ghostty-org-ghostty-agents-skills-writing-commit-messages-skill-md
+  name: writing-commit-messages
+  author: ghostty-org
+  stars: 48940
+  forks: 2151
+  description: Writes Git commit messages. Activates when the user asks to write a
+    commit message, draft a commit message, or similar.
+  github_url: https://github.com/ghostty-org/ghostty/tree/main/.agents/skills/writing-commit-messages
+  updated_at: '1773525542'
+- rank: 27
+  id: metabase-metabase-claude-skills-mutation-testing-skill-md
+  name: mutation-testing
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Run mutation testing on a Clojure namespace, generate tests to kill
+    surviving mutations, and open draft PRs with Linear issue tracking.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/mutation-testing
+  updated_at: '1772124719'
+- rank: 28
+  id: metabase-metabase-claude-skills-typescript-review-skill-md
+  name: typescript-review
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Review TypeScript and JavaScript code changes for compliance with Metabase
+    coding standards, style violations, and code quality issues. Use when reviewing
+    pull requests or diffs containing TypeScript/JavaScript code.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/typescript-review
+  updated_at: '1771496094'
+- rank: 29
+  id: clickhouse-clickhouse-claude-skills-create-worktree-skill-md
+  name: create-worktree
+  author: ClickHouse
+  stars: 46584
+  forks: 8243
+  description: Create a ClickHouse git worktree with submodules hardlinked from the
+    main repo. Use when the user wants to create a new worktree for ClickHouse development.
+  github_url: https://github.com/ClickHouse/ClickHouse/tree/master/.claude/skills/create-worktree
+  updated_at: '1772184592'
+- rank: 30
+  id: clickhouse-clickhouse-claude-skills-fix-sync-skill-md
+  name: fix-sync
+  author: ClickHouse
+  stars: 46584
+  forks: 8243
+  description: Fix the "CH Inc sync" job in a pull request by resolving conflicts
+    in the corresponding clickhouse-private sync PR.
+  github_url: https://github.com/ClickHouse/ClickHouse/tree/master/.claude/skills/fix-sync
+  updated_at: '1770412536'
+- rank: 31
+  id: tldraw-tldraw-claude-skills-write-pr-skill-md
+  name: write-pr
+  author: tldraw
+  stars: 46086
+  forks: 3105
+  description: Writing pull request titles and descriptions for the tldraw repository.
+    Use when creating a new PR, updating an existing PR's title or body, or when the
+    /pr command needs PR content guidance.
+  github_url: https://github.com/tldraw/tldraw/tree/main/.claude/skills/write-pr
+  updated_at: '1773187499'
+- rank: 32
+  id: meteor-meteor-github-skills-codebase-skill-md
+  name: codebase
+  author: meteor
+  stars: 44788
+  forks: 5266
+  description: Use when understanding the build system, modifying CLI commands, working
+    with isobuild, or navigating the tools/ directory. Covers build pipeline flow
+    and file locations.
+  github_url: https://github.com/meteor/meteor/tree/devel/.github/skills/codebase
+  updated_at: '1770379062'
+- rank: 33
+  id: code-yeongyu-oh-my-openagent-src-features-builtin-skills-git-master-skill-md
+  name: git-master
+  author: code-yeongyu
+  stars: 44356
+  forks: 3299
+  description: 'MUST USE for ANY git operations. Atomic commits, rebase/squash, history
+    search (blame, bisect, log -S). STRONGLY RECOMMENDED: Use with task(category=''quick'',
+    load_skills=[''git-master''], ...) to save context. Triggers: ''commit'', ''rebase'',
+    ''squash'', ''who wrote'', ''when was X added'', ''find the commit that''.'
+  github_url: https://github.com/code-yeongyu/oh-my-openagent/tree/dev/src/features/builtin-skills/git-master
+  updated_at: '1770381330'
+- rank: 34
+  id: code-yeongyu-oh-my-openagent-opencode-skills-github-triage-skill-md
+  name: github-triage
+  author: code-yeongyu
+  stars: 44356
+  forks: 3299
+  description: 'Read-only GitHub triage for issues AND PRs. 1 item = 1 background
+    task (category: quick). Analyzes all open items and writes evidence-backed reports
+    to /tmp/{datetime}/. Every claim requires a GitHub permalink as proof. NEVER takes
+    any action on GitHub - no comments, no merges, no closes, no labels. Reports only.
+    Triggers: ''triage'', ''triage issues'', ''triage PRs'', ''github triage''.'
+  github_url: https://github.com/code-yeongyu/oh-my-openagent/tree/dev/.opencode/skills/github-triage
+  updated_at: '1773990774'
+- rank: 35
+  id: code-yeongyu-oh-my-openagent-opencode-skills-work-with-pr-skill-md
+  name: work-with-pr
+  author: code-yeongyu
+  stars: 44356
+  forks: 3299
+  description: 'Full PR lifecycle: git worktree → implement → atomic commits → PR
+    creation → verification loop (CI + review-work + Cubic approval) → merge. Keeps
+    iterating until ALL gates pass and PR is merged. Worktree auto-cleanup after merge.
+    Use whenever implementation work needs to land as a PR. Triggers: ''create a PR'',
+    ''implement and PR'', ''work on this and make a PR'', ''implement issue'', ''land
+    this as a PR'', ''work-with-pr'', ''PR workflow'', ''implement end to end'', even
+    when user just says ''implement X'' if the context implies PR delivery.'
+  github_url: https://github.com/code-yeongyu/oh-my-openagent/tree/dev/.opencode/skills/work-with-pr
+  updated_at: '1774588305'
+- rank: 36
+  id: streamlit-streamlit-claude-skills-creating-pull-requests-skill-md
+  name: creating-pull-requests
+  author: streamlit
+  stars: 44053
+  forks: 4169
+  description: Creates a draft pull request on GitHub with proper labels, branch naming,
+    and description formatting. Use when changes are ready to be submitted as a PR
+    to the streamlit/streamlit repository.
+  github_url: https://github.com/streamlit/streamlit/tree/develop/.claude/skills/creating-pull-requests
+  updated_at: '1772820752'
+- rank: 37
+  id: streamlit-streamlit-claude-skills-implementing-feature-skill-md
+  name: implementing-feature
+  author: streamlit
+  stars: 44053
+  forks: 4169
+  description: Implement a feature from a product/tech spec, URL, or GitHub issue.
+    Reads the spec, implements the feature following Streamlit patterns, and creates
+    a merge-ready PR. Use when given a spec folder path, document URL, or issue link
+    to implement.
+  github_url: https://github.com/streamlit/streamlit/tree/develop/.claude/skills/implementing-feature
+  updated_at: '1773141926'
+- rank: 38
+  id: cherryhq-cherry-studio-agents-skills-gh-create-issue-skill-md
+  name: gh-create-issue
+  author: CherryHQ
+  stars: 42493
+  forks: 3974
+  description: Use when user wants to create a GitHub issue for the current repository.
+    Must read and follow the repository's issue template format.
+  github_url: https://github.com/CherryHQ/cherry-studio/tree/main/.agents/skills/gh-create-issue
+  updated_at: '1771934464'
+- rank: 39
+  id: cherryhq-cherry-studio-agents-skills-gh-create-pr-skill-md
+  name: gh-create-pr
+  author: CherryHQ
+  stars: 42493
+  forks: 3974
+  description: Create or update GitHub pull requests using the repository-required
+    workflow and template compliance. Use when asked to create/open/update a PR so
+    the assistant reads `.github/pull_request_template.md`, fills every template section,
+    preserves markdown structure exactly, and marks missing data as N/A or None instead
+    of skipping sections.
+  github_url: https://github.com/CherryHQ/cherry-studio/tree/main/.agents/skills/gh-create-pr
+  updated_at: '1772019465'
+- rank: 40
+  id: cherryhq-cherry-studio-agents-skills-gh-pr-review-skill-md
+  name: gh-pr-review
+  author: CherryHQ
+  stars: 42493
+  forks: 3974
+  description: Automated code review for local branches, PRs, commits, and files.
+    Supports single-agent review with interactive fix selection, or multi-agent deep
+    review with reviewer-verifier adversarial mechanism and risk-based auto-fix.
+  github_url: https://github.com/CherryHQ/cherry-studio/tree/main/.agents/skills/gh-pr-review
+  updated_at: '1773817722'
+- rank: 41
+  id: cherryhq-cherry-studio-agents-skills-prepare-release-skill-md
+  name: prepare-release
+  author: CherryHQ
+  stars: 42493
+  forks: 3974
+  description: Prepare a new release by collecting commits, generating bilingual release
+    notes, updating version files, and creating a release branch with PR. Use when
+    asked to prepare/create a release, bump version, or run `/prepare-release`.
+  github_url: https://github.com/CherryHQ/cherry-studio/tree/main/.agents/skills/prepare-release
+  updated_at: '1773391695'
+- rank: 42
+  id: remotion-dev-remotion-claude-skills-pr-skill-md
+  name: make-pr
+  author: remotion-dev
+  stars: 41027
+  forks: 2624
+  description: Open a pull request for the current feature
+  github_url: https://github.com/remotion-dev/remotion/tree/main/.claude/skills/pr
+  updated_at: '1771922428'
+- rank: 43
+  id: agno-agi-agno-cookbook-02-agents-16-skills-sample-skills-git-workflow-skill-md
+  name: git-workflow
+  author: agno-agi
+  stars: 38991
+  forks: 5168
+  description: Git workflow guidance for commits, branches, and pull requests
+  github_url: https://github.com/agno-agi/agno/tree/main/cookbook/02_agents/16_skills/sample_skills/git-workflow
+  updated_at: '1771023763'
+- rank: 44
+  id: rssnext-folo-agents-skills-desktop-release-skill-md
+  name: desktop-release
+  author: RSSNext
+  stars: 37848
+  forks: 2007
+  description: Perform a regular desktop release from the dev branch. Gathers commits
+    since last release, updates changelog, evaluates mainHash changes, bumps version,
+    and creates release PR.
+  github_url: https://github.com/RSSNext/Folo/tree/dev/.agents/skills/desktop-release
+  updated_at: '1773210764'
+- rank: 45
+  id: hkuds-nanobot-nanobot-skills-github-skill-md
+  name: github
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh
+    run`, and `gh api` for issues, PRs, CI runs, and advanced queries.
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/github
+  updated_at: '1769971542'
+- rank: 46
+  id: paperclipai-paperclip-agents-skills-release-skill-md
+  name: release
+  author: paperclipai
+  stars: 36317
+  forks: 5256
+  description: Coordinate a full Paperclip release across engineering verification,
+    npm, GitHub, smoke testing, and announcement follow-up. Use when leadership asks
+    to ship a release, not merely to discuss versioning.
+  github_url: https://github.com/paperclipai/paperclip/tree/master/.agents/skills/release
+  updated_at: '1773838656'
+- rank: 47
+  id: remix-run-remix-agents-skills-make-pr-skill-md
+  name: make-pr
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Create GitHub pull requests with clear, reviewer-friendly descriptions.
+    Use when asked to open or prepare a PR, especially when the PR needs strong context,
+    related links, and feature usage examples. This skill enforces concise PR structure,
+    avoids redundant sections like validation/testing, and creates the PR with gh
+    CLI.
+  github_url: https://github.com/remix-run/remix/tree/main/.agents/skills/make-pr
+  updated_at: '1773700475'
+- rank: 48
+  id: remix-run-remix-agents-skills-supersede-pr-skill-md
+  name: supersede-pr
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Safely replace one GitHub pull request with another. Use when a user
+    says a PR supersedes/replaces an older PR, asks to auto-close a superseded PR,
+    or needs guaranteed closure behavior after merge. This skill explicitly closes
+    the superseded PR with gh CLI and verifies final PR states instead of relying
+    on closing keywords.
+  github_url: https://github.com/remix-run/remix/tree/main/.agents/skills/supersede-pr
+  updated_at: '1773435941'
+- rank: 49
+  id: remix-run-remix-agents-skills-update-pr-skill-md
+  name: update-pr
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Update an existing GitHub pull request title and description so they
+    accurately describe the pull request as it exists now. Use when the user asks
+    to update, rewrite, refresh, fix, or tighten a PR title/body, or when the PR scope
+    has changed and the metadata needs to be brought back in sync.
+  github_url: https://github.com/remix-run/remix/tree/main/.agents/skills/update-pr
+  updated_at: '1773975038'
+- rank: 50
+  id: wshobson-agents-plugins-agent-teams-skills-parallel-feature-development-skill-md
+  name: parallel-feature-development
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Coordinate parallel feature development with file ownership strategies,
+    conflict avoidance rules, and integration patterns for multi-agent implementation.
+    Use this skill when decomposing a large feature into independent work streams,
+    when two or more agents need to implement different layers of the same system
+    simultaneously, when establishing file ownership to prevent merge conflicts in
+    a shared codebase, when designing interface contracts so parallel implementers
+    can build against each other's APIs before they are ready, or when deciding whether
+    to use vertical slices versus horizontal layers for a full-stack feature.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/parallel-feature-development
+  updated_at: '1774541117'

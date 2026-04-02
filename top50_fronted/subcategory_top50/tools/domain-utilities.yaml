@@ -1,0 +1,591 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: tools
+category_name: Tools
+category_skill_count: 168203
+subcategory_slug: domain-utilities
+subcategory_name: Domain & DNS Tools
+subcategory_skill_count: 2386
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=domain-utilities
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 2386
+  total_pages: 48
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: composiohq-awesome-claude-skills-domain-name-brainstormer-skill-md
+  name: domain-name-brainstormer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Generates creative domain name ideas for your project and checks availability
+    across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming
+    and manual checking.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/domain-name-brainstormer
+  updated_at: '1760692175'
+- rank: 2
+  id: bmad-code-org-bmad-method-src-bmm-skills-1-analysis-research-bmad-domain-research-skill-md
+  name: bmad-domain-research
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Conduct domain and industry research. Use when the user says wants
+    to do domain research for a topic or industry
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/bmm-skills/1-analysis/research/bmad-domain-research
+  updated_at: '1774073483'
+- rank: 3
+  id: sickn33-antigravity-awesome-skills-skills-apify-brand-reputation-monitoring-skill-md
+  name: apify-brand-reputation-monitoring
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Scrape reviews, ratings, and brand mentions from multiple platforms
+    using Apify Actors.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-brand-reputation-monitoring
+  updated_at: '1773994629'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-claimable-postgres-skill-md
+  name: claimable-postgres
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Provision instant temporary Postgres databases via Claimable Postgres
+    by Neon (pg.new). No login or credit card required. Use for quick Postgres environments
+    and throwaway DATABASE_URL for prototyping.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claimable-postgres
+  updated_at: '1773994005'
+- rank: 5
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-cloudflare-deploy-skill-md
+  name: cloudflare-deploy
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Deploy applications and infrastructure to Cloudflare using Workers,
+    Pages, and related platform services. Use when the user asks to deploy, host,
+    publish, or set up a project on Cloudflare.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/cloudflare-deploy
+  updated_at: '1770514388'
+- rank: 6
+  id: davila7-claude-code-templates-cli-tool-components-skills-railway-domain-skill-md
+  name: railway-domain
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Add, view, or remove domains for Railway services. Use when user wants
+    to add a domain, generate a railway domain, check current domains, get the URL
+    for a service, or remove a domain.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/railway/domain
+  updated_at: '1768064325'
+- rank: 7
+  id: googleworkspace-cli-skills-gws-gmail-watch-skill-md
+  name: gws-gmail-watch
+  author: googleworkspace
+  stars: 22843
+  forks: 1108
+  description: 'Gmail: Watch for new emails and stream them as NDJSON.'
+  github_url: https://github.com/googleworkspace/cli/tree/main/skills/gws-gmail-watch
+  updated_at: '1774550706'
+- rank: 8
+  id: googleworkspace-cli-skills-recipe-forward-labeled-emails-skill-md
+  name: recipe-forward-labeled-emails
+  author: googleworkspace
+  stars: 22843
+  forks: 1108
+  description: Find Gmail messages with a specific label and forward them to another
+    address.
+  github_url: https://github.com/googleworkspace/cli/tree/main/skills/recipe-forward-labeled-emails
+  updated_at: '1774550706'
+- rank: 9
+  id: elizaos-eliza-packages-skills-skills-local-places-skill-md
+  name: local-places
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Searches for local businesses and points of interest via a Google Places
+    API proxy running on localhost. Resolves vague locations, applies filters for
+    type, rating, and price, and returns structured place details. Use when the user
+    asks to find restaurants, nearby places, coffee shops, business search, local
+    recommendations, or anything involving place discovery by location.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/local-places
+  updated_at: '1773711902'
+- rank: 10
+  id: nukeop-nuclear-agents-skills-host-pattern-skill-md
+  name: host-pattern
+  author: nukeop
+  stars: 17095
+  forks: 1267
+  description: Use when adding a new domain to Nuclear's plugin system, or implementing
+    a host. Covers the host pattern (how player functionality is exposed to plugins),
+    the host interface and API class structure, how hosts are implemented in the player,
+    error handling conventions, and what files to create and modify. Trigger phrases
+    include "add a domain", "new domain", "host implementation", "host pattern", "createPluginAPI".
+  github_url: https://github.com/nukeop/nuclear/tree/master/.agents/skills/host-pattern
+  updated_at: '1773783703'
+- rank: 11
+  id: openai-skills-skills-curated-cloudflare-deploy-skill-md
+  name: cloudflare-deploy
+  author: openai
+  stars: 15590
+  forks: 928
+  description: Deploy applications and infrastructure to Cloudflare using Workers,
+    Pages, and related platform services. Use when the user asks to deploy, host,
+    publish, or set up a project on Cloudflare.
+  github_url: https://github.com/openai/skills/tree/main/skills/.curated/cloudflare-deploy
+  updated_at: '1770063640'
+- rank: 12
+  id: nousresearch-hermes-agent-optional-skills-security-sherlock-skill-md
+  name: sherlock
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: OSINT username search across 400+ social networks. Hunt down social
+    media accounts by username.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/security/sherlock
+  updated_at: '1773740901'
+- rank: 13
+  id: abpframework-abp-claude-skills-abp-ddd-skill-md
+  name: abp-ddd
+  author: abpframework
+  stars: 14190
+  forks: 3682
+  description: ABP DDD patterns - Entities, Aggregate Roots, value objects, Repositories,
+    Domain Services, Domain Events, Specifications. Use when designing domain layer,
+    creating entities, repositories, or domain services in ABP projects.
+  github_url: https://github.com/abpframework/abp/tree/dev/.claude/skills/abp-ddd
+  updated_at: '1773049965'
+- rank: 14
+  id: danielmiessler-personal-ai-infrastructure-releases-pi-skills-investigation-skill-md
+  name: investigation
+  author: danielmiessler
+  stars: 10594
+  forks: 1470
+  description: OSINT and investigation including people search, company intel, domain
+    lookup, social media discovery, and threat intel. USE WHEN OSINT, due diligence,
+    company intel, background check, find person, people search, domain lookup, entity
+    lookup, threat intel, who is.
+  github_url: https://github.com/danielmiessler/Personal_AI_Infrastructure/tree/main/Releases/Pi/skills/investigation
+  updated_at: '1774207248'
+- rank: 15
+  id: anthropics-knowledge-work-plugins-partner-built-apollo-skills-enrich-lead-skill-md
+  name: enrich-lead
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Instant lead enrichment. Drop a name, company, LinkedIn URL, or email
+    and get the full contact card with email, phone, title, company intel, and next
+    actions.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/partner-built/apollo/skills/enrich-lead
+  updated_at: '1771891692'
+- rank: 16
+  id: vercel-labs-portless-skills-portless-skill-md
+  name: portless
+  author: vercel-labs
+  stars: 6403
+  forks: 203
+  description: Set up and use portless for named local dev server URLs (e.g. http://myapp.localhost
+    instead of http://localhost:3000). Use when integrating portless into a project,
+    configuring dev server names, setting up the local proxy, working with .localhost
+    domains, or troubleshooting port/proxy issues.
+  github_url: https://github.com/vercel-labs/portless/tree/main/skills/portless
+  updated_at: '1774144947'
+- rank: 17
+  id: fullstackhero-dotnet-starter-kit-agents-skills-add-entity-skill-md
+  name: add-entity
+  author: fullstackhero
+  stars: 6377
+  forks: 1921
+  description: Create a domain entity with multi-tenancy, auditing, soft-delete, and
+    domain events. Use when adding new database entities to a module.
+  github_url: https://github.com/fullstackhero/dotnet-starter-kit/tree/develop/.agents/skills/add-entity
+  updated_at: '1774589480'
+- rank: 18
+  id: mukul975-anthropic-cybersecurity-skills-skills-analyzing-typosquatting-domains-with-dnstwist-skill-md
+  name: analyzing-typosquatting-domains-with-dnstwist
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Detect typosquatting, homograph phishing, and brand impersonation domains
+    using dnstwist to generate domain permutations and identify registered lookalike
+    domains targeting your organization.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-typosquatting-domains-with-dnstwist
+  updated_at: '1773923390'
+- rank: 19
+  id: mukul975-anthropic-cybersecurity-skills-skills-conducting-domain-persistence-with-dcsync-skill-md
+  name: conducting-domain-persistence-with-dcsync
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Perform DCSync attacks to replicate Active Directory credentials and
+    establish domain persistence by extracting KRBTGT, Domain Admin, and service account
+    hashes for Golden Ticket creation.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/conducting-domain-persistence-with-dcsync
+  updated_at: '1773923981'
+- rank: 20
+  id: mukul975-anthropic-cybersecurity-skills-skills-conducting-internal-reconnaissance-with-bloodhound-ce-skill-md
+  name: conducting-internal-reconnaissance-with-bloodhound-ce
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Conduct internal Active Directory reconnaissance using BloodHound Community
+    Edition to map attack paths, identify privilege escalation chains, and discover
+    misconfigurations in domain environments.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/conducting-internal-reconnaissance-with-bloodhound-ce
+  updated_at: '1773923981'
+- rank: 21
+  id: mukul975-anthropic-cybersecurity-skills-skills-detecting-golden-ticket-attacks-in-kerberos-logs-skill-md
+  name: detecting-golden-ticket-attacks-in-kerberos-logs
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Detect Golden Ticket attacks in Active Directory by analyzing Kerberos
+    TGT anomalies including mismatched encryption types, impossible ticket lifetimes,
+    non-existent accounts, and forged PAC signatures in domain controller event logs.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/detecting-golden-ticket-attacks-in-kerberos-logs
+  updated_at: '1773923209'
+- rank: 22
+  id: mukul975-anthropic-cybersecurity-skills-skills-hunting-for-dns-based-persistence-skill-md
+  name: hunting-for-dns-based-persistence
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Hunt for DNS-based persistence mechanisms including DNS hijacking,
+    dangling CNAME records, wildcard DNS abuse, and unauthorized zone modifications
+    using passive DNS databases, SecurityTrails API, and DNS audit log analysis.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/hunting-for-dns-based-persistence
+  updated_at: '1773923390'
+- rank: 23
+  id: mukul975-anthropic-cybersecurity-skills-skills-implementing-zero-trust-dns-with-nextdns-skill-md
+  name: implementing-zero-trust-dns-with-nextdns
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Implement NextDNS as a zero trust DNS filtering layer with encrypted
+    resolution, threat intelligence blocking, privacy protection, and organizational
+    policy enforcement across all endpoints.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/implementing-zero-trust-dns-with-nextdns
+  updated_at: '1773924116'
+- rank: 24
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-active-directory-bloodhound-analysis-skill-md
+  name: performing-active-directory-bloodhound-analysis
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Use BloodHound and SharpHound to enumerate Active Directory relationships
+    and identify attack paths from compromised users to Domain Admin.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-active-directory-bloodhound-analysis
+  updated_at: '1774698053'
+- rank: 25
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-active-directory-penetration-test-skill-md
+  name: performing-active-directory-penetration-test
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Conduct a focused Active Directory penetration test to enumerate domain
+    objects, discover attack paths with BloodHound, exploit Kerberos weaknesses, escalate
+    privileges via ADCS/DCSync, and demonstrate domain compromise.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-active-directory-penetration-test
+  updated_at: '1773924116'
+- rank: 26
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-brand-monitoring-for-impersonation-skill-md
+  name: performing-brand-monitoring-for-impersonation
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Monitor for brand impersonation attacks across domains, social media,
+    mobile apps, and dark web channels to detect phishing campaigns, fake sites, and
+    unauthorized brand usage targeting your organization.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-brand-monitoring-for-impersonation
+  updated_at: '1773924955'
+- rank: 27
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-dns-enumeration-and-zone-transfer-skill-md
+  name: performing-dns-enumeration-and-zone-transfer
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Enumerates DNS records, attempts zone transfers, brute-forces subdomains,
+    and maps DNS infrastructure during authorized reconnaissance to identify attack
+    surface, misconfigurations, and information disclosure in target domains.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-dns-enumeration-and-zone-transfer
+  updated_at: '1773189770'
+- rank: 28
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-privileged-account-discovery-skill-md
+  name: performing-privileged-account-discovery
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Discover and inventory all privileged accounts across enterprise infrastructure
+    including domain admins, local admins, service accounts, database admins, cloud
+    IAM roles, and application admin account
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-privileged-account-discovery
+  updated_at: '1773924116'
+- rank: 29
+  id: openclaw-skills-skills-abtdomain-domain-generator-skill-md
+  name: ai-domain-generator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI-powered domain naming consultation — helps users go from a vague
+    idea to a registrable domain name. Trigger when the user says things like "help
+    me find a domain", "I need a domain for my project", "domain name ideas", "what
+    should I name my startup", "I'm building an X and need a domain", "brand name
+    suggestions", "naming ideas", or any variation where the user describes a project
+    but doesn't have a specific keyword yet. Also trigger when the user says "I'm
+    starting a coffee shop", "I'm building an AI writing tool" — any project description
+    that implies they need a name. Do NOT trigger when the user already has a specific
+    keyword and wants variations (use domain_generator), or when a target domain is
+    taken and they want alternatives (use plan_b). This skill's entire point is to
+    talk first, generate later.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abtdomain/domain-generator
+  updated_at: '1774564641'
+- rank: 30
+  id: openclaw-skills-skills-bytesagain1-certcheck-skill-md
+  name: certcheck
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Reference tool for devtools — covers intro, quickstart, patterns and
+    more. Quick lookup for Certcheck concepts, best practices, and implementation
+    patterns.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/certcheck
+  updated_at: '1774379020'
+- rank: 31
+  id: openclaw-skills-skills-anmu14641-china-scenic-spots-skill-md
+  name: china-scenic-spots
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 中国热门景区Top100合集，包含5A级景区数据库。适用于：(1) 查询景区详情（门票、最佳游览季节、建议时长）；(2) 按省份/类型/季节推荐景区；(3)
+    制定旅游行程计划；(4) 比较不同景区。触发词：推荐景区、去哪玩、旅游攻略、景区门票、行程规划、中国旅行、A股景区、5A景区、自然风光、历史古迹、亲子游目的地等。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anmu14641/china-scenic-spots
+  updated_at: '1773025764'
+- rank: 32
+  id: openclaw-skills-skills-camopel-ddgs-search-skill-md
+  name: ddgs-search
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Free multi-engine web search via ddgs CLI (DuckDuckGo, Google, Bing,
+    Brave, Yandex, Yahoo, Wikipedia) + arXiv API search. No API keys required. Use
+    when user needs web search, research paper discovery, or when other skills need
+    a search backend. Drop-in replacement for web-search-plus.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/camopel/ddgs-search
+  updated_at: '1772472752'
+- rank: 33
+  id: openclaw-skills-skills-aaron-he-zhu-domain-authority-auditor-skill-md
+  name: domain-authority-auditor
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: This skill should be used when the user asks to "audit domain authority",
+    "domain trust score", "CITE audit", "how authoritative is my site", "domain credibility
+    check", "is my domain trustworthy", or "domain credibility score". Runs a full
+    CITE 40-item domain authority audit, scoring domains across 4 dimensions with
+    weighted scoring by domain type. Produces a detailed report with per-item scores,
+    dimension analysis, veto checks, and a prioritized action plan. For content-level
+    assessment, see content-quality-auditor. For link profile details, see backlink-analyzer.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aaron-he-zhu/domain-authority-auditor
+  updated_at: '1772910180'
+- rank: 34
+  id: openclaw-skills-skills-brennerspear-domain-check-skill-md
+  name: domain-check
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Check domain availability via Vercel and buy/manage domains via Vercel
+    CLI
+  github_url: https://github.com/openclaw/skills/tree/main/skills/brennerspear/domain-check
+  updated_at: '1772014062'
+- rank: 35
+  id: openclaw-skills-skills-blueyi-domain-checker-skill-md
+  name: domain-checker
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Check whether domain names are available for registration. Use when
+    a user asks to verify domain availability, find unregistered domains, brainstorm
+    project/brand names with domain checks, or any task involving "is this domain
+    taken?". Supports .com, .net, .org, .io, .ai, .so, and other TLDs. Cross-verifies
+    via whois + DNS NS + DNS A records for reliable results.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/blueyi/domain-checker
+  updated_at: '1773518639'
+- rank: 36
+  id: openclaw-skills-skills-abtdomain-domain-keyword-intelligence-skill-md
+  name: domain-keyword-intelligence
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Discover domain investment opportunities from emerging keyword spikes.
+    Filters junk signals from real multi-party market activity using registration
+    profiling, catalyst research, and NRDS position analysis. Powered by DomainKits
+    MCP.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abtdomain/domain-keyword-intelligence
+  updated_at: '1773729128'
+- rank: 37
+  id: openclaw-skills-skills-abtdomain-domain-skill-md
+  name: domainkits
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Check availability. Search related domains. Find more possibilities.
+    Explore connections. Turn AI into your domain agent.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abtdomain/domain
+  updated_at: '1774641722'
+- rank: 38
+  id: openclaw-skills-skills-anlinxi-dygod-movies-skill-md
+  name: dygod-movies
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 爬取电影天堂(dygod.net)最新电影和电视剧信息，支持查询最近更新、高分电影， 并可一键下载到群晖NAS。当用户询问最近更新的电影/电视剧、高分电影、或想下载影视资源时使用此技能。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anlinxi/dygod-movies
+  updated_at: '1773817883'
+- rank: 39
+  id: openclaw-skills-skills-chrisagiddings-gandi-skill-skill-md
+  name: gandi
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Comprehensive Gandi domain registrar integration for domain and DNS
+    management. Register and manage domains, create/update/delete DNS records (A,
+    AAAA, CNAME, MX, TXT, SRV, and more), configure email forwarding and aliases,
+    check SSL certificate status, create DNS snapshots for safe rollback, bulk update
+    zone files, and monitor domain expiration. Supports multi-domain management, zone
+    file import/export, and automated DNS backups. Includes both read-only and destructive
+    operations with safety controls.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chrisagiddings/gandi-skill
+  updated_at: '1772404349'
+- rank: 40
+  id: openclaw-skills-skills-anlinxi-gequhai-music-skill-md
+  name: gequhai-music
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 搜索和下载歌曲海(gequhai.com)的音乐，支持搜索歌曲、获取下载链接（优先无损/高品质）， 并可一键下载到群晖NAS。当用户询问歌曲、搜索音乐、或想下载歌曲时使用此技能。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anlinxi/gequhai-music
+  updated_at: '1773817857'
+- rank: 41
+  id: openclaw-skills-skills-aiwithabidi-hunter-skill-md
+  name: hunter
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Hunter.io — email finder, email verifier, domain search, author finder,
+    and lead management.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/hunter
+  updated_at: '1772674771'
+- rank: 42
+  id: openclaw-skills-skills-ckchzh-ip-advisor-skill-md
+  name: ip-advisor
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Analyze IP addresses with subnet calculation and CIDR notation. Use
+    when planning network addressing.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/ip-advisor
+  updated_at: '1774028212'
+- rank: 43
+  id: openclaw-skills-skills-ckchzh-name-generator-skill-md
+  name: name-generator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '"起名取名助手。宝宝起名、英文名、笔名、品牌名。含寓意解析。. Use when you need name generator capabilities.
+    Triggers on: name generator."'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/name-generator
+  updated_at: '1774010204'
+- rank: 44
+  id: openclaw-skills-skills-0x-professor-pentest-active-directory-skill-md
+  name: pentest-active-directory
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Assess Active Directory identity attack paths including roasting, relay,
+    and delegation abuse.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0x-professor/pentest-active-directory
+  updated_at: '1772373792'
+- rank: 45
+  id: openclaw-skills-skills-bigxiaoxin-qichacha-skill-md
+  name: qichacha
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 根据公司名称查询企业基本信息、知识产权（专利/商标/著作权），数据来源企查查、天眼查等。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bigxiaoxin/qichacha
+  updated_at: '1772850791'
+- rank: 46
+  id: openclaw-skills-skills-aiwithabidi-realtor-skill-md
+  name: realtor
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Realtor.com — search listings, agents, and property details via API
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/realtor
+  updated_at: '1772772784'
+- rank: 47
+  id: openclaw-skills-skills-awaaate-kleo-static-files-skill-md
+  name: static-files
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Host static files on subdomains with optional authentication. Use when
+    you need to serve HTML, images, CSS, JS, or any static content on a dedicated
+    subdomain. Supports file upload, basic auth, quota management, and automatic SSL
+    via Caddy. Commands include sf sites (create/list/delete), sf upload (files/directories),
+    sf files (list/delete).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/awaaate/kleo-static-files
+  updated_at: '1769900554'
+- rank: 48
+  id: openclaw-skills-skills-brennerspear-vercel-deployment-skill-md
+  name: vercel
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Deploy and manage Vercel projects, including linking repositories,
+    env vars, and domains.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/brennerspear/vercel-deployment
+  updated_at: '1772355915'
+- rank: 49
+  id: openclaw-skills-skills-cinience-volcengine-network-dns-skill-md
+  name: volcengine-network-dns
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: DNS record management on Volcengine networking services. Use when users
+    need zone record query/update, traffic routing changes, or DNS propagation troubleshooting.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/cinience/volcengine-network-dns
+  updated_at: '1770811653'
+- rank: 50
+  id: openclaw-skills-skills-bryan-project-vt-hash-intel-skill-md
+  name: vt-hash-intel
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Instantly check if a file, URL, domain, or IP is malicious using VirusTotal.
+    Paste any MD5/SHA1/SHA256 hash, URL, domain name, or IP address into the chat  and
+    get a full threat report — detection ratio across 70+ security engines,  malware
+    family, YARA matches, sandbox verdicts, DNS records, WHOIS info, and a direct
+    link to the VirusTotal report. Supports single and batch lookups of mixed IOC
+    types. Also handles defanged IOCs (hxxp, [.] notation). Perfect for incident response,
+    threat hunting, IOC enrichment, SOC triage, and daily security operations. Use
+    this skill whenever the user has a suspicious hash, URL, domain, or IP they want
+    to investigate. Also triggers on: VirusTotal, VT, hash lookup, malware check,
+    file reputation, threat intel, IOC, URL scan, domain reputation, IP reputation,
+    查hash, 查IP, 查域名, 查URL, 威胁情报, 病毒查询, 恶意软件分析.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bryan-project/vt-hash-intel
+  updated_at: '1772364821'

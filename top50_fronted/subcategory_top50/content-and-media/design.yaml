@@ -1,0 +1,619 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: content-and-media
+category_name: Content & Media
+category_skill_count: 44421
+subcategory_slug: design
+subcategory_name: Design
+subcategory_skill_count: 6088
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=design
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 6088
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-agents-skills-frontend-slides-skill-md
+  name: frontend-slides
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Create stunning, animation-rich HTML presentations from scratch or
+    by converting PowerPoint files. Use when the user wants to build a presentation,
+    convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers
+    discover their aesthetic through visual exploration rather than abstract choices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/frontend-slides
+  updated_at: '1772199571'
+- rank: 2
+  id: affaan-m-everything-claude-code-cursor-skills-frontend-slides-skill-md
+  name: frontend-slides
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Create stunning, animation-rich HTML presentations from scratch or
+    by converting PowerPoint files. Use when the user wants to build a presentation,
+    convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers
+    discover their aesthetic through visual exploration rather than abstract choices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/frontend-slides
+  updated_at: '1772199571'
+- rank: 3
+  id: affaan-m-everything-claude-code-skills-frontend-slides-skill-md
+  name: frontend-slides
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Create stunning, animation-rich HTML presentations from scratch or
+    by converting PowerPoint files. Use when the user wants to build a presentation,
+    convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers
+    discover their aesthetic through visual exploration rather than abstract choices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/frontend-slides
+  updated_at: '1772569955'
+- rank: 4
+  id: nextlevelbuilder-ui-ux-pro-max-skill-claude-skills-banner-design-skill-md
+  name: ckmbanner-design
+  author: nextlevelbuilder
+  stars: 53137
+  forks: 5136
+  description: 'Design banners for social media, ads, website heroes, creative assets,
+    and print. Multiple art direction options with AI-generated visuals. Actions:
+    design, create, generate banner. Platforms: Facebook, Twitter/X, LinkedIn, YouTube,
+    Instagram, Google Display, website hero, print. Styles: minimalist, gradient,
+    bold typography, photo-based, illustrated, geometric, retro, glassmorphism, 3D,
+    neon, duotone, editorial, collage. Uses ui-ux-pro-max, frontend-design, ai-artist,
+    ai-multimodal skills.'
+  github_url: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/banner-design
+  updated_at: '1773121097'
+- rank: 5
+  id: bytedance-deer-flow-skills-public-ppt-generation-skill-md
+  name: ppt-generation
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Use this skill when the user requests to generate, create, or make
+    presentations (PPT/PPTX). Creates visually rich slides by generating images for
+    each slide and composing them into a PowerPoint file.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/ppt-generation
+  updated_at: '1773651192'
+- rank: 6
+  id: wshobson-agents-plugins-ui-design-skills-design-system-patterns-skill-md
+  name: design-system-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build scalable design systems with design tokens, theming infrastructure,
+    and component architecture patterns. Use when creating design tokens, implementing
+    theme switching, building component libraries, or establishing design system foundations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/design-system-patterns
+  updated_at: '1772898797'
+- rank: 7
+  id: wshobson-agents-plugins-ui-design-skills-mobile-android-design-skill-md
+  name: mobile-android-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Material Design 3 and Jetpack Compose patterns for building
+    native Android apps. Use when designing Android interfaces, implementing Compose
+    UI, or following Google's Material Design guidelines.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-android-design
+  updated_at: '1772898797'
+- rank: 8
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-tailwind-design-system-skill-md
+  name: tailwind-design-system
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build scalable design systems with Tailwind CSS v4, design tokens,
+    component libraries, and responsive patterns. Use when creating component libraries,
+    implementing design systems, or standardizing UI patterns.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/tailwind-design-system
+  updated_at: '1774489944'
+- rank: 9
+  id: wshobson-agents-plugins-ui-design-skills-visual-design-foundations-skill-md
+  name: visual-design-foundations
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Apply typography, color theory, spacing systems, and iconography principles
+    to create cohesive visual designs. Use when establishing design tokens, building
+    style guides, or improving visual hierarchy and consistency.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/visual-design-foundations
+  updated_at: '1772898797'
+- rank: 10
+  id: sickn33-antigravity-awesome-skills-skills-claude-d3js-skill-skill-md
+  name: claude-d3js-skill
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: This skill provides guidance for creating sophisticated, interactive
+    data visualisations using d3.js.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claude-d3js-skill
+  updated_at: '1773994005'
+- rank: 11
+  id: sickn33-antigravity-awesome-skills-skills-favicon-skill-md
+  name: favicon
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Generate favicons from a source image
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/favicon
+  updated_at: '1773994629'
+- rank: 12
+  id: sickn33-antigravity-awesome-skills-skills-frontend-slides-skill-md
+  name: frontend-slides
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Create stunning, animation-rich HTML presentations from scratch or
+    by converting PowerPoint files.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/frontend-slides
+  updated_at: '1772955642'
+- rank: 13
+  id: sickn33-antigravity-awesome-skills-skills-makepad-shaders-skill-md
+  name: makepad-shaders
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'CRITICAL: Use for Makepad shader system. Triggers on:
+
+    makepad shader, makepad draw_bg, Sdf2d, makepad pixel,
+
+    makepad glsl, makepad sdf, draw_quad, makepad gpu,
+
+    makepad 着色器, makepad shader 语法, makepad 绘制'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-shaders
+  updated_at: '1773994629'
+- rank: 14
+  id: sickn33-antigravity-awesome-skills-skills-stability-ai-skill-md
+  name: stability-ai
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Geracao de imagens via Stability AI (SD3.5, Ultra, Core). Text-to-image,
+    img2img, inpainting, upscale, remove-bg, search-replace. 15 estilos artisticos.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/stability-ai
+  updated_at: '1772874247'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-threejs-shaders-skill-md
+  name: threejs-shaders
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Three.js shaders - GLSL, ShaderMaterial, uniforms, custom effects.
+    Use when creating custom visual effects, modifying vertices, writing fragment
+    shaders, or extending built-in materials.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-shaders
+  updated_at: '1773994629'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-threejs-textures-skill-md
+  name: threejs-textures
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Three.js textures - texture types, UV mapping, environment maps, texture
+    settings. Use when working with images, UV coordinates, cubemaps, HDR environments,
+    or texture optimization.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-textures
+  updated_at: '1773994629'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-wiki-vitepress-skill-md
+  name: wiki-vitepress
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Transform generated wiki Markdown files into a polished VitePress static
+    site with dark theme and interactive Mermaid diagrams. Use when user asks to "build
+    a site" or "package as VitePress", user runs the /deep-wiki, or user wants a browsable
+    HTML output from generated wiki pages.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/wiki-vitepress
+  updated_at: '1774025773'
+- rank: 18
+  id: github-awesome-copilot-skills-excalidraw-diagram-generator-skill-md
+  name: excalidraw-diagram-generator
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate Excalidraw diagrams from natural language descriptions. Use
+    when asked to "create a diagram", "make a flowchart", "visualize a process", "draw
+    a system architecture", "create a mind map", or "generate an Excalidraw file".
+    Supports flowcharts, relationship diagrams, mind maps, and system architecture
+    diagrams. Outputs .excalidraw JSON files that can be opened directly in Excalidraw.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/excalidraw-diagram-generator
+  updated_at: '1770101499'
+- rank: 19
+  id: github-awesome-copilot-skills-legacy-circuit-mockups-skill-md
+  name: legacy-circuit-mockups
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate breadboard circuit mockups and visual diagrams using HTML5
+    Canvas drawing techniques. Use when asked to create circuit layouts, visualize
+    electronic component placements, draw breadboard diagrams, mockup 6502 builds,
+    generate retro computer schematics, or design vintage electronics projects. Supports
+    555 timers, W65C02S microprocessors, 28C256 EEPROMs, W65C22 VIA chips, 7400-series
+    logic gates, LEDs, resistors, capacitors, switches, buttons, crystals, and wires.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/legacy-circuit-mockups
+  updated_at: '1768872417'
+- rank: 20
+  id: github-awesome-copilot-skills-penpot-uiux-design-skill-md
+  name: penpot-uiux-design
+  author: github
+  stars: 27427
+  forks: 3175
+  description: 'Comprehensive guide for creating professional UI/UX designs in Penpot
+    using MCP tools. Use this skill when: (1) Creating new UI/UX designs for web,
+    mobile, or desktop applications, (2) Building design systems with components and
+    tokens, (3) Designing dashboards, forms, navigation, or landing pages, (4) Applying
+    accessibility standards and best practices, (5) Following platform guidelines
+    (iOS, Android, Material Design), (6) Reviewing or improving existing Penpot designs
+    for usability. Triggers: "design a UI", "create interface", "build layout", "design
+    dashboard", "create form", "design landing page", "make it accessible", "design
+    system", "component library".'
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/penpot-uiux-design
+  updated_at: '1770102409'
+- rank: 21
+  id: github-awesome-copilot-skills-plantuml-ascii-skill-md
+  name: plantuml-ascii
+  author: github
+  stars: 27427
+  forks: 3175
+  description: 'Generate ASCII art diagrams using PlantUML text mode. Use when user
+    asks to create ASCII diagrams, text-based diagrams, terminal-friendly diagrams,
+    or mentions plantuml ascii, text diagram, ascii art diagram. Supports: Converting
+    PlantUML diagrams to ASCII art, Creating sequence diagrams, class diagrams, flowcharts
+    in ASCII format, Generating Unicode-enhanced ASCII art with -utxt flag'
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/plantuml-ascii
+  updated_at: '1769102332'
+- rank: 22
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-generate-image-skill-md
+  name: generate-image
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Generate or edit images using AI models (FLUX, Gemini). Use for general-purpose
+    image generation including photos, illustrations, artwork, visual assets, concept
+    art, and any image that isn't a technical diagram or schematic. For flowcharts,
+    circuits, pathways, and technical diagrams, use the scientific-schematics skill
+    instead.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/generate-image
+  updated_at: '1766265230'
+- rank: 23
+  id: davila7-claude-code-templates-cli-tool-components-skills-creative-design-marp-slide-skill-md
+  name: marp-slide
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Create professional Marp presentation slides with 7 beautiful themes
+    (default, minimal, colorful, dark, gradient, tech, business). Use when users request
+    slide creation, presentations, or Marp documents. Supports custom themes, image
+    layouts, and "make it look good" requests with automatic quality improvements.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/creative-design/marp-slide
+  updated_at: '1769302602'
+- rank: 24
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-mermaid-diagram-specialist-skill-md
+  name: mermaid-diagram-specialist
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Mermaid diagram specialist for creating flowcharts, sequence diagrams,
+    ERDs, and architecture visualizations
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/mermaid-diagram-specialist
+  updated_at: '1769302602'
+- rank: 25
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-scientific-schematics-skill-md
+  name: scientific-schematics
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Create publication-quality scientific diagrams using Nano Banana Pro
+    AI with smart iterative refinement. Uses Gemini 3 Pro for quality review. Only
+    regenerates if quality is below threshold for your document type. Specialized
+    in neural network architectures, system diagrams, flowcharts, biological pathways,
+    and complex scientific visualizations.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/scientific-schematics
+  updated_at: '1766265230'
+- rank: 26
+  id: shanraisshan-claude-code-best-practice-agent-teams-claude-skills-time-svg-creator-skill-md
+  name: time-svg-creator
+  author: shanraisshan
+  stars: 22909
+  forks: 1970
+  description: Creates an SVG time card showing the current time for Dubai. Writes
+    the SVG to agent-teams/output/dubai-time.svg and updates agent-teams/output/output.md.
+  github_url: https://github.com/shanraisshan/claude-code-best-practice/tree/main/agent-teams/.claude/skills/time-svg-creator
+  updated_at: '1773322202'
+- rank: 27
+  id: shanraisshan-claude-code-best-practice-claude-skills-weather-svg-creator-skill-md
+  name: weather-svg-creator
+  author: shanraisshan
+  stars: 22909
+  forks: 1970
+  description: Creates an SVG weather card showing the current temperature for Dubai.
+    Writes the SVG to orchestration-workflow/weather.svg and updates orchestration-workflow/output.md.
+  github_url: https://github.com/shanraisshan/claude-code-best-practice/tree/main/.claude/skills/weather-svg-creator
+  updated_at: '1773313655'
+- rank: 28
+  id: mastra-ai-mastra-examples-unified-workspace-docs-skills-brand-guidelines-skill-md
+  name: brand-guidelines
+  author: mastra-ai
+  stars: 22413
+  forks: 1805
+  description: Applies Mastra's brand colors, typography, and writing style to documentation,
+    code examples, or artifacts. Use when brand colors, style guidelines, visual formatting,
+    or company design standards apply.
+  github_url: https://github.com/mastra-ai/mastra/tree/main/examples/unified-workspace/docs-skills/brand-guidelines
+  updated_at: '1771505133'
+- rank: 29
+  id: oracle-graal-docs-reference-manual-native-image-assets-skills-build-native-image-gradle-skill-md
+  name: build-native-image-gradle
+  author: oracle
+  stars: 21534
+  forks: 1786
+  description: Build GraalVM native images using Gradle Native Build Tools. Use this
+    skill to build Java applications with Gradle, configure native-image build.gradle
+    settings, or resolve build or runtime issues.
+  github_url: https://github.com/oracle/graal/tree/master/docs/reference-manual/native-image/assets/skills/build-native-image-gradle
+  updated_at: '1774292615'
+- rank: 30
+  id: oracle-graal-docs-reference-manual-native-image-assets-skills-build-native-image-maven-skill-md
+  name: build-native-image-maven
+  author: oracle
+  stars: 21534
+  forks: 1786
+  description: Build GraalVM native images using the native-maven-plugin (org.graalvm.buildtools).
+    Use this skill to build Java applications with Maven, configure pom.xml native
+    image settings, run native tests, collect metadata, or resolve build or runtime
+    issues.
+  github_url: https://github.com/oracle/graal/tree/master/docs/reference-manual/native-image/assets/skills/build-native-image-maven
+  updated_at: '1774292615'
+- rank: 31
+  id: iofficeai-aionui-src-process-resources-skills-mermaid-skill-md
+  name: mermaid
+  author: iOfficeAI
+  stars: 20352
+  forks: 1624
+  description: Render Mermaid diagrams as SVG or ASCII art using beautiful-mermaid.
+    Use when users need to create flowcharts, sequence diagrams, state diagrams, class
+    diagrams, or ER diagrams. Supports both graphical SVG output and terminal-friendly
+    ASCII/Unicode output.
+  github_url: https://github.com/iOfficeAI/AionUi/tree/main/src/process/resources/skills/mermaid
+  updated_at: '1773973545'
+- rank: 32
+  id: iofficeai-aionui-src-process-resources-skills-morph-ppt-skill-md
+  name: morph-ppt
+  author: iOfficeAI
+  stars: 20352
+  forks: 1624
+  description: Generate Morph-animated PPTs with officecli
+  github_url: https://github.com/iOfficeAI/AionUi/tree/main/src/process/resources/skills/morph-ppt
+  updated_at: '1774332939'
+- rank: 33
+  id: comet-ml-opik-agents-skills-diagram-generation-skill-md
+  name: diagram-generation
+  author: comet-ml
+  stars: 18525
+  forks: 1416
+  description: Generate self-contained HTML architecture diagrams. Use when creating
+    visual diagrams for PRs, task plans, or architectural explanations.
+  github_url: https://github.com/comet-ml/opik/tree/main/.agents/skills/diagram-generation
+  updated_at: '1771951749'
+- rank: 34
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-generate-image-skill-md
+  name: generate-image
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Generate or edit images using AI models (FLUX, Nano Banana 2). Use
+    for general-purpose image generation including photos, illustrations, artwork,
+    visual assets, concept art, and any image that is not a technical diagram or schematic.
+    For flowcharts, circuits, pathways, and technical diagrams, use the scientific-schematics
+    skill instead.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/generate-image
+  updated_at: '1772554803'
+- rank: 35
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-infographics-skill-md
+  name: infographics
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Create professional infographics using Nano Banana Pro AI with smart
+    iterative refinement. Uses Gemini 3 Pro for quality review. Integrates research-lookup
+    and web search for accurate data. Supports 10 infographic types, 8 industry styles,
+    and colorblind-safe palettes.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/infographics
+  updated_at: '1771878965'
+- rank: 36
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-scientific-schematics-skill-md
+  name: scientific-schematics
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Create publication-quality scientific diagrams using Nano Banana 2
+    AI with smart iterative refinement. Uses Gemini 3.1 Pro Preview for quality review.
+    Only regenerates if quality is below threshold for your document type. Specialized
+    in neural network architectures, system diagrams, flowcharts, biological pathways,
+    and complex scientific visualizations.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/scientific-schematics
+  updated_at: '1772734097'
+- rank: 37
+  id: openai-skills-skills-curated-figma-create-new-file-skill-md
+  name: figma-create-new-file
+  author: openai
+  stars: 15590
+  forks: 928
+  description: Create a new blank Figma file. Use when the user wants to create a
+    new Figma design or FigJam file, or when you need a new file before calling use_figma.
+    Handles plan resolution via whoami if needed. Usage — /figma-create-new-file [editorType]
+    [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)
+  github_url: https://github.com/openai/skills/tree/main/skills/.curated/figma-create-new-file
+  updated_at: '1774455924'
+- rank: 38
+  id: nousresearch-hermes-agent-skills-creative-ascii-art-skill-md
+  name: ascii-art
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Generate ASCII art using pyfiglet (571 fonts), cowsay, boxes, toilet,
+    image-to-ascii, remote APIs (asciified, ascii.co.uk), and LLM fallback. No API
+    keys required.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/creative/ascii-art
+  updated_at: '1773018584'
+- rank: 39
+  id: nousresearch-hermes-agent-optional-skills-creative-meme-generation-skill-md
+  name: meme-generation
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Generate real meme images by picking a template and overlaying text
+    with Pillow. Produces actual .png meme files.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/creative/meme-generation
+  updated_at: '1774122537'
+- rank: 40
+  id: vercel-labs-json-render-skills-image-skill-md
+  name: image
+  author: vercel-labs
+  stars: 13589
+  forks: 729
+  description: Image renderer for json-render that turns JSON specs into SVG and PNG
+    images via Satori. Use when working with @json-render/image, generating OG images
+    from JSON, creating social cards, or rendering AI-generated image specs.
+  github_url: https://github.com/vercel-labs/json-render/tree/main/skills/image
+  updated_at: '1772850176'
+- rank: 41
+  id: antvis-g2-claude-skills-g2-legend-expert-skill-md
+  name: g2-legend-expert
+  author: antvis
+  stars: 12530
+  forks: 1673
+  description: Expert skill for G2 legend development - provides comprehensive knowledge
+    about legend rendering implementation, component architecture, layout algorithms,
+    and interaction handling. Use when implementing, customizing, or debugging legend
+    functionality in G2 visualizations.
+  github_url: https://github.com/antvis/G2/tree/v5/.claude/skills/g2-legend-expert
+  updated_at: '1767176261'
+- rank: 42
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-generating-images-skill-md
+  name: generating-images
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Generates images using AI models (Gemini). AI图像生成、文生图、生成图片。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/generating-images
+  updated_at: '1773738999'
+- rank: 43
+  id: jimliu-baoyu-skills-skills-baoyu-article-illustrator-skill-md
+  name: baoyu-article-illustrator
+  author: JimLiu
+  stars: 12041
+  forks: 1356
+  description: Analyzes article structure, identifies positions requiring visual aids,
+    generates illustrations with Type × Style two-dimension approach. Use when user
+    asks to "illustrate article", "add images", "generate images for article", or
+    "为文章配图".
+  github_url: https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-article-illustrator
+  updated_at: '1774474086'
+- rank: 44
+  id: jimliu-baoyu-skills-skills-baoyu-cover-image-skill-md
+  name: baoyu-cover-image
+  author: JimLiu
+  stars: 12041
+  forks: 1356
+  description: Generates article cover images with 5 dimensions (type, palette, rendering,
+    text, mood) combining 10 color palettes and 7 rendering styles. Supports cinematic
+    (2.35:1), widescreen (16:9), and square (1:1) aspects. Use when user asks to "generate
+    cover image", "create article cover", or "make cover".
+  github_url: https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-cover-image
+  updated_at: '1774323507'
+- rank: 45
+  id: jimliu-baoyu-skills-skills-baoyu-image-gen-skill-md
+  name: baoyu-image-gen
+  author: JimLiu
+  stars: 12041
+  forks: 1356
+  description: AI image generation with OpenAI, Azure OpenAI, Google, OpenRouter,
+    DashScope, MiniMax, Jimeng, Seedream and Replicate APIs. Supports text-to-image,
+    reference images, aspect ratios, and batch generation from saved prompt files.
+    Sequential by default; use batch parallel generation when the user already has
+    multiple prompts or wants stable multi-image throughput. Use when user asks to
+    generate, create, or draw images.
+  github_url: https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-image-gen
+  updated_at: '1774536708'
+- rank: 46
+  id: jimliu-baoyu-skills-skills-baoyu-infographic-skill-md
+  name: baoyu-infographic
+  author: JimLiu
+  stars: 12041
+  forks: 1356
+  description: Generates professional infographics with 21 layout types and 20 visual
+    styles. Analyzes content, recommends layout×style combinations, and generates
+    publication-ready infographics. Use when user asks to create "infographic", "信息图",
+    "visual summary", "可视化", or "高密度信息大图".
+  github_url: https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-infographic
+  updated_at: '1773298236'
+- rank: 47
+  id: jimliu-baoyu-skills-skills-baoyu-slide-deck-skill-md
+  name: baoyu-slide-deck
+  author: JimLiu
+  stars: 12041
+  forks: 1356
+  description: Generates professional slide deck images from content. Creates outlines
+    with style instructions, then generates individual slide images. Use when user
+    asks to "create slides", "make a presentation", "generate deck", "slide deck",
+    or "PPT".
+  github_url: https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-slide-deck
+  updated_at: '1773026392'
+- rank: 48
+  id: jimliu-baoyu-skills-skills-baoyu-xhs-images-skill-md
+  name: baoyu-xhs-images
+  author: JimLiu
+  stars: 12041
+  forks: 1356
+  description: Generates Xiaohongshu (Little Red Book) infographic series with 11
+    visual styles and 8 layouts. Breaks content into 1-10 cartoon-style images optimized
+    for XHS engagement. Use when user mentions "小红书图片", "XHS images", "RedNote infographics",
+    "小红书种草", or wants social media infographics for Chinese platforms.
+  github_url: https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-xhs-images
+  updated_at: '1774285263'
+- rank: 49
+  id: zarazhangrui-frontend-slides-skill-md
+  name: frontend-slides
+  author: zarazhangrui
+  stars: 11547
+  forks: 854
+  description: Create stunning, animation-rich HTML presentations from scratch or
+    by converting PowerPoint files. Use when the user wants to build a presentation,
+    convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers
+    discover their aesthetic through visual exploration rather than abstract choices.
+  github_url: https://github.com/zarazhangrui/frontend-slides
+  updated_at: '1774386278'
+- rank: 50
+  id: danielmiessler-personal-ai-infrastructure-packs-media-src-skill-md
+  name: media
+  author: danielmiessler
+  stars: 10594
+  forks: 1470
+  description: Visual and video content creation — illustrations, diagrams, mermaid
+    flowcharts, infographics, header images, PAI pack icons, thumbnails, comics, and
+    programmatic video via Remotion. USE WHEN art, header images, visualizations,
+    mermaid, diagrams, flowcharts, infographics, pack icons, video, animation, motion
+    graphics, Remotion, video rendering, YouTube thumbnails, comics, comparisons,
+    frameworks, maps, timelines, taxonomies, stats, aphorisms, recipe cards, annotated
+    screenshots, D3 dashboards, embossed logo wallpaper, remove background, essay
+    illustration, technical diagrams, content to animation, generate image, Midjourney.
+  github_url: https://github.com/danielmiessler/Personal_AI_Infrastructure/tree/main/Packs/Media/src
+  updated_at: '1773612607'

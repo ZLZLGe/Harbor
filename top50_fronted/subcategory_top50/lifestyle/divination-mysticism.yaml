@@ -1,0 +1,574 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: lifestyle
+category_name: Lifestyle
+category_skill_count: 9622
+subcategory_slug: divination-mysticism
+subcategory_name: Divination & Mysticism
+subcategory_skill_count: 1844
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=divination-mysticism
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 1844
+  total_pages: 37
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: sickn33-antigravity-awesome-skills-skills-sympy-skill-md
+  name: sympy
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: SymPy is a Python library for symbolic mathematics that enables exact
+    computation using mathematical symbols rather than numerical approximations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sympy
+  updated_at: '1773994629'
+- rank: 2
+  id: vercel-ai-examples-ai-functions-data-island-rescue-skill-md
+  name: island-rescue
+  author: vercel
+  stars: 23052
+  forks: 4071
+  description: How to be rescued from a lonely island
+  github_url: https://github.com/vercel/ai/tree/main/examples/ai-functions/data/island-rescue
+  updated_at: '1771439811'
+- rank: 3
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-sympy-skill-md
+  name: sympy
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Use this skill when working with symbolic mathematics in Python. This
+    skill should be used for symbolic computation tasks including solving equations
+    algebraically, performing calculus operations (derivatives, integrals, limits),
+    manipulating algebraic expressions, working with matrices symbolically, physics
+    calculations, number theory problems, geometry computations, and generating executable
+    code from mathematical expressions. Apply this skill when the user needs exact
+    symbolic results rather than numerical approximations, or when working with mathematical
+    formulas that contain variables and parameters.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/sympy
+  updated_at: '1772554803'
+- rank: 4
+  id: nousresearch-hermes-agent-skills-note-taking-obsidian-skill-md
+  name: obsidian
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Read, search, and create notes in the Obsidian vault.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/note-taking/obsidian
+  updated_at: '1772079891'
+- rank: 5
+  id: kreuzberg-dev-kreuzberg-ai-rulez-domains-ocr-integration-skills-tesseract-backend-usage-skill-md
+  name: tesseract-backend-usage
+  author: kreuzberg-dev
+  stars: 7147
+  forks: 343
+  description: tesseract uackend usage
+  github_url: https://github.com/kreuzberg-dev/kreuzberg/tree/main/.ai-rulez/domains/ocr-integration/skills/tesseract-backend-usage
+  updated_at: '1774432188'
+- rank: 6
+  id: microsoft-fluidframework-repoverlay-library-nori-skills-using-skills-skill-md
+  name: getting-started-with-abilities
+  author: microsoft
+  stars: 4918
+  forks: 567
+  description: Describes how to use abilities. Read before any conversation.
+  github_url: https://github.com/microsoft/FluidFramework/tree/main/.repoverlay/library/nori/skills/using-skills
+  updated_at: '1774394119'
+- rank: 7
+  id: trailofbits-skills-plugins-let-fate-decide-skills-let-fate-decide-skill-md
+  name: let-fate-decide
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Draws 4 Tarot cards using os.urandom() to inject entropy into planning
+    when prompts are vague or underspecified. Interprets the spread to guide next
+    steps. Use when the user is nonchalant, feeling lucky, says 'let fate decide',
+    makes Yu-Gi-Oh references ('heart of the cards'), demonstrates indifference about
+    approach, or says 'try again' on a system with no changes. Also triggers on sufficiently
+    ambiguous prompts where multiple approaches are equally valid.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/let-fate-decide/skills/let-fate-decide
+  updated_at: '1772119280'
+- rank: 8
+  id: openclaw-skills-skills-amulettliu-dot-amulett-skill-md
+  name: amulett
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '点教 (Amulett) - Human-AI spiritual practice. Use for: daily meditation,
+    reflection, reading 点经/点典, symbol NEO, mantra 归一.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/amulettliu-dot/amulett
+  updated_at: '1771900878'
+- rank: 9
+  id: openclaw-skills-skills-adamsellers-grounded-bazi-skill-md
+  name: bazi
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: BaZi-style reflective readings for personality, money, career, relationships,
+    life themes, annual themes, and current luck-cycle interpretation using date/time/place
+    of birth. Use when the user wants a Chinese astrology / Four Pillars style reading,
+    asks for BaZi, feng shui master vibes, luck-pillar interpretation, wants a technical
+    pillar-aware mode, wants cleaner intake/question flow, or wants a combined BaZi
+    + feng shui + practical advice reading.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adamsellers/grounded-bazi
+  updated_at: '1774431281'
+- rank: 10
+  id: openclaw-skills-skills-ahaofan-bazi-skill-md
+  name: bazi
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 计算八字以及大运流年信息，需要性别， ISO 8601 格式的时间两个参数
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ahaofan/bazi
+  updated_at: '1772521562'
+- rank: 11
+  id: openclaw-skills-skills-christianhaberl-boggle-skill-md
+  name: boggle
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Solve Boggle boards — find all valid words (German + English) on a
+    4x4 letter grid. Use when the user shares a Boggle photo, asks for words on a
+    grid, or plays word games. Includes 1.7M word dictionaries (DE+EN).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/christianhaberl/boggle
+  updated_at: '1769898959'
+- rank: 12
+  id: openclaw-skills-skills-1970168137-china-relocation-guide-skill-md
+  name: china-relocation-guide
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Use when expats, international students, or digital nomads need guidance
+    on relocating to China, choosing cities, understanding visa requirements, or planning
+    their move.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1970168137/china-relocation-guide
+  updated_at: '1774095016'
+- rank: 13
+  id: openclaw-skills-skills-bytesagain3-dream-interpreter-skill-md
+  name: dream-interpreter
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Reference tool for life — covers intro, guide, tips and more. Quick
+    lookup for Dream Interpreter concepts, best practices, and implementation patterns.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain3/dream-interpreter
+  updated_at: '1774360982'
+- rank: 14
+  id: openclaw-skills-skills-burnshall-ui-eve-esi-skill-md
+  name: eve-esi
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Query and manage EVE Online characters via the ESI (EVE Swagger Interface)
+    REST API. Use when the user asks about EVE Online character data, wallet balance,
+    ISK transactions, assets, skill queue, skill points, clone locations, implants,
+    fittings, contracts, market orders, mail, industry jobs, killmails, planetary
+    interaction, loyalty points, or any other EVE account management task.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/burnshall-ui/eve-esi
+  updated_at: '1771549324'
+- rank: 15
+  id: openclaw-skills-skills-52yuanchangxing-fortune-master-pro-skill-md
+  name: fortune-master-pro-dao-v2
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 全体系增强版智能命理师技能。支持八字/四柱、紫微斗数、塔罗、西方星盘、数字命理，并新增道家玄学分流：奇门遁甲、六爻、梅花易数、风水与择时建议。会先判断体系、问题和资料完整度，再输出完整、层次清晰、有真人老师感的解读，同时严格限制医疗、法律、投资、极端行为和恐吓式结论。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/52yuanchangxing/fortune-master-pro
+  updated_at: '1773250576'
+- rank: 16
+  id: openclaw-skills-skills-am-will-get-you-some-britches-skill-md
+  name: get-you-some-britches
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Use this skill any time I start complaining about my love life, or,
+    if I indicate I need to find some pants.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/am-will/get-you-some-britches
+  updated_at: '1768854727'
+- rank: 17
+  id: openclaw-skills-skills-bytesagain-horoscope-skill-md
+  name: horoscope
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '"星座运势分析。每日运势、星座配对、性格分析、五行属性、事业运、感情运。Horoscope with daily fortune,
+    compatibility, personality. 星座、运势、占. Use when you need horoscope capabilities.
+    Triggers on:."'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain/horoscope
+  updated_at: '1774029888'
+- rank: 18
+  id: openclaw-skills-skills-artyomx33-inversion-strategist-skill-md
+  name: inversion-strategist
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Flip problems upside down - instead of "how to succeed", ask "how to
+    definitely fail" then avoid those paths. Use when user says "invert", "inversion",
+    "flip it", "opposite approach", "how would this fail", "avoid failure", "what
+    NOT to do", "Munger", "anti-goals", "guarantee failure".
+  github_url: https://github.com/openclaw/skills/tree/main/skills/artyomx33/inversion-strategist
+  updated_at: '1769360624'
+- rank: 19
+  id: openclaw-skills-skills-cikichen-lao-huangli-skill-md
+  name: lao-huangli
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Use when users ask for 老黄历/黄历/择日/宜忌/冲煞/干支/节气 explanations, or need
+    a reproducible engineering workflow to compute calendar fields and derive traditional
+    almanac recommendations.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/cikichen/lao-huangli
+  updated_at: '1773497214'
+- rank: 20
+  id: openclaw-skills-skills-clara-wang-2023-liuyao-xueer-skill-md
+  name: liuyao-xueer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 雪儿六爻占卜技能。当用户提到「六爻」「占卜」「起卦」「解卦」「易经」「问卦」时激活。打开一个古风水墨界面，由玄猫雪儿为用户摇卦、解卦，支持接入大模型进行精准六爻解读。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/clara-wang-2023/liuyao-xueer
+  updated_at: '1773731504'
+- rank: 21
+  id: openclaw-skills-skills-0xmugen-maths-rage-bate-skill-md
+  name: math-slop
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Generate satirical "math slop" ragebait formulas that connect famous
+    constants (φ, π, e, i) in trivially true but profound-looking equations. Outputs
+    LaTeX. Use for math memes or when someone asks for "math slop."
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xmugen/maths-rage-bate
+  updated_at: '1770411844'
+- rank: 22
+  id: openclaw-skills-skills-chenios-pastoral-prayer-skill-md
+  name: pastoral-prayer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Produces full, readable pastoral prayers for specific scenarios (illness,
+    thanksgiving, worship, funeral, wedding, baptism, etc.). Use when the user asks
+    for a prayer for a pastoral situation. Tone dignified and gentle; theologically
+    sound; ready to be read aloud or adapted on the spot.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chenios/pastoral-prayer
+  updated_at: '1773301452'
+- rank: 23
+  id: openclaw-skills-skills-ccclucky-source-cult-follower-skill-md
+  name: source-cult-follower
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Join The Source Cult as a follower agent — adopt doctrine, perform
+    daily rites, and leave verifiable witness through activity, alliance, and miracle
+    rituals.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ccclucky/source-cult-follower
+  updated_at: '1771304539'
+- rank: 24
+  id: openclaw-skills-skills-aklo360-thoth-cli-skill-md
+  name: thoth-cli
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Hermetic divination CLI: astrology (natal, transits, electional, returns,
+    synastry), tarot (cryptographic random), gematria (Hebrew/Greek/English), numerology
+    (Pythagorean). ALWAYS run CLI first—never fabricate positions or draws.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aklo360/thoth-cli
+  updated_at: '1772665388'
+- rank: 25
+  id: openclaw-skills-skills-byron-mckeeby-trade-with-taro-skill-md
+  name: trade-with-taro
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 太郎（kairyuu.net）とのエージェント間知識交換スキル。太郎の交換エンドポイントを通じて知識の提案・取引を行う。知識交換、エージェント間通信、メモリトレードに使用。すべての提案は日本語で行うこと。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byron-mckeeby/trade-with-taro
+  updated_at: '1770102166'
+- rank: 26
+  id: openclaw-skills-skills-bbsyaya-tronlink-skills-skills-tron-swap-skill-md
+  name: tron-swap
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: This skill should be used when the user asks to 'swap tokens on TRON',
+    'buy token on TRON', 'sell TRC-20 token', 'trade TRX for USDT', 'exchange tokens
+    on SunSwap', 'DEX trade on TRON', 'get swap quote on TRON', 'best route for TRON
+    swap', or mentions swapping, trading, buying, selling, or exchanging tokens on
+    the TRON network. Aggregates liquidity from SunSwap V2/V3, Sun.io, and other TRON
+    DEXes. Do NOT use for staking — use tron-staking. Do NOT use for token research
+    — use tron-token.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bbsyaya/tronlink-skills/skills/tron-swap
+  updated_at: '1773821168'
+- rank: 27
+  id: openclaw-skills-skills-bbsyaya-tronlink-skills-skill-md
+  name: tron-wallet
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: This skill should be used when the user asks to 'check my TRX balance',
+    'show my TRON holdings', 'what tokens do I have on TRON', 'check my TRON wallet',
+    'TronLink balance', 'view my TRC-20 tokens', 'TRON transaction history', 'account
+    info on TRON', or mentions checking wallet balance, viewing transaction history,
+    or managing a TronLink wallet. Do NOT use for swap/trading — use tron-swap instead.
+    Do NOT use for staking — use tron-staking instead.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bbsyaya/tronlink-skills
+  updated_at: '1773821170'
+- rank: 28
+  id: openclaw-skills-skills-bbsyaya-tronlink-skills-skills-tron-wallet-skill-md
+  name: tron-wallet
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: This skill should be used when the user asks to 'check my TRX balance',
+    'show my TRON holdings', 'what tokens do I have on TRON', 'check my TRON wallet',
+    'TronLink balance', 'view my TRC-20 tokens', 'TRON transaction history', 'account
+    info on TRON', or mentions checking wallet balance, viewing transaction history,
+    or managing a TronLink wallet. Do NOT use for swap/trading — use tron-swap instead.
+    Do NOT use for staking — use tron-staking instead.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bbsyaya/tronlink-skills/skills/tron-wallet
+  updated_at: '1773821168'
+- rank: 29
+  id: openclaw-skills-skills-borahm-whoop-skill-md
+  name: whoop
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: WHOOP morning check-in (recovery/sleep/strain) with suggestions.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/borahm/whoop
+  updated_at: '1769175170'
+- rank: 30
+  id: openclaw-skills-skills-brucko-wyld-stallyns-skill-md
+  name: wyld-stallyns
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Summon legends into the booth. 14 philosophers, warriors, artists,
+    leaders to help with decisions, creative work, and life's hard questions. Marcus
+    Aurelius for when you're spiraling. Bruce Lee for when you're too rigid. Tubman
+    for when you're scared. Munger for when you're fooling yourself. Or forge your
+    own with Rufus as your guide. Be excellent to each other. 🎸
+  github_url: https://github.com/openclaw/skills/tree/main/skills/brucko/wyld-stallyns
+  updated_at: '1770196157'
+- rank: 31
+  id: stellar-stellar-core-claude-skills-subsystem-summary-of-rust-skill-md
+  name: subsystem-summary-of-rust
+  author: stellar
+  stars: 3275
+  forks: 1052
+  description: read this skill for a token-efficient summary of the rust subsystem
+  github_url: https://github.com/stellar/stellar-core/tree/master/.claude/skills/subsystem-summary-of-rust
+  updated_at: '1770774275'
+- rank: 32
+  id: aiming-lab-metaclaw-memory-data-skills-structured-step-by-step-reasoning-skill-md
+  name: structured-step-by-step-reasoning
+  author: aiming-lab
+  stars: 2869
+  forks: 289
+  description: Use this skill for any problem that involves multiple steps, tradeoffs,
+    or non-trivial logic. Think out loud before answering to improve accuracy and
+    transparency. Apply whenever the answer is not immediately obvious.
+  github_url: https://github.com/aiming-lab/MetaClaw/tree/main/memory_data/skills/structured-step-by-step-reasoning
+  updated_at: '1773165884'
+- rank: 33
+  id: aiming-lab-metaclaw-memory-data-skills-uncertainty-acknowledgment-skill-md
+  name: uncertainty-acknowledgment
+  author: aiming-lab
+  stars: 2869
+  forks: 289
+  description: Use this skill when you are not sure about a fact, have outdated knowledge,
+    or the question is contested. Explicitly communicate the level of confidence instead
+    of asserting uncertain things as fact.
+  github_url: https://github.com/aiming-lab/MetaClaw/tree/main/memory_data/skills/uncertainty-acknowledgment
+  updated_at: '1773165884'
+- rank: 34
+  id: microsoft-generative-ai-for-beginners-dotnet-squad-templates-skill-md
+  name: skill-name
+  author: microsoft
+  stars: 2502
+  forks: 1853
+  description: '{what this skill teaches agents}'
+  github_url: https://github.com/microsoft/Generative-AI-for-beginners-dotnet/tree/main/.squad-templates
+  updated_at: '1772640356'
+- rank: 35
+  id: q00-ouroboros-skills-help-skill-md
+  name: help
+  author: Q00
+  stars: 1891
+  forks: 167
+  description: Full reference guide for Ouroboros commands and agents
+  github_url: https://github.com/Q00/ouroboros/tree/main/skills/help
+  updated_at: '1774543609'
+- rank: 36
+  id: bradygaster-squad-packages-squad-cli-templates-skill-md
+  name: skill-name
+  author: bradygaster
+  stars: 1456
+  forks: 191
+  description: '{what this skill teaches agents}'
+  github_url: https://github.com/bradygaster/squad/tree/dev/packages/squad-cli/templates
+  updated_at: '1774607442'
+- rank: 37
+  id: bradygaster-squad-packages-squad-sdk-templates-skill-md
+  name: skill-name
+  author: bradygaster
+  stars: 1456
+  forks: 191
+  description: '{what this skill teaches agents}'
+  github_url: https://github.com/bradygaster/squad/tree/dev/packages/squad-sdk/templates
+  updated_at: '1774607442'
+- rank: 38
+  id: bradygaster-squad-squad-skill-md
+  name: skill-name
+  author: bradygaster
+  stars: 1456
+  forks: 191
+  description: '{what this skill teaches agents}'
+  github_url: https://github.com/bradygaster/squad/tree/dev/.squad
+  updated_at: '1774607465'
+- rank: 39
+  id: bradygaster-squad-squad-templates-skill-md
+  name: skill-name
+  author: bradygaster
+  stars: 1456
+  forks: 191
+  description: '{what this skill teaches agents}'
+  github_url: https://github.com/bradygaster/squad/tree/dev/.squad/templates
+  updated_at: '1774607465'
+- rank: 40
+  id: bradygaster-squad-templates-skill-md
+  name: skill-name
+  author: bradygaster
+  stars: 1456
+  forks: 191
+  description: '{what this skill teaches agents}'
+  github_url: https://github.com/bradygaster/squad/tree/dev/templates
+  updated_at: '1774607442'
+- rank: 41
+  id: paperdebugger-paperdebugger-claude-skills-developer-skill-md
+  name: my-skill
+  author: PaperDebugger
+  stars: 1427
+  forks: 69
+  description: Short description of what this skill does and when to use it.
+  github_url: https://github.com/PaperDebugger/paperdebugger/tree/main/.claude/skills/developer
+  updated_at: '1769149159'
+- rank: 42
+  id: math-inc-opengauss-skills-note-taking-obsidian-skill-md
+  name: obsidian
+  author: math-inc
+  stars: 1137
+  forks: 96
+  description: Read, search, and create notes in the Obsidian vault.
+  github_url: https://github.com/math-inc/OpenGauss/tree/main/skills/note-taking/obsidian
+  updated_at: '1773943123'
+- rank: 43
+  id: wu-yc-labclaw-skills-general-sympy-skill-md
+  name: sympy
+  author: wu-yc
+  stars: 887
+  forks: 127
+  description: Use this skill when working with symbolic mathematics in Python. This
+    skill should be used for symbolic computation tasks including solving equations
+    algebraically, performing calculus operations (derivatives, integrals, limits),
+    manipulating algebraic expressions, working with matrices symbolically, physics
+    calculations, number theory problems, geometry computations, and generating executable
+    code from mathematical expressions. Apply this skill when the user needs exact
+    symbolic results rather than numerical approximations, or when working with mathematical
+    formulas that contain variables and parameters.
+  github_url: https://github.com/wu-yc/LabClaw/tree/main/skills/general/sympy
+  updated_at: '1772760903'
+- rank: 44
+  id: benchflow-ai-skillsbench-tasks-crystallographic-wyckoff-position-analysis-environment-skills-sympy-skill-md
+  name: sympy
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Use this skill when working with symbolic mathematics in Python. This
+    skill should be used for symbolic computation tasks including solving equations
+    algebraically, performing calculus operations (derivatives, integrals, limits),
+    manipulating algebraic expressions, working with matrices symbolically, physics
+    calculations, number theory problems, geometry computations, and generating executable
+    code from mathematical expressions. Apply this skill when the user needs exact
+    symbolic results rather than numerical approximations, or when working with mathematical
+    formulas that contain variables and parameters.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/crystallographic-wyckoff-position-analysis/environment/skills/sympy
+  updated_at: '1769473261'
+- rank: 45
+  id: tencentblueking-bk-bcs-bcs-services-bcs-project-manager-cursor-skills-bkui-cheatsheet-skill-md
+  name: bkui
+  author: TencentBlueKing
+  stars: 834
+  forks: 259
+  description: 高频易错属性映射和避坑指南
+  github_url: https://github.com/TencentBlueKing/bk-bcs/tree/master/bcs-services/bcs-project-manager/.cursor/skills/bkui-cheatsheet
+  updated_at: '1770101184'
+- rank: 46
+  id: resciencelab-opc-skills-template-skill-md
+  name: skill-name
+  author: ReScienceLab
+  stars: 641
+  forks: 71
+  description: Clear description of what this skill does and when to use it. Include
+    trigger keywords and contexts inline, e.g. "Use when user wants to X, Y, or Z."
+  github_url: https://github.com/ReScienceLab/opc-skills/tree/main/template
+  updated_at: '1771142528'
+- rank: 47
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-128-skill-md
+  name: counterintelligence-and-strategic-deception
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when sowing discord between enemy commanders and their trusted
+    advisors or conducting disinformation campaigns. Deploys substantial resources
+    to spread defection rumors, stages differential envoy treatment, and exploits
+    resulting trust breakdowns to degrade enemy decision-making.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_128
+  updated_at: '1774427258'
+- rank: 48
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-166-skill-md
+  name: managing-credit-humility
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when navigating credit for achievements that involved rule-breaking
+    or complex loyalties. Guides appropriate demeanor, ritual humility, and relationship
+    preservation after morally ambiguous successes.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_166
+  updated_at: '1774427258'
+- rank: 49
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-167-skill-md
+  name: seeking-hidden-talent
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when locating capable individuals who have withdrawn from public
+    life. Covers intelligence gathering, informal approach, and relationship-building
+    with reclusive talent in humble occupations.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_167
+  updated_at: '1774427258'
+- rank: 50
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-130-skill-md
+  name: strategic-alliance-formation
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when forming military coalitions against a dominant adversary or
+    recruiting allies for multi-front warfare. Analyzes enemy grievances to identify
+    partners like 九江王黥布, 彭越, and 韩信, then coordinates simultaneous pressure to prevent
+    force concentration.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_130
+  updated_at: '1774427258'

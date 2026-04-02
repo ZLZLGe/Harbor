@@ -1,0 +1,535 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: testing-and-security
+category_name: Testing & Security
+category_skill_count: 70866
+subcategory_slug: testing
+subcategory_name: Testing
+subcategory_skill_count: 22899
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=testing
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 22899
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: facebook-react-claude-skills-feature-flags-skill-md
+  name: feature-flags
+  author: facebook
+  stars: 244234
+  forks: 50870
+  description: Use when feature flag tests fail, flags need updating, understanding
+    @gate pragmas, debugging channel-specific test failures, or adding new flags to
+    React.
+  github_url: https://github.com/facebook/react/tree/main/.claude/skills/feature-flags
+  updated_at: '1769217366'
+- rank: 2
+  id: facebook-react-claude-skills-test-skill-md
+  name: test
+  author: facebook
+  stars: 244234
+  forks: 50870
+  description: Use when you need to run tests for React core. Supports source, www,
+    stable, and experimental channels.
+  github_url: https://github.com/facebook/react/tree/main/.claude/skills/test
+  updated_at: '1769217366'
+- rank: 3
+  id: microsoft-vscode-github-skills-integration-tests-skill-md
+  name: integration-tests
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Use when running integration tests in the VS Code repo. Covers scripts/test-integration.sh
+    (macOS/Linux) and scripts/test-integration.bat (Windows), their supported arguments
+    for filtering, and the difference between node.js integration tests and extension
+    host tests.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/integration-tests
+  updated_at: '1774657417'
+- rank: 4
+  id: microsoft-vscode-github-skills-unit-tests-skill-md
+  name: unit-tests
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Use when running unit tests in the VS Code repo. Covers the runTests
+    tool, scripts/test.sh (macOS/Linux) and scripts/test.bat (Windows), and their
+    supported arguments for filtering, globbing, and debugging tests.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/unit-tests
+  updated_at: '1774657417'
+- rank: 5
+  id: n8n-io-n8n-claude-skills-reproduce-bug-skill-md
+  name: reproduce-bug
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Reproduce a bug from a Linear ticket with a failing test. Expects the
+    full ticket context (title, description, comments) to be provided as input.
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/reproduce-bug
+  updated_at: '1771591700'
+- rank: 6
+  id: vercel-next-js-agents-skills-router-act-skill-md
+  name: router-act
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: How to write end-to-end tests using createRouterAct and LinkAccordion.
+    Use when writing or modifying tests that need to control the timing of internal
+    Next.js requests (like prefetches) or assert on their responses. Covers the act
+    API, fixture patterns, prefetch control via LinkAccordion, fake clocks, and avoiding
+    flaky testing patterns.
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/router-act
+  updated_at: '1773753259'
+- rank: 7
+  id: langgenius-dify-agents-skills-frontend-testing-skill-md
+  name: frontend-testing
+  author: langgenius
+  stars: 134812
+  forks: 20985
+  description: Generate Vitest + React Testing Library tests for Dify frontend components,
+    hooks, and utilities. Triggers on testing, spec files, coverage, Vitest, RTL,
+    unit tests, integration tests, or write/review test requests.
+  github_url: https://github.com/langgenius/dify/tree/main/.agents/skills/frontend-testing
+  updated_at: '1773809823'
+- rank: 8
+  id: affaan-m-everything-claude-code-skills-ai-regression-testing-skill-md
+  name: ai-regression-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Regression testing strategies for AI-assisted development. Sandbox-mode
+    API testing without database dependencies, automated bug-check workflows, and
+    patterns to catch AI blind spots where the same model writes and reviews code.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/ai-regression-testing
+  updated_at: '1773693331'
+- rank: 9
+  id: affaan-m-everything-claude-code-docs-ja-jp-skills-cpp-testing-skill-md
+  name: cpp-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: C++ テストの作成/更新/修正、GoogleTest/CTest の設定、失敗またはフレーキーなテストの診断、カバレッジ/サニタイザーの追加時にのみ使用します。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ja-JP/skills/cpp-testing
+  updated_at: '1772569955'
+- rank: 10
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-cpp-testing-skill-md
+  name: cpp-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 仅用于编写/更新/修复C++测试、配置GoogleTest/CTest、诊断失败或不稳定的测试，或添加覆盖率/消毒器时使用。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/cpp-testing
+  updated_at: '1772923682'
+- rank: 11
+  id: affaan-m-everything-claude-code-skills-cpp-testing-skill-md
+  name: cpp-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use only when writing/updating/fixing C++ tests, configuring GoogleTest/CTest,
+    diagnosing failing or flaky tests, or adding coverage/sanitizers.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/cpp-testing
+  updated_at: '1772569955'
+- rank: 12
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-django-tdd-skill-md
+  name: django-tdd
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Django 测试策略，包括 pytest-django、TDD 方法、factory_boy、模拟、覆盖率以及测试 Django REST
+    Framework API。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/django-tdd
+  updated_at: '1772519307'
+- rank: 13
+  id: affaan-m-everything-claude-code-skills-django-tdd-skill-md
+  name: django-tdd
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Django testing strategies with pytest-django, TDD methodology, factory_boy,
+    mocking, coverage, and testing Django REST Framework APIs.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/django-tdd
+  updated_at: '1771862457'
+- rank: 14
+  id: affaan-m-everything-claude-code-agents-skills-e2e-testing-skill-md
+  name: e2e-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Playwright E2E testing patterns, Page Object Model, configuration,
+    CI/CD integration, artifact management, and flaky test strategies.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/e2e-testing
+  updated_at: '1772045129'
+- rank: 15
+  id: affaan-m-everything-claude-code-docs-tr-skills-e2e-testing-skill-md
+  name: e2e-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Playwright E2E test kalıpları, Page Object Model, yapılandırma, CI/CD
+    entegrasyonu, artifact yönetimi ve kararsız test stratejileri.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/e2e-testing
+  updated_at: '1774219024'
+- rank: 16
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-e2e-testing-skill-md
+  name: e2e-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Playwright E2E 测试模式、页面对象模型、配置、CI/CD 集成、工件管理和不稳定测试策略。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/e2e-testing
+  updated_at: '1772519307'
+- rank: 17
+  id: affaan-m-everything-claude-code-kiro-skills-e2e-testing-skill-md
+  name: e2e-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Playwright E2E testing patterns, Page Object Model, configuration,
+    CI/CD integration, artifact management, and flaky test strategies.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/e2e-testing
+  updated_at: '1774241745'
+- rank: 18
+  id: affaan-m-everything-claude-code-skills-e2e-testing-skill-md
+  name: e2e-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Playwright E2E testing patterns, Page Object Model, configuration,
+    CI/CD integration, artifact management, and flaky test strategies.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/e2e-testing
+  updated_at: '1771862457'
+- rank: 19
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-golang-testing-skill-md
+  name: golang-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 테이블 주도 테스트, 서브테스트, 벤치마크, 퍼징, 테스트 커버리지를 포함한 Go 테스팅 패턴. 관용적 Go 관행과 함께
+    TDD 방법론을 따릅니다.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/golang-testing
+  updated_at: '1773116940'
+- rank: 20
+  id: affaan-m-everything-claude-code-docs-tr-skills-golang-testing-skill-md
+  name: golang-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Table-driven testler, subtestler, benchmark'lar, fuzzing ve test coverage
+    içeren Go test desenleri. TDD metodolojisi ile idiomatic Go uygulamalarını takip
+    eder.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/golang-testing
+  updated_at: '1774219024'
+- rank: 21
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-golang-testing-skill-md
+  name: golang-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Go测试模式包括表格驱动测试、子测试、基准测试、模糊测试和测试覆盖率。遵循TDD方法论，采用地道的Go实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/golang-testing
+  updated_at: '1774219164'
+- rank: 22
+  id: affaan-m-everything-claude-code-kiro-skills-golang-testing-skill-md
+  name: golang-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Go testing best practices including table-driven tests, test helpers,
+    benchmarking, race detection, coverage analysis, and integration testing patterns.
+    Use when writing or improving Go tests.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/golang-testing
+  updated_at: '1774241745'
+- rank: 23
+  id: affaan-m-everything-claude-code-skills-golang-testing-skill-md
+  name: golang-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Go testing patterns including table-driven tests, subtests, benchmarks,
+    fuzzing, and test coverage. Follows TDD methodology with idiomatic Go practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/golang-testing
+  updated_at: '1771862457'
+- rank: 24
+  id: affaan-m-everything-claude-code-docs-tr-skills-kotlin-testing-skill-md
+  name: kotlin-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Kotest, MockK, coroutine testi, property-based testing ve Kover coverage
+    ile Kotlin test kalıpları. İdiomatic Kotlin uygulamalarıyla TDD metodolojisini
+    takip eder.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/kotlin-testing
+  updated_at: '1774219024'
+- rank: 25
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-kotlin-testing-skill-md
+  name: kotlin-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用Kotest、MockK、协程测试、基于属性的测试和Kover覆盖率的Kotlin测试模式。遵循TDD方法论和地道的Kotlin实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/kotlin-testing
+  updated_at: '1774219164'
+- rank: 26
+  id: affaan-m-everything-claude-code-skills-kotlin-testing-skill-md
+  name: kotlin-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Kotlin testing patterns with Kotest, MockK, coroutine testing, property-based
+    testing, and Kover coverage. Follows TDD methodology with idiomatic Kotlin practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/kotlin-testing
+  updated_at: '1773384803'
+- rank: 27
+  id: affaan-m-everything-claude-code-docs-tr-skills-laravel-tdd-skill-md
+  name: laravel-tdd
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Test-driven development for Laravel with PHPUnit and Pest, factories,
+    database testing, fakes, and coverage targets.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/laravel-tdd
+  updated_at: '1774219024'
+- rank: 28
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-laravel-tdd-skill-md
+  name: laravel-tdd
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用 PHPUnit 和 Pest、工厂、数据库测试、模拟以及覆盖率目标进行 Laravel 的测试驱动开发。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/laravel-tdd
+  updated_at: '1774068958'
+- rank: 29
+  id: affaan-m-everything-claude-code-skills-laravel-tdd-skill-md
+  name: laravel-tdd
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Test-driven development for Laravel with PHPUnit and Pest, factories,
+    database testing, fakes, and coverage targets.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/laravel-tdd
+  updated_at: '1773693323'
+- rank: 30
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-perl-testing-skill-md
+  name: perl-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用Test2::V0、Test::More、prove runner、模拟、Devel::Cover覆盖率和TDD方法的Perl测试模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/perl-testing
+  updated_at: '1774219164'
+- rank: 31
+  id: affaan-m-everything-claude-code-skills-perl-testing-skill-md
+  name: perl-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Perl testing patterns using Test2::V0, Test::More, prove runner, mocking,
+    coverage with Devel::Cover, and TDD methodology.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/perl-testing
+  updated_at: '1773200574'
+- rank: 32
+  id: affaan-m-everything-claude-code-docs-tr-skills-python-testing-skill-md
+  name: python-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: pytest, TDD metodolojisi, fixture'lar, mocking, parametrizasyon ve
+    coverage gereksinimleri kullanarak Python test stratejileri.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/python-testing
+  updated_at: '1774219024'
+- rank: 33
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-python-testing-skill-md
+  name: python-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用pytest的Python测试策略，包括TDD方法、夹具、模拟、参数化和覆盖率要求。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/python-testing
+  updated_at: '1774219164'
+- rank: 34
+  id: affaan-m-everything-claude-code-kiro-skills-python-testing-skill-md
+  name: python-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Python testing best practices using pytest including fixtures, parametrization,
+    mocking, coverage analysis, async testing, and test organization. Use when writing
+    or improving Python tests.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/python-testing
+  updated_at: '1774241745'
+- rank: 35
+  id: affaan-m-everything-claude-code-skills-python-testing-skill-md
+  name: python-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Python testing strategies using pytest, TDD methodology, fixtures,
+    mocking, parametrization, and coverage requirements.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/python-testing
+  updated_at: '1771862457'
+- rank: 36
+  id: affaan-m-everything-claude-code-docs-tr-skills-rust-testing-skill-md
+  name: rust-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Rust testing patterns including unit tests, integration tests, async
+    testing, property-based testing, mocking, and coverage. Follows TDD methodology.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/rust-testing
+  updated_at: '1774219024'
+- rank: 37
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-rust-testing-skill-md
+  name: rust-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Rust测试模式，包括单元测试、集成测试、异步测试、基于属性的测试、模拟和覆盖率。遵循TDD方法学。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/rust-testing
+  updated_at: '1774219164'
+- rank: 38
+  id: affaan-m-everything-claude-code-skills-rust-testing-skill-md
+  name: rust-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Rust testing patterns including unit tests, integration tests, async
+    testing, property-based testing, mocking, and coverage. Follows TDD methodology.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/rust-testing
+  updated_at: '1773693265'
+- rank: 39
+  id: affaan-m-everything-claude-code-docs-tr-skills-springboot-tdd-skill-md
+  name: springboot-tdd
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Test-driven development for Spring Boot using JUnit 5, Mockito, MockMvc,
+    Testcontainers, and JaCoCo. Use when adding features, fixing bugs, or refactoring.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/springboot-tdd
+  updated_at: '1774219024'
+- rank: 40
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-springboot-tdd-skill-md
+  name: springboot-tdd
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用JUnit 5、Mockito、MockMvc、Testcontainers和JaCoCo进行Spring Boot的测试驱动开发。适用于添加功能、修复错误或重构时。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/springboot-tdd
+  updated_at: '1772519307'
+- rank: 41
+  id: affaan-m-everything-claude-code-skills-springboot-tdd-skill-md
+  name: springboot-tdd
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Test-driven development for Spring Boot using JUnit 5, Mockito, MockMvc,
+    Testcontainers, and JaCoCo. Use when adding features, fixing bugs, or refactoring.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/springboot-tdd
+  updated_at: '1771862457'
+- rank: 42
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-swift-protocol-di-testing-skill-md
+  name: swift-protocol-di-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 基于协议的依赖注入，用于可测试的Swift代码——使用聚焦协议和Swift Testing模拟文件系统、网络和外部API。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/swift-protocol-di-testing
+  updated_at: '1772519307'
+- rank: 43
+  id: affaan-m-everything-claude-code-skills-swift-protocol-di-testing-skill-md
+  name: swift-protocol-di-testing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Protocol-based dependency injection for testable Swift code — mock
+    file system, network, and external APIs using focused protocols and Swift Testing.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/swift-protocol-di-testing
+  updated_at: '1771862457'
+- rank: 44
+  id: affaan-m-everything-claude-code-agents-skills-tdd-workflow-skill-md
+  name: tdd-workflow
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use this skill when writing new features, fixing bugs, or refactoring
+    code. Enforces test-driven development with 80%+ coverage including unit, integration,
+    and E2E tests.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/tdd-workflow
+  updated_at: '1772045129'
+- rank: 45
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-tdd-workflow-skill-md
+  name: tdd-workflow
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 새 기능 작성, 버그 수정 또는 코드 리팩터링 시 이 스킬을 사용하세요. 단위, 통합, E2E 테스트를 포함한 80% 이상의
+    커버리지로 테스트 주도 개발을 시행합니다.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/tdd-workflow
+  updated_at: '1773386274'
+- rank: 46
+  id: affaan-m-everything-claude-code-docs-tr-skills-tdd-workflow-skill-md
+  name: tdd-workflow
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Yeni özellikler yazarken, hata düzeltirken veya kod refactor ederken
+    bu skill'i kullanın. Unit, integration ve E2E testlerini içeren %80+ kapsam ile
+    test güdümlü geliştirmeyi zorlar.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/tdd-workflow
+  updated_at: '1774219024'
+- rank: 47
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-tdd-workflow-skill-md
+  name: tdd-workflow
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 在编写新功能、修复错误或重构代码时使用此技能。强制执行测试驱动开发，确保单元测试、集成测试和端到端测试的覆盖率超过80%。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/tdd-workflow
+  updated_at: '1774219164'
+- rank: 48
+  id: affaan-m-everything-claude-code-kiro-skills-tdd-workflow-skill-md
+  name: tdd-workflow
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use this skill when writing new features, fixing bugs, or refactoring
+    code. Enforces test-driven development with 80%+ coverage including unit, integration,
+    and E2E tests.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/tdd-workflow
+  updated_at: '1774241745'
+- rank: 49
+  id: affaan-m-everything-claude-code-skills-tdd-workflow-skill-md
+  name: tdd-workflow
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use this skill when writing new features, fixing bugs, or refactoring
+    code. Enforces test-driven development with 80%+ coverage including unit, integration,
+    and E2E tests.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/tdd-workflow
+  updated_at: '1771862457'
+- rank: 50
+  id: supabase-supabase-claude-skills-e2e-studio-tests-skill-md
+  name: e2e-studio-tests
+  author: supabase
+  stars: 99752
+  forks: 11915
+  description: Run e2e tests in the Studio app. Use when asked to run e2e tests, run
+    studio tests, playwright tests, or test the feature.
+  github_url: https://github.com/supabase/supabase/tree/master/.claude/skills/e2e-studio-tests
+  updated_at: '1769777864'

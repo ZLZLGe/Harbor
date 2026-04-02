@@ -1,0 +1,603 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: ecommerce-development
+subcategory_name: E-commerce Development
+subcategory_skill_count: 2883
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=ecommerce-development
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 2883
+  total_pages: 58
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-ordercli-skill-md
+  name: ordercli
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Foodora-only CLI for checking past orders and active order status (Deliveroo
+    WIP).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/ordercli
+  updated_at: '1769862085'
+- rank: 2
+  id: wshobson-agents-plugins-payment-processing-skills-billing-automation-skill-md
+  name: billing-automation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build automated billing systems for recurring payments, invoicing,
+    subscription lifecycle, and dunning management. Use when implementing subscription
+    billing, automating invoicing, or managing recurring payment systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/billing-automation
+  updated_at: '1772898797'
+- rank: 3
+  id: wshobson-agents-plugins-payment-processing-skills-paypal-integration-skill-md
+  name: paypal-integration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Integrate PayPal payment processing with support for express checkout,
+    subscriptions, and refund management. Use when implementing PayPal payments, processing
+    online transactions, or building e-commerce checkout flows.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/paypal-integration
+  updated_at: '1772898797'
+- rank: 4
+  id: wshobson-agents-plugins-payment-processing-skills-stripe-integration-skill-md
+  name: stripe-integration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement Stripe payment processing for robust, PCI-compliant payment
+    flows including checkout, subscriptions, and webhooks. Use when integrating Stripe
+    payments, building subscription systems, or implementing secure checkout flows.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/stripe-integration
+  updated_at: '1772898797'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-odoo-ecommerce-configurator-skill-md
+  name: odoo-ecommerce-configurator
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Expert guide for Odoo eCommerce and Website: product catalog, payment
+    providers, shipping methods, SEO, and order-to-fulfillment workflow.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/odoo-ecommerce-configurator
+  updated_at: '1772656832'
+- rank: 6
+  id: sickn33-antigravity-awesome-skills-skills-odoo-shopify-integration-skill-md
+  name: odoo-shopify-integration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Connect Odoo with Shopify: sync products, inventory, orders, and customers
+    using the Shopify API and Odoo''s external API or connector modules.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/odoo-shopify-integration
+  updated_at: '1773994629'
+- rank: 7
+  id: sickn33-antigravity-awesome-skills-skills-odoo-woocommerce-bridge-skill-md
+  name: odoo-woocommerce-bridge
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Sync Odoo with WooCommerce: products, inventory, orders, and customers
+    via WooCommerce REST API and Odoo external API.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/odoo-woocommerce-bridge
+  updated_at: '1773994629'
+- rank: 8
+  id: sickn33-antigravity-awesome-skills-skills-shopify-automation-skill-md
+  name: shopify-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Automate Shopify tasks via Rube MCP (Composio): products, orders,
+    customers, inventory, collections. Always search tools first for current schemas.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/shopify-automation
+  updated_at: '1772180381'
+- rank: 9
+  id: sickn33-antigravity-awesome-skills-skills-wordpress-woocommerce-development-skill-md
+  name: wordpress-woocommerce-development
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'WooCommerce store development workflow covering store setup, payment
+    integration, shipping configuration, customization, and WordPress 7.0 features:
+    AI connectors, DataViews, and collaboration tools.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/wordpress-woocommerce-development
+  updated_at: '1774435819'
+- rank: 10
+  id: wox-launcher-wox-agents-skills-wox-plugin-submit2store-skill-md
+  name: wox-plugin-submit2store
+  author: Wox-launcher
+  stars: 26642
+  forks: 2405
+  description: Submit the current Wox plugin repository to the official Wox store
+    by ensuring the user has a reusable fork of Wox-launcher/Wox, checking whether
+    the plugin ID already exists in Wox's store-plugin.json, adding a new store entry
+    when missing, and preparing a pull request to Wox-launcher/Wox. Use when the user
+    wants to publish a Wox plugin to the store, verify whether it has already been
+    listed, or have Codex run the store submission PR workflow.
+  github_url: https://github.com/Wox-launcher/Wox/tree/master/.agents/skills/wox-plugin-submit2store
+  updated_at: '1773755500'
+- rank: 11
+  id: googleworkspace-cli-skills-recipe-log-deal-update-skill-md
+  name: recipe-log-deal-update
+  author: googleworkspace
+  stars: 22843
+  forks: 1108
+  description: Append a deal status update to a Google Sheets sales tracking spreadsheet.
+  github_url: https://github.com/googleworkspace/cli/tree/main/skills/recipe-log-deal-update
+  updated_at: '1774550706'
+- rank: 12
+  id: anthropics-knowledge-work-plugins-cowork-plugin-management-skills-create-cowork-plugin-skill-md
+  name: create-cowork-plugin
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Guide users through creating a new plugin from scratch in a cowork
+    session. Use when users want to create a plugin, build a plugin, make a new plugin,
+    develop a plugin, scaffold a plugin, start a plugin from scratch, or design a
+    plugin. This skill requires Cowork mode with access to the outputs directory for
+    delivering the final .plugin file.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/cowork-plugin-management/skills/create-cowork-plugin
+  updated_at: '1773854565'
+- rank: 13
+  id: woocommerce-woocommerce-ai-skills-woocommerce-markdown-skill-md
+  name: woocommerce-markdown
+  author: woocommerce
+  stars: 10220
+  forks: 10720
+  description: Guidelines for creating and modifying markdown files in WooCommerce.
+    Use when writing documentation, README files, or any markdown content.
+  github_url: https://github.com/woocommerce/woocommerce/tree/trunk/.ai/skills/woocommerce-markdown
+  updated_at: '1762761237'
+- rank: 14
+  id: woocommerce-woocommerce-ai-skills-woocommerce-performance-skill-md
+  name: woocommerce-performance
+  author: woocommerce
+  stars: 10220
+  forks: 10720
+  description: Identify missing cache priming calls in WooCommerce PHP code. Use when
+    writing or reviewing code that loads collections of post-based objects (products,
+    orders), renders product lists with images, or reads multiple options in a loop
+    or method.
+  github_url: https://github.com/woocommerce/woocommerce/tree/trunk/.ai/skills/woocommerce-performance
+  updated_at: '1774353272'
+- rank: 15
+  id: unopim-unopim-github-skills-unopim-connector-quickstart-skill-md
+  name: unopim-connector-quickstart
+  author: unopim
+  stars: 9409
+  forks: 127
+  description: Day-1 checklist and step-by-step guide to build a complete Unopim third-party
+    connector (WooCommerce, Shopify, Shopware, module, or any REST API) within one
+    working day. Use this skill when starting a new Unopim integration, planning a
+    connector from scratch, or needing the full ordered sequence of steps to create
+    a production-ready connector module. Covers all required files, patterns, and
+    critical checkpoints verified against the WooCommerce connector reference implementation.
+  github_url: https://github.com/unopim/unopim/tree/master/.github/skills/unopim-connector-quickstart
+  updated_at: '1774455201'
+- rank: 16
+  id: unopim-unopim-github-skills-unopim-datagrid-skill-md
+  name: unopim-datagrid
+  author: unopim
+  stars: 9409
+  forks: 127
+  description: Implement Unopim DataGrid classes for listing records in admin panels
+    with search, filter, sort, actions (edit/delete), and mass actions. Covers DataGrid
+    subdirectory structure (DataGrids/Section/), prepareQueryBuilder with DB::table
+    and wk_ prefix, addColumn with correct closure patterns, addAction with function
+    callbacks for url, addMassAction, bouncer() permission checks, and Blade integration.
+    Use this skill when creating a DataGrid for credentials, mappings, export history,
+    or any Unopim module listing page.
+  github_url: https://github.com/unopim/unopim/tree/master/.github/skills/unopim-datagrid
+  updated_at: '1774455201'
+- rank: 17
+  id: unopim-unopim-github-skills-unopim-export-workflow-skill-md
+  name: unopim-export-workflow
+  author: unopim
+  stars: 9409
+  forks: 127
+  description: Implement end-to-end export and import workflow for Unopim third-party
+    connectors including exporters.php config with correct filter field keys (async/track_by/label_by/list_route),
+    quick_exporters.php for one-click product sync, importers.php for two-way connector
+    flows, Exporter classes extending AbstractExporter, Validator classes, queue jobs,
+    and the get-credentials API route. Use this skill when building export jobs, defining
+    job validators, implementing exporter/importer logic, or setting up data transfer
+    for any Unopim connector (WooCommerce, Shopify, Shopware, module, etc.).
+  github_url: https://github.com/unopim/unopim/tree/master/.github/skills/unopim-export-workflow
+  updated_at: '1774455201'
+- rank: 18
+  id: unopim-unopim-github-skills-unopim-package-skill-md
+  name: unopim-package
+  author: unopim
+  stars: 9409
+  forks: 127
+  description: Generate complete production-ready Unopim modules (Unopim-style packages)
+    including ServiceProvider, ModuleServiceProvider, routes, ACL, menu, controllers,
+    repositories, models with HistoryTrait, views, config files (exporters / quick_exporters
+    / importers / acl / menu), migrations with wk_ prefix, factories, presenters,
+    contracts, and composer.json. Use this skill when creating new Unopim integration
+    connectors (WooCommerce, Shopify, Shopware, module, etc.) or any new Unopim module/package
+    from scratch.
+  github_url: https://github.com/unopim/unopim/tree/master/.github/skills/unopim-package
+  updated_at: '1774455201'
+- rank: 19
+  id: alirezarezvani-claude-skills-product-team-product-strategist-skill-md
+  name: product-strategist
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Strategic product leadership toolkit for Head of Product covering OKR
+    cascade generation, quarterly planning, competitive landscape analysis, product
+    vision documents, and team scaling proposals. Use when creating quarterly OKR
+    documents, defining product goals or KPIs, building product roadmaps, running
+    competitive analysis, drafting team structure or hiring plans, aligning product
+    strategy across engineering and design, or generating cascaded goal hierarchies
+    from company to team level.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-strategist
+  updated_at: '1773132529'
+- rank: 20
+  id: jeffallan-claude-skills-skills-shopify-expert-skill-md
+  name: shopify-expert
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Builds and debugs Shopify themes (.liquid files, theme.json, sections),
+    develops custom Shopify apps (shopify.app.toml, OAuth, webhooks), and implements
+    Storefront API integrations for headless storefronts. Use when building or customizing
+    Shopify themes, creating Hydrogen or custom React storefronts, developing Shopify
+    apps, implementing checkout UI extensions or Shopify Functions, optimizing performance,
+    or integrating third-party services. Invoke for Liquid templating, Storefront
+    API, app development, checkout customization, Shopify Plus features, App Bridge,
+    Polaris, or Shopify CLI workflows.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/shopify-expert
+  updated_at: '1772832479'
+- rank: 21
+  id: openclaw-skills-skills-1688aiinfra-1688-product-search-skill-md
+  name: 1688-product-search
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 1688商品搜索SKILL：提供完整的1688商品搜索能力，包括类目查询、关键词搜索、图片搜索、商品详情、相关性商品、拉取货盘底池等9个核心接口。
+    支持多语言搜索和商品推荐，使用1688开放平台官方API，统一鉴权，Token全局缓存共享。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1688aiinfra/1688-product-search
+  updated_at: '1774487290'
+- rank: 22
+  id: openclaw-skills-skills-1688aiinfra-1688-product-to-ozon-skill-md
+  name: 1688-product-to-ozon
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 将1688的商品铺货到俄罗斯电商平台Ozon（上架），通过Ozon官方API实现商品信息的上传和状态查询。适用于需要将单个1688的商品上架到Ozon的场景。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1688aiinfra/1688-product-to-ozon
+  updated_at: '1774488834'
+- rank: 23
+  id: openclaw-skills-skills-1688aiinfra-1688-ranking-skill-md
+  name: 1688-ranking
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 1688榜单SKILL：查询1688商品榜单列表和热搜词。 支持按类目ID查询综合榜/热卖榜/好价榜，以及获取类目维度的热搜关键词。
+    使用1688开放平台官方API，统一鉴权，Token全局缓存共享。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1688aiinfra/1688-ranking
+  updated_at: '1774488883'
+- rank: 24
+  id: openclaw-skills-skills-1688aiinfra-alphashop-sel-product-search-skill-md
+  name: alphashop-sel-product-search
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 商品搜索API SKILL：通过关键词搜索发现Amazon/TikTok平台商品。 支持价格、销量、评分、上架时间等多维度筛选条件。
+    通过 AlphaShop REST API 调用遨虾AI选品系统的商品搜索服务。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1688aiinfra/alphashop-sel-product-search
+  updated_at: '1774490715'
+- rank: 25
+  id: openclaw-skills-skills-04551lh-order-skill-md
+  name: android-order
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Order food/drinks (点餐) on an Android device paired as an OpenClaw node.
+    Uses in-app menu and cart; add goods, view cart, submit order (demo, no real payment).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/04551lh/order
+  updated_at: '1772847271'
+- rank: 26
+  id: openclaw-skills-skills-285984303-bupahua-store-skill-md
+  name: bupahua-store
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '不怕花商城商品搜索。支持按关键词搜索商品、查看价格和库存。 Use when: 用户问"有XXX吗"、"XXX多少钱"、"搜索XXX"、"不怕花有XXX吗"、"活力28"等商品名称。
+    NOT for: 订单查询、售后咨询、跨平台比价、非商品类问题。 微信搜索 "不怕花" 小程序获取API KEY → 进入小程序后点击右下角 "我的" →
+    "个人资料"'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/285984303/bupahua-store
+  updated_at: '1774498088'
+- rank: 27
+  id: openclaw-skills-skills-abuiles-buy-apparel-skill-md
+  name: buy-apparel
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Buy clothing, apparel staples, and fashion pieces through Lobster Thread.
+    Use when a buyer wants an agent to discover apparel labels, fashion merchants,
+    and clothing shops, compare styles and staples, build a cart, and hand back a
+    Shopify checkout link for approval and payment.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abuiles/buy-apparel
+  updated_at: '1773824670'
+- rank: 28
+  id: openclaw-skills-skills-0x7466-coda-packs-skill-md
+  name: coda-packs
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Manage Coda Packs via REST API v1. Supports listing, creating, updating,
+    and deleting private Packs. Requires CODA_API_TOKEN. Delete requires confirmation.
+    Note: Builds, Gallery submission, Analytics, and Collaborators require Coda''s
+    Pack SDK CLI, not available via REST API.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0x7466/coda-packs
+  updated_at: '1770586424'
+- rank: 29
+  id: openclaw-skills-skills-275254cl-hash-coupon-finder-cn-skill-md
+  name: coupon-finder
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 自动发现和领取电商优惠券，支持淘宝/京东/拼多多/美团。购物前查券，省下的就是赚到的。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/275254cl-hash/coupon-finder-cn
+  updated_at: '1774524779'
+- rank: 30
+  id: openclaw-skills-skills-abhishekj9621-ecom-manager-d2c-skill-md
+  name: ecom-manager-d2c
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI ecommerce operations manager
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abhishekj9621/ecom-manager-d2c
+  updated_at: '1773772409'
+- rank: 31
+  id: openclaw-skills-skills-ahump20-frontend-design-2-skill-md
+  name: frontend-design
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Create distinctive, production-grade frontend interfaces with high
+    design quality. Use this skill when the user asks to build web components, pages,
+    artifacts, posters, or applications (examples include websites, landing pages,
+    dashboards, React components, HTML/CSS layouts, or when styling/beautifying any
+    web UI). Generates creative, polished code and UI design that avoids generic AI
+    aesthetics.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ahump20/frontend-design-2
+  updated_at: '1770057246'
+- rank: 32
+  id: openclaw-skills-skills-abakermi-gumroad-admin-skill-md
+  name: gumroad-admin
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Gumroad Admin CLI. Check sales, products, and manage discounts.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abakermi/gumroad-admin
+  updated_at: '1769900660'
+- rank: 33
+  id: openclaw-skills-skills-abdul-karim-mia-gumroad-pro-skill-md
+  name: gumroad-pro
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Comprehensive Gumroad merchant management for Products, Sales, Licenses,
+    Discounts, Payouts, and Webhooks. Use when Claude needs to: (1) Manage digital
+    or physical inventory, (2) Oversee transactions and process refunds/shipping,
+    (3) Verify or rotate license keys, (4) Manage offer codes, or (5) Monitor payout
+    history and store webhooks.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abdul-karim-mia/gumroad-pro
+  updated_at: '1771068725'
+- rank: 34
+  id: openclaw-skills-skills-1688aiinfra-inquiry-1688-skill-md
+  name: inquiry-1688
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 向1688供应商发起询盘对话，就商品的价格、起订量、定制、物流、资质、规格、样品等问题咨询商家， 自动提交询盘并在20分钟后获取供应商的回复结果，通过钉钉主动推送给用户。
+    适用于跨境采购、批发拿货、OEM定制等场景下需要与1688商家沟通的需求。 触发词：询盘、1688询盘、问供应商、问商家、咨询供应商、咨询商家、联系供应商、联系商家、
+    问一下卖家、帮我问问、帮我咨询、帮我询盘、发起询盘、给商家留言、 能不能定制、可以定制吗、支持定制吗、能定做吗、可以OEM吗、能贴牌吗、 起订量多少、起批量多少、最少买多少、最低起订、MOQ多少、最小订单量、
+    多少钱、什么价格、批发价多少、大量拿货价、能便宜吗、可以优惠吗、价格能谈吗、 能不能发货、可以发到哪里、能发国外吗、支持跨境发货吗、有物流吗、怎么发货、运费多少、
+    有没有现货、库存多少、多久能发货、交期多久、生产周期、几天能做好、 有没有资质、有认证吗、有质检报告吗、有CE认证吗、能提供检测报告吗、 商品尺寸、商品长宽高、产品规格、有什么材质、什么面料、
+    能提供样品吗、可以寄样吗、样品多少钱、打样费多少、 供应商能不能XXX、这个商品能不能XXX、想问一下这个产品。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1688aiinfra/inquiry-1688
+  updated_at: '1774490788'
+- rank: 35
+  id: openclaw-skills-skills-aiwithabidi-inventory-source-skill-md
+  name: inventory-source
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Inventory Source — dropship automation, supplier management, product
+    feeds, inventory sync, and order routing.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/inventory-source
+  updated_at: '1772683448'
+- rank: 36
+  id: openclaw-skills-skills-abakermi-lemonsqueezy-admin-skill-md
+  name: lemonsqueezy-admin
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Admin CLI for Lemon Squeezy stores. View orders, subscriptions, and
+    customers.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abakermi/lemonsqueezy-admin
+  updated_at: '1769900683'
+- rank: 37
+  id: openclaw-skills-skills-275254cl-hash-livestream-script-generator-skill-md
+  name: livestream-script-generator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 直播带货脚本生成，话术设计、节奏把控、互动环节、促单技巧。适合直播主播、电商运营、MCN 机构。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/275254cl-hash/livestream-script-generator
+  updated_at: '1774535802'
+- rank: 38
+  id: openclaw-skills-skills-ahsanatha-mayar-payment-skill-md
+  name: mayar-payment
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Mayar.id payment integration for generating invoices, payment links,
+    and tracking transactions via MCP. Use when needing to: (1) Create payment invoices/links
+    for customers, (2) Track payment status and transactions, (3) Generate WhatsApp-friendly
+    payment messages, (4) Handle Indonesian payment methods (bank transfer, e-wallet,
+    QRIS), (5) Manage subscriptions/memberships, or (6) Automate payment workflows
+    for e-commerce, services, or digital products.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ahsanatha/mayar-payment
+  updated_at: '1769837852'
+- rank: 39
+  id: openclaw-skills-skills-ahsanatha-mayar-payment-skill-skill-md
+  name: mayar-payment
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Mayar.id payment integration for generating invoices, payment links,
+    and tracking transactions via MCP. Use when needing to: (1) Create payment invoices/links
+    for customers, (2) Track payment status and transactions, (3) Generate WhatsApp-friendly
+    payment messages, (4) Handle Indonesian payment methods (bank transfer, e-wallet,
+    QRIS), (5) Manage subscriptions/memberships, or (6) Automate payment workflows
+    for e-commerce, services, or digital products.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ahsanatha/mayar-payment-skill
+  updated_at: '1769850354'
+- rank: 40
+  id: openclaw-skills-skills-aaron-he-zhu-memory-management-skill-md
+  name: memory-management
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Persist SEO/GEO project context, brand guidelines, and target keywords
+    across sessions so your agent remembers strategy without re-explaining. Use when
+    the user asks to "remember project context", "save SEO data", "track campaign
+    progress", "store keyword data", "manage project memory", "remember this for next
+    time", "save my keyword data", "keep track of this campaign". Manages a two-layer
+    memory system (hot cache + cold storage) with intelligent promotion/demotion.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aaron-he-zhu/memory-management
+  updated_at: '1774676048'
+- rank: 41
+  id: openclaw-skills-skills-1688aiinfra-ozon-product-selection-skill-md
+  name: ozon-product-selection
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Ozon电商选品工具：根据用户指定的品类，自动搜索市场趋势、提取热门细分关键词、 调用1688搜索API逐一选品，按筛选条件过滤后输出每个细分市场的最优商品推荐。
+    触发词：寻找Ozon蓝海商品、Ozon潜力爆品、Ozon可铺货商品、Ozon可卖的货盘、 Ozon选品、帮我选品、找Ozon能卖的商品、Ozon热门商品推荐。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1688aiinfra/ozon-product-selection
+  updated_at: '1774490845'
+- rank: 42
+  id: openclaw-skills-skills-275254cl-hash-pinduoduo-deal-finder-skill-md
+  name: pinduoduo-deal-finder
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 拼多多神价发现、百亿补贴监控、多人团优惠、砍价免费拿进度追踪。适合省钱购物、副业套利。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/275254cl-hash/pinduoduo-deal-finder
+  updated_at: '1774535822'
+- rank: 43
+  id: openclaw-skills-skills-786793119-miya-rednote-writer-skill-md
+  name: rednote-viral-writer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 小红书爆款助手，热点追踪、文案生成、标签推荐。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/786793119/miya-rednote-writer
+  updated_at: '1774107464'
+- rank: 44
+  id: openclaw-skills-skills-agenticio-ship-skill-md
+  name: ship
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Complete shipping and logistics intelligence system for ecommerce sellers,
+    importers, exporters, and anyone moving physical goods. Trigger whenever someone
+    needs to ship products, compare carriers, calculate shipping costs, handle customs,
+    manage fulfillment, track shipments, file claims for lost or damaged goods, or
+    optimize their logistics operation. Also triggers on phrases like "how do I ship
+    this", "cheapest way to send", "my package is stuck in customs", "set up fulfillment
+    for my store", or any scenario involving moving physical goods from one place
+    to another.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agenticio/ship
+  updated_at: '1773031038'
+- rank: 45
+  id: openclaw-skills-skills-275254cl-hash-smzdm-deals-skill-md
+  name: smzdm-deals
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 什么值得买优惠信息聚合，实时监控神价、BUG 价、历史低价。适合薅羊毛、省钱购物、副业套利。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/275254cl-hash/smzdm-deals
+  updated_at: '1774535849'
+- rank: 46
+  id: openclaw-skills-skills-a2mus-stitch-ui-designer-skill-md
+  name: stitch-ui-designer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Design, preview, and generate UI code using Google Stitch (via MCP).
+    Helps developers choose the best UI by generating previews first, allowing iteration,
+    and then exporting code.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/a2mus/stitch-ui-designer
+  updated_at: '1770584569'
+- rank: 47
+  id: openclaw-skills-skills-aiwithabidi-thinkific-skill-md
+  name: thinkific
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Thinkific — manage courses, students, enrollments, coupons, and products
+    via REST API
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/thinkific
+  updated_at: '1772860138'
+- rank: 48
+  id: openclaw-skills-skills-3rdbrain-track-upvotes-skill-md
+  name: track-upvotes
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Track Product Hunt launch upvotes, comments, and daily ranking in real-time
+    — get Telegram alerts when you move up the leaderboard.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/3rdbrain/track-upvotes
+  updated_at: '1774134217'
+- rank: 49
+  id: openclaw-skills-skills-0xmomo-ngclubs-universal-trading-skill-md
+  name: universal-trading
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Execute cross-chain token trading on EVM and Solana with Particle Network
+    Universal Account SDK. Use when users ask to set up universal-account-example,
+    buy or sell tokens, run convert/swap flows, transfer assets, call custom transactions,
+    query balances/history, or monitor transaction status via WebSocket.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xmomo-ngclubs/universal-trading
+  updated_at: '1772246024'
+- rank: 50
+  id: openclaw-skills-skills-a5huynh-universal-checkout-skill-md
+  name: zinc-orders
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Place, list, and retrieve orders via the Zinc API (zinc.com). Use when
+    the user wants to buy a product from an online retailer, check order status, list
+    recent orders, or anything involving the Zinc e-commerce ordering API. Requires
+    ZINC_API_KEY environment variable.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/a5huynh/universal-checkout
+  updated_at: '1770879941'

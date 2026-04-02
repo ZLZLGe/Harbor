@@ -1,0 +1,580 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: architecture-patterns
+subcategory_name: Architecture Patterns
+subcategory_skill_count: 28245
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=architecture-patterns
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 28245
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: microsoft-vscode-github-skills-sessions-skill-md
+  name: sessions
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Agent Sessions window architecture — covers the sessions-first app,
+    layering, folder structure, chat widget, menus, contributions, entry points, and
+    development guidelines. Use when implementing features or fixing issues in the
+    Agent Sessions window.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/sessions
+  updated_at: '1772653550'
+- rank: 2
+  id: obra-superpowers-skills-dispatching-parallel-agents-skill-md
+  name: dispatching-parallel-agents
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when facing 2+ independent tasks that can be worked on without
+    shared state or sequential dependencies
+  github_url: https://github.com/obra/superpowers/tree/main/skills/dispatching-parallel-agents
+  updated_at: '1773280076'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-agentic-engineering-skill-md
+  name: agentic-engineering
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 作为代理工程师，采用评估优先执行、分解和成本感知模型路由进行操作。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/agentic-engineering
+  updated_at: '1772923682'
+- rank: 4
+  id: affaan-m-everything-claude-code-kiro-skills-agentic-engineering-skill-md
+  name: agentic-engineering
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Operate as an agentic engineer using eval-first execution, decomposition,
+    and cost-aware model routing. Use when AI agents perform most implementation work
+    and humans enforce quality and risk controls.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/agentic-engineering
+  updated_at: '1774241745'
+- rank: 5
+  id: affaan-m-everything-claude-code-skills-agentic-engineering-skill-md
+  name: agentic-engineering
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Operate as an agentic engineer using eval-first execution, decomposition,
+    and cost-aware model routing.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/agentic-engineering
+  updated_at: '1772664486'
+- rank: 6
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-android-clean-architecture-skill-md
+  name: android-clean-architecture
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 适用于Android和Kotlin多平台项目的Clean Architecture模式——模块结构、依赖规则、用例、仓库以及数据层模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/android-clean-architecture
+  updated_at: '1774219164'
+- rank: 7
+  id: affaan-m-everything-claude-code-skills-android-clean-architecture-skill-md
+  name: android-clean-architecture
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Clean Architecture patterns for Android and Kotlin Multiplatform projects
+    — module structure, dependency rules, UseCases, Repositories, and data layer patterns.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/android-clean-architecture
+  updated_at: '1773201219'
+- rank: 8
+  id: affaan-m-everything-claude-code-skills-architecture-decision-records-skill-md
+  name: architecture-decision-records
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Capture architectural decisions made during Claude Code sessions as
+    structured ADRs. Auto-detects decision moments, records context, alternatives
+    considered, and rationale. Maintains an ADR log so future developers understand
+    why the codebase is shaped the way it is.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/architecture-decision-records
+  updated_at: '1773991225'
+- rank: 9
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-autonomous-loops-skill-md
+  name: autonomous-loops
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 自主Claude代码循环的模式与架构——从简单的顺序管道到基于RFC的多智能体有向无环图系统。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/autonomous-loops
+  updated_at: '1774219164'
+- rank: 10
+  id: affaan-m-everything-claude-code-skills-autonomous-loops-skill-md
+  name: autonomous-loops
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Patterns and architectures for autonomous Claude Code loops — from
+    simple sequential pipelines to RFC-driven multi-agent DAG systems.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/autonomous-loops
+  updated_at: '1774141805'
+- rank: 11
+  id: affaan-m-everything-claude-code-skills-continuous-agent-loop-skill-md
+  name: continuous-agent-loop
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Patterns for continuous autonomous agent loops with quality gates,
+    evals, and recovery controls.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/continuous-agent-loop
+  updated_at: '1772664486'
+- rank: 12
+  id: affaan-m-everything-claude-code-docs-tr-skills-docker-patterns-skill-md
+  name: docker-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Yerel geliştirme, konteyner güvenliği, ağ, volume stratejileri ve multi-servis
+    orkestrasyon için Docker ve Docker Compose kalıpları.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/docker-patterns
+  updated_at: '1774219024'
+- rank: 13
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-docker-patterns-skill-md
+  name: docker-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 用于本地开发的Docker和Docker Compose模式，包括容器安全、网络、卷策略和多服务编排。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/docker-patterns
+  updated_at: '1774219164'
+- rank: 14
+  id: affaan-m-everything-claude-code-kiro-skills-docker-patterns-skill-md
+  name: docker-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Docker and Docker Compose patterns for local development, container
+    security, networking, volume strategies, and multi-service orchestration. Use
+    when setting up containerized development environments or reviewing Docker configurations.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/docker-patterns
+  updated_at: '1774241745'
+- rank: 15
+  id: affaan-m-everything-claude-code-skills-docker-patterns-skill-md
+  name: docker-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Docker and Docker Compose patterns for local development, container
+    security, networking, volume strategies, and multi-service orchestration.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/docker-patterns
+  updated_at: '1771862457'
+- rank: 16
+  id: affaan-m-everything-claude-code-skills-enterprise-agent-ops-skill-md
+  name: enterprise-agent-ops
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Operate long-lived agent workloads with observability, security boundaries,
+    and lifecycle management.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/enterprise-agent-ops
+  updated_at: '1772664486'
+- rank: 17
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-eval-harness-skill-md
+  name: eval-harness
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 克劳德代码会话的正式评估框架，实施评估驱动开发（EDD）原则
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/eval-harness
+  updated_at: '1774219164'
+- rank: 18
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-golang-patterns-skill-md
+  name: golang-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 견고하고 효율적이며 유지보수 가능한 Go 애플리케이션 구축을 위한 관용적 Go 패턴, 모범 사례 및 규칙.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/golang-patterns
+  updated_at: '1773386274'
+- rank: 19
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-golang-patterns-skill-md
+  name: golang-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 用于构建健壮、高效且可维护的Go应用程序的惯用Go模式、最佳实践和约定。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/golang-patterns
+  updated_at: '1774219164'
+- rank: 20
+  id: affaan-m-everything-claude-code-kiro-skills-golang-patterns-skill-md
+  name: golang-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Go-specific design patterns and best practices including functional
+    options, small interfaces, dependency injection, concurrency patterns, error handling,
+    and package organization. Use when working with Go code to apply idiomatic Go
+    patterns.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/golang-patterns
+  updated_at: '1774241745'
+- rank: 21
+  id: affaan-m-everything-claude-code-skills-golang-patterns-skill-md
+  name: golang-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Idiomatic Go patterns, best practices, and conventions for building
+    robust, efficient, and maintainable Go applications.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/golang-patterns
+  updated_at: '1771862457'
+- rank: 22
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-java-coding-standards-skill-md
+  name: java-coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot服务的Java编码标准：命名、不可变性、Optional用法、流、异常、泛型和项目布局。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/java-coding-standards
+  updated_at: '1772519307'
+- rank: 23
+  id: affaan-m-everything-claude-code-skills-java-coding-standards-skill-md
+  name: java-coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Java coding standards for Spring Boot services: naming, immutability,
+    Optional usage, streams, exceptions, generics, and project layout.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/java-coding-standards
+  updated_at: '1771862457'
+- rank: 24
+  id: affaan-m-everything-claude-code-skills-jpa-patterns-skill-md
+  name: jpa-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: JPA/Hibernate patterns for entity design, relationships, query optimization,
+    transactions, auditing, indexing, pagination, and pooling in Spring Boot.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/jpa-patterns
+  updated_at: '1771862457'
+- rank: 25
+  id: affaan-m-everything-claude-code-docs-tr-skills-kotlin-patterns-skill-md
+  name: kotlin-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Coroutine'ler, null safety ve DSL builder'lar ile sağlam, verimli ve
+    sürdürülebilir Kotlin uygulamaları oluşturmak için idiomatic Kotlin kalıpları,
+    en iyi uygulamalar ve konvansiyonlar.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/kotlin-patterns
+  updated_at: '1774219024'
+- rank: 26
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-kotlin-patterns-skill-md
+  name: kotlin-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 惯用的Kotlin模式、最佳实践和约定，用于构建健壮、高效且可维护的Kotlin应用程序，包括协程、空安全和DSL构建器。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/kotlin-patterns
+  updated_at: '1773395144'
+- rank: 27
+  id: affaan-m-everything-claude-code-skills-kotlin-patterns-skill-md
+  name: kotlin-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Idiomatic Kotlin patterns, best practices, and conventions for building
+    robust, efficient, and maintainable Kotlin applications with coroutines, null
+    safety, and DSL builders.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/kotlin-patterns
+  updated_at: '1773203152'
+- rank: 28
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-project-guidelines-example-skill-md
+  name: project-guidelines-example
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 실제 프로덕션 애플리케이션을 기반으로 한 프로젝트별 스킬 템플릿 예시.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/project-guidelines-example
+  updated_at: '1773116940'
+- rank: 29
+  id: affaan-m-everything-claude-code-kiro-skills-python-patterns-skill-md
+  name: python-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Python-specific design patterns and best practices including protocols,
+    dataclasses, context managers, decorators, async/await, type hints, and package
+    organization. Use when working with Python code to apply Pythonic patterns.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/python-patterns
+  updated_at: '1774241745'
+- rank: 30
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 在添加身份验证、处理用户输入、处理机密信息、创建API端点或实现支付/敏感功能时使用此技能。提供全面的安全检查清单和模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/security-review
+  updated_at: '1772519307'
+- rank: 31
+  id: affaan-m-everything-claude-code-docs-tr-skills-springboot-patterns-skill-md
+  name: springboot-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot architecture patterns, REST API design, layered services,
+    data access, caching, async processing, and logging. Use for Java Spring Boot
+    backend work.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/springboot-patterns
+  updated_at: '1774219024'
+- rank: 32
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-springboot-patterns-skill-md
+  name: springboot-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot架构模式、REST API设计、分层服务、数据访问、缓存、异步处理和日志记录。用于Java Spring Boot后端工作。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/springboot-patterns
+  updated_at: '1772519307'
+- rank: 33
+  id: affaan-m-everything-claude-code-skills-springboot-patterns-skill-md
+  name: springboot-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot architecture patterns, REST API design, layered services,
+    data access, caching, async processing, and logging. Use for Java Spring Boot
+    backend work.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/springboot-patterns
+  updated_at: '1771862457'
+- rank: 34
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-strategic-compact-skill-md
+  name: strategic-compact
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 建议在逻辑间隔处手动压缩上下文，以在任务阶段中保留上下文，而非任意的自动压缩。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/strategic-compact
+  updated_at: '1773395144'
+- rank: 35
+  id: lobehub-lobehub-agents-skills-data-fetching-skill-md
+  name: data-fetching
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Data fetching architecture guide using Service layer + Zustand Store
+    + SWR. Use when implementing data fetching, creating services, working with store
+    hooks, or migrating from useEffect. Triggers on data loading, API calls, service
+    creation, or store data fetching tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/data-fetching
+  updated_at: '1771677400'
+- rank: 36
+  id: lobehub-lobehub-agents-skills-store-data-structures-skill-md
+  name: store-data-structures
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Zustand store data structure patterns for LobeHub. Covers List vs Detail
+    data structures, Map + Reducer patterns, type definitions, and when to use each
+    pattern. Use when designing store state, choosing data structures, or implementing
+    list/detail pages.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/store-data-structures
+  updated_at: '1771677400'
+- rank: 37
+  id: getsentry-sentry-agents-skills-hybrid-cloud-outboxes-skill-md
+  name: hybrid-cloud-outboxes
+  author: getsentry
+  stars: 43460
+  forks: 4642
+  description: Guide for creating and maintaining outbox-based eventually consistent
+    operations in Sentry. Most commonly used for cross-silo data replication, but
+    applicable anywhere eventual consistency is needed — including single-silo deferred
+    side effects, audit logging, and event fanout. Use when asked to "add outbox",
+    "add outbox replication", "replicate model to control silo", "replicate model
+    to cell", "add outbox category", "write outbox signal receiver", "debug stuck
+    outboxes", "outbox not processing", "data not replicating", "test outbox", "migrate
+    model to use outboxes", "backfill outbox data", "outbox coalescing", "ReplicatedCellModel",
+    "ReplicatedControlModel", "OutboxCategory", "OutboxScope", or "outbox_runner".
+    Covers model mixins, category registration, signal receivers, testing, backfill,
+    and debugging workflows.
+  github_url: https://github.com/getsentry/sentry/tree/master/.agents/skills/hybrid-cloud-outboxes
+  updated_at: '1774638537'
+- rank: 38
+  id: moeru-ai-airi-agents-skills-eventa-skill-md
+  name: eventa
+  author: moeru-ai
+  stars: 35987
+  forks: 3579
+  description: Guide for using @moeru/eventa — a transport-aware event library powering
+    ergonomic RPC and streaming flows. Use this skill whenever the user imports from
+    '@moeru/eventa', mentions eventa, needs cross-process/cross-thread event communication
+    (Electron IPC, Web Workers, WebSocket, BroadcastChannel, EventEmitter, EventTarget,
+    Worker Threads), wants to define type-safe events with RPC invoke patterns, needs
+    streaming RPC (server-streaming, client-streaming, or bidirectional), or asks
+    about transport-agnostic event abstractions. Also use when the user discusses
+    alternatives to birpc or async-call-rpc.
+  github_url: https://github.com/moeru-ai/airi/tree/main/.agents/skills/eventa
+  updated_at: '1773591546'
+- rank: 39
+  id: wshobson-agents-plugins-backend-development-skills-api-design-principles-skill-md
+  name: api-design-principles
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master REST and GraphQL API design principles to build intuitive, scalable,
+    and maintainable APIs that delight developers. Use when designing new APIs, reviewing
+    API specifications, or establishing API design standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/api-design-principles
+  updated_at: '1772898797'
+- rank: 40
+  id: wshobson-agents-plugins-backend-development-skills-architecture-patterns-skill-md
+  name: architecture-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement proven backend architecture patterns including Clean Architecture,
+    Hexagonal Architecture, and Domain-Driven Design. Use this skill when designing
+    clean architecture for a new microservice, when refactoring a monolith to use
+    bounded contexts, when implementing hexagonal or onion architecture patterns,
+    or when debugging dependency cycles between application layers.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/architecture-patterns
+  updated_at: '1774544698'
+- rank: 41
+  id: wshobson-agents-plugins-backend-development-skills-cqrs-implementation-skill-md
+  name: cqrs-implementation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement Command Query Responsibility Segregation for scalable architectures.
+    Use when separating read and write models, optimizing query performance, or building
+    event-sourced systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/cqrs-implementation
+  updated_at: '1772898797'
+- rank: 42
+  id: wshobson-agents-plugins-cicd-automation-skills-deployment-pipeline-design-skill-md
+  name: deployment-pipeline-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design multi-stage CI/CD pipelines with approval gates, security checks,
+    and deployment orchestration. Use this skill when designing zero-downtime deployment
+    pipelines, implementing canary rollout strategies, setting up multi-environment
+    promotion workflows, or debugging failed deployment gates in CI/CD.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/deployment-pipeline-design
+  updated_at: '1774544726'
+- rank: 43
+  id: wshobson-agents-plugins-backend-development-skills-event-store-design-skill-md
+  name: event-store-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design and implement event stores for event-sourced systems. Use when
+    building event sourcing infrastructure, choosing event store technologies, or
+    implementing event persistence patterns.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/event-store-design
+  updated_at: '1772898797'
+- rank: 44
+  id: wshobson-agents-plugins-backend-development-skills-microservices-patterns-skill-md
+  name: microservices-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design microservices architectures with service boundaries, event-driven
+    communication, and resilience patterns. Use when building distributed systems,
+    decomposing monoliths, or implementing microservices.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/microservices-patterns
+  updated_at: '1772898797'
+- rank: 45
+  id: wshobson-agents-plugins-agent-teams-skills-parallel-debugging-skill-md
+  name: parallel-debugging
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Debug complex issues using competing hypotheses with parallel investigation,
+    evidence collection, and root cause arbitration. Use this skill when debugging
+    bugs with multiple potential causes, performing root cause analysis, or organizing
+    parallel investigation workflows.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/parallel-debugging
+  updated_at: '1770331350'
+- rank: 46
+  id: wshobson-agents-plugins-agent-teams-skills-parallel-feature-development-skill-md
+  name: parallel-feature-development
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Coordinate parallel feature development with file ownership strategies,
+    conflict avoidance rules, and integration patterns for multi-agent implementation.
+    Use this skill when decomposing a large feature into independent work streams,
+    when two or more agents need to implement different layers of the same system
+    simultaneously, when establishing file ownership to prevent merge conflicts in
+    a shared codebase, when designing interface contracts so parallel implementers
+    can build against each other's APIs before they are ready, or when deciding whether
+    to use vertical slices versus horizontal layers for a full-stack feature.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/parallel-feature-development
+  updated_at: '1774541117'
+- rank: 47
+  id: wshobson-agents-plugins-backend-development-skills-saga-orchestration-skill-md
+  name: saga-orchestration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement saga patterns for distributed transactions and cross-aggregate
+    workflows. Use this skill when implementing distributed transactions across microservices
+    where 2PC is unavailable, designing compensating actions for failed order workflows
+    that span inventory, payment, and shipping services, building event-driven saga
+    coordinators for travel booking systems that must roll back hotel, flight, and
+    car rental reservations atomically, or debugging stuck saga states in production
+    where compensation steps never complete.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/saga-orchestration
+  updated_at: '1774544712'
+- rank: 48
+  id: wshobson-agents-plugins-agent-teams-skills-task-coordination-strategies-skill-md
+  name: task-coordination-strategies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent
+    work with proper task descriptions and workload balancing. Use this skill when
+    breaking down work for agent teams, managing task dependencies, or monitoring
+    team progress.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/task-coordination-strategies
+  updated_at: '1770331350'
+- rank: 49
+  id: wshobson-agents-plugins-agent-teams-skills-team-communication-protocols-skill-md
+  name: team-communication-protocols
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Structured messaging protocols for agent team communication including
+    message type selection, plan approval, shutdown procedures, and anti-patterns
+    to avoid. Use this skill when establishing communication norms for a newly spawned
+    team, when deciding whether to send a direct message or a broadcast, when a team-lead
+    needs to review and approve an implementer's plan before work begins, when orchestrating
+    a graceful team shutdown after all tasks are complete, or when debugging why teammates
+    are not coordinating correctly at integration points.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/team-communication-protocols
+  updated_at: '1774541117'
+- rank: 50
+  id: wshobson-agents-plugins-backend-development-skills-workflow-orchestration-patterns-skill-md
+  name: workflow-orchestration-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design durable workflows with Temporal for distributed systems. Covers
+    workflow vs activity separation, saga patterns, state management, and determinism
+    constraints. Use when building long-running processes, distributed transactions,
+    or microservice orchestration.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/workflow-orchestration-patterns
+  updated_at: '1768516701'

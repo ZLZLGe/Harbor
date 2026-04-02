@@ -1,0 +1,561 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: backend
+subcategory_name: Backend
+subcategory_skill_count: 16388
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=backend
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 16388
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-extensions-acpx-skills-acp-router-skill-md
+  name: acp-router
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Route plain-language requests for Pi, Claude Code, Codex, Cursor, Copilot,
+    OpenClaw ACP, OpenCode, Gemini CLI, Qwen, Kiro, Kimi, iFlow, Factory Droid, Kilocode,
+    or ACP harness work into either OpenClaw ACP runtime sessions or direct acpx-driven
+    sessions ("telephone game" flow). For coding-agent thread requests, read this
+    skill first, then use only `sessions_spawn` for thread creation.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/acpx/skills/acp-router
+  updated_at: '1774577717'
+- rank: 2
+  id: openclaw-openclaw-skills-xurl-skill-md
+  name: xurl
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: A CLI tool for making authenticated requests to the X (Twitter) API.
+    Use this skill when you need to post tweets, reply, quote, search, read posts,
+    manage followers, send DMs, upload media, or interact with any X API v2 endpoint.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/xurl
+  updated_at: '1773234790'
+- rank: 3
+  id: affaan-m-everything-claude-code-agents-skills-api-design-skill-md
+  name: api-design
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: REST API design patterns including resource naming, status codes, pagination,
+    filtering, error responses, versioning, and rate limiting for production APIs.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/api-design
+  updated_at: '1772045129'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-tr-skills-api-design-skill-md
+  name: api-design
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: REST API tasarım kalıpları; kaynak isimlendirme, durum kodları, sayfalama,
+    filtreleme, hata yanıtları, versiyonlama ve üretim API'leri için hız sınırlama
+    içerir.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/api-design
+  updated_at: '1774219024'
+- rank: 5
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-api-design-skill-md
+  name: api-design
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: REST API设计模式，包括资源命名、状态码、分页、过滤、错误响应、版本控制和生产API的速率限制。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/api-design
+  updated_at: '1774219164'
+- rank: 6
+  id: affaan-m-everything-claude-code-kiro-skills-api-design-skill-md
+  name: api-design
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: REST API design patterns including resource naming, status codes, pagination,
+    filtering, error responses, versioning, and rate limiting for production APIs.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/api-design
+  updated_at: '1774241745'
+- rank: 7
+  id: affaan-m-everything-claude-code-skills-api-design-skill-md
+  name: api-design
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: REST API design patterns including resource naming, status codes, pagination,
+    filtering, error responses, versioning, and rate limiting for production APIs.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/api-design
+  updated_at: '1771862457'
+- rank: 8
+  id: affaan-m-everything-claude-code-agents-skills-backend-patterns-skill-md
+  name: backend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Backend architecture patterns, API design, database optimization, and
+    server-side best practices for Node.js, Express, and Next.js API routes.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/backend-patterns
+  updated_at: '1772045129'
+- rank: 9
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-backend-patterns-skill-md
+  name: backend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Node.js, Express, Next.js API 라우트를 위한 백엔드 아키텍처 패턴, API 설계, 데이터베이스 최적화
+    및 서버 사이드 모범 사례.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/backend-patterns
+  updated_at: '1773386274'
+- rank: 10
+  id: affaan-m-everything-claude-code-docs-tr-skills-backend-patterns-skill-md
+  name: backend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Node.js, Express ve Next.js API routes için backend mimari kalıpları,
+    API tasarımı, veritabanı optimizasyonu ve sunucu tarafı en iyi uygulamalar.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/backend-patterns
+  updated_at: '1774219024'
+- rank: 11
+  id: affaan-m-everything-claude-code-kiro-skills-backend-patterns-skill-md
+  name: backend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Backend architecture patterns, API design, database optimization, and
+    server-side best practices for Node.js, Express, and Next.js API routes.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/backend-patterns
+  updated_at: '1774241745'
+- rank: 12
+  id: affaan-m-everything-claude-code-skills-backend-patterns-skill-md
+  name: backend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Backend architecture patterns, API design, database optimization, and
+    server-side best practices for Node.js, Express, and Next.js API routes.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/backend-patterns
+  updated_at: '1771862457'
+- rank: 13
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-blueprint-skill-md
+  name: blueprint
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '将单行目标转化为多会话、多代理工程项目的分步构建计划。每个步骤包含独立的上下文简介，以便新代理能直接执行。包括对抗性审查门、依赖图、并行步骤检测、反模式目录和计划突变协议。触发条件：当用户请求复杂多PR任务的计划、蓝图或路线图，或描述需要多个会话的工作时。不触发条件：任务可在单个PR或少于3个工具调用中完成，或用户说“直接执行”时。origin:
+    community'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/blueprint
+  updated_at: '1774219164'
+- rank: 14
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-carrier-relationship-management-skill-md
+  name: carrier-relationship-management
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '用于管理承运商组合、协商运费、跟踪承运商绩效、分配货运以及维护战略承运商关系的编码专业知识。基于拥有15年以上经验的运输经理提供的信息。包括记分卡框架、RFP流程、市场情报和合规性审查。适用于管理承运商、协商费率、评估承运商绩效或制定货运策略时使用。license:
+    Apache-2.0'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/carrier-relationship-management
+  updated_at: '1773395144'
+- rank: 15
+  id: affaan-m-everything-claude-code-docs-tr-skills-coding-standards-skill-md
+  name: coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: TypeScript, JavaScript, React ve Node.js geliştirme için evrensel kodlama
+    standartları, en iyi uygulamalar ve kalıplar.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/coding-standards
+  updated_at: '1774219024'
+- rank: 16
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-content-hash-cache-pattern-skill-md
+  name: content-hash-cache-pattern
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用SHA-256内容哈希缓存昂贵的文件处理结果——路径无关、自动失效、服务层分离。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/content-hash-cache-pattern
+  updated_at: '1772519307'
+- rank: 17
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-cost-aware-llm-pipeline-skill-md
+  name: cost-aware-llm-pipeline
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: LLM API 使用成本优化模式 —— 基于任务复杂度的模型路由、预算跟踪、重试逻辑和提示缓存。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/cost-aware-llm-pipeline
+  updated_at: '1772519307'
+- rank: 18
+  id: affaan-m-everything-claude-code-docs-tr-skills-django-patterns-skill-md
+  name: django-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: DRF ile Django mimari desenleri, REST API tasarımı, ORM en iyi uygulamaları,
+    caching, signal'ler, middleware ve production-grade Django uygulamaları.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/django-patterns
+  updated_at: '1774219024'
+- rank: 19
+  id: affaan-m-everything-claude-code-skills-django-patterns-skill-md
+  name: django-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Django architecture patterns, REST API design with DRF, ORM best practices,
+    caching, signals, middleware, and production-grade Django apps.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/django-patterns
+  updated_at: '1771862457'
+- rank: 20
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-documentation-lookup-skill-md
+  name: documentation-lookup
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 通过 Context7 MCP 使用最新的库和框架文档，而非训练数据。当用户提出设置问题、API参考、代码示例或命名框架（例如 React、Next.js、Prisma）时激活。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/documentation-lookup
+  updated_at: '1774068958'
+- rank: 21
+  id: affaan-m-everything-claude-code-docs-tr-skills-laravel-patterns-skill-md
+  name: laravel-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Laravel architecture patterns, routing/controllers, Eloquent ORM, service
+    layers, queues, events, caching, and API resources for production apps.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/laravel-patterns
+  updated_at: '1774219024'
+- rank: 22
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-laravel-patterns-skill-md
+  name: laravel-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Laravel架构模式、路由/控制器、Eloquent ORM、服务层、队列、事件、缓存以及用于生产应用的API资源。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/laravel-patterns
+  updated_at: '1774219164'
+- rank: 23
+  id: affaan-m-everything-claude-code-skills-laravel-patterns-skill-md
+  name: laravel-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Laravel architecture patterns, routing/controllers, Eloquent ORM, service
+    layers, queues, events, caching, and API resources for production apps.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/laravel-patterns
+  updated_at: '1773693323'
+- rank: 24
+  id: affaan-m-everything-claude-code-agents-skills-mcp-server-patterns-skill-md
+  name: mcp-server-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Build MCP servers with Node/TypeScript SDK — tools, resources, prompts,
+    Zod validation, stdio vs Streamable HTTP. Use Context7 or official MCP docs for
+    latest API.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/mcp-server-patterns
+  updated_at: '1773693311'
+- rank: 25
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-mcp-server-patterns-skill-md
+  name: mcp-server-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用Node/TypeScript SDK构建MCP服务器——工具、资源、提示、Zod验证、stdio与可流式HTTP对比。使用Context7或官方MCP文档获取最新API信息。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/mcp-server-patterns
+  updated_at: '1774068958'
+- rank: 26
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-swift-actor-persistence-skill-md
+  name: swift-actor-persistence
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 在 Swift 中使用 actor 实现线程安全的数据持久化——基于内存缓存与文件支持的存储，通过设计消除数据竞争。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/swift-actor-persistence
+  updated_at: '1772519307'
+- rank: 27
+  id: affaan-m-everything-claude-code-skills-swift-actor-persistence-skill-md
+  name: swift-actor-persistence
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Thread-safe data persistence in Swift using actors — in-memory cache
+    with file-backed storage, eliminating data races by design.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/swift-actor-persistence
+  updated_at: '1771862457'
+- rank: 28
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-swift-concurrency-6-2-skill-md
+  name: swift-concurrency-6-2
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Swift 6.2 可接近的并发性 — 默认单线程，@concurrent 用于显式后台卸载，隔离一致性用于主 actor 类型。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/swift-concurrency-6-2
+  updated_at: '1772519307'
+- rank: 29
+  id: lobehub-lobehub-agents-skills-response-compliance-skill-md
+  name: response-compliance
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: OpenResponses API compliance testing. Use when testing the Response
+    API endpoint, running compliance tests, or debugging Response API schema issues.
+    Triggers on 'compliance', 'response api test', 'openresponses test'.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/response-compliance
+  updated_at: '1773283148'
+- rank: 30
+  id: lobehub-lobehub-agents-skills-trpc-router-skill-md
+  name: trpc-router
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: TRPC router development guide. Use when creating or modifying TRPC
+    routers (src/server/routers/**), adding procedures, or working with server-side
+    API endpoints. Triggers on TRPC router creation, procedure implementation, or
+    API endpoint tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/trpc-router
+  updated_at: '1774278091'
+- rank: 31
+  id: jetbrains-kotlin-claude-skills-analysis-extend-ka-resolver-skill-md
+  name: analysis-extend-ka-resolver
+  author: JetBrains
+  stars: 52516
+  forks: 6272
+  description: Add KaResolver resolveSymbol/resolveCall support for a PSI type
+  github_url: https://github.com/JetBrains/kotlin/tree/master/.claude/skills/analysis-extend-ka-resolver
+  updated_at: '1771438609'
+- rank: 32
+  id: tryghost-ghost-claude-skills-add-admin-api-endpoint-skill-md
+  name: add-admin-api-endpoint
+  author: TryGhost
+  stars: 52172
+  forks: 11396
+  description: Add a new endpoint or endpoints to Ghost's Admin API at `ghost/api/admin/**`.
+  github_url: https://github.com/TryGhost/Ghost/tree/main/.claude/skills/add-admin-api-endpoint
+  updated_at: '1764792575'
+- rank: 33
+  id: metabase-metabase-claude-skills-add-malli-schemas-skill-md
+  name: add-malli-schemas
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Efficiently add Malli schemas to API endpoints in the Metabase codebase
+    with proper patterns, validation timing, and error handling
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/add-malli-schemas
+  updated_at: '1766070812'
+- rank: 34
+  id: penpot-penpot-opencode-skills-backend-skill-md
+  name: penpot-backend
+  author: penpot
+  stars: 45072
+  forks: 2632
+  description: Guidelines and workflows for the Penpot Clojure JVM backend.
+  github_url: https://github.com/penpot/penpot/tree/develop/.opencode/skills/backend
+  updated_at: '1774479029'
+- rank: 35
+  id: twentyhq-twenty-cursor-skills-syncable-entity-integration-skill-md
+  name: syncable-entity-integration
+  author: twentyhq
+  stars: 42296
+  forks: 5615
+  description: Wire syncable entity services into NestJS modules, create service layer
+    and resolvers for Twenty entities. Use when registering builders, validators,
+    and action handlers in modules, creating business services, or exposing entities
+    via GraphQL API with proper exception handling.
+  github_url: https://github.com/twentyhq/twenty/tree/main/.cursor/skills/syncable-entity-integration
+  updated_at: '1770981511'
+- rank: 36
+  id: trpc-trpc-packages-server-skills-adapter-aws-lambda-skill-md
+  name: adapter-aws-lambda
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Deploy tRPC on AWS Lambda with awsLambdaRequestHandler() from @trpc/server/adapters/aws-lambda
+    for API Gateway v1 (REST, APIGatewayProxyEvent) and v2 (HTTP, APIGatewayProxyEventV2),
+    and Lambda Function URLs. Enable response streaming with awsLambdaStreamingRequestHandler()
+    wrapped in awslambda.streamifyResponse(). CreateAWSLambdaContextOptions provides
+    event and context for context creation.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/adapter-aws-lambda
+  updated_at: '1774697990'
+- rank: 37
+  id: trpc-trpc-packages-server-skills-adapter-fetch-skill-md
+  name: adapter-fetch
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Deploy tRPC on WinterCG-compliant edge runtimes with fetchRequestHandler()
+    from @trpc/server/adapters/fetch. Supports Cloudflare Workers, Deno Deploy, Vercel
+    Edge Runtime, Astro, Remix, SolidStart. FetchCreateContextFnOptions provides req
+    (Request) and resHeaders (Headers) for context creation. The endpoint option must
+    match the URL path prefix where the handler is mounted.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/adapter-fetch
+  updated_at: '1774697990'
+- rank: 38
+  id: trpc-trpc-packages-server-skills-adapter-standalone-skill-md
+  name: adapter-standalone
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Mount tRPC on Node.js built-in HTTP server with createHTTPServer()
+    from @trpc/server/adapters/standalone, createHTTPHandler() for custom http.createServer,
+    createHTTP2Handler() for HTTP/2 with TLS. Configure basePath to slice URL prefix,
+    CORS via the cors npm package passed as middleware option. CreateHTTPContextOptions
+    provides req and res for context creation.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/adapter-standalone
+  updated_at: '1774697990'
+- rank: 39
+  id: trpc-trpc-packages-server-skills-middlewares-skill-md
+  name: middlewares
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Create and compose tRPC middleware with t.procedure.use(), extend context
+    via opts.next({ ctx }), build reusable middleware with .concat() and .unstable_pipe(),
+    define base procedures like publicProcedure and authedProcedure. Access raw input
+    with getRawInput(). Logging, timing, OTEL tracing patterns.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/middlewares
+  updated_at: '1774697990'
+- rank: 40
+  id: trpc-trpc-packages-next-skills-nextjs-pages-router-skill-md
+  name: nextjs-pages-router
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Set up tRPC in Next.js Pages Router with createNextApiHandler, createTRPCNext,
+    withTRPC HOC, SSR via ssr option and ssrPrepass, SSG via createServerSideHelpers
+    with getStaticProps, and server-side helpers for getServerSideProps prefetching.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/next/skills/nextjs-pages-router
+  updated_at: '1774697990'
+- rank: 41
+  id: trpc-trpc-packages-server-skills-non-json-content-types-skill-md
+  name: non-json-content-types
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Handle FormData, file uploads, Blob, Uint8Array, and ReadableStream
+    inputs in tRPC mutations. Use octetInputParser from @trpc/server/http for binary
+    data. Route non-JSON requests with splitLink and isNonJsonSerializable() from
+    @trpc/client. FormData and binary inputs only work with mutations (POST).
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/non-json-content-types
+  updated_at: '1774697990'
+- rank: 42
+  id: trpc-trpc-packages-openapi-skills-openapi-skill-md
+  name: openapi
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Generate OpenAPI 3.1 spec from a tRPC router with @trpc/openapi CLI
+    or programmatic API. Generate typed REST client with @hey-api/openapi-ts and configureTRPCHeyApiClient().
+    Configure transformers (superjson, EJSON) for generated clients. Alpha status.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/openapi/skills/openapi
+  updated_at: '1774697990'
+- rank: 43
+  id: trpc-trpc-packages-server-skills-server-side-calls-skill-md
+  name: server-side-calls
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Call tRPC procedures directly from server code using t.createCallerFactory()
+    and router.createCaller(context) for integration testing, internal server logic,
+    and custom API endpoints. Catch TRPCError and extract HTTP status with getHTTPStatusCodeFromError().
+    Error handling via onError option.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/server-side-calls
+  updated_at: '1774697990'
+- rank: 44
+  id: trpc-trpc-packages-server-skills-service-oriented-architecture-skill-md
+  name: service-oriented-architecture
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Break a tRPC backend into multiple services with custom routing links
+    that split on the first path segment (op.path.split('.')) to route to different
+    backend service URLs. Define a faux gateway router that merges service routers
+    for the AppRouter type without running them in the same process. Share procedure
+    and router definitions via a server-lib package with a single initTRPC instance.
+    Each service runs its own standalone/Express/Fastify server.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/service-oriented-architecture
+  updated_at: '1774697990'
+- rank: 45
+  id: trpc-trpc-packages-client-skills-superjson-skill-md
+  name: superjson
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: 'Configure SuperJSON transformer on both server initTRPC.create({ transformer:
+    superjson }) and every client terminating link (httpBatchLink, httpLink, wsLink,
+    httpSubscriptionLink) to support Date, Map, Set, BigInt over the wire. Transformer
+    must match on both sides. In v11, transformer goes on individual links, not the
+    client constructor.'
+  github_url: https://github.com/trpc/trpc/tree/main/packages/client/skills/superjson
+  updated_at: '1774697990'
+- rank: 46
+  id: trpc-trpc-packages-server-skills-trpc-router-skill-md
+  name: trpc-router
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: 'Entry point for all tRPC skills. Decision tree routing by task: initTRPC.create(),
+    t.router(), t.procedure, createTRPCClient, adapters, subscriptions, React Query,
+    Next.js, links, middleware, validators, error handling, caching, FormData.'
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/trpc-router
+  updated_at: '1774697990'
+- rank: 47
+  id: trpc-trpc-packages-server-skills-validators-skill-md
+  name: validators
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Configure input and output validation with .input() and .output() using
+    Zod, Yup, Superstruct, ArkType, Valibot, Effect, or custom validator functions.
+    Chain multiple .input() calls to merge object schemas. Standard Schema protocol
+    support. Output validation returns INTERNAL_SERVER_ERROR on failure.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/validators
+  updated_at: '1774697990'
+- rank: 48
+  id: wshobson-agents-plugins-backend-development-skills-api-design-principles-skill-md
+  name: api-design-principles
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master REST and GraphQL API design principles to build intuitive, scalable,
+    and maintainable APIs that delight developers. Use when designing new APIs, reviewing
+    API specifications, or establishing API design standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/api-design-principles
+  updated_at: '1772898797'
+- rank: 49
+  id: wshobson-agents-plugins-api-scaffolding-skills-fastapi-templates-skill-md
+  name: fastapi-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready FastAPI projects with async patterns, dependency
+    injection, and comprehensive error handling. Use when building new FastAPI applications
+    or setting up backend API projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/api-scaffolding/skills/fastapi-templates
+  updated_at: '1772898797'
+- rank: 50
+  id: posthog-posthog-agents-skills-implementing-mcp-tools-skill-md
+  name: implementing-mcp-tools
+  author: PostHog
+  stars: 32259
+  forks: 2440
+  description: Guide for exposing PostHog product endpoints as MCP tools. Use when
+    creating new or updating API endpoints, adding MCP tool definitions, scaffolding
+    YAML configs, or writing serializers with good descriptions. Covers the full pipeline
+    from Django serializer to generated TypeScript tool handler.
+  github_url: https://github.com/PostHog/posthog/tree/master/.agents/skills/implementing-mcp-tools
+  updated_at: '1774273963'

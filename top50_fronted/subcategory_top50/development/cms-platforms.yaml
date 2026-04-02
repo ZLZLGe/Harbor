@@ -1,0 +1,599 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: cms-platforms
+subcategory_name: CMS & Platforms
+subcategory_skill_count: 13250
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=cms-platforms
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 13250
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-coding-agent-skill-md
+  name: coding-agent
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'Delegate coding tasks to Codex, Claude Code, or Pi agents via background
+    process. Use when: (1) building/creating new features or apps, (2) reviewing PRs
+    (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that
+    needs file exploration. NOT for: simple one-liner fixes (just edit), reading code
+    (use read tool), thread-bound ACP harness requests in chat (for example spawn/run
+    Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:"acp"),
+    or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print
+    --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/coding-agent
+  updated_at: '1774333273'
+- rank: 2
+  id: openclaw-openclaw-skills-notion-skill-md
+  name: notion
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Notion API for creating and managing pages, databases, and blocks.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/notion
+  updated_at: '1772846400'
+- rank: 3
+  id: openclaw-openclaw-extensions-open-prose-skills-prose-skill-md
+  name: prose
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: OpenProse VM skill pack. Activate on any `prose` command, .prose files,
+    or OpenProse mentions; orchestrates multi-agent workflows.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/open-prose/skills/prose
+  updated_at: '1773433179'
+- rank: 4
+  id: f-prompts-chat-windsurf-skills-widget-generator-skill-md
+  name: widget-generator
+  author: f
+  stars: 154455
+  forks: 20287
+  description: Generate customizable widget plugins for the prompts.chat feed system
+  github_url: https://github.com/f/prompts.chat/tree/main/.windsurf/skills/widget-generator
+  updated_at: '1771521638'
+- rank: 5
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Automatically extract reusable patterns from Claude Code sessions and
+    save them as learned skills for future use.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/continuous-learning
+  updated_at: '1772664486'
+- rank: 6
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 在添加身份验证、处理用户输入、处理机密信息、创建API端点或实现支付/敏感功能时使用此技能。提供全面的安全检查清单和模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/security-review
+  updated_at: '1772519307'
+- rank: 7
+  id: anthropics-claude-code-plugins-plugin-dev-skills-plugin-settings-skill-md
+  name: configured-agent
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: This skill should be used when the user asks about "plugin settings",
+    "store plugin configuration", "user-configurable plugin", ".local.md files", "plugin
+    state files", "read YAML frontmatter", "per-project plugin settings", or wants
+    to make plugin behavior configurable. Documents the .claude/plugin-name.local.md
+    pattern for storing plugin-specific configuration with YAML frontmatter and markdown
+    content.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/plugin-settings
+  updated_at: '1763381340'
+- rank: 8
+  id: lobehub-lobehub-agents-skills-drizzle-skill-md
+  name: drizzle
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Drizzle ORM schema and database guide. Use when working with database
+    schemas (src/database/schemas/*), defining tables, creating migrations, or database
+    model code. Triggers on Drizzle schema definition, database migrations, or ORM
+    usage questions.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/drizzle
+  updated_at: '1772464681'
+- rank: 9
+  id: lobehub-lobehub-agents-skills-project-overview-skill-md
+  name: project-overview
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Complete project architecture and structure guide. Use when exploring
+    the codebase, understanding project organization, finding files, or needing comprehensive
+    architectural context. Triggers on architecture questions, directory navigation,
+    or project overview needs.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/project-overview
+  updated_at: '1773497169'
+- rank: 10
+  id: lobehub-lobehub-agents-skills-react-skill-md
+  name: react
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: React component development guide. Use when working with React components
+    (.tsx files), creating UI, using @lobehub/ui components, implementing routing,
+    or building frontend features. Triggers on React component creation, modification,
+    layout implementation, or navigation tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/react
+  updated_at: '1774427257'
+- rank: 11
+  id: openai-codex-codex-rs-skills-src-assets-samples-plugin-creator-skill-md
+  name: plugin-creator
+  author: openai
+  stars: 68113
+  forks: 9132
+  description: Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`,
+    optional plugin folders/files, and baseline placeholders you can edit before publishing
+    or testing. Use when Codex needs to create a new local plugin, add optional plugin
+    structure, or generate or update repo-root `.agents/plugins/marketplace.json`
+    entries for plugin ordering and availability metadata.
+  github_url: https://github.com/openai/codex/tree/main/codex-rs/skills/src/assets/samples/plugin-creator
+  updated_at: '1774428910'
+- rank: 12
+  id: composiohq-awesome-claude-skills-developer-growth-analysis-skill-md
+  name: developer-growth-analysis
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Analyzes your recent Claude Code chat history to identify coding patterns,
+    development gaps, and areas for improvement, curates relevant learning resources
+    from HackerNews, and automatically sends a personalized growth report to your
+    Slack DMs.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/developer-growth-analysis
+  updated_at: '1762790232'
+- rank: 13
+  id: metabase-metabase-claude-skills-docs-write-skill-md
+  name: docs-write
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Write documentation following Metabase's conversational, clear, and
+    user-focused style. Use when creating or editing documentation files (markdown,
+    MDX, etc.).
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/docs-write
+  updated_at: '1770740877'
+- rank: 14
+  id: tldraw-tldraw-claude-skills-write-release-notes-skill-md
+  name: write-release-notes
+  author: tldraw
+  stars: 46086
+  forks: 3105
+  description: Writing release notes articles for tldraw SDK releases. Use when creating
+    new release documentation, drafting release notes from scratch, or reviewing release
+    note quality. Provides guidance on structure, voice, and content for release files
+    in `apps/docs/content/releases/`.
+  github_url: https://github.com/tldraw/tldraw/tree/main/.claude/skills/write-release-notes
+  updated_at: '1772649179'
+- rank: 15
+  id: penpot-penpot-opencode-skills-common-skill-md
+  name: penpot-common
+  author: penpot
+  stars: 45072
+  forks: 2632
+  description: Guidelines and workflows for the Penpot Common shared module.
+  github_url: https://github.com/penpot/penpot/tree/develop/.opencode/skills/common
+  updated_at: '1774479029'
+- rank: 16
+  id: penpot-penpot-opencode-skills-render-wasm-skill-md
+  name: penpot-render-wasm
+  author: penpot
+  stars: 45072
+  forks: 2632
+  description: Guidelines and workflows for the Penpot Rust to WebAssembly renderer.
+  github_url: https://github.com/penpot/penpot/tree/develop/.opencode/skills/render-wasm
+  updated_at: '1774479029'
+- rank: 17
+  id: code-yeongyu-oh-my-openagent-src-features-builtin-skills-frontend-ui-ux-skill-md
+  name: frontend-ui-ux
+  author: code-yeongyu
+  stars: 44356
+  forks: 3299
+  description: Designer-turned-developer who crafts stunning UI/UX even without design
+    mockups
+  github_url: https://github.com/code-yeongyu/oh-my-openagent/tree/dev/src/features/builtin-skills/frontend-ui-ux
+  updated_at: '1767893083'
+- rank: 18
+  id: payloadcms-payload-tools-claude-plugin-skills-payload-skill-md
+  name: payload
+  author: payloadcms
+  stars: 41477
+  forks: 3517
+  description: Use when working with Payload CMS projects (payload.config.ts, collections,
+    fields, hooks, access control, Payload API). Use when debugging validation errors,
+    security issues, relationship queries, transactions, or hook behavior.
+  github_url: https://github.com/payloadcms/payload/tree/main/tools/claude-plugin/skills/payload
+  updated_at: '1767123298'
+- rank: 19
+  id: paperclipai-paperclip-skills-paperclip-create-plugin-skill-md
+  name: paperclip-create-plugin
+  author: paperclipai
+  stars: 36317
+  forks: 5256
+  description: Create new Paperclip plugins with the current alpha SDK/runtime. Use
+    when scaffolding a plugin package, adding a new example plugin, or updating plugin
+    authoring docs. Covers the supported worker/UI surface, route conventions, scaffold
+    flow, and verification steps.
+  github_url: https://github.com/paperclipai/paperclip/tree/master/skills/paperclip-create-plugin
+  updated_at: '1773502821'
+- rank: 20
+  id: wshobson-agents-plugins-backend-development-skills-api-design-principles-skill-md
+  name: api-design-principles
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master REST and GraphQL API design principles to build intuitive, scalable,
+    and maintainable APIs that delight developers. Use when designing new APIs, reviewing
+    API specifications, or establishing API design standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/api-design-principles
+  updated_at: '1772898797'
+- rank: 21
+  id: wshobson-agents-plugins-conductor-skills-context-driven-development-skill-md
+  name: context-driven-development
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Creates and maintains project context artifacts (product.md, tech-stack.md,
+    workflow.md, tracks.md) in a `conductor/` directory. Scaffolds new projects from
+    scratch, extracts context from existing codebases, validates artifact consistency
+    before implementation, and synchronizes documents as the project evolves. Use
+    when setting up a project, creating or updating product docs, managing a tech
+    stack file, defining development workflows, tracking work units, onboarding to
+    an existing codebase, or running project scaffolding.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/conductor/skills/context-driven-development
+  updated_at: '1771636079'
+- rank: 22
+  id: wshobson-agents-plugins-data-engineering-skills-dbt-transformation-patterns-skill-md
+  name: dbt-transformation-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master dbt (data build tool) for analytics engineering with model organization,
+    testing, documentation, and incremental strategies. Use when building data transformations,
+    creating data models, or implementing analytics engineering best practices.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/data-engineering/skills/dbt-transformation-patterns
+  updated_at: '1772898797'
+- rank: 23
+  id: wshobson-agents-plugins-ui-design-skills-design-system-patterns-skill-md
+  name: design-system-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build scalable design systems with design tokens, theming infrastructure,
+    and component architecture patterns. Use when creating design tokens, implementing
+    theme switching, building component libraries, or establishing design system foundations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/design-system-patterns
+  updated_at: '1772898797'
+- rank: 24
+  id: wshobson-agents-plugins-api-scaffolding-skills-fastapi-templates-skill-md
+  name: fastapi-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready FastAPI projects with async patterns, dependency
+    injection, and comprehensive error handling. Use when building new FastAPI applications
+    or setting up backend API projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/api-scaffolding/skills/fastapi-templates
+  updated_at: '1772898797'
+- rank: 25
+  id: wshobson-agents-plugins-cicd-automation-skills-github-actions-templates-skill-md
+  name: github-actions-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready GitHub Actions workflows for automated testing,
+    building, and deploying applications. Use when setting up CI/CD with GitHub Actions,
+    automating development workflows, or creating reusable workflow templates.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/github-actions-templates
+  updated_at: '1772898797'
+- rank: 26
+  id: wshobson-agents-plugins-game-development-skills-godot-gdscript-patterns-skill-md
+  name: godot-gdscript-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Godot 4 GDScript patterns including signals, scenes, state machines,
+    and optimization. Use when building Godot games, implementing game systems, or
+    learning GDScript best practices.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/game-development/skills/godot-gdscript-patterns
+  updated_at: '1774489980'
+- rank: 27
+  id: wshobson-agents-plugins-ui-design-skills-mobile-android-design-skill-md
+  name: mobile-android-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Material Design 3 and Jetpack Compose patterns for building
+    native Android apps. Use when designing Android interfaces, implementing Compose
+    UI, or following Google's Material Design guidelines.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-android-design
+  updated_at: '1772898797'
+- rank: 28
+  id: wshobson-agents-plugins-ui-design-skills-mobile-ios-design-skill-md
+  name: mobile-ios-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master iOS Human Interface Guidelines and SwiftUI patterns for building
+    native iOS apps. Use when designing iOS interfaces, implementing SwiftUI views,
+    or ensuring apps follow Apple's design principles.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-ios-design
+  updated_at: '1772898797'
+- rank: 29
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-nextjs-app-router-patterns-skill-md
+  name: nextjs-app-router-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Next.js 14+ App Router with Server Components, streaming, parallel
+    routes, and advanced data fetching. Use when building Next.js applications, implementing
+    SSR/SSG, or optimizing React Server Components.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/nextjs-app-router-patterns
+  updated_at: '1772898797'
+- rank: 30
+  id: wshobson-agents-plugins-python-development-skills-python-observability-skill-md
+  name: python-observability
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python observability patterns including structured logging, metrics,
+    and distributed tracing. Use when adding logging, implementing metrics collection,
+    setting up tracing, or debugging production systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-observability
+  updated_at: '1769791934'
+- rank: 31
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-react-native-architecture-skill-md
+  name: react-native-architecture
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build production React Native apps with Expo, navigation, native modules,
+    offline sync, and cross-platform patterns. Use when developing mobile apps, implementing
+    native integrations, or architecting React Native projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/react-native-architecture
+  updated_at: '1772898797'
+- rank: 32
+  id: wshobson-agents-plugins-ui-design-skills-react-native-design-skill-md
+  name: react-native-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master React Native styling, navigation, and Reanimated animations
+    for cross-platform mobile development. Use when building React Native apps, implementing
+    navigation patterns, or creating performant animations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/react-native-design
+  updated_at: '1772898797'
+- rank: 33
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-tailwind-design-system-skill-md
+  name: tailwind-design-system
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build scalable design systems with Tailwind CSS v4, design tokens,
+    component libraries, and responsive patterns. Use when creating component libraries,
+    implementing design systems, or standardizing UI patterns.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/tailwind-design-system
+  updated_at: '1774489944'
+- rank: 34
+  id: wshobson-agents-plugins-ui-design-skills-web-component-design-skill-md
+  name: web-component-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master React, Vue, and Svelte component patterns including CSS-in-JS,
+    composition strategies, and reusable component architecture. Use when building
+    UI component libraries, designing component APIs, or implementing frontend design
+    systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/web-component-design
+  updated_at: '1772898797'
+- rank: 35
+  id: heroui-inc-heroui-skills-heroui-native-skill-md
+  name: heroui-native
+  author: heroui-inc
+  stars: 28716
+  forks: 2092
+  description: 'HeroUI Native component library for React Native (Tailwind v4 via
+    Uniwind). Use when building mobile UIs with HeroUI Native — creating Buttons,
+    Cards, TextFields, Dialogs; installing heroui-native; configuring dark/light themes;
+    or fetching component docs. Keywords: HeroUI Native, heroui-native, React Native
+    UI, Uniwind, mobile components.'
+  github_url: https://github.com/heroui-inc/heroui/tree/v3/skills/heroui-native
+  updated_at: '1774541149'
+- rank: 36
+  id: heroui-inc-heroui-skills-heroui-react-skill-md
+  name: heroui-react
+  author: heroui-inc
+  stars: 28716
+  forks: 2092
+  description: 'HeroUI v3 React component library (Tailwind CSS v4 + React Aria).
+    Use when building UIs with HeroUI — creating Buttons, Modals, Forms, Cards; installing
+    @heroui/react; configuring dark/light themes with oklch variables; or fetching
+    component docs. Keywords: HeroUI, Hero UI, heroui, @heroui/react, @heroui/styles.'
+  github_url: https://github.com/heroui-inc/heroui/tree/v3/skills/heroui-react
+  updated_at: '1774541149'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-astro-skill-md
+  name: astro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build content-focused websites with Astro — zero JS by default, islands
+    architecture, multi-framework components, and Markdown/MDX support.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/astro
+  updated_at: '1773833568'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-macos-spm-app-packaging-skill-md
+  name: macos-spm-app-packaging
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Scaffold, build, sign, and package SwiftPM macOS apps without Xcode
+    projects.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/macos-spm-app-packaging
+  updated_at: '1774435988'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-radix-ui-design-system-skill-md
+  name: radix-ui-design-system
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build accessible design systems with Radix UI primitives. Headless
+    component customization, theming strategies, and compound component patterns for
+    production-grade UI libraries.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/radix-ui-design-system
+  updated_at: '1773855051'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-shopify-development-skill-md
+  name: shopify-development
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify
+    CLI, Polaris UI, and Liquid.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/shopify-development
+  updated_at: '1772354305'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-theme-factory-skill-md
+  name: theme-factory
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: This skill provides a curated collection of professional font and color
+    themes themes, each with carefully selected color palettes and font pairings.
+    Once a theme is chosen, it can be applied to any artifact.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/theme-factory
+  updated_at: '1773994005'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-wordpress-skill-md
+  name: wordpress
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Complete WordPress development workflow covering theme development,
+    plugin creation, WooCommerce integration, performance optimization, and security
+    hardening. Includes WordPress 7.0 features: Real-Time Collaboration, AI Connectors,
+    Abilities API, DataViews, and PHP-only blocks.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/wordpress
+  updated_at: '1774435819'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-wordpress-plugin-development-skill-md
+  name: wordpress-plugin-development
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'WordPress plugin development workflow covering plugin architecture,
+    hooks, admin interfaces, REST API, security best practices, and WordPress 7.0
+    features: Real-Time Collaboration, AI Connectors, Abilities API, DataViews, and
+    PHP-only blocks.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/wordpress-plugin-development
+  updated_at: '1774435819'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-wordpress-theme-development-skill-md
+  name: wordpress-theme-development
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'WordPress theme development workflow covering theme architecture,
+    template hierarchy, custom post types, block editor support, responsive design,
+    and WordPress 7.0 features: DataViews, Pattern Editing, Navigation Overlays, and
+    admin refresh.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/wordpress-theme-development
+  updated_at: '1774435819'
+- rank: 45
+  id: github-awesome-copilot-skills-containerize-aspnet-framework-skill-md
+  name: containerize-aspnet-framework
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Containerize an ASP.NET .NET Framework project by creating Dockerfile
+    and .dockerfile files customized for the project.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/containerize-aspnet-framework
+  updated_at: '1771904373'
+- rank: 46
+  id: github-awesome-copilot-skills-containerize-aspnetcore-skill-md
+  name: containerize-aspnetcore
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Containerize an ASP.NET Core project by creating Dockerfile and .dockerfile
+    files customized for the project.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/containerize-aspnetcore
+  updated_at: '1771904373'
+- rank: 47
+  id: github-awesome-copilot-skills-penpot-uiux-design-skill-md
+  name: penpot-uiux-design
+  author: github
+  stars: 27427
+  forks: 3175
+  description: 'Comprehensive guide for creating professional UI/UX designs in Penpot
+    using MCP tools. Use this skill when: (1) Creating new UI/UX designs for web,
+    mobile, or desktop applications, (2) Building design systems with components and
+    tokens, (3) Designing dashboards, forms, navigation, or landing pages, (4) Applying
+    accessibility standards and best practices, (5) Following platform guidelines
+    (iOS, Android, Material Design), (6) Reviewing or improving existing Penpot designs
+    for usability. Triggers: "design a UI", "create interface", "build layout", "design
+    dashboard", "create form", "design landing page", "make it accessible", "design
+    system", "component library".'
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/penpot-uiux-design
+  updated_at: '1770102409'
+- rank: 48
+  id: github-awesome-copilot-skills-php-mcp-server-generator-skill-md
+  name: php-mcp-server-generator
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate a complete PHP Model Context Protocol server project with
+    tools, resources, prompts, and tests using the official PHP SDK
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/php-mcp-server-generator
+  updated_at: '1771904373'
+- rank: 49
+  id: github-awesome-copilot-skills-web-design-reviewer-skill-md
+  name: web-design-reviewer
+  author: github
+  stars: 27427
+  forks: 3175
+  description: This skill enables visual inspection of websites running locally or
+    remotely to identify and fix design issues. Triggers on requests like "review
+    website design", "check the UI", "fix the layout", "find design problems". Detects
+    issues with responsive design, accessibility, visual consistency, and layout breakage,
+    then performs fixes at the source code level.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/web-design-reviewer
+  updated_at: '1767923167'
+- rank: 50
+  id: wox-launcher-wox-agents-skills-wox-plugin-creator-skill-md
+  name: wox-plugin-creator
+  author: Wox-launcher
+  stars: 26642
+  forks: 2405
+  description: Create, scaffold, implement, and package Wox plugins (nodejs, python,
+    script-nodejs, script-python). Use when cloning official SDK templates, generating
+    script plugin templates, editing plugin.json metadata, defining SettingDefinitions
+    and validators, wiring i18n, implementing plugin APIs, or preparing plugin repositories
+    for local packaging. If the user wants to publish a plugin to the official Wox
+    store or check whether it is already listed, prefer wox-plugin-submit2store.
+  github_url: https://github.com/Wox-launcher/Wox/tree/master/.agents/skills/wox-plugin-creator
+  updated_at: '1773798100'

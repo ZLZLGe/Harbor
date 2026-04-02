@@ -1,0 +1,614 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: business
+category_name: Business
+category_skill_count: 121378
+subcategory_slug: health-fitness
+subcategory_name: Health & Fitness
+subcategory_skill_count: 5251
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=health-fitness
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 5251
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-weather-skill-md
+  name: weather
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'Get current weather and forecasts via wttr.in or Open-Meteo. Use when:
+    user asks about weather, temperature, or forecasts for any location. NOT for:
+    historical weather data, severe weather alerts, or detailed meteorological analysis.
+    No API key needed.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/weather
+  updated_at: '1774333273'
+- rank: 2
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-data-analyst-skill-md
+  name: data-analyst
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'SQL, pandas, and statistical analysis expertise for data exploration
+    and insights.
+
+    Use when: analyzing data, writing SQL queries, using pandas, performing statistical
+    analysis,
+
+    or when user mentions data analysis, SQL, pandas, statistics, or needs help exploring
+    datasets.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/data-analyst
+  updated_at: '1770167437'
+- rank: 3
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-project-planner-skill-md
+  name: project-planner
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Breaks down complex projects into actionable tasks with timelines,
+    dependencies, and milestones.
+
+    Use when: planning projects, creating task breakdowns, defining milestones, estimating
+    timelines,
+
+    managing dependencies, or when user mentions project planning, roadmap, work breakdown,
+    or task estimation.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/project-planner
+  updated_at: '1770167437'
+- rank: 4
+  id: composiohq-awesome-claude-skills-file-organizer-skill-md
+  name: file-organizer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Intelligently organizes your files and folders across your computer
+    by understanding context, finding duplicates, suggesting better structures, and
+    automating cleanup tasks. Reduces cognitive load and keeps your digital workspace
+    tidy without manual effort.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/file-organizer
+  updated_at: '1760692175'
+- rank: 5
+  id: hkuds-nanobot-nanobot-skills-cron-skill-md
+  name: cron
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Schedule reminders and recurring tasks.
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/cron
+  updated_at: '1771317052'
+- rank: 6
+  id: hkuds-nanobot-nanobot-skills-weather-skill-md
+  name: weather
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Get current weather and forecasts (no API key required).
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/weather
+  updated_at: '1769971542'
+- rank: 7
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-trackio-skill-md
+  name: hugging-face-trackio
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Track and visualize ML training experiments with Trackio. Use when
+    logging metrics during training (Python API) or retrieving/analyzing logged metrics
+    (CLI). Supports real-time dashboard visualization, HF Space syncing, and JSON
+    output for automation.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-trackio
+  updated_at: '1769157944'
+- rank: 8
+  id: wshobson-agents-plugins-business-analytics-skills-data-storytelling-skill-md
+  name: data-storytelling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Transform data into compelling narratives using visualization, context,
+    and persuasive structure. Use when presenting analytics to stakeholders, creating
+    data reports, or building executive presentations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/data-storytelling
+  updated_at: '1772898797'
+- rank: 9
+  id: wshobson-agents-plugins-business-analytics-skills-kpi-dashboard-design-skill-md
+  name: kpi-dashboard-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design effective KPI dashboards with metrics selection, visualization
+    best practices, and real-time monitoring patterns. Use this skill when building
+    an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing
+    an operations center with live service health and request throughput; creating
+    a cohort retention analysis view for a product team; or debugging a dashboard
+    where metrics contradict each other due to inconsistent calculation methodology.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/kpi-dashboard-design
+  updated_at: '1774541149'
+- rank: 10
+  id: wshobson-agents-plugins-startup-business-analyst-skills-market-sizing-analysis-skill-md
+  name: market-sizing-analysis
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Calculate TAM/SAM/SOM for market opportunities using top-down, bottom-up,
+    and value theory methodologies. Use this skill when sizing markets, estimating
+    addressable revenue, validating market opportunity for a new venture, or building
+    investor-ready market analysis for a startup pitch or business plan.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/market-sizing-analysis
+  updated_at: '1774489443'
+- rank: 11
+  id: wshobson-agents-plugins-ui-design-skills-mobile-android-design-skill-md
+  name: mobile-android-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Material Design 3 and Jetpack Compose patterns for building
+    native Android apps. Use when designing Android interfaces, implementing Compose
+    UI, or following Google's Material Design guidelines.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-android-design
+  updated_at: '1772898797'
+- rank: 12
+  id: wshobson-agents-plugins-ui-design-skills-mobile-ios-design-skill-md
+  name: mobile-ios-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master iOS Human Interface Guidelines and SwiftUI patterns for building
+    native iOS apps. Use when designing iOS interfaces, implementing SwiftUI views,
+    or ensuring apps follow Apple's design principles.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-ios-design
+  updated_at: '1772898797'
+- rank: 13
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-financial-modeling-skill-md
+  name: startup-financial-modeling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build comprehensive 3-5 year financial models with revenue projections,
+    cost structures, cash flow analysis, and scenario planning for early-stage startups.
+    Use this skill when creating financial projections, calculating burn rate or runway,
+    modeling fundraising scenarios, or preparing investor-ready financials for a seed
+    or Series A raise.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-financial-modeling
+  updated_at: '1774489443'
+- rank: 14
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-metrics-framework-skill-md
+  name: startup-metrics-framework
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Track, calculate, and optimize key performance metrics for SaaS, marketplace,
+    consumer, and B2B startups from seed through Series A, including unit economics,
+    growth efficiency, and cash management. Use this skill when defining a metrics
+    framework, calculating CAC/LTV/burn multiple, benchmarking business health, or
+    preparing metrics dashboards for investors or board reporting.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-metrics-framework
+  updated_at: '1774489443'
+- rank: 15
+  id: wshobson-agents-plugins-agent-teams-skills-task-coordination-strategies-skill-md
+  name: task-coordination-strategies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent
+    work with proper task descriptions and workload balancing. Use this skill when
+    breaking down work for agent teams, managing task dependencies, or monitoring
+    team progress.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/task-coordination-strategies
+  updated_at: '1770331350'
+- rank: 16
+  id: wshobson-agents-plugins-startup-business-analyst-skills-team-composition-analysis-skill-md
+  name: team-composition-analysis
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design optimal team structures, hiring plans, compensation strategies,
+    and equity allocation for early-stage startups from pre-seed through Series A.
+    Use this skill when planning headcount, determining which roles to hire next,
+    setting compensation or equity ranges, designing org structure, or building a
+    hiring budget aligned to funding milestones.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/team-composition-analysis
+  updated_at: '1774489443'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-ai-analyzer-skill-md
+  name: ai-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: AI驱动的综合健康分析系统，整合多维度健康数据、识别异常模式、预测健康风险、提供个性化建议。支持智能问答和AI健康报告生成。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-analyzer
+  updated_at: '1773994629'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-fitness-analyzer-skill-md
+  name: fitness-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析运动数据、识别运动模式、评估健身进展，并提供个性化训练建议。支持与慢性病数据的关联分析。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fitness-analyzer
+  updated_at: '1773994629'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-goal-analyzer-skill-md
+  name: goal-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析健康目标数据、识别目标模式、评估目标进度,并提供个性化目标管理建议。支持与营养、运动、睡眠等健康数据的关联分析。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/goal-analyzer
+  updated_at: '1773994629'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-hig-components-status-skill-md
+  name: hig-components-status
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Apple HIG guidance for status and progress UI components including
+    progress indicators, status bars, and activity rings.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hig-components-status
+  updated_at: '1772354305'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-hig-components-system-skill-md
+  name: hig-components-system
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Apple HIG guidance for system experience components: widgets, live
+    activities, notifications, complications, home screen quick actions, top shelf,
+    watch faces, app clips, and app shortcuts.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hig-components-system
+  updated_at: '1772354305'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-nutrition-analyzer-skill-md
+  name: nutrition-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析营养数据、识别营养模式、评估营养状况，并提供个性化营养建议。支持与运动、睡眠、慢性病数据的关联分析。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/nutrition-analyzer
+  updated_at: '1773994629'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-occupational-health-analyzer-skill-md
+  name: occupational-health-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析职业健康数据、识别工作相关健康风险、评估职业健康状况、提供个性化职业健康建议。支持与睡眠、运动、心理健康等其他健康数据的关联分析。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/occupational-health-analyzer
+  updated_at: '1773994629'
+- rank: 24
+  id: sickn33-antigravity-awesome-skills-skills-rehabilitation-analyzer-skill-md
+  name: rehabilitation-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析康复训练数据、识别康复模式、评估康复进展，并提供个性化康复建议
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/rehabilitation-analyzer
+  updated_at: '1773994629'
+- rank: 25
+  id: sickn33-antigravity-awesome-skills-skills-weightloss-analyzer-skill-md
+  name: weightloss-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析减肥数据、计算代谢率、追踪能量缺口、管理减肥阶段
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/weightloss-analyzer
+  updated_at: '1773994629'
+- rank: 26
+  id: sickn33-antigravity-awesome-skills-skills-wellally-tech-skill-md
+  name: wellally-tech
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Integrate multiple digital health data sources, connect to [WellAlly.tech](https://www.wellally.tech/)
+    knowledge base, providing data import and knowledge reference for personal health
+    management systems.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/wellally-tech
+  updated_at: '1773994629'
+- rank: 27
+  id: github-awesome-copilot-skills-penpot-uiux-design-skill-md
+  name: penpot-uiux-design
+  author: github
+  stars: 27427
+  forks: 3175
+  description: 'Comprehensive guide for creating professional UI/UX designs in Penpot
+    using MCP tools. Use this skill when: (1) Creating new UI/UX designs for web,
+    mobile, or desktop applications, (2) Building design systems with components and
+    tokens, (3) Designing dashboards, forms, navigation, or landing pages, (4) Applying
+    accessibility standards and best practices, (5) Following platform guidelines
+    (iOS, Android, Material Design), (6) Reviewing or improving existing Penpot designs
+    for usability. Triggers: "design a UI", "create interface", "build layout", "design
+    dashboard", "create form", "design landing page", "make it accessible", "design
+    system", "component library".'
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/penpot-uiux-design
+  updated_at: '1770102409'
+- rank: 28
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-create-plan-skill-md
+  name: create-plan
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Create a concise plan. Use when a user explicitly asks for a plan related
+    to a coding task.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/create-plan
+  updated_at: '1767012349'
+- rank: 29
+  id: davila7-claude-code-templates-cli-tool-components-skills-creative-design-executing-marketing-campaigns-skill-md
+  name: executing-marketing-campaigns
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Plans, creates, and optimizes marketing campaigns including content
+    strategy, social media, email, and analytics. Helps develop go-to-market strategies,
+    campaign messaging, and performance measurement.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/creative-design/executing-marketing-campaigns
+  updated_at: '1766259071'
+- rank: 30
+  id: davila7-claude-code-templates-cli-tool-components-skills-productivity-notion-spec-to-implementation-skill-md
+  name: notion-spec-to-implementation
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Turn Notion specs into implementation plans, tasks, and progress tracking;
+    use when implementing PRDs/feature specs and creating Notion plans + tasks from
+    them.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/productivity/notion-spec-to-implementation
+  updated_at: '1767012349'
+- rank: 31
+  id: davila7-claude-code-templates-cli-tool-components-skills-railway-metrics-skill-md
+  name: railway-metrics
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Query resource usage metrics for Railway services. Use when user asks
+    about resource usage, CPU, memory, network, disk, or service performance like
+    "how much memory is my service using" or "is my service slow".
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/railway/metrics
+  updated_at: '1768064325'
+- rank: 32
+  id: shanraisshan-claude-code-best-practice-claude-skills-weather-fetcher-skill-md
+  name: weather-fetcher
+  author: shanraisshan
+  stars: 22909
+  forks: 1970
+  description: Instructions for fetching current weather temperature data for Dubai,
+    UAE from Open-Meteo API
+  github_url: https://github.com/shanraisshan/claude-code-best-practice/tree/main/.claude/skills/weather-fetcher
+  updated_at: '1772464925'
+- rank: 33
+  id: volcengine-openviking-bot-workspace-skills-cron-skill-md
+  name: cron
+  author: volcengine
+  stars: 19597
+  forks: 1360
+  description: Schedule reminders and recurring tasks.
+  github_url: https://github.com/volcengine/OpenViking/tree/main/bot/workspace/skills/cron
+  updated_at: '1772242617'
+- rank: 34
+  id: 2025emma-vibe-coding-cn-i18n-hi-skills-claude-skills-skill-md
+  name: skill-name
+  author: 2025Emma
+  stars: 17903
+  forks: 1899
+  description: '"What it does + when to use (activation triggers)."'
+  github_url: https://github.com/2025Emma/vibe-coding-cn/tree/main/i18n/hi/skills/claude-skills
+  updated_at: '1765894985'
+- rank: 35
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-adaptyv-skill-md
+  name: adaptyv
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Cloud laboratory platform for automated protein testing and validation.
+    Use when designing proteins and needing experimental validation including binding
+    assays, expression testing, thermostability measurements, enzyme activity assays,
+    or protein sequence optimization. Also use for submitting experiments via API,
+    tracking experiment status, downloading results, optimizing protein sequences
+    for better expression using computational tools (NetSolP, SoluProt, SolubleMPNN,
+    ESM), or managing protein design workflows with wet-lab validation.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/adaptyv
+  updated_at: '1772554803'
+- rank: 36
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-dnanexus-integration-skill-md
+  name: dnanexus-integration
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download),
+    dxpy Python SDK, run workflows, FASTQ/BAM/VCF, for genomics pipeline development
+    and execution.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/dnanexus-integration
+  updated_at: '1772554803'
+- rank: 37
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-neurokit2-skill-md
+  name: neurokit2
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive biosignal processing toolkit for analyzing physiological
+    data including ECG, EEG, EDA, RSP, PPG, EMG, and EOG signals. Use this skill when
+    processing cardiovascular signals, brain activity, electrodermal responses, respiratory
+    patterns, muscle activity, or eye movements. Applicable for heart rate variability
+    analysis, event-related potentials, complexity measures, autonomic nervous system
+    assessment, psychophysiology research, and multi-modal physiological signal integration.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/neurokit2
+  updated_at: '1772554803'
+- rank: 38
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-pyhealth-skill-md
+  name: pyhealth
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive healthcare AI toolkit for developing, testing, and deploying
+    machine learning models with clinical data. This skill should be used when working
+    with electronic health records (EHR), clinical prediction tasks (mortality, readmission,
+    drug recommendation), medical coding systems (ICD, NDC, ATC), physiological signals
+    (EEG, ECG), healthcare datasets (MIMIC-III/IV, eICU, OMOP), or implementing deep
+    learning models for healthcare applications (RETAIN, SafeDrug, Transformer, GNN).
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pyhealth
+  updated_at: '1772554803'
+- rank: 39
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-statistical-analysis-skill-md
+  name: statistical-analysis
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Guided statistical analysis with test selection and reporting. Use
+    when you need help choosing appropriate tests for your data, assumption checking,
+    power analysis, and APA-formatted results. Best for academic research reporting,
+    test selection guidance. For implementing specific models programmatically use
+    statsmodels.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/statistical-analysis
+  updated_at: '1772554803'
+- rank: 40
+  id: camel-ai-camel-examples-toolkits-skill-toolkit-example-camel-skills-data-analyzer-skill-md
+  name: data-analyzer
+  author: camel-ai
+  stars: 16514
+  forks: 1849
+  description: Analyze datasets and extract insights. Use when user needs to understand
+    data patterns, statistics, or trends.
+  github_url: https://github.com/camel-ai/camel/tree/master/examples/toolkits/skill_toolkit_example/.camel/skills/data-analyzer
+  updated_at: '1770289047'
+- rank: 41
+  id: openai-skills-skills-curated-notion-spec-to-implementation-skill-md
+  name: notion-spec-to-implementation
+  author: openai
+  stars: 15590
+  forks: 928
+  description: Turn Notion specs into implementation plans, tasks, and progress tracking;
+    use when implementing PRDs/feature specs and creating Notion plans + tasks from
+    them.
+  github_url: https://github.com/openai/skills/tree/main/skills/.curated/notion-spec-to-implementation
+  updated_at: '1770047998'
+- rank: 42
+  id: nousresearch-hermes-agent-optional-skills-health-neuroskill-bci-skill-md
+  name: neuroskill-bci
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Connect to a running NeuroSkill instance and incorporate the user's
+    real-time cognitive and emotional state (focus, relaxation, mood, cognitive load,
+    drowsiness, heart rate, HRV, sleep staging, and 40+ derived EXG scores) into responses.
+    Requires a BCI wearable (Muse 2/S or OpenBCI) and the NeuroSkill desktop app running
+    locally.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/health/neuroskill-bci
+  updated_at: '1773377767'
+- rank: 43
+  id: anthropics-knowledge-work-plugins-data-skills-statistical-analysis-skill-md
+  name: statistical-analysis
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Apply statistical methods including descriptive stats, trend analysis,
+    outlier detection, and hypothesis testing. Use when analyzing distributions, testing
+    for significance, detecting anomalies, computing correlations, or interpreting
+    statistical results.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/data/skills/statistical-analysis
+  updated_at: '1773417477'
+- rank: 44
+  id: anthropics-knowledge-work-plugins-productivity-skills-task-management-skill-md
+  name: task-management
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Simple task management using a shared TASKS.md file. Reference this
+    when the user asks about their tasks, wants to add/complete tasks, or needs help
+    tracking commitments.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/productivity/skills/task-management
+  updated_at: '1773417477'
+- rank: 45
+  id: droidrun-droidrun-skill-md
+  name: droidrun-docs
+  author: droidrun
+  stars: 8050
+  forks: 827
+  description: Droidrun documentation reference. Use when users ask about Droidrun
+    setup, configuration, SDK usage, CLI commands, device setup, agents, architecture,
+    app cards, credentials, tracing, Docker, migration, structured output, or any
+    Droidrun "how do I..." questions.
+  github_url: https://github.com/droidrun/droidrun
+  updated_at: '1774694466'
+- rank: 46
+  id: alirezarezvani-claude-skills-product-team-product-manager-toolkit-skill-md
+  name: product-manager-toolkit
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Comprehensive toolkit for product managers including RICE prioritization,
+    customer interview analysis, PRD templates, discovery frameworks, and go-to-market
+    strategies. Use for feature prioritization, user research synthesis, requirement
+    documentation, and product strategy development.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-manager-toolkit
+  updated_at: '1773132529'
+- rank: 47
+  id: alirezarezvani-claude-skills-product-team-product-strategist-skill-md
+  name: product-strategist
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Strategic product leadership toolkit for Head of Product covering OKR
+    cascade generation, quarterly planning, competitive landscape analysis, product
+    vision documents, and team scaling proposals. Use when creating quarterly OKR
+    documents, defining product goals or KPIs, building product roadmaps, running
+    competitive analysis, drafting team structure or hiring plans, aligning product
+    strategy across engineering and design, or generating cascaded goal hierarchies
+    from company to team level.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/product-team/product-strategist
+  updated_at: '1773132529'
+- rank: 48
+  id: alirezarezvani-claude-skills-project-management-scrum-master-skill-md
+  name: scrum-master
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: 'Advanced Scrum Master skill for data-driven agile team analysis and
+    coaching. Use when the user asks about sprint planning, velocity tracking, retrospectives,
+    standup facilitation, backlog grooming, story points, burndown charts, blocker
+    resolution, or agile team health. Runs Python scripts to analyse sprint JSON exports
+    from Jira or similar tools: velocity_analyzer.py for Monte Carlo sprint forecasting,
+    sprint_health_scorer.py for multi-dimension health scoring, and retrospective_analyzer.py
+    for action-item and theme tracking. Produces confidence-interval forecasts, health
+    grade reports, and improvement-velocity trends for high-performing Scrum teams.'
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/project-management/scrum-master
+  updated_at: '1773132529'
+- rank: 49
+  id: alirezarezvani-claude-skills-engineering-team-senior-architect-skill-md
+  name: senior-architect
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: This skill should be used when the user asks to "design system architecture",
+    "evaluate microservices vs monolith", "create architecture diagrams", "analyze
+    dependencies", "choose a database", "plan for scalability", "make technical decisions",
+    or "review system design". Use for architecture decision records (ADRs), tech
+    stack evaluation, system design reviews, dependency analysis, and generating architecture
+    diagrams in Mermaid, PlantUML, or ASCII format.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/senior-architect
+  updated_at: '1773068065'
+- rank: 50
+  id: alirezarezvani-claude-skills-product-team-ux-researcher-designer-skill-md
+  name: ux-researcher-designer
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: UX research and design toolkit for Senior UX Designer/Researcher including
+    data-driven persona generation, journey mapping, usability testing frameworks,
+    and research synthesis. Use for user research, persona creation, journey mapping,
+    and design validation.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/product-team/ux-researcher-designer
+  updated_at: '1773132529'

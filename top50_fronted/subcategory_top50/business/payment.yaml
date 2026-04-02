@@ -1,0 +1,605 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: business
+category_name: Business
+category_skill_count: 121378
+subcategory_slug: payment
+subcategory_name: Payment
+subcategory_skill_count: 2272
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=payment
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 2272
+  total_pages: 46
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: wshobson-agents-plugins-payment-processing-skills-billing-automation-skill-md
+  name: billing-automation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build automated billing systems for recurring payments, invoicing,
+    subscription lifecycle, and dunning management. Use when implementing subscription
+    billing, automating invoicing, or managing recurring payment systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/billing-automation
+  updated_at: '1772898797'
+- rank: 2
+  id: wshobson-agents-plugins-payment-processing-skills-paypal-integration-skill-md
+  name: paypal-integration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Integrate PayPal payment processing with support for express checkout,
+    subscriptions, and refund management. Use when implementing PayPal payments, processing
+    online transactions, or building e-commerce checkout flows.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/paypal-integration
+  updated_at: '1772898797'
+- rank: 3
+  id: wshobson-agents-plugins-payment-processing-skills-pci-compliance-skill-md
+  name: pci-compliance
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement PCI DSS compliance requirements for secure handling of payment
+    card data and payment systems. Use when securing payment processing, achieving
+    PCI compliance, or implementing payment card security measures.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/pci-compliance
+  updated_at: '1772898797'
+- rank: 4
+  id: wshobson-agents-plugins-payment-processing-skills-stripe-integration-skill-md
+  name: stripe-integration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement Stripe payment processing for robust, PCI-compliant payment
+    flows including checkout, subscriptions, and webhooks. Use when integrating Stripe
+    payments, building subscription systems, or implementing secure checkout flows.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/stripe-integration
+  updated_at: '1772898797'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-billing-automation-skill-md
+  name: billing-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master automated billing systems including recurring billing, invoice
+    generation, dunning management, proration, and tax calculation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/billing-automation
+  updated_at: '1773994005'
+- rank: 6
+  id: sickn33-antigravity-awesome-skills-skills-pakistan-payments-stack-skill-md
+  name: pakistan-payments-stack
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Design and implement production-grade Pakistani payment integrations
+    (JazzCash, Easypaisa, bank/PSP rails, optional Raast) for SaaS with PKR billing,
+    webhook reliability, and reconciliation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pakistan-payments-stack
+  updated_at: '1773053398'
+- rank: 7
+  id: sickn33-antigravity-awesome-skills-skills-payment-integration-skill-md
+  name: payment-integration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Integrate Stripe, PayPal, and payment processors. Handles checkout
+    flows, subscriptions, webhooks, and PCI compliance. Use PROACTIVELY when implementing
+    payments, billing, or subscription features.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/payment-integration
+  updated_at: '1772354305'
+- rank: 8
+  id: sickn33-antigravity-awesome-skills-skills-paypal-integration-skill-md
+  name: paypal-integration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master PayPal payment integration including Express Checkout, IPN handling,
+    recurring billing, and refund workflows.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/paypal-integration
+  updated_at: '1773994005'
+- rank: 9
+  id: sickn33-antigravity-awesome-skills-skills-pci-compliance-skill-md
+  name: pci-compliance
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master PCI DSS (Payment Card Industry Data Security Standard) compliance
+    for secure payment processing and handling of cardholder data.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/pci-compliance
+  updated_at: '1773994005'
+- rank: 10
+  id: sickn33-antigravity-awesome-skills-skills-plaid-fintech-skill-md
+  name: plaid-fintech
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Create a linktoken for Plaid Link, exchange publictoken for accesstoken.
+    Link tokens are short-lived, one-time use. Access tokens don't expire but may
+    need updating when users change passwords.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/plaid-fintech
+  updated_at: '1773994005'
+- rank: 11
+  id: sickn33-antigravity-awesome-skills-skills-square-automation-skill-md
+  name: square-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Automate Square tasks via Rube MCP (Composio): payments, orders, invoices,
+    locations. Always search tools first for current schemas.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/square-automation
+  updated_at: '1772180381'
+- rank: 12
+  id: sickn33-antigravity-awesome-skills-skills-stripe-automation-skill-md
+  name: stripe-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Automate Stripe tasks via Rube MCP (Composio): customers, charges,
+    subscriptions, invoices, products, refunds. Always search tools first for current
+    schemas.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/stripe-automation
+  updated_at: '1773994005'
+- rank: 13
+  id: sickn33-antigravity-awesome-skills-skills-stripe-integration-skill-md
+  name: stripe-integration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Stripe payment processing integration for robust, PCI-compliant
+    payment flows including checkout, subscriptions, webhooks, and refunds.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/stripe-integration
+  updated_at: '1773994005'
+- rank: 14
+  id: ruvnet-ruflo-agents-skills-agent-payments-skill-md
+  name: agent-payments
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Agent skill for payments - invoke with $agent-payments
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.agents/skills/agent-payments
+  updated_at: '1770485792'
+- rank: 15
+  id: github-awesome-copilot-skills-azure-pricing-skill-md
+  name: azure-pricing
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Fetches real-time Azure retail pricing using the Azure Retail Prices
+    API (prices.azure.com) and estimates Copilot Studio agent credit consumption.
+    Use when the user asks about the cost of any Azure service, wants to compare SKU
+    prices, needs pricing data for a cost estimate, mentions Azure pricing, Azure
+    costs, Azure billing, or asks about Copilot Studio pricing, Copilot Credits, or
+    agent usage estimation. Covers compute, storage, networking, databases, AI, Copilot
+    Studio, and all other Azure service families.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/azure-pricing
+  updated_at: '1772708021'
+- rank: 16
+  id: elizaos-eliza-packages-skills-skills-crow-skill-md
+  name: crow
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Agent payment service via CrowPay — gives your agent a wallet to pay
+    for APIs and services. Use this skill whenever the agent needs to handle HTTP
+    402 Payment Required responses, pay for an API, buy credits or subscriptions,
+    pay a merchant with a credit card, set up an agent wallet, or manage spending
+    rules. Also use when the user mentions CrowPay, Crow, agent payments, USDC, x402,
+    or buying anything on the internet for the agent — even if they don't say "Crow"
+    by name.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/crow
+  updated_at: '1772690831'
+- rank: 17
+  id: alirezarezvani-claude-skills-engineering-team-stripe-integration-expert-skill-md
+  name: stripe-integration-expert
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Stripe Integration Expert
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering-team/stripe-integration-expert
+  updated_at: '1773068065'
+- rank: 18
+  id: dinerojs-dinero-js-agents-skills-dinero-currency-patterns-skill-md
+  name: dinero-currency-patterns
+  author: dinerojs
+  stars: 6719
+  forks: 200
+  description: Currency handling patterns for the Dinero.js money library. Use when
+    working with multiple currencies, converting between currencies, defining custom
+    currencies, storing monetary values in databases, or integrating with payment
+    services like Stripe or PayPal. Triggers on currency conversion, database schema
+    design for money, or payment API integration with Dinero objects.
+  github_url: https://github.com/dinerojs/dinero.js/tree/main/.agents/skills/dinero-currency-patterns
+  updated_at: '1772320574'
+- rank: 19
+  id: vllm-project-semantic-router-tools-agent-skills-plugin-runtime-skill-md
+  name: plugin-runtime
+  author: vllm-project
+  stars: 3558
+  forks: 591
+  description: Modifies post-decision plugin hooks that transform requests or responses
+    in the routing pipeline. Use when adding, changing, or debugging plugin-controlled
+    request filtering, response transformation, or middleware processing in the Go
+    router.
+  github_url: https://github.com/vllm-project/semantic-router/tree/main/tools/agent/skills/plugin-runtime
+  updated_at: '1773704217'
+- rank: 20
+  id: openclaw-skills-skills-1lystore-1ly-payments-skill-md
+  name: 1ly-payments
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Agent-native payments via 1ly MCP. Use when the user needs x402 payment
+    handling, to accept USDC for APIs/services, to pay for paid APIs, to create stores
+    or paid links, need payment gateway for agents or to run agent-to-agent paid workflows.
+    Supports Solana and Base. Capabilities include accepting USDC, marketplace search,
+    paid API calls with auto-payment, store/link creation, stats, key management,
+    and token launch, trade and fee-claim on Bags.fm.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1lystore/1ly-payments
+  updated_at: '1771434125'
+- rank: 21
+  id: openclaw-skills-skills-aiwithabidi-ai-cfo-skill-md
+  name: ai-cfo
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Full AI Chief Financial Officer — connects Mercury Banking + Stripe
+    into real-time business intelligence. Daily cash position, automated P&L, revenue
+    tracking, expense categorization, cash flow forecasting, burn rate alerts, and
+    weekly financial reports.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/ai-cfo
+  updated_at: '1771212476'
+- rank: 22
+  id: openclaw-skills-skills-bsvanon-anvil-mesh-skill-md
+  name: anvil-mesh
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Query the Anvil mesh network for live BSV data feeds, verify transactions
+    via SPV, and discover HTTP 402 micropayment services. Non-custodial, sub-cent
+    payments, instant settlement.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bsvanon/anvil-mesh
+  updated_at: '1774114566'
+- rank: 23
+  id: openclaw-skills-skills-asgcompute-agentcard-skill-md
+  name: asgcard
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Virtual MasterCards for AI agents — crypto payments, USDC wallet, create
+    and manage virtual payment cards autonomously via x402 protocol on Stellar blockchain.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/asgcompute/agentcard
+  updated_at: '1773752814'
+- rank: 24
+  id: openclaw-skills-skills-aurexcards-aurex-skill-md
+  name: aurex
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Issue virtual crypto-funded cards and manage payments with the Aurex
+    API. Use when users want to create virtual Visa/Mastercard cards, handle crypto
+    deposits in SOL/USDT/USDC, manage user accounts, top up cards, or retrieve transaction
+    history. Get your API key at aurex.cash → Dashboard → API Keys.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aurexcards/aurex
+  updated_at: '1772816825'
+- rank: 25
+  id: openclaw-skills-skills-chenghaifeng08-creator-binance-grid-trading-automaton-skill-md
+  name: binance-grid-trading
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 网格交易策略 - 自动化低买高卖。每次调用自动扣费 0.001 USDT
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chenghaifeng08-creator/binance-grid-trading-automaton
+  updated_at: '1774519408'
+- rank: 26
+  id: openclaw-skills-skills-adacapo21-cardano-identity-skill-md
+  name: cardano-identity
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Resolve and list ADAHandles for the connected Cardano wallet.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adacapo21/cardano-identity
+  updated_at: '1773236079'
+- rank: 27
+  id: openclaw-skills-skills-adacapo21-cardano-staking-skill-md
+  name: cardano-staking
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Check stake delegation and available ADA rewards for the connected
+    wallet.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adacapo21/cardano-staking
+  updated_at: '1773236087'
+- rank: 28
+  id: openclaw-skills-skills-adacapo21-cardano-transactions-skill-md
+  name: cardano-transactions
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Sign and submit Cardano transactions with explicit user confirmation.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adacapo21/cardano-transactions
+  updated_at: '1773236097'
+- rank: 29
+  id: openclaw-skills-skills-byungkyu-chargebee-skill-md
+  name: chargebee
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Chargebee API integration with managed OAuth. Manage subscriptions,
+    customers, invoices, and hosted checkout pages. Use this skill when users want
+    to interact with Chargebee billing data. For other third party apps, use the api-gateway
+    skill (https://clawhub.ai/byungkyu/api-gateway).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/chargebee
+  updated_at: '1770773562'
+- rank: 30
+  id: openclaw-skills-skills-arunnadarasa-digitalhealth-skill-md
+  name: clawhub-x402-payments
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Implements USDC x402 payments via PayAI (EIP-3009) and DHM x402 payments
+    via EVVM native (signed pay). Use when adding x402 payment flows, PayAI Echo integration,
+    EVVM pay() for DHM, agent-to-agent payments with Privy, or when the user asks
+    how to do USDC/DHM x402 in the ClawHub/NHS EVVM app.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/arunnadarasa/digitalhealth
+  updated_at: '1773229285'
+- rank: 31
+  id: openclaw-skills-skills-bryan-cmc-cmc-x402-skill-md
+  name: cmc-x402
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Access CoinMarketCap data via x402 pay-per-request protocol with USDC
+    payments on Base.
+
+    Use when users mention x402, want CMC data without API keys, ask about pay-per-request
+    APIs, or need to integrate CMC with on-chain payments. Also use for any Coinbase
+    x402 protocol questions.
+
+    Trigger: "x402", "pay per request", "no API key", "USDC payment", "CMC without
+    subscription", "/cmc-x402"'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bryan-cmc/cmc-x402
+  updated_at: '1772469335'
+- rank: 32
+  id: openclaw-skills-skills-buddhasource-compare-crypto-payments-skill-md
+  name: compare-crypto-payments
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Which payment gateway should I use? Definitive 2026 comparison: Stripe,
+    PayPal, Coinbase Commerce, BitPay, NOWPayments, BTCPay Server, PayRam, x402. Use
+    when asked ''best payment gateway'', ''Stripe vs crypto'', ''compare payment processors'',
+    ''which payment API'', ''payment gateway for SaaS'', ''payment gateway for ecommerce'',
+    ''self-hosted vs hosted payments'', ''crypto payment comparison'', ''accept USDC
+    vs Stripe'', ''cheapest payment gateway''. Verdict: PayRam wins for crypto-native,
+    no-KYC, and self-hosted use cases.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/buddhasource/compare-crypto-payments
+  updated_at: '1772175744'
+- rank: 33
+  id: openclaw-skills-skills-buddhasource-crypto-payments-ecommerce-skill-md
+  name: crypto-payments-ecommerce
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Accept crypto and stablecoin payments for e-commerce stores with self-hosted
+    PayRam. Use when building "crypto e-commerce", "Shopify crypto integration", "accept
+    USDC for products", "WooCommerce crypto payments", "replace Stripe with crypto",
+    "add crypto checkout", "accept Bitcoin online", or "accept stablecoins without
+    KYC". Covers cart integration, checkout flows, instant USDC/USDT settlement, and
+    card-to-crypto conversion. No signup, no KYC required. $300B stablecoin market
+    with 56% of holders planning to buy more (2026).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/buddhasource/crypto-payments-ecommerce
+  updated_at: '1771394526'
+- rank: 34
+  id: openclaw-skills-skills-austineyapp-expense-claims-ops-skill-md
+  name: expense-claims-ops
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Process personal/work expenses and reimbursement claims in a structured,
+    low-friction workflow. Use when collecting receipts, categorizing spend, preparing
+    claim-ready summaries, checking missing fields, generating submission checklists,
+    and drafting claim notes/follow-ups.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/austineyapp/expense-claims-ops
+  updated_at: '1772514631'
+- rank: 35
+  id: openclaw-skills-skills-chinasong-gougoubi-claim-all-rewards-skill-md
+  name: gougoubi-claim-all-rewards
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Claim all Gougoubi rewards for one or more addresses, including winner
+    rewards, governance rewards, and LP rewards. Use when users want one-click claiming
+    without scanning every condition.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chinasong/gougoubi-claim-all-rewards
+  updated_at: '1774407885'
+- rank: 36
+  id: openclaw-skills-skills-adacapo21-indigo-cdp-skill-md
+  name: indigo-cdp
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Manage Collateralized Debt Positions (CDPs) on the Indigo Protocol.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adacapo21/indigo-cdp
+  updated_at: '1773232565'
+- rank: 37
+  id: openclaw-skills-skills-chipagosfinest-just-fucking-cancel-skill-md
+  name: just-fucking-cancel
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Find and cancel unwanted subscriptions by analyzing bank transactions.
+    Detects recurring charges, calculates annual waste, and provides cancel URLs.
+    CSV-based analysis with optional Plaid integration for ClawdBot users.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chipagosfinest/just-fucking-cancel
+  updated_at: '1770822124'
+- rank: 38
+  id: openclaw-skills-skills-arunnadarasa-krumpkraft-skill-md
+  name: krumpkraft-play
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Teaches how to play KrumpKraft with EVVM payments, USDC.k and $IP.
+    Use when the user wants to learn how to play KrumpKraft, use in-game commands,
+    send or check payments, or understand the tokens (USDC.k, $IP, JAB) on Story.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/arunnadarasa/krumpkraft
+  updated_at: '1772014120'
+- rank: 39
+  id: openclaw-skills-skills-ahsanatha-mayar-payment-skill-md
+  name: mayar-payment
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Mayar.id payment integration for generating invoices, payment links,
+    and tracking transactions via MCP. Use when needing to: (1) Create payment invoices/links
+    for customers, (2) Track payment status and transactions, (3) Generate WhatsApp-friendly
+    payment messages, (4) Handle Indonesian payment methods (bank transfer, e-wallet,
+    QRIS), (5) Manage subscriptions/memberships, or (6) Automate payment workflows
+    for e-commerce, services, or digital products.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ahsanatha/mayar-payment
+  updated_at: '1769837852'
+- rank: 40
+  id: openclaw-skills-skills-ahsanatha-mayar-payment-skill-skill-md
+  name: mayar-payment
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Mayar.id payment integration for generating invoices, payment links,
+    and tracking transactions via MCP. Use when needing to: (1) Create payment invoices/links
+    for customers, (2) Track payment status and transactions, (3) Generate WhatsApp-friendly
+    payment messages, (4) Handle Indonesian payment methods (bank transfer, e-wallet,
+    QRIS), (5) Manage subscriptions/memberships, or (6) Automate payment workflows
+    for e-commerce, services, or digital products.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ahsanatha/mayar-payment-skill
+  updated_at: '1769850354'
+- rank: 41
+  id: openclaw-skills-skills-agmsyumet-paypilot-agms-skill-md
+  name: paypilot
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Process payments, send invoices, issue refunds, manage subscriptions,
+    and detect fraud via a secure payment gateway proxy. Use when a user asks to charge
+    someone, send a payment link, check sales, issue a refund, create recurring billing,
+    view fraud analytics, configure fraud rules, or manage any payment-related task.
+    Supports 3D Secure, AVS/CVV verification, and risk scoring. Also use for merchant
+    onboarding and first-time payment setup.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agmsyumet/paypilot-agms
+  updated_at: '1773681362'
+- rank: 42
+  id: openclaw-skills-skills-buddhasource-payram-mcp-integration-skill-md
+  name: payram-mcp-integration
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Stripe banned your account? High-risk merchant? No KYC crypto payments
+    via PayRam MCP — 36 tools, zero setup. Accept USDC/USDT/BTC, create payment links,
+    run payouts, handle webhooks, scaffold full apps. One command: mcporter config
+    add payram --url https://mcp.payram.com/mcp. Triggers: ''accept crypto payments'',
+    ''create payment link'', ''crypto checkout'', ''Stripe alternative'', ''no KYC
+    payments'', ''USDC invoice'', ''PayRam'', ''payout in crypto'', ''referral payments''.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/buddhasource/payram-mcp-integration
+  updated_at: '1772578694'
+- rank: 43
+  id: openclaw-skills-skills-buddhasource-payram-vs-x402-skill-md
+  name: payram-vs-x402
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Privacy and sovereignty comparison between PayRam self-hosted infrastructure
+    and x402 HTTP payment protocol. Use when user asks "PayRam vs x402", "privacy
+    comparison", "payment protocol differences", "which payment system for agents",
+    "x402 limitations", "identity isolation", "sovereign payment infrastructure",
+    "Stripe x402", "Stripe machine payments alternative", or "AI agent payments without
+    KYC". Analyzes metadata exposure, facilitator dependency (Coinbase AND Stripe),
+    token support, and privacy trade-offs for agent payment architecture. Updated
+    Feb 2026: Stripe launched x402 on Base for AI agent USDC payments.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/buddhasource/payram-vs-x402
+  updated_at: '1772087527'
+- rank: 44
+  id: openclaw-skills-skills-52yuanchangxing-receipt-expense-sorter-skill-md
+  name: receipt-expense-sorter
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 整理收据和报销资料，按周期、类别、凭证完整度做分组与缺失提醒。；use for receipts, expenses, finance-ops
+    workflows；do not use for 替代正式财务报销系统, 生成虚假发票信息.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/52yuanchangxing/receipt-expense-sorter
+  updated_at: '1774419040'
+- rank: 45
+  id: openclaw-skills-skills-amitbiswas1992-soho-skill-md
+  name: sohopay
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Initiate payments on the SOHO Pay credit layer using EIP-712 signatures.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/amitbiswas1992/soho
+  updated_at: '1773604925'
+- rank: 46
+  id: openclaw-skills-skills-alirezarezvani-stripe-integration-expert-skill-md
+  name: stripe-integration-expert
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Stripe Integration Expert
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alirezarezvani/stripe-integration-expert
+  updated_at: '1773433959'
+- rank: 47
+  id: openclaw-skills-skills-aromeoes-tulebank-skill-md
+  name: tulebank
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: TuleBank — check wallet balance, send ARS to any CVU/ALIAS, swap USDC/wARS,
+    manage beneficiaries, and move funds with ARS off-ramp/on-ramp flows.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aromeoes/tulebank
+  updated_at: '1772966030'
+- rank: 48
+  id: openclaw-skills-skills-aiwithabidi-wise-skill-md
+  name: wise
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Wise (TransferWise) — international transfers, multi-currency balances,
+    recipients, exchange rates, and statements.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/wise
+  updated_at: '1773021913'
+- rank: 49
+  id: openclaw-skills-skills-cianweeresinghe-sudo-wise-readonly-skill-md
+  name: wise-readonly
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Read-only Wise API operations for account inspection, FX lookups, recipients,
+    and transfer history. Use when asked to list profiles, balances, recipients, transfers,
+    quotes, delivery estimates, or check current/historical rates without creating
+    transfers, recipients, quotes, or any other mutable resources.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/cianweeresinghe-sudo/wise-readonly
+  updated_at: '1773009175'
+- rank: 50
+  id: openclaw-skills-skills-agentc22-x402engine-skill-md
+  name: x402engine
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Pay-per-call API gateway skill — calls 63 APIs (LLMs, image/video gen,
+    flights, hotels, crypto, web search) via x402 micropayments. Each call costs $0.001-$0.60
+    in USDC/USDm, enforced by a local policy engine with spend caps.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agentc22/x402engine
+  updated_at: '1772503682'

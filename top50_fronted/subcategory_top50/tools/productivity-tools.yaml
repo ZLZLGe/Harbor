@@ -1,0 +1,588 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: tools
+category_name: Tools
+category_skill_count: 168203
+subcategory_slug: productivity-tools
+subcategory_name: Productivity & Integration
+subcategory_skill_count: 46781
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=productivity-tools
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 46781
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-apple-notes-skill-md
+  name: apple-notes
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Manage Apple Notes via the `memo` CLI on macOS (create, view, edit,
+    delete, search, move, and export notes). Use when a user asks OpenClaw to add
+    a note, list notes, search notes, or manage note folders.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/apple-notes
+  updated_at: '1769862085'
+- rank: 2
+  id: openclaw-openclaw-skills-apple-reminders-skill-md
+  name: apple-reminders
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Manage Apple Reminders via remindctl CLI (list, add, edit, complete,
+    delete). Supports lists, date filters, and JSON/plain output.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/apple-reminders
+  updated_at: '1773559759'
+- rank: 3
+  id: openclaw-openclaw-skills-bear-notes-skill-md
+  name: bear-notes
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Create, search, and manage Bear notes via grizzly CLI.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/bear-notes
+  updated_at: '1769862085'
+- rank: 4
+  id: openclaw-openclaw-skills-blogwatcher-skill-md
+  name: blogwatcher
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Monitor blogs and RSS/Atom feeds for updates using the blogwatcher
+    CLI.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/blogwatcher
+  updated_at: '1769862085'
+- rank: 5
+  id: openclaw-openclaw-skills-clawhub-skill-md
+  name: clawhub
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Use the ClawHub CLI to search, install, update, and publish agent skills
+    from clawhub.com. Use when you need to fetch new skills on the fly, sync installed
+    skills to latest or a specific version, or publish new/updated skill folders with
+    the npm-installed clawhub CLI.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/clawhub
+  updated_at: '1769862085'
+- rank: 6
+  id: openclaw-openclaw-skills-coding-agent-skill-md
+  name: coding-agent
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'Delegate coding tasks to Codex, Claude Code, or Pi agents via background
+    process. Use when: (1) building/creating new features or apps, (2) reviewing PRs
+    (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that
+    needs file exploration. NOT for: simple one-liner fixes (just edit), reading code
+    (use read tool), thread-bound ACP harness requests in chat (for example spawn/run
+    Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:"acp"),
+    or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print
+    --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/coding-agent
+  updated_at: '1774333273'
+- rank: 7
+  id: openclaw-openclaw-skills-discord-skill-md
+  name: discord
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Discord ops via the message tool (channel=discord).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/discord
+  updated_at: '1771172693'
+- rank: 8
+  id: openclaw-openclaw-extensions-feishu-skills-feishu-doc-skill-md
+  name: feishu-doc
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Feishu document read/write operations. Activate when user mentions
+    Feishu docs, cloud docs, or docx links.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-doc
+  updated_at: '1772236856'
+- rank: 9
+  id: openclaw-openclaw-extensions-feishu-skills-feishu-drive-skill-md
+  name: feishu-drive
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Feishu cloud storage file management. Activate when user mentions cloud
+    space, folders, drive.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-drive
+  updated_at: '1770337930'
+- rank: 10
+  id: openclaw-openclaw-extensions-feishu-skills-feishu-perm-skill-md
+  name: feishu-perm
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Feishu permission management for documents and files. Activate when
+    user mentions sharing, permissions, collaborators.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-perm
+  updated_at: '1770337930'
+- rank: 11
+  id: openclaw-openclaw-extensions-feishu-skills-feishu-wiki-skill-md
+  name: feishu-wiki
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Feishu knowledge base navigation. Activate when user mentions knowledge
+    base, wiki, or wiki links.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-wiki
+  updated_at: '1770337930'
+- rank: 12
+  id: openclaw-openclaw-skills-gemini-skill-md
+  name: gemini
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Gemini CLI for one-shot Q&A, summaries, and generation.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/gemini
+  updated_at: '1773234790'
+- rank: 13
+  id: openclaw-openclaw-skills-gog-skill-md
+  name: gog
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets,
+    and Docs.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/gog
+  updated_at: '1769862085'
+- rank: 14
+  id: openclaw-openclaw-skills-himalaya-skill-md
+  name: himalaya
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: CLI to manage emails via IMAP/SMTP. Use `himalaya` to list, read, write,
+    reply, forward, search, and organize emails from the terminal. Supports multiple
+    accounts and message composition with MML (MIME Meta Language).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/himalaya
+  updated_at: '1769862085'
+- rank: 15
+  id: openclaw-openclaw-skills-imsg-skill-md
+  name: imsg
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: iMessage/SMS CLI for listing chats, history, and sending messages via
+    Messages.app.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/imsg
+  updated_at: '1773559759'
+- rank: 16
+  id: openclaw-openclaw-skills-notion-skill-md
+  name: notion
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Notion API for creating and managing pages, databases, and blocks.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/notion
+  updated_at: '1772846400'
+- rank: 17
+  id: openclaw-openclaw-skills-obsidian-skill-md
+  name: obsidian
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/obsidian
+  updated_at: '1769862085'
+- rank: 18
+  id: openclaw-openclaw-extensions-open-prose-skills-prose-skill-md
+  name: prose
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: OpenProse VM skill pack. Activate on any `prose` command, .prose files,
+    or OpenProse mentions; orchestrates multi-agent workflows.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/open-prose/skills/prose
+  updated_at: '1773433179'
+- rank: 19
+  id: openclaw-openclaw-skills-slack-skill-md
+  name: slack
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Use when you need to control Slack from OpenClaw via the slack tool,
+    including reacting to messages or pinning/unpinning items in Slack channels or
+    DMs.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/slack
+  updated_at: '1769862085'
+- rank: 20
+  id: openclaw-openclaw-skills-spotify-player-skill-md
+  name: spotify-player
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Terminal Spotify playback/search via spogo (preferred) or spotify_player.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/spotify-player
+  updated_at: '1769862085'
+- rank: 21
+  id: openclaw-openclaw-skills-things-mac-skill-md
+  name: things-mac
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Manage Things 3 via the `things` CLI on macOS (add/update projects+todos
+    via URL scheme; read/search/list from the local Things database). Use when a user
+    asks OpenClaw to add a task to Things, list inbox/today/upcoming, search tasks,
+    or inspect projects/areas/tags.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/things-mac
+  updated_at: '1769862085'
+- rank: 22
+  id: openclaw-openclaw-skills-trello-skill-md
+  name: trello
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Manage Trello boards, lists, and cards via the Trello REST API.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/trello
+  updated_at: '1774333273'
+- rank: 23
+  id: openclaw-openclaw-skills-wacli-skill-md
+  name: wacli
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Send WhatsApp messages to other people or search/sync WhatsApp history
+    via the wacli CLI (not for normal user chats).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/wacli
+  updated_at: '1769862085'
+- rank: 24
+  id: microsoft-vscode-src-vs-sessions-skills-merge-changes-skill-md
+  name: merge-changes
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Merge changes from the topic branch to the merge base branch. Use when
+    the user wants to merge their session's work back to the base branch.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/merge-changes
+  updated_at: '1774570130'
+- rank: 25
+  id: f-prompts-chat-plugins-claude-prompts-chat-skills-skill-lookup-skill-md
+  name: skill-lookup
+  author: f
+  stars: 154455
+  forks: 20287
+  description: Search, retrieve, and install Agent Skills from the prompts.chat registry
+    using MCP tools. Use when the user asks to find skills, browse skill catalogs,
+    install a skill for Claude, or extend Claude's capabilities with reusable AI agent
+    components.
+  github_url: https://github.com/f/prompts.chat/tree/main/plugins/claude/prompts.chat/skills/skill-lookup
+  updated_at: '1771320590'
+- rank: 26
+  id: anomalyco-opencode-packages-opencode-test-fixture-skills-agents-sdk-skill-md
+  name: agents-sdk
+  author: anomalyco
+  stars: 131724
+  forks: 14061
+  description: Build AI agents on Cloudflare Workers using the Agents SDK. Load when
+    creating stateful agents, durable workflows, real-time WebSocket apps, scheduled
+    tasks, MCP servers, or chat applications. Covers Agent class, state management,
+    callable RPC, Workflows integration, and React hooks.
+  github_url: https://github.com/anomalyco/opencode/tree/dev/packages/opencode/test/fixture/skills/agents-sdk
+  updated_at: '1771531936'
+- rank: 27
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-content-engine-skill-md
+  name: content-engine
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 为X、LinkedIn、TikTok、YouTube、新闻通讯和跨平台重新利用的多平台活动创建平台原生内容系统。适用于当用户需要社交媒体帖子、帖子串、脚本、内容日历，或一个源资产在多个平台上清晰适配时。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/content-engine
+  updated_at: '1772519307'
+- rank: 28
+  id: affaan-m-everything-claude-code-docs-tr-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Claude Code oturumlarından yeniden kullanılabilir kalıpları otomatik
+    olarak çıkarın ve gelecekte kullanmak üzere öğrenilmiş skill'ler olarak kaydedin.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/continuous-learning
+  updated_at: '1774219024'
+- rank: 29
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Automatically extract reusable patterns from Claude Code sessions and
+    save them as learned skills for future use.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/continuous-learning
+  updated_at: '1772664486'
+- rank: 30
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-data-scraper-agent-skill-md
+  name: data-scraper-agent
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 构建一个全自动化的AI驱动数据收集代理，适用于任何公共来源——招聘网站、价格信息、新闻、GitHub、体育赛事等任何内容。按计划进行抓取，使用免费LLM（Gemini
+    Flash）丰富数据，将结果存储在Notion/Sheets/Supabase中，并从用户反馈中学习。完全免费在GitHub Actions上运行。适用于用户希望自动监控、收集或跟踪任何公共数据的场景。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/data-scraper-agent
+  updated_at: '1774219164'
+- rank: 31
+  id: affaan-m-everything-claude-code-skills-data-scraper-agent-skill-md
+  name: data-scraper-agent
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Build a fully automated AI-powered data collection agent for any public
+    source — job boards, prices, news, GitHub, sports, anything. Scrapes on a schedule,
+    enriches data with a free LLM (Gemini Flash), stores results in Notion/Sheets/Supabase,
+    and learns from user feedback. Runs 100% free on GitHub Actions. Use when the
+    user wants to monitor, collect, or track any public data automatically.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/data-scraper-agent
+  updated_at: '1773693344'
+- rank: 32
+  id: affaan-m-everything-claude-code-docs-tr-skills-jpa-patterns-skill-md
+  name: jpa-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot'ta entity tasarımı, ilişkiler, sorgu optimizasyonu, transaction'lar,
+    auditing, indeksleme, sayfalama ve pooling için JPA/Hibernate kalıpları.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/jpa-patterns
+  updated_at: '1774219024'
+- rank: 33
+  id: affaan-m-everything-claude-code-agents-skills-x-api-skill-md
+  name: x-api
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: X/Twitter API integration for posting tweets, threads, reading timelines,
+    search, and analytics. Covers OAuth auth patterns, rate limits, and platform-native
+    content posting. Use when the user wants to interact with X programmatically.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/x-api
+  updated_at: '1773353277'
+- rank: 34
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-x-api-skill-md
+  name: x-api
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: X/Twitter API集成，用于发布推文、线程、读取时间线、搜索和分析。涵盖OAuth认证模式、速率限制和平台原生内容发布。当用户希望以编程方式与X交互时使用。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/x-api
+  updated_at: '1774068958'
+- rank: 35
+  id: affaan-m-everything-claude-code-skills-x-api-skill-md
+  name: x-api
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: X/Twitter API integration for posting tweets, threads, reading timelines,
+    search, and analytics. Covers OAuth auth patterns, rate limits, and platform-native
+    content posting. Use when the user wants to interact with X programmatically.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/x-api
+  updated_at: '1773332796'
+- rank: 36
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-project-planner-skill-md
+  name: project-planner
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Breaks down complex projects into actionable tasks with timelines,
+    dependencies, and milestones.
+
+    Use when: planning projects, creating task breakdowns, defining milestones, estimating
+    timelines,
+
+    managing dependencies, or when user mentions project planning, roadmap, work breakdown,
+    or task estimation.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/project-planner
+  updated_at: '1770167437'
+- rank: 37
+  id: google-gemini-gemini-cli-gemini-skills-pr-creator-skill-md
+  name: pr-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill when asked to create a pull request (PR). It ensures
+    all PRs follow the repository's established templates and standards.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/pr-creator
+  updated_at: '1770701890'
+- rank: 38
+  id: google-gemini-gemini-cli-packages-core-src-skills-builtin-skill-creator-skill-md
+  name: skill-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Guide for creating effective skills. This skill should be used when
+    users want to create a new skill (or update an existing skill) that extends Gemini
+    CLI's capabilities with specialized knowledge, workflows, or tool integrations.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/packages/core/src/skills/builtin/skill-creator
+  updated_at: '1772499739'
+- rank: 39
+  id: pytorch-pytorch-claude-skills-skill-writer-skill-md
+  name: skill-writer
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Guide users through creating Agent Skills for Claude Code. Use when
+    the user wants to create, write, author, or design a new Skill, or needs help
+    with SKILL.md files, frontmatter, or skill structure.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/skill-writer
+  updated_at: '1761670167'
+- rank: 40
+  id: home-assistant-core-claude-skills-integrations-skill-md
+  name: home-assistant-integration-knowledge
+  author: home-assistant
+  stars: 85889
+  forks: 37095
+  description: Everything you need to know to build, test and review Home Assistant
+    Integrations. If you're looking at an integration, you must use this as your primary
+    reference.
+  github_url: https://github.com/home-assistant/core/tree/dev/.claude/skills/integrations
+  updated_at: '1773812355'
+- rank: 41
+  id: browser-use-browser-use-skills-cloud-skill-md
+  name: cloud
+  author: browser-use
+  stars: 84818
+  forks: 9821
+  description: Documentation reference for using Browser Use Cloud — the hosted API
+    and SDK for browser automation. Use this skill whenever the user needs help with
+    the Cloud REST API (v2 or v3), browser-use-sdk (Python or TypeScript), X-Browser-Use-API-Key
+    authentication, cloud sessions, browser profiles, profile sync, CDP WebSocket
+    connections, stealth browsers, residential proxies, CAPTCHA handling, webhooks,
+    workspaces, skills marketplace, liveUrl streaming, pricing, or integration patterns
+    (chat UI, subagent, adding browser tools to existing agents). Also trigger for
+    questions about n8n/Make/Zapier integration, Playwright/ Puppeteer/Selenium on
+    cloud infrastructure, or 1Password vault integration. Do NOT use this for the
+    open-source Python library (Agent, Browser, Tools config) — use the open-source
+    skill instead.
+  github_url: https://github.com/browser-use/browser-use/tree/main/skills/cloud
+  updated_at: '1774145056'
+- rank: 42
+  id: lobehub-lobehub-agents-skills-add-provider-doc-skill-md
+  name: add-provider-doc
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Guide for adding new AI provider documentation. Use when adding documentation
+    for a new AI provider (like OpenAI, Anthropic, etc.), including usage docs, environment
+    variables, Docker config, and image resources. Triggers on provider documentation
+    tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/add-provider-doc
+  updated_at: '1771693763'
+- rank: 43
+  id: lobehub-lobehub-agents-skills-chat-sdk-skill-md
+  name: chat-sdk
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Build multi-platform chat bots with Chat SDK (`chat` npm package).
+    Use when developers want to (1) Build a Slack, Teams, Google Chat, Discord, GitHub,
+    or Linear bot, (2) Use the Chat SDK to handle mentions, messages, reactions, slash
+    commands, cards, modals, or streaming, (3) Set up webhook handlers for chat platforms,
+    (4) Send interactive cards or stream AI responses to chat platforms. Triggers
+    on "chat sdk", "chat bot", "slack bot", "teams bot", "discord bot", "@chat-adapter",
+    building bots that work across multiple chat platforms.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/chat-sdk
+  updated_at: '1772366078'
+- rank: 44
+  id: lobehub-lobehub-agents-skills-linear-skill-md
+  name: linear
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: 'Linear issue management. MUST USE when: (1) user mentions LOBE-xxx
+    issue IDs (e.g. LOBE-4540), (2) user says ''linear'', ''linear issue'', ''link
+    linear'', (3) creating PRs that reference Linear issues. Provides workflows for
+    retrieving issues, updating status, and adding comments.'
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/linear
+  updated_at: '1770785925'
+- rank: 45
+  id: lobehub-lobehub-agents-skills-project-overview-skill-md
+  name: project-overview
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Complete project architecture and structure guide. Use when exploring
+    the codebase, understanding project organization, finding files, or needing comprehensive
+    architectural context. Triggers on architecture questions, directory navigation,
+    or project overview needs.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/project-overview
+  updated_at: '1773497169'
+- rank: 46
+  id: lobehub-lobehub-agents-skills-recent-data-skill-md
+  name: recent-data
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Guide for using Recent Data (topics, resources, pages). Use when working
+    with recently accessed items, implementing recent lists, or accessing session
+    store recent data. Triggers on recent data usage or implementation tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/recent-data
+  updated_at: '1770786288'
+- rank: 47
+  id: lobehub-lobehub-agents-skills-upstash-workflow-skill-md
+  name: upstash-workflow
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Upstash Workflow implementation guide. Use when creating async workflows
+    with QStash, implementing fan-out patterns, or building 3-layer workflow architecture
+    (process → paginate → execute).
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/upstash-workflow
+  updated_at: '1772117950'
+- rank: 48
+  id: garrytan-gstack-ship-skill-md
+  name: ship
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Ship workflow: detect + merge base branch, run tests, review diff,
+    bump VERSION, update CHANGELOG, commit, push, create PR. Use when asked to "ship",
+    "deploy", "push to main", "create a PR", or "merge and push".
+
+    Proactively suggest when the user says code is ready or asks about deploying.'
+  github_url: https://github.com/garrytan/gstack/tree/main/ship
+  updated_at: '1774634818'
+- rank: 49
+  id: nextlevelbuilder-ui-ux-pro-max-skill-claude-skills-design-skill-md
+  name: ckmdesign
+  author: nextlevelbuilder
+  stars: 53137
+  forks: 5136
+  description: 'Comprehensive design skill: brand identity, design tokens, UI styling,
+    logo generation (55 styles, Gemini AI), corporate identity program (50 deliverables,
+    CIP mockups), HTML presentations (Chart.js), banner design (22 styles, social/ads/web/print),
+    icon design (15 styles, SVG, Gemini 3.1 Pro), social photos (HTML→screenshot,
+    multi-platform). Actions: design logo, create CIP, generate mockups, build slides,
+    design banner, generate icon, create social photos, social media images, brand
+    identity, design system. Platforms: Facebook, Twitter, LinkedIn, YouTube, Instagram,
+    Pinterest, TikTok, Threads, Google Ads.'
+  github_url: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/design
+  updated_at: '1773119141'
+- rank: 50
+  id: bytedance-deer-flow-skills-public-claude-to-deerflow-skill-md
+  name: claude-to-deerflow
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Interact with DeerFlow AI agent platform via its HTTP API. Use this
+    skill when the user wants to send messages or questions to DeerFlow for research/analysis,
+    start a DeerFlow conversation thread, check DeerFlow status or health, list available
+    models/skills/agents in DeerFlow, manage DeerFlow memory, upload files to DeerFlow
+    threads, or delegate complex research tasks to DeerFlow. Also use when the user
+    mentions deerflow, deer flow, or wants to run a deep research task that DeerFlow
+    can handle.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/claude-to-deerflow
+  updated_at: '1772978784'

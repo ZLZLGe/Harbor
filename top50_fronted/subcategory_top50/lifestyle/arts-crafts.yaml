@@ -1,0 +1,589 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: lifestyle
+category_name: Lifestyle
+category_skill_count: 9622
+subcategory_slug: arts-crafts
+subcategory_name: Arts & Crafts
+subcategory_skill_count: 1578
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=arts-crafts
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 1578
+  total_pages: 32
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: bytedance-deer-flow-skills-public-image-generation-skill-md
+  name: image-generation
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Use this skill when the user requests to generate, create, imagine,
+    or visualize images including characters, scenes, products, or any visual content.
+    Supports structured prompts and reference images for guided generation.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/image-generation
+  updated_at: '1773651192'
+- rank: 2
+  id: sickn33-antigravity-awesome-skills-skills-brand-guidelines-anthropic-skill-md
+  name: brand-guidelines-anthropic
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: To access Anthropic's official brand identity and style resources,
+    use this skill.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/brand-guidelines-anthropic
+  updated_at: '1773994005'
+- rank: 3
+  id: sickn33-antigravity-awesome-skills-skills-brand-guidelines-community-skill-md
+  name: brand-guidelines-community
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: To access Anthropic's official brand identity and style resources,
+    use this skill.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/brand-guidelines-community
+  updated_at: '1773994005'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-canvas-design-skill-md
+  name: canvas-design
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: These are instructions for creating design philosophies - aesthetic
+    movements that are then EXPRESSED VISUALLY. Output only .md files, .pdf files,
+    and .png files.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/canvas-design
+  updated_at: '1773994005'
+- rank: 5
+  id: pbakaus-impeccable-agents-skills-distill-skill-md
+  name: distill
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Strip designs to their essence by removing unnecessary complexity.
+    Great design is simple, powerful, and clean. Use when the user asks to simplify,
+    declutter, reduce noise, remove elements, or make a UI cleaner and more focused.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.agents/skills/distill
+  updated_at: '1774392752'
+- rank: 6
+  id: pbakaus-impeccable-claude-skills-distill-skill-md
+  name: distill
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Strip designs to their essence by removing unnecessary complexity.
+    Great design is simple, powerful, and clean. Use when the user asks to simplify,
+    declutter, reduce noise, remove elements, or make a UI cleaner and more focused.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.claude/skills/distill
+  updated_at: '1774392752'
+- rank: 7
+  id: pbakaus-impeccable-cursor-skills-distill-skill-md
+  name: distill
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Strip designs to their essence by removing unnecessary complexity.
+    Great design is simple, powerful, and clean. Use when the user asks to simplify,
+    declutter, reduce noise, remove elements, or make a UI cleaner and more focused.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.cursor/skills/distill
+  updated_at: '1774392752'
+- rank: 8
+  id: pbakaus-impeccable-opencode-skills-distill-skill-md
+  name: distill
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Strip designs to their essence by removing unnecessary complexity.
+    Great design is simple, powerful, and clean. Use when the user asks to simplify,
+    declutter, reduce noise, remove elements, or make a UI cleaner and more focused.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.opencode/skills/distill
+  updated_at: '1774392752'
+- rank: 9
+  id: pbakaus-impeccable-agents-skills-quieter-skill-md
+  name: quieter
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Tones down visually aggressive or overstimulating designs, reducing
+    intensity while preserving quality. Use when the user mentions too bold, too loud,
+    overwhelming, aggressive, garish, or wants a calmer, more refined aesthetic.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.agents/skills/quieter
+  updated_at: '1774392752'
+- rank: 10
+  id: pbakaus-impeccable-claude-skills-quieter-skill-md
+  name: quieter
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Tones down visually aggressive or overstimulating designs, reducing
+    intensity while preserving quality. Use when the user mentions too bold, too loud,
+    overwhelming, aggressive, garish, or wants a calmer, more refined aesthetic.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.claude/skills/quieter
+  updated_at: '1774392752'
+- rank: 11
+  id: pbakaus-impeccable-codex-skills-quieter-skill-md
+  name: quieter
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Tones down visually aggressive or overstimulating designs, reducing
+    intensity while preserving quality. Use when the user mentions too bold, too loud,
+    overwhelming, aggressive, garish, or wants a calmer, more refined aesthetic.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.codex/skills/quieter
+  updated_at: '1774392752'
+- rank: 12
+  id: pbakaus-impeccable-cursor-skills-quieter-skill-md
+  name: quieter
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Tones down visually aggressive or overstimulating designs, reducing
+    intensity while preserving quality. Use when the user mentions too bold, too loud,
+    overwhelming, aggressive, garish, or wants a calmer, more refined aesthetic.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.cursor/skills/quieter
+  updated_at: '1774392752'
+- rank: 13
+  id: pbakaus-impeccable-opencode-skills-quieter-skill-md
+  name: quieter
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Tones down visually aggressive or overstimulating designs, reducing
+    intensity while preserving quality. Use when the user mentions too bold, too loud,
+    overwhelming, aggressive, garish, or wants a calmer, more refined aesthetic.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/.opencode/skills/quieter
+  updated_at: '1774392752'
+- rank: 14
+  id: pbakaus-impeccable-source-skills-quieter-skill-md
+  name: quieter
+  author: pbakaus
+  stars: 14285
+  forks: 612
+  description: Tones down visually aggressive or overstimulating designs, reducing
+    intensity while preserving quality. Use when the user mentions too bold, too loud,
+    overwhelming, aggressive, garish, or wants a calmer, more refined aesthetic.
+  github_url: https://github.com/pbakaus/impeccable/tree/main/source/skills/quieter
+  updated_at: '1774392752'
+- rank: 15
+  id: kreuzberg-dev-kreuzberg-ai-rulez-domains-ocr-integration-skills-table-extraction-and-reconstruction-skill-md
+  name: table-extraction-and-reconstruction
+  author: kreuzberg-dev
+  stars: 7147
+  forks: 343
+  description: taule extraction and reconstruction
+  github_url: https://github.com/kreuzberg-dev/kreuzberg/tree/main/.ai-rulez/domains/ocr-integration/skills/table-extraction-and-reconstruction
+  updated_at: '1774432188'
+- rank: 16
+  id: openclaw-skills-skills-clawberrypi-xmtp-agent-swarm-help-skill-md
+  name: --help
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: A brief description of what this skill does
+  github_url: https://github.com/openclaw/skills/tree/main/skills/clawberrypi/xmtp-agent-swarm/--help
+  updated_at: '1772111008'
+- rank: 17
+  id: openclaw-skills-skills-1322138614-anime-assistant-skill-md
+  name: anime-assistant
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 二次元创作全能助手 - 专注于动漫、插画、角色设计、漫画创作、动画制作等二次元内容创作
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1322138614/anime-assistant
+  updated_at: '1772521877'
+- rank: 18
+  id: openclaw-skills-skills-blue37bird-brand-guidelines-2-skill-md
+  name: brand-guidelines
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Applies Anthropic's official brand colors and typography to any sort
+    of artifact that may benefit from having Anthropic's look-and-feel. Use it when
+    brand colors or style guidelines, visual formatting, or company design standards
+    apply.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/blue37bird/brand-guidelines-2
+  updated_at: '1773212628'
+- rank: 19
+  id: openclaw-skills-skills-cexfree-calculator-2-skill-md
+  name: calculator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: This skill should be used when the user asks to "calculate", "compute",
+    "do math", mentions arithmetic operations like "add", "subtract", "multiply",
+    "divide", or asks questions like "what is 1+1". Provides basic arithmetic calculation
+    capabilities.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/cexfree/calculator-2
+  updated_at: '1773454153'
+- rank: 20
+  id: openclaw-skills-skills-ajmwagar-find-stl-skill-md
+  name: find-stl
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Search and download ready-to-print 3D model files (STL/3MF/ZIP) for
+    a concept or specific part by querying Printables (first). Use when an agent needs
+    to find an existing model, capture license/attribution, download the source files,
+    and output a local folder + manifest for quoting/printing.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ajmwagar/find-stl
+  updated_at: '1769954960'
+- rank: 21
+  id: openclaw-skills-skills-bytesagain1-fish-skill-md
+  name: fish
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Fish makes utility tools simple. Use when you need fish.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/fish
+  updated_at: '1773817343'
+- rank: 22
+  id: openclaw-skills-skills-bondli-image-collect-skill-md
+  name: image-collect
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: This skill extracts knowledge from an image and saves it locally.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bondli/image-collect
+  updated_at: '1774514395'
+- rank: 23
+  id: openclaw-skills-skills-1999azzar-mermaid-architect-skill-md
+  name: mermaid-architect
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Generate beautiful, hand-drawn Mermaid diagrams with robust syntax
+    (quoted labels, ELK layout). Use this skill when the user asks for "diagram",
+    "flowchart", "sequence diagram", or "visualize this process".
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1999azzar/mermaid-architect
+  updated_at: '1770952306'
+- rank: 24
+  id: openclaw-skills-skills-candoolabs-paper-design-skill-md
+  name: paper-design
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Design UI screens in Paper — a professional design tool running locally
+    on macOS. Create artboards, write HTML into designs, take screenshots, and iterate
+    visually.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/candoolabs/paper-design
+  updated_at: '1773230544'
+- rank: 25
+  id: openclaw-skills-skills-ckchzh-design-tool-skill-md
+  name: penpot
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Penpot: The open-source design tool for design and code collaboration
+    design-tool, clojure, clojure, clojurescript, design, prototyping.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/design-tool
+  updated_at: '1774098620'
+- rank: 26
+  id: openclaw-skills-skills-bytesagain1-watermark-skill-md
+  name: watermark
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Watermark reference — visible and invisible watermarking, steganography,
+    copyright protection, detection. Use when implementing watermarks for images,
+    documents, or media, or understanding digital rights management.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/watermark
+  updated_at: '1774449401'
+- rank: 27
+  id: davepoon-buildwithclaude-plugins-all-skills-skills-canvas-design-skill-md
+  name: canvas-design
+  author: davepoon
+  stars: 2653
+  forks: 294
+  description: Create beautiful visual art in .png and .pdf documents using design
+    philosophy. You should use this skill when the user asks to create a poster, piece
+    of art, design, or other static piece. Create original visual designs, never copying
+    existing artists' work to avoid copyright violations.
+  github_url: https://github.com/davepoon/buildwithclaude/tree/main/plugins/all-skills/skills/canvas-design
+  updated_at: '1767508545'
+- rank: 28
+  id: agentscope-ai-agentscope-java-agentscope-core-src-test-resources-test-skills-calculation-skill-skill-md
+  name: calculation-skill
+  author: agentscope-ai
+  stars: 2248
+  forks: 460
+  description: A skill for mathematical calculations
+  github_url: https://github.com/agentscope-ai/agentscope-java/tree/main/agentscope-core/src/test/resources/test-skills/calculation-skill
+  updated_at: '1768354680'
+- rank: 29
+  id: agentscope-ai-agentscope-java-agentscope-core-src-test-resources-test-skills-writing-skill-skill-md
+  name: writing-skill
+  author: agentscope-ai
+  stars: 2248
+  forks: 460
+  description: A skill for writing and content creation
+  github_url: https://github.com/agentscope-ai/agentscope-java/tree/main/agentscope-core/src/test/resources/test-skills/writing-skill
+  updated_at: '1768354680'
+- rank: 30
+  id: alibaba-loongcollector-cursor-skills-mermaid-skill-md
+  name: mermaid
+  author: alibaba
+  stars: 2119
+  forks: 433
+  description: Whenever diagrams or mermaid is mentioned
+  github_url: https://github.com/alibaba/loongcollector/tree/main/.cursor/skills/mermaid
+  updated_at: '1774349157'
+- rank: 31
+  id: q00-ouroboros-skills-tutorial-skill-md
+  name: tutorial
+  author: Q00
+  stars: 1891
+  forks: 167
+  description: Interactive tutorial teaching Ouroboros hands-on
+  github_url: https://github.com/Q00/ouroboros/tree/main/skills/tutorial
+  updated_at: '1771826026'
+- rank: 32
+  id: mitsuhiko-agent-stuff-skills-openscad-skill-md
+  name: openscad
+  author: mitsuhiko
+  stars: 1785
+  forks: 121
+  description: Create and render OpenSCAD 3D models. Generate preview images from
+    multiple angles, extract customizable parameters, validate syntax, and export
+    STL files for 3D printing platforms like MakerWorld.
+  github_url: https://github.com/mitsuhiko/agent-stuff/tree/main/skills/openscad
+  updated_at: '1767918190'
+- rank: 33
+  id: jeremylongshore-claude-code-plugins-plus-skills-plugins-saas-packs-klingai-pack-skills-klingai-style-transfer-skill-md
+  name: klingai-style-transfer
+  author: jeremylongshore
+  stars: 1735
+  forks: 229
+  description: 'Apply artistic styles and visual effects to Kling AI video generation.
+    Use when creating
+
+    stylized content or using effects API. Trigger with phrases like ''klingai style'',
+    ''kling ai effects'',
+
+    ''klingai artistic video'', ''stylize klingai video''.'
+  github_url: https://github.com/jeremylongshore/claude-code-plugins-plus-skills/tree/main/plugins/saas-packs/klingai-pack/skills/klingai-style-transfer
+  updated_at: '1774200557'
+- rank: 34
+  id: composiohq-awesome-claude-plugins-canvas-design-skills-canvas-design-skill-md
+  name: canvas-design
+  author: ComposioHQ
+  stars: 1206
+  forks: 244
+  description: Create beautiful visual art in .png and .pdf documents using design
+    philosophy. You should use this skill when the user asks to create a poster, piece
+    of art, design, or other static piece. Create original visual designs, never copying
+    existing artists' work to avoid copyright violations.
+  github_url: https://github.com/ComposioHQ/awesome-claude-plugins/tree/master/canvas-design/skills/canvas-design
+  updated_at: '1770196166'
+- rank: 35
+  id: huangserva-skill-prompt-generator-claude-skills-art-master-skill-md
+  name: art-master
+  author: huangserva
+  stars: 1203
+  forks: 191
+  description: 艺术风格主控 - 自动生成艺术风格提示词，支持水墨画、油画、超现实、插画等多种艺术风格
+  github_url: https://github.com/huangserva/skill-prompt-generator/tree/main/.claude/skills/art-master
+  updated_at: '1767588696'
+- rank: 36
+  id: trpc-group-trpc-agent-go-examples-agui-server-skill-artifacts-skills-artifact-demo-skill-md
+  name: artifact-demo
+  author: trpc-group
+  stars: 1040
+  forks: 112
+  description: Demo skill that writes an output file and persists it as an artifact.
+  github_url: https://github.com/trpc-group/trpc-agent-go/tree/main/examples/agui/server/skill_artifacts/skills/artifact_demo
+  updated_at: '1772527353'
+- rank: 37
+  id: funnywolf-agentic-soc-platform-plugins-claudecode-skills-asp-artifact-skill-md
+  name: asp-artifact
+  author: FunnyWolf
+  stars: 654
+  forks: 89
+  description: Find artifacts by IOC, create new artifacts, attach artifacts to alerts,
+    or save enrichment on artifacts.
+  github_url: https://github.com/FunnyWolf/agentic-soc-platform/tree/master/PLUGINS/ClaudeCode/skills/asp-artifact
+  updated_at: '1773995077'
+- rank: 38
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-clean-object-skill-md
+  name: alfworld-clean-object
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Cleans a specified object using an appropriate cleaning receptacle
+    (e.g., sinkbasin). Use when a task requires an object to be in a clean state (e.g.,
+    "clean potato", "wash apple") before proceeding. Navigates to the cleaning location,
+    performs the clean action, and confirms the object is now clean.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-clean-object
+  updated_at: '1773678194'
+- rank: 39
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-device-operator-skill-md
+  name: alfworld-device-operator
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Operates a device or appliance (like a desklamp, microwave, or fridge)
+    to interact with another object. Use when the task requires using a tool on a
+    target item (e.g., "look at laptop under the desklamp", "heat potato with microwave").
+    Locates both the device and target object, co-locates them, and executes the appropriate
+    use action (toggle, heat, cool, or clean).
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-device-operator
+  updated_at: '1773678194'
+- rank: 40
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-object-disposer-skill-md
+  name: alfworld-object-disposer
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill disposes of an object by placing it into a disposal receptacle
+    like a garbage can. It should be triggered when the task requires discarding an
+    object (e.g., 'put it in garbagecan') and the agent is at the disposal location
+    with the object in hand. The skill executes the 'put' action to place the object
+    in/on the target receptacle, completing the disposal subtask.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-object-disposer
+  updated_at: '1772892239'
+- rank: 41
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-open-receptacle-skill-md
+  name: alfworld-open-receptacle
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill opens a closed receptacle to access its contents. It should
+    be triggered when an agent needs to interact with items inside a closed container
+    (e.g., fridge, microwave, drawer). The skill takes a receptacle identifier as
+    input, performs the open action, and outputs the observation of the interior,
+    enabling subsequent item retrieval or placement.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-open-receptacle
+  updated_at: '1772892239'
+- rank: 42
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-tool-locator-skill-md
+  name: alfworld-tool-locator
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Searches for a specified tool or device (e.g., a desklamp, knife, or
+    sponge) within the ALFWorld environment by checking relevant surfaces. Use when
+    you need a tool to interact with another object as part of a task but the tool
+    is not in your inventory or immediate vicinity. Takes a tool name as implicit
+    input and navigates to likely storage spots (sidetables, shelves, countertops)
+    until the tool is found.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-tool-locator
+  updated_at: '1773678194'
+- rank: 43
+  id: zjunlp-skillnet-experiments-src-skills-alfworld-alfworld-tool-user-skill-md
+  name: alfworld-tool-user
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Use when the agent needs to apply a tool to a target object in ALFWorld
+    to accomplish an interaction such as cleaning, heating, cooling, or examining.
+    This skill handles locating both the tool and target object, then executing the
+    correct environment action (e.g., `clean`, `heat`, `cool`, `use`) to progress
+    the task.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/alfworld/alfworld-tool-user
+  updated_at: '1773678194'
+- rank: 44
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-circuit-builder-skill-md
+  name: scienceworld-circuit-builder
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill constructs a simple electrical circuit by connecting components
+    like batteries, wires, and light bulbs. Use when the agent needs to test electrical
+    conductivity or create a functional circuit for an experiment. The input is a
+    set of available components, and the output is a fully connected circuit ready
+    for activation.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-circuit-builder
+  updated_at: '1773678194'
+- rank: 45
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-circuit-connector-skill-md
+  name: scienceworld-circuit-connector
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: This skill connects two electrical components (e.g., wires, batteries,
+    devices) by their terminals to build or modify a circuit. Use when constructing
+    electrical setups for testing, such as conductivity checks or device activation.
+    The input includes two component identifiers and their connection points, and
+    the output is an established electrical connection.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-circuit-connector
+  updated_at: '1773678194'
+- rank: 46
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-container-transfer-skill-md
+  name: scienceworld-container-transfer
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Moves a substance or object from one container to another (e.g., moving
+    lead to a metal pot). Use this skill when you need to prepare materials for processing,
+    such as transferring a substance into a heat-resistant container before heating,
+    or reorganizing materials between vessels for mixing or measurement.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-container-transfer
+  updated_at: '1773678021'
+- rank: 47
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-device-activator-skill-md
+  name: scienceworld-device-activator
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Activates a device (e.g., blast furnace, stove) to initiate a process
+    like heating. Use this skill when you have placed materials inside a device and
+    need to start its operation. Takes a device name as input and outputs a confirmation
+    of activation, enabling tasks that require energy input or material processing
+    to progress.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-device-activator
+  updated_at: '1773678021'
+- rank: 48
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-scienceworld-tool-user-skill-md
+  name: scienceworld-tool-user
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Uses a tool from inventory on a target object or location to perform
+    a specific environmental interaction, such as digging, cutting, or measuring.
+    Use this skill when a task requires modifying the environment or manipulating
+    materials with a tool (e.g., using a shovel to dig soil, a thermometer to measure
+    temperature, or an axe to cut wood). Takes the tool and target as inputs and outputs
+    the result of the interaction.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/scienceworld-tool-user
+  updated_at: '1773678021'
+- rank: 49
+  id: zjunlp-skillnet-experiments-src-skills-scienceworld-soil-extraction-skill-md
+  name: soil-extraction
+  author: zjunlp
+  stars: 609
+  forks: 57
+  description: Uses a shovel tool to dig soil from the ground in outdoor environments.
+    Execute this skill when you need to obtain soil for planting tasks and have both
+    the shovel in inventory and access to an appropriate digging location. The skill
+    produces soil that can then be collected and transported.
+  github_url: https://github.com/zjunlp/SkillNet/tree/main/experiments/src/skills/scienceworld/soil-extraction
+  updated_at: '1772892239'
+- rank: 50
+  id: lilimozi-openhanako-skills2set-canvas-design-skill-md
+  name: canvas-design
+  author: liliMozi
+  stars: 608
+  forks: 68
+  description: "Create beautiful visual art in .png and .pdf documents using design\
+    \ philosophy. You should use this skill when the user asks to create a poster,\
+    \ piece of art, design, or other static piece. Create original visual designs,\
+    \ never copying existing artists' work to avoid copyright violations.\n  用设计哲学创建精美的\
+    \ .png 和 .pdf 视觉艺术作品。当用户要求创建海报、艺术作品、设计稿或其他静态视觉作品时使用此技能。创作原创视觉设计，避免复制现有艺术家的作品以避免版权问题。\n\
+    \  MANDATORY TRIGGERS: poster, art, design, visual, 海报, 设计, 视觉设计, 艺术, 平面设计"
+  github_url: https://github.com/liliMozi/openhanako/tree/main/skills2set/canvas-design
+  updated_at: '1773567662'

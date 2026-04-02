@@ -1,0 +1,591 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: business
+category_name: Business
+category_skill_count: 121378
+subcategory_slug: ecommerce
+subcategory_name: E-commerce
+subcategory_skill_count: 2018
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=ecommerce
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 2018
+  total_pages: 41
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-ordercli-skill-md
+  name: ordercli
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Foodora-only CLI for checking past orders and active order status (Deliveroo
+    WIP).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/ordercli
+  updated_at: '1769862085'
+- rank: 2
+  id: affaan-m-everything-claude-code-docs-tr-skills-deployment-patterns-skill-md
+  name: deployment-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Deployment iş akışları, CI/CD pipeline kalıpları, Docker konteynerizasyonu,
+    sağlık kontrolleri, rollback stratejileri ve web uygulamaları için üretim hazırlığı
+    kontrol listeleri.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/deployment-patterns
+  updated_at: '1774219024'
+- rank: 3
+  id: sickn33-antigravity-awesome-skills-skills-apify-ecommerce-skill-md
+  name: apify-ecommerce
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Extract product data, prices, reviews, and seller information from
+    any e-commerce platform using Apify's E-commerce Scraping Tool.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-ecommerce
+  updated_at: '1773994629'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-junta-leiloeiros-skill-md
+  name: junta-leiloeiros
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Coleta e consulta dados de leiloeiros oficiais de todas as 27 Juntas
+    Comerciais do Brasil. Scraper multi-UF, banco SQLite, API FastAPI e exportacao
+    CSV/JSON.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/junta-leiloeiros
+  updated_at: '1773560453'
+- rank: 5
+  id: googleworkspace-cli-skills-persona-sales-ops-skill-md
+  name: persona-sales-ops
+  author: googleworkspace
+  stars: 22843
+  forks: 1108
+  description: Manage sales workflows — track deals, schedule calls, client comms.
+  github_url: https://github.com/googleworkspace/cli/tree/main/skills/persona-sales-ops
+  updated_at: '1774550706'
+- rank: 6
+  id: elizaos-eliza-packages-skills-skills-ordercli-skill-md
+  name: ordercli
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Foodora-only CLI for checking past orders and active order status (Deliveroo
+    WIP). Use when the user asks to check food delivery orders, track a Foodora delivery,
+    view order history, reorder a meal, look up past food orders, check delivery status,
+    or manage Foodora sessions and authentication.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/ordercli
+  updated_at: '1773711902'
+- rank: 7
+  id: jeffallan-claude-skills-skills-shopify-expert-skill-md
+  name: shopify-expert
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Builds and debugs Shopify themes (.liquid files, theme.json, sections),
+    develops custom Shopify apps (shopify.app.toml, OAuth, webhooks), and implements
+    Storefront API integrations for headless storefronts. Use when building or customizing
+    Shopify themes, creating Hydrogen or custom React storefronts, developing Shopify
+    apps, implementing checkout UI extensions or Shopify Functions, optimizing performance,
+    or integrating third-party services. Invoke for Liquid templating, Storefront
+    API, app development, checkout customization, Shopify Plus features, App Bridge,
+    Polaris, or Shopify CLI workflows.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/shopify-expert
+  updated_at: '1772832479'
+- rank: 8
+  id: openclaw-skills-skills-1688aiinfra-1688-88syt-skill-md
+  name: 1688-88syt
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 线下B2B交易的得力帮手，一句话搞定全流程操作！无论您是卖家还是买家，只需一句指令，即可轻松完成电子合约（采购单/合同）创建、签署、确认收货、退款等核心操作，全面支持账号状态查询、实名认证、绑卡及交易，让每一步交易流程更清晰、更可控。通过智能化交互，实现交易流程数字化，提升协作效率，保障资金流转安全，助力企业高效运营。专注每一次B2B交易，让生意更稳、更快、更省心！。用户提到
+    88 生意通、采购单、签署、退款、确认收货、大额、批量、实名、绑卡、主账号、卖家或买家问题时使用。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1688aiinfra/1688-88syt
+  updated_at: '1774631152'
+- rank: 9
+  id: openclaw-skills-skills-275254cl-hash-1688-price-monitor-skill-md
+  name: 1688-price-monitor
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 监控 1688 批发商品价格，支持一件代发价格查询、厂家信息、同款比价。适合电商卖家、代购、副业创业者。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/275254cl-hash/1688-price-monitor
+  updated_at: '1774524738'
+- rank: 10
+  id: openclaw-skills-skills-brennerspear-amazon-ordering-skill-md
+  name: amazon
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Buy and return items on Amazon using browser automation. Use for purchasing,
+    reordering, checking order history, and processing returns.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/brennerspear/amazon-ordering
+  updated_at: '1772222984'
+- rank: 11
+  id: openclaw-skills-skills-brennerspear-amazon-shopper-skill-md
+  name: amazon
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Buy and return items on Amazon using browser automation. Use for purchasing,
+    reordering, checking order history, and processing returns.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/brennerspear/amazon-shopper
+  updated_at: '1772022416'
+- rank: 12
+  id: openclaw-skills-skills-atoship-dev-atoship-skill-md
+  name: atoship
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Ship packages with AI — compare rates across USPS, FedEx, and UPS,
+    buy discounted labels, track shipments, and manage orders. Requires user confirmation
+    before any purchase or wallet-affecting action.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/atoship-dev/atoship
+  updated_at: '1771678967'
+- rank: 13
+  id: openclaw-skills-skills-bytesagain1-bonded-skill-md
+  name: bonded
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Bonded warehouse reference — customs procedures, duty deferral, FTZ
+    operations, compliance requirements. Use when managing bonded storage, customs
+    clearance, or duty suspension logistics.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/bonded
+  updated_at: '1774449489'
+- rank: 14
+  id: openclaw-skills-skills-abuiles-buy-bread-skill-md
+  name: buy-bread
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Buy breads, pastries, and bakery subscriptions through Lobster Bread.
+    Use when a buyer wants an agent to discover bakeries, compare breads and pastries,
+    build a cart, and hand back a Shopify checkout link for approval and payment.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abuiles/buy-bread
+  updated_at: '1773826428'
+- rank: 15
+  id: openclaw-skills-skills-anugotta-catalog-sku-matcher-india-skill-md
+  name: catalog-sku-matcher-india
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Match and normalize product listings across Indian ecommerce catalogs
+    with variant-aware rules, confidence scoring, false-match prevention, and review
+    queues for ambiguous pairs.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anugotta/catalog-sku-matcher-india
+  updated_at: '1774102061'
+- rank: 16
+  id: openclaw-skills-skills-1970168137-china-home-appliances-sourcing-skill-md
+  name: china-home-appliances-sourcing
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Comprehensive home appliances industry sourcing guide for international
+    buyers – provides detailed information about China's major appliances, kitchen
+    appliances, and small appliances manufacturing clusters, supply chain structure,
+    regional specializations, and industry trends (2026 updated).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1970168137/china-home-appliances-sourcing
+  updated_at: '1773520598'
+- rank: 17
+  id: openclaw-skills-skills-clawallex-tech-clawallex-skill-skill-md
+  name: clawallex-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Pay for anything with USDC — virtual cards for any online checkout
+  github_url: https://github.com/openclaw/skills/tree/main/skills/clawallex-tech/clawallex-skill
+  updated_at: '1774607716'
+- rank: 18
+  id: openclaw-skills-skills-0xgrainzy-clawford-skill-md
+  name: clawford
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Browse the Clawford skill marketplace — verified skill packs with benchmarks
+    that prove they work. Free courses included.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xgrainzy/clawford
+  updated_at: '1773452487'
+- rank: 19
+  id: openclaw-skills-skills-ckchzh-contact-book-skill-md
+  name: contact-book
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Store personal contacts with tags, search, and relationship tracking.
+    Use when adding contacts, searching details, planning follow-ups.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/contact-book
+  updated_at: '1774038811'
+- rank: 20
+  id: openclaw-skills-skills-ckchzh-deconsolidation-skill-md
+  name: deconsolidation
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Deconsolidation reference — container stripping, cargo breakdown, cross-dock
+    operations, and LCL unpacking. Use when planning deconsolidation workflows or
+    optimizing warehouse receiving.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/deconsolidation
+  updated_at: '1774451238'
+- rank: 21
+  id: openclaw-skills-skills-aa-on-ai-design-review-skill-md
+  name: design-review
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Core pack — always active for visual work. Quality gate for UI, components,
+    pages, layouts, or frontend work. Triggers on any visual/design task automatically.
+    Use before presenting work, during builds, and for design QA.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aa-on-ai/design-review
+  updated_at: '1774443720'
+- rank: 22
+  id: openclaw-skills-skills-aiwithabidi-easypost-skill-md
+  name: easypost
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: EasyPost — shipping labels, rate comparison, package tracking, address
+    verification, and insurance.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/easypost
+  updated_at: '1772667211'
+- rank: 23
+  id: openclaw-skills-skills-adeydas-family-grocery-skill-md
+  name: family-grocery
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Shared family grocery list — multiple members add, remove, and view
+    items organized by store. Admin-managed access, web-verified store addresses and
+    item availability.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adeydas/family-grocery
+  updated_at: '1773504149'
+- rank: 24
+  id: openclaw-skills-skills-byungkyu-google-merchant-skill-md
+  name: google-merchant
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Google Merchant Center API integration with managed OAuth. Manage
+    products, inventories, data sources, promotions, and reports for Google Shopping.
+
+    Use this skill when users want to manage their Merchant Center product catalog,
+    check product status, configure data sources, or analyze shopping performance.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/google-merchant
+  updated_at: '1771732786'
+- rank: 25
+  id: openclaw-skills-skills-abakermi-gumroad-admin-skill-md
+  name: gumroad-admin
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Gumroad Admin CLI. Check sales, products, and manage discounts.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abakermi/gumroad-admin
+  updated_at: '1769900660'
+- rank: 26
+  id: openclaw-skills-skills-abdul-karim-mia-gumroad-pro-skill-md
+  name: gumroad-pro
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Comprehensive Gumroad merchant management for Products, Sales, Licenses,
+    Discounts, Payouts, and Webhooks. Use when Claude needs to: (1) Manage digital
+    or physical inventory, (2) Oversee transactions and process refunds/shipping,
+    (3) Verify or rotate license keys, (4) Manage offer codes, or (5) Monitor payout
+    history and store webhooks.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abdul-karim-mia/gumroad-pro
+  updated_at: '1771068725'
+- rank: 27
+  id: openclaw-skills-skills-adhambadr-halocard-virtualcards-skill-md
+  name: halocard-virtualcards
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Create disposable virtual credit cards for online purchases. Use as
+    a payment method when completing any online checkout during a task — e.g. ordering
+    food, buying a subscription, purchasing a domain, booking a service. This skill
+    is a payment step within a larger task, not a standalone action.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adhambadr/halocard-virtualcards
+  updated_at: '1770942844'
+- rank: 28
+  id: openclaw-skills-skills-anugotta-india-price-tracker-skill-md
+  name: india-price-tracker
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Track and compare product prices across popular Indian stores (Amazon
+    India, Flipkart, Reliance Digital, Croma, Vijay Sales, Tata CLiQ, and more), compute
+    effective prices after offers/cashback, detect arbitrage opportunities, and monitor
+    price history with alerts.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anugotta/india-price-tracker
+  updated_at: '1774100426'
+- rank: 29
+  id: openclaw-skills-skills-ckchzh-inventory-manager-skill-md
+  name: inventory-manager
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Inventory management reference — SKU systems, FIFO/LIFO valuation,
+    barcode formats, ABC analysis, EOQ formula, and WMS migration
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/inventory-manager
+  updated_at: '1774359119'
+- rank: 30
+  id: openclaw-skills-skills-275254cl-hash-jd-price-history-skill-md
+  name: jd-price-history
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 京东商品价格历史查询，发现真实低价，避开先涨后降套路。适合比价购物、电商卖家。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/275254cl-hash/jd-price-history
+  updated_at: '1774402942'
+- rank: 31
+  id: openclaw-skills-skills-aiwithabidi-lemonsqueezy-skill-md
+  name: lemonsqueezy
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Lemon Squeezy — digital products, subscriptions, orders, customers,
+    checkouts, license keys, and discounts. Digital commerce CLI.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/lemonsqueezy
+  updated_at: '1772683846'
+- rank: 32
+  id: openclaw-skills-skills-abuiles-buy-coffee-skill-md
+  name: lobsterbrew
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Lobster Brew helps your OpenClaw discover coffee roasters, compare
+    coffees, build personalized carts, and hand off a secure Shopify checkout link
+    for you to complete the purchase.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abuiles/buy-coffee
+  updated_at: '1773824539'
+- rank: 33
+  id: openclaw-skills-skills-bdwelle-mac-contacts-skill-md
+  name: mac-contacts
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: CLI for reading and managing macOS Contacts (CNContactStore). Supports
+    searching by name, email, phone number, city, or country; showing all fields for
+    a contact including list membership; creating and updating contacts with name,
+    org, phone, email, and postal address; deleting contacts; and managing group (list)
+    membership. Use when asked to look up, add, edit, remove, or organise contacts
+    on macOS, or when you need a contact's phone number, email, address, or which
+    lists they belong to.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bdwelle/mac-contacts
+  updated_at: '1772669096'
+- rank: 34
+  id: openclaw-skills-skills-alexpolonsky-maccabi-pharm-search-skill-md
+  name: maccabi-pharm-search
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Search for medications and check real-time stock availability at Maccabi
+    pharmacies in Israel. Use when searching for drugs like "nurofen", "acamol/אקמול",
+    "advil", or finding nearby pharmacy branches with stock. Supports Hebrew and English
+    drug names. מכבי פארם, תרופות, מלאי, בית מרקחת.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alexpolonsky/maccabi-pharm-search
+  updated_at: '1771691570'
+- rank: 35
+  id: openclaw-skills-skills-chandler0714-mstore-skill-md
+  name: mstore
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: McDonald's China coupon redemption, query, and points checking. Use
+    when user wants to (1) Query or claim McDonald's coupons, (2) Check available
+    coupons, (3) View points balance, (4) Query campaign calendar, (5) Order food
+    for delivery, or (6) Redeem points for products. This skill provides direct access
+    to McDonald's China MCP services including coupon management, points mall, and
+    delivery ordering.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chandler0714/mstore
+  updated_at: '1774170192'
+- rank: 36
+  id: openclaw-skills-skills-aiwithabidi-printful-skill-md
+  name: printful
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Printful — print-on-demand products, orders, shipping rates, mockup
+    generation, and store management.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/printful
+  updated_at: '1772841928'
+- rank: 37
+  id: openclaw-skills-skills-aiwithabidi-shippo-skill-md
+  name: shippo
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Shippo — shipping labels, rates comparison, package tracking, address
+    validation, and returns.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiwithabidi/shippo
+  updated_at: '1772854612'
+- rank: 38
+  id: openclaw-skills-skills-byungkyu-shopify-skill-md
+  name: shopify
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Shopify integration - currently under maintenance. Contact founders@maton.ai
+    for assistance.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/shopify
+  updated_at: '1770159772'
+- rank: 39
+  id: openclaw-skills-skills-abuiles-shopify-directory-skill-md
+  name: shopify-directory
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Discover Shopify merchants by category or store name through Lobster
+    Stores. Use when a buyer wants help finding the right merchant for coffee, cookies,
+    supplements, apparel, wellness, pets, oral care, alcohol, or adult products and
+    should complete checkout on the merchant's native Shopify checkout.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abuiles/shopify-directory
+  updated_at: '1773823198'
+- rank: 40
+  id: openclaw-skills-skills-caoqi-shopping-in-se-skill-md
+  name: shopping-in-se
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Help the user shop online at Swedish e-commerce sites (Apotea, Apoteket,
+    ICA, etc.) and complete payment. Includes product search, checkout flow, CDP coordinate
+    clicks to bypass cross-origin iframes, and Klarna/Stripe payment handling. Triggers
+    on: "buy this for me", "place an order", "order a", "get me a XX".'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/caoqi/shopping-in-se
+  updated_at: '1773739939'
+- rank: 41
+  id: openclaw-skills-skills-ajeenkya-shopping-list-ui-skill-md
+  name: shopping-list-ui
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Web UI for the shopping-list skill. Adds a /shopping page to Second
+    Brain with full CRUD — view, add, edit, check off, and delete items. Requires
+    the shopping-list skill to be installed (shares the same data files).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ajeenkya/shopping-list-ui
+  updated_at: '1772017325'
+- rank: 42
+  id: openclaw-skills-skills-ckchzh-sort-skill-md
+  name: sort
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Sort files, lines, and columns with custom ordering and dedup. Use
+    when scanning duplicates, monitoring changes, reporting results, alerting anomalies.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/sort
+  updated_at: '1774056826'
+- rank: 43
+  id: openclaw-skills-skills-benmillerat-supermarket-deals-skill-md
+  name: supermarket-deals
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Search German supermarket flyers (Aldi, Lidl, REWE, EDEKA, Kaufland)
+    for product deals via Marktguru. Results ranked by best price per litre (EUR/L).
+    No API key needed.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/benmillerat/supermarket-deals
+  updated_at: '1773149591'
+- rank: 44
+  id: openclaw-skills-skills-amargotta-theagora-skill-md
+  name: theagora
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Agent-to-agent service commerce. Browse a live marketplace, purchase
+    with atomic escrow, sell services and earn USDC, check per-function reputation,
+    trade on the exchange. 27 MCP tools for buying, selling, and verifying agent services.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/amargotta/theagora
+  updated_at: '1771896914'
+- rank: 45
+  id: openclaw-skills-skills-anandaely-tiktok-trendslayer-skill-md
+  name: tiktok-trend-slayer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: TikTok 选品猎手 - 自动监控 TikTok 商品榜与达人榜，利用 AI 挖掘高增长爆款，生成选品及达人撮合策略。当用户需要 TikTok
+    选品分析、爆款挖掘、达人匹配、趋势监控时使用此技能。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anandaely/tiktok-trendslayer
+  updated_at: '1774242739'
+- rank: 46
+  id: openclaw-skills-skills-alphatok-weimob-helper-skill-md
+  name: weimob-help-center
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: This skill helps merchants learn and understand Weimob's features and
+    capabilities (e.g., Weimob Shop, Wholesale Shop, Smart Retail, Smart Supermarket,
+    Smart Mall, WeCom Assistant, and WeCom Mini Assistant). It should be triggered
+    when a user asks about Weimob's functions, product capabilities, or operational
+    workflows.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alphatok/weimob-helper
+  updated_at: '1773839465'
+- rank: 47
+  id: openclaw-skills-skills-byungkyu-woocommerce-skill-md
+  name: woocommerce
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: WooCommerce REST API integration with managed OAuth. Access products,
+    orders, customers, coupons, shipping, taxes, reports, and webhooks. Use this skill
+    when users want to manage e-commerce operations, process orders, or integrate
+    with WooCommerce stores. For other third party apps, use the api-gateway skill
+    (https://clawhub.ai/byungkyu/api-gateway).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/woocommerce
+  updated_at: '1770782594'
+- rank: 48
+  id: openclaw-skills-skills-bewithgaurav-zepto-skill-md
+  name: zepto
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Order groceries from Zepto in seconds. Just say what you need, get
+    a payment link on WhatsApp, pay on your phone, done. Remembers your usual items.
+    Works across India where Zepto delivers.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bewithgaurav/zepto
+  updated_at: '1770680011'
+- rank: 49
+  id: openclaw-skills-skills-chenjinxinlove-zhuanzhuan-recycle-estimator-skill-md
+  name: zhuanzhuan-recycle-estimator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 用户询问回收、估价、报价、回收价、值多少钱、能卖多少、转转回收时触发，支持全品类商品回收估价，结合图片、文字、型号、规格、成色等信息给出参考回收价
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chenjinxinlove/zhuanzhuan-recycle-estimator
+  updated_at: '1774604404'
+- rank: 50
+  id: openclaw-skills-skills-byungkyu-zoho-inventory-skill-md
+  name: zoho-inventory
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Zoho Inventory API integration with managed OAuth. Manage items, sales
+    orders, invoices, purchase orders, bills, contacts, and shipments.
+
+    Use this skill when users want to read, create, update, or delete inventory items,
+    sales orders, invoices, purchase orders, bills, or other inventory records in
+    Zoho Inventory.
+
+    For other third party apps, use the api-gateway skill (https://clawhub.ai/byungkyu/api-gateway).
+
+    Requires network access and valid Maton API key.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byungkyu/zoho-inventory
+  updated_at: '1770789747'

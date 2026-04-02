@@ -1,0 +1,594 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: content-and-media
+category_name: Content & Media
+category_skill_count: 44421
+subcategory_slug: documents
+subcategory_name: Documents
+subcategory_skill_count: 22754
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=documents
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 22754
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-extensions-diffs-skills-diffs-skill-md
+  name: diffs
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Use the diffs tool to produce real, shareable diffs (viewer URL, file
+    artifact, or both) instead of manual edit summaries.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/diffs/skills/diffs
+  updated_at: '1772520659'
+- rank: 2
+  id: openclaw-openclaw-extensions-feishu-skills-feishu-doc-skill-md
+  name: feishu-doc
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Feishu document read/write operations. Activate when user mentions
+    Feishu docs, cloud docs, or docx links.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-doc
+  updated_at: '1772236856'
+- rank: 3
+  id: openclaw-openclaw-skills-nano-pdf-skill-md
+  name: nano-pdf
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Edit PDFs with natural-language instructions using the nano-pdf CLI.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/nano-pdf
+  updated_at: '1769862085'
+- rank: 4
+  id: openclaw-openclaw-skills-summarize-skill-md
+  name: summarize
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Summarize or extract text/transcripts from URLs, podcasts, and local
+    files (great fallback for “transcribe this YouTube/video”).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/summarize
+  updated_at: '1769862085'
+- rank: 5
+  id: n8n-io-n8n-claude-skills-loom-transcript-skill-md
+  name: loom-transcript
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Fetch and display the full transcript from a Loom video URL. Use when
+    the user wants to get or read a Loom transcript.
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/loom-transcript
+  updated_at: '1771407855'
+- rank: 6
+  id: f-prompts-chat-windsurf-skills-book-translation-skill-md
+  name: book-translation
+  author: f
+  stars: 154455
+  forks: 20287
+  description: Translate "The Interactive Book of Prompting" chapters and UI strings
+    to a new language
+  github_url: https://github.com/f/prompts.chat/tree/main/.windsurf/skills/book-translation
+  updated_at: '1769806982'
+- rank: 7
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-customs-trade-compliance-skill-md
+  name: customs-trade-compliance
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '海关文件、关税分类、关税优化、受限方筛查以及多司法管辖区法规合规的编码化专业知识。由拥有15年以上经验的贸易合规专家提供。包括HS分类逻辑、Incoterms应用、自贸协定利用以及罚款减免。适用于处理海关清关、关税分类、贸易合规、进出口文件或关税优化时使用。license:
+    Apache-2.0'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/customs-trade-compliance
+  updated_at: '1773395144'
+- rank: 8
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-frontend-slides-skill-md
+  name: frontend-slides
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 从零开始或通过转换PowerPoint文件创建令人惊艳、动画丰富的HTML演示文稿。当用户想要构建演示文稿、将PPT/PPTX转换为网页格式，或为演讲/推介创建幻灯片时使用。帮助非设计师通过视觉探索而非抽象选择发现他们的美学。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/frontend-slides
+  updated_at: '1774219164'
+- rank: 9
+  id: affaan-m-everything-claude-code-docs-ja-jp-skills-nutrient-document-processing-skill-md
+  name: nutrient-document-processing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Nutrient DWS API を使用してドキュメントの処理、変換、OCR、抽出、編集、署名、フォーム入力を行います。PDF、DOCX、XLSX、PPTX、HTML、画像に対応しています。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ja-JP/skills/nutrient-document-processing
+  updated_at: '1772032842'
+- rank: 10
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-nutrient-document-processing-skill-md
+  name: nutrient-document-processing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用Nutrient DWS API处理、转换、OCR识别、提取、编辑、签名和填写文档。支持PDF、DOCX、XLSX、PPTX、HTML和图像格式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/nutrient-document-processing
+  updated_at: '1772519307'
+- rank: 11
+  id: affaan-m-everything-claude-code-skills-nutrient-document-processing-skill-md
+  name: nutrient-document-processing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Process, convert, OCR, extract, redact, sign, and fill documents using
+    the Nutrient DWS API. Works with PDFs, DOCX, XLSX, PPTX, HTML, and images.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/nutrient-document-processing
+  updated_at: '1774141805'
+- rank: 12
+  id: affaan-m-everything-claude-code-skills-regex-vs-llm-structured-text-skill-md
+  name: regex-vs-llm-structured-text
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Decision framework for choosing between regex and LLM when parsing
+    structured text — start with regex, add LLM only for low-confidence edge cases.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/regex-vs-llm-structured-text
+  updated_at: '1771862457'
+- rank: 13
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-visa-doc-translate-skill-md
+  name: visa-doc-translate
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 将签证申请文件（图片）翻译成英文，并创建包含原文和译文的双语PDF
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/visa-doc-translate
+  updated_at: '1772519307'
+- rank: 14
+  id: affaan-m-everything-claude-code-skills-visa-doc-translate-skill-md
+  name: visa-doc-translate
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Translate visa application documents (images) to English and create
+    a bilingual PDF with original and translation
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/visa-doc-translate
+  updated_at: '1771575923'
+- rank: 15
+  id: anthropics-skills-skills-docx-skill-md
+  name: docx
+  author: anthropics
+  stars: 105006
+  forks: 11595
+  description: 'Use this skill whenever the user wants to create, read, edit, or manipulate
+    Word documents (.docx files). Triggers include: any mention of ''Word doc'', ''word
+    document'', ''.docx'', or requests to produce professional documents with formatting
+    like tables of contents, headings, page numbers, or letterheads. Also use when
+    extracting or reorganizing content from .docx files, inserting or replacing images
+    in documents, performing find-and-replace in Word files, working with tracked
+    changes or comments, or converting content into a polished Word document. If the
+    user asks for a ''report'', ''memo'', ''letter'', ''template'', or similar deliverable
+    as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google
+    Docs, or general coding tasks unrelated to document generation.'
+  github_url: https://github.com/anthropics/skills/tree/main/skills/docx
+  updated_at: '1771993718'
+- rank: 16
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-editor-skill-md
+  name: editor
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Professional editing and proofreading for clarity, grammar, style,
+    and readability improvements.
+
+    Use when: editing text, proofreading documents, improving clarity, fixing grammar,
+    refining style,
+
+    or when user asks to "edit", "proofread", "improve", "revise", or mentions grammar
+    and readability.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/editor
+  updated_at: '1770167437'
+- rank: 17
+  id: lobehub-lobehub-agents-skills-microcopy-skill-md
+  name: microcopy
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: UI copy and microcopy guidelines. Use when writing UI text, buttons,
+    error messages, empty states, onboarding, or any user-facing copy. Triggers on
+    i18n translation, UI text writing, or copy improvement tasks. Supports both Chinese
+    and English.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/microcopy
+  updated_at: '1772524901'
+- rank: 18
+  id: paddlepaddle-paddleocr-skills-paddleocr-doc-parsing-skill-md
+  name: paddleocr-doc-parsing
+  author: PaddlePaddle
+  stars: 73238
+  forks: 10044
+  description: Complex document parsing with PaddleOCR. Intelligently converts complex
+    PDFs and document images into Markdown and JSON files that preserve the original
+    structure.
+  github_url: https://github.com/PaddlePaddle/PaddleOCR/tree/main/skills/paddleocr-doc-parsing
+  updated_at: '1773422616'
+- rank: 19
+  id: paddlepaddle-paddleocr-skills-paddleocr-text-recognition-skill-md
+  name: paddleocr-text-recognition
+  author: PaddlePaddle
+  stars: 73238
+  forks: 10044
+  description: Extracts text (with locations) from images and PDF documents using
+    PaddleOCR.
+  github_url: https://github.com/PaddlePaddle/PaddleOCR/tree/main/skills/paddleocr-text-recognition
+  updated_at: '1773422616'
+- rank: 20
+  id: microsoft-ai-agents-for-beginners-translations-ar-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: استعلام عن الوثائق الرسمية لشركة Microsoft للعثور على المفاهيم والدروس
+    والأمثلة البرمجية عبر Azure و .NET و Agent Framework و Aspire و VS Code و GitHub
+    والمزيد. يستخدم Microsoft Learn MCP كالإعداد الافتراضي، مع Context7 و Aspire MCP
+    للمحتوى المتواجد خارج learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ar/.agents/skills/microsoft-docs
+  updated_at: '1771502747'
+- rank: 21
+  id: microsoft-ai-agents-for-beginners-translations-de-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Abfrage der offiziellen Microsoft-Dokumentation, um Konzepte, Tutorials
+    und Codebeispiele zu Azure, .NET, Agent Framework, Aspire, VS Code, GitHub und
+    mehr zu finden. Verwendet Microsoft Learn MCP als Standard, mit Context7 und Aspire
+    MCP für Inhalte, die außerhalb von learn.microsoft.com liegen.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/de/.agents/skills/microsoft-docs
+  updated_at: '1771502747'
+- rank: 22
+  id: microsoft-ai-agents-for-beginners-translations-hi-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: आधिकारिक Microsoft दस्तावेज़ों में क्वेरी करें ताकि Azure, .NET, Agent
+    Framework, Aspire, VS Code, GitHub, और अन्य के बारे में अवधारणाएँ, ट्यूटोरियल
+    और कोड उदाहरण मिल सकें। डिफ़ॉल्ट रूप से Microsoft Learn MCP का उपयोग करता है,
+    और उन सामग्रियों के लिए जो learn.microsoft.com के बाहर रहती हैं Context7 और Aspire
+    MCP का उपयोग करता है।
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/hi/.agents/skills/microsoft-docs
+  updated_at: '1771582575'
+- rank: 23
+  id: microsoft-ai-agents-for-beginners-translations-hr-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Pretražuje službenu Microsoftovu dokumentaciju kako bi pronašao koncepte,
+    vodiče i primjere koda za Azure, .NET, Agent Framework, Aspire, VS Code, GitHub
+    i još mnogo toga. Koristi Microsoft Learn MCP kao zadano, te Context7 i Aspire
+    MCP za sadržaj koji se nalazi izvan learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/hr/.agents/skills/microsoft-docs
+  updated_at: '1771496114'
+- rank: 24
+  id: microsoft-ai-agents-for-beginners-translations-hu-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Hivatalos Microsoft-dokumentáció lekérdezése a fogalmak, oktatóanyagok
+    és kódpéldák megtalálásához az Azure, .NET, Agent Framework, Aspire, VS Code,
+    GitHub és még sok más területén. Alapértelmezettként a Microsoft Learn MCP-t használja,
+    a learn.microsoft.com-on kívül található tartalmak esetén pedig a Context7-et
+    és az Aspire MCP-t.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/hu/.agents/skills/microsoft-docs
+  updated_at: '1771519725'
+- rank: 25
+  id: microsoft-ai-agents-for-beginners-translations-id-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Menelusuri dokumentasi resmi Microsoft untuk menemukan konsep, tutorial,
+    dan contoh kode di seluruh Azure, .NET, Agent Framework, Aspire, VS Code, GitHub,
+    dan lainnya. Menggunakan Microsoft Learn MCP sebagai default, dengan Context7
+    dan Aspire MCP untuk konten yang berada di luar learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/id/.agents/skills/microsoft-docs
+  updated_at: '1771541208'
+- rank: 26
+  id: microsoft-ai-agents-for-beginners-translations-ko-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 공식 Microsoft 문서를 조회하여 Azure, .NET, Agent Framework, Aspire, VS Code,
+    GitHub 등 다양한 분야의 개념, 튜토리얼 및 코드 예제를 찾습니다. 기본적으로 Microsoft Learn MCP를 사용하며, learn.microsoft.com
+    외부에 있는 콘텐츠에 대해서는 Context7 및 Aspire MCP를 사용합니다.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ko/.agents/skills/microsoft-docs
+  updated_at: '1771582575'
+- rank: 27
+  id: microsoft-ai-agents-for-beginners-translations-ne-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: आधिकारिक Microsoft दस्तावेजहरूमा सोधपुछ गरेर Azure, .NET, Agent Framework,
+    Aspire, VS Code, GitHub र अन्य थुप्रै क्षेत्रमा लाग्ने अवधारणाहरू, ट्युटोरियलहरू
+    र कोड उदाहरणहरू फेला पार्नुहोस्। डिफल्ट रूपमा Microsoft Learn MCP प्रयोग गरिन्छ,
+    र learn.microsoft.com बाहिर रहेका सामग्रीका लागि Context7 र Aspire MCP प्रयोग
+    गरिन्छ।
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ne/.agents/skills/microsoft-docs
+  updated_at: '1771555375'
+- rank: 28
+  id: microsoft-ai-agents-for-beginners-translations-th-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: ค้นหาเอกสารอย่างเป็นทางการของ Microsoft เพื่อค้นหาแนวคิด บทแนะนำ และตัวอย่างโค้ดสำหรับ
+    Azure, .NET, Agent Framework, Aspire, VS Code, GitHub และอื่นๆ ใช้ Microsoft Learn
+    MCP เป็นค่าเริ่มต้น โดยใช้ Context7 และ Aspire MCP สำหรับเนื้อหาที่อยู่นอก learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/th/.agents/skills/microsoft-docs
+  updated_at: '1771548375'
+- rank: 29
+  id: microsoft-ai-agents-for-beginners-translations-tl-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Mag-query sa opisyal na dokumentasyon ng Microsoft upang hanapin ang
+    mga konsepto, tutorial, at mga halimbawa ng code sa iba't ibang serbisyo tulad
+    ng Azure, .NET, Agent Framework, Aspire, VS Code, GitHub, at iba pa. Ginagamit
+    ang Microsoft Learn MCP bilang default, kasama ang Context7 at Aspire MCP para
+    sa nilalamang nasa labas ng learn.microsoft.com.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/tl/.agents/skills/microsoft-docs
+  updated_at: '1771541208'
+- rank: 30
+  id: microsoft-ai-agents-for-beginners-translations-tr-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Resmi Microsoft belgelerini sorgulayarak Azure, .NET, Agent Framework,
+    Aspire, VS Code, GitHub ve daha fazlası genelinde kavramlar, öğreticiler ve kod
+    örnekleri bulabilirsiniz. Varsayılan olarak Microsoft Learn MCP kullanılır; learn.microsoft.com
+    dışında yer alan içerikler için Context7 ve Aspire MCP kullanılır.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/tr/.agents/skills/microsoft-docs
+  updated_at: '1771474489'
+- rank: 31
+  id: microsoft-ai-agents-for-beginners-translations-ur-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: سرکاری Microsoft دستاویزات میں استفسار کریں تاکہ Azure، .NET، Agent
+    Framework، Aspire، VS Code، GitHub، اور دیگر میں موجود تصورات، ٹیوٹوریلز، اور
+    کوڈ کی مثالیں تلاش کی جا سکیں۔ ڈیفالٹ کے طور پر Microsoft Learn MCP استعمال کیا
+    جاتا ہے، جبکہ learn.microsoft.com کے باہر موجود مواد کے لیے Context7 اور Aspire
+    MCP استعمال ہوتے ہیں۔
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ur/.agents/skills/microsoft-docs
+  updated_at: '1771481062'
+- rank: 32
+  id: microsoft-ai-agents-for-beginners-translations-zh-cn-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 查询官方 Microsoft 文档，以查找有关 Azure、.NET、Agent Framework、Aspire、VS Code、GitHub
+    等的概念、教程和代码示例。默认使用 Microsoft Learn MCP，对于存在于 learn.microsoft.com 之外的内容，则使用 Context7
+    和 Aspire MCP。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/zh-CN/.agents/skills/microsoft-docs
+  updated_at: '1771481062'
+- rank: 33
+  id: microsoft-ai-agents-for-beginners-translations-zh-hk-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 查詢官方 Microsoft 文件，以尋找有關 Azure、.NET、Agent Framework、Aspire、VS Code、GitHub
+    等的概念、教學及程式碼範例。預設使用 Microsoft Learn MCP，對於存放在 learn.microsoft.com 以外的內容，則使用 Context7
+    與 Aspire MCP。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/zh-HK/.agents/skills/microsoft-docs
+  updated_at: '1771534474'
+- rank: 34
+  id: microsoft-ai-agents-for-beginners-translations-zh-mo-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 查詢官方 Microsoft 文件以尋找跨 Azure、.NET、Agent Framework、Aspire、VS Code、GitHub
+    等的概念、教學與程式範例。預設使用 Microsoft Learn MCP，對於存在於 learn.microsoft.com 以外的內容，則使用 Context7
+    與 Aspire MCP。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/zh-MO/.agents/skills/microsoft-docs
+  updated_at: '1771534474'
+- rank: 35
+  id: microsoft-ai-agents-for-beginners-translations-zh-tw-agents-skills-microsoft-docs-skill-md
+  name: microsoft-docs
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 查詢官方 Microsoft 文件以尋找跨 Azure、.NET、Agent Framework、Aspire、VS Code、GitHub
+    等的概念、教學和程式碼範例。預設使用 Microsoft Learn MCP，對於存在於 learn.microsoft.com 以外的內容則使用 Context7
+    和 Aspire MCP。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/zh-TW/.agents/skills/microsoft-docs
+  updated_at: '1771534474'
+- rank: 36
+  id: garrytan-gstack-document-release-skill-md
+  name: document-release
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Post-ship documentation update. Reads all project docs, cross-references
+    the
+
+    diff, updates README/ARCHITECTURE/CONTRIBUTING/CLAUDE.md to match what shipped,
+
+    polishes CHANGELOG voice, cleans up TODOS, and optionally bumps VERSION. Use when
+
+    asked to "update the docs", "sync documentation", or "post-ship docs".
+
+    Proactively suggest after a PR is merged or code is shipped.'
+  github_url: https://github.com/garrytan/gstack/tree/main/document-release
+  updated_at: '1774634818'
+- rank: 37
+  id: bytedance-deer-flow-skills-public-data-analysis-skill-md
+  name: data-analysis
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Use this skill when the user uploads Excel (.xlsx/.xls) or CSV files
+    and wants to perform data analysis, generate statistics, create summaries, pivot
+    tables, SQL queries, or any form of structured data exploration. Supports multi-sheet
+    Excel workbooks, aggregation, filtering, joins, and exporting results to CSV/JSON/Markdown.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/data-analysis
+  updated_at: '1774356123'
+- rank: 38
+  id: karpathy-nanochat-claude-skills-read-arxiv-paper-skill-md
+  name: read-arxiv-paper
+  author: karpathy
+  stars: 50535
+  forks: 6623
+  description: Use this skill when asked to read an arxiv paper given an arxiv URL
+  github_url: https://github.com/karpathy/nanochat/tree/master/.claude/skills/read-arxiv-paper
+  updated_at: '1773610038'
+- rank: 39
+  id: composiohq-awesome-claude-skills-invoice-organizer-skill-md
+  name: invoice-organizer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Automatically organizes invoices and receipts for tax preparation by
+    reading messy files, extracting key information, renaming them consistently, and
+    sorting them into logical folders. Turns hours of manual bookkeeping into minutes
+    of automated organization.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/invoice-organizer
+  updated_at: '1760692175'
+- rank: 40
+  id: apache-airflow-github-skills-airflow-translations-skill-md
+  name: airflow-translations
+  author: apache
+  stars: 44813
+  forks: 16779
+  description: Add or update translations for the Apache Airflow UI. Guides through
+    setting up locales, scaffolding translation files, translating with locale-specific
+    guidelines, and validating results. Use when working with i18n tasks in airflow-core/src/airflow/ui/public/i18n/locales/.
+  github_url: https://github.com/apache/airflow/tree/main/.github/skills/airflow-translations
+  updated_at: '1774493200'
+- rank: 41
+  id: bmad-code-org-bmad-method-src-core-skills-bmad-distillator-skill-md
+  name: bmad-distillator
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Lossless LLM-optimized compression of source documents. Use when the
+    user requests to 'distill documents' or 'create a distillate'.
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-distillator
+  updated_at: '1774615807'
+- rank: 42
+  id: bmad-code-org-bmad-method-src-core-skills-bmad-editorial-review-structure-skill-md
+  name: bmad-editorial-review-structure
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Structural editor that proposes cuts, reorganization, and simplification
+    while preserving comprehension. Use when user requests structural review or editorial
+    review of structure
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-editorial-review-structure
+  updated_at: '1774073483'
+- rank: 43
+  id: bmad-code-org-bmad-method-src-core-skills-bmad-shard-doc-skill-md
+  name: bmad-shard-doc
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Splits large markdown documents into smaller, organized files based
+    on level 2 (default) sections. Use if the user says perform shard document
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-shard-doc
+  updated_at: '1774073483'
+- rank: 44
+  id: babysor-mockingbird-skills-speak-skill-md
+  name: speak
+  author: babysor
+  stars: 36893
+  forks: 5233
+  description: Convert text into speech with Kokoro or Noiz, including simple and
+    timeline-aligned modes.
+  github_url: https://github.com/babysor/MockingBird/tree/main/skills/speak
+  updated_at: '1772461016'
+- rank: 45
+  id: hkuds-nanobot-nanobot-skills-summarize-skill-md
+  name: summarize
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Summarize or extract text/transcripts from URLs, podcasts, and local
+    files (great fallback for “transcribe this YouTube/video”).
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/summarize
+  updated_at: '1769971542'
+- rank: 46
+  id: wshobson-agents-plugins-business-analytics-skills-data-storytelling-skill-md
+  name: data-storytelling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Transform data into compelling narratives using visualization, context,
+    and persuasive structure. Use when presenting analytics to stakeholders, creating
+    data reports, or building executive presentations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/data-storytelling
+  updated_at: '1772898797'
+- rank: 47
+  id: wshobson-agents-plugins-hr-legal-compliance-skills-employment-contract-templates-skill-md
+  name: employment-contract-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create employment contracts, offer letters, and HR policy documents
+    following legal best practices. Use when drafting employment agreements, creating
+    HR policies, or standardizing employment documentation.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/hr-legal-compliance/skills/employment-contract-templates
+  updated_at: '1772898797'
+- rank: 48
+  id: badlogic-pi-mono-packages-coding-agent-test-fixtures-skills-multiline-description-skill-md
+  name: multiline-description
+  author: badlogic
+  stars: 28615
+  forks: 3032
+  description: 'This is a multiline description.
+
+    It spans multiple lines.
+
+    And should be normalized.'
+  github_url: https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent/test/fixtures/skills/multiline-description
+  updated_at: '1768519913'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-akf-trust-metadata-skill-md
+  name: akf-trust-metadata
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: The AI native file format. EXIF for AI — stamps every file with trust
+    scores, source provenance, and compliance metadata. Embeds into 20+ formats (DOCX,
+    PDF, images, code). EU AI Act, SOX, HIPAA auditing.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/plugins/antigravity-awesome-skills-claude/skills/akf-trust-metadata
+  updated_at: '1774604901'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-defuddle-skill-md
+  name: defuddle
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Extract clean markdown content from web pages using Defuddle CLI, removing
+    clutter and navigation to save tokens. Use instead of WebFetch when the user provides
+    a URL to read or analyze, for online documentation, articles, blog posts, or any
+    standard web page.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/defuddle
+  updated_at: '1774083913'

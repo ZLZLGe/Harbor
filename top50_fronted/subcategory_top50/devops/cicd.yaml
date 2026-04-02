@@ -1,0 +1,584 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: devops
+category_name: DevOps
+category_skill_count: 59551
+subcategory_slug: cicd
+subcategory_name: CI/CD
+subcategory_skill_count: 17239
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=cicd
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 17239
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-github-skill-md
+  name: github
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'GitHub operations via `gh` CLI: issues, PRs, CI runs, code review,
+    API queries. Use when: (1) checking PR status or CI, (2) creating/commenting on
+    issues, (3) listing/filtering PRs or issues, (4) viewing run logs. NOT for: complex
+    web UI interactions requiring manual browser flows (use browser tooling when available),
+    bulk operations across many repos (script with gh api), or when gh auth is not
+    configured.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/github
+  updated_at: '1771374688'
+- rank: 2
+  id: openclaw-openclaw-agents-skills-openclaw-parallels-smoke-skill-md
+  name: openclaw-parallels-smoke
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: End-to-end Parallels smoke, upgrade, and rerun workflow for OpenClaw
+    across macOS, Windows, and Linux guests. Use when Codex needs to run, rerun, debug,
+    or interpret VM-based install, onboarding, gateway smoke tests, latest-release-to-main
+    upgrade checks, fresh snapshot retests, or optional Discord roundtrip verification
+    under Parallels.
+  github_url: https://github.com/openclaw/openclaw/tree/main/.agents/skills/openclaw-parallels-smoke
+  updated_at: '1774662678'
+- rank: 3
+  id: microsoft-vscode-github-skills-azure-pipelines-skill-md
+  name: azure-pipelines
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Use when validating Azure DevOps pipeline changes for the VS Code build.
+    Covers queueing builds, checking build status, viewing logs, and iterating on
+    pipeline YAML changes without waiting for full CI runs.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/azure-pipelines
+  updated_at: '1774294027'
+- rank: 4
+  id: microsoft-vscode-github-skills-update-screenshots-skill-md
+  name: update-screenshots
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Download screenshot baselines from the latest CI run and commit them.
+    Use when asked to update, accept, or refresh component screenshot baselines from
+    CI, or after the screenshot-test GitHub Action reports differences. This skill
+    should be run as a subagent.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/update-screenshots
+  updated_at: '1773228620'
+- rank: 5
+  id: obra-superpowers-skills-executing-plans-skill-md
+  name: executing-plans
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when you have a written implementation plan to execute in a separate
+    session with review checkpoints
+  github_url: https://github.com/obra/superpowers/tree/main/skills/executing-plans
+  updated_at: '1772997615'
+- rank: 6
+  id: obra-superpowers-skills-subagent-driven-development-skill-md
+  name: subagent-driven-development
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when executing implementation plans with independent tasks in the
+    current session
+  github_url: https://github.com/obra/superpowers/tree/main/skills/subagent-driven-development
+  updated_at: '1773280076'
+- rank: 7
+  id: obra-superpowers-skills-writing-skills-skill-md
+  name: writing-skills
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when creating new skills, editing existing skills, or verifying
+    skills work before deployment
+  github_url: https://github.com/obra/superpowers/tree/main/skills/writing-skills
+  updated_at: '1774461833'
+- rank: 8
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-deployment-patterns-skill-md
+  name: deployment-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 部署工作流、CI/CD流水线模式、Docker容器化、健康检查、回滚策略以及Web应用程序的生产就绪检查清单。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/deployment-patterns
+  updated_at: '1774219164'
+- rank: 9
+  id: affaan-m-everything-claude-code-kiro-skills-deployment-patterns-skill-md
+  name: deployment-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Deployment workflows, CI/CD pipeline patterns, Docker containerization,
+    health checks, rollback strategies, and production readiness checklists for web
+    applications. Use when setting up deployment infrastructure or planning releases.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/deployment-patterns
+  updated_at: '1774241745'
+- rank: 10
+  id: affaan-m-everything-claude-code-skills-django-verification-skill-md
+  name: django-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Verification loop for Django projects: migrations, linting, tests
+    with coverage, security scans, and deployment readiness checks before release
+    or PR.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/django-verification
+  updated_at: '1771862457'
+- rank: 11
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-springboot-verification-skill-md
+  name: springboot-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot项目验证循环：构建、静态分析、测试覆盖、安全扫描，以及发布或PR前的差异审查。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/springboot-verification
+  updated_at: '1774219164'
+- rank: 12
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-team-builder-skill-md
+  name: team-builder
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 用于组合和派遣并行团队的交互式代理选择器
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/team-builder
+  updated_at: '1774219164'
+- rank: 13
+  id: google-gemini-gemini-cli-gemini-skills-pr-creator-skill-md
+  name: pr-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill when asked to create a pull request (PR). It ensures
+    all PRs follow the repository's established templates and standards.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/pr-creator
+  updated_at: '1770701890'
+- rank: 14
+  id: garrytan-gstack-land-and-deploy-skill-md
+  name: land-and-deploy
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Land and deploy workflow. Merges the PR, waits for CI and deploy,
+
+    verifies production health via canary checks. Takes over after /ship
+
+    creates the PR. Use when: "merge", "land", "deploy", "merge and verify",
+
+    "land it", "ship it to production".'
+  github_url: https://github.com/garrytan/gstack/tree/main/land-and-deploy
+  updated_at: '1774634818'
+- rank: 15
+  id: streamlit-streamlit-claude-skills-fixing-streamlit-ci-skill-md
+  name: fixing-streamlit-ci
+  author: streamlit
+  stars: 44053
+  forks: 4169
+  description: Analyze and fix failed GitHub Actions CI jobs for the current branch/PR.
+    Use when CI checks fail, PR checks show failures, or you need to diagnose lint/type/test
+    errors and verify fixes locally.
+  github_url: https://github.com/streamlit/streamlit/tree/develop/.claude/skills/fixing-streamlit-ci
+  updated_at: '1771611848'
+- rank: 16
+  id: payloadcms-payload-claude-skills-triage-ci-flake-skill-md
+  name: triage-ci-flake
+  author: payloadcms
+  stars: 41477
+  forks: 3517
+  description: Use when CI tests fail on main branch after PR merge, or when investigating
+    flaky test failures in CI environments
+  github_url: https://github.com/payloadcms/payload/tree/main/.claude/skills/triage-ci-flake
+  updated_at: '1768504094'
+- rank: 17
+  id: hkuds-nanobot-nanobot-skills-github-skill-md
+  name: github
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh
+    run`, and `gh api` for issues, PRs, CI runs, and advanced queries.
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/github
+  updated_at: '1769971542'
+- rank: 18
+  id: backstage-backstage-docs-well-known-skills-plugin-full-frontend-system-migration-skill-md
+  name: plugin-full-frontend-system-migration
+  author: backstage
+  stars: 32961
+  forks: 7211
+  description: Fully migrate a Backstage plugin to the new frontend system, dropping
+    all old system support. Use this skill for internal plugins that only need to
+    run in a single app, or when you are ready to remove backward compatibility entirely.
+  github_url: https://github.com/backstage/backstage/tree/master/docs/.well-known/skills/plugin-full-frontend-system-migration
+  updated_at: '1774432368'
+- rank: 19
+  id: wshobson-agents-plugins-shell-scripting-skills-bats-testing-patterns-skill-md
+  name: bats-testing-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Bash Automated Testing System (Bats) for comprehensive shell
+    script testing. Use when writing tests for shell scripts, CI/CD pipelines, or
+    requiring test-driven development of shell utilities.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/shell-scripting/skills/bats-testing-patterns
+  updated_at: '1772898797'
+- rank: 20
+  id: wshobson-agents-plugins-developer-essentials-skills-bazel-build-optimization-skill-md
+  name: bazel-build-optimization
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Optimize Bazel builds for large-scale monorepos. Use when configuring
+    Bazel, implementing remote execution, or optimizing build performance for enterprise
+    codebases.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/bazel-build-optimization
+  updated_at: '1772898797'
+- rank: 21
+  id: wshobson-agents-plugins-documentation-generation-skills-changelog-automation-skill-md
+  name: changelog-automation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Automate changelog generation from commits, PRs, and releases following
+    Keep a Changelog format. Use when setting up release workflows, generating release
+    notes, or standardizing commit conventions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/documentation-generation/skills/changelog-automation
+  updated_at: '1772898797'
+- rank: 22
+  id: wshobson-agents-plugins-developer-essentials-skills-code-review-excellence-skill-md
+  name: code-review-excellence
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master effective code review practices to provide constructive feedback,
+    catch bugs early, and foster knowledge sharing while maintaining team morale.
+    Use when reviewing pull requests, establishing review standards, or mentoring
+    developers.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/code-review-excellence
+  updated_at: '1772898797'
+- rank: 23
+  id: wshobson-agents-plugins-framework-migration-skills-dependency-upgrade-skill-md
+  name: dependency-upgrade
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Manage major dependency version upgrades with compatibility analysis,
+    staged rollout, and comprehensive testing. Use when upgrading framework versions,
+    updating major dependencies, or managing breaking changes in libraries.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/dependency-upgrade
+  updated_at: '1772898797'
+- rank: 24
+  id: wshobson-agents-plugins-cicd-automation-skills-deployment-pipeline-design-skill-md
+  name: deployment-pipeline-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design multi-stage CI/CD pipelines with approval gates, security checks,
+    and deployment orchestration. Use this skill when designing zero-downtime deployment
+    pipelines, implementing canary rollout strategies, setting up multi-environment
+    promotion workflows, or debugging failed deployment gates in CI/CD.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/deployment-pipeline-design
+  updated_at: '1774544726'
+- rank: 25
+  id: wshobson-agents-plugins-developer-essentials-skills-e2e-testing-patterns-skill-md
+  name: e2e-testing-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master end-to-end testing with Playwright and Cypress to build reliable
+    test suites that catch bugs, improve confidence, and enable fast deployment. Use
+    when implementing E2E tests, debugging flaky tests, or establishing testing standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/e2e-testing-patterns
+  updated_at: '1772898797'
+- rank: 26
+  id: wshobson-agents-plugins-cicd-automation-skills-github-actions-templates-skill-md
+  name: github-actions-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready GitHub Actions workflows for automated testing,
+    building, and deploying applications. Use when setting up CI/CD with GitHub Actions,
+    automating development workflows, or creating reusable workflow templates.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/github-actions-templates
+  updated_at: '1772898797'
+- rank: 27
+  id: wshobson-agents-plugins-cicd-automation-skills-gitlab-ci-patterns-skill-md
+  name: gitlab-ci-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build GitLab CI/CD pipelines with multi-stage workflows, caching, and
+    distributed runners for scalable automation. Use when implementing GitLab CI/CD,
+    optimizing pipeline performance, or setting up automated testing and deployment.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/gitlab-ci-patterns
+  updated_at: '1772898797'
+- rank: 28
+  id: wshobson-agents-plugins-kubernetes-operations-skills-gitops-workflow-skill-md
+  name: gitops-workflow
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement GitOps workflows with ArgoCD and Flux for automated, declarative
+    Kubernetes deployments with continuous reconciliation. Use when implementing GitOps
+    practices, automating Kubernetes deployments, or setting up declarative infrastructure
+    management.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/gitops-workflow
+  updated_at: '1768860423'
+- rank: 29
+  id: wshobson-agents-plugins-kubernetes-operations-skills-helm-chart-scaffolding-skill-md
+  name: helm-chart-scaffolding
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design, organize, and manage Helm charts for templating and packaging
+    Kubernetes applications with reusable configurations. Use when creating Helm charts,
+    packaging Kubernetes applications, or implementing templated deployments.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/helm-chart-scaffolding
+  updated_at: '1772898797'
+- rank: 30
+  id: wshobson-agents-plugins-incident-response-skills-incident-runbook-templates-skill-md
+  name: incident-runbook-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create structured incident response runbooks with step-by-step procedures,
+    escalation paths, and recovery actions. Use this skill when building a service
+    outage runbook for a payment processing system; creating database incident procedures
+    covering connection pool exhaustion, replication lag, and disk space alerts; onboarding
+    new on-call engineers who need step-by-step recovery guides written for a 3 AM
+    brain; or standardizing escalation matrices across multiple engineering teams.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/incident-response/skills/incident-runbook-templates
+  updated_at: '1774541149'
+- rank: 31
+  id: wshobson-agents-plugins-kubernetes-operations-skills-k8s-manifest-generator-skill-md
+  name: k8s-manifest-generator
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready Kubernetes manifests for Deployments, Services,
+    ConfigMaps, and Secrets following best practices and security standards. Use when
+    generating Kubernetes YAML manifests, creating K8s resources, or implementing
+    production-grade Kubernetes configurations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/k8s-manifest-generator
+  updated_at: '1768860423'
+- rank: 32
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-linkerd-patterns-skill-md
+  name: linkerd-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement Linkerd service mesh patterns for lightweight, security-focused
+    service mesh deployments. Use when setting up Linkerd, configuring traffic policies,
+    or implementing zero-trust networking with minimal overhead.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/linkerd-patterns
+  updated_at: '1772898797'
+- rank: 33
+  id: wshobson-agents-plugins-developer-essentials-skills-monorepo-management-skill-md
+  name: monorepo-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master monorepo management with Turborepo, Nx, and pnpm workspaces
+    to build efficient, scalable multi-package repositories with optimized builds
+    and dependency management. Use when setting up monorepos, optimizing builds, or
+    managing shared dependencies.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/monorepo-management
+  updated_at: '1772898797'
+- rank: 34
+  id: wshobson-agents-plugins-agent-teams-skills-multi-reviewer-patterns-skill-md
+  name: multi-reviewer-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Coordinate parallel code reviews across multiple quality dimensions
+    with finding deduplication, severity calibration, and consolidated reporting.
+    Use this skill when organizing multi-reviewer code reviews, calibrating finding
+    severity, or consolidating review results.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/multi-reviewer-patterns
+  updated_at: '1770331350'
+- rank: 35
+  id: wshobson-agents-plugins-agent-teams-skills-parallel-feature-development-skill-md
+  name: parallel-feature-development
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Coordinate parallel feature development with file ownership strategies,
+    conflict avoidance rules, and integration patterns for multi-agent implementation.
+    Use this skill when decomposing a large feature into independent work streams,
+    when two or more agents need to implement different layers of the same system
+    simultaneously, when establishing file ownership to prevent merge conflicts in
+    a shared codebase, when designing interface contracts so parallel implementers
+    can build against each other's APIs before they are ready, or when deciding whether
+    to use vertical slices versus horizontal layers for a full-stack feature.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/parallel-feature-development
+  updated_at: '1774541117'
+- rank: 36
+  id: wshobson-agents-plugins-observability-monitoring-skills-prometheus-configuration-skill-md
+  name: prometheus-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Set up Prometheus for comprehensive metric collection, storage, and
+    monitoring of infrastructure and applications. Use when implementing metrics collection,
+    setting up monitoring infrastructure, or configuring alerting systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/observability-monitoring/skills/prometheus-configuration
+  updated_at: '1772898797'
+- rank: 37
+  id: wshobson-agents-plugins-python-development-skills-python-observability-skill-md
+  name: python-observability
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python observability patterns including structured logging, metrics,
+    and distributed tracing. Use when adding logging, implementing metrics collection,
+    setting up tracing, or debugging production systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-observability
+  updated_at: '1769791934'
+- rank: 38
+  id: wshobson-agents-plugins-security-scanning-skills-sast-configuration-skill-md
+  name: sast-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure Static Application Security Testing (SAST) tools for automated
+    vulnerability detection in application code. Use when setting up security scanning,
+    implementing DevSecOps practices, or automating code vulnerability detection.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/sast-configuration
+  updated_at: '1768860423'
+- rank: 39
+  id: wshobson-agents-plugins-cicd-automation-skills-secrets-management-skill-md
+  name: secrets-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement secure secrets management for CI/CD pipelines using Vault,
+    AWS Secrets Manager, or native platform solutions. Use when handling sensitive
+    credentials, rotating secrets, or securing CI/CD environments.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/secrets-management
+  updated_at: '1772898797'
+- rank: 40
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-terraform-module-library-skill-md
+  name: terraform-module-library
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build reusable Terraform modules for AWS, Azure, GCP, and OCI infrastructure
+    following infrastructure-as-code best practices. Use when creating infrastructure
+    modules, standardizing cloud provisioning, or implementing reusable IaC components.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/terraform-module-library
+  updated_at: '1773759121'
+- rank: 41
+  id: wshobson-agents-plugins-developer-essentials-skills-turborepo-caching-skill-md
+  name: turborepo-caching
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure Turborepo for efficient monorepo builds with local and remote
+    caching. Use when setting up Turborepo, optimizing build pipelines, or implementing
+    distributed caching.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/turborepo-caching
+  updated_at: '1772898797'
+- rank: 42
+  id: wshobson-agents-plugins-conductor-skills-workflow-patterns-skill-md
+  name: workflow-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Use this skill when implementing tasks according to Conductor's TDD
+    workflow, handling phase checkpoints, managing git commits for tasks, or understanding
+    the verification protocol.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/conductor/skills/workflow-patterns
+  updated_at: '1768527297'
+- rank: 43
+  id: continuedev-continue-skills-cn-check-skill-md
+  name: cn-check
+  author: continuedev
+  stars: 32100
+  forks: 4296
+  description: Install and run the Continue CLI (`cn`) to execute AI agent checks
+    on local code changes. Use when asked to "run checks", "lint with AI", "review
+    my changes with cn", or set up Continue CI locally.
+  github_url: https://github.com/continuedev/continue/tree/main/skills/cn-check
+  updated_at: '1770026179'
+- rank: 44
+  id: nrwl-nx-cursor-skills-ci-monitor-skill-md
+  name: ci-monitor
+  author: nrwl
+  stars: 28427
+  forks: 2694
+  description: Monitor Nx Cloud CI pipeline and handle self-healing fixes automatically.
+    Checks for Nx Cloud connection before starting.
+  github_url: https://github.com/nrwl/nx/tree/master/.cursor/skills/ci-monitor
+  updated_at: '1769539842'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-c4-architecture-c4-architecture-skill-md
+  name: c4-architecture-c4-architecture
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Generate comprehensive C4 architecture documentation for an existing
+    repository/codebase using a bottom-up analysis approach.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/c4-architecture-c4-architecture
+  updated_at: '1772180381'
+- rank: 46
+  id: sickn33-antigravity-awesome-skills-skills-dependency-upgrade-skill-md
+  name: dependency-upgrade
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master major dependency version upgrades, compatibility analysis, staged
+    upgrade strategies, and comprehensive testing approaches.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dependency-upgrade
+  updated_at: '1773994005'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-deployment-engineer-skill-md
+  name: deployment-engineer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert deployment engineer specializing in modern CI/CD pipelines,
+    GitOps workflows, and advanced deployment automation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deployment-engineer
+  updated_at: '1772354305'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-deployment-pipeline-design-skill-md
+  name: deployment-pipeline-design
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Architecture patterns for multi-stage CI/CD pipelines with approval
+    gates and deployment strategies.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deployment-pipeline-design
+  updated_at: '1773994005'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-executing-plans-skill-md
+  name: executing-plans
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Use when you have a written implementation plan to execute in a separate
+    session with review checkpoints
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/executing-plans
+  updated_at: '1772180381'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-expo-deployment-skill-md
+  name: expo-deployment
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Deploy Expo apps to production
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-deployment
+  updated_at: '1772180381'

@@ -1,0 +1,586 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: content-and-media
+category_name: Content & Media
+category_skill_count: 44421
+subcategory_slug: media
+subcategory_name: Media
+subcategory_skill_count: 4639
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=media
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 4639
+  total_pages: 93
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-camsnap-skill-md
+  name: camsnap
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Capture frames or clips from RTSP/ONVIF cameras.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/camsnap
+  updated_at: '1769862085'
+- rank: 2
+  id: openclaw-openclaw-skills-gifgrep-skill-md
+  name: gifgrep
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Search GIF providers with CLI/TUI, download results, and extract stills/sheets.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/gifgrep
+  updated_at: '1769862085'
+- rank: 3
+  id: openclaw-openclaw-skills-openai-whisper-api-skill-md
+  name: openai-whisper-api
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Transcribe audio via OpenAI Audio Transcriptions API (Whisper).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/openai-whisper-api
+  updated_at: '1774617806'
+- rank: 4
+  id: openclaw-openclaw-skills-songsee-skill-md
+  name: songsee
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Generate spectrograms and feature-panel visualizations from audio with
+    the songsee CLI.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/songsee
+  updated_at: '1769862085'
+- rank: 5
+  id: openclaw-openclaw-skills-video-frames-skill-md
+  name: video-frames
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Extract frames or short clips from videos using ffmpeg.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/video-frames
+  updated_at: '1773234790'
+- rank: 6
+  id: affaan-m-everything-claude-code-agents-skills-fal-ai-media-skill-md
+  name: fal-ai-media
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Unified media generation via fal.ai MCP — image, video, and audio.
+    Covers text-to-image (Nano Banana), text/image-to-video (Seedance, Kling, Veo
+    3), text-to-speech (CSM-1B), and video-to-audio (ThinkSound). Use when the user
+    wants to generate images, videos, or audio with AI.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/fal-ai-media
+  updated_at: '1773352145'
+- rank: 7
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-fal-ai-media-skill-md
+  name: fal-ai-media
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 通过 fal.ai MCP 实现统一的媒体生成——图像、视频和音频。涵盖文本到图像（Nano Banana）、文本/图像到视频（Seedance、Kling、Veo
+    3）、文本到语音（CSM-1B），以及视频到音频（ThinkSound）。当用户想要使用 AI 生成图像、视频或音频时使用。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/fal-ai-media
+  updated_at: '1774219164'
+- rank: 8
+  id: affaan-m-everything-claude-code-skills-fal-ai-media-skill-md
+  name: fal-ai-media
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Unified media generation via fal.ai MCP — image, video, and audio.
+    Covers text-to-image (Nano Banana), text/image-to-video (Seedance, Kling, Veo
+    3), text-to-speech (CSM-1B), and video-to-audio (ThinkSound). Use when the user
+    wants to generate images, videos, or audio with AI.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/fal-ai-media
+  updated_at: '1773353277'
+- rank: 9
+  id: affaan-m-everything-claude-code-agents-skills-video-editing-skill-md
+  name: video-editing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: AI-assisted video editing workflows for cutting, structuring, and augmenting
+    real footage. Covers the full pipeline from raw capture through FFmpeg, Remotion,
+    ElevenLabs, fal.ai, and final polish in Descript or CapCut. Use when the user
+    wants to edit video, cut footage, create vlogs, or build video content.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/video-editing
+  updated_at: '1773352145'
+- rank: 10
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-video-editing-skill-md
+  name: video-editing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: AI辅助的视频编辑工作流程，用于剪辑、构建和增强实拍素材。涵盖从原始拍摄到FFmpeg、Remotion、ElevenLabs、fal.ai，再到Descript或CapCut最终润色的完整流程。适用于用户想要编辑视频、剪辑素材、制作vlog或构建视频内容的情况。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/video-editing
+  updated_at: '1774219164'
+- rank: 11
+  id: affaan-m-everything-claude-code-skills-video-editing-skill-md
+  name: video-editing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: AI-assisted video editing workflows for cutting, structuring, and augmenting
+    real footage. Covers the full pipeline from raw capture through FFmpeg, Remotion,
+    ElevenLabs, fal.ai, and final polish in Descript or CapCut. Use when the user
+    wants to edit video, cut footage, create vlogs, or build video content.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/video-editing
+  updated_at: '1773352145'
+- rank: 12
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-videodb-skill-md
+  name: videodb
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 视频与音频的查看、理解与行动。查看：从本地文件、URL、RTSP/直播源或实时录制桌面获取内容；返回实时上下文和可播放流链接。理解：提取帧，构建视觉/语义/时间索引，并通过时间戳和自动剪辑搜索片段。行动：转码和标准化（编解码器、帧率、分辨率、宽高比），执行时间线编辑（字幕、文本/图像叠加、品牌化、音频叠加、配音、翻译），生成媒体资源（图像、音频、视频），并为直播流或桌面捕获的事件创建实时警报。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/videodb
+  updated_at: '1773395144'
+- rank: 13
+  id: affaan-m-everything-claude-code-skills-videodb-skill-md
+  name: videodb
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: See, Understand, Act on video and audio. See- ingest from local files,
+    URLs, RTSP/live feeds, or live record desktop; return realtime context and playable
+    stream links. Understand- extract frames, build visual/semantic/temporal indexes,
+    and search moments with timestamps and auto-clips. Act- transcode and normalize
+    (codec, fps, resolution, aspect ratio), perform timeline edits (subtitles, text/image
+    overlays, branding, audio overlays, dubbing, translation), generate media assets
+    (image, audio, video), and create real time alerts for events from live streams
+    or desktop capture.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/videodb
+  updated_at: '1774141805'
+- rank: 14
+  id: composiohq-awesome-claude-skills-image-enhancer-skill-md
+  name: image-enhancer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Improves the quality of images, especially screenshots, by enhancing
+    resolution, sharpness, and clarity. Perfect for preparing images for presentations,
+    documentation, or social media posts.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/image-enhancer
+  updated_at: '1760692175'
+- rank: 15
+  id: composiohq-awesome-claude-skills-video-downloader-skill-md
+  name: youtube-downloader
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Download YouTube videos with customizable quality and format options.
+    Use this skill when the user asks to download, save, or grab YouTube videos. Supports
+    various quality settings (best, 1080p, 720p, 480p, 360p), multiple formats (mp4,
+    webm, mkv), and audio-only downloads as MP3.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/video-downloader
+  updated_at: '1767031874'
+- rank: 16
+  id: remotion-dev-remotion-packages-skills-skills-remotion-skill-md
+  name: remotion-best-practices
+  author: remotion-dev
+  stars: 41027
+  forks: 2624
+  description: Best practices for Remotion - Video creation in React
+  github_url: https://github.com/remotion-dev/remotion/tree/main/packages/skills/skills/remotion
+  updated_at: '1773932483'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-fal-image-edit-skill-md
+  name: fal-image-edit
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: AI-powered image editing with style transfer and object removal
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fal-image-edit
+  updated_at: '1772180381'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-fal-upscale-skill-md
+  name: fal-upscale
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Upscale and enhance image and video resolution using AI
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fal-upscale
+  updated_at: '1772180381'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-ffuf-claude-skill-skill-md
+  name: ffuf-claude-skill
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Web fuzzing with ffuf
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ffuf-claude-skill
+  updated_at: '1772180381'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-seek-and-analyze-video-skill-md
+  name: seek-and-analyze-video
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Seek and analyze video content using Memories.ai Large Visual Memory
+    Model for persistent video intelligence
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seek-and-analyze-video
+  updated_at: '1773994005'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-seo-images-skill-md
+  name: seo-images
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Image optimization analysis for SEO and performance. Checks alt text,
+    file sizes, formats, responsive images, lazy loading, and CLS prevention. Use
+    when user says "image optimization", "alt text", "image SEO", "image size", or
+    "image audit".
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-images
+  updated_at: '1774083913'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-videodb-skill-md
+  name: videodb
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Video and audio perception, indexing, and editing. Ingest files/URLs/live
+    streams, build visual/spoken indexes, search with timestamps, edit timelines,
+    add overlays/subtitles, generate media, and create real-time alerts.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/videodb
+  updated_at: '1774090216'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-videodb-skills-skill-md
+  name: videodb-skills
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Upload, stream, search, edit, transcribe, and generate AI video and
+    audio using the VideoDB SDK.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/videodb-skills
+  updated_at: '1772263267'
+- rank: 24
+  id: github-awesome-copilot-skills-image-manipulation-image-magick-skill-md
+  name: image-manipulation-image-magick
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Process and manipulate images using ImageMagick. Supports resizing,
+    format conversion, batch processing, and retrieving image metadata. Use when working
+    with images, creating thumbnails, resizing wallpapers, or performing batch image
+    operations.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/image-manipulation-image-magick
+  updated_at: '1769014118'
+- rank: 25
+  id: github-awesome-copilot-skills-java-add-graalvm-native-image-support-skill-md
+  name: java-add-graalvm-native-image-support
+  author: github
+  stars: 27427
+  forks: 3175
+  description: GraalVM Native Image expert that adds native image support to Java
+    applications, builds the project, analyzes build errors, applies fixes, and iterates
+    until successful compilation using Oracle best practices.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/java-add-graalvm-native-image-support
+  updated_at: '1771904373'
+- rank: 26
+  id: github-awesome-copilot-skills-nano-banana-pro-openrouter-skill-md
+  name: nano-banana-pro-openrouter
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate or edit images via OpenRouter with the Gemini 3 Pro Image
+    model. Use for prompt-only image generation, image edits, and multi-image compositing;
+    supports 1K/2K/4K output.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/nano-banana-pro-openrouter
+  updated_at: '1770689029'
+- rank: 27
+  id: github-awesome-copilot-skills-transloadit-media-processing-skill-md
+  name: transloadit-media-processing
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Process media files (video, audio, images, documents) using Transloadit.
+    Use when asked to encode video to HLS/MP4, generate thumbnails, resize or watermark
+    images, extract audio, concatenate clips, add subtitles, OCR documents, or run
+    any media processing pipeline. Covers 86+ processing robots for file transformation
+    at scale.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/transloadit-media-processing
+  updated_at: '1771339974'
+- rank: 28
+  id: qwibitai-nanoclaw-claude-skills-add-image-vision-skill-md
+  name: add-image-vision
+  author: qwibitai
+  stars: 25783
+  forks: 9335
+  description: Add image vision to NanoClaw agents. Resizes and processes WhatsApp
+    image attachments, then sends them to Claude as multimodal content blocks.
+  github_url: https://github.com/qwibitai/nanoclaw/tree/main/.claude/skills/add-image-vision
+  updated_at: '1773224714'
+- rank: 29
+  id: davila7-claude-code-templates-cli-tool-components-skills-video-sora-skill-md
+  name: sora
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Use when the user asks to generate, remix, poll, list, download, or
+    delete Sora videos via OpenAI’s video API using the bundled CLI (`scripts/sora.py`),
+    including requests like “generate AI video,” “Sora,” “video remix,” “download
+    video/thumbnail/spritesheet,” and batch video generation; requires `OPENAI_API_KEY`
+    and Sora API access.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/video/sora
+  updated_at: '1770514388'
+- rank: 30
+  id: elizaos-eliza-packages-skills-skills-camsnap-skill-md
+  name: camsnap
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Capture frames or clips from RTSP/ONVIF cameras. Grabs snapshots, video
+    clips, and motion events from IP cameras, security cameras, and video streams.
+    Use when the user wants to take a snapshot from a camera, record a clip from an
+    RTSP stream, monitor motion on a security camera, discover ONVIF devices on the
+    network, or configure camera access for automated surveillance capture.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/camsnap
+  updated_at: '1773711902'
+- rank: 31
+  id: elizaos-eliza-packages-skills-skills-nano-banana-pro-skill-md
+  name: nano-banana-pro
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Generate or edit images via Gemini 3 Pro Image (Nano Banana Pro). Use
+    when the user asks to create an image, generate a picture, produce AI-generated
+    artwork, edit a photo, compose multiple images, or upscale an image to higher
+    resolution. Supports text-to-image generation, single-image editing, and multi-image
+    composition using the Gemini API.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/nano-banana-pro
+  updated_at: '1773711902'
+- rank: 32
+  id: elizaos-eliza-packages-skills-skills-video-frames-skill-md
+  name: video-frames
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Extract frames or short clips from videos using ffmpeg. Use when the
+    user asks to grab a frame, capture a screenshot from a video, extract a thumbnail,
+    pull a still image from footage, or snapshot a specific timestamp in a video file.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/video-frames
+  updated_at: '1773711902'
+- rank: 33
+  id: rightnow-ai-openfang-crates-openfang-hands-bundled-clip-skill-md
+  name: clip-hand-skill
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Expert knowledge for AI video clipping — yt-dlp downloading, whisper
+    transcription, SRT generation, and ffmpeg processing
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-hands/bundled/clip
+  updated_at: '1772592218'
+- rank: 34
+  id: openai-skills-skills-curated-sora-skill-md
+  name: sora
+  author: openai
+  stars: 15590
+  forks: 928
+  description: 'Use when the user asks to generate, edit, extend, poll, list, download,
+    or delete Sora videos, create reusable non-human Sora character references, or
+    run local multi-video queues via the bundled CLI (`scripts/sora.py`); includes
+    requests like: (i) generate AI video, (ii) edit this Sora clip, (iii) extend this
+    video, (iv) create a character reference, (v) download video/thumbnail/spritesheet,
+    and (vi) Sora batch planning; requires `OPENAI_API_KEY` and Sora API access.'
+  github_url: https://github.com/openai/skills/tree/main/skills/.curated/sora
+  updated_at: '1773803235'
+- rank: 35
+  id: nousresearch-hermes-agent-skills-creative-ascii-video-skill-md
+  name: ascii-video
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: 'Production pipeline for ASCII art video — any format. Converts video/audio/images/generative
+    input into colored ASCII character video output (MP4, GIF, image sequence). Covers:
+    video-to-ASCII conversion, audio-reactive music visualizers, generative ASCII
+    art animations, hybrid video+audio reactive, text/lyrics overlays, real-time terminal
+    rendering. Use when users request: ASCII video, text art video, terminal-style
+    video, character art animation, retro text visualization, audio visualizer in
+    ASCII, converting video to ASCII art, matrix-style effects, or any animated ASCII
+    output.'
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/creative/ascii-video
+  updated_at: '1773706272'
+- rank: 36
+  id: nousresearch-hermes-agent-skills-media-songsee-skill-md
+  name: songsee
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Generate spectrograms and audio feature visualizations (mel, chroma,
+    MFCC, tempogram, etc.) from audio files via CLI. Useful for audio analysis, music
+    production debugging, and visual documentation.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/media/songsee
+  updated_at: '1773396844'
+- rank: 37
+  id: weifeng2333-videocaptioner-skills-skill-md
+  name: videocaptioner
+  author: WEIFENG2333
+  stars: 13765
+  forks: 1128
+  description: Process video/audio files with AI — transcribe speech, optimize subtitles,
+    translate to other languages, and burn subtitles into video. Use when the user
+    asks to transcribe, caption, subtitle, or translate a video or audio file.
+  github_url: https://github.com/WEIFENG2333/VideoCaptioner/tree/master/skills
+  updated_at: '1774200658'
+- rank: 38
+  id: vercel-labs-json-render-skills-remotion-best-practices-skill-md
+  name: remotion-best-practices
+  author: vercel-labs
+  stars: 13589
+  forks: 729
+  description: Best practices for Remotion - Video creation in React
+  github_url: https://github.com/vercel-labs/json-render/tree/main/skills/remotion-best-practices
+  updated_at: '1770285596'
+- rank: 39
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-analyzing-videos-skill-md
+  name: analyzing-videos
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Analyzes video content and extracts highlights. Use when user wants
+    to analyze video, extract highlights, create video summary, generate video keywords,
+    understand video content, find best moments, create trailer, extract exciting
+    clips, get video insights, or identify viral moments. 视频分析、提取精彩片段、视频摘要、视频理解、精彩集锦、视频关键词、剪辑精华、内容分析、热门片段。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/analyzing-videos
+  updated_at: '1773738999'
+- rank: 40
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-composing-videos-skill-md
+  name: composing-videos
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Combines multiple videos/images into a single video with optional background
+    audio. Use when user wants to merge clips, concatenate videos, create slideshow
+    from images, stitch videos together, combine media files, add background music
+    to video, mix video with audio, create video montage, or join multiple video segments.
+    合并视频、拼接视频、图片合成视频、添加背景音乐、视频拼接、多图生成视频、视频混剪、素材合成。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/composing-videos
+  updated_at: '1773738999'
+- rank: 41
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-editing-images-skill-md
+  name: editing-images
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Image editing using Sharp. Supports compositing (QR codes, logos, watermarks),
+    resizing, cropping, rotating, flipping, brightness/contrast/saturation adjustment,
+    blur, sharpen. 图片编辑、图片合成、添加二维码、添加Logo、添加水印、图片缩放、图片裁剪、图片旋转、图片翻转、亮度对比度饱和度调整、模糊、锐化。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/editing-images
+  updated_at: '1773738999'
+- rank: 42
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-editing-videos-skill-md
+  name: editing-videos
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Video editing using Volcengine Track structure. Supports cutting, trimming,
+    adding text, stickers, audio, filters, effects, transitions, multi-clip compositions,
+    speed adjustment, watermark removal. 视频剪辑、裁剪视频、添加文字、添加水印、添加音频、视频滤镜、视频特效、视频转场、多片段拼接、调整速度、去水印。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/editing-videos
+  updated_at: '1773738999'
+- rank: 43
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-extracting-thumbnails-skill-md
+  name: extracting-thumbnails
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Extracts thumbnails from video URLs. Use when publishing video content
+    that requires a cover image, when the user does not provide a cover/thumbnail,
+    or before publishing to platforms that require cover images (Kwai, Bilibili, YouTube).
+    提取封面、视频封面、生成封面、缩略图提取、视频缩略图、截取封面。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/extracting-thumbnails
+  updated_at: '1773738999'
+- rank: 44
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-generating-videos-skill-md
+  name: generating-videos
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Generates videos using Grok (preferred) and Google Veo 3.1 models.
+    Supports text-to-video, image-to-video, first-last-frame, video extension, and
+    reference images. AI视频生成、文生视频、图生视频、首尾帧生成、视频拓展。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/generating-videos
+  updated_at: '1773738999'
+- rank: 45
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-removing-subtitles-skill-md
+  name: removing-subtitles
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Removes hardcoded subtitles from videos using AI inpainting. Use when
+    user wants to remove subtitles, erase text from video, clean video from captions,
+    delete burned-in subtitles, remove video watermarks, clean hardcoded text, or
+    strip embedded subtitles. 去字幕、去除字幕、删除字幕、清除字幕、去硬字幕、去水印、擦除字幕、移除字幕。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/removing-subtitles
+  updated_at: '1773738999'
+- rank: 46
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-transferring-video-styles-skill-md
+  name: transferring-video-styles
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Converts live-action videos into artistic styles like comic, anime,
+    manga, 3D cartoon. Use when user wants to transform video style, create anime
+    version, apply artistic effects, convert to cartoon style, make comic video, create
+    manga style video, stylize video. 视频风格转换、动漫风格、漫画风格、卡通风格、视频二次元化、视频风格化、AI风格转换、视频转动漫、视频转漫画。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/transferring-video-styles
+  updated_at: '1773738999'
+- rank: 47
+  id: yikart-aitoearn-project-aitoearn-backend-apps-aitoearn-ai-src-core-agent-skills-translating-videos-skill-md
+  name: translating-videos
+  author: yikart
+  stars: 12504
+  forks: 2698
+  description: Translates videos including subtitles, voice cloning, and lip sync.
+    Use when user wants to translate video, dub video to another language, convert
+    video language, localize video content, create multilingual video, add translated
+    voiceover, change video audio language, or produce foreign language version. 视频翻译、配音翻译、字幕翻译、视频本地化、多语言视频、翻译视频、视频配音、语言转换。
+  github_url: https://github.com/yikart/AiToEarn/tree/main/project/aitoearn-backend/apps/aitoearn-ai/src/core/agent/skills/translating-videos
+  updated_at: '1773738999'
+- rank: 48
+  id: jimliu-baoyu-skills-skills-baoyu-compress-image-skill-md
+  name: baoyu-compress-image
+  author: JimLiu
+  stars: 12041
+  forks: 1356
+  description: Compresses images to WebP (default) or PNG with automatic tool selection.
+    Use when user asks to "compress image", "optimize image", "convert to webp", or
+    reduce image file size.
+  github_url: https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-compress-image
+  updated_at: '1773026392'
+- rank: 49
+  id: danielmiessler-personal-ai-infrastructure-releases-v4-0-0-claude-skills-utilities-audioeditor-skill-md
+  name: audioeditor
+  author: danielmiessler
+  stars: 10594
+  forks: 1470
+  description: AI-powered audio/video editing — transcription, intelligent cut detection,
+    automated editing with crossfades, and optional cloud polish. USE WHEN clean audio,
+    edit audio, remove filler words, clean podcast, remove ums, fix audio, cut dead
+    air, polish audio, clean recording, transcribe and edit.
+  github_url: https://github.com/danielmiessler/Personal_AI_Infrastructure/tree/main/Releases/v4.0.0/.claude/skills/Utilities/AudioEditor
+  updated_at: '1772285099'
+- rank: 50
+  id: nix-community-home-manager-tests-modules-programs-claude-code-skill-subdir-skill-md
+  name: data-processing
+  author: nix-community
+  stars: 9540
+  forks: 2328
+  description: Process and transform structured data files.
+  github_url: https://github.com/nix-community/home-manager/tree/master/tests/modules/programs/claude-code/skill-subdir
+  updated_at: '1771531206'

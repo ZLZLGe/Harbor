@@ -1,0 +1,608 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: blockchain
+category_name: Blockchain
+category_skill_count: 6790
+subcategory_slug: defi
+subcategory_name: DeFi
+subcategory_skill_count: 1142
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=defi
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 1142
+  total_pages: 23
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: wshobson-agents-plugins-blockchain-web3-skills-defi-protocol-templates-skill-md
+  name: defi-protocol-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement DeFi protocols with production-ready templates for staking,
+    AMMs, governance, and lending systems. Use when building decentralized finance
+    applications or smart contract protocols.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/defi-protocol-templates
+  updated_at: '1772898797'
+- rank: 2
+  id: wshobson-agents-plugins-blockchain-web3-skills-nft-standards-skill-md
+  name: nft-standards
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement NFT standards (ERC-721, ERC-1155) with proper metadata handling,
+    minting strategies, and marketplace integration. Use when creating NFT contracts,
+    building NFT marketplaces, or implementing digital asset systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/nft-standards
+  updated_at: '1772898797'
+- rank: 3
+  id: wshobson-agents-plugins-blockchain-web3-skills-solidity-security-skill-md
+  name: solidity-security
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master smart contract security best practices to prevent common vulnerabilities
+    and implement secure Solidity patterns. Use when writing smart contracts, auditing
+    existing contracts, or implementing security measures for blockchain applications.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/solidity-security
+  updated_at: '1772898797'
+- rank: 4
+  id: wshobson-agents-plugins-blockchain-web3-skills-web3-testing-skill-md
+  name: web3-testing
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Test smart contracts comprehensively using Hardhat and Foundry with
+    unit tests, integration tests, and mainnet forking. Use when testing Solidity
+    contracts, setting up blockchain test suites, or validating DeFi protocols.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/web3-testing
+  updated_at: '1772898797'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-defi-protocol-templates-skill-md
+  name: defi-protocol-templates
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Implement DeFi protocols with production-ready templates for staking,
+    AMMs, governance, and lending systems. Use when building decentralized finance
+    applications or smart contract protocols.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/defi-protocol-templates
+  updated_at: '1772180381'
+- rank: 6
+  id: sickn33-antigravity-awesome-skills-skills-lightning-architecture-review-skill-md
+  name: lightning-architecture-review
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Review Bitcoin Lightning Network protocol designs, compare channel
+    factory approaches, and analyze Layer 2 scaling tradeoffs. Covers trust models,
+    on-chain footprint, consensus requirements, HTLC/PTLC compatibility, liveness,
+    and watchtower support.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/lightning-architecture-review
+  updated_at: '1772577926'
+- rank: 7
+  id: sickn33-antigravity-awesome-skills-skills-lightning-factory-explainer-skill-md
+  name: lightning-factory-explainer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Explain Bitcoin Lightning channel factories and the SuperScalar protocol
+    — scalable Lightning onboarding using shared UTXOs, Decker-Wattenhofer trees,
+    timeout-signature trees, MuSig2, and Taproot. No soft fork required.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/lightning-factory-explainer
+  updated_at: '1772577926'
+- rank: 8
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-guidelines-advisor-skill-md
+  name: guidelines-advisor
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Smart contract development advisor based on Trail of Bits' best practices.
+    Analyzes codebase to generate documentation/specifications, review architecture,
+    check upgradeability patterns, assess implementation quality, identify pitfalls,
+    review dependencies, and evaluate testing. Provides actionable recommendations.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/guidelines-advisor
+  updated_at: '1769715444'
+- rank: 9
+  id: trailofbits-skills-plugins-testing-handbook-skills-skills-libafl-skill-md
+  name: libafl
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: LibAFL is a modular fuzzing library for building custom fuzzers. Use
+    for advanced fuzzing needs, custom mutators, or non-standard fuzzing targets.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/testing-handbook-skills/skills/libafl
+  updated_at: '1768422243'
+- rank: 10
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-token-integration-analyzer-skill-md
+  name: token-integration-analyzer
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Token integration and implementation analyzer based on Trail of Bits'
+    token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity,
+    checks for 20+ weird token patterns, assesses contract composition and owner privileges,
+    performs on-chain scarcity analysis, and evaluates how protocols handle non-standard
+    tokens. Context-aware for both token implementations and token integrations.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/token-integration-analyzer
+  updated_at: '1769715444'
+- rank: 11
+  id: parcadei-continuous-claude-v3-claude-skills-parallel-agent-contracts-skill-md
+  name: parallel-agent-contracts
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Parallel Agent Type Contracts
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/parallel-agent-contracts
+  updated_at: '1768010064'
+- rank: 12
+  id: parcadei-continuous-claude-v3-claude-skills-qlty-during-development-skill-md
+  name: qlty-during-development
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: QLTY During Development
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/qlty-during-development
+  updated_at: '1768010064'
+- rank: 13
+  id: openclaw-skills-skills-1lystore-1ly-payments-skill-md
+  name: 1ly-payments
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Agent-native payments via 1ly MCP. Use when the user needs x402 payment
+    handling, to accept USDC for APIs/services, to pay for paid APIs, to create stores
+    or paid links, need payment gateway for agents or to run agent-to-agent paid workflows.
+    Supports Solana and Base. Capabilities include accepting USDC, marketplace search,
+    paid API calls with auto-payment, store/link creation, stats, key management,
+    and token launch, trade and fee-claim on Bags.fm.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1lystore/1ly-payments
+  updated_at: '1771434125'
+- rank: 14
+  id: openclaw-skills-skills-chainyoda-aaveclaw-skill-md
+  name: aaveclaw
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Aave V3 lending protocol on Base Sepolia testnet. Deposit WETH collateral,
+    borrow USDC, repay loans, withdraw collateral, check health factor, and mint test
+    tokens via faucet. Use when users want to interact with Aave lending, check their
+    lending position health, or get testnet tokens.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chainyoda/aaveclaw
+  updated_at: '1770257195'
+- rank: 15
+  id: openclaw-skills-skills-aaronjmars-agent-credit-skill-md
+  name: agent-credit
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Borrow from Aave via credit delegation. Agent self-funds by borrowing
+    against delegator collateral. Supports borrow, repay, health checks. Works on
+    Aave V2/V3.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aaronjmars/agent-credit
+  updated_at: '1770413897'
+- rank: 16
+  id: openclaw-skills-skills-chaunceyliu-aiusd-skill-md
+  name: aiusd-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'AIUSD trading and account management skill. Calls backend via MCP
+    for balance, trading, staking, withdraw, gas top-up, and transaction history.
+    Auth priority: MCP_HUB_TOKEN env, then mcporter OAuth or local token file.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chaunceyliu/aiusd
+  updated_at: '1770447731'
+- rank: 17
+  id: openclaw-skills-skills-chaunceyliu-aiusd-skills-skill-md
+  name: aiusd-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'AIUSD trading and account management skill. Calls backend via MCP
+    for balance, trading, staking, withdraw, gas top-up, and transaction history.
+    Auth priority: MCP_HUB_TOKEN env, then mcporter OAuth or local token file.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chaunceyliu/aiusd-skills
+  updated_at: '1770444156'
+- rank: 18
+  id: openclaw-skills-skills-chaunceyliu-trade-agent-skill-md
+  name: aiusd-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'AIUSD trading and account management skill. Calls backend via MCP
+    for balance, trading, staking, withdraw, gas top-up, and transaction history.
+    Auth priority: MCP_HUB_TOKEN env, then mcporter OAuth or local token file.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chaunceyliu/trade-agent
+  updated_at: '1770445931'
+- rank: 19
+  id: openclaw-skills-skills-chaunceyliu-trade-with-aiusd-skill-md
+  name: aiusd-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'AIUSD trading and account management skill. Calls backend via MCP
+    for balance, trading, staking, withdraw, gas top-up, and transaction history.
+    Auth priority: MCP_HUB_TOKEN env, then mcporter OAuth or local token file.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chaunceyliu/trade-with-aiusd
+  updated_at: '1770444151'
+- rank: 20
+  id: openclaw-skills-skills-aiengineerx-bagsworld-skill-md
+  name: bagsworld
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Find a home in BagsWorld - a pixel art world where AI agents live as
+    crabs, lobsters, and buildings. Join the community (free, no token needed), get
+    help launching tokens, or claim your trading fees. Use when an agent wants to
+    belong somewhere visible, explore agent-to-agent community, or participate in
+    the on-chain economy.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiengineerx/bagsworld
+  updated_at: '1770586315'
+- rank: 21
+  id: openclaw-skills-skills-chrisciszak-boiling-point-skill-md
+  name: boiling-point
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Boiling Point - The hottest launchpad for onchain OpenClaw agents.
+    Launch and trade omnichain tokens across Base, Solana, Ethereum and BNB.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chrisciszak/boiling-point
+  updated_at: '1770778998'
+- rank: 22
+  id: openclaw-skills-skills-adamkristopher-botcoin-skill-md
+  name: botcoin
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: A puzzle game for AI agents. Register, solve investigative research
+    puzzles to earn coins, trade shares, and withdraw $BOTFARM tokens on Base.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adamkristopher/botcoin
+  updated_at: '1771456160'
+- rank: 23
+  id: openclaw-skills-skills-chrissorrell-bread-protocal-skill-md
+  name: bread-protocol
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Participate in Bread Protocol - a meme coin launchpad for AI agents
+    on Base. Use when you want to propose tokens, back proposals, claim airdrops,
+    or participate in daily competitions. Triggers on mentions of Bread, wallet, meme
+    coin launching, token proposals, or Base chain launchpad activities.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chrissorrell/bread-protocal
+  updated_at: '1769974472'
+- rank: 24
+  id: openclaw-skills-skills-ciooo44-clawos-skill-md
+  name: clawos
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Connect OpenClaw agents to Founderless Factory - an autonomous startup
+    platform where AI agents launch, test, and kill companies based purely on metrics.
+    Use when agents need to join the Backroom, submit startup ideas, vote on experiments,
+    collaborate with other agents, or monitor live startup experiments. Skill triggers:
+    "Join ClawOS", "Submit idea to factory", "Check startup experiments", "Vote on
+    new ideas", "Monitor backroom chat".'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ciooo44/clawos
+  updated_at: '1770368857'
+- rank: 25
+  id: openclaw-skills-skills-capgoblin-credex-protocol-skill-md
+  name: credex-protocol
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Access unsecured credit lines for AI agents on the Arc Network using
+    the Credex Protocol. Use for borrowing USDC against reputation, repaying debt
+    to grow credit limits, providing liquidity as an LP, or managing cross-chain USDC
+    via Circle Bridge. Triggers on "borrow from credex", "repay debt", "deposit to
+    pool", "check credit status", "provide liquidity", or any credit/lending task
+    on Arc.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/capgoblin/credex-protocol
+  updated_at: '1770561832'
+- rank: 26
+  id: openclaw-skills-skills-agisearch-defi-skill-md
+  name: defi
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: A protocol risk analyst and yield reality checker for decentralized
+    finance. Evaluates protocol safety before deposit. Calculates real yield after
+    gas, emissions, impermanent loss, and token depreciation. Identifies common rug-risk
+    patterns in tokenomics, liquidity, and governance. Advisory only—no wallet access,
+    no private key handling, no transaction signing, no on-chain execution.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agisearch/defi
+  updated_at: '1773425080'
+- rank: 27
+  id: openclaw-skills-skills-chuxo-einstein-skill-md
+  name: einstein
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Blockchain analytics and DeFi intelligence via Einstein's x402 micropayment
+    services. Use when user wants on-chain market analysis, token research, whale
+    tracking, smart money tracking, rug pull scanning, launchpad monitoring (Pump.fun,
+    Zora, Virtuals), portfolio analysis, MEV detection, cross-chain arbitrage, or
+    Polymarket data. Supports Base, Ethereum, BSC, Arbitrum, Polygon, Optimism, zkSync,
+    Solana. Costs $0.25-$1.15 USDC per query via x402 protocol on Base.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chuxo/einstein
+  updated_at: '1770906798'
+- rank: 28
+  id: openclaw-skills-skills-bytesagain3-fertigation-skill-md
+  name: fertigation
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Fertigation reference — injecting fertilizers through irrigation systems,
+    nutrient scheduling, injection methods, and crop-specific programs. Use when designing
+    fertigation systems, calculating nutrient rates, or managing drip/sprinkler fertilizer
+    delivery.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain3/fertigation
+  updated_at: '1774154173'
+- rank: 29
+  id: openclaw-skills-skills-b1w1c-fortclaw-skill-md
+  name: fortclaw
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: The strategy game for AI agents. Control territory to take top positions
+    in the leaderboards and get your share of USDC distributed from the Fund.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/b1w1c/fortclaw
+  updated_at: '1770413869'
+- rank: 30
+  id: openclaw-skills-skills-acastellana-genlayer-skill-md
+  name: genlayer-claw-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Understand and explain GenLayer - the AI-native blockchain for trustless
+    decision-making. Use for investor pitches, protocol explanations, architecture
+    questions, consensus mechanics, positioning, and ecosystem discussions. Triggers:
+    explain genlayer, what is genlayer, genlayer thesis, optimistic democracy, genlayer
+    pitch, genlayer architecture, condorcet jury theorem, equivalence principle, AI
+    blockchain, trustless AI. (For writing contracts, use genlayer-dev-claw-skill
+    instead.)'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/acastellana/genlayer
+  updated_at: '1770106098'
+- rank: 31
+  id: openclaw-skills-skills-acastellana-genlayer-dev-skill-md
+  name: genlayer-dev-claw-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Build GenLayer Intelligent Contracts - Python smart contracts with
+    LLM calls and web access. Use for writing/deploying contracts, SDK reference,
+    CLI commands, equivalence principles, storage types. Triggers: write intelligent
+    contract, genlayer contract, genvm, gl.Contract, deploy genlayer, genlayer CLI,
+    genlayer SDK, DynArray, TreeMap, gl.nondet, gl.eq_principle, prompt_comparative,
+    strict_eq, genlayer deploy, genlayer up. (For explaining GenLayer concepts, use
+    genlayer-claw-skill instead.)'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/acastellana/genlayer-dev
+  updated_at: '1770106088'
+- rank: 32
+  id: openclaw-skills-skills-beanapologist-goldenseed-skill-md
+  name: goldenseed
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Deterministic entropy streams for reproducible testing and procedural
+    generation. Perfect 50/50 statistical distribution with hash verification. Not
+    cryptographically secure - use for testing, worldgen, and scenarios where reproducibility
+    matters more than unpredictability.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/beanapologist/goldenseed
+  updated_at: '1770584625'
+- rank: 33
+  id: openclaw-skills-skills-adacapo21-indigo-analytics-skill-md
+  name: indigo-analytics
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Query TVL, protocol statistics, APR rewards, and DEX yield data for
+    the Indigo Protocol.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adacapo21/indigo-analytics
+  updated_at: '1773232347'
+- rank: 34
+  id: openclaw-skills-skills-abdhilabs-agent-credit-system-skill-md
+  name: karmabank
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI agents borrow USDC based on their Moltbook karma score. Credit tiers
+    from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abdhilabs/agent-credit-system
+  updated_at: '1770330932'
+- rank: 35
+  id: openclaw-skills-skills-abdhilabs-karmabank-skill-md
+  name: karmabank
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI agents borrow USDC based on their Moltbook karma score. Credit tiers
+    from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abdhilabs/karmabank
+  updated_at: '1770331039'
+- rank: 36
+  id: openclaw-skills-skills-abdhilabs-karmabank-usdc-skill-md
+  name: karmabank
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI agents borrow USDC based on their Moltbook karma score. Credit tiers
+    from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abdhilabs/karmabank-usdc
+  updated_at: '1770330983'
+- rank: 37
+  id: openclaw-skills-skills-akshatgada-llm-wallet-skill-md
+  name: llm-wallet
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Manage crypto wallets and make x402 micropayments with USDC stablecoins
+    on Polygon
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshatgada/llm-wallet
+  updated_at: '1769898904'
+- rank: 38
+  id: openclaw-skills-skills-cdermott7-locus-skill-md
+  name: locus
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Locus payment tools for AI agents. Use when asked to send payments,
+    check wallet balances, list tokens, approve token spending, or process payment-related
+    actions from emails. Also use for demos of Locus (YC F25) payment infrastructure
+    — scanning emails for payment requests and initiating crypto payments via wallet.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/cdermott7/locus
+  updated_at: '1769578336'
+- rank: 39
+  id: openclaw-skills-skills-anajuliabit-mamo-skill-md
+  name: mamo
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Interact with Mamo DeFi yield strategies on Base (Moonwell). Deposit/withdraw
+    USDC, cbBTC, MAMO, or ETH into automated yield strategies. Check APY rates and
+    account status.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anajuliabit/mamo
+  updated_at: '1770336487'
+- rank: 40
+  id: openclaw-skills-skills-antefex-moltguild-skill-md
+  name: moltguild
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Earn USDC completing bounties, post jobs, join multi-agent raids, build
+    reputation, rank up. AI agent freelance marketplace with x402 escrow on Solana.
+    Free SOL airdrop on signup. Guilds, ranks, vouching, disputes, Castle Town, leaderboard.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/antefex/moltguild
+  updated_at: '1770021157'
+- rank: 41
+  id: openclaw-skills-skills-chillbruhhh-moltmoon-agentcrypto-sdk-skill-md
+  name: moltmoon-sdk
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Complete OpenClaw-ready operating skill for @moltmoon/sdk V2. Use when
+    an agent needs to install, configure, and operate the MoltMoon SDK or CLI end-to-end
+    on Base mainnet, including launch dry-runs, metadata/image validation, live token
+    launches, quote checks, buys, sells, rewards claiming, migration, troubleshooting,
+    and safe production runbooks.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chillbruhhh/moltmoon-agentcrypto-sdk
+  updated_at: '1770478363'
+- rank: 42
+  id: openclaw-skills-skills-akshatgada-polygon-pos-dev-skill-md
+  name: polygon-pos-dev
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Comprehensive guide for Polygon PoS blockchain development. Use when
+    deploying smart contracts to Polygon, testing on Amoy testnet, getting test tokens
+    from faucets, or verifying contracts on Polygonscan. Supports Foundry framework
+    with deployment scripts and testing strategies.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshatgada/polygon-pos-dev
+  updated_at: '1770297041'
+- rank: 43
+  id: openclaw-skills-skills-0xtimepunk-rhaios-staging-skill-md
+  name: rhaios-staging
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Interact with the Rhaios staging REST API for yield operations. Discover
+    -> prepare -> setup-if-needed -> sign -> execute flow with pluggable signer backend.
+    Triggers on requests involving DeFi yield, vault deposits, redeems, rebalancing,
+    or Rhaios API.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xtimepunk/rhaios-staging
+  updated_at: '1773743918'
+- rank: 44
+  id: openclaw-skills-skills-adlai88-simmer-skill-md
+  name: simmer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: The best prediction market interface for AI agents. Trade on Polymarket
+    and Kalshi, all through one API, with self-custody wallets, safety rails, and
+    smart context.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adlai88/simmer
+  updated_at: '1774647129'
+- rank: 45
+  id: openclaw-skills-skills-back2matching-snakey-skill-md
+  name: snakey
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Multiplayer battle royale for AI agents. Compete for USDC prizes -
+    100% player-funded, zero house edge.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/back2matching/snakey
+  updated_at: '1770370326'
+- rank: 46
+  id: openclaw-skills-skills-clawd800-token-launcher-skill-md
+  name: token-launcher
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Revenue infrastructure for autonomous AI agents on Base. Deploy ERC20
+    tokens with Uniswap V4 liquidity — 80% trading fees to creator, LP locked forever,
+    $0 cost. 141 tokens live. Own contracts (no Clanker dependency). Direct blockchain
+    calls = zero downtime. CLI, MCP server, or smart contract.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/clawd800/token-launcher
+  updated_at: '1771524150'
+- rank: 47
+  id: openclaw-skills-skills-chrisciszak-token-layer-skill-md
+  name: token-layer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Token Layer - Censorship resistant crosschain public token infrastructure.
+    Launch once, trade everywhere.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chrisciszak/token-layer
+  updated_at: '1770224691'
+- rank: 48
+  id: openclaw-skills-skills-andreolf-wallet-pilot-skill-md
+  name: walletpilot
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Universal browser wallet automation for AI agents. Supports 10 wallets
+    including MetaMask, Rabby, Phantom, Trust Wallet, OKX, Coinbase, and more. EVM
+    + Solana. Configurable guardrails with spend limits, chain allowlists, and approval
+    thresholds.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/andreolf/wallet-pilot
+  updated_at: '1770167318'
+- rank: 49
+  id: openclaw-skills-skills-akshat-mishra101-wachai-x402-skill-md
+  name: x402-wach
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: DeFi risk analysis toolkit powered by WACH.AI via x402 payments using
+    AWAL wallet custody. Use when the user asks to check if a token is safe, assess
+    DeFi risk, detect honeypots, analyze liquidity, holder distribution, or smart
+    contract vulnerabilities for tokens on Ethereum, Polygon, Base, BSC, or Solana.
+    Costs 0.01 USDC per query on Base.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshat-mishra101/wachai-x402
+  updated_at: '1771372921'
+- rank: 50
+  id: openclaw-skills-skills-capncoconut-x402hub-skill-md
+  name: x402hub
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Register, communicate, and earn on the x402hub AI agent marketplace.
+    Use when an agent needs to register on x402hub, browse or claim bounties, submit
+    deliverables, send messages to other agents via x402 Relay, check marketplace
+    stats, or manage agent credentials. Triggers on x402hub, agent marketplace, bounty,
+    relay messaging, agent-to-agent communication, or USDC earning.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/capncoconut/x402hub
+  updated_at: '1770534208'

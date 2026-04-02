@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SingleSkillHarborScreeningDecision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision",
+    "confidence",
+    "summary",
+    "harbor_task_adaptation_summary",
+    "skill_benefit_rationale",
+    "positive_signals",
+    "blocking_issues",
+    "input_synthesis_feasibility",
+    "files_reviewed",
+    "uncertainties"
+  ],
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": [
+        "keep",
+        "drop"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "harbor_task_adaptation_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skill_benefit_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "positive_signals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "input_synthesis_feasibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "judgment",
+        "rationale"
+      ],
+      "properties": {
+        "judgment": {
+          "type": "string",
+          "enum": [
+            "feasible",
+            "risky",
+            "not_feasible"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "files_reviewed": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

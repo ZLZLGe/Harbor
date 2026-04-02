@@ -1,0 +1,564 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: testing-and-security
+category_name: Testing & Security
+category_skill_count: 70866
+subcategory_slug: security
+subcategory_name: Security
+subcategory_skill_count: 18733
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=security
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 18733
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-1password-skill-md
+  name: 1password
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Set up and use 1Password CLI (op). Use when installing the CLI, enabling
+    desktop app integration, signing in (single or multi-account), or reading/injecting/running
+    secrets via op.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/1password
+  updated_at: '1774242819'
+- rank: 2
+  id: n8n-io-n8n-claude-skills-node-add-oauth-skill-md
+  name: node-add-oauth
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Add OAuth2 credential support to an existing n8n node — creates the
+    credential file, updates the node, adds tests, and keeps the CLI constant in sync.
+    Use when the user says /node-add-oauth.
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/node-add-oauth
+  updated_at: '1774511893'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-ja-jp-skills-django-security-skill-md
+  name: django-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Django security best practices, authentication, authorization, CSRF
+    protection, SQL injection prevention, XSS prevention, and secure deployment configurations.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ja-JP/skills/django-security
+  updated_at: '1773384730'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-django-security-skill-md
+  name: django-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Django 安全最佳实践、认证、授权、CSRF 防护、SQL 注入预防、XSS 预防和安全部署配置。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/django-security
+  updated_at: '1772519307'
+- rank: 5
+  id: affaan-m-everything-claude-code-skills-django-security-skill-md
+  name: django-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Django security best practices, authentication, authorization, CSRF
+    protection, SQL injection prevention, XSS prevention, and secure deployment configurations.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/django-security
+  updated_at: '1771862457'
+- rank: 6
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-kotlin-ktor-patterns-skill-md
+  name: kotlin-ktor-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Ktor 服务器模式，包括路由 DSL、插件、身份验证、Koin DI、kotlinx.serialization、WebSockets
+    和 testApplication 测试。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/kotlin-ktor-patterns
+  updated_at: '1774219164'
+- rank: 7
+  id: affaan-m-everything-claude-code-docs-tr-skills-laravel-security-skill-md
+  name: laravel-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Laravel security best practices for authn/authz, validation, CSRF,
+    mass assignment, file uploads, secrets, rate limiting, and secure deployment.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/laravel-security
+  updated_at: '1774219024'
+- rank: 8
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-laravel-security-skill-md
+  name: laravel-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Laravel 安全最佳实践，涵盖认证/授权、验证、CSRF、批量赋值、文件上传、密钥管理、速率限制和安全部署。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/laravel-security
+  updated_at: '1774068958'
+- rank: 9
+  id: affaan-m-everything-claude-code-skills-laravel-security-skill-md
+  name: laravel-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Laravel security best practices for authn/authz, validation, CSRF,
+    mass assignment, file uploads, secrets, rate limiting, and secure deployment.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/laravel-security
+  updated_at: '1773693323'
+- rank: 10
+  id: affaan-m-everything-claude-code-skills-perl-security-skill-md
+  name: perl-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Comprehensive Perl security covering taint mode, input validation,
+    safe process execution, DBI parameterized queries, web security (XSS/SQLi/CSRF),
+    and perlcritic security policies.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/perl-security
+  updated_at: '1773200574'
+- rank: 11
+  id: affaan-m-everything-claude-code-skills-santa-method-skill-md
+  name: santa-method
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Multi-agent adversarial verification with convergence loop. Two independent
+    review agents must both pass before output ships.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/santa-method
+  updated_at: '1774219264'
+- rank: 12
+  id: affaan-m-everything-claude-code-agents-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use this skill when adding authentication, handling user input, working
+    with secrets, creating API endpoints, or implementing payment/sensitive features.
+    Provides comprehensive security checklist and patterns.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/security-review
+  updated_at: '1772045129'
+- rank: 13
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 인증 추가, 사용자 입력 처리, 시크릿 관리, API 엔드포인트 생성, 결제/민감한 기능 구현 시 이 스킬을 사용하세요.
+    포괄적인 보안 체크리스트와 패턴을 제공합니다.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/security-review
+  updated_at: '1773386274'
+- rank: 14
+  id: affaan-m-everything-claude-code-docs-tr-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Kimlik doğrulama eklerken, kullanıcı girdisi işlerken, secret'larla
+    çalışırken, API endpoint'leri oluştururken veya ödeme/hassas özellikler uygularken
+    bu skill'i kullanın. Kapsamlı güvenlik kontrol listesi ve kalıplar sağlar.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/security-review
+  updated_at: '1774219024'
+- rank: 15
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 在添加身份验证、处理用户输入、处理机密信息、创建API端点或实现支付/敏感功能时使用此技能。提供全面的安全检查清单和模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/security-review
+  updated_at: '1772519307'
+- rank: 16
+  id: affaan-m-everything-claude-code-kiro-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use this skill when adding authentication, handling user input, working
+    with secrets, creating API endpoints, or implementing payment/sensitive features.
+    Provides comprehensive security checklist and patterns.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/security-review
+  updated_at: '1774241745'
+- rank: 17
+  id: affaan-m-everything-claude-code-skills-security-review-skill-md
+  name: security-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Use this skill when adding authentication, handling user input, working
+    with secrets, creating API endpoints, or implementing payment/sensitive features.
+    Provides comprehensive security checklist and patterns.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/security-review
+  updated_at: '1771862457'
+- rank: 18
+  id: affaan-m-everything-claude-code-docs-tr-skills-springboot-security-skill-md
+  name: springboot-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Security best practices for authn/authz, validation, CSRF, secrets,
+    headers, rate limiting, and dependency security in Java Spring Boot services.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/springboot-security
+  updated_at: '1774219024'
+- rank: 19
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-springboot-security-skill-md
+  name: springboot-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Java Spring Boot 服务中认证/授权、验证、CSRF、密钥、标头、速率限制和依赖安全性的 Spring Security
+    最佳实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/springboot-security
+  updated_at: '1772519307'
+- rank: 20
+  id: affaan-m-everything-claude-code-skills-springboot-security-skill-md
+  name: springboot-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Security best practices for authn/authz, validation, CSRF, secrets,
+    headers, rate limiting, and dependency security in Java Spring Boot services.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/springboot-security
+  updated_at: '1771862457'
+- rank: 21
+  id: garrytan-gstack-setup-browser-cookies-skill-md
+  name: setup-browser-cookies
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Import cookies from your real Chromium browser into the headless browse
+    session.
+
+    Opens an interactive picker UI where you select which cookie domains to import.
+
+    Use before QA testing authenticated pages. Use when asked to "import cookies",
+
+    "login to the site", or "authenticate the browser".'
+  github_url: https://github.com/garrytan/gstack/tree/main/setup-browser-cookies
+  updated_at: '1774634818'
+- rank: 22
+  id: trpc-trpc-packages-server-skills-auth-skill-md
+  name: auth
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Implement JWT/cookie authentication and authorization in tRPC using
+    createContext for user extraction, t.middleware with opts.next({ ctx }) for context
+    narrowing to non-null user, protectedProcedure base pattern, client-side Authorization
+    headers via httpBatchLink headers(), WebSocket connectionParams, and SSE auth
+    via cookies or EventSource polyfill custom headers.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/auth
+  updated_at: '1774697990'
+- rank: 23
+  id: rssnext-folo-agents-skills-mobile-e2e-skill-md
+  name: mobile-e2e
+  author: RSSNext
+  stars: 37848
+  forks: 2007
+  description: Run apps/mobile Maestro end-to-end tests in this repo. Use when an
+    agent needs to validate mobile auth flows on iOS Simulator or Android Emulator.
+    Current maintained coverage is register, sign out, and sign in.
+  github_url: https://github.com/RSSNext/Folo/tree/dev/.agents/skills/mobile-e2e
+  updated_at: '1773289672'
+- rank: 24
+  id: wshobson-agents-plugins-hr-legal-compliance-skills-gdpr-data-handling-skill-md
+  name: gdpr-data-handling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement GDPR-compliant data handling with consent management, data
+    subject rights, and privacy by design. Use when building systems that process
+    EU personal data, implementing privacy controls, or conducting GDPR compliance
+    reviews.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/hr-legal-compliance/skills/gdpr-data-handling
+  updated_at: '1772898797'
+- rank: 25
+  id: wshobson-agents-plugins-kubernetes-operations-skills-k8s-security-policies-skill-md
+  name: k8s-security-policies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement Kubernetes security policies including NetworkPolicy, PodSecurityPolicy,
+    and RBAC for production-grade security. Use when securing Kubernetes clusters,
+    implementing network isolation, or enforcing pod security standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/k8s-security-policies
+  updated_at: '1772898797'
+- rank: 26
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-mtls-configuration-skill-md
+  name: mtls-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure mutual TLS (mTLS) for zero-trust service-to-service communication.
+    Use when implementing zero-trust networking, certificate management, or securing
+    internal service communication.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/mtls-configuration
+  updated_at: '1772898797'
+- rank: 27
+  id: wshobson-agents-plugins-security-scanning-skills-sast-configuration-skill-md
+  name: sast-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure Static Application Security Testing (SAST) tools for automated
+    vulnerability detection in application code. Use when setting up security scanning,
+    implementing DevSecOps practices, or automating code vulnerability detection.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/sast-configuration
+  updated_at: '1768860423'
+- rank: 28
+  id: wshobson-agents-plugins-cicd-automation-skills-secrets-management-skill-md
+  name: secrets-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement secure secrets management for CI/CD pipelines using Vault,
+    AWS Secrets Manager, or native platform solutions. Use when handling sensitive
+    credentials, rotating secrets, or securing CI/CD environments.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/secrets-management
+  updated_at: '1772898797'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-api-security-best-practices-skill-md
+  name: api-security-best-practices
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Implement secure API design patterns including authentication, authorization,
+    input validation, rate limiting, and protection against common API vulnerabilities
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-security-best-practices
+  updated_at: '1772180381'
+- rank: 30
+  id: sickn33-antigravity-awesome-skills-skills-api-security-testing-skill-md
+  name: api-security-testing
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: API security testing workflow for REST and GraphQL APIs covering authentication,
+    authorization, rate limiting, input validation, and security best practices.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-security-testing
+  updated_at: '1772180381'
+- rank: 31
+  id: sickn33-antigravity-awesome-skills-skills-auth-implementation-patterns-skill-md
+  name: auth-implementation-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build secure, scalable authentication and authorization systems using
+    industry-standard patterns and modern best practices.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/auth-implementation-patterns
+  updated_at: '1773994005'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-aws-penetration-testing-skill-md
+  name: aws-penetration-testing
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Provide comprehensive techniques for penetration testing AWS cloud
+    environments. Covers IAM enumeration, privilege escalation, SSRF to metadata endpoint,
+    S3 bucket exploitation, Lambda code extraction, and persistence techniques for
+    red team operations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/aws-penetration-testing
+  updated_at: '1773994005'
+- rank: 33
+  id: sickn33-antigravity-awesome-skills-skills-azure-ai-contentsafety-py-skill-md
+  name: azure-ai-contentsafety-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure AI Content Safety SDK for Python. Use for detecting harmful content
+    in text and images with multi-severity classification.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-contentsafety-py
+  updated_at: '1772354305'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-azure-communication-common-java-skill-md
+  name: azure-communication-common-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Communication Services common utilities for Java. Use when working
+    with CommunicationTokenCredential, user identifiers, token refresh, or shared
+    authentication across ACS services.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-communication-common-java
+  updated_at: '1772180381'
+- rank: 35
+  id: sickn33-antigravity-awesome-skills-skills-azure-identity-dotnet-skill-md
+  name: azure-identity-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Identity SDK for .NET. Authentication library for Azure SDK clients
+    using Microsoft Entra ID. Use for DefaultAzureCredential, managed identity, service
+    principals, and developer credentials.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-identity-dotnet
+  updated_at: '1772354305'
+- rank: 36
+  id: sickn33-antigravity-awesome-skills-skills-azure-identity-java-skill-md
+  name: azure-identity-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Authenticate Java applications with Azure services using Microsoft
+    Entra ID (Azure AD).
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-identity-java
+  updated_at: '1773994005'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-azure-identity-py-skill-md
+  name: azure-identity-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Identity SDK for Python authentication. Use for DefaultAzureCredential,
+    managed identity, service principals, and token caching.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-identity-py
+  updated_at: '1772354305'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-azure-identity-rust-skill-md
+  name: azure-identity-rust
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Identity SDK for Rust authentication. Use for DeveloperToolsCredential,
+    ManagedIdentityCredential, ClientSecretCredential, and token-based authentication.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-identity-rust
+  updated_at: '1772354305'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-azure-identity-ts-skill-md
+  name: azure-identity-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Authenticate to Azure services with various credential types.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-identity-ts
+  updated_at: '1773994005'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-azure-keyvault-certificates-rust-skill-md
+  name: azure-keyvault-certificates-rust
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Key Vault Certificates SDK for Rust. Use for creating, importing,
+    and managing certificates.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-keyvault-certificates-rust
+  updated_at: '1772354305'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-azure-keyvault-keys-rust-skill-md
+  name: azure-keyvault-keys-rust
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Azure Key Vault Keys SDK for Rust. Use for creating, managing, and
+    using cryptographic keys. Triggers: "keyvault keys rust", "KeyClient rust", "create
+    key rust", "encrypt rust", "sign rust".'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-keyvault-keys-rust
+  updated_at: '1772354305'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-azure-keyvault-keys-ts-skill-md
+  name: azure-keyvault-keys-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Manage cryptographic keys using Azure Key Vault Keys SDK for JavaScript
+    (@azure/keyvault-keys). Use when creating, encrypting/decrypting, signing, or
+    rotating keys.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-keyvault-keys-ts
+  updated_at: '1772180381'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-azure-keyvault-py-skill-md
+  name: azure-keyvault-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Key Vault SDK for Python. Use for secrets, keys, and certificates
+    management with secure storage.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-keyvault-py
+  updated_at: '1772354305'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-azure-security-keyvault-keys-java-skill-md
+  name: azure-security-keyvault-keys-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Key Vault Keys Java SDK for cryptographic key management. Use
+    when creating, managing, or using RSA/EC keys, performing encrypt/decrypt/sign/verify
+    operations, or working with HSM-backed keys.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-security-keyvault-keys-java
+  updated_at: '1772180381'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-azure-security-keyvault-secrets-java-skill-md
+  name: azure-security-keyvault-secrets-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Key Vault Secrets Java SDK for secret management. Use when storing,
+    retrieving, or managing passwords, API keys, connection strings, or other sensitive
+    configuration data.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-security-keyvault-secrets-java
+  updated_at: '1772180381'
+- rank: 46
+  id: sickn33-antigravity-awesome-skills-skills-backend-security-coder-skill-md
+  name: backend-security-coder
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert in secure backend coding practices specializing in input validation,
+    authentication, and API security. Use PROACTIVELY for backend security implementations
+    or security code reviews.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/backend-security-coder
+  updated_at: '1772354305'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-broken-authentication-skill-md
+  name: broken-authentication
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Identify and exploit authentication and session management vulnerabilities
+    in web applications. Broken authentication consistently ranks in the OWASP Top
+    10 and can lead to account takeover, identity theft, and unauthorized access to
+    sensitive systems.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/broken-authentication
+  updated_at: '1773994005'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-clerk-auth-skill-md
+  name: clerk-auth
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Expert patterns for Clerk auth implementation, middleware, organizations,
+    webhooks, and user sync Use when: adding authentication, clerk auth, user authentication,
+    sign in, sign up.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/clerk-auth
+  updated_at: '1773994005'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-dependency-management-deps-audit-skill-md
+  name: dependency-management-deps-audit
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a dependency security expert specializing in vulnerability
+    scanning, license compliance, and supply chain security. Analyze project dependencies
+    for known vulnerabilities, licensing issues, outdated packages, and provide actionable
+    remediation strategies.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dependency-management-deps-audit
+  updated_at: '1773994005'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-sast-configuration-skill-md
+  name: sast-configuration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Static Application Security Testing (SAST) tool setup, configuration,
+    and custom rule creation for comprehensive security scanning across multiple programming
+    languages.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sast-configuration
+  updated_at: '1773994005'

@@ -1,0 +1,560 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: mobile
+subcategory_name: Mobile
+subcategory_skill_count: 9148
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=mobile
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 9148
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-compose-multiplatform-patterns-skill-md
+  name: compose-multiplatform-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: KMP项目中的Compose Multiplatform和Jetpack Compose模式——状态管理、导航、主题化、性能优化和平台特定UI。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/compose-multiplatform-patterns
+  updated_at: '1773395144'
+- rank: 2
+  id: affaan-m-everything-claude-code-skills-compose-multiplatform-patterns-skill-md
+  name: compose-multiplatform-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Compose Multiplatform and Jetpack Compose patterns for KMP projects
+    — state management, navigation, theming, performance, and platform-specific UI.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/compose-multiplatform-patterns
+  updated_at: '1773201219'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-foundation-models-on-device-skill-md
+  name: foundation-models-on-device
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 苹果FoundationModels框架用于设备上的LLM——文本生成、使用@Generable进行引导生成、工具调用，以及在iOS
+    26+中的快照流。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/foundation-models-on-device
+  updated_at: '1772519307'
+- rank: 4
+  id: affaan-m-everything-claude-code-skills-foundation-models-on-device-skill-md
+  name: foundation-models-on-device
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Apple FoundationModels framework for on-device LLM — text generation,
+    guided generation with @Generable, tool calling, and snapshot streaming in iOS
+    26+.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/foundation-models-on-device
+  updated_at: '1771911565'
+- rank: 5
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-kotlin-coroutines-flows-skill-md
+  name: kotlin-coroutines-flows
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Kotlin协程与Flow在Android和KMP中的模式——结构化并发、Flow操作符、StateFlow、错误处理和测试。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/kotlin-coroutines-flows
+  updated_at: '1774219164'
+- rank: 6
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-liquid-glass-design-skill-md
+  name: liquid-glass-design
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: iOS 26 液态玻璃设计系统 — 适用于 SwiftUI、UIKit 和 WidgetKit 的动态玻璃材质，具有模糊、反射和交互式变形效果。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/liquid-glass-design
+  updated_at: '1772519307'
+- rank: 7
+  id: affaan-m-everything-claude-code-skills-liquid-glass-design-skill-md
+  name: liquid-glass-design
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: iOS 26 Liquid Glass design system — dynamic glass material with blur,
+    reflection, and interactive morphing for SwiftUI, UIKit, and WidgetKit.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/liquid-glass-design
+  updated_at: '1771911565'
+- rank: 8
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-swiftui-patterns-skill-md
+  name: swiftui-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: SwiftUI 架构模式，使用 @Observable 进行状态管理，视图组合，导航，性能优化，以及现代 iOS/macOS UI 最佳实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/swiftui-patterns
+  updated_at: '1772519307'
+- rank: 9
+  id: affaan-m-everything-claude-code-skills-swiftui-patterns-skill-md
+  name: swiftui-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: SwiftUI architecture patterns, state management with @Observable, view
+    composition, navigation, performance optimization, and modern iOS/macOS UI best
+    practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/swiftui-patterns
+  updated_at: '1771340671'
+- rank: 10
+  id: lobehub-lobehub-agents-skills-desktop-skill-md
+  name: desktop
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Electron desktop development guide. Use when implementing desktop features,
+    IPC handlers, controllers, preload scripts, window management, menu configuration,
+    or Electron-specific functionality. Triggers on desktop app development, Electron
+    IPC, or desktop local tools implementation.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/desktop
+  updated_at: '1771693763'
+- rank: 11
+  id: lobehub-lobehub-agents-skills-react-skill-md
+  name: react
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: React component development guide. Use when working with React components
+    (.tsx files), creating UI, using @lobehub/ui components, implementing routing,
+    or building frontend features. Triggers on React component creation, modification,
+    layout implementation, or navigation tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/react
+  updated_at: '1774427257'
+- rank: 12
+  id: expo-expo-packages-expo-router-claude-skills-android-e2e-testing-skill-md
+  name: android-e2e-testing
+  author: expo
+  stars: 48308
+  forks: 11559
+  description: Test Expo Router features on Android emulators using ADB. Use after
+    implementing native Android features or when verifying UI behavior on Android.
+  github_url: https://github.com/expo/expo/tree/main/packages/expo-router/.claude/skills/android-e2e-testing
+  updated_at: '1773046125'
+- rank: 13
+  id: getsentry-sentry-agents-skills-notification-platform-skill-md
+  name: notification-platform
+  author: getsentry
+  stars: 43460
+  forks: 4642
+  description: Guide for adding notifications, custom renderers, or new providers
+    to Sentry's NotificationPlatform. Use when asked to "add notification", "new notification",
+    "notification platform", "send notification", "notification template", "notification
+    renderer", "notification provider", "NotificationPlatform", "notify user", "send
+    email notification", "send slack notification".
+  github_url: https://github.com/getsentry/sentry/tree/master/.agents/skills/notification-platform
+  updated_at: '1773784900'
+- rank: 14
+  id: remotion-dev-remotion-claude-skills-add-sfx-skill-md
+  name: add-sfx
+  author: remotion-dev
+  stars: 41027
+  forks: 2624
+  description: Add a new sound effect to @remotion/sfx
+  github_url: https://github.com/remotion-dev/remotion/tree/main/.claude/skills/add-sfx
+  updated_at: '1771929175'
+- rank: 15
+  id: rssnext-folo-agents-skills-installing-mobile-preview-builds-skill-md
+  name: installing-mobile-preview-builds
+  author: RSSNext
+  stars: 37848
+  forks: 2007
+  description: Builds and installs the iOS preview build for apps/mobile using EAS
+    local build and devicectl. Use when the user asks to install a preview/internal
+    iOS build on a connected iPhone for production-like testing.
+  github_url: https://github.com/RSSNext/Folo/tree/dev/.agents/skills/installing-mobile-preview-builds
+  updated_at: '1773210764'
+- rank: 16
+  id: rssnext-folo-agents-skills-mobile-release-skill-md
+  name: mobile-release
+  author: RSSNext
+  stars: 37848
+  forks: 2007
+  description: Perform a regular mobile release from the dev branch. Gathers commits
+    since last release, updates changelog, bumps version, updates iOS Info.plist,
+    and creates release PR to mobile-main.
+  github_url: https://github.com/RSSNext/Folo/tree/dev/.agents/skills/mobile-release
+  updated_at: '1773210764'
+- rank: 17
+  id: rssnext-folo-agents-skills-mobile-self-test-skill-md
+  name: mobile-self-test
+  author: RSSNext
+  stars: 37848
+  forks: 2007
+  description: Self-test a mobile feature change or bug fix after implementation in
+    `apps/mobile`. Use this whenever the user asks to verify a mobile change, run
+    simulator acceptance, smoke-test a mobile PR, or provide screenshot proof for
+    a mobile fix. This skill decides between prod vs local API mode, starts the local
+    follow-server when needed, builds a release app, uses Maestro only to bootstrap
+    registration for non-auth work, then switches to screenshot-driven visual validation
+    and returns screenshot evidence.
+  github_url: https://github.com/RSSNext/Folo/tree/dev/.agents/skills/mobile-self-test
+  updated_at: '1774358056'
+- rank: 18
+  id: backstage-backstage-docs-well-known-skills-mui-to-bui-migration-skill-md
+  name: mui-to-bui-migration
+  author: backstage
+  stars: 32961
+  forks: 7211
+  description: Migrate Backstage plugins from Material-UI (MUI) to Backstage UI (BUI).
+    Use this skill when migrating components, updating imports, replacing styling
+    patterns, or converting MUI components to their BUI equivalents.
+  github_url: https://github.com/backstage/backstage/tree/master/docs/.well-known/skills/mui-to-bui-migration
+  updated_at: '1774533813'
+- rank: 19
+  id: wshobson-agents-plugins-ui-design-skills-mobile-android-design-skill-md
+  name: mobile-android-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Material Design 3 and Jetpack Compose patterns for building
+    native Android apps. Use when designing Android interfaces, implementing Compose
+    UI, or following Google's Material Design guidelines.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-android-design
+  updated_at: '1772898797'
+- rank: 20
+  id: wshobson-agents-plugins-ui-design-skills-mobile-ios-design-skill-md
+  name: mobile-ios-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master iOS Human Interface Guidelines and SwiftUI patterns for building
+    native iOS apps. Use when designing iOS interfaces, implementing SwiftUI views,
+    or ensuring apps follow Apple's design principles.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/mobile-ios-design
+  updated_at: '1772898797'
+- rank: 21
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-react-native-architecture-skill-md
+  name: react-native-architecture
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build production React Native apps with Expo, navigation, native modules,
+    offline sync, and cross-platform patterns. Use when developing mobile apps, implementing
+    native integrations, or architecting React Native projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/react-native-architecture
+  updated_at: '1772898797'
+- rank: 22
+  id: wshobson-agents-plugins-ui-design-skills-react-native-design-skill-md
+  name: react-native-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master React Native styling, navigation, and Reanimated animations
+    for cross-platform mobile development. Use when building React Native apps, implementing
+    navigation patterns, or creating performant animations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/react-native-design
+  updated_at: '1772898797'
+- rank: 23
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-react-state-management-skill-md
+  name: react-state-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master modern React state management with Redux Toolkit, Zustand, Jotai,
+    and React Query. Use when setting up global state, managing server state, or choosing
+    between state management solutions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/react-state-management
+  updated_at: '1772898797'
+- rank: 24
+  id: wshobson-agents-plugins-ui-design-skills-web-component-design-skill-md
+  name: web-component-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master React, Vue, and Svelte component patterns including CSS-in-JS,
+    composition strategies, and reusable component architecture. Use when building
+    UI component libraries, designing component APIs, or implementing frontend design
+    systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/web-component-design
+  updated_at: '1772898797'
+- rank: 25
+  id: heroui-inc-heroui-skills-heroui-native-skill-md
+  name: heroui-native
+  author: heroui-inc
+  stars: 28716
+  forks: 2092
+  description: 'HeroUI Native component library for React Native (Tailwind v4 via
+    Uniwind). Use when building mobile UIs with HeroUI Native — creating Buttons,
+    Cards, TextFields, Dialogs; installing heroui-native; configuring dark/light themes;
+    or fetching component docs. Keywords: HeroUI Native, heroui-native, React Native
+    UI, Uniwind, mobile components.'
+  github_url: https://github.com/heroui-inc/heroui/tree/v3/skills/heroui-native
+  updated_at: '1774541149'
+- rank: 26
+  id: sickn33-antigravity-awesome-skills-skills-android-jetpack-compose-expert-skill-md
+  name: android-jetpack-compose-expert
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert guidance for building modern Android UIs with Jetpack Compose,
+    covering state management, navigation, performance, and Material Design 3.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/android-jetpack-compose-expert
+  updated_at: '1772180381'
+- rank: 27
+  id: sickn33-antigravity-awesome-skills-skills-android-ui-verification-skill-md
+  name: android-ui-verification
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Automated end-to-end UI testing and verification on an Android Emulator
+    using ADB.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/android_ui_verification
+  updated_at: '1772354305'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-azure-appconfiguration-ts-skill-md
+  name: azure-appconfiguration-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Centralized configuration management with feature flags and dynamic
+    refresh.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-appconfiguration-ts
+  updated_at: '1773994005'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-azure-messaging-webpubsub-java-skill-md
+  name: azure-messaging-webpubsub-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build real-time web applications with Azure Web PubSub SDK for Java.
+    Use when implementing WebSocket-based messaging, live updates, chat applications,
+    or server-to-client push notifications.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-messaging-webpubsub-java
+  updated_at: '1772180381'
+- rank: 30
+  id: sickn33-antigravity-awesome-skills-skills-azure-web-pubsub-ts-skill-md
+  name: azure-web-pubsub-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Real-time messaging with WebSocket connections and pub/sub patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-web-pubsub-ts
+  updated_at: '1773994005'
+- rank: 31
+  id: sickn33-antigravity-awesome-skills-skills-building-native-ui-skill-md
+  name: building-native-ui
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Complete guide for building beautiful apps with Expo Router. Covers
+    fundamentals, styling, components, navigation, animations, patterns, and native
+    tabs.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/building-native-ui
+  updated_at: '1773994629'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-earllm-build-skill-md
+  name: earllm-build
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build, maintain, and extend the EarLLM One Android project — a Kotlin/Compose
+    app that connects Bluetooth earbuds to an LLM via voice pipeline.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/earllm-build
+  updated_at: '1773994005'
+- rank: 33
+  id: sickn33-antigravity-awesome-skills-skills-expo-ui-jetpack-compose-skill-md
+  name: expo-ui-jetpack-compose
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: expo-ui-jetpack-compose
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-ui-jetpack-compose
+  updated_at: '1773994629'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-hig-components-content-skill-md
+  name: hig-components-content
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Apple Human Interface Guidelines for content display components.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hig-components-content
+  updated_at: '1772354305'
+- rank: 35
+  id: sickn33-antigravity-awesome-skills-skills-hig-components-search-skill-md
+  name: hig-components-search
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Apple HIG guidance for navigation-related components including search
+    fields, page controls, and path controls.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hig-components-search
+  updated_at: '1772354305'
+- rank: 36
+  id: sickn33-antigravity-awesome-skills-skills-ios-debugger-agent-skill-md
+  name: ios-debugger-agent
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Debug the current iOS project on a booted simulator with XcodeBuildMCP.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ios-debugger-agent
+  updated_at: '1774435988'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-ios-developer-skill-md
+  name: ios-developer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Develop native iOS applications with Swift/SwiftUI. Masters iOS 18,
+    SwiftUI, UIKit integration, Core Data, networking, and App Store optimization.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ios-developer
+  updated_at: '1772354305'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-macos-menubar-tuist-app-skill-md
+  name: macos-menubar-tuist-app
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build, refactor, or review SwiftUI macOS menubar apps that use Tuist.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/macos-menubar-tuist-app
+  updated_at: '1774435988'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-makepad-deployment-skill-md
+  name: makepad-deployment
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'CRITICAL: Use for Makepad packaging and deployment. Triggers on:
+
+    deploy, package, APK, IPA, 打包, 部署,
+
+    cargo-packager, cargo-makepad, WASM, Android, iOS,
+
+    distribution, installer, .deb, .dmg, .nsis,
+
+    GitHub Actions, CI, action, marketplace'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-deployment
+  updated_at: '1773994629'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-makepad-widgets-skill-md
+  name: makepad-widgets
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Version: makepad-widgets (dev branch) | Last Updated: 2026-01-19 >
+    > Check for updates: https://crates.io/crates/makepad-widgets'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-widgets
+  updated_at: '1773994629'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-mobile-design-skill-md
+  name: mobile-design
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: (Mobile-First · Touch-First · Platform-Respectful)
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/mobile-design
+  updated_at: '1773994005'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-mobile-developer-skill-md
+  name: mobile-developer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Develop React Native, Flutter, or native mobile apps with modern architecture
+    patterns. Masters cross-platform development, native integrations, offline sync,
+    and app store optimization.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/mobile-developer
+  updated_at: '1772354305'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-multi-platform-apps-multi-platform-skill-md
+  name: multi-platform-apps-multi-platform
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build and deploy the same feature consistently across web, mobile,
+    and desktop platforms using API-first architecture and parallel implementation
+    strategies.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/multi-platform-apps-multi-platform
+  updated_at: '1772180381'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-progressive-web-app-skill-md
+  name: progressive-web-app
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build Progressive Web Apps (PWAs) with offline support, installability,
+    and caching strategies. Trigger whenever the user mentions PWA, service workers,
+    web app manifests, Workbox, 'add to home screen', or wants their web app to work
+    offline, feel native, or be installable.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/progressive-web-app
+  updated_at: '1773746421'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-react-native-architecture-skill-md
+  name: react-native-architecture
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Production-ready patterns for React Native development with Expo, including
+    navigation, state management, native modules, and offline-first architecture.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/react-native-architecture
+  updated_at: '1773994005'
+- rank: 46
+  id: sickn33-antigravity-awesome-skills-skills-slack-bot-builder-skill-md
+  name: slack-bot-builder
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: The Bolt framework is Slack's recommended approach for building apps.
+    It handles authentication, event routing, request verification, and HTTP request
+    processing so you can focus on app logic.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/slack-bot-builder
+  updated_at: '1773994005'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-swiftui-liquid-glass-skill-md
+  name: swiftui-liquid-glass
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Implement or review SwiftUI Liquid Glass APIs with correct fallbacks
+    and modifier order.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/swiftui-liquid-glass
+  updated_at: '1774435988'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-swiftui-ui-patterns-skill-md
+  name: swiftui-ui-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Apply proven SwiftUI UI patterns for navigation, sheets, async state,
+    and reusable screens.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/swiftui-ui-patterns
+  updated_at: '1774435988'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-swiftui-view-refactor-skill-md
+  name: swiftui-view-refactor
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Refactor SwiftUI views into smaller components with stable, explicit
+    data flow.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/swiftui-view-refactor
+  updated_at: '1774435988'
+- rank: 50
+  id: ruvnet-ruflo-agents-skills-flow-nexus-platform-skill-md
+  name: flow-nexus-platform
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Comprehensive Flow Nexus platform management - authentication, sandboxes,
+    app deployment, payments, and challenges
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.agents/skills/flow-nexus-platform
+  updated_at: '1770485431'

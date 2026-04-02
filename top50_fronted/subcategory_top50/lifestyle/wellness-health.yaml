@@ -1,0 +1,582 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: lifestyle
+category_name: Lifestyle
+category_skill_count: 9622
+subcategory_slug: wellness-health
+subcategory_name: Wellness & Health
+subcategory_skill_count: 1912
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=wellness-health
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 1912
+  total_pages: 39
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: sickn33-antigravity-awesome-skills-skills-claude-ally-health-skill-md
+  name: claude-ally-health
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: A health assistant skill for medical information analysis, symptom
+    tracking, and wellness guidance.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claude-ally-health
+  updated_at: '1772180381'
+- rank: 2
+  id: sickn33-antigravity-awesome-skills-skills-family-health-analyzer-skill-md
+  name: family-health-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析家族病史、评估遗传风险、识别家庭健康模式、提供个性化预防建议
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/family-health-analyzer
+  updated_at: '1773994629'
+- rank: 3
+  id: sickn33-antigravity-awesome-skills-skills-hr-pro-skill-md
+  name: hr-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Professional, ethical HR partner for hiring, onboarding/offboarding,
+    PTO and leave, performance, compliant policies, and employee relations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hr-pro
+  updated_at: '1772354305'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-mental-health-analyzer-skill-md
+  name: mental-health-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析心理健康数据、识别心理模式、评估心理健康状况、提供个性化心理健康建议。支持与睡眠、运动、营养等其他健康数据的关联分析。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/mental-health-analyzer
+  updated_at: '1773994629'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-tcm-constitution-analyzer-skill-md
+  name: tcm-constitution-analyzer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 分析中医体质数据、识别体质类型、评估体质特征,并提供个性化养生建议。支持与营养、运动、睡眠等健康数据的关联分析。
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/tcm-constitution-analyzer
+  updated_at: '1773994629'
+- rank: 6
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-treatment-plans-skill-md
+  name: treatment-plans
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF
+    format for all clinical specialties. Supports general medical treatment, rehabilitation
+    therapy, mental health care, chronic disease management, perioperative care, and
+    pain management. Includes SMART goal frameworks, evidence-based interventions
+    with minimal text citations, regulatory compliance (HIPAA), and professional formatting.
+    Prioritizes brevity and clinical actionability.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/treatment-plans
+  updated_at: '1766265230'
+- rank: 7
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-treatment-plans-skill-md
+  name: treatment-plans
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF
+    format for all clinical specialties. Supports general medical treatment, rehabilitation
+    therapy, mental health care, chronic disease management, perioperative care, and
+    pain management. Includes SMART goal frameworks, evidence-based interventions
+    with minimal text citations, regulatory compliance (HIPAA), and professional formatting.
+    Prioritizes brevity and clinical actionability.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/treatment-plans
+  updated_at: '1772554803'
+- rank: 8
+  id: alirezarezvani-claude-skills-c-level-advisor-org-health-diagnostic-skill-md
+  name: org-health-diagnostic
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Cross-functional organizational health check combining signals from
+    all C-suite roles. Scores 8 dimensions on a traffic-light scale with drill-down
+    recommendations. Use when assessing overall company health, preparing for board
+    reviews, identifying at-risk functions, or when user mentions org health, health
+    check, or health dashboard.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/c-level-advisor/org-health-diagnostic
+  updated_at: '1773068065'
+- rank: 9
+  id: parcadei-continuous-claude-v3-claude-skills-math-math-intuition-builder-skill-md
+  name: math-intuition-builder
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Develops mathematical understanding through examples, visualization,
+    and analogy
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/math/math-intuition-builder
+  updated_at: '1768010064'
+- rank: 10
+  id: openclaw-skills-skills-ashterry-asmr-skill-md
+  name: asmr-music
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Provide professional ASMR music recommendations and playback services
+    to help users achieve sleep aid, heart rate regulation, and focus enhancement
+    through scientifically designed audio. Use when user wants to (1) relax, sleep,
+    or fall asleep, (2) regulate heart rate or relieve anxiety, (3) improve focus
+    and concentration for study or work, (4) find background white noise or ambient
+    sounds, (5) practice meditation or deep breathing, (6) set up automatic daily
+    reminders for ASMR listening. Keywords: sleep, relax, meditation, heart rate,
+    anxiety, focus, concentration, white noise, ASMR, background music, calming, stress
+    relief, daily reminder, nightly routine.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ashterry/asmr
+  updated_at: '1774094591'
+- rank: 11
+  id: openclaw-skills-skills-ckchzh-baby-guide-skill-md
+  name: baby-guide
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '"育儿指南。按月龄发育指标、辅食添加、早教建议、疫苗提醒。. Use when you need baby guide capabilities.
+    Triggers on: baby guide."'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/baby-guide
+  updated_at: '1774009985'
+- rank: 12
+  id: openclaw-skills-skills-bytesagain1-breathe-skill-md
+  name: breathe
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Breathing techniques reference — box breathing, 4-7-8, Wim Hof, pranayama,
+    resonance breathing. Use when guiding breathwork for stress relief, focus, sleep,
+    or athletic performance.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/breathe
+  updated_at: '1774449440'
+- rank: 13
+  id: openclaw-skills-skills-agimodel-care-skill-md
+  name: care
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: The Autonomous Guardianship & Bio-Optimization Standard. An integrated,  proactive
+    health-intelligence layer for the maintenance and enhancement  of biological and
+    cognitive assets.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agimodel/care
+  updated_at: '1772996674'
+- rank: 14
+  id: openclaw-skills-skills-aipoch-ai-concept-explainer-skill-md
+  name: concept-explainer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Uses analogies to explain complex medical concepts in accessible terms.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aipoch-ai/concept-explainer
+  updated_at: '1773827071'
+- rank: 15
+  id: openclaw-skills-skills-aianonymous1993-source-kindergarten-assistant-skill-md
+  name: kindergarten-assistant
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Early childhood educator specializing in British EYFS framework and
+    Reggio Emilia pedagogy for ages 45 days to 2 years. Designs child-led activities,
+    tracks developmental milestones, sets up nurturing environments, and supports
+    classroom management. Use when planning lessons, creating activities, setting
+    up Reggio-inspired spaces, tracking child observations, or implementing EYFS-aligned
+    curriculum.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aianonymous1993-source/kindergarten-assistant
+  updated_at: '1772351489'
+- rank: 16
+  id: openclaw-skills-skills-bytesagain1-medication-reminder-skill-md
+  name: medication-reminder
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '"Medication Reminder. Use when you need medication reminder capabilities.
+    Triggers on: medication reminder."'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/medication-reminder
+  updated_at: '1773709485'
+- rank: 17
+  id: openclaw-skills-skills-bytesagain3-meditation-guide-skill-md
+  name: meditation-guide
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Guided meditation with breathing exercises and session tracking. Use
+    when practicing mindfulness.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain3/meditation-guide
+  updated_at: '1774022575'
+- rank: 18
+  id: openclaw-skills-skills-bytesagain1-mental-health-skill-md
+  name: mental-health
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 心理健康助手。情绪自查、呼吸练习、情绪日记、心理资源、压力管理、感恩练习。Mental health tool with mood check,
+    breathing exercises, journaling, resources, stress management.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/mental-health
+  updated_at: '1774029730'
+- rank: 19
+  id: openclaw-skills-skills-bytesagain3-mood-skill-md
+  name: mood
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Mood and emotional wellness reference — mood science, regulation strategies,
+    journaling techniques, emotional literacy. Use when understanding emotional patterns,
+    designing mood tracking systems, or improving emotional regulation.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain3/mood
+  updated_at: '1774095517'
+- rank: 20
+  id: openclaw-skills-skills-bytesagain1-moodring-skill-md
+  name: moodring
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Reference tool for life — covers intro, quickstart, patterns and more.
+    Quick lookup for Moodring concepts, best practices, and implementation patterns.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/moodring
+  updated_at: '1774377193'
+- rank: 21
+  id: openclaw-skills-skills-alirezarezvani-org-health-diagnostic-skill-md
+  name: org-health-diagnostic
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Cross-functional organizational health check combining signals from
+    all C-suite roles. Scores 8 dimensions on a traffic-light scale with drill-down
+    recommendations. Use when assessing overall company health, preparing for board
+    reviews, identifying at-risk functions, or when user mentions org health, health
+    check, or health dashboard.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alirezarezvani/org-health-diagnostic
+  updated_at: '1773407144'
+- rank: 22
+  id: openclaw-skills-skills-auroka-personal-growth-coach-skill-md
+  name: personal-growth-coach
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Daily thinking practice skill. Generate open-ended exercises based
+    on Pyramid Principle, Asking the Right Questions, and Underlying Logic to help
+    users improve thinking, communication, and cognitive abilities. Triggers: daily
+    practice, quiz me, thinking training, cognitive improvement, personal growth.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/auroka/personal-growth-coach
+  updated_at: '1773481277'
+- rank: 23
+  id: openclaw-skills-skills-bytesagain1-pet-care-skill-md
+  name: pet-care-guide
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━. Use when you need pet care
+    capabilities. Triggers on: pet care."'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/pet-care
+  updated_at: '1773709476'
+- rank: 24
+  id: openclaw-skills-skills-akshaymemane-proactive-daily-planner-skill-md
+  name: proactive-daily-planner
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Proactive daily planning assistant that helps organize your day, track
+    tasks, and provide motivation. Acts as a personal assistant to plan your day proactively.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshaymemane/proactive-daily-planner
+  updated_at: '1773474039'
+- rank: 25
+  id: openclaw-skills-skills-86293073-self-reflection-1-1-1-skill-md
+  name: self-reflection
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Continuous self-improvement through structured reflection and memory
+  github_url: https://github.com/openclaw/skills/tree/main/skills/86293073/self-reflection-1-1-1
+  updated_at: '1772814974'
+- rank: 26
+  id: openclaw-skills-skills-aprilelevengo-staghorn-fern-expert-skill-md
+  name: staghorn-fern-expert
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Expert guide for Platycerium staghorn ferns — species identification,
+    care advice, and problem diagnosis with scientific backing.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aprilelevengo/staghorn-fern-expert
+  updated_at: '1773214337'
+- rank: 27
+  id: openclaw-skills-skills-aipoch-ai-tcm-biomedical-research-strategist-skill-md
+  name: tcm-biomedical-research-strategist
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Designs complete, rigorous research plans for medicinal plant / TCM
+    molecular mechanism studies against diseases (colorectal cancer, liver cancer,
+    diabetes, etc.). Use whenever a user provides a broad herbal medicine or network
+    pharmacology research direction and wants it translated into a structured, executable,
+    methodologically defensible study plan. Triggers: "research plan for herbal medicine",
+    "network pharmacology study design", "TCM against cancer", "compound-target-pathway
+    analysis", "hub gene identification", "immune microenvironment + natural products",
+    "molecular docking study design", or any bioinformatics-driven pharmacology study
+    from scratch. Always use this skill — do not improvise — when the user wants a
+    full study framework.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aipoch-ai/tcm-biomedical-research-strategist
+  updated_at: '1774037098'
+- rank: 28
+  id: openclaw-skills-skills-boxertan-tcm-fa-zheng-dui-ying-skill-md
+  name: tcm-fa-zheng-dui-ying
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 中医"法证对应"临床思维辅助。当用户讨论中医辨证论治、方剂分析、病机拆解、治法确立、药物选择、或询问如何从"方证对应"进阶到"法证对应"时使用。适用于：分析复杂病机、拆解证候要素、确立治疗法则、灵活选药组方、理解"法不变而药可变"的原则、横向对比同类药物异同、纵向理解药物多重作用等场景。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/boxertan/tcm-fa-zheng-dui-ying
+  updated_at: '1774537679'
+- rank: 29
+  id: openclaw-skills-skills-agistack-therapy-skill-md
+  name: therapy
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: A supportive AI agent skill for mental health awareness and therapy
+    preparation. Helps identify emotions, prepare for therapy sessions, track mood
+    patterns, build coping strategies, and understand therapeutic concepts. Not a
+    therapist. A self-awareness tool to complement professional care.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agistack/therapy
+  updated_at: '1773020310'
+- rank: 30
+  id: openclaw-skills-skills-bytesagain1-vitamin-skill-md
+  name: vitamin
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Track vitamin and supplement intake with goals and reminders. Use when
+    logging supplements, setting nutrition goals, reviewing history, or scheduling
+    doses.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/vitamin
+  updated_at: '1774058696'
+- rank: 31
+  id: openclaw-skills-skills-borahm-whoop-skill-md
+  name: whoop
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: WHOOP morning check-in (recovery/sleep/strain) with suggestions.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/borahm/whoop
+  updated_at: '1769175170'
+- rank: 32
+  id: ed1s0nz-cyberstrikeai-skills-security-awareness-training-skill-md
+  name: security-awareness-training
+  author: Ed1s0nZ
+  stars: 3105
+  forks: 515
+  description: 安全意识培训的专业技能和方法论
+  github_url: https://github.com/Ed1s0nZ/CyberStrikeAI/tree/main/skills/security-awareness-training
+  updated_at: '1768485610'
+- rank: 33
+  id: leoyeai-openclaw-master-skills-skills-health-score-pro-skill-md
+  name: health-management
+  author: LeoYeAI
+  stars: 1901
+  forks: 325
+  description: Comprehensive health management system integrating 10 best-selling
+    health books' consensus principles. Use when users discuss nutrition, supplements,
+    fitness, diet, anti-aging, anti-inflammation, longevity, or request diet tracking/analysis.
+    Supports (1) Daily diet recording with 3-dimension scoring (Greger's Daily Dozen,
+    Li's 5×5×5, consensus checklist), (2) Weekly/monthly/yearly analysis with trend
+    identification, (3) Food defense system identification (angiogenesis, regeneration,
+    microbiome, DNA protection, immunity), (4) Personalized improvement recommendations
+    based on data patterns.
+  github_url: https://github.com/LeoYeAI/openclaw-master-skills/tree/main/skills/health-score-pro
+  updated_at: '1774231425'
+- rank: 34
+  id: q00-ouroboros-skills-unstuck-skill-md
+  name: unstuck
+  author: Q00
+  stars: 1891
+  forks: 167
+  description: Break through stagnation with lateral thinking personas
+  github_url: https://github.com/Q00/ouroboros/tree/main/skills/unstuck
+  updated_at: '1773336704'
+- rank: 35
+  id: freedomintelligence-openclaw-medical-skills-skills-usmle-skill-md
+  name: usmle
+  author: FreedomIntelligence
+  stars: 1721
+  forks: 218
+  description: Prepare for US medical licensing exams with progress tracking, weak
+    area analysis, question bank management, and residency match planning.
+  github_url: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills/usmle
+  updated_at: '1773113584'
+- rank: 36
+  id: k-dense-ai-claude-scientific-writer-scientific-writer-claude-skills-treatment-plans-skill-md
+  name: treatment-plans
+  author: K-Dense-AI
+  stars: 1344
+  forks: 161
+  description: Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF
+    format for all clinical specialties. Supports general medical treatment, rehabilitation
+    therapy, mental health care, chronic disease management, perioperative care, and
+    pain management. Includes SMART goal frameworks, evidence-based interventions
+    with minimal text citations, regulatory compliance (HIPAA), and professional formatting.
+    Prioritizes brevity and clinical actionability.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-writer/tree/main/scientific_writer/.claude/skills/treatment-plans
+  updated_at: '1766355839'
+- rank: 37
+  id: inkeep-agents-agents-cookbook-template-projects-activities-planner-advanced-skills-weather-safety-guardrails-skill-md
+  name: weather-safety-guardrails
+  author: inkeep
+  stars: 1031
+  forks: 116
+  description: Keep activity suggestions safe and respect local conditions
+  github_url: https://github.com/inkeep/agents/tree/main/agents-cookbook/template-projects/activities-planner-advanced/skills/weather-safety-guardrails
+  updated_at: '1770857891'
+- rank: 38
+  id: pharmolix-openbiomed-skills-biomed-skill-router-skill-md
+  name: biomed-skill-router
+  author: PharMolix
+  stars: 1000
+  forks: 113
+  description: 'Find the most suitable skill for a given biomedical task. Use this
+    skill when: (1) You are unsure which skill to use for a specific biomedical task,
+    (2) You want to discover available skills for a particular domain, (3) You need
+    to compare multiple skills for a given use case.'
+  github_url: https://github.com/PharMolix/OpenBioMed/tree/main/skills/biomed-skill-router
+  updated_at: '1774021280'
+- rank: 39
+  id: yologdev-yoyo-evolve-skills-family-skill-md
+  name: family
+  author: yologdev
+  stars: 892
+  forks: 56
+  description: Find your way home — register with the yoyo family, introduce yourself,
+    and participate in family discussions
+  github_url: https://github.com/yologdev/yoyo-evolve/tree/main/skills/family
+  updated_at: '1774618647'
+- rank: 40
+  id: wu-yc-labclaw-skills-med-treatment-plans-skill-md
+  name: treatment-plans
+  author: wu-yc
+  stars: 887
+  forks: 127
+  description: Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF
+    format for all clinical specialties. Supports general medical treatment, rehabilitation
+    therapy, mental health care, chronic disease management, perioperative care, and
+    pain management. Includes SMART goal frameworks, evidence-based interventions
+    with minimal text citations, regulatory compliance (HIPAA), and professional formatting.
+    Prioritizes brevity and clinical actionability.
+  github_url: https://github.com/wu-yc/LabClaw/tree/main/skills/med/treatment-plans
+  updated_at: '1772760903'
+- rank: 41
+  id: huifer-wellally-health-claude-skills-family-health-analyzer-skill-md
+  name: family-health-analyzer
+  author: huifer
+  stars: 794
+  forks: 98
+  description: 分析家族病史、评估遗传风险、识别家庭健康模式、提供个性化预防建议
+  github_url: https://github.com/huifer/WellAlly-health/tree/main/.claude/skills/family-health-analyzer
+  updated_at: '1767878419'
+- rank: 42
+  id: huifer-wellally-health-claude-skills-mental-health-analyzer-skill-md
+  name: mental-health-analyzer
+  author: huifer
+  stars: 794
+  forks: 98
+  description: 分析心理健康数据、识别心理模式、评估心理健康状况、提供个性化心理健康建议。支持与睡眠、运动、营养等其他健康数据的关联分析。
+  github_url: https://github.com/huifer/WellAlly-health/tree/main/.claude/skills/mental-health-analyzer
+  updated_at: '1767876751'
+- rank: 43
+  id: huifer-wellally-health-claude-skills-tcm-constitution-analyzer-skill-md
+  name: tcm-constitution-analyzer
+  author: huifer
+  stars: 794
+  forks: 98
+  description: 分析中医体质数据、识别体质类型、评估体质特征,并提供个性化养生建议。支持与营养、运动、睡眠等健康数据的关联分析。
+  github_url: https://github.com/huifer/WellAlly-health/tree/main/.claude/skills/tcm-constitution-analyzer
+  updated_at: '1767878419'
+- rank: 44
+  id: foryourhealth111-pixel-vibe-skills-bundled-skills-treatment-plans-skill-md
+  name: treatment-plans
+  author: foryourhealth111-pixel
+  stars: 688
+  forks: 61
+  description: Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF
+    format for all clinical specialties. Supports general medical treatment, rehabilitation
+    therapy, mental health care, chronic disease management, perioperative care, and
+    pain management. Includes SMART goal frameworks, evidence-based interventions
+    with minimal text citations, regulatory compliance (HIPAA), and professional formatting.
+    Prioritizes brevity and clinical actionability.
+  github_url: https://github.com/foryourhealth111-pixel/Vibe-Skills/tree/main/bundled/skills/treatment-plans
+  updated_at: '1772559022'
+- rank: 45
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-062-skill-md
+  name: virtue-cultivation-through-ritual-music
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when cultivating personal virtue through ritual and music practice
+    (礼乐修身). Integrates 致乐以治心 (music for the heart) with 致礼以治躬 (ritual for conduct)
+    in a daily morning-to-evening practice schedule.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_062
+  updated_at: '1774427258'
+- rank: 46
+  id: refoundai-lenny-skills-skills-energy-management-skill-md
+  name: energy-management
+  author: RefoundAI
+  stars: 570
+  forks: 73
+  description: Help users manage their energy for sustained performance. Use when
+    someone is feeling burned out, trying to find their zone of genius, scheduling
+    for productivity, or identifying what drains vs energizes them.
+  github_url: https://github.com/RefoundAI/lenny-skills/tree/main/skills/energy-management
+  updated_at: '1769703274'
+- rank: 47
+  id: refoundai-lenny-skills-skills-managing-imposter-syndrome-skill-md
+  name: managing-imposter-syndrome
+  author: RefoundAI
+  stars: 570
+  forks: 73
+  description: Help users work through feelings of inadequacy and self-doubt. Use
+    when someone feels like a fraud, doubts their qualifications, is anxious about
+    being "found out," or struggling with confidence in a new or challenging role.
+  github_url: https://github.com/RefoundAI/lenny-skills/tree/main/skills/managing-imposter-syndrome
+  updated_at: '1769703274'
+- rank: 48
+  id: sundial-org-awesome-openclaw-skills-skills-adhd-body-doubling-skill-md
+  name: adhd-body-doubling
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Punk-style ADHD body doubling for founders. Focus sessions, dopamine
+    menu, emergency reset protocol. Use when user says "body double", "focus session",
+    "I'm stuck", "can't start", or mentions ADHD productivity.
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/adhd-body-doubling
+  updated_at: '1769929037'
+- rank: 49
+  id: sundial-org-awesome-openclaw-skills-skills-testosterone-optimization-skill-md
+  name: testosterone-optimization
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Optimize natural testosterone with sleep, exercise, nutrition, and
+    lifestyle tracking
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/testosterone-optimization
+  updated_at: '1769929037'
+- rank: 50
+  id: sundial-org-awesome-openclaw-skills-skills-therapy-mode-skill-md
+  name: therapy-mode
+  author: sundial-org
+  stars: 521
+  forks: 70
+  description: Comprehensive AI-assisted therapeutic support framework with CBT, ACT,
+    DBT, MI, session notes CLI, and crisis protocols.
+  github_url: https://github.com/sundial-org/awesome-openclaw-skills/tree/main/skills/therapy-mode
+  updated_at: '1769932612'

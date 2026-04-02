@@ -1,0 +1,620 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: blockchain
+category_name: Blockchain
+category_skill_count: 6790
+subcategory_slug: smart-contracts
+subcategory_name: Smart Contracts
+subcategory_skill_count: 3128
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=smart-contracts
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 3128
+  total_pages: 63
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: twentyhq-twenty-cursor-skills-syncable-entity-builder-and-validation-skill-md
+  name: syncable-entity-builder-and-validation
+  author: twentyhq
+  stars: 42296
+  forks: 5615
+  description: Create validation logic and migration action builders for syncable
+    entities in Twenty. Use when implementing business rule validation, uniqueness
+    checks, foreign key validation, or building workspace migration actions for syncable
+    entities. Validators never throw and never mutate.
+  github_url: https://github.com/twentyhq/twenty/tree/main/.cursor/skills/syncable-entity-builder-and-validation
+  updated_at: '1770981511'
+- rank: 2
+  id: wshobson-agents-plugins-blockchain-web3-skills-defi-protocol-templates-skill-md
+  name: defi-protocol-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement DeFi protocols with production-ready templates for staking,
+    AMMs, governance, and lending systems. Use when building decentralized finance
+    applications or smart contract protocols.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/defi-protocol-templates
+  updated_at: '1772898797'
+- rank: 3
+  id: wshobson-agents-plugins-blockchain-web3-skills-nft-standards-skill-md
+  name: nft-standards
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement NFT standards (ERC-721, ERC-1155) with proper metadata handling,
+    minting strategies, and marketplace integration. Use when creating NFT contracts,
+    building NFT marketplaces, or implementing digital asset systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/nft-standards
+  updated_at: '1772898797'
+- rank: 4
+  id: wshobson-agents-plugins-blockchain-web3-skills-solidity-security-skill-md
+  name: solidity-security
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master smart contract security best practices to prevent common vulnerabilities
+    and implement secure Solidity patterns. Use when writing smart contracts, auditing
+    existing contracts, or implementing security measures for blockchain applications.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/solidity-security
+  updated_at: '1772898797'
+- rank: 5
+  id: wshobson-agents-plugins-blockchain-web3-skills-web3-testing-skill-md
+  name: web3-testing
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Test smart contracts comprehensively using Hardhat and Foundry with
+    unit tests, integration tests, and mainnet forking. Use when testing Solidity
+    contracts, setting up blockchain test suites, or validating DeFi protocols.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/web3-testing
+  updated_at: '1772898797'
+- rank: 6
+  id: sickn33-antigravity-awesome-skills-skills-007-skill-md
+  name: '007'
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Security audit, hardening, threat modeling (STRIDE/PASTA), Red/Blue
+    Team, OWASP checks, code review, incident response, and infrastructure security
+    for any project.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/007
+  updated_at: '1773854149'
+- rank: 7
+  id: sickn33-antigravity-awesome-skills-skills-grpc-golang-skill-md
+  name: grpc-golang
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build production-ready gRPC services in Go with mTLS, streaming, and
+    observability. Use when designing Protobuf contracts with Buf or implementing
+    secure service-to-service transport.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/grpc-golang
+  updated_at: '1772180381'
+- rank: 8
+  id: sickn33-antigravity-awesome-skills-skills-security-auditor-skill-md
+  name: security-auditor
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert security auditor specializing in DevSecOps, comprehensive cybersecurity,
+    and compliance frameworks.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/security-auditor
+  updated_at: '1772354305'
+- rank: 9
+  id: sickn33-antigravity-awesome-skills-skills-solidity-security-skill-md
+  name: solidity-security
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master smart contract security best practices, vulnerability prevention,
+    and secure Solidity development patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/solidity-security
+  updated_at: '1773994005'
+- rank: 10
+  id: sickn33-antigravity-awesome-skills-skills-web3-testing-skill-md
+  name: web3-testing
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master comprehensive testing strategies for smart contracts using Hardhat,
+    Foundry, and advanced testing patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/web3-testing
+  updated_at: '1773994005'
+- rank: 11
+  id: elizaos-eliza-packages-skills-skills-security-building-secure-contracts-skill-md
+  name: security-building-secure-contracts
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Guide secure smart contract development with best practices for Solidity,
+    Rust (Solana/CosmWasm), and Move. Use when writing, reviewing, or hardening smart
+    contracts against common vulnerability classes like reentrancy, integer overflow,
+    access control issues, and flash loan attacks.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/security-building-secure-contracts
+  updated_at: '1773814001'
+- rank: 12
+  id: metamask-metamask-extension-agents-skills-add-non-evm-swaps-bridge-network-skill-md
+  name: add-non-evm-swaps-bridge-network
+  author: MetaMask
+  stars: 13110
+  forks: 5541
+  description: Implement and review non-EVM network support for the extension Swaps/Bridge
+    client using the canonical repository standard. Use for tasks that add or modify
+    bridge or swaps support for Tron, Bitcoin, or other non-EVM networks across bridge
+    constants, account selectors, destination account checks, address validation,
+    send type resolution, or rollout gating.
+  github_url: https://github.com/MetaMask/metamask-extension/tree/main/.agents/skills/add-non-evm-swaps-bridge-network
+  updated_at: '1774025758'
+- rank: 13
+  id: metamask-metamask-extension-cursor-skills-add-non-evm-swaps-bridge-network-skill-md
+  name: add-non-evm-swaps-bridge-network
+  author: MetaMask
+  stars: 13110
+  forks: 5541
+  description: Implements and reviews non-EVM network support for the extension Swaps/Bridge
+    client using the canonical repository standard. Use when adding or updating bridge/swaps
+    support for Tron, Bitcoin, or other non-EVM networks across bridge constants,
+    account selectors, destination account checks, address validation, send type handling,
+    or LaunchDarkly plus code-gate rollout.
+  github_url: https://github.com/MetaMask/metamask-extension/tree/main/.cursor/skills/add-non-evm-swaps-bridge-network
+  updated_at: '1774025758'
+- rank: 14
+  id: electric-sql-electric-packages-typescript-client-skills-electric-deployment-skill-md
+  name: electric-deployment
+  author: electric-sql
+  stars: 10029
+  forks: 317
+  description: Deploy Electric via Docker, Docker Compose, or Electric Cloud. Covers
+    DATABASE_URL (direct connection, not pooler), ELECTRIC_SECRET (required since
+    v1.x), ELECTRIC_INSECURE for dev, wal_level=logical, max_replication_slots, ELECTRIC_STORAGE_DIR
+    persistence, ELECTRIC_POOLED_DATABASE_URL for pooled queries, IPv6 with ELECTRIC_DATABASE_USE_IPV6,
+    Kubernetes readiness probes (200 vs 202), replication slot cleanup, and Postgres
+    v14+ requirements. Load when deploying Electric or configuring Postgres for logical
+    replication.
+  github_url: https://github.com/electric-sql/electric/tree/main/packages/typescript-client/skills/electric-deployment
+  updated_at: '1772832427'
+- rank: 15
+  id: fastled-fastled-claude-skills-feature-contract-skill-md
+  name: feature-contract
+  author: FastLED
+  stars: 7333
+  forks: 1742
+  description: Generate a structured implementation contract before making any code
+    changes to FastLED. Defines scope, affected files, API changes, platform impact,
+    risk assessment, and test plan. Use before implementing any feature, bug fix,
+    driver addition, or refactoring.
+  github_url: https://github.com/FastLED/FastLED/tree/master/.claude/skills/feature-contract
+  updated_at: '1774572502'
+- rank: 16
+  id: mindfold-ai-trellis-packages-cli-src-templates-codex-skills-update-spec-skill-md
+  name: update-spec
+  author: mindfold-ai
+  stars: 4321
+  forks: 222
+  description: Captures executable contracts and coding knowledge into .trellis/spec/
+    documents after implementation, debugging, or design decisions. Enforces code-spec
+    depth for infra and cross-layer changes with mandatory sections for signatures,
+    contracts, validation matrices, and test points. Use when a feature is implemented,
+    a bug is fixed, a design decision is made, a new pattern is discovered, or cross-layer
+    contracts change.
+  github_url: https://github.com/mindfold-ai/Trellis/tree/main/packages/cli/src/templates/codex/skills/update-spec
+  updated_at: '1774002374'
+- rank: 17
+  id: mindfold-ai-trellis-packages-cli-src-templates-qoder-skills-update-spec-skill-md
+  name: update-spec
+  author: mindfold-ai
+  stars: 4321
+  forks: 222
+  description: Captures executable contracts and coding knowledge into .trellis/spec/
+    documents after implementation, debugging, or design decisions. Enforces code-spec
+    depth for infra and cross-layer changes with mandatory sections for signatures,
+    contracts, validation matrices, and test points. Use when a feature is implemented,
+    a bug is fixed, a design decision is made, a new pattern is discovered, or cross-layer
+    contracts change.
+  github_url: https://github.com/mindfold-ai/Trellis/tree/main/packages/cli/src/templates/qoder/skills/update-spec
+  updated_at: '1774002374'
+- rank: 18
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-algorand-vulnerability-scanner-skill-md
+  name: algorand-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans Algorand smart contracts for 11 common vulnerabilities including
+    rekeying attacks, unchecked transaction fees, missing field validations, and access
+    control issues. Use when auditing Algorand projects (TEAL/PyTeal).
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/algorand-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 19
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-cairo-vulnerability-scanner-skill-md
+  name: cairo-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities
+    including felt252 arithmetic overflow, L1-L2 messaging issues, address conversion
+    problems, and signature replay. Use when auditing StarkNet projects.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 20
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-cosmos-vulnerability-scanner-skill-md
+  name: cosmos-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans Cosmos SDK blockchains for 9 consensus-critical vulnerabilities
+    including non-determinism, incorrect signers, ABCI panics, and rounding errors.
+    Use when auditing Cosmos chains or CosmWasm contracts.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 21
+  id: trailofbits-skills-plugins-entry-point-analyzer-skills-entry-point-analyzer-skill-md
+  name: entry-point-analyzer
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Analyzes smart contract codebases to identify state-changing entry
+    points for security auditing. Detects externally callable functions that modify
+    state, categorizes them by access level (public, admin, role-restricted, contract-only),
+    and generates structured audit reports. Excludes view/pure/read-only functions.
+    Use when auditing smart contracts (Solidity, Vyper, Solana/Rust, Move, TON, CosmWasm)
+    or when asked to find entry points, audit flows, external functions, access control
+    patterns, or privileged operations.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/entry-point-analyzer/skills/entry-point-analyzer
+  updated_at: '1771434598'
+- rank: 22
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-guidelines-advisor-skill-md
+  name: guidelines-advisor
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Smart contract development advisor based on Trail of Bits' best practices.
+    Analyzes codebase to generate documentation/specifications, review architecture,
+    check upgradeability patterns, assess implementation quality, identify pitfalls,
+    review dependencies, and evaluate testing. Provides actionable recommendations.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/guidelines-advisor
+  updated_at: '1769715444'
+- rank: 23
+  id: trailofbits-skills-plugins-property-based-testing-skills-property-based-testing-skill-md
+  name: property-based-testing
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Provides guidance for property-based testing across multiple languages
+    and smart contracts. Use when writing tests, reviewing code with serialization/validation/parsing
+    patterns, designing features, or when property-based testing would provide stronger
+    coverage than example-based tests.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/property-based-testing/skills/property-based-testing
+  updated_at: '1770827987'
+- rank: 24
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-solana-vulnerability-scanner-skill-md
+  name: solana-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans Solana programs for 6 critical vulnerabilities including arbitrary
+    CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing.
+    Use when auditing Solana/Anchor programs.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/solana-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 25
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-substrate-vulnerability-scanner-skill-md
+  name: substrate-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans Substrate/Polkadot pallets for 7 critical vulnerabilities including
+    arithmetic overflow, panic DoS, incorrect weights, and bad origin checks. Use
+    when auditing Substrate runtimes or FRAME pallets.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/substrate-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 26
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-token-integration-analyzer-skill-md
+  name: token-integration-analyzer
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Token integration and implementation analyzer based on Trail of Bits'
+    token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity,
+    checks for 20+ weird token patterns, assesses contract composition and owner privileges,
+    performs on-chain scarcity analysis, and evaluates how protocols handle non-standard
+    tokens. Context-aware for both token implementations and token integrations.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/token-integration-analyzer
+  updated_at: '1769715444'
+- rank: 27
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-ton-vulnerability-scanner-skill-md
+  name: ton-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities
+    including integer-as-boolean misuse, fake Jetton contracts, and forward TON without
+    gas checks. Use when auditing FunC contracts.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/ton-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 28
+  id: donchitos-claude-code-game-studios-claude-skills-launch-checklist-skill-md
+  name: launch-checklist
+  author: Donchitos
+  stars: 3983
+  forks: 536
+  description: 'Complete launch readiness validation covering every department: code,
+    content, store, marketing, community, infrastructure, legal, and go/no-go sign-offs.'
+  github_url: https://github.com/Donchitos/Claude-Code-Game-Studios/tree/main/.claude/skills/launch-checklist
+  updated_at: '1770977064'
+- rank: 29
+  id: mukul975-anthropic-cybersecurity-skills-skills-analyzing-ethereum-smart-contract-vulnerabilities-skill-md
+  name: analyzing-ethereum-smart-contract-vulnerabilities
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Perform static and symbolic analysis of Solidity smart contracts using
+    Slither and Mythril to detect reentrancy, integer overflow, access control, and
+    other vulnerability classes before deployment to Ethereum mainnet.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-ethereum-smart-contract-vulnerabilities
+  updated_at: '1773923390'
+- rank: 30
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-docker-bench-security-assessment-skill-md
+  name: performing-docker-bench-security-assessment
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Docker Bench for Security is an open-source script that checks dozens
+    of common best practices around deploying Docker containers in production. Based
+    on the CIS Docker Benchmark, it audits host confi
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-docker-bench-security-assessment
+  updated_at: '1773923390'
+- rank: 31
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-kubernetes-etcd-security-assessment-skill-md
+  name: performing-kubernetes-etcd-security-assessment
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Assess the security posture of Kubernetes etcd clusters by evaluating
+    encryption at rest, TLS configuration, access controls, backup encryption, and
+    network isolation.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-kubernetes-etcd-security-assessment
+  updated_at: '1773924116'
+- rank: 32
+  id: erigontech-erigon-claude-skills-erigon-seg-retire-skill-md
+  name: erigon-seg-retire
+  author: erigontech
+  stars: 3541
+  forks: 1495
+  description: Run the Erigon segment retire command to build, merge, and clean snapshot
+    files. Use this for snapshot publication readiness preparation.
+  github_url: https://github.com/erigontech/erigon/tree/main/.claude/skills/erigon-seg-retire
+  updated_at: '1770203934'
+- rank: 33
+  id: openclaw-skills-skills-0xfantommenace-0xarchive-skill-md
+  name: 0xarchive
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Query historical crypto market data from 0xArchive across Hyperliquid,
+    Lighter.xyz, and HIP-3. Covers orderbooks, trades, candles, funding rates, open
+    interest, liquidations, and data quality. Use when the user asks about crypto
+    market data, orderbooks, trades, funding rates, or historical prices on Hyperliquid,
+    Lighter.xyz, or HIP-3.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xfantommenace/0xarchive
+  updated_at: '1773932524'
+- rank: 34
+  id: openclaw-skills-skills-chainyoda-aaveclaw-skill-md
+  name: aaveclaw
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Aave V3 lending protocol on Base Sepolia testnet. Deposit WETH collateral,
+    borrow USDC, repay loans, withdraw collateral, check health factor, and mint test
+    tokens via faucet. Use when users want to interact with Aave lending, check their
+    lending position health, or get testnet tokens.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chainyoda/aaveclaw
+  updated_at: '1770257195'
+- rank: 35
+  id: openclaw-skills-skills-26medias-bob-p2p-beta-skill-md
+  name: bob-p2p
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Connect to the Bob P2P API marketplace. Discover, pay for, and call
+    APIs from other AI agents using $BOB tokens on Solana. The decentralized agent
+    economy.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/26medias/bob-p2p-beta
+  updated_at: '1770107828'
+- rank: 36
+  id: openclaw-skills-skills-alphafanx-buy-crust-skill-md
+  name: buy-crust
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Buy $CRUST on Solana -- the Bot World mining token traded on Jupiter
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alphafanx/buy-crust
+  updated_at: '1771504839'
+- rank: 37
+  id: openclaw-skills-skills-alexbrc20-contract-scanner-skill-md
+  name: contract-scanner
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Scan smart contracts for security risks.
+
+    Detect honeypots, high taxes, and malicious code.
+
+    Protect yourself from scams!'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alexbrc20/contract-scanner
+  updated_at: '1772844013'
+- rank: 38
+  id: openclaw-skills-skills-0xreisearch-ercdata-skill-md
+  name: ercdata
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Store, verify, and manage AI data on the Ethereum blockchain (Base
+    network) using the ERCData standard. Use when an agent needs to store data fingerprints
+    on-chain, verify data integrity, create audit trails, manage access control for
+    private data, or interact with the ERCData smart contract. Supports public and
+    private storage, EIP-712 verification, snapshots, and batch operations.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xreisearch/ercdata
+  updated_at: '1769866329'
+- rank: 39
+  id: openclaw-skills-skills-acastellana-genlayer-skill-md
+  name: genlayer-claw-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Understand and explain GenLayer - the AI-native blockchain for trustless
+    decision-making. Use for investor pitches, protocol explanations, architecture
+    questions, consensus mechanics, positioning, and ecosystem discussions. Triggers:
+    explain genlayer, what is genlayer, genlayer thesis, optimistic democracy, genlayer
+    pitch, genlayer architecture, condorcet jury theorem, equivalence principle, AI
+    blockchain, trustless AI. (For writing contracts, use genlayer-dev-claw-skill
+    instead.)'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/acastellana/genlayer
+  updated_at: '1770106098'
+- rank: 40
+  id: openclaw-skills-skills-acastellana-genlayer-dev-skill-md
+  name: genlayer-dev-claw-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Build GenLayer Intelligent Contracts - Python smart contracts with
+    LLM calls and web access. Use for writing/deploying contracts, SDK reference,
+    CLI commands, equivalence principles, storage types. Triggers: write intelligent
+    contract, genlayer contract, genvm, gl.Contract, deploy genlayer, genlayer CLI,
+    genlayer SDK, DynArray, TreeMap, gl.nondet, gl.eq_principle, prompt_comparative,
+    strict_eq, genlayer deploy, genlayer up. (For explaining GenLayer concepts, use
+    genlayer-claw-skill instead.)'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/acastellana/genlayer-dev
+  updated_at: '1770106088'
+- rank: 41
+  id: openclaw-skills-skills-akshatgada-llm-wallet-skill-md
+  name: llm-wallet
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Manage crypto wallets and make x402 micropayments with USDC stablecoins
+    on Polygon
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshatgada/llm-wallet
+  updated_at: '1769898904'
+- rank: 42
+  id: openclaw-skills-skills-andreolf-metamask-agent-wallet-skill-skill-md
+  name: metamask-agent-wallet
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Control a sandboxed MetaMask browser extension wallet for autonomous
+    blockchain transactions. Features configurable permission guardrails including
+    spend limits, chain allowlists, protocol restrictions, and approval thresholds.
+    MetaMask-only (other wallets not supported).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/andreolf/metamask-agent-wallet-skill
+  updated_at: '1770167271'
+- rank: 43
+  id: openclaw-skills-skills-aaronllee-easy-swap-skill-md
+  name: okx-dex-swap
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Execute token swaps on-chain via OKX DEX Aggregator API (v6). Use
+    this skill when a user wants to: 1. Build a complete swap flow: get swap calldata
+    -> sign transaction -> broadcast to chain 2. Execute token-to-token swaps with
+    slippage protection, MEV protection, and Jito tips (Solana) 3. Integrate OKX DEX
+    swap + broadcast into applications, bots, or scripts This skill covers the FULL
+    lifecycle: /swap endpoint (get tx data) + /broadcast-transaction endpoint (submit
+    signed tx). For quote-only (no execution), use the okx-dex-quote skill instead.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aaronllee/easy-swap
+  updated_at: '1771570421'
+- rank: 44
+  id: openclaw-skills-skills-akshatgada-polygon-pos-dev-skill-md
+  name: polygon-pos-dev
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Comprehensive guide for Polygon PoS blockchain development. Use when
+    deploying smart contracts to Polygon, testing on Amoy testnet, getting test tokens
+    from faucets, or verifying contracts on Polygonscan. Supports Foundry framework
+    with deployment scripts and testing strategies.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshatgada/polygon-pos-dev
+  updated_at: '1770297041'
+- rank: 45
+  id: openclaw-skills-skills-1999azzar-security-guardian-skill-md
+  name: security-guardian
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Automated security auditing for OpenClaw projects. Scans for hardcoded
+    secrets (API keys, tokens) and container vulnerabilities (CVEs) using Trivy. Provides
+    structured reports to help maintain a clean and secure codebase.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1999azzar/security-guardian
+  updated_at: '1771319202'
+- rank: 46
+  id: openclaw-skills-skills-aaigotchi-superrare-deploy-skill-md
+  name: superrare-deploy
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Deploy a SuperRare Sovereign ERC-721 collection on Ethereum or Base
+    via Bankr. Uses the official RARE factory createSovereignBatchMint path, dry-runs
+    by default, and records auditable deploy receipts.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aaigotchi/superrare-deploy
+  updated_at: '1774049732'
+- rank: 47
+  id: openclaw-skills-skills-agenticio-vow-skill-md
+  name: vow
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: The Immutable Commitment Protocol. Orchestrating cryptographically
+    enforced,  high-stakes promises between agents where trust is not assumed, but
+    engineered.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agenticio/vow
+  updated_at: '1773031254'
+- rank: 48
+  id: openclaw-skills-skills-andreolf-wallet-pilot-skill-md
+  name: walletpilot
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Universal browser wallet automation for AI agents. Supports 10 wallets
+    including MetaMask, Rabby, Phantom, Trust Wallet, OKX, Coinbase, and more. EVM
+    + Solana. Configurable guardrails with spend limits, chain allowlists, and approval
+    thresholds.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/andreolf/wallet-pilot
+  updated_at: '1770167318'
+- rank: 49
+  id: openclaw-skills-skills-andreolf-walletpilot-7715-skill-md
+  name: walletpilot-7715
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Execute on-chain transactions with user-granted permissions. Built
+    on MetaMask ERC-7715. No private keys, full guardrails.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/andreolf/walletpilot-7715
+  updated_at: '1770195960'
+- rank: 50
+  id: openclaw-skills-skills-akshat-mishra101-wachai-x402-skill-md
+  name: x402-wach
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: DeFi risk analysis toolkit powered by WACH.AI via x402 payments using
+    AWAL wallet custody. Use when the user asks to check if a token is safe, assess
+    DeFi risk, detect honeypots, analyze liquidity, holder distribution, or smart
+    contract vulnerabilities for tokens on Ethereum, Polygon, Base, BSC, or Solana.
+    Costs 0.01 USDC per query on Base.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshat-mishra101/wachai-x402
+  updated_at: '1771372921'

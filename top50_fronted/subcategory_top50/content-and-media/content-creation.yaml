@@ -1,0 +1,602 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: content-and-media
+category_name: Content & Media
+category_skill_count: 44421
+subcategory_slug: content-creation
+subcategory_name: Content Creation
+subcategory_skill_count: 12441
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=content-creation
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 12441
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-agents-skills-article-writing-skill-md
+  name: article-writing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Write articles, guides, blog posts, tutorials, newsletter issues, and
+    other long-form content in a distinctive voice derived from supplied examples
+    or brand guidance. Use when the user wants polished written content longer than
+    a paragraph, especially when voice consistency, structure, and credibility matter.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/article-writing
+  updated_at: '1772200223'
+- rank: 2
+  id: affaan-m-everything-claude-code-cursor-skills-article-writing-skill-md
+  name: article-writing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Write articles, guides, blog posts, tutorials, newsletter issues, and
+    other long-form content in a distinctive voice derived from supplied examples
+    or brand guidance. Use when the user wants polished written content longer than
+    a paragraph, especially when voice consistency, structure, and credibility matter.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/article-writing
+  updated_at: '1772200223'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-article-writing-skill-md
+  name: article-writing
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 根据提供的示例或品牌指导，以独特的语气撰写文章、指南、博客帖子、教程、新闻简报等长篇内容。当用户需要超过一段的精致书面内容时使用，尤其是当语气一致性、结构和可信度至关重要时。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/article-writing
+  updated_at: '1772519307'
+- rank: 4
+  id: affaan-m-everything-claude-code-agents-skills-content-engine-skill-md
+  name: content-engine
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Create platform-native content systems for X, LinkedIn, TikTok, YouTube,
+    newsletters, and repurposed multi-platform campaigns. Use when the user wants
+    social posts, threads, scripts, content calendars, or one source asset adapted
+    cleanly across platforms.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/content-engine
+  updated_at: '1772200223'
+- rank: 5
+  id: affaan-m-everything-claude-code-cursor-skills-content-engine-skill-md
+  name: content-engine
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Create platform-native content systems for X, LinkedIn, TikTok, YouTube,
+    newsletters, and repurposed multi-platform campaigns. Use when the user wants
+    social posts, threads, scripts, content calendars, or one source asset adapted
+    cleanly across platforms.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/content-engine
+  updated_at: '1772200223'
+- rank: 6
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-content-creator-skill-md
+  name: content-creator
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Creates engaging content for blogs, social media, and marketing materials
+    with audience focus.
+
+    Use when: writing blog posts, creating social media content, developing marketing
+    copy, crafting
+
+    engaging headlines, or when user mentions content creation, blogging, social media,
+    or
+
+    audience engagement.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/content-creator
+  updated_at: '1770167437'
+- rank: 7
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-self-improving-agent-skills-example-skills-content-writer-skill-md
+  name: content-writer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: Writes marketing copy for landing pages, emails, and social media posts.
+    Use when creating promotional content, sales copy, or brand messaging.
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/self-improving-agent-skills/example_skills/content-writer
+  updated_at: '1774664146'
+- rank: 8
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-editor-skill-md
+  name: editor
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Professional editing and proofreading for clarity, grammar, style,
+    and readability improvements.
+
+    Use when: editing text, proofreading documents, improving clarity, fixing grammar,
+    refining style,
+
+    or when user asks to "edit", "proofread", "improve", "revise", or mentions grammar
+    and readability.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/editor
+  updated_at: '1770167437'
+- rank: 9
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-email-drafter-skill-md
+  name: email-drafter
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Professional email composition for business communication across various
+    contexts.
+
+    Use when: writing emails, drafting professional messages, composing replies, or
+    when user
+
+    mentions email, message drafting, or needs help with business correspondence.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/email-drafter
+  updated_at: '1770167437'
+- rank: 10
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-technical-writer-skill-md
+  name: technical-writer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Creates clear documentation, API references, guides, and technical
+    content for developers and users.
+
+    Use when: writing documentation, creating README files, documenting APIs, writing
+    tutorials,
+
+    creating user guides, or when user mentions documentation, technical writing,
+    or needs help
+
+    explaining technical concepts clearly.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/technical-writer
+  updated_at: '1770167437'
+- rank: 11
+  id: lobehub-lobehub-agents-skills-microcopy-skill-md
+  name: microcopy
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: UI copy and microcopy guidelines. Use when writing UI text, buttons,
+    error messages, empty states, onboarding, or any user-facing copy. Triggers on
+    i18n translation, UI text writing, or copy improvement tasks. Supports both Chinese
+    and English.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/microcopy
+  updated_at: '1772524901'
+- rank: 12
+  id: leonardomso-33-js-concepts-claude-skills-seo-review-skill-md
+  name: seo-review
+  author: leonardomso
+  stars: 66302
+  forks: 9192
+  description: Perform a focused SEO audit on JavaScript concept pages to maximize
+    search visibility, featured snippet optimization, and ranking potential
+  github_url: https://github.com/leonardomso/33-js-concepts/tree/master/.claude/skills/seo-review
+  updated_at: '1767709586'
+- rank: 13
+  id: withastro-astro-agents-skills-astro-pr-writer-skill-md
+  name: astro-pr-writer
+  author: withastro
+  stars: 57930
+  forks: 3280
+  description: Write and update Astro pull requests with reviewer-friendly titles
+    and high-signal bodies. Trigger whenever the user asks to create a PR, open a
+    PR, draft a PR, update PR title/body, or write PR notes/summary/description.
+  github_url: https://github.com/withastro/astro/tree/main/.agents/skills/astro-pr-writer
+  updated_at: '1774363874'
+- rank: 14
+  id: bytedance-deer-flow-skills-public-podcast-generation-skill-md
+  name: podcast-generation
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Use this skill when the user requests to generate, create, or produce
+    podcasts from text content. Converts written content into a two-host conversational
+    podcast audio format with natural dialogue.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/podcast-generation
+  updated_at: '1774282812'
+- rank: 15
+  id: composiohq-awesome-claude-skills-competitive-ads-extractor-skill-md
+  name: competitive-ads-extractor
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Extracts and analyzes competitors' ads from ad libraries (Facebook,
+    LinkedIn, etc.) to understand what messaging, problems, and creative approaches
+    are working. Helps inspire and improve your own ad campaigns.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/competitive-ads-extractor
+  updated_at: '1760692175'
+- rank: 16
+  id: composiohq-awesome-claude-skills-content-research-writer-skill-md
+  name: content-research-writer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Assists in writing high-quality content by conducting research, adding
+    citations, improving hooks, iterating on outlines, and providing real-time feedback
+    on each section. Transforms your writing process from solo effort to collaborative
+    partnership.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer
+  updated_at: '1760692175'
+- rank: 17
+  id: composiohq-awesome-claude-skills-lead-research-assistant-skill-md
+  name: lead-research-assistant
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Identifies high-quality leads for your product or service by analyzing
+    your business, searching for target companies, and providing actionable contact
+    strategies. Perfect for sales, business development, and marketing professionals.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/lead-research-assistant
+  updated_at: '1760692175'
+- rank: 18
+  id: composiohq-awesome-claude-skills-meeting-insights-analyzer-skill-md
+  name: meeting-insights-analyzer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Analyzes meeting transcripts and recordings to uncover behavioral patterns,
+    communication insights, and actionable feedback. Identifies when you avoid conflict,
+    use filler words, dominate conversations, or miss opportunities to listen. Perfect
+    for professionals seeking to improve their communication and leadership skills.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/meeting-insights-analyzer
+  updated_at: '1760692175'
+- rank: 19
+  id: composiohq-awesome-claude-skills-tailored-resume-generator-skill-md
+  name: tailored-resume-generator
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Analyzes job descriptions and generates tailored resumes that highlight
+    relevant experience, skills, and achievements to maximize interview chances
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/tailored-resume-generator
+  updated_at: '1768122574'
+- rank: 20
+  id: composiohq-awesome-claude-skills-twitter-algorithm-optimizer-skill-md
+  name: twitter-algorithm-optimizer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Analyze and optimize tweets for maximum reach using Twitter's open-source
+    algorithm insights. Rewrite and edit user tweets to improve engagement and visibility
+    based on how the recommendation system ranks content.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/twitter-algorithm-optimizer
+  updated_at: '1768976653'
+- rank: 21
+  id: tldraw-tldraw-claude-skills-write-tbp-skill-md
+  name: write-tbp
+  author: tldraw
+  stars: 46086
+  forks: 3105
+  description: Writing technical blog posts about tldraw features and implementation
+    details. Use when creating blog content about how tldraw solves interesting problems.
+  github_url: https://github.com/tldraw/tldraw/tree/main/.claude/skills/write-tbp
+  updated_at: '1769884930'
+- rank: 22
+  id: remotion-dev-remotion-claude-skills-video-report-skill-md
+  name: video-report
+  author: remotion-dev
+  stars: 41027
+  forks: 2624
+  description: Generate a report about a video
+  github_url: https://github.com/remotion-dev/remotion/tree/main/.claude/skills/video-report
+  updated_at: '1769420905'
+- rank: 23
+  id: anthropics-claude-cookbooks-skills-custom-skills-applying-brand-guidelines-skill-md
+  name: applying-brand-guidelines
+  author: anthropics
+  stars: 36501
+  forks: 3958
+  description: This skill applies consistent corporate branding and styling to all
+    generated documents including colors, fonts, layouts, and messaging
+  github_url: https://github.com/anthropics/claude-cookbooks/tree/main/skills/custom_skills/applying-brand-guidelines
+  updated_at: '1764312299'
+- rank: 24
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-brightdata-web-mcp-skill-md
+  name: brightdata-web-mcp
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Search the web, scrape websites, extract structured data from URLs,
+    and automate browsers using Bright Data's Web MCP. Use when fetching live web
+    content, bypassing blocks/CAPTCHAs, getting product data from Amazon/eBay, social
+    media posts, or when standard requests fail.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/brightdata-web-mcp
+  updated_at: '1769157944'
+- rank: 25
+  id: wshobson-agents-plugins-business-analytics-skills-data-storytelling-skill-md
+  name: data-storytelling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Transform data into compelling narratives using visualization, context,
+    and persuasive structure. Use when presenting analytics to stakeholders, creating
+    data reports, or building executive presentations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/data-storytelling
+  updated_at: '1772898797'
+- rank: 26
+  id: wshobson-agents-plugins-hr-legal-compliance-skills-employment-contract-templates-skill-md
+  name: employment-contract-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create employment contracts, offer letters, and HR policy documents
+    following legal best practices. Use when drafting employment agreements, creating
+    HR policies, or standardizing employment documentation.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/hr-legal-compliance/skills/employment-contract-templates
+  updated_at: '1772898797'
+- rank: 27
+  id: sickn33-antigravity-awesome-skills-skills-ad-creative-skill-md
+  name: ad-creative
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Create, iterate, and scale paid ad creative for Google Ads, Meta, LinkedIn,
+    TikTok, and similar platforms. Use when generating headlines, descriptions, primary
+    text, or large sets of ad variations for testing and performance optimization.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ad-creative
+  updated_at: '1774083913'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-azure-ai-contentsafety-ts-skill-md
+  name: azure-ai-contentsafety-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Analyze text and images for harmful content with customizable blocklists.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-contentsafety-ts
+  updated_at: '1773994005'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-blog-writing-guide-skill-md
+  name: blog-writing-guide
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: This skill enforces Sentry's blog writing standards across every post
+    — whether you're helping an engineer write their first blog post or a marketer
+    draft a product announcement.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/blog-writing-guide
+  updated_at: '1773994629'
+- rank: 30
+  id: sickn33-antigravity-awesome-skills-skills-brand-guidelines-skill-md
+  name: brand-guidelines
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Write copy following Sentry brand guidelines. Use when writing UI text,
+    error messages, empty states, onboarding flows, 404 pages, documentation, marketing
+    copy, or any user-facing content. Covers both Plain Speech (default) and Sentry
+    Voice tones.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/brand-guidelines
+  updated_at: '1773994629'
+- rank: 31
+  id: sickn33-antigravity-awesome-skills-skills-cold-email-skill-md
+  name: cold-email
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Write B2B cold emails and follow-up sequences that earn replies. Use
+    when creating outbound prospecting emails, SDR outreach, personalized opening
+    lines, subject lines, CTAs, and multi-touch follow-up sequences.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cold-email
+  updated_at: '1774083913'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-comprehensive-review-pr-enhance-skill-md
+  name: comprehensive-review-pr-enhance
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Generate structured PR descriptions from diffs, add review checklists,
+    risk assessments, and test coverage summaries. Use when the user says "write a
+    PR description", "improve this PR", "summarize my changes", "PR review", "pull
+    request", or asks to document a diff for reviewers.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/comprehensive-review-pr-enhance
+  updated_at: '1773994629'
+- rank: 33
+  id: sickn33-antigravity-awesome-skills-skills-content-creator-skill-md
+  name: content-creator
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Professional-grade brand voice analysis, SEO optimization, and platform-specific
+    content frameworks.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/content-creator
+  updated_at: '1773994005'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-content-marketer-skill-md
+  name: content-marketer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Elite content marketing strategist specializing in AI-powered content
+    creation, omnichannel distribution, SEO optimization, and data-driven performance
+    marketing.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/content-marketer
+  updated_at: '1772354305'
+- rank: 35
+  id: sickn33-antigravity-awesome-skills-skills-copywriting-skill-md
+  name: copywriting
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Write rigorous, conversion-focused marketing copy for landing pages
+    and emails. Enforces brief confirmation and strict no-fabrication rules.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/copywriting
+  updated_at: '1773994005'
+- rank: 36
+  id: sickn33-antigravity-awesome-skills-skills-create-pr-skill-md
+  name: create-pr
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Alias for sentry-skills:pr-writer. Use when users explicitly ask for
+    "create-pr" or reference the legacy skill name. Redirects to the canonical PR
+    writing workflow.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/create-pr
+  updated_at: '1773994629'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-git-pr-workflows-pr-enhance-skill-md
+  name: git-pr-workflows-pr-enhance
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a PR optimization expert specializing in creating high-quality
+    pull requests that facilitate efficient code reviews. Generate comprehensive PR
+    descriptions, automate review processes, and ensu
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/git-pr-workflows-pr-enhance
+  updated_at: '1772180381'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-internal-comms-skill-md
+  name: internal-comms
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Write internal communications such as status reports, leadership updates,
+    3P updates, newsletters, FAQs, incident reports, and project updates using repeatable
+    internal formats.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/internal-comms
+  updated_at: '1774083913'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-last30days-skill-md
+  name: last30days
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Research a topic from the last 30 days on Reddit + X + Web, become
+    an expert, and write copy-paste-ready prompts for the user's target tool.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/last30days
+  updated_at: '1774090216'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-php-pro-skill-md
+  name: php-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Write idiomatic PHP code with generators, iterators, SPL data
+
+    structures, and modern OOP features. Use PROACTIVELY for high-performance PHP
+
+    applications.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/php-pro
+  updated_at: '1772354305'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-screenshots-skill-md
+  name: screenshots
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Generate marketing screenshots of your app using Playwright. Use when
+    the user wants to create screenshots for Product Hunt, social media, landing pages,
+    or documentation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/screenshots
+  updated_at: '1772180381'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-seo-competitor-pages-skill-md
+  name: seo-competitor-pages
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Generate SEO-optimized competitor comparison and alternatives pages.
+    Covers "X vs Y" layouts, "alternatives to X" pages, feature matrices, schema markup,
+    and conversion optimization. Use when user says "comparison page", "vs page",
+    "alternatives page", "competitor comparison", or "X vs Y".
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-competitor-pages
+  updated_at: '1774083913'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-seo-content-planner-skill-md
+  name: seo-content-planner
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Creates comprehensive content outlines and topic clusters for SEO.
+
+    Plans content calendars and identifies topic gaps. Use PROACTIVELY for content
+
+    strategy and planning.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-content-planner
+  updated_at: '1772354305'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-seo-content-writer-skill-md
+  name: seo-content-writer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Writes SEO-optimized content based on provided keywords and topic briefs.
+    Creates engaging, comprehensive content following best practices. Use PROACTIVELY
+    for content creation tasks.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-content-writer
+  updated_at: '1772354305'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-seo-image-gen-skill-md
+  name: seo-image-gen
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Generate SEO-focused images such as OG cards, hero images, schema assets,
+    product visuals, and infographics. Use when image generation is part of an SEO
+    workflow or content publishing task.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-image-gen
+  updated_at: '1774083913'
+- rank: 46
+  id: sickn33-antigravity-awesome-skills-skills-seo-meta-optimizer-skill-md
+  name: seo-meta-optimizer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Creates optimized meta titles, descriptions, and URL suggestions based
+    on character limits and best practices. Generates compelling, keyword-rich metadata.
+    Use PROACTIVELY for new content.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-meta-optimizer
+  updated_at: '1772354305'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-seo-snippet-hunter-skill-md
+  name: seo-snippet-hunter
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Formats content to be eligible for featured snippets and SERP features.
+    Creates snippet-optimized content blocks based on best practices. Use PROACTIVELY
+    for question-based content.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-snippet-hunter
+  updated_at: '1772354305'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-social-content-skill-md
+  name: social-content
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are an expert social media strategist with direct access to a scheduling
+    platform that publishes to all major social networks. Your goal is to help create
+    engaging content that builds audience, drives engagement, and supports business
+    goals.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/social-content
+  updated_at: '1773994005'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-x-article-publisher-skill-skill-md
+  name: x-article-publisher-skill
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Publish articles to X/Twitter
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/x-article-publisher-skill
+  updated_at: '1772180381'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-youtube-summarizer-skill-md
+  name: youtube-summarizer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Extract transcripts from YouTube videos and generate comprehensive,
+    detailed summaries using intelligent analysis frameworks
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/youtube-summarizer
+  updated_at: '1772180381'

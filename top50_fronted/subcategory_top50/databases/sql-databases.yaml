@@ -1,0 +1,557 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: databases
+category_name: Databases
+category_skill_count: 9319
+subcategory_slug: sql-databases
+subcategory_name: SQL Databases
+subcategory_skill_count: 5079
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=sql-databases
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 5079
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-clickhouse-io-skill-md
+  name: clickhouse-io
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: ClickHouse数据库模式、查询优化、分析以及高性能分析工作负载的数据工程最佳实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/clickhouse-io
+  updated_at: '1772519307'
+- rank: 2
+  id: affaan-m-everything-claude-code-kiro-skills-database-migrations-skill-md
+  name: database-migrations
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Database migration best practices for schema changes, data migrations,
+    rollbacks, and zero-downtime deployments across PostgreSQL, MySQL, and common
+    ORMs (Prisma, Drizzle, Django, TypeORM, golang-migrate). Use when planning or
+    implementing database schema changes.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/database-migrations
+  updated_at: '1774241745'
+- rank: 3
+  id: affaan-m-everything-claude-code-skills-database-migrations-skill-md
+  name: database-migrations
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Database migration best practices for schema changes, data migrations,
+    rollbacks, and zero-downtime deployments across PostgreSQL, MySQL, and common
+    ORMs (Prisma, Drizzle, Kysely, Django, TypeORM, golang-migrate).
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/database-migrations
+  updated_at: '1774219253'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-jpa-patterns-skill-md
+  name: jpa-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot中的JPA/Hibernate模式，用于实体设计、关系处理、查询优化、事务管理、审计、索引、分页和连接池。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/jpa-patterns
+  updated_at: '1772519307'
+- rank: 5
+  id: affaan-m-everything-claude-code-docs-ja-jp-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: PostgreSQL database patterns for query optimization, schema design,
+    indexing, and security. Based on Supabase best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ja-JP/skills/postgres-patterns
+  updated_at: '1772569955'
+- rank: 6
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 쿼리 최적화, 스키마 설계, 인덱싱, 보안을 위한 PostgreSQL 데이터베이스 패턴. Supabase 모범 사례 기반.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/postgres-patterns
+  updated_at: '1773116940'
+- rank: 7
+  id: affaan-m-everything-claude-code-docs-tr-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Sorgu optimizasyonu, şema tasarımı, indeksleme ve güvenlik için PostgreSQL
+    veritabanı kalıpları. Supabase en iyi uygulamalarına dayanır.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/postgres-patterns
+  updated_at: '1774219024'
+- rank: 8
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 用于查询优化、模式设计、索引和安全性的PostgreSQL数据库模式。基于Supabase最佳实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/postgres-patterns
+  updated_at: '1772923682'
+- rank: 9
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: PostgreSQL database patterns for query optimization, schema design,
+    indexing, and security. Based on Supabase best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/postgres-patterns
+  updated_at: '1772569955'
+- rank: 10
+  id: affaan-m-everything-claude-code-kiro-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: PostgreSQL database patterns for query optimization, schema design,
+    indexing, and security. Quick reference for common patterns, index types, data
+    types, and anti-pattern detection. Based on Supabase best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/postgres-patterns
+  updated_at: '1774241745'
+- rank: 11
+  id: affaan-m-everything-claude-code-skills-postgres-patterns-skill-md
+  name: postgres-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: PostgreSQL database patterns for query optimization, schema design,
+    indexing, and security. Based on Supabase best practices.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/postgres-patterns
+  updated_at: '1772569955'
+- rank: 12
+  id: lobehub-lobehub-agents-skills-drizzle-skill-md
+  name: drizzle
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Drizzle ORM schema and database guide. Use when working with database
+    schemas (src/database/schemas/*), defining tables, creating migrations, or database
+    model code. Triggers on Drizzle schema definition, database migrations, or ORM
+    usage questions.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/drizzle
+  updated_at: '1772464681'
+- rank: 13
+  id: wshobson-agents-plugins-framework-migration-skills-database-migration-skill-md
+  name: database-migration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Execute database migrations across ORMs and platforms with zero-downtime
+    strategies, data transformation, and rollback procedures. Use when migrating databases,
+    changing schemas, performing data transformations, or implementing zero-downtime
+    deployment strategies.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/database-migration
+  updated_at: '1772898797'
+- rank: 14
+  id: wshobson-agents-plugins-database-design-skills-postgresql-skill-md
+  name: postgresql-table-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Use this skill when designing or reviewing a PostgreSQL-specific schema.
+    Covers best-practices, data types, indexing, constraints, performance patterns,
+    and advanced features
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/database-design/skills/postgresql
+  updated_at: '1774489422'
+- rank: 15
+  id: wshobson-agents-plugins-developer-essentials-skills-sql-optimization-patterns-skill-md
+  name: sql-optimization-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master SQL query optimization, indexing strategies, and EXPLAIN analysis
+    to dramatically improve database performance and eliminate slow queries. Use when
+    debugging slow queries, designing database schemas, or optimizing application
+    performance.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/sql-optimization-patterns
+  updated_at: '1772898797'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-azure-postgres-ts-skill-md
+  name: azure-postgres-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Connect to Azure Database for PostgreSQL Flexible Server from Node.js/TypeScript
+    using the pg (node-postgres) package.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-postgres-ts
+  updated_at: '1772354305'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-azure-resource-manager-mysql-dotnet-skill-md
+  name: azure-resource-manager-mysql-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure MySQL Flexible Server SDK for .NET. Database management for MySQL
+    Flexible Server deployments.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-resource-manager-mysql-dotnet
+  updated_at: '1772354305'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-database-skill-md
+  name: database
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Database development and operations workflow covering SQL, NoSQL, database
+    design, migrations, optimization, and data engineering.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database
+  updated_at: '1772180381'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-database-design-skill-md
+  name: database-design
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Database design principles and decision-making. Schema design, indexing
+    strategy, ORM selection, serverless databases.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-design
+  updated_at: '1772180381'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-database-migrations-sql-migrations-skill-md
+  name: database-migrations-sql-migrations
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: SQL database migrations with zero-downtime strategies for PostgreSQL,
+    MySQL, and SQL Server. Focus on data integrity and rollback plans.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-migrations-sql-migrations
+  updated_at: '1772180381'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-food-database-query-skill-md
+  name: food-database-query
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Food Database Query
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/food-database-query
+  updated_at: '1773994629'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-neon-postgres-skill-md
+  name: neon-postgres
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Configure Prisma for Neon with connection pooling.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/neon-postgres
+  updated_at: '1773994005'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-postgres-best-practices-skill-md
+  name: postgres-best-practices
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Postgres performance optimization and best practices from Supabase.
+    Use this skill when writing, reviewing, or optimizing Postgres queries, schema
+    designs, or database configurations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/postgres-best-practices
+  updated_at: '1773994005'
+- rank: 24
+  id: sickn33-antigravity-awesome-skills-skills-postgresql-skill-md
+  name: postgresql
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Design a PostgreSQL-specific schema. Covers best-practices, data types,
+    indexing, constraints, performance patterns, and advanced features
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/postgresql
+  updated_at: '1772180381'
+- rank: 25
+  id: sickn33-antigravity-awesome-skills-skills-postgresql-optimization-skill-md
+  name: postgresql-optimization
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: PostgreSQL database optimization workflow for query tuning, indexing
+    strategies, performance analysis, and production database management.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/postgresql-optimization
+  updated_at: '1772180381'
+- rank: 26
+  id: sickn33-antigravity-awesome-skills-skills-sql-optimization-patterns-skill-md
+  name: sql-optimization-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Transform slow database queries into lightning-fast operations through
+    systematic optimization, proper indexing, and query plan analysis.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sql-optimization-patterns
+  updated_at: '1773994005'
+- rank: 27
+  id: sickn33-antigravity-awesome-skills-skills-sqlmap-database-pentesting-skill-md
+  name: sqlmap-database-pentesting
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Provide systematic methodologies for automated SQL injection detection
+    and exploitation using SQLMap.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sqlmap-database-pentesting
+  updated_at: '1773994005'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-using-neon-skill-md
+  name: using-neon
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Neon is a serverless Postgres platform that separates compute and storage
+    to offer autoscaling, branching, instant restore, and scale-to-zero. It's fully
+    compatible with Postgres and works with any language, framework, or ORM that supports
+    Postgres.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/using-neon
+  updated_at: '1773994005'
+- rank: 29
+  id: github-awesome-copilot-skills-creating-oracle-to-postgres-migration-bug-report-skill-md
+  name: creating-oracle-to-postgres-migration-bug-report
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Creates structured bug reports for defects found during Oracle-to-PostgreSQL
+    migration. Use when documenting behavioral differences between Oracle and PostgreSQL
+    as actionable bug reports with severity, root cause, and remediation steps.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/creating-oracle-to-postgres-migration-bug-report
+  updated_at: '1773186366'
+- rank: 30
+  id: github-awesome-copilot-skills-migrating-oracle-to-postgres-stored-procedures-skill-md
+  name: migrating-oracle-to-postgres-stored-procedures
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Migrates Oracle PL/SQL stored procedures to PostgreSQL PL/pgSQL. Translates
+    Oracle-specific syntax, preserves method signatures and type-anchored parameters,
+    leverages orafce where appropriate, and applies COLLATE "C" for Oracle-compatible
+    text sorting. Use when converting Oracle stored procedures or functions to PostgreSQL
+    equivalents during a database migration.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/migrating-oracle-to-postgres-stored-procedures
+  updated_at: '1773186366'
+- rank: 31
+  id: github-awesome-copilot-skills-postgresql-code-review-skill-md
+  name: postgresql-code-review
+  author: github
+  stars: 27427
+  forks: 3175
+  description: PostgreSQL-specific code review assistant focusing on PostgreSQL best
+    practices, anti-patterns, and unique quality standards. Covers JSONB operations,
+    array usage, custom types, schema design, function optimization, and PostgreSQL-exclusive
+    security features like Row Level Security (RLS).
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/postgresql-code-review
+  updated_at: '1771904373'
+- rank: 32
+  id: github-awesome-copilot-skills-postgresql-optimization-skill-md
+  name: postgresql-optimization
+  author: github
+  stars: 27427
+  forks: 3175
+  description: PostgreSQL-specific development assistant focusing on unique PostgreSQL
+    features, advanced data types, and PostgreSQL-exclusive capabilities. Covers JSONB
+    operations, array types, custom types, range/geometric types, full-text search,
+    window functions, and PostgreSQL extensions ecosystem.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/postgresql-optimization
+  updated_at: '1771904373'
+- rank: 33
+  id: github-awesome-copilot-skills-reviewing-oracle-to-postgres-migration-skill-md
+  name: reviewing-oracle-to-postgres-migration
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Identifies Oracle-to-PostgreSQL migration risks by cross-referencing
+    code against known behavioral differences (empty strings, refcursors, type coercion,
+    sorting, timestamps, concurrent transactions, etc.). Use when planning a database
+    migration, reviewing migration artifacts, or validating that integration tests
+    cover Oracle/PostgreSQL differences.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/reviewing-oracle-to-postgres-migration
+  updated_at: '1773186366'
+- rank: 34
+  id: github-awesome-copilot-skills-sql-code-review-skill-md
+  name: sql-code-review
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Universal SQL code review assistant that performs comprehensive security,
+    maintainability, and code quality analysis across all SQL databases (MySQL, PostgreSQL,
+    SQL Server, Oracle). Focuses on SQL injection prevention, access control, code
+    standards, and anti-pattern detection. Complements SQL optimization prompt for
+    complete development coverage.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/sql-code-review
+  updated_at: '1771904373'
+- rank: 35
+  id: github-awesome-copilot-skills-sql-optimization-skill-md
+  name: sql-optimization
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Universal SQL performance optimization assistant for comprehensive
+    query tuning, indexing strategies, and database performance analysis across all
+    SQL databases (MySQL, PostgreSQL, SQL Server, Oracle). Provides execution plan
+    analysis, pagination optimization, batch operations, and performance monitoring
+    guidance.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/sql-optimization
+  updated_at: '1771904373'
+- rank: 36
+  id: davila7-claude-code-templates-cli-tool-components-skills-database-neon-instagres-skill-md
+  name: neon-instagres
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Instantly provision production-ready Postgres databases with Neon Instagres.
+    Use when setting up databases, when users mention PostgreSQL/Postgres, database
+    setup, or need a development database. Works with Drizzle, Prisma, raw SQL.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/database/neon-instagres
+  updated_at: '1774484357'
+- rank: 37
+  id: davila7-claude-code-templates-cli-tool-components-skills-database-postgres-schema-design-skill-md
+  name: postgres-schema-design
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Comprehensive PostgreSQL-specific table design reference covering data
+    types, indexing, constraints, performance patterns, and advanced features
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/database/postgres-schema-design
+  updated_at: '1764170264'
+- rank: 38
+  id: davila7-claude-code-templates-cli-tool-components-skills-database-using-neon-skill-md
+  name: using-neon
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Guides and best practices for working with Neon Serverless Postgres.
+    Covers getting started, local development with Neon, choosing a connection method,
+    Neon features, authentication (@neondatabase/auth), PostgREST-style data API (@neondatabase/neon-js),
+    Neon CLI, and Neon's Platform API/SDKs. Use for any Neon-related questions.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/database/using-neon
+  updated_at: '1769554120'
+- rank: 39
+  id: tursodatabase-turso-claude-skills-storage-format-skill-md
+  name: storage-format
+  author: tursodatabase
+  stars: 17995
+  forks: 814
+  description: SQLite file format, B-trees, pages, cells, overflow, freelist that
+    is used in tursodb
+  github_url: https://github.com/tursodatabase/turso/tree/main/.claude/skills/storage-format
+  updated_at: '1769001467'
+- rank: 40
+  id: tursodatabase-turso-claude-skills-transaction-correctness-skill-md
+  name: transaction-correctness
+  author: tursodatabase
+  stars: 17995
+  forks: 814
+  description: How WAL mechanics, checkpointing, concurrency rules, recovery work
+    in tursodb
+  github_url: https://github.com/tursodatabase/turso/tree/main/.claude/skills/transaction-correctness
+  updated_at: '1769001467'
+- rank: 41
+  id: langchain-ai-deepagents-examples-text-to-sql-agent-skills-query-writing-skill-md
+  name: query-writing
+  author: langchain-ai
+  stars: 17871
+  forks: 2512
+  description: Writes and executes SQL queries from simple SELECTs to complex multi-table
+    JOINs, aggregations, and subqueries. Use when the user asks to query a database,
+    write SQL, run a SELECT statement, retrieve data, filter records, or generate
+    reports from database tables.
+  github_url: https://github.com/langchain-ai/deepagents/tree/main/examples/text-to-sql-agent/skills/query-writing
+  updated_at: '1773720926'
+- rank: 42
+  id: langchain-ai-deepagents-examples-text-to-sql-agent-skills-schema-exploration-skill-md
+  name: schema-exploration
+  author: langchain-ai
+  stars: 17871
+  forks: 2512
+  description: Lists tables, describes columns and data types, identifies foreign
+    key relationships, and maps entity relationships in a database. Use when the user
+    asks about database schema, table structure, column types, what tables exist,
+    ERD, foreign keys, or how entities relate.
+  github_url: https://github.com/langchain-ai/deepagents/tree/main/examples/text-to-sql-agent/skills/schema-exploration
+  updated_at: '1773720926'
+- rank: 43
+  id: windmill-labs-windmill-system-prompts-auto-generated-skills-write-script-duckdb-skill-md
+  name: write-script-duckdb
+  author: windmill-labs
+  stars: 16091
+  forks: 901
+  description: MUST use when writing DuckDB queries.
+  github_url: https://github.com/windmill-labs/windmill/tree/main/system_prompts/auto-generated/skills/write-script-duckdb
+  updated_at: '1773310683'
+- rank: 44
+  id: windmill-labs-windmill-system-prompts-auto-generated-skills-write-script-mssql-skill-md
+  name: write-script-mssql
+  author: windmill-labs
+  stars: 16091
+  forks: 901
+  description: MUST use when writing MS SQL Server queries.
+  github_url: https://github.com/windmill-labs/windmill/tree/main/system_prompts/auto-generated/skills/write-script-mssql
+  updated_at: '1773310683'
+- rank: 45
+  id: windmill-labs-windmill-system-prompts-auto-generated-skills-write-script-mysql-skill-md
+  name: write-script-mysql
+  author: windmill-labs
+  stars: 16091
+  forks: 901
+  description: MUST use when writing MySQL queries.
+  github_url: https://github.com/windmill-labs/windmill/tree/main/system_prompts/auto-generated/skills/write-script-mysql
+  updated_at: '1773310683'
+- rank: 46
+  id: windmill-labs-windmill-system-prompts-auto-generated-skills-write-script-postgresql-skill-md
+  name: write-script-postgresql
+  author: windmill-labs
+  stars: 16091
+  forks: 901
+  description: MUST use when writing PostgreSQL queries.
+  github_url: https://github.com/windmill-labs/windmill/tree/main/system_prompts/auto-generated/skills/write-script-postgresql
+  updated_at: '1773310683'
+- rank: 47
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-mongodb-skill-md
+  name: mongodb
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: MongoDB operations expert for queries, aggregation pipelines, indexes,
+    and schema design
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/mongodb
+  updated_at: '1772056827'
+- rank: 48
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-postgres-expert-skill-md
+  name: postgres-expert
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: PostgreSQL expert for query optimization, indexing, extensions, and
+    database administration
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/postgres-expert
+  updated_at: '1772056827'
+- rank: 49
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-sql-analyst-skill-md
+  name: sql-analyst
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: SQL query expert for optimization, schema design, and data analysis
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/sql-analyst
+  updated_at: '1772056827'
+- rank: 50
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-sqlite-expert-skill-md
+  name: sqlite-expert
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: SQLite expert for WAL mode, query optimization, embedded patterns,
+    and advanced features
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/sqlite-expert
+  updated_at: '1772056827'
