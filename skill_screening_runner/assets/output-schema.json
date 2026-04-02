@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkillScreeningResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "category_slug",
+    "subcategory_slug",
+    "skill_dir",
+    "skill_id",
+    "decision",
+    "confidence",
+    "summary",
+    "harbor_task_adaptation_summary",
+    "skill_benefit_rationale",
+    "positive_signals",
+    "blocking_issues",
+    "input_synthesis_feasibility",
+    "container_feasibility",
+    "files_reviewed",
+    "uncertainties",
+    "capability_archetype",
+    "representativeness",
+    "harbor_taskability",
+    "seed_reuse_signals",
+    "drop_reason_category"
+  ],
+  "properties": {
+    "category_slug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subcategory_slug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skill_dir": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skill_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["keep", "drop"]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "harbor_task_adaptation_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skill_benefit_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "positive_signals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "blocking_issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "input_synthesis_feasibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["judgment", "rationale"],
+      "properties": {
+        "judgment": {
+          "type": "string",
+          "enum": ["feasible", "risky", "not_feasible"]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "container_feasibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["judgment", "rationale"],
+      "properties": {
+        "judgment": {
+          "type": "string",
+          "enum": ["feasible", "risky", "not_feasible"]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "files_reviewed": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "capability_archetype": {
+      "type": "string",
+      "minLength": 1
+    },
+    "representativeness": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "harbor_taskability": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "seed_reuse_signals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "drop_reason_category": {
+      "type": "string",
+      "enum": [
+        "not_applicable",
+        "not_verifiable",
+        "container_unfriendly",
+        "too_external",
+        "too_broad",
+        "no_skill_advantage",
+        "ops_only",
+        "insufficient_signal",
+        "unknown"
+      ]
+    }
+  }
+}
