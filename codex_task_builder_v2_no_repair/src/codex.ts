@@ -396,7 +396,7 @@ export class CodexTaskBuilderClient {
       approvalPolicy: "never",
       skipGitRepoCheck: true,
       networkAccessEnabled,
-      modelReasoningEffort: "high",
+      modelReasoningEffort: "xhigh",
     };
   }
 

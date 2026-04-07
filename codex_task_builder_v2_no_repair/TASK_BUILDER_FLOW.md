@@ -280,6 +280,37 @@ reviewer 会返回两类信息：
 - `environment/skills` 是否和当前 scope 精确一致
 - Dockerfile 是否符合 builder 规则
 - Harbor 任务目录结构是否完整
+- `solution/**` 与 `tests/**` 是否直接依赖 skill runtime
+
+其中这条需要特别说明：
+
+- `solution/solve.sh`
+- `tests/test.sh`
+- `tests/test_outputs.py`
+- 以及 `solution/`、`tests/` 下的其它 helper 文件
+
+都不允许直接引用：
+
+- `environment/skills/**`
+- `/root/.codex/skills/**`
+- `/root/.claude/skills/**`
+- `/root/.agents/skills/**`
+- `/root/.goose/skills/**`
+- `/root/.factory/skills/**`
+- `/app/skills/**`
+- 或通过 `sys.path` / `PYTHONPATH` / `source` / 直接 import skill 模块的方式调用 shipped skill
+
+这条规则的目标是：
+
+- shipped skill 只服务 agent，不服务 oracle / verifier
+- 在“装 skill”和“不装 skill”两种评测设置下，参考解与 verifier 都能独立运行
+- 公平比较添加 skill 前后的 agent 效果差异
+
+如果确实需要某段通用能力：
+
+- 可以把最小必需逻辑直接实现为当前任务自己的代码/脚本
+- 或改成公开通用依赖
+- 但不要让 `solution/**` 或 `tests/**` 在运行时再去导入 skill 路径里的模块
 
 此时每个任务会得到两类前置问题：
 
@@ -358,6 +389,25 @@ runtime 证据会写入：
 - 有 repair 和无 repair 的最终发布率差异
 - 有 repair 和无 repair 的 Oracle 通过率差异
 - 有 repair 和无 repair 的失败类型分布差异
+
+### 6.1 shipped skill 只服务 agent，不服务 oracle
+
+这是 no-repair 版本也必须严格保持的规则：
+
+- shipped skill 可以帮助 agent 解题
+- 但 `solution/solve.sh` 和 verifier 不能把 skill 当成直接运行时依赖
+
+否则 no-repair 的 runtime 失败会混入一类无意义噪声：
+
+- 不是任务本身不可验证
+- 也不是 agent 真不会做
+- 而是 oracle / verifier 自己因为缺少 skill runtime 先坏掉
+
+这会直接破坏下面这些对照的解释力：
+
+- 添加 skill 的 agent
+- 不添加 skill 的 agent
+- 有 repair 和无 repair 的发布率 / 通过率差异
 
 ## 7. 常见产物位置
 

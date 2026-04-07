@@ -133,6 +133,18 @@ function renderEnvironmentResourceRules(): string {
   `);
 }
 
+function renderDockerfileRules(): string {
+  return dedent(`
+    Dockerfile 约束:
+    - environment/Dockerfile 必须显式声明 WORKDIR。
+    - 默认优先使用 WORKDIR /root；如果确有必要使用其他目录，也必须让 solution/solve.sh、tests/test.sh、tests/test_outputs.py 与 Dockerfile 的路径契约保持一致。
+    - environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
+    - 不要使用 COPY . /root、COPY . /root/、COPY ./ /root、ADD . /root 这类把当前 build context 整体复制到 /root 的写法；带 flag 的等价写法同样禁止。
+    - 不要把 skills 复制到普通运行时路径，例如 /root/environment/skills、/app/skills、/workspace/skills；如果需要额外兼容其他 agent，也只能复制到 agent skill 安装路径。
+    - source_task/environment/Dockerfile 只能作为参考，不能机械继承其中的 COPY/ADD/WORKDIR 写法。
+  `);
+}
+
 export function buildRoleDisplayName(plan: DerivedTaskPlan): string {
   return `${plan.taskRole === "similar" ? "Similar" : "Transfer"} ${plan.roleOrdinal}`;
 }
@@ -181,9 +193,10 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
        - plan.json
     8. plan.json 是 planner 产物，后续 materialize/publish 也要保留，不要删除。
     9. 同一 workspace 内，后续任务生成时必须检查 drafts/ 下已经完成的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出语义和测试判定方式上过于接近。
-    10. environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
+    10. environment/Dockerfile 必须遵守下方 Dockerfile 约束。
     11. 最终 Harbor 任务面向用户可见的文本必须使用英文，至少包括 instruction.md、task.toml 的 metadata.name 和 metadata.description。
     ${renderSourceTaskReferenceRules("drafts/<task_name>/environment/")}
+    ${renderDockerfileRules()}
     ${renderTaskArtifactContracts()}
     ${renderVerifierDesignPrinciples()}
     ${renderEnvironmentResourceRules()}
@@ -318,8 +331,7 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
       - storage_mb = 5120
       - gpus = 0
     - 必须保留 plan.json，不要删除或改名；如需更新，只能与当前 blueprint 保持一致。
-    - environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
-    - environment/Dockerfile 不能使用本地私有镜像、localhost registry、内网 registry、带私有端口的 registry；请使用公开镜像仓库或 Docker Hub 公共镜像。
+    ${renderDockerfileRules()}
     - instruction.md 不要直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName。
     ${renderHarborOracleBaseline()}
 
@@ -396,7 +408,10 @@ export function buildReviewerPrompt(
       - 任务是否 self-contained，完成任务所需关键信息是否都已写入 instruction.md 或输入资产
       - solution/solve.sh、tests/test.sh、tests/test_outputs.py、environment/Dockerfile 的路径契约是否一致
       - 运行时需要写入的目录是否显式创建
+      - environment/Dockerfile 是否显式声明 WORKDIR；如果不是 /root，相关脚本路径是否仍然一致
       - environment/Dockerfile 是否显然使用了私有/本地镜像
+      - environment/Dockerfile 是否出现 COPY . /root、ADD . /root 或同类宽泛复制
+      - environment/Dockerfile 是否把 skills 复制到了 /root/environment/skills、/app/skills、/workspace/skills 等普通运行时路径
       ${skillReviewRule}
       - 该任务是否应通过 reviewer
       - 只要命中上述任一 Harbor testability 问题，就将 testabilityPass 设为 false，并在 issues 中直接点明具体问题

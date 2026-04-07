@@ -78,6 +78,23 @@ const PUBLIC_REGISTRY_ALLOWLIST = new Set([
   "public.ecr.aws",
 ]);
 
+const AGENT_SKILL_DESTINATION_ALLOWLIST = new Set([
+  "/root/.claude/skills",
+  "/root/.claude/skills/",
+  "/root/.codex/skills",
+  "/root/.codex/skills/",
+  "/root/.opencode/skill",
+  "/root/.opencode/skill/",
+  "/root/.goose/skills",
+  "/root/.goose/skills/",
+  "/root/.factory/skills",
+  "/root/.factory/skills/",
+  "/root/.agents/skills",
+  "/root/.agents/skills/",
+  "/root/.github/skills",
+  "/root/.github/skills/",
+]);
+
 type RuntimeLogEntry = {
   label: string;
   path: string;
@@ -137,6 +154,28 @@ function detectSkillRuntimeCoupling(
   }
 
   return detections;
+}
+
+async function listFilesRecursive(rootDir: string): Promise<string[]> {
+  if (!(await pathExists(rootDir))) {
+    return [];
+  }
+
+  const entries = await fs.readdir(rootDir, { withFileTypes: true });
+  const files: string[] = [];
+
+  for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
+    const fullPath = path.join(rootDir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await listFilesRecursive(fullPath)));
+      continue;
+    }
+    if (entry.isFile()) {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
 }
 
 function pushTaskIssue(
@@ -528,10 +567,167 @@ function isPrivateRegistryHost(host: string): boolean {
   );
 }
 
+function collectDockerfileInstructions(dockerfile: string): string[] {
+  const instructions: string[] = [];
+  let currentInstruction = "";
+
+  for (const rawLine of dockerfile.split(/\r?\n/)) {
+    const trimmed = rawLine.trim();
+    if (!trimmed || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    const withoutTrailingContinuation = trimmed.endsWith("\\")
+      ? trimmed.slice(0, -1).trimEnd()
+      : trimmed;
+    currentInstruction = currentInstruction.length === 0
+      ? withoutTrailingContinuation
+      : `${currentInstruction} ${withoutTrailingContinuation}`.trim();
+
+    if (trimmed.endsWith("\\")) {
+      continue;
+    }
+
+    instructions.push(currentInstruction);
+    currentInstruction = "";
+  }
+
+  if (currentInstruction.length > 0) {
+    instructions.push(currentInstruction);
+  }
+
+  return instructions;
+}
+
+function normalizeDockerToken(token: string): string {
+  return token.trim().replace(/^['"]|['"]$/g, "");
+}
+
+function isBuildContextRootToken(token: string): boolean {
+  const normalized = normalizeDockerToken(token);
+  return normalized === "." || normalized === "./";
+}
+
+function isRootDestinationToken(token: string): boolean {
+  const normalized = normalizeDockerToken(token);
+  return normalized === "/root" || normalized === "/root/";
+}
+
+function isSkillsSourceToken(token: string): boolean {
+  const normalized = normalizeDockerToken(token);
+  return normalized === "skills" || normalized === "./skills";
+}
+
+type ParsedCopyAddInstruction = {
+  keyword: "COPY" | "ADD";
+  fromOtherStage: boolean;
+  sources: string[];
+  destination: string;
+};
+
+function parseCopyAddInstruction(instruction: string): ParsedCopyAddInstruction | null {
+  const match = instruction.match(/^\s*(COPY|ADD)\b\s*(.*)$/i);
+  if (!match) {
+    return null;
+  }
+
+  const keyword = (match[1] ?? "").toUpperCase() as "COPY" | "ADD";
+  const rest = (match[2] ?? "").trim();
+  const jsonStart = rest.indexOf("[");
+  if (jsonStart >= 0) {
+    const flagsPart = rest.slice(0, jsonStart).trim();
+    const jsonPart = rest.slice(jsonStart).trim();
+
+    try {
+      const parsed = JSON.parse(jsonPart);
+      if (!Array.isArray(parsed) || parsed.length < 2 || parsed.some((value) => typeof value !== "string")) {
+        return null;
+      }
+
+      return {
+        keyword,
+        fromOtherStage: /(?:^|\s)--from=\S+/i.test(flagsPart),
+        sources: parsed.slice(0, -1) as string[],
+        destination: parsed[parsed.length - 1] as string,
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  const tokens = rest.split(/\s+/).filter((token) => token.length > 0);
+  const sourcesAndDestination: string[] = [];
+  let fromOtherStage = false;
+
+  for (const token of tokens) {
+    if (/^--from=/i.test(token)) {
+      fromOtherStage = true;
+      continue;
+    }
+    if (token.startsWith("--")) {
+      continue;
+    }
+    sourcesAndDestination.push(token);
+  }
+
+  if (sourcesAndDestination.length < 2) {
+    return null;
+  }
+
+  return {
+    keyword,
+    fromOtherStage,
+    sources: sourcesAndDestination.slice(0, -1),
+    destination: sourcesAndDestination[sourcesAndDestination.length - 1] ?? "",
+  };
+}
+
+function validateDockerfileLayoutRules(dockerfile: string): string[] {
+  const issues = new Set<string>();
+  const instructions = collectDockerfileInstructions(dockerfile);
+
+  if (!instructions.some((instruction) => /^\s*WORKDIR\b/i.test(instruction))) {
+    issues.add("environment/Dockerfile 必须显式声明 WORKDIR");
+  }
+
+  for (const instruction of instructions) {
+    const parsedInstruction = parseCopyAddInstruction(instruction);
+    if (!parsedInstruction) {
+      continue;
+    }
+
+    const { fromOtherStage, sources, destination } = parsedInstruction;
+    const normalizedDestination = normalizeDockerToken(destination);
+
+    if (
+      !fromOtherStage &&
+      sources.length === 1 &&
+      isBuildContextRootToken(sources[0] ?? "") &&
+      isRootDestinationToken(destination)
+    ) {
+      issues.add(
+        "environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染",
+      );
+    }
+
+    if (
+      sources.length === 1 &&
+      isSkillsSourceToken(sources[0] ?? "") &&
+      !AGENT_SKILL_DESTINATION_ALLOWLIST.has(normalizedDestination)
+    ) {
+      issues.add(
+        `environment/Dockerfile 把 skills 复制到了普通运行时路径 ${normalizedDestination}；这会把 skill 内容暴露到非 agent skill 路径，破坏有技能/无技能对照`,
+      );
+    }
+  }
+
+  return [...issues];
+}
+
 export function validateDockerfileBaseImages(dockerfile: string): string[] {
   const issues: string[] = [];
   const stageAliases = new Set<string>();
-  const fromLines = dockerfile.split(/\r?\n/);
+  const fromLines = collectDockerfileInstructions(dockerfile);
 
   for (const line of fromLines) {
     const match = line.match(/^\s*FROM(?:\s+--platform=\S+)?\s+([^\s]+)(?:\s+AS\s+([A-Za-z0-9._-]+))?/i);
@@ -821,6 +1017,14 @@ export async function validateDraftStatic(
       });
     }
 
+    for (const dockerIssue of validateDockerfileLayoutRules(dockerfile)) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: dockerIssue,
+      });
+    }
+
     for (const dockerIssue of validateDockerfileBaseImages(dockerfile)) {
       issues.push({
         scope: "static",
@@ -830,16 +1034,13 @@ export async function validateDraftStatic(
     }
   }
 
-  for (const relativePath of [
-    path.join("solution", "solve.sh"),
-    path.join("tests", "test.sh"),
-    path.join("tests", "test_outputs.py"),
-  ]) {
-    const fullPath = path.join(draftDir, relativePath);
-    if (!(await pathExists(fullPath))) {
-      continue;
-    }
+  const couplingScanPaths = [
+    ...(await listFilesRecursive(path.join(draftDir, "solution"))),
+    ...(await listFilesRecursive(path.join(draftDir, "tests"))),
+  ];
 
+  for (const fullPath of couplingScanPaths) {
+    const relativePath = path.relative(draftDir, fullPath);
     const detections = detectSkillRuntimeCoupling(await readText(fullPath), unit);
     if (detections.length === 0) {
       continue;

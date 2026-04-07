@@ -92,6 +92,7 @@ async function makeDraftFixture(
     solveSh?: string;
     testSh?: string;
     testOutputsPy?: string;
+    extraFiles?: Record<string, string>;
   } = {},
 ): Promise<string> {
   const root = await fs.mkdtemp(path.join(os.tmpdir(), "codex-validate-test-"));
@@ -133,12 +134,17 @@ gpus = 0
   await fs.writeFile(path.join(root, "instruction.md"), options.instructionText ?? "fixture\n", "utf-8");
   await fs.writeFile(
     path.join(root, "environment", "Dockerfile"),
-    options.dockerfile ?? "FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\n",
+    options.dockerfile ?? "FROM ubuntu:24.04\nWORKDIR /root\nCOPY skills /root/.codex/skills\n",
     "utf-8",
   );
   await fs.writeFile(path.join(root, "solution", "solve.sh"), options.solveSh ?? "#!/bin/bash\n", "utf-8");
   await fs.writeFile(path.join(root, "tests", "test.sh"), options.testSh ?? "#!/bin/bash\n", "utf-8");
   await fs.writeFile(path.join(root, "tests", "test_outputs.py"), options.testOutputsPy ?? "print('ok')\n", "utf-8");
+  for (const [relativePath, content] of Object.entries(options.extraFiles ?? {})) {
+    const fullPath = path.join(root, relativePath);
+    await fs.mkdir(path.dirname(fullPath), { recursive: true });
+    await fs.writeFile(fullPath, content, "utf-8");
+  }
 
   return root;
 }
@@ -156,6 +162,7 @@ async function collectStaticIssueMessages(
     solveSh?: string;
     testSh?: string;
     testOutputsPy?: string;
+    extraFiles?: Record<string, string>;
   } = {},
 ): Promise<string[]> {
   const draftDir = await makeDraftFixture(plan, options);
@@ -310,6 +317,88 @@ const reviewTaskPlans: DerivedTaskPlan[] = [
 }
 
 {
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile: "FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(issues.includes("environment/Dockerfile 必须显式声明 WORKDIR"));
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile: "FROM ubuntu:24.04\nWORKDIR /app/workspace\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(!issues.includes("environment/Dockerfile 必须显式声明 WORKDIR"));
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile: "FROM ubuntu:24.04\nWORKDIR /root\nCOPY . /root\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(
+    issues.includes("environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染"),
+  );
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile: "FROM ubuntu:24.04\nWORKDIR /root\nCOPY . /root/\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(
+    issues.includes("environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染"),
+  );
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile: "FROM ubuntu:24.04\nWORKDIR /root\nADD . /root\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(
+    issues.includes("environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染"),
+  );
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile:
+      "FROM ubuntu:24.04\nWORKDIR /root\nCOPY --chown=root:root . /root\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(
+    issues.includes("environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染"),
+  );
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile:
+      "FROM ubuntu:24.04\nWORKDIR /root\nCOPY skills /root/environment/skills\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(
+    issues.includes(
+      "environment/Dockerfile 把 skills 复制到了普通运行时路径 /root/environment/skills；这会把 skill 内容暴露到非 agent skill 路径，破坏有技能/无技能对照",
+    ),
+  );
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile: "FROM ubuntu:24.04\nWORKDIR /root\nCOPY skills /app/skills\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(
+    issues.includes(
+      "environment/Dockerfile 把 skills 复制到了普通运行时路径 /app/skills；这会把 skill 内容暴露到非 agent skill 路径，破坏有技能/无技能对照",
+    ),
+  );
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    dockerfile:
+      "FROM ubuntu:24.04\nWORKDIR /root\nCOPY skills /root/.claude/skills\nCOPY skills /root/.codex/skills\n",
+  });
+  assert.ok(!issues.some((issue) => issue.includes("普通运行时路径")));
+}
+
+{
   const issues = await collectStaticIssueMessages(perSkillUnit, plan, { skillDirNames: ["python"] });
   assert.ok(issues.includes("environment/skills 缺少预期 skill 目录: xlsx"));
   assert.ok(issues.includes("environment/skills 存在非预期 skill 目录: python"));
@@ -342,6 +431,28 @@ const reviewTaskPlans: DerivedTaskPlan[] = [
   });
   assert.ok(
     issues.some((issue) => issue.startsWith("tests/test_outputs.py 直接依赖 skill 模块或路径（")),
+  );
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    extraFiles: {
+      [path.join("solution", "helper.py")]: 'import sys\nsys.path.insert(0, "/app/skills/xlsx/scripts")\n',
+    },
+  });
+  assert.ok(
+    issues.some((issue) => issue.startsWith("solution/helper.py 直接依赖 skill 模块或路径（")),
+  );
+}
+
+{
+  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
+    extraFiles: {
+      [path.join("tests", "helpers", "skill_loader.py")]: 'import sys\nsys.path.insert(0, "/app/skills/xlsx/scripts")\n',
+    },
+  });
+  assert.ok(
+    issues.some((issue) => issue.startsWith("tests/helpers/skill_loader.py 直接依赖 skill 模块或路径（")),
   );
 }
 
