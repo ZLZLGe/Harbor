@@ -39,19 +39,7 @@
 - 当前输入面是 `/app`、隐藏服务和浏览器，不是音频、PPTX、视频、PDF。
 
 ## skill 与任务强相关性
-- 结论：`强相关`
-- 这道题本身就要求在浏览器里复现和测量问题，而 skill 覆盖的正是这几类浏览器检查。
-- 量化对照见 [2026-04-07_skill_evidence.md](./validation/2026-04-07_skill_evidence.md)：with-skills `563.1s`，without-skills `623.3s`，with-skills 快 `60.2s`。
-- 原始轨迹见 [2026-04-07_redesign_with_trajectory.json](./validation/2026-04-07_redesign_with_trajectory.json) 和 [2026-04-07_redesign_without_trajectory.json](./validation/2026-04-07_redesign_without_trajectory.json)。with-skills 更早进入浏览器验证，所以更快，也说明这个 skill 和任务是强相关的。
-
-## 技能影响分析
-- 没有 skills 时，模型不是完全做不出来，但会更慢，也更依赖自己摸索检查路径。
-- 当前这组有效对照里，with-skills `563.1s`，without-skills `623.3s`，差了 `60.2s`。
-- 原始轨迹显示，with-skills 更早进入浏览器验证；without-skills 先自己整理检查项，再回到 live runtime。
-- 这说明 skill 的作用不是只补背景知识，而是把“该怎么查”直接变成可执行动作。
+结论：`强相关`。没有 skills 时，模型虽然并非完全无法完成任务，但会明显更慢，也更依赖自己摸索检查路径；引入这组 browser-testing skills 后，模型能更早进入浏览器验证并直接围绕冷启动、advanced 延迟加载和重复交互退化展开排查。量化对照见 [2026-04-07_skill_evidence.md](./validation/2026-04-07_skill_evidence.md)：with-skills `563.1s`，without-skills `623.3s`，快 `60.2s`；原始轨迹见 [2026-04-07_redesign_with_trajectory.json](./validation/2026-04-07_redesign_with_trajectory.json) 和 [2026-04-07_redesign_without_trajectory.json](./validation/2026-04-07_redesign_without_trajectory.json)。这说明 skill 的作用不是补背景知识，而是把“该怎么查”直接转成了可执行动作。
 
 ## 维护者建议
-- 状态：`APPROVE`
-- 理由：该任务强依赖浏览器复现与运行时测量，符合基准测试里的“Skill-dependent”要求。
-- 理由：Oracle 结果稳定通过，奖励为 `1.0`，说明参考解可达且鲁棒。
-- 理由：verifier 同时覆盖主症状和防作弊约束，不容易靠表面修补通过。
+状态：`APPROVE`。该任务强依赖浏览器复现与运行时测量，Oracle 结果稳定通过且奖励为 `1.0`，同时 verifier 兼顾主症状和防作弊约束，符合基准测试里的 “Skill-dependent” 要求。
