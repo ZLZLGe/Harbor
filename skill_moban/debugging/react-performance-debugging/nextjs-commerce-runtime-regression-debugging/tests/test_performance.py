@@ -71,6 +71,21 @@ def collect_page_js(page: Page):
     return js_sizes, js_order
 
 
+def assert_shelf_label_stays(page: Page, expected_label: str, *, duration_ms: int = 1000, interval_ms: int = 125):
+    seen_labels = []
+    deadline = time.monotonic() + duration_ms / 1000
+
+    while True:
+        current_label = page.locator('[data-testid="active-shelf-label"]').text_content().strip()
+        seen_labels.append(current_label)
+        assert current_label == expected_label, (
+            f"Active shelf drifted during the stability window: {' -> '.join(seen_labels)}"
+        )
+        if time.monotonic() >= deadline:
+            return
+        page.wait_for_timeout(interval_ms)
+
+
 def assert_review_entry_is_stable(browser: Browser, *, viewport: dict, is_mobile: bool, user_agent: str | None):
     context = browser.new_context(
         viewport=viewport,
@@ -90,6 +105,13 @@ def assert_review_entry_is_stable(browser: Browser, *, viewport: dict, is_mobile
     page.add_init_script(
         """
         localStorage.setItem('reader-active-shelf', 'gothic-fiction');
+        localStorage.setItem(
+          'reader-review-context',
+          JSON.stringify({
+            shelf: 'gothic-fiction',
+            savedAt: Date.now() - 60_000,
+          }),
+        );
         window.__cls = 0;
         new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
@@ -102,15 +124,14 @@ def assert_review_entry_is_stable(browser: Browser, *, viewport: dict, is_mobile
     )
 
     page.goto(f"{BASE}/?shelf=category-romance", wait_until="networkidle")
-    page.wait_for_timeout(700)
-
-    assert page.locator('[data-testid="active-shelf-label"]').text_content().strip() == "Category: Romance"
+    page.wait_for_timeout(200)
+    assert_shelf_label_stays(page, "Category: Romance", duration_ms=1200)
     assert page.evaluate("window.__cls") < 0.05
     assert not any("persisted review context" in entry.lower() for entry in console_messages)
 
     page.reload(wait_until="networkidle")
-    page.wait_for_timeout(400)
-    assert page.locator('[data-testid="active-shelf-label"]').text_content().strip() == "Category: Romance"
+    page.wait_for_timeout(200)
+    assert_shelf_label_stays(page, "Category: Romance", duration_ms=900)
     context.close()
 
 
@@ -161,20 +182,21 @@ def test_review_entry_stays_stable_across_mobile_profiles(browser: Browser):
 
 
 def test_compare_review_flow_requests_noncritical_code_on_demand(page: Page):
-    js_sizes, js_order = collect_page_js(page)
+    _, js_order = collect_page_js(page)
 
     page.goto(f"{BASE}/compare", wait_until="networkidle")
     page.wait_for_selector('[data-testid="tab-overview"]')
     page.wait_for_timeout(250)
     initial_urls = list(dict.fromkeys(js_order))
-    initial_kb = sum(js_sizes[url] for url in initial_urls) / 1024
+    page.wait_for_timeout(400)
+    pre_click_urls = list(dict.fromkeys(js_order))
 
     page.locator('[data-testid="tab-advanced"]').click()
     page.locator('[data-testid="advanced-content"]').wait_for()
     page.wait_for_timeout(350)
 
-    late_urls = [url for url in dict.fromkeys(js_order) if url not in initial_urls]
-    assert initial_kb < 400, f"Initial compare-page JS bundle is {initial_kb:.0f}KB (should stay below 400KB)"
+    late_urls = [url for url in dict.fromkeys(js_order) if url not in pre_click_urls]
+    assert pre_click_urls == initial_urls, "Compare page fetched extra JS before advanced analysis was opened"
     assert late_urls, "Opening the advanced review tab should trigger at least one new JS request"
 
 

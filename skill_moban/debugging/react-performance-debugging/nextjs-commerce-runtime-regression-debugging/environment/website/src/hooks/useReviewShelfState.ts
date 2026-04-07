@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DEFAULT_SHELF } from '@/lib/catalog';
 
 export type ReviewEntryIntent = 'catalog-home' | 'linked-review';
@@ -50,7 +50,7 @@ function readInitialShelf(initialShelf: string, entryIntent: ReviewEntryIntent):
 export function useReviewShelfState(initialShelf: string, entryIntent: ReviewEntryIntent) {
   const [activeShelf, setActiveShelf] = useState(() => readInitialShelf(initialShelf || DEFAULT_SHELF, entryIntent));
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (entryIntent !== 'linked-review') {
       return;
     }
@@ -59,17 +59,28 @@ export function useReviewShelfState(initialShelf: string, entryIntent: ReviewEnt
       return;
     }
 
-    const restoredShelf = window.localStorage.getItem(LEGACY_STORAGE_KEY);
+    const stored = readStoredReviewContext();
+    const restoredShelf = stored?.shelf;
 
     if (!restoredShelf || restoredShelf === activeShelf) {
       return;
     }
 
-    console.warn('Persisted review context is overriding the live review entry.', {
-      entryShelf: initialShelf,
-      restoredShelf,
-    });
-    setActiveShelf(restoredShelf);
+    if (!shouldRestorePersistedShelf(entryIntent, stored?.savedAt)) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      console.warn('Persisted review context is overriding the live review entry.', {
+        entryShelf: initialShelf,
+        restoredShelf,
+      });
+      setActiveShelf(restoredShelf);
+    }, 180);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
   }, [activeShelf, entryIntent, initialShelf]);
 
   useEffect(() => {

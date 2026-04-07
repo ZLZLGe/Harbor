@@ -1,19 +1,67 @@
 'use client';
 
-import orderBy from 'lodash/orderBy';
-import { useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
+import { useEffect, useMemo, useState } from 'react';
 import type { CatalogBook } from '@/lib/catalog';
-import { buildCompareTabs } from './compare/buildCompareTabs';
 
 interface Props {
   books: CatalogBook[];
 }
 
+const loadCompareAdvancedPanel = () =>
+  import('./CompareAdvancedPanel').then((module) => module.CompareAdvancedPanel);
+
+const CompareAdvancedPanel = dynamic(loadCompareAdvancedPanel, {
+  ssr: false,
+  loading: () => <div className="rounded-[1.75rem] border border-stone-200 bg-white p-6 shadow-sm">Loading advanced analysis…</div>,
+});
+
+function OverviewPanel({ books }: { books: CatalogBook[] }) {
+  return (
+    <div className="rounded-[1.75rem] border border-stone-200 bg-white p-6 shadow-sm">
+      <h2 className="text-xl font-semibold text-stone-900">Compare shortlist</h2>
+      <div className="mt-5 overflow-x-auto">
+        <table className="min-w-full divide-y divide-stone-200 text-sm">
+          <thead className="bg-stone-50">
+            <tr>
+              <th className="px-4 py-3 text-left font-medium text-stone-600">Title</th>
+              <th className="px-4 py-3 text-left font-medium text-stone-600">Author</th>
+              <th className="px-4 py-3 text-left font-medium text-stone-600">Primary shelf</th>
+              <th className="px-4 py-3 text-right font-medium text-stone-600">Downloads</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-stone-100">
+            {books.map((book) => (
+              <tr key={book.id}>
+                <td className="px-4 py-3 text-stone-900">{book.title}</td>
+                <td className="px-4 py-3 text-stone-600">{book.author}</td>
+                <td className="px-4 py-3 text-stone-600">{book.shelves[0] ?? 'Unassigned'}</td>
+                <td className="px-4 py-3 text-right text-stone-900">{book.downloadCount.toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 export function CompareWorkspace({ books }: Props) {
   const [activeTab, setActiveTab] = useState<'overview' | 'advanced'>('overview');
-  const compareBooks = useMemo(() => orderBy(books.slice(0, 6), ['downloadCount'], ['desc']), [books]);
-  const tabs = useMemo(() => buildCompareTabs(compareBooks), [compareBooks]);
-  const selectedTab = tabs.find((tab) => tab.id === activeTab) ?? tabs[0];
+  const compareBooks = useMemo(
+    () => [...books.slice(0, 6)].sort((left, right) => right.downloadCount - left.downloadCount),
+    [books],
+  );
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      void loadCompareAdvancedPanel();
+    }, 275);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <main className="min-h-screen bg-stone-50 px-6 py-10 md:px-10">
@@ -31,22 +79,28 @@ export function CompareWorkspace({ books }: Props) {
 
       <div className="mb-6 border-b border-stone-200">
         <nav className="flex gap-3">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              data-testid={`tab-${tab.id}`}
-              onClick={() => setActiveTab(tab.id)}
-              className={`rounded-t-2xl px-4 py-3 text-sm font-medium ${
-                activeTab === tab.id ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-600'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+          <button
+            data-testid="tab-overview"
+            onClick={() => setActiveTab('overview')}
+            className={`rounded-t-2xl px-4 py-3 text-sm font-medium ${
+              activeTab === 'overview' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-600'
+            }`}
+          >
+            Overview
+          </button>
+          <button
+            data-testid="tab-advanced"
+            onClick={() => setActiveTab('advanced')}
+            className={`rounded-t-2xl px-4 py-3 text-sm font-medium ${
+              activeTab === 'advanced' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-600'
+            }`}
+          >
+            Advanced analysis
+          </button>
         </nav>
       </div>
 
-      {selectedTab.render()}
+      {activeTab === 'overview' ? <OverviewPanel books={compareBooks} /> : <CompareAdvancedPanel books={compareBooks} />}
     </main>
   );
 }

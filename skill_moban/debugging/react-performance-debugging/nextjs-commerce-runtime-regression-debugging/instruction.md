@@ -1,16 +1,16 @@
-You are the on-call engineer for a Next.js reading-room storefront with a live runtime regression.
+You are the on-call engineer for a Next.js reading-room storefront with live browser regressions.
 
 Inputs:
 - `/app`: the application code under investigation
 - hidden downstream service code under `/services/api-simulator` is part of the environment baseline and must not be edited
 
-The storefront currently exhibits three user-visible regressions in production:
-- a linked review entry is not visually stable on cold load and can come back in the wrong state after refresh
+The storefront currently exhibits three production symptoms:
+- opening a linked review entry on a cold browser start is not visually stable, and the same entry can come back in the wrong shelf after refresh
 - the compare workspace feels too heavy before advanced analysis is explicitly opened
-- repeated curation interactions make the page progressively less responsive until the tab is refreshed
+- repeated curation interactions gradually make the page less responsive until the tab is refreshed
 
-Your job is to diagnose the root causes and fix the application in place.
-Reproduce and measure the live browser behavior yourself. Focus on real runtime behavior rather than static guesswork.
+Your job is to diagnose and fix the application in place.
+Reproduce and measure the live browser behavior yourself. Focus on what the running app actually does.
 
 Key business constraints:
 - Homepage must continue rendering the real bundled catalog data
