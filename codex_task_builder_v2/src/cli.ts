@@ -69,7 +69,6 @@ type TaskCycleState = {
   writerSummary: WriterSummary;
   repairThreadId: string | null;
   repairRoundsUsed: number;
-  infraRetriesUsed: number;
   runtimeAttemptCount: number;
   lastMutatedCycle: number | null;
   runtimePassedCycle: number | null;
@@ -86,7 +85,6 @@ type ExecuteFamilyOptions = {
   quarantineRoot: string;
   runtimeEnvironment: RuntimeEnvironment;
   maxRepairRounds: number;
-  maxInfraRetries: number;
 };
 
 function parseArgs(argv: string[]): { command: string | undefined; options: Options } {
@@ -404,7 +402,6 @@ async function executeFamilyGeneration(
         writerSummary: writerResult.data,
         repairThreadId: null,
         repairRoundsUsed: 0,
-        infraRetriesUsed: 0,
         runtimeAttemptCount: 0,
         lastMutatedCycle: null,
         runtimePassedCycle: null,
@@ -442,7 +439,7 @@ async function executeFamilyGeneration(
         }
 
         taskState.reviewerIssues = reviewValidation.taskIssuesById.get(plan.derivedTaskId) ?? [];
-        taskState.staticIssues = await validateDraftStatic(taskState.draftDir, plan);
+        taskState.staticIssues = await validateDraftStatic(taskState.draftDir, plan, unit);
         taskState.runtimeIssues = [];
         taskState.passed = false;
 
@@ -480,85 +477,59 @@ async function executeFamilyGeneration(
         }
 
         taskState.runtimeEvidence = undefined;
-
-        while (true) {
-          const attemptIndex = taskState.runtimeAttemptCount + 1;
-          const runtimeResult = await runRuntimeValidation(
-            workspace,
-            plan,
-            options.runtimeEnvironment,
-            cycle,
-            attemptIndex,
-          );
-          taskState.runtimeAttemptCount = attemptIndex;
-          taskState.runtimeIssues = runtimeResult.issues;
-          taskState.runtimeEvidence = runtimeResult.evidence;
-          await writeJson(
-            path.join(workspace.artifactsDir, `${plan.derivedTaskId}.runtime.cycle-${cycle}.attempt-${attemptIndex}.json`),
-            {
-              passed: runtimeResult.passed,
-              failureKind: runtimeResult.failureKind,
-              issues: issueMessages(runtimeResult.issues),
-              evidence: runtimeResult.evidence,
-            },
-          );
-          await writeJson(path.join(workspace.artifactsDir, `${plan.derivedTaskId}.runtime.cycle-${cycle}.json`), {
+        const attemptIndex = taskState.runtimeAttemptCount + 1;
+        const runtimeResult = await runRuntimeValidation(
+          workspace,
+          plan,
+          options.runtimeEnvironment,
+          cycle,
+          attemptIndex,
+        );
+        taskState.runtimeAttemptCount = attemptIndex;
+        taskState.runtimeIssues = runtimeResult.issues;
+        taskState.runtimeEvidence = runtimeResult.evidence;
+        await writeJson(
+          path.join(workspace.artifactsDir, `${plan.derivedTaskId}.runtime.cycle-${cycle}.attempt-${attemptIndex}.json`),
+          {
             passed: runtimeResult.passed,
             failureKind: runtimeResult.failureKind,
             issues: issueMessages(runtimeResult.issues),
             evidence: runtimeResult.evidence,
-          });
+          },
+        );
+        await writeJson(path.join(workspace.artifactsDir, `${plan.derivedTaskId}.runtime.cycle-${cycle}.json`), {
+          passed: runtimeResult.passed,
+          failureKind: runtimeResult.failureKind,
+          issues: issueMessages(runtimeResult.issues),
+          evidence: runtimeResult.evidence,
+        });
 
-          if (runtimeResult.passed) {
-            taskState.passed = true;
-            taskState.runtimePassedCycle = cycle;
-            break;
-          }
+        if (runtimeResult.passed) {
+          taskState.passed = true;
+          taskState.runtimePassedCycle = cycle;
+          continue;
+        }
 
-          allPassedThisCycle = false;
-          const failureKind = runtimeResult.failureKind;
-          if (failureKind === "harbor-infra" && taskState.infraRetriesUsed < options.maxInfraRetries) {
-            taskState.infraRetriesUsed += 1;
-            await appendManifest({
-              runId: workspace.runId,
-              sourceTaskId: unit.sourceTask.sourceTaskId,
-              derivedTaskId: plan.derivedTaskId,
-              phase: "validate",
-              status: "failed",
-              draftDir: taskState.draftDir,
-              issues: issueMessages(runtimeResult.issues),
-              metadata: {
-                ...buildScopeMetadata(unit, options.runtimeEnvironment),
-                cycle,
-                runtimeAttempt: attemptIndex,
-                runtimeFailureKind: failureKind,
-                infraRetry: taskState.infraRetriesUsed,
-              },
-            });
-            continue;
-          }
+        allPassedThisCycle = false;
+        await appendManifest({
+          runId: workspace.runId,
+          sourceTaskId: unit.sourceTask.sourceTaskId,
+          derivedTaskId: plan.derivedTaskId,
+          phase: "validate",
+          status: "failed",
+          draftDir: taskState.draftDir,
+          issues: issueMessages(runtimeResult.issues),
+          metadata: {
+            ...buildScopeMetadata(unit, options.runtimeEnvironment),
+            cycle,
+            runtimeAttempt: attemptIndex,
+            runtimeFailureKind: runtimeResult.failureKind,
+          },
+        });
 
-          await appendManifest({
-            runId: workspace.runId,
-            sourceTaskId: unit.sourceTask.sourceTaskId,
-            derivedTaskId: plan.derivedTaskId,
-            phase: "validate",
-            status: "failed",
-            draftDir: taskState.draftDir,
-            issues: issueMessages(runtimeResult.issues),
-            metadata: {
-              ...buildScopeMetadata(unit, options.runtimeEnvironment),
-              cycle,
-              runtimeAttempt: attemptIndex,
-              runtimeFailureKind: failureKind,
-            },
-          });
-
-          if (taskState.repairRoundsUsed < options.maxRepairRounds && failureKind !== "harbor-infra") {
-            await repairTaskDraft(codex, unit, workspace, taskState, cycle);
-            repairedThisCycle = true;
-          }
-          break;
+        if (taskState.repairRoundsUsed < options.maxRepairRounds) {
+          await repairTaskDraft(codex, unit, workspace, taskState, cycle);
+          repairedThisCycle = true;
         }
       }
 
@@ -855,7 +826,6 @@ async function main(): Promise<void> {
     quarantineRoot: getStringOption(options, "quarantine-root", QUARANTINE_ROOT)!,
     runtimeEnvironment,
     maxRepairRounds: getNumberOption(options, "max-repair-rounds", 2),
-    maxInfraRetries: getNumberOption(options, "max-infra-retries", 1),
   };
   await ensureRoots(executeOptions);
 

@@ -5,6 +5,7 @@ import path from "node:path";
 export const REPO_ROOT = "/home/levi/Harbor";
 export const SOURCE_TASKS_ROOT = path.join(REPO_ROOT, "tasks_library", "skillsbench", "tasks");
 export const FINAL_TASKS_ROOT = path.join(REPO_ROOT, "tasks_library", "auto_harbor_tasks");
+export const HARBOR_BUILDER_SKILL_ROOT = path.join("/home/levi/.codex/skills", "harbor");
 export const RUNS_ROOT = path.join(REPO_ROOT, "codex_task_builder_v2_runs");
 export const RAW_ROOT = path.join(RUNS_ROOT, "raw");
 export const QUARANTINE_ROOT = path.join(RUNS_ROOT, "quarantine");

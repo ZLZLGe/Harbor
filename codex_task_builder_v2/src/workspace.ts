@@ -3,7 +3,16 @@ import path from "node:path";
 import type { GenerationUnit, SkillInfo } from "./discovery.js";
 import type { DerivedTaskPlan } from "./schema.js";
 import { buildTaskBuilderBrief, relativeDraftPath } from "./prompts.js";
-import { RAW_ROOT, copyDir, ensureDir, makeRunId, pathExists, writeJson, writeText } from "./utils.js";
+import {
+  HARBOR_BUILDER_SKILL_ROOT,
+  RAW_ROOT,
+  copyDir,
+  ensureDir,
+  makeRunId,
+  pathExists,
+  writeJson,
+  writeText,
+} from "./utils.js";
 
 export type FamilyWorkspace = {
   runId: string;
@@ -13,6 +22,8 @@ export type FamilyWorkspace = {
   scopeSlug: string;
   rootDir: string;
   sourceTaskDir: string;
+  builderRefsDir: string;
+  harborBuilderRefDir: string;
   draftsDir: string;
   artifactsDir: string;
   briefPath: string;
@@ -46,6 +57,13 @@ async function copyScopedSourceTask(unit: GenerationUnit, targetDir: string): Pr
   });
 }
 
+async function copyBuilderRefs(targetDir: string): Promise<void> {
+  if (!(await pathExists(HARBOR_BUILDER_SKILL_ROOT))) {
+    throw new Error(`builder harbor skill 不存在: ${HARBOR_BUILDER_SKILL_ROOT}`);
+  }
+  await copyDir(HARBOR_BUILDER_SKILL_ROOT, targetDir);
+}
+
 export async function createFamilyWorkspace(
   unit: GenerationUnit,
   options: {
@@ -58,6 +76,8 @@ export async function createFamilyWorkspace(
   const rawRoot = options.rawRoot ?? RAW_ROOT;
   const rootDir = path.join(rawRoot, runId, sourceTask.sourceTaskId, unit.scopeSlug);
   const sourceTaskDir = path.join(rootDir, "source_task");
+  const builderRefsDir = path.join(rootDir, "builder_refs");
+  const harborBuilderRefDir = path.join(builderRefsDir, "harbor");
   const draftsDir = path.join(rootDir, "drafts");
   const artifactsDir = path.join(rootDir, "artifacts");
   const briefPath = path.join(rootDir, "TASK_BUILDER_BRIEF.md");
@@ -66,6 +86,8 @@ export async function createFamilyWorkspace(
   await ensureDir(draftsDir);
   await ensureDir(artifactsDir);
   await copyScopedSourceTask(unit, sourceTaskDir);
+  await ensureDir(builderRefsDir);
+  await copyBuilderRefs(harborBuilderRefDir);
   await writeText(briefPath, `${buildTaskBuilderBrief(unit)}\n`);
   await writeJson(path.join(artifactsDir, "generation-unit.json"), unit);
 
@@ -77,6 +99,8 @@ export async function createFamilyWorkspace(
     scopeSlug: unit.scopeSlug,
     rootDir,
     sourceTaskDir,
+    builderRefsDir,
+    harborBuilderRefDir,
     draftsDir,
     artifactsDir,
     briefPath,
@@ -166,6 +190,8 @@ export async function findLatestWorkspaceForSource(
     scopeSlug,
     rootDir: latest.rootDir,
     sourceTaskDir: path.join(latest.rootDir, "source_task"),
+    builderRefsDir: path.join(latest.rootDir, "builder_refs"),
+    harborBuilderRefDir: path.join(latest.rootDir, "builder_refs", "harbor"),
     draftsDir: path.join(latest.rootDir, "drafts"),
     artifactsDir,
     briefPath: path.join(latest.rootDir, "TASK_BUILDER_BRIEF.md"),

@@ -1,7 +1,7 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { buildRoleDisplayName, relativeDraftPath } from "./prompts.js";
-import type { SkillMode } from "./discovery.js";
+import { getVisibleSkills, type GenerationUnit, type SkillMode } from "./discovery.js";
 import type { DerivedTaskPlan, FamilyPlan, ReviewResult } from "./schema.js";
 import type { FamilyWorkspace } from "./workspace.js";
 import {
@@ -23,7 +23,7 @@ export type ValidationIssue = {
 };
 
 export type RuntimeEnvironment = "daytona" | "docker";
-export type RuntimeFailureKind = "harbor-preflight" | "harbor-infra" | "harbor-task" | "harbor-reward";
+export type RuntimeFailureKind = "harbor-preflight" | "harbor-task" | "harbor-reward";
 
 export type RuntimePreflightResult = {
   ok: boolean;
@@ -78,6 +78,23 @@ const PUBLIC_REGISTRY_ALLOWLIST = new Set([
   "public.ecr.aws",
 ]);
 
+const AGENT_SKILL_DESTINATION_ALLOWLIST = new Set([
+  "/root/.claude/skills",
+  "/root/.claude/skills/",
+  "/root/.codex/skills",
+  "/root/.codex/skills/",
+  "/root/.opencode/skill",
+  "/root/.opencode/skill/",
+  "/root/.goose/skills",
+  "/root/.goose/skills/",
+  "/root/.factory/skills",
+  "/root/.factory/skills/",
+  "/root/.agents/skills",
+  "/root/.agents/skills/",
+  "/root/.github/skills",
+  "/root/.github/skills/",
+]);
+
 type RuntimeLogEntry = {
   label: string;
   path: string;
@@ -85,6 +102,80 @@ type RuntimeLogEntry = {
 
 function containsCjkCharacters(text: string): boolean {
   return /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/u.test(text);
+}
+
+function escapeRegExp(text: string): string {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function detectSkillRuntimeCoupling(
+  content: string,
+  unit: GenerationUnit,
+): string[] {
+  const detections: string[] = [];
+  const patterns: Array<{ regex: RegExp; label: string }> = [
+    {
+      regex: /\/root\/\.(?:codex|claude|agents|goose|factory|gemini)\/skills\b|\/root\/\.opencode\/skill\b/u,
+      label: "引用已安装 skill 目录",
+    },
+    {
+      regex: /\/(?:app|workspace|workdir|mnt)\/skills\b/u,
+      label: "引用容器内 skills 目录",
+    },
+    {
+      regex: /environment\/skills\b/u,
+      label: "引用 environment/skills 目录",
+    },
+    {
+      regex: /\b(?:sys\.path\.(?:append|insert)|PYTHONPATH=)[^\n]*skills\b/u,
+      label: "通过 path 注入 skills 目录",
+    },
+    {
+      regex: /\b(?:from|import)\s+skills\.[\w.]+|\bpython(?:3)?\s+-m\s+skills\.[\w.]+/u,
+      label: "导入 skills.* 模块",
+    },
+  ];
+
+  const visibleSkillDirNames = getVisibleSkills(unit)
+    .map((skill) => skill.dirName.trim())
+    .filter((dirName) => dirName.length > 0);
+  if (visibleSkillDirNames.length > 0) {
+    const joinedDirNames = visibleSkillDirNames.map((dirName) => escapeRegExp(dirName)).join("|");
+    patterns.push({
+      regex: new RegExp(String.raw`(?:^|[^A-Za-z0-9_])(?:\.\/)?skills\/(?:${joinedDirNames})(?:\/|\b)`, "u"),
+      label: "引用 task 内 shipped skill 路径",
+    });
+  }
+
+  for (const pattern of patterns) {
+    if (pattern.regex.test(content)) {
+      detections.push(pattern.label);
+    }
+  }
+
+  return detections;
+}
+
+async function listFilesRecursive(rootDir: string): Promise<string[]> {
+  if (!(await pathExists(rootDir))) {
+    return [];
+  }
+
+  const entries = await fs.readdir(rootDir, { withFileTypes: true });
+  const files: string[] = [];
+
+  for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
+    const fullPath = path.join(rootDir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await listFilesRecursive(fullPath)));
+      continue;
+    }
+    if (entry.isFile()) {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
 }
 
 function pushTaskIssue(
@@ -476,10 +567,167 @@ function isPrivateRegistryHost(host: string): boolean {
   );
 }
 
+function collectDockerfileInstructions(dockerfile: string): string[] {
+  const instructions: string[] = [];
+  let currentInstruction = "";
+
+  for (const rawLine of dockerfile.split(/\r?\n/)) {
+    const trimmed = rawLine.trim();
+    if (!trimmed || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    const withoutTrailingContinuation = trimmed.endsWith("\\")
+      ? trimmed.slice(0, -1).trimEnd()
+      : trimmed;
+    currentInstruction = currentInstruction.length === 0
+      ? withoutTrailingContinuation
+      : `${currentInstruction} ${withoutTrailingContinuation}`.trim();
+
+    if (trimmed.endsWith("\\")) {
+      continue;
+    }
+
+    instructions.push(currentInstruction);
+    currentInstruction = "";
+  }
+
+  if (currentInstruction.length > 0) {
+    instructions.push(currentInstruction);
+  }
+
+  return instructions;
+}
+
+function normalizeDockerToken(token: string): string {
+  return token.trim().replace(/^['"]|['"]$/g, "");
+}
+
+function isBuildContextRootToken(token: string): boolean {
+  const normalized = normalizeDockerToken(token);
+  return normalized === "." || normalized === "./";
+}
+
+function isRootDestinationToken(token: string): boolean {
+  const normalized = normalizeDockerToken(token);
+  return normalized === "/root" || normalized === "/root/";
+}
+
+function isSkillsSourceToken(token: string): boolean {
+  const normalized = normalizeDockerToken(token);
+  return normalized === "skills" || normalized === "./skills";
+}
+
+type ParsedCopyAddInstruction = {
+  keyword: "COPY" | "ADD";
+  fromOtherStage: boolean;
+  sources: string[];
+  destination: string;
+};
+
+function parseCopyAddInstruction(instruction: string): ParsedCopyAddInstruction | null {
+  const match = instruction.match(/^\s*(COPY|ADD)\b\s*(.*)$/i);
+  if (!match) {
+    return null;
+  }
+
+  const keyword = (match[1] ?? "").toUpperCase() as "COPY" | "ADD";
+  const rest = (match[2] ?? "").trim();
+  const jsonStart = rest.indexOf("[");
+  if (jsonStart >= 0) {
+    const flagsPart = rest.slice(0, jsonStart).trim();
+    const jsonPart = rest.slice(jsonStart).trim();
+
+    try {
+      const parsed = JSON.parse(jsonPart);
+      if (!Array.isArray(parsed) || parsed.length < 2 || parsed.some((value) => typeof value !== "string")) {
+        return null;
+      }
+
+      return {
+        keyword,
+        fromOtherStage: /(?:^|\s)--from=\S+/i.test(flagsPart),
+        sources: parsed.slice(0, -1) as string[],
+        destination: parsed[parsed.length - 1] as string,
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  const tokens = rest.split(/\s+/).filter((token) => token.length > 0);
+  const sourcesAndDestination: string[] = [];
+  let fromOtherStage = false;
+
+  for (const token of tokens) {
+    if (/^--from=/i.test(token)) {
+      fromOtherStage = true;
+      continue;
+    }
+    if (token.startsWith("--")) {
+      continue;
+    }
+    sourcesAndDestination.push(token);
+  }
+
+  if (sourcesAndDestination.length < 2) {
+    return null;
+  }
+
+  return {
+    keyword,
+    fromOtherStage,
+    sources: sourcesAndDestination.slice(0, -1),
+    destination: sourcesAndDestination[sourcesAndDestination.length - 1] ?? "",
+  };
+}
+
+function validateDockerfileLayoutRules(dockerfile: string): string[] {
+  const issues = new Set<string>();
+  const instructions = collectDockerfileInstructions(dockerfile);
+
+  if (!instructions.some((instruction) => /^\s*WORKDIR\b/i.test(instruction))) {
+    issues.add("environment/Dockerfile 必须显式声明 WORKDIR");
+  }
+
+  for (const instruction of instructions) {
+    const parsedInstruction = parseCopyAddInstruction(instruction);
+    if (!parsedInstruction) {
+      continue;
+    }
+
+    const { fromOtherStage, sources, destination } = parsedInstruction;
+    const normalizedDestination = normalizeDockerToken(destination);
+
+    if (
+      !fromOtherStage &&
+      sources.length === 1 &&
+      isBuildContextRootToken(sources[0] ?? "") &&
+      isRootDestinationToken(destination)
+    ) {
+      issues.add(
+        "environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染",
+      );
+    }
+
+    if (
+      sources.length === 1 &&
+      isSkillsSourceToken(sources[0] ?? "") &&
+      !AGENT_SKILL_DESTINATION_ALLOWLIST.has(normalizedDestination)
+    ) {
+      issues.add(
+        `environment/Dockerfile 把 skills 复制到了普通运行时路径 ${normalizedDestination}；这会把 skill 内容暴露到非 agent skill 路径，破坏有技能/无技能对照`,
+      );
+    }
+  }
+
+  return [...issues];
+}
+
 export function validateDockerfileBaseImages(dockerfile: string): string[] {
   const issues: string[] = [];
   const stageAliases = new Set<string>();
-  const fromLines = dockerfile.split(/\r?\n/);
+  const fromLines = collectDockerfileInstructions(dockerfile);
 
   for (const line of fromLines) {
     const match = line.match(/^\s*FROM(?:\s+--platform=\S+)?\s+([^\s]+)(?:\s+AS\s+([A-Za-z0-9._-]+))?/i);
@@ -539,6 +787,7 @@ export function validateDockerfileBaseImages(dockerfile: string): string[] {
 export async function validateDraftStatic(
   draftDir: string,
   plan: DerivedTaskPlan,
+  unit: GenerationUnit,
 ): Promise<ValidationIssue[]> {
   const issues: ValidationIssue[] = [];
   const skillsDir = path.join(draftDir, "environment", "skills");
@@ -588,13 +837,21 @@ export async function validateDraftStatic(
       taskId: plan.derivedTaskId,
       message: "缺少 environment/skills 目录",
     });
-  } else if (plan.skillMode === "per-skill") {
+  } else {
     const skillDirNames = (await fs.readdir(skillsDir, { withFileTypes: true }))
       .filter((entry) => entry.isDirectory())
       .map((entry) => entry.name)
       .sort((a, b) => a.localeCompare(b));
+    const expectedSkillDirNames =
+      unit.skillMode === "per-skill"
+        ? unit.targetSkill?.dirName
+          ? [unit.targetSkill.dirName]
+          : []
+        : unit.sourceTask.skills.map((skill) => skill.dirName).sort((a, b) => a.localeCompare(b));
+    const missingSkillDirs = expectedSkillDirNames.filter((dirName) => !skillDirNames.includes(dirName));
+    const unexpectedSkillDirs = skillDirNames.filter((dirName) => !expectedSkillDirNames.includes(dirName));
 
-    if (skillDirNames.length !== 1) {
+    if (plan.skillMode === "per-skill" && skillDirNames.length !== 1) {
       issues.push({
         scope: "static",
         taskId: plan.derivedTaskId,
@@ -602,11 +859,19 @@ export async function validateDraftStatic(
       });
     }
 
-    if (skillDirNames[0] !== plan.targetSkillDirName) {
+    if (missingSkillDirs.length > 0) {
       issues.push({
         scope: "static",
         taskId: plan.derivedTaskId,
-        message: `per-skill 任务的唯一 skill 应为 ${plan.targetSkillDirName}，当前为 ${skillDirNames[0] ?? "missing"}`,
+        message: `environment/skills 缺少预期 skill 目录: ${missingSkillDirs.join(", ")}`,
+      });
+    }
+
+    if (unexpectedSkillDirs.length > 0) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: `environment/skills 存在非预期 skill 目录: ${unexpectedSkillDirs.join(", ")}`,
       });
     }
   }
@@ -752,6 +1017,14 @@ export async function validateDraftStatic(
       });
     }
 
+    for (const dockerIssue of validateDockerfileLayoutRules(dockerfile)) {
+      issues.push({
+        scope: "static",
+        taskId: plan.derivedTaskId,
+        message: dockerIssue,
+      });
+    }
+
     for (const dockerIssue of validateDockerfileBaseImages(dockerfile)) {
       issues.push({
         scope: "static",
@@ -759,6 +1032,25 @@ export async function validateDraftStatic(
         message: dockerIssue,
       });
     }
+  }
+
+  const couplingScanPaths = [
+    ...(await listFilesRecursive(path.join(draftDir, "solution"))),
+    ...(await listFilesRecursive(path.join(draftDir, "tests"))),
+  ];
+
+  for (const fullPath of couplingScanPaths) {
+    const relativePath = path.relative(draftDir, fullPath);
+    const detections = detectSkillRuntimeCoupling(await readText(fullPath), unit);
+    if (detections.length === 0) {
+      continue;
+    }
+
+    issues.push({
+      scope: "static",
+      taskId: plan.derivedTaskId,
+      message: `${relativePath} 直接依赖 skill 模块或路径（${detections.join("、")}）；参考解与 verifier 必须与 skill 解耦`,
+    });
   }
 
   return issues;
@@ -773,12 +1065,6 @@ function compactOutputSummary(text: string): string {
     return "未提供错误输出";
   }
   return lines.slice(0, 4).join(" | ").slice(0, 500);
-}
-
-function isInfraRuntimeOutput(output: string): boolean {
-  return /cannot connect to the docker daemon|error getting credentials|no valid drivers found|permission denied while trying to connect|i\/o timeout|tls handshake timeout|connection reset|connection refused|temporary failure|temporarily unavailable|service unavailable|gateway timeout|context deadline exceeded|daytona|rpc error|transport error|network is unreachable|dial tcp|failed to fetch|too many requests/i.test(
-    output,
-  );
 }
 
 function readEnvValue(env: NodeJS.ProcessEnv, key: string): string | null {
@@ -1098,11 +1384,10 @@ export async function runRuntimeValidation(
   ]);
 
   if (!trialResultPath) {
-    const failureKind: RuntimeFailureKind = isInfraRuntimeOutput(combinedOutput) ? "harbor-infra" : "harbor-task";
     return {
       passed: false,
       issues: [runtimeIssue(plan.derivedTaskId, `harbor run 未产出可解析的 result.json: ${summary}`)],
-      failureKind,
+      failureKind: "harbor-task",
       evidence: baseRuntimeEvidence,
     };
   }
@@ -1111,11 +1396,10 @@ export async function runRuntimeValidation(
   try {
     trialResult = JSON.parse(await readText(trialResultPath)) as unknown;
   } catch {
-    const failureKind: RuntimeFailureKind = isInfraRuntimeOutput(combinedOutput) ? "harbor-infra" : "harbor-task";
     return {
       passed: false,
       issues: [runtimeIssue(plan.derivedTaskId, "harbor trial result.json 解析失败，详见 harbor-run.log")],
-      failureKind,
+      failureKind: "harbor-task",
       evidence: baseRuntimeEvidence,
     };
   }
@@ -1138,15 +1422,10 @@ export async function runRuntimeValidation(
       typeof exception.exception_message === "string"
         ? exception.exception_message.slice(0, 300)
         : "未提供 exception_message";
-    const failureKind: RuntimeFailureKind = isInfraRuntimeOutput(
-      `${exceptionType}\n${exceptionMessage}\n${combinedOutput}`,
-    )
-      ? "harbor-infra"
-      : "harbor-task";
     return {
       passed: false,
       issues: [runtimeIssue(plan.derivedTaskId, `harbor oracle 运行异常: ${exceptionType}: ${exceptionMessage}`)],
-      failureKind,
+      failureKind: "harbor-task",
       evidence: baseRuntimeEvidence,
     };
   }
@@ -1182,11 +1461,10 @@ export async function runRuntimeValidation(
   }
 
   if (runResult.code !== 0) {
-    const failureKind: RuntimeFailureKind = isInfraRuntimeOutput(combinedOutput) ? "harbor-infra" : "harbor-task";
     return {
       passed: false,
       issues: [runtimeIssue(plan.derivedTaskId, `harbor run 返回非零退出码: ${summary}`)],
-      failureKind,
+      failureKind: "harbor-task",
       evidence: {
         ...baseRuntimeEvidence,
         reward,

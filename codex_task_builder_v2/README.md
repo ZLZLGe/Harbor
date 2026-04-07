@@ -2,6 +2,10 @@
 
 `codex_task_builder_v2/` 是新的 Harbor 任务自动构造流水线实现，目标是把 planner、writer、reviewer、Oracle 校验和 repair 串成一条自动闭环，而不是只停留在“生成后再手动改 Oracle 失败任务”。
 
+补充文档：
+
+- `TASK_BUILDER_FLOW.md`：按源码梳理的完整造任务流程说明
+
 ## 目录约定
 
 - source root: `/home/levi/Harbor/tasks_library/skillsbench/tasks`
@@ -27,8 +31,12 @@
 - 支持 `all` / `per-skill` 两种技能作用域
 - 支持 `--similar-count` 与 `--transfer-count` 自定义 family 规模
 - 支持 `--concurrency` 进行 family 级并发
+- 每个 family workspace 会同时提供：
+  - `source_task/`
+  - `builder_refs/harbor/`
 - family 内部按顺序执行 Oracle 校验
 - Oracle 失败后自动把 reviewer/static/runtime 问题和完整 Harbor/Daytona 日志回灌给 Codex repair
+- runtime 失败不再区分 infra retry 和 repair retry；每个 cycle 每个任务只跑一次 runtime，失败后统一进入 repair 流
 - raw / final / quarantine 三层产物分离
 - `plan.json` 会保留在 draft 和最终任务目录里
 - 最终 Harbor 任务的用户可见描述强制使用英文
@@ -36,6 +44,7 @@
   - `plan.json`
   - task metadata
   - instruction/task metadata 英文约束
+  - `environment/skills` 与当前 `all` / `per-skill` scope 的精确一致性
   - 固定 `[environment]` 资源配额
   - Dockerfile 公共镜像策略
 - runtime validate 默认走 Harbor 官方 Oracle：
@@ -89,7 +98,6 @@ npm run generate-family -- \
   --similar-count 1 \
   --transfer-count 1 \
   --max-repair-rounds 2 \
-  --max-infra-retries 1 \
   --concurrency 3
 ```
 
@@ -171,6 +179,11 @@ npm run review -- \
   - 原始 workspace/runs 根目录。
   - 默认值：`/home/levi/Harbor/codex_task_builder_v2_runs/raw`
   - planner、writer、reviewer、runtime 日志、repair 记录都会先落在这里。
+  - 单个 family workspace 下会生成：
+    - `source_task/`
+    - `builder_refs/harbor/`
+    - `drafts/`
+    - `artifacts/`
   - 每次 Oracle 尝试会落在：
     - `<raw-root>/<run-id>/<source-task>/<scope>/artifacts/runtime/<task>/cycle-<cycle>-attempt-<attempt>/`
 
@@ -191,14 +204,8 @@ npm run review -- \
 - `--max-repair-rounds`
   - 单个任务最多允许 Codex 做多少轮修复。
   - 默认值：`2`
-  - 适用于 reviewer/static 失败，以及非 infra 的 runtime 失败。
+  - 适用于 reviewer/static 失败，以及全部 runtime 失败。
   - 每做一轮 repair，后续 Oracle 会使用新的 `jobs-dir` 和 `job-name` 真正重跑。
-
-- `--max-infra-retries`
-  - 单个任务在遇到基础设施类 runtime 失败时，最多额外重跑多少次 Oracle。
-  - 默认值：`1`
-  - 这里的 infra 失败是代码里的启发式判定，例如 Daytona/网络/Harbor 宿主异常。
-  - 这种重试不会消耗 `repair-rounds`。
 
 - `--limit`
   - 最多处理多少个生成单元。
@@ -250,7 +257,8 @@ npm run review -- \
 
 - 不会修改旧目录 `/home/levi/Harbor/codex_task_builder`
 - Daytona Oracle 超过 5 分钟是正常的；当前实现不会用固定 5 分钟超时去杀掉运行
-- repair prompt 会显式告诉 Codex：可以直接读取完整 Daytona 日志目录，而不只是 `harbor-run.log`/`result.json`
+- repair prompt 会显式告诉 Codex：把完整 Daytona 日志目录当作主入口，而不只是盯住 `harbor-run.log`/`result.json`
+- runtime 失败统一进入 repair；当前实现不再单独维护 `infra retry`
 - 发布阶段不执行删除操作；final/quarantine 目录都是通过选择性复制生成
 - 最终发布目录只复制：
   - `task.toml`
