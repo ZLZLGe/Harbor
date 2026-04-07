@@ -1,4 +1,4 @@
-# 模板任务
+# debugging类模板任务
 
 ## 任务元数据
 - 任务名称：`nextjs-commerce-runtime-regression-debugging`
