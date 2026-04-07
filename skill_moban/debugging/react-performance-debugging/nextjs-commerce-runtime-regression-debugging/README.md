@@ -20,12 +20,6 @@
 - 数据都指向 `www.gutenberg.org`。
 - 隐藏服务 [server.ts](./environment/api-simulator/src/server.ts) 直接返回这份数据，基线和 oracle 也都通过了真实数据断言。
 
-## 任务有效性
-- 结论：`通过`
-- [instruction.md](./instruction.md) 只写用户能看到的现象，没有直接告诉 solver 根因。
-- buggy 基线稳定失败 `3` 项，正好对应三类目标问题：冷启动不稳、advanced 加载边界错误、重复交互退化。
-- 成功样本的主要工作也是浏览器复现和 runtime 修复，不是靠额外材料过关。
-
 ## Oracle 结果
 - 通过/失败状态：`通过`
 - 奖励：`1.0`
