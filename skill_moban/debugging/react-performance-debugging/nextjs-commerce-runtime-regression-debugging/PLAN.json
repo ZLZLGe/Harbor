@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "nextjs-commerce-runtime-regression-debugging",
+  "taskRole": "template",
+  "title": "Template: Next.js Browser Runtime Regression Debugging",
+  "goal": "Investigate and fix a real Next.js storefront runtime regression by using browser evidence to stabilize a cold-start hydration path, defer advanced compare code out of the initial chunk set, and stop repeated interactions from accumulating runtime handlers while preserving the real downstream catalog inputs.",
+  "primaryOutputFile": "/app",
+  "difficulty": "hard",
+  "category": "debugging",
+  "skillBenefitRationale": "The debugging category benefits directly because the task forces a realistic browser-first incident workflow: triage symptoms from incident evidence, reproduce them in a live browser, measure visual stability and code-loading behavior, implement a root-cause fix, and defend against shortcuts that bypass the real runtime bottlenecks.",
+  "targetSkillDirName": "debugging",
+  "targetSkillName": "debugging"
+}
