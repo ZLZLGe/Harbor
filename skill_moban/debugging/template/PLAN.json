@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "nextjs-analytics-dashboard-runtime-regression-debugging",
+  "taskRole": "template",
+  "title": "Template: Next.js Analytics Dashboard Runtime Regression Debugging",
+  "goal": "Investigate and fix a real Next.js analytics dashboard runtime regression by reproducing deep-link instability, deferring advanced insights until requested, and stopping long-session interactions from accumulating runtime handlers while preserving the real downstream analytics inputs.",
+  "primaryOutputFile": "/app",
+  "difficulty": "hard",
+  "category": "debugging",
+  "skillBenefitRationale": "The debugging category benefits directly because the task withholds explicit incident artifacts and requires a browser-first workflow: reproduce symptoms in a live browser, measure stability and code-loading behavior, implement a root-cause fix, and defend against shortcuts that bypass the real runtime bottlenecks.",
+  "targetSkillDirName": "debugging",
+  "targetSkillName": "debugging"
+}
