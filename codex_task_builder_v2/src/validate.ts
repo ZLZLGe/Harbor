@@ -17,7 +17,7 @@ import {
 } from "./utils.js";
 
 export type ValidationIssue = {
-  scope: "family" | "reviewer" | "static" | "runtime";
+  scope: "family" | "reviewer" | "static" | "runtime" | "skill-effect";
   message: string;
   taskId?: string;
 };

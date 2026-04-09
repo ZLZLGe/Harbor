@@ -509,6 +509,7 @@ export class CodexTaskBuilderClient {
     reviewerIssues: string[];
     staticIssues: string[];
     runtimeIssues: string[];
+    skillEffectIssues: string[];
     runtimeDir?: string;
     runtimeLogRoot?: string;
     runtimeLogIndexPath?: string;
@@ -519,6 +520,16 @@ export class CodexTaskBuilderClient {
     verifierStdoutPath?: string;
     rewardPath?: string;
     artifactManifestPath?: string;
+    skillEffectResultPath?: string;
+    skillEffectBucket?: string;
+    withSkillLogRoot?: string;
+    withSkillResultPath?: string;
+    withSkillRewardPath?: string;
+    withSkillTrajectoryPath?: string;
+    noSkillLogRoot?: string;
+    noSkillResultPath?: string;
+    noSkillRewardPath?: string;
+    noSkillTrajectoryPath?: string;
     threadId?: string | null;
   }): Promise<StructuredRunResult<RepairTurnResult>> {
     const thread = this.makeThread(args.workspace.rootDir, args.threadId);
@@ -529,6 +540,7 @@ export class CodexTaskBuilderClient {
         reviewerIssues: args.reviewerIssues,
         staticIssues: args.staticIssues,
         runtimeIssues: args.runtimeIssues,
+        skillEffectIssues: args.skillEffectIssues,
         runtimeDir: args.runtimeDir,
         runtimeLogRoot: args.runtimeLogRoot,
         runtimeLogIndexPath: args.runtimeLogIndexPath,
@@ -539,6 +551,16 @@ export class CodexTaskBuilderClient {
         verifierStdoutPath: args.verifierStdoutPath,
         rewardPath: args.rewardPath,
         artifactManifestPath: args.artifactManifestPath,
+        skillEffectResultPath: args.skillEffectResultPath,
+        skillEffectBucket: args.skillEffectBucket,
+        withSkillLogRoot: args.withSkillLogRoot,
+        withSkillResultPath: args.withSkillResultPath,
+        withSkillRewardPath: args.withSkillRewardPath,
+        withSkillTrajectoryPath: args.withSkillTrajectoryPath,
+        noSkillLogRoot: args.noSkillLogRoot,
+        noSkillResultPath: args.noSkillResultPath,
+        noSkillRewardPath: args.noSkillRewardPath,
+        noSkillTrajectoryPath: args.noSkillTrajectoryPath,
       }),
       {
         outputSchema: repairTurnResultJsonSchema,

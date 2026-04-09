@@ -183,6 +183,7 @@ const repairPrompt = buildRepairPrompt({
   reviewerIssues: ["reviewer:similar1 instruction.md 必须使用英文描述，不能包含中文"],
   staticIssues: ["static:similar1 task.toml metadata.description 必须使用英文描述，不能包含中文"],
   runtimeIssues: ["runtime:similar1 harbor verifier reward=0 < 1.0"],
+  skillEffectIssues: ["skill-effect:similar1 真实对照结果为 with_skill pass / no_skill pass；说明 no_skill 也能通过"],
   runtimeDir: "/tmp/runtime/similar1/cycle-1-attempt-2",
   runtimeLogRoot: "/tmp/runtime/similar1/cycle-1-attempt-2",
   runtimeLogIndexPath: "/tmp/runtime/similar1/cycle-1-attempt-2/log-index.json",
@@ -193,6 +194,16 @@ const repairPrompt = buildRepairPrompt({
   verifierStdoutPath: "/tmp/runtime/similar1/cycle-1-attempt-2/verifier/test-stdout.txt",
   rewardPath: "/tmp/runtime/similar1/cycle-1-attempt-2/verifier/reward.txt",
   artifactManifestPath: "/tmp/runtime/similar1/cycle-1-attempt-2/artifacts/manifest.json",
+  skillEffectResultPath: "/tmp/runtime/similar1/skill-effect.cycle-1.json",
+  skillEffectBucket: "with_skill_pass__no_skill_pass",
+  withSkillLogRoot: "/tmp/runtime/similar1/skill-effect/with_skill",
+  withSkillResultPath: "/tmp/runtime/similar1/skill-effect/with_skill/result.json",
+  withSkillRewardPath: "/tmp/runtime/similar1/skill-effect/with_skill/reward.txt",
+  withSkillTrajectoryPath: "/tmp/runtime/similar1/skill-effect/with_skill/trajectory.json",
+  noSkillLogRoot: "/tmp/runtime/similar1/skill-effect/no_skill",
+  noSkillResultPath: "/tmp/runtime/similar1/skill-effect/no_skill/result.json",
+  noSkillRewardPath: "/tmp/runtime/similar1/skill-effect/no_skill/reward.txt",
+  noSkillTrajectoryPath: "/tmp/runtime/similar1/skill-effect/no_skill/trajectory.json",
 });
 const allModeUnit = buildGenerationUnits(sourceTask, {
   skillMode: "all",
@@ -215,6 +226,8 @@ assert.match(brief, /Harbor builder refs: builder_refs\/harbor\//);
 assert.match(brief, /builder_refs\/harbor\/SKILL\.md/);
 assert.match(brief, /hard to solve but easy to verify/);
 assert.match(brief, /任务必须 self-contained/);
+assert.match(brief, /决定性语义都必须能从 instruction\.md 或输入资产直接推出/);
+assert.match(brief, /需要阅读 verifier 或参考解才能消除关键歧义/);
 assert.match(brief, /无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard/);
 assert.match(brief, /不要把任务写成只靠单个明显文件、单条 shell 命令，或浅层 grep\/jq\/排序\/聚合就能完成的小题/);
 assert.match(brief, /answer-like 文件、可直接复制\/改名的 deliverable，或其他明显 no-skill shortcut/);
@@ -294,6 +307,8 @@ assert.match(reviewerPrompt, /environment\/Dockerfile 是否把 skills 复制到
 assert.match(reviewerPrompt, /是否使用英文；只要出现中文，就直接判定失败/);
 assert.match(reviewerPrompt, /plan\.json、task\.toml、instruction、tests、solution 是否互相一致/);
 assert.match(reviewerPrompt, /expected 是否来自输入资产、题目规则或可复算逻辑/);
+assert.match(reviewerPrompt, /决定性语义（如状态更新顺序、时间步长语义、最后一步处理、聚合\/重放口径）是否都能从 instruction\.md 或输入资产直接推出/);
+assert.match(reviewerPrompt, /需要阅读 tests\/solution 才能消除关键歧义，则直接判定失败/);
 assert.match(reviewerPrompt, /fresh state、no-op、仅复制\/改名已有 deliverable、直接搬运任务内现成答案/);
 assert.match(reviewerPrompt, /是否直接引用 environment\/skills\/\*\*、\/root\/\.codex\/skills\/\*\*、\/app\/skills\/\*\*/);
 assert.match(reviewerPrompt, /hard to solve but easy to verify/);
@@ -326,6 +341,11 @@ assert.match(repairPrompt, /优先排查 verifier 契约问题、输入资产复
 assert.match(repairPrompt, /不要通过降低任务难度、补写教程式步骤、暴露关键线索、删除必要干扰项/);
 assert.match(repairPrompt, /继续保持 benchmark 默认 hard 的设计目标/);
 assert.match(repairPrompt, /修复后仍要避免明显 no-skill shortcut，并保持相关 skill 依然是关键瓶颈/);
+assert.match(repairPrompt, /skill-effect:/);
+assert.match(repairPrompt, /skill-effect 总结 JSON/);
+assert.match(repairPrompt, /with_skill trajectory/);
+assert.match(repairPrompt, /no_skill trajectory/);
+assert.match(repairPrompt, /必须同时检查 with_skill \/ no_skill 两边的日志、result\.json、reward 和 trajectory/);
 assert.equal(repairPrompt.includes("实验污染"), false);
 assert.equal(repairPrompt.includes("无技能对照"), false);
 

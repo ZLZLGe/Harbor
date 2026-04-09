@@ -116,6 +116,8 @@ function renderVerifierDesignPrinciples(): string {
     - 如果任务较复杂，tests 应拆成若干可验证单元，分别覆盖关键结果，而不是只保留一个含糊的大断言。
     - verifier 应优先检查这些维度：输出是否存在、格式是否正确、结果语义是否正确、相关系统状态是否正确、边界条件是否被正确处理。
     - 任务必须 self-contained；完成任务所需的关键信息必须出现在 instruction.md 或提供的输入资产中，不能依赖隐含前提。
+    - verifier 用到的任何决定性语义都必须能从 instruction.md 或输入资产直接推出，不能只隐含在 tests/solution 中；如果一个认真执行的 agent 需要阅读 verifier 或参考解才能消除关键歧义，则该任务不合格。
+    - 这类决定性语义包括但不限于状态更新顺序、时间步长语义、最后一步处理、聚合规则、容差口径和 replay 口径。
     - verifier 和运行环境应尽量保持稳定一致，避免明显依赖随机性、脆弱时序或难以复现的外部状态。
     - 如果使用 Python verifier，优先采用 pytest 风格组织这些可验证单元。
   `);
@@ -451,6 +453,7 @@ export function buildReviewerPrompt(
       - 是否存在 set -e/pipefail 导致写 reward 前提前退出的路径
       - solution/solve.sh 是否只是复制、搬运或暴露随任务提供的完整标准答案
       - tests/test_outputs.py 是否只检查 instruction.md 明示的输出契约，而没有引入隐藏要求
+      - verifier 用到的决定性语义（如状态更新顺序、时间步长语义、最后一步处理、聚合/重放口径）是否都能从 instruction.md 或输入资产直接推出；如果需要阅读 tests/solution 才能消除关键歧义，则直接判定失败
       - tests/test_outputs.py 是否把合法解法锁死到某种内部实现细节，而不是校验结果语义
       - tests/test_outputs.py 的 expected 是否来自输入资产、题目规则或可复算逻辑，而不是现成答案文件
       - 是否滥用 snapshot/golden 文件，导致 agent 可以通过复制现成答案过关
@@ -492,6 +495,7 @@ export function buildRepairPrompt(args: {
   reviewerIssues: string[];
   staticIssues: string[];
   runtimeIssues: string[];
+  skillEffectIssues: string[];
   runtimeDir?: string;
   runtimeLogRoot?: string;
   runtimeLogIndexPath?: string;
@@ -502,6 +506,16 @@ export function buildRepairPrompt(args: {
   verifierStdoutPath?: string;
   rewardPath?: string;
   artifactManifestPath?: string;
+  skillEffectResultPath?: string;
+  skillEffectBucket?: string;
+  withSkillLogRoot?: string;
+  withSkillResultPath?: string;
+  withSkillRewardPath?: string;
+  withSkillTrajectoryPath?: string;
+  noSkillLogRoot?: string;
+  noSkillResultPath?: string;
+  noSkillRewardPath?: string;
+  noSkillTrajectoryPath?: string;
 }): string {
   const reviewerBlock =
     args.reviewerIssues.length > 0
@@ -515,6 +529,10 @@ export function buildRepairPrompt(args: {
     args.runtimeIssues.length > 0
       ? args.runtimeIssues.map((issue) => `- ${issue}`).join("\n")
       : "- 无 runtime 问题";
+  const skillEffectBlock =
+    args.skillEffectIssues.length > 0
+      ? args.skillEffectIssues.map((issue) => `- ${issue}`).join("\n")
+      : "- 无 skill-effect 问题";
 
   return dedent(`
     你正在修复一个 Harbor task 草稿。
@@ -534,6 +552,9 @@ export function buildRepairPrompt(args: {
     runtime:
     ${runtimeBlock}
 
+    skill-effect:
+    ${skillEffectBlock}
+
     你还可以读取这些运行证据:
     - 本次 Oracle runtime 完整日志目录: ${args.runtimeLogRoot ?? args.runtimeDir ?? "当前没有完整 runtime 目录"}
     - 日志索引: ${args.runtimeLogIndexPath ?? "当前没有 log-index.json"}
@@ -544,6 +565,16 @@ export function buildRepairPrompt(args: {
     - verifier 输出: ${args.verifierStdoutPath ?? "当前没有 verifier/test-stdout.txt"}
     - reward 文件: ${args.rewardPath ?? "当前没有 reward.txt/reward.json"}
     - artifacts manifest: ${args.artifactManifestPath ?? "当前没有 artifacts/manifest.json"}
+    - skill-effect 总结 JSON: ${args.skillEffectResultPath ?? "当前没有 skill-effect result json"}
+    - skill-effect bucket: ${args.skillEffectBucket ?? "当前没有 skill-effect bucket"}
+    - with_skill 日志根目录: ${args.withSkillLogRoot ?? "当前没有 with_skill log root"}
+    - with_skill 结果 JSON: ${args.withSkillResultPath ?? "当前没有 with_skill result.json"}
+    - with_skill reward 文件: ${args.withSkillRewardPath ?? "当前没有 with_skill reward"}
+    - with_skill trajectory: ${args.withSkillTrajectoryPath ?? "当前没有 with_skill trajectory.json"}
+    - no_skill 日志根目录: ${args.noSkillLogRoot ?? "当前没有 no_skill log root"}
+    - no_skill 结果 JSON: ${args.noSkillResultPath ?? "当前没有 no_skill result.json"}
+    - no_skill reward 文件: ${args.noSkillRewardPath ?? "当前没有 no_skill reward"}
+    - no_skill trajectory: ${args.noSkillTrajectoryPath ?? "当前没有 no_skill trajectory.json"}
 
     修复要求:
     - 优先最小化改动，只修当前列出的问题。
@@ -566,6 +597,8 @@ export function buildRepairPrompt(args: {
     - log-index.json、harbor-run.log、job.log、trial.log、verifier/test-stdout.txt、reward 文件、result.json、artifacts/manifest.json 只是常见线索，不是固定顺序。
     - 不要只根据 reward=0、摘要 issue 或 failure label 猜问题；如果 runtime 日志或 result.json 暴露了 Harbor oracle/runtime 失败原因，必须优先根据日志修正。
     - 优先排查 verifier 契约问题、输入资产复制问题、运行时路径错误、目录未创建、reward 未稳定落盘等高频问题。
+    - 如果命中了 skill-effect 问题，必须同时检查 with_skill / no_skill 两边的日志、result.json、reward 和 trajectory，优先修复“no_skill 也能通过”或“with_skill 反而更差”的根因。
+    - skill-effect 相关修复优先方向包括：收紧 verifier、移除 no-skill shortcut、减少题面或资产对解法结构的泄漏、消除只会误导 with_skill 的歧义约束。
 
     完成修改后，返回严格 JSON:
     {

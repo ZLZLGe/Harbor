@@ -10,6 +10,7 @@
 ## 目录约定
 
 - source root: `/home/levi/Harbor/tasks_library/skillsbench/tasks`
+- runs root: `/home/levi/Harbor/codex_task_builder_v2_runs`
 - raw runs root: `/home/levi/Harbor/codex_task_builder_v2_runs/raw`
 - quarantine root: `/home/levi/Harbor/codex_task_builder_v2_runs/quarantine`
 - final tasks root: `/home/levi/Harbor/tasks_library/auto_harbor_tasks`
@@ -93,6 +94,7 @@ npm run inventory -- --source-root /home/levi/Harbor/tasks_library/skillsbench/t
 ```bash
 cd /home/levi/Harbor/codex_task_builder_v2
 export E2B_API_KEY="your_e2b_api_key_here"
+export OPENAI_API_KEY="your_openai_api_key_here"
 npm run generate-family -- \
   --source-task-id setup-fuzzing-py \
   --skill-mode per-skill \
@@ -107,6 +109,7 @@ npm run generate-family -- \
 ```bash
 cd /home/levi/Harbor/codex_task_builder_v2
 export E2B_API_KEY="your_e2b_api_key_here"
+export OPENAI_API_KEY="your_openai_api_key_here"
 npm run batch -- \
   --skill-mode per-skill \
   --similar-count 1 \
@@ -179,7 +182,7 @@ npm run review -- \
 - `--raw-root`
   - 原始 workspace/runs 根目录。
   - 默认值：`/home/levi/Harbor/codex_task_builder_v2_runs/raw`
-  - planner、writer、reviewer、runtime 日志、repair 记录都会先落在这里。
+  - planner、writer、reviewer、runtime 日志、skill-effect 对照日志、repair 记录都会先落在这里。
   - 单个 family workspace 下会生成：
     - `source_task/`
     - `builder_refs/harbor/`
@@ -187,6 +190,15 @@ npm run review -- \
     - `artifacts/`
   - 每次 Oracle 尝试会落在：
     - `<raw-root>/<run-id>/<source-task>/<scope>/artifacts/runtime/<task>/cycle-<cycle>-attempt-<attempt>/`
+  - 每次 skill-effect 对照会落在：
+    - `<raw-root>/<run-id>/<source-task>/<scope>/artifacts/skill_effect/<task>/cycle-<cycle>-attempt-<attempt>/with_skill`
+    - `<raw-root>/<run-id>/<source-task>/<scope>/artifacts/skill_effect/<task>/cycle-<cycle>-attempt-<attempt>/no_skill`
+
+- `--runs-root`
+  - phase 级 manifest 和 run summary 的根目录。
+  - 默认值：`/home/levi/Harbor/codex_task_builder_v2_runs`
+  - 如果显式传入，`manifest.jsonl` 和 `<run-id>.json` 会写到这里。
+  - 如果没传，但 `--raw-root` 是自定义值，则默认取 `dirname(raw-root)` 作为 `runs-root`，这样 smoke/实验产物会自动收拢到同一个根目录。
 
 - `--final-root`
   - 最终发布任务根目录。
@@ -205,8 +217,19 @@ npm run review -- \
 - `--max-repair-rounds`
   - 单个任务最多允许 Codex 做多少轮修复。
   - 默认值：`2`
-  - 适用于 reviewer/static 失败，以及全部 runtime 失败。
+  - 适用于 reviewer/static 失败、Oracle runtime 失败，以及 skill-effect gate 失败。
   - 每做一轮 repair，后续 Oracle 会使用新的 `jobs-dir` 和 `job-name` 真正重跑。
+
+- `--skip-skill-effect-gate`
+  - 可选 flag。
+  - 默认不传，即默认开启 skill-effect gate。
+  - 传入后会跳过“Oracle 通过后再真实对照跑 with_skill / no_skill”的阶段。
+  - 只有在你明确只想保留旧行为时才建议使用。
+
+- `--skill-effect-model`
+  - 控制 skill-effect gate 里真实对照使用的 agent model。
+  - 默认值：`openai/gpt-5.4`
+  - 当前实现固定用 `codex` agent，区别只在 model 名称。
 
 - `--limit`
   - 最多处理多少个生成单元。
@@ -238,6 +261,14 @@ npm run review -- \
 - `DAYTONA_API_KEY`
   - 当 runtime 环境是 `daytona` 时必须提供。
 
+- `OPENAI_API_KEY`
+  - 当启用默认 skill-effect gate 时必须提供。
+  - 这部分不是给 planner/writer/reviewer 的 SDK 调用，而是给 Harbor `codex` 实跑 with_skill / no_skill 对照使用。
+
+- `OPENAI_BASE_URL`
+  - 可选。
+  - 如果要走兼容 OpenAI API 的代理或中转地址，可以在这里指定；skill-effect gate 会透传给 Harbor `codex` 运行。
+
 - `CODEX_TASK_BUILDER_RUNTIME_ENV`
   - runtime 校验后端。
   - 可选值：`e2b`、`daytona`、`docker`
@@ -263,6 +294,17 @@ npm run review -- \
 - Harbor Oracle runtime 超过 5 分钟是正常的；当前实现不会用固定 5 分钟超时去杀掉运行
 - repair prompt 会显式告诉 Codex：把完整 runtime 日志目录当作主入口，而不只是盯住 `harbor-run.log`/`result.json`
 - runtime 失败统一进入 repair；当前实现不再单独维护 `infra retry`
+- 默认开启 skill-effect gate：Oracle 通过后，还会真实跑一轮 `with_skill` 和一轮临时派生的 `no_skill`
+- 当前 no-skill 派生策略是只删除 Dockerfile 里的 `COPY skills ...` 行，不删除 `environment/skills/` 目录
+- skill-effect gate 只接受两类结果：
+  - `with_skill_pass__no_skill_fail`
+  - `with_skill_fail__no_skill_fail`
+- 以下两类结果会直接回 repair，而不是发布：
+  - `with_skill_pass__no_skill_pass`
+  - `with_skill_fail__no_skill_pass`
+- 发布或隔离时，会额外镜像一份到 bucket 目录，便于后续统计：
+  - `<final-root>/_skill_effect_buckets/<bucket>/<source-task-id>/<scope>/<task-name>`
+  - `<quarantine-root>/_skill_effect_buckets/<bucket>/<source-task-id>/<scope>/<task-name>`
 - 发布阶段不执行删除操作；final/quarantine 目录都是通过选择性复制生成
 - 最终发布目录只复制：
   - `task.toml`
@@ -278,6 +320,7 @@ npm run review -- \
 - `quarantine-root` 不参与“任务数量是否已满足”的判断；只有 `final-root` 中的任务会被视为已发布完成
 - 当前“是否已发布完成”的判断基于 `final-root` 下目录是否存在，而不是对目录内容做完整性校验
 - 如果发布阶段中途被打断，导致 `final-root` 或 `quarantine-root` 留下残缺目录，需要人工确认并清理对应目录后再重跑；否则后续补齐流程可能把它误判为已存在任务
+- `manifest.jsonl` 和 `<run-id>.json` 不再固定绑定全局目录；它们默认跟随 `runs-root`，而 `runs-root` 在自定义 `raw-root` 时会默认跟随 `dirname(raw-root)`
 - Dockerfile 不允许使用本地私有镜像或私有 registry
 - family 级并发只影响“同时处理多少个输入单元”；单个 family 内部的 Oracle 仍然按任务顺序串行执行
 

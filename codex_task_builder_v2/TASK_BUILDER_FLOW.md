@@ -6,12 +6,12 @@
 
 `codex_task_builder_v2` 不是一个单纯的“任务生成器”，而是一条闭环流水线：
 
-`planner -> writer -> reviewer -> static validate -> Harbor Oracle runtime -> repair -> publish/quarantine`
+`planner -> writer -> reviewer -> static validate -> Harbor Oracle runtime -> skill-effect gate -> repair -> publish/quarantine`
 
 核心目标有两个：
 
 1. 自动从已有 source task 构造新的 Harbor task family。
-2. 不只生成草稿，还要自动做审稿、静态校验、Oracle 运行和失败修复。
+2. 不只生成草稿，还要自动做审稿、静态校验、Oracle 运行、真实 with/no-skill 对照和失败修复。
 
 ---
 
@@ -19,6 +19,7 @@
 
 默认目录约定如下：
 
+- runs root：`/home/levi/Harbor/codex_task_builder_v2_runs`
 - source tasks：`/home/levi/Harbor/tasks_library/skillsbench/tasks`
 - raw runs：`/home/levi/Harbor/codex_task_builder_v2_runs/raw`
 - quarantine：`/home/levi/Harbor/codex_task_builder_v2_runs/quarantine`
@@ -181,6 +182,8 @@ CLI 支持四类命令：
 - 如果 runtime 环境是 `docker`
   - 是否存在 `docker`
   - `docker info` 是否正常
+- 如果启用了默认 skill-effect gate
+  - 是否设置了 `OPENAI_API_KEY`
 
 preflight 失败会直接终止，不进入生成阶段。
 
@@ -205,7 +208,7 @@ preflight 失败会直接终止，不进入生成阶段。
 - `source_task/` 是本轮 source task 的工作副本
 - `builder_refs/harbor/` 是 Harbor builder 参考资料
 - `drafts/` 是本轮派生任务草稿
-- `artifacts/` 存 planner/writer/reviewer/runtime/repair 的输出
+- `artifacts/` 存 planner/writer/reviewer/runtime/skill-effect/repair 的输出
 - `TASK_BUILDER_BRIEF.md` 是给 Codex 的统一总纲
 
 在 `per-skill` 模式下，复制 `source_task/` 时只保留当前目标 skill，不会把其他 skills 一并带入。
@@ -410,13 +413,55 @@ runtime 阶段会收集这些证据：
 
 只要任意一条失败，就会生成 runtime issue。
 
-### 第 11 步：repair
+runtime 通过后，任务不会立刻发布，而是继续进入 skill-effect gate。
+
+### 第 11 步：skill-effect gate
+
+这是当前版本相对旧版 builder 的新增阶段。
+
+对每个已经通过 Oracle runtime 的 draft，程序会继续做一轮真实对照：
+
+1. 直接拿当前 draft 跑 `with_skill`
+2. 临时复制一份 draft，删除 Dockerfile 里的 `COPY skills ...` 行，得到 `no_skill`
+3. 再用 Harbor `codex` + 指定 model 真实跑 `no_skill`
+
+当前默认 model 是 `openai/gpt-5.4`，可通过 `--skill-effect-model` 覆盖；如果传 `--skip-skill-effect-gate`，这一步会被跳过。
+
+对照结果会被分成四类 bucket：
+
+- `with_skill_pass__no_skill_fail`
+- `with_skill_fail__no_skill_fail`
+- `with_skill_pass__no_skill_pass`
+- `with_skill_fail__no_skill_pass`
+
+其中只有前两类被视为可接受：
+
+- `with_skill_pass__no_skill_fail`
+  - 说明 skill 真正改变了解题成败
+- `with_skill_fail__no_skill_fail`
+  - 说明任务整体仍然够难，至少没有出现 no-skill shortcut
+
+后两类会直接进入 repair：
+
+- `with_skill_pass__no_skill_pass`
+  - 说明 no-skill 也能过，skill bottleneck 不够硬
+- `with_skill_fail__no_skill_pass`
+  - 说明出现 with-skill 反向劣势，必须修复
+
+这一阶段会把 with/no 两边的 `harbor-run.log`、`result.json`、reward、trajectory 等证据都落到：
+
+```text
+artifacts/skill_effect/<task-id>/cycle-<cycle>-attempt-<attempt>/
+```
+
+### 第 12 步：repair
 
 如果某个任务在以下任一阶段失败：
 
 - reviewer
 - static validate
 - runtime validate
+- skill-effect gate
 
 并且还没超过 `maxRepairRounds`，程序就会触发 repair。
 
@@ -425,6 +470,7 @@ repair 不只是给 Codex 一句“失败了”，而是把完整证据喂回去
 - reviewer issues
 - static issues
 - runtime issues
+- skill-effect issues
 - `runtimeDir`
 - `log-index.json`
 - `harbor-run.log`
@@ -434,12 +480,13 @@ repair 不只是给 Codex 一句“失败了”，而是把完整证据喂回去
 - `reward.txt/reward.json`
 - `result.json`
 - `artifacts/manifest.json`
+- with_skill / no_skill 两边的日志、result、reward、trajectory 路径
 
 repair 会：
 
 - 尽量最小化修改
 - 继续使用同一个 repair thread
-- 修完后进入下一轮 reviewer/static/runtime
+- 修完后进入下一轮 reviewer/static/runtime/skill-effect
 
 直到：
 
@@ -447,7 +494,7 @@ repair 会：
 - 没有 repair 额度了，或
 - 本轮没有新的修复动作
 
-### 第 12 步：发布或隔离
+### 第 13 步：发布或隔离
 
 循环结束后，每个任务只有两种去向：
 
@@ -466,6 +513,13 @@ repair 会：
 - `tests/`
 
 不会执行删除操作。
+
+如果某个任务做过 skill-effect 对照，还会额外镜像到 bucket 目录，便于后续统计：
+
+```text
+<final-root>/_skill_effect_buckets/<bucket>/<source-task-id>/<scope>/<task-name>
+<quarantine-root>/_skill_effect_buckets/<bucket>/<source-task-id>/<scope>/<task-name>
+```
 
 如果目标目录已经存在，会标记为 `existing`，不会强制覆盖。
 
@@ -493,16 +547,20 @@ repair 会：
 - `review-result.round-<n>.json`
 - `review-result.round-<n>.raw.json`
 - `<task-id>.runtime.cycle-<n>.json`
+- `<task-id>.skill-effect.cycle-<n>.json`
+- `<task-id>.skill-effect.cycle-<n>.attempt-<m>.json`
 - `<task-id>.repair.<n>.json`
 
 ### 6.3 runs 根目录
 
 整个项目级别还会持续写：
 
-- `codex_task_builder_v2_runs/manifest.jsonl`
-- `codex_task_builder_v2_runs/<run-id>.json`
+- `<runs-root>/manifest.jsonl`
+- `<runs-root>/<run-id>.json`
 
 前者是 phase 级流水日志，后者是 run summary。
+
+默认情况下 `runs-root = /home/levi/Harbor/codex_task_builder_v2_runs`；如果调用时显式传了 `--runs-root`，就写到指定目录；如果只改了 `--raw-root`，则默认取 `dirname(raw-root)` 作为 `runs-root`。
 
 ---
 
@@ -544,14 +602,14 @@ planner / writer / reviewer 都必须读取已发布任务，用于：
 
 在相同任务上的真实效果差异
 
-### 7.5 runtime 失败统一进 repair
+### 7.5 runtime / skill-effect 失败统一进 repair
 
 当前实现不再区分：
 
 - infra retry
 - repair retry
 
-而是每个 cycle 每个任务只跑一次 runtime，失败后统一进入 repair 流。
+而是每个 cycle 每个任务先跑一次 runtime；runtime 通过后如果启用了默认 gate，再继续跑一次 skill-effect 对照；任一阶段失败都统一进入 repair 流。
 
 ---
 
@@ -559,6 +617,6 @@ planner / writer / reviewer 都必须读取已发布任务，用于：
 
 `codex_task_builder_v2` 的本质不是“让模型写几个 Harbor 任务”，而是：
 
-**先把 source task 按 scope 拆成 family，再让 Codex 基于 source task、Harbor 参考材料和已发布任务做规划与写作，随后用 reviewer + static validate + Harbor Oracle runtime 把任务往可发布状态收敛，最后把通过的任务发布到 final-root，把失败的任务隔离到 quarantine-root。**
+**先把 source task 按 scope 拆成 family，再让 Codex 基于 source task、Harbor 参考材料和已发布任务做规划与写作，随后用 reviewer + static validate + Harbor Oracle runtime + skill-effect gate 把任务往可发布状态收敛，最后把通过的任务发布到 final-root，把失败的任务隔离到 quarantine-root。**
 
 这套设计的重点不在“生成”，而在“自动收口”。

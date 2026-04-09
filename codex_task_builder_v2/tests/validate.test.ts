@@ -4,9 +4,27 @@ import path from "node:path";
 import { promises as fs } from "node:fs";
 import { normalizeReviewResultFromRaw } from "../src/codex.js";
 import type { GenerationUnit, SkillInfo, SourceTask } from "../src/discovery.js";
+import {
+  appendManifest,
+  buildManifestPath,
+  buildRunSummaryPath,
+  resolveRunsRoot,
+  writeRunSummary,
+} from "../src/manifest.js";
 import { inspectPublishedFamily, selectExecutableUnits } from "../src/published.js";
 import { flattenFamilyPlan, type DerivedTaskPlan, type FamilyPlan } from "../src/schema.js";
-import { runStreamingCommand } from "../src/utils.js";
+import {
+  buildHarborAgentCommand,
+  buildSkillEffectBucket,
+  buildSkillEffectBucketRoot,
+  buildSkillEffectIssues,
+  isAcceptedSkillEffectBucket,
+  isRepairRequiredSkillEffectBucket,
+  prepareNoSkillVariant,
+  runSkillEffectPreflight,
+  stripSkillCopyLines,
+} from "../src/skill_effect.js";
+import { RAW_ROOT, RUNS_ROOT, runStreamingCommand } from "../src/utils.js";
 import { sanitizeAndCopyTask } from "../src/materialize.js";
 import {
   buildHarborRuntimeCommand,
@@ -553,6 +571,128 @@ assert.throws(
 }
 
 {
+  const command = buildHarborAgentCommand({
+    taskDir: "/tmp/task",
+    logsDir: "/tmp/logs",
+    jobName: "job-2",
+    runtimeEnvironment: "e2b",
+    apiKey: "test-key",
+    modelName: "openai/gpt-5.4",
+    baseUrl: "https://example.invalid/v1",
+  });
+  assert.deepEqual(command, [
+    "harbor",
+    "run",
+    "-p",
+    "/tmp/task",
+    "-a",
+    "codex",
+    "-m",
+    "openai/gpt-5.4",
+    "--ak",
+    "api_key=test-key",
+    "--ak",
+    "base_url=https://example.invalid/v1",
+    "-e",
+    "e2b",
+    "--force-build",
+    "--jobs-dir",
+    "/tmp/logs",
+    "--job-name",
+    "job-2",
+  ]);
+}
+
+{
+  const stripped = stripSkillCopyLines(
+    "FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\nCOPY --chown=root:root skills /root/.claude/skills\nRUN echo ok\n",
+  );
+  assert.equal(stripped.removedCount, 2);
+  assert.equal(stripped.text.includes("COPY skills"), false);
+  assert.match(stripped.text, /RUN echo ok/);
+}
+
+{
+  const sourceDir = await fs.mkdtemp(path.join(os.tmpdir(), "codex-no-skill-source-"));
+  const targetDir = await fs.mkdtemp(path.join(os.tmpdir(), "codex-no-skill-target-"));
+  try {
+    await fs.mkdir(path.join(sourceDir, "environment"), { recursive: true });
+    await fs.writeFile(
+      path.join(sourceDir, "environment", "Dockerfile"),
+      "FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\nRUN echo ok\n",
+      "utf-8",
+    );
+    await fs.mkdir(path.join(sourceDir, "environment", "skills", "xlsx"), { recursive: true });
+    await fs.writeFile(path.join(sourceDir, "environment", "skills", "xlsx", "SKILL.md"), "skill\n", "utf-8");
+
+    const prepared = await prepareNoSkillVariant({
+      sourceTaskDir: sourceDir,
+      targetTaskDir: path.join(targetDir, "variant"),
+    });
+    assert.equal(prepared.removedCopyLines, 1);
+    const dockerfile = await fs.readFile(path.join(prepared.targetTaskDir, "environment", "Dockerfile"), "utf-8");
+    assert.equal(dockerfile.includes("COPY skills"), false);
+    assert.ok(await fs.stat(path.join(prepared.targetTaskDir, "environment", "skills", "xlsx", "SKILL.md")));
+  } finally {
+    await fs.rm(sourceDir, { recursive: true, force: true });
+    await fs.rm(targetDir, { recursive: true, force: true });
+  }
+}
+
+{
+  assert.equal(buildSkillEffectBucket(true, false), "with_skill_pass__no_skill_fail");
+  assert.equal(buildSkillEffectBucket(false, false), "with_skill_fail__no_skill_fail");
+  assert.equal(buildSkillEffectBucket(true, true), "with_skill_pass__no_skill_pass");
+  assert.equal(buildSkillEffectBucket(false, true), "with_skill_fail__no_skill_pass");
+  assert.equal(isAcceptedSkillEffectBucket("with_skill_pass__no_skill_fail"), true);
+  assert.equal(isAcceptedSkillEffectBucket("with_skill_fail__no_skill_fail"), true);
+  assert.equal(isRepairRequiredSkillEffectBucket("with_skill_pass__no_skill_pass"), true);
+  assert.equal(isRepairRequiredSkillEffectBucket("with_skill_fail__no_skill_pass"), true);
+  assert.equal(
+    buildSkillEffectBucketRoot("/tmp/final", "with_skill_pass__no_skill_fail"),
+    "/tmp/final/_skill_effect_buckets/with_skill_pass__no_skill_fail",
+  );
+  const issues = buildSkillEffectIssues("transfer1", {
+    bucket: "with_skill_pass__no_skill_pass",
+    repairRequired: true,
+    withSkill: {
+      variant: "with_skill",
+      passed: true,
+      issues: [],
+      evidence: {
+        variant: "with_skill",
+        variantTaskDir: "/tmp/with",
+        logsDir: "/tmp/with/logs",
+        runtimeLogRoot: "/tmp/with/logs",
+        logFilePath: "/tmp/with/logs/harbor-run.log",
+        jobDir: "/tmp/with/logs/job",
+        command: [],
+        reward: 1,
+        summary: "reward=1",
+      },
+    },
+    noSkill: {
+      variant: "no_skill",
+      passed: true,
+      issues: [],
+      evidence: {
+        variant: "no_skill",
+        variantTaskDir: "/tmp/no",
+        logsDir: "/tmp/no/logs",
+        runtimeLogRoot: "/tmp/no/logs",
+        logFilePath: "/tmp/no/logs/harbor-run.log",
+        jobDir: "/tmp/no/logs/job",
+        command: [],
+        reward: 1,
+        summary: "reward=1",
+      },
+    },
+  });
+  assert.equal(issues.length, 3);
+  assert.match(issues[0]?.message ?? "", /with_skill pass \/ no_skill pass/);
+}
+
+{
   const sourceDraftDir = await makeDraftFixture(plan);
   const rawRoot = await fs.mkdtemp(path.join(os.tmpdir(), "codex-materialize-raw-"));
   const finalRoot = await fs.mkdtemp(path.join(os.tmpdir(), "codex-materialize-final-"));
@@ -720,6 +860,42 @@ assert.throws(
     throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
   };
 
+  const preflight = await runSkillEffectPreflight("e2b", { E2B_API_KEY: "test-key" }, harborOnlyRunner);
+  assert.equal(preflight.ok, false);
+  assert.match(preflight.summary, /OPENAI_API_KEY/);
+}
+
+{
+  const harborOnlyRunner = async (command: string, args: string[]) => {
+    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
+      return { code: 0, stdout: "", stderr: "" };
+    }
+    if (command === "bash" && args[1] === "harbor --version") {
+      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
+    }
+    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
+  };
+
+  const preflight = await runSkillEffectPreflight(
+    "e2b",
+    { E2B_API_KEY: "test-key", OPENAI_API_KEY: "sk-test" },
+    harborOnlyRunner,
+  );
+  assert.equal(preflight.ok, true);
+  assert.match(preflight.summary, /skill-effect preflight 通过/);
+}
+
+{
+  const harborOnlyRunner = async (command: string, args: string[]) => {
+    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
+      return { code: 0, stdout: "", stderr: "" };
+    }
+    if (command === "bash" && args[1] === "harbor --version") {
+      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
+    }
+    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
+  };
+
   const preflight = await runRuntimePreflight("daytona", {}, harborOnlyRunner);
   assert.equal(preflight.ok, false);
   assert.match(preflight.summary, /DAYTONA_API_KEY/);
@@ -745,6 +921,41 @@ assert.throws(
   const preflight = await runRuntimePreflight("docker", {}, dockerRunner);
   assert.equal(preflight.ok, true);
   assert.match(preflight.summary, /harbor \+ docker preflight 通过/);
+}
+
+{
+  assert.equal(resolveRunsRoot({ rawRoot: RAW_ROOT }), RUNS_ROOT);
+  assert.equal(resolveRunsRoot({ rawRoot: "/tmp/smoke/raw" }), "/tmp/smoke");
+  assert.equal(resolveRunsRoot({ rawRoot: "/tmp/smoke/raw", runsRoot: "/tmp/custom-runs" }), "/tmp/custom-runs");
+}
+
+{
+  const runsRoot = await fs.mkdtemp(path.join(os.tmpdir(), "codex-manifest-runs-"));
+  try {
+    await appendManifest(
+      {
+        runId: "run-1",
+        sourceTaskId: "source-1",
+        phase: "planner",
+        status: "completed",
+      },
+      runsRoot,
+    );
+    await writeRunSummary("run-1", { ok: true }, runsRoot);
+
+    const manifestPath = buildManifestPath(runsRoot);
+    const summaryPath = buildRunSummaryPath(runsRoot, "run-1");
+    const manifestLines = (await fs.readFile(manifestPath, "utf-8")).trim().split("\n");
+    assert.equal(manifestLines.length, 1);
+    const manifestEntry = JSON.parse(manifestLines[0] ?? "{}") as Record<string, unknown>;
+    assert.equal(manifestEntry.runId, "run-1");
+    assert.equal(manifestEntry.sourceTaskId, "source-1");
+
+    const summary = JSON.parse(await fs.readFile(summaryPath, "utf-8")) as Record<string, unknown>;
+    assert.equal(summary.ok, true);
+  } finally {
+    await fs.rm(runsRoot, { recursive: true, force: true });
+  }
 }
 
 console.log("validate.test.ts passed");
