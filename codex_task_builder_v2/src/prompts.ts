@@ -136,6 +136,9 @@ function renderSkillEffectDesignRules(unit: GenerationUnit): string {
     - 不要把任务写成只靠单个明显文件、单条 shell 命令，或浅层 grep/jq/排序/聚合就能完成的小题。
     - 不要在 instruction.md 中给出接近教程式的完整 recipe；任务目标可以清楚，但关键求解路径不应被线性写死。
     - 不要让环境里存在一眼可见的 answer-like 文件、可直接复制/改名的 deliverable，或其他明显 no-skill shortcut。
+    - 目标 skill 必须依赖其 SKILL.md 中独特、非通用模板化的能力点；不要把常见 bash/python 模板、通用调试套路或轻量工作流包装成 skill bottleneck。
+    - 这些能力点应实质改变解题成败，而不只是节省体力、压缩少量时间或减少一点试错。
+    - 如果通用 agent 仅靠常见 bash/python 模板、通用调试套路或轻量试错就能完成，则该任务不合格，不要把它作为 benchmark 候选。
     - 如果一个任务在不依赖当前相关 skill 的情况下，大概率也能被通用 agent 直接完成，就不要把它作为 benchmark 候选。
     ${modeSpecificRule}
   `);
@@ -228,6 +231,18 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
 export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
   const sourceTask = unit.sourceTask;
   const visibleSkills = getVisibleSkills(unit);
+  const skillReadingRule =
+    unit.skillMode === "all"
+      ? "- 规划前必须先阅读当前全部 shipped skills 的 SKILL.md，不要只根据 skill 名字猜用途。"
+      : "- 规划前必须先阅读当前目标 shipped skill 的 SKILL.md，不要只根据 skill 名字猜用途。";
+  const capabilityExtractionRule =
+    unit.skillMode === "all"
+      ? "- 必须先为每个 shipped skill 分别提炼 2-4 个独特、非通用模板化的关键能力点，并以这些能力点约束 family 规划。"
+      : "- 必须先提炼 2-4 个该 skill 独有、非通用模板化的关键能力点，并以这些能力点约束 family 规划。";
+  const rationaleRule =
+    unit.skillMode === "all"
+      ? "- 每个候选任务的 skillBenefitRationale 都必须明确说明：该题依赖了哪些关键能力点；如果没有这些能力点，通用 agent 最可能卡在哪一步；为什么这不是“读 helper + 套模板 + 调参”就能过的题。"
+      : "- 每个候选任务的 skillBenefitRationale 都必须明确说明：该题依赖了哪些关键能力点；如果没有这些能力点，通用 agent 最可能卡在哪一步；为什么这不是“读 helper + 套模板 + 调参”就能过的题。";
 
   return dedent(`
     先阅读 TASK_BUILDER_BRIEF.md，然后完整检查 source_task/ 和 builder_refs/harbor/；如果 final-root 已有同 family 任务，也必须直接读取这些已发布任务目录。
@@ -247,6 +262,8 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
     当前只做 family 规划，不要写文件。
 
     规划要求:
+    ${skillReadingRule}
+    ${capabilityExtractionRule}
     - familyTheme、每个任务的 title、goal、category、skillBenefitRationale 都必须用英文书写，避免后续 writer 产出中文任务描述。
     - 返回 similarTasks 数组，长度必须恰好为 ${unit.pendingSimilarOrdinals.length}。
     - 返回 transferTasks 数组，长度必须恰好为 ${unit.pendingTransferOrdinals.length}。
@@ -262,6 +279,11 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
     - 无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard；只有当 hard 的主要代价会变成 build/start/runtime 噪声，而不是 skill bottleneck 时，才允许降到 medium。
     - 任务应尽量设计成带相关 skill 时能明显压缩搜索空间，而不用相关 skill 时容易走错路、漏关键步骤或卡住。
     - 不要规划成只靠单个明显文件、单条命令或浅层通用脚本就能完成的题。
+    ${rationaleRule}
+    - 明确禁止规划出资产天然暴露解法结构的 family。
+    - 明确禁止规划出只需要复用 source task 求解骨架的 family。
+    - 明确禁止规划出 similar/transfer 只是换业务皮、但 skill bottleneck 没变硬的 family。
+    - 明确禁止规划出主要考模板填空，而不是 skill 对应推理、建模或工作流能力的 family。
     - 类别、难度、目标输出、技能收益说明都必须具体，不要写空泛占位。
     ${renderSkillEffectDesignRules(unit)}
     ${unit.skillMode === "all"

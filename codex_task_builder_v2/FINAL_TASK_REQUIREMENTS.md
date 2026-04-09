@@ -211,16 +211,29 @@ gpus = 0
 
 更具体地说：
 
+- 规划阶段
+  - 必须先阅读目标 shipped skill 的 `SKILL.md`；`all` 模式下应覆盖全部 shipped skills
+  - 必须先提炼 2-4 个独特、非通用模板化的关键能力点
+  - 每个候选任务都必须能说明：依赖了哪些关键能力点；没有这些能力点时通用 agent 最可能卡在哪一步；为什么这不是“读 helper + 套模板 + 调参”就能过的题
 - `per-skill`
   - 当前目标 skill 必须是关键瓶颈，而不是可有可无的加速器
 - `all`
   - 多个 shipped skills 的核心收益点必须真实参与解题，不能退化成只靠通用能力也能直接完成的任务
+
+任务对相关 skill 的依赖必须满足：
+
+- 目标 skill 必须依赖 `SKILL.md` 中独特、非通用模板化的能力点
+- 这些能力点应实质改变解题成败，而不只是节省体力或压缩少量时间
+- 不能只是把常见 bash/python 模板、通用调试套路或轻量工作流包装成所谓 skill bottleneck
 
 不应生成以下弱信号任务：
 
 - 单个明显文件就能直接读出答案
 - 单条 shell 命令就能直接完成
 - 主要依赖浅层通用 bash/python/jq/grep 技巧
+- 通用 agent 仅靠常见 bash/python 模板、通用调试套路或轻量试错就能完成
+- 资产天然暴露解法结构，或题目只需要复用 source task 的求解骨架
+- 主要考模板填空，而不是 skill 对应的推理、建模或工作流能力
 - skill 只是节省几分钟体力，而不是改变解题成败
 
 ### 9.3 hard to solve but easy to verify
@@ -248,8 +261,10 @@ gpus = 0
 - 中文 instruction 或中文 metadata
 - solution / verifier 直接引用 skill 安装路径或 skill 模块
 - instruction 接近完整解法教程
+- 资产天然暴露解法结构，或题目只需要复用 source task 的求解骨架
 - 存在一眼可见的 answer-like 文件
 - 可以通过复制、改名、搬运现成 deliverable 直接过关
+- 主要考模板填空，而不是 skill 对应的推理、建模或工作流能力
 - 任务主要是工程体力活，不是 skill 带来的关键能力
 - 任务虽然标了 skill，但不用相关 skill 通用 agent 也大概率能直接完成
 - 为了修 runtime 问题而把任务稀释成 easy 或普通 medium 小题
