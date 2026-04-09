@@ -252,7 +252,7 @@ async function repairTaskDraft(
     staticIssues: issueMessages(taskState.staticIssues),
     runtimeIssues: issueMessages(taskState.runtimeIssues),
     runtimeDir: taskState.runtimeEvidence?.runtimeDir,
-    daytonaLogRoot: taskState.runtimeEvidence?.daytonaLogRoot,
+    runtimeLogRoot: taskState.runtimeEvidence?.runtimeLogRoot,
     runtimeLogIndexPath: taskState.runtimeEvidence?.runtimeLogIndexPath,
     runtimeLogPath: taskState.runtimeEvidence?.logFilePath,
     runtimeResultPath: taskState.runtimeEvidence?.resultPath,

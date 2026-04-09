@@ -174,6 +174,8 @@ CLI 支持四类命令：
 
 - 是否能找到 `harbor`
 - `harbor --version` 是否正常
+- 如果 runtime 环境是 `e2b`
+  - 是否设置了 `E2B_API_KEY`
 - 如果 runtime 环境是 `daytona`
   - 是否设置了 `DAYTONA_API_KEY`
 - 如果 runtime 环境是 `docker`
@@ -376,7 +378,7 @@ reviewer 的输出分两部分：
 runtime validate 的执行命令是：
 
 ```bash
-harbor run -p <task_dir> -a oracle -e <daytona|docker> --force-build --jobs-dir <logs_dir> --job-name <job_name>
+harbor run -p <task_dir> -a oracle -e <e2b|daytona|docker> --force-build --jobs-dir <logs_dir> --job-name <job_name>
 ```
 
 每次 runtime 尝试都有唯一目录：

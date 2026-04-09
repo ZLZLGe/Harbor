@@ -5,6 +5,7 @@
 补充文档：
 
 - `TASK_BUILDER_FLOW.md`：按源码梳理的完整造任务流程说明
+- `FINAL_TASK_REQUIREMENTS.md`：当前对最终生成 Harbor 任务的要求汇总
 
 ## 目录约定
 
@@ -35,7 +36,7 @@
   - `source_task/`
   - `builder_refs/harbor/`
 - family 内部按顺序执行 Oracle 校验
-- Oracle 失败后自动把 reviewer/static/runtime 问题和完整 Harbor/Daytona 日志回灌给 Codex repair
+- Oracle 失败后自动把 reviewer/static/runtime 问题和完整 Harbor runtime 日志回灌给 Codex repair
 - runtime 失败不再区分 infra retry 和 repair retry；每个 cycle 每个任务只跑一次 runtime，失败后统一进入 repair 流
 - raw / final / quarantine 三层产物分离
 - `plan.json` 会保留在 draft 和最终任务目录里
@@ -48,7 +49,7 @@
   - 固定 `[environment]` 资源配额
   - Dockerfile 公共镜像策略
 - runtime validate 默认走 Harbor 官方 Oracle：
-  - `harbor run -p <task_dir> -a oracle -e daytona --force-build --jobs-dir <logs_dir> --job-name <job_name>`
+  - `harbor run -p <task_dir> -a oracle -e e2b --force-build --jobs-dir <logs_dir> --job-name <job_name>`
 - 每次 runtime 尝试都会生成唯一的 `cycle-<n>-attempt-<m>` 目录，避免 repair 后复用旧 Oracle 结果
 - 发布阶段不做删除，只从草稿目录选择性复制 Harbor 任务必需文件
 
@@ -91,7 +92,7 @@ npm run inventory -- --source-root /home/levi/Harbor/tasks_library/skillsbench/t
 
 ```bash
 cd /home/levi/Harbor/codex_task_builder_v2
-export DAYTONA_API_KEY="your_daytona_api_key_here"
+export E2B_API_KEY="your_e2b_api_key_here"
 npm run generate-family -- \
   --source-task-id setup-fuzzing-py \
   --skill-mode per-skill \
@@ -105,7 +106,7 @@ npm run generate-family -- \
 
 ```bash
 cd /home/levi/Harbor/codex_task_builder_v2
-export DAYTONA_API_KEY="your_daytona_api_key_here"
+export E2B_API_KEY="your_e2b_api_key_here"
 npm run batch -- \
   --skill-mode per-skill \
   --similar-count 1 \
@@ -231,13 +232,16 @@ npm run review -- \
 
 ## 相关环境变量
 
+- `E2B_API_KEY`
+  - 当 runtime 环境是 `e2b` 时必须提供。
+
 - `DAYTONA_API_KEY`
   - 当 runtime 环境是 `daytona` 时必须提供。
 
 - `CODEX_TASK_BUILDER_RUNTIME_ENV`
   - runtime 校验后端。
-  - 可选值：`daytona`、`docker`
-  - 默认值：`daytona`
+  - 可选值：`e2b`、`daytona`、`docker`
+  - 默认值：`e2b`
 
 - `CODEX_TASK_BUILDER_MODEL`
   - 可选，覆盖 Codex SDK 使用的模型。
@@ -256,8 +260,8 @@ npm run review -- \
 ## 重要说明
 
 - 不会修改旧目录 `/home/levi/Harbor/codex_task_builder`
-- Daytona Oracle 超过 5 分钟是正常的；当前实现不会用固定 5 分钟超时去杀掉运行
-- repair prompt 会显式告诉 Codex：把完整 Daytona 日志目录当作主入口，而不只是盯住 `harbor-run.log`/`result.json`
+- Harbor Oracle runtime 超过 5 分钟是正常的；当前实现不会用固定 5 分钟超时去杀掉运行
+- repair prompt 会显式告诉 Codex：把完整 runtime 日志目录当作主入口，而不只是盯住 `harbor-run.log`/`result.json`
 - runtime 失败统一进入 repair；当前实现不再单独维护 `infra retry`
 - 发布阶段不执行删除操作；final/quarantine 目录都是通过选择性复制生成
 - 最终发布目录只复制：

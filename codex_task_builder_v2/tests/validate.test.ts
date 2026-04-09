@@ -519,7 +519,8 @@ assert.ok(
   assert.ok(heartbeatCount > 0);
 }
 
-assert.equal(resolveRuntimeEnvironment({}), "daytona");
+assert.equal(resolveRuntimeEnvironment({}), "e2b");
+assert.equal(resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "e2b" }), "e2b");
 assert.equal(resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "docker" }), "docker");
 assert.equal(resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "DAYTONA" }), "daytona");
 assert.throws(
@@ -532,7 +533,7 @@ assert.throws(
     taskDir: "/tmp/task",
     logsDir: "/tmp/logs",
     jobName: "job-1",
-    runtimeEnvironment: "daytona",
+    runtimeEnvironment: "e2b",
   });
   assert.deepEqual(command, [
     "harbor",
@@ -542,7 +543,7 @@ assert.throws(
     "-a",
     "oracle",
     "-e",
-    "daytona",
+    "e2b",
     "--force-build",
     "--jobs-dir",
     "/tmp/logs",
@@ -674,6 +675,38 @@ assert.throws(
   );
   assert.equal(limited.skippedCount, 1);
   assert.equal(limited.executableUnits.length, 1);
+}
+
+{
+  const harborOnlyRunner = async (command: string, args: string[]) => {
+    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
+      return { code: 0, stdout: "", stderr: "" };
+    }
+    if (command === "bash" && args[1] === "harbor --version") {
+      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
+    }
+    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
+  };
+
+  const preflight = await runRuntimePreflight("e2b", {}, harborOnlyRunner);
+  assert.equal(preflight.ok, false);
+  assert.match(preflight.summary, /E2B_API_KEY/);
+}
+
+{
+  const harborOnlyRunner = async (command: string, args: string[]) => {
+    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
+      return { code: 0, stdout: "", stderr: "" };
+    }
+    if (command === "bash" && args[1] === "harbor --version") {
+      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
+    }
+    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
+  };
+
+  const preflight = await runRuntimePreflight("e2b", { E2B_API_KEY: "test-key" }, harborOnlyRunner);
+  assert.equal(preflight.ok, true);
+  assert.match(preflight.summary, /harbor \+ e2b preflight 通过/);
 }
 
 {

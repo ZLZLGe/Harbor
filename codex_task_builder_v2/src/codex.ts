@@ -510,7 +510,7 @@ export class CodexTaskBuilderClient {
     staticIssues: string[];
     runtimeIssues: string[];
     runtimeDir?: string;
-    daytonaLogRoot?: string;
+    runtimeLogRoot?: string;
     runtimeLogIndexPath?: string;
     runtimeLogPath?: string;
     runtimeResultPath?: string;
@@ -530,7 +530,7 @@ export class CodexTaskBuilderClient {
         staticIssues: args.staticIssues,
         runtimeIssues: args.runtimeIssues,
         runtimeDir: args.runtimeDir,
-        daytonaLogRoot: args.daytonaLogRoot,
+        runtimeLogRoot: args.runtimeLogRoot,
         runtimeLogIndexPath: args.runtimeLogIndexPath,
         runtimeLogPath: args.runtimeLogPath,
         runtimeResultPath: args.runtimeResultPath,

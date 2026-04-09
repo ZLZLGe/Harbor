@@ -121,6 +121,26 @@ function renderVerifierDesignPrinciples(): string {
   `);
 }
 
+function renderSkillEffectDesignRules(unit: GenerationUnit): string {
+  const modeSpecificRule =
+    unit.skillMode === "all"
+      ? "- all 模式下，多个 shipped skills 的核心收益点必须真实参与解题；不要把 all family 退化成其实只靠通用能力也能直接完成的任务。"
+      : `- per-skill 模式下，当前目标 skill ${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"}) 必须是关键瓶颈；不要把它写成只是省一点时间的可选加速器。`;
+
+  return dedent(`
+    skill effect 与难度约束:
+    - 无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard。
+    - 只有当 hard 的主要代价会变成 build/start/runtime 噪声，而不是 skill bottleneck 时，才允许降到 medium。
+    - 优先选择没有相关 skill 支撑时，agent 容易走错路、漏关键步骤或选错工具的任务。
+    - 任务难点应来自领域抽象、非显然工作流、跨多份资产的关联判断、复杂 patch/config 推理，而不是重型环境搭建、长时间预热或纯体力编码。
+    - 不要把任务写成只靠单个明显文件、单条 shell 命令，或浅层 grep/jq/排序/聚合就能完成的小题。
+    - 不要在 instruction.md 中给出接近教程式的完整 recipe；任务目标可以清楚，但关键求解路径不应被线性写死。
+    - 不要让环境里存在一眼可见的 answer-like 文件、可直接复制/改名的 deliverable，或其他明显 no-skill shortcut。
+    - 如果一个任务在不依赖当前相关 skill 的情况下，大概率也能被通用 agent 直接完成，就不要把它作为 benchmark 候选。
+    ${modeSpecificRule}
+  `);
+}
+
 function renderEnvironmentResourceRules(): string {
   return dedent(`
     task.toml 环境配额:
@@ -196,6 +216,7 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     10. environment/Dockerfile 必须遵守下方 Dockerfile 约束。
     11. 最终 Harbor 任务面向用户可见的文本必须使用英文，至少包括 instruction.md、task.toml 的 metadata.name 和 metadata.description。
     ${renderSourceTaskReferenceRules("drafts/<task_name>/environment/")}
+    ${renderSkillEffectDesignRules(unit)}
     ${renderDockerfileRules()}
     ${renderTaskArtifactContracts()}
     ${renderVerifierDesignPrinciples()}
@@ -238,7 +259,11 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
     - 如果规划需要联网或外部服务，不要把它视为默认违规项，但仍要保证 Harbor 中可运行，且 verifier 能稳定写 reward。
     - 任务必须尽量满足 hard to solve but easy to verify，并保持 self-contained。
     - 从规划阶段就必须保证参考解与 verifier 和 skill runtime 解耦；skill 只用于帮助 agent，不得成为 solution/solve.sh 或 tests/** 的直接运行时依赖。
+    - 无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard；只有当 hard 的主要代价会变成 build/start/runtime 噪声，而不是 skill bottleneck 时，才允许降到 medium。
+    - 任务应尽量设计成带相关 skill 时能明显压缩搜索空间，而不用相关 skill 时容易走错路、漏关键步骤或卡住。
+    - 不要规划成只靠单个明显文件、单条命令或浅层通用脚本就能完成的题。
     - 类别、难度、目标输出、技能收益说明都必须具体，不要写空泛占位。
+    ${renderSkillEffectDesignRules(unit)}
     ${unit.skillMode === "all"
       ? dedent(`
         - all 模式下，family 必须保留全部 shipped skills 的核心收益点。
@@ -304,6 +329,7 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     已知约束:
     ${skillConstraint}
     ${renderSourceTaskReferenceRules(`drafts/${plan.derivedTaskId}/environment/`)}
+    ${renderSkillEffectDesignRules(unit)}
     ${renderTaskArtifactContracts()}
     ${renderVerifierDesignPrinciples()}
     - task.toml 中 metadata.id 必须等于 "${plan.derivedTaskId}"。
@@ -333,6 +359,10 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     - 必须保留 plan.json，不要删除或改名；如需更新，只能与当前 blueprint 保持一致。
     ${renderDockerfileRules()}
     - instruction.md 不要直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName。
+    - 不要把当前任务实现成比 blueprint 更轻的版本；尤其不要通过教程式 instruction、暴露关键步骤、放置一眼可见答案或单命令捷径，把它稀释成 easy/普通 medium 小题。
+    - instruction.md 只应清楚说明任务目标、输入资产、输出契约和边界条件，不要写成按顺序执行即可过关的操作手册。
+    - 环境资产可以提供必要线索，但不要提供可直接复制/改名的标准答案、近似最终产物或其他明显 no-skill shortcut。
+    - 不要让 agent 仅凭单个明显文件、单条 shell 命令或浅层 grep/jq/排序/聚合就能完成任务。
     ${renderHarborOracleBaseline()}
 
     你需要创建或更新这些文件:
@@ -405,6 +435,9 @@ export function buildReviewerPrompt(
       - fresh state、no-op、仅复制/改名已有 deliverable、直接搬运任务内现成答案时，当前 verifier 是否仍会错误通过
       - solution/solve.sh、tests/test.sh、tests/test_outputs.py 是否直接引用 environment/skills/**、/root/.codex/skills/**、/app/skills/** 或其他 skill 安装路径/模块；只要存在这种硬依赖，就直接判定失败
       - 该任务是否满足 hard to solve but easy to verify
+      - 该任务是否其实偏 easy，或虽然写了 skill 但没有相关 skill 也大概率能直接做出来
+      - 该任务是否存在明显 no-skill shortcut，例如单文件直取答案、单命令流水线、直接复制/改名现成 deliverable
+      - 如果当前 difficulty 不是 hard，原因是否真的是 hard 只会主要引入 runtime 噪声，而不是因为任务本身太容易
       - 任务是否 self-contained，完成任务所需关键信息是否都已写入 instruction.md 或输入资产
       - solution/solve.sh、tests/test.sh、tests/test_outputs.py、environment/Dockerfile 的路径契约是否一致
       - 运行时需要写入的目录是否显式创建
@@ -413,6 +446,7 @@ export function buildReviewerPrompt(
       - environment/Dockerfile 是否出现 COPY . /root、ADD . /root 或同类宽泛复制
       - environment/Dockerfile 是否把 skills 复制到了 /root/environment/skills、/app/skills、/workspace/skills 等普通运行时路径
       ${skillReviewRule}
+      - 如果任务偏 easy、skill 不是关键瓶颈，或存在 no-skill shortcut，必须在 issues 中直接写明 too easy、skill not critical、no-skill shortcut 或 difficulty too low，并将 skillBenefitPass 设为 false
       - 该任务是否应通过 reviewer
       - 只要命中上述任一 Harbor testability 问题，就将 testabilityPass 设为 false，并在 issues 中直接点明具体问题
     - 对 family 整体单独给出观察：
@@ -437,7 +471,7 @@ export function buildRepairPrompt(args: {
   staticIssues: string[];
   runtimeIssues: string[];
   runtimeDir?: string;
-  daytonaLogRoot?: string;
+  runtimeLogRoot?: string;
   runtimeLogIndexPath?: string;
   runtimeLogPath?: string;
   runtimeResultPath?: string;
@@ -479,7 +513,7 @@ export function buildRepairPrompt(args: {
     ${runtimeBlock}
 
     你还可以读取这些运行证据:
-    - 本次 Oracle/Daytona 完整日志目录: ${args.daytonaLogRoot ?? args.runtimeDir ?? "当前没有完整 runtime 目录"}
+    - 本次 Oracle runtime 完整日志目录: ${args.runtimeLogRoot ?? args.runtimeDir ?? "当前没有完整 runtime 目录"}
     - 日志索引: ${args.runtimeLogIndexPath ?? "当前没有 log-index.json"}
     - Oracle 日志: ${args.runtimeLogPath ?? "当前没有 runtime log"}
     - Oracle 结果 JSON: ${args.runtimeResultPath ?? "当前没有 result.json"}
@@ -503,9 +537,12 @@ export function buildRepairPrompt(args: {
     - 不要写 COPY . /root、COPY . /root/、COPY ./ /root、ADD . /root 或带 flag 的等价写法。
     - 不要把 skills 复制到 /root/environment/skills、/app/skills、/workspace/skills 等普通运行时路径；如需额外兼容其他 agent，也只能复制到 agent skill 安装路径。
     - 如果需要修改 environment/Dockerfile，不能改成私有/本地镜像；必须使用公共镜像。
+    - 不要通过降低任务难度、补写教程式步骤、暴露关键线索、删除必要干扰项，或把题目改成单命令/单文件直取答案的小题来换取通过。
+    - 修复后应继续保持 benchmark 默认 hard 的设计目标；除非当前 hard 的主要问题是 runtime 噪声，否则不要主动把题目降到 medium。
+    - 修复后仍要避免明显 no-skill shortcut，并保持相关 skill 依然是关键瓶颈。
     - 你应把完整日志目录当作主入口，自由递归读取相关证据，而不是只盯住某一个摘要文件。
     - log-index.json、harbor-run.log、job.log、trial.log、verifier/test-stdout.txt、reward 文件、result.json、artifacts/manifest.json 只是常见线索，不是固定顺序。
-    - 不要只根据 reward=0、摘要 issue 或 failure label 猜问题；如果 runtime 日志或 result.json 暴露了 Harbor/Daytona oracle 失败原因，必须优先根据日志修正。
+    - 不要只根据 reward=0、摘要 issue 或 failure label 猜问题；如果 runtime 日志或 result.json 暴露了 Harbor oracle/runtime 失败原因，必须优先根据日志修正。
     - 优先排查 verifier 契约问题、输入资产复制问题、运行时路径错误、目录未创建、reward 未稳定落盘等高频问题。
 
     完成修改后，返回严格 JSON:

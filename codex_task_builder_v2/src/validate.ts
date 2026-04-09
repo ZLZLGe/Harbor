@@ -22,7 +22,7 @@ export type ValidationIssue = {
   taskId?: string;
 };
 
-export type RuntimeEnvironment = "daytona" | "docker";
+export type RuntimeEnvironment = "e2b" | "daytona" | "docker";
 export type RuntimeFailureKind = "harbor-preflight" | "harbor-task" | "harbor-reward";
 
 export type RuntimePreflightResult = {
@@ -34,7 +34,7 @@ export type RuntimePreflightResult = {
 export type RuntimeEvidence = {
   logsDir: string;
   runtimeDir: string;
-  daytonaLogRoot: string;
+  runtimeLogRoot: string;
   runtimeLogIndexPath?: string;
   logFilePath: string;
   jobDir: string;
@@ -1080,15 +1080,15 @@ function readEnvValue(env: NodeJS.ProcessEnv, key: string): string | null {
 export function resolveRuntimeEnvironment(env: NodeJS.ProcessEnv = process.env): RuntimeEnvironment {
   const rawValue = readEnvValue(env, "CODEX_TASK_BUILDER_RUNTIME_ENV");
   if (!rawValue) {
-    return "daytona";
+    return "e2b";
   }
 
   const normalized = rawValue.toLowerCase();
-  if (normalized === "daytona" || normalized === "docker") {
+  if (normalized === "e2b" || normalized === "daytona" || normalized === "docker") {
     return normalized;
   }
 
-  throw new Error(`不支持的 CODEX_TASK_BUILDER_RUNTIME_ENV: ${rawValue}；仅支持 daytona 或 docker`);
+  throw new Error(`不支持的 CODEX_TASK_BUILDER_RUNTIME_ENV: ${rawValue}；仅支持 e2b、daytona 或 docker`);
 }
 
 export function buildHarborRuntimeCommand(options: {
@@ -1218,6 +1218,22 @@ export async function runRuntimePreflight(
   details.push(`runtime environment: ${runtimeEnvironment}`);
   details.push(`harbor --version: ${compactOutputSummary(`${harborVersion.stdout}\n${harborVersion.stderr}`)}`);
 
+  if (runtimeEnvironment === "e2b") {
+    if (!readEnvValue(env, "E2B_API_KEY")) {
+      return {
+        ok: false,
+        summary: "当前环境未设置 E2B_API_KEY",
+        details: ["E2B_API_KEY 缺失或为空"],
+      };
+    }
+
+    return {
+      ok: true,
+      summary: "harbor + e2b preflight 通过",
+      details,
+    };
+  }
+
   if (runtimeEnvironment === "daytona") {
     if (!readEnvValue(env, "DAYTONA_API_KEY")) {
       return {
@@ -1286,7 +1302,7 @@ export async function runRuntimeValidation(
   const baseEvidence: RuntimeEvidence = {
     logsDir,
     runtimeDir: logsDir,
-    daytonaLogRoot: logsDir,
+    runtimeLogRoot: logsDir,
     runtimeLogIndexPath,
     logFilePath,
     jobDir: path.join(logsDir, jobName),
@@ -1355,7 +1371,7 @@ export async function runRuntimeValidation(
   const baseRuntimeEvidence: RuntimeEvidence = {
     logsDir,
     runtimeDir: logsDir,
-    daytonaLogRoot: logsDir,
+    runtimeLogRoot: logsDir,
     runtimeLogIndexPath,
     logFilePath,
     jobDir,

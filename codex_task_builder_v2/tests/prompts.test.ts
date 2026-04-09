@@ -184,7 +184,7 @@ const repairPrompt = buildRepairPrompt({
   staticIssues: ["static:similar1 task.toml metadata.description 必须使用英文描述，不能包含中文"],
   runtimeIssues: ["runtime:similar1 harbor verifier reward=0 < 1.0"],
   runtimeDir: "/tmp/runtime/similar1/cycle-1-attempt-2",
-  daytonaLogRoot: "/tmp/runtime/similar1/cycle-1-attempt-2",
+  runtimeLogRoot: "/tmp/runtime/similar1/cycle-1-attempt-2",
   runtimeLogIndexPath: "/tmp/runtime/similar1/cycle-1-attempt-2/log-index.json",
   runtimeLogPath: "/tmp/runtime/similar1/cycle-1-attempt-2/harbor-run.log",
   runtimeResultPath: "/tmp/runtime/similar1/cycle-1-attempt-2/result.json",
@@ -199,6 +199,8 @@ const allModeUnit = buildGenerationUnits(sourceTask, {
   similarCount: 1,
   transferCount: 1,
 })[0];
+const allModeBrief = buildTaskBuilderBrief(allModeUnit);
+const allModePlannerPrompt = buildFamilyPlannerPrompt(allModeUnit);
 
 assert.equal(allModeUnit?.scopeSlug, "all-skills");
 
@@ -213,12 +215,16 @@ assert.match(brief, /Harbor builder refs: builder_refs\/harbor\//);
 assert.match(brief, /builder_refs\/harbor\/SKILL\.md/);
 assert.match(brief, /hard to solve but easy to verify/);
 assert.match(brief, /任务必须 self-contained/);
+assert.match(brief, /无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard/);
+assert.match(brief, /不要把任务写成只靠单个明显文件、单条 shell 命令，或浅层 grep\/jq\/排序\/聚合就能完成的小题/);
+assert.match(brief, /answer-like 文件、可直接复制\/改名的 deliverable，或其他明显 no-skill shortcut/);
 assert.match(brief, /solution\/solve\.sh 与 verifier（tests\/test\.sh、tests\/test_outputs\.py）必须和 environment\/skills/);
 assert.match(brief, /无论评测时是否额外安装 skill，参考解与 verifier 都应能独立运行并完成验收/);
 assert.match(brief, /similar: 2/);
 assert.match(brief, /transfer: 3/);
 assert.match(brief, /本轮只需要补齐这些任务槽位/);
 assert.match(brief, /已发布 Harbor family 目录/);
+assert.match(allModeBrief, /all 模式下，多个 shipped skills 的核心收益点必须真实参与解题/);
 assert.equal(brief.includes("实验污染"), false);
 assert.equal(brief.includes("无技能对照"), false);
 
@@ -231,9 +237,13 @@ assert.match(plannerPrompt, /完整检查 source_task\/ 和 builder_refs\/harbor
 assert.match(plannerPrompt, /hard to solve but easy to verify/);
 assert.match(plannerPrompt, /self-contained/);
 assert.match(plannerPrompt, /参考解与 verifier 和 skill runtime 解耦/);
+assert.match(plannerPrompt, /无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard/);
+assert.match(plannerPrompt, /带相关 skill 时能明显压缩搜索空间，而不用相关 skill 时容易走错路/);
+assert.match(plannerPrompt, /不要规划成只靠单个明显文件、单条命令或浅层通用脚本就能完成的题/);
 assert.match(historyPlannerPrompt, /final-root 已有同 family 的已发布任务/);
 assert.match(historyPlannerPrompt, /当前已发布任务: similar1/);
 assert.match(historyPlannerPrompt, /本轮需要补齐的 similar 槽位: similar2/);
+assert.match(allModePlannerPrompt, /all 模式下，family 必须保留全部 shipped skills 的核心收益点/);
 
 assert.match(writerPrompt, /drafts\/similar1\/environment\/skills\/ 中只能保留一个 shipped skill/);
 assert.match(writerPrompt, /builder_refs\/harbor\//);
@@ -251,6 +261,10 @@ assert.match(writerPrompt, /expected 应优先从输入资产、题目规则或�
 assert.match(writerPrompt, /fresh state、no-op、仅复制\/改名已有 deliverable、直接搬运任务内现成答案/);
 assert.match(writerPrompt, /路径契约必须一致/);
 assert.match(writerPrompt, /任务必须 self-contained/);
+assert.match(writerPrompt, /不要把当前任务实现成比 blueprint 更轻的版本/);
+assert.match(writerPrompt, /instruction\.md 只应清楚说明任务目标、输入资产、输出契约和边界条件，不要写成按顺序执行即可过关的操作手册/);
+assert.match(writerPrompt, /不要提供可直接复制\/改名的标准答案、近似最终产物或其他明显 no-skill shortcut/);
+assert.match(writerPrompt, /不要让 agent 仅凭单个明显文件、单条 shell 命令或浅层 grep\/jq\/排序\/聚合就能完成任务/);
 assert.match(writerPrompt, /drafts\/<sibling_task>\/plan\.json/);
 assert.match(historyWriterPrompt, /final-root 下已发布的同 family 任务/);
 assert.match(historyWriterPrompt, /\/tmp\/final\/find-topk-similiar-chemicals\/pdf\/similar1\/plan\.json/);
@@ -269,6 +283,10 @@ assert.match(reviewerPrompt, /expected 是否来自输入资产、题目规则�
 assert.match(reviewerPrompt, /fresh state、no-op、仅复制\/改名已有 deliverable、直接搬运任务内现成答案/);
 assert.match(reviewerPrompt, /是否直接引用 environment\/skills\/\*\*、\/root\/\.codex\/skills\/\*\*、\/app\/skills\/\*\*/);
 assert.match(reviewerPrompt, /hard to solve but easy to verify/);
+assert.match(reviewerPrompt, /该任务是否其实偏 easy，或虽然写了 skill 但没有相关 skill 也大概率能直接做出来/);
+assert.match(reviewerPrompt, /该任务是否存在明显 no-skill shortcut/);
+assert.match(reviewerPrompt, /如果当前 difficulty 不是 hard，原因是否真的是 hard 只会主要引入 runtime 噪声/);
+assert.match(reviewerPrompt, /too easy、skill not critical、no-skill shortcut 或 difficulty too low/);
 assert.match(reviewerPrompt, /任务是否 self-contained/);
 assert.match(reviewerPrompt, /运行时需要写入的目录是否显式创建/);
 assert.match(historyReviewerPrompt, /final-root 下同 family 已发布任务/);
@@ -277,7 +295,7 @@ assert.match(historyReviewerPrompt, /\/tmp\/final\/find-topk-similiar-chemicals\
 assert.equal(reviewerPrompt.includes("实验污染"), false);
 assert.equal(reviewerPrompt.includes("无技能对照"), false);
 
-assert.match(repairPrompt, /本次 Oracle\/Daytona 完整日志目录/);
+assert.match(repairPrompt, /本次 Oracle runtime 完整日志目录/);
 assert.match(repairPrompt, /不要修改 source_task\/、builder_refs\/、artifacts\//);
 assert.match(repairPrompt, /log-index\.json/);
 assert.match(repairPrompt, /instruction\.md、task\.toml 的 metadata\.name、metadata\.description 必须保持英文/);
@@ -288,8 +306,12 @@ assert.match(repairPrompt, /不要把 skills 复制到 \/root\/environment\/skil
 assert.match(repairPrompt, /verifier\/test-stdout\.txt/);
 assert.match(repairPrompt, /完整日志目录当作主入口/);
 assert.match(repairPrompt, /不要只根据 reward=0、摘要 issue 或 failure label 猜问题/);
+assert.match(repairPrompt, /Harbor oracle\/runtime 失败原因/);
 assert.match(repairPrompt, /如果 solution\/solve\.sh 或 tests\/\*\* 直接调用 skill 模块，必须去耦/);
 assert.match(repairPrompt, /优先排查 verifier 契约问题、输入资产复制问题、运行时路径错误、目录未创建、reward 未稳定落盘/);
+assert.match(repairPrompt, /不要通过降低任务难度、补写教程式步骤、暴露关键线索、删除必要干扰项/);
+assert.match(repairPrompt, /继续保持 benchmark 默认 hard 的设计目标/);
+assert.match(repairPrompt, /修复后仍要避免明显 no-skill shortcut，并保持相关 skill 依然是关键瓶颈/);
 assert.equal(repairPrompt.includes("实验污染"), false);
 assert.equal(repairPrompt.includes("无技能对照"), false);
 
