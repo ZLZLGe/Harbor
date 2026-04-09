@@ -92,6 +92,5 @@ Verifier 策略：
 │   ├── api-simulator/      # 提供真实下游数据和依赖的隐藏服务/模拟后端（防作弊靶场）
 │   └── skills/             # 任务绑定的诊断 Skill 定义与配套探针脚本
 ├── tests/                  # Verifier 与 Guardrail 测试集（量化与时序测试）
-├── solution/               # 官方参考修复代码及 solve.sh
-└── validation/             # 维护侧验证材料、运行轨迹摘要及证据归档
+└── solution/               # 官方参考修复代码及 solve.sh
 ```
