@@ -39,13 +39,13 @@
 
 任务描述：
 
-修复 Next.js Analytics Dashboard 的前端运行时回归问题。核心解决：Deep-link 冷启动不稳定、Advanced Insights 提前加载、以及长会话交互退化。
+修复 Next.js Analytics Dashboard 的前端运行时回归问题。核心解决：Deep-link 冷启动不稳定且 linked alert context 错位、Advanced Insights 提前加载、以及长会话交互退化。
 
 配套技能（Skills）- 探针型工具：
 
 - `browser-testing`：统一的浏览器复现与测量方法。
 - `measure-dashboard-waterfall.ts`：测量首页加载及 Advanced Insights 的 JS Waterfall。
-- `measure-dashboard-deeplink.ts`：复现 Deep-link 冷启动、Filter 漂移与 CLS。
+- `measure-dashboard-deeplink.ts`：复现 Deep-link 冷启动、Filter 漂移、linked context 错位与 CLS。
 - `measure-dashboard-soak.ts`：执行长会话交互序列，排查 Listener 泄漏、脉冲 Fan-out 与刷新延迟。
 
 ## 📊 验证与测试指标（Oracle & Verifier）
@@ -70,17 +70,20 @@ Verifier 策略：
 
 ## ⚡ Skill 相关性评估
 
-结论：强相关。Skill 作为探针工具的引入，大幅提升了修复成功率与执行效率，证明了该任务对 Skill 的绝对依赖性。
+结论：强相关。这个任务里，Skill 的核心价值是把浏览器探针、deeplink 量测和 soak 复现路径标准化，从而明显降低诊断成本；而我们新增的 drawer-scoped linked context 约束，依然能拦下只修表层症状的解法。
+
+基于最近 `2` 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `8/9`（失败：CLS regression） | `9/9` | Skill 解决了关键的 CLS 退化问题 |
-| 耗时 | `1909.2s` | `572.8s` | 速度提升约 `70%` |
-| Input Tokens | `~3.04M` | `~1.60M` | Context 开销显著降低 |
+| 通过率 | `0` | `50%` | 近两次有效对照里，With Skill 已出现稳定通过案例；Without Skill 仍未出现通过 |
+| 总耗时 | `831.6s` | `591.0s` | With Skill 更快，平均总耗时降低约 `29%` |
+| Agent 执行耗时 | `779.9s` | `528.1s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `32%` |
+| Input Tokens | `2.24M` | `1.33M` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.69x` |
+
+
 
 ## 📁 标准目录结构说明
-
-以下路径均为任务目录内的相对结构，适合直接在 GitHub 仓库中展示：
 
 ```text
 .
@@ -88,6 +91,7 @@ Verifier 策略：
 ├── task.toml               # 任务元数据（标签、技能要求、运行入口）
 ├── PLAN.json               # 任务构建过程的结构化元信息
 ├── environment/            # 运行环境
+│   ├── Dockerfile          # 单容器镜像定义；在同一容器内启动网站与隐藏下游服务
 │   ├── website/            # 待修复的应用源码（故障现场）
 │   ├── api-simulator/      # 提供真实下游数据和依赖的隐藏服务/模拟后端（防作弊靶场）
 │   └── skills/             # 任务绑定的诊断 Skill 定义与配套探针脚本

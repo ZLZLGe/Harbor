@@ -15,6 +15,7 @@ Reproduce and measure the live browser behavior yourself. Focus on what the runn
 Key business constraints:
 - The dashboard homepage must continue rendering the real bundled analytics data
 - The alert drawer flow must keep working with its public `data-testid` hooks intact
+- The linked alert context must continue rendering as part of the alert detail experience on the dashboard deeplink path
 - The advanced insights panel must keep rendering correctly; do not remove `data-testid="advanced-insights-panel"`
 - The real downstream analytics service must remain part of the runtime path after your fix
 

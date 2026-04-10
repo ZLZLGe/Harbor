@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { AlertDrawer } from '@/components/AlertDrawer';
 import { TimelinePanel } from '@/components/TimelinePanel';
-import { buildHeroSummary, DEFAULT_FILTER, findAlert, findFilter, type DashboardSnapshot } from '@/lib/dashboard';
+import { buildHeroSummary, buildLinkedAlertContext, DEFAULT_FILTER, findAlert, findFilter, type DashboardSnapshot } from '@/lib/dashboard';
 import { replayRefreshTelemetry } from '@/lib/dashboardRefreshTelemetry';
 import { useDashboardFilterState } from '@/hooks/useDashboardFilterState';
 import { useDashboardProbe } from '@/hooks/useDashboardProbe';
@@ -42,9 +42,7 @@ export function DashboardShell({ snapshot, initialFilter, initialAlertId }: Prop
     }
 
     const timer = window.setTimeout(() => {
-      setLinkedAlertContext(
-        `Linked alert context: ${linkedAlert.owner} is coordinating the ${activeFilterConfig.label} mitigation handoff while pricing, retention, and CTA telemetry settle back into the live dashboard after launch.`,
-      );
+      setLinkedAlertContext(buildLinkedAlertContext(linkedAlert.owner, activeFilterConfig.label));
     }, 260);
 
     return () => {
@@ -76,7 +74,10 @@ export function DashboardShell({ snapshot, initialFilter, initialAlertId }: Prop
                 {buildHeroSummary(snapshot, activeFilter)}
               </p>
               {linkedAlertContext ? (
-                <aside className="mt-4 rounded-2xl border border-sky-200/80 bg-sky-50/80 px-4 py-4 text-sm text-sky-950">
+                <aside
+                  data-testid="linked-alert-context"
+                  className="mt-4 rounded-2xl border border-sky-200/80 bg-sky-50/80 px-4 py-4 text-sm text-sky-950"
+                >
                   <p className="text-xs uppercase tracking-[0.2em] text-sky-700">Linked alert context</p>
                   <p className="mt-2 leading-7">{linkedAlertContext}</p>
                 </aside>

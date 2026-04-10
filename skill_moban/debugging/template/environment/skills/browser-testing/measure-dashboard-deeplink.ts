@@ -4,6 +4,8 @@ interface ProfileResult {
   name: string;
   label: string | null;
   drawerTitle: string | null;
+  linkedContextText: string | null;
+  linkedContextInDrawer: boolean;
   cls: number;
   console: string[];
 }
@@ -57,6 +59,12 @@ async function measureProfile(
 
   const label = await page.locator('[data-testid="active-filter-label"]').textContent();
   const drawerTitle = await page.locator('[data-testid="alert-drawer-title"]').textContent();
+  const linkedContext = page.locator('[data-testid="linked-alert-context"]');
+  const linkedContextText = (await linkedContext.count()) > 0 ? await linkedContext.textContent() : null;
+  const linkedContextInDrawer =
+    (await linkedContext.count()) > 0
+      ? await linkedContext.evaluate((node) => Boolean(node.closest('[data-testid="alert-drawer"]')))
+      : false;
   const cls = await page.evaluate(() => (window as typeof window & { __cls?: number }).__cls ?? 0);
 
   await browser.close();
@@ -65,6 +73,8 @@ async function measureProfile(
     name,
     label,
     drawerTitle,
+    linkedContextText,
+    linkedContextInDrawer,
     cls: Math.round(cls * 1000) / 1000,
     console: consoleMessages,
   };

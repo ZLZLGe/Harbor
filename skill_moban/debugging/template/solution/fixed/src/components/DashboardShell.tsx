@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import { AlertDrawer } from '@/components/AlertDrawer';
 import { TimelinePanel } from '@/components/TimelinePanel';
-import { buildHeroSummary, DEFAULT_FILTER, findFilter, type DashboardSnapshot } from '@/lib/dashboard';
+import { buildHeroSummary, buildLinkedAlertContext, DEFAULT_FILTER, findAlert, findFilter, type DashboardSnapshot } from '@/lib/dashboard';
 import { replayRefreshTelemetry } from '@/lib/dashboardRefreshTelemetry';
 import { useDashboardFilterState } from '@/hooks/useDashboardFilterState';
 import { useDashboardProbe } from '@/hooks/useDashboardProbe';
@@ -28,6 +28,7 @@ export function DashboardShell({ snapshot, initialFilter, initialAlertId }: Prop
 
   useDashboardProbe(activeFilter, activeAlertId, refreshNonce);
 
+  const activeAlert = useMemo(() => findAlert(snapshot.alerts, activeAlertId), [activeAlertId, snapshot.alerts]);
   const activeFilterConfig = useMemo(() => findFilter(snapshot.filters, activeFilter), [activeFilter, snapshot.filters]);
 
   const handleRefresh = () => {
@@ -99,7 +100,12 @@ export function DashboardShell({ snapshot, initialFilter, initialAlertId }: Prop
         />
       </div>
 
-      <AlertDrawer snapshot={snapshot} alertId={activeAlertId} onClose={() => setActiveAlertId(null)} />
+      <AlertDrawer
+        snapshot={snapshot}
+        alertId={activeAlertId}
+        linkedAlertContext={activeAlert ? buildLinkedAlertContext(activeAlert.owner, activeFilterConfig.label) : null}
+        onClose={() => setActiveAlertId(null)}
+      />
     </main>
   );
 }

@@ -1,0 +1,5 @@
+website/node_modules
+website/.next
+website/output
+api-simulator/node_modules
+**/.DS_Store

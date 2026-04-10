@@ -101,6 +101,46 @@ def assert_filter_label_stays(page: Page, expected_label: str, *, duration_ms: i
         page.wait_for_timeout(interval_ms)
 
 
+def assert_linked_alert_context_is_scoped_to_drawer(
+    page: Page,
+    *,
+    expected_filter_label: str,
+    duration_ms: int = 900,
+    interval_ms: int = 150,
+):
+    drawer = page.locator('[data-testid="alert-drawer"]')
+    context = page.locator('[data-testid="linked-alert-context"]')
+    drawer.wait_for()
+    context.wait_for()
+
+    drawer_box = drawer.bounding_box()
+    ensure(drawer_box is not None, "Alert drawer bounding box was unavailable")
+    ensure(
+        context.locator(f'text={expected_filter_label}').count() == 1,
+        f'Linked alert context did not mention the active filter "{expected_filter_label}"',
+    )
+
+    max_vertical_shift = 0.0
+    last_top = None
+    deadline = time.monotonic() + duration_ms / 1000
+
+    while True:
+      context_box = context.bounding_box()
+      ensure(context_box is not None, "Linked alert context bounding box was unavailable")
+      ensure(
+          context_box["x"] >= drawer_box["x"] - 1 and context_box["x"] + context_box["width"] <= drawer_box["x"] + drawer_box["width"] + 1,
+          "Linked alert context rendered outside the alert drawer bounds",
+      )
+      if last_top is not None:
+          max_vertical_shift = max(max_vertical_shift, abs(context_box["y"] - last_top))
+      last_top = context_box["y"]
+      if time.monotonic() >= deadline:
+          break
+      page.wait_for_timeout(interval_ms)
+
+    ensure(max_vertical_shift < 2, f"Linked alert context shifted vertically inside the drawer (delta={max_vertical_shift:.1f}px)")
+
+
 def verify_hidden_dashboard_simulator_not_modified():
     expected = {
         "/services/api-simulator/src/server.ts": "a169c7dc10af41b2c28754c2fdbb4cdd60f84bfcc57e88d85aae258348901292",
@@ -229,6 +269,8 @@ def assert_alert_deeplink_is_stable(browser: Browser, *, viewport: dict, is_mobi
             "Alert drawer title was unstable on initial deeplink load",
         )
         ensure(page.evaluate("window.__cls") < 0.05, "CLS regression exceeded the threshold on alert deeplink")
+        if viewport["width"] == 820:
+            assert_linked_alert_context_is_scoped_to_drawer(page, expected_filter_label="North America")
         ensure(
             not any("persisted dashboard context" in entry.lower() for entry in console_messages),
             "Unexpected console noise indicated stale dashboard context reuse",
@@ -242,6 +284,8 @@ def assert_alert_deeplink_is_stable(browser: Browser, *, viewport: dict, is_mobi
             == "Retention drop in North America",
             "Alert drawer title changed after reload",
         )
+        if viewport["width"] == 820:
+            assert_linked_alert_context_is_scoped_to_drawer(page, expected_filter_label="North America", duration_ms=750)
     finally:
         context.close()
 
