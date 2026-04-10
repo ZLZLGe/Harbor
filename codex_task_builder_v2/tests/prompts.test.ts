@@ -346,6 +346,10 @@ assert.match(repairPrompt, /skill-effect 总结 JSON/);
 assert.match(repairPrompt, /with_skill trajectory/);
 assert.match(repairPrompt, /no_skill trajectory/);
 assert.match(repairPrompt, /必须同时检查 with_skill \/ no_skill 两边的日志、result\.json、reward 和 trajectory/);
+assert.match(repairPrompt, /summary 只简短说明你修了什么/);
+assert.match(repairPrompt, /repairReason 要详细说明为什么这轮需要修/);
+assert.match(repairPrompt, /repairReason 必须明确写出 skill-effect bucket/);
+assert.match(repairPrompt, /"repairReason": "详细说明为什么这轮需要修、看到了什么证据、为什么决定这样改"/);
 assert.equal(repairPrompt.includes("实验污染"), false);
 assert.equal(repairPrompt.includes("无技能对照"), false);
 

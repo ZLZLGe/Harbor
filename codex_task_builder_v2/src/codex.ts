@@ -273,6 +273,10 @@ export function normalizeReviewResultFromRaw(taskPlans: DerivedTaskPlan[], rawRe
   return reviewResultSchema.parse(normalized);
 }
 
+export function normalizeRepairTurnResultFromRaw(rawResponse: string): RepairTurnResult {
+  return repairTurnResultSchema.parse(parseJsonWithFallback<RepairTurnResult>(rawResponse));
+}
+
 function toPosixPath(value: string): string {
   return value.split(path.sep).join(path.posix.sep);
 }
@@ -566,7 +570,7 @@ export class CodexTaskBuilderClient {
         outputSchema: repairTurnResultJsonSchema,
       },
     );
-    const parsed = repairTurnResultSchema.parse(parseJsonWithFallback<RepairTurnResult>(turn.finalResponse));
+    const parsed = normalizeRepairTurnResultFromRaw(turn.finalResponse);
     return {
       data: parsed,
       threadId: thread.id,

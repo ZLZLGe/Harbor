@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import os from "node:os";
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import { normalizeReviewResultFromRaw } from "../src/codex.js";
+import { normalizeRepairTurnResultFromRaw, normalizeReviewResultFromRaw } from "../src/codex.js";
 import type { GenerationUnit, SkillInfo, SourceTask } from "../src/discovery.js";
 import {
   appendManifest,
@@ -508,6 +508,31 @@ const reviewTaskPlans: DerivedTaskPlan[] = [
   assert.equal(normalized.taskResults.length, reviewTaskPlans.length);
   assert.ok(normalized.taskResults.every((taskResult) => taskResult.pass === false));
   assert.equal(normalized.familyObservations.diversityPass, false);
+}
+
+{
+  const normalized = normalizeRepairTurnResultFromRaw(
+    JSON.stringify({
+      summary: "tightened verifier and removed shortcut",
+      changedFiles: ["drafts/transfer1/tests/test_outputs.py"],
+    }),
+  );
+  assert.equal(normalized.summary, "tightened verifier and removed shortcut");
+  assert.deepEqual(normalized.changedFiles, ["drafts/transfer1/tests/test_outputs.py"]);
+  assert.equal(normalized.repairReason, undefined);
+}
+
+{
+  const normalized = normalizeRepairTurnResultFromRaw(
+    JSON.stringify({
+      summary: "raised timeout budget",
+      repairReason:
+        "skill-effect 对比显示 with_skill 轨迹拿到了正确 reward，但同时命中 AgentTimeoutError；这轮修复的目标是消除执行预算导致的反向劣势，而不是改题目语义。",
+      changedFiles: ["drafts/transfer1/task.toml"],
+    }),
+  );
+  assert.match(normalized.repairReason ?? "", /AgentTimeoutError/);
+  assert.deepEqual(normalized.changedFiles, ["drafts/transfer1/task.toml"]);
 }
 
 assert.deepEqual(validateDockerfileBaseImages("FROM ubuntu:24.04\n"), []);

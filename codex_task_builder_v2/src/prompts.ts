@@ -599,10 +599,15 @@ export function buildRepairPrompt(args: {
     - 优先排查 verifier 契约问题、输入资产复制问题、运行时路径错误、目录未创建、reward 未稳定落盘等高频问题。
     - 如果命中了 skill-effect 问题，必须同时检查 with_skill / no_skill 两边的日志、result.json、reward 和 trajectory，优先修复“no_skill 也能通过”或“with_skill 反而更差”的根因。
     - skill-effect 相关修复优先方向包括：收紧 verifier、移除 no-skill shortcut、减少题面或资产对解法结构的泄漏、消除只会误导 with_skill 的歧义约束。
+    - 返回 JSON 时，summary 只简短说明你修了什么，不要复述原因。
+    - 返回 JSON 时，repairReason 要详细说明为什么这轮需要修，必须基于当前 reviewer/static/runtime/skill-effect 问题和你读到的证据来写，不能空泛。
+    - 如果命中了 skill-effect，repairReason 必须明确写出 skill-effect bucket，并说明 with_skill / no_skill 对比里观察到的核心差异，以及为什么这些观察导向本轮修改方向。
+    - 如果主要是 reviewer/static/runtime 触发，repairReason 必须写出最关键的 blocking issue，以及为什么本轮改动是在针对这个根因。
 
     完成修改后，返回严格 JSON:
     {
       "summary": "简短说明你修了什么",
+      "repairReason": "详细说明为什么这轮需要修、看到了什么证据、为什么决定这样改",
       "changedFiles": ["相对路径1", "相对路径2"]
     }
   `);

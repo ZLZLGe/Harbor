@@ -110,6 +110,7 @@ export const reviewResultSchema = z.object({
 
 export const repairTurnResultSchema = z.object({
   summary: z.string().min(1),
+  repairReason: z.string().min(1).optional(),
   changedFiles: z.array(z.string().min(1)),
 });
 
@@ -294,9 +295,10 @@ export const reviewResultJsonSchema = {
 export const repairTurnResultJsonSchema = {
   type: "object",
   additionalProperties: false,
-  required: ["summary", "changedFiles"],
+  required: ["summary", "repairReason", "changedFiles"],
   properties: {
     summary: { type: "string" },
+    repairReason: { type: "string" },
     changedFiles: {
       type: "array",
       items: { type: "string" },
