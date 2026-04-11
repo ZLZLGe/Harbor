@@ -11,7 +11,13 @@ import {
 } from "../src/manifest.js";
 import { sanitizeAndCopyTask } from "../src/materialize.js";
 import { inspectPublishedFamily, selectExecutableUnits } from "../src/published.js";
-import { flattenFamilyPlan, type DerivedTaskPlan, type FamilyPlan } from "../src/schema.js";
+import {
+  flattenFamilyPlan,
+  type BlockingReviewResult,
+  type DerivedTaskPlan,
+  type FamilyPlan,
+  type FamilyReviewResult,
+} from "../src/schema.js";
 import {
   buildSkillEffectBucket,
   buildSkillEffectBucketRoot,
@@ -30,7 +36,9 @@ import {
   writeText,
 } from "../src/utils.js";
 import {
+  validateBlockingReviewResult,
   validateDraftStatic,
+  validateFamilyReviewResult,
   validateFamilyPlan,
   validateTaskPlans,
 } from "../src/validate.js";
@@ -230,6 +238,55 @@ gpus = 0
 }
 
 {
+  const taskPlans: DerivedTaskPlan[] = [
+    {
+      ...plan,
+      derivedTaskId: "similar1",
+      taskRole: "similar",
+      roleOrdinal: 1,
+      primaryOutputFile: "similar.json",
+    },
+    plan,
+  ];
+  const familyReview: FamilyReviewResult = {
+    taskResults: [
+      {
+        derivedTaskId: "similar1",
+        distinctPass: true,
+        issues: [],
+      },
+      {
+        derivedTaskId: "transfer1",
+        distinctPass: false,
+        issues: ["instruction.md is too close to final-root transfer1"],
+      },
+    ],
+  };
+  const validation = validateFamilyReviewResult(taskPlans, familyReview);
+  assert.deepEqual(validation.taskIssuesById.get("similar1"), []);
+  assert.equal(validation.taskIssuesById.get("transfer1")?.[0]?.scope, "family");
+  assert.match(validation.taskIssuesById.get("transfer1")?.[0]?.message ?? "", /too close/);
+}
+
+{
+  const blockingReview: BlockingReviewResult = {
+    taskResults: [
+      {
+        derivedTaskId: plan.derivedTaskId,
+        blockingPass: false,
+        blockingIssues: ["instruction.md leaked the shipped skill name"],
+      },
+    ],
+  };
+  const validation = validateBlockingReviewResult([plan], blockingReview);
+  assert.equal(validation.taskIssuesById.get(plan.derivedTaskId)?.[0]?.scope, "reviewer");
+  assert.match(
+    validation.taskIssuesById.get(plan.derivedTaskId)?.[0]?.message ?? "",
+    /leaked the shipped skill name/,
+  );
+}
+
+{
   const cleanDraft = await makeDraftFixture(perSkillUnit, plan);
   try {
     const issues = await validateDraftStatic(cleanDraft, plan, perSkillUnit);
@@ -363,6 +420,8 @@ gpus = 0
   assert.match(stripped.text, /RUN echo ok/);
   assert.equal(buildSkillEffectBucket(true, false), "with_skill_pass__no_skill_fail");
   assert.equal(isAcceptedSkillEffectBucket("with_skill_pass__no_skill_fail"), true);
+  assert.equal(isAcceptedSkillEffectBucket("with_skill_fail__no_skill_fail"), false);
+  assert.equal(isRepairRequiredSkillEffectBucket("with_skill_fail__no_skill_fail"), true);
   assert.equal(isRepairRequiredSkillEffectBucket("with_skill_fail__no_skill_pass"), true);
   assert.equal(
     buildSkillEffectBucketRoot("/tmp/output/final", "with_skill_pass__no_skill_fail"),

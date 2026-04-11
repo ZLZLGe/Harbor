@@ -14,7 +14,7 @@ function renderScopeBrief(unit: GenerationUnit): string {
   if (unit.skillMode === "all") {
     return dedent(`
       当前模式: all
-      当前 family 需要保留全部输入 skills 的核心收益点。
+      当前 family 需要保留全部输入 skills 的关键能力点和实际解题收益。
       最终任务目录层固定使用 all-skills。
     `);
   }
@@ -24,9 +24,8 @@ function renderScopeBrief(unit: GenerationUnit): string {
     当前目标 skill: ${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"})
     这是严格单技能构造模式：
     - 当前 family 只允许围绕这个目标 skill 设计。
-    - workspace 中唯一可用的 shipped skill 就是它。
-    - 不要把任何其他 skill 当作背景知识、隐含前提、辅助工具或依赖。
-    - 任务必须在只提供该 skill 的前提下成立。
+    - 最终任务中只能注入这一个 shipped skill。
+    - 不要把其他未提供的 shipped skills 设计成任务前提或运行时依赖。
   `);
 }
 
@@ -91,97 +90,73 @@ function renderInputSkillRules(unit: GenerationUnit, taskId?: string): string {
 
 function renderHarborOracleBaseline(): string {
   return dedent(`
-    Harbor oracle 基线:
+    Harbor verifier 契约:
     - Harbor 会执行 /tests/test.sh 作为 verifier 入口。
-    - tests/test.sh 在任何写日志、CTRF 或 reward 之前，必须先执行 mkdir -p /logs/verifier。
     - Harbor 只识别 /logs/verifier/reward.txt 和 /logs/verifier/reward.json；写到其他位置不会被识别。
-    - tests/test.sh 不得只是裸跑 pytest、python3 /tests/test_outputs.py 或其他单条测试命令后直接结束；你必须显式捕获测试退出码并据此写 reward。
-    - 如果使用 set -e 或 pipefail，必须确保测试失败时不会在写 reward 前提前退出；必要时局部 set +e 或采用等价写法。
-    - 无论测试通过还是失败，都必须稳定写出 /logs/verifier/reward.txt 或 /logs/verifier/reward.json。
-    - 是否联网不是默认违规项；如果 verifier 需要联网或外部服务，仍必须保证 Harbor 中可运行，并稳定落盘 reward。
-    - 优先单容器、轻量环境；避免明显超重的镜像构建、多服务编排、长启动链路、运行时大下载或需要长时间预热的模型/服务。
-    - environment/Dockerfile 不能使用本地私有镜像或只在你机器上可用的 registry；必须使用公开可复现的公共镜像，或 FROM scratch。
+    - tests/test.sh 不得在未写出 reward 的情况下直接结束；无论测试通过还是失败，都必须稳定写出 reward。
+    - tests/test.sh 在写入 verifier 日志、CTRF 或 reward 前，必须先执行 mkdir -p /logs/verifier。
   `);
 }
 
 function renderTaskArtifactContracts(): string {
   return dedent(`
-    关键文件职责:
-    - solution/solve.sh 是参考解脚本；它应基于题目提供的输入资产生成可通过测试的结果，不是给最终做题者直接照抄的答案清单。
-    - solution/solve.sh 不得只是复制、移动、重命名或直接输出随任务一起提供的完整标准答案文件。
-    - solution/solve.sh 与 verifier（tests/test.sh、tests/test_outputs.py）必须和 environment/skills/**、/root/.codex/skills/**、/app/skills/** 这类 skill 路径解耦；不要直接 import、执行、source、sys.path 注入或拼接调用 shipped skill 里的模块/脚本。
-    - shipped skill 的作用是帮助 agent 解题，不是给参考解或 verifier 当运行时依赖；无论评测时是否额外安装 skill，参考解与 verifier 都应能独立运行并完成验收。
-    - 如果确实需要某段通用能力，请把最小必需逻辑实现为当前任务自己的代码/脚本，或改用公开通用依赖；不要直接调用 skill 内模块。
-    - tests/test_outputs.py 只应校验 instruction.md 明确要求的输出契约、允许使用的接口和可观察结果；不要引入 instruction.md 未声明的隐藏字段、隐藏阈值、隐藏步骤、隐藏 helper 函数或隐藏导出接口。
-    - tests/test_outputs.py 应尽量面向结果语义而非具体实现；不要把合法解法锁死到某个内部函数名、唯一中间步骤、固定日志文本或其他未承诺的实现细节。
-    - tests/test_outputs.py 的 expected 应优先从输入资产、题目规则或可复算逻辑推导；不要把任务内可被 agent 直接读取的完整标准答案文件当作 expected 来源。
-    - 如果确实需要快照或 golden 文件，只能用于格式稳定且难以做语义断言的局部内容，不能让 agent 通过复制现成答案直接过关。
-    - fresh state、no-op、仅复制/改名已有 deliverable、直接搬运任务内现成答案，这些情况都不应通过 verifier。
-    - solution/solve.sh、tests/test.sh、tests/test_outputs.py、environment/Dockerfile 的路径契约必须一致；凡是脚本会读取或写入的路径，容器内都必须真实存在。
-    - 运行时需要写入的目录必须显式创建，不能依赖空目录天然存在或期望 Docker 保留空目录。
-    - 如果 tests/test_outputs.py 使用 pytest 风格测试，tests/test.sh 必须用 pytest 执行它，而不是直接 python3 /tests/test_outputs.py。
+    关键文件契约:
+    - solution/solve.sh 必须基于输入资产、任务规则和公开依赖生成可通过测试的结果，不得直接搬运任务内现成答案。
+    - solution/solve.sh、tests/test.sh、tests/test_outputs.py 不得依赖任何 shipped skill 安装路径、skill 模块或 skill 脚本。
+    - tests/test_outputs.py 只能校验 instruction.md 或输入资产中已经说明、或可直接推出的输出契约、允许接口和可观察结果。
+    - tests/test_outputs.py 不得依赖未承诺的实现细节，如内部函数名、唯一中间步骤或固定日志文本。
+    - tests/test_outputs.py 的 expected 必须来自输入资产、题目规则或可复算逻辑，不得直接来自任务可读的完整答案文件。
+    - snapshot 或 golden 文件只能用于局部、格式稳定且难以做语义断言的内容，不得承载完整 expected。
+    - solution/solve.sh、tests/test.sh、tests/test_outputs.py、environment/Dockerfile 的路径契约必须一致；运行时会写入的路径必须存在，其父目录必须由执行写入的脚本显式创建。
   `);
 }
 
 function renderVerifierDesignPrinciples(): string {
   return dedent(`
     verifier 设计原则:
-    - 任务应保持 hard to solve but easy to verify；不要为了“难”而把验收写得模糊、主观或不可程序化判断。
-    - instruction.md 中与验收相关的输出格式、路径、字段、容忍误差和边界条件必须清晰且无歧义，使 verifier 可以做无歧义的程序化验证。
-    - 如果任务较复杂，tests 应拆成若干可验证单元，分别覆盖关键结果，而不是只保留一个含糊的大断言。
-    - verifier 应优先检查这些维度：输出是否存在、格式是否正确、结果语义是否正确、相关系统状态是否正确、边界条件是否被正确处理。
-    - 任务必须 self-contained；完成任务所需的关键信息必须出现在 instruction.md 或提供的输入资产中，不能依赖隐含前提。
-    - verifier 用到的任何决定性语义都必须能从 instruction.md 或输入资产直接推出，不能只隐含在 tests/solution 中；如果一个认真执行的 agent 需要阅读 verifier 或参考解才能消除关键歧义，则该任务不合格。
-    - 这类决定性语义包括但不限于状态更新顺序、时间步长语义、最后一步处理、聚合规则、容差口径和 replay 口径。
-    - verifier 和运行环境应尽量保持稳定一致，避免明显依赖随机性、脆弱时序或难以复现的外部状态。
-    - 如果使用 Python verifier，优先采用 pytest 风格组织这些可验证单元。
+    - verifier 只能检查 instruction.md 和输入资产中已经说明、或可直接推出的要求；tests/solution 只能验证题目规则，不能补充题目规则。
+    - 与验收相关的输出路径、文件名、字段、格式、容忍误差和边界条件必须清晰且无歧义。
+    - verifier 应优先检查输出是否存在、格式是否正确、结果语义是否正确，以及相关系统状态是否被正确更新。
+    - 如果任务较复杂，tests 应拆成若干明确断言，分别覆盖关键结果，而不是只保留一个含糊的大断言。
+    - verifier 不应依赖随机性、脆弱时序、未承诺的实现细节，或难以复现的外部状态。
   `);
 }
 
 function renderSkillEffectDesignRules(unit: GenerationUnit): string {
   const modeSpecificRule =
     unit.skillMode === "all"
-      ? "- all 模式下，多个 shipped skills 的核心收益点必须真实参与解题；不要把 all family 退化成其实只靠通用能力也能直接完成的任务。"
-      : `- per-skill 模式下，当前目标 skill ${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"}) 必须是关键瓶颈；不要把它写成只是省一点时间的可选加速器。`;
+      ? "- all 模式下，多个 shipped skills 都必须对完成任务产生实质影响；任务不能退化为不依赖这些 skills 也能稳定完成。"
+      : `- per-skill 模式下，目标 skill ${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"}) 必须是关键瓶颈；任务不能退化为不依赖该 skill 也能稳定完成。`;
 
   return dedent(`
-    skill effect 与难度约束:
-    - 无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard。
-    - 只有当 hard 的主要代价会变成 build/start/runtime 噪声，而不是 skill bottleneck 时，才允许降到 medium。
-    - 优先选择没有相关 skill 支撑时，agent 容易走错路、漏关键步骤或选错工具的任务。
-    - 任务难点应来自领域抽象、非显然工作流、跨多份资产的关联判断、复杂 patch/config 推理，而不是重型环境搭建、长时间预热或纯体力编码。
-    - 不要把任务写成只靠单个明显文件、单条 shell 命令，或浅层 grep/jq/排序/聚合就能完成的小题。
-    - 不要在 instruction.md 中给出接近教程式的完整 recipe；任务目标可以清楚，但关键求解路径不应被线性写死。
-    - 不要让环境里存在一眼可见的 answer-like 文件、可直接复制/改名的 deliverable，或其他明显 no-skill shortcut。
-    - 目标 skill 必须依赖其 SKILL.md 中独特、非通用模板化的能力点；不要把常见 bash/python 模板、通用调试套路或轻量工作流包装成 skill bottleneck。
-    - 这些能力点应实质改变解题成败，而不只是节省体力、压缩少量时间或减少一点试错。
-    - 如果通用 agent 仅靠常见 bash/python 模板、通用调试套路或轻量试错就能完成，则该任务不合格，不要把它作为 benchmark 候选。
-    - 如果一个任务在不依赖当前相关 skill 的情况下，大概率也能被通用 agent 直接完成，就不要把它作为 benchmark 候选。
+    skill effect 契约:
+    - 相关 shipped skill 必须对任务成败产生实质影响；没有这些 skill 时，通用 agent 不应稳定完成任务。
+    - 任务难点必须主要来自相关 skill 支撑的关键判断、工作流或领域操作，不得主要来自重型环境搭建、长时间预热、运行时噪声或纯体力编码。
+    - 任务不得向 agent 暴露可直接读取并足以通过 verifier 的完整答案、可直接搬运的产物，或其他能绕过关键 skill 的显著 shortcut。
+    - 如果不依赖相关 skill，仅凭通用命令行/脚本能力和少量试错就能稳定完成任务，则该任务不构成 skill bottleneck。
     ${modeSpecificRule}
   `);
 }
 
 function renderEnvironmentResourceRules(): string {
   return dedent(`
-    task.toml 环境配额:
+    task.toml 环境契约:
     - task.toml 必须包含 [environment]。
-    - [environment] 必须固定为:
-      - cpus = 2
-      - memory_mb = 2048
-      - storage_mb = 5120
-      - gpus = 0
+    - [environment].cpus 必须为 2。
+    - [environment].memory_mb 必须为 2048。
+    - [environment].storage_mb 必须为 5120。
+    - [environment].gpus 必须为 0。
   `);
 }
 
 function renderDockerfileRules(): string {
   return dedent(`
-    Dockerfile 约束:
+    Dockerfile 契约:
     - environment/Dockerfile 必须显式声明 WORKDIR。
-    - 默认优先使用 WORKDIR /root；如果确有必要使用其他目录，也必须让 solution/solve.sh、tests/test.sh、tests/test_outputs.py 与 Dockerfile 的路径契约保持一致。
+    - 如果 WORKDIR 不是 /root，solution/solve.sh、tests/test.sh、tests/test_outputs.py 与 Dockerfile 的路径契约仍必须保持一致。
     - environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
-    - 不要使用 COPY . /root、COPY . /root/、COPY ./ /root、ADD . /root 这类把当前 build context 整体复制到 /root 的写法；带 flag 的等价写法同样禁止。
-    - 不要把 skills 复制到普通运行时路径，例如 /root/environment/skills、/app/skills、/workspace/skills；如果需要额外兼容其他 agent，也只能复制到 agent skill 安装路径。
-    - template_source/environment/Dockerfile 只能作为参考，不能机械继承其中的 COPY/ADD/WORKDIR 写法。
+    - environment/Dockerfile 不得使用 COPY . /root、COPY . /root/、COPY ./ /root、ADD . /root 或带 flag 的等价宽泛复制写法。
+    - environment/Dockerfile 不得把 skills 复制到普通运行时路径，如 /root/environment/skills、/app/skills、/workspace/skills；如需兼容其他 agent，也只能复制到对应的 agent skill 安装路径。
   `);
 }
 
@@ -222,9 +197,8 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     2. 如 final-root 中已有同 family 的已发布任务，必须直接读取这些任务目录，避免和它们撞题。
     3. 只补齐当前缺失的任务槽位，输出一个完整 Harbor task family 增量。
     4. 最终任务短名固定采用 similar1、similar2、transfer1、transfer2 这种命名，不要自创其他 task id。
-    5. instruction.md 不要直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName；只有这种直接点名才算技能暴露。
-    6. 派生任务先写到 drafts/<task_name>/，不要直接写入最终发布目录。
-    7. 每个完整任务至少包含:
+    5. 派生任务先写到 drafts/<task_name>/，不要直接写入最终发布目录。
+    6. 每个完整任务至少包含:
        - task.toml
        - instruction.md
        - environment/Dockerfile
@@ -233,11 +207,11 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
        - tests/test.sh
        - tests/test_outputs.py
        - plan.json
-    8. plan.json 是 planner 产物，后续 materialize/publish 也要保留，不要删除。
-    9. 同一 workspace 内，后续任务生成时必须检查 drafts/ 下已经完成的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出语义和测试判定方式上过于接近。
-    10. environment/Dockerfile 必须遵守下方 Dockerfile 约束。
-    11. 最终 Harbor 任务面向用户可见的文本必须使用英文，至少包括 instruction.md、task.toml 的 metadata.name 和 metadata.description。
-    12. drafts/<task_name>/environment/skills/ 由系统从 input_skills/ 预注入，视为只读 payload；不要修改这些 skill 内容。
+    7. plan.json 是 planner 产物，后续 materialize/publish 也要保留，不要删除。
+    8. 同一 workspace 内，后续任务生成时必须检查 drafts/ 下已经完成的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出语义和测试判定方式上过于接近。
+    9. environment/Dockerfile 必须遵守下方 Dockerfile 约束。
+    10. 最终 Harbor 任务面向用户可见的文本必须使用英文，至少包括 instruction.md、task.toml 的 metadata.name 和 metadata.description。
+    11. drafts/<task_name>/environment/skills/ 由系统从 input_skills/ 预注入，视为只读 payload；不要修改这些 skill 内容。
     ${renderTemplateReferenceRules("drafts/<task_name>/environment/")}
     ${renderInputSkillRules(unit)}
     ${renderSkillEffectDesignRules(unit)}
@@ -254,12 +228,12 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
   const visibleSkills = getVisibleSkills(unit);
   const skillReadingRule =
     unit.skillMode === "all"
-      ? "- 规划前必须先阅读当前全部输入 shipped skills 的 SKILL.md，不要只根据 skill 名字猜用途。"
-      : "- 规划前必须先阅读当前目标输入 shipped skill 的 SKILL.md，不要只根据 skill 名字猜用途。";
+      ? "- 规划前必须先完整检查当前全部输入 shipped skills 的目录，至少阅读各自的 SKILL.md 以及其中直接引用的脚本、模板和资源文件；不要只根据 skill 名字猜用途。"
+      : "- 规划前必须先完整检查当前目标输入 shipped skill 的目录，至少阅读 SKILL.md 以及其中直接引用的脚本、模板和资源文件；不要只根据 skill 名字猜用途。";
   const capabilityExtractionRule =
     unit.skillMode === "all"
-      ? "- 必须先为每个输入 shipped skill 分别提炼 2-4 个独特、非通用模板化的关键能力点，并以这些能力点约束 family 规划。"
-      : "- 必须先提炼 2-4 个该 skill 独有、非通用模板化的关键能力点，并以这些能力点约束 family 规划。";
+      ? "- 必须基于每个输入 shipped skill 的目录内容分别提炼 2-4 个独特、非通用模板化的关键能力点，并以这些能力点约束 family 规划。"
+      : "- 必须基于该 shipped skill 的目录内容提炼 2-4 个独有、非通用模板化的关键能力点，并以这些能力点约束 family 规划。";
 
   return dedent(`
     先阅读 TASK_BUILDER_BRIEF.md，然后完整检查 template_source/、input_skills/ 和 builder_refs/harbor/；如果 final-root 已有同 family 任务，也必须直接读取这些已发布任务目录。
@@ -292,18 +266,10 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
     - template_source/ 和 builder_refs/harbor/ 都只是参考，不是模板；必要时可以新增全新输入资产，而不是机械复用原始素材。
     - input_skills/ 才是最终 shipped skill 来源；不要把 template_source/environment/skills/ 误当成最终 shipped skill 集合。
     - 如果 final-root 已有同 family 的已发布任务，必须先直接读取它们，并主动避免与这些历史任务在任务场景、输入资产、输出语义和测试判定方式上过于接近。
-    - 如果规划需要联网或外部服务，不要把它视为默认违规项，但仍要保证 Harbor 中可运行，且 verifier 能稳定写 reward。
-    - 任务必须尽量满足 hard to solve but easy to verify，并保持 self-contained。
-    - 从规划阶段就必须保证参考解与 verifier 和 skill runtime 解耦；skill 只用于帮助 agent，不得成为 solution/solve.sh 或 tests/** 的直接运行时依赖。
-    - 无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard；只有当 hard 的主要代价会变成 build/start/runtime 噪声，而不是 skill bottleneck 时，才允许降到 medium。
-    - 任务应尽量设计成带相关 skill 时能明显压缩搜索空间，而不用相关 skill 时容易走错路、漏关键步骤或卡住。
-    - 不要规划成只靠单个明显文件、单条命令或浅层通用脚本就能完成的题。
-    - 每个候选任务的 skillBenefitRationale 都必须明确说明：该题依赖了哪些关键能力点；如果没有这些能力点，通用 agent 最可能卡在哪一步；为什么这不是“读 helper + 套模板 + 调参”就能过的题。
-    - 明确禁止规划出资产天然暴露解法结构的 family。
-    - 明确禁止规划出只需要复用模板任务求解骨架的 family。
-    - 明确禁止规划出 similar/transfer 只是换业务皮、但 skill bottleneck 没变硬的 family。
-    - 明确禁止规划出主要考模板填空，而不是 skill 对应推理、建模或工作流能力的 family。
-    - 类别、难度、目标输出、技能收益说明都必须具体，不要写空泛占位。
+    - 任务应规划为 hard。
+    - 每个候选任务的 skillBenefitRationale 必须明确说明依赖了哪些关键能力点，以及没有这些能力点时通用 agent 最可能卡在哪一步。
+    - 不要规划出只需复用模板任务求解骨架、仅换业务皮，或资产天然暴露解法结构的 family。
+    - 类别、难度、目标输出和 skillBenefitRationale 必须具体，不要写空泛占位。
     ${renderSkillEffectDesignRules(unit)}
     ${unit.skillMode === "all"
       ? dedent(`
@@ -399,11 +365,8 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
       - gpus = 0
     - 必须保留 plan.json，不要删除或改名；如需更新，只能与当前 blueprint 保持一致。
     ${renderDockerfileRules()}
-    - instruction.md 不要直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName。
     - 不要把当前任务实现成比 blueprint 更轻的版本；尤其不要通过教程式 instruction、暴露关键步骤、放置一眼可见答案或单命令捷径，把它稀释成 easy/普通 medium 小题。
     - instruction.md 只应清楚说明任务目标、输入资产、输出契约和边界条件，不要写成按顺序执行即可过关的操作手册。
-    - 环境资产可以提供必要线索，但不要提供可直接复制/改名的标准答案、近似最终产物或其他明显 no-skill shortcut。
-    - 不要让 agent 仅凭单个明显文件、单条 shell 命令或浅层 grep/jq/排序/聚合就能完成任务。
     ${renderHarborOracleBaseline()}
 
     你需要创建或更新这些文件:
@@ -420,7 +383,7 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
   `);
 }
 
-export function buildReviewerPrompt(
+export function buildFamilyReviewerPrompt(
   unit: GenerationUnit,
   familyPlan: FamilyPlan,
   taskPlans: DerivedTaskPlan[],
@@ -432,13 +395,59 @@ export function buildReviewerPrompt(
     unit.publishedTasks.length === 0
       ? "- none"
       : unit.publishedTasks.map((task) => renderPublishedTaskEntry(task)).join("\n");
-  const skillReviewRule =
-    unit.skillMode === "per-skill"
-      ? `- 每个任务是否只依赖当前唯一 shipped skill：${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"})；如果完成任务还需要依赖其他未提供 skills，就直接判定失败`
-      : "- 任务是否真的能从 shipped skills 受益";
 
   return dedent(`
-    不要修改任何文件。你现在只负责审稿。
+    不要修改任何文件。你现在只负责 family 相似性审查。
+
+    先阅读:
+    - TASK_BUILDER_BRIEF.md
+    - drafts/ 下当前全部任务的 instruction.md
+    - final-root 下同 family 已发布任务的 instruction.md
+
+    当前 family 规划:
+    ${JSON.stringify(familyPlan, null, 2)}
+
+    本轮 drafts tasks:
+    ${taskList}
+
+    已发布 Harbor family 目录: ${unit.finalFamilyDir || "unknown"}
+    已发布 tasks:
+    ${publishedTaskList}
+
+    审查目标:
+    - 只根据题面判断这些任务是不是不同题；主要比较 instruction.md，不要去做 solve path 去重。
+    - 比较范围包括：
+      - 当前 drafts 之间
+      - 当前 drafts 与 final-root 下同 family 已发布任务之间
+    - 只在“当前 task 与 sibling 或历史任务过于相似、应该被定向重写”时，才把该任务标为 distinctPass=false。
+    - 尽量最小化重写集合：如果两个当前任务很像，只标记需要被改写的冗余任务，不要把整组都判失败。
+    - 历史 final-root 任务视为保留对象；如果当前任务与历史任务过近，优先标记当前任务重写。
+    - 这里只审 family 相似性，不要评估单题 blocking、runtime、skill-effect、难度或 skill 关键性。
+
+    返回格式要求:
+    - taskResults 中必须覆盖当前全部任务
+    - issues 只写“为什么这个任务需要改写以拉开 family 差异”
+    - 没问题的任务返回 distinctPass=true 且 issues=[]
+
+    返回严格符合 schema 的 JSON，不要输出额外解释。
+  `);
+}
+
+export function buildBlockingReviewerPrompt(
+  unit: GenerationUnit,
+  familyPlan: FamilyPlan,
+  taskPlans: DerivedTaskPlan[],
+): string {
+  const taskList = taskPlans
+    .map((task) => `- ${task.derivedTaskId} (${buildRoleDisplayName(task)}) -> drafts/${task.derivedTaskId}/`)
+    .join("\n");
+  const publishedTaskList =
+    unit.publishedTasks.length === 0
+      ? "- none"
+      : unit.publishedTasks.map((task) => renderPublishedTaskEntry(task)).join("\n");
+
+  return dedent(`
+    不要修改任何文件。你现在只负责单题 blocking 审查。
 
     先阅读:
     - TASK_BUILDER_BRIEF.md
@@ -459,50 +468,33 @@ export function buildReviewerPrompt(
     ${publishedTaskList}
 
     审查目标:
-    - 对每个任务分别判断：
-      - instruction.md 是否直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName
+    - 对每个任务分别判断是否存在 blocking 问题：
       - instruction.md、task.toml 的 metadata.name、metadata.description 是否使用英文；只要出现中文，就直接判定失败
-      - template_source/ 与 builder_refs/harbor/ 是否都只是参考，而不是被机械复写为任务模板
-      - input_skills/ 与 drafts/<task>/environment/skills/ 是否语义一致；writer 不应改写 injected skill payload
-      - 是否合理复用或新建输入资产，并与同 family 其他任务拉开差异
-      - plan.json、task.toml、instruction、tests、solution 是否互相一致
-      - tests/test.sh 是否先创建 /logs/verifier
+      - drafts/<task>/environment/skills/ 是否与 input_skills/ 保持一致；writer 不应改写 injected skill payload
+      - plan.json、task.toml、instruction、tests、solution 是否互相一致，并且这种不一致会影响验收或发布
+      - tests/test.sh 是否先执行 mkdir -p /logs/verifier
       - reward 是否写到 /logs/verifier/reward.txt 或 /logs/verifier/reward.json
       - 是否稳定写出 reward，而不是裸跑测试后直接结束
       - 是否存在 set -e/pipefail 导致写 reward 前提前退出的路径
       - solution/solve.sh 是否只是复制、搬运或暴露随任务提供的完整标准答案
-      - tests/test_outputs.py 是否只检查 instruction.md 明示的输出契约，而没有引入隐藏要求
-      - verifier 用到的决定性语义（如状态更新顺序、时间步长语义、最后一步处理、聚合/重放口径）是否都能从 instruction.md 或输入资产直接推出；如果需要阅读 tests/solution 才能消除关键歧义，则直接判定失败
+      - tests/test_outputs.py 是否只检查 instruction.md 或输入资产中已说明、或可直接推出的输出契约，而没有引入 hidden requirement
+      - verifier 是否依赖 instruction.md 和输入资产中都没有说明、也无法直接推出的规则；如果 tests/solution 在补充题目规则，则直接判定失败
       - tests/test_outputs.py 是否把合法解法锁死到某种内部实现细节，而不是校验结果语义
       - tests/test_outputs.py 的 expected 是否来自输入资产、题目规则或可复算逻辑，而不是现成答案文件
       - 是否滥用 snapshot/golden 文件，导致 agent 可以通过复制现成答案过关
       - fresh state、no-op、仅复制/改名已有 deliverable、直接搬运任务内现成答案时，当前 verifier 是否仍会错误通过
       - solution/solve.sh、tests/test.sh、tests/test_outputs.py 是否直接引用 environment/skills/**、/root/.codex/skills/**、/app/skills/** 或其他 skill 安装路径/模块；只要存在这种硬依赖，就直接判定失败
-      - 该任务是否满足 hard to solve but easy to verify
-      - 该任务是否其实偏 easy，或虽然写了 skill 但没有相关 skill 也大概率能直接做出来
-      - 该任务是否存在明显 no-skill shortcut，例如单文件直取答案、单命令流水线、直接复制/改名现成 deliverable
-      - 如果当前 difficulty 不是 hard，原因是否真的是 hard 只会主要引入 runtime 噪声，而不是因为任务本身太容易
-      - 任务是否 self-contained，完成任务所需关键信息是否都已写入 instruction.md 或输入资产
       - solution/solve.sh、tests/test.sh、tests/test_outputs.py、environment/Dockerfile 的路径契约是否一致
       - 运行时需要写入的目录是否显式创建
       - environment/Dockerfile 是否显式声明 WORKDIR；如果不是 /root，相关脚本路径是否仍然一致
-      - environment/Dockerfile 是否显然使用了私有/本地镜像
+      - environment/Dockerfile 的 FROM 是否使用了私有/本地 registry，或未允许的 registry
       - environment/Dockerfile 是否出现 COPY . /root、ADD . /root 或同类宽泛复制
       - environment/Dockerfile 是否把 skills 复制到了 /root/environment/skills、/app/skills、/workspace/skills 等普通运行时路径
-      ${skillReviewRule}
-      - 如果任务偏 easy、skill 不是关键瓶颈，或存在 no-skill shortcut，必须在 issues 中直接写明 too easy、skill not critical、no-skill shortcut 或 difficulty too low，并将 skillBenefitPass 设为 false
-      - 该任务是否应通过 reviewer
-      - 只要命中上述任一 Harbor testability 问题，就将 testabilityPass 设为 false，并在 issues 中直接点明具体问题
-    - 对 family 整体单独给出观察：
-      - 本轮 drafts 与 final-root 中已发布任务是否足够区分，不应只是历史任务的轻微变体
-      - family 是否满足 ${unit.similarCount} 个 similar + ${unit.transferCount} 个 transfer
-      - transfer 任务之间是否足够不同
-      - similar 任务是否足够贴近目标技能的典型用法
 
     返回格式要求:
     - taskResults 中必须覆盖当前全部任务
-    - taskResults[].pass=false 只表示该任务不应发布，不表示整组 family 失败
-    - familyObservations 只记录 family 级观察，不决定单个任务是否发布
+    - taskResults[].blockingPass=false 只表示该任务存在 blocking 问题
+    - blockingIssues 只写会影响正确验收、发布完整性或 skill payload 契约的具体问题
 
     返回严格符合 schema 的 JSON，不要输出额外解释。
   `);
@@ -511,7 +503,8 @@ export function buildReviewerPrompt(
 export function buildRepairPrompt(args: {
   unit: GenerationUnit;
   plan: DerivedTaskPlan;
-  reviewerIssues: string[];
+  familyIssues: string[];
+  blockingIssues: string[];
   staticIssues: string[];
   runtimeIssues: string[];
   skillEffectIssues: string[];
@@ -536,10 +529,12 @@ export function buildRepairPrompt(args: {
   noSkillRewardPath?: string;
   noSkillTrajectoryPath?: string;
 }): string {
-  const reviewerBlock =
-    args.reviewerIssues.length > 0
-      ? args.reviewerIssues.map((issue) => `- ${issue}`).join("\n")
-      : "- 无 reviewer 问题";
+  const familyBlock =
+    args.familyIssues.length > 0 ? args.familyIssues.map((issue) => `- ${issue}`).join("\n") : "- 无 family 问题";
+  const blockingBlock =
+    args.blockingIssues.length > 0
+      ? args.blockingIssues.map((issue) => `- ${issue}`).join("\n")
+      : "- 无 blocking reviewer 问题";
   const staticBlock =
     args.staticIssues.length > 0
       ? args.staticIssues.map((issue) => `- ${issue}`).join("\n")
@@ -562,8 +557,11 @@ export function buildRepairPrompt(args: {
     ${JSON.stringify(args.plan, null, 2)}
 
     当前问题:
-    reviewer:
-    ${reviewerBlock}
+    family:
+    ${familyBlock}
+
+    blocking reviewer:
+    ${blockingBlock}
 
     static:
     ${staticBlock}
@@ -600,29 +598,29 @@ export function buildRepairPrompt(args: {
     - 必须保留 plan.json，不要删除。
     - instruction.md、task.toml 的 metadata.name、metadata.description 必须保持英文，不要写中文任务描述。
     - 不要改变 task.toml 的 metadata.id、metadata.source_template_id、metadata.task_role、metadata.primary_output_file 所代表的任务身份；如当前这些字段缺失或错误，可以把它们修正到与 plan.json 一致。
-    - 如果要消除 instruction.md 中的 skill 暴露，可以同步调整输入资产名、输出字段名、tests 和 solution，但要保持任务目标一致。
-    - 不要让任务依赖当前 environment/skills/ 之外的其他 shipped skills。
+    - 如果命中了 family 问题，优先通过修改当前 task 的 instruction、输入资产、输出契约或验收对象，把它与 sibling / 历史任务拉开差异；不要改 task id 或 role。
     - 不要修改 environment/skills/ 下 injected skill payload；如果需要调整 skill 使用方式，应通过题目本身、输入资产、tests 或 solution 修正，而不是改 skill 内容。
     - 如果 solution/solve.sh 或 tests/** 直接调用 skill 模块，必须去耦：把最小必需逻辑搬到任务自身代码里，或改成公开通用依赖；最终参考解与 verifier 在有 skill / 无 skill 两种评测设置都要能运行。
     - 不要引入隐藏测试要求；instruction、tests、solution 应保持一致。
-    - 如果需要修改 environment/Dockerfile，必须显式声明 WORKDIR；默认优先 /root，若改用其他目录，相关脚本路径也要同步一致。
+    - 如果需要修改 environment/Dockerfile，必须显式声明 WORKDIR；如果不是 /root，相关脚本路径也要同步一致。
     - 如果需要修改 environment/Dockerfile，必须保留 COPY skills /root/.codex/skills。
     - 不要写 COPY . /root、COPY . /root/、COPY ./ /root、ADD . /root 或带 flag 的等价写法。
     - 不要把 skills 复制到 /root/environment/skills、/app/skills、/workspace/skills 等普通运行时路径；如需额外兼容其他 agent，也只能复制到 agent skill 安装路径。
-    - 如果需要修改 environment/Dockerfile，不能改成私有/本地镜像；必须使用公共镜像。
-    - 不要通过降低任务难度、补写教程式步骤、暴露关键线索、删除必要干扰项，或把题目改成单命令/单文件直取答案的小题来换取通过。
-    - 修复后应继续保持 benchmark 默认 hard 的设计目标；除非当前 hard 的主要问题是 runtime 噪声，否则不要主动把题目降到 medium。
-    - 修复后仍要避免明显 no-skill shortcut，并保持相关 skill 依然是关键瓶颈。
+    - 如果需要修改 environment/Dockerfile，FROM 不得使用私有/本地 registry，或未允许的 registry。
     - 你应把完整日志目录当作主入口，自由递归读取相关证据，而不是只盯住某一个摘要文件。
     - log-index.json、harbor-run.log、job.log、trial.log、verifier/test-stdout.txt、reward 文件、result.json、artifacts/manifest.json 只是常见线索，不是固定顺序。
     - 不要只根据 reward=0、摘要 issue 或 failure label 猜问题；如果 runtime 日志或 result.json 暴露了 Harbor oracle/runtime 失败原因，必须优先根据日志修正。
     - 优先排查 verifier 契约问题、输入资产复制问题、运行时路径错误、目录未创建、reward 未稳定落盘等高频问题。
-    - 如果命中了 skill-effect 问题，必须同时检查 with_skill / no_skill 两边的日志、result.json、reward 和 trajectory，优先修复“no_skill 也能通过”或“with_skill 反而更差”的根因。
-    - skill-effect 相关修复优先方向包括：收紧 verifier、移除 no-skill shortcut、减少题面或资产对解法结构的泄漏、消除只会误导 with_skill 的歧义约束。
+    - 如果命中了 skill-effect 问题，必须对照检查 with_skill 和 no_skill 两边的日志、result.json、reward 与 trajectory，并按下面顺序排查：
+      1. no_skill 变体构造是否正确
+      2. verifier 是否引入隐藏要求，或允许通过篡改本应只读的输入资产来取巧过关
+      3. instruction、assets、tests、solution 是否对齐
+      4. with_skill 失败是否来自 runtime / budget / 路径问题
+      5. 若以上都无异常，再按任务当前不可用处理并继续常规修复
     - 返回 JSON 时，summary 只简短说明你修了什么，不要复述原因。
     - 返回 JSON 时，repairReason 要详细说明为什么这轮需要修，必须基于当前 reviewer/static/runtime/skill-effect 问题和你读到的证据来写，不能空泛。
     - 如果命中了 skill-effect，repairReason 必须明确写出 skill-effect bucket，并说明 with_skill / no_skill 对比里观察到的核心差异，以及为什么这些观察导向本轮修改方向。
-    - 如果主要是 reviewer/static/runtime 触发，repairReason 必须写出最关键的 blocking issue，以及为什么本轮改动是在针对这个根因。
+    - 如果主要是 family / blocking / static / runtime 触发，repairReason 必须写出本轮最关键的问题，以及为什么本轮改动是在针对这个根因。
 
     完成修改后，返回严格 JSON:
     {

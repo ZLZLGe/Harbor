@@ -37,9 +37,10 @@ import {
   resolveRuntimeEnvironment,
   runRuntimePreflight,
   runRuntimeValidation,
+  validateBlockingReviewResult,
   validateDraftStatic,
+  validateFamilyReviewResult,
   validateFamilyPlan,
-  validateReviewerResult,
   validateTaskPlans,
   type RuntimeEnvironment,
   type RuntimeEvidence,
@@ -59,7 +60,6 @@ type FamilyExecutionResult = {
   runId?: string;
   status: "completed" | "failed";
   issues: string[];
-  familyObservationIssues: string[];
   publishedTaskIds: string[];
   quarantinedTaskIds: string[];
   skillEffectResults: Array<{
@@ -88,7 +88,8 @@ type TaskCycleState = {
   lastMutatedCycle: number | null;
   runtimePassedCycle: number | null;
   skillEffectAcceptedCycle: number | null;
-  reviewerIssues: ValidationIssue[];
+  familyIssues: ValidationIssue[];
+  blockingIssues: ValidationIssue[];
   staticIssues: ValidationIssue[];
   runtimeIssues: ValidationIssue[];
   skillEffectIssues: ValidationIssue[];
@@ -279,7 +280,8 @@ async function repairTaskDraft(
     unit,
     workspace,
     plan: taskState.plan,
-    reviewerIssues: issueMessages(taskState.reviewerIssues),
+    familyIssues: issueMessages(taskState.familyIssues),
+    blockingIssues: issueMessages(taskState.blockingIssues),
     staticIssues: issueMessages(taskState.staticIssues),
     runtimeIssues: issueMessages(taskState.runtimeIssues),
     skillEffectIssues: issueMessages(taskState.skillEffectIssues),
@@ -332,7 +334,8 @@ async function repairTaskDraft(
       threadId: repairResult.threadId,
       draftDir: taskState.draftDir,
       issues: [
-        ...issueMessages(taskState.reviewerIssues),
+        ...issueMessages(taskState.familyIssues),
+        ...issueMessages(taskState.blockingIssues),
         ...issueMessages(taskState.staticIssues),
         ...issueMessages(taskState.runtimeIssues),
         ...issueMessages(taskState.skillEffectIssues),
@@ -419,7 +422,6 @@ async function executeFamilyGeneration(
         runId: workspace.runId,
         status: "failed",
         issues,
-        familyObservationIssues: issues,
         publishedTaskIds: [],
         quarantinedTaskIds: [],
         skillEffectResults: [],
@@ -459,7 +461,8 @@ async function executeFamilyGeneration(
         lastMutatedCycle: null,
         runtimePassedCycle: null,
         skillEffectAcceptedCycle: null,
-        reviewerIssues: [],
+        familyIssues: [],
+        blockingIssues: [],
         staticIssues: [],
         runtimeIssues: [],
         skillEffectIssues: [],
@@ -467,22 +470,49 @@ async function executeFamilyGeneration(
       });
     }
 
-    const familyObservationIssues = new Set(initialFamilyObservationIssues.map((issue) => issue.message));
+    const familyReviewResult = await codex.reviewFamilySimilarity(unit, workspace, normalizedFamilyPlan, taskPlans);
+    const familyReviewValidation = validateFamilyReviewResult(taskPlans, familyReviewResult.data);
+    await writeJson(path.join(workspace.artifactsDir, "family-review.json"), familyReviewResult.data);
+    await writeJson(path.join(workspace.artifactsDir, "family-review.raw.json"), {
+      threadId: familyReviewResult.threadId,
+      raw: familyReviewResult.raw,
+    });
+    const initialFamilyReviewIssues = taskPlans.flatMap(
+      (plan) => familyReviewValidation.taskIssuesById.get(plan.derivedTaskId) ?? [],
+    );
+    await appendRunManifest({
+      runId: workspace.runId,
+      templateId: unit.template.templateId,
+      phase: "family-review",
+      status: initialFamilyReviewIssues.length === 0 ? "completed" : "failed",
+      threadId: familyReviewResult.threadId,
+      issues: issueMessages(initialFamilyReviewIssues),
+      metadata: buildScopeMetadata(unit, options.runtimeEnvironment),
+    });
+
+    for (const plan of taskPlans) {
+      const taskState = taskStates.get(plan.derivedTaskId);
+      if (!taskState) {
+        throw new Error(`缺少 task state: ${plan.derivedTaskId}`);
+      }
+      taskState.familyIssues = familyReviewValidation.taskIssuesById.get(plan.derivedTaskId) ?? [];
+      if (taskState.familyIssues.length === 0) {
+        continue;
+      }
+      if (taskState.repairRoundsUsed < options.maxRepairRounds) {
+        await repairTaskDraft(codex, unit, workspace, taskState, 0, options.outputRoot);
+        taskState.familyIssues = [];
+      }
+    }
+
     for (let cycle = 0; cycle <= options.maxRepairRounds; cycle += 1) {
-      const reviewResult = await codex.reviewFamily(unit, workspace, normalizedFamilyPlan, taskPlans);
-      const reviewValidation = validateReviewerResult(taskPlans, reviewResult.data, {
-        similarCount: pendingOrdinals.similarOrdinals.length,
-        transferCount: pendingOrdinals.transferOrdinals.length,
-      });
+      const reviewResult = await codex.reviewTaskBlocking(unit, workspace, normalizedFamilyPlan, taskPlans);
+      const reviewValidation = validateBlockingReviewResult(taskPlans, reviewResult.data);
       await writeJson(path.join(workspace.artifactsDir, `review-result.round-${cycle}.json`), reviewResult.data);
       await writeJson(path.join(workspace.artifactsDir, `review-result.round-${cycle}.raw.json`), {
         threadId: reviewResult.threadId,
         raw: reviewResult.raw,
       });
-
-      for (const issue of reviewValidation.familyObservationIssues) {
-        familyObservationIssues.add(issue.message);
-      }
 
       let repairedThisCycle = false;
       let allPassedThisCycle = true;
@@ -493,13 +523,13 @@ async function executeFamilyGeneration(
           throw new Error(`缺少 task state: ${plan.derivedTaskId}`);
         }
 
-        taskState.reviewerIssues = reviewValidation.taskIssuesById.get(plan.derivedTaskId) ?? [];
+        taskState.blockingIssues = reviewValidation.taskIssuesById.get(plan.derivedTaskId) ?? [];
         taskState.staticIssues = await validateDraftStatic(taskState.draftDir, plan, unit);
         taskState.runtimeIssues = [];
         taskState.skillEffectIssues = [];
         taskState.passed = false;
 
-        const preRuntimeIssues = [...taskState.reviewerIssues, ...taskState.staticIssues];
+        const preRuntimeIssues = [...taskState.familyIssues, ...taskState.blockingIssues, ...taskState.staticIssues];
         await appendRunManifest({
           runId: workspace.runId,
           templateId: unit.template.templateId,
@@ -756,7 +786,8 @@ async function executeFamilyGeneration(
       });
       quarantinedTaskIds.push(plan.derivedTaskId);
       finalIssues.push(
-        ...issueMessages(taskState.reviewerIssues),
+        ...issueMessages(taskState.familyIssues),
+        ...issueMessages(taskState.blockingIssues),
         ...issueMessages(taskState.staticIssues),
         ...issueMessages(taskState.runtimeIssues),
         ...issueMessages(taskState.skillEffectIssues),
@@ -770,7 +801,8 @@ async function executeFamilyGeneration(
         draftDir: taskState.draftDir,
         publishedDir: quarantineResult.targetTaskDir,
         issues: [
-          ...issueMessages(taskState.reviewerIssues),
+          ...issueMessages(taskState.familyIssues),
+          ...issueMessages(taskState.blockingIssues),
           ...issueMessages(taskState.staticIssues),
           ...issueMessages(taskState.runtimeIssues),
           ...issueMessages(taskState.skillEffectIssues),
@@ -819,7 +851,6 @@ async function executeFamilyGeneration(
       runtimeEnvironment: options.runtimeEnvironment,
       status,
       issues: uniqueStrings(finalIssues),
-      familyObservationIssues: Array.from(familyObservationIssues.values()).sort((a, b) => a.localeCompare(b)),
       publishedTaskIds,
       quarantinedTaskIds,
       skillEffectResults,
@@ -855,7 +886,6 @@ async function executeFamilyGeneration(
       runId: workspace.runId,
       status,
       issues: summary.issues,
-      familyObservationIssues: summary.familyObservationIssues,
       publishedTaskIds,
       quarantinedTaskIds,
       skillEffectResults,
@@ -889,7 +919,6 @@ async function executeFamilyGeneration(
       runId: workspace.runId,
       status: "failed",
       issues: [message],
-      familyObservationIssues: [],
       publishedTaskIds: [],
       quarantinedTaskIds: [],
       skillEffectResults: [],

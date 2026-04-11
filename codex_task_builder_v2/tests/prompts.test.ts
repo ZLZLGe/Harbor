@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import {
+  buildBlockingReviewerPrompt,
   buildFamilyPlannerPrompt,
+  buildFamilyReviewerPrompt,
   buildRepairPrompt,
-  buildReviewerPrompt,
   buildTaskBuilderBrief,
   buildTaskWriterPrompt,
 } from "../src/prompts.js";
@@ -184,14 +185,17 @@ const taskPlans: DerivedTaskPlan[] = [
 const brief = buildTaskBuilderBrief(unit);
 const plannerPrompt = buildFamilyPlannerPrompt(unit);
 const writerPrompt = buildTaskWriterPrompt(unit, plan);
-const reviewerPrompt = buildReviewerPrompt(unit, familyPlan, taskPlans);
+const familyReviewerPrompt = buildFamilyReviewerPrompt(unit, familyPlan, taskPlans);
+const blockingReviewerPrompt = buildBlockingReviewerPrompt(unit, familyPlan, taskPlans);
 const historyPlannerPrompt = buildFamilyPlannerPrompt(historyAwareUnit);
 const historyWriterPrompt = buildTaskWriterPrompt(historyAwareUnit, plan);
-const historyReviewerPrompt = buildReviewerPrompt(historyAwareUnit, familyPlan, taskPlans);
+const historyFamilyReviewerPrompt = buildFamilyReviewerPrompt(historyAwareUnit, familyPlan, taskPlans);
+const historyBlockingReviewerPrompt = buildBlockingReviewerPrompt(historyAwareUnit, familyPlan, taskPlans);
 const repairPrompt = buildRepairPrompt({
   unit,
   plan,
-  reviewerIssues: ["reviewer:similar1 instruction.md leaked the skill name"],
+  familyIssues: ["family:similar1 instruction.md is too close to history"],
+  blockingIssues: ["reviewer:similar1 instruction.md leaked the skill name"],
   staticIssues: ["static:similar1 task.toml metadata.source_template_id is wrong"],
   runtimeIssues: ["runtime:similar1 harbor verifier reward=0 < 1.0"],
   skillEffectIssues: ["skill-effect:similar1 with_skill pass / no_skill pass"],
@@ -217,7 +221,7 @@ assert.match(brief, /builder_refs\/harbor\/SKILL\.md/);
 
 assert.match(plannerPrompt, /完整检查 template_source\/、input_skills\/ 和 builder_refs\/harbor\//);
 assert.match(plannerPrompt, /templateId: tools__debugging/);
-assert.match(plannerPrompt, /当前目标输入 shipped skill 的 SKILL\.md/);
+assert.match(plannerPrompt, /完整检查当前目标输入 shipped skill 的目录/);
 assert.match(plannerPrompt, /input_skills\/ 才是最终 shipped skill 来源/);
 assert.match(historyPlannerPrompt, /已发布 Harbor family 目录/);
 
@@ -227,14 +231,20 @@ assert.match(writerPrompt, /environment\/skills\/ 中只能保留一个 shipped 
 assert.match(writerPrompt, /这些 injected skills 是只读 payload/);
 assert.match(historyWriterPrompt, /已发布 Harbor family 目录/);
 
-assert.match(reviewerPrompt, /template_source\//);
-assert.match(reviewerPrompt, /input_skills\//);
-assert.match(reviewerPrompt, /writer 不应改写 injected skill payload/);
-assert.match(historyReviewerPrompt, /已发布 Harbor family 目录/);
+assert.match(familyReviewerPrompt, /family 相似性审查/);
+assert.match(familyReviewerPrompt, /只根据题面判断这些任务是不是不同题/);
+assert.match(familyReviewerPrompt, /drafts\/ 下当前全部任务的 instruction\.md/);
+assert.match(historyFamilyReviewerPrompt, /已发布 Harbor family 目录/);
+
+assert.match(blockingReviewerPrompt, /单题 blocking 审查/);
+assert.match(blockingReviewerPrompt, /writer 不应改写 injected skill payload/);
+assert.match(historyBlockingReviewerPrompt, /已发布 Harbor family 目录/);
 
 assert.match(repairPrompt, /不要修改 template_source\/、input_skills\/、builder_refs\//);
 assert.match(repairPrompt, /不要修改 environment\/skills\/ 下 injected skill 的内容/);
 assert.match(repairPrompt, /metadata\.source_template_id/);
+assert.match(repairPrompt, /family:/);
+assert.match(repairPrompt, /blocking reviewer:/);
 
-assert.match(allModeBrief, /当前 family 需要保留全部输入 skills 的核心收益点/);
-assert.match(allModePlannerPrompt, /当前全部输入 shipped skills 的 SKILL\.md/);
+assert.match(allModeBrief, /当前 family 需要保留全部输入 skills 的关键能力点和实际解题收益/);
+assert.match(allModePlannerPrompt, /完整检查当前全部输入 shipped skills 的目录/);

@@ -4,28 +4,33 @@ import { Codex, type Thread, type ThreadOptions } from "@openai/codex-sdk";
 import { z } from "zod";
 import type { GenerationUnit } from "./discovery.js";
 import type {
+  BlockingReviewResult,
+  BlockingReviewerTaskResult,
   DerivedTaskPlan,
+  FamilyReviewResult,
+  FamilyReviewerTaskResult,
   FamilyPlan,
   RepairTurnResult,
-  ReviewResult,
-  ReviewerTaskResult,
   WriterSummary,
 } from "./schema.js";
 import {
+  blockingReviewResultJsonSchema,
+  blockingReviewResultSchema,
+  familyReviewResultJsonSchema,
+  familyReviewResultSchema,
   familyPlanJsonSchema,
   familyPlanSchema,
   repairTurnResultJsonSchema,
   repairTurnResultSchema,
-  reviewResultJsonSchema,
-  reviewResultSchema,
   writerSummaryJsonSchema,
   writerSummarySchema,
 } from "./schema.js";
 import { parseJsonWithFallback, pathExists } from "./utils.js";
 import {
+  buildBlockingReviewerPrompt,
   buildFamilyPlannerPrompt,
+  buildFamilyReviewerPrompt,
   buildRepairPrompt,
-  buildReviewerPrompt,
   buildTaskWriterPrompt,
   relativeDraftPath,
 } from "./prompts.js";
@@ -75,104 +80,42 @@ function toIssueList(value: unknown): string[] {
   return normalized ? [normalized] : [];
 }
 
-function buildReviewerFallbackResult(taskPlans: DerivedTaskPlan[], message: string): ReviewResult {
+function buildFamilyReviewerFallbackResult(taskPlans: DerivedTaskPlan[], message: string): FamilyReviewResult {
   return {
     taskResults: taskPlans.map((plan) => ({
       derivedTaskId: plan.derivedTaskId,
-      pass: false,
+      distinctPass: false,
       issues: [message],
-      visibilityPass: false,
-      skillBenefitPass: false,
-      testabilityPass: false,
     })),
-    familyObservations: {
-      issues: [message],
-      diversityPass: false,
-      roleLayoutPass: false,
-    },
   };
 }
 
-function normalizeReviewerTaskResult(
-  rawValue: unknown,
-  plan: DerivedTaskPlan,
-  normalizationIssues: string[],
-  options: {
-    fallbackByPosition: boolean;
-  },
-): ReviewerTaskResult {
-  if (!rawValue || typeof rawValue !== "object" || Array.isArray(rawValue)) {
-    return {
-      derivedTaskId: plan.derivedTaskId,
-      pass: false,
-      issues: ["reviewer 返回的 taskResult 结构异常"],
-      visibilityPass: false,
-      skillBenefitPass: false,
-      testabilityPass: false,
-    };
-  }
-
-  const record = rawValue as Record<string, unknown>;
-  const normalizedIssues = toIssueList(record.issues);
-  const rawTaskId = typeof record.derivedTaskId === "string" ? record.derivedTaskId.trim() : "";
-  if (!rawTaskId && options.fallbackByPosition) {
-    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 derivedTaskId，已按位置映射`);
-  } else if (rawTaskId && rawTaskId !== plan.derivedTaskId) {
-    normalizationIssues.push(`reviewer 返回 derivedTaskId=${rawTaskId}，已映射到 ${plan.derivedTaskId}`);
-  }
-
-  const pass = typeof record.pass === "boolean" ? record.pass : normalizedIssues.length === 0;
-  if (typeof record.pass !== "boolean") {
-    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 pass，已按 issues 推导`);
-  }
-
-  const visibilityPass = typeof record.visibilityPass === "boolean" ? record.visibilityPass : pass;
-  const skillBenefitPass = typeof record.skillBenefitPass === "boolean" ? record.skillBenefitPass : pass;
-  const testabilityPass = typeof record.testabilityPass === "boolean" ? record.testabilityPass : pass;
-
-  if (typeof record.visibilityPass !== "boolean") {
-    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 visibilityPass，已默认跟随 pass`);
-  }
-  if (typeof record.skillBenefitPass !== "boolean") {
-    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 skillBenefitPass，已默认跟随 pass`);
-  }
-  if (typeof record.testabilityPass !== "boolean") {
-    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 testabilityPass，已默认跟随 pass`);
-  }
-
+function buildBlockingReviewerFallbackResult(taskPlans: DerivedTaskPlan[], message: string): BlockingReviewResult {
   return {
-    derivedTaskId: plan.derivedTaskId,
-    pass,
-    issues: normalizedIssues,
-    visibilityPass,
-    skillBenefitPass,
-    testabilityPass,
+    taskResults: taskPlans.map((plan) => ({
+      derivedTaskId: plan.derivedTaskId,
+      blockingPass: false,
+      blockingIssues: [message],
+    })),
   };
 }
 
-export function normalizeReviewResultFromRaw(taskPlans: DerivedTaskPlan[], rawResponse: string): ReviewResult {
-  let parsedValue: unknown;
-  try {
-    parsedValue = parseJsonWithFallback<unknown>(rawResponse);
-  } catch (error) {
-    return buildReviewerFallbackResult(taskPlans, `reviewer structured output 无法解析，已回退为全任务失败: ${compactErrorMessage(error)}`);
-  }
-
-  if (!parsedValue || typeof parsedValue !== "object" || Array.isArray(parsedValue)) {
-    return buildReviewerFallbackResult(taskPlans, "reviewer structured output 不是合法对象，已回退为全任务失败");
-  }
-
-  const normalizationIssues: string[] = [];
-  const root = parsedValue as Record<string, unknown>;
+function buildIndexedRawTaskResults(
+  taskPlans: DerivedTaskPlan[],
+  rawTaskResultsValue: unknown,
+  normalizationIssues: string[],
+): {
+  rawTaskById: Map<string, unknown>;
+  positionalFallbacks: unknown[];
+} {
   const expectedTaskIds = new Set(taskPlans.map((plan) => plan.derivedTaskId));
-  const rawTaskResults = Array.isArray(root.taskResults) ? root.taskResults : [];
-  if (!Array.isArray(root.taskResults)) {
+  const rawTaskResults = Array.isArray(rawTaskResultsValue) ? rawTaskResultsValue : [];
+  if (!Array.isArray(rawTaskResultsValue)) {
     normalizationIssues.push("reviewer 未返回 taskResults 数组，已回退为逐任务失败结果");
   }
 
   const rawTaskById = new Map<string, unknown>();
   const positionalFallbacks: unknown[] = [];
-
   for (const rawTask of rawTaskResults) {
     if (!rawTask || typeof rawTask !== "object" || Array.isArray(rawTask)) {
       positionalFallbacks.push(rawTask);
@@ -191,12 +134,118 @@ export function normalizeReviewResultFromRaw(taskPlans: DerivedTaskPlan[], rawRe
     positionalFallbacks.push(rawTask);
   }
 
-  const normalizedTaskResults: ReviewerTaskResult[] = [];
+  return { rawTaskById, positionalFallbacks };
+}
+
+function normalizeFamilyReviewerTaskResult(
+  rawValue: unknown,
+  plan: DerivedTaskPlan,
+  normalizationIssues: string[],
+  options: {
+    fallbackByPosition: boolean;
+  },
+): FamilyReviewerTaskResult {
+  if (!rawValue || typeof rawValue !== "object" || Array.isArray(rawValue)) {
+    return {
+      derivedTaskId: plan.derivedTaskId,
+      distinctPass: false,
+      issues: ["reviewer 返回的 taskResult 结构异常"],
+    };
+  }
+
+  const record = rawValue as Record<string, unknown>;
+  const normalizedIssues = toIssueList(record.issues);
+  const rawTaskId = typeof record.derivedTaskId === "string" ? record.derivedTaskId.trim() : "";
+  if (!rawTaskId && options.fallbackByPosition) {
+    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 derivedTaskId，已按位置映射`);
+  } else if (rawTaskId && rawTaskId !== plan.derivedTaskId) {
+    normalizationIssues.push(`reviewer 返回 derivedTaskId=${rawTaskId}，已映射到 ${plan.derivedTaskId}`);
+  }
+
+  const distinctPass =
+    typeof record.distinctPass === "boolean"
+      ? record.distinctPass
+      : typeof record.pass === "boolean"
+        ? record.pass
+        : normalizedIssues.length === 0;
+  if (typeof record.distinctPass !== "boolean") {
+    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 distinctPass，已按 issues 推导`);
+  }
+
+  return {
+    derivedTaskId: plan.derivedTaskId,
+    distinctPass,
+    issues: normalizedIssues,
+  };
+}
+
+function normalizeBlockingReviewerTaskResult(
+  rawValue: unknown,
+  plan: DerivedTaskPlan,
+  normalizationIssues: string[],
+  options: {
+    fallbackByPosition: boolean;
+  },
+): BlockingReviewerTaskResult {
+  if (!rawValue || typeof rawValue !== "object" || Array.isArray(rawValue)) {
+    return {
+      derivedTaskId: plan.derivedTaskId,
+      blockingPass: false,
+      blockingIssues: ["reviewer 返回的 taskResult 结构异常"],
+    };
+  }
+
+  const record = rawValue as Record<string, unknown>;
+  const normalizedIssues = toIssueList(record.blockingIssues ?? record.issues);
+  const rawTaskId = typeof record.derivedTaskId === "string" ? record.derivedTaskId.trim() : "";
+  if (!rawTaskId && options.fallbackByPosition) {
+    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 derivedTaskId，已按位置映射`);
+  } else if (rawTaskId && rawTaskId !== plan.derivedTaskId) {
+    normalizationIssues.push(`reviewer 返回 derivedTaskId=${rawTaskId}，已映射到 ${plan.derivedTaskId}`);
+  }
+
+  const blockingPass =
+    typeof record.blockingPass === "boolean"
+      ? record.blockingPass
+      : typeof record.pass === "boolean"
+        ? record.pass
+        : normalizedIssues.length === 0;
+  if (typeof record.blockingPass !== "boolean") {
+    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 blockingPass，已按 issues 推导`);
+  }
+
+  return {
+    derivedTaskId: plan.derivedTaskId,
+    blockingPass,
+    blockingIssues: normalizedIssues,
+  };
+}
+
+export function normalizeFamilyReviewResultFromRaw(taskPlans: DerivedTaskPlan[], rawResponse: string): FamilyReviewResult {
+  let parsedValue: unknown;
+  try {
+    parsedValue = parseJsonWithFallback<unknown>(rawResponse);
+  } catch (error) {
+    return buildFamilyReviewerFallbackResult(
+      taskPlans,
+      `reviewer structured output 无法解析，已回退为全任务失败: ${compactErrorMessage(error)}`,
+    );
+  }
+
+  if (!parsedValue || typeof parsedValue !== "object" || Array.isArray(parsedValue)) {
+    return buildFamilyReviewerFallbackResult(taskPlans, "reviewer structured output 不是合法对象，已回退为全任务失败");
+  }
+
+  const normalizationIssues: string[] = [];
+  const root = parsedValue as Record<string, unknown>;
+  const { rawTaskById, positionalFallbacks } = buildIndexedRawTaskResults(taskPlans, root.taskResults, normalizationIssues);
+
+  const normalizedTaskResults: FamilyReviewerTaskResult[] = [];
   for (const plan of taskPlans) {
     const directMatch = rawTaskById.get(plan.derivedTaskId);
     if (directMatch) {
       normalizedTaskResults.push(
-        normalizeReviewerTaskResult(directMatch, plan, normalizationIssues, {
+        normalizeFamilyReviewerTaskResult(directMatch, plan, normalizationIssues, {
           fallbackByPosition: false,
         }),
       );
@@ -206,7 +255,7 @@ export function normalizeReviewResultFromRaw(taskPlans: DerivedTaskPlan[], rawRe
     const positionalMatch = positionalFallbacks.shift();
     if (positionalMatch !== undefined) {
       normalizedTaskResults.push(
-        normalizeReviewerTaskResult(positionalMatch, plan, normalizationIssues, {
+        normalizeFamilyReviewerTaskResult(positionalMatch, plan, normalizationIssues, {
           fallbackByPosition: true,
         }),
       );
@@ -216,11 +265,8 @@ export function normalizeReviewResultFromRaw(taskPlans: DerivedTaskPlan[], rawRe
     normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的审查结果，已补为失败`);
     normalizedTaskResults.push({
       derivedTaskId: plan.derivedTaskId,
-      pass: false,
+      distinctPass: false,
       issues: ["reviewer 未返回该任务的审查结果"],
-      visibilityPass: false,
-      skillBenefitPass: false,
-      testabilityPass: false,
     });
   }
 
@@ -228,49 +274,86 @@ export function normalizeReviewResultFromRaw(taskPlans: DerivedTaskPlan[], rawRe
     normalizationIssues.push(`reviewer 返回了 ${positionalFallbacks.length} 条无法匹配到当前任务的额外结果，已忽略`);
   }
 
-  let familyObservationIssues: string[] = [];
-  let diversityPass = true;
-  let roleLayoutPass = true;
-  const rawFamilyObservations = root.familyObservations;
-
-  if (rawFamilyObservations && typeof rawFamilyObservations === "object" && !Array.isArray(rawFamilyObservations)) {
-    const record = rawFamilyObservations as Record<string, unknown>;
-    familyObservationIssues = toIssueList(record.issues);
-    diversityPass =
-      typeof record.diversityPass === "boolean" ? record.diversityPass : familyObservationIssues.length === 0;
-    roleLayoutPass =
-      typeof record.roleLayoutPass === "boolean" ? record.roleLayoutPass : familyObservationIssues.length === 0;
-
-    if (typeof record.diversityPass !== "boolean") {
-      normalizationIssues.push("reviewer 未返回 familyObservations.diversityPass，已按 issues 推导");
-    }
-    if (typeof record.roleLayoutPass !== "boolean") {
-      normalizationIssues.push("reviewer 未返回 familyObservations.roleLayoutPass，已按 issues 推导");
-    }
-  } else if (Array.isArray(rawFamilyObservations)) {
-    familyObservationIssues = toIssueList(rawFamilyObservations);
-    diversityPass = false;
-    roleLayoutPass = false;
-    normalizationIssues.push("reviewer 将 familyObservations 返回成数组，已规范化为对象");
-  } else if (rawFamilyObservations === undefined) {
-    normalizationIssues.push("reviewer 未返回 familyObservations，已补为默认对象");
-  } else {
-    familyObservationIssues = toIssueList(rawFamilyObservations);
-    diversityPass = false;
-    roleLayoutPass = false;
-    normalizationIssues.push("reviewer 返回的 familyObservations 结构异常，已规范化为对象");
+  if (normalizationIssues.length > 0 && normalizedTaskResults.length > 0) {
+    normalizedTaskResults[0] = {
+      ...normalizedTaskResults[0],
+      distinctPass: false,
+      issues: [...normalizedTaskResults[0].issues, ...normalizationIssues],
+    };
   }
 
-  const normalized = {
+  return familyReviewResultSchema.parse({
     taskResults: normalizedTaskResults,
-    familyObservations: {
-      issues: [...familyObservationIssues, ...normalizationIssues],
-      diversityPass,
-      roleLayoutPass,
-    },
-  };
+  });
+}
 
-  return reviewResultSchema.parse(normalized);
+export function normalizeBlockingReviewResultFromRaw(
+  taskPlans: DerivedTaskPlan[],
+  rawResponse: string,
+): BlockingReviewResult {
+  let parsedValue: unknown;
+  try {
+    parsedValue = parseJsonWithFallback<unknown>(rawResponse);
+  } catch (error) {
+    return buildBlockingReviewerFallbackResult(
+      taskPlans,
+      `reviewer structured output 无法解析，已回退为全任务失败: ${compactErrorMessage(error)}`,
+    );
+  }
+
+  if (!parsedValue || typeof parsedValue !== "object" || Array.isArray(parsedValue)) {
+    return buildBlockingReviewerFallbackResult(taskPlans, "reviewer structured output 不是合法对象，已回退为全任务失败");
+  }
+
+  const normalizationIssues: string[] = [];
+  const root = parsedValue as Record<string, unknown>;
+  const { rawTaskById, positionalFallbacks } = buildIndexedRawTaskResults(taskPlans, root.taskResults, normalizationIssues);
+
+  const normalizedTaskResults: BlockingReviewerTaskResult[] = [];
+  for (const plan of taskPlans) {
+    const directMatch = rawTaskById.get(plan.derivedTaskId);
+    if (directMatch) {
+      normalizedTaskResults.push(
+        normalizeBlockingReviewerTaskResult(directMatch, plan, normalizationIssues, {
+          fallbackByPosition: false,
+        }),
+      );
+      continue;
+    }
+
+    const positionalMatch = positionalFallbacks.shift();
+    if (positionalMatch !== undefined) {
+      normalizedTaskResults.push(
+        normalizeBlockingReviewerTaskResult(positionalMatch, plan, normalizationIssues, {
+          fallbackByPosition: true,
+        }),
+      );
+      continue;
+    }
+
+    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的审查结果，已补为失败`);
+    normalizedTaskResults.push({
+      derivedTaskId: plan.derivedTaskId,
+      blockingPass: false,
+      blockingIssues: ["reviewer 未返回该任务的审查结果"],
+    });
+  }
+
+  if (positionalFallbacks.length > 0) {
+    normalizationIssues.push(`reviewer 返回了 ${positionalFallbacks.length} 条无法匹配到当前任务的额外结果，已忽略`);
+  }
+
+  if (normalizationIssues.length > 0 && normalizedTaskResults.length > 0) {
+    normalizedTaskResults[0] = {
+      ...normalizedTaskResults[0],
+      blockingPass: false,
+      blockingIssues: [...normalizedTaskResults[0].blockingIssues, ...normalizationIssues],
+    };
+  }
+
+  return blockingReviewResultSchema.parse({
+    taskResults: normalizedTaskResults,
+  });
 }
 
 export function normalizeRepairTurnResultFromRaw(rawResponse: string): RepairTurnResult {
@@ -488,17 +571,35 @@ export class CodexTaskBuilderClient {
     };
   }
 
-  async reviewFamily(
+  async reviewFamilySimilarity(
     unit: GenerationUnit,
     workspace: FamilyWorkspace,
     familyPlan: FamilyPlan,
     taskPlans: DerivedTaskPlan[],
-  ): Promise<StructuredRunResult<ReviewResult>> {
+  ): Promise<StructuredRunResult<FamilyReviewResult>> {
     const thread = this.makeThread(workspace.rootDir);
-    const turn = await thread.run(buildReviewerPrompt(unit, familyPlan, taskPlans), {
-      outputSchema: reviewResultJsonSchema,
+    const turn = await thread.run(buildFamilyReviewerPrompt(unit, familyPlan, taskPlans), {
+      outputSchema: familyReviewResultJsonSchema,
     });
-    const parsed = normalizeReviewResultFromRaw(taskPlans, turn.finalResponse);
+    const parsed = normalizeFamilyReviewResultFromRaw(taskPlans, turn.finalResponse);
+    return {
+      data: parsed,
+      threadId: thread.id,
+      raw: turn.finalResponse,
+    };
+  }
+
+  async reviewTaskBlocking(
+    unit: GenerationUnit,
+    workspace: FamilyWorkspace,
+    familyPlan: FamilyPlan,
+    taskPlans: DerivedTaskPlan[],
+  ): Promise<StructuredRunResult<BlockingReviewResult>> {
+    const thread = this.makeThread(workspace.rootDir);
+    const turn = await thread.run(buildBlockingReviewerPrompt(unit, familyPlan, taskPlans), {
+      outputSchema: blockingReviewResultJsonSchema,
+    });
+    const parsed = normalizeBlockingReviewResultFromRaw(taskPlans, turn.finalResponse);
     return {
       data: parsed,
       threadId: thread.id,
@@ -510,7 +611,8 @@ export class CodexTaskBuilderClient {
     unit: GenerationUnit;
     workspace: FamilyWorkspace;
     plan: DerivedTaskPlan;
-    reviewerIssues: string[];
+    familyIssues: string[];
+    blockingIssues: string[];
     staticIssues: string[];
     runtimeIssues: string[];
     skillEffectIssues: string[];
@@ -541,7 +643,8 @@ export class CodexTaskBuilderClient {
       buildRepairPrompt({
         unit: args.unit,
         plan: args.plan,
-        reviewerIssues: args.reviewerIssues,
+        familyIssues: args.familyIssues,
+        blockingIssues: args.blockingIssues,
         staticIssues: args.staticIssues,
         runtimeIssues: args.runtimeIssues,
         skillEffectIssues: args.skillEffectIssues,

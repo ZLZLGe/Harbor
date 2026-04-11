@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { buildRoleDisplayName, relativeDraftPath } from "./prompts.js";
 import { getVisibleSkills, type GenerationUnit, type SkillMode } from "./discovery.js";
-import type { DerivedTaskPlan, FamilyPlan, ReviewResult } from "./schema.js";
+import type { BlockingReviewResult, DerivedTaskPlan, FamilyPlan, FamilyReviewResult } from "./schema.js";
 import type { FamilyWorkspace } from "./workspace.js";
 import {
   canonicalTaskName,
@@ -59,7 +59,6 @@ export type RuntimeValidationResult = {
 
 export type ReviewValidationResult = {
   taskIssuesById: Map<string, ValidationIssue[]>;
-  familyObservationIssues: ValidationIssue[];
 };
 
 type CommandRunner = typeof runCommand;
@@ -392,16 +391,11 @@ export function collectFamilyObservationIssues(
   return issues;
 }
 
-export function validateReviewerResult(
+export function validateFamilyReviewResult(
   taskPlans: DerivedTaskPlan[],
-  review: ReviewResult,
-  options: {
-    similarCount: number;
-    transferCount: number;
-  },
+  review: FamilyReviewResult,
 ): ReviewValidationResult {
   const taskIssuesById = new Map<string, ValidationIssue[]>();
-  const familyObservationIssues = [...collectFamilyObservationIssues(taskPlans, options)];
   const expectedTaskIds = new Set(taskPlans.map((task) => task.derivedTaskId));
   const seenTaskIds = new Set<string>();
 
@@ -411,30 +405,57 @@ export function validateReviewerResult(
 
   for (const taskResult of review.taskResults) {
     if (!expectedTaskIds.has(taskResult.derivedTaskId)) {
-      familyObservationIssues.push({
-        scope: "family",
-        message: `reviewer 返回了未知任务结果: ${taskResult.derivedTaskId}`,
-      });
       continue;
     }
 
     seenTaskIds.add(taskResult.derivedTaskId);
-    const issueParts = [...taskResult.issues];
-    if (!taskResult.visibilityPass) {
-      issueParts.push("visibilityPass=false");
+    if (!taskResult.distinctPass || taskResult.issues.length > 0) {
+      pushTaskIssue(taskIssuesById, taskResult.derivedTaskId, {
+        scope: "family",
+        taskId: taskResult.derivedTaskId,
+        message: taskResult.issues.join("; ") || "family reviewer 判定需要重写，但未提供原因",
+      });
     }
-    if (!taskResult.skillBenefitPass) {
-      issueParts.push("skillBenefitPass=false");
+  }
+
+  for (const taskId of expectedTaskIds) {
+    if (!seenTaskIds.has(taskId)) {
+      pushTaskIssue(taskIssuesById, taskId, {
+        scope: "family",
+        taskId,
+        message: "family reviewer 未返回该任务的审查结果",
+      });
     }
-    if (!taskResult.testabilityPass) {
-      issueParts.push("testabilityPass=false");
+  }
+
+  return {
+    taskIssuesById,
+  };
+}
+
+export function validateBlockingReviewResult(
+  taskPlans: DerivedTaskPlan[],
+  review: BlockingReviewResult,
+): ReviewValidationResult {
+  const taskIssuesById = new Map<string, ValidationIssue[]>();
+  const expectedTaskIds = new Set(taskPlans.map((task) => task.derivedTaskId));
+  const seenTaskIds = new Set<string>();
+
+  for (const taskId of expectedTaskIds) {
+    taskIssuesById.set(taskId, []);
+  }
+
+  for (const taskResult of review.taskResults) {
+    if (!expectedTaskIds.has(taskResult.derivedTaskId)) {
+      continue;
     }
 
-    if (!taskResult.pass || issueParts.length > 0) {
+    seenTaskIds.add(taskResult.derivedTaskId);
+    if (!taskResult.blockingPass || taskResult.blockingIssues.length > 0) {
       pushTaskIssue(taskIssuesById, taskResult.derivedTaskId, {
         scope: "reviewer",
         taskId: taskResult.derivedTaskId,
-        message: issueParts.join("; ") || "reviewer 判定失败，但未提供原因",
+        message: taskResult.blockingIssues.join("; ") || "blocking reviewer 判定失败，但未提供原因",
       });
     }
   }
@@ -444,35 +465,13 @@ export function validateReviewerResult(
       pushTaskIssue(taskIssuesById, taskId, {
         scope: "reviewer",
         taskId,
-        message: "reviewer 未返回该任务的审查结果",
+        message: "blocking reviewer 未返回该任务的审查结果",
       });
     }
   }
 
-  if (!review.familyObservations.diversityPass) {
-    familyObservationIssues.push({
-      scope: "family",
-      message: "reviewer 认为 family 多样性不足",
-    });
-  }
-
-  if (!review.familyObservations.roleLayoutPass) {
-    familyObservationIssues.push({
-      scope: "family",
-      message: "reviewer 认为 family 角色布局不理想",
-    });
-  }
-
-  for (const issue of review.familyObservations.issues) {
-    familyObservationIssues.push({
-      scope: "family",
-      message: issue,
-    });
-  }
-
   return {
     taskIssuesById,
-    familyObservationIssues,
   };
 }
 

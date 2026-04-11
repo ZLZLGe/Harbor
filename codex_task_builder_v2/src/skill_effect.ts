@@ -494,7 +494,7 @@ export function buildSkillEffectBucket(withSkillPassed: boolean, noSkillPassed: 
 }
 
 export function isRepairRequiredSkillEffectBucket(bucket: SkillEffectBucket): boolean {
-  return bucket === "with_skill_pass__no_skill_pass" || bucket === "with_skill_fail__no_skill_pass";
+  return bucket !== "with_skill_pass__no_skill_fail";
 }
 
 export function isAcceptedSkillEffectBucket(bucket: SkillEffectBucket): boolean {
@@ -513,11 +513,17 @@ export function buildSkillEffectIssues(taskId: string, evaluation: SkillEffectEv
       taskId,
       message: "真实对照结果为 with_skill pass / no_skill pass；说明 no_skill 也能通过，当前任务未形成稳定的 skill bottleneck",
     });
-  } else {
+  } else if (evaluation.bucket === "with_skill_fail__no_skill_pass") {
     issues.push({
       scope: "skill-effect",
       taskId,
       message: "真实对照结果为 with_skill fail / no_skill pass；出现 with_skill 反向劣势，必须修复",
+    });
+  } else {
+    issues.push({
+      scope: "skill-effect",
+      taskId,
+      message: "真实对照结果为 with_skill fail / no_skill fail；当前任务只在 with_skill_pass__no_skill_fail 时才可接受，必须继续排查 verifier、variant 构造或任务可用性问题",
     });
   }
 

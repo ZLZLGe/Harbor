@@ -6,7 +6,7 @@
 
 `codex_task_builder_v2` 不是一个单纯的“任务生成器”，而是一条闭环流水线：
 
-`planner -> writer -> reviewer -> static validate -> Harbor Oracle runtime -> skill-effect gate -> repair -> publish / quarantine`
+`planner -> writer -> family reviewer -> task blocking reviewer -> static validate -> Harbor Oracle runtime -> skill-effect gate -> repair -> publish / quarantine`
 
 核心目标有两个：
 
@@ -338,27 +338,17 @@ planner 的输出是严格 JSON，核心字段包括：
 - draft 里的 `environment/skills/` 不再从模板复制
 - 而是始终从 `input_skills/` 注入
 
-### 第 8 步：reviewer 审稿
+### 第 8 步：family reviewer + task blocking reviewer
 
-writer 完成后，程序进入 cycle 循环。每一轮 cycle 的第一步是 reviewer。
+writer 完成后，程序先跑一次独立的 family reviewer，只审当前 batch 与 final 中同 family 已发布任务的题面相似性，并只标出需要被定向重写的任务。
 
-reviewer 是 family 级别的，它会同时审查：
+随后才进入 cycle 循环。每一轮 cycle 的第一步是 task blocking reviewer，它只审单题 blocking 问题，不再负责 family 多样性或质量判断。
 
-- `TASK_BUILDER_BRIEF.md`
-- `template_source/`
-- `input_skills/`
-- `builder_refs/harbor/`
-- `drafts/`
-- final 中同 family 已发布任务
-
-reviewer 的输出分两部分：
+task blocking reviewer 的输出只有：
 
 - `taskResults`
   - 每个任务一条结果
-  - 包含 `pass / issues / visibilityPass / skillBenefitPass / testabilityPass`
-- `familyObservations`
-  - family 级观察
-  - 包含 `issues / diversityPass / roleLayoutPass`
+  - 包含 `blockingPass / blockingIssues`
 
 程序不会盲信 reviewer，会做结构归一化和结果校验。
 
@@ -431,15 +421,13 @@ runtime 通过标准：
 - `with_skill_pass__no_skill_pass`
 - `with_skill_fail__no_skill_pass`
 
-其中：
-
-- 前两种 bucket 视为接受
-- 后两种 bucket 会触发 repair
+其中只有 `with_skill_pass__no_skill_fail` 视为接受；其余三种 bucket 都会触发 repair。
 
 ### 第 12 步：repair
 
 只要命中下面任一问题，就可能触发 repair：
 
+- family issues
 - reviewer issues
 - static issues
 - runtime issues
@@ -536,4 +524,4 @@ output root 顶层还会额外写：
 
 ## 9. 一句话总结
 
-**当前 `codex_task_builder_v2` 的主流程是：先把 template 和 input skills 组装成 family unit，再让 Codex 基于 `template_source/`、`input_skills/`、Harbor 参考材料和已发布任务做规划与写作，随后用 reviewer + static validate + Harbor Oracle runtime + skill-effect gate 把任务往可发布状态收敛，最后把通过的任务发布到 `<output-root>/final`，把失败的任务隔离到 `<output-root>/quarantine`。**
+**当前 `codex_task_builder_v2` 的主流程是：先把 template 和 input skills 组装成 family unit，再让 Codex 基于 `template_source/`、`input_skills/`、Harbor 参考材料和已发布任务做规划与写作，随后先做 family reviewer，再做 task blocking reviewer，然后再通过 static validate + Harbor Oracle runtime + skill-effect gate 把任务往可发布状态收敛，最后把通过的任务发布到 `<output-root>/final`，把失败的任务隔离到 `<output-root>/quarantine`。**

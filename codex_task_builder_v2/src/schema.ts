@@ -88,24 +88,24 @@ export const writerSummarySchema = z.object({
   summary: z.string().min(1),
 });
 
-export const reviewerTaskResultSchema = z.object({
+export const familyReviewerTaskResultSchema = z.object({
   derivedTaskId: z.string().min(1),
-  pass: z.boolean(),
+  distinctPass: z.boolean(),
   issues: z.array(z.string()),
-  visibilityPass: z.boolean(),
-  skillBenefitPass: z.boolean(),
-  testabilityPass: z.boolean(),
 });
 
-export const familyObservationsSchema = z.object({
-  issues: z.array(z.string()),
-  diversityPass: z.boolean(),
-  roleLayoutPass: z.boolean(),
+export const familyReviewResultSchema = z.object({
+  taskResults: z.array(familyReviewerTaskResultSchema),
 });
 
-export const reviewResultSchema = z.object({
-  taskResults: z.array(reviewerTaskResultSchema),
-  familyObservations: familyObservationsSchema,
+export const blockingReviewerTaskResultSchema = z.object({
+  derivedTaskId: z.string().min(1),
+  blockingPass: z.boolean(),
+  blockingIssues: z.array(z.string()),
+});
+
+export const blockingReviewResultSchema = z.object({
+  taskResults: z.array(blockingReviewerTaskResultSchema),
 });
 
 export const repairTurnResultSchema = z.object({
@@ -118,9 +118,10 @@ export type PlannedTask = z.infer<typeof plannedTaskSchema>;
 export type FamilyPlan = z.infer<typeof familyPlanSchema>;
 export type DerivedTaskPlan = z.infer<typeof derivedTaskPlanSchema>;
 export type WriterSummary = z.infer<typeof writerSummarySchema>;
-export type ReviewerTaskResult = z.infer<typeof reviewerTaskResultSchema>;
-export type FamilyObservations = z.infer<typeof familyObservationsSchema>;
-export type ReviewResult = z.infer<typeof reviewResultSchema>;
+export type FamilyReviewerTaskResult = z.infer<typeof familyReviewerTaskResultSchema>;
+export type FamilyReviewResult = z.infer<typeof familyReviewResultSchema>;
+export type BlockingReviewerTaskResult = z.infer<typeof blockingReviewerTaskResultSchema>;
+export type BlockingReviewResult = z.infer<typeof blockingReviewResultSchema>;
 export type RepairTurnResult = z.infer<typeof repairTurnResultSchema>;
 
 function resolveOrdinals(count: number, ordinals: number[] | undefined, label: string): number[] {
@@ -245,48 +246,49 @@ export const writerSummaryJsonSchema = {
   },
 } as const;
 
-export const reviewResultJsonSchema = {
+export const familyReviewResultJsonSchema = {
   type: "object",
   additionalProperties: false,
-  required: ["taskResults", "familyObservations"],
+  required: ["taskResults"],
   properties: {
     taskResults: {
       type: "array",
       items: {
         type: "object",
         additionalProperties: false,
-        required: [
-          "derivedTaskId",
-          "pass",
-          "issues",
-          "visibilityPass",
-          "skillBenefitPass",
-          "testabilityPass",
-        ],
+        required: ["derivedTaskId", "distinctPass", "issues"],
         properties: {
           derivedTaskId: { type: "string" },
-          pass: { type: "boolean" },
+          distinctPass: { type: "boolean" },
           issues: {
             type: "array",
             items: { type: "string" },
           },
-          visibilityPass: { type: "boolean" },
-          skillBenefitPass: { type: "boolean" },
-          testabilityPass: { type: "boolean" },
         },
       },
     },
-    familyObservations: {
-      type: "object",
-      additionalProperties: false,
-      required: ["issues", "diversityPass", "roleLayoutPass"],
-      properties: {
-        issues: {
-          type: "array",
-          items: { type: "string" },
+  },
+} as const;
+
+export const blockingReviewResultJsonSchema = {
+  type: "object",
+  additionalProperties: false,
+  required: ["taskResults"],
+  properties: {
+    taskResults: {
+      type: "array",
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: ["derivedTaskId", "blockingPass", "blockingIssues"],
+        properties: {
+          derivedTaskId: { type: "string" },
+          blockingPass: { type: "boolean" },
+          blockingIssues: {
+            type: "array",
+            items: { type: "string" },
+          },
         },
-        diversityPass: { type: "boolean" },
-        roleLayoutPass: { type: "boolean" },
       },
     },
   },
@@ -308,5 +310,6 @@ export const repairTurnResultJsonSchema = {
 
 assertStructuredOutputCompatible(familyPlanJsonSchema, "familyPlanJsonSchema");
 assertStructuredOutputCompatible(writerSummaryJsonSchema, "writerSummaryJsonSchema");
-assertStructuredOutputCompatible(reviewResultJsonSchema, "reviewResultJsonSchema");
+assertStructuredOutputCompatible(familyReviewResultJsonSchema, "familyReviewResultJsonSchema");
+assertStructuredOutputCompatible(blockingReviewResultJsonSchema, "blockingReviewResultJsonSchema");
 assertStructuredOutputCompatible(repairTurnResultJsonSchema, "repairTurnResultJsonSchema");

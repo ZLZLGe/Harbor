@@ -2,7 +2,7 @@
 
 `codex_task_builder_v2/` 现在采用新的输入模型：`template + input skills`。
 
-它不再从 `source task` 扫描 family，也不再保留 `batch` / `review` 这两个旧入口。当前主链路只关注一件事：给定一个任务模板目录和一组输入 skill，自动规划、写作、审查、runtime 校验、skill-effect 对照并发布 Harbor 任务。
+它不再从 `source task` 扫描 family，也不再保留 `batch` / `review` 这两个旧入口。当前主链路只关注一件事：给定一个任务模板目录和一组输入 skill，自动规划、写作、family 相似性审查、单题 blocking 审查、runtime 校验、skill-effect 对照并发布 Harbor 任务。
 
 ## 输入模型
 

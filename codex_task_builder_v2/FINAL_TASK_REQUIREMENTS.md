@@ -5,9 +5,9 @@
 建议把这些要求分成两层理解：
 
 - `必须满足`
-  - 当前代码会通过 static validate、reviewer、Harbor Oracle runtime、skill-effect gate 或发布流程实际卡住的要求。
+  - 当前代码会通过 static validate、family reviewer、task blocking reviewer、Harbor Oracle runtime、skill-effect gate 或发布流程实际卡住的要求。
 - `应该满足`
-  - 当前主要通过 prompt 和 reviewer 强化的质量要求。
+  - 当前主要通过 prompt 强化的质量要求。
   - 这类要求不一定全都有硬编码校验，但都属于当前 builder 希望稳定产出的任务形态。
 
 ## 1. 最终产物定位
@@ -304,8 +304,8 @@ scope 约束：
 
 - 接受：
   - `with_skill_pass__no_skill_fail`
-  - `with_skill_fail__no_skill_fail`
 - 不接受，必须修：
+  - `with_skill_fail__no_skill_fail`
   - `with_skill_pass__no_skill_pass`
   - `with_skill_fail__no_skill_pass`
 
@@ -349,7 +349,8 @@ skill-effect bucket 还会额外同步到：
 
 当前实现下，一个任务要进入发布态，至少意味着：
 
-- reviewer 未判失败
+- family reviewer 未要求重写
+- task blocking reviewer 未判失败
 - static validate 通过
 - Harbor Oracle runtime 通过
-- skill-effect gate 落在接受 bucket，或者显式关闭了 skill-effect gate
+- skill-effect gate 落在 `with_skill_pass__no_skill_fail`，或者显式关闭了 skill-effect gate
