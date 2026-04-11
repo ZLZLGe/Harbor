@@ -14,7 +14,7 @@ function renderScopeBrief(unit: GenerationUnit): string {
   if (unit.skillMode === "all") {
     return dedent(`
       当前模式: all
-      当前 family 需要保留 source task 中全部 shipped skills 的核心收益点。
+      当前 family 需要保留全部输入 skills 的核心收益点。
       最终任务目录层固定使用 all-skills。
     `);
   }
@@ -25,7 +25,7 @@ function renderScopeBrief(unit: GenerationUnit): string {
     这是严格单技能构造模式：
     - 当前 family 只允许围绕这个目标 skill 设计。
     - workspace 中唯一可用的 shipped skill 就是它。
-    - 不要把任何其他 source task skill 当作背景知识、隐含前提、辅助工具或依赖。
+    - 不要把任何其他 skill 当作背景知识、隐含前提、辅助工具或依赖。
     - 任务必须在只提供该 skill 的前提下成立。
   `);
 }
@@ -64,13 +64,28 @@ function renderPublishedTaskReference(unit: GenerationUnit): string {
   `);
 }
 
-function renderSourceTaskReferenceRules(assetTargetDir: string): string {
+function renderTemplateReferenceRules(assetTargetDir: string): string {
   return dedent(`
-    源任务参考规则:
-    - source_task/ 只是参考，不是模板；不要机械复写原任务。
+    模板参考规则:
+    - template_source/ 是参考模板，不是让你机械复写的最终任务。
+    - template_source/environment/skills/ 里的内容只作为模板上下文参考，不代表最终 shipped skills。
+    - input_skills/ 才是本轮真正要注入最终任务的 shipped skills 来源。
     - builder_refs/harbor/ 是 Harbor task builder 参考，不是最终要随任务发布的 shipped skill。
-    - 你可以复用、裁剪、重命名 source_task/environment/ 中的输入资产，也可以在 ${assetTargetDir} 下新建全新的输入资产。
-    - 派生任务不要求保留 source task 的原始素材、文件名或目录结构；只要任务目标、验证方式和 shipped skill 约束合理即可。
+    - 你可以复用、裁剪、重命名 template_source/environment/ 中的输入资产，也可以在 ${assetTargetDir} 下新建全新的输入资产。
+    - 派生任务不要求保留模板任务的原始素材、文件名或目录结构；只要任务目标、验证方式和 shipped skill 约束合理即可。
+  `);
+}
+
+function renderInputSkillRules(unit: GenerationUnit, taskId?: string): string {
+  const visibleSkills = getVisibleSkills(unit);
+  const draftSkillDir = taskId ? `drafts/${taskId}/environment/skills/` : "drafts/<task_name>/environment/skills/";
+  return dedent(`
+    输入 skill 规则:
+    - ${draftSkillDir} 已由系统从 input_skills/ 预先注入。
+    - 这些 injected skills 是只读 payload；不要修改、删除、重命名、增补或重排其中任何文件。
+    - 最终 shipped skills 只由 input_skills/ 决定，不由 template_source/environment/skills/ 决定。
+    - 当前可见 input skills:
+    ${renderSkills(visibleSkills)}
   `);
 }
 
@@ -166,7 +181,7 @@ function renderDockerfileRules(): string {
     - environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
     - 不要使用 COPY . /root、COPY . /root/、COPY ./ /root、ADD . /root 这类把当前 build context 整体复制到 /root 的写法；带 flag 的等价写法同样禁止。
     - 不要把 skills 复制到普通运行时路径，例如 /root/environment/skills、/app/skills、/workspace/skills；如果需要额外兼容其他 agent，也只能复制到 agent skill 安装路径。
-    - source_task/environment/Dockerfile 只能作为参考，不能机械继承其中的 COPY/ADD/WORKDIR 写法。
+    - template_source/environment/Dockerfile 只能作为参考，不能机械继承其中的 COPY/ADD/WORKDIR 写法。
   `);
 }
 
@@ -175,15 +190,17 @@ export function buildRoleDisplayName(plan: DerivedTaskPlan): string {
 }
 
 export function buildTaskBuilderBrief(unit: GenerationUnit): string {
-  const sourceTask = unit.sourceTask;
+  const template = unit.template;
   const visibleSkills = getVisibleSkills(unit);
   return dedent(`
     # Codex Task Builder Brief
 
     你现在位于 Harbor task builder 的 scratch workspace 中。
 
-    源任务 ID: ${sourceTask.sourceTaskId}
-    源任务目录: source_task/
+    模板 ID: ${template.templateId}
+    模板相对路径: ${template.templateRelativePath}
+    模板目录: template_source/
+    输入 skills 目录: input_skills/
     Harbor builder refs: builder_refs/harbor/
     派生任务草稿目录: drafts/
     产物目录: artifacts/
@@ -201,7 +218,7 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     ${renderPublishedTaskReference(unit)}
 
     总体目标:
-    1. 从 source_task/ 读取完整上下文，包括 task.toml、instruction.md、environment/、environment/skills/、solution/、tests/；同时阅读 builder_refs/harbor/SKILL.md 和 builder_refs/harbor/references/task-format.md。
+    1. 从 template_source/ 读取完整上下文，包括 task.toml、instruction.md、environment/、environment/skills/、solution/、tests；同时阅读 input_skills/ 里的真实 shipped skills，以及 builder_refs/harbor/SKILL.md 和 builder_refs/harbor/references/task-format.md。
     2. 如 final-root 中已有同 family 的已发布任务，必须直接读取这些任务目录，避免和它们撞题。
     3. 只补齐当前缺失的任务槽位，输出一个完整 Harbor task family 增量。
     4. 最终任务短名固定采用 similar1、similar2、transfer1、transfer2 这种命名，不要自创其他 task id。
@@ -220,7 +237,9 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
     9. 同一 workspace 内，后续任务生成时必须检查 drafts/ 下已经完成的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出语义和测试判定方式上过于接近。
     10. environment/Dockerfile 必须遵守下方 Dockerfile 约束。
     11. 最终 Harbor 任务面向用户可见的文本必须使用英文，至少包括 instruction.md、task.toml 的 metadata.name 和 metadata.description。
-    ${renderSourceTaskReferenceRules("drafts/<task_name>/environment/")}
+    12. drafts/<task_name>/environment/skills/ 由系统从 input_skills/ 预注入，视为只读 payload；不要修改这些 skill 内容。
+    ${renderTemplateReferenceRules("drafts/<task_name>/environment/")}
+    ${renderInputSkillRules(unit)}
     ${renderSkillEffectDesignRules(unit)}
     ${renderDockerfileRules()}
     ${renderTaskArtifactContracts()}
@@ -231,30 +250,27 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
 }
 
 export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
-  const sourceTask = unit.sourceTask;
+  const template = unit.template;
   const visibleSkills = getVisibleSkills(unit);
   const skillReadingRule =
     unit.skillMode === "all"
-      ? "- 规划前必须先阅读当前全部 shipped skills 的 SKILL.md，不要只根据 skill 名字猜用途。"
-      : "- 规划前必须先阅读当前目标 shipped skill 的 SKILL.md，不要只根据 skill 名字猜用途。";
+      ? "- 规划前必须先阅读当前全部输入 shipped skills 的 SKILL.md，不要只根据 skill 名字猜用途。"
+      : "- 规划前必须先阅读当前目标输入 shipped skill 的 SKILL.md，不要只根据 skill 名字猜用途。";
   const capabilityExtractionRule =
     unit.skillMode === "all"
-      ? "- 必须先为每个 shipped skill 分别提炼 2-4 个独特、非通用模板化的关键能力点，并以这些能力点约束 family 规划。"
+      ? "- 必须先为每个输入 shipped skill 分别提炼 2-4 个独特、非通用模板化的关键能力点，并以这些能力点约束 family 规划。"
       : "- 必须先提炼 2-4 个该 skill 独有、非通用模板化的关键能力点，并以这些能力点约束 family 规划。";
-  const rationaleRule =
-    unit.skillMode === "all"
-      ? "- 每个候选任务的 skillBenefitRationale 都必须明确说明：该题依赖了哪些关键能力点；如果没有这些能力点，通用 agent 最可能卡在哪一步；为什么这不是“读 helper + 套模板 + 调参”就能过的题。"
-      : "- 每个候选任务的 skillBenefitRationale 都必须明确说明：该题依赖了哪些关键能力点；如果没有这些能力点，通用 agent 最可能卡在哪一步；为什么这不是“读 helper + 套模板 + 调参”就能过的题。";
 
   return dedent(`
-    先阅读 TASK_BUILDER_BRIEF.md，然后完整检查 source_task/ 和 builder_refs/harbor/；如果 final-root 已有同 family 任务，也必须直接读取这些已发布任务目录。
+    先阅读 TASK_BUILDER_BRIEF.md，然后完整检查 template_source/、input_skills/ 和 builder_refs/harbor/；如果 final-root 已有同 family 任务，也必须直接读取这些已发布任务目录。
 
-    源任务摘要:
-    - sourceTaskId: ${sourceTask.sourceTaskId}
-    - difficulty: ${sourceTask.metadata.difficulty ?? "unknown"}
-    - category: ${sourceTask.metadata.category ?? "unknown"}
-    - tags: ${(sourceTask.metadata.tags ?? []).join(", ") || "none"}
-    - skills:
+    模板摘要:
+    - templateId: ${template.templateId}
+    - templateRelativePath: ${template.templateRelativePath}
+    - difficulty: ${template.metadata.difficulty ?? "unknown"}
+    - category: ${template.metadata.category ?? "unknown"}
+    - tags: ${(template.metadata.tags ?? []).join(", ") || "none"}
+    - input skills:
     ${renderSkills(visibleSkills)}
     已发布 Harbor family 目录: ${unit.finalFamilyDir || "unknown"}
     当前已发布任务: ${unit.publishedTasks.length === 0 ? "none" : unit.publishedTasks.map((task) => task.derivedTaskId).join(", ")}
@@ -273,7 +289,8 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
     - family 内 primaryOutputFile 必须全局唯一。
     - 所有任务必须足够轻量，能在 Harbor 常规 build/start/verify 时限内完成。
     - family 内任务应通过任务目标、输入资产、输出语义和验证方式拉开差异，不要只靠轻微改名或改参数区分。
-    - source_task/ 和 builder_refs/harbor/ 都只是参考，不是模板；必要时可以新增全新输入资产，而不是机械复用原始素材。
+    - template_source/ 和 builder_refs/harbor/ 都只是参考，不是模板；必要时可以新增全新输入资产，而不是机械复用原始素材。
+    - input_skills/ 才是最终 shipped skill 来源；不要把 template_source/environment/skills/ 误当成最终 shipped skill 集合。
     - 如果 final-root 已有同 family 的已发布任务，必须先直接读取它们，并主动避免与这些历史任务在任务场景、输入资产、输出语义和测试判定方式上过于接近。
     - 如果规划需要联网或外部服务，不要把它视为默认违规项，但仍要保证 Harbor 中可运行，且 verifier 能稳定写 reward。
     - 任务必须尽量满足 hard to solve but easy to verify，并保持 self-contained。
@@ -281,21 +298,21 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
     - 无论 all 模式还是 per-skill 模式，benchmark 任务默认都应规划为 hard；只有当 hard 的主要代价会变成 build/start/runtime 噪声，而不是 skill bottleneck 时，才允许降到 medium。
     - 任务应尽量设计成带相关 skill 时能明显压缩搜索空间，而不用相关 skill 时容易走错路、漏关键步骤或卡住。
     - 不要规划成只靠单个明显文件、单条命令或浅层通用脚本就能完成的题。
-    ${rationaleRule}
+    - 每个候选任务的 skillBenefitRationale 都必须明确说明：该题依赖了哪些关键能力点；如果没有这些能力点，通用 agent 最可能卡在哪一步；为什么这不是“读 helper + 套模板 + 调参”就能过的题。
     - 明确禁止规划出资产天然暴露解法结构的 family。
-    - 明确禁止规划出只需要复用 source task 求解骨架的 family。
+    - 明确禁止规划出只需要复用模板任务求解骨架的 family。
     - 明确禁止规划出 similar/transfer 只是换业务皮、但 skill bottleneck 没变硬的 family。
     - 明确禁止规划出主要考模板填空，而不是 skill 对应推理、建模或工作流能力的 family。
     - 类别、难度、目标输出、技能收益说明都必须具体，不要写空泛占位。
     ${renderSkillEffectDesignRules(unit)}
     ${unit.skillMode === "all"
       ? dedent(`
-        - all 模式下，family 必须保留全部 shipped skills 的核心收益点。
-        - similar 任务允许与原任务较接近，但不能只是原任务轻微改名。
+        - all 模式下，family 必须保留全部输入 shipped skills 的核心收益点。
+        - similar 任务允许与模板较接近，但不能只是模板任务轻微改名。
       `)
       : dedent(`
         - per-skill 模式下，family 只允许围绕当前目标 skill 设计：${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"})。
-        - 任务不得依赖当前 workspace 中不存在的其他 source task skills。
+        - 任务不得依赖当前 workspace 中不存在的其他输入 skills。
         - transfer 任务必须把当前 skill 迁移到彼此明显不同的场景中。
       `)}
 
@@ -304,21 +321,20 @@ export function buildFamilyPlannerPrompt(unit: GenerationUnit): string {
 }
 
 export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPlan): string {
-  const sourceTask = unit.sourceTask;
   const roleDisplayName = buildRoleDisplayName(plan);
   const skillConstraint =
     unit.skillMode === "per-skill"
       ? dedent(`
         - drafts/${plan.derivedTaskId}/environment/skills/ 中只能保留一个 shipped skill：${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"})。
-        - 你必须保持只有这一个 shipped skill，不要复制、引用或假设其他 source task skills 存在。
+        - 你必须保持只有这一个 shipped skill，不要复制、引用或假设其他 skills 存在。
         - 这个任务必须在只提供该 skill 的前提下成立。
       `)
       : dedent(`
-        - drafts/${plan.derivedTaskId}/environment/skills/ 已预先复制 source_task/environment/skills/。
+        - drafts/${plan.derivedTaskId}/environment/skills/ 已预先从 input_skills/ 复制当前全部 shipped skills。
       `);
 
   return dedent(`
-    先阅读 TASK_BUILDER_BRIEF.md，然后阅读 source_task/、builder_refs/harbor/、当前 task 的 plan.json blueprint、已有 sibling drafts，以及 final-root 下已发布的同 family 任务。
+    先阅读 TASK_BUILDER_BRIEF.md，然后阅读 template_source/、input_skills/、builder_refs/harbor/、当前 task 的 plan.json blueprint、已有 sibling drafts，以及 final-root 下已发布的同 family 任务。
 
     当前 task blueprint:
     ${JSON.stringify(plan, null, 2)}
@@ -348,11 +364,12 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     - 已发布 Harbor family 目录: ${unit.finalFamilyDir || "unknown"}
     - 已发布任务列表:
     ${unit.publishedTasks.length === 0 ? "- none" : unit.publishedTasks.map((task) => renderPublishedTaskEntry(task)).join("\n")}
-    - 你不能修改 blueprint 中已经固定的核心约束：derivedTaskId、taskRole、roleOrdinal、primaryOutputFile、sourceTaskId、skillMode、targetSkillDirName、targetSkillName。
+    - 你不能修改 blueprint 中已经固定的核心约束：derivedTaskId、taskRole、roleOrdinal、primaryOutputFile、templateId、skillMode、targetSkillDirName、targetSkillName。
 
     已知约束:
     ${skillConstraint}
-    ${renderSourceTaskReferenceRules(`drafts/${plan.derivedTaskId}/environment/`)}
+    ${renderTemplateReferenceRules(`drafts/${plan.derivedTaskId}/environment/`)}
+    ${renderInputSkillRules(unit, plan.derivedTaskId)}
     ${renderSkillEffectDesignRules(unit)}
     ${renderTaskArtifactContracts()}
     ${renderVerifierDesignPrinciples()}
@@ -361,7 +378,7 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     - instruction.md 必须使用英文描述。
     - task.toml 中 metadata.name 和 metadata.description 必须使用英文描述。
     - task.toml 中 metadata.primary_output_file 必须等于 "${plan.primaryOutputFile}"。
-    - task.toml 中 metadata.source_task_id 必须等于 "${sourceTask.sourceTaskId}"。
+    - task.toml 中 metadata.source_template_id 必须等于 "${plan.templateId}"。
     - task.toml 中 metadata.task_role 必须等于 "${plan.taskRole}"。
     - task.toml 的 [metadata] 至少必须包含:
       - id
@@ -373,7 +390,7 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
       - category
       - tags
       - primary_output_file
-      - source_task_id
+      - source_template_id
       - task_role
     - task.toml 必须包含 [environment]，并固定写为:
       - cpus = 2
@@ -418,14 +435,15 @@ export function buildReviewerPrompt(
   const skillReviewRule =
     unit.skillMode === "per-skill"
       ? `- 每个任务是否只依赖当前唯一 shipped skill：${unit.targetSkill?.name ?? "unknown"} (${unit.targetSkill?.dirName ?? "unknown"})；如果完成任务还需要依赖其他未提供 skills，就直接判定失败`
-      : `- 任务是否真的能从 shipped skills 受益`;
+      : "- 任务是否真的能从 shipped skills 受益";
 
   return dedent(`
     不要修改任何文件。你现在只负责审稿。
 
     先阅读:
     - TASK_BUILDER_BRIEF.md
-    - source_task/
+    - template_source/
+    - input_skills/
     - builder_refs/harbor/
     - drafts/
     - final-root 下同 family 已发布任务
@@ -444,7 +462,8 @@ export function buildReviewerPrompt(
     - 对每个任务分别判断：
       - instruction.md 是否直接出现当前 environment/skills/ 里的 shipped skill 的 name 或 dirName
       - instruction.md、task.toml 的 metadata.name、metadata.description 是否使用英文；只要出现中文，就直接判定失败
-      - source_task/ 与 builder_refs/harbor/ 是否都只是参考，而不是被机械复写为任务模板
+      - template_source/ 与 builder_refs/harbor/ 是否都只是参考，而不是被机械复写为任务模板
+      - input_skills/ 与 drafts/<task>/environment/skills/ 是否语义一致；writer 不应改写 injected skill payload
       - 是否合理复用或新建输入资产，并与同 family 其他任务拉开差异
       - plan.json、task.toml、instruction、tests、solution 是否互相一致
       - tests/test.sh 是否先创建 /logs/verifier
@@ -537,7 +556,7 @@ export function buildRepairPrompt(args: {
   return dedent(`
     你正在修复一个 Harbor task 草稿。
 
-    只允许修改当前任务目录 drafts/${args.plan.derivedTaskId}/ 内的文件，不要修改 source_task/、builder_refs/、artifacts/、Harbor 仓库代码，也不要修改 environment/skills/ 下 shipped skill 的内容。
+    只允许修改当前任务目录 drafts/${args.plan.derivedTaskId}/ 内的文件，不要修改 template_source/、input_skills/、builder_refs/、artifacts/、Harbor 仓库代码，也不要修改 environment/skills/ 下 injected skill 的内容。
 
     当前 task blueprint:
     ${JSON.stringify(args.plan, null, 2)}
@@ -580,9 +599,10 @@ export function buildRepairPrompt(args: {
     - 优先最小化改动，只修当前列出的问题。
     - 必须保留 plan.json，不要删除。
     - instruction.md、task.toml 的 metadata.name、metadata.description 必须保持英文，不要写中文任务描述。
-    - 不要改变 task.toml 的 metadata.id、metadata.source_task_id、metadata.task_role、metadata.primary_output_file 所代表的任务身份；如当前这些字段缺失或错误，可以把它们修正到与 plan.json 一致。
+    - 不要改变 task.toml 的 metadata.id、metadata.source_template_id、metadata.task_role、metadata.primary_output_file 所代表的任务身份；如当前这些字段缺失或错误，可以把它们修正到与 plan.json 一致。
     - 如果要消除 instruction.md 中的 skill 暴露，可以同步调整输入资产名、输出字段名、tests 和 solution，但要保持任务目标一致。
     - 不要让任务依赖当前 environment/skills/ 之外的其他 shipped skills。
+    - 不要修改 environment/skills/ 下 injected skill payload；如果需要调整 skill 使用方式，应通过题目本身、输入资产、tests 或 solution 修正，而不是改 skill 内容。
     - 如果 solution/solve.sh 或 tests/** 直接调用 skill 模块，必须去耦：把最小必需逻辑搬到任务自身代码里，或改成公开通用依赖；最终参考解与 verifier 在有 skill / 无 skill 两种评测设置都要能运行。
     - 不要引入隐藏测试要求；instruction、tests、solution 应保持一致。
     - 如果需要修改 environment/Dockerfile，必须显式声明 WORKDIR；默认优先 /root，若改用其他目录，相关脚本路径也要同步一致。

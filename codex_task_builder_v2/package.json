@@ -5,8 +5,6 @@
   "scripts": {
     "inventory": "node --import tsx src/cli.ts inventory",
     "generate-family": "node --import tsx src/cli.ts generate-family",
-    "batch": "node --import tsx src/cli.ts batch",
-    "review": "node --import tsx src/cli.ts review",
     "check": "tsc --noEmit",
     "test:prompts": "node --import tsx tests/prompts.test.ts",
     "test:validate": "node --import tsx tests/validate.test.ts"

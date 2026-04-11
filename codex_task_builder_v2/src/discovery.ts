@@ -1,6 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { SOURCE_TASKS_ROOT, listDirectories, pathExists, readText } from "./utils.js";
+import { TEMPLATE_ROOT, listDirectories, pathExists, readText } from "./utils.js";
 
 export type TaskMetadata = {
   id?: string;
@@ -14,6 +14,7 @@ export type SkillInfo = {
   name: string;
   dirName: string;
   relativeDir: string;
+  sourceDir: string;
   skillMdPath: string;
 };
 
@@ -31,21 +32,23 @@ export type PublishedTaskInfo = {
   environmentDir: string;
 };
 
-export type SourceTask = {
-  sourceTaskId: string;
+export type TaskTemplate = {
+  templateId: string;
+  templateRelativePath: string;
   sourceDir: string;
   taskTomlPath: string;
   instructionPath: string;
   environmentDir: string;
   solutionDir: string;
   testsDir: string;
-  skillsDir: string;
+  templateSkillsDir: string;
   metadata: TaskMetadata;
-  skills: SkillInfo[];
+  referenceSkills: SkillInfo[];
 };
 
 export type GenerationUnit = {
-  sourceTask: SourceTask;
+  template: TaskTemplate;
+  inputSkills: SkillInfo[];
   skillMode: SkillMode;
   targetSkill: SkillInfo | null;
   scopeSlug: string;
@@ -57,6 +60,8 @@ export type GenerationUnit = {
   finalFamilyDir: string;
   publishedTasks: PublishedTaskInfo[];
 };
+
+const REQUIRED_TEMPLATE_ENTRIES = ["task.toml", "instruction.md", "environment", "tests", "solution"] as const;
 
 function extractTomlValue(text: string, key: string): string | undefined {
   const match = text.match(new RegExp(`^\\s*${key}\\s*=\\s*"([^"]+)"`, "m"));
@@ -72,6 +77,18 @@ function extractTomlTags(text: string): string[] {
     .split(",")
     .map((part) => part.trim().replace(/^"|"$/g, ""))
     .filter(Boolean);
+}
+
+function normalizeRelativePath(relativePath: string): string {
+  return relativePath
+    .split(/[\\/]+/u)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .join("/");
+}
+
+export function templateIdFromRelativePath(relativePath: string): string {
+  return normalizeRelativePath(relativePath).replaceAll("/", "__");
 }
 
 async function parseSkillName(skillMdPath: string, fallback: string): Promise<string> {
@@ -97,7 +114,8 @@ async function discoverSkills(skillsDir: string): Promise<SkillInfo[]> {
     skills.push({
       name: await parseSkillName(skillMdPath, dirName),
       dirName,
-      relativeDir: path.relative(skillsDir, dir),
+      relativeDir: dirName,
+      sourceDir: dir,
       skillMdPath,
     });
   }
@@ -105,17 +123,36 @@ async function discoverSkills(skillsDir: string): Promise<SkillInfo[]> {
   return skills.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export async function discoverSourceTaskById(
-  sourceTaskId: string,
-  sourceRoot = SOURCE_TASKS_ROOT,
-): Promise<SourceTask> {
-  const sourceDir = path.join(sourceRoot, sourceTaskId);
+async function assertTemplateShape(templateDir: string): Promise<void> {
+  const missingEntries: string[] = [];
+  for (const entry of REQUIRED_TEMPLATE_ENTRIES) {
+    if (!(await pathExists(path.join(templateDir, entry)))) {
+      missingEntries.push(entry);
+    }
+  }
+  if (missingEntries.length > 0) {
+    throw new Error(`template 缺少必需内容: ${missingEntries.join(", ")} (${templateDir})`);
+  }
+}
+
+export async function discoverTaskTemplate(
+  templateRelativePath: string,
+  templateRoot = TEMPLATE_ROOT,
+): Promise<TaskTemplate> {
+  const normalizedRelativePath = normalizeRelativePath(templateRelativePath);
+  if (!normalizedRelativePath) {
+    throw new Error("template 路径不能为空");
+  }
+
+  const sourceDir = path.join(templateRoot, normalizedRelativePath);
+  await assertTemplateShape(sourceDir);
+
   const taskTomlPath = path.join(sourceDir, "task.toml");
   const instructionPath = path.join(sourceDir, "instruction.md");
   const environmentDir = path.join(sourceDir, "environment");
   const solutionDir = path.join(sourceDir, "solution");
   const testsDir = path.join(sourceDir, "tests");
-  const skillsDir = path.join(environmentDir, "skills");
+  const templateSkillsDir = path.join(environmentDir, "skills");
 
   const taskToml = await readText(taskTomlPath);
   const metadata: TaskMetadata = {
@@ -127,36 +164,94 @@ export async function discoverSourceTaskById(
   };
 
   return {
-    sourceTaskId,
+    templateId: templateIdFromRelativePath(normalizedRelativePath),
+    templateRelativePath: normalizedRelativePath,
     sourceDir,
     taskTomlPath,
     instructionPath,
     environmentDir,
     solutionDir,
     testsDir,
-    skillsDir,
+    templateSkillsDir,
     metadata,
-    skills: await discoverSkills(skillsDir),
+    referenceSkills: await discoverSkills(templateSkillsDir),
   };
 }
 
-export async function discoverSourceTasks(sourceRoot = SOURCE_TASKS_ROOT): Promise<SourceTask[]> {
-  const dirs = await listDirectories(sourceRoot);
-  const tasks: SourceTask[] = [];
-  for (const dir of dirs) {
-    tasks.push(await discoverSourceTaskById(path.basename(dir), sourceRoot));
+async function discoverTemplateDirs(rootDir: string, baseDir = rootDir): Promise<string[]> {
+  if (!(await pathExists(rootDir))) {
+    return [];
   }
-  return tasks;
+
+  const entries = await fs.readdir(rootDir, { withFileTypes: true });
+  const hasAllRequiredEntries = REQUIRED_TEMPLATE_ENTRIES.every((entry) =>
+    entries.some((current) => current.name === entry),
+  );
+  if (hasAllRequiredEntries) {
+    return [path.relative(baseDir, rootDir)];
+  }
+
+  const templateDirs: string[] = [];
+  for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+    templateDirs.push(...(await discoverTemplateDirs(path.join(rootDir, entry.name), baseDir)));
+  }
+  return templateDirs;
+}
+
+export async function discoverTaskTemplates(templateRoot = TEMPLATE_ROOT): Promise<TaskTemplate[]> {
+  const relativePaths = await discoverTemplateDirs(templateRoot);
+  const templates: TaskTemplate[] = [];
+  for (const relativePath of relativePaths) {
+    templates.push(await discoverTaskTemplate(relativePath, templateRoot));
+  }
+  return templates.sort((left, right) => left.templateId.localeCompare(right.templateId));
+}
+
+export async function discoverInputSkill(skillDir: string): Promise<SkillInfo> {
+  const normalizedDir = path.resolve(skillDir);
+  const skillMdPath = path.join(normalizedDir, "SKILL.md");
+  if (!(await pathExists(skillMdPath))) {
+    throw new Error(`skill 目录缺少 SKILL.md: ${normalizedDir}`);
+  }
+
+  const dirName = path.basename(normalizedDir);
+  return {
+    name: await parseSkillName(skillMdPath, dirName),
+    dirName,
+    relativeDir: dirName,
+    sourceDir: normalizedDir,
+    skillMdPath,
+  };
+}
+
+export async function discoverInputSkills(skillDirs: string[]): Promise<SkillInfo[]> {
+  const skills = await Promise.all(skillDirs.map((skillDir) => discoverInputSkill(skillDir)));
+  const seenDirNames = new Set<string>();
+  for (const skill of skills) {
+    if (seenDirNames.has(skill.dirName)) {
+      throw new Error(`重复的 skill 目录 basename: ${skill.dirName}；当前接口要求每个 --skill-dir 的 basename 唯一`);
+    }
+    seenDirNames.add(skill.dirName);
+  }
+  return skills;
 }
 
 export function buildGenerationUnits(
-  sourceTask: SourceTask,
+  template: TaskTemplate,
+  inputSkills: SkillInfo[],
   options: {
     skillMode: SkillMode;
     similarCount: number;
     transferCount: number;
   },
 ): GenerationUnit[] {
+  if (inputSkills.length === 0) {
+    throw new Error(`template ${template.templateId} 没有输入 skills，无法生成任务`);
+  }
+
   const counts = {
     similarCount: options.similarCount,
     transferCount: options.transferCount,
@@ -169,22 +264,20 @@ export function buildGenerationUnits(
   if (options.skillMode === "all") {
     return [
       {
-        sourceTask,
+        template,
+        inputSkills,
         skillMode: options.skillMode,
         targetSkill: null,
         scopeSlug: "all-skills",
-        scopeLabel: "All skills",
+        scopeLabel: "All input skills",
         ...counts,
       },
     ];
   }
 
-  if (sourceTask.skills.length === 0) {
-    throw new Error(`source task ${sourceTask.sourceTaskId} 没有可用 skills，无法使用 per-skill 模式`);
-  }
-
-  return sourceTask.skills.map((skill) => ({
-    sourceTask,
+  return inputSkills.map((skill) => ({
+    template,
+    inputSkills: [skill],
     skillMode: options.skillMode,
     targetSkill: skill,
     scopeSlug: skill.dirName,
@@ -194,29 +287,29 @@ export function buildGenerationUnits(
 }
 
 export function getVisibleSkills(unit: GenerationUnit): SkillInfo[] {
-  return unit.targetSkill ? [unit.targetSkill] : unit.sourceTask.skills;
+  return unit.targetSkill ? [unit.targetSkill] : unit.inputSkills;
 }
 
-export async function collectEnvironmentAssetPaths(sourceTask: SourceTask): Promise<string[]> {
+export async function collectEnvironmentAssetPaths(template: TaskTemplate): Promise<string[]> {
   const assets: string[] = [];
 
   async function walk(currentDir: string): Promise<void> {
     const entries = await fs.readdir(currentDir, { withFileTypes: true });
     for (const entry of entries) {
       const fullPath = path.join(currentDir, entry.name);
-      if (fullPath.startsWith(sourceTask.skillsDir)) {
+      if (fullPath.startsWith(template.templateSkillsDir)) {
         continue;
       }
       if (entry.isDirectory()) {
         await walk(fullPath);
       } else if (entry.isFile()) {
-        assets.push(path.relative(sourceTask.environmentDir, fullPath));
+        assets.push(path.relative(template.environmentDir, fullPath));
       }
     }
   }
 
-  if (await pathExists(sourceTask.environmentDir)) {
-    await walk(sourceTask.environmentDir);
+  if (await pathExists(template.environmentDir)) {
+    await walk(template.environmentDir);
   }
 
   return assets.sort((a, b) => a.localeCompare(b));

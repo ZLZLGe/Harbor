@@ -22,10 +22,10 @@ function comparePublishedTasks(left: PublishedTaskInfo, right: PublishedTaskInfo
 }
 
 export async function inspectPublishedFamily(
-  unit: Pick<GenerationUnit, "sourceTask" | "scopeSlug" | "similarCount" | "transferCount">,
+  unit: Pick<GenerationUnit, "template" | "scopeSlug" | "similarCount" | "transferCount">,
   finalRoot: string,
 ): Promise<PublishedFamilyState> {
-  const finalFamilyDir = path.join(finalRoot, unit.sourceTask.sourceTaskId, unit.scopeSlug);
+  const finalFamilyDir = path.join(finalRoot, unit.template.templateId, unit.scopeSlug);
   const publishedTasks: PublishedTaskInfo[] = [];
   const existingSimilarOrdinals = new Set<number>();
   const existingTransferOrdinals = new Set<number>();

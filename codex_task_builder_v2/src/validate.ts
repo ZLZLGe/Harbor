@@ -178,6 +178,39 @@ async function listFilesRecursive(rootDir: string): Promise<string[]> {
   return files;
 }
 
+async function collectRelativeFiles(rootDir: string): Promise<string[]> {
+  const files = await listFilesRecursive(rootDir);
+  return files.map((filePath) => path.relative(rootDir, filePath)).sort((a, b) => a.localeCompare(b));
+}
+
+async function compareDirectoryContent(leftDir: string, rightDir: string): Promise<string[]> {
+  const leftFiles = await collectRelativeFiles(leftDir);
+  const rightFiles = await collectRelativeFiles(rightDir);
+  const issues: string[] = [];
+
+  const missingFiles = leftFiles.filter((relativePath) => !rightFiles.includes(relativePath));
+  const unexpectedFiles = rightFiles.filter((relativePath) => !leftFiles.includes(relativePath));
+  if (missingFiles.length > 0) {
+    issues.push(`缺少文件: ${missingFiles.join(", ")}`);
+  }
+  if (unexpectedFiles.length > 0) {
+    issues.push(`存在额外文件: ${unexpectedFiles.join(", ")}`);
+  }
+
+  const sharedFiles = leftFiles.filter((relativePath) => rightFiles.includes(relativePath));
+  for (const relativePath of sharedFiles) {
+    const [leftContent, rightContent] = await Promise.all([
+      fs.readFile(path.join(leftDir, relativePath)),
+      fs.readFile(path.join(rightDir, relativePath)),
+    ]);
+    if (!leftContent.equals(rightContent)) {
+      issues.push(`文件内容已变更: ${relativePath}`);
+    }
+  }
+
+  return issues;
+}
+
 function pushTaskIssue(
   taskIssuesById: Map<string, ValidationIssue[]>,
   taskId: string,
@@ -199,7 +232,7 @@ function runtimeIssue(taskId: string, message: string): ValidationIssue {
 export function validateFamilyPlan(
   familyPlan: FamilyPlan,
   options: {
-    sourceTaskId: string;
+    templateId: string;
     skillMode: SkillMode;
     similarCount: number;
     transferCount: number;
@@ -209,10 +242,10 @@ export function validateFamilyPlan(
 ): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
 
-  if (familyPlan.sourceTaskId !== options.sourceTaskId) {
+  if (familyPlan.templateId !== options.templateId) {
     issues.push({
       scope: "family",
-      message: `planner 返回的 sourceTaskId=${familyPlan.sourceTaskId} 与输入 ${options.sourceTaskId} 不一致`,
+      message: `planner 返回的 templateId=${familyPlan.templateId} 与输入 ${options.templateId} 不一致`,
     });
   }
 
@@ -847,7 +880,7 @@ export async function validateDraftStatic(
         ? unit.targetSkill?.dirName
           ? [unit.targetSkill.dirName]
           : []
-        : unit.sourceTask.skills.map((skill) => skill.dirName).sort((a, b) => a.localeCompare(b));
+        : unit.inputSkills.map((skill) => skill.dirName).sort((a, b) => a.localeCompare(b));
     const missingSkillDirs = expectedSkillDirNames.filter((dirName) => !skillDirNames.includes(dirName));
     const unexpectedSkillDirs = skillDirNames.filter((dirName) => !expectedSkillDirNames.includes(dirName));
 
@@ -874,6 +907,21 @@ export async function validateDraftStatic(
         message: `environment/skills 存在非预期 skill 目录: ${unexpectedSkillDirs.join(", ")}`,
       });
     }
+
+    for (const visibleSkill of getVisibleSkills(unit)) {
+      const draftSkillDir = path.join(skillsDir, visibleSkill.dirName);
+      if (!(await pathExists(draftSkillDir))) {
+        continue;
+      }
+      const immutableSkillIssues = await compareDirectoryContent(visibleSkill.sourceDir, draftSkillDir);
+      for (const immutableSkillIssue of immutableSkillIssues) {
+        issues.push({
+          scope: "static",
+          taskId: plan.derivedTaskId,
+          message: `environment/skills/${visibleSkill.dirName} 与输入 skill 不一致: ${immutableSkillIssue}`,
+        });
+      }
+    }
   }
 
   const taskTomlPath = path.join(draftDir, "task.toml");
@@ -889,7 +937,7 @@ export async function validateDraftStatic(
     const metadataDifficulty = metadata.stringValues.get("difficulty");
     const metadataCategory = metadata.stringValues.get("category");
     const metadataPrimaryOutputFile = metadata.stringValues.get("primary_output_file");
-    const metadataSourceTaskId = metadata.stringValues.get("source_task_id");
+    const metadataSourceTemplateId = metadata.stringValues.get("source_template_id");
     const metadataTaskRole = metadata.stringValues.get("task_role");
     const metadataTags = metadata.arrayValues.get("tags");
 
@@ -951,11 +999,11 @@ export async function validateDraftStatic(
       });
     }
 
-    if (metadataSourceTaskId !== plan.sourceTaskId) {
+    if (metadataSourceTemplateId !== plan.templateId) {
       issues.push({
         scope: "static",
         taskId: plan.derivedTaskId,
-        message: `task.toml metadata.source_task_id=${metadataSourceTaskId ?? "missing"} 与 sourceTaskId 不一致`,
+        message: `task.toml metadata.source_template_id=${metadataSourceTemplateId ?? "missing"} 与 templateId 不一致`,
       });
     }
 

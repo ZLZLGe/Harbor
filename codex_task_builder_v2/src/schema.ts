@@ -55,7 +55,7 @@ export const plannedTaskSchema = z.object({
 });
 
 export const familyPlanSchema = z.object({
-  sourceTaskId: z.string().min(1),
+  templateId: z.string().min(1),
   skillMode: skillModeSchema,
   targetSkillDirName: z.string(),
   targetSkillName: z.string(),
@@ -74,7 +74,7 @@ export const derivedTaskPlanSchema = z.object({
   difficulty: z.string().min(1),
   category: z.string().min(1),
   skillBenefitRationale: z.string().min(1),
-  sourceTaskId: z.string().min(1),
+  templateId: z.string().min(1),
   skillMode: skillModeSchema,
   targetSkillDirName: z.string(),
   targetSkillName: z.string(),
@@ -157,7 +157,7 @@ export function flattenFamilyPlan(
     difficulty: task.difficulty,
     category: task.category,
     skillBenefitRationale: task.skillBenefitRationale,
-    sourceTaskId: familyPlan.sourceTaskId,
+    templateId: familyPlan.templateId,
     skillMode: familyPlan.skillMode,
     targetSkillDirName: familyPlan.targetSkillDirName,
     targetSkillName: familyPlan.targetSkillName,
@@ -173,7 +173,7 @@ export function flattenFamilyPlan(
     difficulty: task.difficulty,
     category: task.category,
     skillBenefitRationale: task.skillBenefitRationale,
-    sourceTaskId: familyPlan.sourceTaskId,
+    templateId: familyPlan.templateId,
     skillMode: familyPlan.skillMode,
     targetSkillDirName: familyPlan.targetSkillDirName,
     targetSkillName: familyPlan.targetSkillName,
@@ -204,7 +204,7 @@ export const familyPlanJsonSchema = {
   type: "object",
   additionalProperties: false,
   required: [
-    "sourceTaskId",
+    "templateId",
     "skillMode",
     "targetSkillDirName",
     "targetSkillName",
@@ -213,7 +213,7 @@ export const familyPlanJsonSchema = {
     "transferTasks",
   ],
   properties: {
-    sourceTaskId: { type: "string" },
+    templateId: { type: "string" },
     skillMode: { type: "string", enum: ["all", "per-skill"] },
     targetSkillDirName: { type: "string" },
     targetSkillName: { type: "string" },

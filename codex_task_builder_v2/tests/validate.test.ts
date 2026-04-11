@@ -2,144 +2,168 @@ import assert from "node:assert/strict";
 import os from "node:os";
 import path from "node:path";
 import { promises as fs } from "node:fs";
-import { normalizeRepairTurnResultFromRaw, normalizeReviewResultFromRaw } from "../src/codex.js";
-import type { GenerationUnit, SkillInfo, SourceTask } from "../src/discovery.js";
+import type { GenerationUnit, SkillInfo, TaskTemplate } from "../src/discovery.js";
 import {
   appendManifest,
   buildManifestPath,
   buildRunSummaryPath,
-  resolveRunsRoot,
   writeRunSummary,
 } from "../src/manifest.js";
+import { sanitizeAndCopyTask } from "../src/materialize.js";
 import { inspectPublishedFamily, selectExecutableUnits } from "../src/published.js";
 import { flattenFamilyPlan, type DerivedTaskPlan, type FamilyPlan } from "../src/schema.js";
 import {
-  buildHarborAgentCommand,
   buildSkillEffectBucket,
   buildSkillEffectBucketRoot,
-  buildSkillEffectIssues,
   isAcceptedSkillEffectBucket,
   isRepairRequiredSkillEffectBucket,
   prepareNoSkillVariant,
-  runSkillEffectPreflight,
   stripSkillCopyLines,
 } from "../src/skill_effect.js";
-import { RAW_ROOT, RUNS_ROOT, runStreamingCommand } from "../src/utils.js";
-import { sanitizeAndCopyTask } from "../src/materialize.js";
 import {
-  buildHarborRuntimeCommand,
-  resolveRuntimeEnvironment,
-  runRuntimePreflight,
-  validateDockerfileBaseImages,
+  buildFinalRoot,
+  buildQuarantineRoot,
+  buildRawRoot,
+  ensureDir,
+  pathExists,
+  readText,
+  writeText,
+} from "../src/utils.js";
+import {
   validateDraftStatic,
   validateFamilyPlan,
   validateTaskPlans,
 } from "../src/validate.js";
 
-const sourceTaskId = "weighted-gdp-calc";
-const xlsxSkill: SkillInfo = {
-  name: "XLSX",
-  dirName: "xlsx",
-  relativeDir: "xlsx",
-  skillMdPath: "/tmp/source-task/environment/skills/xlsx/SKILL.md",
-};
-const pythonSkill: SkillInfo = {
-  name: "Python",
-  dirName: "python",
-  relativeDir: "python",
-  skillMdPath: "/tmp/source-task/environment/skills/python/SKILL.md",
-};
-const perSkillSourceTask: SourceTask = {
-  sourceTaskId,
-  sourceDir: "/tmp/source-task",
-  taskTomlPath: "/tmp/source-task/task.toml",
-  instructionPath: "/tmp/source-task/instruction.md",
-  environmentDir: "/tmp/source-task/environment",
-  solutionDir: "/tmp/source-task/solution",
-  testsDir: "/tmp/source-task/tests",
-  skillsDir: "/tmp/source-task/environment/skills",
+const fixtureRoot = await fs.mkdtemp(path.join(os.tmpdir(), "codex-task-builder-v2-"));
+
+async function createSkillFixture(dirName: string, name: string): Promise<SkillInfo> {
+  const sourceDir = path.join(fixtureRoot, "skills", dirName);
+  await ensureDir(sourceDir);
+  await writeText(path.join(sourceDir, "SKILL.md"), `---\nname: "${name}"\n---\n`);
+  await writeText(path.join(sourceDir, "notes.txt"), `${name}\n`);
+  return {
+    name,
+    dirName,
+    relativeDir: dirName,
+    sourceDir,
+    skillMdPath: path.join(sourceDir, "SKILL.md"),
+  };
+}
+
+const nodeConnectSkill = await createSkillFixture("01__node-connect", "Node Connect");
+const sessionLogsSkill = await createSkillFixture("03__session-logs", "Session Logs");
+
+const template: TaskTemplate = {
+  templateId: "tools__debugging",
+  templateRelativePath: "tools/debugging",
+  sourceDir: path.join(fixtureRoot, "template", "tools", "debugging"),
+  taskTomlPath: path.join(fixtureRoot, "template", "tools", "debugging", "task.toml"),
+  instructionPath: path.join(fixtureRoot, "template", "tools", "debugging", "instruction.md"),
+  environmentDir: path.join(fixtureRoot, "template", "tools", "debugging", "environment"),
+  solutionDir: path.join(fixtureRoot, "template", "tools", "debugging", "solution"),
+  testsDir: path.join(fixtureRoot, "template", "tools", "debugging", "tests"),
+  templateSkillsDir: path.join(fixtureRoot, "template", "tools", "debugging", "environment", "skills"),
   metadata: {
-    id: sourceTaskId,
-    name: "Weighted GDP Calc",
-    difficulty: "medium",
-    category: "energy-analysis",
-    tags: ["xlsx", "analysis"],
+    id: "debugging-template",
+    name: "Debugging Template",
+    difficulty: "hard",
+    category: "debugging",
+    tags: ["debugging"],
   },
-  skills: [xlsxSkill],
+  referenceSkills: [],
 };
-const allSkillSourceTask: SourceTask = {
-  ...perSkillSourceTask,
-  skills: [xlsxSkill, pythonSkill],
-};
+
 const perSkillUnit: GenerationUnit = {
-  sourceTask: perSkillSourceTask,
+  template,
+  inputSkills: [nodeConnectSkill],
   skillMode: "per-skill",
-  targetSkill: xlsxSkill,
-  scopeSlug: "xlsx",
-  scopeLabel: "XLSX",
+  targetSkill: nodeConnectSkill,
+  scopeSlug: nodeConnectSkill.dirName,
+  scopeLabel: nodeConnectSkill.name,
   similarCount: 1,
   transferCount: 1,
   pendingSimilarOrdinals: [1],
   pendingTransferOrdinals: [1],
-  finalFamilyDir: "/tmp/final/weighted-gdp-calc/xlsx",
+  finalFamilyDir: "/tmp/final/tools__debugging/01__node-connect",
   publishedTasks: [],
 };
+
 const allSkillUnit: GenerationUnit = {
-  sourceTask: allSkillSourceTask,
+  template,
+  inputSkills: [nodeConnectSkill, sessionLogsSkill],
   skillMode: "all",
   targetSkill: null,
   scopeSlug: "all-skills",
-  scopeLabel: "All skills",
+  scopeLabel: "All input skills",
   similarCount: 1,
   transferCount: 1,
   pendingSimilarOrdinals: [1],
   pendingTransferOrdinals: [1],
-  finalFamilyDir: "/tmp/final/weighted-gdp-calc/all-skills",
+  finalFamilyDir: "/tmp/final/tools__debugging/all-skills",
   publishedTasks: [],
 };
 
+const plan: DerivedTaskPlan = {
+  derivedTaskId: "transfer1",
+  taskRole: "transfer",
+  roleOrdinal: 1,
+  title: "Transfer 1",
+  goal: "Repair the failing service.",
+  primaryOutputFile: "incident-summary.json",
+  difficulty: "hard",
+  category: "debugging",
+  skillBenefitRationale: "Requires the injected debugging workflow.",
+  templateId: template.templateId,
+  skillMode: "per-skill",
+  targetSkillDirName: nodeConnectSkill.dirName,
+  targetSkillName: nodeConnectSkill.name,
+};
+
 async function makeDraftFixture(
-  plan: DerivedTaskPlan,
+  unit: GenerationUnit,
+  taskPlan: DerivedTaskPlan,
   options: {
-    withPlanJson?: boolean;
-    dockerfile?: string;
-    metadataName?: string;
-    metadataDescription?: string;
+    sourceTemplateId?: string;
     instructionText?: string;
-    skillDirNames?: string[];
-    solveSh?: string;
-    testSh?: string;
-    testOutputsPy?: string;
-    extraFiles?: Record<string, string>;
+    dockerfile?: string;
+    mutateInjectedSkill?: boolean;
+    visibleSkillOverride?: SkillInfo[];
   } = {},
 ): Promise<string> {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), "codex-validate-test-"));
-  for (const skillDirName of options.skillDirNames ?? ["xlsx"]) {
-    await fs.mkdir(path.join(root, "environment", "skills", skillDirName), { recursive: true });
-  }
-  await fs.mkdir(path.join(root, "solution"), { recursive: true });
-  await fs.mkdir(path.join(root, "tests"), { recursive: true });
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), "codex-builder-draft-"));
+  const visibleSkills = options.visibleSkillOverride ?? unit.inputSkills;
 
-  if (options.withPlanJson !== false) {
-    await fs.writeFile(path.join(root, "plan.json"), `${JSON.stringify(plan, null, 2)}\n`, "utf-8");
+  await ensureDir(path.join(root, "environment", "skills"));
+  for (const skill of visibleSkills) {
+    await fs.cp(skill.sourceDir, path.join(root, "environment", "skills", skill.dirName), { recursive: true, force: true });
+  }
+  if (options.mutateInjectedSkill) {
+    await writeText(
+      path.join(root, "environment", "skills", visibleSkills[0]!.dirName, "notes.txt"),
+      "mutated\n",
+    );
   }
 
-  await fs.writeFile(
+  await ensureDir(path.join(root, "solution"));
+  await ensureDir(path.join(root, "tests"));
+  await writeText(path.join(root, "plan.json"), `${JSON.stringify(taskPlan, null, 2)}\n`);
+  await writeText(
     path.join(root, "task.toml"),
     `version = "1.0"
 
 [metadata]
-id = "${plan.derivedTaskId}"
-name = "${options.metadataName ?? "Transfer 1 | Test Fixture"}"
-description = "${options.metadataDescription ?? "Fixture task for validateDraftStatic."}"
+id = "${taskPlan.derivedTaskId}"
+name = "${taskPlan.taskRole === "similar" ? "Similar" : "Transfer"} ${taskPlan.roleOrdinal} | Fixture"
+description = "Fixture task."
 author_name = "Test Author"
 author_email = "test@example.com"
-difficulty = "${plan.difficulty}"
-category = "${plan.category}"
-tags = ["xlsx", "fixture"]
-primary_output_file = "${plan.primaryOutputFile}"
-source_task_id = "${sourceTaskId}"
-task_role = "${plan.taskRole}"
+difficulty = "${taskPlan.difficulty}"
+category = "${taskPlan.category}"
+tags = ["debugging", "fixture"]
+primary_output_file = "${taskPlan.primaryOutputFile}"
+source_template_id = "${options.sourceTemplateId ?? taskPlan.templateId}"
+task_role = "${taskPlan.taskRole}"
 
 [environment]
 cpus = 2
@@ -147,111 +171,32 @@ memory_mb = 2048
 storage_mb = 5120
 gpus = 0
 `,
-    "utf-8",
   );
-  await fs.writeFile(path.join(root, "instruction.md"), options.instructionText ?? "fixture\n", "utf-8");
-  await fs.writeFile(
+  await writeText(path.join(root, "instruction.md"), options.instructionText ?? "Repair the system.\n");
+  await writeText(
     path.join(root, "environment", "Dockerfile"),
     options.dockerfile ?? "FROM ubuntu:24.04\nWORKDIR /root\nCOPY skills /root/.codex/skills\n",
-    "utf-8",
   );
-  await fs.writeFile(path.join(root, "solution", "solve.sh"), options.solveSh ?? "#!/bin/bash\n", "utf-8");
-  await fs.writeFile(path.join(root, "tests", "test.sh"), options.testSh ?? "#!/bin/bash\n", "utf-8");
-  await fs.writeFile(path.join(root, "tests", "test_outputs.py"), options.testOutputsPy ?? "print('ok')\n", "utf-8");
-  for (const [relativePath, content] of Object.entries(options.extraFiles ?? {})) {
-    const fullPath = path.join(root, relativePath);
-    await fs.mkdir(path.dirname(fullPath), { recursive: true });
-    await fs.writeFile(fullPath, content, "utf-8");
-  }
-
+  await writeText(path.join(root, "solution", "solve.sh"), "#!/bin/bash\n");
+  await writeText(path.join(root, "tests", "test.sh"), "#!/bin/bash\nmkdir -p /logs/verifier\n");
+  await writeText(path.join(root, "tests", "test_outputs.py"), "def test_ok():\n    assert True\n");
   return root;
 }
 
-async function collectStaticIssueMessages(
-  unit: GenerationUnit,
-  plan: DerivedTaskPlan,
-  options: {
-    withPlanJson?: boolean;
-    dockerfile?: string;
-    metadataName?: string;
-    metadataDescription?: string;
-    instructionText?: string;
-    skillDirNames?: string[];
-    solveSh?: string;
-    testSh?: string;
-    testOutputsPy?: string;
-    extraFiles?: Record<string, string>;
-  } = {},
-): Promise<string[]> {
-  const draftDir = await makeDraftFixture(plan, options);
-  try {
-    const issues = await validateDraftStatic(draftDir, plan, unit);
-    return issues.map((issue) => issue.message);
-  } finally {
-    await fs.rm(draftDir, { recursive: true, force: true });
-  }
-}
-
-const plan: DerivedTaskPlan = {
-  derivedTaskId: "transfer1",
-  taskRole: "transfer",
-  roleOrdinal: 1,
-  title: "Transfer 1 | 发电机组热耗率组合分析",
-  goal: "Complete the workbook.",
-  primaryOutputFile: "power_fleet_heat_rate.xlsx",
-  difficulty: "medium",
-  category: "energy-analysis",
-  skillBenefitRationale: "Uses xlsx formulas.",
-  sourceTaskId,
-  skillMode: "per-skill",
-  targetSkillDirName: "xlsx",
-  targetSkillName: "XLSX",
-};
-const allModePlan: DerivedTaskPlan = {
-  ...plan,
-  derivedTaskId: "similar1",
-  taskRole: "similar",
-  roleOrdinal: 1,
-  title: "Similar 1",
-  primaryOutputFile: "all-skills-output.txt",
-  skillMode: "all",
-  targetSkillDirName: "",
-  targetSkillName: "",
-};
-
-const reviewTaskPlans: DerivedTaskPlan[] = [
-  {
-    ...plan,
-    derivedTaskId: "similar1",
-    taskRole: "similar",
-    roleOrdinal: 1,
-    title: "Similar 1",
-    primaryOutputFile: "similar1.xlsx",
-  },
-  {
-    ...plan,
-    derivedTaskId: "transfer1",
-    taskRole: "transfer",
-    roleOrdinal: 1,
-    title: "Transfer 1",
-    primaryOutputFile: "transfer1.xlsx",
-  },
-];
-
 {
   const familyPlan: FamilyPlan = {
-    sourceTaskId,
+    templateId: template.templateId,
     skillMode: "per-skill",
-    targetSkillDirName: "xlsx",
-    targetSkillName: "XLSX",
-    familyTheme: "Energy workbook tasks",
+    targetSkillDirName: nodeConnectSkill.dirName,
+    targetSkillName: nodeConnectSkill.name,
+    familyTheme: "Debugging family",
     similarTasks: [
       {
         title: "Similar 1",
         goal: "A",
-        primaryOutputFile: "similar1.xlsx",
-        difficulty: "medium",
-        category: "energy-analysis",
+        primaryOutputFile: "similar.json",
+        difficulty: "hard",
+        category: "debugging",
         skillBenefitRationale: "A",
       },
     ],
@@ -259,728 +204,190 @@ const reviewTaskPlans: DerivedTaskPlan[] = [
       {
         title: "Transfer 1",
         goal: "B",
-        primaryOutputFile: "transfer1.xlsx",
-        difficulty: "medium",
-        category: "energy-analysis",
+        primaryOutputFile: "transfer.json",
+        difficulty: "hard",
+        category: "debugging",
         skillBenefitRationale: "B",
-      },
-      {
-        title: "Transfer 2",
-        goal: "C",
-        primaryOutputFile: "transfer2.xlsx",
-        difficulty: "medium",
-        category: "energy-analysis",
-        skillBenefitRationale: "C",
       },
     ],
   };
 
   assert.deepEqual(
     validateFamilyPlan(familyPlan, {
-      sourceTaskId,
+      templateId: template.templateId,
       skillMode: "per-skill",
       similarCount: 1,
-      transferCount: 2,
-      targetSkillDirName: "xlsx",
-      targetSkillName: "XLSX",
+      transferCount: 1,
+      targetSkillDirName: nodeConnectSkill.dirName,
+      targetSkillName: nodeConnectSkill.name,
     }),
     [],
   );
 
   const taskPlans = flattenFamilyPlan(familyPlan);
-  assert.equal(taskPlans[0]?.derivedTaskId, "similar1");
-  assert.equal(taskPlans[1]?.derivedTaskId, "transfer1");
-  assert.deepEqual(validateTaskPlans(taskPlans, { similarOrdinals: [1], transferOrdinals: [1, 2] }), []);
-
-  const brokenPlans = [...taskPlans];
-  brokenPlans[0] = { ...brokenPlans[0], derivedTaskId: "custom-similar" };
-  assert.match(
-    validateTaskPlans(brokenPlans, { similarOrdinals: [1], transferOrdinals: [1, 2] })[0]?.message ?? "",
-    /similar1/,
-  );
-
-  const partialTaskPlans = flattenFamilyPlan(familyPlan, {
-    similarOrdinals: [2],
-    transferOrdinals: [1, 3],
-  });
-  assert.equal(partialTaskPlans[0]?.derivedTaskId, "similar2");
-  assert.equal(partialTaskPlans[1]?.derivedTaskId, "transfer1");
-  assert.equal(partialTaskPlans[2]?.derivedTaskId, "transfer3");
-  assert.deepEqual(validateTaskPlans(partialTaskPlans, { similarOrdinals: [2], transferOrdinals: [1, 3] }), []);
+  assert.equal(taskPlans[0]?.templateId, template.templateId);
+  assert.deepEqual(validateTaskPlans(taskPlans, { similarOrdinals: [1], transferOrdinals: [1] }), []);
 }
 
 {
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan);
-  assert.ok(!issues.includes("缺少必备文件: plan.json"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, { withPlanJson: false });
-  assert.ok(issues.includes("缺少必备文件: plan.json"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, { metadataName: "Transfer 1 | 中文任务" });
-  assert.ok(issues.includes("task.toml metadata.name 必须使用英文描述，不能包含中文"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, { metadataDescription: "这里是中文描述" });
-  assert.ok(issues.includes("task.toml metadata.description 必须使用英文描述，不能包含中文"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, { instructionText: "请完成这个任务。\n" });
-  assert.ok(issues.includes("instruction.md 必须使用英文描述，不能包含中文"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile: "FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(issues.includes("environment/Dockerfile 必须显式声明 WORKDIR"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile: "FROM ubuntu:24.04\nWORKDIR /app/workspace\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(!issues.includes("environment/Dockerfile 必须显式声明 WORKDIR"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile: "FROM ubuntu:24.04\nWORKDIR /root\nCOPY . /root\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(
-    issues.includes("environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染"),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile: "FROM ubuntu:24.04\nWORKDIR /root\nCOPY . /root/\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(
-    issues.includes("environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染"),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile: "FROM ubuntu:24.04\nWORKDIR /root\nADD . /root\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(
-    issues.includes("environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染"),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile:
-      "FROM ubuntu:24.04\nWORKDIR /root\nCOPY --chown=root:root . /root\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(
-    issues.includes("environment/Dockerfile 存在宽泛 COPY/ADD，会把整个 environment/ 上下文一并带入容器，属于实验污染"),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile:
-      "FROM ubuntu:24.04\nWORKDIR /root\nCOPY skills /root/environment/skills\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(
-    issues.includes(
-      "environment/Dockerfile 把 skills 复制到了普通运行时路径 /root/environment/skills；这会把 skill 内容暴露到非 agent skill 路径，破坏有技能/无技能对照",
-    ),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile: "FROM ubuntu:24.04\nWORKDIR /root\nCOPY skills /app/skills\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(
-    issues.includes(
-      "environment/Dockerfile 把 skills 复制到了普通运行时路径 /app/skills；这会把 skill 内容暴露到非 agent skill 路径，破坏有技能/无技能对照",
-    ),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    dockerfile:
-      "FROM ubuntu:24.04\nWORKDIR /root\nCOPY skills /root/.claude/skills\nCOPY skills /root/.codex/skills\n",
-  });
-  assert.ok(!issues.some((issue) => issue.includes("普通运行时路径")));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, { skillDirNames: ["python"] });
-  assert.ok(issues.includes("environment/skills 缺少预期 skill 目录: xlsx"));
-  assert.ok(issues.includes("environment/skills 存在非预期 skill 目录: python"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(allSkillUnit, allModePlan, { skillDirNames: ["xlsx"] });
-  assert.ok(issues.includes("environment/skills 缺少预期 skill 目录: python"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(allSkillUnit, allModePlan, {
-    skillDirNames: ["xlsx", "python", "rogue"],
-  });
-  assert.ok(issues.includes("environment/skills 存在非预期 skill 目录: rogue"));
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    solveSh: '#!/bin/bash\npython3 /root/.codex/skills/xlsx/recalc.py /tmp/output.xlsx\n',
-  });
-  assert.ok(
-    issues.some((issue) => issue.startsWith("solution/solve.sh 直接依赖 skill 模块或路径（")),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    testOutputsPy: 'import sys\nsys.path.insert(0, "/app/skills/xlsx/scripts")\nprint("ok")\n',
-  });
-  assert.ok(
-    issues.some((issue) => issue.startsWith("tests/test_outputs.py 直接依赖 skill 模块或路径（")),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    extraFiles: {
-      [path.join("solution", "helper.py")]: 'import sys\nsys.path.insert(0, "/app/skills/xlsx/scripts")\n',
-    },
-  });
-  assert.ok(
-    issues.some((issue) => issue.startsWith("solution/helper.py 直接依赖 skill 模块或路径（")),
-  );
-}
-
-{
-  const issues = await collectStaticIssueMessages(perSkillUnit, plan, {
-    extraFiles: {
-      [path.join("tests", "helpers", "skill_loader.py")]: 'import sys\nsys.path.insert(0, "/app/skills/xlsx/scripts")\n',
-    },
-  });
-  assert.ok(
-    issues.some((issue) => issue.startsWith("tests/helpers/skill_loader.py 直接依赖 skill 模块或路径（")),
-  );
-}
-
-{
-  const normalized = normalizeReviewResultFromRaw(
-    reviewTaskPlans,
-    JSON.stringify({
-      taskResults: [
-        {
-          pass: false,
-          issues: ["instruction must be in English"],
-          testabilityPass: false,
-        },
-        {
-          derivedTaskId: "transfer1",
-          pass: true,
-          issues: [],
-        },
-      ],
-      familyObservations: ["family note"],
-    }),
-  );
-  assert.equal(normalized.taskResults[0]?.derivedTaskId, "similar1");
-  assert.equal(normalized.taskResults[0]?.visibilityPass, false);
-  assert.equal(normalized.taskResults[1]?.derivedTaskId, "transfer1");
-  assert.equal(normalized.taskResults[1]?.skillBenefitPass, true);
-  assert.equal(normalized.familyObservations.diversityPass, false);
-  assert.ok(
-    normalized.familyObservations.issues.some((issue) => issue.includes("familyObservations 返回成数组")),
-  );
-}
-
-{
-  const normalized = normalizeReviewResultFromRaw(reviewTaskPlans, "not-json");
-  assert.equal(normalized.taskResults.length, reviewTaskPlans.length);
-  assert.ok(normalized.taskResults.every((taskResult) => taskResult.pass === false));
-  assert.equal(normalized.familyObservations.diversityPass, false);
-}
-
-{
-  const normalized = normalizeRepairTurnResultFromRaw(
-    JSON.stringify({
-      summary: "tightened verifier and removed shortcut",
-      changedFiles: ["drafts/transfer1/tests/test_outputs.py"],
-    }),
-  );
-  assert.equal(normalized.summary, "tightened verifier and removed shortcut");
-  assert.deepEqual(normalized.changedFiles, ["drafts/transfer1/tests/test_outputs.py"]);
-  assert.equal(normalized.repairReason, undefined);
-}
-
-{
-  const normalized = normalizeRepairTurnResultFromRaw(
-    JSON.stringify({
-      summary: "raised timeout budget",
-      repairReason:
-        "skill-effect 对比显示 with_skill 轨迹拿到了正确 reward，但同时命中 AgentTimeoutError；这轮修复的目标是消除执行预算导致的反向劣势，而不是改题目语义。",
-      changedFiles: ["drafts/transfer1/task.toml"],
-    }),
-  );
-  assert.match(normalized.repairReason ?? "", /AgentTimeoutError/);
-  assert.deepEqual(normalized.changedFiles, ["drafts/transfer1/task.toml"]);
-}
-
-assert.deepEqual(validateDockerfileBaseImages("FROM ubuntu:24.04\n"), []);
-assert.deepEqual(validateDockerfileBaseImages("FROM ghcr.io/acme/demo:latest\n"), []);
-assert.deepEqual(validateDockerfileBaseImages("FROM scratch\n"), []);
-assert.ok(
-  validateDockerfileBaseImages("FROM localhost:5000/private/demo:latest\n").some((issue) =>
-    issue.includes("私有或本地 registry"),
-  ),
-);
-assert.ok(
-  validateDockerfileBaseImages("FROM registry.internal/demo:latest\n").some((issue) =>
-    issue.includes("私有或本地 registry"),
-  ),
-);
-
-{
-  let heartbeatCount = 0;
-  const result = await runStreamingCommand("bash", ["-lc", "sleep 0.08; echo ok"], {
-    heartbeatIntervalMs: 10,
-    onHeartbeat: () => {
-      heartbeatCount += 1;
-    },
-  });
-  assert.equal(result.code, 0);
-  assert.match(result.stdout, /ok/);
-  assert.ok(heartbeatCount > 0);
-}
-
-assert.equal(resolveRuntimeEnvironment({}), "e2b");
-assert.equal(resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "e2b" }), "e2b");
-assert.equal(resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "docker" }), "docker");
-assert.equal(resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "DAYTONA" }), "daytona");
-assert.throws(
-  () => resolveRuntimeEnvironment({ CODEX_TASK_BUILDER_RUNTIME_ENV: "modal" }),
-  /CODEX_TASK_BUILDER_RUNTIME_ENV/,
-);
-
-{
-  const command = buildHarborRuntimeCommand({
-    taskDir: "/tmp/task",
-    logsDir: "/tmp/logs",
-    jobName: "job-1",
-    runtimeEnvironment: "e2b",
-  });
-  assert.deepEqual(command, [
-    "harbor",
-    "run",
-    "-p",
-    "/tmp/task",
-    "-a",
-    "oracle",
-    "-e",
-    "e2b",
-    "--force-build",
-    "--jobs-dir",
-    "/tmp/logs",
-    "--job-name",
-    "job-1",
-  ]);
-}
-
-{
-  const command = buildHarborAgentCommand({
-    taskDir: "/tmp/task",
-    logsDir: "/tmp/logs",
-    jobName: "job-2",
-    runtimeEnvironment: "e2b",
-    apiKey: "test-key",
-    modelName: "openai/gpt-5.4",
-    baseUrl: "https://example.invalid/v1",
-  });
-  assert.deepEqual(command, [
-    "harbor",
-    "run",
-    "-p",
-    "/tmp/task",
-    "-a",
-    "codex",
-    "-m",
-    "openai/gpt-5.4",
-    "--ak",
-    "api_key=test-key",
-    "--ak",
-    "base_url=https://example.invalid/v1",
-    "-e",
-    "e2b",
-    "--force-build",
-    "--jobs-dir",
-    "/tmp/logs",
-    "--job-name",
-    "job-2",
-  ]);
-}
-
-{
-  const stripped = stripSkillCopyLines(
-    "FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\nCOPY --chown=root:root skills /root/.claude/skills\nRUN echo ok\n",
-  );
-  assert.equal(stripped.removedCount, 2);
-  assert.equal(stripped.text.includes("COPY skills"), false);
-  assert.match(stripped.text, /RUN echo ok/);
-}
-
-{
-  const sourceDir = await fs.mkdtemp(path.join(os.tmpdir(), "codex-no-skill-source-"));
-  const targetDir = await fs.mkdtemp(path.join(os.tmpdir(), "codex-no-skill-target-"));
+  const cleanDraft = await makeDraftFixture(perSkillUnit, plan);
   try {
-    await fs.mkdir(path.join(sourceDir, "environment"), { recursive: true });
-    await fs.writeFile(
-      path.join(sourceDir, "environment", "Dockerfile"),
-      "FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\nRUN echo ok\n",
-      "utf-8",
+    const issues = await validateDraftStatic(cleanDraft, plan, perSkillUnit);
+    assert.deepEqual(
+      issues.map((issue) => issue.message),
+      [],
     );
-    await fs.mkdir(path.join(sourceDir, "environment", "skills", "xlsx"), { recursive: true });
-    await fs.writeFile(path.join(sourceDir, "environment", "skills", "xlsx", "SKILL.md"), "skill\n", "utf-8");
-
-    const prepared = await prepareNoSkillVariant({
-      sourceTaskDir: sourceDir,
-      targetTaskDir: path.join(targetDir, "variant"),
-    });
-    assert.equal(prepared.removedCopyLines, 1);
-    const dockerfile = await fs.readFile(path.join(prepared.targetTaskDir, "environment", "Dockerfile"), "utf-8");
-    assert.equal(dockerfile.includes("COPY skills"), false);
-    assert.ok(await fs.stat(path.join(prepared.targetTaskDir, "environment", "skills", "xlsx", "SKILL.md")));
   } finally {
-    await fs.rm(sourceDir, { recursive: true, force: true });
-    await fs.rm(targetDir, { recursive: true, force: true });
+    await fs.rm(cleanDraft, { recursive: true, force: true });
   }
 }
 
 {
+  const wrongMetadataDraft = await makeDraftFixture(perSkillUnit, plan, {
+    sourceTemplateId: "wrong-template",
+  });
+  try {
+    const issues = await validateDraftStatic(wrongMetadataDraft, plan, perSkillUnit);
+    assert.ok(issues.some((issue) => issue.message.includes("metadata.source_template_id=wrong-template")));
+  } finally {
+    await fs.rm(wrongMetadataDraft, { recursive: true, force: true });
+  }
+}
+
+{
+  const mutatedSkillDraft = await makeDraftFixture(perSkillUnit, plan, {
+    mutateInjectedSkill: true,
+  });
+  try {
+    const issues = await validateDraftStatic(mutatedSkillDraft, plan, perSkillUnit);
+    assert.ok(issues.some((issue) => issue.message.includes("与输入 skill 不一致")));
+  } finally {
+    await fs.rm(mutatedSkillDraft, { recursive: true, force: true });
+  }
+}
+
+{
+  const allModePlan: DerivedTaskPlan = {
+    ...plan,
+    derivedTaskId: "similar1",
+    taskRole: "similar",
+    roleOrdinal: 1,
+    primaryOutputFile: "all-mode-summary.json",
+    skillMode: "all",
+    targetSkillDirName: "",
+    targetSkillName: "",
+  };
+  const allModeDraft = await makeDraftFixture(allSkillUnit, allModePlan);
+  try {
+    const issues = await validateDraftStatic(allModeDraft, allModePlan, allSkillUnit);
+    assert.deepEqual(issues, []);
+  } finally {
+    await fs.rm(allModeDraft, { recursive: true, force: true });
+  }
+}
+
+{
+  const outputRoot = path.join(fixtureRoot, "output");
+  await appendManifest(
+    {
+      runId: "run-1",
+      templateId: template.templateId,
+      phase: "workspace",
+      status: "completed",
+    },
+    outputRoot,
+  );
+  await writeRunSummary("run-1", { ok: true }, outputRoot);
+  assert.equal(await pathExists(buildManifestPath(outputRoot)), true);
+  assert.equal(await pathExists(buildRunSummaryPath(outputRoot, "run-1")), true);
+  const manifestText = await readText(buildManifestPath(outputRoot));
+  assert.match(manifestText, /"templateId":"tools__debugging"/);
+}
+
+{
+  const outputRoot = path.join(fixtureRoot, "materialize-output");
+  const rawRoot = buildRawRoot(outputRoot);
+  const finalRoot = buildFinalRoot(outputRoot);
+  const quarantineRoot = buildQuarantineRoot(outputRoot);
+  await Promise.all([ensureDir(rawRoot), ensureDir(finalRoot), ensureDir(quarantineRoot)]);
+
+  const sourceDraftDir = path.join(rawRoot, "run-1", template.templateId, nodeConnectSkill.dirName, "transfer1");
+  await ensureDir(sourceDraftDir);
+  await writeText(path.join(sourceDraftDir, "task.toml"), "x\n");
+  await writeText(path.join(sourceDraftDir, "instruction.md"), "x\n");
+  await ensureDir(path.join(sourceDraftDir, "environment"));
+  await ensureDir(path.join(sourceDraftDir, "solution"));
+  await ensureDir(path.join(sourceDraftDir, "tests"));
+  await writeText(path.join(sourceDraftDir, "plan.json"), "{}\n");
+
+  const result = await sanitizeAndCopyTask({
+    sourceDraftDir,
+    templateId: template.templateId,
+    scopeSlug: nodeConnectSkill.dirName,
+    taskName: "transfer1",
+    rawRoot,
+    targetRoot: finalRoot,
+  });
+  assert.equal(result.disposition, "created");
+  assert.equal(
+    result.targetTaskDir,
+    path.join(finalRoot, template.templateId, nodeConnectSkill.dirName, "transfer1"),
+  );
+}
+
+{
+  const finalRoot = path.join(fixtureRoot, "published-final");
+  const familyDir = path.join(finalRoot, template.templateId, nodeConnectSkill.dirName, "transfer1");
+  await ensureDir(path.join(familyDir, "tests"));
+  await writeText(path.join(familyDir, "plan.json"), "{}\n");
+  await writeText(path.join(familyDir, "instruction.md"), "x\n");
+  await writeText(path.join(familyDir, "task.toml"), "x\n");
+  await writeText(path.join(familyDir, "tests", "test_outputs.py"), "x\n");
+
+  const state = await inspectPublishedFamily(perSkillUnit, finalRoot);
+  assert.equal(state.finalFamilyDir, path.join(finalRoot, template.templateId, nodeConnectSkill.dirName));
+  assert.deepEqual(state.pendingSimilarOrdinals, [1]);
+  assert.deepEqual(state.pendingTransferOrdinals, []);
+
+  const selected = selectExecutableUnits([
+    { ...perSkillUnit, pendingSimilarOrdinals: [1], pendingTransferOrdinals: [] },
+    { ...perSkillUnit, scopeSlug: "done", pendingSimilarOrdinals: [], pendingTransferOrdinals: [] },
+  ]);
+  assert.equal(selected.executableUnits.length, 1);
+  assert.equal(selected.skippedCount, 1);
+}
+
+{
+  const stripped = stripSkillCopyLines("FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\nRUN echo ok\n");
+  assert.equal(stripped.removedCount, 1);
+  assert.match(stripped.text, /RUN echo ok/);
   assert.equal(buildSkillEffectBucket(true, false), "with_skill_pass__no_skill_fail");
-  assert.equal(buildSkillEffectBucket(false, false), "with_skill_fail__no_skill_fail");
-  assert.equal(buildSkillEffectBucket(true, true), "with_skill_pass__no_skill_pass");
-  assert.equal(buildSkillEffectBucket(false, true), "with_skill_fail__no_skill_pass");
   assert.equal(isAcceptedSkillEffectBucket("with_skill_pass__no_skill_fail"), true);
-  assert.equal(isAcceptedSkillEffectBucket("with_skill_fail__no_skill_fail"), true);
-  assert.equal(isRepairRequiredSkillEffectBucket("with_skill_pass__no_skill_pass"), true);
   assert.equal(isRepairRequiredSkillEffectBucket("with_skill_fail__no_skill_pass"), true);
   assert.equal(
-    buildSkillEffectBucketRoot("/tmp/final", "with_skill_pass__no_skill_fail"),
-    "/tmp/final/_skill_effect_buckets/with_skill_pass__no_skill_fail",
+    buildSkillEffectBucketRoot("/tmp/output/final", "with_skill_pass__no_skill_fail"),
+    "/tmp/output/final/_skill_effect_buckets/with_skill_pass__no_skill_fail",
   );
-  const issues = buildSkillEffectIssues("transfer1", {
-    bucket: "with_skill_pass__no_skill_pass",
-    repairRequired: true,
-    withSkill: {
-      variant: "with_skill",
-      passed: true,
-      issues: [],
-      evidence: {
-        variant: "with_skill",
-        variantTaskDir: "/tmp/with",
-        logsDir: "/tmp/with/logs",
-        runtimeLogRoot: "/tmp/with/logs",
-        logFilePath: "/tmp/with/logs/harbor-run.log",
-        jobDir: "/tmp/with/logs/job",
-        command: [],
-        reward: 1,
-        summary: "reward=1",
-      },
-    },
-    noSkill: {
-      variant: "no_skill",
-      passed: true,
-      issues: [],
-      evidence: {
-        variant: "no_skill",
-        variantTaskDir: "/tmp/no",
-        logsDir: "/tmp/no/logs",
-        runtimeLogRoot: "/tmp/no/logs",
-        logFilePath: "/tmp/no/logs/harbor-run.log",
-        jobDir: "/tmp/no/logs/job",
-        command: [],
-        reward: 1,
-        summary: "reward=1",
-      },
-    },
-  });
-  assert.equal(issues.length, 3);
-  assert.match(issues[0]?.message ?? "", /with_skill pass \/ no_skill pass/);
 }
 
 {
-  const sourceDraftDir = await makeDraftFixture(plan);
-  const rawRoot = await fs.mkdtemp(path.join(os.tmpdir(), "codex-materialize-raw-"));
-  const finalRoot = await fs.mkdtemp(path.join(os.tmpdir(), "codex-materialize-final-"));
-  const sourceTaskIdForMaterialize = "fixture-source-task";
-  const scopeSlug = "xlsx";
-  const taskName = "transfer1";
-  const managedDraftDir = path.join(rawRoot, sourceTaskIdForMaterialize, scopeSlug, taskName);
-
-  await fs.mkdir(path.dirname(managedDraftDir), { recursive: true });
-  await fs.rename(sourceDraftDir, managedDraftDir);
-  await fs.mkdir(path.join(managedDraftDir, "artifacts"), { recursive: true });
-  await fs.writeFile(path.join(managedDraftDir, "artifacts", "debug.log"), "debug\n", "utf-8");
-  await fs.writeFile(path.join(managedDraftDir, "notes.txt"), "scratch\n", "utf-8");
-
+  const sourceTaskDir = await fs.mkdtemp(path.join(os.tmpdir(), "codex-no-skill-source-"));
+  const targetTaskDir = await fs.mkdtemp(path.join(os.tmpdir(), "codex-no-skill-target-"));
   try {
-    const firstPublish = await sanitizeAndCopyTask({
-      sourceDraftDir: managedDraftDir,
-      sourceTaskId: sourceTaskIdForMaterialize,
-      scopeSlug,
-      taskName,
-      rawRoot,
-      targetRoot: finalRoot,
+    await ensureDir(path.join(sourceTaskDir, "environment"));
+    await writeText(
+      path.join(sourceTaskDir, "environment", "Dockerfile"),
+      "FROM ubuntu:24.04\nCOPY skills /root/.codex/skills\nRUN echo ok\n",
+    );
+    const prepared = await prepareNoSkillVariant({
+      sourceTaskDir,
+      targetTaskDir,
     });
-    const targetDir = firstPublish.targetTaskDir;
-    assert.equal(firstPublish.disposition, "created");
-
-    assert.ok(await fs.stat(path.join(targetDir, "plan.json")));
-    assert.ok(await fs.stat(path.join(targetDir, "environment")));
-    await assert.rejects(fs.stat(path.join(targetDir, "artifacts", "debug.log")));
-    await assert.rejects(fs.stat(path.join(targetDir, "notes.txt")));
-    const secondPublish = await sanitizeAndCopyTask({
-      sourceDraftDir: managedDraftDir,
-      sourceTaskId: sourceTaskIdForMaterialize,
-      scopeSlug,
-      taskName,
-      rawRoot,
-      targetRoot: finalRoot,
-    });
-    assert.equal(secondPublish.disposition, "existing");
-    assert.equal(secondPublish.targetTaskDir, targetDir);
+    const dockerfile = await readText(path.join(prepared.targetTaskDir, "environment", "Dockerfile"));
+    assert.equal(prepared.removedCopyLines, 1);
+    assert.ok(!dockerfile.includes("COPY skills /root/.codex/skills"));
   } finally {
-    await fs.rm(rawRoot, { recursive: true, force: true });
-    await fs.rm(finalRoot, { recursive: true, force: true });
+    await fs.rm(sourceTaskDir, { recursive: true, force: true });
+    await fs.rm(targetTaskDir, { recursive: true, force: true });
   }
 }
-
-{
-  const finalRoot = await fs.mkdtemp(path.join(os.tmpdir(), "codex-published-final-"));
-  const finalFamilyDir = path.join(finalRoot, sourceTaskId, "xlsx");
-  await fs.mkdir(path.join(finalFamilyDir, "similar1"), { recursive: true });
-  await fs.mkdir(path.join(finalFamilyDir, "transfer2"), { recursive: true });
-
-  try {
-    const state = await inspectPublishedFamily(
-      {
-        sourceTask: {
-          sourceTaskId,
-          sourceDir: "/tmp/source",
-          taskTomlPath: "/tmp/source/task.toml",
-          instructionPath: "/tmp/source/instruction.md",
-          environmentDir: "/tmp/source/environment",
-          solutionDir: "/tmp/source/solution",
-          testsDir: "/tmp/source/tests",
-          skillsDir: "/tmp/source/environment/skills",
-          metadata: { tags: [] },
-          skills: [],
-        },
-        scopeSlug: "xlsx",
-        similarCount: 2,
-        transferCount: 2,
-      },
-      finalRoot,
-    );
-    assert.equal(state.finalFamilyDir, finalFamilyDir);
-    assert.deepEqual(
-      state.publishedTasks.map((task) => task.derivedTaskId),
-      ["similar1", "transfer2"],
-    );
-    assert.deepEqual(state.pendingSimilarOrdinals, [2]);
-    assert.deepEqual(state.pendingTransferOrdinals, [1]);
-  } finally {
-    await fs.rm(finalRoot, { recursive: true, force: true });
-  }
-}
-
-{
-  const selected = selectExecutableUnits([
-    {
-      pendingSimilarOrdinals: [],
-      pendingTransferOrdinals: [],
-    },
-    {
-      pendingSimilarOrdinals: [1],
-      pendingTransferOrdinals: [],
-    },
-    {
-      pendingSimilarOrdinals: [],
-      pendingTransferOrdinals: [2],
-    },
-  ]);
-  assert.equal(selected.skippedCount, 1);
-  assert.equal(selected.executableUnits.length, 2);
-
-  const limited = selectExecutableUnits(
-    [
-      {
-        pendingSimilarOrdinals: [],
-        pendingTransferOrdinals: [],
-      },
-      {
-        pendingSimilarOrdinals: [1],
-        pendingTransferOrdinals: [],
-      },
-      {
-        pendingSimilarOrdinals: [],
-        pendingTransferOrdinals: [2],
-      },
-    ],
-    1,
-  );
-  assert.equal(limited.skippedCount, 1);
-  assert.equal(limited.executableUnits.length, 1);
-}
-
-{
-  const harborOnlyRunner = async (command: string, args: string[]) => {
-    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
-      return { code: 0, stdout: "", stderr: "" };
-    }
-    if (command === "bash" && args[1] === "harbor --version") {
-      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
-    }
-    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
-  };
-
-  const preflight = await runRuntimePreflight("e2b", {}, harborOnlyRunner);
-  assert.equal(preflight.ok, false);
-  assert.match(preflight.summary, /E2B_API_KEY/);
-}
-
-{
-  const harborOnlyRunner = async (command: string, args: string[]) => {
-    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
-      return { code: 0, stdout: "", stderr: "" };
-    }
-    if (command === "bash" && args[1] === "harbor --version") {
-      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
-    }
-    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
-  };
-
-  const preflight = await runRuntimePreflight("e2b", { E2B_API_KEY: "test-key" }, harborOnlyRunner);
-  assert.equal(preflight.ok, true);
-  assert.match(preflight.summary, /harbor \+ e2b preflight 通过/);
-}
-
-{
-  const harborOnlyRunner = async (command: string, args: string[]) => {
-    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
-      return { code: 0, stdout: "", stderr: "" };
-    }
-    if (command === "bash" && args[1] === "harbor --version") {
-      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
-    }
-    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
-  };
-
-  const preflight = await runSkillEffectPreflight("e2b", { E2B_API_KEY: "test-key" }, harborOnlyRunner);
-  assert.equal(preflight.ok, false);
-  assert.match(preflight.summary, /OPENAI_API_KEY/);
-}
-
-{
-  const harborOnlyRunner = async (command: string, args: string[]) => {
-    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
-      return { code: 0, stdout: "", stderr: "" };
-    }
-    if (command === "bash" && args[1] === "harbor --version") {
-      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
-    }
-    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
-  };
-
-  const preflight = await runSkillEffectPreflight(
-    "e2b",
-    { E2B_API_KEY: "test-key", OPENAI_API_KEY: "sk-test" },
-    harborOnlyRunner,
-  );
-  assert.equal(preflight.ok, true);
-  assert.match(preflight.summary, /skill-effect preflight 通过/);
-}
-
-{
-  const harborOnlyRunner = async (command: string, args: string[]) => {
-    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
-      return { code: 0, stdout: "", stderr: "" };
-    }
-    if (command === "bash" && args[1] === "harbor --version") {
-      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
-    }
-    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
-  };
-
-  const preflight = await runRuntimePreflight("daytona", {}, harborOnlyRunner);
-  assert.equal(preflight.ok, false);
-  assert.match(preflight.summary, /DAYTONA_API_KEY/);
-}
-
-{
-  const dockerRunner = async (command: string, args: string[]) => {
-    if (command === "bash" && args[1] === "command -v harbor >/dev/null 2>&1") {
-      return { code: 0, stdout: "", stderr: "" };
-    }
-    if (command === "bash" && args[1] === "harbor --version") {
-      return { code: 0, stdout: "harbor 0.0.0\n", stderr: "" };
-    }
-    if (command === "bash" && args[1] === "command -v docker >/dev/null 2>&1") {
-      return { code: 0, stdout: "", stderr: "" };
-    }
-    if (command === "docker" && args[0] === "info") {
-      return { code: 0, stdout: "docker info ok\n", stderr: "" };
-    }
-    throw new Error(`Unexpected command: ${command} ${args.join(" ")}`);
-  };
-
-  const preflight = await runRuntimePreflight("docker", {}, dockerRunner);
-  assert.equal(preflight.ok, true);
-  assert.match(preflight.summary, /harbor \+ docker preflight 通过/);
-}
-
-{
-  assert.equal(resolveRunsRoot({ rawRoot: RAW_ROOT }), RUNS_ROOT);
-  assert.equal(resolveRunsRoot({ rawRoot: "/tmp/smoke/raw" }), "/tmp/smoke");
-  assert.equal(resolveRunsRoot({ rawRoot: "/tmp/smoke/raw", runsRoot: "/tmp/custom-runs" }), "/tmp/custom-runs");
-}
-
-{
-  const runsRoot = await fs.mkdtemp(path.join(os.tmpdir(), "codex-manifest-runs-"));
-  try {
-    await appendManifest(
-      {
-        runId: "run-1",
-        sourceTaskId: "source-1",
-        phase: "planner",
-        status: "completed",
-      },
-      runsRoot,
-    );
-    await writeRunSummary("run-1", { ok: true }, runsRoot);
-
-    const manifestPath = buildManifestPath(runsRoot);
-    const summaryPath = buildRunSummaryPath(runsRoot, "run-1");
-    const manifestLines = (await fs.readFile(manifestPath, "utf-8")).trim().split("\n");
-    assert.equal(manifestLines.length, 1);
-    const manifestEntry = JSON.parse(manifestLines[0] ?? "{}") as Record<string, unknown>;
-    assert.equal(manifestEntry.runId, "run-1");
-    assert.equal(manifestEntry.sourceTaskId, "source-1");
-
-    const summary = JSON.parse(await fs.readFile(summaryPath, "utf-8")) as Record<string, unknown>;
-    assert.equal(summary.ok, true);
-  } finally {
-    await fs.rm(runsRoot, { recursive: true, force: true });
-  }
-}
-
-console.log("validate.test.ts passed");

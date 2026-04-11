@@ -1,16 +1,15 @@
 import path from "node:path";
-import { promises as fs } from "node:fs";
 import { CodexTaskBuilderClient } from "./codex.js";
 import {
   buildGenerationUnits,
   collectEnvironmentAssetPaths,
-  discoverSourceTaskById,
-  discoverSourceTasks,
+  discoverInputSkills,
+  discoverTaskTemplate,
+  discoverTaskTemplates,
   type GenerationUnit,
   type SkillMode,
-  type SourceTask,
 } from "./discovery.js";
-import { appendManifest, resolveRunsRoot, writeRunSummary, type ManifestEntry } from "./manifest.js";
+import { appendManifest, writeRunSummary, type ManifestEntry } from "./manifest.js";
 import { buildMaterializedTaskDir, sanitizeAndCopyTask } from "./materialize.js";
 import { applyPublishedFamilyState, inspectPublishedFamily, selectExecutableUnits } from "./published.js";
 import type { DerivedTaskPlan, FamilyPlan, WriterSummary } from "./schema.js";
@@ -24,21 +23,15 @@ import {
   type SkillEffectEvaluationResult,
 } from "./skill_effect.js";
 import {
-  FINAL_TASKS_ROOT,
-  QUARANTINE_ROOT,
-  RAW_ROOT,
-  SOURCE_TASKS_ROOT,
+  DEFAULT_OUTPUT_ROOT,
+  TEMPLATE_ROOT,
+  buildFinalRoot,
+  buildQuarantineRoot,
+  buildRawRoot,
   ensureDir,
-  pathExists,
-  readText,
   writeJson,
 } from "./utils.js";
-import {
-  createFamilyWorkspace,
-  findLatestWorkspaceForSource,
-  prepareDraftSkeleton,
-  type FamilyWorkspace,
-} from "./workspace.js";
+import { createFamilyWorkspace, prepareDraftSkeleton, type FamilyWorkspace } from "./workspace.js";
 import {
   collectFamilyObservationIssues,
   resolveRuntimeEnvironment,
@@ -53,10 +46,11 @@ import {
   type ValidationIssue,
 } from "./validate.js";
 
-type Options = Record<string, string | boolean>;
+type OptionValue = string | string[] | boolean;
+type Options = Record<string, OptionValue>;
 
 type FamilyExecutionResult = {
-  sourceTaskId: string;
+  templateId: string;
   skillMode: SkillMode;
   scopeSlug: string;
   targetSkillDirName?: string;
@@ -105,7 +99,7 @@ type TaskCycleState = {
 };
 
 type ExecuteFamilyOptions = {
-  runsRoot: string;
+  outputRoot: string;
   rawRoot: string;
   finalRoot: string;
   quarantineRoot: string;
@@ -132,7 +126,15 @@ function parseArgs(argv: string[]): { command: string | undefined; options: Opti
       options[key] = true;
       continue;
     }
-    options[key] = next;
+
+    const existing = options[key];
+    if (typeof existing === "string") {
+      options[key] = [existing, next];
+    } else if (Array.isArray(existing)) {
+      existing.push(next);
+    } else {
+      options[key] = next;
+    }
     index += 1;
   }
 
@@ -144,7 +146,21 @@ function getStringOption(options: Options, key: string, fallback?: string): stri
   if (typeof value === "string") {
     return value;
   }
+  if (Array.isArray(value)) {
+    return value[value.length - 1] ?? fallback;
+  }
   return fallback;
+}
+
+function getStringArrayOption(options: Options, key: string): string[] {
+  const value = options[key];
+  if (typeof value === "string") {
+    return [value];
+  }
+  if (Array.isArray(value)) {
+    return value;
+  }
+  return [];
 }
 
 function getNumberOption(options: Options, key: string, fallback: number): number {
@@ -206,7 +222,7 @@ function resolvePendingOrdinals(unit: {
 function normalizeFamilyPlan(unit: GenerationUnit, familyPlan: FamilyPlan): FamilyPlan {
   return {
     ...familyPlan,
-    sourceTaskId: unit.sourceTask.sourceTaskId,
+    templateId: unit.template.templateId,
     skillMode: unit.skillMode,
     targetSkillDirName: unit.targetSkill?.dirName ?? "",
     targetSkillName: unit.targetSkill?.name ?? "",
@@ -218,10 +234,14 @@ function buildScopeMetadata(
   runtimeEnvironment?: RuntimeEnvironment,
 ): Record<string, unknown> {
   return {
+    templateId: unit.template.templateId,
+    templateRelativePath: unit.template.templateRelativePath,
     skillMode: unit.skillMode,
     scopeSlug: unit.scopeSlug,
     targetSkillDirName: unit.targetSkill?.dirName,
     targetSkillName: unit.targetSkill?.name,
+    inputSkillDirNames: unit.inputSkills.map((skill) => skill.dirName),
+    inputSkillNames: unit.inputSkills.map((skill) => skill.name),
     similarCount: unit.similarCount,
     transferCount: unit.transferCount,
     pendingSimilarOrdinals: unit.pendingSimilarOrdinals,
@@ -232,50 +252,19 @@ function buildScopeMetadata(
   };
 }
 
-async function inventory(sourceRoot: string): Promise<void> {
-  const tasks = await discoverSourceTasks(sourceRoot);
+async function inventory(templateRoot: string): Promise<void> {
+  const templates = await discoverTaskTemplates(templateRoot);
   const rows = await Promise.all(
-    tasks.map(async (task) => ({
-      sourceTaskId: task.sourceTaskId,
-      difficulty: task.metadata.difficulty ?? null,
-      category: task.metadata.category ?? null,
-      skillNames: task.skills.map((skill) => skill.name),
-      environmentAssets: await collectEnvironmentAssetPaths(task),
+    templates.map(async (template) => ({
+      templateId: template.templateId,
+      templateRelativePath: template.templateRelativePath,
+      difficulty: template.metadata.difficulty ?? null,
+      category: template.metadata.category ?? null,
+      referenceSkillNames: template.referenceSkills.map((skill) => skill.name),
+      environmentAssets: await collectEnvironmentAssetPaths(template),
     })),
   );
   console.log(JSON.stringify(rows, null, 2));
-}
-
-async function rerunReview(
-  sourceTaskId: string,
-  options: {
-    rawRoot: string;
-    scopeSlug?: string;
-  },
-): Promise<void> {
-  const workspace = await findLatestWorkspaceForSource(sourceTaskId, {
-    rawRoot: options.rawRoot,
-    scopeSlug: options.scopeSlug,
-  });
-  if (!workspace) {
-    throw new Error(`未找到 source task ${sourceTaskId} 的 workspace`);
-  }
-
-  const unitPath = path.join(workspace.artifactsDir, "generation-unit.json");
-  const familyPlanPath = path.join(workspace.artifactsDir, "family-plan.json");
-  if (!(await pathExists(unitPath))) {
-    throw new Error(`generation-unit.json 不存在: ${unitPath}`);
-  }
-  if (!(await pathExists(familyPlanPath))) {
-    throw new Error(`family-plan.json 不存在: ${familyPlanPath}`);
-  }
-
-  const unit = JSON.parse(await readText(unitPath)) as GenerationUnit;
-  const familyPlan = JSON.parse(await readText(familyPlanPath)) as FamilyPlan;
-  const taskPlans = flattenFamilyPlan(familyPlan, resolvePendingOrdinals(unit));
-  const codex = new CodexTaskBuilderClient();
-  const reviewResult = await codex.reviewFamily(unit, workspace, familyPlan, taskPlans);
-  console.log(JSON.stringify(reviewResult.data, null, 2));
 }
 
 async function repairTaskDraft(
@@ -284,7 +273,7 @@ async function repairTaskDraft(
   workspace: FamilyWorkspace,
   taskState: TaskCycleState,
   cycle: number,
-  runsRoot: string,
+  outputRoot: string,
 ): Promise<void> {
   const repairResult = await codex.repairTask({
     unit,
@@ -336,7 +325,7 @@ async function repairTaskDraft(
   await appendManifest(
     {
       runId: workspace.runId,
-      sourceTaskId: workspace.sourceTaskId,
+      templateId: workspace.templateId,
       derivedTaskId: taskState.plan.derivedTaskId,
       phase: "repair",
       status: "completed",
@@ -349,7 +338,7 @@ async function repairTaskDraft(
         ...issueMessages(taskState.skillEffectIssues),
       ],
     },
-    runsRoot,
+    outputRoot,
   );
 }
 
@@ -362,12 +351,12 @@ async function executeFamilyGeneration(
     rawRoot: options.rawRoot,
   });
   const codex = new CodexTaskBuilderClient();
-  const appendRunManifest = (entry: Omit<ManifestEntry, "timestamp">) => appendManifest(entry, options.runsRoot);
-  const writeWorkspaceSummary = (summary: unknown) => writeRunSummary(workspace.runId, summary, options.runsRoot);
+  const appendRunManifest = (entry: Omit<ManifestEntry, "timestamp">) => appendManifest(entry, options.outputRoot);
+  const writeWorkspaceSummary = (summary: unknown) => writeRunSummary(workspace.runId, summary, options.outputRoot);
 
   await appendRunManifest({
     runId: workspace.runId,
-    sourceTaskId: unit.sourceTask.sourceTaskId,
+    templateId: unit.template.templateId,
     phase: "workspace",
     status: "completed",
     metadata: { rootDir: workspace.rootDir, ...buildScopeMetadata(unit, options.runtimeEnvironment) },
@@ -376,7 +365,7 @@ async function executeFamilyGeneration(
   try {
     const familyPlanResult = await codex.planFamily(unit, workspace);
     const plannerIssues = validateFamilyPlan(familyPlanResult.data, {
-      sourceTaskId: unit.sourceTask.sourceTaskId,
+      templateId: unit.template.templateId,
       skillMode: unit.skillMode,
       similarCount: pendingOrdinals.similarOrdinals.length,
       transferCount: pendingOrdinals.transferOrdinals.length,
@@ -403,7 +392,7 @@ async function executeFamilyGeneration(
 
     await appendRunManifest({
       runId: workspace.runId,
-      sourceTaskId: unit.sourceTask.sourceTaskId,
+      templateId: unit.template.templateId,
       phase: "planner",
       status: blockingIssues.length === 0 ? "completed" : "failed",
       threadId: familyPlanResult.threadId,
@@ -414,14 +403,14 @@ async function executeFamilyGeneration(
     if (blockingIssues.length > 0) {
       const issues = issueMessages(blockingIssues);
       await writeWorkspaceSummary({
-        sourceTaskId: unit.sourceTask.sourceTaskId,
+        templateId: unit.template.templateId,
         status: "failed",
         issues,
-        runsRoot: options.runsRoot,
+        outputRoot: options.outputRoot,
         workspace,
       });
       return {
-        sourceTaskId: unit.sourceTask.sourceTaskId,
+        templateId: unit.template.templateId,
         skillMode: unit.skillMode,
         scopeSlug: unit.scopeSlug,
         targetSkillDirName: unit.targetSkill?.dirName,
@@ -450,7 +439,7 @@ async function executeFamilyGeneration(
       });
       await appendRunManifest({
         runId: workspace.runId,
-        sourceTaskId: unit.sourceTask.sourceTaskId,
+        templateId: unit.template.templateId,
         derivedTaskId: plan.derivedTaskId,
         phase: "writer",
         status: "completed",
@@ -513,7 +502,7 @@ async function executeFamilyGeneration(
         const preRuntimeIssues = [...taskState.reviewerIssues, ...taskState.staticIssues];
         await appendRunManifest({
           runId: workspace.runId,
-          sourceTaskId: unit.sourceTask.sourceTaskId,
+          templateId: unit.template.templateId,
           derivedTaskId: plan.derivedTaskId,
           phase: "validate",
           status: preRuntimeIssues.length === 0 ? "completed" : "failed",
@@ -532,7 +521,7 @@ async function executeFamilyGeneration(
           taskState.skillEffectAcceptedCycle = null;
           allPassedThisCycle = false;
           if (taskState.repairRoundsUsed < options.maxRepairRounds) {
-            await repairTaskDraft(codex, unit, workspace, taskState, cycle, options.runsRoot);
+            await repairTaskDraft(codex, unit, workspace, taskState, cycle, options.outputRoot);
             repairedThisCycle = true;
           }
           continue;
@@ -585,7 +574,7 @@ async function executeFamilyGeneration(
             allPassedThisCycle = false;
             await appendRunManifest({
               runId: workspace.runId,
-              sourceTaskId: unit.sourceTask.sourceTaskId,
+              templateId: unit.template.templateId,
               derivedTaskId: plan.derivedTaskId,
               phase: "validate",
               status: "failed",
@@ -600,7 +589,7 @@ async function executeFamilyGeneration(
             });
 
             if (taskState.repairRoundsUsed < options.maxRepairRounds) {
-              await repairTaskDraft(codex, unit, workspace, taskState, cycle, options.runsRoot);
+              await repairTaskDraft(codex, unit, workspace, taskState, cycle, options.outputRoot);
               repairedThisCycle = true;
             }
             continue;
@@ -643,7 +632,7 @@ async function executeFamilyGeneration(
         await writeJson(path.join(workspace.artifactsDir, `${plan.derivedTaskId}.skill-effect.cycle-${cycle}.json`), skillEffectResult);
         await appendRunManifest({
           runId: workspace.runId,
-          sourceTaskId: unit.sourceTask.sourceTaskId,
+          templateId: unit.template.templateId,
           derivedTaskId: plan.derivedTaskId,
           phase: "skill-effect",
           status: skillEffectResult.repairRequired ? "failed" : "completed",
@@ -664,7 +653,7 @@ async function executeFamilyGeneration(
 
         allPassedThisCycle = false;
         if (taskState.repairRoundsUsed < options.maxRepairRounds) {
-          await repairTaskDraft(codex, unit, workspace, taskState, cycle, options.runsRoot);
+          await repairTaskDraft(codex, unit, workspace, taskState, cycle, options.outputRoot);
           repairedThisCycle = true;
         }
       }
@@ -708,7 +697,7 @@ async function executeFamilyGeneration(
       if (taskState.passed) {
         const materializeResult = await sanitizeAndCopyTask({
           sourceDraftDir: taskState.draftDir,
-          sourceTaskId: unit.sourceTask.sourceTaskId,
+          templateId: unit.template.templateId,
           scopeSlug: unit.scopeSlug,
           taskName: plan.derivedTaskId,
           rawRoot: options.rawRoot,
@@ -717,7 +706,7 @@ async function executeFamilyGeneration(
         publishedTaskIds.push(plan.derivedTaskId);
         await appendRunManifest({
           runId: workspace.runId,
-          sourceTaskId: unit.sourceTask.sourceTaskId,
+          templateId: unit.template.templateId,
           derivedTaskId: plan.derivedTaskId,
           phase: "publish",
           status: "completed",
@@ -732,7 +721,7 @@ async function executeFamilyGeneration(
         if (taskState.skillEffectEvaluation) {
           const bucketResult = await sanitizeAndCopyTask({
             sourceDraftDir: taskState.draftDir,
-            sourceTaskId: unit.sourceTask.sourceTaskId,
+            templateId: unit.template.templateId,
             scopeSlug: unit.scopeSlug,
             taskName: plan.derivedTaskId,
             rawRoot: options.rawRoot,
@@ -740,7 +729,7 @@ async function executeFamilyGeneration(
           });
           await appendRunManifest({
             runId: workspace.runId,
-            sourceTaskId: unit.sourceTask.sourceTaskId,
+            templateId: unit.template.templateId,
             derivedTaskId: plan.derivedTaskId,
             phase: "skill-effect-bucket",
             status: "completed",
@@ -759,7 +748,7 @@ async function executeFamilyGeneration(
 
       const quarantineResult = await sanitizeAndCopyTask({
         sourceDraftDir: taskState.draftDir,
-        sourceTaskId: unit.sourceTask.sourceTaskId,
+        templateId: unit.template.templateId,
         scopeSlug: unit.scopeSlug,
         taskName: plan.derivedTaskId,
         rawRoot: options.rawRoot,
@@ -774,7 +763,7 @@ async function executeFamilyGeneration(
       );
       await appendRunManifest({
         runId: workspace.runId,
-        sourceTaskId: unit.sourceTask.sourceTaskId,
+        templateId: unit.template.templateId,
         derivedTaskId: plan.derivedTaskId,
         phase: "publish",
         status: "failed",
@@ -795,7 +784,7 @@ async function executeFamilyGeneration(
       if (taskState.skillEffectEvaluation) {
         const bucketResult = await sanitizeAndCopyTask({
           sourceDraftDir: taskState.draftDir,
-          sourceTaskId: unit.sourceTask.sourceTaskId,
+          templateId: unit.template.templateId,
           scopeSlug: unit.scopeSlug,
           taskName: plan.derivedTaskId,
           rawRoot: options.rawRoot,
@@ -803,7 +792,7 @@ async function executeFamilyGeneration(
         });
         await appendRunManifest({
           runId: workspace.runId,
-          sourceTaskId: unit.sourceTask.sourceTaskId,
+          templateId: unit.template.templateId,
           derivedTaskId: plan.derivedTaskId,
           phase: "skill-effect-bucket",
           status: "failed",
@@ -821,7 +810,8 @@ async function executeFamilyGeneration(
 
     const status: FamilyExecutionResult["status"] = quarantinedTaskIds.length === 0 ? "completed" : "failed";
     const summary = {
-      sourceTaskId: unit.sourceTask.sourceTaskId,
+      templateId: unit.template.templateId,
+      templateRelativePath: unit.template.templateRelativePath,
       skillMode: unit.skillMode,
       scopeSlug: unit.scopeSlug,
       targetSkillDirName: unit.targetSkill?.dirName,
@@ -834,12 +824,12 @@ async function executeFamilyGeneration(
       quarantinedTaskIds,
       skillEffectResults,
       skillEffectBucketCounts,
-      runsRoot: options.runsRoot,
+      outputRoot: options.outputRoot,
       workspace,
       finalDirs: publishedTaskIds.map((taskId) =>
         buildMaterializedTaskDir({
           targetRoot: options.finalRoot,
-          sourceTaskId: unit.sourceTask.sourceTaskId,
+          templateId: unit.template.templateId,
           scopeSlug: unit.scopeSlug,
           taskName: taskId,
         }),
@@ -847,7 +837,7 @@ async function executeFamilyGeneration(
       quarantineDirs: quarantinedTaskIds.map((taskId) =>
         buildMaterializedTaskDir({
           targetRoot: options.quarantineRoot,
-          sourceTaskId: unit.sourceTask.sourceTaskId,
+          templateId: unit.template.templateId,
           scopeSlug: unit.scopeSlug,
           taskName: taskId,
         }),
@@ -856,7 +846,7 @@ async function executeFamilyGeneration(
     await writeWorkspaceSummary(summary);
 
     return {
-      sourceTaskId: unit.sourceTask.sourceTaskId,
+      templateId: unit.template.templateId,
       skillMode: unit.skillMode,
       scopeSlug: unit.scopeSlug,
       targetSkillDirName: unit.targetSkill?.dirName,
@@ -876,21 +866,21 @@ async function executeFamilyGeneration(
     const message = error instanceof Error ? error.stack ?? error.message : String(error);
     await appendRunManifest({
       runId: workspace.runId,
-      sourceTaskId: unit.sourceTask.sourceTaskId,
+      templateId: unit.template.templateId,
       phase: "family",
       status: "failed",
       issues: [message],
       metadata: buildScopeMetadata(unit, options.runtimeEnvironment),
     });
     await writeWorkspaceSummary({
-      sourceTaskId: unit.sourceTask.sourceTaskId,
+      templateId: unit.template.templateId,
       status: "failed",
       issues: [message],
-      runsRoot: options.runsRoot,
+      outputRoot: options.outputRoot,
       workspace,
     });
     return {
-      sourceTaskId: unit.sourceTask.sourceTaskId,
+      templateId: unit.template.templateId,
       skillMode: unit.skillMode,
       scopeSlug: unit.scopeSlug,
       targetSkillDirName: unit.targetSkill?.dirName,
@@ -928,6 +918,21 @@ async function runPool<T, R>(items: T[], concurrency: number, worker: (item: T, 
   return results;
 }
 
+function assertNoLegacyOptions(options: Options): void {
+  const legacyKeys = [
+    "source-root",
+    "source-task-id",
+    "target-skill-dir",
+    "raw-root",
+    "final-root",
+    "quarantine-root",
+    "runs-root",
+  ].filter((key) => key in options);
+  if (legacyKeys.length > 0) {
+    throw new Error(`检测到旧参数 ${legacyKeys.map((key) => `--${key}`).join(", ")}；当前版本只支持 template + skill-dir + output-root 模式`);
+  }
+}
+
 async function loadUnitsForCommand(
   options: Options,
   finalRoot: string,
@@ -936,11 +941,20 @@ async function loadUnitsForCommand(
   discoveredUnitCount: number;
   skippedCount: number;
 }> {
-  const sourceRoot = getStringOption(options, "source-root", SOURCE_TASKS_ROOT)!;
+  const templateRoot = getStringOption(options, "template-root", TEMPLATE_ROOT)!;
+  const templateRelativePath = getStringOption(options, "template");
+  if (!templateRelativePath) {
+    throw new Error("generate-family 命令需要 --template <relative-path>");
+  }
+
+  const skillDirs = getStringArrayOption(options, "skill-dir");
+  if (skillDirs.length === 0) {
+    throw new Error("generate-family 命令至少需要一个 --skill-dir <path>");
+  }
+
   const skillMode = getSkillModeOption(options);
   const similarCount = getNumberOption(options, "similar-count", 1);
   const transferCount = getNumberOption(options, "transfer-count", 3);
-
   if (similarCount < 0 || transferCount < 0) {
     throw new Error("similar-count 和 transfer-count 不能小于 0");
   }
@@ -948,48 +962,25 @@ async function loadUnitsForCommand(
     throw new Error("similar-count 和 transfer-count 不能同时为 0");
   }
 
-  const sourceTaskId = getStringOption(options, "source-task-id");
-  const scopeSkillDir = getStringOption(options, "target-skill-dir");
-  const hydrateUnits = async (units: GenerationUnit[]): Promise<GenerationUnit[]> =>
-    Promise.all(
-      units.map(async (unit) => {
-        const publishedState = await inspectPublishedFamily(unit, finalRoot);
-        return applyPublishedFamilyState(unit, publishedState);
-      }),
-    );
+  const template = await discoverTaskTemplate(templateRelativePath, templateRoot);
+  const inputSkills = await discoverInputSkills(skillDirs);
+  let units = buildGenerationUnits(template, inputSkills, {
+    skillMode,
+    similarCount,
+    transferCount,
+  });
 
-  if (sourceTaskId) {
-    const sourceTask = await discoverSourceTaskById(sourceTaskId, sourceRoot);
-    let units = buildGenerationUnits(sourceTask, {
-      skillMode,
-      similarCount,
-      transferCount,
-    });
-    if (scopeSkillDir) {
-      units = units.filter((unit) => unit.targetSkill?.dirName === scopeSkillDir);
-    }
-    const hydratedUnits = await hydrateUnits(units);
-    const limit = getNumberOption(options, "limit", 0);
-    const selected = selectExecutableUnits(hydratedUnits, limit);
-    return {
-      units: selected.executableUnits,
-      discoveredUnitCount: hydratedUnits.length,
-      skippedCount: selected.skippedCount,
-    };
+  const scopeSlug = getStringOption(options, "scope-slug");
+  if (scopeSlug) {
+    units = units.filter((unit) => unit.scopeSlug === scopeSlug);
   }
 
-  const sourceTasks = await discoverSourceTasks(sourceRoot);
-  let units = sourceTasks.flatMap((sourceTask) =>
-    buildGenerationUnits(sourceTask, {
-      skillMode,
-      similarCount,
-      transferCount,
+  const hydratedUnits = await Promise.all(
+    units.map(async (unit) => {
+      const publishedState = await inspectPublishedFamily(unit, finalRoot);
+      return applyPublishedFamilyState(unit, publishedState);
     }),
   );
-  if (scopeSkillDir) {
-    units = units.filter((unit) => unit.targetSkill?.dirName === scopeSkillDir);
-  }
-  const hydratedUnits = await hydrateUnits(units);
   const limit = getNumberOption(options, "limit", 0);
   const selected = selectExecutableUnits(hydratedUnits, limit);
   return {
@@ -1000,7 +991,7 @@ async function loadUnitsForCommand(
 }
 
 async function ensureRoots(options: ExecuteFamilyOptions): Promise<void> {
-  await ensureDir(options.runsRoot);
+  await ensureDir(options.outputRoot);
   await ensureDir(options.rawRoot);
   await ensureDir(options.finalRoot);
   await ensureDir(options.quarantineRoot);
@@ -1008,46 +999,35 @@ async function ensureRoots(options: ExecuteFamilyOptions): Promise<void> {
 
 async function main(): Promise<void> {
   const { command, options } = parseArgs(process.argv.slice(2));
-  const sourceRoot = getStringOption(options, "source-root", SOURCE_TASKS_ROOT)!;
 
   if (command === "inventory") {
-    await inventory(sourceRoot);
+    assertNoLegacyOptions(options);
+    await inventory(getStringOption(options, "template-root", TEMPLATE_ROOT)!);
     return;
+  }
+
+  if (command === "batch") {
+    throw new Error("batch 已移除；当前版本只支持显式的 template + --skill-dir 输入。后续如需批处理，请通过配置文件模式支持。");
   }
 
   if (command === "review") {
-    const sourceTaskId = getStringOption(options, "source-task-id");
-    if (!sourceTaskId) {
-      throw new Error("review 命令需要 --source-task-id");
-    }
-    await rerunReview(sourceTaskId, {
-      rawRoot: getStringOption(options, "raw-root", RAW_ROOT)!,
-      scopeSlug: getStringOption(options, "scope-slug"),
-    });
-    return;
+    throw new Error("review 已移除；当前版本聚焦从 template + skills 直接生成任务，不再保留旧 workspace reviewer 重跑入口。");
   }
 
-  if (command !== "generate-family" && command !== "batch") {
+  if (command !== "generate-family") {
     throw new Error(`不支持的命令: ${command ?? "(missing)"}`);
   }
 
+  assertNoLegacyOptions(options);
   const runtimeEnvironment = resolveRuntimeEnvironment();
   const skillEffectEnabled = !getFlagOption(options, "skip-skill-effect-gate");
   const skillEffectModel = getStringOption(options, "skill-effect-model", "openai/gpt-5.4")!;
-  const rawRoot = getStringOption(options, "raw-root", RAW_ROOT)!;
-  const runsRoot = resolveRunsRoot({
-    rawRoot,
-    runsRoot: getStringOption(options, "runs-root"),
-  });
+  const outputRoot = getStringOption(options, "output-root", DEFAULT_OUTPUT_ROOT)!;
   const executeOptions: ExecuteFamilyOptions = {
-    runsRoot,
-    rawRoot,
-    finalRoot: getStringOption(
-      options,
-      "final-root",
-      getStringOption(options, "output-root", FINAL_TASKS_ROOT),
-    )!,
-    quarantineRoot: getStringOption(options, "quarantine-root", QUARANTINE_ROOT)!,
+    outputRoot,
+    rawRoot: buildRawRoot(outputRoot),
+    finalRoot: buildFinalRoot(outputRoot),
+    quarantineRoot: buildQuarantineRoot(outputRoot),
     runtimeEnvironment,
     maxRepairRounds: getNumberOption(options, "max-repair-rounds", 2),
     skillEffectEnabled,
@@ -1079,7 +1059,7 @@ async function main(): Promise<void> {
           units: 0,
           discoveredUnitCount: loaded.discoveredUnitCount,
           skippedCount: loaded.skippedCount,
-          runsRoot: executeOptions.runsRoot,
+          outputRoot: executeOptions.outputRoot,
           rawRoot: executeOptions.rawRoot,
           finalRoot: executeOptions.finalRoot,
           quarantineRoot: executeOptions.quarantineRoot,
@@ -1091,15 +1071,13 @@ async function main(): Promise<void> {
     return;
   }
 
-  const concurrency = getNumberOption(options, "concurrency", command === "generate-family" ? 1 : 2);
+  const concurrency = getNumberOption(options, "concurrency", 1);
   const results = await runPool(units, concurrency, async (unit, index) => {
     console.log(
-      `[${index + 1}/${units.length}] 开始 ${unit.sourceTask.sourceTaskId}/${unit.scopeSlug} pending-similar=${unit.pendingSimilarOrdinals.length}/${unit.similarCount} pending-transfer=${unit.pendingTransferOrdinals.length}/${unit.transferCount}`,
+      `[${index + 1}/${units.length}] 开始 ${unit.template.templateId}/${unit.scopeSlug} pending-similar=${unit.pendingSimilarOrdinals.length}/${unit.similarCount} pending-transfer=${unit.pendingTransferOrdinals.length}/${unit.transferCount}`,
     );
     const result = await executeFamilyGeneration(unit, executeOptions);
-    console.log(
-      `[${index + 1}/${units.length}] 完成 ${unit.sourceTask.sourceTaskId}/${unit.scopeSlug} status=${result.status}`,
-    );
+    console.log(`[${index + 1}/${units.length}] 完成 ${unit.template.templateId}/${unit.scopeSlug} status=${result.status}`);
     return result;
   });
 
@@ -1123,7 +1101,7 @@ async function main(): Promise<void> {
     skillEffectEnabled: executeOptions.skillEffectEnabled,
     skillEffectModel: executeOptions.skillEffectModel,
     skillEffectBucketCounts,
-    runsRoot: executeOptions.runsRoot,
+    outputRoot: executeOptions.outputRoot,
     rawRoot: executeOptions.rawRoot,
     finalRoot: executeOptions.finalRoot,
     quarantineRoot: executeOptions.quarantineRoot,

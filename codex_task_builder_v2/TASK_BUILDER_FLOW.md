@@ -1,52 +1,98 @@
 # codex_task_builder_v2 造任务流程说明
 
-本文基于当前 `codex_task_builder_v2` 源码整理，目标是把这个项目“如何从 source task 自动构造 Harbor task family”讲清楚，方便后续维护、排障和改 prompt/validator。
+本文基于当前 `codex_task_builder_v2` 源码整理，目标是把这个项目“如何从 template + input skills 自动构造 Harbor task family”讲清楚，方便后续维护、排障和改 prompt / validator。
 
 ## 1. 项目目标
 
 `codex_task_builder_v2` 不是一个单纯的“任务生成器”，而是一条闭环流水线：
 
-`planner -> writer -> reviewer -> static validate -> Harbor Oracle runtime -> skill-effect gate -> repair -> publish/quarantine`
+`planner -> writer -> reviewer -> static validate -> Harbor Oracle runtime -> skill-effect gate -> repair -> publish / quarantine`
 
 核心目标有两个：
 
-1. 自动从已有 source task 构造新的 Harbor task family。
-2. 不只生成草稿，还要自动做审稿、静态校验、Oracle 运行、真实 with/no-skill 对照和失败修复。
+1. 给定一个任务模板目录和一组输入 skill，自动构造新的 Harbor task family。
+2. 不只生成草稿，还要自动做审稿、静态校验、Oracle 运行、真实 with-skill / no-skill 对照和失败修复。
 
----
+## 2. 当前输入模型
 
-## 2. 关键目录
+当前版本不再围绕 `source task` 工作，而是围绕下面两类输入：
+
+### 2.1 TaskTemplate
+
+由这两个参数指定：
+
+```bash
+--template-root /home/levi/Harbor/template
+--template tools/debugging
+```
+
+表示：
+
+- 模板根目录是 `template-root`
+- 当前使用的模板是相对路径 `tools/debugging`
+- 内部会把它规范化为 `templateId=tools__debugging`
+
+模板最小必需内容固定为：
+
+- `task.toml`
+- `instruction.md`
+- `environment/`
+- `tests/`
+- `solution/`
+
+模板目录中的 `environment/skills/` 可以存在，但它只作为模板参考上下文，不决定最终 shipped skill。
+
+### 2.2 InputSkills
+
+通过重复传 `--skill-dir` 指定：
+
+```bash
+--skill-dir /home/levi/Harbor/skills/tools/debugging/01__node-connect
+--skill-dir /home/levi/Harbor/skills/tools/debugging/03__session-logs
+```
+
+约束：
+
+- 每个 `--skill-dir` 必须直接指向一个具体 skill 目录
+- 目录内必须有 `SKILL.md`
+- 当前实现要求每个输入 skill 的目录 `basename` 唯一，因为最终会被直接注入到 `environment/skills/<basename>/`
+
+## 3. 关键目录
 
 默认目录约定如下：
 
-- runs root：`/home/levi/Harbor/codex_task_builder_v2_runs`
-- source tasks：`/home/levi/Harbor/tasks_library/skillsbench/tasks`
-- raw runs：`/home/levi/Harbor/codex_task_builder_v2_runs/raw`
-- quarantine：`/home/levi/Harbor/codex_task_builder_v2_runs/quarantine`
-- final tasks：`/home/levi/Harbor/tasks_library/auto_harbor_tasks`
+- template root：`/home/levi/Harbor/template`
+- output root：`/home/levi/Harbor/codex_task_builder_v2_runs`
+- raw runs：`<output-root>/raw`
+- final tasks：`<output-root>/final`
+- quarantine：`<output-root>/quarantine`
 
 最终发布目录结构固定为：
 
 ```text
-<final-root>/<source-task-id>/<scope>/<task-name>
+<output-root>/final/<template-id>/<scope>/<task-name>
+```
+
+失败任务隔离目录结构固定为：
+
+```text
+<output-root>/quarantine/<template-id>/<scope>/<task-name>
 ```
 
 其中：
 
 - `scope`
   - `all-skills`：`all` 模式
-  - `<skill-dir>`：`per-skill` 模式
+  - `<input-skill-dirname>`：`per-skill` 模式
 - `task-name`
   - `similar1`, `similar2`, ...
   - `transfer1`, `transfer2`, ...
 
----
+## 4. 核心数据模型
 
-## 3. 核心数据模型
+### 4.1 TaskTemplate
 
-### 3.1 SourceTask
-
-表示一个源任务，包含：
+表示一个模板任务，包含：
 
 - `task.toml`
 - `instruction.md`
@@ -55,96 +101,113 @@
 - `tests/`
 - `environment/skills/`
 - 从 `task.toml` 解析出的 metadata
-- 从 `environment/skills/*/SKILL.md` 解析出的 shipped skills
+- 从模板自带 `environment/skills/*/SKILL.md` 解析出的参考 skill 列表
 
-### 3.2 GenerationUnit
+这里要注意：
+
+- 模板自带 `environment/skills/` 只是参考上下文
+- 最终 shipped skills 不由它决定
+
+### 4.2 GenerationUnit
 
 实际执行单元是 `GenerationUnit`，可以理解为：
 
-- 一个 source task
+- 一个 template
+- 一组 input skills
 - 加上一个 scope
 
 两种 scope 模式：
 
 - `all`
-  - 一个 source task 只生成一个 family
-  - 保留全部 shipped skills
+  - 一组输入 skill 只生成一个 family
   - scope 固定为 `all-skills`
+  - 最终 shipped skills 等于本次输入的全部 skills
 - `per-skill`
-  - 一个 source task 会按 skill 拆成多个 family
+  - 一组输入 skill 会按 skill 拆成多个 family
   - 每个 family 只围绕一个目标 skill
-  - scope 等于该 skill 的 `dirName`
+  - scope 等于该 input skill 的 `dirName`
 
-### 3.3 FamilyPlan / DerivedTaskPlan
+### 4.3 FamilyPlan / DerivedTaskPlan
 
 - `FamilyPlan`
   - planner 输出的 family 级蓝图
   - 描述本轮应生成多少个 `similar` / `transfer`
+  - 当前核心身份字段是 `templateId`
 - `DerivedTaskPlan`
   - 把 `FamilyPlan` 展平后的单任务蓝图
   - 程序会把 planner 的任务数组映射成 `similar1`、`transfer1` 这种固定 ID
 
----
+## 5. CLI 入口
 
-## 4. CLI 入口
-
-CLI 支持四类命令：
+CLI 现在只保留两类命令：
 
 - `inventory`
 - `generate-family`
+
+### 5.1 inventory
+
+递归扫描模板根目录，不生成任务。输出：
+
+- `templateId`
+- `templateRelativePath`
+- difficulty / category
+- 模板自带的参考 skill 名称
+- environment 资产列表
+
+### 5.2 generate-family
+
+面向单个 template + 一组 input skills 生成 family。
+
+当前版本已经不再支持：
+
 - `batch`
 - `review`
 
-### 4.1 inventory
+也不再支持旧参数：
 
-只扫描 source tasks，不生成任务。输出：
+- `--source-root`
+- `--source-task-id`
+- `--target-skill-dir`
+- `--raw-root`
+- `--final-root`
+- `--quarantine-root`
+- `--runs-root`
 
-- source task id
-- difficulty / category
-- skill names
-- environment 资产列表
+如果传入这些旧参数，CLI 会直接报错。
 
-### 4.2 generate-family
-
-面向单个 source task 或单个 generation unit 生成 family。
-
-### 4.3 batch
-
-批量处理多个 source tasks / generation units。和 `generate-family` 共用同一套生成逻辑，只是外层可以并发。
-
-### 4.4 review
-
-不重新生成任务，只会找到最近一次 raw workspace，然后重新跑 reviewer。
-
----
-
-## 5. 完整造任务流程
+## 6. 完整造任务流程
 
 下面按实际执行顺序说明。
 
-### 第 1 步：发现 source task
+### 第 1 步：发现 template 和 input skills
 
-程序先从 `source-root` 扫描 source tasks，读取：
+程序先读取：
 
-- `task.toml`
-- `instruction.md`
-- `environment/skills/*/SKILL.md`
+- `template-root/<template>/`
+- 所有 `--skill-dir`
 
 并解析出：
 
-- task metadata
-- skills 列表
+- template metadata
+- 模板自带参考 skills
+- input skill 列表
 
 ### 第 2 步：构造 generation units
 
 程序根据 `--skill-mode`、`--similar-count`、`--transfer-count` 生成 `GenerationUnit`：
 
-- `all` 模式：每个 source task 一个 unit
-- `per-skill` 模式：每个 source task 的每个 skill 一个 unit
+- `all` 模式：当前 template + 全部 input skills 组成一个 unit
+- `per-skill` 模式：当前 template 的每个 input skill 各自形成一个 unit
 
 ### 第 3 步：读取已发布 family，决定缺哪些槽位
 
-程序会读取 `final-root/<source-task-id>/<scope>/` 下已经发布的任务：
+程序会读取：
+
+```text
+<output-root>/final/<template-id>/<scope>/
+```
+
+下已经发布的任务：
 
 - 识别已有的 `similarN`
 - 识别已有的 `transferN`
@@ -192,12 +255,13 @@ preflight 失败会直接终止，不进入生成阶段。
 每个 unit 会创建一个独立 workspace：
 
 ```text
-<raw-root>/<run-id>/<source-task-id>/<scope>/
+<output-root>/raw/<run-id>/<template-id>/<scope>/
 ```
 
 其中固定包含：
 
-- `source_task/`
+- `template_source/`
+- `input_skills/`
 - `builder_refs/harbor/`
 - `drafts/`
 - `artifacts/`
@@ -205,27 +269,28 @@ preflight 失败会直接终止，不进入生成阶段。
 
 说明：
 
-- `source_task/` 是本轮 source task 的工作副本
+- `template_source/` 是模板任务的工作副本，保留模板自带 `environment/skills/`
+- `input_skills/` 是本轮输入的真实 shipped skill payload
 - `builder_refs/harbor/` 是 Harbor builder 参考资料
 - `drafts/` 是本轮派生任务草稿
-- `artifacts/` 存 planner/writer/reviewer/runtime/skill-effect/repair 的输出
+- `artifacts/` 存 planner / writer / reviewer / runtime / skill-effect / repair 的输出
 - `TASK_BUILDER_BRIEF.md` 是给 Codex 的统一总纲
-
-在 `per-skill` 模式下，复制 `source_task/` 时只保留当前目标 skill，不会把其他 skills 一并带入。
 
 ### 第 6 步：planner 生成 family 蓝图
 
 程序调用 Codex planner，要求它：
 
 - 先读 `TASK_BUILDER_BRIEF.md`
-- 再读 `source_task/`
+- 再读 `template_source/`
+- 再读 `input_skills/`
 - 再读 `builder_refs/harbor/`
-- 如有已发布任务，也必须读 final-root 里的历史任务
+- 如有已发布任务，也必须读 final 里的历史任务
 
-planner 只做“family 规划”，不直接写文件。
+planner 只做 family 规划，不直接写文件。
 
 planner 的输出是严格 JSON，核心字段包括：
 
+- `templateId`
 - `familyTheme`
 - `similarTasks`
 - `transferTasks`
@@ -240,8 +305,8 @@ planner 的输出是严格 JSON，核心字段包括：
 随后程序会做三类校验：
 
 1. `validateFamilyPlan`
-   - sourceTaskId 是否一致
-   - skillMode 是否一致
+   - `templateId` 是否一致
+   - `skillMode` 是否一致
    - similar / transfer 数量是否一致
 2. `validateTaskPlans`
    - `derivedTaskId` 是否符合 `similarN/transferN`
@@ -257,28 +322,21 @@ planner 的输出是严格 JSON，核心字段包括：
 对于每个 `DerivedTaskPlan`：
 
 1. 程序先创建 `drafts/<task-id>/`
-2. 预先复制当前 scope 对应的 `environment/skills/`
+2. 预先把 `input_skills/` 复制到 `drafts/<task-id>/environment/skills/`
 3. 写入 `plan.json`
-4. 调用 writer prompt，让 Codex 生成完整 Harbor 任务
+4. 再调用 writer 生成：
+   - `task.toml`
+   - `instruction.md`
+   - `environment/Dockerfile`
+   - `environment/` 下必要输入资产
+   - `solution/solve.sh`
+   - `tests/test.sh`
+   - `tests/test_outputs.py`
 
-writer 需要产出的核心文件是：
+这里最关键的变化是：
 
-- `task.toml`
-- `instruction.md`
-- `environment/Dockerfile`
-- `environment/` 下必要输入资产
-- `solution/solve.sh`
-- `tests/test.sh`
-- `tests/test_outputs.py`
-- `plan.json`
-
-writer prompt 会特别强调：
-
-- 要读取 sibling drafts，避免本轮内部撞题
-- 要读取 final-root 中已发布任务，避免和历史任务撞题
-- `instruction.md` 和 task metadata 必须是英文
-- `environment/Dockerfile` 必须保留 `COPY skills /root/.codex/skills`
-- 参考解和 verifier 不能直接依赖 skill runtime
+- draft 里的 `environment/skills/` 不再从模板复制
+- 而是始终从 `input_skills/` 注入
 
 ### 第 8 步：reviewer 审稿
 
@@ -287,223 +345,140 @@ writer 完成后，程序进入 cycle 循环。每一轮 cycle 的第一步是 r
 reviewer 是 family 级别的，它会同时审查：
 
 - `TASK_BUILDER_BRIEF.md`
-- `source_task/`
+- `template_source/`
+- `input_skills/`
 - `builder_refs/harbor/`
-- 当前全部 `drafts/`
-- final-root 中同 family 已发布任务
+- `drafts/`
+- final 中同 family 已发布任务
 
 reviewer 的输出分两部分：
 
 - `taskResults`
-  - 针对每个任务给出：
-    - `pass`
-    - `issues`
-    - `visibilityPass`
-    - `skillBenefitPass`
-    - `testabilityPass`
+  - 每个任务一条结果
+  - 包含 `pass / issues / visibilityPass / skillBenefitPass / testabilityPass`
 - `familyObservations`
-  - 针对整个 family 的多样性、布局等给出意见
+  - family 级观察
+  - 包含 `issues / diversityPass / roleLayoutPass`
 
-程序不会盲信 reviewer，会做结果归一化和结构校验，防止模型：
-
-- 漏字段
-- 任务 ID 对不上
-- 返回未知任务
-- 把 `familyObservations` 返回成错误结构
+程序不会盲信 reviewer，会做结构归一化和结果校验。
 
 ### 第 9 步：static validate
 
-对每个 draft task，会做静态校验。
+每个 draft 都会进入静态校验。
 
-静态校验主要包括：
+当前 static validate 会检查：
 
-1. 必备文件是否存在
-   - `plan.json`
-   - `task.toml`
-   - `instruction.md`
-   - `environment/Dockerfile`
-   - `solution/solve.sh`
-   - `tests/test.sh`
-   - `tests/test_outputs.py`
-
-2. `plan.json` 是否与目录名一致
-
-3. `environment/skills` 是否与当前 scope 严格一致
-   - `per-skill`：必须且只能有当前目标 skill
-   - `all`：必须等于 source task 的全部 skills
-
-4. `task.toml` metadata 是否正确
-   - `id`
-   - `name`
-   - `description`
-   - `primary_output_file`
-   - `source_task_id`
-   - `task_role`
-   - `tags`
-
-5. 英文约束
-   - `instruction.md` 不得含中文
-   - `metadata.name` / `metadata.description` 不得含中文
-
-6. 固定资源配额
-   - `cpus = 2`
-   - `memory_mb = 2048`
-   - `storage_mb = 5120`
-   - `gpus = 0`
-
-7. Dockerfile 基础镜像策略
-   - 不能使用本地/私有 registry
-   - 必须保留 `COPY skills /root/.codex/skills`
-
-8. skill runtime 耦合检查
-   - `solution/solve.sh`
-   - `tests/test.sh`
-   - `tests/test_outputs.py`
-
-如果这些文件直接引用：
-
-- `environment/skills/**`
-- `/root/.codex/skills/**`
-- `/app/skills/**`
-- 或通过 `sys.path` / `PYTHONPATH` 注入 skills 目录
-
-就会被判定为“参考解 / verifier 硬依赖 skill”，直接报 static issue。
-
-这条规则的目的是保证：
-
-- 参考解和验收器与 shipped skill 解耦
-- 在“装 skill”和“不装 skill”两种评测设置下，reference solution 与 verifier 都能独立跑通
-
-### 第 10 步：runtime validate（Harbor Oracle）
+- 必备文件是否齐全
+- `plan.json` 是否能解析，且 `derivedTaskId` 是否一致
+- `environment/skills/` 是否与当前 scope 一致
+  - `per-skill`：必须且只能包含当前目标 input skill
+  - `all`：必须等于本次输入的全部 skills
+- `environment/skills/<skill>/` 的内容是否与 `input_skills/<skill>/` 完全一致
+  - 也就是 injected skill payload 不允许被 writer / repair 改写
+- `task.toml` 中的关键字段
+  - `id`
+  - `name`
+  - `description`
+  - `primary_output_file`
+  - `source_template_id`
+  - `task_role`
+- `instruction.md`、`metadata.name`、`metadata.description` 是否包含中文
+- `environment/Dockerfile` 是否满足固定规则
 
 只有 reviewer 和 static 都通过的任务，才会进入 runtime validate。
 
-runtime validate 的执行命令是：
+### 第 10 步：Harbor Oracle runtime validate
+
+每个通过前置检查的任务都会跑一遍 Harbor Oracle：
 
 ```bash
-harbor run -p <task_dir> -a oracle -e <e2b|daytona|docker> --force-build --jobs-dir <logs_dir> --job-name <job_name>
+harbor run -p <draft-task-dir> -a oracle -e <runtime-environment>
 ```
 
-每次 runtime 尝试都有唯一目录：
-
-```text
-artifacts/runtime/<task-id>/cycle-<cycle>-attempt-<attempt>/
-```
-
-这是为了避免 repair 后复用旧结果。
-
-runtime 阶段会收集这些证据：
+程序会收集：
 
 - `harbor-run.log`
+- `result.json`
 - `job.log`
 - `trial.log`
 - `verifier/test-stdout.txt`
 - `reward.txt` 或 `reward.json`
-- `result.json`
 - `artifacts/manifest.json`
-- `log-index.json`
 
-通过标准如下：
+runtime 通过标准：
 
-1. 必须产出可解析的 `result.json`
-2. `result.json` 里不能有 `exception_info`
-3. verifier 必须产出 reward
-4. reward 必须 `>= 1.0`
-5. `harbor run` 自身退出码必须为 0
-
-只要任意一条失败，就会生成 runtime issue。
-
-runtime 通过后，任务不会立刻发布，而是继续进入 skill-effect gate。
+- 产出可解析的 `result.json`
+- `result.json` 中没有 `exception_info`
+- verifier 产出 reward
+- reward `>= 1.0`
+- `harbor run` 退出码为 `0`
 
 ### 第 11 步：skill-effect gate
 
-这是当前版本相对旧版 builder 的新增阶段。
+如果没有显式 `--skip-skill-effect-gate`，每个通过 Oracle runtime 的任务都会继续做真实对照：
 
-对每个已经通过 Oracle runtime 的 draft，程序会继续做一轮真实对照：
+- `with_skill`
+  - 直接用当前 draft task 运行 Codex
+- `no_skill`
+  - 复制一份 task 变体
+  - 从 `environment/Dockerfile` 中删除 `COPY skills ...` 相关行
+  - 再运行 Codex
 
-1. 直接拿当前 draft 跑 `with_skill`
-2. 临时复制一份 draft，删除 Dockerfile 里的 `COPY skills ...` 行，得到 `no_skill`
-3. 再用 Harbor `codex` + 指定 model 真实跑 `no_skill`
-
-当前默认 model 是 `openai/gpt-5.4`，可通过 `--skill-effect-model` 覆盖；如果传 `--skip-skill-effect-gate`，这一步会被跳过。
-
-对照结果会被分成四类 bucket：
+当前 bucket 有四种：
 
 - `with_skill_pass__no_skill_fail`
 - `with_skill_fail__no_skill_fail`
 - `with_skill_pass__no_skill_pass`
 - `with_skill_fail__no_skill_pass`
 
-其中只有前两类被视为可接受：
+其中：
 
-- `with_skill_pass__no_skill_fail`
-  - 说明 skill 真正改变了解题成败
-- `with_skill_fail__no_skill_fail`
-  - 说明任务整体仍然够难，至少没有出现 no-skill shortcut
-
-后两类会直接进入 repair：
-
-- `with_skill_pass__no_skill_pass`
-  - 说明 no-skill 也能过，skill bottleneck 不够硬
-- `with_skill_fail__no_skill_pass`
-  - 说明出现 with-skill 反向劣势，必须修复
-
-这一阶段会把 with/no 两边的 `harbor-run.log`、`result.json`、reward、trajectory 等证据都落到：
-
-```text
-artifacts/skill_effect/<task-id>/cycle-<cycle>-attempt-<attempt>/
-```
+- 前两种 bucket 视为接受
+- 后两种 bucket 会触发 repair
 
 ### 第 12 步：repair
 
-如果某个任务在以下任一阶段失败：
-
-- reviewer
-- static validate
-- runtime validate
-- skill-effect gate
-
-并且还没超过 `maxRepairRounds`，程序就会触发 repair。
-
-repair 不只是给 Codex 一句“失败了”，而是把完整证据喂回去，包括：
+只要命中下面任一问题，就可能触发 repair：
 
 - reviewer issues
 - static issues
 - runtime issues
 - skill-effect issues
-- `runtimeDir`
-- `log-index.json`
-- `harbor-run.log`
-- `job.log`
-- `trial.log`
-- `verifier/test-stdout.txt`
-- `reward.txt/reward.json`
-- `result.json`
-- `artifacts/manifest.json`
-- with_skill / no_skill 两边的日志、result、reward、trajectory 路径
 
-repair 会：
+repair prompt 可以读取：
 
-- 尽量最小化修改
-- 继续使用同一个 repair thread
-- 修完后进入下一轮 reviewer/static/runtime/skill-effect
+- 当前 draft
+- reviewer / static / runtime / skill-effect 的问题列表
+- Oracle runtime 日志
+- with_skill / no_skill 日志、reward、trajectory、result
 
-直到：
+repair 只允许修改：
 
-- 全部通过，或
-- 没有 repair 额度了，或
-- 本轮没有新的修复动作
+```text
+drafts/<task-id>/
+```
 
-### 第 13 步：发布或隔离
+明确禁止修改：
 
-循环结束后，每个任务只有两种去向：
+- `template_source/`
+- `input_skills/`
+- `builder_refs/`
+- `artifacts/`
+- Harbor 仓库代码
+- injected skill payload
 
-- `passed = true`
-  - 复制到 `final-root`
-- `passed = false`
-  - 复制到 `quarantine-root`
+修完后进入下一轮 reviewer / static / runtime / skill-effect。
 
-发布不是整个草稿目录原样搬走，而是 allowlist 复制，只保留 Harbor 必需文件：
+### 第 13 步：publish / quarantine
+
+所有 cycle 结束后：
+
+- 通过的任务
+  - 复制到 `final`
+- 未通过的任务
+  - 复制到 `quarantine`
+
+复制时只保留 allowlist：
 
 - `task.toml`
 - `instruction.md`
@@ -512,111 +487,53 @@ repair 会：
 - `solution/`
 - `tests/`
 
-不会执行删除操作。
-
-如果某个任务做过 skill-effect 对照，还会额外镜像到 bucket 目录，便于后续统计：
+实际发布路径为：
 
 ```text
-<final-root>/_skill_effect_buckets/<bucket>/<source-task-id>/<scope>/<task-name>
-<quarantine-root>/_skill_effect_buckets/<bucket>/<source-task-id>/<scope>/<task-name>
+<output-root>/final/<template-id>/<scope>/<task-name>
+<output-root>/quarantine/<template-id>/<scope>/<task-name>
 ```
 
-如果目标目录已经存在，会标记为 `existing`，不会强制覆盖。
+skill-effect bucket 也会分别落盘到：
 
----
+```text
+<output-root>/final/_skill_effect_buckets/<bucket>/<template-id>/<scope>/<task-name>
+<output-root>/quarantine/_skill_effect_buckets/<bucket>/<template-id>/<scope>/<task-name>
+```
 
-## 6. 日志与产物
+## 7. 产物与日志
 
-### 6.1 workspace 内产物
-
-每个 family workspace 下至少包含：
-
-- `TASK_BUILDER_BRIEF.md`
-- `source_task/`
-- `builder_refs/harbor/`
-- `drafts/`
-- `artifacts/`
-
-### 6.2 artifacts 内常见文件
+workspace `artifacts/` 中常见产物包括：
 
 - `generation-unit.json`
 - `family-plan.json`
 - `family-plan.raw.json`
-- `<task-id>.writer.json`
-- `<task-id>.writer.raw.json`
+- `<task>.writer.json`
+- `<task>.writer.raw.json`
 - `review-result.round-<n>.json`
 - `review-result.round-<n>.raw.json`
-- `<task-id>.runtime.cycle-<n>.json`
-- `<task-id>.skill-effect.cycle-<n>.json`
-- `<task-id>.skill-effect.cycle-<n>.attempt-<m>.json`
-- `<task-id>.repair.<n>.json`
+- `<task>.runtime.cycle-<n>.json`
+- `<task>.runtime.cycle-<n>.attempt-<m>.json`
+- `<task>.skill-effect.cycle-<n>.json`
+- `<task>.skill-effect.cycle-<n>.attempt-<m>.json`
+- `<task>.repair.<n>.json`
+- `<task>.repair.<n>.raw.json`
 
-### 6.3 runs 根目录
+output root 顶层还会额外写：
 
-整个项目级别还会持续写：
+- `<output-root>/manifest.jsonl`
+- `<output-root>/<run-id>.json`
 
-- `<runs-root>/manifest.jsonl`
-- `<runs-root>/<run-id>.json`
+## 8. 当前版本最重要的语义变化
 
-前者是 phase 级流水日志，后者是 run summary。
+相较旧版 `source task` 流程，当前版本最重要的变化有五个：
 
-默认情况下 `runs-root = /home/levi/Harbor/codex_task_builder_v2_runs`；如果调用时显式传了 `--runs-root`，就写到指定目录；如果只改了 `--raw-root`，则默认取 `dirname(raw-root)` 作为 `runs-root`。
+1. 输入身份从 `sourceTaskId` 切成了 `templateId`
+2. 最终 shipped skill 不再来自模板，而来自外部输入的 `--skill-dir`
+3. workspace 里同时保留 `template_source/` 和 `input_skills/`，不再混在一起
+4. draft 的 `environment/skills/` 由系统自动注入，并被视为只读 payload
+5. 输出路径从多个根参数收敛为单个 `--output-root`
 
----
+## 9. 一句话总结
 
-## 7. 当前这套流程最重要的约束
-
-### 7.1 任务命名固定
-
-程序不会接受任意 task id，最终一定映射为：
-
-- `similar1`, `similar2`, ...
-- `transfer1`, `transfer2`, ...
-
-### 7.2 final-root 是一等输入
-
-planner / writer / reviewer 都必须读取已发布任务，用于：
-
-- 避免撞题
-- 只补齐缺失槽位
-
-### 7.3 用户可见文本必须是英文
-
-至少包括：
-
-- `instruction.md`
-- `task.toml` 中的 `metadata.name`
-- `task.toml` 中的 `metadata.description`
-
-### 7.4 shipped skill 只服务 agent，不服务 oracle
-
-这是当前版本特别重要的规则：
-
-- shipped skill 可以帮助 agent 解题
-- 但 `solution/solve.sh` 和 verifier 不能把 skill 当成直接运行时依赖
-
-否则就无法公平比较：
-
-- 添加 skill 的 agent
-- 不添加 skill 的 agent
-
-在相同任务上的真实效果差异
-
-### 7.5 runtime / skill-effect 失败统一进 repair
-
-当前实现不再区分：
-
-- infra retry
-- repair retry
-
-而是每个 cycle 每个任务先跑一次 runtime；runtime 通过后如果启用了默认 gate，再继续跑一次 skill-effect 对照；任一阶段失败都统一进入 repair 流。
-
----
-
-## 8. 一句话总结
-
-`codex_task_builder_v2` 的本质不是“让模型写几个 Harbor 任务”，而是：
-
-**先把 source task 按 scope 拆成 family，再让 Codex 基于 source task、Harbor 参考材料和已发布任务做规划与写作，随后用 reviewer + static validate + Harbor Oracle runtime + skill-effect gate 把任务往可发布状态收敛，最后把通过的任务发布到 final-root，把失败的任务隔离到 quarantine-root。**
-
-这套设计的重点不在“生成”，而在“自动收口”。
+**当前 `codex_task_builder_v2` 的主流程是：先把 template 和 input skills 组装成 family unit，再让 Codex 基于 `template_source/`、`input_skills/`、Harbor 参考材料和已发布任务做规划与写作，随后用 reviewer + static validate + Harbor Oracle runtime + skill-effect gate 把任务往可发布状态收敛，最后把通过的任务发布到 `<output-root>/final`，把失败的任务隔离到 `<output-root>/quarantine`。**

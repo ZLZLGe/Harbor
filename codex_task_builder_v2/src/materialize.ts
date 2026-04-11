@@ -1,12 +1,13 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import {
-  FINAL_TASKS_ROOT,
-  QUARANTINE_ROOT,
-  RAW_ROOT,
   assertPathWithinRoots,
+  buildFinalRoot,
+  buildQuarantineRoot,
+  buildRawRoot,
   copyDir,
   copyFile,
+  DEFAULT_OUTPUT_ROOT,
   ensureDir,
   pathExists,
 } from "./utils.js";
@@ -38,11 +39,11 @@ async function copySelectedEntry(sourcePath: string, targetPath: string): Promis
 
 export function buildMaterializedTaskDir(args: {
   targetRoot: string;
-  sourceTaskId: string;
+  templateId: string;
   scopeSlug: string;
   taskName: string;
 }): string {
-  return path.join(args.targetRoot, args.sourceTaskId, args.scopeSlug, args.taskName);
+  return path.join(args.targetRoot, args.templateId, args.scopeSlug, args.taskName);
 }
 
 export type MaterializeResult = {
@@ -52,23 +53,28 @@ export type MaterializeResult = {
 
 export async function sanitizeAndCopyTask(args: {
   sourceDraftDir: string;
-  sourceTaskId: string;
+  templateId: string;
   scopeSlug: string;
   taskName: string;
   rawRoot?: string;
   targetRoot?: string;
 }): Promise<MaterializeResult> {
-  const targetRoot = args.targetRoot ?? FINAL_TASKS_ROOT;
-  const rawRoot = args.rawRoot ?? RAW_ROOT;
+  const outputRoot = DEFAULT_OUTPUT_ROOT;
+  const targetRoot = args.targetRoot ?? buildFinalRoot(outputRoot);
+  const rawRoot = args.rawRoot ?? buildRawRoot(outputRoot);
   const targetTaskDir = buildMaterializedTaskDir({
     targetRoot,
-    sourceTaskId: args.sourceTaskId,
+    templateId: args.templateId,
     scopeSlug: args.scopeSlug,
     taskName: args.taskName,
   });
 
-  assertPathWithinRoots(args.sourceDraftDir, [rawRoot, RAW_ROOT], "raw task");
-  assertPathWithinRoots(targetTaskDir, [FINAL_TASKS_ROOT, QUARANTINE_ROOT, targetRoot], "发布目标");
+  assertPathWithinRoots(args.sourceDraftDir, [rawRoot], "raw task");
+  assertPathWithinRoots(
+    targetTaskDir,
+    [buildFinalRoot(outputRoot), buildQuarantineRoot(outputRoot), targetRoot],
+    "发布目标",
+  );
 
   await ensureDir(path.dirname(targetTaskDir));
   if (await pathExists(targetTaskDir)) {
