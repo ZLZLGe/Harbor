@@ -88,16 +88,6 @@ export const writerSummarySchema = z.object({
   summary: z.string().min(1),
 });
 
-export const familyReviewerTaskResultSchema = z.object({
-  derivedTaskId: z.string().min(1),
-  distinctPass: z.boolean(),
-  issues: z.array(z.string()),
-});
-
-export const familyReviewResultSchema = z.object({
-  taskResults: z.array(familyReviewerTaskResultSchema),
-});
-
 export const blockingReviewerTaskResultSchema = z.object({
   derivedTaskId: z.string().min(1),
   blockingPass: z.boolean(),
@@ -118,8 +108,6 @@ export type PlannedTask = z.infer<typeof plannedTaskSchema>;
 export type FamilyPlan = z.infer<typeof familyPlanSchema>;
 export type DerivedTaskPlan = z.infer<typeof derivedTaskPlanSchema>;
 export type WriterSummary = z.infer<typeof writerSummarySchema>;
-export type FamilyReviewerTaskResult = z.infer<typeof familyReviewerTaskResultSchema>;
-export type FamilyReviewResult = z.infer<typeof familyReviewResultSchema>;
 export type BlockingReviewerTaskResult = z.infer<typeof blockingReviewerTaskResultSchema>;
 export type BlockingReviewResult = z.infer<typeof blockingReviewResultSchema>;
 export type RepairTurnResult = z.infer<typeof repairTurnResultSchema>;
@@ -246,30 +234,6 @@ export const writerSummaryJsonSchema = {
   },
 } as const;
 
-export const familyReviewResultJsonSchema = {
-  type: "object",
-  additionalProperties: false,
-  required: ["taskResults"],
-  properties: {
-    taskResults: {
-      type: "array",
-      items: {
-        type: "object",
-        additionalProperties: false,
-        required: ["derivedTaskId", "distinctPass", "issues"],
-        properties: {
-          derivedTaskId: { type: "string" },
-          distinctPass: { type: "boolean" },
-          issues: {
-            type: "array",
-            items: { type: "string" },
-          },
-        },
-      },
-    },
-  },
-} as const;
-
 export const blockingReviewResultJsonSchema = {
   type: "object",
   additionalProperties: false,
@@ -310,6 +274,5 @@ export const repairTurnResultJsonSchema = {
 
 assertStructuredOutputCompatible(familyPlanJsonSchema, "familyPlanJsonSchema");
 assertStructuredOutputCompatible(writerSummaryJsonSchema, "writerSummaryJsonSchema");
-assertStructuredOutputCompatible(familyReviewResultJsonSchema, "familyReviewResultJsonSchema");
 assertStructuredOutputCompatible(blockingReviewResultJsonSchema, "blockingReviewResultJsonSchema");
 assertStructuredOutputCompatible(repairTurnResultJsonSchema, "repairTurnResultJsonSchema");

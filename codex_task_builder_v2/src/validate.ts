@@ -2,7 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { buildRoleDisplayName, relativeDraftPath } from "./prompts.js";
 import { getVisibleSkills, type GenerationUnit, type SkillMode } from "./discovery.js";
-import type { BlockingReviewResult, DerivedTaskPlan, FamilyPlan, FamilyReviewResult } from "./schema.js";
+import type { BlockingReviewResult, DerivedTaskPlan, FamilyPlan } from "./schema.js";
 import type { FamilyWorkspace } from "./workspace.js";
 import {
   canonicalTaskName,
@@ -389,48 +389,6 @@ export function collectFamilyObservationIssues(
   }
 
   return issues;
-}
-
-export function validateFamilyReviewResult(
-  taskPlans: DerivedTaskPlan[],
-  review: FamilyReviewResult,
-): ReviewValidationResult {
-  const taskIssuesById = new Map<string, ValidationIssue[]>();
-  const expectedTaskIds = new Set(taskPlans.map((task) => task.derivedTaskId));
-  const seenTaskIds = new Set<string>();
-
-  for (const taskId of expectedTaskIds) {
-    taskIssuesById.set(taskId, []);
-  }
-
-  for (const taskResult of review.taskResults) {
-    if (!expectedTaskIds.has(taskResult.derivedTaskId)) {
-      continue;
-    }
-
-    seenTaskIds.add(taskResult.derivedTaskId);
-    if (!taskResult.distinctPass || taskResult.issues.length > 0) {
-      pushTaskIssue(taskIssuesById, taskResult.derivedTaskId, {
-        scope: "family",
-        taskId: taskResult.derivedTaskId,
-        message: taskResult.issues.join("; ") || "family reviewer 判定需要重写，但未提供原因",
-      });
-    }
-  }
-
-  for (const taskId of expectedTaskIds) {
-    if (!seenTaskIds.has(taskId)) {
-      pushTaskIssue(taskIssuesById, taskId, {
-        scope: "family",
-        taskId,
-        message: "family reviewer 未返回该任务的审查结果",
-      });
-    }
-  }
-
-  return {
-    taskIssuesById,
-  };
 }
 
 export function validateBlockingReviewResult(

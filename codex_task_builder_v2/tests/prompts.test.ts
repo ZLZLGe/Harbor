@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import {
   buildBlockingReviewerPrompt,
   buildFamilyPlannerPrompt,
-  buildFamilyReviewerPrompt,
   buildRepairPrompt,
   buildTaskBuilderBrief,
   buildTaskWriterPrompt,
@@ -147,54 +146,16 @@ const familyPlan: FamilyPlan = {
   ],
 };
 
-const taskPlans: DerivedTaskPlan[] = [
-  plan,
-  {
-    ...plan,
-    derivedTaskId: "similar2",
-    roleOrdinal: 2,
-    title: "Debugging Similar 2",
-    primaryOutputFile: "dashboard-summary.json",
-  },
-  {
-    ...plan,
-    derivedTaskId: "transfer1",
-    taskRole: "transfer",
-    roleOrdinal: 1,
-    title: "CLI Transfer 1",
-    primaryOutputFile: "cli-summary.json",
-  },
-  {
-    ...plan,
-    derivedTaskId: "transfer2",
-    taskRole: "transfer",
-    roleOrdinal: 2,
-    title: "Worker Transfer 2",
-    primaryOutputFile: "worker-summary.json",
-  },
-  {
-    ...plan,
-    derivedTaskId: "transfer3",
-    taskRole: "transfer",
-    roleOrdinal: 3,
-    title: "Queue Transfer 3",
-    primaryOutputFile: "queue-summary.json",
-  },
-];
-
 const brief = buildTaskBuilderBrief(unit);
 const plannerPrompt = buildFamilyPlannerPrompt(unit);
 const writerPrompt = buildTaskWriterPrompt(unit, plan);
-const familyReviewerPrompt = buildFamilyReviewerPrompt(unit, familyPlan, taskPlans);
-const blockingReviewerPrompt = buildBlockingReviewerPrompt(unit, familyPlan, taskPlans);
+const blockingReviewerPrompt = buildBlockingReviewerPrompt(unit, familyPlan, plan);
 const historyPlannerPrompt = buildFamilyPlannerPrompt(historyAwareUnit);
 const historyWriterPrompt = buildTaskWriterPrompt(historyAwareUnit, plan);
-const historyFamilyReviewerPrompt = buildFamilyReviewerPrompt(historyAwareUnit, familyPlan, taskPlans);
-const historyBlockingReviewerPrompt = buildBlockingReviewerPrompt(historyAwareUnit, familyPlan, taskPlans);
+const historyBlockingReviewerPrompt = buildBlockingReviewerPrompt(historyAwareUnit, familyPlan, plan);
 const repairPrompt = buildRepairPrompt({
   unit,
   plan,
-  familyIssues: ["family:similar1 instruction.md is too close to history"],
   blockingIssues: ["reviewer:similar1 instruction.md leaked the skill name"],
   staticIssues: ["static:similar1 task.toml metadata.source_template_id is wrong"],
   runtimeIssues: ["runtime:similar1 harbor verifier reward=0 < 1.0"],
@@ -218,6 +179,7 @@ assert.match(brief, /这些 injected skills 是只读 payload/);
 assert.match(brief, /template_source\/environment\/skills\/ 里的内容只作为模板上下文参考/);
 assert.match(brief, /最终 shipped skills 只由 input_skills\/ 决定/);
 assert.match(brief, /builder_refs\/harbor\/SKILL\.md/);
+assert.match(brief, /只需要检查 final-root 下已经发布的 sibling tasks/);
 
 assert.match(plannerPrompt, /完整检查 template_source\/、input_skills\/ 和 builder_refs\/harbor\//);
 assert.match(plannerPrompt, /templateId: tools__debugging/);
@@ -229,22 +191,25 @@ assert.match(writerPrompt, /template_source\/、input_skills\/、builder_refs\/h
 assert.match(writerPrompt, /metadata\.source_template_id 必须等于 "tools__debugging"/);
 assert.match(writerPrompt, /environment\/skills\/ 中只能保留一个 shipped skill/);
 assert.match(writerPrompt, /这些 injected skills 是只读 payload/);
+assert.match(writerPrompt, /不是当前任务必须参考的去重对象/);
+assert.match(writerPrompt, /只以 final-root 下已经发布的同 family 任务为准/);
+assert.match(writerPrompt, /不得把 skills 复制到普通运行时路径/);
+assert.match(writerPrompt, /唯一允许语句是 COPY skills \/root\/\.codex\/skills/);
+assert.match(writerPrompt, /不要再添加任何把 skills\/ 或 \/root\/\.codex\/skills 复制、移动、同步、软链接到其他目录/);
 assert.match(historyWriterPrompt, /已发布 Harbor family 目录/);
-
-assert.match(familyReviewerPrompt, /family 相似性审查/);
-assert.match(familyReviewerPrompt, /只根据题面判断这些任务是不是不同题/);
-assert.match(familyReviewerPrompt, /drafts\/ 下当前全部任务的 instruction\.md/);
-assert.match(historyFamilyReviewerPrompt, /已发布 Harbor family 目录/);
 
 assert.match(blockingReviewerPrompt, /单题 blocking 审查/);
 assert.match(blockingReviewerPrompt, /writer 不应改写 injected skill payload/);
+assert.match(blockingReviewerPrompt, /taskResults 中只返回当前这个任务/);
+assert.match(blockingReviewerPrompt, /已发布 sibling \/ 历史任务/);
 assert.match(historyBlockingReviewerPrompt, /已发布 Harbor family 目录/);
 
 assert.match(repairPrompt, /不要修改 template_source\/、input_skills\/、builder_refs\//);
 assert.match(repairPrompt, /不要修改 environment\/skills\/ 下 injected skill 的内容/);
 assert.match(repairPrompt, /metadata\.source_template_id/);
-assert.match(repairPrompt, /family:/);
 assert.match(repairPrompt, /blocking reviewer:/);
+assert.match(repairPrompt, /唯一允许语句是 COPY skills \/root\/\.codex\/skills/);
+assert.doesNotMatch(repairPrompt, /family:/);
 
 assert.match(allModeBrief, /当前 family 需要保留全部输入 skills 的关键能力点和实际解题收益/);
 assert.match(allModePlannerPrompt, /完整检查当前全部输入 shipped skills 的目录/);

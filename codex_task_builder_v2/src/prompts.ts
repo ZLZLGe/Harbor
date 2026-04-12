@@ -103,8 +103,9 @@ function renderTaskArtifactContracts(): string {
     关键文件契约:
     - solution/solve.sh 必须基于输入资产、任务规则和公开依赖生成可通过测试的结果，不得直接搬运任务内现成答案。
     - solution/solve.sh、tests/test.sh、tests/test_outputs.py 不得依赖任何 shipped skill 安装路径、skill 模块或 skill 脚本。
-    - tests/test_outputs.py 只能校验 instruction.md 或输入资产中已经说明、或可直接推出的输出契约、允许接口和可观察结果。
-    - tests/test_outputs.py 不得依赖未承诺的实现细节，如内部函数名、唯一中间步骤或固定日志文本。
+    - tests/test_outputs.py 只能校验 instruction.md 或输入资产中已经说明、或可直接推出的输出契约、允许接口和可观察结果，并面向结果语义而不是未承诺的实现细节。
+    - 对自由文本主输出，tests/test_outputs.py 不得依赖固定关键词、固定短语、固定同义词集合或唯一措辞，除非 instruction.md 明确把这些字面形式写成验收要求。
+    - 如果 tests/test_outputs.py 依赖未承诺的实现细节，如内部函数名、唯一中间步骤或固定日志文本，应视为 hidden requirement。
     - tests/test_outputs.py 的 expected 必须来自输入资产、题目规则或可复算逻辑，不得直接来自任务可读的完整答案文件。
     - snapshot 或 golden 文件只能用于局部、格式稳定且难以做语义断言的内容，不得承载完整 expected。
     - solution/solve.sh、tests/test.sh、tests/test_outputs.py、environment/Dockerfile 的路径契约必须一致；运行时会写入的路径必须存在，其父目录必须由执行写入的脚本显式创建。
@@ -154,9 +155,10 @@ function renderDockerfileRules(): string {
     Dockerfile 契约:
     - environment/Dockerfile 必须显式声明 WORKDIR。
     - 如果 WORKDIR 不是 /root，solution/solve.sh、tests/test.sh、tests/test_outputs.py 与 Dockerfile 的路径契约仍必须保持一致。
-    - environment/Dockerfile 必须保留 COPY skills /root/.codex/skills。
+    - environment/Dockerfile 不得把 skills 复制到普通运行时路径，如 /root/environment/skills、/app/skills、/workspace/skills。
+    - environment/Dockerfile 中与 skill 安装相关的唯一允许语句是 COPY skills /root/.codex/skills。
+    - 不要再添加任何把 skills/ 或 /root/.codex/skills 复制、移动、同步、软链接到其他目录的 COPY、RUN cp、ln -s、rsync 或等价逻辑。
     - environment/Dockerfile 不得使用 COPY . /root、COPY . /root/、COPY ./ /root、ADD . /root 或带 flag 的等价宽泛复制写法。
-    - environment/Dockerfile 不得把 skills 复制到普通运行时路径，如 /root/environment/skills、/app/skills、/workspace/skills；如需兼容其他 agent，也只能复制到对应的 agent skill 安装路径。
   `);
 }
 
@@ -208,7 +210,7 @@ export function buildTaskBuilderBrief(unit: GenerationUnit): string {
        - tests/test_outputs.py
        - plan.json
     7. plan.json 是 planner 产物，后续 materialize/publish 也要保留，不要删除。
-    8. 同一 workspace 内，后续任务生成时必须检查 drafts/ 下已经完成的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出语义和测试判定方式上过于接近。
+    8. 同一 workspace 内，后续任务生成时只需要检查 final-root 下已经发布的 sibling tasks，并主动避免与它们在任务场景、输入资产、输出语义和测试判定方式上过于接近；不要把尚未发布的 drafts 当成去重基准。
     9. environment/Dockerfile 必须遵守下方 Dockerfile 约束。
     10. 最终 Harbor 任务面向用户可见的文本必须使用英文，至少包括 instruction.md、task.toml 的 metadata.name 和 metadata.description。
     11. drafts/<task_name>/environment/skills/ 由系统从 input_skills/ 预注入，视为只读 payload；不要修改这些 skill 内容。
@@ -300,7 +302,7 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
       `);
 
   return dedent(`
-    先阅读 TASK_BUILDER_BRIEF.md，然后阅读 template_source/、input_skills/、builder_refs/harbor/、当前 task 的 plan.json blueprint、已有 sibling drafts，以及 final-root 下已发布的同 family 任务。
+    先阅读 TASK_BUILDER_BRIEF.md，然后阅读 template_source/、input_skills/、builder_refs/harbor/、当前 task 的 plan.json blueprint，以及 final-root 下已发布的同 family 任务。
 
     当前 task blueprint:
     ${JSON.stringify(plan, null, 2)}
@@ -308,17 +310,10 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     现在只生成一个完整派生任务，写入:
     - drafts/${plan.derivedTaskId}/
 
-    写作前必须先检查当前 workspace 的 drafts/ 目录：
-    - 把 drafts/${plan.derivedTaskId}/ 视为当前任务目录，不要把它当成已存在 sibling task。
-    - 把 drafts/ 下其他已经有内容的 sibling task 目录视为之前已经生成好的任务。
-    - 对每个已有 sibling task，优先阅读：
-      - drafts/<sibling_task>/plan.json
-      - drafts/<sibling_task>/instruction.md
-      - drafts/<sibling_task>/task.toml
-    - 如有必要，再补充检查：
-      - drafts/<sibling_task>/tests/test_outputs.py
-      - drafts/<sibling_task>/environment/ 下的输入资产
-    - 主动避免与已有 sibling task 在任务场景、输入资产、输出物语义和测试判定方式上过于接近。
+    写作前先确认：
+    - drafts/${plan.derivedTaskId}/ 是当前任务目录。
+    - 如果 drafts/ 下还存在其他 sibling task 目录，它们只是 workspace 中尚未发布的草稿，不是当前任务必须参考的去重对象。
+    - 当前任务的 sibling / 历史去重，只以 final-root 下已经发布的同 family 任务为准。
     - 还必须检查 final-root 中已经发布的同 family 任务；优先阅读：
       - <published_task>/plan.json
       - <published_task>/instruction.md
@@ -383,64 +378,11 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
   `);
 }
 
-export function buildFamilyReviewerPrompt(
-  unit: GenerationUnit,
-  familyPlan: FamilyPlan,
-  taskPlans: DerivedTaskPlan[],
-): string {
-  const taskList = taskPlans
-    .map((task) => `- ${task.derivedTaskId} (${buildRoleDisplayName(task)}) -> drafts/${task.derivedTaskId}/`)
-    .join("\n");
-  const publishedTaskList =
-    unit.publishedTasks.length === 0
-      ? "- none"
-      : unit.publishedTasks.map((task) => renderPublishedTaskEntry(task)).join("\n");
-
-  return dedent(`
-    不要修改任何文件。你现在只负责 family 相似性审查。
-
-    先阅读:
-    - TASK_BUILDER_BRIEF.md
-    - drafts/ 下当前全部任务的 instruction.md
-    - final-root 下同 family 已发布任务的 instruction.md
-
-    当前 family 规划:
-    ${JSON.stringify(familyPlan, null, 2)}
-
-    本轮 drafts tasks:
-    ${taskList}
-
-    已发布 Harbor family 目录: ${unit.finalFamilyDir || "unknown"}
-    已发布 tasks:
-    ${publishedTaskList}
-
-    审查目标:
-    - 只根据题面判断这些任务是不是不同题；主要比较 instruction.md，不要去做 solve path 去重。
-    - 比较范围包括：
-      - 当前 drafts 之间
-      - 当前 drafts 与 final-root 下同 family 已发布任务之间
-    - 只在“当前 task 与 sibling 或历史任务过于相似、应该被定向重写”时，才把该任务标为 distinctPass=false。
-    - 尽量最小化重写集合：如果两个当前任务很像，只标记需要被改写的冗余任务，不要把整组都判失败。
-    - 历史 final-root 任务视为保留对象；如果当前任务与历史任务过近，优先标记当前任务重写。
-    - 这里只审 family 相似性，不要评估单题 blocking、runtime、skill-effect、难度或 skill 关键性。
-
-    返回格式要求:
-    - taskResults 中必须覆盖当前全部任务
-    - issues 只写“为什么这个任务需要改写以拉开 family 差异”
-    - 没问题的任务返回 distinctPass=true 且 issues=[]
-
-    返回严格符合 schema 的 JSON，不要输出额外解释。
-  `);
-}
-
 export function buildBlockingReviewerPrompt(
   unit: GenerationUnit,
   familyPlan: FamilyPlan,
-  taskPlans: DerivedTaskPlan[],
+  plan: DerivedTaskPlan,
 ): string {
-  const taskList = taskPlans
-    .map((task) => `- ${task.derivedTaskId} (${buildRoleDisplayName(task)}) -> drafts/${task.derivedTaskId}/`)
-    .join("\n");
   const publishedTaskList =
     unit.publishedTasks.length === 0
       ? "- none"
@@ -454,37 +396,38 @@ export function buildBlockingReviewerPrompt(
     - template_source/
     - input_skills/
     - builder_refs/harbor/
-    - drafts/
+    - drafts/${plan.derivedTaskId}/
     - final-root 下同 family 已发布任务
 
     当前 family 规划:
     ${JSON.stringify(familyPlan, null, 2)}
 
-    本轮 drafts tasks:
-    ${taskList}
+    当前 task:
+    - ${plan.derivedTaskId} (${buildRoleDisplayName(plan)}) -> drafts/${plan.derivedTaskId}/
 
     已发布 Harbor family 目录: ${unit.finalFamilyDir || "unknown"}
     已发布 tasks:
     ${publishedTaskList}
 
     审查目标:
-    - 对每个任务分别判断是否存在 blocking 问题：
+    - 只判断当前 task 是否存在 blocking 问题：
       - instruction.md、task.toml 的 metadata.name、metadata.description 是否使用英文；只要出现中文，就直接判定失败
-      - drafts/<task>/environment/skills/ 是否与 input_skills/ 保持一致；writer 不应改写 injected skill payload
+      - drafts/${plan.derivedTaskId}/environment/skills/ 是否与 input_skills/ 保持一致；writer 不应改写 injected skill payload
       - plan.json、task.toml、instruction、tests、solution 是否互相一致，并且这种不一致会影响验收或发布
       - tests/test.sh 是否先执行 mkdir -p /logs/verifier
       - reward 是否写到 /logs/verifier/reward.txt 或 /logs/verifier/reward.json
       - 是否稳定写出 reward，而不是裸跑测试后直接结束
       - 是否存在 set -e/pipefail 导致写 reward 前提前退出的路径
       - solution/solve.sh 是否只是复制、搬运或暴露随任务提供的完整标准答案
-      - tests/test_outputs.py 是否只检查 instruction.md 或输入资产中已说明、或可直接推出的输出契约，而没有引入 hidden requirement
+      - tests/test_outputs.py 是否只检查 instruction.md 或输入资产中已说明、或可直接推出的输出契约，并面向结果语义而不是未承诺的实现细节；否则视为 hidden requirement
+      - 对自由文本主输出，tests/test_outputs.py 是否依赖固定关键词、固定短语、固定同义词集合或唯一措辞；除非 instruction.md 明确把这些字面形式写成验收要求，否则直接视为 hidden requirement
       - verifier 是否依赖 instruction.md 和输入资产中都没有说明、也无法直接推出的规则；如果 tests/solution 在补充题目规则，则直接判定失败
-      - tests/test_outputs.py 是否把合法解法锁死到某种内部实现细节，而不是校验结果语义
       - tests/test_outputs.py 的 expected 是否来自输入资产、题目规则或可复算逻辑，而不是现成答案文件
       - 是否滥用 snapshot/golden 文件，导致 agent 可以通过复制现成答案过关
       - fresh state、no-op、仅复制/改名已有 deliverable、直接搬运任务内现成答案时，当前 verifier 是否仍会错误通过
       - solution/solve.sh、tests/test.sh、tests/test_outputs.py 是否直接引用 environment/skills/**、/root/.codex/skills/**、/app/skills/** 或其他 skill 安装路径/模块；只要存在这种硬依赖，就直接判定失败
       - solution/solve.sh、tests/test.sh、tests/test_outputs.py、environment/Dockerfile 的路径契约是否一致
+      - 当前 task 是否与 final-root 下已发布 sibling / 历史任务在任务场景、输入资产、输出语义或测试判定方式上过于接近；如果过近，直接判定失败
       - 运行时需要写入的目录是否显式创建
       - environment/Dockerfile 是否显式声明 WORKDIR；如果不是 /root，相关脚本路径是否仍然一致
       - environment/Dockerfile 的 FROM 是否使用了私有/本地 registry，或未允许的 registry
@@ -492,7 +435,7 @@ export function buildBlockingReviewerPrompt(
       - environment/Dockerfile 是否把 skills 复制到了 /root/environment/skills、/app/skills、/workspace/skills 等普通运行时路径
 
     返回格式要求:
-    - taskResults 中必须覆盖当前全部任务
+    - taskResults 中只返回当前这个任务
     - taskResults[].blockingPass=false 只表示该任务存在 blocking 问题
     - blockingIssues 只写会影响正确验收、发布完整性或 skill payload 契约的具体问题
 
@@ -503,7 +446,6 @@ export function buildBlockingReviewerPrompt(
 export function buildRepairPrompt(args: {
   unit: GenerationUnit;
   plan: DerivedTaskPlan;
-  familyIssues: string[];
   blockingIssues: string[];
   staticIssues: string[];
   runtimeIssues: string[];
@@ -529,8 +471,6 @@ export function buildRepairPrompt(args: {
   noSkillRewardPath?: string;
   noSkillTrajectoryPath?: string;
 }): string {
-  const familyBlock =
-    args.familyIssues.length > 0 ? args.familyIssues.map((issue) => `- ${issue}`).join("\n") : "- 无 family 问题";
   const blockingBlock =
     args.blockingIssues.length > 0
       ? args.blockingIssues.map((issue) => `- ${issue}`).join("\n")
@@ -557,9 +497,6 @@ export function buildRepairPrompt(args: {
     ${JSON.stringify(args.plan, null, 2)}
 
     当前问题:
-    family:
-    ${familyBlock}
-
     blocking reviewer:
     ${blockingBlock}
 
@@ -598,14 +535,13 @@ export function buildRepairPrompt(args: {
     - 必须保留 plan.json，不要删除。
     - instruction.md、task.toml 的 metadata.name、metadata.description 必须保持英文，不要写中文任务描述。
     - 不要改变 task.toml 的 metadata.id、metadata.source_template_id、metadata.task_role、metadata.primary_output_file 所代表的任务身份；如当前这些字段缺失或错误，可以把它们修正到与 plan.json 一致。
-    - 如果命中了 family 问题，优先通过修改当前 task 的 instruction、输入资产、输出契约或验收对象，把它与 sibling / 历史任务拉开差异；不要改 task id 或 role。
+    - 如果 blocking reviewer 指出当前 task 与已发布 sibling / 历史任务过近，优先通过修改 instruction、输入资产、输出契约或验收对象把它们拉开差异；不要改 task id 或 role。
     - 不要修改 environment/skills/ 下 injected skill payload；如果需要调整 skill 使用方式，应通过题目本身、输入资产、tests 或 solution 修正，而不是改 skill 内容。
     - 如果 solution/solve.sh 或 tests/** 直接调用 skill 模块，必须去耦：把最小必需逻辑搬到任务自身代码里，或改成公开通用依赖；最终参考解与 verifier 在有 skill / 无 skill 两种评测设置都要能运行。
     - 不要引入隐藏测试要求；instruction、tests、solution 应保持一致。
-    - 如果需要修改 environment/Dockerfile，必须显式声明 WORKDIR；如果不是 /root，相关脚本路径也要同步一致。
-    - 如果需要修改 environment/Dockerfile，必须保留 COPY skills /root/.codex/skills。
-    - 不要写 COPY . /root、COPY . /root/、COPY ./ /root、ADD . /root 或带 flag 的等价写法。
-    - 不要把 skills 复制到 /root/environment/skills、/app/skills、/workspace/skills 等普通运行时路径；如需额外兼容其他 agent，也只能复制到 agent skill 安装路径。
+    - 如果当前任务的主输出是自由文本，而 tests/test_outputs.py 依赖固定关键词、固定短语、固定同义词集合或唯一措辞，默认应移除这类词面匹配，并改为检查 instruction.md 已明确承诺的结构约束、对象约束和可观察语义；只有 instruction.md 已明确把这些字面形式写成验收要求时，才允许保留这种检查。
+    - 如果需要修改 environment/Dockerfile，请继续满足下面这些 Dockerfile 契约：
+    ${renderDockerfileRules()}
     - 如果需要修改 environment/Dockerfile，FROM 不得使用私有/本地 registry，或未允许的 registry。
     - 你应把完整日志目录当作主入口，自由递归读取相关证据，而不是只盯住某一个摘要文件。
     - log-index.json、harbor-run.log、job.log、trial.log、verifier/test-stdout.txt、reward 文件、result.json、artifacts/manifest.json 只是常见线索，不是固定顺序。

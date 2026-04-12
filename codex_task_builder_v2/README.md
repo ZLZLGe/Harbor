@@ -2,7 +2,7 @@
 
 `codex_task_builder_v2/` 现在采用新的输入模型：`template + input skills`。
 
-它不再从 `source task` 扫描 family，也不再保留 `batch` / `review` 这两个旧入口。当前主链路只关注一件事：给定一个任务模板目录和一组输入 skill，自动规划、写作、family 相似性审查、单题 blocking 审查、runtime 校验、skill-effect 对照并发布 Harbor 任务。
+它不再从 `source task` 扫描 family，也不再保留 `batch` / `review` 这两个旧入口。当前主链路只关注一件事：给定一个任务模板目录和一组输入 skill，自动规划、写作、单题 blocking 审查、runtime 校验、skill-effect 对照并发布 Harbor 任务。
 
 ## 输入模型
 
@@ -132,6 +132,26 @@ npm run generate-family -- \
 - `input_skills/` 才是最终 shipped skill 的唯一来源。
 - `drafts/<task>/environment/skills/` 里的 injected skills 视为只读 payload，writer/repair 不允许修改。
 - static validate 会校验 draft 中的 injected skill 与 `input_skills/` 内容完全一致。
+
+## 当前执行语义
+
+当前执行模型是：
+
+- 保留 family planner
+  - planner 仍一次性产出当前 scope 下全部 `similar` / `transfer` blueprint
+- 改为 task 级串行执行
+  - 固定顺序是 `similar1..N` 先于 `transfer1..N`
+  - 每个 task 单独经历 `write -> blocking review -> static validate -> runtime -> skill-effect -> repair`
+- 不再有独立 family reviewer
+  - 去重改为 writer 主动避重 + 单任务 blocking reviewer 兜底
+  - 去重范围只包含 `final-root` 下已经发布的 sibling / 历史任务
+- 一旦某个 task 达到 `PF`
+  - 即 `with_skill_pass__no_skill_fail`
+  - 会立即 materialize 到 `<output-root>/final/...`
+  - 后续 task 可以读取这个刚发布的 sibling，但不会重新打开它
+- 一个 family 允许部分成功
+  - 已经通过的 task 会保留在 `final/`
+  - 后续失败的 task 单独进入 `quarantine/`
 
 ## 当前不再支持的旧接口
 

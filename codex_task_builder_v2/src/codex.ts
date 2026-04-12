@@ -7,8 +7,6 @@ import type {
   BlockingReviewResult,
   BlockingReviewerTaskResult,
   DerivedTaskPlan,
-  FamilyReviewResult,
-  FamilyReviewerTaskResult,
   FamilyPlan,
   RepairTurnResult,
   WriterSummary,
@@ -16,8 +14,6 @@ import type {
 import {
   blockingReviewResultJsonSchema,
   blockingReviewResultSchema,
-  familyReviewResultJsonSchema,
-  familyReviewResultSchema,
   familyPlanJsonSchema,
   familyPlanSchema,
   repairTurnResultJsonSchema,
@@ -29,7 +25,6 @@ import { parseJsonWithFallback, pathExists } from "./utils.js";
 import {
   buildBlockingReviewerPrompt,
   buildFamilyPlannerPrompt,
-  buildFamilyReviewerPrompt,
   buildRepairPrompt,
   buildTaskWriterPrompt,
   relativeDraftPath,
@@ -80,16 +75,6 @@ function toIssueList(value: unknown): string[] {
   return normalized ? [normalized] : [];
 }
 
-function buildFamilyReviewerFallbackResult(taskPlans: DerivedTaskPlan[], message: string): FamilyReviewResult {
-  return {
-    taskResults: taskPlans.map((plan) => ({
-      derivedTaskId: plan.derivedTaskId,
-      distinctPass: false,
-      issues: [message],
-    })),
-  };
-}
-
 function buildBlockingReviewerFallbackResult(taskPlans: DerivedTaskPlan[], message: string): BlockingReviewResult {
   return {
     taskResults: taskPlans.map((plan) => ({
@@ -137,48 +122,6 @@ function buildIndexedRawTaskResults(
   return { rawTaskById, positionalFallbacks };
 }
 
-function normalizeFamilyReviewerTaskResult(
-  rawValue: unknown,
-  plan: DerivedTaskPlan,
-  normalizationIssues: string[],
-  options: {
-    fallbackByPosition: boolean;
-  },
-): FamilyReviewerTaskResult {
-  if (!rawValue || typeof rawValue !== "object" || Array.isArray(rawValue)) {
-    return {
-      derivedTaskId: plan.derivedTaskId,
-      distinctPass: false,
-      issues: ["reviewer 返回的 taskResult 结构异常"],
-    };
-  }
-
-  const record = rawValue as Record<string, unknown>;
-  const normalizedIssues = toIssueList(record.issues);
-  const rawTaskId = typeof record.derivedTaskId === "string" ? record.derivedTaskId.trim() : "";
-  if (!rawTaskId && options.fallbackByPosition) {
-    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 derivedTaskId，已按位置映射`);
-  } else if (rawTaskId && rawTaskId !== plan.derivedTaskId) {
-    normalizationIssues.push(`reviewer 返回 derivedTaskId=${rawTaskId}，已映射到 ${plan.derivedTaskId}`);
-  }
-
-  const distinctPass =
-    typeof record.distinctPass === "boolean"
-      ? record.distinctPass
-      : typeof record.pass === "boolean"
-        ? record.pass
-        : normalizedIssues.length === 0;
-  if (typeof record.distinctPass !== "boolean") {
-    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的 distinctPass，已按 issues 推导`);
-  }
-
-  return {
-    derivedTaskId: plan.derivedTaskId,
-    distinctPass,
-    issues: normalizedIssues,
-  };
-}
-
 function normalizeBlockingReviewerTaskResult(
   rawValue: unknown,
   plan: DerivedTaskPlan,
@@ -219,72 +162,6 @@ function normalizeBlockingReviewerTaskResult(
     blockingPass,
     blockingIssues: normalizedIssues,
   };
-}
-
-export function normalizeFamilyReviewResultFromRaw(taskPlans: DerivedTaskPlan[], rawResponse: string): FamilyReviewResult {
-  let parsedValue: unknown;
-  try {
-    parsedValue = parseJsonWithFallback<unknown>(rawResponse);
-  } catch (error) {
-    return buildFamilyReviewerFallbackResult(
-      taskPlans,
-      `reviewer structured output 无法解析，已回退为全任务失败: ${compactErrorMessage(error)}`,
-    );
-  }
-
-  if (!parsedValue || typeof parsedValue !== "object" || Array.isArray(parsedValue)) {
-    return buildFamilyReviewerFallbackResult(taskPlans, "reviewer structured output 不是合法对象，已回退为全任务失败");
-  }
-
-  const normalizationIssues: string[] = [];
-  const root = parsedValue as Record<string, unknown>;
-  const { rawTaskById, positionalFallbacks } = buildIndexedRawTaskResults(taskPlans, root.taskResults, normalizationIssues);
-
-  const normalizedTaskResults: FamilyReviewerTaskResult[] = [];
-  for (const plan of taskPlans) {
-    const directMatch = rawTaskById.get(plan.derivedTaskId);
-    if (directMatch) {
-      normalizedTaskResults.push(
-        normalizeFamilyReviewerTaskResult(directMatch, plan, normalizationIssues, {
-          fallbackByPosition: false,
-        }),
-      );
-      continue;
-    }
-
-    const positionalMatch = positionalFallbacks.shift();
-    if (positionalMatch !== undefined) {
-      normalizedTaskResults.push(
-        normalizeFamilyReviewerTaskResult(positionalMatch, plan, normalizationIssues, {
-          fallbackByPosition: true,
-        }),
-      );
-      continue;
-    }
-
-    normalizationIssues.push(`reviewer 未返回 ${plan.derivedTaskId} 的审查结果，已补为失败`);
-    normalizedTaskResults.push({
-      derivedTaskId: plan.derivedTaskId,
-      distinctPass: false,
-      issues: ["reviewer 未返回该任务的审查结果"],
-    });
-  }
-
-  if (positionalFallbacks.length > 0) {
-    normalizationIssues.push(`reviewer 返回了 ${positionalFallbacks.length} 条无法匹配到当前任务的额外结果，已忽略`);
-  }
-
-  if (normalizationIssues.length > 0 && normalizedTaskResults.length > 0) {
-    normalizedTaskResults[0] = {
-      ...normalizedTaskResults[0],
-      distinctPass: false,
-      issues: [...normalizedTaskResults[0].issues, ...normalizationIssues],
-    };
-  }
-
-  return familyReviewResultSchema.parse({
-    taskResults: normalizedTaskResults,
-  });
 }
 
 export function normalizeBlockingReviewResultFromRaw(
@@ -487,7 +364,7 @@ export class CodexTaskBuilderClient {
       approvalPolicy: "never",
       skipGitRepoCheck: true,
       networkAccessEnabled,
-      modelReasoningEffort: "xhigh",
+      modelReasoningEffort: "high",
     };
   }
 
@@ -571,35 +448,17 @@ export class CodexTaskBuilderClient {
     };
   }
 
-  async reviewFamilySimilarity(
-    unit: GenerationUnit,
-    workspace: FamilyWorkspace,
-    familyPlan: FamilyPlan,
-    taskPlans: DerivedTaskPlan[],
-  ): Promise<StructuredRunResult<FamilyReviewResult>> {
-    const thread = this.makeThread(workspace.rootDir);
-    const turn = await thread.run(buildFamilyReviewerPrompt(unit, familyPlan, taskPlans), {
-      outputSchema: familyReviewResultJsonSchema,
-    });
-    const parsed = normalizeFamilyReviewResultFromRaw(taskPlans, turn.finalResponse);
-    return {
-      data: parsed,
-      threadId: thread.id,
-      raw: turn.finalResponse,
-    };
-  }
-
   async reviewTaskBlocking(
     unit: GenerationUnit,
     workspace: FamilyWorkspace,
     familyPlan: FamilyPlan,
-    taskPlans: DerivedTaskPlan[],
+    plan: DerivedTaskPlan,
   ): Promise<StructuredRunResult<BlockingReviewResult>> {
     const thread = this.makeThread(workspace.rootDir);
-    const turn = await thread.run(buildBlockingReviewerPrompt(unit, familyPlan, taskPlans), {
+    const turn = await thread.run(buildBlockingReviewerPrompt(unit, familyPlan, plan), {
       outputSchema: blockingReviewResultJsonSchema,
     });
-    const parsed = normalizeBlockingReviewResultFromRaw(taskPlans, turn.finalResponse);
+    const parsed = normalizeBlockingReviewResultFromRaw([plan], turn.finalResponse);
     return {
       data: parsed,
       threadId: thread.id,
@@ -611,7 +470,6 @@ export class CodexTaskBuilderClient {
     unit: GenerationUnit;
     workspace: FamilyWorkspace;
     plan: DerivedTaskPlan;
-    familyIssues: string[];
     blockingIssues: string[];
     staticIssues: string[];
     runtimeIssues: string[];
@@ -643,7 +501,6 @@ export class CodexTaskBuilderClient {
       buildRepairPrompt({
         unit: args.unit,
         plan: args.plan,
-        familyIssues: args.familyIssues,
         blockingIssues: args.blockingIssues,
         staticIssues: args.staticIssues,
         runtimeIssues: args.runtimeIssues,

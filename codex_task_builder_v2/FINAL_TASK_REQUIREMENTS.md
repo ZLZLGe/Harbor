@@ -5,7 +5,7 @@
 建议把这些要求分成两层理解：
 
 - `必须满足`
-  - 当前代码会通过 static validate、family reviewer、task blocking reviewer、Harbor Oracle runtime、skill-effect gate 或发布流程实际卡住的要求。
+  - 当前代码会通过 static validate、task blocking reviewer、Harbor Oracle runtime、skill-effect gate 或发布流程实际卡住的要求。
 - `应该满足`
   - 当前主要通过 prompt 强化的质量要求。
   - 这类要求不一定全都有硬编码校验，但都属于当前 builder 希望稳定产出的任务形态。
@@ -49,8 +49,8 @@ family 层要求：
 
 - `similar` / `transfer` 的数量必须与本轮目标一致
 - 同一 family 内的 `primaryOutputFile` 必须唯一
-- 同一 family 内部任务之间应在任务场景、输入资产、输出语义和验证方式上拉开差异
-- 不得与 final 中已发布的同 family 历史任务过于接近
+- family 规划上应让不同任务在任务场景、输入资产、输出语义和验证方式上拉开差异
+- 当前硬 gate 的去重主要针对 `final` 中已发布的同 family sibling / 历史任务
 
 ## 3. 必备文件要求
 
@@ -347,9 +347,18 @@ skill-effect bucket 还会额外同步到：
 - `<output-root>/final/_skill_effect_buckets/...`
 - `<output-root>/quarantine/_skill_effect_buckets/...`
 
+当前执行语义还有两个关键点：
+
+- 任务按 `similar -> transfer` 的顺序逐个执行
+- 某个任务一旦达到 `with_skill_pass__no_skill_fail`，会立即发布到 `final`，不会等待同 family 其他任务结束
+
+因此同一个 family 允许出现：
+
+- 一部分 task 已发布到 `final`
+- 另一部分 task 最终进入 `quarantine`
+
 当前实现下，一个任务要进入发布态，至少意味着：
 
-- family reviewer 未要求重写
 - task blocking reviewer 未判失败
 - static validate 通过
 - Harbor Oracle runtime 通过

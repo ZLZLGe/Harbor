@@ -6,7 +6,7 @@
 
 `codex_task_builder_v2` 不是一个单纯的“任务生成器”，而是一条闭环流水线：
 
-`planner -> writer -> family reviewer -> task blocking reviewer -> static validate -> Harbor Oracle runtime -> skill-effect gate -> repair -> publish / quarantine`
+`family planner -> task writer -> task blocking reviewer -> static validate -> Harbor Oracle runtime -> skill-effect gate -> repair -> PF 立即 publish / 最终 quarantine`
 
 核心目标有两个：
 
@@ -317,9 +317,19 @@ planner 的输出是严格 JSON，核心字段包括：
 
 如果 planner 阶段有 blocking issue，整组 family 会直接失败。
 
-### 第 7 步：writer 生成每个 draft task
+### 第 7 步：按固定顺序串行执行任务
 
-对于每个 `DerivedTaskPlan`：
+planner 输出 `FamilyPlan` 后，程序会把它展平成 `DerivedTaskPlan`，再按固定顺序串行执行：
+
+- 全部 `similar` 按 `roleOrdinal` 升序
+- 全部 `transfer` 按 `roleOrdinal` 升序
+
+也就是说：
+
+- 不是“先把整组任务都写完，再统一 review / validate / publish”
+- 而是“一个 task 完整走完 write -> review -> validate -> runtime -> skill-effect -> repair，再处理下一个 task”
+
+对于当前 task：
 
 1. 程序先创建 `drafts/<task-id>/`
 2. 预先把 `input_skills/` 复制到 `drafts/<task-id>/environment/skills/`
@@ -337,24 +347,33 @@ planner 的输出是严格 JSON，核心字段包括：
 
 - draft 里的 `environment/skills/` 不再从模板复制
 - 而是始终从 `input_skills/` 注入
+- writer 做 sibling / 历史去重时，只参考 `final-root` 下已经发布的同 family 任务
+- workspace 中其他尚未发布的 sibling drafts 不再作为强制去重基准
 
-### 第 8 步：family reviewer + task blocking reviewer
+### 第 8 步：task blocking reviewer
 
-writer 完成后，程序先跑一次独立的 family reviewer，只审当前 batch 与 final 中同 family 已发布任务的题面相似性，并只标出需要被定向重写的任务。
+当前版本已经没有独立的 family reviewer。
 
-随后才进入 cycle 循环。每一轮 cycle 的第一步是 task blocking reviewer，它只审单题 blocking 问题，不再负责 family 多样性或质量判断。
+writer 完成后，当前 task 会直接进入单任务 blocking reviewer。它除了审单题 blocking 问题，也会顺手检查：
+
+- 当前 task 是否与 `final-root` 下已发布 sibling / 历史任务过于接近
+
+也就是说，去重现在改成两层：
+
+- writer 生成时主动避重
+- 单任务 blocking reviewer 兜底
 
 task blocking reviewer 的输出只有：
 
 - `taskResults`
-  - 每个任务一条结果
+  - 当前只返回这个 task 一条结果
   - 包含 `blockingPass / blockingIssues`
 
 程序不会盲信 reviewer，会做结构归一化和结果校验。
 
 ### 第 9 步：static validate
 
-每个 draft 都会进入静态校验。
+当前 task 的 draft 会进入静态校验。
 
 当前 static validate 会检查：
 
@@ -427,7 +446,6 @@ runtime 通过标准：
 
 只要命中下面任一问题，就可能触发 repair：
 
-- family issues
 - reviewer issues
 - static issues
 - runtime issues
@@ -455,16 +473,30 @@ drafts/<task-id>/
 - Harbor 仓库代码
 - injected skill payload
 
-修完后进入下一轮 reviewer / static / runtime / skill-effect。
+修完后只会回到**当前 task** 的下一轮 reviewer / static / runtime / skill-effect，不会把已经通过并发布的其他 task 重新拉回流程。
 
 ### 第 13 步：publish / quarantine
 
-所有 cycle 结束后：
+当前 task 一旦达到下面条件：
 
-- 通过的任务
-  - 复制到 `final`
-- 未通过的任务
-  - 复制到 `quarantine`
+- blocking reviewer 通过
+- static validate 通过
+- Harbor Oracle runtime 通过
+- skill-effect bucket 为 `with_skill_pass__no_skill_fail`
+
+就会被视为 `PF`，并立即：
+
+- 复制到 `final`
+- 追加到当前 unit 的已发布 sibling 列表
+
+后续 task 可以读取这个刚发布的 sibling，但不会重新打开它。
+
+如果当前 task 在用尽 repair 轮数后仍未达到 `PF`，才会被复制到 `quarantine`。
+
+因此当前实现允许：
+
+- 同一个 family 中部分 task 已经发布到 `final`
+- 另一些 task 最终进入 `quarantine`
 
 复制时只保留 allowlist：
 
@@ -498,8 +530,8 @@ workspace `artifacts/` 中常见产物包括：
 - `family-plan.raw.json`
 - `<task>.writer.json`
 - `<task>.writer.raw.json`
-- `review-result.round-<n>.json`
-- `review-result.round-<n>.raw.json`
+- `<task>.review.round-<n>.json`
+- `<task>.review.round-<n>.raw.json`
 - `<task>.runtime.cycle-<n>.json`
 - `<task>.runtime.cycle-<n>.attempt-<m>.json`
 - `<task>.skill-effect.cycle-<n>.json`
@@ -524,4 +556,4 @@ output root 顶层还会额外写：
 
 ## 9. 一句话总结
 
-**当前 `codex_task_builder_v2` 的主流程是：先把 template 和 input skills 组装成 family unit，再让 Codex 基于 `template_source/`、`input_skills/`、Harbor 参考材料和已发布任务做规划与写作，随后先做 family reviewer，再做 task blocking reviewer，然后再通过 static validate + Harbor Oracle runtime + skill-effect gate 把任务往可发布状态收敛，最后把通过的任务发布到 `<output-root>/final`，把失败的任务隔离到 `<output-root>/quarantine`。**
+**当前 `codex_task_builder_v2` 的主流程是：先把 template 和 input skills 组装成 family unit，再让 Codex 基于 `template_source/`、`input_skills/`、Harbor 参考材料和已发布任务做 family 规划，然后按 `similar -> transfer` 的固定顺序逐个任务写作、单题 blocking 审查、static validate、Harbor Oracle runtime 和 skill-effect 对照；某个任务一旦达到 `with_skill_pass__no_skill_fail` 就立刻发布到 `<output-root>/final`，失败任务最终进入 `<output-root>/quarantine`。**

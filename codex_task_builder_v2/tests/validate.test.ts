@@ -16,7 +16,6 @@ import {
   type BlockingReviewResult,
   type DerivedTaskPlan,
   type FamilyPlan,
-  type FamilyReviewResult,
 } from "../src/schema.js";
 import {
   buildSkillEffectBucket,
@@ -38,7 +37,6 @@ import {
 import {
   validateBlockingReviewResult,
   validateDraftStatic,
-  validateFamilyReviewResult,
   validateFamilyPlan,
   validateTaskPlans,
 } from "../src/validate.js";
@@ -235,37 +233,6 @@ gpus = 0
   const taskPlans = flattenFamilyPlan(familyPlan);
   assert.equal(taskPlans[0]?.templateId, template.templateId);
   assert.deepEqual(validateTaskPlans(taskPlans, { similarOrdinals: [1], transferOrdinals: [1] }), []);
-}
-
-{
-  const taskPlans: DerivedTaskPlan[] = [
-    {
-      ...plan,
-      derivedTaskId: "similar1",
-      taskRole: "similar",
-      roleOrdinal: 1,
-      primaryOutputFile: "similar.json",
-    },
-    plan,
-  ];
-  const familyReview: FamilyReviewResult = {
-    taskResults: [
-      {
-        derivedTaskId: "similar1",
-        distinctPass: true,
-        issues: [],
-      },
-      {
-        derivedTaskId: "transfer1",
-        distinctPass: false,
-        issues: ["instruction.md is too close to final-root transfer1"],
-      },
-    ],
-  };
-  const validation = validateFamilyReviewResult(taskPlans, familyReview);
-  assert.deepEqual(validation.taskIssuesById.get("similar1"), []);
-  assert.equal(validation.taskIssuesById.get("transfer1")?.[0]?.scope, "family");
-  assert.match(validation.taskIssuesById.get("transfer1")?.[0]?.message ?? "", /too close/);
 }
 
 {
