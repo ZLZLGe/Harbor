@@ -362,6 +362,7 @@ export function buildTaskWriterPrompt(unit: GenerationUnit, plan: DerivedTaskPla
     ${renderDockerfileRules()}
     - 不要把当前任务实现成比 blueprint 更轻的版本；尤其不要通过教程式 instruction、暴露关键步骤、放置一眼可见答案或单命令捷径，把它稀释成 easy/普通 medium 小题。
     - instruction.md 只应清楚说明任务目标、输入资产、输出契约和边界条件，不要写成按顺序执行即可过关的操作手册。
+    - instruction.md 只能描述做题者在任务运行时可见的工作区、输入资产、输出文件和操作边界；不要提及 Harbor、Oracle、verifier 或任务包内部专用文件/目录，例如 /solution、solution/、任务根的 tests/test.sh、任务根的 tests/test_outputs.py、task.toml、plan.json、/logs/verifier。
     ${renderHarborOracleBaseline()}
 
     你需要创建或更新这些文件:
@@ -414,6 +415,7 @@ export function buildBlockingReviewerPrompt(
       - instruction.md、task.toml 的 metadata.name、metadata.description 是否使用英文；只要出现中文，就直接判定失败
       - drafts/${plan.derivedTaskId}/environment/skills/ 是否与 input_skills/ 保持一致；writer 不应改写 injected skill payload
       - plan.json、task.toml、instruction、tests、solution 是否互相一致，并且这种不一致会影响验收或发布
+      - instruction.md 是否暴露了做题者不可见的 Harbor、Oracle、verifier 内部实现，或任务包内部专用文件/目录，例如 /solution、solution/、任务根的 tests/test.sh、任务根的 tests/test_outputs.py、task.toml、plan.json、/logs/verifier；如果存在，直接判定失败
       - tests/test.sh 是否先执行 mkdir -p /logs/verifier
       - reward 是否写到 /logs/verifier/reward.txt 或 /logs/verifier/reward.json
       - 是否稳定写出 reward，而不是裸跑测试后直接结束
@@ -539,6 +541,7 @@ export function buildRepairPrompt(args: {
     - 不要修改 environment/skills/ 下 injected skill payload；如果需要调整 skill 使用方式，应通过题目本身、输入资产、tests 或 solution 修正，而不是改 skill 内容。
     - 如果 solution/solve.sh 或 tests/** 直接调用 skill 模块，必须去耦：把最小必需逻辑搬到任务自身代码里，或改成公开通用依赖；最终参考解与 verifier 在有 skill / 无 skill 两种评测设置都要能运行。
     - 不要引入隐藏测试要求；instruction、tests、solution 应保持一致。
+    - 不要通过在 instruction.md 中提及做题者不可见的内部实现来修问题；不要写入 Harbor、Oracle、verifier 或任务包内部专用文件/目录，例如 /solution、solution/、任务根的 tests/test.sh、任务根的 tests/test_outputs.py、task.toml、plan.json、/logs/verifier。
     - 如果当前任务的主输出是自由文本，而 tests/test_outputs.py 依赖固定关键词、固定短语、固定同义词集合或唯一措辞，默认应移除这类词面匹配，并改为检查 instruction.md 已明确承诺的结构约束、对象约束和可观察语义；只有 instruction.md 已明确把这些字面形式写成验收要求时，才允许保留这种检查。
     - 如果需要修改 environment/Dockerfile，请继续满足下面这些 Dockerfile 契约：
     ${renderDockerfileRules()}
