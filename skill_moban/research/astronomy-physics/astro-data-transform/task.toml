@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "astro-data-transform-template"
+name = "Astronomy Physics Template - Data Transform"
+description = "科学数据转换与统计汇总模板任务示例。"
+author_name = "Codex"
+author_email = "codex@harbor.local"
+difficulty = "medium"
+category = "research"
+tags = ["astronomy", "data-transform", "template"]
+primary_output_file = "/app/workspace/output/summary.csv"
+source_task_id = "astronomy-physics"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+gpus = 0
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

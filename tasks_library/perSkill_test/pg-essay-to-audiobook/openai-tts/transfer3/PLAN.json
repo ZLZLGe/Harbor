@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "pg-essay-to-audiobook",
+  "targetSkill": "openai-tts",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Release Digest Narration",
+  "goal": "Narrate release notes into AAC audio and emit section-level marker timing CSV.",
+  "primaryOutputFile": "/root/transfer3_release_digest.aac",
+  "difficulty": "medium",
+  "category": "speech-synthesis",
+  "skillBenefitRationale": "Transfers chapter-style narration into structured technical release communication."
+}

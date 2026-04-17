@@ -1,0 +1,5 @@
+feature_id,user_role,has_api,has_ui,has_external_service,risk_level
+F-103,ops,yes,no,yes,high
+F-101,buyer,yes,yes,no,critical
+F-104,admin,no,yes,no,low
+F-102,partner,no,no,yes,medium

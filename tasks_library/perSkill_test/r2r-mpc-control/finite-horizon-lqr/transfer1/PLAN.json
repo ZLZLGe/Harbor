@@ -1,0 +1,11 @@
+{
+  "source_task_id": "r2r-mpc-control",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Conveyor Zone Tracking LQR Pack",
+  "goal": "Design finite-horizon gains for a coupled conveyor-zone model and produce a rollout summary with cost breakdown.",
+  "primaryOutputFile": "/root/transfer1_conveyor_lqr_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "The same finite-horizon recursion transfers to a lower-dimensional material-flow control model with different state/control structure."
+}

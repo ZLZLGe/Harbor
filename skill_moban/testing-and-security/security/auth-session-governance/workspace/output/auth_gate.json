@@ -1,0 +1,56 @@
+{
+  "summary": {
+    "total_flows": 5,
+    "blocked_flows": 3
+  },
+  "flows": [
+    {
+      "flow_id": "A100",
+      "status": "pass",
+      "risk_level": "low",
+      "risk_score": 0,
+      "reasons": []
+    },
+    {
+      "flow_id": "A200",
+      "status": "review",
+      "risk_level": "medium",
+      "risk_score": 30,
+      "reasons": [
+        "rotation_too_slow",
+        "bruteforce_risk",
+        "session_ttl_too_long"
+      ]
+    },
+    {
+      "flow_id": "A300",
+      "status": "blocked",
+      "risk_level": "medium",
+      "risk_score": 40,
+      "reasons": [
+        "mfa_missing"
+      ]
+    },
+    {
+      "flow_id": "A400",
+      "status": "blocked",
+      "risk_level": "medium",
+      "risk_score": 40,
+      "reasons": [
+        "cookie_not_secure",
+        "cookie_not_httponly"
+      ]
+    },
+    {
+      "flow_id": "A500",
+      "status": "blocked",
+      "risk_level": "medium",
+      "risk_score": 40,
+      "reasons": [
+        "cookie_not_httponly",
+        "rotation_too_slow",
+        "bruteforce_risk"
+      ]
+    }
+  ]
+}

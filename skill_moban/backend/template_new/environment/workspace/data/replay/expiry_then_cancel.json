@@ -1,0 +1,23 @@
+{
+  "name": "expiry_then_cancel",
+  "description": "A hold that has already elapsed should no longer block availability, and cancel should remain idempotent.",
+  "steps": [
+    {
+      "method": "POST",
+      "path": "/api/v1/holds",
+      "headers": {
+        "Idempotency-Key": "replay-expire-cancel-1"
+      },
+      "json": {
+        "sku": "LAMP-BLUE-002",
+        "location": "store-nyc",
+        "quantity": 3,
+        "hold_seconds": 2,
+        "customer_id": "cust-replay-b"
+      }
+    },
+    {
+      "sleep_seconds": 2.6
+    }
+  ]
+}

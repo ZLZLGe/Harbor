@@ -1,0 +1,36 @@
+{
+  "services": [
+    {
+      "name": "alpha-api",
+      "namespace": "payments",
+      "mtls": "required",
+      "secret_store": "vault",
+      "network_policy": "strict",
+      "cert_expiry_days": 30
+    },
+    {
+      "name": "beta-worker",
+      "namespace": "ops",
+      "mtls": "permissive",
+      "secret_store": "env",
+      "network_policy": "strict",
+      "cert_expiry_days": 10
+    },
+    {
+      "name": "delta-sync",
+      "namespace": "shared",
+      "mtls": "required",
+      "secret_store": "1password",
+      "network_policy": "open",
+      "cert_expiry_days": 20
+    },
+    {
+      "name": "gamma-gateway",
+      "namespace": "edge",
+      "mtls": "disabled",
+      "secret_store": "keyvault",
+      "network_policy": "permissive",
+      "cert_expiry_days": 7
+    }
+  ]
+}

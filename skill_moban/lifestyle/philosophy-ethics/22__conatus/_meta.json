@@ -1,0 +1,17 @@
+{
+  "owner": "00xmorty",
+  "slug": "conatus",
+  "displayName": "Conatus",
+  "latest": {
+    "version": "1.0.1",
+    "publishedAt": 1772063690095,
+    "commit": "https://github.com/openclaw/skills/commit/5a0dc5c09609bb146882e1b358e9dd1a996aad1a"
+  },
+  "history": [
+    {
+      "version": "1.0.0",
+      "publishedAt": 1772063119512,
+      "commit": "https://github.com/openclaw/skills/commit/10653f73442fa0e26d8593d9d93bad17700c364f"
+    }
+  ]
+}

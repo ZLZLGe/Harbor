@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "geo-spatial-scientific-analysis-template"
+name = "Astronomy Physics Template - Geo Spatial Scientific Analysis"
+description = "空间分析与网格指标汇总模板任务示例。"
+author_name = "Codex"
+author_email = "codex@harbor.local"
+difficulty = "medium"
+category = "research"
+tags = ["geospatial", "analysis", "template"]
+primary_output_file = "/app/workspace/output/spatial_report.csv"
+source_task_id = "astronomy-physics"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+gpus = 0
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

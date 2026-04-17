@@ -1,0 +1,5 @@
+customer,priority,message
+Aster Books,high,Your invoice INV-381 is overdue by four days. Please submit payment today to avoid service interruption.
+Northwind Labs,medium,This is a reminder that your maintenance window begins Friday at 19:00 local time.
+Kite Market,low,Your monthly statement is ready in the portal. No action is required unless values look incorrect.
+Riverbank Dental,high,The appointment confirmation queue has pending acknowledgments. Please review and confirm before noon.

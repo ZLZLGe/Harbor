@@ -1,0 +1,6 @@
+object_id,flux_jy,distance_pc,quality_flag
+A-01,1.234,10,ok
+A-02,0.500,20,ok
+A-03,,15,ok
+A-04,2.000,,review
+A-05,0.100,30,drop

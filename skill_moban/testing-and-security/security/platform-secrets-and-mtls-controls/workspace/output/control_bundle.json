@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "total_services": 4,
+    "failed_services": 3
+  },
+  "services": [
+    {
+      "name": "alpha-api",
+      "namespace": "payments",
+      "status": "pass",
+      "rotation_priority": "normal",
+      "violations": []
+    },
+    {
+      "name": "beta-worker",
+      "namespace": "ops",
+      "status": "fail",
+      "rotation_priority": "urgent",
+      "violations": [
+        "mtls_missing",
+        "weak_secret_store",
+        "cert_rotation_urgent"
+      ]
+    },
+    {
+      "name": "delta-sync",
+      "namespace": "shared",
+      "status": "fail",
+      "rotation_priority": "normal",
+      "violations": [
+        "network_open"
+      ]
+    },
+    {
+      "name": "gamma-gateway",
+      "namespace": "edge",
+      "status": "fail",
+      "rotation_priority": "urgent",
+      "violations": [
+        "mtls_missing",
+        "network_open",
+        "cert_rotation_urgent"
+      ]
+    }
+  ]
+}

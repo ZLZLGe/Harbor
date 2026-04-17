@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "similar"
+name = "Similar - R2R Horizon-Limited Gain Audit"
+description = "Compute finite-horizon gains and rollout metrics for a six-section web line linear model."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "control-systems"
+tags = ["control", "lqr", "dynamic-programming", "state-space", "python"]
+primary_output_file = "/root/similar_lqr_audit_report.json"
+source_task_id = "r2r-mpc-control"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

@@ -1,0 +1,7 @@
+app,identity_grade,keyvault_readiness,rotation_needed,notes
+audit-cli,C,missing,yes,explicit_credential;kv_missing;content_safety_off
+content-guard,A,ready,no,managed_identity;kv_ready;content_safety_on
+finance-api,A,ready,no,managed_identity;kv_ready;content_safety_off
+java-worker,B,ready,no,managed_identity;kv_ready;content_safety_on
+rust-daemon,C,ready,no,explicit_credential;kv_ready;content_safety_off
+ts-portal,A,missing,yes,managed_identity;kv_missing;content_safety_on

@@ -1,0 +1,56 @@
+[
+  {
+    "ticket_id": "BUG-101",
+    "test_layer": "API",
+    "test_pattern": "setupTestServer + supertest",
+    "key_location": "packages/cli/test/integration/",
+    "parity_check": "sandbox+production",
+    "artifact": "bug-check-suite::bug-101::sandbox-production-contract",
+    "fix_hint": "align sandbox and production assertions in packages/cli/test/integration/"
+  },
+  {
+    "ticket_id": "BUG-102",
+    "test_layer": "integration",
+    "test_pattern": "WorkflowRunner + DI container",
+    "key_location": "packages/cli/src/__tests__/",
+    "parity_check": "single-path",
+    "artifact": "failing-test::bug-102::execution-engine-regression",
+    "fix_hint": "replay the workflow fixture and patch the stacktrace path in packages/cli/src/__tests__/"
+  },
+  {
+    "ticket_id": "BUG-103",
+    "test_layer": "unit",
+    "test_pattern": "NodeTestHarness + nock",
+    "key_location": "packages/nodes-base/nodes/*/test/",
+    "parity_check": "single-path",
+    "artifact": "failing-test::bug-103::node-operation-regression",
+    "fix_hint": "stub Stripe with deterministic fixtures before fixing packages/nodes-base/nodes/*/test/"
+  },
+  {
+    "ticket_id": "BUG-104",
+    "test_layer": "UI",
+    "test_pattern": "Vue Test Utils + Pinia",
+    "key_location": "packages/frontend/editor-ui/src/**/__tests__/",
+    "parity_check": "single-path",
+    "artifact": "failing-test::bug-104::editor-ui-regression",
+    "fix_hint": "lock the credential drawer interaction contract in packages/frontend/editor-ui/src/**/__tests__/"
+  },
+  {
+    "ticket_id": "BUG-105",
+    "test_layer": "E2E",
+    "test_pattern": "Test containers + composables",
+    "key_location": "packages/testing/playwright/",
+    "parity_check": "single-path",
+    "artifact": "bug-check-suite::bug-105::playwright-path-suite",
+    "fix_hint": "lock the canvas run interaction contract in packages/testing/playwright/"
+  },
+  {
+    "ticket_id": "BUG-106",
+    "test_layer": "unit",
+    "test_pattern": "NodeTestHarness assertBinaryData",
+    "key_location": "packages/core/nodes-testing/",
+    "parity_check": "single-path",
+    "artifact": "failing-test::bug-106::binary-data-regression",
+    "fix_hint": "replay the workflow fixture and preserve the corrected behavior in packages/core/nodes-testing/"
+  }
+]

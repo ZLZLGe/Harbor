@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer2",
+  "taskRole": "transfer",
+  "title": "Priority Call Recap Audio",
+  "goal": "Narrate structured call snippets into one priority-ordered audio recap with summary metadata.",
+  "primaryOutputFile": "/root/call_recap.mp3",
+  "difficulty": "medium",
+  "category": "speech-synthesis",
+  "skillBenefitRationale": "Converts fragmented operational utterances into a coherent listening artifact through chunk-safe TTS orchestration."
+}

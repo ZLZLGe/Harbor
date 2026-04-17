@@ -1,0 +1,39 @@
+{
+  "derivedTaskId": "inventory-hold-consistency-fix",
+  "taskRole": "template",
+  "title": "Template: Inventory Hold Consistency Fix",
+  "goal": "Repair a realistic backend inventory-hold service so idempotent retries, expiry release, availability reads, and order confirmation all remain consistent while continuing to use a real downstream inventory ledger over localhost.",
+  "primaryOutputFile": "/app/workspace/checkout-api",
+  "difficulty": "hard",
+  "category": "backend",
+  "skillBenefitRationale": "The bound skill standardizes replay-driven diagnosis for idempotent retries, local-vs-ledger state comparison, and terminal-state invariants. Without the skill the task remains theoretically solvable from the visible code, docs, and replay data, but the solver must manually reconstruct which endpoint owns each state transition and where local state diverges from the downstream ledger.",
+  "targetSkillDirName": "inventory-hold-debugging",
+  "targetSkillName": "inventory-hold-debugging",
+  "taskShape": "service-debugging",
+  "designGoals": [
+    "Keep with-skill and without-skill identical except for environment/skills and its copy logic.",
+    "Preserve a real localhost downstream service inside one container instead of replacing it with mocks.",
+    "Test business behavior rather than one exact implementation.",
+    "Require diagnosis of coupled retry, expiry, and confirmation paths instead of a single obvious bug."
+  ],
+  "verifierDesign": {
+    "mainTests": [
+      "Idempotent retries do not create duplicate active reservations.",
+      "A previously-created lease can be recovered safely when the local hold row is missing.",
+      "Expired holds release stock and stop blocking availability.",
+      "Local hold state converges to expired after TTL even without a follow-up public read.",
+      "Confirming an expired hold fails cleanly instead of producing an invalid terminal state.",
+      "Cancel and mixed-SKU flows preserve per-location isolation and downstream consistency."
+    ],
+    "guardrails": [
+      "Downstream inventory-ledger code and frozen catalog data stay unchanged.",
+      "Public API requests must still drive real downstream ledger events.",
+      "Deleting hold semantics or returning static payloads does not pass."
+    ]
+  },
+  "readmeRequirements": [
+    "Summarize backend template principles grounded in high-signal SkillsMP backend skills such as api-design and backend-patterns.",
+    "Include oracle and with/without-skill experiment results only after real runs complete.",
+    "Frame skill relevance as lower diagnosis cost plus better convergence on coupled state-consistency bugs."
+  ]
+}

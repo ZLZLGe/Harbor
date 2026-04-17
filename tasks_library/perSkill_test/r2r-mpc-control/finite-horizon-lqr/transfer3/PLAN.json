@@ -1,0 +1,11 @@
+{
+  "source_task_id": "r2r-mpc-control",
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Drone Attitude Windowed LQR",
+  "goal": "Compute a finite-horizon gain sequence for a compact drone attitude model and evaluate rollout quality versus baseline.",
+  "primaryOutputFile": "/root/transfer3_drone_lqr_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "Windowed Riccati recursion must generalize to multi-input attitude regulation with coupled translational and rotational states."
+}

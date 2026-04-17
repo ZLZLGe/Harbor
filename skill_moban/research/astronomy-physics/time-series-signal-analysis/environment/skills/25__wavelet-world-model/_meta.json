@@ -1,0 +1,11 @@
+{
+  "owner": "aadipapp",
+  "slug": "wavelet-worldmodel-skill",
+  "displayName": "WaveletWorldModel",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1772305499672,
+    "commit": "https://github.com/openclaw/skills/commit/a5ae780c76f6a1ada2982fa3793d8d85ef097da9"
+  },
+  "history": []
+}

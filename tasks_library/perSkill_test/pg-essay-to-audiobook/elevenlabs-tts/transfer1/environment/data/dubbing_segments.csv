@@ -1,0 +1,5 @@
+segment_id,persona,publish,text
+1,calm_female,yes,"Welcome to the launch summary. We reviewed customer calls and found repeated onboarding confusion [2]. Please prioritize plain language and short examples."
+2,warm_male,no,"Draft internal note that should not be published."
+3,deep_male,yes,"Escalation queue grew after a config mismatch. https://example.org/debug Operators restored service, then documented rollback steps."
+4,soft_female,yes,"Community office hours improved retention. New users asked for sample projects and direct troubleshooting checklists."

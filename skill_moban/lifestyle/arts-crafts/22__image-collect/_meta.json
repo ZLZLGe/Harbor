@@ -1,0 +1,11 @@
+{
+  "owner": "bondli",
+  "slug": "image-collect",
+  "displayName": "image-collect",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1774347352325,
+    "commit": "https://github.com/openclaw/skills/commit/4cc7aac60a731a0ec8a3f04e8a1ef25bb00063bb"
+  },
+  "history": []
+}

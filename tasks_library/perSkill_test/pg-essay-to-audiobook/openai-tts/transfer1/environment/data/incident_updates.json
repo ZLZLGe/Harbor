@@ -1,0 +1,22 @@
+{
+  "updates": [
+    {
+      "update_code": "INC-401",
+      "priority": "high",
+      "title": "Authentication retry spike",
+      "body": "Between 08:10 and 08:24 UTC, login retries increased to four times baseline in the us-east gateway. Mitigation switched traffic to a reduced-latency token verifier path and restored normal response rates. Continue monitoring for repeated spikes during peak handoff windows."
+    },
+    {
+      "update_code": "INC-402",
+      "priority": "medium",
+      "title": "Delayed queue drain",
+      "body": "The notification queue in eu-central reached a backlog of twelve thousand jobs after a rolling restart. Workers have recovered and queue depth is now trending down with an estimated full drain in thirty minutes. No message loss was detected in checkpoint logs."
+    },
+    {
+      "update_code": "INC-403",
+      "priority": "low",
+      "title": "Nightly digest jitter",
+      "body": "A subset of nightly digest emails were emitted five to seven minutes late due to a stale scheduler lease. The lease rotation patch has been applied and next run checks are already scheduled. Customer impact is limited to delivery timing only."
+    }
+  ]
+}

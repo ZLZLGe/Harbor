@@ -1,0 +1,11 @@
+{
+  "owner": "ckchzh",
+  "slug": "wine",
+  "displayName": "Wine",
+  "latest": {
+    "version": "2.0.0",
+    "publishedAt": 1773782840506,
+    "commit": "https://github.com/openclaw/skills/commit/99887431a35eefbc28a2f473c60d8c80e6908009"
+  },
+  "history": []
+}

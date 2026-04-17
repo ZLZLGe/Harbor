@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "react-channel-test-routing"
+name = "Testing Template - React Channel Test Routing"
+description = "基于 React 测试请求清单生成渠道路由与特性开关执行计划 CSV 的模板任务。"
+author_name = "Codex"
+author_email = "codex@harbor.local"
+difficulty = "medium"
+category = "testing-and-security"
+tags = ["react", "testing", "feature-flags", "routing", "csv"]
+primary_output_file = "/app/workspace/output/react_test_plan.csv"
+source_task_id = "testing-and-security-testing"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+gpus = 0
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

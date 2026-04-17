@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Crisis Briefing Audio Digest",
+  "goal": "Convert three markdown briefings into one ordered MP3 digest plus index metadata.",
+  "primaryOutputFile": "/root/briefing_digest.mp3",
+  "difficulty": "medium",
+  "category": "speech-synthesis",
+  "skillBenefitRationale": "Transforms heterogeneous operational notes into a long-form narrated artifact with stable chunk control."
+}

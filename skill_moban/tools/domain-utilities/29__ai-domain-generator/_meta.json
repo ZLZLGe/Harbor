@@ -1,0 +1,11 @@
+{
+  "owner": "abtdomain",
+  "slug": "domain-generator",
+  "displayName": "domain name generator",
+  "latest": {
+    "version": "1.0.2",
+    "publishedAt": 1774478925587,
+    "commit": "https://github.com/openclaw/skills/commit/b6259d39be65425ce6e66d610547c5860c051418"
+  },
+  "history": []
+}

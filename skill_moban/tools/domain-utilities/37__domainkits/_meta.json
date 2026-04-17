@@ -1,0 +1,42 @@
+{
+  "owner": "abtdomain",
+  "slug": "domain",
+  "displayName": "DomainKits - domain name data and insights",
+  "latest": {
+    "version": "2.0.4",
+    "publishedAt": 1774481176932,
+    "commit": "https://github.com/openclaw/skills/commit/5567f8d8f5afd3c714cd25dc47c20bb8365c6dba"
+  },
+  "history": [
+    {
+      "version": "2.0.1",
+      "publishedAt": 1772878754378,
+      "commit": "https://github.com/openclaw/skills/commit/1f0280587f57ff7f71e88c9deaf5c5351a0459f6"
+    },
+    {
+      "version": "1.0.10",
+      "publishedAt": 1771335348215,
+      "commit": "https://github.com/openclaw/skills/commit/6b3e5504f149fb1b5cf6f23d601436ffd16e65ec"
+    },
+    {
+      "version": "1.0.9",
+      "publishedAt": 1771121401690,
+      "commit": "https://github.com/openclaw/skills/commit/3548c71ac1b8114133c34e698a14bdb55dc77dd9"
+    },
+    {
+      "version": "1.0.8",
+      "publishedAt": 1771066258757,
+      "commit": "https://github.com/openclaw/skills/commit/91bc6d52ee8d9c4b7e326049beb18fa8ace51758"
+    },
+    {
+      "version": "1.0.7",
+      "publishedAt": 1770934417916,
+      "commit": "https://github.com/openclaw/skills/commit/a6a37c4f85c343d202786bb7857fdb369b0a56a7"
+    },
+    {
+      "version": "1.0.2",
+      "publishedAt": 1769429191603,
+      "commit": "https://github.com/clawdbot/skills/commit/01763caa9e887e628f0fe4c3ee5e16ea12a16a8a"
+    }
+  ]
+}

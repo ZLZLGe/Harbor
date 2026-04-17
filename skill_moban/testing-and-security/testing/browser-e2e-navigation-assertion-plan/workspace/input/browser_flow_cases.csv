@@ -1,0 +1,7 @@
+flow_id,needs_network_assertion,prefetch_visible,expects_cache_hit,criticality,uses_wallet,known_flaky,response_token
+F-060,true,true,false,critical,true,true,balance-update
+F-020,true,true,false,medium,false,false,catalog-data
+F-050,false,false,true,low,false,false,static-copy
+F-030,true,false,false,high,false,false,order-summary
+F-010,false,true,true,critical,true,true,wallet-cache
+F-040,false,false,false,critical,true,false,settings-panel

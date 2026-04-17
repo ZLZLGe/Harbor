@@ -1,0 +1,9 @@
+module_id,language,module_kind,needs_io_mock,needs_property_tests,needs_benchmarks,needs_async
+mod-090,cpp,library,true,false,true,false
+mod-010,python,service,true,true,false,true
+mod-021,go,cli,false,true,true,false
+mod-004,rust,library,true,true,true,true
+mod-013,kotlin,api,true,false,false,true
+mod-005,perl,script,false,false,false,false
+mod-002,cpp,daemon,false,true,false,true
+mod-017,go,service,true,false,false,true

@@ -1,0 +1,51 @@
+{
+  "sourceTaskId": "pg-essay-to-audiobook",
+  "skillMode": "per-skill",
+  "targetSkill": {
+    "name": "openai-tts",
+    "slug": "openai-tts"
+  },
+  "familyTheme": "Single-skill narration generation across audiobook assembly, operations briefing audio, batch call prompts, and release digest voice delivery.",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - Founder Notes Audio Assembly",
+      "goal": "Assemble two local founder-note chapters into one narrated MP3 and emit a chapter timing manifest.",
+      "primaryOutputFile": "/root/similar_founder_notes.mp3",
+      "difficulty": "medium",
+      "category": "speech-synthesis",
+      "skillBenefitRationale": "The task benefits from reliable chunked text-to-speech generation and audio concatenation." 
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Incident Briefing Voice Timeline",
+      "goal": "Convert incident updates into one WAV briefing with structured cue timing metadata.",
+      "primaryOutputFile": "/root/transfer1_incident_briefing.wav",
+      "difficulty": "medium",
+      "category": "speech-synthesis",
+      "skillBenefitRationale": "The same synthesis workflow is transferred to operational timeline narration output." 
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Reminder Call Batch Audio",
+      "goal": "Produce one FLAC batch audio for reminder calls and a summary report by priority tier.",
+      "primaryOutputFile": "/root/transfer2_call_batch.flac",
+      "difficulty": "medium",
+      "category": "speech-synthesis",
+      "skillBenefitRationale": "The task transfers synthesis into a CSV-driven batch voice production format." 
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Release Digest Narration",
+      "goal": "Narrate release notes into AAC audio and emit section-level marker timing CSV.",
+      "primaryOutputFile": "/root/transfer3_release_digest.aac",
+      "difficulty": "medium",
+      "category": "speech-synthesis",
+      "skillBenefitRationale": "The task transfers long-form synthesis to sectioned technical digest narration." 
+    }
+  ]
+}

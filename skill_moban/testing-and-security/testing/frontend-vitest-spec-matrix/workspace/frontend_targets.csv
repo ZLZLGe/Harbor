@@ -1,0 +1,6 @@
+target_id,target_type,has_async,has_query_state,has_http_mock,has_error_state,complexity
+cmp_async_panel,component,yes,no,no,yes,3
+cmp_search_page,component,yes,yes,yes,yes,5
+hook_filters,hook,no,yes,no,no,2
+util_formatter,utility,no,no,no,no,1
+util_retry_delay,utility,yes,no,no,yes,2

@@ -1,0 +1,11 @@
+{
+  "owner": "blueyi",
+  "slug": "domain-checker",
+  "displayName": "Check whether domain names are available for registration. Use when a user asks to verify domain availability, find unregistered domains, brainstorm project/brand names with domain checks, or any task involving \"is this domain taken?\". Supports .com, .net, .org, .io, .ai, .so, and other TLDs. Cross-verifies via whois + DNS NS + DNS A records for reliable results.",
+  "latest": {
+    "version": "1.0.0",
+    "publishedAt": 1773500023644,
+    "commit": "https://github.com/openclaw/skills/commit/ec431961f16462fe9135fb9f73a1b8ba287fb204"
+  },
+  "history": []
+}

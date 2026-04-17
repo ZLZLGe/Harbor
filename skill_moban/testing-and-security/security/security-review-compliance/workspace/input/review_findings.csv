@@ -1,0 +1,10 @@
+component,issue_type,severity,data_subject,has_mitigation
+api-gateway,insecure-deserialization,critical,none,yes
+api-gateway,missing-security-headers,low,none,yes
+billing-service,weak-password-policy,high,none,yes
+billing-service,insufficient-rate-limits,high,none,yes
+profile-service,retention-policy-gap,medium,eu_personal_data,no
+search-ui,session-fixation,high,none,yes
+reporting-worker,verbose-logging,medium,none,yes
+reporting-worker,missing-audit-trail,medium,none,yes
+static-site,clickjacking,low,none,yes

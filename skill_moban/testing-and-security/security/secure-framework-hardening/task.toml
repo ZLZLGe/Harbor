@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "secure-framework-hardening-template"
+name = "Security Template - Secure Framework Hardening"
+description = "根据服务安全控制项缺失情况生成加固计划与优先级的模板任务。"
+author_name = "Codex"
+author_email = "codex@harbor.local"
+difficulty = "medium"
+category = "testing-and-security"
+tags = ["security", "hardening", "csv", "template"]
+primary_output_file = "/app/workspace/output/hardening_plan.csv"
+source_task_id = "security"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+gpus = 0
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

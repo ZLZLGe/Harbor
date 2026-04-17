@@ -1,0 +1,88 @@
+task_id,primary_subcategory,secondary_subcategories,kept_for_debugging_pilot,discard_from_pilot,notes
+3d-scan-calc,scientific-computing,design|data-analysis,false,true,STL geometry and engineering computation
+adaptive-cruise-control,scientific-computing,data-analysis,false,true,Control simulation and tuning workflow
+azure-bgp-oscillation-route-leak,cloud,monitoring|system-admin,false,true,Azure routing incident analysis
+citation-check,academic,knowledge-base|technical-docs,false,true,Academic citation verification and lookup
+civ6-adjacency-optimizer,gaming,data-analysis,false,true,Game mechanics optimization task
+court-form-filling,documents,real-estate-legal,false,true,Legal PDF form completion workflow
+crystallographic-wyckoff-position-analysis,computational-chemistry,scientific-computing,false,true,Crystal symmetry analysis workflow
+dapt-intrusion-detection,security,monitoring|data-analysis,false,true,Network intrusion detection from PCAP
+data-to-d3,frontend,data-analysis|design,false,true,Interactive D3 chart implementation
+dialogue-parser,gaming,scripting,false,true,Game dialogue parsing and structuring
+dynamic-object-aware-egomotion,machine-learning,media|data-analysis,false,true,Vision based egomotion analysis
+earthquake-phase-association,scientific-computing,data-analysis,false,true,Seismic event association pipeline
+earthquake-plate-calculation,scientific-computing,data-analysis,false,true,Geophysical plate calculation task
+econ-detrending-correlation,data-analysis,finance-investment,false,true,Economic time series analysis
+energy-ac-optimal-power-flow,scientific-computing,data-analysis,false,true,Power systems optimization problem
+energy-market-pricing,finance-investment,data-analysis,false,true,Energy market pricing analysis
+enterprise-information-search,knowledge-base,backend|data-analysis,false,true,Enterprise document search workflow
+exceltable-in-ppt,productivity-tools,documents|content-creation,false,true,Move Excel table updates into slides
+exoplanet-detection-period,astronomy-physics,data-analysis,false,true,Astronomy time series period detection
+financial-modeling-qa,finance-investment,documents|data-analysis,false,true,Financial model QA over PDFs
+find-topk-similiar-chemicals,computational-chemistry,knowledge-base,false,true,Chemical similarity retrieval task
+fix-build-agentops,debugging,cicd|package-distribution,false,true,Debug failing CI build in Python project
+fix-build-google-auto,debugging,cicd|package-distribution,false,true,Debug failing CI build in Java project
+fix-druid-loophole-cve,security,backend,false,true,Security patching in backend codebase
+fix-erlang-ssh-cve,security,debugging,false,true,Erlang SSH vulnerability remediation
+fix-visual-stability,debugging,frontend|testing,false,true,Frontend runtime regression debugging
+flink-query,data-engineering,backend,false,true,Flink query implementation task
+flood-risk-analysis,data-analysis,scientific-computing,false,true,Flood risk data analysis workflow
+gh-repo-analytics,git-workflows,data-analysis|cicd,false,true,Repository analytics using GitHub tooling
+glm-lake-mendota,scientific-computing,data-analysis,false,true,Lake model calibration workflow
+gravitational-wave-detection,astronomy-physics,scientific-computing,false,true,Signal analysis for astrophysics
+grid-dispatch-operator,scientific-computing,finance-investment,false,true,Grid dispatch optimization workflow
+hvac-control,scientific-computing,data-analysis,false,true,HVAC control model tuning
+invoice-fraud-detection,finance-investment,documents|data-analysis,false,true,Invoice fraud review across PDF and spreadsheet inputs
+jax-computing-basics,machine-learning,scientific-computing,false,true,JAX numerical computing implementation
+jpg-ocr-stat,documents,data-analysis|technical-docs,false,true,OCR extraction and aggregation task
+lab-unit-harmonization,bioinformatics,data-analysis,false,true,Clinical lab harmonization workflow
+lake-warming-attribution,data-analysis,scientific-computing,false,true,Environmental trend attribution analysis
+latex-formula-extraction,academic,documents|technical-docs,false,true,Extract formulas from academic PDFs
+lean4-proof,code-quality,,false,true,Formal proof authoring in Lean4
+manufacturing-codebook-normalization,domain-utilities,data-analysis,false,true,Normalize manufacturing failure codebook
+manufacturing-equipment-maintenance,domain-utilities,data-analysis,false,true,Maintenance triage with manuals and logs
+manufacturing-fjsp-optimization,scientific-computing,data-analysis,false,true,Manufacturing scheduling optimization
+mario-coin-counting,media,data-analysis,false,true,Video counting in game footage
+mars-clouds-clustering,astronomy-physics,data-analysis,false,true,Planetary science clustering analysis
+mhc-layer-impl,machine-learning,backend,false,true,Implement deep learning layer behavior
+multilingual-video-dubbing,media,content-creation|education,false,true,Video dubbing workflow
+offer-letter-generator,documents,content-creation|literature-writing,false,true,Generate Word offer letters from template data
+organize-messy-files,productivity-tools,documents,false,true,File organization and cleanup workflow
+paper-anonymizer,documents,academic,false,true,Academic paper anonymization workflow
+parallel-tfidf-search,knowledge-base,data-analysis,false,true,Parallelized text retrieval task
+pddl-tpp-planning,llm-ai,scientific-computing,false,true,Structured planning problem solving
+pdf-excel-diff,documents,data-analysis|productivity-tools,false,true,Compare PDF records against spreadsheet data
+pedestrian-traffic-counting,machine-learning,media|monitoring,false,true,Traffic counting from video
+pg-essay-to-audiobook,content-creation,media|knowledge-base,false,true,Create audiobook from scraped essay content
+powerlifting-coef-calc,data-analysis,productivity-tools,false,true,Excel coefficient calculation task
+pptx-reference-formatting,content-creation,documents|productivity-tools,false,true,PowerPoint reference formatting cleanup
+protein-expression-analysis,bioinformatics,data-analysis,false,true,Proteomics spreadsheet analysis
+python-scala-translation,scripting,code-quality,false,true,Translate code across programming languages
+quantum-numerical-simulation,scientific-computing,astronomy-physics,false,true,Quantum simulation workflow
+r2r-mpc-control,scientific-computing,data-analysis,false,true,Model predictive control engineering task
+react-performance-debugging,debugging,frontend|testing,true,false,Primary debugging pilot source task
+reserves-at-risk-calc,finance-investment,data-analysis,false,true,Macro finance reserve risk analysis
+sales-pivot-analysis,data-analysis,productivity-tools|finance-investment,false,true,Sales analysis with pivot workflows
+scheduling-email-assistant,productivity-tools,project-management,false,true,Schedule coordination via email data
+sec-financial-report,finance-investment,documents|data-analysis,false,true,SEC financial report analysis
+seismic-phase-picking,scientific-computing,machine-learning,false,true,Seismic phase picking workflow
+setup-fuzzing-py,security,testing|cicd,false,true,Security oriented fuzzing setup task
+shock-analysis-demand,finance-investment,data-analysis,false,true,Demand shock finance analysis
+shock-analysis-supply,finance-investment,data-analysis,false,true,Supply shock finance analysis
+simpo-code-reproduction,machine-learning,backend,false,true,Reproduce ML research code behavior
+software-dependency-audit,security,package-distribution,false,true,Dependency vulnerability audit
+speaker-diarization-subtitles,media,content-creation,false,true,Speaker diarization and subtitle alignment
+spring-boot-jakarta-migration,backend,debugging|package-distribution,false,true,Backend framework migration task
+suricata-custom-exfil,security,monitoring,false,true,Write IDS detection for custom exfiltration
+syzkaller-ppdev-syzlang,security,testing|debugging,false,true,Kernel fuzzing and syzlang debugging
+taxonomy-tree-merge,ecommerce,data-analysis|machine-learning,false,true,Merge retail product taxonomies
+threejs-structure-parser,frontend,design|domain-utilities,false,true,Parse Three.js scene structure
+threejs-to-obj,frontend,design|domain-utilities,false,true,Convert Three.js assets to OBJ
+travel-planning,productivity-tools,project-management,false,true,Constraint based travel planning
+trend-anomaly-causal-inference,data-analysis,machine-learning,false,true,Anomaly and causal inference analysis
+video-filler-word-remover,media,content-creation,false,true,Remove filler words from edited video
+video-silence-remover,media,content-creation,false,true,Remove silence from video timeline
+video-tutorial-indexer,knowledge-base,media|education,false,true,Index tutorial video content for retrieval
+virtualhome-agent-planning,llm-ai,gaming,false,true,Embodied planning task over simulator domain
+weighted-gdp-calc,data-analysis,finance-investment,false,true,Excel based GDP weighted aggregation
+xlsx-recover-data,productivity-tools,data-analysis|documents,false,true,Recover missing workbook values across sheets

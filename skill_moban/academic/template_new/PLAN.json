@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "systematic-review-evidence-package-repair",
+  "taskRole": "template",
+  "title": "Template: Systematic Review Evidence Package Repair",
+  "goal": "Repair a realistic systematic-review submission package by reconciling the included study table, BibTeX bibliography, and narrative summary against a local evidence-validation service backed by frozen real publication metadata and a raw local publication cache.",
+  "primaryOutputFile": "/app/output/submission_package.json",
+  "difficulty": "hard",
+  "category": "academic",
+  "skillBenefitRationale": "The bound skill standardizes review screening, bibliography validation, and claim-support checks against the local evidence service. Without the skill the task remains theoretically solvable from the visible protocol and raw local publication cache, but the solver must manually recover the hidden study-to-record mapping, identify the eligible evidence set, repair citation metadata, and rewrite an overclaimed summary.",
+  "targetSkillDirName": "systematic-literature-review",
+  "targetSkillName": "systematic-literature-review"
+}

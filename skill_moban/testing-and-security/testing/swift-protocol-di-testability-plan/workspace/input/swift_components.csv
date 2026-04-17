@@ -1,0 +1,5 @@
+component_id,has_filesystem,has_network,has_external_api,needs_preview_support,needs_error_path
+cacheStore,yes,no,no,no,yes
+dashboardViewModel,no,yes,yes,yes,yes
+formatter,no,no,no,yes,no
+syncEngine,yes,yes,no,no,no

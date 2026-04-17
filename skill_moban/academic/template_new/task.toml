@@ -1,0 +1,24 @@
+version = "1.0"
+
+[metadata]
+id = "systematic-review-evidence-package-repair"
+name = "Template: Systematic Review Evidence Package Repair"
+author_name = "OpenAI Codex"
+author_email = "noreply@example.com"
+difficulty = "hard"
+category = "academic"
+tags = ["academic", "systematic-review", "citation-management", "research-ops", "evidence-synthesis", "bibtex"]
+required_skills = ["systematic-literature-review"]
+
+[verifier]
+timeout_sec = 450.0
+
+[agent]
+timeout_sec = 120.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = true

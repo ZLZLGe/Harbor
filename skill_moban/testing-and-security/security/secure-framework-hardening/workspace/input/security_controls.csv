@@ -1,0 +1,6 @@
+service,framework,auth_enabled,input_validation,csrf_protection,rate_limit,secrets_vault
+admin-portal,django,yes,yes,yes,no,yes
+billing-api,springboot,yes,no,no,no,no
+public-site,laravel,no,yes,no,yes,no
+auth-service,node,no,no,no,no,no
+legacy-reports,perl,yes,yes,yes,yes,yes

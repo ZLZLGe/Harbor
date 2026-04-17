@@ -1,0 +1,7 @@
+{
+  "output_audio": "/root/transfer1_incident_briefing.wav",
+  "output_cues": "/root/transfer1_incident_cues.json",
+  "voice": "alloy",
+  "model": "gpt-4o-mini-tts",
+  "response_format": "wav"
+}

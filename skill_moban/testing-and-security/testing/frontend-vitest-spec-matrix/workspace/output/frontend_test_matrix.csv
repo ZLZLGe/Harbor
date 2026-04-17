@@ -1,0 +1,6 @@
+target_id,test_style,required_scenarios,mock_strategy,rtl_tools,coverage_goal,execution_order
+cmp_async_panel,vitest rtl component black-box,render-baseline;semantic-selectors;async-state-settling;error-boundary-or-fallback,prefer real collaborators; mock external boundary only,render;screen;userEvent;waitFor,branch coverage for common states,04
+cmp_search_page,vitest rtl component black-box,render-baseline;semantic-selectors;async-state-settling;url-query-sync;http-success-and-empty;error-boundary-or-fallback,mock network boundary only; use real nuqs adapter,render;screen;userEvent;waitFor;NuqsTestingAdapter;nock,state matrix coverage including edge cases,05
+hook_filters,vitest rtl hook black-box,invoke-baseline;observable-state-assertions;url-query-sync,use real nuqs adapter; mock external boundary only,renderHook;act;NuqsTestingAdapter,baseline behavior coverage,03
+util_formatter,vitest unit black-box,input-output-contract;observable-state-assertions,prefer real collaborators; mock external boundary only,vi.fn,baseline behavior coverage,01
+util_retry_delay,vitest unit black-box,input-output-contract;observable-state-assertions;async-state-settling;error-boundary-or-fallback,prefer real collaborators; mock external boundary only,vi.fn;waitFor,baseline behavior coverage,02

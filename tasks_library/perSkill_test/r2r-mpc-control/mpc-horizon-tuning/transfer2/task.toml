@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer2"
+name = "Transfer - Reservoir Network Horizon Risk Tradeoff"
+description = "Rank horizon and Q/R settings for a coupled reservoir model using tracking, effort, and overflow-risk metrics."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "control-systems"
+tags = ["mpc", "reservoir", "horizon", "q-r-tuning", "risk-metric"]
+primary_output_file = "/root/transfer2_reservoir_horizon_report.json"
+source_task_id = "r2r-mpc-control"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+gpus = 0
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

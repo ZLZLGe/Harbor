@@ -1,0 +1,6 @@
+event_id,event_type,city,severity,start_time,end_time
+E-01,solar_alert,urumqi,3,2026-01-01T08:00:00,2026-01-01T11:00:00
+E-02,solar_alert,xian,4,2026-01-02T09:30:00,2026-01-02T12:00:00
+E-03,seismic_notice,ankara,2,2026-01-03T05:00:00,2026-01-03T06:00:00
+E-04,seismic_notice,ankara,5,2026-01-04T05:00:00,2026-01-04T08:30:00
+E-05,marine_warning,qingdao,1,2026-01-01T02:00:00,2026-01-01T04:00:00

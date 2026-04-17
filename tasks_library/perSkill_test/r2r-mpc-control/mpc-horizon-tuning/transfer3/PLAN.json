@@ -1,0 +1,10 @@
+{
+  "derivedTaskId": "transfer3",
+  "taskRole": "transfer",
+  "title": "Transfer - Dual-Winder Cyclic Horizon Tuning",
+  "goal": "Tune horizon and Q/R for cyclic two-axis winding references while balancing tracking and actuator smoothness.",
+  "primaryOutputFile": "/root/transfer3_winder_tuning_report.json",
+  "difficulty": "medium",
+  "category": "control-systems",
+  "skillBenefitRationale": "The candidate must tune prediction horizon and state/control weighting for cyclic references, balancing responsiveness and smooth actuation."
+}

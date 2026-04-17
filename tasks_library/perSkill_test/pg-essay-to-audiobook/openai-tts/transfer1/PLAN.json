@@ -1,0 +1,12 @@
+{
+  "sourceTaskId": "pg-essay-to-audiobook",
+  "targetSkill": "openai-tts",
+  "derivedTaskId": "transfer1",
+  "taskRole": "transfer",
+  "title": "Transfer - Incident Briefing Voice Timeline",
+  "goal": "Convert incident updates into one WAV briefing with structured cue timing metadata.",
+  "primaryOutputFile": "/root/transfer1_incident_briefing.wav",
+  "difficulty": "medium",
+  "category": "speech-synthesis",
+  "skillBenefitRationale": "Transfers long-form synthesis to a structured operations briefing artifact."
+}

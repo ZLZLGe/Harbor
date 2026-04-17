@@ -1,0 +1,6 @@
+flow_id,session_ttl_min,mfa_enabled,cookie_secure,cookie_httponly,token_rotation_days,failed_logins_24h
+A100,60,yes,yes,yes,14,2
+A200,1441,yes,yes,yes,45,12
+A300,120,no,yes,yes,30,0
+A400,30,yes,no,no,5,1
+A500,720,yes,yes,no,60,11

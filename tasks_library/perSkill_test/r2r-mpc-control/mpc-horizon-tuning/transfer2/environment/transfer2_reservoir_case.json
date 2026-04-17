@@ -1,0 +1,46 @@
+{
+  "scenario": "three-reservoir-coupled-level-control",
+  "steps": 160,
+  "A": [
+    [0.91, 0.04, 0.00, 0.06, 0.00, 0.00],
+    [0.03, 0.90, 0.03, 0.00, 0.06, 0.00],
+    [0.00, 0.04, 0.91, 0.00, 0.00, 0.06],
+    [0.00, 0.00, 0.00, 0.84, 0.04, 0.00],
+    [0.00, 0.00, 0.00, 0.03, 0.84, 0.03],
+    [0.00, 0.00, 0.00, 0.00, 0.04, 0.84]
+  ],
+  "B": [
+    [0.22, 0.01, 0.00],
+    [0.02, 0.21, 0.01],
+    [0.00, 0.02, 0.22],
+    [0.30, 0.00, 0.00],
+    [0.00, 0.30, 0.00],
+    [0.00, 0.00, 0.30]
+  ],
+  "x0": [6.2, 5.8, 6.0, 0.0, 0.0, 0.0],
+  "disturbance": [0.02, -0.03, 0.01, 0.0, 0.0, 0.0],
+  "u_bias": [0.0, 0.0, 0.0],
+  "u_limit": [1.8, 1.8, 1.8],
+  "primary_indices": [0, 1, 2],
+  "secondary_indices": [3, 4, 5],
+  "safe_primary_max": [9.5, 9.5, 9.5],
+  "settling_tol": 0.20,
+  "terminal_weight_scale": 2.2,
+  "reference_schedule": [
+    {"start": 0, "ref": [6.0, 6.0, 6.0, 0.0, 0.0, 0.0]},
+    {"start": 50, "ref": [7.8, 7.5, 7.9, 0.0, 0.0, 0.0]},
+    {"start": 110, "ref": [8.6, 8.4, 8.7, 0.0, 0.0, 0.0]}
+  ],
+  "weights": {
+    "tracking_rmse": 1.0,
+    "control_rms": 0.14,
+    "overflow_risk": 0.55,
+    "settling_fraction": 0.30
+  },
+  "candidates": [
+    {"id": "n4_q20_r0.050", "horizon": 4, "q_primary": 20.0, "q_secondary": 0.20, "r_scale": 0.050},
+    {"id": "n7_q28_r0.055", "horizon": 7, "q_primary": 28.0, "q_secondary": 0.18, "r_scale": 0.055},
+    {"id": "n10_q36_r0.060", "horizon": 10, "q_primary": 36.0, "q_secondary": 0.16, "r_scale": 0.060},
+    {"id": "n13_q46_r0.070", "horizon": 13, "q_primary": 46.0, "q_secondary": 0.15, "r_scale": 0.070}
+  ]
+}

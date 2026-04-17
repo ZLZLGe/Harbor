@@ -1,0 +1,7 @@
+app,language,credential_type,uses_managed_identity,keyvault_ops,content_safety_enabled,token_refresh_minutes
+audit-cli,dotnet,ClientSecretCredential,no,none,no,120
+content-guard,python,DefaultAzureCredential,yes,multi,yes,45
+finance-api,java,ManagedIdentityCredential,yes,secrets,no,30
+java-worker,java,WorkloadIdentityCredential,yes,keys,yes,50
+rust-daemon,rust,DefaultAzureCredential,no,certificates,no,15
+ts-portal,typescript,ManagedIdentityCredential,yes,unknown,yes,90

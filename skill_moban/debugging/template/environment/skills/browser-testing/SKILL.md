@@ -148,20 +148,16 @@ Output:
       "name": "iphone-13",
       "label": "Europe",
       "drawerTitle": "Retention drop in North America",
-      "linkedContextText": null,
-      "linkedContextInDrawer": false,
       "cls": 0.118
     },
     {
       "name": "tablet-820",
       "label": "North America",
       "drawerTitle": "Retention drop in North America",
-      "linkedContextText": "Linked alert context: ... North America ...",
-      "linkedContextInDrawer": false,
       "cls": 0.081
     }
   ]
 }
 ```
 
-Do not stop after a single interaction when the bug is described as “gets worse over time”, and do not trust archived evidence over a fresh browser reproduction. On this task specifically, the soak script is the shortest path to the long-session regression and the deep-link script is the shortest path to the cold-start drift plus breakpoint-specific CLS plus linked-context misplacement.
+Do not stop after a single interaction when the bug is described as “gets worse over time”, and do not trust archived evidence over a fresh browser reproduction. On this task specifically, the soak script is the shortest path to the long-session regression and the deep-link script is the shortest path to the cold-start drift plus breakpoint-specific CLS.

@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "scientific-imaging-and-cv-template"
+name = "Astronomy Physics Template - Scientific Imaging And CV"
+description = "科学图像指标抽取与质量分层模板任务示例。"
+author_name = "Codex"
+author_email = "codex@harbor.local"
+difficulty = "medium"
+category = "research"
+tags = ["imaging", "computer-vision", "template"]
+primary_output_file = "/app/workspace/output/image_report.json"
+source_task_id = "astronomy-physics"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 300.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+gpus = 0
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+
+[verifier.env]
+
+[solution.env]

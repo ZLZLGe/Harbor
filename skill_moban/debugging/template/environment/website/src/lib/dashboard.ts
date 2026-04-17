@@ -77,7 +77,3 @@ export function buildHeroSummary(snapshot: DashboardSnapshot, filterId: string) 
   }
   return `${activeFilter.teaser} This blended board combines revenue pacing, conversion drift, and live alert ownership across the full regional footprint.`;
 }
-
-export function buildLinkedAlertContext(alertOwner: string, filterLabel: string) {
-  return `Linked alert context: ${alertOwner} is coordinating the ${filterLabel} mitigation handoff while pricing, retention, and CTA telemetry settle back into the live dashboard after launch.`;
-}

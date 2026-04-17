@@ -1,0 +1,6 @@
+{"scanner":"sast","id":"SAST-11","severity":"high","cve":"CVE-2024-0001","fix_version":"2.3.0"}
+{"scanner":"deps","id":"DEP-77","severity":"critical","cve":"CVE-2024-0001","fix_version":"2.4.1"}
+{"scanner":"api","id":"API-7","severity":"high","cve":"","fix_version":"2026.04"}
+{"scanner":"pentest","id":"PT-9","severity":"medium","cve":null,"fix_version":""}
+{"scanner":"iac","id":"OPS-2","severity":"low","cve":"","fix_version":"n/a"}
+{"scanner":"api","id":"API-X","severity":"high","cve":"API-7","fix_version":"2026.05"}
