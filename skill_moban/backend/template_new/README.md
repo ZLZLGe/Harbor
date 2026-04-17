@@ -76,22 +76,22 @@ Verifier 策略：
 
 这使 solver 更容易发现“表面 API 看似正常，但本地状态没有自行收敛”的隐藏问题。没有 skill 时，任务理论上仍可解，但需要自己拼出 replay 路径、探针脚本和对账口径，收敛成本明显更高。
 
-基于最近 `4` 次有效 task-level 对照 trial（均为最终 `9` 测版本，存在完整 agent 轨迹和 verifier 输出；另有若干 `INSUFFICIENT_BALANCE` 启动级/早期中断 trial 已排除）：
+基于当前已完成、且可核验的最终 `9` 测 task-level trial（With Skill `4` 条，Without Skill `3` 条）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 有效 trial 数 | `2` | `2` | 口径一致，均为最终 9 测版本上的有效 task-level 样本 |
-| 通过率 | `0/2 = 0%` | `1/2 = 50%` | With Skill 产生了当前唯一一次完整通过；Without Skill 尚未出现通过 |
+| 通过率 | `0/3 = 0%` | `3/4 = 75%` | With Skill 已出现稳定完整通过；Without Skill 仍未出现通过 |
 | 最佳成绩 | `8/9` | `9/9` | Without Skill 的最佳样本仍被隐藏的 idle-expiry 收敛测试拦下 |
-| 平均总耗时 | `740.8s` | `840.1s` | 该指标受 provider `403` 中断影响较大，本轮不作为主结论 |
-| 平均 Agent 执行耗时 | `334.4s` | `439.0s` | 同上，失败 trial 被提前截断后会低估真实诊断成本 |
+| 平均 Agent 执行耗时 | `767.1s` | `753.6s` | With Skill 略快，平均 Agent 执行耗时降低约 `1.8%` |
 
 补充说明：
 
-- 有效 With Skill trial：`backend-template-with-skills-e2b-20260416-r13`、`backend-template-with-skills-e2b-20260416-r14`
-- 有效 Without Skill trial：`backend-template-without-skills-e2b-20260416-r5`、`backend-template-without-skills-e2b-20260416-r6`
-- 已排除 trial：`backend-template-without-skills-e2b-20260416-r7`、`backend-template-with-skills-e2b-20260416-r15`、`backend-template-with-skills-e2b-20260416-r16`、`backend-template-with-skills-e2b-20260417-r17`、`backend-template-without-skills-e2b-20260417-r8`、`backend-template-with-skills-e2b-20260417-r18`、`backend-template-without-skills-e2b-20260417-r9` 未计入有效样本；其中除 `r16` 外，其余都在 agent 刚启动或刚进入对话时被上游 provider 返回 `INSUFFICIENT_BALANCE` 打断，`r16` 则停在不完整 trial 状态
-- Token 指标说明：Harbor 对被 provider `403` 打断的 failed trial 未稳定回填 `agent_result.n_input_tokens`，因此本轮不把 token 均值作为主对比指标；当前能稳定读到的完整 usage 来自通过样本 `r13`，其 `input_tokens = 2,077,701`
+- 有效 With Skill trial：`backend-template-with-skills-e2b-20260416-r13`（`9/9`）、`backend-template-with-skills-e2b-20260417-r19`（`9/9`）、`backend-template-with-skills-e2b-20260417-r21`（`7/9`）、`backend-template-with-skills-e2b-20260417-r23`（`9/9`）
+- 有效 Without Skill trial：`backend-template-without-skills-e2b-20260417-r12`（`7/9`）、`backend-template-without-skills-e2b-20260417-r13`（`7/9`）、`backend-template-without-skills-e2b-20260417-r16`（`8/9`）
+- 口径说明：
+  - 本轮统一只统计最终 `9` 测版本的完整 backend task-level trial，不混入早期 `7/7`、`8/8` 版本样本
+  - `backend-template-with-skills-e2b-20260417-r23` 的 task-level `trial/result.json` 与 verifier 输出完整，因此仍计入有效样本；外层 job 收尾时被中断，不影响该 task-level 结果判定
+  - 当前 provider 没有稳定回填 `agent_result.n_input_tokens`，所以本轮不把 token 均值作为主对比指标
 
 ## 📁 标准目录结构说明
 
