@@ -86,7 +86,7 @@ Verifier 策略：
 2. 从 incidents 重建第一处偏差与回归证明。
 3. 从 gateway contract 固化 route / field / status 语义，并把可重跑 probe 路径写回正式 runbook。
 
-基于最近 **3 次有效对比实验**（全部是 E2B task-level 完整轨迹）：
+基于最近 **3 次有效对比实验**（全部是 E2B task-level 完整轨迹；已排除 2 次由你提供的上游 provider 直接返回 `429 Too Many Requests` 的启动失败 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
