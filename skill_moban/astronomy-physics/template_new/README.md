@@ -37,8 +37,7 @@
 - Solver 需要读取本地 `catalog` 中的全部目标。
 - 对每个目标合并 3 段 light curve，结合 `quality_flag` 和 `manifest quarantine_windows_mjd` 做清洗。
 - 区分 rotation alias、planet-like transit 和 eclipsing binary 信号。
-- 生成 `/app/output/catalog_vetting.json` 与 `/app/output/catalog_audit_receipt.json`。
-- 最终 bundle 必须通过真实 `POST /audit`，且 verifier 会重放链路、校验 trace 与 canonical hash。
+- 生成 `/app/output/catalog_vetting.json` 与 `/app/output/catalog_audit_receipt.json`两份文件，交由verifer验证正确性。
 
 任务中的 4 个目标覆盖了不同诊断场景：
 
@@ -52,7 +51,6 @@
 e2b oracle 结果：
 
 - 整体结论：✅ 通过（Reward: `1.0`）
-- 最新 oracle 样本：`astronomy-template-oracle-e2b-20260417a`
 
 Verifier 策略：
 

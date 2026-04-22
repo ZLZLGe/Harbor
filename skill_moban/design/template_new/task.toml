@@ -1,0 +1,44 @@
+version = "1.0"
+
+[metadata]
+id = "design__launch-storyboard-html-deck-delivery"
+name = "Template: Launch Storyboard HTML Deck Delivery"
+description = "Refine an internal-review HTML launch deck from frozen brand, KPI, quote, comparison, and journey inputs, then validate it through a live localhost render and QA chain."
+author_name = "OpenAI Codex"
+author_email = "support@openai.com"
+difficulty = "hard"
+category = "design"
+tags = [
+  "design",
+  "html-deck",
+  "presentation-design",
+  "frontend-slides",
+  "concept-diagrams",
+  "brand-system",
+  "data-visualization",
+  "information-design",
+  "delivery-qa",
+]
+required_skills = [
+  "launch-deck-diagnostics",
+]
+primary_output_file = "/app/output/deck_receipt.json"
+source_template_id = "design__launch-storyboard-html-deck-delivery"
+task_role = "template"
+
+[verifier]
+timeout_sec = 800.0
+
+[agent]
+timeout_sec = 350.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

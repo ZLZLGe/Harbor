@@ -1,0 +1,4 @@
+active_id,name,pubchem_cid,smiles
+ACT001,S-ibuprofen,39912,C[C@@H](C1=CC=C(C=C1)CC(C)C)C(=O)O
+ACT002,Naproxen,156391,C[C@@H](C1=CC2=C(C=C1)C=C(C=C2)OC)C(=O)O
+ACT003,Ketoprofen,3825,CC(C1=CC(=CC=C1)C(=O)C2=CC=CC=C2)C(=O)O

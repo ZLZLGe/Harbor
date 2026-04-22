@@ -1,0 +1,17 @@
+name: release-dry-run
+
+jobs:
+  inspect:
+    run: python /app/workspace/scripts/fetch_candidates.py
+  package:
+    needs:
+      - inspect
+    run: python /app/workspace/scripts/build_bundle.py
+  promote:
+    needs:
+      - package
+    run: python /app/workspace/scripts/finalize_release.py
+  attest:
+    needs:
+      - package
+    run: python /app/workspace/scripts/collect_provenance.py

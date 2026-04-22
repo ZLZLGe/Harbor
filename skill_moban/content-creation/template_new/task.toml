@@ -1,0 +1,38 @@
+version = "1.0"
+
+[metadata]
+id = "multi-channel-launch-content-pack"
+name = "Template: Multi-channel Launch Content Pack"
+author_name = "OpenAI Codex"
+author_email = "noreply@example.com"
+difficulty = "hard"
+category = "content-creation"
+tags = [
+  "content-creation",
+  "content-engine",
+  "brand-voice",
+  "newsletter",
+  "seo",
+  "linkedin",
+  "multichannel-publishing",
+  "content-repurposing",
+  "qa",
+  "markdown",
+  "json",
+]
+required_skills = [
+  "content-bundle-audit",
+]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = true

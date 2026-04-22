@@ -1,0 +1,53 @@
+{
+  "derivedTaskId": "multi-channel-launch-content-pack",
+  "taskRole": "template",
+  "title": "Template: Multi-channel Launch Content Pack",
+  "goal": "Produce a publish-ready multi-channel launch bundle from a frozen brief, fact sheet, voice guide, and keyword plan, then package the final deliverables into one bundle summary.",
+  "primaryOutputFile": "/root/publish_bundle.json",
+  "difficulty": "hard",
+  "category": "content-creation",
+  "taskShape": "multi-channel-content-generation",
+  "designGoals": [
+    "Make the task feel like a real content-operations deliverable rather than a debugging exercise.",
+    "Require multiple publish-ready outputs that share the same facts but adapt to different channels.",
+    "Ensure verifier checks publishability, factual consistency, and channel differentiation instead of one exact wording.",
+    "Create a skill advantage through standardized fact extraction, voice alignment, and cross-channel auditing."
+  ],
+  "skillBenefitRationale": "The bound skill standardizes the high-cost parts of the workflow: extracting confirmed facts, listing forbidden claims, checking per-channel structure, and auditing cross-channel duplication. Without the skill the task remains theoretically solvable from the visible source materials, but the solver must manually recover the fact matrix, keyword contract, and channel-specific constraints before writing the final assets.",
+  "targetSkillDirName": "content-bundle-audit",
+  "targetSkillName": "content-bundle-audit",
+  "inputAssets": [
+    "/root/launch_brief.md",
+    "/root/fact_sheet.json",
+    "/root/voice_guide.md",
+    "/root/channel_requirements.md",
+    "/root/keyword_plan.json",
+    "/root/source_notes.md",
+    "/root/build_bundle.py"
+  ],
+  "requiredOutputs": [
+    "/root/blog_post.md",
+    "/root/linkedin_post.md",
+    "/root/newsletter.json",
+    "/root/seo_meta.json",
+    "/root/publish_bundle.json"
+  ],
+  "verifierDesign": {
+    "mainTests": [
+      "All required output files exist, are parseable, and match the declared schema.",
+      "The final blog post, LinkedIn post, newsletter, and SEO metadata preserve the confirmed facts from the brief and keyword plan.",
+      "The outputs remain channel-native and cross-channel consistent instead of copying one text into multiple formats.",
+      "The official bundle script succeeds and emits a publish_bundle.json summary."
+    ],
+    "guardrails": [
+      "Protected source materials and build logic must remain unchanged.",
+      "The solver must not invent forbidden claims such as unsupported plans, extra language support, or auto-publishing capabilities.",
+      "The final answer must preserve all required channels instead of deleting a deliverable or collapsing multiple channels into one reused draft."
+    ]
+  },
+  "readmeRequirements": [
+    "Explain why the task aligns with popular SkillsMP content-creation skills such as content-engine, brand-voice, content-writer, and newsletter-generation.",
+    "Document oracle and verifier outcomes, including main tests, guardrails, data quality, and data provenance.",
+    "Include with_skill versus without_skill experiment results with at least three valid recent trials and summarize typical failure modes."
+  ]
+}

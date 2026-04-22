@@ -1,0 +1,46 @@
+{
+  "task_id": "bioinformatics__pasilla-batch-aware-de-repair",
+  "task_name": "pasilla-batch-aware-de-repair",
+  "template_category": "bioinformatics",
+  "scenario": "repairing a bulk RNA-seq differential-expression package for the public pasilla dataset",
+  "user_visible_goal": "Recover a reproducible treatment-vs-control differential-expression package that separates technical factors from treatment signal and rebuilds the downstream panel summary.",
+  "input_assets": [
+    "/root/environment/data/counts/raw_counts.tsv",
+    "/root/environment/data/metadata/sample_metadata.tsv",
+    "/root/environment/data/gene_panel/analysis_config.json",
+    "/root/environment/data/gene_panel/priority_panel.tsv",
+    "/root/environment/pipeline/run_analysis.py",
+    "/services/panel-annotation/server.py"
+  ],
+  "required_outputs": [
+    "/root/answer/differential_expression.csv",
+    "/root/answer/significant_genes.tsv",
+    "/root/answer/normalized_counts.tsv",
+    "/root/answer/panel_diagnostics.tsv",
+    "/root/answer/report.json"
+  ],
+  "shipped_skills": [
+    "pydeseq2"
+  ],
+  "skill_hypothesis": {
+    "with_skill": "The solver is more likely to recognize raw-count semantics, fit the configured multi-factor design, preserve contrast direction, and keep the panel summary aligned with the corrected DE results.",
+    "without_skill": "The solver is more likely to keep or recreate a simpler single-factor analysis, miss the baseline-vs-corrected panel audit, and fail to reconcile stable, rescued, and nuisance-sensitive panel genes into one consistent deliverable."
+  },
+  "verifier_strategy": {
+    "main_tests": [
+      "All required outputs exist, are parseable, and respect the declared column contracts.",
+      "The final significant panel output matches the corrected multi-factor analysis derived from the shipped counts and metadata.",
+      "panel_diagnostics.tsv reconciles baseline and corrected models across the full shipped review panel.",
+      "report.json and normalized_counts.tsv are internally consistent with significant_genes.tsv and panel_diagnostics.tsv."
+    ],
+    "guardrails": [
+      "Outputs must not reproduce the shipped broken panel summary behavior.",
+      "The corrected report must encode both a baseline single-factor formula and the final multi-factor formula.",
+      "No copied broken deliverables or static placeholder files may pass."
+    ]
+  },
+  "data_provenance": {
+    "reference_source": "Bioconductor pasilla experiment package (Brooks et al., Genome Research 2011) gene-level count matrix and sample annotation.",
+    "panel_source": "Curated review panel derived from stable corrected hits, genes rescued only after nuisance adjustment, and nuisance-sensitive false positives from the pasilla counts."
+  }
+}

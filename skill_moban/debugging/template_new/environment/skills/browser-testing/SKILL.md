@@ -1,6 +1,6 @@
 ---
 name: browser-testing
-description: "VERIFY your changes work. Measure dashboard waterfalls, deep-link stability, and long-session interaction behavior before and after changes. Includes ready-to-run scripts: measure.ts, measure-cls.ts, measure-dashboard-waterfall.ts, measure-dashboard-deeplink.ts, and measure-dashboard-soak.ts"
+description: "VERIFY your changes work. Measure dashboard waterfalls, deep-link stability, and long-session interaction behavior before and after changes. Includes a bundled regression triage script plus ready-to-run helpers such as measure-dashboard-waterfall.ts, measure-dashboard-deeplink.ts, and measure-dashboard-soak.ts"
 ---
 
 # Browser Measurement with Playwright CDP
@@ -9,14 +9,33 @@ Diagnose runtime issues by measuring actual load times, code-loading behavior, v
 
 **The browser-testing toolkit is pre-installed with this skill.** Use the scripts in this skill directory before and after changing code.
 
+## Dashboard Triage First
+
+On this dashboard task, do not start with broad source spelunking. Start by running the bundled regression bundle so you can see which of the three runtime paths is still broken:
+
+```bash
+npx tsx <path-to-this-skill>/measure-dashboard-regressions.ts \
+  "http://localhost:3000" \
+  "http://localhost:3000/?filter=north-america&alert=retention-drop-na"
+```
+
+The script summarizes:
+
+- which profiles still drift away from the expected deep-link filter
+- whether linked alert context is still rendering outside the drawer
+- whether non-critical JS appears before the advanced panel is opened
+- whether repeated triage interactions still leak handlers, fan out heartbeat work, or keep refresh too slow
+
+Treat that JSON as your shortest path to the failing subsystem. If it reports `regressed`, fix the implicated path and rerun the bundle before you trust a patch.
+
 ## Quick Start
 
 ```bash
 # Measure a page and capture its network waterfall
-tsx <path-to-this-skill>/measure.ts http://localhost:3000
+npx tsx <path-to-this-skill>/measure.ts http://localhost:3000
 
 # Measure an API endpoint directly
-tsx <path-to-this-skill>/measure.ts http://localhost:3000/api/dashboard
+npx tsx <path-to-this-skill>/measure.ts http://localhost:3000/api/dashboard
 ```
 
 The script outputs JSON with:
@@ -50,7 +69,7 @@ The script outputs JSON with:
 ## Visual Stability Measurement
 
 ```bash
-tsx <path-to-this-skill>/measure-cls.ts http://localhost:3000
+npx tsx <path-to-this-skill>/measure-cls.ts http://localhost:3000
 ```
 
 Output:
@@ -81,10 +100,10 @@ For more accurate measurement:
 
 ```bash
 # Basic measurement
-tsx <path-to-this-skill>/measure-cls.ts http://localhost:3000
+npx tsx <path-to-this-skill>/measure-cls.ts http://localhost:3000
 
 # With scrolling to catch below-the-fold shifts
-tsx <path-to-this-skill>/measure-cls.ts http://localhost:3000 --scroll
+npx tsx <path-to-this-skill>/measure-cls.ts http://localhost:3000 --scroll
 ```
 
 ## Dashboard Waterfall Checks
@@ -92,7 +111,7 @@ tsx <path-to-this-skill>/measure-cls.ts http://localhost:3000 --scroll
 For this dashboard task, confirm that advanced insights really stays out of the critical path until the user opens it:
 
 ```bash
-tsx <path-to-this-skill>/measure-dashboard-waterfall.ts \
+npx tsx <path-to-this-skill>/measure-dashboard-waterfall.ts \
   "http://localhost:3000"
 ```
 
@@ -114,7 +133,7 @@ If `preClickJs` grows after the idle wait, you still have eager loading.
 Some bugs only appear after many clicks or tab switches. When that happens:
 
 ```bash
-tsx <path-to-this-skill>/measure-dashboard-soak.ts \
+npx tsx <path-to-this-skill>/measure-dashboard-soak.ts \
   "http://localhost:3000"
 ```
 
@@ -134,7 +153,7 @@ Output:
 When the report mentions a wrong or unstable first-load state, reproduce it with a stale local session already present. On this dashboard, run the same linked alert through both the phone and tablet profiles because the visual shift can be breakpoint-sensitive even after the wrong-filter bug is fixed:
 
 ```bash
-tsx <path-to-this-skill>/measure-dashboard-deeplink.ts \
+npx tsx <path-to-this-skill>/measure-dashboard-deeplink.ts \
   "http://localhost:3000/?filter=north-america&alert=retention-drop-na"
 ```
 
@@ -164,4 +183,4 @@ Output:
 }
 ```
 
-Do not stop after a single interaction when the bug is described as “gets worse over time”, and do not trust archived evidence over a fresh browser reproduction. On this task specifically, the soak script is the shortest path to the long-session regression and the deep-link script is the shortest path to the cold-start drift plus breakpoint-specific CLS plus linked-context misplacement.
+Do not stop after a single interaction when the bug is described as “gets worse over time”, and do not trust archived evidence over a fresh browser reproduction. On this task specifically, the bundled regression script is the fastest first pass; the soak script is the shortest path to the long-session regression, and the deep-link script is the shortest path to cold-start drift plus breakpoint-specific CLS plus linked-context misplacement.

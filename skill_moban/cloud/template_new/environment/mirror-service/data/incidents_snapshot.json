@@ -1,0 +1,114 @@
+{
+  "snapshot_id": "mirror-2026-04-18-01",
+  "generated_at": "2026-04-18T00:00:00Z",
+  "items": [
+    {
+      "tracking_id": "AZ-ACA-20260415-001",
+      "service": "Azure Container Apps",
+      "service_slug": "containerapps",
+      "region": "eastus2",
+      "summary_eligible": true,
+      "severity": "critical",
+      "status": "active",
+      "title": "Ingress revision routing failures for eastus2 workload profiles",
+      "opened_at": "2026-04-15T18:10:00Z",
+      "updated_at": "2026-04-16T01:30:00Z"
+    },
+    {
+      "tracking_id": "AZ-ACA-20260416-002",
+      "service": "Azure Container Apps",
+      "service_slug": "containerapps",
+      "region": "eastus2",
+      "summary_eligible": true,
+      "severity": "warning",
+      "status": "active",
+      "title": "Delayed revision activation during concurrent rollout waves",
+      "opened_at": "2026-04-16T07:25:00Z",
+      "updated_at": "2026-04-16T08:40:00Z"
+    },
+    {
+      "tracking_id": "AZ-STO-20260414-007",
+      "service": "Azure Storage",
+      "service_slug": "storage",
+      "region": "eastus2",
+      "summary_eligible": true,
+      "severity": "critical",
+      "status": "active",
+      "title": "Blob index lag causing delayed rollout artifact replication",
+      "opened_at": "2026-04-14T11:00:00Z",
+      "updated_at": "2026-04-14T12:05:00Z"
+    },
+    {
+      "tracking_id": "AZ-STO-20260412-004",
+      "service": "Azure Storage",
+      "service_slug": "storage",
+      "region": "eastus2",
+      "summary_eligible": false,
+      "severity": "warning",
+      "status": "resolved",
+      "title": "Intermittent metadata read latency on secondary replicas",
+      "opened_at": "2026-04-12T06:15:00Z",
+      "updated_at": "2026-04-12T09:05:00Z"
+    },
+    {
+      "tracking_id": "AZ-ACA-20260413-009",
+      "service": "Azure Container Apps",
+      "service_slug": "containerapps",
+      "region": "westus",
+      "summary_eligible": true,
+      "severity": "critical",
+      "status": "resolved",
+      "title": "Control plane rollout delay for private ingress environments",
+      "opened_at": "2026-04-13T03:45:00Z",
+      "updated_at": "2026-04-13T06:15:00Z"
+    },
+    {
+      "tracking_id": "AZ-SB-20260411-003",
+      "service": "Azure Service Bus",
+      "service_slug": "servicebus",
+      "region": "centralus",
+      "summary_eligible": true,
+      "severity": "critical",
+      "status": "active",
+      "title": "Namespace failover lag delaying rollout event fan-out",
+      "opened_at": "2026-04-11T09:20:00Z",
+      "updated_at": "2026-04-11T10:15:00Z"
+    },
+    {
+      "tracking_id": "AZ-SB-20260413-008",
+      "service": "Azure Service Bus",
+      "service_slug": "servicebus",
+      "region": "centralus",
+      "summary_eligible": true,
+      "severity": "warning",
+      "status": "resolved",
+      "title": "Transient duplicate delivery notices after broker recovery",
+      "opened_at": "2026-04-13T14:50:00Z",
+      "updated_at": "2026-04-13T16:05:00Z"
+    },
+    {
+      "tracking_id": "AZ-RDS-20260410-005",
+      "service": "Azure Cache for Redis",
+      "service_slug": "redis",
+      "region": "northeurope",
+      "summary_eligible": true,
+      "severity": "warning",
+      "status": "active",
+      "title": "Session cache eviction spikes during node patch cycles",
+      "opened_at": "2026-04-10T05:40:00Z",
+      "updated_at": "2026-04-10T06:00:00Z"
+    },
+    {
+      "tracking_id": "AZ-RDS-20260409-002",
+      "service": "Azure Cache for Redis",
+      "service_slug": "redis",
+      "region": "northeurope",
+      "summary_eligible": false,
+      "severity": "critical",
+      "status": "resolved",
+      "title": "Primary replica swap caused short-lived connection churn",
+      "opened_at": "2026-04-09T02:15:00Z",
+      "updated_at": "2026-04-09T03:05:00Z"
+    }
+  ]
+}

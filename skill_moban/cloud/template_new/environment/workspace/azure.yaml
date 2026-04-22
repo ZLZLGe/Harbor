@@ -1,0 +1,9 @@
+name: rollout-summary-api
+
+services:
+  api:
+    project: ./rollout-api
+    language: py
+    host: containerapp
+    docker:
+      remoteBuild: true

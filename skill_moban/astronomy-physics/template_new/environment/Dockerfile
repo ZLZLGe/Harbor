@@ -74,7 +74,12 @@ fi\n\
 \n\
 if [ -f /app/.codex/skills/exoplanet-workflows/build_and_submit_catalog_vetting.py ]; then\n\
   ln -sf /app/.codex/skills/exoplanet-workflows/build_and_submit_catalog_vetting.py /usr/local/bin/build_and_submit_catalog_vetting\n\
+  ln -sf /app/.codex/skills/exoplanet-workflows/build_and_submit_catalog_vetting.py /app/build_and_submit_catalog_vetting.py\n\
+  ln -sf /app/.codex/skills/exoplanet-workflows/submit_catalog_vetting.py /app/submit_catalog_vetting.py\n\
+  ln -sf /app/.codex/skills/exoplanet-workflows/probe_catalog_vetting.py /app/probe_catalog_vetting.py\n\
   chmod 755 /app/.codex/skills/exoplanet-workflows/build_and_submit_catalog_vetting.py\n\
+  chmod 755 /app/.codex/skills/exoplanet-workflows/submit_catalog_vetting.py\n\
+  chmod 755 /app/.codex/skills/exoplanet-workflows/probe_catalog_vetting.py\n\
   chmod 755 /usr/local/bin/build_and_submit_catalog_vetting\n\
 fi\n\
 \n\
@@ -110,12 +115,6 @@ if ! curl -fsS http://127.0.0.1:8124/health >/dev/null 2>&1; then\n\
   done\n\
 fi\n' > /etc/profile.d/observatory-bootstrap.sh \
     && chmod 644 /etc/profile.d/observatory-bootstrap.sh
-
-RUN printf 'if [ -f /app/.codex/skills/exoplanet-workflows/build_and_submit_catalog_vetting.py ] && [ ! -f /tmp/.catalog_vetting_skill_hint_shown ]; then\n\
-  echo \"Task skill available: build_and_submit_catalog_vetting\"\n\
-  touch /tmp/.catalog_vetting_skill_hint_shown\n\
-fi\n' > /etc/profile.d/task-skill-hint.sh \
-    && chmod 644 /etc/profile.d/task-skill-hint.sh
 
 USER appuser
 

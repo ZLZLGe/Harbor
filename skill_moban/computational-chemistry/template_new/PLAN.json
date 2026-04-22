@@ -1,0 +1,44 @@
+{
+  "task_id": "compchem__leadlike-screening-shortlist",
+  "task_name": "leadlike-screening-shortlist",
+  "template_category": "computational-chemistry",
+  "scenario": "screening a frozen medicinal-chemistry library into a deterministic lead-like shortlist",
+  "user_visible_goal": "Build a reproducible Python screening function that standardizes structures, preserves stereochemistry, applies structural alerts, and ranks lead-like candidates against reference actives.",
+  "input_assets": [
+    "/root/data/library/catalog_core.sdf",
+    "/root/data/library/supplemental.smi",
+    "/root/data/library/vendors.csv",
+    "/root/data/reference/actives.csv",
+    "/root/data/reference/rules.json",
+    "/root/data/reference/scoring.json"
+  ],
+  "required_outputs": [
+    "/root/workspace/solution.py"
+  ],
+  "shipped_skills": [
+    "rdkit-screening-diagnostics"
+  ],
+  "skill_hypothesis": {
+    "with_skill": "The solver is more likely to inspect parse and normalization behavior first, keep a stereo-safe dedupe key, align descriptor APIs with the task contract, and validate the rule matrix before assembling the final shortlist.",
+    "without_skill": "The solver is more likely to collapse stereoisomers, miss salt or duplicate consolidation details, choose the wrong descriptor variants, or short-cut the decision logic in a way that leaves at least one verifier failure."
+  },
+  "verifier_strategy": {
+    "main_tests": [
+      "The returned dict matches the required schema and numeric rounding contract.",
+      "Salt and duplicate representations merge into one standardized candidate while stereoisomers remain distinct.",
+      "Descriptor values, structural alerts, and keep/reject decisions match the shipped rules on representative compounds.",
+      "Maximum similarity to the reference actives is computed with a stereo-aware Morgan fingerprint configuration.",
+      "The shortlist order is deterministic and follows the shipped scoring rules."
+    ],
+    "guardrails": [
+      "Shuffling input file order or renaming library files does not change the behavioral result.",
+      "An alternate fixture with different compounds but the same task shape still passes.",
+      "Parsing must follow real molecular structures rather than metadata-only shortcuts.",
+      "Trivial always-keep or always-reject outputs do not pass."
+    ]
+  },
+  "data_provenance": {
+    "reference_source": "Small-molecule structures curated from PubChem compound records for common medicinal-chemistry exemplars, then frozen into a mixed SDF and SMILES library.",
+    "task_specific_curation": "The library intentionally includes duplicate representations, a salt form, a stereoisomer pair, alert-positive compounds, and borderline lead-like compounds to force real standardization and diagnosis."
+  }
+}

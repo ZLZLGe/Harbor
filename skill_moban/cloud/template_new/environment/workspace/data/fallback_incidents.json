@@ -1,0 +1,25 @@
+{
+  "snapshot_id": "fallback-cache-2026-04-14",
+  "items": [
+    {
+      "tracking_id": "AZ-ACA-20260415-001",
+      "service_slug": "containerapps",
+      "region": "eastus2",
+      "severity": "critical",
+      "status": "active",
+      "title": "Ingress revision routing failures for eastus2 workload profiles",
+      "opened_at": "2026-04-15T18:10:00Z",
+      "updated_at": "2026-04-15T18:10:00Z"
+    },
+    {
+      "tracking_id": "AZ-ACA-20260413-009",
+      "service_slug": "containerapps",
+      "region": "westus",
+      "severity": "critical",
+      "status": "resolved",
+      "title": "Control plane rollout delay for private ingress environments",
+      "opened_at": "2026-04-13T03:45:00Z",
+      "updated_at": "2026-04-13T06:15:00Z"
+    }
+  ]
+}

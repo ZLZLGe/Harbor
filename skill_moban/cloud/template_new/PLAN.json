@@ -1,0 +1,37 @@
+{
+  "derivedTaskId": "azure-container-apps-rollout-preflight-repair",
+  "taskRole": "template",
+  "title": "Template: Azure Container Apps Rollout Preflight Repair",
+  "goal": "Repair a realistic Azure Container Apps style rollout so the public rollout-summary API can deploy a healthy revision and continue to serve data through a real localhost mirror service using the configured managed-identity style headers.",
+  "primaryOutputFile": "/app/workspace",
+  "difficulty": "hard",
+  "category": "cloud",
+  "skillBenefitRationale": "The bound skill standardizes deployment preflight, revision-health inspection, mirror audit collection, and contract-matrix verification against a hidden localhost downstream service. Without the skill the task remains theoretically solvable through the visible workspace, docs, control-plane endpoints, and live public behavior, but the solver must manually reconstruct both the deployment faults and the mirror-backed summary semantics without direct access to hidden service source or frozen snapshot data.",
+  "targetSkillDirName": "azure-deployment-preflight",
+  "targetSkillName": "azure-deployment-preflight",
+  "taskShape": "cloud-deployment-debugging",
+  "designGoals": [
+    "Keep with-skill and without-skill identical except for environment/skills and its copy logic.",
+    "Preserve a real cloud-style chain inside one container: control plane, deployed app, and hidden downstream mirror service.",
+    "Test deployability, public behavior, and downstream reachability instead of a single exact implementation.",
+    "Force the solver to diagnose both infrastructure-template issues and application-level runtime issues."
+  ],
+  "verifierDesign": {
+    "mainTests": [
+      "Applying the current template produces a healthy revision through the local control plane.",
+      "The public rollout summary endpoint returns the frozen mirror snapshot and correct per-service counts.",
+      "Incident ordering is descending by opened_at instead of relying on stale fallback ordering.",
+      "Health checks and public responses remain tied to the live mirror-backed chain after redeploy."
+    ],
+    "guardrails": [
+      "Hidden control-plane and mirror-service code plus frozen mirror data stay unchanged.",
+      "Public requests must still generate real mirror audit events.",
+      "Static fallback payloads, bypassing the local mirror, or deleting deployment semantics do not pass."
+    ]
+  },
+  "readmeRequirements": [
+    "Summarize the cloud template principles against high-signal SkillsMP cloud skills such as azure-deployment-preflight, cloud-architect, and containerization-style deployment skills.",
+    "Include oracle and with/without-skill experiment results only after real E2B runs complete.",
+    "Frame skill relevance as lower diagnosis cost across template validation, revision health, and real-chain verification."
+  ]
+}

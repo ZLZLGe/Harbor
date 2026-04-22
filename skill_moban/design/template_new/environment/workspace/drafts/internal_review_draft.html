@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AtlasFlow Review Launch Storyboard</title>
+    <style>
+      :root {
+        --ink: #132235;
+        --accent: #ff6b3d;
+        --mist: #eef3f7;
+        --sky: #d8e7f5;
+        --paper: #fcfbf8;
+        --muted: #5f6f81;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background: linear-gradient(180deg, #f6f7f9 0%, #e7edf3 100%);
+        color: var(--ink);
+        overflow: hidden;
+      }
+      .deck {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+      }
+      .slide {
+        display: none;
+        height: 100vh;
+        padding: 36px 42px 84px;
+        overflow: hidden;
+      }
+      .slide.active { display: grid; }
+      .slide-grid { grid-template-rows: auto auto 1fr auto; gap: 14px; }
+      .kicker {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+      }
+      h1, h2, h3 {
+        margin: 0;
+        line-height: 1.04;
+      }
+      h1 { font-size: clamp(2.4rem, 3.8vw, 4rem); max-width: 1100px; }
+      h2 { font-size: clamp(1.8rem, 2.8vw, 2.9rem); max-width: 1100px; }
+      h3 { font-size: 1.1rem; }
+      p, li, th, td {
+        font-size: 0.92rem;
+        line-height: 1.4;
+      }
+      .lede {
+        max-width: 760px;
+        font-size: 1rem;
+      }
+      .source-chip {
+        display: inline-block;
+        padding: 7px 11px;
+        border-radius: 999px;
+        background: rgba(19, 34, 53, 0.08);
+        color: var(--muted);
+        font-size: 0.76rem;
+        margin-right: 8px;
+        margin-top: 6px;
+      }
+      .hero-grid,
+      .comparison-grid,
+      .evidence-grid,
+      .risk-grid,
+      .journey-wrap,
+      .metric-row {
+        display: grid;
+        gap: 14px;
+      }
+      .hero-grid { grid-template-columns: 1.45fr 1fr; align-items: start; }
+      .comparison-grid { grid-template-columns: 1.18fr 0.82fr; }
+      .evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .journey-wrap { grid-template-columns: 1.16fr 0.84fr; align-items: start; }
+      .risk-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .panel,
+      .quote-card,
+      .risk-card,
+      .metric-card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        padding: 16px;
+        box-shadow: 0 18px 32px rgba(19, 34, 53, 0.08);
+      }
+      .metric-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .metric-card strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 1.4rem;
+      }
+      .chart {
+        display: grid;
+        grid-template-columns: repeat(9, minmax(0, 1fr));
+        align-items: end;
+        gap: 8px;
+        height: 200px;
+        padding: 8px 0 6px;
+      }
+      .chart-bar {
+        display: grid;
+        align-items: end;
+        gap: 8px;
+      }
+      .chart-bar span {
+        display: block;
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+        background: linear-gradient(180deg, #ff835b 0%, #ff6b3d 100%);
+      }
+      .chart-bar label {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.72rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+      }
+      th, td {
+        padding: 7px 6px;
+        border-bottom: 1px solid rgba(19, 34, 53, 0.1);
+        text-align: left;
+      }
+      .yes { color: #0d6c49; font-weight: 700; }
+      .partial { color: #8d5d00; font-weight: 700; }
+      .no { color: #b22a1f; font-weight: 700; }
+      svg {
+        width: 100%;
+        height: 338px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        box-shadow: 0 18px 32px rgba(19, 34, 53, 0.08);
+      }
+      .journey-note {
+        background: rgba(216, 231, 245, 0.8);
+        border-radius: 16px;
+        padding: 14px;
+        margin-bottom: 12px;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+      }
+      .indicator {
+        position: absolute;
+        left: 24px;
+        bottom: 20px;
+        display: flex;
+        gap: 8px;
+      }
+      .indicator span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(19, 34, 53, 0.18);
+      }
+      .indicator span.active { background: var(--accent); }
+      .nav {
+        position: absolute;
+        right: 24px;
+        bottom: 20px;
+        display: flex;
+        gap: 10px;
+      }
+      .nav button {
+        border: none;
+        border-radius: 999px;
+        padding: 8px 14px;
+        background: var(--ink);
+        color: #fff;
+        cursor: pointer;
+      }
+      @media (min-width: 1360px) and (min-height: 860px) {
+        .slide {
+          padding: 44px 52px 88px;
+        }
+        .slide-grid {
+          gap: 18px;
+        }
+        h1 { font-size: clamp(2.8rem, 4vw, 4.3rem); }
+        h2 { font-size: clamp(2rem, 3vw, 3.1rem); }
+        p, li, th, td { font-size: 0.98rem; }
+        .chart { height: 250px; gap: 10px; }
+        .metric-card strong { font-size: 1.7rem; }
+        svg { height: 420px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck">
+      <section class="slide slide-grid active" data-slide-index="0" data-slide-role="cover">
+        <div class="kicker">AtlasFlow Review launch storyboard</div>
+        <h1>AtlasFlow Review gives launch teams one visible approval path.</h1>
+        <div class="hero-grid">
+          <div class="panel">
+            <p class="lede">
+              The launch story is strongest when framed as operational clarity, not generic productivity.
+              Over the latest review window, approval hours, late changes, and review cycles all move in the
+              right direction while launch reliability and stakeholder adoption improve together.
+            </p>
+            <ul>
+              <li>Active workspaces rise from 112 to 173 during the latest nine-week window.</li>
+              <li>Median approval time falls from 41 hours to 24 hours as on-time launch rate reaches 89%.</li>
+              <li>The product story is most credible when we frame AtlasFlow Review as the structured review layer for launch-heavy teams.</li>
+            </ul>
+          </div>
+          <aside class="panel">
+            <h3>Leadership takeaway</h3>
+            <p>
+              Launch now with an operations-forward story: AtlasFlow Review is strongest when review routing,
+              sign-off ownership, and launch readiness all need to stay visible in one place.
+            </p>
+            <p data-quote-id="q3" data-source-ref="/app/workspace/data/customer_quotes.json">Leadership finally had a clean readiness summary without asking every regional team for a manual status update.</p>
+          </aside>
+        </div>
+        <div class="footer">
+          <div>
+            <span class="source-chip" data-source-ref="/app/workspace/brief/creative_brief.md">Source: creative_brief.md</span>
+            <span class="source-chip" data-source-ref="/app/workspace/data/customer_quotes.json">Source: customer_quotes.json</span>
+            <span class="source-chip" data-source-ref="/app/workspace/mirror/site/index.html">Source: mirror/site/index.html</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-grid" data-slide-index="1" data-slide-role="kpi-overview">
+        <div class="kicker">Readiness signals</div>
+        <h2>Readiness signals point to faster, steadier launch review.</h2>
+        <div class="metric-row">
+          <div class="metric-card" data-kpi-metric="median_approval_hours" data-kpi-latest="24" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+            <div class="kicker">Median approval</div>
+            <strong>24h</strong>
+            <p>Down from 41h over the observed window.</p>
+          </div>
+          <div class="metric-card" data-kpi-metric="on_time_launch_rate" data-kpi-latest="0.89" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+            <div class="kicker">On-time launch rate</div>
+            <strong>89%</strong>
+            <p>Improves as review cycles tighten and blockers surface earlier.</p>
+          </div>
+          <div class="metric-card" data-kpi-metric="stakeholder_adoption_rate" data-kpi-latest="0.72" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+            <div class="kicker">Stakeholder adoption</div>
+            <strong>72%</strong>
+            <p>Cross-functional usage is now broad enough to support a launch narrative.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="chart" aria-label="Approval hours by week">
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-02-16" data-chart-metric="median_approval_hours" data-chart-value="41" style="height: 100%"></span>
+              <label>02/16</label>
+            </div>
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-02-23" data-chart-metric="median_approval_hours" data-chart-value="39" style="height: 95%"></span>
+              <label>02/23</label>
+            </div>
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-03-02" data-chart-metric="median_approval_hours" data-chart-value="36" style="height: 88%"></span>
+              <label>03/02</label>
+            </div>
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-03-09" data-chart-metric="median_approval_hours" data-chart-value="34" style="height: 83%"></span>
+              <label>03/09</label>
+            </div>
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-03-16" data-chart-metric="median_approval_hours" data-chart-value="31" style="height: 76%"></span>
+              <label>03/16</label>
+            </div>
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-03-23" data-chart-metric="median_approval_hours" data-chart-value="29" style="height: 71%"></span>
+              <label>03/23</label>
+            </div>
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-03-30" data-chart-metric="median_approval_hours" data-chart-value="28" style="height: 68%"></span>
+              <label>03/30</label>
+            </div>
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-04-06" data-chart-metric="median_approval_hours" data-chart-value="26" style="height: 63%"></span>
+              <label>04/06</label>
+            </div>
+            <div class="chart-bar" data-source-ref="/app/workspace/data/weekly_kpis.csv">
+              <span data-chart-bar data-chart-week="2026-04-13" data-chart-metric="median_approval_hours" data-chart-value="24" style="height: 59%"></span>
+              <label>04/13</label>
+            </div>
+          </div>
+          <p class="lede">
+            The launch signal is not just adoption growth. It is the simultaneous drop in approval hours,
+            review cycles, and late changes while launch reliability improves.
+          </p>
+        </div>
+        <div class="footer">
+          <div>
+            <span class="source-chip" data-source-ref="/app/workspace/data/weekly_kpis.csv">Source: weekly_kpis.csv</span>
+            <span class="source-chip" data-source-ref="/app/workspace/brief/creative_brief.md">Source: creative_brief.md</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-grid" data-slide-index="2" data-slide-role="comparison">
+        <div class="kicker">Capability position</div>
+        <h2>AtlasFlow Review is strongest where review routing and sign-off need structure.</h2>
+        <div class="comparison-grid">
+          <div class="panel">
+            <table>
+              <thead>
+                <tr><th>Capability</th><th>AtlasFlow</th><th>Notion</th><th>Airtable</th><th>Monday</th></tr>
+              </thead>
+              <tbody>
+                <tr data-capability="Structured review stages" data-source-ref="/app/workspace/data/feature_matrix.csv">
+<td>Structured review stages</td><td class="yes">Yes</td><td class="partial">Partial</td><td class="partial">Partial</td><td class="partial">Partial</td>
+                </tr>
+                <tr data-capability="Role-based sign-off routing" data-source-ref="/app/workspace/data/feature_matrix.csv">
+<td>Role-based sign-off routing</td><td class="yes">Yes</td><td class="no">No</td><td class="partial">Partial</td><td class="partial">Partial</td>
+                </tr>
+                <tr data-capability="Version-aware creative comments" data-source-ref="/app/workspace/data/feature_matrix.csv">
+<td>Version-aware creative comments</td><td class="yes">Yes</td><td class="partial">Partial</td><td class="no">No</td><td class="partial">Partial</td>
+                </tr>
+                <tr data-capability="Launch readiness checklist" data-source-ref="/app/workspace/data/feature_matrix.csv">
+<td>Launch readiness checklist</td><td class="yes">Yes</td><td class="partial">Partial</td><td class="partial">Partial</td><td class="yes">Yes</td>
+                </tr>
+                <tr data-capability="Asset approval SLA tracking" data-source-ref="/app/workspace/data/feature_matrix.csv">
+<td>Asset approval SLA tracking</td><td class="yes">Yes</td><td class="no">No</td><td class="partial">Partial</td><td class="partial">Partial</td>
+                </tr>
+                <tr data-capability="Proofing for static creative" data-source-ref="/app/workspace/data/feature_matrix.csv">
+<td>Proofing for static creative</td><td class="yes">Yes</td><td class="partial">Partial</td><td class="no">No</td><td class="partial">Partial</td>
+                </tr>
+                <tr data-capability="Executive launch summary view" data-source-ref="/app/workspace/data/feature_matrix.csv">
+<td>Executive launch summary view</td><td class="yes">Yes</td><td class="partial">Partial</td><td class="partial">Partial</td><td class="partial">Partial</td>
+                </tr>
+                <tr data-capability="Regional handoff visibility" data-source-ref="/app/workspace/data/feature_matrix.csv">
+<td>Regional handoff visibility</td><td class="yes">Yes</td><td class="no">No</td><td class="partial">Partial</td><td class="yes">Yes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel">
+            <h3>How to frame the comparison</h3>
+            <ul>
+              <li>Do not position AtlasFlow Review as a universal work-management replacement.</li>
+              <li>Position it as the most structured option when launches require sequenced review, accountable sign-off, and executive readiness visibility.</li>
+              <li>Keep adjacent planning or tracking workflows in familiar tools where the matrix shows only partial overlap.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer">
+          <div>
+            <span class="source-chip" data-source-ref="/app/workspace/data/feature_matrix.csv">Source: feature_matrix.csv</span>
+            <span class="source-chip" data-source-ref="/app/workspace/brief/creative_brief.md">Source: creative_brief.md</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-grid" data-slide-index="3" data-slide-role="evidence">
+        <div class="kicker">Customer evidence</div>
+        <h2>Customer evidence is strongest on visibility, accountability, and launch readiness.</h2>
+        <div class="evidence-grid">
+          <article class="quote-card" data-quote-id="q1" data-source-ref="/app/workspace/data/customer_quotes.json"><p>The biggest win wasn&#x27;t fewer comments. It was seeing which launch assets were still blocked and who actually needed to sign off.</p><strong>Mira Chen, Director of Brand Operations</strong></article>
+          <article class="quote-card" data-quote-id="q2" data-source-ref="/app/workspace/data/customer_quotes.json"><p>Before AtlasFlow Review, our launch files moved through inboxes and chats. The product gave us one review path instead of four conflicting ones.</p><strong>Daniel Ruiz, Creative Production Lead</strong></article>
+          <article class="quote-card" data-quote-id="q3" data-source-ref="/app/workspace/data/customer_quotes.json"><p>Leadership finally had a clean readiness summary without asking every regional team for a manual status update.</p><strong>Asha Patel, Campaign Program Manager</strong></article>
+          <article class="quote-card" data-quote-id="q4" data-source-ref="/app/workspace/data/customer_quotes.json"><p>AtlasFlow Review helped us cut the last-minute approval churn, but we still keep external agency review in a separate system.</p><strong>Jonas Meyer, Marketing Operations Manager</strong></article>
+        </div>
+        <div class="footer">
+          <div>
+            <span class="source-chip" data-source-ref="/app/workspace/data/customer_quotes.json">Source: customer_quotes.json</span>
+            <span class="source-chip" data-source-ref="/app/workspace/brief/creative_brief.md">Source: creative_brief.md</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-grid" data-slide-index="4" data-slide-role="journey-diagram">
+        <div class="kicker">Intended workflow</div>
+        <h2>The intended workflow moves from intake to sign-off with explicit rework loops.</h2>
+        <div class="journey-wrap">
+          <svg viewBox="0 0 1000 430" aria-label="Campaign review flow">
+            <defs>
+              <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+                <path d="M0,0 L12,6 L0,12 z" fill="#ff6b3d"></path>
+              </marker>
+            </defs>
+            <path data-journey-edge data-journey-edge-from="intake" data-journey-edge-to="triage" data-source-ref="/app/workspace/data/user_journey.json" d="M120 100 L280 100" stroke="#ff6b3d" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="triage" data-journey-edge-to="creative_review" data-source-ref="/app/workspace/data/user_journey.json" d="M360 100 L440 100" stroke="#ff6b3d" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="creative_review" data-journey-edge-to="brand_review" data-source-ref="/app/workspace/data/user_journey.json" d="M520 100 L600 100" stroke="#ff6b3d" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="brand_review" data-journey-edge-to="regional_review" data-source-ref="/app/workspace/data/user_journey.json" d="M680 100 L760 100" stroke="#ff6b3d" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="regional_review" data-journey-edge-to="exec_summary" data-source-ref="/app/workspace/data/user_journey.json" d="M840 100 L900 200" stroke="#ff6b3d" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="exec_summary" data-journey-edge-to="signoff" data-source-ref="/app/workspace/data/user_journey.json" d="M900 270 L760 340" stroke="#ff6b3d" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="creative_review" data-journey-edge-to="rework" data-source-ref="/app/workspace/data/user_journey.json" d="M520 145 L380 300" stroke="#8c9bad" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="brand_review" data-journey-edge-to="rework" data-source-ref="/app/workspace/data/user_journey.json" d="M680 145 L410 320" stroke="#8c9bad" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="regional_review" data-journey-edge-to="rework" data-source-ref="/app/workspace/data/user_journey.json" d="M840 145 L430 335" stroke="#8c9bad" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <path data-journey-edge data-journey-edge-from="rework" data-journey-edge-to="creative_review" data-source-ref="/app/workspace/data/user_journey.json" d="M360 280 L500 145" stroke="#8c9bad" stroke-width="4" fill="none" marker-end="url(#arrow)"></path>
+            <g data-journey-node data-journey-node-id="intake" data-source-ref="/app/workspace/data/user_journey.json">
+              <rect x="40" y="55" width="160" height="90" rx="18" fill="#ffffff"></rect>
+              <text x="120.0" y="95.0" text-anchor="middle" font-size="22" fill="#132235">Launch Intake</text>
+            </g>
+            <g data-journey-node data-journey-node-id="triage" data-source-ref="/app/workspace/data/user_journey.json">
+              <rect x="240" y="55" width="160" height="90" rx="18" fill="#ffffff"></rect>
+              <text x="320.0" y="95.0" text-anchor="middle" font-size="22" fill="#132235">Ops Triage</text>
+            </g>
+            <g data-journey-node data-journey-node-id="creative_review" data-source-ref="/app/workspace/data/user_journey.json">
+              <rect x="440" y="55" width="160" height="90" rx="18" fill="#ffffff"></rect>
+              <text x="520.0" y="95.0" text-anchor="middle" font-size="22" fill="#132235">Creative Review</text>
+            </g>
+            <g data-journey-node data-journey-node-id="brand_review" data-source-ref="/app/workspace/data/user_journey.json">
+              <rect x="600" y="55" width="160" height="90" rx="18" fill="#ffffff"></rect>
+              <text x="680.0" y="95.0" text-anchor="middle" font-size="20" fill="#132235">Brand Review</text>
+            </g>
+            <g data-journey-node data-journey-node-id="regional_review" data-source-ref="/app/workspace/data/user_journey.json">
+              <rect x="760" y="55" width="160" height="90" rx="18" fill="#ffffff"></rect>
+              <text x="840.0" y="95.0" text-anchor="middle" font-size="20" fill="#132235">Regional Review</text>
+            </g>
+            <g data-journey-node data-journey-node-id="exec_summary" data-source-ref="/app/workspace/data/user_journey.json">
+              <rect x="820" y="180" width="150" height="90" rx="18" fill="#d8e7f5"></rect>
+              <text x="895.0" y="220.0" text-anchor="middle" font-size="22" fill="#132235">Exec Summary</text>
+            </g>
+            <g data-journey-node data-journey-node-id="signoff" data-source-ref="/app/workspace/data/user_journey.json">
+              <rect x="610" y="300" width="170" height="90" rx="18" fill="#ffffff"></rect>
+              <text x="695.0" y="340.0" text-anchor="middle" font-size="22" fill="#132235">Launch Sign-off</text>
+            </g>
+            <g data-journey-node data-journey-node-id="rework" data-source-ref="/app/workspace/data/user_journey.json">
+              <rect x="240" y="280" width="180" height="90" rx="18" fill="#fff3ee"></rect>
+              <text x="330.0" y="320.0" text-anchor="middle" font-size="22" fill="#132235">Rework Loop</text>
+            </g>
+          </svg>
+          <div class="panel">
+            <div class="journey-note">
+              AtlasFlow Review is most persuasive when the workflow stays staged and accountable:
+              intake, triage, review, regional confirmation, executive summary, and sign-off, with a visible rework loop.
+            </div>
+            <article class="quote-card" data-quote-id="q2" data-source-ref="/app/workspace/data/customer_quotes.json"><p>The product feels strongest when regional launch teams need clarity on status, dependencies, and the exact next approver.</p><strong>Noelle Brooks, VP Marketing</strong></article>
+            <ul>
+              <li>Operations owns triage and deadline integrity.</li>
+              <li>Creative, brand, and regional handoffs become visible instead of implicit.</li>
+              <li>Leadership sees blockers before the final sign-off moment.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer">
+          <div>
+            <span class="source-chip" data-source-ref="/app/workspace/data/user_journey.json">Source: user_journey.json</span>
+            <span class="source-chip" data-source-ref="/app/workspace/brief/creative_brief.md">Source: creative_brief.md</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide slide-grid" data-slide-index="5" data-slide-role="risks-next-steps">
+        <div class="kicker">Risks and next steps</div>
+        <h2>Launch confidence is real, but external review and multilingual workflows remain out of scope.</h2>
+        <div class="risk-grid">
+          <article class="risk-card">
+            <h3>Risk</h3>
+            <p>Partner approvals still sit outside the strongest product workflow and should not be overclaimed in launch messaging.</p>
+          </article>
+          <article class="risk-card">
+            <h3>Boundary</h3>
+            <p>The story is grounded in structured launch review and executive readiness visibility. It should not be stretched into a universal planning narrative.</p>
+          </article>
+          <article class="risk-card">
+            <h3>Next step</h3>
+            <p>Use the launch window to validate whether regional teams need deeper localized review support before broadening the scope narrative.</p>
+          </article>
+        </div>
+        <div class="panel" data-quote-id="q4" data-source-ref="/app/workspace/data/customer_quotes.json">
+          <p>AtlasFlow Review helped us cut the last-minute approval churn, but partner approvals still happen outside the main release path.</p>
+          <strong>Jonas Meyer, Marketing Operations Manager</strong>
+        </div>
+        <div class="footer">
+          <div>
+            <span class="source-chip" data-source-ref="/app/workspace/brief/creative_brief.md">Source: creative_brief.md</span>
+            <span class="source-chip" data-source-ref="/app/workspace/data/customer_quotes.json">Source: customer_quotes.json</span>
+            <span class="source-chip" data-source-ref="/app/workspace/specs/deck_contract.md">Source: deck_contract.md</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="indicator" data-active-slide-indicator aria-label="slide progress">
+        <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <nav class="nav">
+        <button type="button" data-nav-prev>Previous</button>
+        <button type="button" data-nav-next>Next</button>
+      </nav>
+    </main>
+    <script>
+      (() => {
+        const slides = Array.from(document.querySelectorAll(".slide"));
+        const dots = Array.from(document.querySelectorAll(".indicator span"));
+        const prev = document.querySelector("[data-nav-prev]");
+        const next = document.querySelector("[data-nav-next]");
+        let active = 0;
+
+        function render() {
+          slides.forEach((slide, index) => {
+            slide.classList.toggle("active", index === active);
+            slide.setAttribute("aria-hidden", index === active ? "false" : "true");
+          });
+          dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === active);
+            dot.setAttribute("aria-current", index === active ? "true" : "false");
+          });
+        }
+
+        function setActive(index) {
+          active = Math.max(0, Math.min(slides.length - 1, index));
+          render();
+        }
+
+        prev.addEventListener("click", () => setActive(active - 1));
+        next.addEventListener("click", () => setActive(active + 1));
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowRight") setActive(active + 1);
+          if (event.key === "ArrowLeft") setActive(active - 1);
+        });
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

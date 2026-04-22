@@ -1,0 +1,47 @@
+[
+  {
+    "quote_id": "q1",
+    "speaker_name": "Mira Chen",
+    "speaker_role": "Director of Brand Operations",
+    "company_segment": "Global consumer app",
+    "quote_text": "The biggest win wasn't fewer comments. It was seeing which launch assets were still blocked and who actually needed to sign off.",
+    "allowed_use": "public-anonymized",
+    "slide_hint": "evidence"
+  },
+  {
+    "quote_id": "q2",
+    "speaker_name": "Daniel Ruiz",
+    "speaker_role": "Creative Production Lead",
+    "company_segment": "Regional retail group",
+    "quote_text": "Before AtlasFlow Review, our launch files moved through inboxes and chats. The product gave us one review path instead of four conflicting ones.",
+    "allowed_use": "public-anonymized",
+    "slide_hint": "evidence"
+  },
+  {
+    "quote_id": "q3",
+    "speaker_name": "Asha Patel",
+    "speaker_role": "Campaign Program Manager",
+    "company_segment": "B2B SaaS scale-up",
+    "quote_text": "Leadership finally had a clean readiness summary without asking every regional team for a manual status update.",
+    "allowed_use": "public-anonymized",
+    "slide_hint": "cover"
+  },
+  {
+    "quote_id": "q4",
+    "speaker_name": "Jonas Meyer",
+    "speaker_role": "Marketing Operations Manager",
+    "company_segment": "European subscription business",
+    "quote_text": "AtlasFlow Review helped us cut the last-minute approval churn, but we still keep external agency review in a separate system.",
+    "allowed_use": "public-anonymized",
+    "slide_hint": "risks-next-steps"
+  },
+  {
+    "quote_id": "q5",
+    "speaker_name": "Noelle Brooks",
+    "speaker_role": "VP Marketing",
+    "company_segment": "Mid-market ecommerce brand",
+    "quote_text": "The product feels strongest when regional launch teams need clarity on status, dependencies, and the exact next approver.",
+    "allowed_use": "public-anonymized",
+    "slide_hint": "journey-diagram"
+  }
+]

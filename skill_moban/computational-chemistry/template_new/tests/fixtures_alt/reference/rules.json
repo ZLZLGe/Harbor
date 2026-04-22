@@ -1,0 +1,55 @@
+{
+  "normalization": {
+    "cleanup": true,
+    "keep_largest_fragment": true,
+    "neutralize": true,
+    "dedupe_key": "canonical_isomeric_smiles"
+  },
+  "lead_like": {
+    "molecular_weight": {
+      "op": "<=",
+      "value": 350.0
+    },
+    "logp": {
+      "op": "<=",
+      "value": 3.5
+    },
+    "tpsa": {
+      "op": "<=",
+      "value": 110.0
+    },
+    "hbd": {
+      "op": "<=",
+      "value": 2
+    },
+    "hba": {
+      "op": "<=",
+      "value": 6
+    },
+    "rotatable_bonds": {
+      "op": "<=",
+      "value": 6
+    }
+  },
+  "alerts": [
+    {
+      "name": "nitro_aromatic",
+      "smarts": "[c][N+](=O)[O-]",
+      "blocking": true
+    },
+    {
+      "name": "catechol",
+      "smarts": "c1c(O)c(O)ccc1",
+      "blocking": true
+    },
+    {
+      "name": "aniline",
+      "smarts": "[NH2]-[c]",
+      "blocking": true
+    }
+  ],
+  "decision": {
+    "require_all_lead_like": true,
+    "reject_blocking_alerts": true
+  }
+}

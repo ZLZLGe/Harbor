@@ -1,0 +1,5 @@
+{"order_id":"o-2001","line_id":1,"event_type":"shipped","event_ts":"2026-04-02T14:00:00Z","ingested_at":"2026-04-02T14:01:00Z"}
+{"order_id":"o-2001","line_id":1,"event_type":"delivered","event_ts":"2026-04-03T09:00:00Z","ingested_at":"2026-04-03T09:01:00Z"}
+{"order_id":"o-2002","line_id":1,"event_type":"shipped","event_ts":"2026-04-03T12:00:00Z","ingested_at":"2026-04-03T12:01:00Z"}
+{"order_id":"o-2002","line_id":1,"event_type":"delivered","event_ts":"2026-04-04T10:00:00Z","ingested_at":"2026-04-04T10:01:00Z"}
+{"order_id":"o-2004","line_id":1,"event_type":"shipped","event_ts":"2026-04-02T15:30:00Z","ingested_at":"2026-04-02T15:31:00Z"}

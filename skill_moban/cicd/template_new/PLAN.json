@@ -1,0 +1,19 @@
+{
+  "derivedTaskId": "github-actions-release-bundle-dryrun-repair",
+  "taskRole": "template",
+  "title": "Template: GitHub Actions Release Bundle Dry-Run Repair",
+  "goal": "Repair a GitHub Actions-style multi-stage release dry-run so that it preserves the inspect/package/attest/promote pipeline shape, produces a complete release bundle, and continues to rely on a real local broker service for candidate, provenance, and promotion-plan data.",
+  "primaryOutputFile": "/app/workspace/out",
+  "difficulty": "hard",
+  "category": "cicd",
+  "skillBenefitRationale": "The CI/CD category benefits because the skill acts as a release-audit probe: it standardizes pipeline graph inspection, broker-backed contract checks, and bundle diffing. Without those probes, the task remains solvable but the agent must manually discover the stage-ordering bug, stale fallback path, and promotion contract mismatch.",
+  "targetSkillDirName": "github-actions-release-audit",
+  "targetSkillName": "github-actions-release-audit",
+  "skillsmpInspiration": [
+    "github.md",
+    "github-actions-templates.md",
+    "deployment-pipeline-design.md",
+    "azure-pipelines.md",
+    "triage-ci-flake.md"
+  ]
+}

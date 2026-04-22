@@ -1,0 +1,41 @@
+version = "1.0"
+
+[metadata]
+id = "marketplace-cdc-publish-bundle"
+name = "Template: Marketplace CDC Publish Bundle"
+author_name = "OpenAI Codex"
+author_email = "support@openai.com"
+difficulty = "hard"
+category = "data-engineering"
+tags = [
+  "data-engineering",
+  "cdc",
+  "etl",
+  "duckdb",
+  "data-quality",
+  "schema-evolution",
+  "publish-audit",
+  "warehouse",
+  "marketplace",
+]
+required_skills = [
+  "cdc-lakehouse-publish",
+]
+
+[verifier]
+timeout_sec = 1400.0
+
+[agent]
+timeout_sec = 1400.0
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

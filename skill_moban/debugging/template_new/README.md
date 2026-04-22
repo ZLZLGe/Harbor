@@ -58,27 +58,21 @@ Verifier 策略：
 - 主测：Deep-link 稳定性、按需加载机制、长会话运行时稳定性。
 - 防作弊：拦截篡改隐藏服务、替换真实数据、移除关键 `data-testid` 等伪修复行为。
 
-数据质量：
-
-- 使用复杂、非 Toy 级别的 Dashboard 真实数据流。
-- 隐藏服务校验链路完整通过。
-
 多模态：
 
 - 不适用（纯前端 / 浏览器运行时任务）。
 
 ## ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把浏览器探针、deeplink 量测和 soak 复现路径标准化，从而明显降低诊断成本；而我们新增的 drawer-scoped linked context 约束，依然能拦下只修表层症状的解法。
+结论：强相关。这个任务里，Skill 的核心价值不是单纯提速，而是把浏览器探针、deeplink 量测和 soak 复现路径标准化，强迫 agent 真的碰到冷启动 deeplink 的 CLS 回归与抽屉上下文约束；没有 Skill 时，agent 虽然更快结束，但会稳定停在“表面看起来差不多、task-level 仍不过”的错误解。
 
-基于最近 `2` 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 `3` 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0` | `50%` | 近两次有效对照里，With Skill 已出现稳定通过案例；Without Skill 仍未出现通过 |
-| 总耗时 | `831.6s` | `591.0s` | With Skill 更快，平均总耗时降低约 `29%` |
-| Agent 执行耗时 | `779.9s` | `528.1s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `32%` |
-| Input Tokens | `2.24M` | `1.33M` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.69x` |
+| 通过率 | `0%` | `100%` | 近三次有效对照里，With Skill 连续 3 次 task-level 全通过；Without Skill 连续 3 次都未能通过 |
+| 总耗时 | `1332.2s` | `1682.7s` | With Skill 更慢，但换来稳定通过；Without Skill 更快结束却稳定停在错误解 |
+| Input Tokens | `0.69M` | `1.91M` | With Skill 会显著增加诊断上下文与验证开销，平均输入 token 约为 Without Skill 的 `2.78x` |
 
 
 

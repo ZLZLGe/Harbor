@@ -1,28 +1,21 @@
-You are the on-call engineer for a Next.js analytics dashboard with live browser regressions.
+你是一个 Next.js analytics dashboard 的 on-call engineer，需要处理当前线上浏览器回归问题。
 
-Inputs:
-- `/app`: the application code under investigation
-- hidden downstream service code under `/services/api-simulator` is part of the environment baseline and must not be edited
+输入数据在：
 
-The dashboard currently exhibits three production symptoms:
-- opening a linked alert on a cold browser start is visually unstable, and the same alert can come back under the wrong active filter after refresh
-- the analytics timeline feels too heavy before advanced insights are explicitly opened
-- repeated filtering, drawer toggling, and timeline refreshes gradually make the page less responsive until the tab is refreshed
+- `/app`：正在排查的问题应用代码
+- `/services/api-simulator`：隐藏的下游服务代码，属于环境基线的一部分，且不得编辑
 
-Your job is to diagnose and fix the application in place.
-Reproduce and measure the live browser behavior yourself. Focus on what the running app actually does.
+你的任务是处理当前 dashboard 存在的三个生产问题：
 
-Key business constraints:
-- The dashboard homepage must continue rendering the real bundled analytics data
-- The alert drawer flow must keep working with its public `data-testid` hooks intact
-- The linked alert context must continue rendering as part of the alert detail experience on the dashboard deeplink path
-- The advanced insights panel must keep rendering correctly; do not remove `data-testid="advanced-insights-panel"`
-- The real downstream analytics service must remain part of the runtime path after your fix
+- 视觉稳定性与状态错乱：修复冷启动下打开告警链接时的视觉抖动，以及刷新后告警显示在错误过滤器下的问题。
+- 资源加载沉重：解决高级洞察（Advanced Insights）开启前，分析时间轴初始加载过重的问题。
+- 内存泄漏与卡顿：修复因重复过滤、侧边栏切换和时间轴刷新导致的页面响应变慢（需刷新标签页才能恢复）的问题。
 
-Constraints:
-- Do not modify `data-testid` attributes or remove any component using them
-- Do not replace the real analytics snapshot with toy or synthetic data
-- Do not edit hidden environment baseline files under `/services/api-simulator`
-- Do not change the tests
+输出要求：
 
-Deliver the fix by modifying the application in `/app`.
+通过修改 `/app` 中的应用代码交付修复结果。
+
+注意：
+
+- 不要修改 `data-testid` attributes，也不要移除任何使用它们的组件。
+- 不要编辑 `/services/api-simulator` 下隐藏的环境基线文件。

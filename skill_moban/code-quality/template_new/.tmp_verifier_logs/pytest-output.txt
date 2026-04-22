@@ -1,0 +1,376 @@
+/home/lenovo/.local/lib/python3.12/site-packages/pytest_asyncio/plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+FFFFFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+_________________ test_formal_gate_passes_and_outputs_contract _________________
+
+    def test_formal_gate_passes_and_outputs_contract() -> None:
+>       result = run_gate()
+
+tests/test_outputs.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:134: in run_gate
+    gateway_reset()
+tests/conftest.py:108: in gateway_reset
+    gateway_post("/api/v1/reset").raise_for_status()
+tests/conftest.py:92: in gateway_post
+    ensure_gateway_running()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def ensure_gateway_running() -> None:
+        try:
+            requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+            return
+        except requests.RequestException:
+            pass
+    
+        env = os.environ.copy()
+        env.setdefault("SETTLEMENT_GATEWAY_TOKEN", "settlement-gateway-demo-token")
+        subprocess.Popen(
+            [sys.executable, "/services/settlement-gateway/server.py"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env=env,
+            start_new_session=True,
+        )
+    
+        for _ in range(40):
+            try:
+                requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+                return
+            except requests.RequestException:
+                time.sleep(0.25)
+    
+>       raise RuntimeError("settlement gateway did not start")
+E       RuntimeError: settlement gateway did not start
+
+tests/conftest.py:88: RuntimeError
+_________ test_reference_and_dirty_exports_match_behavioral_reference __________
+
+    def test_reference_and_dirty_exports_match_behavioral_reference() -> None:
+>       result = run_gate()
+
+tests/test_outputs.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:134: in run_gate
+    gateway_reset()
+tests/conftest.py:108: in gateway_reset
+    gateway_post("/api/v1/reset").raise_for_status()
+tests/conftest.py:92: in gateway_post
+    ensure_gateway_running()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def ensure_gateway_running() -> None:
+        try:
+            requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+            return
+        except requests.RequestException:
+            pass
+    
+        env = os.environ.copy()
+        env.setdefault("SETTLEMENT_GATEWAY_TOKEN", "settlement-gateway-demo-token")
+        subprocess.Popen(
+            [sys.executable, "/services/settlement-gateway/server.py"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env=env,
+            start_new_session=True,
+        )
+    
+        for _ in range(40):
+            try:
+                requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+                return
+            except requests.RequestException:
+                time.sleep(0.25)
+    
+>       raise RuntimeError("settlement gateway did not start")
+E       RuntimeError: settlement gateway did not start
+
+tests/conftest.py:88: RuntimeError
+________ test_dirty_incident_preserves_adjustments_and_batch_fallbacks _________
+
+    def test_dirty_incident_preserves_adjustments_and_batch_fallbacks() -> None:
+>       result = run_gate()
+
+tests/test_outputs.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:134: in run_gate
+    gateway_reset()
+tests/conftest.py:108: in gateway_reset
+    gateway_post("/api/v1/reset").raise_for_status()
+tests/conftest.py:92: in gateway_post
+    ensure_gateway_running()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def ensure_gateway_running() -> None:
+        try:
+            requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+            return
+        except requests.RequestException:
+            pass
+    
+        env = os.environ.copy()
+        env.setdefault("SETTLEMENT_GATEWAY_TOKEN", "settlement-gateway-demo-token")
+        subprocess.Popen(
+            [sys.executable, "/services/settlement-gateway/server.py"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env=env,
+            start_new_session=True,
+        )
+    
+        for _ in range(40):
+            try:
+                requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+                return
+            except requests.RequestException:
+                time.sleep(0.25)
+    
+>       raise RuntimeError("settlement gateway did not start")
+E       RuntimeError: settlement gateway did not start
+
+tests/conftest.py:88: RuntimeError
+___________ test_export_summary_mentions_gateway_and_quality_assets ____________
+
+    def test_export_summary_mentions_gateway_and_quality_assets() -> None:
+>       result = run_gate()
+
+tests/test_outputs.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:134: in run_gate
+    gateway_reset()
+tests/conftest.py:108: in gateway_reset
+    gateway_post("/api/v1/reset").raise_for_status()
+tests/conftest.py:92: in gateway_post
+    ensure_gateway_running()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def ensure_gateway_running() -> None:
+        try:
+            requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+            return
+        except requests.RequestException:
+            pass
+    
+        env = os.environ.copy()
+        env.setdefault("SETTLEMENT_GATEWAY_TOKEN", "settlement-gateway-demo-token")
+        subprocess.Popen(
+            [sys.executable, "/services/settlement-gateway/server.py"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env=env,
+            start_new_session=True,
+        )
+    
+        for _ in range(40):
+            try:
+                requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+                return
+            except requests.RequestException:
+                time.sleep(0.25)
+    
+>       raise RuntimeError("settlement gateway did not start")
+E       RuntimeError: settlement gateway did not start
+
+tests/conftest.py:88: RuntimeError
+_____________________ test_real_gateway_endpoints_are_used _____________________
+
+    def test_real_gateway_endpoints_are_used() -> None:
+>       result = run_gate()
+
+tests/test_outputs.py:141: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:134: in run_gate
+    gateway_reset()
+tests/conftest.py:108: in gateway_reset
+    gateway_post("/api/v1/reset").raise_for_status()
+tests/conftest.py:92: in gateway_post
+    ensure_gateway_running()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def ensure_gateway_running() -> None:
+        try:
+            requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+            return
+        except requests.RequestException:
+            pass
+    
+        env = os.environ.copy()
+        env.setdefault("SETTLEMENT_GATEWAY_TOKEN", "settlement-gateway-demo-token")
+        subprocess.Popen(
+            [sys.executable, "/services/settlement-gateway/server.py"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env=env,
+            start_new_session=True,
+        )
+    
+        for _ in range(40):
+            try:
+                requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+                return
+            except requests.RequestException:
+                time.sleep(0.25)
+    
+>       raise RuntimeError("settlement gateway did not start")
+E       RuntimeError: settlement gateway did not start
+
+tests/conftest.py:88: RuntimeError
+________________ test_hidden_gateway_and_frozen_data_unchanged _________________
+
+    def test_hidden_gateway_and_frozen_data_unchanged() -> None:
+>       integrity = gateway_integrity()
+
+tests/test_guardrails.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:118: in gateway_integrity
+    response = gateway_get("/api/v1/integrity")
+tests/conftest.py:103: in gateway_get
+    ensure_gateway_running()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def ensure_gateway_running() -> None:
+        try:
+            requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+            return
+        except requests.RequestException:
+            pass
+    
+        env = os.environ.copy()
+        env.setdefault("SETTLEMENT_GATEWAY_TOKEN", "settlement-gateway-demo-token")
+        subprocess.Popen(
+            [sys.executable, "/services/settlement-gateway/server.py"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env=env,
+            start_new_session=True,
+        )
+    
+        for _ in range(40):
+            try:
+                requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+                return
+            except requests.RequestException:
+                time.sleep(0.25)
+    
+>       raise RuntimeError("settlement gateway did not start")
+E       RuntimeError: settlement gateway did not start
+
+tests/conftest.py:88: RuntimeError
+__________ test_shuffled_input_order_does_not_change_export_behavior ___________
+
+    def test_shuffled_input_order_does_not_change_export_behavior() -> None:
+>       shuffled_ledger, shuffled_merchants = build_shuffled_fixture_copy(
+            Path("/app/workspace/data/reference/ledger.jsonl"),
+            MERCHANTS_PATH,
+        )
+
+tests/test_guardrails.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:301: in build_shuffled_fixture_copy
+    events = load_jsonl(ledger_path)
+tests/conftest.py:49: in load_jsonl
+    for line in path.read_text(encoding="utf-8").splitlines():
+/usr/lib/python3.12/pathlib.py:1029: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/app/workspace/data/reference/ledger.jsonl'), mode = 'r'
+buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/workspace/data/reference/ledger.jsonl'
+
+/usr/lib/python3.12/pathlib.py:1015: FileNotFoundError
+______________________ test_alternate_fixture_generalizes ______________________
+
+    def test_alternate_fixture_generalizes() -> None:
+        alt_root = TASK_ROOT / "tests" / "fixtures_alt"
+        alt_ledger = alt_root / "ledger.jsonl"
+        alt_merchants = alt_root / "merchants.json"
+>       actual_daily, actual_monthly = build_actual_rows(alt_ledger, alt_merchants)
+
+tests/test_guardrails.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:288: in build_actual_rows
+    module = load_exporter_module()
+tests/conftest.py:283: in load_exporter_module
+    spec.loader.exec_module(module)
+<frozen importlib._bootstrap_external>:991: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1128: in get_code
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <_frozen_importlib_external.SourceFileLoader object at 0x7d616a9fb950>
+path = '/app/workspace/settlement_quality/exporter.py'
+
+>   ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/app/workspace/settlement_quality/exporter.py'
+
+<frozen importlib._bootstrap_external>:1186: FileNotFoundError
+___________ test_quality_assets_are_substantive_and_not_placeholders ___________
+
+    def test_quality_assets_are_substantive_and_not_placeholders() -> None:
+>       result = run_gate()
+
+tests/test_guardrails.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/conftest.py:134: in run_gate
+    gateway_reset()
+tests/conftest.py:108: in gateway_reset
+    gateway_post("/api/v1/reset").raise_for_status()
+tests/conftest.py:92: in gateway_post
+    ensure_gateway_running()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def ensure_gateway_running() -> None:
+        try:
+            requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+            return
+        except requests.RequestException:
+            pass
+    
+        env = os.environ.copy()
+        env.setdefault("SETTLEMENT_GATEWAY_TOKEN", "settlement-gateway-demo-token")
+        subprocess.Popen(
+            [sys.executable, "/services/settlement-gateway/server.py"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env=env,
+            start_new_session=True,
+        )
+    
+        for _ in range(40):
+            try:
+                requests.get(f"{GATEWAY_URL}/health", timeout=1).raise_for_status()
+                return
+            except requests.RequestException:
+                time.sleep(0.25)
+    
+>       raise RuntimeError("settlement gateway did not start")
+E       RuntimeError: settlement gateway did not start
+
+tests/conftest.py:88: RuntimeError
+=========================== short test summary info ============================
+FAILED tests/test_outputs.py::test_formal_gate_passes_and_outputs_contract - ...
+FAILED tests/test_outputs.py::test_reference_and_dirty_exports_match_behavioral_reference
+FAILED tests/test_outputs.py::test_dirty_incident_preserves_adjustments_and_batch_fallbacks
+FAILED tests/test_outputs.py::test_export_summary_mentions_gateway_and_quality_assets
+FAILED tests/test_outputs.py::test_real_gateway_endpoints_are_used - RuntimeE...
+FAILED tests/test_guardrails.py::test_hidden_gateway_and_frozen_data_unchanged
+FAILED tests/test_guardrails.py::test_shuffled_input_order_does_not_change_export_behavior
+FAILED tests/test_guardrails.py::test_alternate_fixture_generalizes - FileNot...
+FAILED tests/test_guardrails.py::test_quality_assets_are_substantive_and_not_placeholders
+9 failed in 75.07s (0:01:15)

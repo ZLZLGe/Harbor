@@ -1,0 +1,45 @@
+{
+  "derivedTaskId": "marketplace-cdc-publish-bundle",
+  "taskRole": "template",
+  "title": "Template: Marketplace CDC Publish Bundle",
+  "goal": "Recover a realistic data-engineering publish workflow so that a frozen multi-source marketplace snapshot can be transformed into a DuckDB warehouse and accepted by a live local publish audit despite CDC replay quirks, schema drift, refunds, and timezone-sensitive SLA metrics.",
+  "primaryOutputFile": "/app/output/publish_receipt.json",
+  "difficulty": "hard",
+  "category": "data-engineering",
+  "skillBenefitRationale": "The bound skill standardizes a high-signal workflow for data-engineering tasks that involve CDC reconciliation, schema-evolution normalization, contract-aware warehouse publishing, and final audit submission. Without the skill the task remains theoretically solvable from the visible raw feeds, specs, incidents, and manifest endpoint, but the solver must manually discover the late-CDC trap, the cents-field schema drift, the timezone-sensitive SLA edge case, and the canonical publish-bundle mechanics before converging on a passing delivery.",
+  "targetSkillDirName": "cdc-lakehouse-publish",
+  "targetSkillName": "cdc-lakehouse-publish",
+  "taskShape": "warehouse-publish-recovery",
+  "designGoals": [
+    "Keep the task centered on a real ingest -> transform -> warehouse -> publish chain rather than a one-function code puzzle.",
+    "Use deterministic frozen business feeds with enough structural complexity to surface CDC ordering, schema drift, refund joins, and timezone handling mistakes.",
+    "Require a live local manifest and publish audit receipt so the final delivery cannot be reduced to static file generation.",
+    "Allow multiple legitimate fixes as long as the final warehouse semantics, publish contract, and audit behavior are correct.",
+    "Make the with-skill advantage come from standardized diagnosis and publish workflows, not from hidden answers or altered inputs."
+  ],
+  "verifierDesign": {
+    "mainTests": [
+      "The final delivery produces /app/output/warehouse.duckdb, /app/output/publish_bundle.json, and /app/output/publish_receipt.json with the required schema and fields.",
+      "seller_daily_mart and sku_fulfillment_mart match the behavioral reference model on the frozen main fixture.",
+      "The solver uses the live manifest and publish endpoints, and the final receipt hash matches the canonical final bundle.",
+      "The repaired pipeline generalizes to an alternate fixture and remains invariant to input file ordering."
+    ],
+    "guardrails": [
+      "Protected raw inputs and the hidden publish-audit service remain unchanged.",
+      "Static golden outputs, hand-written receipts, fixed seller/date/SKU shortcuts, or manifest bypasses do not pass.",
+      "Deleting tables, skipping CDC finalization, skipping refund handling, or ignoring timezone normalization does not pass.",
+      "Verifier acceptance is tied to final warehouse behavior and live audit evidence rather than any single code structure."
+    ]
+  },
+  "readmeRequirements": [
+    "Summarize the template against current high-signal SkillsMP data-engineering directions such as data-engineer, senior-data-engineer, data-engineering, and analytics-engineering, emphasizing ETL/ELT, CDC, schema evolution, publish contracts, and data quality.",
+    "Explain that the task is about recovering a formal publishable warehouse bundle on a real local chain, not solving a toy SQL puzzle or repairing a frontend/app.",
+    "Include real e2b oracle and with-skill/without-skill comparison results only after genuine benchmark runs complete."
+  ],
+  "skillsmpInspiration": [
+    "https://skillsmp.com/fr/skills/daffy0208-ai-dev-standards-skills-data-engineer-skill-md",
+    "https://skillsmp.com/skills/hainamchung-agent-assistant-skills-senior-data-engineer-skill-md",
+    "https://skillsmp.com/skills/elophanto-elophanto-skills-data-engineering-skill-md",
+    "https://skillsmp.com/skills/absolutelyskilled-absolutelyskilled-skills-analytics-engineering-skill-md"
+  ]
+}

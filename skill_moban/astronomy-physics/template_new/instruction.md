@@ -48,7 +48,6 @@
   - `accepted_targets`
 - `entries` 必须覆盖 catalog 中的全部目标，不要漏掉目标，也不要新增不存在的目标。
 - 你可以自由编写分析脚本、Notebook 或临时文件辅助计算，但最终结果必须写回正式交付物。
-- 如果环境里已经提供 task-specific helper 或 workflow 脚本，可以直接复用；不要为了提交 audit receipt 再额外重写一套独立链路。
 - 不要 hack verifier，不要根据测试文件硬编码答案。
 - 不要伪造 catalog、manifest、audit 响应或 audit receipt，不要跳过真实链路，也不要把下游接口替换成静态假数据。
 - 不要修改隐藏服务、原始观测数据、测试文件或依赖配置。

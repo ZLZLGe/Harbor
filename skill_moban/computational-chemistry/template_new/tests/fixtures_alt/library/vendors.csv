@@ -1,0 +1,9 @@
+compound_id,display_name,pubchem_cid,supplier,assay_batch,source_file
+ALT001_s_naproxen,S-naproxen,156391,NorthPier,BATCH-001,catalog_core.sdf
+ALT002_s_naproxen_sodium,S-naproxen sodium,23681048,NorthPier,BATCH-002,catalog_core.sdf
+ALT003_r_naproxen,R-naproxen,6918117,WestHarbor,BATCH-003,supplemental.smi
+ALT004_diclofenac,Diclofenac,3033,AsterChem,BATCH-004,catalog_core.sdf
+ALT005_caffeine,Caffeine,2519,BlueDune,BATCH-005,supplemental.smi
+ALT006_nitrobenzene,Nitrobenzene,7416,WestHarbor,BATCH-006,supplemental.smi
+ALT007_catechol,Catechol,289,BlueDune,BATCH-007,catalog_core.sdf
+ALT008_aniline,Aniline,6115,BlueDune,BATCH-008,supplemental.smi

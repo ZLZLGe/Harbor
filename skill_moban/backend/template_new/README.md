@@ -36,21 +36,23 @@
 e2b oracle 结果：
 
 - 整体结论：✅ 通过（Reward: `1.0`）
-- Job：`backend-template-oracle-e2b-20260416-r9`
-- Trial：`template_new__X7GZ4ba`
-- 测试用例：`9/9` 通过
 - Pytest：`9 passed in 11.71s`
 
-Verifier 策略：
+### 📊 Verifier 验证策略
 
-- 主测：同一个 `Idempotency-Key` 的重复 hold 请求不能创建第二个 active downstream reservation。
-- 主测：当本地 hold 行缺失但 ledger lease 仍存在时，同 key 重试必须恢复本地状态，而不是再次预占库存。
-- 主测：过期 hold 会释放库存并停止阻塞 `GET /api/v1/availability`。
-- 主测：TTL 到点后，本地 hold 状态会自行收敛到 `expired`，不能依赖后续 public read 才变更。
-- 主测：过期 hold 不能再被确认成有效订单。
-- 主测：取消、确认和多门店多 SKU 混合序列保持隔离与一致性。
-- 防作弊：下游 `inventory-ledger` 代码和冻结 seed 数据哈希保持不变。
-- 防作弊：公开 API 调用后，downstream ledger 事件必须真实增加，禁止短路真实链路。
+#### 1. 幂等与一致性校验
+- **幂等控制**：同一 `Idempotency-Key` 的请求，严禁在下游创建重复的库存预占（Reservation）。
+- **状态恢复**：若本地 Hold 记录丢失但下游租约存在，同 Key 重试须自动恢复本地状态，禁止引发二次库存扣减。
+- **数据隔离**：多门店、多 SKU 的混合操作序列中，须保持严格的数据隔离与全局状态一致性。
+
+#### 2. 生命周期与过期流转
+- **主动收敛**：TTL 到期后，本地 Hold 状态须自动流转为 `expired`，严禁依赖后续读请求被动触发。
+- **资源释放**：Hold 记录过期必须立即释放对应库存，并解除对 `GET /api/v1/availability` 接口的阻塞。
+- **边界拦截**：严格拦截已过期的 Hold 记录，严禁将其确认为有效订单。
+
+#### 3. 防作弊与链路审计
+- **环境冻结**：强校验下游 `inventory-ledger` 源码及初始种子数据哈希，确保未经篡改。
+- **链路求证**：公开 API 成功响应的前提是必须产生真实的下游 Ledger 事件，严禁通过硬编码或短路绕过底层调用链。
 
 数据质量：
 

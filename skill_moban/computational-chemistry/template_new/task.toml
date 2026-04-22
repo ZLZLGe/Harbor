@@ -1,0 +1,37 @@
+version = "1.0"
+
+[metadata]
+id = "compchem__leadlike-screening-shortlist"
+name = "Lead-Like Screening Shortlist"
+description = "Build a deterministic RDKit screening function that standardizes a frozen small-molecule library, preserves stereochemistry, applies structural alerts, and ranks lead-like candidates against reference actives."
+author_name = "OpenAI Codex"
+author_email = "support@openai.com"
+difficulty = "hard"
+category = "computational-chemistry"
+tags = [
+  "computational-chemistry",
+  "rdkit",
+  "cheminformatics",
+  "molecular-standardization",
+  "similarity-search",
+  "medchem",
+  "lead-optimization",
+]
+required_skills = ["rdkit-screening-diagnostics"]
+primary_output_file = "/root/workspace/solution.py"
+source_template_id = "compchem__leadlike-screening-shortlist"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

@@ -8,7 +8,6 @@
 - `/app/workspace/data/replay/`（冻结的请求重放样本：重试、取消、确认、过期场景）
 - `/services/inventory-ledger/server.py`（本地下游库存账本服务启动入口，只允许调用，不允许修改）
 
-如果你的环境里提供 `inventory-hold-debugging` skill，请优先用它重放冻结样本并比对本地状态与下游 ledger 状态，然后再修改正式服务代码。
 
 你的任务
 1、修复 `checkout-api`，使相同 `Idempotency-Key` 的重复 hold 请求不会重复占用库存，也不会生成多个同时有效的 hold。

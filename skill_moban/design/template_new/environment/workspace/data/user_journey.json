@@ -1,0 +1,25 @@
+{
+  "journey_name": "Campaign Review Flow",
+  "nodes": [
+    {"id": "intake", "label": "Launch Intake", "kind": "stage", "annotation": "Campaign brief and assets enter the review queue."},
+    {"id": "triage", "label": "Ops Triage", "kind": "decision", "annotation": "Operations assigns owners and validates deadlines."},
+    {"id": "creative_review", "label": "Creative Review", "kind": "stage", "annotation": "Messaging, visual hierarchy, and asset variants are checked."},
+    {"id": "brand_review", "label": "Brand Review", "kind": "stage", "annotation": "Brand consistency and policy alignment are confirmed."},
+    {"id": "regional_review", "label": "Regional Review", "kind": "stage", "annotation": "Local market teams confirm timing and required adaptations."},
+    {"id": "exec_summary", "label": "Exec Summary", "kind": "summary", "annotation": "Leadership sees blockers, readiness, and next approvals."},
+    {"id": "signoff", "label": "Launch Sign-off", "kind": "terminal", "annotation": "The launch package is approved for go-live."},
+    {"id": "rework", "label": "Rework Loop", "kind": "loop", "annotation": "Blocked assets return with explicit requested changes."}
+  ],
+  "edges": [
+    {"from": "intake", "to": "triage", "label": "new asset bundle"},
+    {"from": "triage", "to": "creative_review", "label": "ready for review"},
+    {"from": "creative_review", "to": "brand_review", "label": "creative approved"},
+    {"from": "brand_review", "to": "regional_review", "label": "brand cleared"},
+    {"from": "regional_review", "to": "exec_summary", "label": "market confirmed"},
+    {"from": "exec_summary", "to": "signoff", "label": "no blockers"},
+    {"from": "creative_review", "to": "rework", "label": "major edits needed"},
+    {"from": "brand_review", "to": "rework", "label": "policy issue"},
+    {"from": "regional_review", "to": "rework", "label": "local change requested"},
+    {"from": "rework", "to": "creative_review", "label": "updated assets"}
+  ]
+}

@@ -1,0 +1,9 @@
+capability,atlasflow_review,notion,airtable,monday_work_management
+Structured review stages,yes,partial,partial,partial
+Role-based sign-off routing,yes,no,partial,partial
+Version-aware creative comments,yes,partial,no,partial
+Launch readiness checklist,yes,partial,partial,yes
+Asset approval SLA tracking,yes,no,partial,partial
+Proofing for static creative,yes,partial,no,partial
+Executive launch summary view,yes,partial,partial,partial
+Regional handoff visibility,yes,no,partial,yes
