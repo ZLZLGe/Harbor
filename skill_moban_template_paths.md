@@ -1,0 +1,30 @@
+# 远端 skill_moban 模板路径统计
+
+统计基准：
+
+- 远端分支：`origin/codex/perskill-s-z-20260325`
+- 远端提交：`435c86484570bfbe525481415f4067e931d094e7`
+- 统计范围：`skill_moban`
+
+## 概览
+
+- 小类级 `template_new`：14 个
+
+## 小类级 template_new
+
+- `creative/content-creation/template_new`
+- `development/backend/template_new`
+- `development/code-quality/template_new`
+- `development/data-engineering/template_new`
+- `development/design/template_new`
+- `devops/cicd/template_new`
+- `devops/cloud/template_new`
+- `research/academic/template_new`
+- `research/astronomy-physics/template_new`
+- `research/bioinformatics/template_new`
+- `research/computational-chemistry/template_new`
+- `research/data-analysis/template_new`
+- `testing-and-security/code-quality/template_new`
+- `tools/debugging/template_new`
+
+
