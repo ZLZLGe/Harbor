@@ -1,0 +1,111 @@
+{
+  "lesson_info": {
+    "title": "New Analyst Workshop",
+    "audience": "new data analysts"
+  },
+  "sections": [
+    {
+      "title": "What we're analyzing",
+      "learning_goal": "Understand the business question and visible sources for the workshop snapshot.",
+      "uses_files": [
+        "lesson_brief.md",
+        "learner_events.csv",
+        "quiz_attempts.csv",
+        "quiz_items.csv"
+      ],
+      "has_exercise": false
+    },
+    {
+      "title": "Understand the event data",
+      "learning_goal": "Inspect the event log and clarify the learner-level meaning of each event.",
+      "uses_files": [
+        "learner_events.csv",
+        "metric_definitions.yaml",
+        "reference_docs/glossary.md"
+      ],
+      "has_exercise": false
+    },
+    {
+      "title": "Build the session funnel",
+      "learning_goal": "Compute a learner-level funnel and explain the biggest drop-off step.",
+      "uses_files": [
+        "learner_events.csv",
+        "metric_definitions.yaml",
+        "reference_docs/facilitation_notes.md"
+      ],
+      "has_exercise": false
+    },
+    {
+      "title": "Compare quiz outcomes",
+      "learning_goal": "Summarize learner-level quiz outcomes and topic-level misconceptions.",
+      "uses_files": [
+        "quiz_attempts.csv",
+        "quiz_items.csv",
+        "metric_definitions.yaml"
+      ],
+      "has_exercise": false
+    },
+    {
+      "title": "Spot metric definition traps",
+      "learning_goal": "Explain the main denominator and grain mistakes that new analysts make.",
+      "uses_files": [
+        "metric_definitions.yaml",
+        "quiz_items.csv",
+        "reference_docs/glossary.md",
+        "reference_docs/facilitation_notes.md"
+      ],
+      "has_exercise": false
+    },
+    {
+      "title": "Practice",
+      "learning_goal": "Give learners questions that force them to defend metrics and teaching choices.",
+      "uses_files": [
+        "learner_events.csv",
+        "quiz_attempts.csv",
+        "quiz_items.csv",
+        "metric_definitions.yaml"
+      ],
+      "has_exercise": true
+    },
+    {
+      "title": "Wrap up",
+      "learning_goal": "Summarize the lesson, the key metrics, and the trusted source files.",
+      "uses_files": [
+        "lesson_brief.md",
+        "learner_events.csv",
+        "quiz_attempts.csv",
+        "quiz_items.csv",
+        "metric_definitions.yaml"
+      ],
+      "has_exercise": false
+    }
+  ],
+  "key_metrics": [
+    {
+      "name": "completion_rate",
+      "definition_source": "metric_definitions.yaml"
+    },
+    {
+      "name": "practice_submission_rate",
+      "definition_source": "metric_definitions.yaml"
+    },
+    {
+      "name": "quiz_pass_rate",
+      "definition_source": "metric_definitions.yaml"
+    },
+    {
+      "name": "retry_rate",
+      "definition_source": "metric_definitions.yaml"
+    }
+  ],
+  "source_files": [
+    "lesson_brief.md",
+    "learner_events.csv",
+    "quiz_attempts.csv",
+    "quiz_items.csv",
+    "metric_definitions.yaml",
+    "reference_docs/glossary.md",
+    "reference_docs/facilitation_notes.md"
+  ],
+  "exercise_count": 3
+}

@@ -1,0 +1,36 @@
+version = "1.0"
+
+[metadata]
+id = "education__new-analyst-lesson-notebook-repair"
+name = "Template: New Analyst Lesson Notebook Repair"
+description = "Turn realistic course materials and draft teaching assets into a polished lesson delivery bundle: student notebook, instructor guide, structured manifest, source map, and final package."
+author_name = "OpenAI Codex"
+author_email = "noreply@example.com"
+difficulty = "hard"
+category = "education"
+tags = [
+  "education",
+  "jupyter-notebook",
+  "lesson-design",
+  "data-literacy",
+  "curriculum-ops",
+  "technical-writing",
+  "learning-analytics",
+]
+required_skills = ["lesson-notebook-diagnostics"]
+primary_output_file = "/app/output/final_package.json"
+source_template_id = "education__new-analyst-lesson-notebook-repair"
+task_role = "template"
+
+[verifier]
+timeout_sec = 700.0
+
+[agent]
+timeout_sec = 700.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = true

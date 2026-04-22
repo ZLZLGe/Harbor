@@ -1,0 +1,39 @@
+{
+  "derivedTaskId": "education__new-analyst-lesson-notebook-repair",
+  "taskRole": "template",
+  "title": "Template: New Analyst Lesson Notebook Repair",
+  "goal": "Repair and finalize a realistic beginner-facing data analysis lesson delivery bundle from frozen course materials, structured metric definitions, quiz diagnostics, and draft teaching assets, then emit a consistent manifest, source map, instructor guide, and final package.",
+  "primaryOutputFile": "/app/output/final_package.json",
+  "difficulty": "hard",
+  "category": "education",
+  "taskShape": "teaching-bundle-repair-with-build-step",
+  "skillBenefitRationale": "The bound skill standardizes the highest-cost checks in multi-artifact lesson tasks: notebook structure, instructor-guide alignment, source-traceability, metric-definition alignment, source-map coverage, and final package build readiness. Without the skill the task remains theoretically solvable from the visible data, docs, and drafts, but the solver must manually discover cross-file inconsistencies, compute the same diagnostics from several inputs, and keep the notebook, guide, manifest, source map, and final package synchronized.",
+  "targetSkillDirName": "lesson-notebook-diagnostics",
+  "targetSkillName": "lesson-notebook-diagnostics",
+  "designGoals": [
+    "Keep the task centered on a realistic education deliverable rather than a code-fix or app-debugging exercise.",
+    "Use a real notebook workflow with frozen source materials, raw CSV inputs, and beginner-facing explanation constraints.",
+    "Require both pedagogical structure and data-driven correctness, so the task is not reducible to a static essay or a pure analysis script.",
+    "Let verifier focus on observable outputs, execution behavior, source traceability, and cross-file consistency instead of a single implementation path."
+  ],
+  "verifierDesign": {
+    "mainTests": [
+      "The required notebook, instructor guide, lesson manifest, source map, and final package all exist, parse correctly, and include the expected lesson structure.",
+      "The notebook reads the real input files, executes successfully, and produces at least three substantive code-generated results including quiz-item diagnostics.",
+      "The notebook and guide include source citations, metric explanations, a practice section, and data-driven content consistent with the frozen inputs.",
+      "The manifest and source map use the same section order as the notebook and only reference valid source files and valid metric definitions.",
+      "The visible build script succeeds and emits a final package that reflects the repaired teaching bundle rather than a hand-written placeholder."
+    ],
+    "guardrails": [
+      "Protected course materials, raw CSV inputs, and metric definitions remain unchanged.",
+      "Static placeholder notebooks, pure markdown summaries, or notebooks with no substantive code execution do not pass.",
+      "Metric names in the manifest must come from the published metric definitions, and source files must come from the visible inputs.",
+      "The final package must be produced by the visible build script rather than by hand."
+    ]
+  },
+  "readmeRequirements": [
+    "Summarize why this education template aligns with high-signal SkillsMP directions such as jupyter-notebook, technical-writer, lesson planning, and tutorial asset generation.",
+    "Include oracle and with/without-skill experiment results only after real runs complete.",
+    "Explain skill relevance in terms of lower diagnosis cost across notebook structure, evidence traceability, metric-definition checks, and final notebook-manifest consistency."
+  ]
+}
