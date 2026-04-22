@@ -1,0 +1,9 @@
+{
+  "domain": "crewcompass.com",
+  "rdap_status": "registered",
+  "listing_state": "fixed-price",
+  "asking_price_usd": 35900,
+  "landing_style": "brandable-inventory",
+  "nameserver_family": "ns-brand-market",
+  "mx_present": false
+}

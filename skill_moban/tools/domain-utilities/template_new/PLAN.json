@@ -1,0 +1,56 @@
+{
+  "derivedTaskId": "domain-utilities__domain-acquisition-opportunity-research",
+  "taskRole": "template",
+  "title": "Template: Domain Acquisition Opportunity Research",
+  "goal": "Generate a ranked domain acquisition opportunity report from frozen market, archive, authority, pricing, and legal evidence while preserving a real localhost lookup chain inside one container.",
+  "primaryOutputFile": "/app/output/opportunity_report.json",
+  "difficulty": "hard",
+  "category": "domain-utilities",
+  "taskShape": "frozen-domain-research-with-live-lookup-chain",
+  "skillBenefitRationale": "The bound skill standardizes the highest-cost parts of the workflow: probing the localhost manifest, recovering the exact scoring contract, diffing your computed scores against the frozen policy, and packaging evidence consistently across candidate pool, archive, authority, legal, and local snapshot sources. Without the skill the task remains theoretically solvable from visible data and the lookup API, but the solver must manually reconstruct the score formula, pull and normalize per-domain evidence, and keep the final ranked output consistent across all candidates.",
+  "targetSkillDirName": "domain-acquisition-research",
+  "targetSkillName": "domain-acquisition-research",
+  "designGoals": [
+    "Keep the task centered on a realistic corpdev or launch-ops deliverable rather than a code-fix exercise.",
+    "Preserve a real localhost lookup service inside one container instead of reducing the task to static golden files.",
+    "Require multi-source evidence integration across candidate, archive, authority, pricing, and legal inputs.",
+    "Let verifier focus on behavior and scored outcomes rather than one exact implementation path."
+  ],
+  "verifierDesign": {
+    "mainTests": [
+      "The required opportunity_report.json exists, parses, and follows the declared schema.",
+      "Every candidate domain is evaluated exactly once and the numeric scores match the published scoring policy when recomputed from the frozen inputs.",
+      "The ranked buy-now shortlist and top pick match the true best opportunities under the policy constraints.",
+      "Evidence and reason codes are grounded in real candidate, authority, legal, archive, and local snapshot sources."
+    ],
+    "guardrails": [
+      "Protected raw data, localhost service files, and shipped skill files remain unchanged.",
+      "Static placeholder outputs, partial candidate coverage, or evidence records that do not map to real sources do not pass.",
+      "Domains that should fail on legal risk, archive mismatch, or price ceiling cannot be promoted by ignoring those signals."
+    ]
+  },
+  "readmeRequirements": [
+    "Summarize domain-utilities template principles using current high-signal SkillsMP directions such as domain-name-brainstormer, domain-research, and domain-authority-auditor.",
+    "Include oracle and with/without-skill experiment results only after real runs complete.",
+    "Frame skill relevance as lower diagnosis and convergence cost across evidence gathering, scoring recovery, and output packaging."
+  ],
+  "iterationState": {
+    "status": "validated-final",
+    "knownGaps": [],
+    "finalEvidence": {
+      "oracleJob": "domain-template-oracle-20260422e",
+      "withSkillJobs": [
+        "domain-template-with-skills-20260422l",
+        "domain-template-with-skills-20260422n",
+        "domain-template-with-skills-20260422o"
+      ],
+      "withoutSkillJobs": [
+        "domain-template-without-skills-20260422e",
+        "domain-template-without-skills-20260422f",
+        "domain-template-without-skills-20260422g"
+      ],
+      "withSkillChecksum": "87b7a179a1ce3b97ffe54451da08f65d3c1d9e1840a2af29ce0c9253f45d8755",
+      "withoutSkillChecksum": "9389f0254db02a1ff9509ea8100330378775cd79451fa160b2cc2c4ce15abb35"
+    }
+  }
+}

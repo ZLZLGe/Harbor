@@ -1,0 +1,9 @@
+{
+  "domain": "dispatchledger.com",
+  "rdap_status": "registered",
+  "listing_state": "make-offer",
+  "asking_price_usd": 28000,
+  "landing_style": "parked",
+  "nameserver_family": "ns-parked",
+  "mx_present": false
+}

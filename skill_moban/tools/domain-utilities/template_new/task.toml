@@ -1,0 +1,43 @@
+version = "1.0"
+
+[metadata]
+id = "domain-utilities__domain-acquisition-opportunity-research"
+name = "Template: Domain Acquisition Opportunity Research"
+description = "Evaluate a frozen domain acquisition pipeline, score each candidate with policy-backed evidence, and submit a ranked opportunity report."
+author_name = "OpenAI Codex"
+author_email = "support@openai.com"
+difficulty = "hard"
+category = "domain-utilities"
+tags = [
+  "domain-utilities",
+  "domain-research",
+  "domain-acquisition",
+  "brand-risk",
+  "pricing-analysis",
+  "authority-audit",
+  "business-analysis",
+]
+required_skills = [
+  "domain-acquisition-research",
+]
+distractor_skills = [
+  "web-scraping",
+  "seo-audit",
+  "competitive-analysis",
+]
+primary_output_file = "/app/output/opportunity_report.json"
+source_template_id = "domain-utilities__domain-acquisition-opportunity-research"
+task_role = "template"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 700.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = true

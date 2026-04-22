@@ -1,0 +1,9 @@
+{
+  "domain": "fixerflow.com",
+  "rdap_status": "registered",
+  "listing_state": "brokered",
+  "asking_price_usd": 39000,
+  "landing_style": "lead-gen",
+  "nameserver_family": "ns-broker-leads",
+  "mx_present": false
+}

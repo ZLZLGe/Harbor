@@ -1,0 +1,16 @@
+comp_family,comparable_domain,sale_price_usd
+crew,crewroute.com,45000
+crew,crewpath.com,48000
+crew,crewlogic.com,52000
+dispatch,dispatchlane.com,68500
+dispatch,dispatchgrid.com,72000
+dispatch,dispatchpulse.com,76000
+fieldops,fieldopsworks.com,40500
+fieldops,fieldopsbase.com,43000
+fieldops,fieldopspro.com,45500
+route,routeframe.com,51000
+route,routepilot.io,54000
+route,routefoundry.com,59000
+service,servicevector.com,58000
+service,serviceatlas.com,61000
+service,servicecommand.com,64000
