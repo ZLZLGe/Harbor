@@ -33,7 +33,7 @@
 5、通过正式链路调用 observatory API：先获取 catalog 和各目标 manifest，再把最终 bundle 提交给 audit 接口。
 6、将最终交付物写入 `/app/output/catalog_vetting.json`，并将审计回执写入 `/app/output/catalog_audit_receipt.json`。
 
-输出格式：
+输出：
 - 生成文件：
   - `/app/output/catalog_vetting.json`
   - `/app/output/catalog_audit_receipt.json`

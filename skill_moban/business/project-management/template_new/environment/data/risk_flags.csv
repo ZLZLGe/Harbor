@@ -1,0 +1,15 @@
+project_id,executive_priority,public_impact,unresolved_blocker,blocker_type,escalation_owner
+P-1001,true,true,true,Vendor award protest,Deputy Commissioner
+P-1002,true,false,false,,Chief Engineer
+P-1003,false,false,false,,Portfolio Director
+P-1004,false,false,false,,Borough Sponsor
+P-1005,false,true,true,Controls vendor submittal late,NYCHA Program Lead
+P-1006,false,false,false,,Planning Director
+P-1007,false,false,false,,Borough Sponsor
+P-1008,true,true,false,,Parks Capital Lead
+P-1009,false,true,true,Design review comments unresolved,Clinic Sponsor
+P-1010,false,false,false,,DEP Field Lead
+P-1011,true,true,false,,NYCHA Program Lead
+P-1012,false,true,false,,Resiliency Program Lead
+P-1013,false,false,false,,Borough Sponsor
+P-1014,true,false,false,,Ferry Operations Lead

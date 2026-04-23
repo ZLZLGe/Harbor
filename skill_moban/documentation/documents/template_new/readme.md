@@ -1,6 +1,16 @@
-# Vendor Addendum Redline Finalization
+# Documents Template Design Reference: Word Redline Finalization
 
-本模板对齐 `documents` 类任务里高相关的 `word-documents`、`tracked changes`、`document automation`、`office document internals` 这一簇热门能力。任务形态不是修应用，也不是开放式写作，而是一份真实风格的 Word 红线定稿交付：solver 需要根据审阅决定，把带评论、tracked changes、脚注红线和结构化 review manifest 的 `.docx` 处理成可直接发送签署的 clean final `.docx`。
+## 第一部分：任务设计参考
+
+本模板参考 `documents` 类热门 skill 的任务设计方式，重点围绕 `word-documents`、`tracked changes`、`document automation`、`office document internals` 这一簇能力构造。设计目标不是让 Agent 修应用、猜隐藏答案或做开放式写作，而是让它在真实文档链路中完成一个可验证、可复现、可运行的结构化交付。
+
+* **Skill 价值定位**：技能收益必须体现在“诊断路径标准化”和“最后一公里结构收尾”上，例如如何从 `comments.xml`、`customXml`、脚注、settings 和关系文件中定位真实审阅状态，并把可见内容与包内元数据一起收敛；严禁把 skill 设计成答案泄露、固定输出文件、隐藏 oracle、verifier hack 提示或只有 skill 才能读取的私有答案通道。
+* **任务目标形态**：任务应要求 Agent 处理真实风格的 Office 文档包，产出可打开、可复用、结构完整的最终文档，并保留理论可解性；不应把任务做成纯静态 toy sandbox、单点字符串替换、只看截图的主观审美题、依赖网络即时状态的不可复现题，或“删掉复杂结构也能过”的伪文档任务。
+* **验证设计重点**：Verifier 应关注行为结果和真实交付质量，包括可见文本、表格、脚注、页眉页脚、OOXML 包部件、relationships、content types、review metadata 和防作弊 guardrails；不应绑定某个唯一实现，也不应只检查最终文本而忽略文档包结构，更不能依赖隐藏答案文件或允许修改输入、测试、依赖、skill 来通过。
+
+## 第二部分：示例任务
+
+本示例任务是一份真实风格的 Word 红线定稿交付：solver 需要根据审阅决定，把带评论、tracked changes、脚注红线和结构化 review manifest 的 `.docx` 处理成可直接发送签署的 clean final `.docx`。
 
 ## 📌 任务元数据
 

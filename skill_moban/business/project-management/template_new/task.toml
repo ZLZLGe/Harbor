@@ -1,0 +1,29 @@
+version = "1.0"
+
+[metadata]
+id = "municipal-capital-recovery-plan"
+name = "Municipal Capital Project Recovery Plan"
+description = "Create a 6-week PMO recovery plan from realistic municipal capital-project portfolio data with CPI normalization, dependency rules, capacity limits, and board updates."
+author_name = "Harbor Task Builder"
+author_email = "harbor@example.com"
+difficulty = "medium"
+category = "project-management"
+tags = ["project-management", "project-planning", "capacity-planning", "portfolio-triage", "risk-management"]
+required_skills = ["project-planner"]
+distractor_skills = ["jira-integration", "trello", "production-scheduling"]
+primary_output_file = "/root/output/recovery_plan.csv"
+source_template_id = "business__project-management__template_new"
+task_role = "project-management"
+
+[verifier]
+timeout_sec = 300.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = true

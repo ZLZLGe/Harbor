@@ -1,0 +1,82 @@
+{
+  "derivedTaskId": "trustee-sale-diligence-report",
+  "taskRole": "template",
+  "title": "Template: Trustee Sale Diligence Report",
+  "goal": "Prepare a realistic pre-bid trustee-sale diligence report from a local auction packet, classifying lien priority, sale status, legal risks, surviving debt, valuation, and bid recommendation without relying on hidden answers or external websites.",
+  "primaryOutputFile": "/root/output/due_diligence_report.json",
+  "difficulty": "hard",
+  "category": "real-estate-legal",
+  "skillBenefitRationale": "The bound SkillsMP skills standardize auction notice review, legal risk analysis, occupancy/debt diligence, valuation, safety margin, and bid/no-bid decision framing. Without the skills the task remains solvable from the visible packet and rule file, but the solver must manually reconstruct a legal-diligence workflow across many realistic records.",
+  "targetSkillDirName": "leiloeiro-edital + leiloeiro-juridico + leiloeiro-avaliacao",
+  "targetSkillName": "leiloeiro-edital, leiloeiro-juridico, leiloeiro-avaliacao",
+  "skillsMpReference": {
+    "categoryUrl": "https://skillsmp.com/categories/real-estate-legal",
+    "alignedPopularSkills": [
+      {
+        "name": "leiloeiro-edital.md",
+        "stars": "34.4k",
+        "reason": "Auction notice and hidden-risk analysis."
+      },
+      {
+        "name": "leiloeiro-juridico.md",
+        "stars": "34.4k",
+        "reason": "Legal analysis of auction nullity, liens, objections, and rights."
+      },
+      {
+        "name": "leiloeiro-avaliacao.md",
+        "stars": "34.4k",
+        "reason": "Auction property valuation and safety-margin analysis."
+      }
+    ]
+  },
+  "taskShape": "document-analysis-and-diligence-report",
+  "designGoals": [
+    "Match the concise reference-task instruction style while avoiding app-repair framing.",
+    "Keep with-skill and without-skill identical except for environment/skills and Dockerfile skill-copy removal in the runtime clone.",
+    "Use a single-container environment with realistic multi-source auction records copied into /root/input/auction_packet.",
+    "Require behaviorally correct outputs rather than a unique implementation.",
+    "Make the task theoretically solvable without the skill, but make missed legal-priority and risk-classification traps likely without the checklist and probe workflow."
+  ],
+  "inputAssets": [
+    "manifest.json",
+    "jurisdiction_rules.yaml",
+    "recorder_records.csv",
+    "title_commitment_excerpt.md",
+    "trustee_sale_notices.md",
+    "claims_ledger.csv",
+    "court_docket_export.csv",
+    "tax_statement.json",
+    "hoa_balance_letter.md",
+    "occupancy_notes.md",
+    "market_comps.csv",
+    "valuation_summary.json"
+  ],
+  "requiredOutputs": [
+    "/root/output/due_diligence_report.json",
+    "/root/output/due_diligence_memo.md"
+  ],
+  "verifierDesign": {
+    "mainTests": [
+      "Validate output schema, enums, numeric money fields, and required files.",
+      "Check property, corrected parcel, active sale status, trustee, auction date, and opening bid.",
+      "Check lien priority and sale treatment for property tax, municipal assessment, split HOA superpriority, IRS lien, judgment lien, released mechanics lien, and solar fixture filing.",
+      "Check material risks for dismissed bankruptcy, tenant possession, IRS redemption, corrected notice, municipal/code condition, and solar payoff uncertainty.",
+      "Recompute surviving debt and recommended maximum bid from the supplied formula.",
+      "Check final BID_WITH_CONDITIONS recommendation and required pre-bid conditions.",
+      "Check evidence grounding and memo consistency."
+    ],
+    "guardrails": [
+      "Hash-check all input packet files to prevent mutation.",
+      "Reject fabricated source IDs.",
+      "Reject outputs referencing verifier internals, hidden answers, or test paths.",
+      "Reject generic disclaimer-only memos.",
+      "Require memo conclusions to match the JSON."
+    ]
+  },
+  "readmeRequirements": [
+    "Summarize task metadata and real-estate-legal skill relevance.",
+    "Include e2b oracle result after the official solution passes.",
+    "Include at least three valid with/without task-level comparison trials before finalizing.",
+    "Explain that with/without differs only by environment/skills and runtime skill-copy removal."
+  ]
+}

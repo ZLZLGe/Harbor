@@ -1,24 +1,11 @@
 # Astronomy-Physics 模板任务设计说明
 
-本模板面向 `astronomy-physics` 类技能任务，目标不是做“修一段坏代码”的调试题，而是构造一条真实、可运行、可审计的科学分析交付链路。当前示例任务聚焦于 TESS 风格多目标光变 vetting：solver 需要读取冻结数据、调用本地 manifest / audit 服务、完成清洗与周期分析，并产出最终 bundle。
+本模板面向 `astronomy-physics` 类技能任务。当前示例任务聚焦于 TESS 风格多目标光变 vetting：solver 需要读取冻结数据、调用本地 manifest / audit 服务、完成清洗与周期分析，并产出最终 bundle。
 
-## 第一部分：模板范式
-
-围绕 astronomy-physics 类热门 skill 设计任务时，建议遵循以下原则：
-
-1. 任务要是结果导向的科学分析题，不要把题面锚死在“修某个函数/模块”。更好的形态是：给定数据、约束和真实链路，要求 solver 生成正式交付物。
-2. Skill 的价值应来自标准化科学 workflow，而不是塞答案。典型价值包括：质量控制、异常窗口处理、周期搜索职责分离、odd/even 诊断、secondary eclipse 检查、最终审计提交。
-3. without-skill 仍应理论可解，但需要自己重建整条诊断与收敛路径；with-skill 则能显著降低定位和收口成本。
-4. 环境里要保留真实风格上下游依赖。对于 astronomy-physics 类任务，推荐使用本地 catalog/manifest 服务、冻结观测快照、审计 API 或隐藏校验逻辑，而不是只给一个静态 CSV。
-5. Verifier 只验行为结果，不绑定唯一实现。只要 solver 使用真实链路，产物满足科学与业务约束，就应允许不同分析脚本通过。
-6. Guardrails 必须能拦住伪修复。应显式防止硬编码 bundle、跳过审计、伪造 receipt、篡改隐藏服务、修改原始数据、绕开 manifest 等行为。
-7. with-skill 与 without-skill 的唯一差异只能来自 `environment/skills/` 及其复制逻辑；题面、测试、数据、依赖和隐藏服务都必须一致。
-
-这类任务对 skill 的验收标准，建议至少覆盖：
-
-- 是否帮助 solver 更快发现正确的数据清洗和周期搜索职责分工。
-- 是否帮助 solver 更稳定地走通 manifest -> analysis -> audit 的真实链路。
-- 是否在最近至少 3 次有效对照里形成稳定差异，而不是依赖人为压 timeout。
+## 第一部分：任务设计参考
+* **Skill 价值定位**：技能收益必须体现在天文/物理判断链路中，例如单位换算、坐标或时间系统处理、观测量解释、误差边界评估、物理模型选择等；严禁把任务难点主要设计成体力编码、文件搬运或通用数据清洗。
+* **任务目标形态**：任务应要求 Agent 产出可验证的科学结果，例如目标分类、候选筛选、参数估计、异常识别、模型对比或结论报告；不应只要求复述资料、整理文本或生成缺乏科学判定的普通摘要。
+* **验证设计重点**：Verifier 应关注物理语义和结果一致性，例如数值容差、单位正确性、边界条件、证据引用和推理链完整性；对于自由文本输出，应避免固定关键词、固定短语或唯一措辞匹配，除非题面已明确把这些字面形式写成验收要求。
 
 ## 第二部分：示例任务
 
@@ -54,18 +41,8 @@ e2b oracle 结果：
 
 Verifier 策略：
 
-- 主测：检查 `/app/output/catalog_vetting.json` 与 `/app/output/catalog_audit_receipt.json` 是否存在、结构正确，并覆盖 catalog 的全部目标。
-- 主测：检查每个 entry 的关键科学字段、自洽计数和 `verdict_reason` 质量。
-- 主测：重放真实 `POST /audit`，要求最终 bundle 仍然能被 live audit 接受。
-- 主测：要求 solver 实际调用 live `/catalog`、`/manifest/<target_id>` 和 `/audit`，并通过 trace 验证真实链路。
-- 防作弊：要求 receipt 中的 `request_sha256` 与 canonical final payload 一致，防止伪造或先审计后改报告。
-- 防作弊：保护隐藏 observatory API 与原始数据不被修改，阻止静态 bundle、假 receipt 和跳过 manifest 的伪修复。
-
-数据质量：
-
-- 数据是冻结的 TESS 风格多扇区 2-minute cadence photometry。
-- 每个目标都包含真实风格的质量标记、quarantine 窗口和不同类型的周期诊断陷阱。
-- 数据保持确定性与可测性，但足以逼出真实的清洗、flatten、LS/BLS、odd/even 与 secondary-eclipse 工作流。
+- 主测：检查 `/app/output/catalog_vetting.json` 与 `/app/output/catalog_audit_receipt.json` 是否存在、结构正确、覆盖全部目标，并验证关键科学字段、自洽计数、`verdict_reason` 质量、live `/catalog` / `/manifest/<target_id>` / `/audit` 调用链与最终 audit 接受结果。
+- 防作弊：要求 receipt 中的 `request_sha256` 与 canonical final payload 一致，并保护隐藏 observatory API 与原始数据不被修改，阻止静态 bundle、假 receipt、跳过 manifest、先审计后改报告等伪修复。
 
 多模态：
 

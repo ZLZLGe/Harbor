@@ -1,0 +1,101 @@
+{
+  "created_utc": "2026-04-23T10:36:26.733680+00:00",
+  "sources": [
+    {
+      "kind": "sec_companyfacts",
+      "ticker": "AAPL",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "path": "sec_companyfacts/AAPL.json"
+    },
+    {
+      "kind": "sec_companyfacts",
+      "ticker": "MSFT",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "path": "sec_companyfacts/MSFT.json"
+    },
+    {
+      "kind": "sec_companyfacts",
+      "ticker": "GOOGL",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001652044.json",
+      "path": "sec_companyfacts/GOOGL.json"
+    },
+    {
+      "kind": "sec_companyfacts",
+      "ticker": "AMZN",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001018724.json",
+      "path": "sec_companyfacts/AMZN.json"
+    },
+    {
+      "kind": "sec_companyfacts",
+      "ticker": "META",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001326801.json",
+      "path": "sec_companyfacts/META.json"
+    },
+    {
+      "kind": "sec_companyfacts",
+      "ticker": "NVDA",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json",
+      "path": "sec_companyfacts/NVDA.json"
+    },
+    {
+      "kind": "sec_companyfacts",
+      "ticker": "TSLA",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+      "path": "sec_companyfacts/TSLA.json"
+    },
+    {
+      "kind": "yahoo_chart",
+      "ticker": "AAPL",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?period1=1704067200&period2=1767225600&interval=1d&events=history&includeAdjustedClose=true",
+      "path": "prices/AAPL.csv"
+    },
+    {
+      "kind": "yahoo_chart",
+      "ticker": "MSFT",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?period1=1704067200&period2=1767225600&interval=1d&events=history&includeAdjustedClose=true",
+      "path": "prices/MSFT.csv"
+    },
+    {
+      "kind": "yahoo_chart",
+      "ticker": "GOOGL",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?period1=1704067200&period2=1767225600&interval=1d&events=history&includeAdjustedClose=true",
+      "path": "prices/GOOGL.csv"
+    },
+    {
+      "kind": "yahoo_chart",
+      "ticker": "AMZN",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/AMZN?period1=1704067200&period2=1767225600&interval=1d&events=history&includeAdjustedClose=true",
+      "path": "prices/AMZN.csv"
+    },
+    {
+      "kind": "yahoo_chart",
+      "ticker": "META",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/META?period1=1704067200&period2=1767225600&interval=1d&events=history&includeAdjustedClose=true",
+      "path": "prices/META.csv"
+    },
+    {
+      "kind": "yahoo_chart",
+      "ticker": "NVDA",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?period1=1704067200&period2=1767225600&interval=1d&events=history&includeAdjustedClose=true",
+      "path": "prices/NVDA.csv"
+    },
+    {
+      "kind": "yahoo_chart",
+      "ticker": "TSLA",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/TSLA?period1=1704067200&period2=1767225600&interval=1d&events=history&includeAdjustedClose=true",
+      "path": "prices/TSLA.csv"
+    },
+    {
+      "kind": "yahoo_chart",
+      "ticker": "SPY",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=1704067200&period2=1767225600&interval=1d&events=history&includeAdjustedClose=true",
+      "path": "prices/SPY.csv"
+    },
+    {
+      "kind": "fred",
+      "series": "DGS10",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
+      "path": "fred/DGS10.csv"
+    }
+  ]
+}

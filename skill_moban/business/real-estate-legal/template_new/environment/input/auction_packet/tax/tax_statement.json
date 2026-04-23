@@ -1,0 +1,20 @@
+{
+  "source_id": "TAX-2025-7781",
+  "parcel_id": "214-18-074",
+  "as_of": "2026-04-17",
+  "treasurer": "Maricopa County Treasurer",
+  "delinquent_items": [
+    {
+      "tax_year": 2024,
+      "installment": "second half",
+      "amount": 3920.44
+    },
+    {
+      "tax_year": 2025,
+      "installment": "first half",
+      "amount": 4821.72
+    }
+  ],
+  "total_due": 8742.16,
+  "statement_note": "County property taxes are shown as delinquent and payable outside the trustee opening bid."
+}

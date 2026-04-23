@@ -1,0 +1,48 @@
+{
+  "template_id": "business__project-management__template_new",
+  "task_name": "municipal-capital-recovery-plan",
+  "category": "project-management",
+  "skill": {
+    "name": "project-planner",
+    "source_path": "/home/lenovo/skill/Harbor/skill_moban/tools/productivity-tools/skills/36__project-planner",
+    "skillsmp_stars": "106.7k",
+    "reason": "The task requires decomposing portfolio recovery work into actions, timelines, dependencies, capacity-aware assignments, milestones, and risk mitigation."
+  },
+  "data_design": {
+    "input_directory": "environment/data",
+    "references": [
+      "NYC Capital Projects Dashboard",
+      "NYC Open Data",
+      "FRED CPIAUCSL"
+    ],
+    "determinism": "Static CSV fixtures are bundled in the container; verifier recomputes expected metrics from the public-data-shaped inputs instead of reading hidden answer files."
+  },
+  "verifier_design": {
+    "main_tests": [
+      "Validate required output files and schemas.",
+      "Recompute CPI-normalized estimates, schedule variance, cost variance, boolean flags, and triage status.",
+      "Recompute recovery-project selection and enforce that every selected project has at least one valid action.",
+      "Validate action catalog membership, eligible phases, dependency rules, six-week window, target statuses, and weekly capacity.",
+      "Validate one board update per recovery project and summary metrics.",
+      "Validate project-plan appendix markers aligned with project-planner output: project goal, timeline, team, constraints, milestones, phase plan, dependency map, risks, and resource allocation."
+    ],
+    "guardrails": [
+      "Hash-check all input CSV files.",
+      "Disallow extra output files outside the requested four artifacts.",
+      "Avoid golden-answer matching; tests derive expected behavior from input data.",
+      "Check that blocked projects begin with escalation or blocker-removal actions."
+    ]
+  },
+  "with_without_skill_control": {
+    "only_difference": "environment/skills/ is present for with_skill and removed for without_skill runtime copies.",
+    "no_other_differences": [
+      "same instruction.md",
+      "same tests",
+      "same data",
+      "same Dockerfile; it conditionally installs skills only if environment/skills/ exists",
+      "same dependencies",
+      "skill payload is not modified"
+    ]
+  },
+  "status": "finalized after E2B oracle and skill-effect experiments: oracle pass, with_skill 3/3 pass, without_skill 0/3 pass"
+}

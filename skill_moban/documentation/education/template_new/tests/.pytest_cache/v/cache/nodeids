@@ -1,0 +1,14 @@
+[
+  "test_guardrails.py::test_bundle_references_only_visible_sources",
+  "test_guardrails.py::test_final_package_is_real_build_output",
+  "test_guardrails.py::test_outputs_are_not_placeholders",
+  "test_guardrails.py::test_protected_inputs_exist_and_are_nontrivial",
+  "test_outputs.py::test_a_required_outputs_exist_and_parse",
+  "test_outputs.py::test_b_build_script_succeeds_and_writes_final_package",
+  "test_outputs.py::test_c_manifest_and_source_map_match_required_structure",
+  "test_outputs.py::test_d_notebook_and_guide_contain_required_sections_in_order",
+  "test_outputs.py::test_e_notebook_reads_real_inputs_and_executes",
+  "test_outputs.py::test_f_metrics_and_misconception_analysis_appear_in_bundle",
+  "test_outputs.py::test_g_sources_practice_and_claims_exist",
+  "test_outputs.py::test_h_final_package_matches_bundle_counts"
+]
