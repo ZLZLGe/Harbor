@@ -1,0 +1,100 @@
+{
+  "derivedTaskId": "merchant-settlement-quality-gate-hardening",
+  "taskRole": "template",
+  "title": "Template: Merchant Settlement Quality Gate Hardening",
+  "goal": "Harden a realistic merchant settlement export repository so that its formal quality gate catches dirty-data loss, downstream contract drift, and incident-derived regressions while still producing daily and monthly deliverables through the real export pipeline and local settlement gateway.",
+  "primaryOutputFile": "/app/workspace/out/gate_result.json",
+  "difficulty": "hard",
+  "category": "code-quality",
+  "skillBenefitRationale": "The bound skill standardizes spec-audit workflows, incident-to-test extraction, release-readiness review, and downstream contract verification for a business-critical quality gate. Without the skill the task remains theoretically solvable from the visible repository, specs, incidents, and gateway behavior, but the solver must manually discover which artifacts define release readiness, reconstruct historical failure modes, and translate them into executable checks without breaking the real export pipeline.",
+  "targetSkillDirName": "settlement-quality-audit",
+  "targetSkillName": "settlement-quality-audit",
+  "taskShape": "quality-gate-hardening",
+  "designGoals": [
+    "Keep the task centered on executable quality assets and a passing formal gate rather than rewriting the export system from scratch.",
+    "Preserve the real export -> gateway acceptance -> summary stage order and both daily/monthly settlement deliverables.",
+    "Force the solver to connect specs, incidents, dirty-data handling, and contract drift into durable tests and operator-facing documentation.",
+    "Allow multiple legitimate fixes as long as final gate behavior, release semantics, and downstream acceptance remain compatible with the existing contract."
+  ],
+  "verifierDesign": {
+    "mainTests": [
+      "The repository ships the required quality assets: QUALITY.md, functional tests, code-review runbook, integration-test runbook, spec-audit runbook, and AGENTS.md.",
+      "The formal gate still runs the real export entrypoint, then the local settlement gateway acceptance, then the final summary stage.",
+      "Daily and monthly exports remain available and preserve the published field semantics and failure-exit behavior.",
+      "Dirty data, historical incident scenarios, and downstream contract mismatches are covered by executable tests or gate checks rather than prose only.",
+      "The repaired repository produces /app/workspace/out/gate_result.json and /app/workspace/out/export_summary.md from the formal workflow."
+    ],
+    "guardrails": [
+      "The hidden settlement gateway and frozen business inputs remain untouched.",
+      "The gate cannot be replaced with static golden-file comparisons or hardcoded success payloads.",
+      "Deleting report types, skipping dirty-data handling, or weakening failure semantics does not pass.",
+      "Hardcoding fixed batch ids, dates, merchant ids, record counts, or expected summaries does not pass."
+    ]
+  },
+  "readmeRequirements": [
+    "Summarize code-quality template principles using the current SkillsMP code-quality page and emphasize verification-loop, eval-harness, gateguard, code-review handoff, and release-maintainer style skills instead of lint-only framing.",
+    "Explain that the task is about release-readiness hardening around a real merchant settlement workflow, not a synthetic formatter or lint exercise.",
+    "Include real oracle and skill-effect experiment results after E2B runs complete, and explain honestly when the skill improves pass rate rather than raw speed."
+  ],
+  "skillsmpInspiration": [
+    "verification-loop.md",
+    "eval-harness.md",
+    "gateguard.md",
+    "receiving-code-review.md",
+    "requesting-code-review.md",
+    "verification-before-completion.md",
+    "openclaw-release-maintainer.md",
+    "fix.md"
+  ],
+  "oracleValidation": {
+    "job": "code-quality-oracle-20260421-225437-g3",
+    "trial": "task_oracle_e2b__mV4d3nw",
+    "reward": 1.0,
+    "testsPassed": "9/9"
+  },
+  "skillEffectValidation": {
+    "effectiveComparisons": 3,
+    "withSkillPasses": 3,
+    "withoutSkillPasses": 0,
+    "dominantWithoutSkillFailure": "RUN_SPEC_AUDIT.md does not preserve a rerunnable audit path or probe evidence in the formal quality assets.",
+    "validComparisons": [
+      {
+        "pair": "g3",
+        "withSkillJob": "code-quality-with-skill-probe-20260421-223302-g3",
+        "withSkillTrial": "task_with_skills_e2b__UNnaQdW",
+        "withSkillReward": 1.0,
+        "withoutSkillJob": "code-quality-without-skill-probe-20260421-224404-g3",
+        "withoutSkillTrial": "task_without_skills_e2b__YeTKHSq",
+        "withoutSkillReward": 0.0
+      },
+      {
+        "pair": "g4",
+        "withSkillJob": "code-quality-with-skill-probe-20260421-225614-g4",
+        "withSkillTrial": "task_with_skills_e2b__XBfGsYx",
+        "withSkillReward": 1.0,
+        "withoutSkillJob": "code-quality-without-skill-probe-20260421-230934-g4",
+        "withoutSkillTrial": "task_without_skills_e2b__JigVw23",
+        "withoutSkillReward": 0.0
+      },
+      {
+        "pair": "g5",
+        "withSkillJob": "code-quality-with-skill-probe-20260421-232005-g5",
+        "withSkillTrial": "task_with_skills_e2b__Bw7iTyi",
+        "withSkillReward": 1.0,
+        "withoutSkillJob": "code-quality-without-skill-probe-20260421-233104-g5",
+        "withoutSkillTrial": "task_without_skills_e2b__FBbMdCV",
+        "withoutSkillReward": 0.0
+      }
+    ],
+    "excludedInvalidTrials": [
+      {
+        "job": "code-quality-with-skill-probe-20260421-215621-f2",
+        "reason": "provider returned 429 Too Many Requests before the task actually started"
+      },
+      {
+        "job": "code-quality-with-skill-probe-20260421-220328-f3",
+        "reason": "provider returned 429 Too Many Requests before the task actually started"
+      }
+    ]
+  }
+}

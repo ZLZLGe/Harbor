@@ -7,7 +7,7 @@
 
 ## 概览
 
-- 小类级 `template_new`：20 个
+- 小类级 `template_new`：21 个
 
 ## 小类级 template_new
 
@@ -29,5 +29,6 @@
 - `research/bioinformatics/template_new`
 - `research/computational-chemistry/template_new`
 - `research/data-analysis/template_new`
+- `testing-and-security/code-quality/template_new`
 - `tools/debugging/template_new`
 - `tools/domain-utilities/template_new`
