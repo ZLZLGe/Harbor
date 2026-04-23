@@ -23,7 +23,7 @@
 - `devops/cloud/template_new`
 - `documentation/documents/template_new`
 - `documentation/education/template_new`
-- `ecommerce/template_new`
+- `business/ecommerce/template_new`
 - `research/academic/template_new`
 - `research/astronomy-physics/template_new`
 - `research/bioinformatics/template_new`
