@@ -1,25 +1,12 @@
 # Fulfillment Exception Reconciliation
 
-这个模板面向 `ecommerce` 类 skill 任务，目标是做一个更接近真实运营诊断流的电商履约对账任务。它综合参考了 SkillsMP ecommerce 类里更热门的能力方向：订单查询与状态排查、Shopify / Admin API 运营排障、物流追踪、SKU / catalog 匹配、库存与销售运营工作流。代表性 skills 包括：
-
-- `ordercli.md`：`361.8k` stars，订单查询与状态排查
-- `apify-ecommerce.md`：跨平台商品、价格、评论与卖家数据采集
-- `persona-sales-ops.md`：销售运营、客户沟通与 deal workflow
-- `shopify-expert.md`：`8.4k` stars，Shopify API / 运营排障
-- `clawpify.md` / Shopify Admin API 类 skills：Shopify GraphQL Admin API、商品、订单与履约链路
-- `zoho-inventory.md`：库存、销售订单、采购、账单与 shipment 记录管理
-- `easypost.md`：`4.2k` stars，物流追踪与 shipping state
-- `catalog-sku-matcher-india.md`：`4.2k` stars，SKU / catalog 匹配
-
-核心目标是让 solver 在单容器内完成一条真实风格链路：`commerce admin GraphQL -> warehouse reservations -> carrier tracking -> reconciliation outputs`。
+这个模板面向 `ecommerce` 类 skill 任务，目标是做一个更接近真实运营诊断流的电商履约对账任务。它综合参考 SkillsMP ecommerce 类热门 skill 的共性能力：订单查询与状态排查、跨平台商品 / 价格 / 评论采集、Shopify / 多平台店铺管理、库存与销售订单管理、物流面单与 tracking、SKU / catalog 匹配、销售运营 workflow。任务设计不追求绑定单一平台，而是抽象出“多来源业务事实收集 -> 规则对齐 -> 异常判断 -> 正式交付”的通用流程。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：技能收益必须体现在“把真实电商运营链路中的高成本排查步骤标准化”，例如分页拉取订单、解析 Shopify-like variant / SKU、比对 catalog 期望履约方、查询仓库 reservation、归一化 carrier status、生成可审计 evidence。严禁让 skill 直接泄露固定答案、内置最终异常清单、绕过 live service，或把任务退化成照抄 helper 输出。
-* **任务目标形态**：任务应要求 Agent 面向一个运营截止时间前的真实问题，跨 `commerce admin -> warehouse -> carrier` 多系统收集证据，产出可给运营经理使用的结构化异常报告。Agent 必须处理分页、stale snapshot、SKU drift、库存占用、物流状态冲突、缺失 tracking 等组合问题；不应只做单文件 CSV 清洗、静态 JSON 转换、纯 UI 表单填写，或只调用一个 mock API 得到答案。
-* **验证设计重点**：Verifier 应从 live services 和冻结输入独立复算期望结果，重点验证输出 schema、行级 issue code、summary totals、evidence JSON、GraphQL 分页访问、服务健康与输入哈希。Verifier 还应允许不同实现的 `expected_action` 和 evidence 字段命名，只要关键语义成立；同时拦截硬编码旧答案、篡改 `/root/data/`、修改隐藏服务、跳过分页、只用 stale snapshot、伪造 service log 等规避方式。
-* **数据与环境设计**：输入应同时包含冻结 manifest、catalog export、stale platform snapshot、carrier status codebook，以及隐藏服务中的 live-only 变化。这样 skill 的价值来自“发现 snapshot 与 live state 的差异”，而不是来自访问外网或依赖不可复现的数据。
-* **难度与迁移性**：模板适合生成 hard 级任务。相似任务可以迁移到 marketplace returns、subscription fulfillment、inventory rebalancing、B2B wholesale order exception、OMS / WMS reconciliation 等场景，但仍应保留跨系统证据链和可机器验证的正式交付物。
+* **Skill 价值定位**：技能收益必须体现在把电商任务里的重复性、高出错操作流程化，例如识别平台和数据源、拉取订单 / 商品 / 库存 / 物流状态、统一 SKU / variant / tracking / customer 等关键 ID、对齐业务规则并生成可审计输出。严禁让 skill 直接携带固定答案、绕过真实 API / 本地服务，或只包装一个吐出最终报告的黑盒脚本。
+* **任务目标形态**：任务应要求 Agent 完成一个端到端电商运营问题，而不是单点工具调用。比较通用的设计流程是：读取冻结业务配置和样本数据 -> 调用当前店铺 / 仓储 / 物流 / marketplace 服务 -> 汇总多来源事实 -> 识别异常或生成运营决策文件 -> 输出 CSV / JSON / report 等正式交付物。不应设计成纯静态文件转换、简单 CRUD、只改前端页面、只考平台文档记忆，或没有跨来源对账压力的任务。
+* **验证设计重点**：Verifier 应独立复算关键业务事实，检查交付物 schema、计数、ID 映射、异常分类、证据字段和服务访问痕迹是否成立；同时覆盖分页、stale snapshot、库存占用、物流状态归一化、目录映射漂移等常见坑点。防作弊重点应放在输入哈希、服务健康、真实调用链、禁止硬编码旧答案、禁止篡改数据或伪造日志。
 
 ## 第二部分：示例任务
 
