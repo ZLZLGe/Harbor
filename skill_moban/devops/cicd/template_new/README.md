@@ -6,7 +6,7 @@
 
 * **Skill 价值定位**：技能收益必须体现在诊断路径、流水线语义检查和真实链路校验上，例如把 workflow graph、dry-run replay、bundle contract diff 标准化；严禁把 skill 做成直接泄露答案、替 solver 写固定补丁、或依赖 hidden answer file 的捷径。
 * **任务目标形态**：任务应要求 Agent 修复一个真实 CI/CD 发布流程里的多阶段链路问题，并产出可执行、可审计、可复跑的 release artifact；不应只让 Agent 改一行构建配置、补一个静态 YAML，或绕开发布系统直接写最终 JSON。
-* **验证设计重点**：Verifier 应先跑真实流水线，再检查产物是否来自真实上下游服务。主测关注 bundle、provenance、promotion plan 的行为一致性；guardrail 关注有没有改隐藏服务、回退 fallback、删阶段依赖或把多阶段流程折成单步脚本。测试不绑定唯一实现，但要卡住“看起来能产出文件、实际绕过发布语义”的解法。
+* **验证设计重点**：Verifier 要真的跑一遍发布流水线，确认产物不是手写出来的假文件。重点检查 release bundle、provenance 和 promotion plan 是否来自真实 broker，内容是否互相对得上。还要防止 Agent 改隐藏服务、删掉发布阶段、走 fallback，或把多阶段发布流程偷换成一个简单脚本。
 
 ## 第二部分：示例任务
 
