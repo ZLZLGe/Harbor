@@ -1,0 +1,5 @@
+warehouse_id,route_id,sla_minutes
+WH_SF,R1,90
+WH_SF,R2,60
+WH_NY,R7,75
+WH_LON,R3,45

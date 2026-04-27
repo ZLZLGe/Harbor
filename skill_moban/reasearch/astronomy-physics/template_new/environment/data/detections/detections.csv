@@ -1,0 +1,13 @@
+field_id,candidate_id,fits_file,hdu_name,x_pixel,y_pixel,flux_aperture,flux_err,snr,quality_flags
+F01,AT2026aa,field_F01_r_20260214.fits,SCI,52.3,48.9,66000.0,1200.0,35.2,none
+F01,AT2026ab,field_F01_r_20260214.fits,SCI,30.2,75.4,42000.0,1800.0,23.3,none
+F01,STAR-F01,field_F01_r_20260214.fits,SCI,68.1,25.8,90000.0,900.0,60.0,none
+F01,MBO-F01,field_F01_r_20260214.fits,SCI,43.5,60.2,50000.0,1400.0,31.1,none
+F02,LOW-SNR,field_F02_g_20260215.fits,SCI,58.5,51.1,9000.0,1800.0,5.0,none
+F02,EDGE-F02,field_F02_g_20260215.fits,SCI,5.2,8.8,30000.0,1500.0,20.0,edge
+F02,AT2026ac,field_F02_g_20260215.fits,SCI,45.0,42.0,38000.0,1100.0,26.0,none
+F02,FAINT-F02,field_F02_g_20260215.fits,SCI,77.7,66.6,7000.0,500.0,14.0,none
+F03,AT2026ad,field_F03_i_20260216.fits,SCI,53.5,52.1,72000.0,1300.0,40.0,none
+F03,STAR-F03,field_F03_i_20260216.fits,SCI,22.0,30.0,60000.0,1000.0,45.0,none
+F03,NOHOST-F03,field_F03_i_20260216.fits,SCI,80.0,20.0,35000.0,1100.0,25.0,none
+F03,BADPHOT-F03,field_F03_i_20260216.fits,SCI,40.0,70.0,10000.0,4000.0,12.0,none

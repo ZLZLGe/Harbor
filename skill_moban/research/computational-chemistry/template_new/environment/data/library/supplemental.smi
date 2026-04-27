@@ -1,8 +1,0 @@
-C[C@H](C1=CC=C(C=C1)CC(C)C)C(=O)O	LIB003_r_ibuprofen
-CC(C1=CC(=C(C=C1)C2=CC=CC=C2)F)C(=O)O	LIB006_flurbiprofen
-CCN(CC)CC(=O)NC1=C(C=CC=C1C)C	LIB008_lidocaine
-CCN(CC)CC(=O)Nc1c(C)cccc1C	LIB009_lidocaine_alt
-CC(=O)NC1=CC=C(C=C1)O	LIB011_acetaminophen
-C1=CC=C(C(=C1)O)O	LIB013_catechol
-C1=CC=C(C=C1)N	LIB014_aniline
-CC(=O)CC(C1=CC=CC=C1)C2=C(C3=CC=CC=C3OC2=O)O	LIB016_warfarin

@@ -1,0 +1,11 @@
+postal,zone,remote,timezone
+94105,WEST,false,America/Los_Angeles
+94016,WEST,false,America/Los_Angeles
+98101,NORTHWEST,false,America/Los_Angeles
+10001,EAST,false,America/New_York
+11201,EAST,false,America/New_York
+30301,SOUTH,false,America/New_York
+60601,MIDWEST,false,America/Chicago
+73301,SOUTHWEST,false,America/Chicago
+99501,ALASKA,true,America/Anchorage
+96701,PACIFIC,true,Pacific/Honolulu

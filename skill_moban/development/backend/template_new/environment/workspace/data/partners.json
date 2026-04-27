@@ -1,0 +1,28 @@
+{
+  "partners": [
+    {
+      "id": "partner_alpha",
+      "name": "Alpha Outdoor Supply",
+      "apiKey": "pk_live_alpha",
+      "allowedCarriers": ["roadline", "skybridge", "coldchain"],
+      "allowedServiceLevels": ["standard", "expedited"],
+      "rateLimit": {"limit": 80, "windowSeconds": 60}
+    },
+    {
+      "id": "partner_beta",
+      "name": "Beta Home Goods",
+      "apiKey": "pk_live_beta",
+      "allowedCarriers": ["roadline"],
+      "allowedServiceLevels": ["standard"],
+      "rateLimit": {"limit": 50, "windowSeconds": 60}
+    },
+    {
+      "id": "partner_throttle",
+      "name": "Throttle Test Partner",
+      "apiKey": "pk_live_throttle",
+      "allowedCarriers": ["roadline"],
+      "allowedServiceLevels": ["standard"],
+      "rateLimit": {"limit": 2, "windowSeconds": 60}
+    }
+  ]
+}

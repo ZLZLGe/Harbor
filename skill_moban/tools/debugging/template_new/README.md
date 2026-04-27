@@ -1,93 +1,70 @@
-# 🛠️ Debugging 任务模板规范与设计指南
+# Debugging Template
 
-本规范定义了 Agent（如 Codex）在设计和生成 `debugging` 类任务时的核心标准。与常规的“从零开发”任务不同，Debugging 任务的核心在于：
+这是面向 `debugging` 类 skill 的模板。它综合参考 SkillsMP debugging / troubleshooting 类热门 skill 的共性能力：症状复现、浏览器探针、日志与网络追踪、性能量测、假设验证、根因定位、回归测试和防作弊 guardrails。
 
-**给定残缺或性能退化的系统 -> 使用特定探针诊断 -> 在严格约束下修复 -> 验证修复且不引发回归（Regression）**
+## 第一部分：任务设计参考
 
-## 🎯 Agent 设计 Debugging 任务的核心范式
+* **Skill 价值定位**：debugging 类 skill 的核心价值，是把“猜测式修复”变成可复现、可量测、可验证的排障闭环。模板任务应让 skill 标准化症状复现、trace / console / network evidence、性能基线、根因假设和修复后回归验证，而不是直接泄露补丁或把任务退化为静态代码修改。
+* **Task目标形态**：任务应从真实线上症状出发，只提供表现层问题、业务约束和禁止事项，让 Agent 在高仿真运行环境中定位根因并修复。目标形态适合设计成浏览器运行时回归、长会话性能退化、异步状态漂移、资源加载异常、下游依赖不稳定或 CI / workflow 故障排查，不适合做已知根因的简单替换题。
+* **Verifier设计重点**：Verifier 应验证修复是否经过真实运行链路、是否解决原始症状、是否保持业务数据与关键测试钩子不变。重点应覆盖复现路径、量化阈值、跨设备 / profile 稳定性、真实下游调用、长时序 soak、资源按需加载、回归防护，以及防止删除组件、篡改隐藏服务、伪造数据或硬编码通过。
 
-当 Agent 参考本模板造任务时，必须严格遵循以下四大核心要点：
+## 第二部分：示例任务
 
-### 1. 症状导向与约束逆向构建（Symptom-Driven Constraints）
+### 📌 任务元数据
 
-任务说明 `instruction.md` 严禁直接暴露问题根因或指导修复逻辑。只能向 Solver 提供“表现层症状”、业务边界约束以及禁止事项，迫使模型进行真实的推理与排障。
-
-
-### 2. 探针型技能注入（Probe-Oriented Skill Integration）
-
-绑定的 Skill 不再是代码生成辅助，而是作为诊断仪器。必须设计特定的测量探针，例如测速脚本、日志分析器、压测工具，帮助 Solver 复现问题并精准度量修复前后的指标变化。
-
-### 3. 高仿真靶场与防作弊拦截（High-Fidelity & Anti-Cheat Guardrails）
-
-必须摒弃纯净沙盒，构建包含真实上下游依赖的故障现场。Verifier 需强制断言运行时经过真实的下游链路，拦截诸如篡改测试桩、删除数据节点、降级动态组件等“伪修复（Hack-fix）”捷径。
-
-### 4. 引入量化与长时序测试（Quantitative & Soak Testing）
-
-判定标准不能停留在简单的 Pass/Fail。需要引入长会话交互链路测试（Soak Testing）以捕获内存或事件泄漏，并依赖量化指标，例如 CLS 阈值、JS 瀑布流耗时，来验证修复效果。
-
-## 🌟 标准示例任务：`nextjs-analytics-dashboard-runtime-regression-debugging`
-
-以下任务是本模板范式的标准实现，展示了如何将上述设计理念落地。
-
-## 📌 任务元数据
-
-- 任务名称：`nextjs-analytics-dashboard-runtime-regression-debugging`
+- 任务 ID：`nextjs-analytics-dashboard-runtime-regression-debugging`
 - 类别：`debugging`
 - 难度：`hard`
-- 状态：✅ `APPROVE`
-- 标签：`react`, `nextjs`, `browser-testing`, `hydration`, `cls`, `lazy-loading`, `interaction-latency`, `dashboard`
+- 绑定 Skill：`browser-testing`
 
-任务描述：
+### 📊 验证与测试指标（Oracle & Verifier）
 
-修复 Next.js Analytics Dashboard 的前端运行时回归问题。核心解决：Deep-link 冷启动不稳定且 linked alert context 错位、Advanced Insights 提前加载、以及长会话交互退化。
+- Oracle：Oracle 在真实 Next.js dashboard、隐藏 API simulator 和 Playwright 浏览器环境中复现三类线上回归：deeplink 冷启动不稳定、Advanced Insights 提前加载、长会话交互退化。它通过 DOM、CLS、网络请求、运行时 handler 数量和刷新耗时共同判断修复是否真正落到运行时行为上。
+- Verifier策略：
 
-配套技能（Skills）- 探针型工具：
+| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+| :--- | :--- |
+| 校验 `/api/dashboard` 必须经过真实 simulator，响应耗时和 payload 符合冻结快照 | 真实下游链路验证、禁止伪造数据源 |
+| 检查 homepage、告警 drawer 和真实告警内容可渲染 | 浏览器复现、DOM 定位、业务关键路径确认 |
+| 在桌面与移动 profile 下验证 alert deeplink 稳定，过滤器不漂移，CLS `< 0.05` | deeplink 调试、视觉稳定性、跨 viewport 复现 |
+| 要求 linked alert context 只出现在 drawer scope 内且不产生明显位移 | 状态归属、布局量测、局部上下文修复 |
+| 验证 Advanced Insights 打开前不额外请求非关键 JS，点击后才加载 | network waterfall、lazy loading、资源回归分析 |
+| 重复过滤、sidebar 切换和 timeline refresh 后限制 handler 泄漏、pulse fan-out 和 refresh latency | soak testing、内存 /事件泄漏定位、交互性能量测 |
+| 校验隐藏 simulator、incident artifacts、`data-testid` 和目录结构未被篡改 | 防作弊 guardrails、真实故障现场保护 |
 
-- `browser-testing`：统一的浏览器复现与测量方法。
-- `measure-dashboard-waterfall.ts`：测量首页加载及 Advanced Insights 的 JS Waterfall。
-- `measure-dashboard-deeplink.ts`：复现 Deep-link 冷启动、Filter 漂移、linked context 错位与 CLS。
-- `measure-dashboard-soak.ts`：执行长会话交互序列，排查 Listener 泄漏、脉冲 Fan-out 与刷新延迟。
+### ⚡ Skill 相关性评估
 
-## 📊 验证与测试指标（Oracle & Verifier）
+结论：强相关。这个任务里，Skill 的核心价值是把浏览器探针、deeplink 量测、network waterfall 和 soak 复现路径标准化，从而迫使 Agent 处理真实运行时回归；without Skill 更容易停在表面 UI 正常但 task-level 仍失败的解法。
 
-- 整体结论：✅ 通过（Reward: `1`）
-- 测试用例：`9/9` 通过
-
-Verifier 策略：
-
-- 主测：Deep-link 稳定性、按需加载机制、长会话运行时稳定性。
-- 防作弊：拦截篡改隐藏服务、替换真实数据、移除关键 `data-testid` 等伪修复行为。
-
-多模态：
-
-- 不适用（纯前端 / 浏览器运行时任务）。
-
-## ⚡ Skill 相关性评估
-
-结论：强相关。这个任务里，Skill 的核心价值不是单纯提速，而是把浏览器探针、deeplink 量测和 soak 复现路径标准化，强迫 agent 真的碰到冷启动 deeplink 的 CLS 回归与抽屉上下文约束；没有 Skill 时，agent 虽然更快结束，但会稳定停在“表面看起来差不多、task-level 仍不过”的错误解。
-
-基于最近 `3` 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` | `100%` | 近三次有效对照里，With Skill 连续 3 次 task-level 全通过；Without Skill 连续 3 次都未能通过 |
-| 总耗时 | `1332.2s` | `1682.7s` | With Skill 更慢，但换来稳定通过；Without Skill 更快结束却稳定停在错误解 |
-| Input Tokens | `0.69M` | `1.91M` | With Skill 会显著增加诊断上下文与验证开销，平均输入 token 约为 Without Skill 的 `2.78x` |
+| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 均未能同时修复 deeplink、按需加载和 soak 回归；With Skill 连续 task-level 全通过 |
+| Agent 执行耗时 | `1332.2s` | `1682.7s` | With Skill 耗时更高，但换来完整探针复现与稳定收敛；without Skill 更快结束却稳定停在错误解 |
+| Tokens | `0.69M` | `1.91M` | With Skill token 约为 without Skill 的 `2.78x`，主要用于浏览器探针、量测结果和回归验证上下文 |
 
-
-
-## 📁 标准目录结构说明
+## 标准目录结构说明
 
 ```text
-.
-├── instruction.md          # 任务说明（仅包含症状、业务约束和禁止事项）
-├── task.toml               # 任务元数据（标签、技能要求、运行入口）
-├── PLAN.json               # 任务构建过程的结构化元信息
-├── environment/            # 运行环境
-│   ├── Dockerfile          # 单容器镜像定义；在同一容器内启动网站与隐藏下游服务
-│   ├── website/            # 待修复的应用源码（故障现场）
-│   ├── api-simulator/      # 提供真实下游数据和依赖的隐藏服务/模拟后端（防作弊靶场）
-│   └── skills/             # 任务绑定的诊断 Skill 定义与配套探针脚本
-├── tests/                  # Verifier 与 Guardrail 测试集（量化与时序测试）
-└── solution/               # 官方参考修复代码及 solve.sh
+template_new/
+├── instruction.md
+├── task.toml
+├── PLAN.json
+├── README.md
+├── environment/
+│   ├── Dockerfile
+│   ├── website/
+│   ├── api-simulator/
+│   └── skills/
+│       └── browser-testing/
+├── tests/
+│   ├── test.sh
+│   ├── test_guardrails.py
+│   ├── test_performance.py
+│   ├── verify_dashboard.py
+│   └── vendor/
+└── solution/
+    ├── fixed/
+    └── solve.sh
 ```

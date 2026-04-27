@@ -1,32 +1,29 @@
 version = "1.0"
 
 [metadata]
-id = "compchem__leadlike-screening-shortlist"
-name = "Lead-Like Screening Shortlist"
-description = "Build a deterministic RDKit screening function that standardizes a frozen small-molecule library, preserves stereochemistry, applies structural alerts, and ranks lead-like candidates against reference actives."
-author_name = "OpenAI Codex"
-author_email = "support@openai.com"
+id = "computational-chemistry__offline-lead-triage"
+name = "Offline Lead Triage for Inflammatory Kinase"
+description = "Build a reproducible medicinal-chemistry triage report from candidate structures, mixed-unit activity records, and safety signals."
 difficulty = "hard"
-category = "computational-chemistry"
+category = "computational_chemistry"
 tags = [
-  "computational-chemistry",
+  "drug-discovery",
+  "medicinal-chemistry",
   "rdkit",
-  "cheminformatics",
-  "molecular-standardization",
-  "similarity-search",
-  "medchem",
-  "lead-optimization",
+  "lead-triage",
+  "activity-normalization",
+  "admet",
 ]
-required_skills = ["rdkit-screening-diagnostics"]
-primary_output_file = "/root/workspace/solution.py"
-source_template_id = "compchem__leadlike-screening-shortlist"
+required_skills = ["drug-discovery"]
+primary_output_file = "/root/workspace/output/lead_triage.json"
+source_template_id = "computational-chemistry__offline-lead-triage"
 task_role = "similar"
 
 [verifier]
-timeout_sec = 900.0
+timeout_sec = 600.0
 
 [agent]
-timeout_sec = 1200.0
+timeout_sec = 600.0
 
 [environment]
 build_timeout_sec = 1200.0
@@ -34,4 +31,3 @@ cpus = 2
 memory_mb = 4096
 storage_mb = 10240
 gpus = 0
-allow_internet = true

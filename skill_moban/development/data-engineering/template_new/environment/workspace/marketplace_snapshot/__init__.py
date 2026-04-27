@@ -1,2 +1,0 @@
-"""Marketplace snapshot task package."""
-

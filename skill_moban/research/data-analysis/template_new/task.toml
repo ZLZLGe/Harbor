@@ -1,40 +1,33 @@
 version = "1.0"
 
 [metadata]
-id = "data-analysis__saas-board-growth-diagnostics-bundle"
-name = "Template: SaaS Board Growth Diagnostics Bundle"
-description = "Build a board-ready SaaS growth diagnostics bundle from frozen multi-table operating data, validate the metrics through a live localhost audit API, and submit a final report package."
-author_name = "OpenAI Codex"
-author_email = "support@openai.com"
+id = "data-analysis__promo-roi-stockout-audit"
+name = "Promotion ROI Stockout Audit"
+description = "Repair a retail promotion analytics pipeline so that local business dates, event deduplication, stockout exposure, external confounders, and enrichment summaries produce consistent ROI deliverables."
 difficulty = "hard"
 category = "data-analysis"
 tags = [
   "data-analysis",
-  "saas-metrics",
-  "business-intelligence",
-  "kpi-dashboard-design",
-  "data-storytelling",
-  "sql",
+  "retail-analytics",
   "pandas",
-  "metrics-audit",
-  "growth-diagnostics",
+  "business-intelligence",
+  "causal-diagnostics",
+  "kpi-audit",
 ]
-required_skills = [
-  "saas-board-metrics-diagnostics",
-]
-primary_output_file = "/app/output/final_submission.json"
-source_template_id = "data-analysis__saas-board-growth-diagnostics-bundle"
-task_role = "template"
+required_skills = ["data-analyst"]
+primary_output_file = "/root/answer/promo_summary.json"
+source_template_id = "data-analysis__promo-roi-stockout-audit"
+task_role = "similar"
 
 [verifier]
-timeout_sec = 900.0
+timeout_sec = 1200.0
 
 [agent]
-timeout_sec = 1000.0
+timeout_sec = 1100.0
 
 [environment]
-build_timeout_sec = 900.0
+build_timeout_sec = 1200.0
 cpus = 2
 memory_mb = 4096
 storage_mb = 10240
-allow_internet = true
+gpus = 0

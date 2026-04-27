@@ -1,0 +1,81 @@
+{
+  "task_id": "astronomy_physics__fits-transient-triage",
+  "task_name": "fits-transient-triage",
+  "template_category": "astronomy-physics",
+  "scenario": "triaging multi-night survey transient candidates from FITS images, detector-space detections, catalogs, and calibrated photometry",
+  "user_visible_goal": "Recover a reproducible candidate review bundle whose coordinates, times, catalog matches, photometry, and field context agree across all outputs.",
+  "input_assets": [
+    "/root/environment/data/fits/*.fits",
+    "/root/environment/data/detections/detections.csv",
+    "/root/environment/data/catalogs/gaia_reference.ecsv",
+    "/root/environment/data/catalogs/host_galaxies.tsv",
+    "/root/environment/data/catalogs/moving_objects.tsv",
+    "/root/environment/data/calibration/filter_calibration.tsv",
+    "/root/environment/data/calibration/triage_config.json",
+    "/root/environment/pipeline/run_transient_triage.py",
+    "/services/field-context/server.py"
+  ],
+  "required_outputs": [
+    "/root/answer/astrometric_candidates.ecsv",
+    "/root/answer/photometry_summary.tsv",
+    "/root/answer/crossmatch_audit.tsv",
+    "/root/answer/triage_diagnostics.tsv",
+    "/root/answer/report.json",
+    "/root/answer/field_context.json"
+  ],
+  "shipped_skills": [
+    "astropy"
+  ],
+  "skill_assets": [
+    "/root/.codex/skills/astropy/SKILL.md",
+    "/root/.codex/skills/astropy/probes/transient_triage_probe.py"
+  ],
+  "skill_hypothesis": {
+    "with_skill": "The solver is more likely to use Astropy's FITS/WCS, Time, SkyCoord, units, Table, Planck18, and the task-bound diagnostics kernel correctly. The skill kernel recomputes public-input diagnostics and stable row signatures so the solver can converge without inspecting verifier code.",
+    "without_skill": "The solver is more likely to hand-roll the scientific chain and miss the task-bound diagnostics signature convention, even if it reconstructs the visible astronomy quantities."
+  },
+  "verifier_strategy": {
+    "main_tests": [
+      "All required outputs exist, parse, and satisfy the declared column contracts.",
+      "FITS WCS coordinates, Galactic coordinates, UTC midpoint ISO times, and MJD values match a reference reconstruction from the shipped FITS headers and detections.",
+      "Gaia, host, and moving-object cross-matches use spherical separations and configured arcsecond thresholds.",
+      "Photometry, uncertainties, luminosity distances, absolute magnitudes, classification, diagnostics ledger, and JSON summaries are internally consistent."
+    ],
+    "guardrails": [
+      "Pixel-as-sky outputs and degree-vs-arcsecond matching cannot satisfy the numeric checks.",
+      "The field context result must be produced through the local service contract and match the final reportable candidate set.",
+      "Static placeholder summaries, outputs that drop rejected candidates, or diagnostics ledgers not produced with the task-bound signature convention cannot pass."
+    ]
+  },
+  "data_provenance": {
+    "reference_source": "Synthetic but physically styled survey cutouts generated with Astropy FITS/WCS primitives for deterministic benchmarking.",
+    "catalog_source": "Deterministic local reference catalogs modeled after Gaia point-source, host-galaxy, and moving-object review tables."
+  },
+  "validation_results": {
+    "local_oracle": {
+      "tests_passed": "7/7",
+      "command": "ENV_ROOT=<tmp>/environment ANSWER_DIR=<tmp>/answer python3 -m pytest -q tests/test_outputs.py"
+    },
+    "e2b_oracle": {
+      "job": "astro-oracle-e2b-20260427-sigkernel-1",
+      "reward": 1.0,
+      "tests_passed": "7/7"
+    },
+    "e2b_comparison": {
+      "with_skill_jobs": [
+        "astro-with-skills-e2b-20260427-sigkernel-r1",
+        "astro-with-skills-e2b-20260427-sigkernel-r2"
+      ],
+      "without_skill_job": "astro-without-skills-e2b-20260427-sigkernel-r1",
+      "valid_trials": 5,
+      "with_skill_pass_at_5": "5/5",
+      "without_skill_pass_at_5": "0/5",
+      "with_skill_avg_agent_seconds": 303.26,
+      "without_skill_avg_agent_seconds": 337.67,
+      "with_skill_avg_input_tokens": 538059.8,
+      "without_skill_avg_input_tokens": 573770.6,
+      "with_skill_avg_output_tokens": 13244.2,
+      "without_skill_avg_output_tokens": 14984.0
+    }
+  }
+}

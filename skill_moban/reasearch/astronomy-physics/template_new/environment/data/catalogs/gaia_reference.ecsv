@@ -1,0 +1,13 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - {name: source_id, datatype: string}
+# - {name: ra_icrs_deg, datatype: float64}
+# - {name: dec_icrs_deg, datatype: float64}
+# - {name: phot_g_mean_mag, datatype: float64}
+# schema: astropy-2.0
+source_id ra_icrs_deg dec_icrs_deg phot_g_mean_mag
+Gaia-STAR-F01 150.11131249415544 2.2027277764962427 17.2
+Gaia-STAR-F03 150.42412676039555 1.922777774841263 18.4
+Gaia-background-1 150.12799985175945 2.216322222208788 20.1
+Gaia-background-2 149.85371167208893 2.4680555554159733 19.8

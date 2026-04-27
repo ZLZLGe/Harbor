@@ -1,0 +1,24 @@
+{
+  "campaign_name": "Audit Trails public launch",
+  "product_name": "Audit Trails",
+  "company_name": "TallyRun",
+  "audiences": {
+    "primary": "content operations leads at B2B software companies",
+    "secondary": "launch managers, product marketers, and review owners"
+  },
+  "core_message": "Audit Trails keeps launch claims, sources, reviewer actions, and publication status visible before publication.",
+  "business_context": "The launch should feel practical and grounded. The team wants content that sounds like an operator explaining a useful workflow, not a broad AI automation pitch.",
+  "forbidden_claims": [
+    "guaranteed compliance",
+    "replaces legal review",
+    "supports every CMS",
+    "10x faster launches",
+    "fully autonomous publishing",
+    "automatically sends campaigns"
+  ],
+  "must_mention_boundaries": [
+    "not a substitute for legal approval",
+    "does not publish on its own",
+    "human reviewers still own approval"
+  ]
+}

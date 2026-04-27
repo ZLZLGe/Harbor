@@ -1,29 +1,58 @@
-你是负责 release engineering 的值班工程师，需要修复当前这条 GitHub Actions 风格发布流水线的 dry-run 事故。
+You are triaging a flaky Playwright CI failure that appeared on `main` after a release PR was merged. The repository under test is in `/app/repo`, and the exported CI logs are in `/app/ci-logs`.
 
-输入数据在：
-- `/app/workspace/.github/workflows/release-dry-run.yml`：待修复的流水线定义
-- `/app/workspace/scripts/`：待修复的发布脚本与辅助工具
-- `/app/workspace/data/`：公开的发布说明、历史快照与对比样本
-- `/services/release-broker/`：同容器内隐藏下游服务与冻结数据，只允许调用，不允许修改
+Input data is in:
 
-你的任务
-1、修复 `/app/workspace/.github/workflows/release-dry-run.yml` 和 `/app/workspace/scripts/`，让 release dry-run 能在现有多阶段流水线下稳定产出完整的发布 bundle。
-2、修复后生成的发布结果必须继续通过真实本地 broker 链路获取 candidate、provenance 和 promotion plan，不能退回到公开的历史快照或静态 fallback。
-3、保持当前 release 流程的阶段语义不变：仍需保留 inspect、package、attest、promote 这些阶段及其依赖关系，不能把整条流水线改写成绕过约束的一步脚本。
-4、保持现有输出契约兼容。修复后必须继续生成：
-   - `/app/workspace/out/release-bundle.json`
-   - `/app/workspace/out/promotion-plan.json`
-   - `/app/workspace/out/release-summary.md`
-5、如果你编写了临时调试脚本或排障笔记，最终仍需把正确修复落实到正式流水线与正式脚本中。
-6、如果环境中存在 `/opt/task-skills/github-actions-release-audit/` 诊断工具包，请优先用其中的 workflow graph、dry-run replay 和 contract check 探针复现问题，再修改正式文件。
+- `/app/ci-logs/failed-run.json`: workflow run, suite, test file, test title, status, and retry metadata.
+- `/app/ci-logs/job-74291.log`: the failing GitHub Actions job log excerpt.
+- `/app/repo/test/checkout/e2e.spec.ts`: the relevant Playwright test file.
+- `/app/repo/package.json`: the available scripts for this repository.
 
-输出格式：
-- 原地更新 `/app/workspace/.github/workflows/release-dry-run.yml` 与 `/app/workspace/scripts/` 下的代码和必要配置。
-- 保持 `/app/workspace/out/` 下的产物结构与字段语义兼容。
+Your task:
 
-说明：
-- 不要 hack verifier，不要根据测试文件硬编码 release id、artifact digest、promotion channel、candidate 数量或固定输出内容。
-- 不要替换真实链路，不要绕过、短路或伪造本地 release broker；不要把需要通过 broker 获取的 candidate、provenance、promotion plan 改成读取静态 JSON、写死常量或只用 fallback 数据。
-- 不要通过删功能规避问题，例如删除阶段依赖、取消 attestation、移除 promotion gate、跳过 bundle 校验，或把多阶段流水线折叠成单步 shell 脚本。
-- 不要修改隐藏服务、测试文件、依赖配置或公开输出契约。
-- 可以增加日志、增加局部校验或编写辅助分析脚本，但评分以正式流水线和正式脚本在真实链路下的行为结果为准。
+1. Extract the suite name, test file, exact test title, and CI error from the exported CI logs.
+2. Reproduce the failure path with the repository's local scripts. The reproduction must be targeted to the failing suite and exact Playwright test title, and it must compare normal dev behavior with production-bundled behavior before you classify the flake.
+3. Use the observed dev/prod reproduction results to classify the flake.
+4. Write `/app/triage/flake_report.json`.
+5. Write `/app/triage/reproduction_notes.md`.
+6. Write `/app/triage/recommended_fix.diff` as a standard unified diff. The diff does not need to be applied, but it must target the real test file and address the observed root cause.
+
+Output format:
+
+`/app/triage/flake_report.json` must be valid JSON with this structure:
+
+```json
+{
+  "suite": "string",
+  "test_file": "string",
+  "test_title": "string",
+  "ci_error": "string",
+  "dev_reproduction": "pass | fail | not_run",
+  "prod_reproduction": "pass | fail | not_run",
+  "classification": "dev_repro_failure | prod_bundle_regression | unreproduced_ci_only",
+  "root_cause": "string",
+  "recommended_fix": "string",
+  "commands_run": ["string"]
+}
+```
+
+`/app/triage/reproduction_notes.md` must include:
+
+- Extracted CI details.
+- Dev reproduction result.
+- Production-bundled reproduction result.
+- Final classification.
+- Recommended fix summary.
+
+`/app/triage/recommended_fix.diff` must:
+
+- Be a standard unified diff.
+- Reference `test/checkout/e2e.spec.ts`.
+- Replace the timing-prone assertion with a condition-based Playwright assertion or wait.
+
+Notes:
+
+- Do not modify or delete `/app/ci-logs`.
+- Do not replace the mocked test runner or fake the command trace.
+- Do not skip the reproduction workflow and infer the answer only from logs.
+- Do not run the full test suite when the exact failing test title is available.
+- Do not disable the failing test, delete assertions, or change the business flow being tested.

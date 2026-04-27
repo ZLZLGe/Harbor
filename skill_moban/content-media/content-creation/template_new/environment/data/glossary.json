@@ -1,0 +1,31 @@
+{
+  "preferred_terms": [
+    "operator",
+    "handoff",
+    "runbook",
+    "decision log",
+    "source",
+    "receipt",
+    "review path",
+    "before publication",
+    "claim drift",
+    "role-scoped approvals"
+  ],
+  "banned_terms": [
+    "revolutionary",
+    "game-changing",
+    "seamless",
+    "AI-powered",
+    "unlock your potential",
+    "excited to announce",
+    "rapidly evolving landscape",
+    "no fluff"
+  ],
+  "replacement_terms": [
+    {"avoid": "seamless", "use": "visible"},
+    {"avoid": "AI-powered magic", "use": "review workflow"},
+    {"avoid": "revolutionary", "use": "useful"},
+    {"avoid": "game-changing", "use": "practical"},
+    {"avoid": "excited to announce", "use": "we added"}
+  ]
+}

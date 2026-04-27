@@ -1,0 +1,4 @@
+warehouse_id,region,timezone
+WH_SF,west,America/Los_Angeles
+WH_NY,east,America/New_York
+WH_LON,emea,Europe/London

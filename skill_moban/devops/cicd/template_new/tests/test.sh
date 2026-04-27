@@ -1,26 +1,13 @@
-#!/bin/bash
-set -euo pipefail
+#!/usr/bin/env bash
+set -u
 
-TESTS_ROOT="${TESTS_ROOT:-/tests}"
-VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
-
-mkdir -p "$VERIFIER_LOG_ROOT"
-
-set +e
-set -o pipefail
-pytest \
-  --ctrf "$VERIFIER_LOG_ROOT/ctrf.json" \
-  "$TESTS_ROOT/test_outputs.py" \
-  "$TESTS_ROOT/test_guardrails.py" \
-  -q -rA 2>&1 | tee "$VERIFIER_LOG_ROOT/pytest-output.txt"
-PYTEST_EXIT=${PIPESTATUS[0]}
-set +o pipefail
-set -e
-
-if [ "$PYTEST_EXIT" -eq 0 ]; then
-  echo 1 > "$VERIFIER_LOG_ROOT/reward.txt"
+mkdir -p /logs/verifier
+if python3 /tests/test_flake_triage.py > /logs/verifier/test.log 2>&1; then
+  echo 1 > /logs/verifier/reward.txt
+  cat /logs/verifier/test.log
 else
-  echo 0 > "$VERIFIER_LOG_ROOT/reward.txt"
+  echo 0 > /logs/verifier/reward.txt
+  cat /logs/verifier/test.log
 fi
 
 exit 0

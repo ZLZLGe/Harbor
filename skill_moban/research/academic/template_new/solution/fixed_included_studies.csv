@@ -1,5 +1,0 @@
-study_id,short_citation,study_design,population_scope,duration_weeks,comparator_type,primary_outcome_direction
-study_001,Che et al. 2021,parallel_rct,adults_with_type_2_diabetes,12,usual_care_control,benefit_vs_control
-study_002,Pavlou et al. 2023,parallel_rct,adults_with_type_2_diabetes,24,calorie_restriction_or_control,benefit_vs_control
-study_003,Parr et al. 2024,parallel_rct,adults_with_type_2_diabetes,24,active_dietetic_guidance,similar_to_active_diet
-study_004,Trico et al. 2024,parallel_rct,adults_with_type_2_diabetes,12,active_mediterranean_diet,similar_to_active_diet

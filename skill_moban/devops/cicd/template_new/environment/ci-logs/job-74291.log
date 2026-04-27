@@ -1,0 +1,12 @@
+2026-04-26T14:02:11Z Run pnpm exec playwright test test/checkout/e2e.spec.ts -g "checkout applies saved shipping method after address edit"
+2026-04-26T14:02:42Z [chromium] checkout › checkout applies saved shipping method after address edit
+2026-04-26T14:02:48Z Error: Timed out 5000ms waiting for expect(locator).toHaveText(/Standard shipping/)
+2026-04-26T14:02:48Z Locator: getByTestId('shipping-method-label')
+2026-04-26T14:02:48Z Expected pattern: /Standard shipping/
+2026-04-26T14:02:48Z Received string: ""
+2026-04-26T14:02:48Z at test/checkout/e2e.spec.ts:31:54
+2026-04-26T14:02:48Z attachment #1: trace (application/zip) checkout-address-edit-retry1.zip
+2026-04-26T14:02:49Z Retrying after worker restart...
+2026-04-26T14:03:35Z Error: Timed out 5000ms waiting for expect(locator).toHaveText(/Standard shipping/)
+2026-04-26T14:03:35Z at test/checkout/e2e.spec.ts:31:54
+2026-04-26T14:03:36Z 1 failed

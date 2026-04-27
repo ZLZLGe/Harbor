@@ -1,0 +1,37 @@
+version = "1.0"
+
+[metadata]
+id = "content_creation__source_derived_brand_voice_pack"
+name = "Template: Source-Derived Brand Voice Campaign Pack"
+description = "Build a source-backed brand voice profile and multi-channel launch content pack from cached corpus data and a local content archive service."
+difficulty = "hard"
+category = "content-creation"
+tags = [
+  "content-creation",
+  "brand-voice",
+  "copywriting",
+  "campaign",
+  "source-analysis",
+  "claim-safety",
+  "multi-channel-content",
+]
+required_skills = [
+  "brand-voice",
+]
+primary_output_file = "/root/brandroom/output/content_pack.json"
+source_template_id = "content_creation__source_derived_brand_voice_pack"
+task_role = "template"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

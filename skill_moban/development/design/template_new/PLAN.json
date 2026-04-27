@@ -1,76 +1,53 @@
 {
-  "derivedTaskId": "design__launch-storyboard-html-deck-delivery",
-  "taskRole": "template",
-  "title": "Template: Launch Storyboard HTML Deck Delivery",
-  "goal": "Recover a realistic design-delivery workflow so that a visible internal-review draft plus frozen brand materials, KPI tables, customer evidence, and journey topology can be transformed into a browser-native HTML launch deck that passes a live localhost render and QA chain.",
-  "primaryOutputFile": "/app/output/deck_receipt.json",
-  "difficulty": "hard",
-  "category": "design",
-  "skillBenefitRationale": "The bound skill standardizes the highest-risk parts of the design-delivery workflow: staging the internal-review draft into the formal output path, probing the live contract, auditing overflow and source trace, verifying journey and comparison fidelity, and packaging the final localhost submission. Without the skill the task remains theoretically solvable from the visible brief, contract, draft, data files, and localhost manifest endpoint, but the solver must manually discover fidelity gaps, packaging requirements, and runtime failure modes before converging on a passing delivery.",
-  "targetSkillDirName": "launch-deck-diagnostics",
-  "targetSkillName": "launch-deck-diagnostics",
-  "taskShape": "html-deck-refinement-with-live-qa",
-  "designGoals": [
-    "Keep the task centered on a real design-delivery workflow rather than a toy HTML beautification exercise.",
-    "Require both information design and browser-native presentation behavior so the result cannot degrade into a static poster or screenshot bundle.",
-    "Use deterministic frozen inputs with enough structure to exercise charting, diagram generation, claim sourcing, and brand alignment.",
-    "Make verifier acceptance depend on rendered behavior, source traceability, and live QA evidence rather than any single DOM structure or framework choice.",
-    "Ensure the with-skill advantage comes from standardized diagnosis and submission probes, not from hidden answers or altered fixtures."
-  ],
-  "verifierDesign": {
-    "mainTests": [
-      "The final delivery produces /app/output/deck/index.html, /app/output/deck_submission.json, and /app/output/deck_receipt.json with the required fields, per-slide manifest metadata, and live localhost acceptance.",
-      "The rendered deck exposes six full-screen slides with working navigation, no primary-content overflow under the contract viewport, and no forbidden external runtime dependencies.",
-      "At least one slide contains a data-driven chart derived from weekly_kpis.csv and at least one slide contains a real flow or concept diagram derived from user_journey.json.",
-      "Visible deck claims and source labels remain traceable to the provided brief, KPI, comparison, quote, and journey inputs.",
-      "The submission and receipt correspond to the actual final deck posted through the localhost QA service."
+  "template_category": "development/design",
+  "selected_skill": {
+    "name": "frontend-slides",
+    "source": "https://skillsmp.com/categories/design",
+    "detail_url": "https://skillsmp.com/skills/affaan-m-everything-claude-code-agents-skills-frontend-slides-skill-md",
+    "observed_stars": {
+      "design_list": "165.9k",
+      "detail_page": "160286"
+    },
+    "reason": "Highest-star skill in the SkillsMP design category; it targets zero-dependency HTML presentations, viewport-fit slide systems, motion, and browser-safe deck delivery."
+  },
+  "task_intent": "Ask the solver to build a self-contained executive HTML slide deck from local business data plus a live local API, making skill value visible through slide structure, viewport fit, navigation, accessibility, and data-driven visual design.",
+  "with_without_control": "The only planned difference between with_skill and without_skill runtimes is the presence or absence of environment/skills/ and the corresponding optional copy logic in the Docker build.",
+  "verifier_strategy": {
+    "main": [
+      "Static HTML output and self-contained asset checks",
+      "Business grounding checks across JSON, CSV, JSONL, and hidden API sources",
+      "Browser navigation checks for keyboard, wheel, touch, progress state, and reduced motion",
+      "Multi-viewport fit checks for desktop, tablet, mobile portrait, and mobile landscape"
     ],
     "guardrails": [
-      "Protected inputs and the hidden render / QA service remain unchanged.",
-      "Pure screenshot decks, long-scroll pseudo-slides, hand-written receipts, forbidden external assets, and hardcoded KPI or node outputs do not pass.",
-      "Deleting required slide roles, navigation, charting, source labels, or diagram coverage does not pass.",
-      "Verifier acceptance is tied to real browser rendering behavior, live localhost validation, and source-trace semantics rather than any one implementation."
+      "Protected input, service, and skill hash validation",
+      "Reject image-only and hidden-text decks",
+      "Reject references to test or verifier internals",
+      "Require accessible semantic text and headings"
     ]
   },
-  "environmentBlueprint": {
-    "workspaceVisibleInputs": [
-      "/app/workspace/brief/creative_brief.md",
-      "/app/workspace/specs/deck_contract.md",
-      "/app/workspace/data/weekly_kpis.csv",
-      "/app/workspace/data/feature_matrix.csv",
-      "/app/workspace/data/customer_quotes.json",
-      "/app/workspace/data/user_journey.json",
-      "/app/workspace/mirror/site/",
-      "/app/workspace/drafts/internal_review_draft.html"
-    ],
-    "hiddenService": {
-      "name": "render-qa-service",
-      "localhostBaseUrl": "http://127.0.0.1:8364",
-      "requiredEndpoints": [
-        "GET /manifest",
-        "POST /validate"
-      ],
-      "expectedSideEffects": [
-        "Persist a validation trace to /tmp/launch_deck_qa_trace.jsonl",
-        "Persist the last accepted or rejected validation payload summary to /tmp/launch_deck_last_validate.json",
-        "Return deck-level failure fields for overflow, source trace, navigation, external dependencies, and visual components"
-      ]
+  "expected_skill_advantage": "The skill supplies concrete guidance for self-contained HTML decks, presentation controller behavior, and viewport-safe CSS, while a solver without the skill must infer these constraints and is more likely to fail mobile fit, navigation, or deck semantics.",
+  "final_validation": {
+    "oracle": {
+      "environment": "e2b",
+      "reward": 1,
+      "tests": "16/16"
+    },
+    "codex_gpt54_comparison": {
+      "with_skill": {
+        "trials": 3,
+        "pass_rate": 1.0,
+        "avg_agent_seconds": 979.1,
+        "avg_input_tokens": 2464678,
+        "avg_output_tokens": 45792
+      },
+      "without_skill": {
+        "trials": 3,
+        "pass_rate": 0.0,
+        "avg_agent_seconds": 743.3,
+        "avg_input_tokens": 1735433,
+        "avg_output_tokens": 32713
+      }
     }
-  },
-  "dataBlueprint": {
-    "seedScenario": "AtlasFlow Review launch storyboard with an internal-review draft handoff",
-    "brief": "A frozen launch brief for a B2B creative-operations product, including target audience, non-negotiable questions, forbidden claims, and narrative priorities.",
-    "weeklyKpis": "8 to 12 weekly rows with at least 5 metrics that can support a real chart and at least one nontrivial trend or tradeoff.",
-    "featureMatrix": "A comparison table covering the task product and 3 to 4 alternatives across workflow, collaboration, governance, and analytics capabilities.",
-    "customerQuotes": "4 to 6 quote records with speaker role, company size, quote text, usage constraints, and slide relevance hints.",
-    "userJourney": "A directed graph with 7 to 10 nodes and explicit edges, states, and annotations suitable for a journey or concept diagram.",
-    "mirrorSite": "A frozen marketing-site mirror or asset bundle with typography, color, terminology, and section hierarchy signals that help deck styling stay grounded.",
-    "internalReviewDraft": "A visible HTML internal-review draft that is structurally close to a formal deck but still requires fidelity, packaging, and QA-chain convergence."
-  },
-  "readmeRequirements": [
-    "Frame the template against high-signal SkillsMP design directions such as frontend-slides, concept-diagrams, and popular-web-designs, emphasizing browser-native presentation delivery rather than app fixing.",
-    "Explain that the task is about shipping a verifiable HTML presentation artifact on a real local QA chain, not producing an unvalidated mockup or static long image.",
-    "Include real e2b oracle and with-skill versus without-skill comparison results only after genuine benchmark runs complete.",
-    "Document timeout-pass caveats explicitly when a without-skill run hits AgentTimeoutError but still receives reward 1.0 because the formal outputs were completed before timeout."
-  ]
+  }
 }

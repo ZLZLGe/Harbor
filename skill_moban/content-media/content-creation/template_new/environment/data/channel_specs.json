@@ -1,0 +1,36 @@
+{
+  "required_channels": [
+    "launch_blog_opening",
+    "linkedin_post",
+    "x_thread",
+    "customer_email",
+    "changelog_note"
+  ],
+  "constraints": {
+    "launch_blog_opening": {
+      "min_words": 90,
+      "max_words": 170,
+      "must_include": ["TallyRun", "Audit Trails"]
+    },
+    "linkedin_post": {
+      "min_words": 60,
+      "max_words": 130,
+      "must_not_end_with_question": true
+    },
+    "x_thread": {
+      "min_posts": 4,
+      "max_posts": 6,
+      "max_chars_per_post": 280
+    },
+    "customer_email": {
+      "subject_max_chars": 72,
+      "preview_max_chars": 110,
+      "min_words": 70,
+      "max_words": 140
+    },
+    "changelog_note": {
+      "min_words": 35,
+      "max_words": 90
+    }
+  }
+}

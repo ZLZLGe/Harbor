@@ -1,36 +1,41 @@
 version = "1.0"
 
 [metadata]
-id = "education__new-analyst-lesson-notebook-repair"
-name = "Template: New Analyst Lesson Notebook Repair"
-description = "Turn realistic course materials and draft teaching assets into a polished lesson delivery bundle: student notebook, instructor guide, structured manifest, source map, and final package."
-author_name = "OpenAI Codex"
-author_email = "noreply@example.com"
+id = "education__course-incident-learning-capture"
+name = "Template: Course Incident Learning Capture"
+description = "Convert a realistic educational-content production incident into a reusable agent skill with evidence-backed procedures and generalizable quality checks."
 difficulty = "hard"
 category = "education"
 tags = [
   "education",
-  "jupyter-notebook",
-  "lesson-design",
-  "data-literacy",
-  "curriculum-ops",
-  "technical-writing",
-  "learning-analytics",
+  "documentation",
+  "skill-authoring",
+  "curriculum-operations",
+  "course-quality",
+  "knowledge-capture",
+  "incident-learning",
 ]
-required_skills = ["lesson-notebook-diagnostics"]
-primary_output_file = "/app/output/final_package.json"
-source_template_id = "education__new-analyst-lesson-notebook-repair"
+required_skills = [
+  "update-skills",
+]
+distractor_skills = [
+  "technical-writer",
+  "rules-distill",
+  "skill-writer",
+]
+primary_output_file = "/outputs/lesson_skill/SKILL.md"
+source_template_id = "education__course-incident-learning-capture"
 task_role = "template"
 
 [verifier]
-timeout_sec = 700.0
+timeout_sec = 600.0
 
 [agent]
-timeout_sec = 700.0
+timeout_sec = 600.0
 
 [environment]
-build_timeout_sec = 900.0
-cpus = 2
-memory_mb = 4096
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
 storage_mb = 10240
 allow_internet = true

@@ -1,0 +1,26 @@
+{
+  "snapshot_id": "course-learning-capture-20260426",
+  "incident_id": "TCK-1842",
+  "course_id": "BIO-201",
+  "lesson_slug": "cell-transport-module-03",
+  "build_id": "lms-build-7781",
+  "reported_at": "2026-04-18T16:42:00Z",
+  "summary": "A published lesson passed asset checks but shipped with stale LMS metadata, a caption/transcript mismatch, and a quiz rubric that no longer matched the revised learning objective.",
+  "root_cause": "The release review treated CI success as sufficient and did not cross-check learner-facing assets, LMS metadata, reviewer comments, and assessment rubrics as one publishing contract.",
+  "records": [
+    "tickets/TCK-1842.json",
+    "reviews/reviewer_notes.md",
+    "logs/publish_ci.log",
+    "metadata/lms_snapshot.json",
+    "metadata/course_contract.json",
+    "style_guides/course_quality_playbook.md",
+    "repository_inventory.json"
+  ],
+  "local_api": {
+    "health": "http://127.0.0.1:8080/health",
+    "incident": "http://127.0.0.1:8080/incidents/TCK-1842",
+    "course_contract": "http://127.0.0.1:8080/courses/BIO-201/contract",
+    "review_findings": "http://127.0.0.1:8080/review-findings?incident=TCK-1842",
+    "repository_inventory": "http://127.0.0.1:8080/repository/inventory"
+  }
+}

@@ -1,19 +1,35 @@
 {
-  "derivedTaskId": "github-actions-release-bundle-dryrun-repair",
-  "taskRole": "template",
-  "title": "Template: GitHub Actions Release Bundle Dry-Run Repair",
-  "goal": "Repair a GitHub Actions-style multi-stage release dry-run so that it preserves the inspect/package/attest/promote pipeline shape, produces a complete release bundle, and continues to rely on a real local broker service for candidate, provenance, and promotion-plan data.",
-  "primaryOutputFile": "/app/workspace/out",
+  "task_id": "playwright-prod-bundle-flake-triage",
+  "category": "devops/cicd",
   "difficulty": "hard",
-  "category": "cicd",
-  "skillBenefitRationale": "The CI/CD category benefits because the skill acts as a release-audit probe: it standardizes pipeline graph inspection, broker-backed contract checks, and bundle diffing. Without those probes, the task remains solvable but the agent must manually discover the stage-ordering bug, stale fallback path, and promotion contract mismatch.",
-  "targetSkillDirName": "github-actions-release-audit",
-  "targetSkillName": "github-actions-release-audit",
-  "skillsmpInspiration": [
-    "github.md",
-    "github-actions-templates.md",
-    "deployment-pipeline-design.md",
-    "azure-pipelines.md",
-    "triage-ci-flake.md"
+  "bound_skill": "triage-ci-flake",
+  "skill_source": "SkillsMP CI/CD category; triage-ci-flake local skill copied unchanged",
+  "design_goal": "Verify that the solver follows a CI flake reproduction workflow before classifying and proposing a fix.",
+  "verification_model": {
+    "main": "Check the final JSON/report/diff and the recorded command trace from the mocked pnpm/curl/lsof toolchain.",
+    "guardrails": "Reject solvers that infer from logs only, run the full suite, skip prod reproduction, edit CI inputs, or disable the failing test."
+  },
+  "control_variable": "with_skill and without_skill differ only by whether environment/skills is copied into the runtime image.",
+  "reference_style": "Aligned with devops/cicd skillsbench_reference tasks that ask solvers to inspect realistic CI artifacts, write analysis outputs, and produce standard diff artifacts rather than build a new app.",
+  "e2b_final_experiment": {
+    "runtime_root": "/home/lenovo/.tmp_harbor_runtime_cicd_flake5",
+    "jobs_dir": "/home/lenovo/.tmp_harbor_jobs_cicd_flake5",
+    "model": "codex + gpt-5.4",
+    "valid_trials": 3,
+    "with_skill": {
+      "pass_rate": "3/3",
+      "avg_agent_duration_sec": 213.6,
+      "avg_tokens": 448372
+    },
+    "without_skill": {
+      "pass_rate": "0/3",
+      "avg_agent_duration_sec": 197.5,
+      "avg_tokens": 341458,
+      "dominant_failure": "Skipped the pnpm/lsof reproduction workflow and failed trace validation."
+    }
+  },
+  "notes": [
+    "The mocked pnpm runner simulates a dev pass and production-bundled failure for the exact failing Playwright test.",
+    "The official solution follows the reproduction sequence and writes behavior-derived outputs."
   ]
 }

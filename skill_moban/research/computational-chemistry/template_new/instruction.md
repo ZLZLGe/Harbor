@@ -1,93 +1,96 @@
-你是一名计算化学研究员。你需要从一个冻结的小分子候选库中，筛选出一组可复核的 lead-like 候选化合物，并给出每个候选的标准化分子表示、关键理化性质、结构警报结果、与参考活性分子的相似性以及最终排序。
+你正在协助一个药物发现团队完成一批小分子候选物的离线 lead triage。团队已经从公开数据库风格的数据源中整理出候选分子、靶点活性记录、同系物注释和药品安全信号摘要；这些数据存在重复盐型、无效 SMILES、单位不一致、活性方向混杂和结构告警，需要你整理、计算并给出可复核的候选优先级。
 
-输入数据在：
-- `/root/data/library/`（候选分子库，包含 `.sdf`、`.smi` 和供应商元数据）
-- `/root/data/reference/actives.csv`（参考活性分子）
-- `/root/data/reference/rules.json`（lead-like 约束与结构警报规则）
-- `/root/data/reference/scoring.json`（候选排序规则与字段定义）
+输入数据在 `/root/workspace/data/`：
 
-你的任务
-1、编写 Python 脚本，对候选分子进行读取、标准化、去重、性质计算、结构警报检测和相似性计算。
-2、同一真实化合物如果只是在盐型、质子化状态或书写形式上不同，应该被合并为同一个标准化候选；但立体化学不同的化合物不能被错误合并。
-3、对每个标准化候选，至少计算以下字段：
-- `canonical_smiles`
-- `inchikey`
-- `molecular_weight`
-- `logp`
-- `tpsa`
-- `hbd`
-- `hba`
-- `rotatable_bonds`
-- `qed`
-4、使用给定参考活性分子，基于 Morgan fingerprint 与 Tanimoto similarity 计算每个候选到参考集合的最高相似度。Morgan fingerprint 需要使用 `radius = 2`、`nBits = 2048`，并保留立体化学信息。
-5、根据 `rules.json` 判断每个候选是否满足 lead-like 约束，是否命中结构警报，并给出最终的 `keep` / `reject` 结论。
-6、根据 `scoring.json` 的规则对所有 `keep` 候选进行稳定排序，生成最终 shortlist。
-7、你必须真正从输入分子文件中完成标准化、去重、性质计算、结构警报检测和排序；不能手写答案，也不能人工维护化合物到结果的映射表。
+- `candidates.csv`：候选分子清单，包含 `candidate_id`、`compound_name`、`smiles`、`series`、`source_note`
+- `target_profile.json`：项目约束，包含目标靶点、活性阈值、理化性质范围、必须排除的安全风险类别
+- `activity_records.jsonl`：公开数据库风格的体外活性记录，包含不同单位的 IC50/Ki/Kd/EC50 数据、实验关系符号和 assay 置信度
+- `safety_reports.jsonl`：OpenFDA 风格的药品安全和相互作用摘要，包含同名药物、近似名称和 MedDRA 反应术语
+- `assay_notes.md`：项目科学家对筛选策略、单位解释和特殊边界条件的说明
 
-输出格式：
-你需要把解答写到 `/root/workspace/solution.py`。
+你的任务：
 
-脚本中必须提供以下入口函数：
+1. 在 `/root/workspace/solution.py` 中实现函数：
+
 ```python
-def build_leadlike_shortlist(
-    library_dir: str,
-    actives_csv: str,
-    rules_json: str,
-    scoring_json: str,
-    top_k: int = 20,
+def build_lead_triage_report(
+    data_dir: str = "/root/workspace/data",
+    output_dir: str = "/root/workspace/output"
 ) -> dict:
+    ...
 ```
 
-返回结果必须是一个 `dict`，并且至少包含以下顶层键：
-```python
+2. 对候选分子进行标准化处理。你需要解析 SMILES，去除无法解析的候选，合并同一母体结构的重复记录，并保留能追溯到原始 `candidate_id` 的映射。
+
+3. 基于分子结构计算药物发现筛选所需的性质，包括但不限于：
+   - exact 或近似分子量
+   - LogP
+   - HBD
+   - HBA
+   - TPSA
+   - 可旋转键数
+   - 芳香环或环系统相关指标
+   - QED 或等价的综合 drug-likeness 指标
+
+4. 统一 `activity_records.jsonl` 中的活性数据。你需要将 nM、uM、mM 等单位统一到 nM，并在可计算时转换为 pActivity。对于带有 `>`、`<`、`>=`、`<=` 的记录，应保留方向信息，不得把 censored value 当作精确值直接平均。
+
+5. 按 `target_profile.json` 和 `assay_notes.md` 的约束对候选物进行筛选和排序。排序应综合考虑：
+   - 靶点活性强弱和 assay 置信度
+   - Lipinski / Veber 风格口服可及性约束
+   - PAINS、反应性基团或结构告警
+   - 安全事件和药物相互作用风险
+   - 同一化学 series 内的多样性，避免 shortlist 被单一骨架完全占据
+
+6. 在 `/root/workspace/output/` 下生成以下文件：
+
+   - `lead_triage.csv`
+   - `lead_triage.json`
+   - `excluded_candidates.csv`
+   - `method_notes.md`
+
+7. `lead_triage.csv` 必须包含以下列，列名需完全一致：
+
+```text
+rank,candidate_id,compound_name,canonical_smiles,series,activity_nM,pActivity,mw,logp,hbd,hba,tpsa,rotatable_bonds,qed,rule_flags,safety_flags,triage_score,recommendation,rationale
+```
+
+8. `lead_triage.json` 必须包含以下顶层字段：
+
+```json
 {
-    "summary": {
-        "n_input_records": int,
-        "n_standardized_candidates": int,
-        "n_keep": int,
-        "n_reject": int
-    },
-    "shortlist": [
-        {
-            "rank": int,
-            "compound_id": str,
-            "canonical_smiles": str,
-            "inchikey": str,
-            "molecular_weight": float,
-            "logp": float,
-            "tpsa": float,
-            "hbd": int,
-            "hba": int,
-            "rotatable_bonds": int,
-            "qed": float,
-            "max_similarity_to_actives": float,
-            "alerts": list[str],
-            "decision": "keep"
-        }
-    ],
-    "rejected_compounds": [
-        {
-            "compound_id": str,
-            "canonical_smiles": str,
-            "alerts": list[str],
-            "reasons": list[str],
-            "decision": "reject"
-        }
-    ]
+  "target": "...",
+  "selected_candidates": [],
+  "excluded_candidates": [],
+  "summary": {},
+  "method": {}
 }
 ```
 
-其中：
-- `shortlist` 只包含最终保留并进入排序的候选，按最终排序从高到低排列。
-- `rejected_compounds` 需要包含被剔除的标准化候选及其剔除原因。
-- 如果排序分数相同，必须使用 `compound_id` 的字母序升序打破平局，以保证结果稳定。
-- 所有浮点数保留到小数点后 4 位。
+9. `excluded_candidates.csv` 必须说明每个被排除候选的原因。原因可以包括无效结构、重复母体、活性不足、理化性质越界、结构告警、安全风险或证据不足。
+
+10. `method_notes.md` 需要用简短文字说明你的计算口径，包括单位转换、活性聚合、结构标准化、排序策略和安全信号处理方式。不要写成泛泛的项目介绍，重点说明本次数据如何被处理。
+
+输出格式要求：
+
+- `lead_triage.csv` 必须按 `rank` 从小到大排序。
+- `rank` 从 `1` 开始连续编号。
+- `triage_score` 必须是数值，范围为 `0` 到 `100`。
+- `recommendation` 只能使用以下值之一：
+  - `advance`
+  - `backup`
+  - `deprioritize`
+  - `exclude`
+- `rule_flags` 和 `safety_flags` 可以为空字符串；如果有多个标记，请用分号分隔。
+- 所有 JSON 输出必须是合法 UTF-8 JSON。
+- 所有 CSV 输出必须包含表头。
 
 说明：
-- 你可以使用 RDKit 或其他合适的化学信息学库。
-- 你必须从提供的分子文件中解析结构，不能只依赖文件名、记录顺序或隐藏规律。
-- 不要根据测试文件、预期结果或样例输出硬编码 shortlist、结构警报结果、相似度、分子性质或排序。
-- 不要跳过标准化、去重、结构警报检测或相似性计算后直接构造结果。
-- 不要把所有候选都标记为 `keep`，也不要通过放宽规则来规避筛选逻辑。
-- 不要 hack verifier，不要修改输入数据、测试文件或依赖配置。
-- 输出应当对同一输入数据稳定可复现。
+
+- 你可以使用 RDKit、datamol、medchem、pandas、numpy 或其他合理的开源 Python 包。
+- 你可以新增辅助脚本，但主入口必须是 `/root/workspace/solution.py` 中的 `build_lead_triage_report`。
+- 你不需要联网完成任务；应优先使用 `/root/workspace/data/` 中给定的数据。
+- 不要求得到唯一实现，但输出必须能体现真实的分子标准化、活性归一化、药物相似性评估和风险筛选逻辑。
+- 不要硬编码 verifier 结果、候选排名或只针对固定文件名拼接答案。
+- 不要修改、删除或替换输入数据。
+- 不要绕过真实计算链路，例如直接复制预期输出、伪造性质值、跳过 SMILES 解析、跳过活性单位转换，或用固定名单代替筛选逻辑。
+- 不要修改测试、verifier、运行入口或环境中的 skill。

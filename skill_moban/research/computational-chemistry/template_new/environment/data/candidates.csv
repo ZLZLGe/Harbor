@@ -1,0 +1,13 @@
+candidate_id,compound_name,smiles,series,source_note
+KIN-001,Ravoxertinib analog A,COc1cc2ncnc(Nc3ccc(F)c(Cl)c3)c2cc1OCCCN1CCOCC1,quinazoline,ChEMBL-like kinase inhibitor import
+KIN-002,Ravoxertinib analog A mesylate,COc1cc2ncnc(Nc3ccc(F)c(Cl)c3)c2cc1OCCCN1CCOCC1.CS(=O)(=O)O,quinazoline,salt form from vendor registry
+KIN-003,Imatinib reference,Cc1ccc(NC(=O)c2ccc(CN3CCN(C)CC3)cc2)cc1Nc1nccc(-c2cccnc2)n1,aminopyrimidine,reference tyrosine kinase inhibitor
+KIN-004,Flumapimod literature lead,CC(C)(C)c1nc(Nc2ccc(F)c(Cl)c2)ncc1-c1ccc(C(=O)N2CCOCC2)cc1,diaryl-pyrimidine,p38 MAPK literature lead
+KIN-005,Phenolic screening hit,O=c1c(O)c(-c2ccc(O)c(O)c2)oc2cc(O)cc(O)c12,flavonoid,natural-product screening hit
+KIN-006,Legacy warfarin-like hit,CC(=O)CC(c1ccccc1)c1c(O)c2ccccc2oc1=O,coumarin,legacy phenotypic hit with safety concern
+KIN-007,Reactive acrylamide probe,C=CC(=O)Nc1ccc(Nc2ncnc3cc(OC)c(OC)cc23)cc1,quinazoline,covalent probe from exploratory screen
+KIN-008,Fragment caffeine control,Cn1cnc2c1c(=O)n(C)c(=O)n2C,xanthine,weak fragment control
+KIN-009,Invalid registry row,not_a_smiles,unknown,corrupted vendor row
+KIN-010,Compact backup lead,CC(C)c1cc(Nc2ncnc3cc(OC)c(OC)cc23)n[nH]1,quinazoline,compact backup from analog enumeration
+KIN-011,High lipophilicity analog,CCCCCCCCc1ccc(Nc2ncnc3cc(OC)c(OC)cc23)cc1,quinazoline,high lipophilicity analog
+KIN-012,Aspirin assay control,CC(=O)Oc1ccccc1C(=O)O,salicylate,negative assay control

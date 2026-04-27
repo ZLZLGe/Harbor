@@ -8,11 +8,12 @@ mkdir -p "$VERIFIER_LOG_ROOT"
 
 set +e
 set -o pipefail
-pytest -q \
+pytest \
+  --ctrf "$VERIFIER_LOG_ROOT/ctrf.json" \
   "$TESTS_ROOT/test_outputs.py" \
-  "$TESTS_ROOT/test_rendering.py" \
+  "$TESTS_ROOT/test_browser_behavior.py" \
   "$TESTS_ROOT/test_guardrails.py" \
-  2>&1 | tee "$VERIFIER_LOG_ROOT/pytest-output.txt"
+  -q -rA 2>&1 | tee "$VERIFIER_LOG_ROOT/pytest-output.txt"
 PYTEST_EXIT=${PIPESTATUS[0]}
 set +o pipefail
 set -e

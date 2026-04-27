@@ -1,35 +1,36 @@
 version = "1.0"
 
 [metadata]
-id = "inventory-hold-consistency-fix"
-name = "Template: Inventory Hold Consistency Fix"
-author_name = "OpenAI Codex"
-author_email = "noreply@example.com"
+id = "backend__partner-shipping-api-contract"
+name = "Template: Partner Shipping API Contract"
+description = "Implement a partner-facing shipping API facade with authentication, pagination, idempotency, downstream resilience, and stable REST error contracts."
 difficulty = "hard"
 category = "backend"
 tags = [
   "backend",
   "api-design",
+  "rest",
+  "shipping",
   "idempotency",
-  "inventory",
-  "distributed-systems",
-  "consistency",
-  "fastapi",
-  "sqlite",
+  "pagination",
+  "rate-limiting",
+  "microservices",
 ]
 required_skills = [
-  "inventory-hold-debugging",
+  "api-design",
 ]
+task_role = "template"
 
 [verifier]
-timeout_sec = 600.0
-
-[agent]
 timeout_sec = 900.0
 
+[agent]
+timeout_sec = 1000.0
+
 [environment]
-build_timeout_sec = 1200.0
+build_timeout_sec = 900.0
 cpus = 2
 memory_mb = 4096
 storage_mb = 10240
+gpus = 0
 allow_internet = true

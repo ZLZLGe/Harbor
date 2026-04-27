@@ -1,0 +1,54 @@
+{
+  "quarter": "FY2026 Q1",
+  "city": "Port Aurelia",
+  "program": "HarborLoop shared e-bike and scooter network",
+  "prepared_for": "Mobility Operations Council",
+  "report_date": "2026-04-10",
+  "fleet": {
+    "active_vehicles": 3420,
+    "fleet_target": 3800,
+    "vehicle_mix": {
+      "e_bike": 2140,
+      "scooter": 1280
+    },
+    "median_battery_pct": 64,
+    "maintenance_backlog": 188
+  },
+  "quarter_totals": {
+    "trips": 142860,
+    "revenue_usd": 612430,
+    "service_uptime_pct": 93.8,
+    "avg_vehicle_availability_pct": 71.6,
+    "customer_satisfaction_pct": 72
+  },
+  "prior_quarter": {
+    "trips": 132400,
+    "service_uptime_pct": 95.1,
+    "avg_vehicle_availability_pct": 76.3,
+    "customer_satisfaction_pct": 78
+  },
+  "zone_targets": {
+    "availability_pct": 74,
+    "dock_balance_pct": 68,
+    "complaints_per_1000_trips": 2.4
+  },
+  "stations": [
+    {"station_id": "PA-101", "name": "Ferry Terminal", "zone": "Waterfront", "capacity": 42, "avg_availability_pct": 58, "dock_balance_pct": 61, "trips": 18420},
+    {"station_id": "PA-104", "name": "Maritime Museum", "zone": "Waterfront", "capacity": 35, "avg_availability_pct": 62, "dock_balance_pct": 66, "trips": 11280},
+    {"station_id": "PA-117", "name": "Pier Market", "zone": "Waterfront", "capacity": 50, "avg_availability_pct": 55, "dock_balance_pct": 59, "trips": 16220},
+    {"station_id": "PA-203", "name": "North Campus", "zone": "North Campus", "capacity": 46, "avg_availability_pct": 67, "dock_balance_pct": 63, "trips": 14790},
+    {"station_id": "PA-207", "name": "Science Quad", "zone": "North Campus", "capacity": 38, "avg_availability_pct": 65, "dock_balance_pct": 62, "trips": 13410},
+    {"station_id": "PA-211", "name": "Library Walk", "zone": "North Campus", "capacity": 40, "avg_availability_pct": 69, "dock_balance_pct": 67, "trips": 12760},
+    {"station_id": "PA-302", "name": "Civic Center", "zone": "Civic Core", "capacity": 54, "avg_availability_pct": 77, "dock_balance_pct": 72, "trips": 17100},
+    {"station_id": "PA-309", "name": "Courthouse Plaza", "zone": "Civic Core", "capacity": 36, "avg_availability_pct": 75, "dock_balance_pct": 70, "trips": 9820},
+    {"station_id": "PA-401", "name": "East Market", "zone": "East Market", "capacity": 44, "avg_availability_pct": 73, "dock_balance_pct": 69, "trips": 14600},
+    {"station_id": "PA-408", "name": "Textile Hall", "zone": "East Market", "capacity": 32, "avg_availability_pct": 70, "dock_balance_pct": 65, "trips": 8830},
+    {"station_id": "PA-512", "name": "Hilltop Park", "zone": "Hilltop", "capacity": 28, "avg_availability_pct": 82, "dock_balance_pct": 78, "trips": 6510},
+    {"station_id": "PA-519", "name": "Observatory Gate", "zone": "Hilltop", "capacity": 30, "avg_availability_pct": 79, "dock_balance_pct": 76, "trips": 5120}
+  ],
+  "operational_notes": [
+    "Waterfront demand peaked around ferry arrivals and weekend events.",
+    "North Campus complaints were concentrated around morning class changes.",
+    "Hilltop exceeded availability targets but produced lower trip density."
+  ]
+}

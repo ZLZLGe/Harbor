@@ -1,90 +1,58 @@
-# CI/CD 模板任务说明
+# CI Flake Triage Template
 
-本模板面向 `cicd` 类任务，目标是构造一个更像真实 release engineering 值班现场的模板：solver 需要修复一条 GitHub Actions 风格的多阶段发布 dry-run，让它在保留真实 broker 链路和阶段约束的前提下重新产出可交付的 release bundle。
+这是面向 CI/CD 类 skill 的模板。它按 SkillsMP CI/CD 分类页的 stars 排序优先参考高热度 skill，抽象它们在 CI 日志诊断、测试优化、流水线验证、部署检查和可审计输出上的共性能力。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：技能收益必须体现在诊断路径、流水线语义检查和真实链路校验上，例如把 workflow graph、dry-run replay、bundle contract diff 标准化；严禁把 skill 做成直接泄露答案、替 solver 写固定补丁、或依赖 hidden answer file 的捷径。
-* **任务目标形态**：任务应要求 Agent 修复一个真实 CI/CD 发布流程里的多阶段链路问题，并产出可执行、可审计、可复跑的 release artifact；不应只让 Agent 改一行构建配置、补一个静态 YAML，或绕开发布系统直接写最终 JSON。
-* **验证设计重点**：Verifier 要真的跑一遍发布流水线，确认产物不是手写出来的假文件。重点检查 release bundle、provenance 和 promotion plan 是否来自真实 broker，内容是否互相对得上。还要防止 Agent 改隐藏服务、删掉发布阶段、走 fallback，或把多阶段发布流程偷换成一个简单脚本。
+* **Skill 价值定位**：高星 CI/CD skill 的共同价值不是“替 agent 写答案”，而是把 CI 日志、平台状态、测试命令、部署健康信号组织成可复现的诊断流程。它们强调先取证、再复现、再分类，避免只凭错误文本猜测。
+* **Task 目标形态**：模板任务应提供真实风格的 CI 产物、仓库脚本和运行链路，让 solver 产出结构化报告、复现记录和标准 diff。任务重点应靠流程判断、行为验证和证据完整性拉开 skill 差距，而不是靠隐藏答案或单纯 app 修复。
+* **Verifier 设计重点**：Verifier 应同时检查最终产物和命令轨迹，确认 solver 是否运行了目标 suite、是否精确复现失败、是否比较了环境差异、是否保留业务断言。防作弊测试要拦住跳过复现、全量粗暴测试、修改输入日志、禁用测试或用长 timeout 掩盖问题的解法。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务名：`github-actions-release-bundle-dryrun-repair`
-- 类别：`cicd`
+- 任务 ID：`playwright-prod-bundle-flake-triage`
+- 类别：CI/CD
 - 难度：`hard`
-- 绑定 Skill：`github-actions-release-audit`
-- SkillsMP 相关方向：`github-actions-templates`、`deployment-pipeline-design`、`gitlab-ci-patterns`
+- 绑定 Skill：`triage-ci-flake`
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-e2b oracle 结果：
+- Oracle：官方解法先抽取 CI 失败信息，再用 `pnpm dev checkout` 和 `pnpm dev:prod checkout` 对同一个 Playwright 标题做 targeted reproduction，最后输出 JSON 报告、复现 notes 和统一 diff。
+- Verifier 策略：
 
-- 整体结论：✅ 通过（Reward: `1.0`）
-- 测试用例：`7/7` 通过
-- 有效样本：`cicd-template-oracle-20260421e1 / template_new__Y3K5UJg`
-
-Verifier 策略：
-
-- 主测：验证 `release-bundle.json`、`promotion-plan.json`、`release-summary.md` 都来自 live broker，且 bundle、provenance、promotion plan 的行为结果一致。
-- 防作弊：验证隐藏 broker 与冻结数据未被修改；验证输出没有退回 `fallback_snapshot`；验证 workflow 仍保留 `inspect -> package -> attest -> promote` 的阶段语义，且 `promote` 仅依赖 `attest`。
-
-数据质量：
-
-- 下游 broker 使用冻结的 release snapshot，字段风格参考公开 GitHub release 资产与 release engineering 常见元数据，覆盖 `repo`、`version`、`git_sha`、`artifact_name`、`digest`、`promotion_targets`、`requires_attestation` 等真实字段。
-- 数据来源风格主要参考 `cli/cli` 与 `helm/helm` 的公开 release 资产命名与发布元数据表达；评测时使用仓内冻结快照，不在线抓取，保证确定性与可测性。
-- 环境保留真实风格链路：workflow -> scripts -> hidden broker -> bundle/provenance/promotion plan，而不是静态 JSON puzzle。
-
-多模态：
-
-- 不适用（纯 CI/CD / 文件与本地服务运行时任务）。
+| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+| :--- | :--- |
+| 检查 `flake_report.json`、`reproduction_notes.md` 和 `recommended_fix.diff` 的内容 | 从 CI 日志抽取 suite、test file、test title、error，并写出可审计结论 |
+| 检查 `.trace/commands.jsonl` 中 dev/prod targeted reproduction 顺序 | 先运行复现流程，再分类问题 |
+| 禁止 full suite、skip/fixme、超长 timeout 和修改输入 CI 文件 | 保留真实链路与业务断言，不用规避方式通过 |
+| 验证 dev pass、prod fail 后分类为 `prod_bundle_regression` | 区分本地 dev 与生产 bundle 环境差异 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，skill 的价值不在“帮忙写修复代码”，而在于把三类关键探针标准化了：
+结论：强相关。这个任务里，Skill 的核心价值是强制 agent 在分析前执行 CI flake 复现路径，包括清理端口、启动目标 suite、运行精确 Playwright 标题、再切到 production-bundled 链路。没有 skill 的 agent 倾向于从日志和 `package.json` 推断，或走 `npm run` 等错误入口，导致 verifier 的行为轨迹失败。
 
-- workflow graph 探针会直接暴露 `promote` 是否还保留了多余依赖。
-- dry-run replay 探针会先把 broken ordering 的失败现场跑出来，再驱动修复后的回归验证。
-- contract check 探针会把 live broker contract 和正式输出做对照，避免 solver 只修到“表面结果能过一部分测试”。
-
-基于最近 `3` 次有效对比实验（均为真正进入 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0/3` (`0%`) | `3/3` (`100%`) | With Skill 3 次全部通过；Without Skill 3 次全部保留 verifier 失败 |
-| 总耗时 | `369.2s` | `281.6s` | With Skill 更快，平均总耗时降低约 `23.7%` |
-| Agent 执行耗时 | `247.2s` | `189.7s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `23.3%` |
-| Input Tokens | `441,657.0` | `383,228.7` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.15x` |
+| 通过率 | `0%` | `100%` | Without Skill 三次都未完整执行 `lsof`/`pnpm dev`/`pnpm dev:prod` 复现链路；With Skill 三次都通过全部 verifier。 |
+| Agent 执行耗时 | `197.5s` | `213.6s` | With Skill 完整跑完 dev/prod 复现和产物校验；Without Skill 较快结束但留下行为轨迹失败。 |
+| Tokens | `341K` | `448K` | With Skill 使用更多上下文完成证据链和报告；Without Skill token 较少但没有满足复现流程。 |
 
-最近 3 次有效样本：
-
-- With Skill：
-  - `cicd-template-with-skill-20260421e1 / task_with_skills_e2b__rzxfX4P` -> `1.0`
-  - `cicd-template-with-skill-20260421e2 / task_with_skills_e2b__qohJF3L` -> `1.0`
-  - `cicd-template-with-skill-20260421e3 / task_with_skills_e2b__qyrkb4o` -> `1.0`
-- Without Skill：
-  - `cicd-template-without-skill-20260421e1 / task_without_skills_e2b__5Z7twBV` -> `0.0`
-  - `cicd-template-without-skill-20260421e2 / task_without_skills_e2b__J6pRFq2` -> `0.0`
-  - `cicd-template-without-skill-20260421e3 / task_without_skills_e2b__K48CJ7Z` -> `0.0`
-
-失败轨迹摘要：
-
-- Without Skill 的 3 次失败都修到了 live broker 行为结果，但稳定停在同一个 guardrail：`promote.needs` 被保留成 `['package', 'attest']`，而不是严格的 `['attest']`。
-- With Skill 的 3 次通过都先使用了 `/opt/task-skills/github-actions-release-audit/` 下的 probe 脚本检查 workflow graph、replay 和 contract，再落正式修复。
-
-### 📁 标准目录结构说明
+## 📁 标准目录结构说明
 
 ```text
-.
+template_new/
 ├── instruction.md
 ├── task.toml
 ├── PLAN.json
 ├── environment/
 │   ├── Dockerfile
-│   ├── workspace/
-│   ├── release-broker/
+│   ├── bin/
+│   ├── ci-logs/
+│   ├── repo/
 │   └── skills/
 ├── tests/
 └── solution/

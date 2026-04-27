@@ -1,0 +1,4 @@
+{"orderId":"ord_alpha_1001","partnerId":"partner_alpha","destinationPostal":"10001","items":[{"sku":"JACKET-RED-M","quantity":1,"weightGrams":900},{"sku":"SOCKS-HIKE","quantity":2,"weightGrams":140}],"declaredValueCents":12900}
+{"orderId":"ord_alpha_1002","partnerId":"partner_alpha","destinationPostal":"60601","items":[{"sku":"TENT-2P","quantity":1,"weightGrams":2400}],"declaredValueCents":24900}
+{"orderId":"ord_beta_2001","partnerId":"partner_beta","destinationPostal":"30301","items":[{"sku":"MUG-SET","quantity":1,"weightGrams":1800}],"declaredValueCents":4600}
+{"orderId":"ord_throttle_3001","partnerId":"partner_throttle","destinationPostal":"11201","items":[{"sku":"TEST-PACK","quantity":1,"weightGrams":500}],"declaredValueCents":1000}

@@ -1,6 +1,0 @@
-question_id,skill_tag,topic,correct_learners,incorrect_learners,common_misconception
-Q1,segment-reading,Session funnel,8,2,Confusing event rows with unique learners
-Q2,metric-definitions,Completion rate,7,3,Using raw event counts as the denominator
-Q3,metric-definitions,Quiz pass rate,6,4,Averaging attempts instead of rolling up to the learner level
-Q4,teaching-judgment,Retry behavior,5,5,Treating every retry as a signal of failure
-Q5,source-traceability,Source citation,9,1,Stating a metric without naming the visible source file

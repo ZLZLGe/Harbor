@@ -1,44 +1,34 @@
 version = "1.0"
 
 [metadata]
-id = "design__launch-storyboard-html-deck-delivery"
-name = "Template: Launch Storyboard HTML Deck Delivery"
-description = "Refine an internal-review HTML launch deck from frozen brand, KPI, quote, comparison, and journey inputs, then validate it through a live localhost render and QA chain."
-author_name = "OpenAI Codex"
-author_email = "support@openai.com"
+id = "design__frontend-slides-mobility-operations-review"
+name = "Template: Frontend Slides Mobility Operations Review"
+description = "Create a self-contained, viewport-safe HTML slide deck from local data and a live business API for a city micro-mobility quarterly operations review."
 difficulty = "hard"
 category = "design"
 tags = [
-  "design",
-  "html-deck",
-  "presentation-design",
   "frontend-slides",
-  "concept-diagrams",
-  "brand-system",
+  "html-presentation",
   "data-visualization",
-  "information-design",
-  "delivery-qa",
+  "responsive-design",
+  "browser-automation",
+  "executive-communication",
 ]
 required_skills = [
-  "launch-deck-diagnostics",
+  "frontend-slides",
 ]
-primary_output_file = "/app/output/deck_receipt.json"
-source_template_id = "design__launch-storyboard-html-deck-delivery"
 task_role = "template"
 
 [verifier]
-timeout_sec = 800.0
+timeout_sec = 900.0
 
 [agent]
-timeout_sec = 350.0
+timeout_sec = 2000.0
 
 [environment]
-build_timeout_sec = 1200.0
+build_timeout_sec = 900.0
 cpus = 2
 memory_mb = 4096
 storage_mb = 10240
+gpus = 0
 allow_internet = true
-
-[verifier.env]
-
-[solution.env]

@@ -1,0 +1,12 @@
+{
+  "pixel_origin": 1,
+  "time_reference": "mid_exposure_utc",
+  "gaia_reject_arcsec": 1.5,
+  "host_match_arcsec": 8.0,
+  "moving_object_reject_arcsec": 3.0,
+  "min_snr": 8.0,
+  "max_mag_unc": 0.25,
+  "reportable_absolute_mag_max": -16.0,
+  "cosmology": "Planck18",
+  "field_context_url": "http://127.0.0.1:8765/context"
+}

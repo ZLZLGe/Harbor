@@ -1,44 +1,56 @@
 {
-  "task_id": "compchem__leadlike-screening-shortlist",
-  "task_name": "leadlike-screening-shortlist",
-  "template_category": "computational-chemistry",
-  "scenario": "screening a frozen medicinal-chemistry library into a deterministic lead-like shortlist",
-  "user_visible_goal": "Build a reproducible Python screening function that standardizes structures, preserves stereochemistry, applies structural alerts, and ranks lead-like candidates against reference actives.",
-  "input_assets": [
-    "/root/data/library/catalog_core.sdf",
-    "/root/data/library/supplemental.smi",
-    "/root/data/library/vendors.csv",
-    "/root/data/reference/actives.csv",
-    "/root/data/reference/rules.json",
-    "/root/data/reference/scoring.json"
-  ],
-  "required_outputs": [
-    "/root/workspace/solution.py"
-  ],
-  "shipped_skills": [
-    "rdkit-screening-diagnostics"
-  ],
-  "skill_hypothesis": {
-    "with_skill": "The solver is more likely to inspect parse and normalization behavior first, keep a stereo-safe dedupe key, align descriptor APIs with the task contract, and validate the rule matrix before assembling the final shortlist.",
-    "without_skill": "The solver is more likely to collapse stereoisomers, miss salt or duplicate consolidation details, choose the wrong descriptor variants, or short-cut the decision logic in a way that leaves at least one verifier failure."
+  "derivedTaskId": "computational-chemistry__offline-lead-triage",
+  "taskRole": "template",
+  "title": "Template: Offline Lead Triage for Inflammatory Kinase",
+  "goal": "Build a reproducible medicinal-chemistry triage report from candidate SMILES, mixed-unit MAPK14 activity records, structural liabilities, and safety signals.",
+  "primaryOutputFile": "/root/workspace/output/lead_triage.json",
+  "difficulty": "hard",
+  "category": "computational-chemistry",
+  "targetSkillDirName": "drug-discovery",
+  "targetSkillName": "drug-discovery.md",
+  "skillsmpReference": {
+    "categoryUrl": "https://skillsmp.com/categories/computational-chemistry",
+    "selectedSkill": "NousResearch/hermes-agent optional research drug-discovery",
+    "observedStars": "114.8k",
+    "selectionReason": "The higher-star clinical-decision skill is less computational-chemistry-specific; drug-discovery directly covers ChEMBL-style activity normalization, RDKit descriptors, lead-likeness, ADMET and safety triage."
   },
-  "verifier_strategy": {
-    "main_tests": [
-      "The returned dict matches the required schema and numeric rounding contract.",
-      "Salt and duplicate representations merge into one standardized candidate while stereoisomers remain distinct.",
-      "Descriptor values, structural alerts, and keep/reject decisions match the shipped rules on representative compounds.",
-      "Maximum similarity to the reference actives is computed with a stereo-aware Morgan fingerprint configuration.",
-      "The shortlist order is deterministic and follows the shipped scoring rules."
+  "taskShape": "offline-medicinal-chemistry-workflow",
+  "designGoals": [
+    "Keep with-skill and without-skill identical except for environment/skills and the corresponding runtime copy/removal logic.",
+    "Use a real research workflow rather than an app repair task: standardize structures, normalize activity, score drug-likeness, and produce an auditable lead triage report.",
+    "Verify behavior through outputs and dynamic data perturbation instead of binding to one exact implementation.",
+    "Make the task theoretically solvable without a skill while preserving a high diagnosis and convergence cost around censored potency, descriptor choice, safety flags, and series diversity."
+  ],
+  "environmentDesign": {
+    "singleContainer": true,
+    "dependencies": ["RDKit via apt python3-rdkit", "pandas", "pytest"],
+    "dataSources": [
+      "Synthetic frozen dataset modeled on ChEMBL activity records",
+      "OpenFDA-style safety event summaries",
+      "Medicinal-chemistry target profile and assay notes"
     ],
-    "guardrails": [
-      "Shuffling input file order or renaming library files does not change the behavioral result.",
-      "An alternate fixture with different compounds but the same task shape still passes.",
-      "Parsing must follow real molecular structures rather than metadata-only shortcuts.",
-      "Trivial always-keep or always-reject outputs do not pass."
+    "runtimeChain": [
+      "workspace data files",
+      "solution.py callable report builder",
+      "local safety-normalizer service started by verifier",
+      "pytest verifier reading generated CSV, JSON and method notes"
     ]
   },
-  "data_provenance": {
-    "reference_source": "Small-molecule structures curated from PubChem compound records for common medicinal-chemistry exemplars, then frozen into a mixed SDF and SMILES library.",
-    "task_specific_curation": "The library intentionally includes duplicate representations, a salt form, a stereoisomer pair, alert-positive compounds, and borderline lead-like compounds to force real standardization and diagnosis."
+  "verifierDesign": {
+    "mainTests": [
+      "Output files, schema, rank ordering, score range, and JSON summary contract.",
+      "RDKit canonical parent structures and descriptor values.",
+      "Mixed-unit and censored activity normalization.",
+      "Safety exclusions, structural alerts, ranking, and series diversity."
+    ],
+    "guardrails": [
+      "Dynamic verifier-added candidate must be parsed and scored from data.",
+      "Invalid structures, duplicate parents and hard safety risks must remain auditable.",
+      "Method notes must mention concrete chemistry and activity-normalization decisions."
+    ]
+  },
+  "expectedOracle": {
+    "reward": 1,
+    "testCount": 7
   }
 }

@@ -1,251 +1,162 @@
 from __future__ import annotations
 
-import time
+import requests
 
-from conftest import (
-    availability,
-    cancel_hold,
-    confirm_hold,
-    delete_local_hold_row,
-    get_hold,
-    ledger_snapshot,
-    local_hold_row,
-    post_hold,
+from verifier_utils import (
+    ALPHA,
+    BASE_URL,
+    BETA,
+    BOOKING_URL,
+    THROTTLE,
+    assert_error,
+    assert_rate_limit_headers,
+    assert_success_envelope,
+    booking_calls,
+    get_quote,
+    quote_params,
+    rate_calls,
+    reset_downstreams,
 )
 
 
-def _active_holds(snapshot: dict, *, sku: str, location: str) -> list[dict]:
-    return [
-        hold
-        for hold in snapshot["holds"]
-        if hold["sku"] == sku and hold["location"] == location and hold["state"] == "active"
-    ]
+def test_auth_validation_and_error_contracts():
+    resp = requests.get(f"{BASE_URL}/api/v1/shipping-quotes", params=quote_params(), timeout=3)
+    assert_error(resp, 401, "unauthorized")
 
-
-def test_retry_is_idempotent_and_does_not_double_reserve() -> None:
-    baseline = availability("CHAIR-RED-001", "store-nyc").json()
-    assert baseline["available"] == 18
-
-    first = post_hold(
-        sku="CHAIR-RED-001",
-        location="store-nyc",
-        quantity=2,
-        hold_seconds=6,
-        customer_id="cust-a",
-        key="retry-case-1",
+    resp = requests.get(
+        f"{BASE_URL}/api/v1/shipping-quotes",
+        params=quote_params(weightGrams="not-an-int"),
+        headers=ALPHA,
+        timeout=3,
     )
-    second = post_hold(
-        sku="CHAIR-RED-001",
-        location="store-nyc",
-        quantity=2,
-        hold_seconds=6,
-        customer_id="cust-a",
-        key="retry-case-1",
+    assert_error(resp, 400, "bad_request")
+
+    resp = requests.get(
+        f"{BASE_URL}/api/v1/shipping-quotes",
+        params=quote_params(weightGrams="-1"),
+        headers=ALPHA,
+        timeout=3,
     )
+    payload = assert_error(resp, 422, "validation_error")
+    assert any(detail["field"] == "weightGrams" for detail in payload["error"]["details"])
 
-    assert first.status_code == 201, first.text
-    assert second.status_code == 200, second.text
-    first_payload = first.json()
-    second_payload = second.json()
-    assert first_payload["hold_id"] == second_payload["hold_id"]
-    assert second_payload["replayed"] is True
-
-    after = availability("CHAIR-RED-001", "store-nyc")
-    assert after.status_code == 200, after.text
-    after_payload = after.json()
-    assert after_payload["reserved"] == 2
-    assert after_payload["available"] == 16
-
-    snapshot = ledger_snapshot()
-    active = _active_holds(snapshot, sku="CHAIR-RED-001", location="store-nyc")
-    assert len(active) == 1
-    assert active[0]["quantity"] == 2
-
-
-def test_retry_recovers_when_local_hold_row_is_missing() -> None:
-    created = post_hold(
-        sku="CHAIR-RED-001",
-        location="store-nyc",
-        quantity=2,
-        hold_seconds=6,
-        customer_id="cust-recover",
-        key="recover-case-1",
+    resp = requests.get(
+        f"{BASE_URL}/api/v1/shipping-quotes",
+        params=quote_params(shipDate="05/04/2026"),
+        headers=ALPHA,
+        timeout=3,
     )
-    assert created.status_code == 201, created.text
-    hold_id = created.json()["hold_id"]
+    assert_error(resp, 422, "validation_error")
 
-    delete_local_hold_row(hold_id)
-
-    retried = post_hold(
-        sku="CHAIR-RED-001",
-        location="store-nyc",
-        quantity=2,
-        hold_seconds=6,
-        customer_id="cust-recover",
-        key="recover-case-1",
+    resp = requests.post(
+        f"{BASE_URL}/api/v1/shipments",
+        data="{bad-json",
+        headers={**ALPHA, "Content-Type": "application/json", "Idempotency-Key": "bad-json-1"},
+        timeout=3,
     )
-    assert retried.status_code == 200, retried.text
-    assert retried.json()["hold_id"] == hold_id
-
-    hold = get_hold(hold_id)
-    assert hold.status_code == 200, hold.text
-    assert hold.json()["status"] == "active"
-
-    after = availability("CHAIR-RED-001", "store-nyc").json()
-    assert after["reserved"] == 2
-    assert after["available"] == 16
-
-    snapshot = ledger_snapshot()
-    active = _active_holds(snapshot, sku="CHAIR-RED-001", location="store-nyc")
-    assert len(active) == 1
+    assert_error(resp, 400, "bad_request")
 
 
-def test_expired_hold_releases_inventory() -> None:
-    created = post_hold(
-        sku="LAMP-BLUE-002",
-        location="store-nyc",
-        quantity=3,
-        hold_seconds=2,
-        customer_id="cust-b",
-        key="expiry-case-1",
+def test_quotes_sorting_pagination_and_partner_authorization():
+    reset_downstreams()
+    resp = requests.get(
+        f"{BASE_URL}/api/v1/shipping-quotes",
+        params=quote_params(sort="price", **{"page[limit]": "2"}),
+        headers=ALPHA,
+        timeout=3,
     )
-    assert created.status_code == 201, created.text
+    payload = assert_success_envelope(resp)
+    assert_rate_limit_headers(resp, expected_limit=80)
+    assert isinstance(payload["data"], list)
+    assert payload["meta"] == {"count": 2, "hasMore": True}
+    assert "originPostal=94105" in payload["links"]["self"]
+    assert "page%5Bcursor%5D=" in payload["links"]["next"] or "page[cursor]=" in payload["links"]["next"]
+    prices = [item["price"]["amount"] for item in payload["data"]]
+    assert prices == sorted(prices)
+    assert all(item["serviceLevel"] in {"standard", "expedited"} for item in payload["data"])
+    assert len(rate_calls()) == 1
 
-    time.sleep(3)
+    resp2 = requests.get(BASE_URL + payload["links"]["next"], headers=ALPHA, timeout=3)
+    second = assert_success_envelope(resp2)
+    first_ids = {item["quoteId"] for item in payload["data"]}
+    second_ids = {item["quoteId"] for item in second["data"]}
+    assert first_ids.isdisjoint(second_ids)
 
-    after = availability("LAMP-BLUE-002", "store-nyc")
-    assert after.status_code == 200, after.text
-    payload = after.json()
-    assert payload["reserved"] == 0
-    assert payload["available"] == 14
-
-    snapshot = ledger_snapshot()
-    active = _active_holds(snapshot, sku="LAMP-BLUE-002", location="store-nyc")
-    assert active == []
-
-
-def test_idle_expiry_converges_local_hold_state_without_followup_requests() -> None:
-    created = post_hold(
-        sku="LAMP-BLUE-002",
-        location="store-nyc",
-        quantity=2,
-        hold_seconds=2,
-        customer_id="cust-idle-expiry",
-        key="idle-expiry-case-1",
+    resp = requests.get(
+        f"{BASE_URL}/api/v1/shipping-quotes",
+        params=quote_params(serviceLevel="overnight"),
+        headers=ALPHA,
+        timeout=3,
     )
-    assert created.status_code == 201, created.text
-    hold_id = created.json()["hold_id"]
+    assert_error(resp, 403, "forbidden")
 
-    time.sleep(3)
-
-    local_row = local_hold_row(hold_id)
-    assert local_row is not None
-    assert local_row["status"] == "expired"
-
-    snapshot = ledger_snapshot()
-    ledger_hold = next(hold for hold in snapshot["holds"] if hold["ledger_token"] == local_row["ledger_token"])
-    assert ledger_hold["state"] == "expired"
-
-
-def test_confirm_after_expiry_returns_conflict() -> None:
-    created = post_hold(
-        sku="DESK-OAK-003",
-        location="store-nyc",
-        quantity=1,
-        hold_seconds=2,
-        customer_id="cust-c",
-        key="confirm-expired-case",
+    resp = requests.get(
+        f"{BASE_URL}/api/v1/shipping-quotes",
+        params=quote_params(carrier="skybridge"),
+        headers=BETA,
+        timeout=3,
     )
-    assert created.status_code == 201, created.text
-    hold_id = created.json()["hold_id"]
-
-    time.sleep(3)
-
-    confirmed = confirm_hold(hold_id, "order-expired-1")
-    assert confirmed.status_code == 409, confirmed.text
-
-    hold = get_hold(hold_id)
-    assert hold.status_code == 200, hold.text
-    assert hold.json()["status"] == "expired"
-
-    snapshot = ledger_snapshot()
-    commit_events = [event for event in snapshot["events"] if event["event_type"] == "commit"]
-    assert commit_events == []
+    assert_error(resp, 403, "forbidden")
 
 
-def test_cancel_is_idempotent_and_releases_once() -> None:
-    created = post_hold(
-        sku="DESK-OAK-003",
-        location="store-nyc",
-        quantity=1,
-        hold_seconds=8,
-        customer_id="cust-d",
-        key="cancel-case-1",
+def test_shipment_create_replay_conflict_and_read_isolation():
+    quote = get_quote(weightGrams="1180", serviceLevel="standard", carrier="roadline")
+    body = {
+        "quoteId": quote["quoteId"],
+        "orderId": "ord_alpha_1001",
+        "labelFormat": "pdf",
+        "metadata": {"warehouse": "SFO-3", "batch": "qa"},
+    }
+    headers = {**ALPHA, "Idempotency-Key": "idem-alpha-001"}
+
+    resp = requests.post(f"{BASE_URL}/api/v1/shipments", json=body, headers=headers, timeout=3)
+    payload = assert_success_envelope(resp, 201)
+    assert_rate_limit_headers(resp, expected_limit=80)
+    assert resp.headers["Location"].endswith(payload["data"]["shipmentId"])
+    assert payload["data"]["metadata"] == body["metadata"]
+    assert payload["data"]["quote"]["quoteId"] == quote["quoteId"]
+    assert len(booking_calls()) == 1
+
+    replay = requests.post(f"{BASE_URL}/api/v1/shipments", json=body, headers=headers, timeout=3)
+    assert replay.status_code in {200, 201}, replay.text
+    replay_payload = assert_success_envelope(replay, replay.status_code)
+    assert_rate_limit_headers(replay, expected_limit=80)
+    assert replay_payload["data"]["shipmentId"] == payload["data"]["shipmentId"]
+    assert len(booking_calls()) == 1
+
+    conflict = requests.post(
+        f"{BASE_URL}/api/v1/shipments",
+        json={**body, "labelFormat": "zpl"},
+        headers=headers,
+        timeout=3,
     )
-    hold_id = created.json()["hold_id"]
+    assert_error(conflict, 409, "idempotency_conflict")
 
-    first_cancel = cancel_hold(hold_id)
-    second_cancel = cancel_hold(hold_id)
+    read = requests.get(f"{BASE_URL}/api/v1/shipments/{payload['data']['shipmentId']}", headers=ALPHA, timeout=3)
+    read_payload = assert_success_envelope(read)
+    assert_rate_limit_headers(read, expected_limit=80)
+    assert read_payload["data"]["shipmentId"] == payload["data"]["shipmentId"]
 
-    assert first_cancel.status_code == 200, first_cancel.text
-    assert second_cancel.status_code == 200, second_cancel.text
-    assert first_cancel.json()["status"] == "cancelled"
-    assert second_cancel.json()["status"] == "cancelled"
-
-    after = availability("DESK-OAK-003", "store-nyc").json()
-    assert after["reserved"] == 0
-    assert after["available"] == 6
-
-    snapshot = ledger_snapshot()
-    release_events = [event for event in snapshot["events"] if event["event_type"] == "release"]
-    assert len(release_events) == 1
+    blocked = requests.get(f"{BASE_URL}/api/v1/shipments/{payload['data']['shipmentId']}", headers=BETA, timeout=3)
+    assert_error(blocked, 404, "not_found")
 
 
-def test_mixed_sequence_preserves_location_isolation() -> None:
-    nyc_hold = post_hold(
-        sku="CHAIR-RED-001",
-        location="store-nyc",
-        quantity=2,
-        hold_seconds=8,
-        customer_id="cust-m1",
-        key="mixed-nyc-chair",
+def test_partner_rate_limit_uses_429_and_retry_after():
+    for idx in range(2):
+        resp = requests.get(
+            f"{BASE_URL}/api/v1/shipping-quotes",
+            params=quote_params(destinationPostal="11201"),
+            headers=THROTTLE,
+            timeout=3,
+        )
+        assert_success_envelope(resp)
+        assert_rate_limit_headers(resp, expected_limit=2)
+    limited = requests.get(
+        f"{BASE_URL}/api/v1/shipping-quotes",
+        params=quote_params(destinationPostal="11201"),
+        headers=THROTTLE,
+        timeout=3,
     )
-    sf_hold = post_hold(
-        sku="CHAIR-RED-001",
-        location="store-sf",
-        quantity=1,
-        hold_seconds=8,
-        customer_id="cust-m2",
-        key="mixed-sf-chair",
-    )
-    lamp_hold = post_hold(
-        sku="LAMP-BLUE-002",
-        location="store-nyc",
-        quantity=3,
-        hold_seconds=8,
-        customer_id="cust-m3",
-        key="mixed-nyc-lamp",
-    )
-
-    assert nyc_hold.status_code == 201
-    assert sf_hold.status_code == 201
-    assert lamp_hold.status_code == 201
-
-    assert confirm_hold(nyc_hold.json()["hold_id"], "order-mixed-1").status_code == 200
-    assert cancel_hold(lamp_hold.json()["hold_id"]).status_code == 200
-
-    nyc_chair = availability("CHAIR-RED-001", "store-nyc").json()
-    sf_chair = availability("CHAIR-RED-001", "store-sf").json()
-    nyc_lamp = availability("LAMP-BLUE-002", "store-nyc").json()
-
-    assert nyc_chair["on_hand"] == 18
-    assert nyc_chair["reserved"] == 0
-    assert nyc_chair["available"] == 16
-
-    assert sf_chair["on_hand"] == 12
-    assert sf_chair["reserved"] == 1
-    assert sf_chair["available"] == 10
-
-    assert nyc_lamp["on_hand"] == 15
-    assert nyc_lamp["reserved"] == 0
-    assert nyc_lamp["available"] == 14
+    assert_error(limited, 429, "rate_limit_exceeded")
+    assert int(limited.headers["Retry-After"]) > 0
+    assert_rate_limit_headers(limited, expected_limit=2)

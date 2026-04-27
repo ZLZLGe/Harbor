@@ -1,25 +1,18 @@
 #!/bin/bash
 set -euo pipefail
 
-TESTS_ROOT="${TESTS_ROOT:-/tests}"
-VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
+mkdir -p /logs/verifier
+REWARD_FILE="/logs/verifier/reward.txt"
+RESULT_FILE="/logs/verifier/result.json"
 
-mkdir -p "$VERIFIER_LOG_ROOT"
+python /services/safety-normalizer/server.py >/tmp/safety-normalizer.log 2>&1 &
+SERVICE_PID=$!
+trap 'kill ${SERVICE_PID} >/dev/null 2>&1 || true' EXIT
 
-set +e
-set -o pipefail
-pytest \
-  "$TESTS_ROOT/test_outputs.py" \
-  "$TESTS_ROOT/test_guardrails.py" \
-  -q -rA 2>&1 | tee "$VERIFIER_LOG_ROOT/pytest-output.txt"
-PYTEST_EXIT=${PIPESTATUS[0]}
-set +o pipefail
-set -e
-
-if [ "$PYTEST_EXIT" -eq 0 ]; then
-  echo 1 > "$VERIFIER_LOG_ROOT/reward.txt"
+if python3 -m pytest -q /tests/test_outputs.py; then
+  printf '1.0\n' > "${REWARD_FILE}"
+  printf '{"reward": 1.0}\n' > "${RESULT_FILE}"
 else
-  echo 0 > "$VERIFIER_LOG_ROOT/reward.txt"
+  printf '0.0\n' > "${REWARD_FILE}"
+  printf '{"reward": 0.0}\n' > "${RESULT_FILE}"
 fi
-
-exit 0

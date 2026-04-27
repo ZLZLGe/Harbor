@@ -1,0 +1,73 @@
+{
+  "task_id": "content_creation__source_derived_brand_voice_pack",
+  "category": "content-creation",
+  "task_role": "template",
+  "difficulty": "hard",
+  "primary_output_file": "/root/brandroom/output/content_pack.json",
+  "selected_skill": {
+    "dir": "brand-voice",
+    "purpose": "Build a durable, source-derived writing style profile from real source material and reuse it across launch, social, email, and changelog content without generic AI tropes.",
+    "skillsmp_references": [
+      {
+        "name": "brand-voice",
+        "stars": "162,855",
+        "relevance": "Direct match for source-derived voice profile creation and cross-channel reuse."
+      },
+      {
+        "name": "content-engine",
+        "stars": "165,920",
+        "relevance": "Adjacent content workflow skill that treats brand-voice as canonical."
+      },
+      {
+        "name": "article-writing",
+        "stars": "165,920",
+        "relevance": "Adjacent long-form writing skill for launch and article surfaces."
+      },
+      {
+        "name": "email-drafter",
+        "stars": "107,270",
+        "relevance": "Adjacent email content generation workflow."
+      }
+    ]
+  },
+  "environment_design": {
+    "shape": "single Docker container",
+    "live_services": [
+      "local brandroom content archive service serving source corpus, claims, brief, specs, and glossary"
+    ],
+    "determinism": "Frozen input files and deterministic in-container archive service mirror the same data and write access logs for guardrail verification.",
+    "anti_toy_features": [
+      "multi-channel corpus with articles, docs, changelog, email, and social samples",
+      "non-canonical comparator samples that must be excluded from the brand voice profile",
+      "approved and forbidden claims separated into explicit business constraints",
+      "channel-specific output contracts",
+      "source-backed voice profile requirements",
+      "source-priority grouping and reusable hard-ban anti-pattern checks",
+      "service access guardrail so the solver cannot treat the task as a static toy conversion"
+    ]
+  },
+  "verifier_design": {
+    "main_tests": [
+      "output existence and JSON schema",
+      "valid source and claim references",
+      "source-backed voice profile coverage and non-generic rules",
+      "excluded comparator source coverage",
+      "source priority grouping",
+      "reusable hard-ban anti-pattern extraction",
+      "channel-specific structure and length checks",
+      "claim safety and banned phrase scanning",
+      "audit report completeness"
+    ],
+    "guardrails": [
+      "pre-verifier access log proves the local archive service was checked",
+      "input files and hidden service hashes must remain unchanged",
+      "archive service must remain healthy",
+      "output cannot use fabricated source IDs or claim IDs",
+      "generic AI marketing phrases and forbidden claims fail the verifier"
+    ]
+  },
+  "expected_skill_effect": {
+    "without_skill": "The task is theoretically solvable, but agents commonly jump directly to channel drafts, write a generic tone guide, miss source-evidence binding, or overuse marketing cliches.",
+    "with_skill": "The skill standardizes the source-priority, voice-profile extraction, hard-ban, and downstream reuse workflow, reducing diagnosis and convergence cost without changing task data or verifier."
+  }
+}

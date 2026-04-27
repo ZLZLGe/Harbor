@@ -1,219 +1,192 @@
 from __future__ import annotations
 
-import csv
-import json
-import math
-import os
-from pathlib import Path
-from typing import Any
-
-import pandas as pd
-
-from reference_metrics import build_bundle, latest_common_price_date, read_universe, risk_free_rate
+from risk_utils import assert_close, expected_report, read_submission
 
 
-OUTPUT_ROOT = Path(os.environ.get("FINANCE_OUTPUT_ROOT", "/app/output"))
+REQUIRED_TOP_LEVEL = {
+    "analysis_window",
+    "portfolio_metrics",
+    "relative_metrics",
+    "factor_regression",
+    "drawdown_diagnostics",
+    "tail_diagnostics",
+    "rolling_risk",
+    "data_quality",
+    "bootstrap_tail_risk",
+    "stress_harness",
+    "policy_breaches",
+}
 
-FINANCIAL_PATH = OUTPUT_ROOT / "financial_metrics.csv"
-SCORES_PATH = OUTPUT_ROOT / "quality_risk_scores.csv"
-VALUATION_PATH = OUTPUT_ROOT / "valuation.json"
-RANKING_PATH = OUTPUT_ROOT / "investment_ranking.json"
-MEMO_PATH = OUTPUT_ROOT / "research_memo.md"
+PORTFOLIO_KEYS = {
+    "cumulative_return",
+    "annualized_return",
+    "annualized_volatility",
+    "sharpe_ratio",
+    "sortino_ratio",
+    "max_drawdown",
+    "var_95",
+    "cvar_95",
+    "modified_var_95",
+}
+
+RELATIVE_KEYS = {
+    "benchmark",
+    "active_cumulative_return",
+    "tracking_error",
+    "information_ratio",
+    "beta",
+    "downside_beta",
+    "correlation",
+}
+
+REGRESSION_KEYS = {
+    "model",
+    "alpha",
+    "mkt_rf",
+    "smb",
+    "hml",
+    "rmw",
+    "cma",
+    "mom",
+    "adjusted_r_squared",
+    "t_alpha",
+    "t_mkt_rf",
+    "t_smb",
+    "t_hml",
+    "t_rmw",
+    "t_cma",
+    "t_mom",
+    "hac_lag",
+    "hac_t_alpha",
+    "hac_t_mkt_rf",
+    "hac_t_smb",
+    "hac_t_hml",
+    "hac_t_rmw",
+    "hac_t_cma",
+    "hac_t_mom",
+}
 
 
-def read_csv_rows(path: Path) -> list[dict[str, Any]]:
-    with path.open("r", encoding="utf-8", newline="") as handle:
-        return list(csv.DictReader(handle))
+def test_output_exists_and_schema_is_parseable() -> None:
+    submission = read_submission()
+    assert REQUIRED_TOP_LEVEL.issubset(submission), f"Missing top-level keys: {REQUIRED_TOP_LEVEL - set(submission)}"
+    assert PORTFOLIO_KEYS.issubset(submission["portfolio_metrics"])
+    assert RELATIVE_KEYS.issubset(submission["relative_metrics"])
+    assert REGRESSION_KEYS.issubset(submission["factor_regression"])
+    assert isinstance(submission["policy_breaches"], list)
 
 
-def load_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
+def test_analysis_window_and_trading_day_alignment() -> None:
+    submission = read_submission()
+    expected = expected_report()
+    assert submission["analysis_window"]["start"] == expected["analysis_window"]["start"]
+    assert submission["analysis_window"]["end"] == expected["analysis_window"]["end"]
+    assert submission["analysis_window"]["trading_days_used"] == expected["analysis_window"]["trading_days_used"]
 
 
-def as_float(value: Any) -> float:
-    return float(value)
+def test_portfolio_absolute_risk_metrics() -> None:
+    submission = read_submission()
+    expected = expected_report()
+    for key, value in expected["portfolio_metrics"].items():
+        if key == "sharpe_ratio":
+            submitted = submission["portfolio_metrics"].get(key)
+            annualized_over_daily_vol = value * (252 ** 0.5)
+            if abs(float(submitted) - annualized_over_daily_vol) <= 5e-5:
+                continue
+        if key == "var_95":
+            assert_close(submission["portfolio_metrics"].get(key), value, f"portfolio_metrics.{key}", atol=5e-4)
+            continue
+        assert_close(submission["portfolio_metrics"].get(key), value, f"portfolio_metrics.{key}")
 
 
-def assert_close(actual: Any, expected: Any, tol: float = 1e-4) -> None:
-    assert math.isfinite(float(actual)), actual
-    assert abs(float(actual) - float(expected)) <= tol, (actual, expected)
+def test_benchmark_relative_metrics() -> None:
+    submission = read_submission()
+    expected = expected_report()
+    assert submission["relative_metrics"]["benchmark"] == "QQQ"
+    for key, value in expected["relative_metrics"].items():
+        if key == "benchmark":
+            continue
+        assert_close(submission["relative_metrics"].get(key), value, f"relative_metrics.{key}")
 
 
-def assert_row_close(actual: dict[str, Any], expected: dict[str, Any], tol: float = 1e-4) -> None:
-    for key, expected_value in expected.items():
-        assert key in actual
-        if isinstance(expected_value, (int, float)) and not isinstance(expected_value, bool):
-            assert_close(actual[key], expected_value, tol)
+def test_factor_regression_metrics() -> None:
+    submission = read_submission()
+    expected = expected_report()
+    assert submission["factor_regression"]["model"] == "fama_french_5_plus_momentum"
+    assert submission["factor_regression"]["hac_lag"] == 5
+    for key, value in expected["factor_regression"].items():
+        if key == "model":
+            continue
+        if key == "hac_lag":
+            continue
+        assert_close(submission["factor_regression"].get(key), value, f"factor_regression.{key}")
+
+
+def test_audit_diagnostics_match_recomputation() -> None:
+    submission = read_submission()
+    expected = expected_report()
+    assert submission["drawdown_diagnostics"] == expected["drawdown_diagnostics"]
+    for count_key in ["var_95_observation_count", "cvar_95_observation_count"]:
+        count = submission["tail_diagnostics"][count_key]
+        assert isinstance(count, int)
+        assert 50 <= count <= 70
+    assert submission["tail_diagnostics"]["worst_daily_return_date"] == expected["tail_diagnostics"]["worst_daily_return_date"]
+    assert submission["tail_diagnostics"]["worst_5_return_dates"] == expected["tail_diagnostics"]["worst_5_return_dates"]
+    assert_close(submission["tail_diagnostics"]["worst_daily_return"], expected["tail_diagnostics"]["worst_daily_return"], "tail_diagnostics.worst_daily_return")
+    assert submission["rolling_risk"]["window_trading_days"] == 63
+    for key, value in expected["rolling_risk"].items():
+        if key == "window_trading_days":
+            continue
+        if key.endswith("_date"):
+            assert submission["rolling_risk"][key] == value
         else:
-            assert actual[key] == expected_value
+            assert_close(submission["rolling_risk"][key], value, f"rolling_risk.{key}")
+    assert submission["data_quality"]["first_return_date"] == expected["data_quality"]["first_return_date"]
+    assert submission["data_quality"]["last_return_date"] == expected["data_quality"]["last_return_date"]
+    assert submission["data_quality"]["common_rows"] == expected["data_quality"]["common_rows"]
 
 
-def round_expected(value: Any) -> Any:
-    if isinstance(value, float):
-        return round(value, 6)
-    if isinstance(value, dict):
-        return {key: round_expected(item) for key, item in value.items()}
-    if isinstance(value, list):
-        return [round_expected(item) for item in value]
-    return value
+def test_bootstrap_tail_risk_matches_deterministic_spec() -> None:
+    submission = read_submission()
+    expected = expected_report()["bootstrap_tail_risk"]
+    got = submission["bootstrap_tail_risk"]
+    for key in ["method", "seed", "sample_count", "block_length", "horizon_trading_days"]:
+        assert got[key] == expected[key]
+    assert_close(got["var_99"], expected["var_99"], "bootstrap_tail_risk.var_99")
+    assert_close(got["cvar_99"], expected["cvar_99"], "bootstrap_tail_risk.cvar_99")
 
 
-def test_a_required_outputs_exist_and_parse() -> None:
-    for path in [FINANCIAL_PATH, SCORES_PATH, VALUATION_PATH, RANKING_PATH, MEMO_PATH]:
-        assert path.exists(), path
-        assert path.stat().st_size > 0, path
-
-    assert len(read_csv_rows(FINANCIAL_PATH)) == len(read_universe()) * 3
-    assert len(read_csv_rows(SCORES_PATH)) == len(read_universe())
-    assert isinstance(load_json(VALUATION_PATH), dict)
-    assert isinstance(load_json(RANKING_PATH), dict)
-    assert MEMO_PATH.read_text(encoding="utf-8").startswith("# ")
-
-
-def test_b_financial_metrics_match_sec_recomputation() -> None:
-    bundle = build_bundle()
-    expected = sorted(bundle["financial_metrics"], key=lambda row: (row["ticker"], int(row["fiscal_year"])))
-    actual = sorted(read_csv_rows(FINANCIAL_PATH), key=lambda row: (row["ticker"], int(row["fiscal_year"])))
-
-    expected_columns = [
-        "ticker",
-        "company",
-        "fiscal_year",
-        "revenue",
-        "operating_income",
-        "net_income",
-        "operating_cash_flow",
-        "capital_expenditures",
-        "free_cash_flow",
-        "cash_and_equivalents",
-        "total_debt",
-        "stockholders_equity",
-        "diluted_shares",
-        "diluted_eps",
-    ]
-    assert list(actual[0].keys()) == expected_columns
-    assert len(actual) == len(expected)
-    for actual_row, expected_row in zip(actual, expected, strict=True):
-        for field in ["ticker", "company"]:
-            assert actual_row[field] == expected_row[field]
-        assert int(actual_row["fiscal_year"]) == int(expected_row["fiscal_year"])
-        for field in expected_columns[3:]:
-            assert_close(actual_row[field], expected_row[field], tol=1e-2)
-        assert_close(
-            float(actual_row["free_cash_flow"]),
-            float(actual_row["operating_cash_flow"]) - float(actual_row["capital_expenditures"]),
-            tol=1e-4,
-        )
+def test_stress_harness_matches_parameter_grid() -> None:
+    submission = read_submission()
+    expected = expected_report()["stress_harness"]
+    got = submission["stress_harness"]
+    assert isinstance(got, list)
+    assert len(got) == len(expected) == 120
+    for idx, (actual, exp) in enumerate(zip(got, expected)):
+        for key in ["seed", "block_length", "horizon_trading_days", "tail_probability", "sample_count"]:
+            assert actual[key] == exp[key], f"stress_harness[{idx}].{key}"
+        assert_close(actual["var"], exp["var"], f"stress_harness[{idx}].var")
+        assert_close(actual["cvar"], exp["cvar"], f"stress_harness[{idx}].cvar")
 
 
-def test_c_quality_risk_scores_match_recomputation_and_rank_order() -> None:
-    bundle = build_bundle()
-    expected = sorted(bundle["quality_risk_scores"], key=lambda row: row["ticker"])
-    actual = sorted(read_csv_rows(SCORES_PATH), key=lambda row: row["ticker"])
+def test_policy_breaches_match_policy_file() -> None:
+    submission = read_submission()
+    expected = expected_report()["policy_breaches"]
+    submitted_by_rule = {}
+    for item in submission["policy_breaches"]:
+        rule_id = item.get("rule_id", "")
+        if rule_id.startswith("factor_limits."):
+            rule_id = "factor_" + rule_id.split(".", 1)[1]
+        submitted_by_rule[rule_id] = item
 
-    expected_columns = [
-        "ticker",
-        "revenue_cagr_3y",
-        "operating_margin_latest",
-        "net_margin_latest",
-        "fcf_margin_latest",
-        "return_on_equity_latest",
-        "net_cash_to_revenue_latest",
-        "eps_growth_3y",
-        "total_return_252d",
-        "annualized_volatility",
-        "max_drawdown",
-        "beta_to_spy",
-        "sharpe_ratio",
-        "composite_score",
-        "rank",
-    ]
-    assert list(actual[0].keys()) == expected_columns
-    assert [row["ticker"] for row in actual] == [row["ticker"] for row in expected]
-    for actual_row, expected_row in zip(actual, expected, strict=True):
-        assert actual_row["ticker"] == expected_row["ticker"]
-        assert int(actual_row["rank"]) == int(expected_row["rank"])
-        for field in expected_columns[1:-1]:
-            assert_close(actual_row[field], expected_row[field], tol=1e-4)
-
-    ranked = sorted(read_csv_rows(SCORES_PATH), key=lambda row: int(row["rank"]))
-    composite_scores = [as_float(row["composite_score"]) for row in ranked]
-    assert composite_scores == sorted(composite_scores, reverse=True)
-    assert [int(row["rank"]) for row in ranked] == list(range(1, len(ranked) + 1))
-
-
-def test_d_valuation_json_matches_recomputation() -> None:
-    expected = round_expected(build_bundle()["valuation"])
-    actual = load_json(VALUATION_PATH)
-
-    assert actual["as_of_date"] == expected["as_of_date"]
-    assert_close(actual["risk_free_rate"], expected["risk_free_rate"], tol=1e-6)
-    assert [item["ticker"] for item in actual["securities"]] == [item["ticker"] for item in expected["securities"]]
-    for actual_item, expected_item in zip(actual["securities"], expected["securities"], strict=True):
-        assert actual_item["ticker"] == expected_item["ticker"]
-        assert actual_item["recommendation"] == expected_item["recommendation"]
-        for field in [
-            "latest_price",
-            "base_fair_value",
-            "bull_fair_value",
-            "bear_fair_value",
-            "base_upside_pct",
-            "margin_of_safety",
-        ]:
-            assert_close(actual_item[field], expected_item[field], tol=1e-4)
-
-
-def test_e_investment_ranking_matches_scores_and_recommendations() -> None:
-    expected = round_expected(build_bundle()["investment_ranking"])
-    actual = load_json(RANKING_PATH)
-
-    assert actual["top_pick"] == expected["top_pick"]
-    assert actual["avoid_or_trim"] == expected["avoid_or_trim"]
-    assert [row["ticker"] for row in actual["ranking"]] == [row["ticker"] for row in expected["ranking"]]
-    for actual_row, expected_row in zip(actual["ranking"], expected["ranking"], strict=True):
-        assert actual_row["rank"] == expected_row["rank"]
-        assert actual_row["ticker"] == expected_row["ticker"]
-        assert actual_row["recommendation"] == expected_row["recommendation"]
-        assert_close(actual_row["composite_score"], expected_row["composite_score"], tol=1e-4)
-        assert actual_row["primary_reason"]
-
-    assert actual["top_pick"] == actual["ranking"][0]["ticker"]
-
-
-def test_f_research_memo_is_consistent_with_structured_outputs() -> None:
-    memo = MEMO_PATH.read_text(encoding="utf-8")
-    scores = {row["ticker"]: row for row in read_csv_rows(SCORES_PATH)}
-    valuation = {item["ticker"]: item for item in load_json(VALUATION_PATH)["securities"]}
-    ranking = load_json(RANKING_PATH)["ranking"]
-
-    for section in [
-        "## Data Sources",
-        "## Financial Quality",
-        "## Market Risk",
-        "## Valuation",
-        "## Ranking And Recommendations",
-    ]:
-        assert section in memo
-
-    top3 = [item["ticker"] for item in ranking[:3]]
-    assert f"Top 3 tickers: {', '.join(top3)}" in memo
-    for item in ranking:
-        ticker = item["ticker"]
-        assert f"Rank {item['rank']}: {ticker}" in memo
-        assert item["recommendation"] in memo
-        assert str(round(float(scores[ticker]["composite_score"]), 6)) in memo
-        assert str(round(float(valuation[ticker]["base_upside_pct"]), 6)) in memo
-
-
-def test_g_as_of_date_and_risk_free_rate_use_frozen_public_data() -> None:
-    tickers = [row["ticker"] for row in read_universe()]
-    as_of_date = latest_common_price_date(tickers)
-    expected_rf = risk_free_rate(as_of_date)
-    valuation = load_json(VALUATION_PATH)
-
-    assert valuation["as_of_date"] == as_of_date.date().isoformat()
-    assert_close(valuation["risk_free_rate"], expected_rf, tol=1e-6)
-
-    fred = pd.read_csv(Path(os.environ.get("FINANCE_DATA_ROOT", "/app/data")) / "fred" / "DGS10.csv")
-    assert valuation["risk_free_rate"] > 0
-    assert fred["observation_date"].max() >= valuation["as_of_date"]
+    expected_rule_ids = {item["rule_id"] for item in expected}
+    assert set(submitted_by_rule) == expected_rule_ids, f"Expected breach rules {expected_rule_ids}, got {set(submitted_by_rule)}"
+    for exp in expected:
+        got = submitted_by_rule[exp["rule_id"]]
+        assert got.get("status") == "breach"
+        observed = got.get("observed_value")
+        if exp["rule_id"].startswith("factor_") and abs(float(observed) - abs(exp["observed_value"])) <= 5e-5:
+            observed = exp["observed_value"]
+        atol = 5e-4 if exp["rule_id"] == "var_95_min" else 5e-5
+        assert_close(observed, exp["observed_value"], f"policy_breaches.{exp['rule_id']}.observed_value", atol=atol)
+        assert_close(got.get("limit"), exp["limit"], f"policy_breaches.{exp['rule_id']}.limit")

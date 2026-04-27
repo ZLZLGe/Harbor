@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+import json
+import os
+import shlex
+import sys
+from pathlib import Path
+
+TRACE = Path(os.environ.get("APP_ROOT", "/app")) / ".trace"
+TRACE.mkdir(parents=True, exist_ok=True)
+
+
+def record(kind, args, rc=0, extra=None):
+    payload = {
+        "kind": kind,
+        "argv": args,
+        "cmd": "pnpm " + " ".join(shlex.quote(a) for a in args),
+        "cwd": os.getcwd(),
+        "return_code": rc,
+    }
+    if extra:
+        payload.update(extra)
+    with (TRACE / "commands.jsonl").open("a", encoding="utf-8") as f:
+        f.write(json.dumps(payload, sort_keys=True) + "\n")
+
+
+def state_path():
+    return TRACE / "server_state"
+
+
+def current_state():
+    if state_path().exists():
+        return state_path().read_text(encoding="utf-8").strip()
+    return ""
+
+
+def main():
+    args = sys.argv[1:]
+    if not args:
+        record("pnpm-empty", args, 1)
+        print("pnpm mock: missing command", file=sys.stderr)
+        return 1
+
+    if args[0] == "dev" and len(args) >= 2:
+        suite = args[1]
+        state_path().write_text(f"dev:{suite}", encoding="utf-8")
+        record("dev-server", args, 0, {"suite": suite, "mode": "dev"})
+        print(f"Dev server ready for suite {suite} on http://localhost:3000/admin")
+        return 0
+
+    if args[0] == "dev:prod" and len(args) >= 2:
+        suite = args[1]
+        state_path().write_text(f"prod:{suite}", encoding="utf-8")
+        record("prod-server", args, 0, {"suite": suite, "mode": "prod"})
+        print(f"Production-bundled server ready for suite {suite} on http://localhost:3000/admin")
+        return 0
+
+    if args[0] == "prepare-run-test-against-prod":
+        (TRACE / "prepared_prod").write_text("true", encoding="utf-8")
+        record("prepare-prod", args, 0)
+        print("Prepared production-bundled test workspace")
+        return 0
+
+    if args[:3] == ["exec", "playwright", "test"]:
+        joined = " ".join(args)
+        targeted = "test/checkout/e2e.spec.ts" in args and "checkout applies saved shipping method after address edit" in joined
+        full_suite = "test/checkout/e2e.spec.ts" in args and "-g" not in args
+        state = current_state()
+        mode = state.split(":", 1)[0] if ":" in state else "none"
+        suite = state.split(":", 1)[1] if ":" in state else ""
+        if full_suite:
+            record("playwright-full-suite", args, 1, {"mode": mode, "suite": suite})
+            print("Full suite run is intentionally rejected for this triage task", file=sys.stderr)
+            return 1
+        if not targeted:
+            record("playwright-wrong-target", args, 1, {"mode": mode, "suite": suite})
+            print("The mock runner only knows the exported failing test title", file=sys.stderr)
+            return 1
+        if mode == "dev":
+            record("playwright-target", args, 0, {"mode": mode, "suite": suite})
+            print("1 passed: checkout applies saved shipping method after address edit")
+            return 0
+        if mode == "prod":
+            record("playwright-target", args, 1, {"mode": mode, "suite": suite})
+            print("Error: Timed out waiting for shipping method label after production bundle hydration", file=sys.stderr)
+            return 1
+        record("playwright-no-server", args, 1, {"mode": mode, "suite": suite})
+        print("No dev or prod server state found before Playwright run", file=sys.stderr)
+        return 1
+
+    record("pnpm-other", args, 1)
+    print(f"pnpm mock: unsupported command: {' '.join(args)}", file=sys.stderr)
+    return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
