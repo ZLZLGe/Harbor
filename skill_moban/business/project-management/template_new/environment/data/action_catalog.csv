@@ -1,9 +1,0 @@
-action_id,action_name,action_type,eligible_phases,workstream,owner_role,duration_days,effort_hours,target_status,action_priority
-A-ESC,Escalate unresolved blocker,escalation,Planning;Design;Procurement;Construction;Inspection,Governance,Program Manager,3,10,Escalated,1
-A-BLK,Remove procurement or design blocker,blocker_removal,Design;Procurement;Construction,Governance,Program Manager,5,16,Blocked,2
-A-PRC,Expedite procurement package,procurement_recovery,Procurement,Procurement,Procurement Lead,5,18,Recovery Planned,3
-A-DSN,Resolve design comments,design_recovery,Design,Design,Design Lead,5,20,Recovery Planned,3
-A-CON,Resequence construction crews,construction_recovery,Construction,Construction,Construction Manager,5,22,In Progress,3
-A-INS,Compress inspection punchlist,inspection_recovery,Inspection,Inspection,Inspector,4,14,Ready for Review,3
-A-BUD,Prepare cost exposure review,cost_review,Planning;Design;Procurement;Construction;Inspection,Controls,Cost Analyst,4,12,Recovery Planned,4
-A-COM,Stakeholder commitment reset,commitment_reset,Planning;Design;Procurement;Construction;Inspection,Governance,Program Manager,2,8,On Track,5

@@ -1,37 +1,4 @@
-week_start,workstream,owner_role,capacity_hours
-2025-07-07,Governance,Program Manager,36
-2025-07-07,Procurement,Procurement Lead,24
-2025-07-07,Design,Design Lead,24
-2025-07-07,Construction,Construction Manager,30
-2025-07-07,Inspection,Inspector,20
-2025-07-07,Controls,Cost Analyst,24
-2025-07-14,Governance,Program Manager,32
-2025-07-14,Procurement,Procurement Lead,24
-2025-07-14,Design,Design Lead,24
-2025-07-14,Construction,Construction Manager,30
-2025-07-14,Inspection,Inspector,20
-2025-07-14,Controls,Cost Analyst,24
-2025-07-21,Governance,Program Manager,32
-2025-07-21,Procurement,Procurement Lead,24
-2025-07-21,Design,Design Lead,24
-2025-07-21,Construction,Construction Manager,30
-2025-07-21,Inspection,Inspector,20
-2025-07-21,Controls,Cost Analyst,24
-2025-07-28,Governance,Program Manager,32
-2025-07-28,Procurement,Procurement Lead,24
-2025-07-28,Design,Design Lead,24
-2025-07-28,Construction,Construction Manager,30
-2025-07-28,Inspection,Inspector,20
-2025-07-28,Controls,Cost Analyst,24
-2025-08-04,Governance,Program Manager,32
-2025-08-04,Procurement,Procurement Lead,24
-2025-08-04,Design,Design Lead,24
-2025-08-04,Construction,Construction Manager,30
-2025-08-04,Inspection,Inspector,20
-2025-08-04,Controls,Cost Analyst,24
-2025-08-11,Governance,Program Manager,32
-2025-08-11,Procurement,Procurement Lead,24
-2025-08-11,Design,Design Lead,24
-2025-08-11,Construction,Construction Manager,30
-2025-08-11,Inspection,Inspector,20
-2025-08-11,Controls,Cost Analyst,24
+role,story_points_available,qa_slots_available,review_slots_available
+Backend Engineer,14,1,2
+Platform Engineer,11,2,2
+SRE,8,2,1

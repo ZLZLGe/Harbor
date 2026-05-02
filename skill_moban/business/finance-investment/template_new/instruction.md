@@ -145,9 +145,3 @@ Notes:
 - Do not modify files under `/root/input/`.
 - Do not modify tests, verifier files, task metadata, or environment files.
 - Do not bypass the requested financial calculations by writing placeholder values or manually fabricating outputs.
-
-References for the data files:
-
-[1] [Yahoo Finance Historical Market Data](https://finance.yahoo.com/)  
-[2] [Kenneth R. French Data Library - Fama/French 5 Factors](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)  
-[3] [Kenneth R. French Data Library - Momentum Factor](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)

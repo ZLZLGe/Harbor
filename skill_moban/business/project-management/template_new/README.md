@@ -1,49 +1,73 @@
 # Project-Management Template
 
-这是面向 `project-management` 类 skill 的模板。它综合参考 SkillsMP project-management 类热门 skill 的共性能力：项目拆解、里程碑规划、依赖管理、资源与产能分配、风险缓解、状态追踪、看板更新和管理层汇报。
+这是面向 `project-management` 类 skill 的模板。它综合参考 SkillsMP project-management 类热门 skill 的共性能力：backlog 梳理、Sprint 承诺规划、容量约束判断、依赖关系识别、风险提炼，以及把多来源项目事实沉淀成发布经理可直接使用的交付物。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：project-management 类 skill 的核心价值，是把模糊业务目标转化为可执行的项目计划，并稳定组织任务、时间线、依赖、负责人、风险和交付状态。模板任务应让 skill 在计划结构、优先级排序、约束处理和沟通输出上降低遗漏率，而不是暴露隐藏答案或替代业务计算。
-* **Task目标形态**：任务应要求 Agent 基于真实风格的项目组合、看板、资源或风险数据，产出可执行、可追踪、可验证的 PMO 交付物。目标形态适合设计成项目分诊、恢复计划、Sprint/Kanban 更新、资源排期、风险升级和 executive summary，不适合做纯叙述计划、静态模板填空或不可复算的主观建议。
-* **Verifier设计重点**：Verifier 应从输入数据动态重算选择、排序、容量、依赖、状态和关键指标，并验证输出是否满足项目管理约束。重点应覆盖输入不可变、输出 schema、阶段门规则、工作流/角色产能、阻塞项首动作、每项目看板更新、管理层摘要指标和标准项目计划附录结构。
+* **Skill 价值定位**：project-management 类热门 skill 的核心价值，是把零散 backlog、优先级、容量和依赖关系组织成稳定的决策流程。它不应该直接泄露最终答案，而应帮助 solver 更快识别事实源、排序逻辑、容量约束和风险收口方式。
+* **Task 目标形态**：任务应落在真实风格的项目规划场景里，例如 Sprint 承诺、发布 cutline、依赖排期、容量平衡或 backlog 分诊。题面应重点交代业务交付合同、约束和禁止事项，把具体工作流更多留给 skill 和 solver 自主识别。
+* **Verifier 设计重点**：Verifier 应优先验证 solver 是否完成了真实规划链路和关键动作，而不是只卡格式细节。重点应覆盖权威事实源优先级、分页与明细抓取、依赖闭环、容量重算、分诊结果一致性，以及对 stale export、跳过 live chain、硬编码答案和改输入的防护。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`municipal-capital-recovery-plan`
+- 任务 ID：`project-management__supavisor-sprint-commitment`
 - 类别：`project-management`
-- 难度：`medium`
-- 绑定 Skill：`project-planner`
+- 难度：`hard`
+- 绑定 Skill：`sprint-planner`
+- 输入数据参考来源：
+  - `environment/data/backlog_export.csv`：任务内 backlog 导出快照；标题和 issue 语义参考 Supavisor 公开 issue backlog  
+    https://github.com/supabase/supavisor/issues  
+    https://github.com/supabase/supavisor/issues/236  
+    https://github.com/supabase/supavisor/issues/320  
+    https://github.com/supabase/supavisor/issues/343  
+    https://github.com/supabase/supavisor/issues/204  
+    https://github.com/supabase/supavisor/issues/349  
+    https://github.com/supabase/supavisor/issues/331  
+    https://github.com/supabase/supavisor/issues/314
+  - `environment/data/planning_notes/issue_context.md`：任务内 issue 摘要、发布主题和本地化上下文；内容参考同一批 Supavisor issue 页面  
+    https://github.com/supabase/supavisor/issues/221  
+    https://github.com/supabase/supavisor/issues/209  
+    https://github.com/supabase/supavisor/issues/163  
+    https://github.com/supabase/supavisor/issues/319  
+    https://github.com/supabase/supavisor/issues/830  
+    https://github.com/supabase/supavisor/issues/854
+  - `environment/data/team_capacity.csv`：任务内团队容量配置；为本模板自定义的本地规划输入，无单独公开来源
+  - `environment/data/delivery_policy.yaml`：任务内 Sprint 规则、缓冲和选择约束；为本模板自定义的本地规划输入，无单独公开来源
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 使用同一批市政资本项目、CPI、依赖规则、风险标记、动作目录和团队产能数据，独立推导项目分诊、6 周恢复计划、看板更新和 summary 关键指标。它关注恢复计划是否满足业务约束，而不是实现路径是否一致。
-
+- Oracle：oracle 从本地 planning service 全量抓取分页 backlog 和明细事实，再结合容量与 policy 文件重算 Sprint 承诺、拒绝原因、容量摘要和经理更新内容。它证明任务可运行、可重算，而且不依赖隐藏答案文件。
 - Verifier策略：
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+主测试
+
+| 测试点 | 验证内容 | 对应skill内化点 |
+| :--- | :--- | :--- |
+| 输出契约 | 检查 CSV / JSON / Markdown 是否存在、可解析，并包含必需字段 | 先理解正式交付物，再组织结构化输出 |
+| live backlog 重算 | 从 planning service 重新拉取所有分页和 item detail，核对 triage、承诺集合和拒绝原因 | 识别权威事实源并完成完整数据采集 |
+| cutline 与容量一致性 | 重算 must-ship 优先顺序、依赖闭环、story points、QA 与 review 带宽 | 依赖/容量驱动的 Sprint 选择逻辑 |
+| 经理摘要语义 | 校验经理更新包含承诺范围、容量瓶颈和最高风险 | 将分析结果沉淀成管理层可执行摘要 |
+
+防作弊测试
+
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| 输出文件集合、CSV/JSON/Markdown schema 和输入 hash | 结构化 PMO 交付物与防作弊约束 |
-| CPI 标准化成本、进度偏差、成本偏差、blocked/high_priority 标记 | 项目组合分诊与风险识别 |
-| 恢复项目选择、优先级排序和 triage_status | 组合治理、优先级和升级规则 |
-| action_catalog 成员、阶段门、阻塞项首动作和 6 周窗口 | 依赖管理、阶段计划和恢复动作设计 |
-| 每周 workstream/owner_role 产能限制 | 资源分配与容量规划 |
-| board_updates 与 recovery_plan 对齐 | 看板状态追踪和项目沟通 |
-| executive_summary 指标与 project-planner 附录标记 | 管理层汇报、里程碑、依赖、风险缓解和资源计划 |
+| 真实链路与分页 | 访问日志必须证明 solver 调用了 live planning service，走完全部分页，并拉取了每个 item 的 detail |
+| 数据与环境完整性 | `/root/data` 与隐藏 service 文件 hash 不得变化，service 在 verifier 结束时仍健康，且 live-only item 不能被 stale export 漏掉 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把恢复计划组织成标准项目计划结构：目标、时间线、团队、约束、里程碑、阶段计划、依赖图、风险缓解和资源分配。Without Skill 的 agent 能完成多数数据计算和排程，但稳定遗漏 `project-planner` 标准附录格式，因此被 verifier 拦下。
+结论：强相关。这个任务里，Skill 的核心价值是把“stale backlog export + live planning service + 容量/policy 重算”这条项目规划链路标准化，同时把题面刻意弱化掉的分页、detail 抓取和 cutline 决策流程补回来。without Skill 仍然理论可解，但更容易在服务发现、明细抓取、依赖闭环和容量收口上出现行动级失败。
 
 基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 均缺少 `project-planner` 标准附录标记；with Skill 三次全通过。 |
-| Agent 执行耗时 | `332.4s` | `378.1s` | With Skill 多完成了标准 planning appendix，耗时略高但输出质量达标。 |
-| Tokens | `219.1k` | `353.7k` | With Skill 使用更多上下文读取和应用计划格式，换来更稳定的结构化 PMO 输出。 |
+| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 全部保留至少 1 项 verifier 失败；主要失败是 `capacity_summary` 重算错误，且有 trial 额外暴露出只遍历 live backlog 第 1 页的行动级遗漏。 |
+| Agent 执行耗时 | `315.3s` | `274.8s` | With Skill 的规划链路更快收敛，平均 Agent 执行耗时降低约 `12.8%`。 |
+| Tokens | `1.35M` | `1.22M` | 按 `input + cache + output` 汇总，With Skill 的平均 tokens 约为 Without Skill 的 `0.91x`，上下文与试错开销更低。 |
 
 ## 📁 标准目录结构说明
 
@@ -52,11 +76,12 @@ template_new/
 ├── instruction.md
 ├── task.toml
 ├── PLAN.json
+├── README.md
 ├── environment/
 │   ├── Dockerfile
 │   ├── data/
+│   ├── hidden-service-src/
 │   └── skills/
 ├── tests/
-├── solution/
-└── readme.md
+└── solution/
 ```

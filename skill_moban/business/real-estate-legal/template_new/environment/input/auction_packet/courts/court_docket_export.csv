@@ -1,5 +1,0 @@
-source_id,court,case_number,case_type,filing_date,status,last_event_date,last_event,notes
-COURT-BK-25-11988,US Bankruptcy Court D. Arizona,2:25-bk-11988,chapter_13_bankruptcy,2025-11-20,dismissed,2026-02-28,case dismissed for failure to file plan payments,Automatic stay terminated on dismissal; no reinstatement docketed.
-COURT-FC-25-09214,Maricopa County Superior Court,FC2025-09214,divorce_property_dispute,2025-10-28,closed,2026-03-12,stipulated order releasing real property lis pendens,Release recorded as REC-2026-0188842.
-COURT-CV-24-04402,Maricopa County Justice Court,CV2024-04402,collection_judgment,2024-12-19,judgment_entered,2025-01-14,judgment entered for North Valley Credit Partners,Recorded as REC-2025-0040191.
-COURT-LL-26-00177,Maricopa County Justice Court,LL2026-00177,forcible_detainer,2026-03-25,pending,2026-04-15,tenant filed answer claiming lease through 2026-07-31,Possession risk remains unresolved.

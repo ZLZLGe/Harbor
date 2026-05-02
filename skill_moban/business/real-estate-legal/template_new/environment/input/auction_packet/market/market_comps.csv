@@ -1,5 +1,0 @@
-source_id,address,sale_date,distance_miles,beds,baths,living_area_sqft,sale_price,adjusted_value,notes
-COMP-001,11792 W Juniper Ridge Dr Peoria AZ 85383,2026-02-03,0.18,4,3,2460,626000,620000,Similar model; minor downward condition adjustment.
-COMP-002,11904 W Desert Bloom Ln Peoria AZ 85383,2026-01-22,0.31,4,3,2535,648000,640000,Slightly newer finishes.
-COMP-003,11680 W Painted Sky Dr Peoria AZ 85383,2025-12-18,0.44,4,2.5,2398,632500,635000,Similar lot and school zone.
-COMP-004,12011 W Bramble Ct Peoria AZ 85383,2025-11-09,0.62,5,3,2770,705000,672000,Larger home; used only as upper support.
