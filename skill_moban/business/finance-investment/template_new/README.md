@@ -29,18 +29,18 @@
 
 - Oracle：Oracle 使用同一批冻结市场价格、Fama-French 因子与策略阈值文件，独立重算 ARKK 相对 QQQ 的风险、因子暴露、bootstrap tail risk、stress grid 和 policy breaches。它关注行为结果是否可复算，而不是实现路径是否一致。
 
-- Verifier策略：
+- Verifier 策略：
 
 主测试
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+| 测试点 | 验证内容 | 对应 skill 要求掌握的部分 |
 | :--- | :--- | :--- |
-| 输出 JSON schema、数值类型、有限值和完整 stress grid | 机器可读金融报告与可审计输出 |
-| ARKK/QQQ 日收益对齐、累计收益、波动、Sharpe、Sortino、回撤、VaR/CVaR | 组合绩效与下行风险指标 |
-| QQQ-relative active return、tracking error、information ratio、beta、downside beta | 基准相对风险与主动风险分析 |
-| Fama-French 5 因子加 momentum 回归、RF 对齐、百分比转小数、HAC t-stat | 因子模型、单位口径和稳健统计 |
-| moving-block bootstrap 与 deterministic stress harness | 可复现尾部风险与压力测试设计 |
-| policy_breaches 与输入文件 hash guardrail | 风险限额监控、输入不可变和反占位输出 |
+| 输出契约 | 检查输出 JSON schema、字段类型、有限值约束，以及完整 stress grid 是否齐全 | 机器可读金融报告与可审计输出 |
+| 风险指标重算 | 重算 ARKK/QQQ 日收益对齐、累计收益、波动、Sharpe、Sortino、回撤、VaR/CVaR | 组合绩效与下行风险指标 |
+| 主动风险重算 | 重算 QQQ-relative active return、tracking error、information ratio、beta、downside beta | 基准相对风险与主动风险分析 |
+| 因子回归校验 | 重算 Fama-French 5 因子加 momentum 回归，并检查 RF 对齐、百分比转小数和 HAC t-stat | 因子模型、单位口径和稳健统计 |
+| 尾部风险与压力测试 | 校验 moving-block bootstrap 与 deterministic stress harness 的结果与口径 | 可复现尾部风险与压力测试设计 |
+| 限额与防作弊收口 | 校验 policy_breaches 与输入文件 hash guardrail | 风险限额监控、输入不可变和反占位输出 |
 
 防作弊测试
 
