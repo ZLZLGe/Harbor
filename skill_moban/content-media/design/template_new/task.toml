@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "design__renewable-briefing-deck"
+name = "Renewable Briefing Deck"
+description = "Build a management-ready offline HTML slide deck from a renewable-energy briefing pack, local assets, and a local source registry."
+difficulty = "hard"
+category = "design"
+tags = [
+  "design",
+  "html-slides",
+  "frontend",
+  "presentation",
+  "data-visualization",
+  "responsive",
+]
+required_skills = ["frontend-slides"]
+primary_output_file = "/root/answer/presentation.html"
+source_template_id = "design__renewable-briefing-deck"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 12288
+gpus = 0

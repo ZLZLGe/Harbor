@@ -1,0 +1,66 @@
+{
+  "task_id": "media__frame_pickup_delivery_bundle",
+  "category": "media",
+  "task_role": "template",
+  "difficulty": "hard",
+  "primary_output_file": "/root/media_pick/output/frame_index.json",
+  "selected_skill": {
+    "dir": "video-frames",
+    "purpose": "Use a compact video pickup workflow for repeatable source-image extraction through the shipped pickup helper, then build the rest of the delivery bundle around those picks.",
+    "skillsmp_references": [
+      {
+        "name": "video-frames",
+        "stars": "365,790",
+        "relevance": "Direct match for the repeated locator-driven pickup steps."
+      },
+      {
+        "name": "gifgrep",
+        "stars": "365,790",
+        "relevance": "Adjacent clip inspection workflow with contact-sheet style review outputs."
+      },
+      {
+        "name": "songsee",
+        "stars": "365,790",
+        "relevance": "Adjacent media inspection workflow built around compact visual extraction."
+      },
+      {
+        "name": "video-editing",
+        "stars": "169,199",
+        "relevance": "Broader media pipeline skill that overlaps with clip trimming and review delivery."
+      }
+    ]
+  },
+  "environment_design": {
+    "shape": "single Docker container",
+    "live_services": [],
+    "determinism": "The task uses mirrored input clips plus fixed request tables and layout rules. Verifier-side oracles regenerate expected stills and compare output media content instead of trusting filenames alone.",
+    "anti_toy_features": [
+      "three public-source video clips with different frame rates, durations, and dimensions",
+      "helper-authored locator fragments, including empty locator rows that still require valid source-image delivery through the staged pickup helper",
+      "the pickup path is intentionally bound to an approved helper command, so agents must verify availability before bulk export instead of inventing an alternate route",
+      "per-request preview clips in addition to stills",
+      "per-clip contact sheets that must reflect the requested ordering and native cell sizes",
+      "structured delivery metadata that must match the generated files"
+    ]
+  },
+  "verifier_design": {
+    "main_tests": [
+      "output existence and JSON schema",
+      "request coverage across all stills, previews, and sheets",
+      "pixel-level still validation against regenerated oracle frames using the same pickup semantics as the staged helper",
+      "preview duration and frame-content validation against source clips",
+      "contact-sheet layout and cell-content validation",
+      "frame index and delivery report cross-consistency"
+    ],
+    "guardrails": [
+      "input files under /root/media_pick/input must remain unchanged",
+      "the shipped skill area must remain unchanged, and an empty skill area must stay empty",
+      "top-level output inventory must match the contract",
+      "placeholder or verifier-oriented text in JSON outputs fails"
+    ]
+  },
+  "expected_skill_effect": {
+    "without_skill": "Without the shipped pickup helper, agents are more likely to spend time searching for an approved route and then either stop on the blocker or drift into an unapproved fallback path.",
+    "with_skill": "The skill gives the agent an immediate, repeatable path for resolving locator fragments into exact source-image picks through the staged pickup helper, so the delivery bundle can be completed without detouring into helper discovery."
+  }
+}

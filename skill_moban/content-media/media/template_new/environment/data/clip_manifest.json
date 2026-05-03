@@ -1,0 +1,42 @@
+{
+  "bundle_id": "media_pick_q1_review_bundle",
+  "sheet_pattern": "{clip_id}_sheet.jpg",
+  "clips": [
+    {
+      "clip_id": "bun",
+      "title": "Big Buck Bunny Trailer",
+      "filename": "bunny_trailer.m4v",
+      "source_link": "https://download.blender.org/peach/trailer/trailer_iphone.m4v",
+      "project_link": "https://peach.blender.org/",
+      "description": "Short trailer with quick shot changes and medium-sized frames.",
+      "duration_sec": 33.02,
+      "frame_rate_fps": 25.0,
+      "width": 480,
+      "height": 270
+    },
+    {
+      "clip_id": "sin",
+      "title": "Sintel Trailer",
+      "filename": "sintel_trailer_720p.mp4",
+      "source_link": "https://download.blender.org/durian/trailer/sintel_trailer-720p.mp4",
+      "project_link": "https://durian.blender.org/",
+      "description": "Trailer clip with wider frames and faster visual variation.",
+      "duration_sec": 52.21,
+      "frame_rate_fps": 24.0,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "clip_id": "bbb",
+      "title": "Big Buck Bunny Feature Cut",
+      "filename": "big_buck_bunny_320x180.mp4",
+      "source_link": "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4",
+      "project_link": "https://peach.blender.org/",
+      "description": "Longer cut used for broader timeline coverage and late-scene pickups.",
+      "duration_sec": 596.46,
+      "frame_rate_fps": 24.0,
+      "width": 320,
+      "height": 180
+    }
+  ]
+}

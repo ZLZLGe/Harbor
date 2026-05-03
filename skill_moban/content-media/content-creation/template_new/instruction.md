@@ -1,177 +1,102 @@
-You are preparing a source-derived brand voice and launch content pack for a content operations team. The team has cached source material from public pages, historical launch notes, product docs, social posts, and customer email drafts; the local content archive service mirrors the same material and must be checked before you write the final pack.
+你在为一支面向工程师的内容团队准备一套围绕 AI agent 主题的多平台内容包。团队已经把主文章、补充材料、品牌样例和发布约束整理到工作区；他们要求所有成稿都基于现有材料完成，并满足各自渠道的发布用途。
 
-Input data is in `/root/brandroom/input/`:
+输入数据在 `/root/workspace/source_bundle/`：
 
-- `source_manifest.json`: local archive service URL and cache metadata.
-- `source_corpus.jsonl`: cached source samples with `source_id`, `title`, `url`, `channel`, `published_at`, and `text`.
-- `campaign_brief.json`: audience, product facts, forbidden claims, and campaign constraints.
-- `allowed_claims.csv`: claim IDs, approved facts, and evidence sources.
-- `channel_specs.json`: required channel formats and length constraints.
-- `glossary.json`: preferred terms, banned terms, and replacements.
+- `source_index.json`：输入文件索引、来源编号、素材类型和建议用途。
+- `anchor_article.md`：本次内容包的主文章。
+- `supporting_context/`：产品介绍、补充文章、术语说明和可引用背景材料。
+- `voice_samples/`：既有品牌/作者样例文稿。
+- `campaign_constraints.json`：受众、渠道目标、字数范围、CTA 约束和禁写事项。
+- `style_red_flags.txt`：内容负责人明确拒收的表达方式。
 
-Your task:
+容器内还提供了本地 review service，用于交叉核对素材清单、行号引用和发布约束。
 
-1. Read the cached input files and confirm the local content archive service from `source_manifest.json` is reachable. If it is not already running, start it with `start-brandroom-archive`, then fetch the archive endpoints listed in the manifest.
-2. Build a reusable, source-backed brand voice profile. If a brand-voice workflow or schema is available in the environment, use it as the operational method for source priority, named hard-ban taxonomy, anti-pattern extraction, and downstream reuse; otherwise infer the method from the input materials. Extract operational writing rules about rhythm, compression, claim style, evidence habits, formatting habits, lexicon, and hard bans. Exclude non-canonical comparator samples such as generic platform examples, old discarded brand voice, or competitor copy if they appear in the archive.
-3. Generate platform-specific content for all required channels:
-   - `launch_blog_opening`
-   - `linkedin_post`
-   - `x_thread`
-   - `customer_email`
-   - `changelog_note`
-4. Each content item must cite at least two real source anchors and at least one approved claim ID when it makes a factual product claim.
-5. Produce an audit report showing which sources and claims were used, which risky claims were rejected, which banned phrases were removed, and whether every channel constraint was checked.
+你的任务
 
-Output format:
+1. 阅读全部输入材料，整理出本轮内容发布的统一方向，并完成 3 份对外交付件。
+2. 基于现有材料完成一条 X thread、一篇 LinkedIn post 和一篇 newsletter draft，使其适合各自渠道阅读。
+3. 为每份交付件补齐来源登记，标明关键表述依托的输入材料。
+4. 列出发布前仍需内容团队确认、补充或审批的事项。
 
-Create exactly these files under `/root/brandroom/output/`.
+输出
 
-`voice_profile.json`
+如 `/root/output/` 不存在，请先创建该目录。所有交付件都写入 `/root/output/`，且仅创建以下文件：
+
+- `campaign_summary.md`
+- `x_thread.md`
+- `linkedin_post.md`
+- `newsletter_draft.md`
+- `source_map.json`
+- `publish_gaps.json`
+
+`campaign_summary.md` 要求：
+
+- 第一行写 1 句本轮 campaign summary。
+- 之后写 3 行渠道说明，分别对应 X、LinkedIn、newsletter。
+- 每行以 `- ` 开头，包含渠道名和该渠道的内容重点。
+
+`x_thread.md` 要求：
+
+- 使用英文写作。
+- 5 到 7 条，按 `1/`、`2/` 递增编号。
+- thread 首条直接进入观点、证据或张力。
+
+`linkedin_post.md` 要求：
+
+- 使用英文写作。
+- 180 到 320 词。
+- 最多 6 个自然段。
+- 允许 1 组简短列表，列表项不超过 3 条。
+
+`newsletter_draft.md` 要求：
+
+- 使用英文写作。
+- 文件前两行必须分别以 `Subject:` 和 `Preview:` 开头。
+- 正文 350 到 550 词。
+- 正文至少包含 3 个 `##` 二级标题。
+- 首段直接进入主题。
+
+`source_map.json` 必须满足以下结构：
 
 ```json
 {
-  "profile_name": "string",
-  "source_inventory": [
+  "anchor_asset": "anchor_article.md",
+  "deliverables": [
     {
-      "source_id": "string",
-      "title": "string",
-      "url": "string",
-      "channel": "string",
-      "used_for": ["rhythm", "claims", "structure", "lexicon"]
+      "file": "x_thread.md",
+      "audience": "string",
+      "content_focus": "string",
+      "source_refs": ["relative/path.md#L10-L20"]
     }
   ],
-  "source_priority_applied": [
-    {
-      "priority": "recent_social_posts | articles_memos_launch_notes | outbound_email | docs_changelog_site_copy",
-      "source_ids": ["source_id"],
-      "why_used": "string"
-    }
-  ],
-  "excluded_sources": [
-    {
-      "source_id": "string",
-      "reason": "string"
-    }
-  ],
-  "style_profile": {
-    "sentence_rhythm": {
-      "summary": "string",
-      "rules": ["string"]
-    },
-    "claim_style": ["string"],
-    "evidence_habits": ["string"],
-    "formatting_habits": ["string"],
-    "lexicon": {
-      "preferred_terms": ["string"],
-      "terms_to_avoid": ["string"],
-      "replacement_terms": [
-        {
-          "avoid": "string",
-          "use": "string"
-        }
-      ]
-    },
-    "hard_bans": ["string"]
-  },
-  "do_dont_rules": [
-    {
-      "do": "string",
-      "dont": "string",
-      "source_evidence": ["source_id"]
-    }
-  ],
-  "confidence_notes": ["string"]
+  "shared_limits": ["string"]
 }
 ```
 
-`content_pack.json`
+要求：
+
+- `deliverables` 必须覆盖 `x_thread.md`、`linkedin_post.md`、`newsletter_draft.md`。
+- 每个 deliverable 至少提供 2 条 `source_refs`。
+- `source_refs` 只能引用 `/root/workspace/source_bundle/` 内的文件。
+
+`publish_gaps.json` 必须满足以下结构：
 
 ```json
 {
-  "campaign_name": "string",
-  "core_angle": "string",
-  "items": [
+  "gaps": [
     {
-      "channel": "launch_blog_opening",
-      "audience": "string",
-      "draft": "string",
-      "source_anchors": ["string"],
-      "allowed_claim_ids": ["string"],
-      "voice_profile_rules_used": ["string"],
-      "notes": "string"
-    },
-    {
-      "channel": "linkedin_post",
-      "audience": "string",
-      "draft": "string",
-      "source_anchors": ["string"],
-      "allowed_claim_ids": ["string"],
-      "voice_profile_rules_used": ["string"],
-      "notes": "string"
-    },
-    {
-      "channel": "x_thread",
-      "audience": "string",
-      "posts": ["string"],
-      "source_anchors": ["string"],
-      "allowed_claim_ids": ["string"],
-      "voice_profile_rules_used": ["string"],
-      "notes": "string"
-    },
-    {
-      "channel": "customer_email",
-      "audience": "string",
-      "subject": "string",
-      "preview_text": "string",
-      "draft": "string",
-      "source_anchors": ["string"],
-      "allowed_claim_ids": ["string"],
-      "voice_profile_rules_used": ["string"],
-      "notes": "string"
-    },
-    {
-      "channel": "changelog_note",
-      "audience": "string",
-      "draft": "string",
-      "source_anchors": ["string"],
-      "allowed_claim_ids": ["string"],
-      "voice_profile_rules_used": ["string"],
-      "notes": "string"
+      "topic": "string",
+      "why_it_matters": "string",
+      "needed_from_team": "string"
     }
   ]
 }
 ```
 
-`audit_report.json`
+说明
 
-```json
-{
-  "files_created": ["voice_profile.json", "content_pack.json", "audit_report.json"],
-  "sources_read": ["source_id"],
-  "claims_used": ["claim_id"],
-  "claims_rejected": [
-    {
-      "claim": "string",
-      "reason": "string"
-    }
-  ],
-  "banned_phrases_removed": ["string"],
-  "channel_constraints_checked": [
-    {
-      "channel": "string",
-      "status": "pass",
-      "notes": "string"
-    }
-  ],
-  "final_quality_notes": ["string"]
-}
-```
-
-Notes:
-
-- Do not invent customers, numbers, integrations, certifications, compliance guarantees, performance claims, market rankings, or any product fact that is not present in `allowed_claims.csv` or the approved brief.
-- Do not use generic AI marketing phrases such as "In today's rapidly evolving landscape", "game-changing", "revolutionary", "excited to announce", "unlock your potential", or bait-question LinkedIn endings.
-- Do not flatten every channel into the same voice. Keep the same source-derived voice while adapting structure to each channel.
-- Do not modify `/root/brandroom/input/`, the local archive service, tests, verifier, environment configuration, or skill files.
-- Do not replace the real input chain, fabricate source IDs, hard-code verifier expectations, create empty placeholder outputs, delete required functionality, or bypass the content archive service health check.
-- Do not call external LLM APIs.
+- 只可使用 `/root/workspace/source_bundle/` 内的材料写作和取证。
+- 不要补写输入中未出现的客户名称、数字、发布日期、功能能力、案例或引语。
+- 不要把同一段文案直接复制到多个渠道文件中。
+- 不要修改输入目录、测试、环境文件或任何 `skills` 目录内容。
+- 可以编写辅助脚本；最终只提交 `/root/output/` 下要求的文件。

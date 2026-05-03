@@ -1,0 +1,102 @@
+{
+  "task_id": "design__renewable-briefing-deck",
+  "deck_title": "Global Renewable Expansion Quarterly Briefing",
+  "audience": "Executive leadership and strategy team",
+  "tone": "evidence-led, concise, high-credibility, management-ready",
+  "design_exploration": {
+    "require_direction_exploration": true,
+    "candidate_count": 3,
+    "visual_direction_not_finalized": true,
+    "require_chosen_direction_note": true,
+    "keep_exploration_artifacts": true
+  },
+  "required_sections": [
+    "Cover",
+    "Executive Summary",
+    "Overall Growth",
+    "Mix Shift",
+    "Country Comparison",
+    "Constraints and Risks",
+    "Action Implications",
+    "Sources"
+  ],
+  "required_slide_ids": [
+    "slide-cover",
+    "slide-summary",
+    "slide-growth",
+    "slide-mix",
+    "slide-country",
+    "slide-risks",
+    "slide-actions",
+    "slide-sources"
+  ],
+  "must_answer": [
+    "How much has global renewable electricity grown since 2014?",
+    "Which technologies changed the mix fastest?",
+    "How do major countries differ in renewable share and composition?",
+    "Why does momentum still face delivery constraints?",
+    "What should executives watch next?"
+  ],
+  "key_messages": [
+    "Global renewable electricity increased from 5287 TWh in 2014 to 8995 TWh in 2023.",
+    "Renewables reached 30.3% of world electricity in 2023, up from 22.3% in 2014.",
+    "Solar rose from 198 TWh to 1664 TWh over the same period.",
+    "Wind rose from 706 TWh to 2319 TWh over the same period."
+  ],
+  "visual_constraints": {
+    "max_words_per_content_slide": 75,
+    "max_bullets_per_slide": 5,
+    "require_visible_progress_indicator": true,
+    "require_per_slide_source_markers": true,
+    "progress_hook": "progress-text",
+    "source_marker_attribute": "data-source-id",
+    "prefer_chart_types": [
+      "line",
+      "stacked-bar",
+      "comparison-bar",
+      "callout"
+    ],
+    "forbid": [
+      "internal slide scrolling",
+      "remote font dependencies",
+      "generic placeholder copy"
+    ]
+  },
+  "interaction_constraints": {
+    "required_inputs": [
+      "keyboard-arrow",
+      "mouse-wheel",
+      "touch-swipe"
+    ],
+    "required_browser_events": [
+      "keydown",
+      "wheel",
+      "touchstart",
+      "touchend"
+    ],
+    "disallow_page_scroll_navigation": true
+  },
+  "viewport_targets": [
+    "1920x1080",
+    "1280x720",
+    "768x1024",
+    "375x667",
+    "667x375"
+  ],
+  "required_chart_ids": [
+    "global_growth_line",
+    "mix_shift_stack",
+    "country_compare_bars"
+  ],
+  "source_requirements": {
+    "must_use_registry": true,
+    "registry_endpoint": "http://127.0.0.1:4873",
+    "must_probe_health": true,
+    "required_source_ids": [
+      "owid-energy-data",
+      "iea-tripling-2030",
+      "iea-pledge-update-2025",
+      "irena-capacity-stats-2025"
+    ]
+  }
+}

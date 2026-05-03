@@ -1,49 +1,75 @@
 # Content-Creation Template
 
-这是面向 `content-creation` 类 skill 的模板。它综合参考 SkillsMP content-creation 类热门 skill 的共性能力：品牌声音提取、长文写作、多渠道营销内容、商务邮件、内容发布流程、source-backed claim control 和反通用 AI 套话。
+这是面向 `content-creation` 类 skill 的模板。它综合参考 SkillsMP content-creation 类热门 skill 的共性能力：多来源素材梳理、品牌语气对齐、跨渠道改写、来源登记、发布前缺口整理，以及把一份主材料扩展成可交付的内容包。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：content-creation 类 skill 的核心价值，是把真实源材料转化为可复用的 voice profile 和跨渠道内容工作流。模板任务应让 skill 在 source evidence、brand voice consistency、claim boundary、channel adaptation 和 anti-cliche 上降低遗漏率，而不是只奖励“写得像营销文案”。
-* **Task目标形态**：任务应要求 Agent 读取真实风格语料、campaign brief、claims、channel specs 和 glossary，先归纳品牌声音，再生成多渠道内容包和审计报告。目标形态适合设计成 source-derived voice profile、launch blog、LinkedIn、X thread、customer email、changelog 和 claim-safety audit，不适合做单篇作文、纯格式转换或不可验证的主观创意任务。
-* **Verifier设计重点**：Verifier 应验证内容是否被真实 source_id 和 allowed claim_id 支撑，并检查跨渠道结构、长度、voice reuse、禁止短语、风险 claim 和审计记录。重点应覆盖输入不可变、本地 archive service 访问、source priority、excluded comparator sources、hard-ban taxonomy、claim coverage、channel constraints 和反 placeholder/verifier hack。
+* **Skill 价值定位**：content-creation 类热门 skill 的核心价值，是把“读完素材后写几段文案”提升为“沿素材边界、渠道约束和品牌语气完成整套内容生产闭环”。模板任务应让 skill 承接素材筛选、语气抽取、渠道拆分、来源复核和交付前自查，而不直接把答案或隐藏流程写进题面。
+* **Task 目标形态**：任务应落在内容团队常见的 campaign、newsletter、社媒线程、长短内容联动、内容运营收口等场景里。题面重点保留交付合同、受众、渠道限制和禁止事项，把内容方向收敛、素材优先级判断、语气迁移和复核路径留给 solver 与 skill 完成。
+* **Verifier 设计重点**：Verifier 应优先验证 solver 是否沿素材与发布链路完成了整套动作，而不只看表面格式。重点应覆盖输入材料参与度、来源行号有效性、跨渠道差异、禁写项、发布缺口梳理，以及对跳过本地 review workflow、查看隐藏实现、硬编码答案和改输入的防护。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`content_creation__source_derived_brand_voice_pack`
+- 任务 ID：`content-creation__agent_first_campaign_pack`
 - 类别：`content-creation`
 - 难度：`hard`
-- 绑定 Skill：`brand-voice`
+- 绑定 Skill：`content-engine`
+- 输入数据参考来源：
+  - `environment/data/anchor_article.md`：任务内主文章工作稿；设计形态参考 PostHog Product for Engineers 文章  
+    https://newsletter.posthog.com/p/what-we-wish-we-knew-before-building
+  - `environment/data/supporting_context/agent_first_rules.md`：任务内补充原则稿；设计形态参考 PostHog Product for Engineers 文章  
+    https://newsletter.posthog.com/p/the-golden-rules-of-agent-first-product
+  - `environment/data/supporting_context/ai_features_lessons.md`：任务内上线后运营补充稿；设计形态参考 PostHog Product for Engineers 文章  
+    https://newsletter.posthog.com/p/what-weve-learned-about-building
+  - `environment/data/supporting_context/posthog_overview.md`：任务内产品背景材料；设计形态参考 PostHog 官网概览  
+    https://posthog.com/
+  - `environment/data/supporting_context/product_for_engineers_about.md`：任务内刊物语气说明；设计形态参考 Product for Engineers about 页面  
+    https://newsletter.posthog.com/about
+  - `environment/data/voice_samples/how_we_choose_technologies.md`：任务内品牌样例文稿；设计形态参考 Product for Engineers 文章  
+    https://newsletter.posthog.com/p/how-we-choose-technologies
+  - `environment/data/voice_samples/using_your_own_product_is_a_superpower.md`：任务内品牌样例文稿；设计形态参考 Product for Engineers 文章  
+    https://newsletter.posthog.com/p/using-your-own-product-is-a-superpower
+  - `environment/data/voice_samples/beyond_the_10x_engineer.md`：任务内品牌样例文稿；设计形态参考 Product for Engineers 文章  
+    https://newsletter.posthog.com/p/beyond-the-10x-engineer
+  - `environment/data/voice_samples/the_hidden_danger_of_shipping_fast.md`：任务内品牌样例文稿；设计形态参考 Product for Engineers 文章  
+    https://newsletter.posthog.com/p/the-hidden-danger-of-shipping-fast
+  - `environment/data/voice_samples/great_companies_are_built_in_hackathons.md`：任务内品牌样例文稿；设计形态参考 Product for Engineers 文章  
+    https://newsletter.posthog.com/p/great-companies-are-built-in-hackathons
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 使用同一批冻结 source corpus、campaign brief、allowed claims、channel specs、glossary 和本地 archive service，独立验证 voice profile、content pack 与 audit report。它关注内容是否源于真实材料、引用是否可审计、claim 是否安全，而不是只看文案主观质量。
-
+- Oracle：Oracle 通过容器内 review service 读取素材索引、约束和逐文档行数，再沿官方解法生成 3 份渠道内容、来源映射和发布缺口输出。它证明任务可重跑、可核对，且不依赖隐藏答案文件。
 - Verifier 策略：
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+主测试
+
+| 测试点 | 验证内容 | 对应 skill 内化点 |
+| :--- | :--- | :--- |
+| 输出契约 | 校验 6 个输出文件存在、可解析，并满足 JSON / Markdown 结构要求 | 先理解正式交付合同，再组织最终产物 |
+| 渠道约束与差异 | 校验 X / LinkedIn / newsletter 的字数、段落、标题、编号和跨渠道差异 | 多渠道改写与渠道特化意识 |
+| 来源映射 | 校验 `source_map.json` 覆盖全部 deliverable，行号有效，且达到最小引用与文件覆盖要求 | 素材选用、行号登记和来源复核 |
+| 发布缺口 | 校验 `publish_gaps.json` 覆盖约束里要求的 follow-up topic，且内容与当前素材边界一致 | 发布前缺口收口与团队协同意识 |
+
+防作弊测试
+
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| `voice_profile.json`、`content_pack.json`、`audit_report.json` schema 和文件集合 | 结构化内容交付与审计输出 |
-| source inventory、source priority、excluded comparator sources | 从真实材料归纳品牌声音，排除非 canonical 样本 |
-| rhythm、claim style、evidence habits、lexicon、do/don't rules、hard bans | 可复用 voice profile 与反通用 AI 套话 |
-| 各渠道 source anchors、allowed claim IDs、voice rules reuse | 多渠道内容改写和 claim grounding |
-| channel length/format、X thread、email subject/preview、changelog note | 渠道适配与平台约束 |
-| banned phrase、forbidden claim、unsupported number scan | claim safety、合规边界和内容质量 guardrail |
-| archive service access log、输入/服务 hash、service health | 真实链路访问、防篡改和反静态捷径 |
+| 本地 review workflow | 要求 solver 在 verifier 前调用本地 review service，并覆盖索引、约束和文档检查链路 |
+| 隐藏实现与环境完整性 | 禁止查看隐藏 service 实现、禁止修改输入数据与 `environment/skills`，并要求服务在 verifier 结束时仍健康 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把 source-first voice extraction、source priority、named hard-ban taxonomy、receipts over adjectives、claim boundaries 和 channel notes 标准化。最终 taxonomy 对照里 without Skill 三次有效实验全部失败，主要卡在 brand-voice hard-ban taxonomy、source-derived voice reuse 或 claim coverage；with Skill 保留通过样本。
+结论：强相关。这个任务里，Skill 的核心价值是把“主文章 + 补充材料 + 语气样例 + 发布约束 + 本地 review service”这条内容生产链路标准化，从而显著降低 solver 在素材边界、来源登记和跨渠道收口上的试错成本。without Skill 理论上可解，但更容易绕去查隐藏实现，或在 review workflow、来源覆盖和发布前复核动作上收不齐。
 
-基于最近 **3** 次有效对比实验（均真正跑到 task-level，已排除 E2B `ConnectError` 类启动失败 trial）：
+基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除平台 build 失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` | `33.3%` | 近 3 次有效对照里，without Skill 全部失败；with Skill 至少保留一个完整通过样本。 |
-| Agent 执行耗时 | `376.4s` | `360.3s` | With Skill 平均 Agent 耗时降低约 `4.3%`。 |
-| Tokens | `440,944` | `358,939` | Without Skill 的输入开销约为 With Skill 的 `1.23x`。 |
+| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 每次都保留至少 1 项 verifier 失败；失败集中在查看隐藏 review-service 实现，另有 trial 暴露出来源覆盖不足或漏掉 review-service 文档检查。 |
+| Agent 执行耗时 | `221.3s` | `175.5s` | With Skill 的素材分拣、渠道拆分和复核收敛更快，平均 Agent 执行耗时降低约 `20.7%`。 |
+| Tokens | `344,639` | `223,731` | 按 `input + output` 汇总，With Skill 的平均 tokens 约为 Without Skill 的 `0.65x`，上下文和试错开销更低。 |
 
 ## 📁 标准目录结构说明
 
@@ -52,12 +78,12 @@ template_new/
 ├── instruction.md
 ├── task.toml
 ├── PLAN.json
+├── README.md
 ├── environment/
 │   ├── Dockerfile
 │   ├── data/
 │   ├── hidden-service-src/
 │   └── skills/
 ├── tests/
-├── solution/
-└── README.md
+└── solution/
 ```

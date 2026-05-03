@@ -1,8 +1,0 @@
-claim_id,claim,evidence_source,approved_terms
-CLM-001,"Audit Trails exports decision logs as CSV and JSON.","SRC-003","decision logs;CSV;JSON;export"
-CLM-002,"Audit Trails keeps approved claims, sources, reviewer actions, and publication status visible before publication.","SRC-008","claims;sources;reviewer actions;publication status"
-CLM-003,"Audit Trails does not publish on its own and is not a substitute for legal approval.","SRC-008","does not publish;not a legal engine;legal approval"
-CLM-004,"A beta group reduced review handoff time by 31% across 14 launch reviews when claims, sources, and owner notes sat next to the draft.","SRC-004","31%;14 launch reviews;handoff time"
-CLM-005,"Role-scoped approvals can assign reviewer groups by launch type, region, or content surface.","SRC-007","role-scoped approvals;reviewer groups;launch type;region;content surface"
-CLM-006,"The diff view compares each draft paragraph with approved source notes and flags claim drift before publication.","SRC-010","diff view;draft paragraph;source notes;claim drift"
-CLM-007,"Policy checks, assigned reviewer, and open claim can appear in the same review path before publication.","SRC-002","policy check;assigned reviewer;open claim;before publication"

@@ -1,89 +1,149 @@
-#!/usr/bin/env python3
 from __future__ import annotations
 
-import csv
 import json
-import time
+import os
+from dataclasses import dataclass
+from datetime import datetime, timezone
+from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 
-INPUT_DIR = Path("/root/brandroom/input")
-LOG_PATH = Path("/var/log/brandroom/access.log")
+PORT = int(os.environ.get("CONTENT_REVIEW_PORT", "8147"))
+SOURCE_ROOT = Path(os.environ.get("SOURCE_BUNDLE_ROOT", "/root/workspace/source_bundle"))
+ACCESS_LOG = Path(os.environ.get("CONTENT_REVIEW_ACCESS_LOG", "/var/log/content-review/access.log"))
 
 
-def read_sources() -> list[dict]:
-    rows = []
-    with (INPUT_DIR / "source_corpus.jsonl").open(encoding="utf-8") as fh:
-        for line in fh:
-            line = line.strip()
-            if line:
-                rows.append(json.loads(line))
-    return rows
+@dataclass(frozen=True)
+class Document:
+    doc_id: str
+    path: str
+    kind: str
+    title: str
+    source_url: str
+    topics: list[str]
 
 
-def read_claims() -> list[dict]:
-    with (INPUT_DIR / "allowed_claims.csv").open(newline="", encoding="utf-8") as fh:
-        return list(csv.DictReader(fh))
+def read_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
-def read_json(name: str) -> dict:
-    return json.loads((INPUT_DIR / name).read_text(encoding="utf-8"))
+def load_documents() -> tuple[dict, dict[str, Document]]:
+    index = read_json(SOURCE_ROOT / "source_index.json")
+    docs: dict[str, Document] = {}
+    for raw in index["docs"]:
+        docs[raw["doc_id"]] = Document(
+            doc_id=raw["doc_id"],
+            path=raw["path"],
+            kind=raw["kind"],
+            title=raw["title"],
+            source_url=raw["source_url"],
+            topics=list(raw.get("topics", [])),
+        )
+    return index, docs
+
+
+INDEX, DOCS = load_documents()
+CONSTRAINTS = read_json(SOURCE_ROOT / "campaign_constraints.json")
+RED_FLAGS = [
+    line.strip()
+    for line in (SOURCE_ROOT / "style_red_flags.txt").read_text(encoding="utf-8").splitlines()
+    if line.strip()
+]
+
+
+def build_document_payload(doc: Document) -> dict:
+    file_path = SOURCE_ROOT / doc.path
+    lines = file_path.read_text(encoding="utf-8").splitlines()
+    return {
+        "doc_id": doc.doc_id,
+        "path": doc.path,
+        "kind": doc.kind,
+        "title": doc.title,
+        "source_url": doc.source_url,
+        "topics": doc.topics,
+        "line_count": len(lines),
+        "lines": [{"line": idx, "text": text} for idx, text in enumerate(lines, start=1)],
+    }
+
+
+def log_request(path: str, query: dict[str, list[str]], client: str, status: int) -> None:
+    ACCESS_LOG.parent.mkdir(parents=True, exist_ok=True)
+    record = {
+        "ts": datetime.now(timezone.utc).isoformat(),
+        "path": path,
+        "query": query,
+        "client": client,
+        "status": status,
+    }
+    with ACCESS_LOG.open("a", encoding="utf-8") as fh:
+        fh.write(json.dumps(record, sort_keys=True) + "\n")
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "BrandroomArchive/1.0"
+    server_version = "content-review/1.0"
 
-    def log_message(self, _format: str, *_args: object) -> None:
+    def log_message(self, format: str, *args) -> None:
         return
 
-    def write_log(self, status: int, body_bytes: int) -> None:
-        LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-        record = {
-            "ts": time.time(),
-            "client": self.headers.get("X-Client", ""),
-            "method": self.command,
-            "path": urlparse(self.path).path,
-            "status": status,
-            "bytes": body_bytes,
-        }
-        with LOG_PATH.open("a", encoding="utf-8") as fh:
-            fh.write(json.dumps(record, sort_keys=True) + "\n")
-
-    def send_json(self, payload: object, status: int = 200) -> None:
-        data = json.dumps(payload, indent=2, sort_keys=True).encode("utf-8")
+    def _json(self, payload: dict, status: int = 200) -> None:
+        raw = json.dumps(payload, indent=2, sort_keys=True).encode("utf-8")
         self.send_response(status)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", str(len(data)))
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(raw)))
         self.end_headers()
-        self.wfile.write(data)
-        self.write_log(status, len(data))
+        self.wfile.write(raw)
 
     def do_GET(self) -> None:
-        path = urlparse(self.path).path
-        try:
-            if path == "/health":
-                self.send_json({"ok": True, "service": "brandroom-archive"})
-            elif path == "/api/sources":
-                self.send_json({"sources": read_sources()})
-            elif path == "/api/claims":
-                self.send_json({"claims": read_claims()})
-            elif path == "/api/brief":
-                self.send_json(read_json("campaign_brief.json"))
-            elif path == "/api/channel-specs":
-                self.send_json(read_json("channel_specs.json"))
-            elif path == "/api/glossary":
-                self.send_json(read_json("glossary.json"))
-            else:
-                self.send_json({"error": "not found"}, status=404)
-        except Exception as exc:
-            self.send_json({"error": type(exc).__name__, "message": str(exc)}, status=500)
+        parsed = urlparse(self.path)
+        client = self.headers.get("X-Client", "unknown")
+        query = parse_qs(parsed.query)
+
+        if parsed.path == "/health":
+            self._json({"ok": True, "service": "content-review"})
+            log_request(parsed.path, query, client, HTTPStatus.OK)
+            return
+
+        if parsed.path == "/api/index":
+            self._json(
+                {
+                    "campaign_id": INDEX["campaign_id"],
+                    "theme": INDEX["theme"],
+                    "docs": INDEX["docs"],
+                }
+            )
+            log_request(parsed.path, query, client, HTTPStatus.OK)
+            return
+
+        if parsed.path == "/api/constraints":
+            self._json(
+                {
+                    "campaign_constraints": CONSTRAINTS,
+                    "style_red_flags": RED_FLAGS,
+                }
+            )
+            log_request(parsed.path, query, client, HTTPStatus.OK)
+            return
+
+        prefix = "/api/document/"
+        if parsed.path.startswith(prefix):
+            doc_id = parsed.path[len(prefix) :]
+            doc = DOCS.get(doc_id)
+            if doc is None:
+                self._json({"error": "document_not_found", "doc_id": doc_id}, status=404)
+                log_request(parsed.path, query, client, HTTPStatus.NOT_FOUND)
+                return
+            self._json(build_document_payload(doc))
+            log_request(parsed.path, query, client, HTTPStatus.OK)
+            return
+
+        self._json({"error": "not_found", "path": parsed.path}, status=404)
+        log_request(parsed.path, query, client, HTTPStatus.NOT_FOUND)
 
 
 def main() -> None:
-    server = ThreadingHTTPServer(("127.0.0.1", 8137), Handler)
-    server.serve_forever()
+    ThreadingHTTPServer(("0.0.0.0", PORT), Handler).serve_forever()
 
 
 if __name__ == "__main__":

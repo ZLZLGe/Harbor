@@ -1,0 +1,37 @@
+version = "1.0"
+
+[metadata]
+id = "media__frame_pickup_delivery_bundle"
+name = "Template: Frame Pickup Delivery Bundle"
+description = "Build a review-ready pickup bundle from mirrored video clips, helper-authored locator fragments, and per-clip contact sheet rules."
+difficulty = "hard"
+category = "media"
+tags = [
+  "media",
+  "video-review",
+  "pickup-bundle",
+  "preview-clips",
+  "contact-sheet",
+  "asset-delivery",
+  "helper-routed-pickups",
+]
+required_skills = [
+  "video-frames",
+]
+primary_output_file = "/root/media_pick/output/frame_index.json"
+source_template_id = "media__frame_pickup_delivery_bundle"
+task_role = "template"
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 12288
+gpus = 0
+allow_internet = true

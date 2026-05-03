@@ -1,0 +1,7 @@
+country,year,renewables_share_elec_pct,fossil_share_elec_pct,solar_share_elec_pct,wind_share_elec_pct,hydro_share_elec_pct,low_carbon_share_elec_pct
+Brazil,2023,88.995,8.958,7.15,13.529,60.159,91.042
+China,2023,30.606,64.797,6.177,9.368,12.965,35.203
+Germany,2023,54.685,43.89,12.605,27.735,4.192,56.11
+India,2023,19.287,78.201,6.017,4.28,7.79,21.799
+United States,2023,22.679,59.106,5.617,9.9,5.619,40.894
+World,2023,30.323,60.583,5.61,7.818,14.293,39.417

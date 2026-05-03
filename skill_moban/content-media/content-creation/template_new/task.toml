@@ -1,32 +1,37 @@
 version = "1.0"
 
 [metadata]
-id = "content_creation__source_derived_brand_voice_pack"
-name = "Template: Source-Derived Brand Voice Campaign Pack"
-description = "Build a source-backed brand voice profile and multi-channel launch content pack from cached corpus data and a local content archive service."
+id = "content-creation__agent_first_campaign_pack"
+name = "Template: Agent-First Campaign Pack"
+description = "Build a multi-channel campaign pack from a bundled anchor article, supporting context, voice samples, and a local in-container review service."
 difficulty = "hard"
 category = "content-creation"
 tags = [
   "content-creation",
+  "multi-channel-writing",
   "brand-voice",
-  "copywriting",
-  "campaign",
-  "source-analysis",
-  "claim-safety",
-  "multi-channel-content",
+  "source-grounding",
+  "newsletter",
+  "social-content",
+  "content-operations",
 ]
 required_skills = [
-  "brand-voice",
+  "content-engine",
 ]
-primary_output_file = "/root/brandroom/output/content_pack.json"
-source_template_id = "content_creation__source_derived_brand_voice_pack"
+distractor_skills = [
+  "copy-editing",
+  "social-posting",
+  "blog-formatting",
+]
+primary_output_file = "/root/output/source_map.json"
+source_template_id = "content-creation__agent_first_campaign_pack"
 task_role = "template"
 
 [verifier]
 timeout_sec = 900.0
 
 [agent]
-timeout_sec = 900.0
+timeout_sec = 600.0
 
 [environment]
 build_timeout_sec = 900.0
