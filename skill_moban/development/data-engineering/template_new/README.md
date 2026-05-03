@@ -20,7 +20,7 @@
 ### 📊 验证与测试指标（Oracle & Verifier）
 
 - Oracle：官方解法使用 ClickHouse 完成原始数据装载、scan/order/inventory 去重、事件时间 wave sessionization、SLA 与 stockout 区间聚合，并导出四个指定结果文件。
-- Verifier策略：
+- Verifier 策略：
 
 | Verifier 测试内容 | 对应 skill 要求掌握的部分 |
 | :--- | :--- |

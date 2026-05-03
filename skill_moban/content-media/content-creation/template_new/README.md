@@ -21,7 +21,7 @@
 
 - Oracle：Oracle 使用同一批冻结 source corpus、campaign brief、allowed claims、channel specs、glossary 和本地 archive service，独立验证 voice profile、content pack 与 audit report。它关注内容是否源于真实材料、引用是否可审计、claim 是否安全，而不是只看文案主观质量。
 
-- Verifier策略：
+- Verifier 策略：
 
 | Verifier 测试内容 | 对应 skill 要求掌握的部分 |
 | :--- | :--- |

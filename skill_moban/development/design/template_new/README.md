@@ -21,7 +21,7 @@
 
 - Oracle：Oracle 使用同一批城市微出行运营数据、品牌 token 和本地业务 API，独立生成并验证单文件 HTML executive deck。它关注 slide deck 是否可播放、可读、可访问、数据 grounded 且多视口不溢出，而不是视觉实现是否唯一。
 
-- Verifier策略：
+- Verifier 策略：
 
 | Verifier 测试内容 | 对应 skill 要求掌握的部分 |
 | :--- | :--- |

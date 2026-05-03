@@ -21,7 +21,7 @@
 
 - Oracle：Oracle 使用同一份带 tracked changes、comments、footnotes 和 `customXml` review manifest 的 Word 增补协议，按 `review_decisions.json` 独立生成 clean final DOCX。它关注最终文档是否真实可打开、结构完整、审阅链路已收尾，而不是实现脚本是否一致。
 
-- Verifier策略：
+- Verifier 策略：
 
 | Verifier 测试内容 | 对应 skill 要求掌握的部分 |
 | :--- | :--- |
