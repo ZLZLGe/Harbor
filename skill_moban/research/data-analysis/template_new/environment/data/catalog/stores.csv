@@ -1,0 +1,5 @@
+store_id,region,timezone
+SFO-01,West,America/Los_Angeles
+NYC-02,East,America/New_York
+CHI-03,Central,America/Chicago
+PHX-04,Mountain,America/Phoenix

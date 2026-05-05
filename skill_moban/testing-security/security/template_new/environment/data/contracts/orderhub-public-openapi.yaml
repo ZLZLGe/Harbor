@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: OrderHub Public API
+  version: 2026-05
+servers:
+  - url: http://127.0.0.1:8142
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+paths:
+  /health:
+    get:
+      summary: Service health
+  /openapi.json:
+    get:
+      summary: Machine-readable contract
+  /api/identities/me:
+    get:
+      summary: Caller identity summary
+      security:
+        - ApiKeyAuth: []
+  /api/orders:
+    get:
+      summary: Paginated order summaries
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+        - in: query
+          name: cursor
+          schema:
+            type: integer
+        - in: query
+          name: status
+          schema:
+            type: string
+        - in: query
+          name: sort_by
+          schema:
+            type: string
+  /api/orders/{order_id}:
+    get:
+      summary: Order detail by order ID
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: order_id
+          required: true
+          schema:
+            type: string
+  /api/exports/orders:
+    post:
+      summary: Create an order export preview
+      security:
+        - ApiKeyAuth: []

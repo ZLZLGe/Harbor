@@ -1,56 +1,46 @@
 {
-  "derivedTaskId": "domain-utilities__domain-acquisition-opportunity-research",
-  "taskRole": "template",
-  "title": "Template: Domain Acquisition Opportunity Research",
-  "goal": "Generate a ranked domain acquisition opportunity report from frozen market, archive, authority, pricing, and legal evidence while preserving a real localhost lookup chain inside one container.",
-  "primaryOutputFile": "/app/output/opportunity_report.json",
-  "difficulty": "hard",
+  "task_id": "domain-utilities__developer-workflow-domain-shortlist",
   "category": "domain-utilities",
-  "taskShape": "frozen-domain-research-with-live-lookup-chain",
-  "skillBenefitRationale": "The bound skill standardizes the highest-cost parts of the workflow: probing the localhost manifest, recovering the exact scoring contract, diffing your computed scores against the frozen policy, and packaging evidence consistently across candidate pool, archive, authority, legal, and local snapshot sources. Without the skill the task remains theoretically solvable from visible data and the lookup API, but the solver must manually reconstruct the score formula, pull and normalize per-domain evidence, and keep the final ranked output consistent across all candidates.",
-  "targetSkillDirName": "domain-acquisition-research",
-  "targetSkillName": "domain-acquisition-research",
-  "designGoals": [
-    "Keep the task centered on a realistic corpdev or launch-ops deliverable rather than a code-fix exercise.",
-    "Preserve a real localhost lookup service inside one container instead of reducing the task to static golden files.",
-    "Require multi-source evidence integration across candidate, archive, authority, pricing, and legal inputs.",
-    "Let verifier focus on behavior and scored outcomes rather than one exact implementation path."
-  ],
-  "verifierDesign": {
-    "mainTests": [
-      "The required opportunity_report.json exists, parses, and follows the declared schema.",
-      "Every candidate domain is evaluated exactly once and the numeric scores match the published scoring policy when recomputed from the frozen inputs.",
-      "The ranked buy-now shortlist and top pick match the true best opportunities under the policy constraints.",
-      "Evidence and reason codes are grounded in real candidate, authority, legal, archive, and local snapshot sources."
+  "bound_skill": "domain-name-brainstormer",
+  "reference_skillsmp_url": "https://skillsmp.com/skills/composiohq-awesome-claude-skills-domain-name-brainstormer-skill-md",
+  "design_summary": {
+    "scenario": "Prepare a launch-ready domain shortlist for a developer workflow product from a business brief, public-brand examples, a candidate pool, and an archived RDAP availability snapshot.",
+    "why_skill_relevant": [
+      "The core work matches the selected skill: understand the project, evaluate multiple naming options, check cross-TLD availability, and present ranked alternatives.",
+      "The required audit file forces the solver to examine every candidate/TLD pair instead of guessing a few names.",
+      "The shortlist, runner-up, and taken-domain outputs create clear verifier hooks around systematic availability checking and alternative selection."
+    ],
+    "real_data": [
+      "https://linear.app/",
+      "https://plane.so/",
+      "https://height.app/",
+      "https://clickup.com/",
+      "https://asana.com/",
+      "https://www.notion.so/",
+      "https://rdap.verisign.com/com/v1/domain/<domain>",
+      "https://rdap.identitydigital.services/rdap/domain/<domain>",
+      "https://rdap.radix.host/rdap/domain/<domain>",
+      "https://rdap.centralnic.com/xyz/domain/<domain>"
+    ],
+    "single_container": true
+  },
+  "verifier_focus": {
+    "main_tests": [
+      "The audit covers every candidate and every allowed TLD, with correct availability states and deterministic scores.",
+      "The shortlist keeps one selected domain per base name and matches the top available base-wise options under the policy rules.",
+      "Runner-ups and rejected taken domains follow the same ordering logic as the main shortlist.",
+      "Outputs stay reproducible across reruns and remain consistent with the provided business brief and policy files."
     ],
     "guardrails": [
-      "Protected raw data, localhost service files, and shipped skill files remain unchanged.",
-      "Static placeholder outputs, partial candidate coverage, or evidence records that do not map to real sources do not pass.",
-      "Domains that should fail on legal risk, archive mismatch, or price ceiling cannot be promoted by ignoring those signals."
+      "Input data and shipped skill files remain unchanged.",
+      "Only the required output files are left in /root/output.",
+      "Selected domains must come from the provided availability snapshot rather than fabricated names."
     ]
   },
-  "readmeRequirements": [
-    "Summarize domain-utilities template principles using current high-signal SkillsMP directions such as domain-name-brainstormer, domain-research, and domain-authority-auditor.",
-    "Include oracle and with/without-skill experiment results only after real runs complete.",
-    "Frame skill relevance as lower diagnosis and convergence cost across evidence gathering, scoring recovery, and output packaging."
-  ],
-  "iterationState": {
-    "status": "validated-final",
-    "knownGaps": [],
-    "finalEvidence": {
-      "oracleJob": "domain-template-oracle-20260422e",
-      "withSkillJobs": [
-        "domain-template-with-skills-20260422l",
-        "domain-template-with-skills-20260422n",
-        "domain-template-with-skills-20260422o"
-      ],
-      "withoutSkillJobs": [
-        "domain-template-without-skills-20260422e",
-        "domain-template-without-skills-20260422f",
-        "domain-template-without-skills-20260422g"
-      ],
-      "withSkillChecksum": "87b7a179a1ce3b97ffe54451da08f65d3c1d9e1840a2af29ce0c9253f45d8755",
-      "withoutSkillChecksum": "9389f0254db02a1ff9509ea8100330378775cd79451fa160b2cc2c4ce15abb35"
-    }
+  "control_condition_rule": "with_skill and without_skill must differ only by environment/skills and corresponding runtime copy behavior",
+  "experiment_status": {
+    "local_oracle": "passed (7/7 tests in local temp-output run)",
+    "with_skill_e2b": "passed across final-template v4, v5, v6",
+    "without_skill_e2b": "failed across final-template v4, v5, v6 with stable audit/ranking mismatches"
   }
 }

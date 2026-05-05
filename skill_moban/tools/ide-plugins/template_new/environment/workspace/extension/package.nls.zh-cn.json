@@ -1,0 +1,7 @@
+{
+  "extension.displayName": "Release Briefing Explorer",
+  "extension.description": "浏览 VS Code 更新并导出简报。",
+  "command.category": "Release Briefing",
+  "command.open.title": "打开版本说明",
+  "view.container.title": "版本简报"
+}

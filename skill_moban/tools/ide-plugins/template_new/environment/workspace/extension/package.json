@@ -1,0 +1,124 @@
+{
+  "name": "release-briefing-explorer",
+  "displayName": "%extension.displayName%",
+  "description": "%extension.description%",
+  "version": "0.0.1",
+  "publisher": "harbor",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:releaseBriefing.exportBriefings",
+    "onCommand:releaseBriefing.openReleaseNote",
+    "onView:releaseBriefing.releases"
+  ],
+  "main": "./src/extension.js",
+  "l10n": "./l10n",
+  "files": [
+    "src/**",
+    "resources/**",
+    "l10n/**",
+    "package.json",
+    "package.nls*.json"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "releaseBriefing.exportBriefings",
+        "title": "%command.export.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "releaseBriefing.openReleaseNote",
+        "title": "%command.open.title%",
+        "category": "%command.category%"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "releaseBriefing",
+          "title": "%view.container.title%",
+          "icon": "./resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "releaseBriefing": [
+        {
+          "id": "releaseBriefing.releases",
+          "name": "%view.releases.title%"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "releaseBriefing.releases",
+        "contents": "%view.welcome%"
+      }
+    ],
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "releaseBriefing.defaultLocale": {
+          "type": "string",
+          "default": "en",
+          "enum": [
+            "en",
+            "pt-br",
+            "zh-cn"
+          ],
+          "description": "%config.defaultLocale.description%"
+        },
+        "releaseBriefing.outputFolder": {
+          "type": "string",
+          "default": "output",
+          "description": "%config.outputFolder.description%"
+        }
+      }
+    },
+    "walkthroughs": [
+      {
+        "id": "releaseBriefing.gettingStarted",
+        "title": "%walkthrough.title%",
+        "description": "%walkthrough.description%",
+        "steps": [
+          {
+            "id": "releaseBriefing.step.browse",
+            "title": "%walkthrough.step.browse.title%",
+            "description": "%walkthrough.step.browse.description%",
+            "media": {
+              "markdown": "%walkthrough.step.browse.markdown%"
+            },
+            "completionEvents": [
+              "onView:releaseBriefing.releases"
+            ]
+          },
+          {
+            "id": "releaseBriefing.step.export",
+            "title": "%walkthrough.step.export.title%",
+            "description": "%walkthrough.step.export.description%",
+            "media": {
+              "markdown": "%walkthrough.step.export.markdown%"
+            },
+            "completionEvents": [
+              "onCommand:releaseBriefing.exportBriefings"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node ./src/validate.js",
+    "export": "node ./src/cli-export.js",
+    "package": "npx @vscode/vsce package --allow-missing-repository --out ../output/release-briefing-extension.vsix"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.27.0"
+  }
+}

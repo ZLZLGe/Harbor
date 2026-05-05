@@ -1,68 +1,79 @@
 # Backend Template
 
-这是面向 `backend` 类 skill 的模板。它综合参考 SkillsMP backend 类热门 skill 的共性能力：REST API 契约设计、资源建模、状态码语义、错误 envelope、分页过滤、鉴权授权、rate limiting、幂等创建、微服务网关和下游故障映射。
+这是面向 Backend 类 skill 的模板。它综合参考 SkillsMP Backend 类热门 skill 的共性能力：生产级 REST API 设计、资源命名与版本化、查询参数契约、幂等写入、安全重试、错误语义分层，以及认证与限流等跨切面治理。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：backend 类 skill 的核心价值，是把接口实现从 happy path 提升到生产级 HTTP 契约和运行时行为。模板任务应让 skill 在资源路径、请求校验、响应 envelope、错误语义、幂等性、鉴权隔离、限流和下游 resilience 上降低遗漏率，而不是靠静态 mock 或隐藏答案通过。
-* **Task目标形态**：任务应要求 Agent 在真实本地服务链路中补齐 backend API、gateway、controller、middleware 或 service 层行为，并通过真实 HTTP 请求验证。目标形态适合设计成 REST facade、微服务编排、分页列表、资源创建/读取、幂等 replay、权限隔离和故障降级，不适合做静态 JSON 输出、纯算法题或只修一个 typo。
-* **Verifier设计重点**：Verifier 应通过运行中的服务和真实 HTTP 请求检查行为结果，并验证下游 ledger 或副作用证明 gateway 确实调用依赖服务。重点应覆盖输入不可变、契约 schema、状态码、rate-limit headers、cursor pagination、idempotency、resource ownership、validation errors、502/503 映射和防绕过下游服务。
+* **Skill 价值定位**：Backend 类热门 skill 的核心价值，不是单纯把接口“跑通”，而是把服务从“能返回东西”提升到“可被合作方稳定集成”。它要求 solver 同时理解资源模型、状态码语义、分页与筛选顺序、错误对象契约、幂等重试和流量保护，而不是只修一两个 happy path。
+* **Task 目标形态**：任务应落在真实风格的服务整改场景里，例如渠道 API、B2B 集成接口、订单/支付/退款服务、内部平台对外网关等。题面主要交代症状、交付边界和禁止事项，把真正的诊断与收敛路径交给 skill 和 solver 自己识别。
+* **Verifier 设计重点**：Verifier 应优先验证真实 HTTP 行为是否恢复稳定，包括认证/鉴权分层、过滤排序分页的计算顺序、创建接口的幂等重试语义、状态冲突处理、限流头与 `429` 行为，以及对变体数据的泛化能力。防作弊点应覆盖硬编码订单 ID、只修固定分页切片、加平行接口绕过原链路、伪造重复请求回放和只在单一数据排列下成立的实现。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`backend__partner-shipping-api-contract`
-- 类别：`backend`
+- 任务 ID：`partner-order-refund-api-contract`
+- 类别：Backend
 - 难度：`hard`
 - 绑定 Skill：`api-design`
+- 输入数据参考来源：
+  - `environment/workspace/data/orders_snapshot.json`：任务内订单字段与业务语义；设计形态参考 Shopify Order resource  
+    https://shopify.dev/docs/api/admin-rest/latest/resources/order
+  - `environment/workspace/data/customers_snapshot.json`：任务内客户与地址字段；设计形态参考 Shopify Customer resource  
+    https://shopify.dev/docs/api/admin-rest/latest/resources/customer
+  - `environment/workspace/data/refund_requests.json`：任务内退款对象与生命周期；设计形态参考 Shopify Refund resource  
+    https://shopify.dev/docs/api/admin-rest/latest/resources/refund
+  - `environment/workspace/data/refund_requests.json`：创建类请求的安全重试语义参考 Stripe Idempotent Requests  
+    https://docs.stripe.com/api/idempotent_requests
+  - `environment/workspace/data/refund_requests.json`：退款状态与对象语义参考 Stripe Refund object  
+    https://docs.stripe.com/api/refunds/object
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 在同一个单容器环境中启动 gateway、carrier rate service 和 shipment booking service，通过真实 HTTP 请求独立验证 quote/list/create/read 全链路。它关注 API 行为、契约语义、下游副作用和故障映射是否正确，而不是实现文件是否一致。
-
+- Oracle：官方解直接修复题目仓库中的 Node.js / Express 服务，使原入口下的订单列表、订单详情、退款创建、退款详情四条链路全部恢复为稳定可集成的 API，并通过本地状态重置、真实 HTTP 调用和 alternate fixture 复算证明任务可运行、可验证、且不依赖隐藏答案文件。
 - Verifier策略：
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+主测试
+
+| 测试点 | 验证内容 | 对应skill内化点 |
+| :--- | :--- | :--- |
+| 列表查询契约 | 校验订单列表在过滤、排序、分页组合下返回正确切片，并保证重复请求稳定一致 | 先 filter，再 sort，再 paginate；避免不稳定页切 |
+| 详情与错误分层 | 校验订单详情、退款详情、缺失资源、认证失败、权限不足、验证失败、状态冲突的状态码和机器可读错误码 | HTTP 状态语义与统一错误对象 |
+| 写入幂等 | 校验退款创建成功后可被后续读取观测到；相同 `Idempotency-Key` 不得重复写入；同 key 不同 payload 必须安全失败 | 生产级 create endpoint 的幂等重试设计 |
+| 流量保护 | 校验 tier 限流阈值、`429`、`Retry-After`、剩余额度头，以及阈值前请求仍正常工作 | rate limiting 和 client-backoff 契约 |
+
+防作弊测试
+
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| 认证失败、bad JSON、字段语义错误和统一 error envelope | HTTP 状态码语义、请求校验和错误契约 |
-| `GET /shipping-quotes` filtering、sorting、cursor pagination、`links.next` | REST list contract、分页、过滤和稳定响应 envelope |
-| partner capability 过滤与显式不允许能力返回 `403` | 鉴权授权、资源能力隔离和安全响应 |
-| `POST /shipments` 的 `201 Location`、idempotent replay、idempotency conflict | 幂等创建、资源创建契约和冲突语义 |
-| `GET /shipments/:id` owner isolation 与 missing/foreign 统一 `404` | 资源所有权隔离和信息泄漏防护 |
-| `429`、`Retry-After`、`X-RateLimit-*` headers | 生产 API rate limiting 和 header contract |
-| rate/booking downstream ledger 与 502/503 failure-mode switching | 微服务 gateway、真实下游调用和 resilience 映射 |
-| data/contracts/services hash guardrail | 输入不可变、防静态 mock 和反绕过测试 |
+| 变体数据泛化 | 使用打乱顺序并插入新订单的 alternate fixture 重新启动服务，验证分页与退款语义仍成立，拦截硬编码 ID / 固定切片实现 |
+| 链路真实性 | 服务必须仍以原 HTTP 入口对外工作，不能降级成离线脚本、静态文件或旁路接口 |
+| 输入完整性 | 静态参考数据哈希必须保持不变，防止通过篡改订单/客户/API key 输入来规避 verifier |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把 public REST API 的生产契约系统化：资源路径、状态码、统一错误 envelope、cursor pagination、幂等创建、资源隔离、rate-limit headers 与 502/503 下游语义。without Skill 也理论可解，但更容易漏掉 shipment response contract、rate-limit headers 或边界状态码。
+结论：强相关。这个任务里，Skill 的核心价值是把“API 看起来能用”和“API 能被稳定集成”之间的差距标准化，尤其体现在资源命名、统一错误语义、过滤排序分页顺序、幂等重试和限流头这些跨切面问题上。without Skill 理论上可解，但更容易停留在只修单点 bug 的层面，漏掉重复写入保护、状态冲突分层或 alternate fixture 下的稳定性。
 
-基于最近 **7** 次有效 task-level 实验（均跑到 verifier；已排除 `BuildException` / `ConnectError` 启动失败类 trial）：
+基于最近 **3 次有效 with_skill trial 与 3 次有效 without_skill trial**（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `33.3%` | `75.0%` | without Skill 两次失败，主要漏 shipment response contract 与 rate-limit header/错误语义；with Skill 通过率更高。 |
-| Agent 执行耗时 | `541.3s` | `456.4s` | With Skill 平均 Agent 耗时降低约 `15.7%`。 |
-| Tokens | `1.28M` | `0.84M` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.53x`。 |
+| 通过率 | `0/3` | `1/3` | without Skill 最近 3 次都至少保留 1 个 verifier 失败，且失败集中在退款状态冲突、缺失 `Idempotency-Key` 或缺失资源机器码等行动级契约；with Skill 最近 3 次里，2 次仅差单个 machine-readable error code alias，1 次已 `9/9` 全过。 |
+| Agent 执行耗时 | `422.8s` | `514.4s` | with Skill 近期均值比 without 高约 `21.7%`；主因是两次 near-pass 在统一错误语义上额外消耗了诊断与校验回合。最新成功样本耗时 `410.5s`。 |
+| Tokens | `1.01M` | `1.30M` | with Skill 近期均值比 without 高约 `28.4%`；主因同上。最新成功样本 token 为 `860.7k`。 |
 
 ## 📁 标准目录结构说明
 
 ```text
-template_new/
+模板任务：
 ├── instruction.md
 ├── task.toml
 ├── PLAN.json
+├── README.md
 ├── environment/
 │   ├── Dockerfile
-│   ├── workspace/
-│   │   ├── contracts/
-│   │   ├── data/
-│   │   ├── gateway/
-│   │   ├── services/
-│   │   └── run.sh
-│   └── skills/
+│   ├── skills/
+│   └── workspace/
 ├── tests/
-├── solution/
-└── README.md
+└── solution/
 ```

@@ -1,18 +1,22 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-mkdir -p /logs/verifier
+TESTS_ROOT="${TESTS_ROOT:-/tests}"
+VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
 
-if ! curl -fsS http://127.0.0.1:8080/health >/dev/null 2>&1; then
-  python /opt/knowledge_service.py >/tmp/knowledge_service.log 2>&1 &
-  sleep 0.3
-fi
+mkdir -p "$VERIFIER_LOG_ROOT"
 
-if python -m pytest /tests/test_outputs.py -q --tb=short > /logs/verifier/pytest-output.txt 2>&1; then
-  echo 1 > /logs/verifier/reward.txt
-  cat /logs/verifier/pytest-output.txt
+set +e
+python3 -m pytest -q "$TESTS_ROOT/test_outputs.py" 2>&1 | tee "$VERIFIER_LOG_ROOT/pytest-output.txt"
+PYTEST_EXIT=${PIPESTATUS[0]}
+set -e
+
+if [ "$PYTEST_EXIT" -eq 0 ]; then
+  printf '1.0\n' > "$VERIFIER_LOG_ROOT/reward.txt"
+  printf '{"reward": 1.0}\n' > "$VERIFIER_LOG_ROOT/result.json"
 else
-  echo 0 > /logs/verifier/reward.txt
-  cat /logs/verifier/pytest-output.txt
-  exit 1
+  printf '0.0\n' > "$VERIFIER_LOG_ROOT/reward.txt"
+  printf '{"reward": 0.0}\n' > "$VERIFIER_LOG_ROOT/result.json"
 fi
+
+exit 0

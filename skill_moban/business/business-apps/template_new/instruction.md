@@ -1,64 +1,64 @@
-你需要为收入运营团队整理下一次续费与催收例会要用的行动台账。容器里已经放入较早导出的 CRM 和 invoice 快照，但它们可能缺项或状态滞后；本次交付应以 `ops_manifest.json` 指向的容器内 revops service 为准。
+You need to prepare an action worklist for the Revenue Operations team to use in the next renewal and collections meeting. The container includes older exports of CRM and invoice snapshots, but they may be incomplete or stale; for this delivery, the in-container revops service referenced by `ops_manifest.json` is the source of truth.
 
-输入数据位于 `/root/data/`：
+Input data is under `/root/data/`:
 
-- `ops_manifest.json`：workspace 编号、cohort 日期、交付要求，以及本地 revops service 的 URL。
-- `crm_export.csv`：较早导出的续费 cohort 与 CRM 字段快照，可能不完整。
-- `invoice_snapshot.ndjson`：较早导出的 invoice 与 dunning 状态快照，可能不再代表当前状态。
-- `action_policy.yaml`：本次续费工作台的动作分流规则与阈值。
-- `contact_directory.csv`：客户负责人、区域和升级联系信息。
+- `ops_manifest.json`: workspace id, cohort date, delivery requirements, and the local revops service URL.
+- `crm_export.csv`: an older export of the renewal cohort and CRM fields; may be incomplete.
+- `invoice_snapshot.ndjson`: an older export of invoice and dunning status; may no longer reflect the current state.
+- `action_policy.yaml`: action routing rules and thresholds for this renewal workbench.
+- `contact_directory.csv`: account owners, regions, and escalation contacts.
 
-## 你的任务
+## Your Task
 
-1. 审查当前 cohort 中的全部账户，整理每个账户当前应进入的续费动作分流。
-2. 结合 revops service 提供的当前账户事实，判断哪些账户需要发送 invoice、跟进回款、升级客户负责人、更新扩容报价或暂停续费。
-3. 生成一份可直接给收入运营团队使用的结构化工作台账、一份汇总 JSON，以及一份简短业务摘要。
+1. Review all accounts in the current cohort and determine the appropriate renewal action routing for each account.
+2. Using the current account facts provided by the revops service, decide which accounts require sending an invoice, collecting payment, escalating to the account owner, updating an expansion quote, or pausing renewal.
+3. Produce a structured worklist that the Revenue Operations team can use directly, a summary JSON, and a short business brief.
 
-## 业务约束
+## Business Constraints
 
-1. cohort 中的每个账户都必须出现在最终台账里，不能遗漏。
-2. `crm_export.csv` 和 `invoice_snapshot.ndjson` 只能作为背景参考，不能替代当前 revops service。
-3. 续费动作必须依据当前 service 返回的事实和 `action_policy.yaml` 的规则决定。
-4. 如果账户需要动作，必须给出唯一的 `action_bucket` 和唯一的 `action_reason`。
-5. 不能通过删账户、删字段、删输出文件、停掉服务或改环境来规避约束。
+1. Every account in the cohort must appear in the final worklist; none may be omitted.
+2. `crm_export.csv` and `invoice_snapshot.ndjson` are background references only and must not replace the current revops service.
+3. Renewal actions must be decided based on facts returned by the current service and the rules in `action_policy.yaml`.
+4. If an account requires action, you must provide a single `action_bucket` and a single `action_reason`.
+5. You must not evade constraints by removing accounts, removing fields, deleting output files, stopping the service, or changing the environment.
 
-## 输出
+## Output
 
-如 `/root/output/` 不存在，请先创建该目录。
+If `/root/output/` does not exist, create it first.
 
-1. 写入 `/root/output/renewal_worklist.csv`
+1. Write `/root/output/renewal_worklist.csv`
 
-列名必须严格如下：
+The column names must be exactly:
 
 ```csv
 account_id,company_name,crm_deal_id,owner_name,renewal_date,renewal_arr_usd,invoice_status,dunning_stage,seat_delta,action_bucket,action_reason,next_step
 ```
 
-要求：
+Requirements:
 
-- 必须覆盖当前 cohort 中的全部账户，且每个 `account_id` 只能出现一次。
-- `renewal_date` 使用 `YYYY-MM-DD`。
-- `renewal_arr_usd` 必须写当前续费金额。
-- `seat_delta` 必须写当前 preview 中的 seat 变化值。
-- `action_bucket` 只能取以下值之一：
+- Must cover all accounts in the current cohort, and each `account_id` may appear only once.
+- `renewal_date` uses `YYYY-MM-DD`.
+- `renewal_arr_usd` must be the current renewal amount.
+- `seat_delta` must be the seat change value from the current preview.
+- `action_bucket` must be one of the following:
   - `send_invoice`
   - `collect_payment`
   - `escalate_csm`
   - `update_expansion_quote`
   - `pause_renewal`
   - `monitor`
-- `action_reason` 只能取以下值之一：
+- `action_reason` must be one of the following:
   - `draft_invoice_ready`
   - `overdue_payment_attempts`
   - `missing_purchase_order`
   - `expansion_quote_required`
   - `legal_hold`
   - `healthy_autopay`
-- `next_step` 必须是简短可执行说明。
+- `next_step` must be a short, actionable instruction.
 
-2. 写入 `/root/output/renewal_control_summary.json`
+2. Write `/root/output/renewal_control_summary.json`
 
-顶层结构必须严格如下：
+The top-level structure must be exactly:
 
 ```json
 {
@@ -92,34 +92,34 @@ account_id,company_name,crm_deal_id,owner_name,renewal_date,renewal_arr_usd,invo
 }
 ```
 
-要求：
+Requirements:
 
-- `workspace_id` 和 `cohort_date` 必须与任务输入一致。
-- `accounts_reviewed` 必须等于当前 cohort 的账户数。
-- `renewal_arr_reviewed_usd` 必须等于全部账户当前 `renewal_arr_usd` 之和。
-- `accounts_needing_action` 必须等于 `action_bucket != monitor` 的账户数。
-- `revenue_at_risk_usd` 必须等于 `action_bucket != monitor` 的账户续费金额之和。
-- `workflow_blocked_account_ids` 只记录当前因采购阻塞或法务限制而无法继续推进续费流程的账户，按 `account_id` 升序输出。
-- `service_checks` 的 5 个字段都必须为 `true`。
-- `notes` 至少包含 2 条业务摘要。
+- `workspace_id` and `cohort_date` must match the task input.
+- `accounts_reviewed` must equal the number of accounts in the current cohort.
+- `renewal_arr_reviewed_usd` must equal the sum of the current `renewal_arr_usd` across all accounts.
+- `accounts_needing_action` must equal the number of accounts with `action_bucket != monitor`.
+- `revenue_at_risk_usd` must equal the sum of `renewal_arr_usd` for accounts with `action_bucket != monitor`.
+- `workflow_blocked_account_ids` must include only accounts currently blocked from progressing the renewal workflow due to procurement blockers or legal holds, sorted by `account_id` ascending.
+- All 5 fields in `service_checks` must be `true`.
+- `notes` must contain at least 2 brief business-summary notes.
 
-3. 写入 `/root/output/ops_brief.md`
+3. Write `/root/output/ops_brief.md`
 
-内容必须包含：
+The content must include:
 
-- workspace 编号；
-- cohort 日期；
-- 当前账户总数；
-- 需要动作的账户总数；
-- 当前流程阻塞账户 ID；
-- 当前最高金额的扩容报价账户；
-- 当前最紧急的催收账户；
-- 对本次动作分流逻辑的简短说明。
+- the workspace id;
+- the cohort date;
+- the total number of current accounts;
+- the number of accounts needing action;
+- the current workflow-blocked account IDs;
+- the highest-amount expansion quote account;
+- the most urgent collections account;
+- a brief explanation of the action routing logic used.
 
-## 说明
+## Notes
 
-- 不要修改 `/root/data/` 下的任何输入文件。
-- 不要把较早导出的 CSV 或 NDJSON 当作唯一依据，也不要绕过当前容器内的 revops service。
-- 不要用硬编码结果、缓存答案或手工拼接占位输出来代替当前链路。
-- 不要修改 tests、verifier、task metadata、environment 文件或任何 `skills` 目录内容。
-- 你可以在工作目录中编写辅助脚本，但最终只需要提交 `/root/output/` 下要求的 3 个文件。
+- Do not modify any input files under `/root/data/`.
+- Do not treat the older exported CSV or NDJSON as the only source of truth, and do not bypass the in-container revops service.
+- Do not replace the real chain with hard-coded results, cached answers, or manually assembled placeholder outputs.
+- Do not modify tests, verifier, task metadata, environment files, or anything under any `skills` directory.
+- You may write helper scripts in the working directory, but the only required deliverables are the 3 files under `/root/output/`.

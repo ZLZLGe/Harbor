@@ -1,45 +1,45 @@
-你需要为内部产品团队完成下一次两周 Sprint 的最终承诺规划，并向发布经理提交可执行的排期结果。
+You need to finalize the commitment plan for the next two-week Sprint for an internal product team, and deliver an executable schedule to the release manager.
 
-输入数据位于 `/root/data/`：
+Input data is under `/root/data/`:
 
-- `planning_manifest.json`：Sprint 编号、计划窗口和本地 planning service 入口。
-- `backlog_export.csv`：较早导出的候选 backlog 清单，可能过期或不完整。
-- `team_capacity.csv`：本次 Sprint 的容量信息。
-- `delivery_policy.yaml`：本次 Sprint 的交付策略与选择约束。
-- `planning_notes/`：从公开 backlog 归一化整理出的需求摘要、里程碑背景和补充上下文。
+- `planning_manifest.json`: sprint id, planning window, and the local planning service entrypoint.
+- `backlog_export.csv`: an older export of candidate backlog items; may be outdated or incomplete.
+- `team_capacity.csv`: capacity information for this Sprint.
+- `delivery_policy.yaml`: delivery strategy and selection constraints for this Sprint.
+- `planning_notes/`: requirement summaries, milestone background, and extra context normalized from the public backlog.
 
-## 你的任务
+## Your Task
 
-1. 审查所有候选 backlog item，并生成一份完整的候选分诊结果。
-2. 使用当前容器内 planning service 作为事实源，确定哪些 item 可以进入本次 Sprint 承诺范围。
-3. 生成一份可执行的 Sprint 计划，说明已承诺项、未承诺项及原因、容量占用和主要风险。
-4. 为发布经理写一份简短摘要，说明本次 Sprint 的承诺范围和关键阻塞。
+1. Review all candidate backlog items and produce a complete triage result for the candidate set.
+2. Use the in-container planning service as the source of truth to determine which items can be committed in this Sprint.
+3. Produce an executable Sprint plan that describes committed items, deferred items and reasons, capacity usage, and major risks.
+4. Write a short update for the release manager summarizing the Sprint scope and key blockers.
 
-## 业务约束
+## Business Constraints
 
-1. 所有候选 item 都必须出现在分诊结果里，不能遗漏。
-2. `backlog_export.csv` 不是最终事实源。容器内 planning service 才是 backlog 状态和相关规划信息的权威来源。
-3. 已完成、已取消或已归档的 item 不能进入 Sprint 承诺。
-4. 只有满足当前交付策略和容量约束的 item 才能被承诺。
-5. `must_ship = true` 的 item 在满足承诺条件时必须优先考虑。
-6. 如果 item 未进入 Sprint，必须给出唯一的未承诺原因。
+1. All candidate items must appear in the triage output; none may be omitted.
+2. `backlog_export.csv` is not the final source of truth. The in-container planning service is authoritative for backlog status and related planning data.
+3. Items that are done, cancelled, or archived must not be committed into the Sprint.
+4. Only items that satisfy the current delivery policy and capacity constraints may be committed.
+5. Items with `must_ship = true` must be prioritized when they meet commitment conditions.
+6. If an item is not included in the Sprint, you must provide a single, unique rejection reason.
 
-## 输出
+## Output
 
-如 `/root/output/` 不存在，请先创建该目录。
+If `/root/output/` does not exist, create it first.
 
-写入 `/root/output/backlog_triage.csv`，列名必须严格如下：
+Write `/root/output/backlog_triage.csv`. The column names must be exactly:
 
 ```csv
 item_id,title,priority,story_points,owner_role,milestone_date,ready,blocked,must_ship,qa_required,selected,rejection_reason
 ```
 
-要求：
+Requirements:
 
-- 必须包含所有候选 item，且每个 `item_id` 只能出现一次。
-- `milestone_date` 使用 `YYYY-MM-DD` 格式。
-- `ready`、`blocked`、`must_ship`、`qa_required`、`selected` 必须使用 `true` 或 `false`。
-- `rejection_reason` 必须为空字符串或以下值之一：
+- Must include all candidate items, and each `item_id` may appear only once.
+- `milestone_date` uses `YYYY-MM-DD`.
+- `ready`, `blocked`, `must_ship`, `qa_required`, `selected` must be `true` or `false`.
+- `rejection_reason` must be an empty string or one of:
   - `already_closed`
   - `not_ready`
   - `blocked_dependency`
@@ -48,7 +48,7 @@ item_id,title,priority,story_points,owner_role,milestone_date,ready,blocked,must
   - `insufficient_review_capacity`
   - `below_cutline`
 
-写入 `/root/output/sprint_plan.json`，结构如下：
+Write `/root/output/sprint_plan.json` with the following structure:
 
 ```json
 {
@@ -90,31 +90,31 @@ item_id,title,priority,story_points,owner_role,milestone_date,ready,blocked,must
 }
 ```
 
-要求：
+Requirements:
 
-- `committed_item_ids` 必须与 `committed_items` 中的 `item_id` 集合完全一致，且顺序一致。
-- `deferred_items` 必须覆盖所有 `selected = false` 且不是 `already_closed` 的 item。
-- `depends_on` 必须列出该 item 的 hard dependency item ID；如无则写空数组。
-- `story_points_committed` 不能超过 policy 允许的 Sprint 承诺上限。
-- `qa_slots_used` 和 `review_slots_used` 不能超过对应可用容量。
-- `risk_flags` 至少包含最重要的交付风险和容量风险。
+- `committed_item_ids` must exactly match the set of `item_id` values in `committed_items`, and in the same order.
+- `deferred_items` must cover all items where `selected = false` and `rejection_reason` is not `already_closed`.
+- `depends_on` must list hard dependency item IDs for the item; if none, use an empty array.
+- `story_points_committed` must not exceed the Sprint commitment upper bound allowed by policy.
+- `qa_slots_used` and `review_slots_used` must not exceed the corresponding available capacities.
+- `risk_flags` must include at least the most important delivery risk and capacity risk.
 
-写入 `/root/output/manager_update.md`，内容必须包含：
+Write `/root/output/manager_update.md`. The content must include:
 
-- Sprint 编号；
-- 承诺 item 总数；
-- 承诺 item ID 列表；
-- 总承诺 story points；
-- 未进入 Sprint 的高优先级 item；
-- 主要容量瓶颈；
-- 最重要的交付风险；
-- 对本次取舍逻辑的简短说明。
+- the Sprint id;
+- the total number of committed items;
+- the list of committed item IDs;
+- total committed story points;
+- high-priority items that did not make the Sprint;
+- the main capacity bottleneck(s);
+- the most important delivery risk(s);
+- a brief explanation of the tradeoff logic used.
 
-## 说明
+## Notes
 
-- 不要修改 `/root/data/` 下的文件。
-- 不要把 `backlog_export.csv` 当作唯一依据，也不要绕过当前容器内 planning service。
-- 不要用硬编码结果、缓存答案或手工伪造输出来替代真实规划链路。
-- 明确禁止替换真实链路、删除功能规避问题，或通过减少交付内容来规避约束。
-- 不要修改 verifier 文件、task metadata 或 environment 文件。
-- 你可以在工作目录中编写辅助脚本，但最终只需要提交 `/root/output/` 下要求的 3 个文件。
+- Do not modify files under `/root/data/`.
+- Do not treat `backlog_export.csv` as the only source of truth, and do not bypass the in-container planning service.
+- Do not replace the real planning chain with hard-coded results, cached answers, or manually fabricated outputs.
+- It is explicitly forbidden to replace the real chain, delete functionality to evade issues, or reduce the delivery scope to evade constraints.
+- Do not modify verifier files, task metadata, or environment files.
+- You may write helper scripts in the working directory, but the only required deliverables are the 3 files under `/root/output/`.

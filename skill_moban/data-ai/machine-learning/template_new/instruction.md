@@ -1,69 +1,69 @@
-你需要为一个房间占用相位识别项目交付一条正式训练链路。当前团队已经整理好了开发集序列索引、holdout 序列索引、相位标签映射和交付合同，但还没有一条可稳定复用的生产级运行入口。这里的相位标签描述的是最近一段传感器轨迹所处的变化阶段，而不是单个时间点的快照状态。你的任务是在保留现有数据链路和交付边界的前提下，生成一套可运行、可重复生成且可离线重放的训练流程，并产出正式交付物。
+You need to deliver a production training pipeline for a room-occupancy phase identification project. The team has already prepared the dev sequence index, holdout sequence index, phase label mapping, and the delivery contract, but there is not yet a stable, reusable production-grade entrypoint. The phase labels here describe the transition stage of a recent sensor trajectory segment, not a snapshot state at a single point in time. Your task is to generate a runnable, reproducible, and offline-replayable training workflow and produce the official deliverables, while preserving the existing data pipeline and delivery boundaries.
 
-输入数据在：
-- `/root/environment/project/`：项目骨架、配置占位和运行入口目录
-- `/root/environment/data/phase_sequences/`：任务内的开发集序列索引、holdout 序列索引、逐样本序列文件、特征说明、相位标签映射和来源元信息
-- `/root/environment/data/contracts/`：输出合同、开发集/验证集/holdout 的分区约束和模型包清单要求
+Input data is located at:
+- `/root/environment/project/`: project scaffold, config placeholders, and run entrypoint directory
+- `/root/environment/data/phase_sequences/`: the dev sequence index, holdout sequence index, per-sample sequence files, feature descriptions, phase label mapping, and provenance metadata
+- `/root/environment/data/contracts/`: output contracts, split constraints for dev/validation/holdout, and model bundle manifest requirements
 
-业务约束：
-- 最终链路必须从提供的序列索引和逐样本序列文件中完成训练、验证、holdout 评估和模型导出，不能改成手工整理结果或静态拼装答案。
-- 训练集与验证集必须从开发集索引中按合同定义的源分区约束动态拆分；holdout 评估只能使用提供的 holdout 索引，不能把 holdout 并回拟合阶段，也不能无视合同固定使用某个写死切分。
-- 每条序列样本都带有明确的 `sequence_length`，正式训练、评估和导出推理都必须遵守这个有效长度边界。
-- 每个 `sequence_path` 都对应独立的逐样本 `.npy` 文件，磁盘上的存储行数不保证在所有文件间一致；不要把“当前文件长度刚好一样”当成正式前提，`sequence_length` 才是有效前缀的唯一权威边界。
-- 不要先把整个 split 物化成固定时间维的单个 ndarray 再假定后续所有序列都会共用这个时间维；正式链路必须能处理逐样本文件在磁盘行数上的差异。
-- 正式交付物必须可重复生成。不要把墙钟时间、临时路径、随机文件名或其他一次性字段写进最终交付物。
-- 最终链路必须在 CPU-only 环境下稳定运行，并且导出后的离线重放结果要与正式评估口径保持一致。
-- 模型包必须保留正式推理和后续续训所需的核心权重、关键元数据与必要配置。
-- 用于恢复训练状态的快照应只保留恢复所需的关键状态；不要把与续训无关的额外数组对象直接塞进快照本体。
+Business constraints:
+- The final pipeline must perform training, validation, holdout evaluation, and model export from the provided sequence indices and per-sample sequence files; you must not change it into manual result curation or static answer assembly.
+- The training and validation splits must be dynamically derived from the dev index according to the source-partition constraints defined in the contract. Holdout evaluation must use only the provided holdout index; you must not merge holdout back into the fitting stage, and you must not ignore the contract by using a hard-coded split.
+- Each sequence sample includes an explicit `sequence_length`; formal training, evaluation, and exported inference must respect this effective-length boundary.
+- Each `sequence_path` corresponds to an independent per-sample `.npy` file. The number of rows stored on disk is not guaranteed to be consistent across files; do not assume “the current file lengths happen to match” as a formal premise. `sequence_length` is the only authoritative boundary for the valid prefix.
+- Do not first materialize an entire split into a single ndarray with a fixed time dimension and then assume all later sequences share that same time dimension; the formal pipeline must handle differences in on-disk row counts across per-sample files.
+- Official deliverables must be reproducible. Do not write wall-clock time, temporary paths, random filenames, or other one-off fields into the final deliverables.
+- The final pipeline must run stably in a CPU-only environment, and the exported offline replay results must be consistent with the formal evaluation definitions.
+- The model bundle must retain the core weights, key metadata, and necessary configuration for formal inference and future continued training.
+- Snapshots for restoring training state must include only the key state required for resuming; do not stuff extra array objects unrelated to continued training directly into the snapshot payload.
 
-你的任务
+Your tasks
 
-1、在 `/root/environment/project/` 下生成正式训练与导出链路，使以下入口能够成功生成最终交付物：
+1. Under `/root/environment/project/`, generate the formal training and export pipeline so the following entrypoint can successfully produce the final deliverables:
 
 ```bash
 python /root/environment/project/run_pipeline.py --output /root/answer
 ```
 
-2、生成的链路必须覆盖序列读取、按合同拆分开发集、训练、验证、holdout 评估、预测导出和模型包导出，且继续以仓库中的现有目录作为唯一事实来源。
+2. The generated pipeline must cover sequence loading, contract-driven dev split, training, validation, holdout evaluation, prediction export, and model bundle export, and must continue to use the existing directories in the repository as the only system-of-record sources.
 
-3、最终结果必须同时提供样本级预测、整体指标、逐类表现、逐 epoch 训练记录和可复现的模型包清单。
+3. The final results must include sample-level predictions, overall metrics, per-class performance, per-epoch training history, and a reproducible model bundle manifest.
 
-输出格式：
+Output formats:
 
 - `/root/answer/holdout_predictions.csv`
-  - 必须覆盖全部 holdout 序列样本
-  - 必须包含列：`sequence_id`, `source_file`, `anchor_timestamp`, `sequence_length`, `phase_id`, `phase_label`, `predicted_phase_id`, `predicted_phase_label`, `confidence`
+  - Must cover all holdout sequence samples
+  - Must include columns: `sequence_id`, `source_file`, `anchor_timestamp`, `sequence_length`, `phase_id`, `phase_label`, `predicted_phase_id`, `predicted_phase_label`, `confidence`
 
 - `/root/answer/holdout_metrics.json`
-  - 顶层必须包含键：`dataset`, `split`, `training`, `holdout`, `per_class`, `notes`
-  - `holdout` 中必须包含：`accuracy`, `macro_f1`, `weighted_f1`
-  - `training` 中必须明确给出导出所对应的 `best_epoch` 和 `selected_val_macro_f1`
-  - `split` 中必须明确说明训练、验证和 holdout 的样本数量、来源分区和验证合同取值
-  - `split` 中至少要显式给出：`train_sequences`, `val_sequences`, `holdout_sequences`, `train_sources`, `val_sources`, `holdout_sources`, `validation_sources_from_contract`
+  - Top-level must include keys: `dataset`, `split`, `training`, `holdout`, `per_class`, `notes`
+  - `holdout` must include: `accuracy`, `macro_f1`, `weighted_f1`
+  - `training` must explicitly provide `best_epoch` and `selected_val_macro_f1` corresponding to the exported artifact
+  - `split` must explicitly describe the sample counts for train/validation/holdout, the source partitions, and the validation contract value used
+  - `split` must explicitly include at least: `train_sequences`, `val_sequences`, `holdout_sequences`, `train_sources`, `val_sources`, `holdout_sources`, `validation_sources_from_contract`
 
 - `/root/answer/confusion_matrix.csv`
-  - 必须按标准相位标签输出混淆矩阵
-  - 必须包含 `actual_phase_label` 列，并按预测标签列输出 `pred_STEADY_EMPTY`, `pred_RAMPING_UP`, `pred_RAMPING_DOWN`, `pred_STEADY_OCCUPIED`
-  - 行列标签必须与 `holdout_predictions.csv` 和 `holdout_metrics.json` 中的类别语义一致
+  - Must output the confusion matrix using the standard phase labels
+  - Must include an `actual_phase_label` column, and output prediction-label columns `pred_STEADY_EMPTY`, `pred_RAMPING_UP`, `pred_RAMPING_DOWN`, `pred_STEADY_OCCUPIED`
+  - Row/column label semantics must be consistent with the classes used in `holdout_predictions.csv` and `holdout_metrics.json`
 
 - `/root/answer/training_history.csv`
-  - 必须是逐 epoch 的训练记录
-  - 必须覆盖至少 10 个真实训练 epoch
-  - 至少包含列：`epoch`, `train_loss`, `val_loss`, `val_macro_f1`, `selected_for_export`
+  - Must be per-epoch training history
+  - Must cover at least 10 real training epochs
+  - Must include at least columns: `epoch`, `train_loss`, `val_loss`, `val_macro_f1`, `selected_for_export`
 
 - `/root/answer/model_bundle/manifest.json`
-  - 必须包含导出模型包中各核心文件的路径说明
-  - 必须覆盖正式权重文件、可恢复训练的快照、相位标签映射、预处理信息、运行配置、split 元数据和推理入口
-  - manifest 必须在相同输入下保持稳定，不要写入会随每次运行变化的时间戳或一次性字段
-  - 模型包中必须包含一个可直接运行的 `inference.py`、一份正式权重文件，以及一份能够恢复训练状态的快照，使导出物能够在不重新训练的前提下重放指定 split 的预测结果
-  - 用于正式推理的权重文件和用于恢复训练的快照都应保持可移植、可在 CPU 环境中直接重放；快照本体只放恢复训练真正需要的状态
-  - 用于恢复训练状态的快照顶层至少要显式包含：`epoch`, `model_state_dict`, `optimizer_state_dict`, `selected_val_macro_f1`
+  - Must include path descriptions for each core file in the exported model bundle
+  - Must cover the formal weights file, a snapshot that can restore training, the phase label mapping, preprocessing information, runtime configuration, split metadata, and the inference entrypoint
+  - The manifest must be stable under identical inputs; do not write timestamps or one-off fields that change on each run
+  - The model bundle must include a runnable `inference.py`, a formal weights file, and a snapshot that can restore training state, so the exported artifacts can replay predictions for the specified split without retraining
+  - The inference weights file and the training-resume snapshot must both be portable and directly replayable in a CPU environment; the snapshot payload must include only the state truly needed to restore training
+  - The top level of the training-resume snapshot must explicitly include at least: `epoch`, `model_state_dict`, `optimizer_state_dict`, `selected_val_macro_f1`
 
-说明：
+Notes:
 
-- 可以修改或新增 `/root/environment/project/` 下的代码、配置和辅助脚本，但不要修改 `/root/environment/data/` 下的输入数据。
-- 可以使用环境中已安装的本地依赖，但不要引入需要外部账号、云权限或交互式登录的新服务。
-- 不要通过硬编码预测结果、硬编码指标、删除训练流程、跳过真实评估、伪造标签映射、只对固定样本生效，或把 holdout 数据提前用于拟合来规避问题。
-- 不要通过无视合同固定使用某个写死验证分区、把全部开发集直接并回拟合，或把 holdout 集参与参数更新来规避问题。
-- 不要修改隐藏下游服务、测试文件、环境基线或依赖配置。
-- 若编写临时文件，最终仍需由正式入口把正确交付物写入 `/root/answer/`。
+- You may modify or add code, configuration, and helper scripts under `/root/environment/project/`, but do not modify any input data under `/root/environment/data/`.
+- You may use locally installed dependencies in the environment, but do not introduce new services that require external accounts, cloud permissions, or interactive logins.
+- Do not evade the task by hard-coding predictions, hard-coding metrics, deleting the training workflow, skipping real evaluation, faking the label mapping, only working for fixed samples, or using holdout data early for fitting.
+- Do not evade the task by ignoring the contract and using a hard-coded validation partition, merging the entire dev set directly into fitting, or allowing the holdout set to participate in parameter updates.
+- Do not modify hidden downstream services, test files, environment baselines, or dependency configuration.
+- If you write temporary files, the official entrypoint must still write the correct deliverables into `/root/answer/`.

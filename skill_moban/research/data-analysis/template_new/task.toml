@@ -1,0 +1,33 @@
+version = "1.0"
+
+[metadata]
+id = "data-analysis__promo-roi-stockout-audit"
+name = "Promotion ROI Stockout Audit"
+description = "Repair a retail promotion analytics pipeline so that local business dates, event deduplication, stockout exposure, external confounders, and enrichment summaries produce consistent ROI deliverables."
+difficulty = "hard"
+category = "data-analysis"
+tags = [
+  "data-analysis",
+  "retail-analytics",
+  "pandas",
+  "business-intelligence",
+  "causal-diagnostics",
+  "kpi-audit",
+]
+required_skills = ["data-analyst"]
+primary_output_file = "/root/answer/promo_summary.json"
+source_template_id = "data-analysis__promo-roi-stockout-audit"
+task_role = "similar"
+
+[verifier]
+timeout_sec = 1200.0
+
+[agent]
+timeout_sec = 1100.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0

@@ -1,0 +1,26 @@
+[
+  {
+    "customer_id": "ALFKI",
+    "company_name": "Alfreds Futterkiste",
+    "contact_name": "Maria Anders",
+    "country": "Germany"
+  },
+  {
+    "customer_id": "ANATR",
+    "company_name": "Ana Trujillo Emparedados y helados",
+    "contact_name": "Ana Trujillo",
+    "country": "Mexico"
+  },
+  {
+    "customer_id": "BERGS",
+    "company_name": "Berglunds snabbkop",
+    "contact_name": "Christina Berglund",
+    "country": "Sweden"
+  },
+  {
+    "customer_id": "BLAUS",
+    "company_name": "Blauer See Delikatessen",
+    "contact_name": "Hanna Moos",
+    "country": "Germany"
+  }
+]

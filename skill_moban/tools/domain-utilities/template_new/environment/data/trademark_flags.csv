@@ -1,9 +1,0 @@
-domain,exact_mark_hits,similarity_hits,restricted_term_hits,confusion_flag,risk_summary
-calltitanhq.com,1,0,0,true,Contains the Titan token, which conflicts with incumbent field-service software naming.
-crewcompass.com,0,0,0,false,No material mark collision found in the frozen screening set.
-dispatchledger.com,0,0,0,false,No material mark collision found in the frozen screening set.
-dispatchpilot.com,0,0,0,false,No material mark collision found in the frozen screening set.
-fieldopsgrid.com,0,0,0,false,No material mark collision found in the frozen screening set.
-fixerflow.com,0,1,1,false,Includes fixer language and overlaps with consumer marketplace phrasing clusters.
-routeforge.com,0,1,0,false,Forge-root naming appears in adjacent workflow software filings and requires caution.
-servicetrail.com,0,1,0,false,Trail-root service naming appears in adjacent field-ops filings and requires caution.

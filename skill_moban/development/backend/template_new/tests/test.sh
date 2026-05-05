@@ -5,12 +5,9 @@ TESTS_ROOT="${TESTS_ROOT:-/tests}"
 VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
 
 mkdir -p "$VERIFIER_LOG_ROOT"
-mkdir -p /tmp/shipping-api
-pkill -f "/app/workspace/gateway/app.py" >/dev/null 2>&1 || true
-pkill -f "/app/workspace/services/rate_service.py" >/dev/null 2>&1 || true
-pkill -f "/app/workspace/services/booking_service.py" >/dev/null 2>&1 || true
-
-nohup /app/workspace/run.sh > /tmp/shipping-api/gateway-run.log 2>&1 &
+if command -v restart-partner-order-api >/dev/null 2>&1; then
+  restart-partner-order-api
+fi
 
 set +e
 python3 <<'PY' 2>&1 | tee "$VERIFIER_LOG_ROOT/test-output.txt"
@@ -26,58 +23,39 @@ from pathlib import Path
 tests_root = Path(os.environ.get("TESTS_ROOT", "/tests"))
 log_root = Path(os.environ.get("VERIFIER_LOG_ROOT", "/logs/verifier"))
 sys.path.insert(0, str(tests_root))
-
-from verifier_utils import wait_for_gateway
-
 results = []
 
-try:
-    wait_for_gateway()
-except Exception as exc:
-    for log_name in ["gateway-run.log", "rate-service.log", "booking-service.log"]:
-        log_path = Path("/tmp/shipping-api") / log_name
-        if log_path.exists():
-            print(f"===== {log_path} =====")
-            print(log_path.read_text(encoding="utf-8", errors="replace")[-4000:])
-    results.append({"nodeid": "startup::wait_for_gateway", "outcome": "failed", "message": str(exc), "traceback": traceback.format_exc()})
-else:
-    for filename in ["test_outputs.py", "test_guardrails.py"]:
-        path = tests_root / filename
-        spec = importlib.util.spec_from_file_location(path.stem, path)
-        module = importlib.util.module_from_spec(spec)
-        assert spec.loader is not None
-        spec.loader.exec_module(module)
-        for name in sorted(dir(module)):
-            if not name.startswith("test_"):
-                continue
-            fn = getattr(module, name)
-            if not callable(fn):
-                continue
-            nodeid = f"{filename}::{name}"
-            try:
-                fn()
-                results.append({"nodeid": nodeid, "outcome": "passed"})
-                print(f"PASS {nodeid}")
-            except Exception as exc:
-                results.append({
-                    "nodeid": nodeid,
-                    "outcome": "failed",
-                    "message": str(exc),
-                    "traceback": traceback.format_exc(),
-                })
-                print(f"FAIL {nodeid}: {exc}")
-                traceback.print_exc()
+for filename in ["test_outputs.py", "test_guardrails.py"]:
+    path = tests_root / filename
+    spec = importlib.util.spec_from_file_location(path.stem, path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+    for name in sorted(dir(module)):
+        if not name.startswith("test_"):
+            continue
+        fn = getattr(module, name)
+        if not callable(fn):
+            continue
+        nodeid = f"{filename}::{name}"
+        try:
+            fn()
+            results.append({"nodeid": nodeid, "outcome": "passed"})
+            print(f"PASS {nodeid}")
+        except Exception as exc:
+            results.append({
+                "nodeid": nodeid,
+                "outcome": "failed",
+                "message": str(exc),
+                "traceback": traceback.format_exc(),
+            })
+            print(f"FAIL {nodeid}: {exc}")
+            traceback.print_exc()
 
-report = {
-    "tests": results,
-    "summary": {
-        "passed": sum(item["outcome"] == "passed" for item in results),
-        "total": len(results),
-    },
-}
+report = {"tests": results, "summary": {"passed": sum(r["outcome"] == "passed" for r in results), "total": len(results)}}
 (log_root / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
 (log_root / "ctrf.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
-raise SystemExit(0 if results and all(item["outcome"] == "passed" for item in results) else 1)
+raise SystemExit(0 if all(r["outcome"] == "passed" for r in results) else 1)
 PY
 TEST_EXIT=${PIPESTATUS[0]}
 set -e

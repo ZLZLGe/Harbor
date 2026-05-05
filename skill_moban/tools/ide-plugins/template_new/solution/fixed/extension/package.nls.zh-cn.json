@@ -1,0 +1,21 @@
+{
+  "extension.displayName": "更新简报浏览器",
+  "extension.description": "浏览指定的 VS Code 更新并导出多语言简报。",
+  "command.category": "更新简报",
+  "command.export.title": "导出多语言简报",
+  "command.open.title": "打开所选版本说明",
+  "view.container.title": "更新简报",
+  "view.releases.title": "VS Code 更新",
+  "view.welcome": "打开更新列表，在检查所选版本后运行 [导出多语言简报](command:releaseBriefing.exportBriefings)。",
+  "config.title": "更新简报",
+  "config.defaultLocale.description": "扩展打开版本说明时使用的默认语言。",
+  "config.outputFolder.description": "导出文件写入到工作区根目录下的文件夹名称。",
+  "walkthrough.title": "交付多语言简报",
+  "walkthrough.description": "浏览准备好的更新快照，并导出所需的 Markdown 简报文件。",
+  "walkthrough.step.browse.title": "查看准备好的更新列表",
+  "walkthrough.step.browse.description": "使用已有的 Activity Bar 视图检查题目提供的 VS Code 更新快照。",
+  "walkthrough.step.browse.markdown": "./resources/walkthrough/zh-cn/browse.md",
+  "walkthrough.step.export.title": "导出所需简报",
+  "walkthrough.step.export.description": "生成所需的 Markdown 文件，并完成扩展打包。",
+  "walkthrough.step.export.markdown": "./resources/walkthrough/zh-cn/export.md"
+}

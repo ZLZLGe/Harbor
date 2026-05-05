@@ -1,8 +1,0 @@
-2026-04-18T15:51:02Z checkout course=BIO-201 lesson=cell-transport-module-03 build=lms-build-7781
-2026-04-18T15:51:09Z validate-assets PASS video=module03_transport.mp4 transcript=module03_transport.vtt captions=module03_transport.en.vtt quiz=module03_quiz.json
-2026-04-18T15:51:16Z validate-json PASS metadata/lms_snapshot.json
-2026-04-18T15:51:24Z validate-links PASS 118 links checked
-2026-04-18T15:51:38Z publish-preview PASS preview_url=/courses/BIO-201/modules/3
-2026-04-18T15:51:40Z warning contract-crosscheck SKIPPED reason=manual review flag not enabled
-2026-04-18T15:51:43Z warning caption-transcript-diff SKIPPED reason=artifact parity job disabled for emergency release
-2026-04-18T15:51:49Z deploy PASS build=lms-build-7781

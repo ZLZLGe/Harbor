@@ -1,38 +1,45 @@
 from __future__ import annotations
 
 import hashlib
-import json
 import os
 from pathlib import Path
 
-from conftest import load_output_json
+
+OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "/root/output"))
+DATA_DIR = Path(os.environ.get("DATA_DIR", "/root/workspace/data"))
+SOURCE_HASH_PATH = Path(os.environ.get("SOURCE_HASH_PATH", "/opt/domain-source-bundle.sha256"))
+SKILL_HASH_PATH = Path(os.environ.get("SKILL_HASH_PATH", "/opt/domain-skill.sha256"))
+SKILL_DIR = Path(os.environ.get("SKILL_DIR", "/root/.codex/skills/domain-name-brainstormer"))
 
 
-def _sha256(path: Path) -> str:
+def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def test_a_protected_inputs_and_skill_files_are_unchanged() -> None:
-    manifest_path = Path(os.environ.get("PROTECTED_HASHES_PATH", "/opt/domain-task/protected_hashes.json"))
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    for path_str, expected_hash in manifest.items():
-        path = Path(path_str)
-        assert path.exists(), path
-        assert _sha256(path) == expected_hash, path
+def recorded_hashes(path: Path) -> dict[str, str]:
+    hashes: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        raw_hash, raw_path = line.split("  ", 1)
+        hashes[Path(raw_path).name] = raw_hash
+    return hashes
 
 
-def test_b_no_placeholder_or_partial_rank_output() -> None:
-    payload = load_output_json()
-    assert len(payload["buy_now_ranked"]) == 3
-    assert payload["top_pick"] == payload["buy_now_ranked"][0]
-    statuses = {row["status"] for row in payload["evaluations"]}
-    assert statuses == {"buy_now", "monitor", "reject"}
+def test_input_bundle_hashes_unchanged() -> None:
+    expected = recorded_hashes(SOURCE_HASH_PATH)
+    for file_path in DATA_DIR.iterdir():
+        if file_path.is_file():
+            assert digest(file_path) == expected[file_path.name], f"input file changed: {file_path.name}"
 
 
-def test_c_rejected_domains_stay_rejected_for_real_policy_reasons() -> None:
-    payload = load_output_json()
-    index = {row["domain"]: row for row in payload["evaluations"]}
-    assert index["calltitanhq.com"]["status"] == "reject"
-    assert "TRADEMARK_COLLISION" in index["calltitanhq.com"]["reason_codes"]
-    assert index["fieldopsgrid.com"]["status"] == "reject"
-    assert "ARCHIVE_MISMATCH" in index["fieldopsgrid.com"]["reason_codes"]
+def test_skill_hashes_unchanged_when_skill_is_present() -> None:
+    if not SKILL_DIR.exists():
+        return
+    expected = recorded_hashes(SKILL_HASH_PATH)
+    for file_path in SKILL_DIR.rglob("*"):
+        if file_path.is_file():
+            assert digest(file_path) == expected[file_path.name], f"skill file changed: {file_path.name}"
+
+
+def test_only_required_output_files_exist() -> None:
+    files = sorted(path.name for path in OUTPUT_DIR.iterdir() if path.is_file())
+    assert files == ["availability_audit.csv", "domain_shortlist.json"]

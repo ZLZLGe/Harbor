@@ -1,45 +1,68 @@
-# CI Flake Triage Template
+# CI/CD Template
 
-这是面向 CI/CD 类 skill 的模板。它按 SkillsMP CI/CD 分类页的 stars 排序优先参考高热度 skill，抽象它们在 CI 日志诊断、测试优化、流水线验证、部署检查和可审计输出上的共性能力。
+这是面向 `cicd` 类 skill 的模板。它综合参考 SkillsMP CI/CD 类热门 skill 的共性能力：多阶段流水线设计、GitHub Actions 复用校验、镜像构建发布、环境门禁、发布切换和交付摘要归档。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：高星 CI/CD skill 的共同价值不是“替 agent 写答案”，而是把 CI 日志、平台状态、测试命令、部署健康信号组织成可复现的诊断流程。它们强调先取证、再复现、再分类，避免只凭错误文本猜测。
-* **Task 目标形态**：模板任务应提供真实风格的 CI 产物、仓库脚本和运行链路，让 solver 产出结构化报告、复现记录和标准 diff。任务重点应靠流程判断、行为验证和证据完整性拉开 skill 差距，而不是靠隐藏答案或单纯 app 修复。
-* **Verifier 设计重点**：Verifier 应同时检查最终产物和命令轨迹，确认 solver 是否运行了目标 suite、是否精确复现失败、是否比较了环境差异、是否保留业务断言。防作弊测试要拦住跳过复现、全量粗暴测试、修改输入日志、禁用测试或用长 timeout 掩盖问题的解法。
+* **Skill 价值定位**：CI/CD 类 skill 的核心价值，是把分散在 workflow、镜像发布、环境切分、复用校验和发布推进中的高成本决策标准化，帮助 Agent 更快收敛到可交付的自动化方案。模板任务应让 skill 主要作用在 job 编排、依赖关系、环境门禁、可复用校验入口、制品提升和 rollout 策略这些环节。
+* **Task 目标形态**：任务应要求 Agent 基于现有仓库、合同数据和现有脚本入口，补齐一条可运行的发布自动化链路，并产出结构化交付摘要。目标更适合做“交付链搭建”和“发布方案落地”类任务，让 solver 同时处理 workflow 编排、共享校验、镜像发布、不可变制品推进、环境拆分和 rollout 设计。
+* **Verifier 设计重点**：Verifier 应优先验证自动化链路是否按合同落地，并通过既有入口产生产物，而不是只检查 YAML 外形。重点应覆盖触发条件、复用校验、制品构建、不可变制品在环境阶段的延续、环境约束、发布策略、输入不可变以及 entrypoint 对仓库当前状态的响应能力。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`playwright-prod-bundle-flake-triage`
-- 类别：CI/CD
+- 任务 ID：`cicd__saturn-checkout-release-automation`
+- 类别：`cicd`
 - 难度：`hard`
-- 绑定 Skill：`triage-ci-flake`
+- 绑定 Skill：`github-actions-templates`
+- 输入数据参考来源：
+  - `environment/data/reference/github_actions_node_ci.md`：Node.js 校验 workflow 形态参考  
+    【https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml】
+  - `environment/data/reference/github_actions_workflow_syntax.md`：workflow 触发、依赖、权限和复用语法参考  
+    【https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions】
+  - `environment/data/reference/github_actions_environments.md`：环境门禁与交付环境口径参考  
+    【https://docs.github.com/actions/reference/workflows-and-actions/deployments-and-environments】
+  - `environment/data/reference/github_actions_docker_publish.md`：镜像发布步骤形态参考  
+    【https://docs.github.com/actions/guides/publishing-docker-images】
+  - `environment/data/reference/argo_rollouts_canary.md`：生产流量切换步骤形态参考  
+    【https://argo-rollouts.readthedocs.io/en/stable/features/canary/】
+  - `environment/data/reference/kubernetes_rolling_update.md`：集群发布与探针校验参考  
+    【https://kubernetes.io/docs/tasks/run-application/update-deployment-rolling/】
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：官方解法先抽取 CI 失败信息，再用 `pnpm dev checkout` 和 `pnpm dev:prod checkout` 对同一个 Playwright 标题做 targeted reproduction，最后输出 JSON 报告、复现 notes 和统一 diff。
-- Verifier 策略：
+- Oracle：Oracle 写入两份 GitHub Actions workflow 和一份生产 rollout 配置，再沿用仓库内 `npm`、部署脚本和 `make release-bundle` 入口生成 `artifacts/release_bundle.json`。
+- Verifier策略：
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+主测试
+| 测试点 | 验证内容 | 对应skill内化点 |
+| :--- | :--- | :--- |
+| 输出契约 | `artifacts/release_bundle.json` 存在、字段完整且与仓库配置一致 | 自动化交付完成后产出结构化摘要 |
+| 校验链入口 | `npm ci`、lint、unit、security、smoke、e2e 和 bundle 入口全部可跑 | 校验链路与交付链路连通 |
+| workflow 编排 | 触发条件、复用校验、publish、staging、production、summary 依赖关系成立 | 多阶段 job 组织与复用 workflow |
+| 发布与环境 | 镜像发布 action、不可变制品推进、环境名、串行化约束和交付入口满足合同 | 发布 job、环境拆分、权限、制品提升与串行化 |
+| rollout 策略 | 流量切换步骤、暂停窗口和分析模板满足合同 | 灰度发布与发布后校验 |
+
+防作弊测试
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| 检查 `flake_report.json`、`reproduction_notes.md` 和 `recommended_fix.diff` 的内容 | 从 CI 日志抽取 suite、test file、test title、error，并写出可审计结论 |
-| 检查 `.trace/commands.jsonl` 中 dev/prod targeted reproduction 顺序 | 先运行复现流程，再分类问题 |
-| 禁止 full suite、skip/fixme、超长 timeout 和修改输入 CI 文件 | 保留真实链路与业务断言，不用规避方式通过 |
-| 验证 dev pass、prod fail 后分类为 `prod_bundle_regression` | 区分本地 dev 与生产 bundle 环境差异 |
+| 输入完整性 | `/app/data/` 下合同与参考文件哈希不得变化 |
+| 入口重跑 | 删除结果后重新执行 `make release-bundle`，语义结果应保持一致 |
+| 变更感知 | 临时改坏 rollout 权重后，entrypoint 应拒绝生成 bundle |
+| 旁路防护 | 仅手写答案文件、跳过不可变制品提升或只留表面摘要，无法通过独立重算与 mutation 校验 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是强制 agent 在分析前执行 CI flake 复现路径，包括清理端口、启动目标 suite、运行精确 Playwright 标题、再切到 production-bundled 链路。没有 skill 的 agent 倾向于从日志和 `package.json` 推断，或走 `npm run` 等错误入口，导致 verifier 的行为轨迹失败。
+结论：强相关。这个任务里，Skill 的核心价值是把 GitHub Actions 的校验、发布、环境拆分、复用工作流和制品推进标准化，从而降低试错成本；without Skill 更容易停在 workflow 只完成一半、或 rollout、制品提升和阶段归档没有闭环的动作失败上。
 
-基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3** 次有效对比实验（均为 task-level、存在完整 agent 轨迹；已排除启动失败类 trial，并按当前最终版 verifier 规则复核）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` | `100%` | Without Skill 三次都未完整执行 `lsof`/`pnpm dev`/`pnpm dev:prod` 复现链路；With Skill 三次都通过全部 verifier。 |
-| Agent 执行耗时 | `197.5s` | `213.6s` | With Skill 完整跑完 dev/prod 复现和产物校验；Without Skill 较快结束但留下行为轨迹失败。 |
-| Tokens | `341K` | `448K` | With Skill 使用更多上下文完成证据链和报告；Without Skill token 较少但没有满足复现流程。 |
+| 通过率 | `0/3 (0%)` | `3/3 (100%)` | 近 3 次有效对照里，without Skill 主要卡在分支引用标签链缺失，或 staging / production 串行化约束未补齐，因此当前 verifier 仍保留失败项 |
+| Agent 执行耗时 | `304.7s` | `310.6s` | 这 6 次样本里，with Skill 平均耗时高 `1.9%`；原因是它更稳定地把发布链路补完整，without Skill 更常在未闭环状态提前结束 |
+| Tokens | `373,848` | `443,496` | with Skill 的上下文投入更高，但换来了稳定通过；without Skill 平均 tokens 约为 With Skill 的 `0.84x`，同时通过率仍为 `0%` |
 
 ## 📁 标准目录结构说明
 
@@ -48,12 +71,15 @@ template_new/
 ├── instruction.md
 ├── task.toml
 ├── PLAN.json
+├── README.md
 ├── environment/
 │   ├── Dockerfile
-│   ├── bin/
-│   ├── ci-logs/
-│   ├── repo/
+│   ├── data/
+│   ├── workspace/
 │   └── skills/
 ├── tests/
+│   ├── test.sh
+│   └── test_outputs.py
 └── solution/
+    └── solve.sh
 ```

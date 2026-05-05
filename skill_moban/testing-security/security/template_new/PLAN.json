@@ -1,0 +1,83 @@
+{
+  "task_id": "security__orderhub-api-security-review",
+  "category": "security",
+  "design_status": "experiment_pending",
+  "selected_skill": "api-security-testing",
+  "selected_skill_stars": "36.1k",
+  "selection_rationale": [
+    "The selected skill maps directly to REST API review work: endpoint discovery, authentication checks, authorization checks, rate limiting, input validation, and error handling.",
+    "It does not depend on private accounts, external cloud permissions, browser session state, or destructive actions against third-party systems.",
+    "A live local API review with evidence-backed findings creates a clear action gap between with_skill and without_skill while keeping the task deterministic."
+  ],
+  "rejected_high_star_skills": [
+    {
+      "skill": "security-review",
+      "stars": "172.2k",
+      "reason": "Broad secure-coding coverage is helpful, but this task needs a narrower API review workflow to create observable action-level differences during the audit."
+    },
+    {
+      "skill": "1password",
+      "stars": "367.6k",
+      "reason": "Depends on external account state, sign-in flow, and secret handling patterns that add privacy and permission risk."
+    },
+    {
+      "skill": "setup-browser-cookies",
+      "stars": "88.2k",
+      "reason": "Relies on imported session state and credential-bound browser context."
+    },
+    {
+      "skill": "aws-penetration-testing",
+      "stars": "36.1k",
+      "reason": "Pushes the task toward dual-use cloud exploitation rather than bounded local API review."
+    }
+  ],
+  "task_shape": {
+    "service_type": "multi-tenant order management API",
+    "domain": "local security review engagement",
+    "runtime": "single-container hidden service with local snapshots and a report-only solver workflow",
+    "solver_action": "audit the running API and deliver findings, reproduction notes, and evidence"
+  },
+  "planned_verifier_focus": [
+    "The solver must use the live API rather than static file inspection alone.",
+    "The solver must exercise all provided identities and confirm cross-tenant order access, broad export scope, ineffective rate limiting, and error disclosure.",
+    "The output contract must include a structured findings file, a readable reproduction document, and evidence files for each reported issue.",
+    "Guardrails must detect changes to task data, hidden service files, and installed skill files."
+  ],
+  "real_data_sources": [
+    {
+      "planned_file": "environment/data/seed/customers.json",
+      "reference_type": "sample customer records",
+      "reference": "Northwind sample database",
+      "link": "https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs"
+    },
+    {
+      "planned_file": "environment/data/seed/orders.json",
+      "reference_type": "sample order records",
+      "reference": "Northwind sample database",
+      "link": "https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs"
+    },
+    {
+      "planned_file": "environment/data/seed/order_details.csv",
+      "reference_type": "sample order line items",
+      "reference": "Northwind sample database",
+      "link": "https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs"
+    },
+    {
+      "planned_file": "environment/data/contracts/orderhub-public-openapi.yaml",
+      "reference_type": "API contract shape",
+      "reference": "OpenAPI Specification 3.0.3",
+      "link": "https://spec.openapis.org/oas/v3.0.3"
+    }
+  ],
+  "with_without_difference_policy": "Only environment/skills/ and the corresponding runtime skill-copy logic may differ between with_skill and without_skill variants.",
+  "local_validation": {
+    "expected_without_skill_gap": "Misses at least one of the required live audit actions or fails to capture sufficiently grounded evidence, leaving one or more verifier checks failing.",
+    "oracle_result": "The solution oracle has already passed in E2B with mean reward 1.0 under the OrderHub audit design.",
+    "local_test_command": "Run solution/solve.sh and then tests/test.sh inside the task environment."
+  },
+  "iteration_notes": [
+    "Do not modify the selected skill or any files under environment/skills/api-security-testing.",
+    "Keep the task audit-oriented; do not convert it into a service repair task.",
+    "Final README metrics must be filled from completed E2B with_skill and without_skill runs only."
+  ]
+}

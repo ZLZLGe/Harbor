@@ -1,9 +1,0 @@
-{
-  "domain": "calltitanhq.com",
-  "rdap_status": "registered",
-  "listing_state": "fixed-price",
-  "asking_price_usd": 52000,
-  "landing_style": "operator-marketplace",
-  "nameserver_family": "ns-cloud-broker",
-  "mx_present": false
-}

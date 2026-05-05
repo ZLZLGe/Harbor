@@ -1,0 +1,17 @@
+[
+  {
+    "employee_id": "1",
+    "first_name": "Nancy",
+    "last_name": "Davolio"
+  },
+  {
+    "employee_id": "2",
+    "first_name": "Andrew",
+    "last_name": "Fuller"
+  },
+  {
+    "employee_id": "3",
+    "first_name": "Janet",
+    "last_name": "Leverling"
+  }
+]

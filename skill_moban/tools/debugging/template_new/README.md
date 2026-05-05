@@ -1,50 +1,62 @@
 # Debugging Template
 
-这是面向 `debugging` 类 skill 的模板。它综合参考 SkillsMP debugging / troubleshooting 类热门 skill 的共性能力：症状复现、浏览器探针、日志与网络追踪、性能量测、假设验证、根因定位、回归测试和防作弊 guardrails。
+这是面向 `debugging` 类 skill 的模板。它综合参考 SkillsMP debugging 类热门 skill 的共性能力：性能捕获分析、构建与运行时诊断、根因定位、证据归纳、差异对比和工程交接。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：debugging 类 skill 的核心价值，是把“猜测式修复”变成可复现、可量测、可验证的排障闭环。模板任务应让 skill 标准化症状复现、trace / console / network evidence、性能基线、根因假设和修复后回归验证，而不是直接泄露补丁或把任务退化为静态代码修改。
-* **Task目标形态**：任务应从真实线上症状出发，只提供表现层问题、业务约束和禁止事项，让 Agent 在高仿真运行环境中定位根因并修复。目标形态适合设计成浏览器运行时回归、长会话性能退化、异步状态漂移、资源加载异常、下游依赖不稳定或 CI / workflow 故障排查，不适合做已知根因的简单替换题。
-* **Verifier设计重点**：Verifier 应验证修复是否经过真实运行链路、是否解决原始症状、是否保持业务数据与关键测试钩子不变。重点应覆盖复现路径、量化阈值、跨设备 / profile 稳定性、真实下游调用、长时序 soak、资源按需加载、回归防护，以及防止删除组件、篡改隐藏服务、伪造数据或硬编码通过。
+* **Skill 价值定位**：debugging 类 skill 的核心价值，是把症状、日志、profile、trace 和运行时信号组织成一条可复查的调查链路。模板任务应让 skill 在证据收集、根因缩圈、差异判断和交接表达上体现价值，而不要把调查步骤直接泄露到题面里。
+* **Task 目标形态**：任务应要求 Agent 面对工程化输入，例如本地代码、运行产物、采样档案、trace、日志或构建失败上下文，输出结构化诊断结论与交接材料。目标形态适合设计成性能事故分析、构建失败定位、服务异常排查和证据整理，不适合做纯知识问答或不可复算的主观解释。
+* **Verifier 设计重点**：Verifier 应优先从输入重算关键事实，并验证 Agent 是否识别了真正决定性的故障信号、是否保持跨文件一致性、是否引用了正确证据，以及是否遵守了不可修改输入和不可绕开链路的约束。重点应覆盖输出 schema、关键指标容差、根因排序、证据引用、输入不可变和防占位答案，而不是只做固定文案比对。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`nextjs-analytics-dashboard-runtime-regression-debugging`
+- 任务 ID：`flight-dashboard-route-explorer-investigation`
 - 类别：`debugging`
 - 难度：`hard`
-- 绑定 Skill：`browser-testing`
+- 绑定 Skill：`cpu-profile-analysis`
+- 输入数据参考来源：
+  - `environment/data/flights.csv`：任务内航班与延误快照；设计形态参考 Vega Datasets 航班样本  
+    【https://raw.githubusercontent.com/vega/vega-datasets/master/data/flights-10k.json】
+  - `environment/data/airports.csv`：任务内机场元数据；设计形态参考 Vega Datasets 机场样本  
+    【https://raw.githubusercontent.com/vega/vega-datasets/master/data/airports.csv】
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 在真实 Next.js dashboard、隐藏 API simulator 和 Playwright 浏览器环境中复现三类线上回归：deeplink 冷启动不稳定、Advanced Insights 提前加载、长会话交互退化。它通过 DOM、CLS、网络请求、运行时 handler 数量和刷新耗时共同判断修复是否真正落到运行时行为上。
-- Verifier策略：
+- Oracle：Oracle 会从同一批 CPU profiles、DevTools trace 和本地源码上下文中独立重算参考路径时长、受影响路径时长、差异热点和证据标签，再生成结构化调查结论。它关注调查结果是否与捕获文件一致，而不是 solver 使用了哪一种脚本。
+- Verifier 策略：
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+主测试
+
+| 测试点 | 验证内容 | 对应 skill 内化点 |
+| :--- | :--- | :--- |
+| 输出文件与 schema | 检查必需文件、字段、章节顺序和目录清洁度 | 结构化调查交付 |
+| 时间线复算 | 从 profile 和 trace 重算 reference/affected duration 与 gap | 时间窗口与路径对比 |
+| 根因识别 | 检查 3 条 finding 是否指向受影响路径特有热点，而不是共享基础成本 | 差异化瓶颈定位 |
+| 证据一致性 | 检查 evidence_files、signals、Markdown 叙述和 JSON 内容是否一致 | 证据归纳与 handoff |
+
+防作弊测试
+
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| 校验 `/api/dashboard` 必须经过真实 simulator，响应耗时和 payload 符合冻结快照 | 真实下游链路验证、禁止伪造数据源 |
-| 检查 homepage、告警 drawer 和真实告警内容可渲染 | 浏览器复现、DOM 定位、业务关键路径确认 |
-| 在桌面与移动 profile 下验证 alert deeplink 稳定，过滤器不漂移，CLS `< 0.05` | deeplink 调试、视觉稳定性、跨 viewport 复现 |
-| 要求 linked alert context 只出现在 drawer scope 内且不产生明显位移 | 状态归属、布局量测、局部上下文修复 |
-| 验证 Advanced Insights 打开前不额外请求非关键 JS，点击后才加载 | network waterfall、lazy loading、资源回归分析 |
-| 重复过滤、sidebar 切换和 timeline refresh 后限制 handler 泄漏、pulse fan-out 和 refresh latency | soak testing、内存 /事件泄漏定位、交互性能量测 |
-| 校验隐藏 simulator、incident artifacts、`data-testid` 和目录结构未被篡改 | 防作弊 guardrails、真实故障现场保护 |
+| 输入 hash 校验 | 防止修改数据、capture、源码或 skill 规避难点 |
+| 占位与伪造证据校验 | 防止提交空泛结论、虚构文件名或与 capture 不匹配的信号 |
+| 额外输出文件校验 | 防止绕开指定交付合同 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把浏览器探针、deeplink 量测、network waterfall 和 soak 复现路径标准化，从而迫使 Agent 处理真实运行时回归；without Skill 更容易停在表面 UI 正常但 task-level 仍失败的解法。
+结论：强相关。这个任务里，Skill 的核心价值是把 `.cpuprofile`、trace 和路径对比组织成稳定调查流程，从而减少把共享基础成本误判成根因的风险。without skill 的常见风险会落在行动层，例如没有正确比较 reference 与 affected path、遗漏 rendering 侧证据、或提交的 signals 与 capture 内容不一致。
 
-基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3 次有效 with_skill trial 与 3 次有效 without_skill trial**：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 均未能同时修复 deeplink、按需加载和 soak 回归；With Skill 连续 task-level 全通过 |
-| Agent 执行耗时 | `1332.2s` | `1682.7s` | With Skill 耗时更高，但换来完整探针复现与稳定收敛；without Skill 更快结束却稳定停在错误解 |
-| Tokens | `0.69M` | `1.91M` | With Skill token 约为 without Skill 的 `2.78x`，主要用于浏览器探针、量测结果和回归验证上下文 |
+| 通过率 | `0/3 (0%)` | `3/3 (100%)` | without Skill 的失手点集中在受影响阶段切分、phase 命名和 sampled stack 对齐；with Skill 三次都完成了证据闭环。 |
+| Agent 执行耗时 | `303.7s` | `336.8s` | without Skill 往往更早结束，但会带着 verifier 缺口退出；with Skill 耗时略高，换来稳定通过。 |
+| Tokens | `339,095` | `372,286` | with Skill 会花更多 token 做 profile/trace 对照与交接整理，但输出质量更稳定。 |
 
-## 标准目录结构说明
+## 📁 标准目录结构说明
 
 ```text
 template_new/
@@ -54,17 +66,10 @@ template_new/
 ├── README.md
 ├── environment/
 │   ├── Dockerfile
-│   ├── website/
-│   ├── api-simulator/
+│   ├── app/
+│   ├── data/
+│   ├── artifacts/
 │   └── skills/
-│       └── browser-testing/
 ├── tests/
-│   ├── test.sh
-│   ├── test_guardrails.py
-│   ├── test_performance.py
-│   ├── verify_dashboard.py
-│   └── vendor/
 └── solution/
-    ├── fixed/
-    └── solve.sh
 ```

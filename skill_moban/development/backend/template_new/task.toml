@@ -1,34 +1,21 @@
 version = "1.0"
 
 [metadata]
-id = "backend__partner-shipping-api-contract"
-name = "Template: Partner Shipping API Contract"
-description = "Implement a partner-facing shipping API facade with authentication, pagination, idempotency, downstream resilience, and stable REST error contracts."
 difficulty = "hard"
 category = "backend"
-tags = [
-  "backend",
-  "api-design",
-  "rest",
-  "shipping",
-  "idempotency",
-  "pagination",
-  "rate-limiting",
-  "microservices",
-]
-required_skills = [
-  "api-design",
-]
-task_role = "template"
+tags = ["rest-api", "api-design", "nodejs", "express", "idempotency", "rate-limiting"]
+
+[agent]
+timeout_sec = 900.0
+
+[solution]
+timeout_sec = 900.0
 
 [verifier]
 timeout_sec = 900.0
 
-[agent]
-timeout_sec = 1000.0
-
 [environment]
-build_timeout_sec = 900.0
+build_timeout_sec = 1200.0
 cpus = 2
 memory_mb = 4096
 storage_mb = 10240

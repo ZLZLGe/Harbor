@@ -1,0 +1,14 @@
+checkpoint_timezone: UTC
+sources:
+  - alias: github-changelog-primary
+    url: http://127.0.0.1:8765/feeds/github-changelog.xml
+  - alias: github-changelog-team
+    url: http://127.0.0.1:8765/feeds/github-changelog-team.atom
+  - alias: github-blog
+    url: http://127.0.0.1:8765/feeds/github-blog.xml
+  - alias: python-blog
+    url: http://127.0.0.1:8765/feeds/python-blog.atom
+  - alias: node-blog
+    url: http://127.0.0.1:8765/feeds/node-blog.xml
+  - alias: docker-blog
+    url: http://127.0.0.1:8765/feeds/docker-blog.xml

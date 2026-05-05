@@ -1,9 +1,0 @@
-{
-  "domain": "fieldopsgrid.com",
-  "rdap_status": "registered",
-  "listing_state": "fixed-price",
-  "asking_price_usd": 31000,
-  "landing_style": "parked",
-  "nameserver_family": "ns-parked",
-  "mx_present": false
-}

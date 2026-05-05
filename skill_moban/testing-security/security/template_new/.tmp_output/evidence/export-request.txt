@@ -1,0 +1,3 @@
+POST /api/exports/orders
+identity=support_readonly
+body={"scope": "all_tenants", "include_line_items": true, "limit": 6}

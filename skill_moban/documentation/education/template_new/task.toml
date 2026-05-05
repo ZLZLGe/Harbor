@@ -1,41 +1,42 @@
 version = "1.0"
 
 [metadata]
-id = "education__course-incident-learning-capture"
-name = "Template: Course Incident Learning Capture"
-description = "Convert a realistic educational-content production incident into a reusable agent skill with evidence-backed procedures and generalizable quality checks."
+id = "education__global_education_cohort_notebook"
+name = "Template: Global Education Cohort Notebook"
+description = "Build a rerunnable teaching notebook from a bundled education indicator packet and regenerate aligned lesson outputs."
 difficulty = "hard"
 category = "education"
 tags = [
   "education",
-  "documentation",
-  "skill-authoring",
-  "curriculum-operations",
-  "course-quality",
-  "knowledge-capture",
-  "incident-learning",
+  "jupyter-notebook",
+  "data-analysis",
+  "teaching-materials",
+  "public-datasets",
+  "csv-cleaning",
+  "charting",
 ]
 required_skills = [
-  "update-skills",
+  "jupyter-notebook",
 ]
 distractor_skills = [
   "technical-writer",
-  "rules-distill",
-  "skill-writer",
+  "data-analyst",
+  "slide-designer",
 ]
-primary_output_file = "/outputs/lesson_skill/SKILL.md"
-source_template_id = "education__course-incident-learning-capture"
+primary_output_file = "/root/output/lesson_summary.json"
+source_template_id = "education__global_education_cohort_notebook"
 task_role = "template"
 
 [verifier]
-timeout_sec = 600.0
+timeout_sec = 900.0
 
 [agent]
 timeout_sec = 600.0
 
 [environment]
-build_timeout_sec = 600.0
-cpus = 1
-memory_mb = 2048
+build_timeout_sec = 900.0
+cpus = 2
+memory_mb = 4096
 storage_mb = 10240
+gpus = 0
 allow_internet = true

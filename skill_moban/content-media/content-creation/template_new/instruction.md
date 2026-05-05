@@ -1,26 +1,26 @@
-你在为一支面向工程师的内容团队准备一套围绕 AI agent 主题的多平台内容包。团队已经把主文章、补充材料、品牌样例和发布约束整理到工作区；他们要求所有成稿都基于现有材料完成，并满足各自渠道的发布用途。
+You are preparing a multi-platform content bundle around the AI agent theme for a content team targeting engineers. The team has organized the anchor article, supporting materials, brand/author samples, and publishing constraints in the workspace. They require that all drafts be produced strictly from the provided materials and be suitable for publishing in their respective channels.
 
-输入数据在 `/root/workspace/source_bundle/`：
+Input data is under `/root/workspace/source_bundle/`:
 
-- `source_index.json`：输入文件索引、来源编号、素材类型和建议用途。
-- `anchor_article.md`：本次内容包的主文章。
-- `supporting_context/`：产品介绍、补充文章、术语说明和可引用背景材料。
-- `voice_samples/`：既有品牌/作者样例文稿。
-- `campaign_constraints.json`：受众、渠道目标、字数范围、CTA 约束和禁写事项。
-- `style_red_flags.txt`：内容负责人明确拒收的表达方式。
+- `source_index.json`: an index of input files, source IDs, asset types, and recommended usage.
+- `anchor_article.md`: the anchor article for this content bundle.
+- `supporting_context/`: product overview, supporting articles, terminology notes, and allowable background material to cite.
+- `voice_samples/`: existing brand/author sample writing.
+- `campaign_constraints.json`: audience, channel goals, word-count ranges, CTA constraints, and prohibited content.
+- `style_red_flags.txt`: phrasing styles that the content owner explicitly rejects.
 
-容器内还提供了本地 review service，用于交叉核对素材清单、行号引用和发布约束。
+The container also provides a local review service for cross-checking the material inventory, line-number citations, and publishing constraints.
 
-你的任务
+Your tasks
 
-1. 阅读全部输入材料，整理出本轮内容发布的统一方向，并完成 3 份对外交付件。
-2. 基于现有材料完成一条 X thread、一篇 LinkedIn post 和一篇 newsletter draft，使其适合各自渠道阅读。
-3. 为每份交付件补齐来源登记，标明关键表述依托的输入材料。
-4. 列出发布前仍需内容团队确认、补充或审批的事项。
+1. Read all input materials, determine a unified direction for this release, and produce 3 external deliverables.
+2. Based on the provided materials, write an X thread, a LinkedIn post, and a newsletter draft that are suitable for their respective channels.
+3. For each deliverable, complete source registration by indicating which input materials support key statements.
+4. List items that still require confirmation, additional input, or approval from the content team before publishing.
 
-输出
+Output
 
-如 `/root/output/` 不存在，请先创建该目录。所有交付件都写入 `/root/output/`，且仅创建以下文件：
+If `/root/output/` does not exist, create it first. Write all deliverables into `/root/output/`, and create only the following files:
 
 - `campaign_summary.md`
 - `x_thread.md`
@@ -29,34 +29,34 @@
 - `source_map.json`
 - `publish_gaps.json`
 
-`campaign_summary.md` 要求：
+Requirements for `campaign_summary.md`:
 
-- 第一行写 1 句本轮 campaign summary。
-- 之后写 3 行渠道说明，分别对应 X、LinkedIn、newsletter。
-- 每行以 `- ` 开头，包含渠道名和该渠道的内容重点。
+- The first line must be a single-sentence campaign summary for this release.
+- Then write 3 channel lines corresponding to X, LinkedIn, and newsletter.
+- Each line must start with `- ` and include the channel name and that channel's content focus.
 
-`x_thread.md` 要求：
+Requirements for `x_thread.md`:
 
-- 使用英文写作。
-- 5 到 7 条，按 `1/`、`2/` 递增编号。
-- thread 首条直接进入观点、证据或张力。
+- Write in English.
+- 5 to 7 posts, numbered incrementally as `1/`, `2/`, ...
+- The first post must jump straight into the thesis, evidence, or tension.
 
-`linkedin_post.md` 要求：
+Requirements for `linkedin_post.md`:
 
-- 使用英文写作。
-- 180 到 320 词。
-- 最多 6 个自然段。
-- 允许 1 组简短列表，列表项不超过 3 条。
+- Write in English.
+- 180 to 320 words.
+- At most 6 natural paragraphs.
+- You may include 1 short list, with no more than 3 list items.
 
-`newsletter_draft.md` 要求：
+Requirements for `newsletter_draft.md`:
 
-- 使用英文写作。
-- 文件前两行必须分别以 `Subject:` 和 `Preview:` 开头。
-- 正文 350 到 550 词。
-- 正文至少包含 3 个 `##` 二级标题。
-- 首段直接进入主题。
+- Write in English.
+- The first two lines of the file must start with `Subject:` and `Preview:` respectively.
+- Body: 350 to 550 words.
+- The body must contain at least 3 `##` level-2 headings.
+- The first paragraph must go straight into the topic.
 
-`source_map.json` 必须满足以下结构：
+`source_map.json` must match the following structure:
 
 ```json
 {
@@ -73,13 +73,13 @@
 }
 ```
 
-要求：
+Requirements:
 
-- `deliverables` 必须覆盖 `x_thread.md`、`linkedin_post.md`、`newsletter_draft.md`。
-- 每个 deliverable 至少提供 2 条 `source_refs`。
-- `source_refs` 只能引用 `/root/workspace/source_bundle/` 内的文件。
+- `deliverables` must cover `x_thread.md`, `linkedin_post.md`, and `newsletter_draft.md`.
+- Each deliverable must include at least 2 `source_refs`.
+- `source_refs` may only reference files under `/root/workspace/source_bundle/`.
 
-`publish_gaps.json` 必须满足以下结构：
+`publish_gaps.json` must match the following structure:
 
 ```json
 {
@@ -93,10 +93,10 @@
 }
 ```
 
-说明
+Notes
 
-- 只可使用 `/root/workspace/source_bundle/` 内的材料写作和取证。
-- 不要补写输入中未出现的客户名称、数字、发布日期、功能能力、案例或引语。
-- 不要把同一段文案直接复制到多个渠道文件中。
-- 不要修改输入目录、测试、环境文件或任何 `skills` 目录内容。
-- 可以编写辅助脚本；最终只提交 `/root/output/` 下要求的文件。
+- You may only use materials under `/root/workspace/source_bundle/` for writing and evidence.
+- Do not add customer names, numbers, release dates, feature capabilities, case studies, or quotes that do not appear in the input.
+- Do not copy the same text passage directly into multiple channel files.
+- Do not modify the input directory, tests, environment files, or any `skills` directory content.
+- You may write helper scripts; in the end, submit only the required files under `/root/output/`.

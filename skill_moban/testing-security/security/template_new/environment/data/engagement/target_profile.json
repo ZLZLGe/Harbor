@@ -1,0 +1,42 @@
+{
+  "engagement_id": "orderhub-q2-api-review",
+  "target_name": "OrderHub",
+  "target_base_url": "http://127.0.0.1:8142",
+  "openapi_url": "http://127.0.0.1:8142/openapi.json",
+  "health_url": "http://127.0.0.1:8142/health",
+  "request_budget": {
+    "max_total_requests": 80,
+    "allowed_methods": [
+      "GET",
+      "POST"
+    ],
+    "forbidden_methods": [
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ]
+  },
+  "allowed_identities": [
+    {
+      "label": "tenant_alpha_analyst",
+      "header_name": "X-API-Key",
+      "header_value": "alpha-key",
+      "tenant": "alpha",
+      "role": "analyst"
+    },
+    {
+      "label": "tenant_beta_analyst",
+      "header_name": "X-API-Key",
+      "header_value": "beta-key",
+      "tenant": "beta",
+      "role": "analyst"
+    },
+    {
+      "label": "support_readonly",
+      "header_name": "X-API-Key",
+      "header_value": "support-key",
+      "tenant": "support",
+      "role": "support_readonly"
+    }
+  ]
+}

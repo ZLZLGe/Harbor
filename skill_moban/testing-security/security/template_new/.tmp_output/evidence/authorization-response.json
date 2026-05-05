@@ -1,0 +1,48 @@
+{
+  "order": {
+    "order_id": "10278",
+    "tenant_id": "beta",
+    "customer_id": "BERGS",
+    "employee_id": "3",
+    "ship_via": "2",
+    "order_date": "1996-08-12",
+    "ship_country": "Sweden",
+    "ship_city": "Lulea",
+    "status": "shipped",
+    "freight": "92.69",
+    "order_total": 1733.06
+  },
+  "customer": {
+    "customer_id": "BERGS",
+    "company_name": "Berglunds snabbkop",
+    "contact_name": "Christina Berglund",
+    "country": "Sweden"
+  },
+  "employee": {
+    "employee_id": "3",
+    "first_name": "Janet",
+    "last_name": "Leverling"
+  },
+  "shipper": {
+    "shipper_id": "2",
+    "company_name": "United Package"
+  },
+  "line_items": [
+    {
+      "product_id": "41",
+      "product_name": "Jack's New England Clam Chowder",
+      "quantity": 24,
+      "unit_price": 7.7,
+      "discount": 0.0,
+      "line_total": 184.8
+    },
+    {
+      "product_id": "51",
+      "product_name": "Manjimup Dried Apples",
+      "quantity": 20,
+      "unit_price": 42.4,
+      "discount": 0.05,
+      "line_total": 805.6
+    }
+  ]
+}

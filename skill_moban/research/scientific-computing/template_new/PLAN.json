@@ -1,0 +1,76 @@
+{
+  "task_id": "scientific-computing__lake-observatory-qc-attribution",
+  "task_name": "lake-observatory-qc-attribution",
+  "template_category": "scientific-computing",
+  "scenario": "repairing a lake-observatory scientific data analysis pipeline with SQLite observations, station metadata, event-window quality control, robust water-temperature trends, and driver attribution",
+  "user_visible_goal": "Recover consistent station trend, driver attribution, and run-summary deliverables from realistic multi-source lake monitoring data.",
+  "selected_skill": {
+    "name": "data-analyst",
+    "source": "Shubhamsaboo/awesome-llm-apps",
+    "skillsmp_category_url": "https://skillsmp.com/categories/scientific-computing",
+    "observed_stars": 107270,
+    "risk_screening": "No external account, cloud permission, credential, browser automation, malware, or sensitive privilege dependency. The skill is limited to SQL, pandas, and statistical analysis workflows."
+  },
+  "input_assets": [
+    "/root/data/observatory.db",
+    "/root/data/station_metadata.csv",
+    "/root/data/event_windows.csv",
+    "/root/data/expected_schema.json",
+    "/root/workspace/run_analysis.py"
+  ],
+  "required_outputs": [
+    "/root/output/station_trends.csv",
+    "/root/output/driver_attribution.csv",
+    "/root/output/analysis_workflow_audit.json",
+    "/root/output/run_summary.json"
+  ],
+  "shipped_skills": [
+    "data-analyst"
+  ],
+  "skill_hypothesis": {
+    "with_skill": "The solver is more likely to follow a complete data-analysis workflow: inspect schema, query SQLite, clean and join multi-source data with pandas, apply quality control, use robust time-series statistics, normalize attribution outputs, and summarize findings consistently.",
+    "without_skill": "The solver may repair visible schema/output failures but is more likely to miss subtle analysis-contract requirements such as Fahrenheit conversion, duplicate handling, event-window filtering, daily anomaly trends, contribution normalization, or summary cross-checks."
+  },
+  "verifier_strategy": {
+    "main_tests": [
+      "All required files exist, parse, and match the declared schema exactly.",
+      "Station trend rows match an independent oracle rebuilt from SQLite and CSV inputs after duplicate, QC, unit, event-window, and outlier handling.",
+      "Driver attribution rows cover Heat, Flow, Wind, and Human categories, normalize to 100%, and match an independent standardized linear model on daily temperature anomalies.",
+      "run_summary.json is internally consistent with output tables and the oracle's input-size, quality-control, trend, and attribution metrics."
+    ],
+    "guardrails": [
+      "The solver must query SQLite and preserve the real multi-source data chain.",
+      "The solution must not copy input data into the workspace, hardcode station answer tables, depend on external accounts, or leave the shipped naive warning in the report.",
+      "Repeated runs must produce byte-identical outputs."
+    ]
+  },
+  "data_provenance": {
+    "reference_source": "Deterministic synthetic lake-observatory data generated from realistic station, sensor, weather, hydrology, human-activity, and maintenance-event schemas.",
+    "service_source": "Single-container local scientific-data pipeline; no external service or account dependency."
+  },
+  "local_validation": {
+    "naive_pipeline": "Verifier fails as expected in local path-substitution simulation.",
+    "oracle_solution": "Verifier passes 7/7 in local path-substitution simulation."
+  },
+  "e2b_validation": {
+    "oracle_job": "lake-observatory-oracle-e2b-20260429-010944",
+    "oracle_reward": 1.0,
+    "with_skill_jobs": [
+      "lake-observatory-with_skill-e2b-16-20260429-011041",
+      "lake-observatory-with_skill-e2b-17-20260429-012439",
+      "lake-observatory-with_skill-e2b-18-20260429-013929"
+    ],
+    "without_skill_jobs": [
+      "lake-observatory-without_skill-e2b-16-20260429-011041",
+      "lake-observatory-without_skill-e2b-17-20260429-012439",
+      "lake-observatory-without_skill-e2b-18-20260429-013929"
+    ],
+    "with_skill_pass_rate": "3/3",
+    "without_skill_pass_rate": "0/3",
+    "with_skill_avg_agent_seconds": 596.1,
+    "without_skill_avg_agent_seconds": 644.0,
+    "with_skill_avg_tokens": 778559,
+    "without_skill_avg_tokens": 938957,
+    "notes": "without_skill failure is produced by the same verifier and only by removing environment/skills from the runtime copy."
+  }
+}

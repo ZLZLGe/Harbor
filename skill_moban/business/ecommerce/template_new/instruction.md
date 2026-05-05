@@ -63,7 +63,7 @@ The JSON file must include:
 
 `totals.exception_rows` must match the number of CSV rows. Include every allowed issue code in `issue_counts`, even when the count is `0`.
 
-说明：
+Notes:
 
 - The current in-container services are the source of truth for order, catalog, stock-reservation, and shipment state.
 - `order_snapshot.ndjson` is only a reference export. Do not treat it as the final source of truth.
@@ -71,5 +71,4 @@ The JSON file must include:
 - Do not replace the live service chain with mocks, cached answers, or alternative shortcuts.
 - Do not delete functionality, stop background services, or change service responses to make the task easier.
 - You may write helper scripts in the working directory, but the only required deliverables are the two files under `/root/output/`.
-
 

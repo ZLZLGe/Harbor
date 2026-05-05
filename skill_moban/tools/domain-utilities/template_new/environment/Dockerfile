@@ -1,62 +1,52 @@
-FROM python:3.12-slim
+FROM ubuntu:24.04
 
-ENV DEBIAN_FRONTEND=noninteractive
-ENV PYTHONUNBUFFERED=1
-ENV PIP_NO_CACHE_DIR=1
-ENV HOME=/home/appuser
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH="/root/.codex/skills/domain-name-brainstormer/bin:${PATH}" \
+    BASH_ENV=/etc/codex-command-hint.sh
+
+WORKDIR /root
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    ca-certificates \
     curl \
-    gosu \
+    nodejs \
+    npm \
+    python3 \
+    python3-pandas \
+    python3-pytest \
+    python-is-python3 \
     tini \
-    ripgrep \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m -s /bin/bash appuser
+RUN mkdir -p /root/workspace/data /root/output /root/.codex/skills
 
-WORKDIR /app
+COPY data /root/workspace/data
+COPY skills /root/.codex/skills
 
-COPY data /app/data
-COPY hidden-service-src /services/domain-audit
-COPY skills /app/.codex/skills
-COPY skills /home/appuser/.codex/skills
-COPY build-scripts/write_protected_hashes.py /opt/domain-task/write_protected_hashes.py
+RUN if [ -f /root/.codex/skills/domain-name-brainstormer/references/installed_procedure.md ]; then \
+      cp /root/.codex/skills/domain-name-brainstormer/references/installed_procedure.md /root/workspace/installed_procedure.md; \
+    fi
 
-RUN pip install \
-    pytest==8.3.3 \
-    pytest-json-ctrf==0.3.7 \
-    requests==2.32.3
+RUN if [ -x /root/.codex/skills/domain-name-brainstormer/bin/domain-snapshot-audit ]; then \
+      ln -sf /root/.codex/skills/domain-name-brainstormer/bin/domain-snapshot-audit /usr/local/bin/domain-snapshot-audit; \
+    fi \
+    && if [ -x /root/.codex/skills/domain-name-brainstormer/bin/domain-shortlist-procedure ]; then \
+      ln -sf /root/.codex/skills/domain-name-brainstormer/bin/domain-shortlist-procedure /usr/local/bin/domain-shortlist-procedure; \
+    fi
 
-RUN mkdir -p /app/output /logs/verifier /opt/domain-task \
-    && python3 /opt/domain-task/write_protected_hashes.py
+RUN printf '%s\n' \
+  'if [ -x /root/.codex/skills/domain-name-brainstormer/bin/domain-snapshot-audit ]; then' \
+  '  export DOMAIN_NAME_BRAINSTORMER_HOME=/root/.codex/skills/domain-name-brainstormer' \
+  '  export DOMAIN_NAME_BRAINSTORMER_AUDIT_CMD="domain-snapshot-audit --data-dir /root/workspace/data --output-dir /root/output"' \
+  '  echo "[domain-name-brainstormer] installed procedure found: use domain-snapshot-audit --data-dir /root/workspace/data --output-dir /root/output before deriving manual scores." >&2' \
+  '  echo "[domain-name-brainstormer] policy reference: /root/.codex/skills/domain-name-brainstormer/references/domain_selection_policy.json" >&2' \
+  'fi' > /etc/codex-command-hint.sh \
+  && cp /etc/codex-command-hint.sh /etc/profile.d/domain-name-brainstormer.sh
 
-RUN chown -R appuser:appuser /app /home/appuser /logs/verifier \
-    && chown -R root:root /services/domain-audit /opt/domain-task \
-    && chmod -R 755 /services/domain-audit \
-    && chmod -R 755 /opt/domain-task
-
-RUN printf '#!/bin/bash\n\
-set -euo pipefail\n\
-\n\
-mkdir -p \"$HOME/.codex/skills\" /app/.codex/skills\n\
-if ! curl -fsS http://127.0.0.1:8331/health >/dev/null 2>&1; then\n\
-  nohup python3 /services/domain-audit/server.py >/tmp/domain-audit.log 2>&1 &\n\
-  for i in $(seq 1 60); do\n\
-    if curl -fsS http://127.0.0.1:8331/health >/dev/null 2>&1; then\n\
-      break\n\
-    fi\n\
-    sleep 0.5\n\
-  done\n\
-fi\n\
-\n\
-curl -fsS http://127.0.0.1:8331/health >/dev/null 2>&1 || {\n\
-  echo \"domain-audit failed to start\" >&2\n\
-  [ -f /tmp/domain-audit.log ] && cat /tmp/domain-audit.log >&2 || true\n\
-  exit 1\n\
-}\n\
-\n\
-exec gosu appuser \"$@\"\n' > /usr/local/bin/domain-utilities-entrypoint \
-    && chmod 755 /usr/local/bin/domain-utilities-entrypoint
-
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/domain-utilities-entrypoint"]
-CMD ["/bin/bash"]
+RUN find /root/workspace/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/domain-source-bundle.sha256 \
+    && if [ -d /root/.codex/skills/domain-name-brainstormer ]; then \
+         find /root/.codex/skills/domain-name-brainstormer -type f -print0 | sort -z | xargs -0 sha256sum > /opt/domain-skill.sha256; \
+       fi

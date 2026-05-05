@@ -1,280 +1,158 @@
-#!/usr/bin/env python3
 from __future__ import annotations
 
-import csv
 import json
 import os
 from pathlib import Path
-from statistics import median
-import subprocess
-import sys
-import time
 
-import requests
+import pandas as pd
 
 
-DATA_ROOT = Path(os.environ.get("DATA_ROOT", "/app/data"))
-OUTPUT_PATH = Path(
-    os.environ.get("OUTPUT_PATH", os.environ.get("PRIMARY_OUTPUT_PATH", "/app/output/opportunity_report.json"))
-)
-SERVICE_URL = os.environ.get("DOMAIN_SNAPSHOT_URL", "http://127.0.0.1:8331")
-SERVER_PATH = Path(
-    os.environ.get("DOMAIN_SNAPSHOT_SERVER_PATH", "/services/domain-audit/server.py")
-)
+DATA_DIR = Path(os.environ.get("DATA_DIR", "/root/workspace/data"))
+OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "/root/output"))
+PREFERRED_STYLE_TAGS = {"workflow", "automation", "deployment", "observability", "infra"}
+WEIGHTS = {
+    "brandability": 0.33,
+    "pronounceability": 0.24,
+    "developer_fit": 0.31,
+    "style_match_per_hit": 0.12,
+}
+TLD_BONUS = {
+    "com": 0.58,
+    "ai": 0.52,
+    "tech": 0.40,
+    "xyz": 0.26,
+}
+LENGTH_BONUS_RULES = [
+    {"min": 8, "max": 10, "bonus": 0.16},
+    {"min": 11, "max": 12, "bonus": 0.08},
+    {"min": 13, "max": 14, "bonus": 0.00},
+]
 
 
-def load_csv(path: Path) -> list[dict[str, str]]:
-    with path.open("r", encoding="utf-8", newline="") as handle:
-        return list(csv.DictReader(handle))
+def load_policy() -> dict[str, object]:
+    return json.loads((DATA_DIR / "tld_policy.json").read_text(encoding="utf-8"))
 
 
-def load_archive_summary(domain: str) -> dict[str, str]:
-    text = (DATA_ROOT / "archive_summaries" / f"{domain}.md").read_text(encoding="utf-8")
-    result = {}
-    for line in text.splitlines():
-        if ": " in line:
-            key, value = line.split(": ", 1)
-            result[key.strip()] = value.strip()
-    return result
+def load_candidates() -> pd.DataFrame:
+    candidates = pd.read_csv(DATA_DIR / "candidate_pool.csv")
+    candidates["style_tags"] = candidates["style_tags"].map(lambda value: [part.strip() for part in str(value).split(";") if part.strip()])
+    candidates["length"] = candidates["base_name"].str.len()
+    return candidates
 
 
-def archive_bonus(band: str) -> int:
-    return {"strong": 12, "medium": 7, "weak": 2, "mismatch": -4}[band]
+def length_bonus(length: int, rules: list[dict[str, object]]) -> float:
+    for rule in rules:
+        if int(rule["min"]) <= length <= int(rule["max"]):
+            return float(rule["bonus"])
+    return 0.0
 
 
-def liquidity_bonus(state: str) -> int:
-    return {"fixed-price": 8, "make-offer": 6, "brokered": 4, "parked": 2}[state]
+def build_audit() -> pd.DataFrame:
+    policy = load_policy()
+    snapshot = pd.read_csv(DATA_DIR / "availability_snapshot.csv")
+    candidates = load_candidates()
+    tld_order = {value: idx for idx, value in enumerate(policy["allowed_tlds"])}
+
+    merged = snapshot.merge(candidates, on="base_name", how="left", validate="many_to_one")
+    merged["style_match_count"] = merged["style_tags"].map(lambda values: sum(1 for value in values if value in PREFERRED_STYLE_TAGS))
+    merged["length_bonus"] = merged["length"].map(lambda value: length_bonus(int(value), LENGTH_BONUS_RULES))
+    merged["tld_bonus"] = merged["tld"].map(lambda value: float(TLD_BONUS[value]))
+    merged["score"] = (
+        merged["brandability"] * float(WEIGHTS["brandability"])
+        + merged["pronounceability"] * float(WEIGHTS["pronounceability"])
+        + merged["developer_fit"] * float(WEIGHTS["developer_fit"])
+        + merged["style_match_count"] * float(WEIGHTS["style_match_per_hit"])
+        + merged["length_bonus"]
+        + merged["tld_bonus"]
+    )
+    merged["tld_rank"] = merged["tld"].map(tld_order)
+    return merged
 
 
-def landing_bonus(style: str) -> int:
-    return {
-        "operator-marketplace": 6,
-        "lead-gen": 5,
-        "brandable-inventory": 4,
-        "parked": 1,
-    }[style]
+def write_audit(audit: pd.DataFrame) -> None:
+    policy = load_policy()
+    tld_order = {value: idx for idx, value in enumerate(policy["allowed_tlds"])}
+    export = audit.copy()
+    export["tld_rank"] = export["tld"].map(tld_order)
+    export = export.sort_values(["base_name", "tld_rank", "domain"]).reset_index(drop=True)
+    export = export[
+        [
+            "base_name",
+            "tld",
+            "domain",
+            "availability",
+            "score",
+            "brandability",
+            "pronounceability",
+            "developer_fit",
+            "style_match_count",
+            "length_bonus",
+            "tld_bonus",
+        ]
+    ].copy()
+    numeric_columns = [
+        "score",
+        "brandability",
+        "pronounceability",
+        "developer_fit",
+        "length_bonus",
+        "tld_bonus",
+    ]
+    export[numeric_columns] = export[numeric_columns].astype(float).round(3)
+    export["style_match_count"] = export["style_match_count"].astype(int)
+    export.to_csv(OUTPUT_DIR / "availability_audit.csv", index=False)
 
 
-def liquidity_multiplier(state: str) -> float:
-    return {"fixed-price": 1.03, "make-offer": 1.00, "brokered": 0.96, "parked": 0.80}[state]
+def write_shortlist(audit: pd.DataFrame) -> None:
+    policy = load_policy()
+    candidates = load_candidates().set_index("base_name")
+    available = audit[audit["availability"] == "available"].copy()
+    available = available.sort_values(["base_name", "score", "tld_rank", "domain"], ascending=[True, False, True, True])
+    best_available = available.groupby("base_name", as_index=False).first()
+    best_available = best_available.sort_values(["score", "base_name"], ascending=[False, True]).reset_index(drop=True)
 
+    shortlist_size = int(policy["shortlist_size"])
+    runner_up_size = int(policy["runner_up_size"])
+    shortlist_rows = best_available.iloc[:shortlist_size]
+    runner_rows = best_available.iloc[shortlist_size:shortlist_size + runner_up_size]
 
-def archive_discount(band: str) -> float:
-    return {"strong": 1.00, "medium": 0.92, "weak": 0.80, "mismatch": 0.55}[band]
+    taken = audit[audit["availability"] == "taken"].copy()
+    taken = taken.sort_values(["score", "tld_rank", "domain"], ascending=[False, True, True]).reset_index(drop=True)
+    taken_domains = taken.iloc[: int(policy["taken_showcase_size"])]["domain"].tolist()
 
-
-def as_bool(value: str) -> bool:
-    return value.lower() == "true"
-
-
-def round2(value: float) -> float:
-    return round(float(value), 2)
-
-
-def reason_codes(
-    market_fit: float,
-    authority_score: float,
-    archive_band: str,
-    legal_risk: float,
-    asking_price: float,
-    price_ceiling: float | None,
-    type_in_score: int,
-    landing_style: str,
-) -> list[str]:
-    codes: list[str] = []
-    if market_fit >= 50:
-        codes.append("STRONG_MARKET_FIT")
-    if authority_score >= 30:
-        codes.append("HIGH_TRUST_SIGNALS")
-    if archive_band in {"strong", "medium"}:
-        codes.append("ARCHIVE_TOPIC_MATCH")
-    elif archive_band == "weak":
-        codes.append("WEAK_ARCHIVE_RELEVANCE")
-    else:
-        codes.append("ARCHIVE_MISMATCH")
-    if legal_risk >= 20:
-        codes.append("TRADEMARK_COLLISION")
-    elif legal_risk > 0:
-        codes.append("SIMILARITY_WARNING")
-    if price_ceiling is not None:
-        if asking_price <= price_ceiling:
-            codes.append("PRICE_WITHIN_CEILING")
-        else:
-            codes.append("ASKING_PRICE_ABOVE_CEILING")
-    if type_in_score >= 7:
-        codes.append("TYPE_IN_POTENTIAL")
-    if landing_style == "parked":
-        codes.append("PARKED_LANDING")
-    return codes
-
-
-def fetch_snapshots() -> dict[str, dict[str, object]]:
-    ensure_snapshot_service()
-    manifest = requests.get(f"{SERVICE_URL}/manifest", timeout=10).json()
-    result = {}
-    for domain in manifest["candidates"]:
-        result[domain] = requests.get(f"{SERVICE_URL}/snapshots/{domain}", timeout=10).json()
-    return result
-
-
-def ensure_snapshot_service() -> None:
-    try:
-        response = requests.get(f"{SERVICE_URL}/health", timeout=2)
-        if response.ok:
-            return
-    except requests.RequestException:
-        pass
-
-    if SERVER_PATH.exists():
-        subprocess.Popen(
-            [sys.executable, str(SERVER_PATH)],
-            stdout=open("/tmp/domain-snapshot-solution.log", "a", encoding="utf-8"),
-            stderr=subprocess.STDOUT,
-            start_new_session=True,
-        )
-
-    deadline = time.time() + 20
-    while time.time() < deadline:
-        try:
-            response = requests.get(f"{SERVICE_URL}/health", timeout=2)
-            if response.ok:
-                return
-        except requests.RequestException:
-            time.sleep(0.5)
-    raise RuntimeError("domain snapshot service did not become healthy")
-
-
-def main() -> None:
-    candidates = sorted(load_csv(DATA_ROOT / "candidate_domains.csv"), key=lambda row: row["domain"])
-    authority_index = {row["domain"]: row for row in load_csv(DATA_ROOT / "authority_metrics.csv")}
-    legal_index = {row["domain"]: row for row in load_csv(DATA_ROOT / "trademark_flags.csv")}
-    sales_index: dict[str, list[float]] = {}
-    for row in load_csv(DATA_ROOT / "sales_comps.csv"):
-        sales_index.setdefault(row["comp_family"], []).append(float(row["sale_price_usd"]))
-    snapshots = fetch_snapshots()
-
-    evaluations = []
-    for row in candidates:
-        authority = authority_index[row["domain"]]
-        legal = legal_index[row["domain"]]
-        snapshot = snapshots[row["domain"]]
-        archive = load_archive_summary(row["domain"])
-        archive_band = archive["Relevance band"]
-
-        market_fit = (
-            int(row["keyword_alignment"])
-            + int(row["tone_fit"])
-            + int(row["memorability"])
-            + int(row["brevity_bonus"])
-        )
-        authority_score = (
-            min(float(authority["referring_domains"]) / 5.0, 18.0)
-            + float(authority["trust_signal_score"])
-            + float(authority["continuity_bonus"])
-            + float(archive_bonus(archive_band))
-            - float(authority["link_risk_penalty"])
-        )
-        commercial = (
-            int(row["buyer_intent_score"])
-            + int(authority["type_in_score"])
-            + liquidity_bonus(str(snapshot["listing_state"]))
-            + landing_bonus(str(snapshot["landing_style"]))
-        )
-        legal_risk = (
-            int(legal["exact_mark_hits"]) * 16
-            + int(legal["similarity_hits"]) * 8
-            + int(legal["restricted_term_hits"]) * 5
-            + (6 if as_bool(legal["confusion_flag"]) else 0)
-        )
-        total_score = market_fit + authority_score + commercial - legal_risk
-
-        comp_median = median(sales_index[row["comp_family"]])
-        ceiling = (
-            comp_median
-            * (0.65 + market_fit / 180.0)
-            * (0.72 + authority_score / 220.0)
-            * liquidity_multiplier(str(snapshot["listing_state"]))
-            * max(0.50, 1.0 - legal_risk / 100.0)
-            * archive_discount(archive_band)
-        )
-
-        if (
-            legal_risk >= 20
-            or archive_band == "mismatch"
-            or str(snapshot["rdap_status"]) != "registered"
-            or total_score < 75
-        ):
-            status = "reject"
-            price_ceiling = None
-        elif (
-            total_score >= 100
-            and legal_risk <= 18
-            and float(snapshot["asking_price_usd"]) <= ceiling
-            and archive_band in {"strong", "medium"}
-        ):
-            status = "buy_now"
-            price_ceiling = round2(ceiling)
-        else:
-            status = "monitor"
-            price_ceiling = round2(ceiling)
-
-        evaluations.append(
+    shortlist: list[dict[str, object]] = []
+    for rank, row in enumerate(shortlist_rows.itertuples(index=False), start=1):
+        shortlist.append(
             {
-                "domain": row["domain"],
-                "status": status,
-                "market_fit_score": round2(market_fit),
-                "authority_score": round2(authority_score),
-                "commercial_intent_score": round2(commercial),
-                "legal_risk_score": round2(legal_risk),
-                "price_ceiling_usd": price_ceiling,
-                "total_score": round2(total_score),
-                "reason_codes": reason_codes(
-                    market_fit,
-                    authority_score,
-                    archive_band,
-                    legal_risk,
-                    float(snapshot["asking_price_usd"]),
-                    price_ceiling,
-                    int(authority["type_in_score"]),
-                    str(snapshot["landing_style"]),
-                ),
-                "evidence": [
-                    {
-                        "source": "candidate_domains.csv",
-                        "key": "keyword_alignment",
-                        "value": row["keyword_alignment"],
-                    },
-                    {
-                        "source": "authority_metrics.csv",
-                        "key": "referring_domains",
-                        "value": authority["referring_domains"],
-                    },
-                    {
-                        "source": "local_snapshot_api",
-                        "key": "listing_state",
-                        "value": str(snapshot["listing_state"]),
-                    },
-                    {
-                        "source": "trademark_flags.csv",
-                        "key": "risk_summary",
-                        "value": legal["risk_summary"],
-                    },
-                ],
+                "rank": rank,
+                "domain": row.domain,
+                "base_name": row.base_name,
+                "tld": row.tld,
+                "availability": "available",
+                "score": round(float(row.score), 3),
+                "length": int(len(row.base_name)),
+                "style_tags": candidates.loc[row.base_name, "style_tags"],
+                "why_it_fits": f"{row.base_name} keeps a compact developer-tool tone and pairs well with .{row.tld} for this launch brief.",
             }
         )
 
-    evaluations = sorted(evaluations, key=lambda row: row["domain"])
-    buy_now = sorted(
-        [row for row in evaluations if row["status"] == "buy_now"],
-        key=lambda row: (-float(row["total_score"]), row["domain"]),
-    )
-    report = {
-        "segment": "field-service-dispatch-intelligence",
-        "top_pick": buy_now[0]["domain"],
-        "buy_now_ranked": [row["domain"] for row in buy_now[:3]],
-        "evaluations": evaluations,
+    top_pick = shortlist[0]["domain"]
+    payload = {
+        "project_slug": policy["project_slug"],
+        "evaluated_tlds": list(policy["allowed_tlds"]),
+        "shortlist": shortlist,
+        "runner_ups": runner_rows["domain"].tolist(),
+        "rejected_taken_domains": taken_domains,
+        "top_pick_summary": f"{top_pick} leads the pack because it combines the strongest available score with a compact base name and clear developer-tool positioning.",
     }
-    OUTPUT_PATH.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    (OUTPUT_DIR / "domain_shortlist.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def main() -> None:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    audit = build_audit()
+    write_audit(audit)
+    write_shortlist(audit)
 
 
 if __name__ == "__main__":

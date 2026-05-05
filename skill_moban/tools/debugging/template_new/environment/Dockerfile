@@ -1,83 +1,47 @@
-FROM ubuntu:24.04
+FROM python:3.12-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+ENV PIP_NO_CACHE_DIR=1
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    ca-certificates \
     curl \
-    xz-utils \
-    bc \
-    lsof \
-    psmisc \
-    python3 \
-    python3-pip \
-    # Chromium system deps (needed by the preinstalled Playwright browser)
-    libasound2t64 \
-    libatk1.0-0 \
-    libatk-bridge2.0-0 \
-    libcups2 \
-    libdrm2 \
-    libgbm1 \
-    libgtk-3-0 \
-    libnspr4 \
-    libnss3 \
-    libpango-1.0-0 \
-    libpangocairo-1.0-0 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxfixes3 \
-    libxrandr2 \
-    libxkbcommon0 \
-    fonts-liberation \
+    nodejs \
+    npm \
+    tini \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js 20.18.1 (pinned version) via official tarball - detect architecture
-RUN ARCH=$(dpkg --print-architecture) && \
-    if [ "$ARCH" = "amd64" ]; then NODE_ARCH="x64"; else NODE_ARCH="$ARCH"; fi && \
-    curl -fsSL "https://nodejs.org/dist/v20.18.1/node-v20.18.1-linux-${NODE_ARCH}.tar.xz" | tar -xJ -C /usr/local --strip-components=1
+RUN pip install --no-cache-dir pytest==8.4.1 pytest-json-ctrf==0.3.5
+RUN npm install -g @openai/codex@0.120.0
 
-# ============================================
-# API Simulator (hidden from agent at /services)
-# ============================================
-WORKDIR /services/api-simulator
-COPY api-simulator/ /services/api-simulator/
-RUN npm install
+COPY . /tmp/environment/
 
-# ============================================
-# Website (agent's working directory at /app)
-# ============================================
+RUN mkdir -p /root/data /root/artifacts /root/output /root/app /app /app/skills \
+    /root/.claude/skills /root/.codex/skills /root/.opencode/skill /root/.goose/skills \
+    /root/.factory/skills /root/.agents/skills /root/.gemini/skills /logs/agent/skills /logs/verifier \
+    && cp -R /tmp/environment/data/. /root/data/ \
+    && cp -R /tmp/environment/artifacts/. /root/artifacts/ \
+    && cp -R /tmp/environment/app/. /root/app/ \
+    && cp -R /tmp/environment/app/. /app/ \
+    && if [ -d /tmp/environment/skills ]; then \
+        cp -R /tmp/environment/skills/. /logs/agent/skills/; \
+        cp -R /tmp/environment/skills/. /app/skills/; \
+        cp -R /tmp/environment/skills/. /root/.claude/skills/; \
+        cp -R /tmp/environment/skills/. /root/.codex/skills/; \
+        cp -R /tmp/environment/skills/. /root/.opencode/skill/; \
+        cp -R /tmp/environment/skills/. /root/.goose/skills/; \
+        cp -R /tmp/environment/skills/. /root/.factory/skills/; \
+        cp -R /tmp/environment/skills/. /root/.agents/skills/; \
+        cp -R /tmp/environment/skills/. /root/.gemini/skills/; \
+    fi \
+    && chmod 755 /root \
+    && chmod -R a+rX /root/data /root/artifacts /root/app /app /root/.codex/skills /logs/agent/skills \
+    && chmod 777 /root/output \
+    && rm -rf /tmp/environment
+
 WORKDIR /app
 
-# Copy application with pinned dependencies in package.json
-COPY website/ /app/
-
-# Copy skills to agent-specific locations
-COPY skills/browser-testing /app/.claude/skills/browser-testing
-COPY skills/browser-testing /app/.codex/skills/browser-testing
-COPY skills/browser-testing /app/.opencode/skills/browser-testing
-COPY skills/browser-testing /app/.goose/skills/browser-testing
-COPY skills/browser-testing /app/.factory/skills/browser-testing
-COPY skills/browser-testing /app/.agents/skills/browser-testing
-# Gemini
-COPY skills/browser-testing /root/.gemini/skills/browser-testing
-COPY skills/browser-testing /app/.cursor/skills/browser-testing
-
-# Install npm dependencies using lockfile for reproducibility
-RUN npm ci
-RUN npm install --prefix /opt/browser-testing playwright@1.40.0 tsx@4.20.6 && \
-    PLAYWRIGHT_BROWSERS_PATH=/opt/browser-testing/ms-playwright /opt/browser-testing/node_modules/.bin/playwright install chromium
-ENV PLAYWRIGHT_BROWSERS_PATH=/opt/browser-testing/ms-playwright
-ENV PATH="/opt/browser-testing/node_modules/.bin:${PATH}"
-
-RUN mkdir -p /app/output
-
-# Set environment variable for API location
-ENV EXTERNAL_API_URL=http://localhost:3001
-
-# Create startup script that runs api-simulator in background
-RUN echo '#!/bin/bash\n\
-cd /services/api-simulator && npm start &\n\
-sleep 2\n\
-exec "$@"' > /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/entrypoint.sh
-
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-lc"]
+CMD ["exec /bin/bash"]

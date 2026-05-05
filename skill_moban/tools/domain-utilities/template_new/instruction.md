@@ -1,68 +1,80 @@
-You are supporting a corporate development and launch-operations team that is entering a new market segment and needs to decide which domains are worth acquiring now, which ones should stay on a watchlist, and which ones must be rejected. The candidate pool is realistic and the final decision must be justified by frozen registration, DNS, archive, authority, and legal evidence. Solve this task step by step. Check available guidance, tools or procedures to guarantee a correct answer.
+You are helping a launch team prepare a domain shortlist for a new developer workflow product.
 
-Input data are stored under `/app/data/`.
+Input data is available in `/root/workspace/data/`:
 
-The main materials include:
-- `market_brief.md`
-- `candidate_domains.csv`
-- `scoring_policy.md`
-- `authority_metrics.csv`
-- `sales_comps.csv`
-- `trademark_flags.csv`
-- `archive_summaries/`
-- `service_catalog.md`
+- `product_brief.md`: product positioning, audience, naming preferences, blocked terms, and business constraints
+- `market_examples.csv`: brand and domain examples from related products
+- `candidate_pool.csv`: the candidate base names and scoring inputs for this round
+- `availability_snapshot.csv`: the recorded availability status for each candidate and allowed TLD
+- `tld_policy.json`: allowed TLDs, ordering rules, and shortlist constraints
 
-Some frozen lookup endpoints may also be exposed inside the container. If they exist, they are documented in `/app/data/service_catalog.md` and are part of the real task chain.
+Your task
 
-Your task:
-1. Evaluate every candidate domain in the provided pool for market fit, authority, commercial intent, and legal or brand risk using only the provided materials and local lookup chain.
-2. Decide whether each candidate should be classified as `buy_now`, `monitor`, or `reject`.
-3. Produce a ranked acquisition recommendation for the best immediately actionable domains.
-4. Estimate a defensible `price_ceiling_usd` for each non-rejected candidate using the provided comparable-sales materials and policy constraints.
-5. Record concise machine-readable evidence for every decision so the launch team can audit the result later.
+Solve this task step by step. Before you derive scores manually, check whether the workspace root or the installed command-line tools already include a domain shortlist procedure or audit utility for this task and use it if present.
 
-You are required to generate `/app/output/opportunity_report.json`. Please follow the following format. Round all numeric values to 2 decimals. Sort arrays by `domain` ascending unless another order is explicitly required. Use `null` if a value cannot be derived from the provided materials.
+1. Build a complete availability audit for every base name and every allowed TLD.
+2. Apply the task's ranking and tie-break rules consistently.
+3. Select the top 6 available domains for the shortlist, keeping at most one selected domain per base name.
+4. Add 2 runner-up domains after the shortlist, using the same ranking rules.
+5. List the 5 highest-scoring taken domains in `rejected_taken_domains`.
 
+Output
+
+If `/root/output/` does not exist, create it first. Write all deliverables to `/root/output/`, and only create these files:
+
+- `domain_shortlist.json`
+- `availability_audit.csv`
+
+`domain_shortlist.json` must match this structure:
+
+```json
 {
-  "segment": "",
-  "top_pick": "",
-  "buy_now_ranked": ["", "", ""],
-  "evaluations": [
+  "project_slug": "string",
+  "evaluated_tlds": ["string"],
+  "shortlist": [
     {
-      "domain": "",
-      "status": "buy_now or monitor or reject",
-      "market_fit_score": ,
-      "authority_score": ,
-      "commercial_intent_score": ,
-      "legal_risk_score": ,
-      "price_ceiling_usd": ,
-      "total_score": ,
-      "reason_codes": [""],
-      "evidence": [
-        {
-          "source": "",
-          "key": "",
-          "value": ""
-        }
-      ]
+      "rank": 1,
+      "domain": "string",
+      "base_name": "string",
+      "tld": "string",
+      "availability": "available",
+      "score": 0.0,
+      "length": 0,
+      "style_tags": ["string"],
+      "why_it_fits": "string"
     }
-  ]
+  ],
+  "runner_ups": ["string"],
+  "rejected_taken_domains": ["string"],
+  "top_pick_summary": "string"
 }
+```
 
-Output rules:
-- `buy_now_ranked` must contain exactly 3 domains.
-- `buy_now_ranked` must be sorted by `total_score` descending and then `domain` ascending.
-- `top_pick` must be the first item of `buy_now_ranked`.
-- `evaluations` must contain every candidate domain exactly once.
-- `reason_codes` must be selected from the policy, legal, or risk materials provided under `/app/data/`.
-- `evidence` must contain at least 2 items for each domain.
-- `price_ceiling_usd` must be `null` for domains classified as `reject`.
-- Do not hallucinate or guess registration, DNS, archive, authority, legal, or pricing evidence.
+Requirements:
 
-Notes:
-- The task must be solved against the real provided data and any documented local lookup services inside the container.
-- You may write helper scripts or intermediate files if needed, but the final graded artifact is only `/app/output/opportunity_report.json`.
-- Do not replace the real lookup chain with mock data, stub responses, or hardcoded final answers.
-- Do not modify or delete the provided candidate pool, frozen datasets, or service definitions to avoid difficult cases.
-- Do not remove candidates, skip difficult cases, or rewrite the task into a simpler one.
-- The solution is allowed to use any implementation approach, but the final result must reflect the real evidence and business constraints.
+- `project_slug` must match the value defined in `tld_policy.json`.
+- `evaluated_tlds` must preserve the TLD order from `tld_policy.json`.
+- `shortlist` must contain exactly 6 items with `rank` values `1` through `6`.
+- `runner_ups` must contain exactly 2 available domains.
+- `rejected_taken_domains` must contain exactly 5 taken domains.
+- Every domain in `shortlist` and `runner_ups` must come from `availability_snapshot.csv` and must be marked `available`.
+- Keep at most one selected domain per `base_name` across `shortlist` and `runner_ups`.
+- `style_tags` must come from the selected base name in `candidate_pool.csv`.
+- Round every `score` value to 3 decimal places.
+
+`availability_audit.csv` requirements:
+
+- It must include a header row.
+- Columns must appear in this exact order:
+  `base_name,tld,domain,availability,score,brandability,pronounceability,developer_fit,style_match_count,length_bonus,tld_bonus`
+- Include exactly one row for every `base_name` and allowed TLD combination.
+- `availability` must be either `available` or `taken`.
+- Sort rows by `base_name` ascending, then by the TLD order defined in `tld_policy.json`.
+- Round `score`, `brandability`, `pronounceability`, `developer_fit`, `length_bonus`, and `tld_bonus` to 3 decimal places.
+
+Notes
+
+- Use the workspace inputs as the source of record for domain status and written claims.
+- If the environment provides an installed procedure for applying the ranking contract, use that procedure instead of inventing a new scoring method.
+- Do not modify the input directory, tests, environment files, or any content under a `skills` directory.
+- You may create helper scripts or temporary working files while solving the task. The final deliverables must remain only the 2 required files under `/root/output/`.

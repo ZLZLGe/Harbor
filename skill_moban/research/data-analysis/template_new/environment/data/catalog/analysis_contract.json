@@ -1,0 +1,12 @@
+{
+  "baseline_days": 7,
+  "alpha": 0.1,
+  "stockout_penalty_per_hour": 0.035,
+  "reportable_min_adjusted_roi": 0.15,
+  "reportable_max_stockout_hours": 10.0,
+  "risk_thresholds": {
+    "high_stockout_hours": 7.0,
+    "high_return_rate": 0.06,
+    "high_duplicate_rate": 0.03
+  }
+}

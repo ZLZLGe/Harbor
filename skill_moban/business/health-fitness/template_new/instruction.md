@@ -1,30 +1,30 @@
-你需要为一家精品健身工作室的一位新会员生成下一周的 7 天入门方案，交付给门店教练与营养顾问。现有 intake 文件和候选动作/食物导出已经放进容器，但它们可能过期或不完整；当前容器内的 planning service 才是本次交付应依据的权威来源。
+You need to generate a 7-day onboarding plan for next week for a new member of a boutique fitness studio, to be delivered to the studio coach and nutrition advisor. The existing intake files and exported candidate exercise/food lists are already in the container, but they may be outdated or incomplete; the in-container planning service is the authoritative source for this delivery.
 
-输入数据在 `/root/data/`：
+Input data is under `/root/data/`:
 
-- `planner_manifest.json`：会员 ID、计划窗口、交付要求，以及本地 planning service 的 base URL。
-- `member_profile.json`：会员基础信息、目标阶段、训练经验、可训练日期、过敏原、不吃食材、动作禁忌和器械限制。
-- `equipment_inventory.csv`：当前门店可用器械、别名和可替代器械分组。
-- `meal_slot_rules.csv`：早餐、午餐、训练前、训练后、晚餐等餐次的角色约束和最小要求。
-- `reference_exercise_shortlist.json`：较早导出的候选动作列表，可能缺项或已过期。
-- `reference_food_shortlist.csv`：较早导出的候选食物列表，可能缺项或已过期。
+- `planner_manifest.json`: member id, planning window, delivery requirements, and the base URL of the local planning service.
+- `member_profile.json`: member basics, goal phase, training experience, trainable days, allergens, disliked foods, exercise contraindications, and equipment restrictions.
+- `equipment_inventory.csv`: currently available equipment in the studio, aliases, and allowed substitution groups.
+- `meal_slot_rules.csv`: role constraints and minimum requirements for meal slots such as breakfast, lunch, pre-workout, post-workout, dinner, etc.
+- `reference_exercise_shortlist.json`: an older export of candidate exercises; may be missing entries or outdated.
+- `reference_food_shortlist.csv`: an older export of candidate foods; may be missing entries or outdated.
 
-你的任务
+Your task
 
-1. 完成该会员的结构化评估，并生成后续训练与饮食方案需要使用的关键指标。
-2. 为该会员制定 4 次训练课表，并覆盖 `member_profile.json` 中要求的全部训练日。
-3. 为该会员制定两套可复用日型餐单：
-   - 一套 `training_day`
-   - 一套 `rest_day`
-4. 为门店教练生成一份可直接执行的交接摘要。
+1. Complete a structured assessment for the member and derive the key metrics required by the training and nutrition plans.
+2. Build 4 workout sessions for the member and cover all training days required in `member_profile.json`.
+3. Create two reusable day-type meal plans for the member:
+   - one `training_day`
+   - one `rest_day`
+4. Write an executable handoff summary for the studio coach.
 
-输出
+Output
 
-如 `/root/output/` 不存在，请先创建该目录。
+If `/root/output/` does not exist, create it first.
 
-1. 写入 `/root/output/member_assessment.json`
+1. Write `/root/output/member_assessment.json`
 
-顶层结构必须严格如下：
+The top-level structure must be exactly:
 
 ```json
 {
@@ -43,54 +43,54 @@
 }
 ```
 
-要求：
+Requirements:
 
-- 所有数值字段必须为数值类型。
-- `goal_phase` 必须与输入保持一致。
-- 所有数值保留 2 位小数。
-- 所有字段都必须依据当前权威数据和会员资料推导，不得留空或使用占位值。
+- All numeric fields must be numeric types.
+- `goal_phase` must match the input.
+- All numeric values must keep 2 decimal places.
+- All fields must be derived from the current authoritative data and the member profile; do not leave fields empty or use placeholder values.
 
-2. 写入 `/root/output/workout_plan.csv`
+2. Write `/root/output/workout_plan.csv`
 
-列名必须严格如下：
+The column names must be exactly:
 
 ```csv
 session_id,day_label,focus_block,exercise_id,exercise_name,primary_muscle,equipment_name,sets,reps_min,reps_max,rest_seconds,notes
 ```
 
-要求：
+Requirements:
 
-- 必须覆盖 `member_profile.json` 中要求的全部训练日。
-- 每个 `session_id` 至少包含 4 个动作。
-- 只能使用当前权威来源中存在且仍可用的动作。
-- 只能使用 `equipment_inventory.csv` 中可用的器械或允许的替代器械。
-- 必须遵守会员的伤病限制、禁忌动作关键字和禁用器械限制。
-- 必须满足当前 program policy 的训练结构与安排要求。
-- `notes` 必须是简短说明，指出该动作的用途、限制或替代背景。
+- Must cover all training days required by `member_profile.json`.
+- Each `session_id` must include at least 4 exercises.
+- Only use exercises that exist and are still available in the current authoritative source.
+- Only use equipment that is available in `equipment_inventory.csv` or an allowed substitute.
+- Must comply with the member's injury limitations, contraindicated exercise keywords, and forbidden equipment restrictions.
+- Must satisfy the training structure and scheduling requirements in the current program policy.
+- `notes` must be a short note describing the purpose, constraints, or substitution context for the exercise.
 
-3. 写入 `/root/output/meal_plan.csv`
+3. Write `/root/output/meal_plan.csv`
 
-列名必须严格如下：
+The column names must be exactly:
 
 ```csv
 day_type,meal_slot,food_id,food_name,grams,kcal,protein_g,carbs_g,fat_g,fiber_g
 ```
 
-要求：
+Requirements:
 
-- `day_type` 只能是 `training_day` 或 `rest_day`。
-- 两种 `day_type` 都必须出现。
-- 每个 `meal_slot` 必须来自 `meal_slot_rules.csv`。
-- 只能使用当前权威来源中存在且仍可用的食物。
-- 必须遵守会员的过敏原和不吃食材限制。
-- 每条食物记录的营养字段都必须与所选食物和填写克数一致。
-- 所有食物克数必须是 5g 的整数倍。
-- 单个餐次不得用空餐、删餐次或改餐次名称规避约束。
-- 每种 `day_type` 的整日总量必须落在当前 program policy 规定的容差内。
+- `day_type` must be either `training_day` or `rest_day`.
+- Both `day_type` values must appear.
+- Every `meal_slot` must come from `meal_slot_rules.csv`.
+- Only use foods that exist and are still available in the current authoritative source.
+- Must follow the member's allergen and disliked-ingredient restrictions.
+- Nutrition fields for each food row must match the selected food and the specified grams.
+- All food grams must be a multiple of 5g.
+- Do not evade constraints for any single meal slot by leaving it empty, deleting a meal slot, or renaming meal slots.
+- The full-day totals for each `day_type` must fall within the tolerance specified by the current program policy.
 
-4. 写入 `/root/output/coach_handoff.md`
+4. Write `/root/output/coach_handoff.md`
 
-内容必须包含以下一级标题，顺序不可变：
+The content must include the following top-level headings in this exact order:
 
 - `# Client Goal`
 - `# Assessment`
@@ -98,20 +98,19 @@ day_type,meal_slot,food_id,food_name,grams,kcal,protein_g,carbs_g,fat_g,fiber_g
 - `# Nutrition Plan`
 - `# Risks And Substitutions`
 
-要求：
+Requirements:
 
-- 必须引用与 `member_assessment.json` 一致的核心指标。
-- 必须概括与 `workout_plan.csv`、`meal_plan.csv` 一致的实际安排。
-- 必须明确写出执行提醒、风险点和至少一种可落地的动作替代或饮食替代处理。
+- Must reference the key metrics consistent with `member_assessment.json`.
+- Must summarize the actual plan consistent with `workout_plan.csv` and `meal_plan.csv`.
+- Must explicitly list execution reminders, risks, and at least one practical exercise substitution or nutrition substitution.
 
-说明：
+Notes:
 
-- 当前容器内 planning service 才是本次交付的权威来源。
-- `reference_exercise_shortlist.json` 和 `reference_food_shortlist.csv` 只是较早导出，不是最终事实依据。
-- 不要修改 `/root/data/` 下的任何输入文件。
-- 不要替换真实链路、不要绕过本地 planning service、不要用缓存答案或手工伪造输出来代替真实规划过程。
-- 不要删除训练日、删除餐次、删除约束、停掉服务，或通过删功能规避问题。
-- 不要用虚构动作、虚构食物或外部网站上的其他数据替换本地数据链路。
-- 不要修改 tests、verifier、skill 文件或 environment 文件。
-- 你可以在工作目录中编写辅助脚本，但最终只需要提交 `/root/output/` 下要求的 4 个文件。
-
+- The in-container planning service is the source of truth for this delivery.
+- `reference_exercise_shortlist.json` and `reference_food_shortlist.csv` are older exports and are not the final system-of-record inputs.
+- Do not modify any input files under `/root/data/`.
+- Do not replace the real chain, do not bypass the local planning service, and do not use cached answers or manually fabricated outputs instead of the real planning process.
+- Do not delete training days, delete meal slots, remove constraints, stop the service, or evade requirements by removing functionality.
+- Do not substitute fictional exercises, fictional foods, or external website data in place of the local data chain.
+- Do not modify tests, verifier, skill files, or environment files.
+- You may write helper scripts in the working directory, but the only required deliverables are the 4 files under `/root/output/`.

@@ -1,162 +1,213 @@
 from __future__ import annotations
 
-import requests
-
-from verifier_utils import (
-    ALPHA,
-    BASE_URL,
-    BETA,
-    BOOKING_URL,
-    THROTTLE,
-    assert_error,
-    assert_rate_limit_headers,
-    assert_success_envelope,
-    booking_calls,
-    get_quote,
-    quote_params,
-    rate_calls,
-    reset_downstreams,
-)
+from conftest import request_json, running_server, runtime_refund_count
 
 
-def test_auth_validation_and_error_contracts():
-    resp = requests.get(f"{BASE_URL}/api/v1/shipping-quotes", params=quote_params(), timeout=3)
-    assert_error(resp, 401, "unauthorized")
-
-    resp = requests.get(
-        f"{BASE_URL}/api/v1/shipping-quotes",
-        params=quote_params(weightGrams="not-an-int"),
-        headers=ALPHA,
-        timeout=3,
-    )
-    assert_error(resp, 400, "bad_request")
-
-    resp = requests.get(
-        f"{BASE_URL}/api/v1/shipping-quotes",
-        params=quote_params(weightGrams="-1"),
-        headers=ALPHA,
-        timeout=3,
-    )
-    payload = assert_error(resp, 422, "validation_error")
-    assert any(detail["field"] == "weightGrams" for detail in payload["error"]["details"])
-
-    resp = requests.get(
-        f"{BASE_URL}/api/v1/shipping-quotes",
-        params=quote_params(shipDate="05/04/2026"),
-        headers=ALPHA,
-        timeout=3,
-    )
-    assert_error(resp, 422, "validation_error")
-
-    resp = requests.post(
-        f"{BASE_URL}/api/v1/shipments",
-        data="{bad-json",
-        headers={**ALPHA, "Content-Type": "application/json", "Idempotency-Key": "bad-json-1"},
-        timeout=3,
-    )
-    assert_error(resp, 400, "bad_request")
+FULL_KEY = "pk_live_gold_partner"
+READONLY_KEY = "pk_live_readonly_partner"
+BURST_KEY = "pk_live_bronze_partner"
 
 
-def test_quotes_sorting_pagination_and_partner_authorization():
-    reset_downstreams()
-    resp = requests.get(
-        f"{BASE_URL}/api/v1/shipping-quotes",
-        params=quote_params(sort="price", **{"page[limit]": "2"}),
-        headers=ALPHA,
-        timeout=3,
-    )
-    payload = assert_success_envelope(resp)
-    assert_rate_limit_headers(resp, expected_limit=80)
-    assert isinstance(payload["data"], list)
-    assert payload["meta"] == {"count": 2, "hasMore": True}
-    assert "originPostal=94105" in payload["links"]["self"]
-    assert "page%5Bcursor%5D=" in payload["links"]["next"] or "page[cursor]=" in payload["links"]["next"]
-    prices = [item["price"]["amount"] for item in payload["data"]]
-    assert prices == sorted(prices)
-    assert all(item["serviceLevel"] in {"standard", "expedited"} for item in payload["data"])
-    assert len(rate_calls()) == 1
-
-    resp2 = requests.get(BASE_URL + payload["links"]["next"], headers=ALPHA, timeout=3)
-    second = assert_success_envelope(resp2)
-    first_ids = {item["quoteId"] for item in payload["data"]}
-    second_ids = {item["quoteId"] for item in second["data"]}
-    assert first_ids.isdisjoint(second_ids)
-
-    resp = requests.get(
-        f"{BASE_URL}/api/v1/shipping-quotes",
-        params=quote_params(serviceLevel="overnight"),
-        headers=ALPHA,
-        timeout=3,
-    )
-    assert_error(resp, 403, "forbidden")
-
-    resp = requests.get(
-        f"{BASE_URL}/api/v1/shipping-quotes",
-        params=quote_params(carrier="skybridge"),
-        headers=BETA,
-        timeout=3,
-    )
-    assert_error(resp, 403, "forbidden")
+def _error_code(payload: dict) -> str:
+    return payload["error"]["code"]
 
 
-def test_shipment_create_replay_conflict_and_read_isolation():
-    quote = get_quote(weightGrams="1180", serviceLevel="standard", carrier="roadline")
-    body = {
-        "quoteId": quote["quoteId"],
-        "orderId": "ord_alpha_1001",
-        "labelFormat": "pdf",
-        "metadata": {"warehouse": "SFO-3", "batch": "qa"},
-    }
-    headers = {**ALPHA, "Idempotency-Key": "idem-alpha-001"}
-
-    resp = requests.post(f"{BASE_URL}/api/v1/shipments", json=body, headers=headers, timeout=3)
-    payload = assert_success_envelope(resp, 201)
-    assert_rate_limit_headers(resp, expected_limit=80)
-    assert resp.headers["Location"].endswith(payload["data"]["shipmentId"])
-    assert payload["data"]["metadata"] == body["metadata"]
-    assert payload["data"]["quote"]["quoteId"] == quote["quoteId"]
-    assert len(booking_calls()) == 1
-
-    replay = requests.post(f"{BASE_URL}/api/v1/shipments", json=body, headers=headers, timeout=3)
-    assert replay.status_code in {200, 201}, replay.text
-    replay_payload = assert_success_envelope(replay, replay.status_code)
-    assert_rate_limit_headers(replay, expected_limit=80)
-    assert replay_payload["data"]["shipmentId"] == payload["data"]["shipmentId"]
-    assert len(booking_calls()) == 1
-
-    conflict = requests.post(
-        f"{BASE_URL}/api/v1/shipments",
-        json={**body, "labelFormat": "zpl"},
-        headers=headers,
-        timeout=3,
-    )
-    assert_error(conflict, 409, "idempotency_conflict")
-
-    read = requests.get(f"{BASE_URL}/api/v1/shipments/{payload['data']['shipmentId']}", headers=ALPHA, timeout=3)
-    read_payload = assert_success_envelope(read)
-    assert_rate_limit_headers(read, expected_limit=80)
-    assert read_payload["data"]["shipmentId"] == payload["data"]["shipmentId"]
-
-    blocked = requests.get(f"{BASE_URL}/api/v1/shipments/{payload['data']['shipmentId']}", headers=BETA, timeout=3)
-    assert_error(blocked, 404, "not_found")
-
-
-def test_partner_rate_limit_uses_429_and_retry_after():
-    for idx in range(2):
-        resp = requests.get(
-            f"{BASE_URL}/api/v1/shipping-quotes",
-            params=quote_params(destinationPostal="11201"),
-            headers=THROTTLE,
-            timeout=3,
+def test_orders_list_is_stable_and_filters_before_paginating() -> None:
+    with running_server() as base_url:
+        status1, headers1, payload1 = request_json(
+            base_url,
+            "GET",
+            "/api/v1/orders?page=1&page_size=2&status=paid&sort=-created_at",
+            api_key=FULL_KEY,
         )
-        assert_success_envelope(resp)
-        assert_rate_limit_headers(resp, expected_limit=2)
-    limited = requests.get(
-        f"{BASE_URL}/api/v1/shipping-quotes",
-        params=quote_params(destinationPostal="11201"),
-        headers=THROTTLE,
-        timeout=3,
-    )
-    assert_error(limited, 429, "rate_limit_exceeded")
-    assert int(limited.headers["Retry-After"]) > 0
-    assert_rate_limit_headers(limited, expected_limit=2)
+        status1b, _, payload1b = request_json(
+            base_url,
+            "GET",
+            "/api/v1/orders?page=1&page_size=2&status=paid&sort=-created_at",
+            api_key=FULL_KEY,
+        )
+        status2, _, payload2 = request_json(
+            base_url,
+            "GET",
+            "/api/v1/orders?page=2&page_size=2&status=paid&sort=-created_at",
+            api_key=FULL_KEY,
+        )
+
+        assert status1 == 200, payload1
+        assert status1b == 200, payload1b
+        assert status2 == 200, payload2
+        assert headers1["X-RateLimit-Limit"] == "8"
+        assert "X-RateLimit-Remaining" in headers1
+
+        page1_ids = [row["id"] for row in payload1["data"]]
+        page1_again_ids = [row["id"] for row in payload1b["data"]]
+        page2_ids = [row["id"] for row in payload2["data"]]
+
+        assert page1_ids == ["ord_1008", "ord_1006"], page1_ids
+        assert page1_again_ids == page1_ids, "same query should return identical first page"
+        assert page2_ids == ["ord_1004", "ord_1001"], page2_ids
+        assert not set(page1_ids) & set(page2_ids)
+        pagination = payload1["meta"].get("pagination", payload1["meta"])
+        total_items = pagination.get("total_items", pagination.get("total_count"))
+        if total_items is not None:
+            assert total_items == 4
+        assert pagination.get("has_next", pagination.get("has_next_page")) is True
+
+        filtered_status, _, filtered_payload = request_json(
+            base_url,
+            "GET",
+            "/api/v1/orders?page=1&page_size=5&customer_country=AU&sort=-created_at",
+            api_key=FULL_KEY,
+        )
+        assert filtered_status == 200, filtered_payload
+        assert [row["id"] for row in filtered_payload["data"]] == ["ord_1006"]
+
+
+def test_order_detail_has_machine_readable_not_found() -> None:
+    with running_server() as base_url:
+        status, _, payload = request_json(base_url, "GET", "/api/v1/orders/ord_1002", api_key=FULL_KEY)
+        assert status == 200, payload
+        assert payload["data"]["id"] == "ord_1002"
+        assert payload["data"]["customer"]["id"] == "cust_002"
+
+        missing_status, _, missing_payload = request_json(base_url, "GET", "/api/v1/orders/ord_missing", api_key=FULL_KEY)
+        assert missing_status == 404, missing_payload
+        assert _error_code(missing_payload) in {"order_not_found", "not_found"}
+
+
+def test_refund_create_is_replay_safe_and_visible_from_get() -> None:
+    with running_server() as base_url:
+        before = runtime_refund_count()
+        payload = {
+            "order_id": "ord_1004",
+            "amount": 10.0,
+            "reason": "customer_request",
+        }
+        first_status, _, first_body = request_json(
+            base_url,
+            "POST",
+            "/api/v1/refunds",
+            api_key=FULL_KEY,
+            headers={"Idempotency-Key": "idem-ord-1004-1"},
+            payload=payload,
+        )
+        assert first_status == 201, first_body
+        created = first_body["data"]
+        assert created["order_id"] == "ord_1004"
+        assert runtime_refund_count() == before + 1
+
+        get_status, _, get_body = request_json(base_url, "GET", f"/api/v1/refunds/{created['id']}", api_key=FULL_KEY)
+        assert get_status == 200, get_body
+        assert get_body["data"]["id"] == created["id"]
+
+        replay_status, _, replay_body = request_json(
+            base_url,
+            "POST",
+            "/api/v1/refunds",
+            api_key=FULL_KEY,
+            headers={"Idempotency-Key": "idem-ord-1004-1"},
+            payload=payload,
+        )
+        assert replay_status in {200, 201}, replay_body
+        assert replay_body["data"]["id"] == created["id"]
+        assert runtime_refund_count() == before + 1
+
+
+def test_refund_scope_validation_and_conflicts() -> None:
+    with running_server() as base_url:
+        readonly_status, _, readonly_body = request_json(
+            base_url,
+            "POST",
+            "/api/v1/refunds",
+            api_key=READONLY_KEY,
+            headers={"Idempotency-Key": "readonly-refund-attempt"},
+            payload={"order_id": "ord_1004", "amount": 10.0, "reason": "customer_request"},
+        )
+        assert readonly_status == 403, readonly_body
+        assert "error" in readonly_body, readonly_body
+
+        invalid_state_status, _, invalid_state_body = request_json(
+            base_url,
+            "POST",
+            "/api/v1/refunds",
+            api_key=FULL_KEY,
+            headers={"Idempotency-Key": "pending-order-refund"},
+            payload={"order_id": "ord_1003", "amount": 10.0, "reason": "customer_request"},
+        )
+        assert invalid_state_status == 409, invalid_state_body
+        assert _error_code(invalid_state_body) in {"refund_not_allowed", "order_not_refundable", "refund_pending"}
+
+        missing_key_status, _, missing_key_body = request_json(
+            base_url,
+            "POST",
+            "/api/v1/refunds",
+            api_key=FULL_KEY,
+            payload={"order_id": "ord_1004", "amount": 10.0, "reason": "customer_request"},
+        )
+        assert missing_key_status in {400, 422}, missing_key_body
+        assert _error_code(missing_key_body) in {
+            "missing_idempotency_key",
+            "idempotency_key_required",
+            "validation_error",
+            "invalid_request",
+        }
+
+        validation_status, _, validation_body = request_json(
+            base_url,
+            "POST",
+            "/api/v1/refunds",
+            api_key=FULL_KEY,
+            headers={"Idempotency-Key": "validation-refund-request"},
+            payload={"order_id": "ord_1004", "amount": "oops", "reason": "customer_request"},
+        )
+        assert validation_status in {400, 422}, validation_body
+        assert _error_code(validation_body) in {"validation_error", "invalid_request", "invalid_request_body"}
+
+        first_status, _, first_body = request_json(
+            base_url,
+            "POST",
+            "/api/v1/refunds",
+            api_key=FULL_KEY,
+            headers={"Idempotency-Key": "idem-conflict-ord-1001"},
+            payload={"order_id": "ord_1001", "amount": 12.0, "reason": "damaged"},
+        )
+        assert first_status == 201, first_body
+
+        conflict_status, _, conflict_body = request_json(
+            base_url,
+            "POST",
+            "/api/v1/refunds",
+            api_key=FULL_KEY,
+            headers={"Idempotency-Key": "idem-conflict-ord-1001"},
+            payload={"order_id": "ord_1001", "amount": 14.0, "reason": "damaged"},
+        )
+        assert conflict_status == 409, conflict_body
+        assert _error_code(conflict_body) in {"idempotency_conflict", "idempotency_key_reused"}
+
+
+def test_authentication_and_rate_limit_semantics() -> None:
+    with running_server() as base_url:
+        missing_status, _, missing_body = request_json(base_url, "GET", "/api/v1/orders?page=1&page_size=1", api_key=None)
+        assert missing_status == 401, missing_body
+        assert "error" in missing_body, missing_body
+
+        invalid_status, _, invalid_body = request_json(base_url, "GET", "/api/v1/orders?page=1&page_size=1", api_key="pk_invalid")
+        assert invalid_status == 401, invalid_body
+        assert _error_code(invalid_body) == "invalid_api_key"
+
+        seen = []
+        final_headers = {}
+        final_payload = None
+        for _ in range(4):
+            status, headers, payload = request_json(base_url, "GET", "/api/v1/orders?page=1&page_size=1", api_key=BURST_KEY)
+            seen.append(status)
+            final_headers = headers
+            final_payload = payload
+
+        assert seen[:3] == [200, 200, 200], seen
+        assert seen[3] == 429, seen
+        assert final_headers["X-RateLimit-Limit"] == "3"
+        assert final_headers["X-RateLimit-Remaining"] == "0"
+        retry_after = int(final_headers["Retry-After"])
+        assert 1 <= retry_after <= 60
+        assert _error_code(final_payload) in {"rate_limited", "rate_limit_exceeded"}

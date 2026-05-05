@@ -1,307 +1,465 @@
+from __future__ import annotations
+
 import hashlib
 import json
-import re
+import os
+import shutil
 from pathlib import Path
 
-import requests
+import nbformat
+import pandas as pd
+from nbclient import NotebookClient
+from nbclient.exceptions import CellExecutionError
+from pandas.testing import assert_frame_equal
 
-OUTPUT_ROOT = Path("/outputs")
-SKILL_PATH = OUTPUT_ROOT / "lesson_skill" / "SKILL.md"
-REPORT_PATH = OUTPUT_ROOT / "capture_report.json"
-SESSION_ROOT = Path("/workspace/session_bundle")
-ENV_SKILL_PATH = Path("/workspace/environment/skills/update-skills/SKILL.md")
-API_ROOT = "http://127.0.0.1:8080"
+import reference_metrics
 
-EXPECTED_INPUT_SHA256 = {
-    "incident_manifest.json": "c688c5fb545ae1102d3ad675729df7cb2ebe24cf7da670c89f35cee0a68dffc5",
-    "tickets/TCK-1842.json": "a2e51043fed7ec984c06baca6d7465b415f8699d9794a892f40525591fe61f98",
-    "reviews/reviewer_notes.md": "588363eff127d00e2121535a6f820ffbc6da06101fc14a0f5acbef24fe2c3c62",
-    "logs/publish_ci.log": "85084c15096d93e26fe3fb40bc1e0a7f05bdf0f0fa21bc640910f163c5477cb4",
-    "metadata/lms_snapshot.json": "f3b48ff5983d97f5730dc37d2cf3a8b70572607ee4936861be29c1e593d9595a",
-    "metadata/course_contract.json": "220421caf4b9b587e370a7edb23f2f58a3648e3e5a312f5f982851337a480394",
-    "style_guides/course_quality_playbook.md": "718960137522a98377925b6ecbbb3bb09d178526bf6cee65ddfed7b9ca293e7c",
-    "repository_inventory.json": "3349ba025df4dea5a0772c91eb9dbec5e0cdb0ab31c2f5359d27b98ef3193571",
-}
 
-EXPECTED_SKILL_SHA256 = "f5c7bb3ed56fb261788f2f96d0e4a8f65ac354683d928cfe9fb1b961d74955d2"
+OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "/root/output"))
+SOURCE_BUNDLE = Path(os.environ.get("SOURCE_BUNDLE_DIR", "/root/workspace/source_bundle"))
+NOTEBOOK_PATH = OUTPUT_DIR / "global_education_tutorial.ipynb"
+TABLE_PATH = OUTPUT_DIR / "cohort_indicator_table.csv"
+SUMMARY_PATH = OUTPUT_DIR / "lesson_summary.json"
+SOURCE_HASH_PATH = Path(os.environ.get("SOURCE_HASH_PATH", "/opt/education-source-bundle.sha256"))
+SKILL_HASH_PATH = Path(os.environ.get("SKILL_HASH_PATH", "/opt/education-skill.sha256"))
 
-SECTION_NAMES = [
-    "When to Use",
-    "Evidence Reviewed",
-    "Procedure",
-    "Quality Checks",
-    "Example",
-]
-
-ONE_OFF_IDENTIFIERS = [
-    "TCK-1842",
-    "BIO-201",
-    "cell-transport-module-03",
-    "lms-build-7781",
-    "module03_transport",
-    "module03_quiz",
-    "2026-04-18",
-    "Foundations of Cell Biology",
-]
-
-FORBIDDEN_BYPASS_PATTERNS = [
-    "skip validation",
-    "skip the validation",
-    "ignore metadata",
-    "delete failing",
-    "remove failing",
-    "mock service",
-    "disable checks",
-    "turn off checks",
-    "hidden answer",
-]
-
-EDUCATION_CONCEPT_GROUPS = {
-    "course_structure": {"course", "lesson", "module", "prerequisite"},
-    "assessment_alignment": {"assessment", "quiz", "rubric", "learning objective"},
-    "publishing_chain": {"metadata", "lms", "publishing", "release"},
-    "accessibility_media": {"accessibility", "transcript", "caption", "learner-facing"},
-    "review_evidence": {"review", "ci log", "style guide", "ticket", "evidence"},
-}
-
-FUTURE_SCENARIOS = {
-    "caption_transcript_mismatch": {"transcript", "caption", "learner-facing", "accessibility"},
-    "quiz_rubric_objective_drift": {"rubric", "assessment", "learning objective", "review"},
-    "lms_module_order_drift": {"metadata", "lms", "module", "publishing"},
+TABLE_COLUMNS = ["entity", "entity_type", "indicator", "year", "value", "unit"]
+UNIT_ALIASES = {
+    "years": "years",
+    "year": "years",
+    "percent": "percent",
+    "percentage": "percent",
+    "percent of gdp": "percent_of_gdp",
+    "percent_of_gdp": "percent_of_gdp",
+    "% of gdp": "percent_of_gdp",
 }
 
 
-def sha256(path: Path) -> str:
+def read_outputs() -> tuple[pd.DataFrame, dict[str, object]]:
+    table = pd.read_csv(TABLE_PATH)
+    summary = json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
+    return table, summary
+
+
+def normalize_table(frame: pd.DataFrame) -> pd.DataFrame:
+    normalized = frame.copy()
+    normalized["year"] = normalized["year"].astype(int)
+    normalized["value"] = normalized["value"].astype(float).round(2)
+    normalized["unit"] = (
+        normalized["unit"]
+        .astype(str)
+        .str.strip()
+        .str.lower()
+        .map(lambda value: UNIT_ALIASES.get(value, value))
+    )
+    return normalized.sort_values(["entity", "indicator", "year"]).reset_index(drop=True)
+
+
+def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def norm(text) -> str:
-    return re.sub(r"\s+", " ", str(text).lower()).strip()
+def execute_notebook(path: Path) -> nbformat.NotebookNode:
+    notebook = nbformat.read(path, as_version=4)
+    client = NotebookClient(notebook, timeout=180, kernel_name="python3")
+    try:
+        client.execute(cwd=str(OUTPUT_DIR))
+    except CellExecutionError as exc:  # pragma: no cover - surfaced as assertion text
+        raise AssertionError(f"notebook execution failed: {exc}") from exc
+    return notebook
 
 
-def load_skill_text() -> str:
-    assert SKILL_PATH.exists(), "Missing /outputs/lesson_skill/SKILL.md"
-    text = SKILL_PATH.read_text(encoding="utf-8")
-    assert len(text) > 1200, "Skill draft is too short to contain a reusable procedure"
-    return text
+def markdown_sources(notebook: nbformat.NotebookNode) -> list[str]:
+    return [cell["source"] for cell in notebook.cells if cell.get("cell_type") == "markdown"]
 
 
-def load_report() -> dict:
-    assert REPORT_PATH.exists(), "Missing /outputs/capture_report.json"
-    return json.loads(REPORT_PATH.read_text(encoding="utf-8"))
+def code_cells(notebook: nbformat.NotebookNode) -> list[nbformat.NotebookNode]:
+    return [cell for cell in notebook.cells if cell.get("cell_type") == "code"]
 
 
-def parse_frontmatter(text: str) -> dict:
-    assert text.startswith("---\n"), "SKILL.md must start with YAML frontmatter"
-    end = text.find("\n---", 4)
-    assert end != -1, "SKILL.md frontmatter must be closed with ---"
-    fields = {}
-    for line in text[4:end].splitlines():
-        if ":" in line:
-            key, value = line.split(":", 1)
-            fields[key.strip()] = value.strip().strip('"').strip("'")
-    return fields
+def image_output_count(notebook: nbformat.NotebookNode) -> int:
+    total = 0
+    for cell in code_cells(notebook):
+        for output in cell.get("outputs", []):
+            if "image/png" in output.get("data", {}):
+                total += 1
+    return total
 
 
-def section_text(text: str, section: str) -> str:
-    pattern = rf"^## {re.escape(section)}\s*$"
-    match = re.search(pattern, text, flags=re.MULTILINE)
-    assert match, f"Missing section ## {section}"
-    next_match = re.search(r"^## .+$", text[match.end():], flags=re.MULTILINE)
-    end = match.end() + next_match.start() if next_match else len(text)
-    content = text[match.end():end].strip()
-    assert len(content) >= 80, f"Section ## {section} is too thin"
-    return content
+def visual_output_count(notebook: nbformat.NotebookNode) -> int:
+    total = 0
+    for cell in code_cells(notebook):
+        for output in cell.get("outputs", []):
+            data = output.get("data", {})
+            if any(
+                key in data
+                for key in [
+                    "image/png",
+                    "image/svg+xml",
+                    "text/html",
+                    "application/vnd.plotly.v1+json",
+                ]
+            ):
+                total += 1
+    return total
 
 
-def general_sections_text(text: str) -> str:
-    return "\n\n".join(section_text(text, name) for name in ["When to Use", "Procedure", "Quality Checks", "Example"])
+def code_cell_has_text_output(cell: nbformat.NotebookNode) -> bool:
+    for output in cell.get("outputs", []):
+        if output.get("output_type") == "stream" and str(output.get("text", "")).strip():
+            return True
+        if output.get("output_type") == "execute_result":
+            data = output.get("data", {})
+            if any(str(data.get(key, "")).strip() for key in ["text/plain", "text/markdown"]):
+                return True
+    return False
 
 
-def source_to_text(source: str) -> str:
-    if source.startswith("http://127.0.0.1:8080/"):
-        response = requests.get(source, timeout=5)
-        assert response.status_code == 200, f"Evidence API source is not reachable: {source}"
-        return json.dumps(response.json(), ensure_ascii=False)
-
-    if source == "/workspace/environment/skills/update-skills/SKILL.md" or source.endswith("environment/skills/update-skills/SKILL.md"):
-        assert ENV_SKILL_PATH.exists(), "Required process skill evidence is missing"
-        return ENV_SKILL_PATH.read_text(encoding="utf-8")
-
-    rel = source
-    for prefix in ["/workspace/session_bundle/", "session_bundle/"]:
-        if rel.startswith(prefix):
-            rel = rel[len(prefix):]
-    path = SESSION_ROOT / rel
-    assert path.exists(), f"Evidence file source does not exist: {source}"
-    return path.read_text(encoding="utf-8")
+def code_cell_has_visible_output(cell: nbformat.NotebookNode) -> bool:
+    for output in cell.get("outputs", []):
+        if output.get("output_type") == "stream" and str(output.get("text", "")).strip():
+            return True
+        data = output.get("data", {})
+        if any(str(data.get(key, "")).strip() for key in ["text/plain", "text/markdown", "text/html"]):
+            return True
+        if any(key in data for key in ["image/png", "image/svg+xml", "application/vnd.plotly.v1+json"]):
+            return True
+    return False
 
 
-def meaningful_tokens(text: str):
-    stop = {
-        "the", "and", "for", "with", "that", "this", "from", "into", "using", "should",
-        "must", "were", "was", "are", "not", "one", "two", "course", "lesson"
-    }
+def nonempty_code_line_count(cell: nbformat.NotebookNode) -> int:
+    return sum(1 for line in cell.get("source", "").splitlines() if line.strip())
+
+
+def numbered_item_count(source: str) -> int:
+    count = 0
+    for line in source.splitlines():
+        stripped = line.strip()
+        if stripped and "." in stripped:
+            prefix = stripped.split(".", 1)[0]
+            if prefix.isdigit():
+                count += 1
+    return count
+
+
+def contains_any_token(source: str, tokens: list[str]) -> bool:
+    lowered = source.lower()
+    return any(token in lowered for token in tokens)
+
+
+def first_code_index(notebook: nbformat.NotebookNode) -> int | None:
+    for idx, cell in enumerate(notebook.cells):
+        if cell.get("cell_type") == "code":
+            return idx
+    return None
+
+
+def restore_file(path: Path, backup: Path) -> None:
+    if backup.exists():
+        shutil.copy2(backup, path)
+
+
+def summary_evidence_keys(summary: dict[str, object]) -> set[tuple[str, str, int, float]]:
+    keys: set[tuple[str, str, int, float]] = set()
+    for takeaway in summary["takeaways"]:
+        for evidence in takeaway["evidence"]:
+            keys.add(
+                (
+                    evidence["entity"],
+                    evidence["indicator"],
+                    int(evidence["year"]),
+                    round(float(evidence["value"]), 2),
+                )
+            )
+    return keys
+
+
+def valid_table_keys(table: pd.DataFrame) -> set[tuple[str, str, int, float]]:
     return {
-        token
-        for token in re.findall(r"[a-zA-Z][a-zA-Z0-9_-]{3,}", text.lower())
-        if token not in stop
+        (row.entity, row.indicator, int(row.year), round(float(row.value), 2))
+        for row in table.itertuples(index=False)
     }
 
 
-def test_protected_inputs_and_skill_copy_are_unchanged():
-    for relative, expected in EXPECTED_INPUT_SHA256.items():
-        path = SESSION_ROOT / relative
-        assert path.exists(), f"Missing protected input file: {relative}"
-        assert sha256(path) == expected, f"Protected input was modified: {relative}"
-
-    assert ENV_SKILL_PATH.exists(), "Missing provided process skill /workspace/environment/skills/update-skills/SKILL.md"
-    assert sha256(ENV_SKILL_PATH) == EXPECTED_SKILL_SHA256, "Provided update-skills skill copy was modified"
-
-
-def test_local_knowledge_service_is_available():
-    health = requests.get(f"{API_ROOT}/health", timeout=5).json()
-    assert health["ok"] is True
-    assert health["snapshot_id"] == "course-learning-capture-20260426"
-    incident = requests.get(f"{API_ROOT}/incidents/TCK-1842", timeout=5).json()
-    assert incident["ticket"]["ticket_id"] == "TCK-1842"
-    assert any("SKIPPED" in warning for warning in incident["ci_warnings"])
-    inventory = requests.get(f"{API_ROOT}/repository/inventory", timeout=5).json()
-    assert inventory["snapshot_id"] == "repo-conventions-education-20260426"
-    assert len(inventory["existing_instructions"]) >= 2
-    assert len(inventory["existing_skills"]) >= 2
+def test_required_outputs_exist_and_parse() -> None:
+    for path in [NOTEBOOK_PATH, TABLE_PATH, SUMMARY_PATH]:
+        assert path.exists(), f"missing required output: {path}"
+        assert path.stat().st_size > 0, f"empty required output: {path}"
+    table, summary = read_outputs()
+    assert list(table.columns) == TABLE_COLUMNS
+    assert set(summary) == {
+        "lesson_topic",
+        "target_audience",
+        "latest_common_year",
+        "entities_covered",
+        "takeaways",
+        "caveats",
+    }
 
 
-def test_skill_frontmatter_sections_and_report_schema():
-    text = load_skill_text()
-    fields = parse_frontmatter(text)
-    assert set(fields) >= {"name", "description"}
-    assert re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", fields["name"]), "Skill name must be lowercase-hyphenated"
-    assert 8 <= len(fields["description"].split()) <= 35, "Description must be a concise use-case sentence"
-    assert "TCK-1842" not in fields["name"] + fields["description"]
-    assert "BIO-201" not in fields["name"] + fields["description"]
-    for section in SECTION_NAMES:
-        section_text(text, section)
-
-    report = load_report()
-    assert report["decision"] == "skill"
-    assert report["skill_name"] == fields["name"]
-    assert isinstance(report.get("incident_summary"), str) and len(report["incident_summary"].split()) >= 12
-    assert isinstance(report.get("root_cause"), str) and len(report["root_cause"].split()) >= 12
-    assert isinstance(report.get("evidence"), list) and len(report["evidence"]) >= 5
-    assert isinstance(report.get("reusable_principles"), list) and len(report["reusable_principles"]) >= 3
-    assert isinstance(report.get("rejected_alternatives"), list) and len(report["rejected_alternatives"]) >= 2
+def test_indicator_table_matches_oracle() -> None:
+    actual, _ = read_outputs()
+    expected = pd.DataFrame(reference_metrics.table_frame())
+    actual = normalize_table(actual)
+    expected = normalize_table(expected)
+    assert_frame_equal(actual, expected, check_dtype=False, atol=0.0, rtol=0.0)
+    assert len(actual) == 90
+    assert actual["entity"].tolist() == sorted(actual["entity"].tolist())
+    assert set(actual["indicator"]) == set(reference_metrics.INDICATOR_ORDER)
+    assert set(actual["year"]) == set(reference_metrics.YEARS)
 
 
-def test_evidence_sources_are_real_and_findings_are_grounded():
-    report = load_report()
-    sources = {item.get("source", "") for item in report["evidence"]}
-    assert any(source.startswith("http://127.0.0.1:8080/") for source in sources), "At least one evidence item must use the local API"
-    assert any(not source.startswith("http") for source in sources), "At least one evidence item must cite a session bundle file"
-    assert any("repository_inventory" in source or "/repository/inventory" in source for source in sources), "Evidence must include repository convention inventory"
-    assert any(source == "/workspace/environment/skills/update-skills/SKILL.md" or source.endswith("environment/skills/update-skills/SKILL.md") for source in sources), "Evidence must cite the provided update-skills process skill"
+def test_summary_is_consistent_with_table_and_expected_evidence() -> None:
+    table, summary = read_outputs()
+    table = normalize_table(table)
+    expected = reference_metrics.expected_summary(reference_metrics.table_frame())
 
-    for item in report["evidence"]:
-        source = item.get("source")
-        finding = item.get("finding", "")
-        assert source and isinstance(finding, str) and len(finding.split()) >= 5
-        source_text = source_to_text(source)
-        overlap = meaningful_tokens(finding) & meaningful_tokens(source_text)
-        assert len(overlap) >= 2, f"Finding is not grounded in cited evidence: {source}"
+    assert summary["lesson_topic"].strip()
+    assert summary["target_audience"].strip()
+    assert summary["latest_common_year"] == expected["latest_common_year"]
+    assert summary["entities_covered"] == expected["entities_covered"]
+    assert isinstance(summary["caveats"], list) and len(summary["caveats"]) >= 2
+    joined_caveats = " ".join(str(item).lower() for item in summary["caveats"])
+    assert any(token in joined_caveats for token in ["gross", "ratio", "share"])
+    assert any(
+        token in joined_caveats
+        for token in ["common year", "latest common year", "shared", "same year", "aligned year", "2022"]
+    )
 
-    skill_evidence = section_text(load_skill_text(), "Evidence Reviewed")
-    assert "http://127.0.0.1:8080" in skill_evidence
-    assert "/workspace/session_bundle" in skill_evidence or "tickets/" in skill_evidence or "reviews/" in skill_evidence
+    takeaways = sorted(summary["takeaways"], key=lambda row: row["rank"])
+    assert len(takeaways) >= 3
+    indicator_coverage: set[str] = set()
+    latest_year_takeaway_count = 0
+    for idx, takeaway in enumerate(takeaways, start=1):
+        assert takeaway["rank"] == idx
+        assert isinstance(takeaway["title"], str) and takeaway["title"].strip()
+        assert isinstance(takeaway["detail"], str) and takeaway["detail"].strip()
+        assert isinstance(takeaway["evidence"], list) and len(takeaway["evidence"]) >= 2
+        years = {int(item["year"]) for item in takeaway["evidence"]}
+        indicator_coverage.update(str(item["indicator"]) for item in takeaway["evidence"])
+        if years == {expected["latest_common_year"]}:
+            latest_year_takeaway_count += 1
 
+    assert set(reference_metrics.INDICATOR_ORDER).issubset(indicator_coverage)
+    assert latest_year_takeaway_count >= 2
 
-def test_generalization_score_is_high_enough():
-    text = load_skill_text()
-    general = general_sections_text(text)
-    general_norm = norm(general)
-
-    score = 0
-    one_off_hits = sum(general.count(identifier) for identifier in ONE_OFF_IDENTIFIERS)
-    if one_off_hits <= 2:
-        score += 2
-
-    covered_groups = 0
-    for terms in EDUCATION_CONCEPT_GROUPS.values():
-        if any(term in general_norm for term in terms):
-            covered_groups += 1
-    assert covered_groups >= 4, "Skill must cover multiple reusable education-production concepts"
-    score += min(2, covered_groups // 2)
-
-    procedure = section_text(text, "Procedure")
-    steps = [line for line in procedure.splitlines() if re.match(r"\s*(?:[-*]|\d+[.)])\s+", line)]
-    assert len(steps) >= 4, "Procedure needs at least four actionable steps"
-    procedure_norm = norm(procedure)
-    action_hits = sum(verb in procedure_norm for verb in ["identify", "gather", "compare", "cross-check", "validate", "document", "record", "update", "verify", "resolve"])
-    decision_hits = sum(term in procedure_norm for term in [" if ", " when ", " before ", " after ", " only if ", "treat "])
-    input_hits = sum(term in procedure_norm for term in ["course metadata", "release metadata", "review comments", "reviewer notes", "ci logs", "ci warnings", "style guide", "learner-facing", "rubric", "transcript"])
-    if action_hits >= 4 and decision_hits >= 2 and input_hits >= 3:
-        score += 2
-
-    quality = section_text(text, "Quality Checks")
-    quality_norm = norm(quality)
-    check_lines = [line for line in quality.splitlines() if re.match(r"\s*(?:[-*]|\d+[.)])\s+", line)]
-    if len(check_lines) >= 4 and "evidence" in quality_norm and ("general" in quality_norm or "future" in quality_norm or "workflow" in quality_norm):
-        score += 2
-    report_norm = norm(REPORT_PATH.read_text(encoding="utf-8"))
-    assert (
-        "existing instruction" in general_norm
-        or "existing skill" in general_norm
-        or "duplicat" in general_norm
-        or "existing instruction" in report_norm
-        or "existing skill" in report_norm
-        or "duplicat" in report_norm
-        or "learnings.instructions.md" in report_norm
-    ), "The output must include an existing-file or duplication check from the update-skills workflow"
-
-    scenario_hits = 0
-    for terms in FUTURE_SCENARIOS.values():
-        if len([term for term in terms if term in general_norm]) >= 3:
-            scenario_hits += 1
-    if scenario_hits >= 2:
-        score += 2
-
-    assert score >= 8, f"Generalization score too low: {score}/10"
+    valid_pairs = valid_table_keys(table)
+    for takeaway in takeaways:
+        for evidence in takeaway["evidence"]:
+            key = (
+                evidence["entity"],
+                evidence["indicator"],
+                int(evidence["year"]),
+                round(float(evidence["value"]), 2),
+            )
+            assert key in valid_pairs, f"summary evidence does not resolve to cohort table: {key}"
 
 
-def test_example_contains_wrong_and_corrected_transferable_pattern():
-    example = section_text(load_skill_text(), "Example")
-    example_norm = norm(example)
-    assert re.search(r"\b(wrong|bad)\b", example_norm), "Example must include a wrong/bad approach"
-    assert re.search(r"\b(corrected|better|good)\b", example_norm), "Example must include a corrected/better approach"
-    assert "BIO-201" not in example and "TCK-1842" not in example, "Example should be transferable, not tied to the incident ID"
-    assert any(term in example_norm for term in ["course", "lesson", "module"])
-    assert any(term in example_norm for term in ["metadata", "lms", "publishing"])
-    assert any(term in example_norm for term in ["rubric", "assessment", "learning objective"])
+def test_notebook_is_valid_executable_and_contains_teaching_sections() -> None:
+    notebook = execute_notebook(NOTEBOOK_PATH)
+    assert notebook.cells[0]["cell_type"] == "markdown"
+    heading_count = sum(
+        1
+        for source in markdown_sources(notebook)
+        for line in source.splitlines()
+        if line.lstrip().startswith("#")
+    )
+    assert heading_count >= 4
+    intro_cells = notebook.cells[:4]
+    intro_text = "\n\n".join(
+        cell.get("source", "")
+        for cell in notebook.cells[:6]
+        if cell.get("cell_type") == "markdown"
+    )
+    assert sum(1 for cell in intro_cells if cell.get("cell_type") == "markdown") >= 2
+    setup_idx = first_code_index(notebook)
+    assert setup_idx is not None and setup_idx <= 3
+    first_markdown = notebook.cells[0]["source"]
+    setup_source = notebook.cells[setup_idx]["source"]
+    assert first_markdown.lstrip().startswith("#")
+    assert contains_any_token(
+        intro_text,
+        ["audience", "target audience", "learner", "participants", "受众", "学员"],
+    )
+    assert contains_any_token(
+        intro_text,
+        ["learning goal", "learning goals", "objective", "objectives", "学习目标", "目标"],
+    )
+    outline_candidates = [
+        cell.get("source", "")
+        for cell in intro_cells
+        if cell.get("cell_type") == "markdown"
+    ]
+    assert any(numbered_item_count(source) >= 3 for source in outline_candidates)
+    outline_sections = [
+        source
+        for source in outline_candidates
+        if any(line.lstrip().startswith("##") for line in source.splitlines())
+    ]
+    assert any(numbered_item_count(source) >= 3 for source in outline_sections)
+    assert "import " in setup_source
+    codes = code_cells(notebook)
+    assert len(codes) >= 6
+    assert any(cell.get("execution_count") for cell in codes)
+    assert visual_output_count(notebook) >= 3
+    assert max(nonempty_code_line_count(cell) for cell in codes) <= 125
+    source_blob = "\n".join(cell["source"] for cell in codes)
+    for token in [
+        "years_of_schooling.csv",
+        "school_enrolment.csv",
+        "education_spending.csv",
+        "country_cohort.csv",
+    ]:
+        assert token in source_blob
+
+    image_indices = [
+        idx
+        for idx, cell in enumerate(notebook.cells)
+        if cell.get("cell_type") == "code"
+        and any(
+            key in output.get("data", {})
+            for output in cell.get("outputs", [])
+            for key in ["image/png", "image/svg+xml", "text/html", "application/vnd.plotly.v1+json"]
+        )
+    ]
+    assert len(image_indices) >= 3
+    for idx in image_indices[:3]:
+        assert any(
+            idx - offset >= 0 and notebook.cells[idx - offset]["cell_type"] == "markdown"
+            for offset in [1, 2]
+        )
+        assert idx + 1 < len(notebook.cells), "chart cell is missing a follow-up interpretation cell"
+        next_cell = notebook.cells[idx + 1]
+        assert next_cell["cell_type"] in {"markdown", "code"}
+        if next_cell["cell_type"] == "markdown":
+            assert next_cell.get("source", "").strip()
+        else:
+            assert code_cell_has_visible_output(next_cell)
+
+    step_markdown_indices = [
+        idx
+        for idx, cell in enumerate(notebook.cells)
+        if cell.get("cell_type") == "markdown"
+        and any(line.lstrip().startswith("##") for line in cell.get("source", "").splitlines())
+    ]
+    assert len(step_markdown_indices) >= 5
+    paired_steps = 0
+    for idx in step_markdown_indices:
+        if idx + 1 < len(notebook.cells) and notebook.cells[idx + 1].get("cell_type") == "code":
+            paired_steps += 1
+    assert paired_steps >= 5
+
+    exercise_indices = [
+        idx
+        for idx, cell in enumerate(notebook.cells)
+        if cell.get("cell_type") == "markdown"
+        and contains_any_token(
+            cell.get("source", ""),
+            ["exercise", "practice", "check-in", "your turn", "try it yourself", "练习", "实践"],
+        )
+    ]
+    assert exercise_indices, "notebook is missing a learner practice section"
+    assert any(
+        idx + 1 < len(notebook.cells) and notebook.cells[idx + 1].get("cell_type") == "code"
+        for idx in exercise_indices
+    ), "practice section must be followed by a starter code cell"
 
 
-def test_rejected_alternatives_and_decision_rationale_match_update_skill_workflow():
-    report = load_report()
-    alternatives = " ".join(
-        f"{item.get('alternative', '')} {item.get('reason', '')}"
-        for item in report["rejected_alternatives"]
-    ).lower()
-    assert "instruction" in alternatives, "Report should explain why a short instruction was insufficient"
-    assert "existing instruction" in alternatives or "learning" in alternatives, "Report should address adding a learning to an existing instruction"
-    assert (
-        "existing skill" in alternatives
-        or "update existing" in alternatives
-        or "course-quality-checks" in alternatives
-        or "video-accessibility-review" in alternatives
-        or "nearest skill" in alternatives
-    ), "Report should address updating an existing skill"
-    principles = (" ".join(report["reusable_principles"]) + " " + alternatives).lower()
-    assert "multi-step" in principles or "workflow" in principles
-    assert "evidence" in principles
-    assert "future" in principles or "reusable" in principles or "recur" in principles or "across" in principles
+def test_notebook_recreates_csv_and_json_outputs() -> None:
+    table_backup = Path("/tmp/education_table_backup.csv")
+    summary_backup = Path("/tmp/education_summary_backup.json")
+    shutil.copy2(TABLE_PATH, table_backup)
+    shutil.copy2(SUMMARY_PATH, summary_backup)
+    original_table = pd.read_csv(table_backup)
+    original_summary = json.loads(summary_backup.read_text(encoding="utf-8"))
+
+    TABLE_PATH.unlink()
+    SUMMARY_PATH.unlink()
+
+    notebook = execute_notebook(NOTEBOOK_PATH)
+    assert TABLE_PATH.exists(), "notebook did not recreate cohort_indicator_table.csv"
+    assert SUMMARY_PATH.exists(), "notebook did not recreate lesson_summary.json"
+
+    regenerated_table = pd.read_csv(TABLE_PATH)
+    regenerated_summary = json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
+    assert_frame_equal(
+        normalize_table(regenerated_table),
+        normalize_table(original_table),
+        check_dtype=False,
+        atol=0.0,
+        rtol=0.0,
+    )
+    assert regenerated_summary == original_summary
+    assert visual_output_count(notebook) >= 3
 
 
-def test_guardrails_no_bypass_language_or_fake_workflow():
-    combined = norm(load_skill_text() + "\n" + REPORT_PATH.read_text(encoding="utf-8"))
-    for pattern in FORBIDDEN_BYPASS_PATTERNS:
-        assert pattern not in combined, f"Forbidden bypass language found: {pattern}"
-    assert "replace the real workflow with" not in combined
-    assert "delete input files" not in combined
+def test_mutating_source_data_changes_regenerated_outputs() -> None:
+    spending_path = SOURCE_BUNDLE / "education_spending.csv"
+    spending_backup = Path("/tmp/education_spending_backup.csv")
+    table_backup = Path("/tmp/education_table_before_mutation.csv")
+    summary_backup = Path("/tmp/education_summary_before_mutation.json")
+    shutil.copy2(spending_path, spending_backup)
+    shutil.copy2(TABLE_PATH, table_backup)
+    shutil.copy2(SUMMARY_PATH, summary_backup)
+
+    try:
+        rows = list(pd.read_csv(spending_path).to_dict(orient="records"))
+        changed = False
+        for row in rows:
+            if row["country_code"] == "IDN" and int(row["fiscal_year"]) == 2022:
+                row["education_spending_pct_gdp"] = 9.86
+                changed = True
+                break
+        assert changed, "failed to locate the mutation target in education_spending.csv"
+        pd.DataFrame(rows).to_csv(spending_path, index=False)
+
+        TABLE_PATH.unlink()
+        SUMMARY_PATH.unlink()
+        execute_notebook(NOTEBOOK_PATH)
+
+        mutated_table = normalize_table(pd.read_csv(TABLE_PATH))
+        mutated_summary = json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
+        mutated_value = mutated_table.loc[
+            (mutated_table["entity"] == "Indonesia")
+            & (mutated_table["indicator"] == "education_spending_pct_gdp")
+            & (mutated_table["year"] == 2022),
+            "value",
+        ].iloc[0]
+        assert round(float(mutated_value), 2) == 9.86
+        assert digest(TABLE_PATH) != digest(table_backup)
+
+        valid_pairs = valid_table_keys(mutated_table)
+        for key in summary_evidence_keys(mutated_summary):
+            assert key in valid_pairs
+
+        referenced_mutated_row = [
+            key
+            for key in summary_evidence_keys(mutated_summary)
+            if key[:3] == ("Indonesia", "education_spending_pct_gdp", 2022)
+        ]
+        for key in referenced_mutated_row:
+            assert key[3] == 9.86
+    finally:
+        restore_file(spending_path, spending_backup)
+        restore_file(TABLE_PATH, table_backup)
+        restore_file(SUMMARY_PATH, summary_backup)
+
+
+def test_input_bundle_and_bound_skill_are_unchanged() -> None:
+    if not SOURCE_HASH_PATH.exists():
+        return
+    current_source = os.popen(
+        f"find {SOURCE_BUNDLE} -type f -print0 | sort -z | xargs -0 sha256sum"
+    ).read()
+    assert current_source == SOURCE_HASH_PATH.read_text(encoding="utf-8")
+
+    skill_root = Path("/root/.codex/skills/jupyter-notebook")
+    try:
+        skill_present = skill_root.exists()
+    except PermissionError:
+        skill_present = False
+    if skill_present and SKILL_HASH_PATH.exists():
+        current_skill = os.popen(
+            f"find {skill_root} -type f -print0 | sort -z | xargs -0 sha256sum"
+        ).read()
+        assert current_skill == SKILL_HASH_PATH.read_text(encoding="utf-8")
