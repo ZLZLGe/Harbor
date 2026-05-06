@@ -3,12 +3,12 @@
 统计基准：
 
 - 远端分支：`origin/codex/perskill-s-z-20260325`
-- 统计范围：`skill_moban` 中顶层目录首字母 `b-z` 的小类级 `template_new`
+- 统计范围：`skill_moban` 中顶层目录首字母 `b-d` 的小类级 `template_new`
 - 同步口径：按本地 `template_new` 全量覆盖远端同路径内容
 
 ## 概览
 
-- 小类级 `template_new`：54 个
+- 小类级 `template_new`：35 个
 
 ## 小类级 template_new
 
@@ -47,22 +47,3 @@
 - `documentation/education/template_new`
 - `documentation/knowledge-base/template_new`
 - `documentation/technical-docs/template_new`
-- `lifestyle/arts-crafts/template_new`
-- `lifestyle/culinary-arts/template_new`
-- `lifestyle/divination-mysticism/template_new`
-- `lifestyle/literature-writing/template_new`
-- `lifestyle/philosophy-ethics/template_new`
-- `lifestyle/wellness-health/template_new`
-- `research/astronomy-physics/template_new`
-- `research/bioinformatics/template_new`
-- `research/computational-chemistry/template_new`
-- `research/data-analysis/template_new`
-- `research/scientific-computing/template_new`
-- `testing-security/security/template_new`
-- `tools/automation-tools/template_new`
-- `tools/cli-tools/template_new`
-- `tools/debugging/template_new`
-- `tools/domain-utilities/template_new`
-- `tools/ide-plugins/template_new`
-- `tools/productivity-tools/template_new`
-- `tools/system-admin/template_new`
