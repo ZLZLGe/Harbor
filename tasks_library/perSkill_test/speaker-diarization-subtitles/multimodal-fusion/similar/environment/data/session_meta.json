@@ -1,8 +1,0 @@
-{
-  "audio_duration_sec": 12.0,
-  "track_speaker_map": {
-    "track_host": "spk00",
-    "track_guest": "spk01",
-    "track_analyst": "spk02"
-  }
-}

@@ -1,66 +1,83 @@
-Academic Template
+# Academic Template
 
-这是面向 Academic 类 skill 的模板。它综合参考 SkillsMP Academic 类热门 skill 的共性能力：证据优先研究、论文检索与筛选、引用管理、事实核查、方法学评估、文献综述与学术写作。
+这是面向 `academic` 类 skill 的模板。它综合参考 SkillsMP academic 方向热门 skill 的共性能力：文献筛选、范围判定、结构化证据抽取、方法比较、跨论文综合、研究空白归纳，以及把多篇论文整理成可复核的综述交付物。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：Academic 类热门 skill 的共同价值不只是“写得像论文”，而是把资料检索、证据核验、来源筛选、引用规范和方法学判断组织成稳定流程。任务应让 skill 帮助 Agent 更快识别真实来源、伪造来源、重复来源、证据边界和研究局限。Skill 收益应体现在学术判断质量和收敛效率上，而不是依赖隐藏答案、固定措辞或单一实现路径。
-
-* **Task 目标形态**：Academic 模板任务应模拟真实研究交付物，例如 evidence packet、literature review、paper review、citation audit、annotated bibliography 或 submission-readiness check。输入应包含真实风格的论文元数据、噪声引用、研究范围和待验证 claims，让 Agent 需要综合多个来源做判断。输出应是可审阅的结构化成果，而不是只填一个静态字段或做纯格式转换。
-
-* **Verifier 设计重点**：Verifier 应验证 Agent 是否真正完成学术证据链：来源是否可验证、引用是否一致、claim 是否逐条覆盖、结论是否没有越过证据、out-of-scope 与 fake source 是否被排除。对于 Academic 类任务，测试应关注行为结果和学术质量约束，而不是绑定唯一措辞。还应加入防作弊检查，防止 Agent 伪造 citation、硬编码答案、跳过困难 claim 或用不相关文献凑数。
+* **Skill 价值定位**：academic 类热门 skill 的核心价值，是把文献阅读和综述写作收束成一条稳定链路，让 solver 先判断范围，再抽取证据，随后完成跨论文比较和引用收口。对这类模板任务来说，skill 主要帮助减少在筛选标准、证据定位、主题综合和引用一致性上的试错成本。
+* **Task 目标形态**：这类任务适合设计成围绕一组公开论文材料的综述生产任务，要求 Agent 输出筛选表、方法归类表、证据表、主题综合、研究空白和参考文献。题面应重点交代交付物、输入边界和禁止事项，把阅读顺序、比较路径和综合方式更多留给 solver 自行识别。
+* **Verifier 设计重点**：Verifier 应优先验证 solver 是否完成了完整文献筛选与综合链路，而不是只写出表面完整的总结。重点应覆盖候选集全量覆盖、范围分类、证据片段落地、跨文件一致性、主题粒度控制和 bibliography 对齐，并用防作弊测试拦下空表、编造引文和候选集外论文。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`academic-evidence-packet`
-- 类别：Academic
+- 任务 ID：`academic__reasoning-method-review-packet`
+- 类别：`academic`
 - 难度：`hard`
 - 绑定 Skill：`academic-researcher`
+- 输入数据参考来源：
+  - `environment/data/metadata/arxiv_id_feed.xml`：任务内 21 篇候选论文元数据；直接来源于 arXiv API 批量查询  
+    【https://arxiv.org/api/query?search_query=&start=0&max_results=21&id_list=2201.11903,2203.11171,2205.11916,2205.10625,2210.03493,2210.03350,2211.10435,2211.12588,2301.13379,2305.04091,2305.10601,2308.09687,2303.03103,2307.15337,2203.14465,2210.03629,2302.04761,2303.09014,2304.07919,2305.02317,2307.02477】
+  - `environment/data/metadata/candidate_manifest.tsv`：任务内候选论文清单与版本化 arXiv 链接；设计形态参考同批 arXiv 论文页面  
+    【https://arxiv.org/abs/2201.11903v6】  
+    【https://arxiv.org/abs/2211.10435v2】  
+    【https://arxiv.org/abs/2305.10601v2】
+  - `environment/data/text/2201.11903.md`：任务内摘要快照；直接来源于对应 arXiv 论文页面  
+    【https://arxiv.org/abs/2201.11903v6】
+  - `environment/data/text/2211.10435.md`：任务内摘要快照；直接来源于对应 arXiv 论文页面  
+    【https://arxiv.org/abs/2211.10435v2】
+  - `environment/data/text/2305.10601.md`：任务内摘要快照；直接来源于对应 arXiv 论文页面  
+    【https://arxiv.org/abs/2305.10601v2】
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-Oracle：官方解法通过本地 scholarly evidence gateway 读取固定论文快照，生成 claim-level evidence matrix、clean BibTeX、source assessments 和 literature note。E2B oracle 结果为 Reward `1.0`，`9/9` 测试通过。
+- Oracle：oracle 读取同一份候选论文元数据、摘要快照、范围规则和输出合同，生成全部 7 个交付文件，并重放完整筛选与综述流程。它证明任务可运行、可验证，也证明答案不依赖隐藏文件。
+- Verifier策略：
 
-Verifier 策略：
+主测试
+| 测试点 | 验证内容 | 对应skill内化点 |
+| :--- | :--- | :--- |
+| 候选集全量覆盖 | `screening_decisions.tsv` 必须覆盖全部 21 篇候选论文且每篇只出现一次 | 先做完整文献筛选 |
+| 范围分类与纳入集 | 纳入/排除决策、排除原因和纳入论文核心方法标签保持一致 | 依据范围规则做方法筛选 |
+| 证据落地 | `scope_anchor` 与 `supporting_text_snippet` 必须能在本地摘要快照中定位 | 从论文文本提取证据 |
+| 摘要表与统计一致 | `included_papers.tsv`、`review_summary.json` 与实际纳入集合一致 | 结构化信息抽取与收口 |
+| 主题综合粒度 | `theme_map.json` 既要覆盖全部纳入论文，又不能把主题桶做得过粗 | 跨论文综合与主题归纳 |
+| 参考文献一致性 | `references.bib` 只包含纳入论文，且与综述正文和表格一致 | 引用整理与交付闭环 |
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+防作弊测试
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| 检查所有 claims 的覆盖、decision、corrected claim 和 rationale 是否符合证据边界 | 事实核查、证据支持判断、过度外推识别 |
-| 检查 clean bibliography、rejected sources、evidence keys 是否一致且排除 fake/duplicate/out-of-scope 来源 | 引用管理、来源可信度评估、去重与范围筛选 |
-| 检查 source assessments 与 literature note 是否包含研究设计、方法局限、retrieval/generation/evaluation caveats 和 research gaps | 论文方法学分析、文献综述组织、学术写作 |
+| 空表或缺件 | 不允许缺失任何合同文件，也不允许用空内容规避 |
+| 候选集外论文 | 不允许出现 manifest 之外的论文 ID、标题或引文 |
+| 编造证据 | 不允许虚构 scope anchor、supporting snippet 或 benchmark 证据 |
+| 跨文件断链 | 不允许筛选表、纳入表、主题图、综述和 bibliography 彼此不一致 |
+| 旧草稿照抄 | `legacy_screening_notes.tsv` 中已知错误必须被纠正，不能原样继承 |
 
 ### ⚡ Skill 相关性评估
 
-结论：相关。这个任务里，Skill 的核心价值是把论文分析框架、方法学局限、文献综述结构和引用审查流程显式化；新增的 `source_assessments` 与 caveat 分层要求能拦住只完成 claim 表层分类、但没有稳定方法学归纳的解法。
+结论：强相关。这个任务的关键难点不在于生成长文本，而在于先完成范围筛选，再完成证据抽取、方法比较、主题综合和引用对齐。without_skill 更容易停在主题粒度过粗、旧草稿误用、分类不稳或跨文件断链这类行动/分析级失败上。
 
-基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3 组** 有效对照实验（均跑到 task-level，已排除启动失败与构建取消类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0/3` | `1/3` | without Skill 主要失败在 source assessment 或 claim decision 的学术判断细节；with Skill 至少一次完整通过。 |
-| Agent 执行耗时 | `198.9s` | `185.3s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `6.8%`。 |
-| Tokens | `247.1k` | `223.0k` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.11x`。 |
+| 通过率 | `0%` | `100%` | 最近 3 组有效对照里，without_skill 都至少留下 1 项 verifier 失败，主要集中在 `citation_source` 断链、纳入/排除判断漂移，以及主题图把候选外或排除论文重新带回综合结果。 |
+| Agent 执行耗时 | `277.7s` | `343.4s` | without_skill 更早停在筛选或综合错误上，因此平均耗时更短；with_skill 会继续完成完整综述交付。 |
+| Tokens | `466795` | `369698` | without_skill 的平均 token 开销约为 with_skill 的 `1.26x`，主要消耗在反复重判论文范围和回补跨文件一致性上。 |
 
 ## 📁 标准目录结构说明
 
 ```text
-template_new/
+模板任务：
 ├── instruction.md
 ├── task.toml
 ├── PLAN.json
 ├── README.md
 ├── environment/
 │   ├── Dockerfile
-│   ├── evidence_gateway.py
-│   ├── evidence_snapshot.json
-│   ├── research_packet/
+│   ├── data/
 │   └── skills/
 ├── tests/
-│   ├── test.sh
-│   └── test_outputs.py
 └── solution/
-    ├── solve.py
-    └── solve.sh
 ```

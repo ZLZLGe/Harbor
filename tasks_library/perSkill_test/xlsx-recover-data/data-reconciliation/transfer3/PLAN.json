@@ -1,8 +1,0 @@
-{
-  "derivedTaskId": "transfer3",
-  "taskRole": "transfer",
-  "title": "Transfer - Chain Dependency Reconciliation",
-  "goal": "Solve chain-dependent missing values and output a reconciled workbook.",
-  "primaryOutputFile": "/root/reconcile_transfer3_recovered.xlsx",
-  "skillScope": "data-reconciliation"
-}

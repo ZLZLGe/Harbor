@@ -1,8 +1,0 @@
-{
-  "derivedTaskId": "similar",
-  "taskRole": "similar",
-  "title": "Similar - Reconciliation Baseline",
-  "goal": "Reconcile missing workbook cells using arithmetic and cross-sheet constraints.",
-  "primaryOutputFile": "/root/reconcile_similar_recovered.xlsx",
-  "skillScope": "data-reconciliation"
-}

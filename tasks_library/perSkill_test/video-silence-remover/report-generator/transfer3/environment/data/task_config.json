@@ -1,7 +1,0 @@
-{
-  "original_video": "/root/data/original.mp4",
-  "compressed_video": "/root/data/compressed.mp4",
-  "segments_json": "/root/data/segments.json",
-  "output_json": "/root/qa_report.json",
-  "summary_json": "/root/qa_report_brief.json"
-}

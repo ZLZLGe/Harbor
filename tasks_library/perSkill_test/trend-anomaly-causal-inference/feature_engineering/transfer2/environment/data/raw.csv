@@ -1,9 +1,0 @@
-rider_id,avg_trip_minutes,monthly_trips,auto_reload,fare_type,home_zone,survey_wave
-R-301,18,42,Enabled,Standard,Central,spring
-R-302,27,35,Disabled,Student,North,spring
-R-303,31,28,Enabled,Senior,South,spring
-R-304,22,56,Enabled,Standard,North,spring
-R-305,40,18,Disabled,Senior,Central,spring
-R-306,25,47,Enabled,Student,South,spring
-R-307,34,24,Disabled,Standard,South,spring
-R-308,20,39,Enabled,Student,North,spring

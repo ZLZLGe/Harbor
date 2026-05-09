@@ -1,7 +1,0 @@
-service_id,framework,unit_strategy,api_strategy,persistence_strategy,isolation_strategy,coverage_gate
-svc-001,laravel,PHPUnit or Pest service tests with factories,container-resolved unit tests without HTTP layer,RefreshDatabase tests with model factories and assertDatabaseHas,Http::fake plus Queue::fake boundary isolation,line>=90%;branch>=85%
-svc-002,django,pytest-django unit tests with factory_boy,DRF APIClient tests with force_authenticate,pytest-django transactional DB tests with factory_boy,fixture-scoped dependency isolation,line>=95%;branch>=90%
-svc-003,django,pytest-django unit tests with factory_boy,pytest-django service tests without HTTP layer,repository seam tests without database access,fixture-scoped dependency isolation,line>=80%;branch>=70%
-svc-004,springboot,JUnit5 and Mockito service-layer tests,MockMvc slice tests with security request post-processors,DataJpaTest with Testcontainers-backed repository checks,Mockito-driven collaborator isolation,line>=95%;branch>=90%
-svc-005,laravel,PHPUnit or Pest service tests with factories,Laravel HTTP JSON tests with response assertions,repository contract tests with database fakes,service container fakes for collaborator isolation,line>=85%;branch>=75%
-svc-006,springboot,JUnit5 and Mockito service-layer tests,MockMvc controller tests with JSON assertions,DataJpaTest with Testcontainers-backed repository checks,WireMock stubs for external integrations,line>=85%;branch>=75%

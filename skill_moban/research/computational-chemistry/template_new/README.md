@@ -1,49 +1,70 @@
 # Computational-Chemistry Template
 
-这是面向 `computational-chemistry` 类 skill 的模板。它综合参考 SkillsMP computational-chemistry 类热门 skill 的共性能力：SMILES/RDKit 解析、分子描述符、药物相似性、medchem 过滤、ChEMBL 风格活性归一化、ADMET/安全信号、结构告警和 lead triage 报告生成。
+这是面向 `computational-chemistry` 类 skill 的模板。它综合参考 SkillsMP 这一类热门 skill 的共性能力：分子数据整理、SMILES 处理、性质建模、实验工作区管理、候选方案排序、预测产物生成和可审计交付。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：computational-chemistry 类 skill 的核心价值，是把分子结构、活性数据和安全证据放进可复现的科学计算链路。模板任务应让 skill 在结构标准化、RDKit 描述符、单位转换、censored evidence、drug-likeness、结构告警和候选排序上降低漏项率，而不是泄露固定排名或绕过计算。
-* **Task目标形态**：任务应要求 Agent 基于候选结构、活性记录、项目约束和安全摘要，产出可审计的研究报告或分析程序。目标形态适合设计成 lead triage、虚拟筛选、结构过滤、活性归一化、ADMET 预筛、series diversity 排序和方法说明，不适合做静态答案填空、网页修复或只按单一指标排序的 toy 任务。
-* **Verifier设计重点**：Verifier 应重算关键化学与药物发现结果，验证输出是否来自真实结构和数据处理链路。重点应覆盖 RDKit canonical parent、MolWt/LogP/HBD/HBA/TPSA/QED、mixed-unit 活性到 nM/pActivity、censored value 处理、安全 hard exclusion、结构告警、排名连续性、动态新增候选泛化和反硬编码输出。
+* **Skill 价值定位**：这类 skill 的核心价值，是把分子数据、建模步骤、候选方案筛选和结果交付串成可复核的工作流。模板任务应让 skill 在项目组织、当前数据口径、实验比较、保留策略和交付说明上降低遗漏率。
+* **Task 目标形态**：任务应要求 Agent 基于公开来源风格的分子数据和本地实验工作区，产出可执行、可验证、可审计的模型交付包。适合的目标形态包括性质预测发布、候选模型筛选、离线 benchmark 刷新、盲集预测和实验台账整理。
+* **Verifier 设计重点**：Verifier 应重算输入去重与排除、模型资格、排序依据、预测结果和保留约束，并确认输出来自当前任务内的数据与工作区状态。重点应覆盖输入不可变、输出 schema、当前 run 的产生链路、模型留存状态和交付说明的一致性。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`computational-chemistry__offline-lead-triage`
+- 任务 ID：`computational-chemistry__aqsol-release-refresh`
 - 类别：`computational-chemistry`
 - 难度：`hard`
-- 绑定 Skill：`drug-discovery`
+- 绑定 Skill：`cli-anything-unimol-tools`
+
+- 输入数据参考来源：
+  - `environment/data/train.csv`：训练集；设计形态参考 Delaney ESOL 分子溶解度数据  
+    【https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/delaney-processed.csv】
+  - `environment/data/valid.csv`：验证集；设计形态参考 Delaney ESOL 分子溶解度数据  
+    【https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/delaney-processed.csv】
+  - `environment/data/test.csv`：测试集；设计形态参考 Delaney ESOL 分子溶解度数据  
+    【https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/delaney-processed.csv】
+  - `environment/data/holdout.csv`：盲集；设计形态参考 Delaney ESOL 分子溶解度数据  
+    【https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/delaney-processed.csv】
+  - `environment/workbench/unimol_tools_cli/`：本地工作流接口设计参考 Uni-Mol Tools quickstart  
+    【https://unimol-tools.readthedocs.io/en/latest/quickstart.html】
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 使用同一批 candidate SMILES、ChEMBL 风格 activity records、target profile、assay notes 和 OpenFDA 风格 safety reports，独立生成 lead triage 结果。它关注候选优先级是否由真实 RDKit 结构计算、活性归一化、安全规则和多样性策略推导，而不是实现方式是否唯一。
+- Oracle：Oracle 基于同一批分子分割数据、当前 release 规则、本地实验工作区和当前保留约束，独立生成排除清单、模型摘要、最终模型选择和预测产物。它关注交付包是否来自当前任务状态下的完整建模链路。
 
-- Verifier策略：
+- Verifier 策略：
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+主测试
+
+| 测试点 | 验证内容 | 对应 skill 内化点 |
+| :--- | :--- | :--- |
+| 输出文件集合与 schema | 校验 6 个交付文件、字段合同、数值字段和排序 | 结构化研究交付 |
+| 排除行重算 | 从原始 split 动态重算无效行与重复行 | 分子数据清洗与台账 |
+| 模型资格与最终选择 | 按当前规则重算 eligible / rejected / selected | 当前 run 选择与对比 |
+| 预测重算 | 从保留模型工件重算 scored / holdout 预测 | 本地推理与结果复核 |
+| 工作区保留约束 | 校验最终保留模型数量和 selected run 留存状态 | 存储管理与结果留存 |
+| 方法说明 | 校验说明文件覆盖排除、选择、保留和输出组织 | 研究说明与交付口径 |
+
+防作弊测试
+
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| `lead_triage.csv/json`、`excluded_candidates.csv`、`method_notes.md` schema、rank 和 score 范围 | 可复现研究交付物与审计结构 |
-| canonical parent、重复盐型合并、无效 SMILES 排除 | SMILES 解析、母体结构标准化和可追溯映射 |
-| RDKit MolWt、LogP、HBD/HBA、TPSA、rotatable bonds、QED | 分子描述符与 drug-likeness 计算 |
-| nM/uM/mM 转换、pActivity、confidence-weighted geometric mean、censored values | ChEMBL 风格活性归一化和带方向证据处理 |
-| PAINS-like catechol、Michael acceptor、CYP interaction、hard safety exclusions | medchem 结构告警、ADMET 和安全风险整合 |
-| potency/property/QED/safety/series diversity 综合排序 | lead triage、候选优先级和骨架多样性 |
-| verifier 动态新增强活性候选并要求进入前列 | 数据驱动泛化、防固定名单和反硬编码排名 |
+| 输入 hash | 阻止修改任务内数据、规则和基线快照 |
+| 审计链路 | 要求当前会话在工作区里产生 train、rank、predict 事件 |
+| 工件复算 | 从模型工件重算预测与指标，拦截硬编码结果 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把药物发现 lead triage 的关键科学口径标准化：先做 RDKit parent structure 与描述符，再处理 mixed-unit / censored activity，最后合并结构告警、安全信号和 series diversity。without Skill 理论上仍可解，但更容易在 exact mass、活性聚合、弱活性审计、duplicate parent 或动态候选泛化上失败。
+结论：强相关。这个任务里，Skill 的核心价值是把本地项目切换、当前 family 训练、模型排序、存储复核、保留处理和预测导出压成一条稳定工作流，从而让 release 包始终落在同一套 workspace 控制面上。当前 verifier 也直接检查这条链路是否成立，因此只做表面产物拼接的解法很难通过。
 
-基于最近 **3** 次有效对比实验（均为真实 E2B task-level Codex + GPT-5.4 轨迹；未把启动失败当作失败样本）：
+基于最近 **3** 次有效对比实验（均为完整 task-level 运行，已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` | `100%` | without Skill 三次均未完全通过；with Skill 三次均 reward `1.0`。 |
-| Agent 执行耗时 | `339.4s` | `169.0s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `50.2%`。 |
-| Tokens | `618.1k` | `237.9k` | Without Skill 的可统计输入 token 约为 With Skill 的 `2.60x`。 |
+| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 常见失败点包括：把存储复核放在错误时点、输出与审计结构偏离 workspace 契约、以及排除行原因标签不稳定。 |
+| Agent 执行耗时 | `659.9s` | `354.1s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `46%`。 |
+| Tokens | `1.12M` | `0.61M` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.83x`。 |
 
 ## 📁 标准目录结构说明
 
@@ -55,8 +76,8 @@ template_new/
 ├── environment/
 │   ├── Dockerfile
 │   ├── data/
-│   ├── services/
-│   └── skills/
+│   ├── skills/
+│   └── workbench/
 ├── tests/
 ├── solution/
 └── README.md

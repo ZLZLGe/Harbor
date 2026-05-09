@@ -1,4 +1,0 @@
-interface:
-  display_name: "Data Quality Auditor"
-  short_description: "Audit data across six quality dimensions with scoring and remediation."
-  brand_color: "#6366F1"

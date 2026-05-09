@@ -1,22 +1,23 @@
 version = "1.0"
 
 [metadata]
-id = "security__orderhub-api-security-review"
-name = "OrderHub API Security Review"
-description = "Review a multi-tenant order API, capture evidence-backed findings, and produce a concise security report."
+id = "security__tenant-vulnerability-advisory-api"
+name = "Template: Tenant Vulnerability Advisory API"
+description = "Build a tenant-scoped vulnerability advisory service with authenticated search, bulk lookup, export jobs, and tenant-bound CSV artifacts."
 difficulty = "hard"
 category = "security"
 tags = [
   "security",
   "rest-api",
-  "audit",
+  "nodejs",
+  "express",
   "authentication",
   "authorization",
-  "rate-limiting",
-  "reporting",
+  "pagination",
+  "csv-export",
 ]
 required_skills = [
-  "api-security-testing",
+  "security-review",
 ]
 distractor_skills = [
   "api-design",

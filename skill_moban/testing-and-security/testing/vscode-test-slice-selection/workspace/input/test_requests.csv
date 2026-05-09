@@ -1,8 +1,0 @@
-request_id,test_kind,file_filter,glob_filter,grep_filter,suite_filter,coverage,platform
-101,unit,src/vs/editor/test/common/model.test.ts,,should split lines,,true,linux
-102,unit,,**/search/**/*.test.js,SearchProvider,,false,linux
-103,integration,src/vs/workbench/services/search/test/browser/search.integrationTest.ts,,TextSearchProvider,,false,linux
-104,integration,,,,git,true,linux
-105,integration,,,SearchProvider,,false,windows
-106,integration,,**/workbench/**/*.integrationTest.js,,,false,linux
-107,unit,src/vs/workbench/test/browser/workbench.test.ts,,,api-folder,false,windows

@@ -1,4 +1,0 @@
-{
-  "threadId": "019cf6e3-14c9-7541-8d57-0262162bc0d9",
-  "raw": "{\"familyObservations\":{\"diversityPass\":true,\"issues\":[],\"roleLayoutPass\":true},\"taskResults\":[{\"derivedTaskId\":\"multi-plate-earthquake-geospatial-analysis-similar-interior-ranking\",\"issues\":[],\"pass\":true,\"skillBenefitPass\":true,\"testabilityPass\":true,\"visibilityPass\":true},{\"derivedTaskId\":\"marine-reserve-turtle-geospatial-analysis-transfer-core-habitat\",\"issues\":[],\"pass\":true,\"skillBenefitPass\":true,\"testabilityPass\":true,\"visibilityPass\":true},{\"derivedTaskId\":\"heatwave-cooling-access-geospatial-analysis-transfer-service-gap\",\"issues\":[],\"pass\":true,\"skillBenefitPass\":true,\"testabilityPass\":true,\"visibilityPass\":true},{\"derivedTaskId\":\"ferry-route-slowzone-geospatial-analysis-transfer-overlap-length\",\"issues\":[],\"pass\":true,\"skillBenefitPass\":true,\"testabilityPass\":true,\"visibilityPass\":true}]}"
-}

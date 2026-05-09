@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "requesting-code-review",
+    "installsRaw": "74.9K",
+    "installs": 74900,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/requesting-code-review"
+  },
+  {
+    "slug": "receiving-code-review",
+    "installsRaw": "59.4K",
+    "installs": 59400,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/receiving-code-review"
+  },
+  {
+    "slug": "security-review",
+    "installsRaw": "7.5K",
+    "installs": 7500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/security-review"
+  },
+  {
+    "slug": "springboot-security",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/springboot-security"
+  },
+  {
+    "slug": "django-security",
+    "installsRaw": "4.1K",
+    "installs": 4100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/django-security"
+  },
+  {
+    "slug": "security-scan",
+    "installsRaw": "3.8K",
+    "installs": 3800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/security-scan"
+  },
+  {
+    "slug": "laravel-security",
+    "installsRaw": "3.0K",
+    "installs": 3000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/laravel-security"
+  },
+  {
+    "slug": "customs-trade-compliance",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/customs-trade-compliance"
+  },
+  {
+    "slug": "documentation-lookup",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/documentation-lookup"
+  },
+  {
+    "slug": "flutter-dart-code-review",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/flutter-dart-code-review"
+  },
+  {
+    "slug": "logistics-exception-management",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/logistics-exception-management"
+  },
+  {
+    "slug": "perl-security",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/perl-security"
+  },
+  {
+    "slug": "click-path-audit",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/click-path-audit"
+  },
+  {
+    "slug": "healthcare-phi-compliance",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/healthcare-phi-compliance"
+  },
+  {
+    "slug": "token-budget-advisor",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/token-budget-advisor"
+  },
+  {
+    "slug": "workspace-surface-audit",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/workspace-surface-audit"
+  },
+  {
+    "slug": "security-bounty-hunter",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/security-bounty-hunter"
+  },
+  {
+    "slug": "automation-audit-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops"
+  },
+  {
+    "slug": "defi-amm-security",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/defi-amm-security"
+  },
+  {
+    "slug": "ecc-tools-cost-audit",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/ecc-tools-cost-audit"
+  },
+  {
+    "slug": "hipaa-compliance",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/hipaa-compliance"
+  },
+  {
+    "slug": "llm-trading-agent-security",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/llm-trading-agent-security"
+  },
+  {
+    "slug": "code-reviewer",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/code-reviewer"
+  },
+  {
+    "slug": "strategy-advisor",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/strategy-advisor"
+  },
+  {
+    "slug": "api-security-best-practices",
+    "installsRaw": "6.9K",
+    "installs": 6900,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/api-security-best-practices"
+  },
+  {
+    "slug": "api-documentation-generator",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/api-documentation-generator"
+  },
+  {
+    "slug": "documentation-templates",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/documentation-templates"
+  },
+  {
+    "slug": "accessibility-compliance",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/accessibility-compliance"
+  },
+  {
+    "slug": "on-call-handoff-patterns",
+    "installsRaw": "5.7K",
+    "installs": 5700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/on-call-handoff-patterns"
+  },
+  {
+    "slug": "multi-reviewer-patterns",
+    "installsRaw": "4.9K",
+    "installs": 4900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/multi-reviewer-patterns"
+  },
+  {
+    "slug": "signed-audit-trails-recipe",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/signed-audit-trails-recipe"
+  },
+  {
+    "slug": "prd",
+    "installsRaw": "17.1K",
+    "installs": 17100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/prd"
+  },
+  {
+    "slug": "documentation-writer",
+    "installsRaw": "17.0K",
+    "installs": 17000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/documentation-writer"
+  },
+  {
+    "slug": "dataverse-python-usecase-builder",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/dataverse-python-usecase-builder"
+  },
+  {
+    "slug": "secret-scanning",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/secret-scanning"
+  },
+  {
+    "slug": "legal-risk-assessment",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/legal-risk-assessment"
+  },
+  {
+    "slug": "review-contract",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/review-contract"
+  },
+  {
+    "slug": "compliance-tracking",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/compliance-tracking"
+  },
+  {
+    "slug": "create-an-asset",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/create-an-asset"
+  },
+  {
+    "slug": "legal-response",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/legal-response"
+  },
+  {
+    "slug": "compliance-check",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/compliance-check"
+  },
+  {
+    "slug": "secure-code-guardian",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/secure-code-guardian"
+  },
+  {
+    "slug": "insecure-defaults",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/insecure-defaults"
+  },
+  {
+    "slug": "secure-workflow-guide",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/secure-workflow-guide"
+  },
+  {
+    "slug": "property-based-testing",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/property-based-testing"
+  },
+  {
+    "slug": "guidelines-advisor",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/guidelines-advisor"
+  },
+  {
+    "slug": "second-opinion",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/second-opinion"
+  },
+  {
+    "slug": "toss-securities",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "nomadamas/k-skill",
+    "sourceLower": "nomadamas/k-skill",
+    "stars": 4500,
+    "repoUrl": "https://github.com/nomadamas/k-skill",
+    "skillUrl": "https://skills.sh/nomadamas/k-skill/toss-securities"
+  },
+  {
+    "slug": "real-estate-search",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "nomadamas/k-skill",
+    "sourceLower": "nomadamas/k-skill",
+    "stars": 4500,
+    "repoUrl": "https://github.com/nomadamas/k-skill",
+    "skillUrl": "https://skills.sh/nomadamas/k-skill/real-estate-search"
+  },
+  {
+    "slug": "prioritization-advisor",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "deanpeters/product-manager-skills",
+    "sourceLower": "deanpeters/product-manager-skills",
+    "stars": 4000,
+    "repoUrl": "https://github.com/deanpeters/product-manager-skills",
+    "skillUrl": "https://skills.sh/deanpeters/product-manager-skills/prioritization-advisor"
+  }
+]

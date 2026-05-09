@@ -1,7 +1,0 @@
-component,critical_count,high_count,medium_count,low_count,gdpr_flag,status
-api-gateway,1,0,0,1,false,fail
-billing-service,0,2,0,0,false,fail
-profile-service,0,0,1,0,true,fail
-reporting-worker,0,0,2,0,false,warn
-search-ui,0,1,0,0,false,warn
-static-site,0,0,0,1,false,pass

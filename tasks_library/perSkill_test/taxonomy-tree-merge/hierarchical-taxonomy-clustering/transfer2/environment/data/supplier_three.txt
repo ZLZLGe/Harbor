@@ -1,5 +1,0 @@
-boutique|House Cats > Pate Meals
-boutique|Canine > Treat Bites > Training
-boutique|Cat Cleanup > Litter Catcher Mats
-boutique|Birds > Toy Perches
-boutique|Fish Tanks > Replacement Filters

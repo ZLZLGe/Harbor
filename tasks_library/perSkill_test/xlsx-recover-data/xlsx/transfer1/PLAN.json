@@ -1,8 +1,0 @@
-{
-  "derivedTaskId": "transfer1",
-  "taskRole": "transfer",
-  "title": "Transfer - Operations Variance Pack",
-  "goal": "Produce an operations-focused recovered workbook from a partially missing planning file.",
-  "primaryOutputFile": "/root/ops_transfer_recovered.xlsx",
-  "skillScope": "xlsx"
-}

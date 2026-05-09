@@ -1,6 +1,0 @@
-{
-  "mode": "pack_summary",
-  "raw_dir": "/root/data/raw",
-  "packs_manifest": "/root/data/packs.json",
-  "output_file": "/root/transfer3_pack_summary.json"
-}

@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "security-review",
+    "installsRaw": "7.5K",
+    "installs": 7500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/security-review"
+  },
+  {
+    "slug": "docker-patterns",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/docker-patterns"
+  },
+  {
+    "slug": "springboot-security",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/springboot-security"
+  },
+  {
+    "slug": "django-security",
+    "installsRaw": "4.1K",
+    "installs": 4100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/django-security"
+  },
+  {
+    "slug": "deployment-patterns",
+    "installsRaw": "3.8K",
+    "installs": 3800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/deployment-patterns"
+  },
+  {
+    "slug": "security-scan",
+    "installsRaw": "3.8K",
+    "installs": 3800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/security-scan"
+  },
+  {
+    "slug": "laravel-security",
+    "installsRaw": "3.0K",
+    "installs": 3000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/laravel-security"
+  },
+  {
+    "slug": "bun-runtime",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/bun-runtime"
+  },
+  {
+    "slug": "perl-security",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/perl-security"
+  },
+  {
+    "slug": "security-bounty-hunter",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/security-bounty-hunter"
+  },
+  {
+    "slug": "automation-audit-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops"
+  },
+  {
+    "slug": "defi-amm-security",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/defi-amm-security"
+  },
+  {
+    "slug": "llm-trading-agent-security",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/llm-trading-agent-security"
+  },
+  {
+    "slug": "cloud",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "browser-use/browser-use",
+    "sourceLower": "browser-use/browser-use",
+    "stars": 92400,
+    "repoUrl": "https://github.com/browser-use/browser-use",
+    "skillUrl": "https://skills.sh/browser-use/browser-use/cloud"
+  },
+  {
+    "slug": "image-generation",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/image-generation"
+  },
+  {
+    "slug": "image-enhancer",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/image-enhancer"
+  },
+  {
+    "slug": "docker-expert",
+    "installsRaw": "14.6K",
+    "installs": 14600,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/docker-expert"
+  },
+  {
+    "slug": "api-security-best-practices",
+    "installsRaw": "6.9K",
+    "installs": 6900,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/api-security-best-practices"
+  },
+  {
+    "slug": "browser-automation",
+    "installsRaw": "4.5K",
+    "installs": 4500,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/browser-automation"
+  },
+  {
+    "slug": "vercel-deployment",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/vercel-deployment"
+  },
+  {
+    "slug": "grafana-dashboards",
+    "installsRaw": "7.2K",
+    "installs": 7200,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/grafana-dashboards"
+  },
+  {
+    "slug": "secrets-management",
+    "installsRaw": "6.8K",
+    "installs": 6800,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/secrets-management"
+  },
+  {
+    "slug": "gitops-workflow",
+    "installsRaw": "6.3K",
+    "installs": 6300,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/gitops-workflow"
+  },
+  {
+    "slug": "prometheus-configuration",
+    "installsRaw": "6.1K",
+    "installs": 6100,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/prometheus-configuration"
+  },
+  {
+    "slug": "python-observability",
+    "installsRaw": "5.9K",
+    "installs": 5900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-observability"
+  },
+  {
+    "slug": "istio-traffic-management",
+    "installsRaw": "5.6K",
+    "installs": 5600,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/istio-traffic-management"
+  },
+  {
+    "slug": "linkerd-patterns",
+    "installsRaw": "5.6K",
+    "installs": 5600,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/linkerd-patterns"
+  },
+  {
+    "slug": "multi-stage-dockerfile",
+    "installsRaw": "12.9K",
+    "installs": 12900,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/multi-stage-dockerfile"
+  },
+  {
+    "slug": "playwright-automation-fill-in-form",
+    "installsRaw": "9.6K",
+    "installs": 9600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/playwright-automation-fill-in-form"
+  },
+  {
+    "slug": "azure-deployment-preflight",
+    "installsRaw": "9.2K",
+    "installs": 9200,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/azure-deployment-preflight"
+  },
+  {
+    "slug": "image-manipulation-image-magick",
+    "installsRaw": "9.0K",
+    "installs": 9000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/image-manipulation-image-magick"
+  },
+  {
+    "slug": "containerize-aspnetcore",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/containerize-aspnetcore"
+  },
+  {
+    "slug": "java-add-graalvm-native-image-support",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/java-add-graalvm-native-image-support"
+  },
+  {
+    "slug": "containerize-aspnet-framework",
+    "installsRaw": "8.3K",
+    "installs": 8300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/containerize-aspnet-framework"
+  },
+  {
+    "slug": "cloud-design-patterns",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/cloud-design-patterns"
+  },
+  {
+    "slug": "baoyu-image-gen",
+    "installsRaw": "20.3K",
+    "installs": 20300,
+    "source": "jimliu/baoyu-skills",
+    "sourceLower": "jimliu/baoyu-skills",
+    "stars": 17200,
+    "repoUrl": "https://github.com/jimliu/baoyu-skills",
+    "skillUrl": "https://skills.sh/jimliu/baoyu-skills/baoyu-image-gen"
+  },
+  {
+    "slug": "baoyu-cover-image",
+    "installsRaw": "19.9K",
+    "installs": 19900,
+    "source": "jimliu/baoyu-skills",
+    "sourceLower": "jimliu/baoyu-skills",
+    "stars": 17200,
+    "repoUrl": "https://github.com/jimliu/baoyu-skills",
+    "skillUrl": "https://skills.sh/jimliu/baoyu-skills/baoyu-cover-image"
+  },
+  {
+    "slug": "baoyu-xhs-images",
+    "installsRaw": "19.7K",
+    "installs": 19700,
+    "source": "jimliu/baoyu-skills",
+    "sourceLower": "jimliu/baoyu-skills",
+    "stars": 17200,
+    "repoUrl": "https://github.com/jimliu/baoyu-skills",
+    "skillUrl": "https://skills.sh/jimliu/baoyu-skills/baoyu-xhs-images"
+  },
+  {
+    "slug": "baoyu-compress-image",
+    "installsRaw": "17.4K",
+    "installs": 17400,
+    "source": "jimliu/baoyu-skills",
+    "sourceLower": "jimliu/baoyu-skills",
+    "stars": 17200,
+    "repoUrl": "https://github.com/jimliu/baoyu-skills",
+    "skillUrl": "https://skills.sh/jimliu/baoyu-skills/baoyu-compress-image"
+  },
+  {
+    "slug": "baoyu-image-cards",
+    "installsRaw": "3.5K",
+    "installs": 3500,
+    "source": "jimliu/baoyu-skills",
+    "sourceLower": "jimliu/baoyu-skills",
+    "stars": 17200,
+    "repoUrl": "https://github.com/jimliu/baoyu-skills",
+    "skillUrl": "https://skills.sh/jimliu/baoyu-skills/baoyu-image-cards"
+  },
+  {
+    "slug": "hyperframes-registry",
+    "installsRaw": "30.6K",
+    "installs": 30600,
+    "source": "heygen-com/hyperframes",
+    "sourceLower": "heygen-com/hyperframes",
+    "stars": 15000,
+    "repoUrl": "https://github.com/heygen-com/hyperframes",
+    "skillUrl": "https://skills.sh/heygen-com/hyperframes/hyperframes-registry"
+  },
+  {
+    "slug": "kubernetes-specialist",
+    "installsRaw": "8.9K",
+    "installs": 8900,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/kubernetes-specialist"
+  },
+  {
+    "slug": "devops-engineer",
+    "installsRaw": "4.4K",
+    "installs": 4400,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/devops-engineer"
+  },
+  {
+    "slug": "monitoring-expert",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/monitoring-expert"
+  },
+  {
+    "slug": "terraform-engineer",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/terraform-engineer"
+  },
+  {
+    "slug": "cloud-architect",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/cloud-architect"
+  },
+  {
+    "slug": "cloud-run-basics",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "google/skills",
+    "sourceLower": "google/skills",
+    "stars": 6700,
+    "repoUrl": "https://github.com/google/skills",
+    "skillUrl": "https://skills.sh/google/skills/cloud-run-basics"
+  },
+  {
+    "slug": "google-cloud-recipe-networking-observability",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "google/skills",
+    "sourceLower": "google/skills",
+    "stars": 6700,
+    "repoUrl": "https://github.com/google/skills",
+    "skillUrl": "https://skills.sh/google/skills/google-cloud-recipe-networking-observability"
+  },
+  {
+    "slug": "gke-basics",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "google/skills",
+    "sourceLower": "google/skills",
+    "stars": 6700,
+    "repoUrl": "https://github.com/google/skills",
+    "skillUrl": "https://skills.sh/google/skills/gke-basics"
+  },
+  {
+    "slug": "adk-observability-guide",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "google/adk-docs",
+    "sourceLower": "google/adk-docs",
+    "stars": 1300,
+    "repoUrl": "https://github.com/google/adk-docs",
+    "skillUrl": "https://skills.sh/google/adk-docs/adk-observability-guide"
+  }
+]

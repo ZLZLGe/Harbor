@@ -13,6 +13,7 @@
   ],
   "activationEvents": [
     "onCommand:releaseBriefing.exportBriefings",
+    "onCommand:releaseBriefing.refreshReleaseIndex",
     "onCommand:releaseBriefing.openReleaseNote",
     "onView:releaseBriefing.releases"
   ],
@@ -30,6 +31,11 @@
       {
         "command": "releaseBriefing.exportBriefings",
         "title": "%command.export.title%",
+        "category": "%command.category%"
+      },
+      {
+        "command": "releaseBriefing.refreshReleaseIndex",
+        "title": "%command.refresh.title%",
         "category": "%command.category%"
       },
       {
@@ -55,6 +61,20 @@
         }
       ]
     },
+    "menus": {
+      "view/title": [
+        {
+          "command": "releaseBriefing.refreshReleaseIndex",
+          "when": "view == releaseBriefing.releases",
+          "group": "navigation"
+        },
+        {
+          "command": "releaseBriefing.exportBriefings",
+          "when": "view == releaseBriefing.releases",
+          "group": "navigation@2"
+        }
+      ]
+    },
     "viewsWelcome": [
       {
         "view": "releaseBriefing.releases",
@@ -71,6 +91,11 @@
             "en",
             "pt-br",
             "zh-cn"
+          ],
+          "enumDescriptions": [
+            "%config.defaultLocale.enum.en%",
+            "%config.defaultLocale.enum.pt-br%",
+            "%config.defaultLocale.enum.zh-cn%"
           ],
           "description": "%config.defaultLocale.description%"
         },
@@ -108,15 +133,27 @@
             "completionEvents": [
               "onCommand:releaseBriefing.exportBriefings"
             ]
+          },
+          {
+            "id": "releaseBriefing.step.package",
+            "title": "%walkthrough.step.package.title%",
+            "description": "%walkthrough.step.package.description%",
+            "media": {
+              "markdown": "%walkthrough.step.package.markdown%"
+            },
+            "completionEvents": [
+              "onCommand:releaseBriefing.refreshReleaseIndex"
+            ]
           }
         ]
       }
     ]
   },
   "scripts": {
-    "build": "node ./src/validate.js",
-    "export": "node ./src/cli-export.js",
-    "package": "npx @vscode/vsce package --allow-missing-repository --out ../output/release-briefing-extension.vsix"
+    "sync-locales": "node ./src/sync-locales.js",
+    "build": "npm run sync-locales && node ./src/validate.js",
+    "export": "npm run sync-locales && node ./src/cli-export.js",
+    "package": "npm run sync-locales && npx @vscode/vsce package --allow-missing-repository --out ../output/release-briefing-extension.vsix"
   },
   "devDependencies": {
     "@vscode/vsce": "^2.27.0"

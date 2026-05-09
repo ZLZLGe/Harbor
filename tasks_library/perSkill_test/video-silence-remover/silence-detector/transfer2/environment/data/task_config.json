@@ -1,8 +1,0 @@
-{
-  "input_energies": "/root/data/briefing_energies.json",
-  "output_json": "/root/briefing_silence.json",
-  "summary_json": "/root/briefing_silence_summary.json",
-  "threshold_multiplier": 1.6,
-  "initial_window": 3,
-  "smoothing_window": 2
-}

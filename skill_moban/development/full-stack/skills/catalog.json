@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "coding-standards",
+    "installsRaw": "6.4K",
+    "installs": 6400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/coding-standards"
+  },
+  {
+    "slug": "backend-patterns",
+    "installsRaw": "6.3K",
+    "installs": 6300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/backend-patterns"
+  },
+  {
+    "slug": "frontend-patterns",
+    "installsRaw": "6.3K",
+    "installs": 6300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-patterns"
+  },
+  {
+    "slug": "api-design",
+    "installsRaw": "4.6K",
+    "installs": 4600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/api-design"
+  },
+  {
+    "slug": "frontend-slides",
+    "installsRaw": "4.4K",
+    "installs": 4400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-slides"
+  },
+  {
+    "slug": "django-patterns",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/django-patterns"
+  },
+  {
+    "slug": "database-migrations",
+    "installsRaw": "3.9K",
+    "installs": 3900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/database-migrations"
+  },
+  {
+    "slug": "nextjs-turbopack",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/nextjs-turbopack"
+  },
+  {
+    "slug": "x-api",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/x-api"
+  },
+  {
+    "slug": "claude-api",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/claude-api"
+  },
+  {
+    "slug": "nuxt4-patterns",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/nuxt4-patterns"
+  },
+  {
+    "slug": "frontend-design",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-design"
+  },
+  {
+    "slug": "api-connector-builder",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/api-connector-builder"
+  },
+  {
+    "slug": "frontend-testing",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "langgenius/dify",
+    "sourceLower": "langgenius/dify",
+    "stars": 140300,
+    "repoUrl": "https://github.com/langgenius/dify",
+    "skillUrl": "https://skills.sh/langgenius/dify/frontend-testing"
+  },
+  {
+    "slug": "webapp-testing",
+    "installsRaw": "63.6K",
+    "installs": 63600,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/webapp-testing"
+  },
+  {
+    "slug": "doc-coauthoring",
+    "installsRaw": "38.2K",
+    "installs": 38200,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/doc-coauthoring"
+  },
+  {
+    "slug": "fullstack-developer",
+    "installsRaw": "5.4K",
+    "installs": 5400,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/fullstack-developer"
+  },
+  {
+    "slug": "fastapi",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "fastapi/fastapi",
+    "sourceLower": "fastapi/fastapi",
+    "stars": 97900,
+    "repoUrl": "https://github.com/fastapi/fastapi",
+    "skillUrl": "https://skills.sh/fastapi/fastapi/fastapi"
+  },
+  {
+    "slug": "react",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "lobehub/lobehub",
+    "sourceLower": "lobehub/lobehub",
+    "stars": 76100,
+    "repoUrl": "https://github.com/lobehub/lobehub",
+    "skillUrl": "https://skills.sh/lobehub/lobehub/react"
+  },
+  {
+    "slug": "api-security-best-practices",
+    "installsRaw": "6.9K",
+    "installs": 6900,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/api-security-best-practices"
+  },
+  {
+    "slug": "nextjs-supabase-auth",
+    "installsRaw": "4.7K",
+    "installs": 4700,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-supabase-auth"
+  },
+  {
+    "slug": "api-documentation-generator",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/api-documentation-generator"
+  },
+  {
+    "slug": "senior-fullstack",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/senior-fullstack"
+  },
+  {
+    "slug": "database-design",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/database-design"
+  },
+  {
+    "slug": "backend-dev-guidelines",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/backend-dev-guidelines"
+  },
+  {
+    "slug": "tailwind-design-system",
+    "installsRaw": "39.9K",
+    "installs": 39900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/tailwind-design-system"
+  },
+  {
+    "slug": "nodejs-backend-patterns",
+    "installsRaw": "31.2K",
+    "installs": 31200,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/nodejs-backend-patterns"
+  },
+  {
+    "slug": "api-design-principles",
+    "installsRaw": "19.9K",
+    "installs": 19900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/api-design-principles"
+  },
+  {
+    "slug": "fastapi-templates",
+    "installsRaw": "16.4K",
+    "installs": 16400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/fastapi-templates"
+  },
+  {
+    "slug": "react-native-architecture",
+    "installsRaw": "8.7K",
+    "installs": 8700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/react-native-architecture"
+  },
+  {
+    "slug": "react-native-design",
+    "installsRaw": "8.7K",
+    "installs": 8700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/react-native-design"
+  },
+  {
+    "slug": "react-state-management",
+    "installsRaw": "8.0K",
+    "installs": 8000,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/react-state-management"
+  },
+  {
+    "slug": "web-component-design",
+    "installsRaw": "7.4K",
+    "installs": 7400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/web-component-design"
+  },
+  {
+    "slug": "react-modernization",
+    "installsRaw": "6.8K",
+    "installs": 6800,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/react-modernization"
+  },
+  {
+    "slug": "python-observability",
+    "installsRaw": "5.9K",
+    "installs": 5900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-observability"
+  },
+  {
+    "slug": "create-spring-boot-java-project",
+    "installsRaw": "8.7K",
+    "installs": 8700,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-spring-boot-java-project"
+  },
+  {
+    "slug": "openapi-to-application-code",
+    "installsRaw": "8.6K",
+    "installs": 8600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/openapi-to-application-code"
+  },
+  {
+    "slug": "aspnet-minimal-api-openapi",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/aspnet-minimal-api-openapi"
+  },
+  {
+    "slug": "java-mcp-server-generator",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/java-mcp-server-generator"
+  },
+  {
+    "slug": "typespec-api-operations",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/typespec-api-operations"
+  },
+  {
+    "slug": "typespec-create-api-plugin",
+    "installsRaw": "8.3K",
+    "installs": 8300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/typespec-create-api-plugin"
+  },
+  {
+    "slug": "premium-frontend-ui",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/premium-frontend-ui"
+  },
+  {
+    "slug": "senior-backend",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/senior-backend"
+  },
+  {
+    "slug": "frontend-skill",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "openai/skills",
+    "sourceLower": "openai/skills",
+    "stars": 18400,
+    "repoUrl": "https://github.com/openai/skills",
+    "skillUrl": "https://skills.sh/openai/skills/frontend-skill"
+  },
+  {
+    "slug": "waapi",
+    "installsRaw": "11.4K",
+    "installs": 11400,
+    "source": "heygen-com/hyperframes",
+    "sourceLower": "heygen-com/hyperframes",
+    "stars": 15000,
+    "repoUrl": "https://github.com/heygen-com/hyperframes",
+    "skillUrl": "https://skills.sh/heygen-com/hyperframes/waapi"
+  },
+  {
+    "slug": "frontend-dev",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "minimax-ai/skills",
+    "sourceLower": "minimax-ai/skills",
+    "stars": 11600,
+    "repoUrl": "https://github.com/minimax-ai/skills",
+    "skillUrl": "https://skills.sh/minimax-ai/skills/frontend-dev"
+  },
+  {
+    "slug": "fullstack-dev",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "minimax-ai/skills",
+    "sourceLower": "minimax-ai/skills",
+    "stars": 11600,
+    "repoUrl": "https://github.com/minimax-ai/skills",
+    "skillUrl": "https://skills.sh/minimax-ai/skills/fullstack-dev"
+  },
+  {
+    "slug": "lark-openapi-explorer",
+    "installsRaw": "101.5K",
+    "installs": 101500,
+    "source": "larksuite/cli",
+    "sourceLower": "larksuite/cli",
+    "stars": 9300,
+    "repoUrl": "https://github.com/larksuite/cli",
+    "skillUrl": "https://skills.sh/larksuite/cli/lark-openapi-explorer"
+  },
+  {
+    "slug": "fastapi-expert",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/fastapi-expert"
+  },
+  {
+    "slug": "api-designer",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/api-designer"
+  }
+]

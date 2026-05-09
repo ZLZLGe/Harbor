@@ -1,5 +1,0 @@
-machine,start,end,reason
-0,18,22,tool_change
-1,8,17,calibration
-2,10,18,preventive_maintenance
-3,12,17,coolant_service

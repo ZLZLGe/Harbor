@@ -1,113 +1,71 @@
 from __future__ import annotations
 
-import json
-import os
-import subprocess
-import urllib.request
+import hashlib
+import shutil
 from pathlib import Path
 
-
-ACCESS_LOG = Path(os.environ.get("ORDERHUB_ACCESS_LOG", "/var/log/orderhub-api/access.log"))
-DATA_ROOT = Path(os.environ.get("DATA_DIR", "/root/data"))
-SERVICE_ROOT = Path(os.environ.get("ORDERHUB_SERVICE_ROOT", "/services/orderhub-api"))
-OUTPUT_ROOT = Path(os.environ.get("OUTPUT_DIR", "/root/output"))
-DATA_HASH_PATH = Path(os.environ.get("ORDERHUB_DATA_HASH", "/opt/orderhub-data.sha256"))
-SERVICE_HASH_PATH = Path(os.environ.get("ORDERHUB_SERVICE_HASH", "/opt/orderhub-service.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("ORDERHUB_SKILL_HASH", "/opt/orderhub-skills.sha256"))
-SKILL_ROOT = Path(os.environ.get("ORDERHUB_SKILL_ROOT", "/root/.codex/skills"))
-HEALTH_URL = os.environ.get("ORDERHUB_HEALTH_URL", "http://127.0.0.1:8142/health")
-PRE_VERIFIER_LOG = ACCESS_LOG.read_text(encoding="utf-8") if ACCESS_LOG.exists() else ""
+from common import DATA_ROOT, TASK_ROOT, build_alternate_fixture, request_json, request_text, running_server
 
 
-def parse_pre_verifier_records() -> list[dict]:
-    records = []
-    for line in PRE_VERIFIER_LOG.splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        record = json.loads(line)
-        if record.get("client", "").startswith("verifier-"):
-            continue
-        records.append(record)
-    return records
+FULL_KEY = "pk_live_emerald"
 
 
-def test_solver_used_live_api_workflow() -> None:
-    records = parse_pre_verifier_records()
-    assert records, "No pre-verifier traffic was recorded"
-
-    openapi_hits = [record for record in records if record["path"] == "/openapi.json"]
-    identity_hits = [record for record in records if record["path"] == "/api/identities/me"]
-    assert openapi_hits, "Solver did not fetch the OpenAPI contract"
-    assert {record["identity_label"] for record in identity_hits} == {
-        "tenant_alpha_analyst",
-        "tenant_beta_analyst",
-        "support_readonly",
-    }, "Solver did not exercise all allowed identities"
+def _full_data_hash(root: Path) -> str:
+    digest = hashlib.sha256()
+    for path in sorted(root.iterdir()):
+        digest.update(path.name.encode("utf-8"))
+        digest.update(path.read_bytes())
+    return digest.hexdigest()
 
 
-def test_solver_confirmed_key_audit_actions() -> None:
-    records = parse_pre_verifier_records()
-
-    cross_tenant_reads = [
-        record
-        for record in records
-        if record["method"] == "GET"
-        and record["path"] in {"/api/orders/10278", "/api/orders/10643"}
-        and record["identity_label"] in {"tenant_alpha_analyst", "tenant_beta_analyst"}
-        and record["status"] == 200
-    ]
-    assert cross_tenant_reads, "Solver did not perform a cross-tenant direct order lookup"
-
-    export_burst = [
-        record
-        for record in records
-        if record["method"] == "POST"
-        and record["path"] == "/api/exports/orders"
-        and record["body"].get("scope") == "all_tenants"
-    ]
-    assert len(export_burst) >= 6, "Solver did not perform an export burst sequence"
-
-    error_hits = [
-        record
-        for record in records
-        if record["method"] == "GET"
-        and record["path"] == "/api/orders"
-        and record["query"].get("sort_by")
-        and record["status"] == 500
-    ]
-    assert error_hits, "Solver did not trigger and record an error path"
+def test_static_input_data_unchanged() -> None:
+    assert _full_data_hash(DATA_ROOT) == "772d99ed8a90a5a50b794c468a508d2ba9f8fc81961bbf945eb423bbae541e94"
 
 
-def test_inputs_service_and_skills_were_not_modified() -> None:
-    current_data = subprocess.check_output(
-        f"find {DATA_ROOT} -type f -print0 | sort -z | xargs -0 sha256sum",
-        shell=True,
-        text=True,
-    )
-    expected_data = DATA_HASH_PATH.read_text(encoding="utf-8")
-    assert current_data == expected_data, "Input data under /root/data was modified"
+def test_behavior_generalizes_on_alternate_fixture() -> None:
+    alt_data_dir, alt_state_dir = build_alternate_fixture()
+    try:
+        with running_server(data_dir=alt_data_dir, state_dir=alt_state_dir) as base_url:
+            status, _, payload = request_json(
+                base_url,
+                "GET",
+                "/api/v1/advisories?page=1&page_size=2&sort=-epss",
+                api_key=FULL_KEY,
+            )
+            assert status == 200, payload
+            assert [row["cve_id"] for row in payload["data"]] == ["CVE-2099-0001", "CVE-2024-23897"]
 
-    current_service = subprocess.check_output(
-        f"find {SERVICE_ROOT} -type f -name '*.py' -print0 | sort -z | xargs -0 sha256sum",
-        shell=True,
-        text=True,
-    )
-    expected_service = SERVICE_HASH_PATH.read_text(encoding="utf-8")
-    assert current_service == expected_service, "Hidden service files were modified"
+            create_status, _, create_payload = request_json(
+                base_url,
+                "POST",
+                "/api/v1/export-jobs",
+                api_key=FULL_KEY,
+                payload={"filters": {"vendor": "progress", "severity": "high"}, "format": "csv"},
+            )
+            assert create_status == 201, create_payload
+            job = create_payload["data"]
 
-    expected_skill = SKILL_HASH_PATH.read_text(encoding="utf-8")
-    if expected_skill.strip():
-        current_skill = subprocess.check_output(
-            f"find {SKILL_ROOT} -type f -print0 | sort -z | xargs -0 sha256sum",
-            shell=True,
-            text=True,
-        )
-        assert current_skill == expected_skill, "Task skill files were modified"
+            download_status, _, csv_text = request_text(
+                base_url,
+                "GET",
+                f"/api/v1/export-jobs/{job['id']}/download",
+                api_key=FULL_KEY,
+            )
+            assert download_status == 200, csv_text
+            assert "CVE-2099-0001" in csv_text
+    finally:
+        shutil.rmtree(alt_data_dir.parent)
 
 
-def test_live_service_still_healthy() -> None:
-    with urllib.request.urlopen(HEALTH_URL, timeout=10) as resp:
-        payload = json.loads(resp.read().decode("utf-8"))
-    assert payload["ok"] is True
-    assert payload["service"] == "orderhub-api"
+def test_task_kept_expected_structure() -> None:
+    assert Path("/app/workspace/server.js").exists() or (TASK_ROOT / "workspace" / "server.js").exists()
+    assert Path("/app/workspace/service").exists() or (TASK_ROOT / "workspace" / "service").exists()
+    assert Path("/tests/test.sh").exists() or (TASK_ROOT.parent / "tests" / "test.sh").exists()
+
+
+def test_no_embedded_export_secret_fallback() -> None:
+    app_path = Path("/app/workspace/service/app.js")
+    if not app_path.exists():
+        app_path = TASK_ROOT / "workspace" / "service" / "app.js"
+    source = app_path.read_text(encoding="utf-8")
+    assert "unsafe-dev-export-signing-secret" not in source

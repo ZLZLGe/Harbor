@@ -1,209 +1,564 @@
 from __future__ import annotations
 
-import hashlib
 import json
-import sqlite3
+import os
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from scipy import stats
+from lxml import etree
+from netCDF4 import Dataset, num2date
 
-DATA = Path('/root/data')
-CATEGORIES = ['Heat', 'Flow', 'Wind', 'Human']
-FEATURE_MAP = {
-    'Heat': ['air_temp_c', 'solar_w_m2'],
-    'Flow': ['inflow_cms', 'lake_level_m'],
-    'Wind': ['wind_speed_mps'],
-    'Human': ['boat_count', 'shoreline_index'],
-}
+DATA_ROOT = Path(os.environ.get("DATA_DIR", "/root/data"))
+
+INPUT_SUMMARY_COLUMNS = [
+    "dataset_name",
+    "path",
+    "format",
+    "coverage_start",
+    "coverage_end",
+    "primary_dimensions_or_rows",
+    "key_variables",
+    "analysis_ready",
+]
+DATA_ISSUE_COLUMNS = [
+    "issue_id",
+    "dataset_name",
+    "severity",
+    "issue_type",
+    "affected_count",
+    "evidence",
+    "follow_up_action",
+]
+DAILY_PANEL_COLUMNS = [
+    "date",
+    "station_id",
+    "station_lat",
+    "station_lon",
+    "grid_lat",
+    "grid_lon",
+    "total_timestamp_rows",
+    "distinct_utc_hours",
+    "hour_coverage_ratio",
+    "valid_wtmp_obs",
+    "wtmp_completeness_ratio",
+    "valid_wspd_obs",
+    "wspd_completeness_ratio",
+    "mean_buoy_wtmp_c",
+    "max_wind_speed_mps",
+    "oisst_sst_c",
+    "oisst_anom_c",
+]
+CANDIDATE_COLUMNS = [
+    "rank",
+    "start_date",
+    "end_date",
+    "n_days",
+    "window_mean_sst_anom_c",
+    "window_mean_buoy_wtmp_c",
+    "window_min_hour_coverage_ratio",
+    "window_min_wtmp_completeness_ratio",
+    "selection_note",
+]
 
 
-def sha256_file(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open('rb') as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b''):
-            h.update(chunk)
-    return h.hexdigest()
+def cf_datetime_to_date(value) -> pd.Timestamp:
+    return pd.Timestamp(year=value.year, month=value.month, day=value.day)
 
 
-def load_inputs(data_dir: Path = DATA) -> dict[str, pd.DataFrame]:
-    conn = sqlite3.connect(data_dir / 'observatory.db')
-    inputs = {
-        'stations': pd.read_sql_query('SELECT * FROM stations', conn),
-        'water': pd.read_sql_query('SELECT * FROM water_temperature', conn, parse_dates=['observed_at', 'ingested_at']),
-        'weather': pd.read_sql_query('SELECT * FROM weather_daily', conn, parse_dates=['observed_date']),
-        'hydro': pd.read_sql_query('SELECT * FROM hydrology_daily', conn, parse_dates=['observed_date']),
-        'activity': pd.read_sql_query('SELECT * FROM human_activity_daily', conn, parse_dates=['observed_date']),
-        'events_db': pd.read_sql_query('SELECT * FROM maintenance_events', conn, parse_dates=['start_at', 'end_at']),
-    }
-    conn.close()
-    inputs['metadata'] = pd.read_csv(data_dir / 'station_metadata.csv')
-    inputs['event_windows'] = pd.read_csv(data_dir / 'event_windows.csv', parse_dates=['start_at', 'end_at'])
-    inputs['schema'] = json.loads((data_dir / 'expected_schema.json').read_text(encoding='utf-8'))
-    return inputs
+def round_frame(frame: pd.DataFrame) -> pd.DataFrame:
+    result = frame.copy()
+    for column in result.columns:
+        if column in {"station_lat", "station_lon", "grid_lat", "grid_lon"}:
+            result[column] = pd.to_numeric(result[column], errors="coerce").round(3)
+        if column in {
+            "hour_coverage_ratio",
+            "wtmp_completeness_ratio",
+            "wspd_completeness_ratio",
+            "mean_buoy_wtmp_c",
+            "max_wind_speed_mps",
+            "oisst_sst_c",
+            "oisst_anom_c",
+            "window_mean_sst_anom_c",
+            "window_mean_buoy_wtmp_c",
+            "window_min_hour_coverage_ratio",
+            "window_min_wtmp_completeness_ratio",
+        }:
+            result[column] = pd.to_numeric(result[column], errors="coerce").round(6)
+    return result
 
 
-def qc_daily(inputs: dict[str, pd.DataFrame]) -> tuple[pd.DataFrame, dict[str, int]]:
-    water = inputs['water'].copy()
-    raw_rows = len(water)
-    water = water.sort_values(['station_id', 'observed_at', 'ingested_at', 'obs_id'])
-    deduped = water.drop_duplicates(['station_id', 'observed_at'], keep='last').copy()
-    dropped_duplicate_rows = raw_rows - len(deduped)
+def load_contract(data_root: Path = DATA_ROOT) -> dict:
+    return json.loads((data_root / "contracts" / "screening_contract.json").read_text(encoding="utf-8"))
 
-    deduped['temp_c'] = np.where(
-        deduped['unit'].eq('F'),
-        (deduped['water_temp'].astype(float) - 32.0) * 5.0 / 9.0,
-        deduped['water_temp'].astype(float),
+
+def choose_metadata_file(data_root: Path, contract: dict) -> Path:
+    candidates = sorted((data_root / "metadata").glob("*.xml"))
+    for path in candidates:
+        xml_root = etree.parse(str(path))
+        station_nodes = xml_root.xpath("//station")
+        if station_nodes and station_nodes[0].attrib.get("id") == contract["station"]["station_id"]:
+            return path
+    raise FileNotFoundError("No metadata XML matched the contract station")
+
+
+def load_station_metadata(data_root: Path = DATA_ROOT, contract: dict | None = None) -> tuple[dict, Path]:
+    contract = contract or load_contract(data_root)
+    metadata_path = choose_metadata_file(data_root, contract)
+    xml_root = etree.parse(str(metadata_path))
+    station_node = xml_root.xpath("//station")[0]
+    histories = station_node.xpath("./history")
+    open_ended = [history for history in histories if history.attrib.get("stop", "") == ""]
+    if not open_ended:
+        raise ValueError("No open-ended history entry found")
+    latest = max(open_ended, key=lambda history: pd.Timestamp(history.attrib["start"]))
+    station_lat = float(latest.attrib["lat"])
+    station_lon = float(latest.attrib["lng"])
+    return (
+        {
+            "station_id": station_node.attrib["id"],
+            "station_name": station_node.attrib["name"],
+            "station_lat": station_lat,
+            "station_lon": station_lon,
+            "station_lon_360": station_lon + 360 if station_lon < 0 else station_lon,
+            "history_count": len(histories),
+            "coverage_start": min(history.attrib["start"] for history in histories),
+            "selected_history_start": latest.attrib["start"],
+        },
+        metadata_path,
     )
-    qc_mask = deduped['qc_flag'].eq('pass') & deduped['sensor_status'].eq('ok')
-    dropped_qc_rows = int((~qc_mask).sum())
-    clean = deduped.loc[qc_mask].copy()
 
-    event_mask = pd.Series(False, index=clean.index)
-    for row in inputs['event_windows'].itertuples(index=False):
-        if bool(row.exclude_from_analysis):
-            event_mask |= (
-                clean['station_id'].eq(row.station_id)
-                & clean['observed_at'].ge(row.start_at)
-                & clean['observed_at'].lt(row.end_at)
+
+def parse_buoy_file(path: Path, contract: dict) -> tuple[pd.DataFrame, dict]:
+    lines = path.read_text(encoding="utf-8").splitlines()
+    header_index = None
+    for index, line in enumerate(lines):
+        if line.strip().startswith("#YY"):
+            header_index = index
+            break
+    if header_index is None:
+        raise ValueError(f"No buoy header found in {path}")
+
+    header = lines[header_index].replace("#", "").split()
+    rows: list[dict[str, str]] = []
+    dropped_rows = 0
+    for line in lines[header_index + 1 :]:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = stripped.split()
+        if len(parts) != len(header):
+            dropped_rows += 1
+            continue
+        rows.append(dict(zip(header, parts)))
+
+    raw = pd.DataFrame(rows)
+    for column in ["YY", "MM", "DD", "hh", "mm"]:
+        raw[column] = raw[column].astype(int)
+    raw["timestamp"] = pd.to_datetime(
+        raw[["YY", "MM", "DD", "hh", "mm"]].rename(
+            columns={"YY": "year", "MM": "month", "DD": "day", "hh": "hour", "mm": "minute"}
+        ),
+        utc=True,
+    )
+    raw["hour"] = raw["timestamp"].dt.hour
+    for column in ["WSPD", "WTMP"]:
+        raw[column] = pd.to_numeric(raw[column], errors="coerce")
+        raw.loc[raw[column].isin(contract["cleaning_rules"]["missing_value_sentinels"]), column] = np.nan
+
+    meta = {
+        "header_index": header_index,
+        "dropped_rows": dropped_rows,
+        "parsed_rows": len(raw),
+        "coverage_start": raw["timestamp"].min().date().isoformat(),
+        "coverage_end": raw["timestamp"].max().date().isoformat(),
+        "path": path,
+    }
+    return raw, meta
+
+
+def choose_buoy_file(data_root: Path, contract: dict) -> tuple[pd.DataFrame, dict]:
+    required_start = pd.Timestamp(contract["study_window"]["start_date"]).date()
+    required_end = pd.Timestamp(contract["study_window"]["end_date"]).date()
+    for path in sorted((data_root / "buoys").glob("*.txt")):
+        raw, meta = parse_buoy_file(path, contract)
+        coverage_start = pd.Timestamp(meta["coverage_start"]).date()
+        coverage_end = pd.Timestamp(meta["coverage_end"]).date()
+        if coverage_start <= required_start and coverage_end >= required_end:
+            return raw, meta
+    raise FileNotFoundError("No buoy extract covered the contract study window")
+
+
+def build_buoy_daily(raw: pd.DataFrame, contract: dict) -> pd.DataFrame:
+    expected_hours = int(contract["daily_quality_rules"]["expected_utc_hours_per_day"])
+    daily = (
+        raw.assign(date=raw["timestamp"].dt.date)
+        .groupby("date", as_index=False)
+        .agg(
+            total_timestamp_rows=("timestamp", "size"),
+            distinct_utc_hours=("hour", "nunique"),
+            valid_wtmp_obs=("WTMP", lambda values: int(values.notna().sum())),
+            valid_wspd_obs=("WSPD", lambda values: int(values.notna().sum())),
+            mean_buoy_wtmp_c=("WTMP", "mean"),
+            max_wind_speed_mps=("WSPD", "max"),
+        )
+    )
+    daily["hour_coverage_ratio"] = daily["distinct_utc_hours"] / expected_hours
+    daily["wtmp_completeness_ratio"] = daily["valid_wtmp_obs"] / daily["total_timestamp_rows"]
+    daily["wspd_completeness_ratio"] = daily["valid_wspd_obs"] / daily["total_timestamp_rows"]
+    return daily
+
+
+def choose_grid_file(data_root: Path, contract: dict, station: dict) -> tuple[pd.DataFrame, dict, dict, Path]:
+    required_start = pd.Timestamp(contract["study_window"]["start_date"]).date()
+    required_end = pd.Timestamp(contract["study_window"]["end_date"]).date()
+    required_lon = station["station_lon_360"]
+    required_lat = station["station_lat"]
+
+    for path in sorted((data_root / "grids").glob("*.nc")):
+        dataset = Dataset(path)
+        latitudes = dataset.variables["lat"][:]
+        longitudes = dataset.variables["lon"][:]
+        time_units = dataset.variables["time"].units
+        time_calendar = getattr(dataset.variables["time"], "calendar", "standard")
+        dates = [
+            cf_datetime_to_date(num2date(value, units=time_units, calendar=time_calendar)).date()
+            for value in dataset.variables["time"][:]
+        ]
+        coverage_start = dates[0]
+        coverage_end = dates[-1]
+        spatial_match = (
+            float(latitudes.min()) <= required_lat <= float(latitudes.max())
+            and float(longitudes.min()) <= required_lon <= float(longitudes.max())
+        )
+        temporal_match = coverage_start <= required_start and coverage_end >= required_end
+        if not (spatial_match and temporal_match):
+            dataset.close()
+            continue
+
+        lat_idx = int(np.abs(latitudes - required_lat).argmin())
+        lon_idx = int(np.abs(longitudes - required_lon).argmin())
+        grid_info = {"grid_lat": float(latitudes[lat_idx]), "grid_lon": float(longitudes[lon_idx])}
+        point_panel = pd.DataFrame(
+            {
+                "date": dates,
+                "oisst_sst_c": dataset.variables["sst"][:, 0, lat_idx, lon_idx].filled(np.nan),
+                "oisst_anom_c": dataset.variables["anom"][:, 0, lat_idx, lon_idx].filled(np.nan),
+            }
+        )
+        grid_shape = {
+            "time": len(dataset.dimensions["time"]),
+            "zlev": len(dataset.dimensions["zlev"]),
+            "lat": len(dataset.dimensions["lat"]),
+            "lon": len(dataset.dimensions["lon"]),
+        }
+        dataset.close()
+        return point_panel, grid_info, grid_shape, path
+
+    raise FileNotFoundError("No grid subset matched the contract station and study window")
+
+
+def build_input_summary(
+    contract: dict,
+    station: dict,
+    metadata_path: Path,
+    buoy_meta: dict,
+    grid_shape: dict,
+    grid_path: Path,
+) -> pd.DataFrame:
+    return pd.DataFrame(
+        [
+            {
+                "dataset_name": "oisst_subset",
+                "path": f"/root/data/grids/{grid_path.name}",
+                "format": "netcdf",
+                "coverage_start": contract["study_window"]["start_date"],
+                "coverage_end": contract["study_window"]["end_date"],
+                "primary_dimensions_or_rows": (
+                    f"time={grid_shape['time']};zlev={grid_shape['zlev']};lat={grid_shape['lat']};lon={grid_shape['lon']}"
+                ),
+                "key_variables": "time,zlev,lat,lon,sst,anom,err,ice",
+                "analysis_ready": "yes",
+            },
+            {
+                "dataset_name": "buoy_stdmet",
+                "path": f"/root/data/buoys/{buoy_meta['path'].name}",
+                "format": "plain_text_table",
+                "coverage_start": buoy_meta["coverage_start"],
+                "coverage_end": buoy_meta["coverage_end"],
+                "primary_dimensions_or_rows": f"rows={buoy_meta['parsed_rows']}",
+                "key_variables": "YY,MM,DD,hh,mm,WSPD,WTMP",
+                "analysis_ready": "yes",
+            },
+            {
+                "dataset_name": "station_metadata",
+                "path": f"/root/data/metadata/{metadata_path.name}",
+                "format": "xml",
+                "coverage_start": station["coverage_start"],
+                "coverage_end": "open",
+                "primary_dimensions_or_rows": f"histories={station['history_count']}",
+                "key_variables": "station@id,history@start,history@stop,history@lat,history@lng",
+                "analysis_ready": "yes",
+            },
+            {
+                "dataset_name": "screening_contract",
+                "path": "/root/data/contracts/screening_contract.json",
+                "format": "json",
+                "coverage_start": contract["study_window"]["start_date"],
+                "coverage_end": contract["study_window"]["end_date"],
+                "primary_dimensions_or_rows": f"keys={len(contract)}",
+                "key_variables": "station,study_window,input_selection_rules,grid_selection,cleaning_rules,daily_quality_rules,window_rules,output_contract",
+                "analysis_ready": "yes",
+            },
+        ],
+        columns=INPUT_SUMMARY_COLUMNS,
+    )
+
+
+def build_daily_panel(
+    contract: dict,
+    station: dict,
+    grid_info: dict,
+    buoy_daily: pd.DataFrame,
+    oisst_point: pd.DataFrame,
+) -> pd.DataFrame:
+    merged = buoy_daily.merge(oisst_point, on="date", how="inner")
+    merged["date"] = pd.to_datetime(merged["date"])
+    merged = merged[
+        merged["date"].between(
+            pd.Timestamp(contract["study_window"]["start_date"]),
+            pd.Timestamp(contract["study_window"]["end_date"]),
+        )
+    ].copy()
+    merged["station_id"] = station["station_id"]
+    merged["station_lat"] = station["station_lat"]
+    merged["station_lon"] = station["station_lon"]
+    merged["grid_lat"] = grid_info["grid_lat"]
+    merged["grid_lon"] = grid_info["grid_lon"]
+    merged["date"] = merged["date"].dt.strftime("%Y-%m-%d")
+    return merged[DAILY_PANEL_COLUMNS]
+
+
+def build_candidate_windows(panel: pd.DataFrame, contract: dict) -> pd.DataFrame:
+    quality = contract["daily_quality_rules"]
+    rules = contract["window_rules"]
+    panel_dates = panel.copy()
+    panel_dates["date"] = pd.to_datetime(panel_dates["date"])
+    windows: list[dict[str, object]] = []
+    for index in range(len(panel_dates) - int(rules["window_days"]) + 1):
+        window = panel_dates.iloc[index : index + int(rules["window_days"])]
+        dates = window["date"].tolist()
+        if dates[-1] != dates[0] + pd.Timedelta(days=int(rules["window_days"]) - 1):
+            continue
+        if not window["wtmp_completeness_ratio"].ge(float(quality["min_wtmp_completeness_ratio"])).all():
+            continue
+        if not window["wspd_completeness_ratio"].ge(float(quality["min_wspd_completeness_ratio"])).all():
+            continue
+        if not window["hour_coverage_ratio"].ge(float(quality["min_hour_coverage_ratio"])).all():
+            continue
+        if not window["distinct_utc_hours"].ge(int(quality["min_distinct_utc_hours"])).all():
+            continue
+        if not window["oisst_anom_c"].gt(float(rules["min_daily_sst_anom_c"])).all():
+            continue
+        windows.append(
+            {
+                "start_date": dates[0].strftime("%Y-%m-%d"),
+                "end_date": dates[-1].strftime("%Y-%m-%d"),
+                "n_days": int(rules["window_days"]),
+                "window_mean_sst_anom_c": float(window["oisst_anom_c"].mean()),
+                "window_mean_buoy_wtmp_c": float(window["mean_buoy_wtmp_c"].mean()),
+                "window_min_hour_coverage_ratio": float(window["hour_coverage_ratio"].min()),
+                "window_min_wtmp_completeness_ratio": float(window["wtmp_completeness_ratio"].min()),
+                "selection_note": rules["selection_note"],
+            }
+        )
+
+    shortlist = pd.DataFrame(windows)
+    if shortlist.empty:
+        return pd.DataFrame(columns=CANDIDATE_COLUMNS)
+    shortlist = shortlist.sort_values(
+        ["window_mean_sst_anom_c", "window_mean_buoy_wtmp_c", "start_date"],
+        ascending=[False, False, True],
+    ).head(int(rules["top_k"]))
+    shortlist.insert(0, "rank", range(1, len(shortlist) + 1))
+    return shortlist[CANDIDATE_COLUMNS].reset_index(drop=True)
+
+
+def build_data_issues(
+    raw_buoy: pd.DataFrame,
+    panel: pd.DataFrame,
+    candidates: pd.DataFrame,
+    station: dict,
+    grid_info: dict,
+    contract: dict,
+    buoy_meta: dict,
+) -> pd.DataFrame:
+    quality = contract["daily_quality_rules"]
+    missing_wtmp_rows = int(raw_buoy["WTMP"].isna().sum())
+    missing_wspd_rows = int(raw_buoy["WSPD"].isna().sum())
+    low_quality_days = int((pd.to_numeric(panel["wtmp_completeness_ratio"]) < float(quality["min_wtmp_completeness_ratio"])).sum())
+    incomplete_hour_days = int(
+        (
+            (pd.to_numeric(panel["hour_coverage_ratio"]) < float(quality["min_hour_coverage_ratio"]))
+            | (pd.to_numeric(panel["distinct_utc_hours"]) < int(quality["min_distinct_utc_hours"]))
+        ).sum()
+    )
+    dropped_rows = int(buoy_meta["dropped_rows"])
+    return pd.DataFrame(
+        [
+            {
+                "issue_id": "ISSUE-001",
+                "dataset_name": "buoy_stdmet",
+                "severity": "warn" if dropped_rows else "info",
+                "issue_type": "row_structure_drops",
+                "affected_count": dropped_rows,
+                "evidence": f"{dropped_rows} buoy rows were skipped because their token count did not match the detected header",
+                "follow_up_action": "Keep header detection and row parsing dynamic for candidate buoy extracts.",
+            },
+            {
+                "issue_id": "ISSUE-002",
+                "dataset_name": "buoy_stdmet",
+                "severity": "high",
+                "issue_type": "missing_water_temperature_rows",
+                "affected_count": missing_wtmp_rows,
+                "evidence": f"{missing_wtmp_rows} of {len(raw_buoy)} parsed buoy rows are missing WTMP after sentinel cleanup",
+                "follow_up_action": "Restrict downstream screening to windows that meet the contract completeness threshold.",
+            },
+            {
+                "issue_id": "ISSUE-003",
+                "dataset_name": "buoy_stdmet",
+                "severity": "warn" if missing_wspd_rows else "info",
+                "issue_type": "missing_wind_speed_rows",
+                "affected_count": missing_wspd_rows,
+                "evidence": f"{missing_wspd_rows} of {len(raw_buoy)} parsed buoy rows are missing WSPD after sentinel cleanup",
+                "follow_up_action": "Track wind coverage in the daily panel before reusing wind maxima downstream.",
+            },
+            {
+                "issue_id": "ISSUE-004",
+                "dataset_name": "buoy_stdmet",
+                "severity": "high",
+                "issue_type": "daily_wtmp_completeness_failures",
+                "affected_count": low_quality_days,
+                "evidence": (
+                    f"{low_quality_days} of {len(panel)} overlapping days fall below WTMP completeness ratio "
+                    f"{float(quality['min_wtmp_completeness_ratio']):.2f}"
+                ),
+                "follow_up_action": "Exclude low-completeness days from candidate-window selection.",
+            },
+            {
+                "issue_id": "ISSUE-005",
+                "dataset_name": "buoy_stdmet",
+                "severity": "high",
+                "issue_type": "daily_hour_span_failures",
+                "affected_count": incomplete_hour_days,
+                "evidence": (
+                    f"{incomplete_hour_days} of {len(panel)} overlapping days fall below hour coverage ratio "
+                    f"{float(quality['min_hour_coverage_ratio']):.2f} or distinct-hour threshold "
+                    f"{int(quality['min_distinct_utc_hours'])}"
+                ),
+                "follow_up_action": "Keep candidate windows limited to days that satisfy the contract hour-span rules.",
+            },
+            {
+                "issue_id": "ISSUE-006",
+                "dataset_name": "station_metadata",
+                "severity": "warn",
+                "issue_type": "longitude_convention_alignment",
+                "affected_count": 1,
+                "evidence": (
+                    f"Latest open-ended history coordinates set station longitude {station['station_lon']:.3f}, "
+                    f"while nearest-grid matching uses wrapped longitude {station['station_lon_360']:.3f} "
+                    f"against grid longitude {grid_info['grid_lon']:.3f}"
+                ),
+                "follow_up_action": "Use the wrapped longitude only for grid lookup and keep the native station longitude in outputs.",
+            },
+            {
+                "issue_id": "ISSUE-007",
+                "dataset_name": "screening_contract",
+                "severity": "warn",
+                "issue_type": "limited_contract_eligible_windows",
+                "affected_count": len(candidates),
+                "evidence": f"Only {len(candidates)} windows satisfy the current shortlist thresholds",
+                "follow_up_action": "Keep the shortlist contract-driven and do not backfill ineligible windows.",
+            },
+        ],
+        columns=DATA_ISSUE_COLUMNS,
+    )
+
+
+def build_analysis_intake(
+    contract: dict,
+    station: dict,
+    grid_info: dict,
+    panel: pd.DataFrame,
+    issues: pd.DataFrame,
+    candidates: pd.DataFrame,
+    metadata_path: Path,
+    buoy_meta: dict,
+    grid_path: Path,
+) -> str:
+    headings = contract["output_contract"]["analysis_intake_headings"]
+    issue_lines = "\n".join(f"- {row.issue_id}: {row.evidence}" for row in issues.itertuples(index=False))
+    if candidates.empty:
+        candidate_lines = "- No contract-eligible windows were found."
+    else:
+        candidate_lines = "\n".join(
+            (
+                f"- Rank {row.rank}: {row.start_date} to {row.end_date} | mean anomaly {row.window_mean_sst_anom_c:.6f} "
+                f"| mean buoy WTMP {row.window_mean_buoy_wtmp_c:.6f} | min hour coverage {row.window_min_hour_coverage_ratio:.6f}"
             )
-    dropped_event_window_rows = int(event_mask.sum())
-    clean = clean.loc[~event_mask].copy()
-
-    clean['month'] = clean['observed_at'].dt.month
-    outlier_mask = pd.Series(False, index=clean.index)
-    for (_, _), group in clean.groupby(['station_id', 'month']):
-        median = group['temp_c'].median()
-        mad = float(np.median(np.abs(group['temp_c'] - median)))
-        if mad > 0:
-            modified_z = 0.6745 * (group['temp_c'] - median).abs() / mad
-            outlier_mask.loc[group.index] = modified_z.gt(7.0)
-    dropped_outlier_rows = int(outlier_mask.sum())
-    clean = clean.loc[~outlier_mask].copy()
-
-    clean['date'] = clean['observed_at'].dt.floor('D')
-    daily = clean.groupby(['station_id', 'date'], as_index=False).agg(
-        temp_c=('temp_c', 'mean'),
-        valid_observations=('temp_c', 'size'),
+            for row in candidates.itertuples(index=False)
+        )
+    return "\n".join(
+        [
+            f"# {station['station_id']} Intake Package",
+            "",
+            f"## {headings[0]}",
+            f"- Station: {station['station_id']} ({station['station_name']})",
+            f"- Selected buoy extract: {buoy_meta['path'].name}",
+            f"- Selected metadata XML: {metadata_path.name}",
+            f"- Selected OISST subset: {grid_path.name}",
+            f"- Selected grid point: lat {grid_info['grid_lat']:.3f}, lon {grid_info['grid_lon']:.3f}",
+            f"- Contract window: {contract['study_window']['start_date']} to {contract['study_window']['end_date']}",
+            "",
+            f"## {headings[1]}",
+            "- The local intake covers one buoy text extract, one station metadata XML, one OISST netCDF subset, and one screening contract JSON.",
+            "- The buoy extract requires sentinel cleanup, row-shape checks, and daily hour-span checks before screening.",
+            "",
+            f"## {headings[2]}",
+            issue_lines,
+            "",
+            f"## {headings[3]}",
+            f"- Overlap window: {panel['date'].min()} to {panel['date'].max()}",
+            f"- Overlap days: {len(panel)}",
+            "",
+            f"## {headings[4]}",
+            candidate_lines,
+            "",
+            f"## {headings[5]}",
+            "- Station coordinates come from the latest open-ended history entry with the most recent start date.",
+            "- The buoy parser detects the commented header dynamically and excludes malformed or non-data rows from daily metrics.",
+            "- Nearest-grid matching uses wrapped longitude only for the OISST lookup; output station longitude stays in the native metadata convention.",
+            "- Candidate windows are ranked by the contract thresholds and shortlist order.",
+            "",
+        ]
     )
-    daily['doy'] = daily['date'].dt.dayofyear
-    daily = daily.merge(inputs['stations'][['station_id', 'station_name']], on='station_id', how='left')
-    weather = inputs['weather'].rename(columns={'observed_date': 'date'})
-    hydro = inputs['hydro'].rename(columns={'observed_date': 'date'})
-    activity = inputs['activity'].rename(columns={'observed_date': 'date'})
-    daily = daily.merge(weather, on=['station_id', 'date'], how='left')
-    daily = daily.merge(hydro, on=['station_id', 'date'], how='left')
-    daily = daily.merge(activity, on=['station_id', 'date'], how='left')
-    daily = daily.sort_values(['station_id', 'date']).reset_index(drop=True)
 
-    stats_dict = {
-        'raw_observations': int(raw_rows),
-        'dropped_duplicate_rows': int(dropped_duplicate_rows),
-        'dropped_qc_rows': int(dropped_qc_rows),
-        'dropped_event_window_rows': int(dropped_event_window_rows),
-        'dropped_outlier_rows': int(dropped_outlier_rows),
-        'imputed_daily_values': 0,
+
+def expected_bundle(data_root: Path = DATA_ROOT) -> dict[str, object]:
+    contract = load_contract(data_root)
+    station, metadata_path = load_station_metadata(data_root, contract)
+    raw_buoy, buoy_meta = choose_buoy_file(data_root, contract)
+    buoy_daily = build_buoy_daily(raw_buoy, contract)
+    oisst_point, grid_info, grid_shape, grid_path = choose_grid_file(data_root, contract, station)
+    input_summary = build_input_summary(contract, station, metadata_path, buoy_meta, grid_shape, grid_path)
+    panel = build_daily_panel(contract, station, grid_info, buoy_daily, oisst_point)
+    candidates = build_candidate_windows(panel, contract)
+    issues = build_data_issues(raw_buoy, panel, candidates, station, grid_info, contract, buoy_meta)
+    analysis_intake = build_analysis_intake(contract, station, grid_info, panel, issues, candidates, metadata_path, buoy_meta, grid_path)
+    return {
+        "input_summary": round_frame(input_summary),
+        "data_issues": round_frame(issues),
+        "daily_merged_panel": round_frame(panel),
+        "candidate_windows": round_frame(candidates),
+        "analysis_intake": analysis_intake,
     }
-    return daily, stats_dict
-
-
-def station_trends(daily: pd.DataFrame, qc: dict[str, int]) -> pd.DataFrame:
-    rows: list[dict[str, object]] = []
-    for sid, group in daily.groupby('station_id'):
-        group = group.sort_values('date').copy()
-        full_days = pd.date_range(group['date'].min(), group['date'].max(), freq='D')
-        climatology = group.groupby('doy')['temp_c'].median()
-        group['temp_anomaly'] = group['temp_c'] - group['doy'].map(climatology)
-        x = (group['date'] - group['date'].min()).dt.days.to_numpy(dtype=float) / 365.25
-        y = group['temp_anomaly'].to_numpy(dtype=float)
-        slope, intercept, low, high = stats.theilslopes(y, x, 0.95)
-        tau = stats.kendalltau(x, y, nan_policy='omit')
-        original = len(load_inputs()['water'].query('station_id == @sid').drop_duplicates(['station_id', 'observed_at']))
-        outlier_rate = qc['dropped_outlier_rows'] / max(1, original)
-        rows.append({
-            'station_id': sid,
-            'station_name': group['station_name'].iloc[0],
-            'start_date': group['date'].min().date().isoformat(),
-            'end_date': group['date'].max().date().isoformat(),
-            'n_days': int(len(group)),
-            'valid_observations': int(group['valid_observations'].sum()),
-            'missing_rate': round(float(1 - len(group) / len(full_days)), 6),
-            'outlier_rate': round(float(outlier_rate), 6),
-            'temp_slope_c_per_year': round(float(slope), 6),
-            'p_value': round(float(tau.pvalue), 6),
-            'trend_method': 'theil_sen_daily_anomaly_kendall_tau',
-        })
-    return pd.DataFrame(rows).sort_values('station_id').reset_index(drop=True)
-
-
-def attribution(daily: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, object]]:
-    model = daily.dropna(subset=['temp_c'] + [c for cols in FEATURE_MAP.values() for c in cols]).copy()
-    station_clim = model.groupby(['station_id', 'doy'])['temp_c'].transform('median')
-    model['target_anomaly'] = model['temp_c'] - station_clim
-    features = [feature for columns in FEATURE_MAP.values() for feature in columns]
-    X = model[features].astype(float)
-    y = model['target_anomaly'].astype(float).to_numpy()
-    X_raw = X.to_numpy(dtype=float)
-    X_scaled = (X_raw - X_raw.mean(axis=0)) / X_raw.std(axis=0, ddof=0)
-    design = np.column_stack([np.ones(len(X_scaled)), X_scaled])
-    beta = np.linalg.lstsq(design, y, rcond=None)[0]
-    pred = design @ beta
-    coefs = dict(zip(features, beta[1:]))
-
-    raw_rows: list[dict[str, object]] = []
-    total_abs = 0.0
-    for category in CATEGORIES:
-        cols = FEATURE_MAP[category]
-        raw = float(sum(abs(coefs[c]) for c in cols))
-        signed = float(sum(coefs[c] for c in cols))
-        total_abs += raw
-        raw_rows.append({'category': category, 'raw': raw, 'signed_effect': signed, 'n_features': len(cols)})
-    total_abs = total_abs or 1.0
-    for row in raw_rows:
-        row['contribution_pct'] = round(row['raw'] / total_abs * 100.0, 6)
-        del row['raw']
-    adjustment = round(100.0 - sum(float(r['contribution_pct']) for r in raw_rows), 6)
-    raw_rows[-1]['contribution_pct'] = round(float(raw_rows[-1]['contribution_pct']) + adjustment, 6)
-    rank_order = sorted(raw_rows, key=lambda r: (-float(r['contribution_pct']), CATEGORIES.index(str(r['category']))))
-    rank_map = {str(row['category']): rank for rank, row in enumerate(rank_order, 1)}
-    for row in raw_rows:
-        row['signed_effect'] = round(float(row['signed_effect']), 6)
-        row['rank'] = rank_map[str(row['category'])]
-    attr = pd.DataFrame(raw_rows)[['category', 'contribution_pct', 'signed_effect', 'rank', 'n_features']]
-    summary = {
-        'method': 'standardized_linear_model_on_daily_temperature_anomalies',
-        'dominant_category': str(rank_order[0]['category']),
-        'model_r2': round(float(1 - np.sum((y - pred) ** 2) / np.sum((y - y.mean()) ** 2)), 6),
-        'contribution_sum': round(float(attr['contribution_pct'].sum()), 6),
-    }
-    return attr, summary
-
-
-def expected_bundle(data_dir: Path = DATA) -> dict[str, object]:
-    inputs = load_inputs(data_dir)
-    daily, qc = qc_daily(inputs)
-    trends = station_trends(daily, qc)
-    attr, attr_summary = attribution(daily)
-    summary = {
-        'dataset': {
-            'stations': int(inputs['stations']['station_id'].nunique()),
-            'raw_observations': int(qc['raw_observations']),
-            'daily_records': int(len(daily)),
-            'analysis_start': daily['date'].min().date().isoformat(),
-            'analysis_end': daily['date'].max().date().isoformat(),
-        },
-        'quality_control': {
-            'dropped_duplicate_rows': int(qc['dropped_duplicate_rows']),
-            'dropped_qc_rows': int(qc['dropped_qc_rows'] + qc['dropped_outlier_rows']),
-            'dropped_event_window_rows': int(qc['dropped_event_window_rows']),
-            'imputed_daily_values': int(qc['imputed_daily_values']),
-        },
-        'trend': {
-            'method': 'theil_sen_daily_anomaly_kendall_tau',
-            'stations_with_significant_warming': int(((trends['temp_slope_c_per_year'] > 0) & (trends['p_value'] < 0.05)).sum()),
-            'median_slope_c_per_year': round(float(trends['temp_slope_c_per_year'].median()), 6),
-        },
-        'attribution': attr_summary,
-    }
-    return {'daily': daily, 'trends': trends, 'attribution': attr, 'summary': summary, 'inputs': inputs}

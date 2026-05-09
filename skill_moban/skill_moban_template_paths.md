@@ -1,17 +1,89 @@
-# 远端 skill_moban 模板路径统计
+# 远端 skill_moban 同步路径清单
 
-统计基准：
+同步基准：
 
 - 远端分支：`origin/codex/perskill-s-z-20260325`
-- 统计范围：`skill_moban` 中顶层目录首字母 `b-d` 的小类级 `template_new`
-- 同步口径：按本地 `template_new` 全量覆盖远端同路径内容
+- 本地来源：`/home/lenovo/skill/Harbor/skill_moban`
+- 同步范围：`skill_moban` 下各小类目录内的 `skills` 与 `template_new`
+- 同步口径：本地内容全量覆盖远端同路径，未提及的远端文件删除
 
 ## 概览
 
-- 小类级 `template_new`：35 个
+- `skills`：63 个
+- `template_new`：63 个
+- 合计目录：126 个
 
-## 小类级 template_new
+## skills
 
+- `blockchain/defi/skills`
+- `blockchain/smart-contracts/skills`
+- `blockchain/web3-tools/skills`
+- `business/business-apps/skills`
+- `business/ecommerce/skills`
+- `business/finance-investment/skills`
+- `business/health-fitness/skills`
+- `business/payment/skills`
+- `business/project-management/skills`
+- `business/real-estate-legal/skills`
+- `business/sales-marketing/skills`
+- `content-media/content-creation/skills`
+- `content-media/design/skills`
+- `content-media/documents/skills`
+- `content-media/media/skills`
+- `data-ai/data-analysis/skills`
+- `data-ai/data-engineering/skills`
+- `data-ai/llm-ai/skills`
+- `data-ai/machine-learning/skills`
+- `databases/database-tools/skills`
+- `databases/nosql-databases/skills`
+- `databases/sql-databases/skills`
+- `development/architecture-patterns/skills`
+- `development/backend/skills`
+- `development/cms-platforms/skills`
+- `development/ecommerce-development/skills`
+- `development/framework-internals/skills`
+- `development/frontend/skills`
+- `development/full-stack/skills`
+- `development/gaming/skills`
+- `development/mobile/skills`
+- `development/package-distribution/skills`
+- `development/scripting/skills`
+- `devops/cicd/skills`
+- `devops/cloud/skills`
+- `devops/containers/skills`
+- `devops/git-workflows/skills`
+- `devops/monitoring/skills`
+- `documentation/education/skills`
+- `documentation/knowledge-base/skills`
+- `documentation/technical-docs/skills`
+- `lifestyle/arts-crafts/skills`
+- `lifestyle/culinary-arts/skills`
+- `lifestyle/divination-mysticism/skills`
+- `lifestyle/literature-writing/skills`
+- `lifestyle/philosophy-ethics/skills`
+- `lifestyle/wellness-health/skills`
+- `research/academic/skills`
+- `research/astronomy-physics/skills`
+- `research/bioinformatics/skills`
+- `research/computational-chemistry/skills`
+- `research/lab-tools/skills`
+- `research/scientific-computing/skills`
+- `testing-security/code-quality/skills`
+- `testing-security/security/skills`
+- `testing-security/testing/skills`
+- `tools/automation-tools/skills`
+- `tools/cli-tools/skills`
+- `tools/debugging/skills`
+- `tools/domain-utilities/skills`
+- `tools/ide-plugins/skills`
+- `tools/productivity-tools/skills`
+- `tools/system-admin/skills`
+
+## template_new
+
+- `blockchain/defi/template_new`
+- `blockchain/smart-contracts/template_new`
+- `blockchain/web3-tools/template_new`
 - `business/business-apps/template_new`
 - `business/ecommerce/template_new`
 - `business/finance-investment/template_new`
@@ -28,6 +100,9 @@
 - `data-ai/data-engineering/template_new`
 - `data-ai/llm-ai/template_new`
 - `data-ai/machine-learning/template_new`
+- `databases/database-tools/template_new`
+- `databases/nosql-databases/template_new`
+- `databases/sql-databases/template_new`
 - `development/architecture-patterns/template_new`
 - `development/backend/template_new`
 - `development/cms-platforms/template_new`
@@ -47,3 +122,25 @@
 - `documentation/education/template_new`
 - `documentation/knowledge-base/template_new`
 - `documentation/technical-docs/template_new`
+- `lifestyle/arts-crafts/template_new`
+- `lifestyle/culinary-arts/template_new`
+- `lifestyle/divination-mysticism/template_new`
+- `lifestyle/literature-writing/template_new`
+- `lifestyle/philosophy-ethics/template_new`
+- `lifestyle/wellness-health/template_new`
+- `research/academic/template_new`
+- `research/astronomy-physics/template_new`
+- `research/bioinformatics/template_new`
+- `research/computational-chemistry/template_new`
+- `research/lab-tools/template_new`
+- `research/scientific-computing/template_new`
+- `testing-security/code-quality/template_new`
+- `testing-security/security/template_new`
+- `testing-security/testing/template_new`
+- `tools/automation-tools/template_new`
+- `tools/cli-tools/template_new`
+- `tools/debugging/template_new`
+- `tools/domain-utilities/template_new`
+- `tools/ide-plugins/template_new`
+- `tools/productivity-tools/template_new`
+- `tools/system-admin/template_new`

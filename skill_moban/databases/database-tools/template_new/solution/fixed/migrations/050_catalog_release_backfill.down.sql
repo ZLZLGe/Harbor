@@ -1,0 +1,4 @@
+TRUNCATE TABLE catalog.movie_monthly_popularity;
+TRUNCATE TABLE catalog.movie_genres;
+TRUNCATE TABLE catalog.tag_events RESTART IDENTITY;
+TRUNCATE TABLE catalog.genre_dim RESTART IDENTITY CASCADE;

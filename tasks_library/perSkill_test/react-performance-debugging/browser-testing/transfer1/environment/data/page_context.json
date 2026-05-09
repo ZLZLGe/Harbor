@@ -1,9 +1,0 @@
-{
-  "page": "donation-flow",
-  "audience": "public donors on mobile and desktop",
-  "shipBlockerThreshold": 0.25,
-  "notes": [
-    "late-loading content below the fold was included in the scroll capture",
-    "the donation form must stay visible without jumping when campaign assets load"
-  ]
-}

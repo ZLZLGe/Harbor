@@ -1,7 +1,0 @@
-flow_id,assertion_mode,link_strategy,pom_required,artifact_policy,flake_mitigation,priority
-F-010,no-requests,link-accordion-hidden,yes,trace+video+screenshot,quarantine,P0
-F-020,includes:catalog-data,link-accordion-hidden,no,screenshot-on-failure,none,P2
-F-030,includes:order-summary,standard-link,yes,screenshot-on-failure,none,P1
-F-040,dom-only,standard-link,yes,trace+video+screenshot,none,P0
-F-050,no-requests,standard-link,no,screenshot-on-failure,none,P3
-F-060,includes:balance-update,link-accordion-hidden,yes,trace+video+screenshot,quarantine,P0

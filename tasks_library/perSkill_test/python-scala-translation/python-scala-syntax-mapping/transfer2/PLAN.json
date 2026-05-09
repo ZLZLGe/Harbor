@@ -1,7 +1,0 @@
-{
-  "source_task_id": "python-scala-translation",
-  "target_skill": "python-scala-syntax-mapping",
-  "task_role": "transfer",
-  "primary_output_file": "/outputs/syntax_mapping_playbook.md",
-  "goal": "Generate a migration playbook markdown file from structured mapping input."
-}

@@ -1,6 +1,0 @@
-{
-  "mustPreserve": [
-    "data-testid=advanced-content",
-    "performance.mark() in ProductCard"
-  ]
-}

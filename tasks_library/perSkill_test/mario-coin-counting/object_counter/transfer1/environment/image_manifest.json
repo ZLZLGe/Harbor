@@ -1,7 +1,0 @@
-{
-  "frames": [
-    {"frame_id": "coin_panel", "path": "/root/coin.png"},
-    {"frame_id": "enemy_panel", "path": "/root/enemy.png"},
-    {"frame_id": "turtle_panel", "path": "/root/turtle.png"}
-  ]
-}

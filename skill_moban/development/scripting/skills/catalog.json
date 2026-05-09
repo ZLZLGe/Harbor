@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "coding-agent",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "openclaw/openclaw",
+    "sourceLower": "openclaw/openclaw",
+    "stars": 368900,
+    "repoUrl": "https://github.com/openclaw/openclaw",
+    "skillUrl": "https://skills.sh/openclaw/openclaw/coding-agent"
+  },
+  {
+    "slug": "tdd-workflow",
+    "installsRaw": "4.7K",
+    "installs": 4700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/tdd-workflow"
+  },
+  {
+    "slug": "python-patterns",
+    "installsRaw": "4.6K",
+    "installs": 4600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/python-patterns"
+  },
+  {
+    "slug": "python-testing",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/python-testing"
+  },
+  {
+    "slug": "strategic-compact",
+    "installsRaw": "4.0K",
+    "installs": 4000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/strategic-compact"
+  },
+  {
+    "slug": "clickhouse-io",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/clickhouse-io"
+  },
+  {
+    "slug": "dmux-workflows",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/dmux-workflows"
+  },
+  {
+    "slug": "click-path-audit",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/click-path-audit"
+  },
+  {
+    "slug": "git-workflow",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/git-workflow"
+  },
+  {
+    "slug": "ck",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/ck"
+  },
+  {
+    "slug": "automation-audit-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops"
+  },
+  {
+    "slug": "python-expert",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/python-expert"
+  },
+  {
+    "slug": "typescript",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "lobehub/lobehub",
+    "sourceLower": "lobehub/lobehub",
+    "stars": 76100,
+    "repoUrl": "https://github.com/lobehub/lobehub",
+    "skillUrl": "https://skills.sh/lobehub/lobehub/typescript"
+  },
+  {
+    "slug": "do",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "thedotmack/claude-mem",
+    "sourceLower": "thedotmack/claude-mem",
+    "stars": 72700,
+    "repoUrl": "https://github.com/thedotmack/claude-mem",
+    "skillUrl": "https://skills.sh/thedotmack/claude-mem/do"
+  },
+  {
+    "slug": "paperclip",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "paperclipai/paperclip",
+    "sourceLower": "paperclipai/paperclip",
+    "stars": 62900,
+    "repoUrl": "https://github.com/paperclipai/paperclip",
+    "skillUrl": "https://skills.sh/paperclipai/paperclip/paperclip"
+  },
+  {
+    "slug": "paperclip-create-agent",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "paperclipai/paperclip",
+    "sourceLower": "paperclipai/paperclip",
+    "stars": 62900,
+    "repoUrl": "https://github.com/paperclipai/paperclip",
+    "skillUrl": "https://skills.sh/paperclipai/paperclip/paperclip-create-agent"
+  },
+  {
+    "slug": "paperclip-create-plugin",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "paperclipai/paperclip",
+    "sourceLower": "paperclipai/paperclip",
+    "stars": 62900,
+    "repoUrl": "https://github.com/paperclipai/paperclip",
+    "skillUrl": "https://skills.sh/paperclipai/paperclip/paperclip-create-plugin"
+  },
+  {
+    "slug": "typescript-expert",
+    "installsRaw": "8.1K",
+    "installs": 8100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/typescript-expert"
+  },
+  {
+    "slug": "browser-automation",
+    "installsRaw": "4.5K",
+    "installs": 4500,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/browser-automation"
+  },
+  {
+    "slug": "powershell-windows",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/powershell-windows"
+  },
+  {
+    "slug": "bash-linux",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/bash-linux"
+  },
+  {
+    "slug": "python-design-patterns",
+    "installsRaw": "10.0K",
+    "installs": 10000,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-design-patterns"
+  },
+  {
+    "slug": "async-python-patterns",
+    "installsRaw": "9.7K",
+    "installs": 9700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/async-python-patterns"
+  },
+  {
+    "slug": "github-actions-templates",
+    "installsRaw": "9.4K",
+    "installs": 9400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/github-actions-templates"
+  },
+  {
+    "slug": "uv-package-manager",
+    "installsRaw": "8.1K",
+    "installs": 8100,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/uv-package-manager"
+  },
+  {
+    "slug": "python-code-style",
+    "installsRaw": "7.6K",
+    "installs": 7600,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-code-style"
+  },
+  {
+    "slug": "python-project-structure",
+    "installsRaw": "7.0K",
+    "installs": 7000,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-project-structure"
+  },
+  {
+    "slug": "python-error-handling",
+    "installsRaw": "6.6K",
+    "installs": 6600,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-error-handling"
+  },
+  {
+    "slug": "python-anti-patterns",
+    "installsRaw": "6.5K",
+    "installs": 6500,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-anti-patterns"
+  },
+  {
+    "slug": "python-type-safety",
+    "installsRaw": "6.2K",
+    "installs": 6200,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-type-safety"
+  },
+  {
+    "slug": "airflow-dag-patterns",
+    "installsRaw": "6.0K",
+    "installs": 6000,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/airflow-dag-patterns"
+  },
+  {
+    "slug": "billing-automation",
+    "installsRaw": "6.0K",
+    "installs": 6000,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/billing-automation"
+  },
+  {
+    "slug": "incident-runbook-templates",
+    "installsRaw": "5.9K",
+    "installs": 5900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/incident-runbook-templates"
+  },
+  {
+    "slug": "python-configuration",
+    "installsRaw": "5.9K",
+    "installs": 5900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-configuration"
+  },
+  {
+    "slug": "python-observability",
+    "installsRaw": "5.9K",
+    "installs": 5900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-observability"
+  },
+  {
+    "slug": "python-background-jobs",
+    "installsRaw": "5.7K",
+    "installs": 5700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-background-jobs"
+  },
+  {
+    "slug": "python-resilience",
+    "installsRaw": "5.7K",
+    "installs": 5700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-resilience"
+  },
+  {
+    "slug": "python-resource-management",
+    "installsRaw": "5.6K",
+    "installs": 5600,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-resource-management"
+  },
+  {
+    "slug": "task-coordination-strategies",
+    "installsRaw": "5.0K",
+    "installs": 5000,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/task-coordination-strategies"
+  },
+  {
+    "slug": "cli-anything",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "hkuds/cli-anything",
+    "sourceLower": "hkuds/cli-anything",
+    "stars": 33700,
+    "repoUrl": "https://github.com/hkuds/cli-anything",
+    "skillUrl": "https://skills.sh/hkuds/cli-anything/cli-anything"
+  },
+  {
+    "slug": "gh-cli",
+    "installsRaw": "20.8K",
+    "installs": 20800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/gh-cli"
+  },
+  {
+    "slug": "azure-devops-cli",
+    "installsRaw": "10.3K",
+    "installs": 10300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/azure-devops-cli"
+  },
+  {
+    "slug": "javascript-typescript-jest",
+    "installsRaw": "10.3K",
+    "installs": 10300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/javascript-typescript-jest"
+  },
+  {
+    "slug": "typescript-mcp-server-generator",
+    "installsRaw": "9.8K",
+    "installs": 9800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/typescript-mcp-server-generator"
+  },
+  {
+    "slug": "playwright-automation-fill-in-form",
+    "installsRaw": "9.6K",
+    "installs": 9600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/playwright-automation-fill-in-form"
+  },
+  {
+    "slug": "python-mcp-server-generator",
+    "installsRaw": "9.3K",
+    "installs": 9300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/python-mcp-server-generator"
+  },
+  {
+    "slug": "create-github-action-workflow-specification",
+    "installsRaw": "9.1K",
+    "installs": 9100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-action-workflow-specification"
+  },
+  {
+    "slug": "dataverse-python-production-code",
+    "installsRaw": "9.1K",
+    "installs": 9100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/dataverse-python-production-code"
+  },
+  {
+    "slug": "mcp-cli",
+    "installsRaw": "9.1K",
+    "installs": 9100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/mcp-cli"
+  },
+  {
+    "slug": "project-workflow-analysis-blueprint-generator",
+    "installsRaw": "8.8K",
+    "installs": 8800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/project-workflow-analysis-blueprint-generator"
+  }
+]

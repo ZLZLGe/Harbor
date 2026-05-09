@@ -1,7 +1,0 @@
-case_id,channel,variant,pattern,needs_gate,flag_name,scenario
-C004,www,false,ReactCache,yes,enableCache,behavior_differs_by_flag
-C002,experimental,,ReactDeferredValue,yes,enableAsyncActions,behavior_differs_by_flag
-C006,classic,,ReactLegacyContext,yes,enableLegacyContext,unavailable_without_flag
-C001,source,,ReactDOMFizzServer,no,baseline_flag,always_available
-C005,stable,,ReactDOMHydration,no,release_flag,always_available
-C003,www,true,ReactFlightDOM,yes,enableFlight,unavailable_without_flag

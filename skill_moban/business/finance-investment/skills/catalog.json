@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "writing-plans",
+    "installsRaw": "85.6K",
+    "installs": 85600,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/writing-plans"
+  },
+  {
+    "slug": "executing-plans",
+    "installsRaw": "69.5K",
+    "installs": 69500,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/executing-plans"
+  },
+  {
+    "slug": "market-research",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/market-research"
+  },
+  {
+    "slug": "cost-aware-llm-pipeline",
+    "installsRaw": "3.4K",
+    "installs": 3400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/cost-aware-llm-pipeline"
+  },
+  {
+    "slug": "deep-research",
+    "installsRaw": "3.1K",
+    "installs": 3100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/deep-research"
+  },
+  {
+    "slug": "investor-materials",
+    "installsRaw": "3.1K",
+    "installs": 3100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/investor-materials"
+  },
+  {
+    "slug": "investor-outreach",
+    "installsRaw": "3.1K",
+    "installs": 3100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/investor-outreach"
+  },
+  {
+    "slug": "plankton-code-quality",
+    "installsRaw": "3.0K",
+    "installs": 3000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/plankton-code-quality"
+  },
+  {
+    "slug": "inventory-demand-planning",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/inventory-demand-planning"
+  },
+  {
+    "slug": "architecture-decision-records",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/architecture-decision-records"
+  },
+  {
+    "slug": "carrier-relationship-management",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/carrier-relationship-management"
+  },
+  {
+    "slug": "energy-procurement",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/energy-procurement"
+  },
+  {
+    "slug": "context-budget",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/context-budget"
+  },
+  {
+    "slug": "token-budget-advisor",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/token-budget-advisor"
+  },
+  {
+    "slug": "customer-billing-ops",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/customer-billing-ops"
+  },
+  {
+    "slug": "council",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/council"
+  },
+  {
+    "slug": "dashboard-builder",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/dashboard-builder"
+  },
+  {
+    "slug": "ecc-tools-cost-audit",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/ecc-tools-cost-audit"
+  },
+  {
+    "slug": "finance-billing-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/finance-billing-ops"
+  },
+  {
+    "slug": "llm-trading-agent-security",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/llm-trading-agent-security"
+  },
+  {
+    "slug": "research-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/research-ops"
+  },
+  {
+    "slug": "academic-researcher",
+    "installsRaw": "4.1K",
+    "installs": 4100,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/academic-researcher"
+  },
+  {
+    "slug": "project-planner",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/project-planner"
+  },
+  {
+    "slug": "data-analyst",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/data-analyst"
+  },
+  {
+    "slug": "visualization-expert",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/visualization-expert"
+  },
+  {
+    "slug": "strategy-advisor",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/strategy-advisor"
+  },
+  {
+    "slug": "decision-helper",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/decision-helper"
+  },
+  {
+    "slug": "sprint-planner",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/sprint-planner"
+  },
+  {
+    "slug": "github-deep-research",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/github-deep-research"
+  },
+  {
+    "slug": "request-refactor-plan",
+    "installsRaw": "7.1K",
+    "installs": 7100,
+    "source": "mattpocock/skills",
+    "sourceLower": "mattpocock/skills",
+    "stars": 62100,
+    "repoUrl": "https://github.com/mattpocock/skills",
+    "skillUrl": "https://skills.sh/mattpocock/skills/request-refactor-plan"
+  },
+  {
+    "slug": "prd-to-plan",
+    "installsRaw": "6.4K",
+    "installs": 6400,
+    "source": "mattpocock/skills",
+    "sourceLower": "mattpocock/skills",
+    "stars": 62100,
+    "repoUrl": "https://github.com/mattpocock/skills",
+    "skillUrl": "https://skills.sh/mattpocock/skills/prd-to-plan"
+  },
+  {
+    "slug": "content-research-writer",
+    "installsRaw": "3.9K",
+    "installs": 3900,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/content-research-writer"
+  },
+  {
+    "slug": "lead-research-assistant",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/lead-research-assistant"
+  },
+  {
+    "slug": "invoice-organizer",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/invoice-organizer"
+  },
+  {
+    "slug": "web-performance-optimization",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/web-performance-optimization"
+  },
+  {
+    "slug": "app-store-optimization",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/app-store-optimization"
+  },
+  {
+    "slug": "evaluation-methodology",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/evaluation-methodology"
+  },
+  {
+    "slug": "sql-optimization",
+    "installsRaw": "10.7K",
+    "installs": 10700,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/sql-optimization"
+  },
+  {
+    "slug": "refactor-plan",
+    "installsRaw": "10.2K",
+    "installs": 10200,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/refactor-plan"
+  },
+  {
+    "slug": "az-cost-optimize",
+    "installsRaw": "8.3K",
+    "installs": 8300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/az-cost-optimize"
+  },
+  {
+    "slug": "datanalysis-credit-risk",
+    "installsRaw": "6.8K",
+    "installs": 6800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/datanalysis-credit-risk"
+  },
+  {
+    "slug": "azure-pricing",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/azure-pricing"
+  },
+  {
+    "slug": "gtm-technical-product-pricing",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/gtm-technical-product-pricing"
+  },
+  {
+    "slug": "gtm-board-and-investor-communication",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/gtm-board-and-investor-communication"
+  },
+  {
+    "slug": "market-research-reports",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/market-research-reports"
+  },
+  {
+    "slug": "legal-risk-assessment",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/legal-risk-assessment"
+  },
+  {
+    "slug": "financial-statements",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/financial-statements"
+  },
+  {
+    "slug": "risk-assessment",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/risk-assessment"
+  },
+  {
+    "slug": "korean-stock-search",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "nomadamas/k-skill",
+    "sourceLower": "nomadamas/k-skill",
+    "stars": 4500,
+    "repoUrl": "https://github.com/nomadamas/k-skill",
+    "skillUrl": "https://skills.sh/nomadamas/k-skill/korean-stock-search"
+  },
+  {
+    "slug": "backtesting-trading-strategies",
+    "installsRaw": "3.5K",
+    "installs": 3500,
+    "source": "jeremylongshore/claude-code-plugins-plus-skills",
+    "sourceLower": "jeremylongshore/claude-code-plugins-plus-skills",
+    "stars": 2100,
+    "repoUrl": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills",
+    "skillUrl": "https://skills.sh/jeremylongshore/claude-code-plugins-plus-skills/backtesting-trading-strategies"
+  }
+]

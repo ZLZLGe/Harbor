@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "transfer1",
-  "taskRole": "transfer",
-  "title": "Transfer - Camera Cue Alignment Manifest",
-  "goal": "Assign each subtitle cue to the most likely on-camera speaker and record the evidence source used for the assignment.",
-  "primaryOutputFile": "/root/transfer1_alignment_manifest.json",
-  "source_task_id": "speaker-diarization-subtitles",
-  "skillScope": "multimodal-fusion"
-}

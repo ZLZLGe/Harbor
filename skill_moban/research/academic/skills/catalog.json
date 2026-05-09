@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "requesting-code-review",
+    "installsRaw": "75.0K",
+    "installs": 75000,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/requesting-code-review"
+  },
+  {
+    "slug": "receiving-code-review",
+    "installsRaw": "59.4K",
+    "installs": 59400,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/receiving-code-review"
+  },
+  {
+    "slug": "security-review",
+    "installsRaw": "7.5K",
+    "installs": 7500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/security-review"
+  },
+  {
+    "slug": "market-research",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/market-research"
+  },
+  {
+    "slug": "flutter-dart-code-review",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/flutter-dart-code-review"
+  },
+  {
+    "slug": "research-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/research-ops"
+  },
+  {
+    "slug": "academic-researcher",
+    "installsRaw": "4.1K",
+    "installs": 4100,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/academic-researcher"
+  },
+  {
+    "slug": "code-reviewer",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/code-reviewer"
+  },
+  {
+    "slug": "deep-research",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/deep-research"
+  },
+  {
+    "slug": "fact-checker",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/fact-checker"
+  },
+  {
+    "slug": "editor",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/editor"
+  },
+  {
+    "slug": "data-analysis",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/data-analysis"
+  },
+  {
+    "slug": "consulting-analysis",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/consulting-analysis"
+  },
+  {
+    "slug": "github-deep-research",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/github-deep-research"
+  },
+  {
+    "slug": "paperclip",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "paperclipai/paperclip",
+    "sourceLower": "paperclipai/paperclip",
+    "stars": 62900,
+    "repoUrl": "https://github.com/paperclipai/paperclip",
+    "skillUrl": "https://skills.sh/paperclipai/paperclip/paperclip"
+  },
+  {
+    "slug": "paperclip-create-agent",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "paperclipai/paperclip",
+    "sourceLower": "paperclipai/paperclip",
+    "stars": 62900,
+    "repoUrl": "https://github.com/paperclipai/paperclip",
+    "skillUrl": "https://skills.sh/paperclipai/paperclip/paperclip-create-agent"
+  },
+  {
+    "slug": "paperclip-create-plugin",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "paperclipai/paperclip",
+    "sourceLower": "paperclipai/paperclip",
+    "stars": 62900,
+    "repoUrl": "https://github.com/paperclipai/paperclip",
+    "skillUrl": "https://skills.sh/paperclipai/paperclip/paperclip-create-plugin"
+  },
+  {
+    "slug": "content-research-writer",
+    "installsRaw": "3.9K",
+    "installs": 3900,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/content-research-writer"
+  },
+  {
+    "slug": "lead-research-assistant",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/lead-research-assistant"
+  },
+  {
+    "slug": "developer-growth-analysis",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/developer-growth-analysis"
+  },
+  {
+    "slug": "caveman-review",
+    "installsRaw": "60.2K",
+    "installs": 60200,
+    "source": "juliusbrussee/caveman",
+    "sourceLower": "juliusbrussee/caveman",
+    "stars": 54900,
+    "repoUrl": "https://github.com/juliusbrussee/caveman",
+    "skillUrl": "https://skills.sh/juliusbrussee/caveman/caveman-review"
+  },
+  {
+    "slug": "hybrid-search-implementation",
+    "installsRaw": "5.9K",
+    "installs": 5900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/hybrid-search-implementation"
+  },
+  {
+    "slug": "multi-reviewer-patterns",
+    "installsRaw": "4.9K",
+    "installs": 4900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/multi-reviewer-patterns"
+  },
+  {
+    "slug": "evaluation-methodology",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/evaluation-methodology"
+  },
+  {
+    "slug": "web-design-reviewer",
+    "installsRaw": "10.7K",
+    "installs": 10700,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/web-design-reviewer"
+  },
+  {
+    "slug": "sql-code-review",
+    "installsRaw": "10.0K",
+    "installs": 10000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/sql-code-review"
+  },
+  {
+    "slug": "postgresql-code-review",
+    "installsRaw": "9.8K",
+    "installs": 9800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/postgresql-code-review"
+  },
+  {
+    "slug": "dotnet-design-pattern-review",
+    "installsRaw": "9.6K",
+    "installs": 9600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/dotnet-design-pattern-review"
+  },
+  {
+    "slug": "review-and-refactor",
+    "installsRaw": "9.6K",
+    "installs": 9600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/review-and-refactor"
+  },
+  {
+    "slug": "apple-appstore-reviewer",
+    "installsRaw": "9.3K",
+    "installs": 9300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/apple-appstore-reviewer"
+  },
+  {
+    "slug": "ai-prompt-engineering-safety-review",
+    "installsRaw": "9.2K",
+    "installs": 9200,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/ai-prompt-engineering-safety-review"
+  },
+  {
+    "slug": "project-workflow-analysis-blueprint-generator",
+    "installsRaw": "8.8K",
+    "installs": 8800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/project-workflow-analysis-blueprint-generator"
+  },
+  {
+    "slug": "power-bi-model-design-review",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/power-bi-model-design-review"
+  },
+  {
+    "slug": "datanalysis-credit-risk",
+    "installsRaw": "6.8K",
+    "installs": 6800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/datanalysis-credit-risk"
+  },
+  {
+    "slug": "market-research-reports",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/market-research-reports"
+  },
+  {
+    "slug": "persona-researcher",
+    "installsRaw": "12.6K",
+    "installs": 12600,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/persona-researcher"
+  },
+  {
+    "slug": "recipe-collect-form-responses",
+    "installsRaw": "11.9K",
+    "installs": 11900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-collect-form-responses"
+  },
+  {
+    "slug": "web-research",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "langchain-ai/deepagents",
+    "sourceLower": "langchain-ai/deepagents",
+    "stars": 22300,
+    "repoUrl": "https://github.com/langchain-ai/deepagents",
+    "skillUrl": "https://skills.sh/langchain-ai/deepagents/web-research"
+  },
+  {
+    "slug": "knowledge-synthesis",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/knowledge-synthesis"
+  },
+  {
+    "slug": "user-research",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/user-research"
+  },
+  {
+    "slug": "account-research",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/account-research"
+  },
+  {
+    "slug": "customer-research",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/customer-research"
+  },
+  {
+    "slug": "research-synthesis",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/research-synthesis"
+  },
+  {
+    "slug": "journal-entry-prep",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/journal-entry-prep"
+  },
+  {
+    "slug": "contact-research",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/contact-research"
+  },
+  {
+    "slug": "synthesize-research",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/synthesize-research"
+  },
+  {
+    "slug": "naver-blog-research",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "nomadamas/k-skill",
+    "sourceLower": "nomadamas/k-skill",
+    "stars": 4500,
+    "repoUrl": "https://github.com/nomadamas/k-skill",
+    "skillUrl": "https://skills.sh/nomadamas/k-skill/naver-blog-research"
+  },
+  {
+    "slug": "company-research",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "deanpeters/product-manager-skills",
+    "sourceLower": "deanpeters/product-manager-skills",
+    "stars": 4000,
+    "repoUrl": "https://github.com/deanpeters/product-manager-skills",
+    "skillUrl": "https://skills.sh/deanpeters/product-manager-skills/company-research"
+  },
+  {
+    "slug": "ljg-paper",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "lijigang/ljg-skills",
+    "sourceLower": "lijigang/ljg-skills",
+    "stars": 3900,
+    "repoUrl": "https://github.com/lijigang/ljg-skills",
+    "skillUrl": "https://skills.sh/lijigang/ljg-skills/ljg-paper"
+  },
+  {
+    "slug": "ljg-paper-flow",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "lijigang/ljg-skills",
+    "sourceLower": "lijigang/ljg-skills",
+    "stars": 3900,
+    "repoUrl": "https://github.com/lijigang/ljg-skills",
+    "skillUrl": "https://skills.sh/lijigang/ljg-skills/ljg-paper-flow"
+  }
+]

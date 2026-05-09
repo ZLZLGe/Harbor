@@ -1,7 +1,0 @@
-case_id,command,gate_strategy,flag_check,expected_channel_state,notes
-C001,yarn test --silent --no-watchman ReactDOMFizzServer,none,not-needed,source-default,baseline route
-C002,yarn test -r=experimental --silent --no-watchman ReactDeferredValue,gate(),enableAsyncActions=experimental-on,experimental-enabled,assert both flag branches
-C003,yarn test-www --silent --no-watchman ReactFlightDOM,@gate enableFlight,enableFlight=variant:true,www-modern-variant-true,skip unless flag enabled
-C004,yarn test-www --variant=false --silent --no-watchman ReactCache,gate(),enableCache=variant:false,www-modern-variant-false,assert both flag branches
-C005,yarn test-stable --silent --no-watchman ReactDOMHydration,none,not-needed,stable-release,baseline route
-C006,yarn test-classic --silent --no-watchman ReactLegacyContext,@gate enableLegacyContext,enableLegacyContext=classic-default,www-classic,skip unless flag enabled

@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "github",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "openclaw/openclaw",
+    "sourceLower": "openclaw/openclaw",
+    "stars": 368900,
+    "repoUrl": "https://github.com/openclaw/openclaw",
+    "skillUrl": "https://skills.sh/openclaw/openclaw/github"
+  },
+  {
+    "slug": "executing-plans",
+    "installsRaw": "69.5K",
+    "installs": 69500,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/executing-plans"
+  },
+  {
+    "slug": "subagent-driven-development",
+    "installsRaw": "63.7K",
+    "installs": 63700,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/subagent-driven-development"
+  },
+  {
+    "slug": "writing-skills",
+    "installsRaw": "59.3K",
+    "installs": 59300,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/writing-skills"
+  },
+  {
+    "slug": "deployment-patterns",
+    "installsRaw": "3.8K",
+    "installs": 3800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/deployment-patterns"
+  },
+  {
+    "slug": "cost-aware-llm-pipeline",
+    "installsRaw": "3.4K",
+    "installs": 3400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/cost-aware-llm-pipeline"
+  },
+  {
+    "slug": "django-verification",
+    "installsRaw": "3.4K",
+    "installs": 3400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/django-verification"
+  },
+  {
+    "slug": "springboot-verification",
+    "installsRaw": "3.4K",
+    "installs": 3400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/springboot-verification"
+  },
+  {
+    "slug": "ralphinho-rfc-pipeline",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/ralphinho-rfc-pipeline"
+  },
+  {
+    "slug": "architecture-decision-records",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/architecture-decision-records"
+  },
+  {
+    "slug": "team-builder",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/team-builder"
+  },
+  {
+    "slug": "healthcare-cdss-patterns",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/healthcare-cdss-patterns"
+  },
+  {
+    "slug": "healthcare-eval-harness",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/healthcare-eval-harness"
+  },
+  {
+    "slug": "opensource-pipeline",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/opensource-pipeline"
+  },
+  {
+    "slug": "council",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/council"
+  },
+  {
+    "slug": "social-graph-ranker",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/social-graph-ranker"
+  },
+  {
+    "slug": "agent-sort",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/agent-sort"
+  },
+  {
+    "slug": "evm-token-decimals",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/evm-token-decimals"
+  },
+  {
+    "slug": "decision-helper",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/decision-helper"
+  },
+  {
+    "slug": "pr-creator",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "google-gemini/gemini-cli",
+    "sourceLower": "google-gemini/gemini-cli",
+    "stars": 103200,
+    "repoUrl": "https://github.com/google-gemini/gemini-cli",
+    "skillUrl": "https://skills.sh/google-gemini/gemini-cli/pr-creator"
+  },
+  {
+    "slug": "claude-code-plugin-release",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "thedotmack/claude-mem",
+    "sourceLower": "thedotmack/claude-mem",
+    "stars": 72700,
+    "repoUrl": "https://github.com/thedotmack/claude-mem",
+    "skillUrl": "https://skills.sh/thedotmack/claude-mem/claude-code-plugin-release"
+  },
+  {
+    "slug": "scaffold-exercises",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "mattpocock/skills",
+    "sourceLower": "mattpocock/skills",
+    "stars": 62100,
+    "repoUrl": "https://github.com/mattpocock/skills",
+    "skillUrl": "https://skills.sh/mattpocock/skills/scaffold-exercises"
+  },
+  {
+    "slug": "vercel-deployment",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/vercel-deployment"
+  },
+  {
+    "slug": "parallel-feature-development",
+    "installsRaw": "5.0K",
+    "installs": 5000,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/parallel-feature-development"
+  },
+  {
+    "slug": "multi-reviewer-patterns",
+    "installsRaw": "4.9K",
+    "installs": 4900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/multi-reviewer-patterns"
+  },
+  {
+    "slug": "signed-audit-trails-recipe",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/signed-audit-trails-recipe"
+  },
+  {
+    "slug": "create-specification",
+    "installsRaw": "10.5K",
+    "installs": 10500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-specification"
+  },
+  {
+    "slug": "azure-deployment-preflight",
+    "installsRaw": "9.2K",
+    "installs": 9200,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/azure-deployment-preflight"
+  },
+  {
+    "slug": "create-github-action-workflow-specification",
+    "installsRaw": "9.1K",
+    "installs": 9100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-action-workflow-specification"
+  },
+  {
+    "slug": "plantuml-ascii",
+    "installsRaw": "9.0K",
+    "installs": 9000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/plantuml-ascii"
+  },
+  {
+    "slug": "create-architectural-decision-record",
+    "installsRaw": "8.9K",
+    "installs": 8900,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-architectural-decision-record"
+  },
+  {
+    "slug": "create-github-pull-request-from-specification",
+    "installsRaw": "8.9K",
+    "installs": 8900,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-pull-request-from-specification"
+  },
+  {
+    "slug": "update-specification",
+    "installsRaw": "8.6K",
+    "installs": 8600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/update-specification"
+  },
+  {
+    "slug": "create-github-issue-feature-from-specification",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-issue-feature-from-specification"
+  },
+  {
+    "slug": "create-github-issues-for-unmet-specification-requirements",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-issues-for-unmet-specification-requirements"
+  },
+  {
+    "slug": "legacy-circuit-mockups",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/legacy-circuit-mockups"
+  },
+  {
+    "slug": "bigquery-pipeline-audit",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/bigquery-pipeline-audit"
+  },
+  {
+    "slug": "azure-pricing",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/azure-pricing"
+  },
+  {
+    "slug": "aws-cdk-python-setup",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/aws-cdk-python-setup"
+  },
+  {
+    "slug": "gtm-technical-product-pricing",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/gtm-technical-product-pricing"
+  },
+  {
+    "slug": "senior-data-scientist",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/senior-data-scientist"
+  },
+  {
+    "slug": "recipe-create-presentation",
+    "installsRaw": "12.9K",
+    "installs": 12900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-presentation"
+  },
+  {
+    "slug": "recipe-create-gmail-filter",
+    "installsRaw": "12.6K",
+    "installs": 12600,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-gmail-filter"
+  },
+  {
+    "slug": "recipe-backup-sheet-as-csv",
+    "installsRaw": "12.5K",
+    "installs": 12500,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-backup-sheet-as-csv"
+  },
+  {
+    "slug": "recipe-find-free-time",
+    "installsRaw": "12.4K",
+    "installs": 12400,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-find-free-time"
+  },
+  {
+    "slug": "recipe-save-email-attachments",
+    "installsRaw": "12.4K",
+    "installs": 12400,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-save-email-attachments"
+  },
+  {
+    "slug": "recipe-bulk-download-folder",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-bulk-download-folder"
+  },
+  {
+    "slug": "recipe-compare-sheet-tabs",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-compare-sheet-tabs"
+  },
+  {
+    "slug": "recipe-create-doc-from-template",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-doc-from-template"
+  },
+  {
+    "slug": "recipe-organize-drive-folder",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-organize-drive-folder"
+  }
+]

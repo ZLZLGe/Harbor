@@ -1,8 +1,0 @@
-{
-  "input_audio": "/root/data/lecture_track.wav",
-  "output_json": "/root/lecture_energy.json",
-  "summary_json": "/root/lecture_energy_summary.json",
-  "window_seconds": 1.0,
-  "activity_threshold": 3000.0,
-  "expected_window_count": 8
-}

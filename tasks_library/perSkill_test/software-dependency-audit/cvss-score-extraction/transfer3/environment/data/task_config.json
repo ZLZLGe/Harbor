@@ -1,6 +1,0 @@
-{
-  "mode": "package_matrix",
-  "input_file": "/root/data/findings.json",
-  "output_file": "/root/transfer3_package_matrix.tsv",
-  "expected_file": "/root/data/expected.tsv"
-}

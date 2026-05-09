@@ -23,6 +23,6 @@ RUN mkdir -p /app/data /app/workspace /app/workspace/output /logs/agent /logs/ve
      fi \
   && cd /app/workspace/extension \
   && npm install --silent \
-  && sha256sum /app/data/briefing_request.json /app/data/releases/*.json /app/data/locales/en/briefing_terms.json /app/data/locales/pt-br/briefing_terms.json /app/data/locales/zh-cn/briefing_terms.json > /opt/release-briefing-inputs.sha256
+  && sha256sum /app/data/briefing_request.json /app/data/releases/*.json /app/data/locales/en/briefing_terms.json /app/data/locales/en/extension_copy.json /app/data/locales/pt-br/briefing_terms.json /app/data/locales/pt-br/extension_copy.json /app/data/locales/zh-cn/briefing_terms.json /app/data/locales/zh-cn/extension_copy.json > /opt/release-briefing-inputs.sha256
 
 ENTRYPOINT ["/bin/bash"]

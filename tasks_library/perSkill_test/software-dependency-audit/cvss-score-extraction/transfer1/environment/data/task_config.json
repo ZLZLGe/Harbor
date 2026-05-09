@@ -1,6 +1,0 @@
-{
-  "mode": "gate_decisions",
-  "input_file": "/root/data/findings.json",
-  "output_file": "/root/transfer1_release_gate.csv",
-  "expected_file": "/root/data/expected.csv"
-}

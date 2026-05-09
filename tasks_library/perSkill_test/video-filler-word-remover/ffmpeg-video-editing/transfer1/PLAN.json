@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "transfer1",
-  "taskRole": "transfer",
-  "title": "Transfer - Redaction Cut Plan",
-  "goal": "Remove multiple blocked windows from a source video and publish a deterministic cut report.",
-  "primaryOutputFile": "/root/transfer1_redaction_report.json",
-  "source_task_id": "video-filler-word-remover",
-  "skillScope": "ffmpeg-video-editing"
-}

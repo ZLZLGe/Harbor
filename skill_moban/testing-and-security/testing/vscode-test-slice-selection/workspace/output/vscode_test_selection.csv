@@ -1,8 +1,0 @@
-request_id,script,arguments,scope,compile_required,notes
-101,./scripts/test.sh,"src/vs/editor/test/common/model.test.ts --grep ""should split lines"" --coverage",unit,true,Unit request uses scripts/test.sh semantics with the source file path and coverage enabled.
-102,./scripts/test.sh,"--runGlob ""**/search/**/*.test.js"" --grep ""SearchProvider""",unit,true,Unit request uses a compiled-test glob and grep filter.
-103,./scripts/test-integration.sh,"--run src/vs/workbench/services/search/test/browser/search.integrationTest.ts --grep ""TextSearchProvider""",integration-node,true,Run targets node integration tests only; extension host suites are skipped by --run.
-104,./scripts/test-integration.sh,"--suite ""git""",integration-extension,true,Suite selection targets extension host tests only; integration coverage is ignored.
-105,.\scripts\test-integration.bat,"--grep ""SearchProvider""",integration-all,true,Grep-only integration requests run both node integration tests and extension host suites.
-106,./scripts/test-integration.sh,"--runGlob ""**/workbench/**/*.integrationTest.js""",integration-node,true,Run glob narrows execution to node integration test files only.
-107,.\scripts\test.bat,src/vs/workbench/test/browser/workbench.test.ts,unit,true,Suite filter is ignored for unit tests; the unit source file path remains the selector.

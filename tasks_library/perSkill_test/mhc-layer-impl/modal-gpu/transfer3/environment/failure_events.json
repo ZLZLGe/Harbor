@@ -1,6 +1,0 @@
-[
-  {"run_id": "r-001", "error_type": "timeout", "gpu": "A100", "attempts": 1},
-  {"run_id": "r-002", "error_type": "oom", "gpu": "A10G", "attempts": 2},
-  {"run_id": "r-003", "error_type": "network", "gpu": "T4", "attempts": 1},
-  {"run_id": "r-004", "error_type": "quota", "gpu": "A100", "attempts": 3}
-]

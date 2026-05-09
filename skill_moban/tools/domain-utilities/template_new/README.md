@@ -65,8 +65,8 @@
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
 | 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 都未通过；失败点稳定落在 `availability_audit.csv` 评分重算与 `runner_ups` / shortlist 顺位偏差，而非格式问题 |
-| Agent 执行耗时 | `971.1s` | `156.2s` | With Skill 的核对与收敛更快，平均 trial elapsed 降低约 `83.9%` |
-| Tokens | `187.4k` | `121.6k` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.54x` |
+| Agent 执行耗时 | `276.7s` | `100.6s` | With Skill 的核对与收敛更快，按 `agent_execution` 口径统计，平均耗时降低约 `63.6%` |
+| Tokens | `222.1k` | `165.8k` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.34x` |
 
 ## 📁 标准目录结构说明
 

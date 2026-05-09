@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "transfer3",
-  "taskRole": "transfer",
-  "title": "Transfer - Panel Cutlist Planning",
-  "goal": "Build a merged clip plan from filler timestamps using configurable lead-in and word durations.",
-  "primaryOutputFile": "/root/transfer3_clip_plan.json",
-  "source_task_id": "video-filler-word-remover",
-  "skillScope": "whisper-transcription"
-}

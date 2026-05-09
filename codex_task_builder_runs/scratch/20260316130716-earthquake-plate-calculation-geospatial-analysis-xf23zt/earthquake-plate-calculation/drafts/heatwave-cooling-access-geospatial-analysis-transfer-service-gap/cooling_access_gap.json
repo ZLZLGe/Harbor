@@ -1,8 +1,0 @@
-{
-  "alert_zone_id": "HAZ-002",
-  "community_center_id": "CC-202",
-  "nearest_cooling_center_id": "CL-003",
-  "community_latitude": 32.17,
-  "community_longitude": -110.82,
-  "nearest_distance_km": 23.21
-}

@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "transfer3",
-  "taskRole": "transfer",
-  "title": "Transfer - Window Clip Index",
-  "goal": "Create a packaged set of fixed windows and emit an index JSON for downstream handoff.",
-  "primaryOutputFile": "/root/transfer3_window_index.json",
-  "source_task_id": "video-filler-word-remover",
-  "skillScope": "ffmpeg-video-editing"
-}

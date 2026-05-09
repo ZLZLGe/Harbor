@@ -1,0 +1,65 @@
+{
+  "task_id": "database-tools__postgres-movielens-release-migration",
+  "category": "database-tools",
+  "difficulty": "hard",
+  "binding_skill": "database-migrations",
+  "scenario": {
+    "type": "catalog-release-build",
+    "database": "PostgreSQL",
+    "domain_shape": "MovieLens catalog release over staging CSV imports",
+    "core_requirements": [
+      "preserve repository migration entrypoints",
+      "use all four CSV inputs",
+      "materialize genre and tag catalog tables",
+      "build monthly popularity rankings",
+      "expose one-row-per-movie export view",
+      "support release rollback while keeping staging imports"
+    ]
+  },
+  "dataset": {
+    "source_name": "MovieLens Latest Small",
+    "files": [
+      "movies.csv",
+      "ratings.csv",
+      "tags.csv",
+      "links.csv"
+    ]
+  },
+  "verifier_focus": [
+    "rebuild entrypoint behavior",
+    "database object content accuracy",
+    "migration history and rollback path",
+    "current-input regeneration",
+    "anti-hardcoding alternate-data coverage"
+  ],
+  "status": {
+    "template_created": true,
+    "local_validation_complete": false,
+    "e2b_with_skill_complete": true,
+    "e2b_without_skill_complete": true
+  },
+  "experiment_summary": {
+    "effective_trials_per_variant": 3,
+    "with_skill_trials": [
+      "database-tools-with-skills-20260508-run8/task_with_skills_e2b__wJzuXTm",
+      "database-tools-with-skills-20260508-run14-011301/task_with_skills_e2b__zj4mPuo",
+      "database-tools-with-skills-20260508-run20-0111/task_with_skills_e2b__iv6uPbY"
+    ],
+    "without_skill_trials": [
+      "database-tools-without-skills-20260508-run10/task_without_skills_e2b__89BKrxm",
+      "database-tools-without-skills-20260508-run11/task_without_skills_e2b__AY7U8kL",
+      "database-tools-without-skills-20260508-run16-012301/task_without_skills_e2b__xwkQoLb"
+    ],
+    "with_skill": {
+      "pass_rate": 1.0,
+      "avg_agent_seconds": 348.9,
+      "avg_tokens": 529625
+    },
+    "without_skill": {
+      "pass_rate": 0.0,
+      "avg_agent_seconds": 364.1,
+      "avg_tokens": 608421,
+      "dominant_failure": "baseline migration hash guard after editing existing migrations"
+    }
+  }
+}

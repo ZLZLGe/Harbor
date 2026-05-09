@@ -1,5 +1,0 @@
-machine,start,end,reason
-2,9,16,cip_filler_a
-3,14,20,sanitation_flavor_change
-4,12,18,labeler_washdown
-5,17,22,allergen_flush

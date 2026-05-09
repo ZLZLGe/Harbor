@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "deployment-patterns",
+    "installsRaw": "3.8K",
+    "installs": 3800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/deployment-patterns"
+  },
+  {
+    "slug": "market-research",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/market-research"
+  },
+  {
+    "slug": "content-engine",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/content-engine"
+  },
+  {
+    "slug": "content-hash-cache-pattern",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/content-hash-cache-pattern"
+  },
+  {
+    "slug": "inventory-demand-planning",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/inventory-demand-planning"
+  },
+  {
+    "slug": "crosspost",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/crosspost"
+  },
+  {
+    "slug": "production-scheduling",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/production-scheduling"
+  },
+  {
+    "slug": "product-lens",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/product-lens"
+  },
+  {
+    "slug": "brand-voice",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/brand-voice"
+  },
+  {
+    "slug": "customer-billing-ops",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/customer-billing-ops"
+  },
+  {
+    "slug": "seo",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/seo"
+  },
+  {
+    "slug": "email-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/email-ops"
+  },
+  {
+    "slug": "product-capability",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/product-capability"
+  },
+  {
+    "slug": "brand-guidelines",
+    "installsRaw": "36.8K",
+    "installs": 36800,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/brand-guidelines"
+  },
+  {
+    "slug": "content-creator",
+    "installsRaw": "3.4K",
+    "installs": 3400,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/content-creator"
+  },
+  {
+    "slug": "email-drafter",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/email-drafter"
+  },
+  {
+    "slug": "content-research-writer",
+    "installsRaw": "3.9K",
+    "installs": 3900,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/content-research-writer"
+  },
+  {
+    "slug": "competitive-ads-extractor",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/competitive-ads-extractor"
+  },
+  {
+    "slug": "product-manager-toolkit",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/product-manager-toolkit"
+  },
+  {
+    "slug": "shopify-development",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/shopify-development"
+  },
+  {
+    "slug": "brand-landingpage",
+    "installsRaw": "6.4K",
+    "installs": 6400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/brand-landingpage"
+  },
+  {
+    "slug": "hads",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/hads"
+  },
+  {
+    "slug": "microsoft-code-reference",
+    "installsRaw": "10.0K",
+    "installs": 10000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/microsoft-code-reference"
+  },
+  {
+    "slug": "dataverse-python-production-code",
+    "installsRaw": "9.1K",
+    "installs": 9100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/dataverse-python-production-code"
+  },
+  {
+    "slug": "microsoft-skill-creator",
+    "installsRaw": "8.6K",
+    "installs": 8600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/microsoft-skill-creator"
+  },
+  {
+    "slug": "azure-pricing",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/azure-pricing"
+  },
+  {
+    "slug": "microsoft-agent-framework",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/microsoft-agent-framework"
+  },
+  {
+    "slug": "gtm-product-led-growth",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/gtm-product-led-growth"
+  },
+  {
+    "slug": "gtm-technical-product-pricing",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/gtm-technical-product-pricing"
+  },
+  {
+    "slug": "market-research-reports",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/market-research-reports"
+  },
+  {
+    "slug": "gws-workflow-email-to-task",
+    "installsRaw": "13.1K",
+    "installs": 13100,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/gws-workflow-email-to-task"
+  },
+  {
+    "slug": "recipe-save-email-attachments",
+    "installsRaw": "12.4K",
+    "installs": 12400,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-save-email-attachments"
+  },
+  {
+    "slug": "persona-content-creator",
+    "installsRaw": "12.2K",
+    "installs": 12200,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/persona-content-creator"
+  },
+  {
+    "slug": "recipe-draft-email-from-doc",
+    "installsRaw": "12.2K",
+    "installs": 12200,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-draft-email-from-doc"
+  },
+  {
+    "slug": "recipe-email-drive-link",
+    "installsRaw": "12.2K",
+    "installs": 12200,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-email-drive-link"
+  },
+  {
+    "slug": "recipe-label-and-archive-emails",
+    "installsRaw": "12.1K",
+    "installs": 12100,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-label-and-archive-emails"
+  },
+  {
+    "slug": "recipe-save-email-to-doc",
+    "installsRaw": "12.1K",
+    "installs": 12100,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-save-email-to-doc"
+  },
+  {
+    "slug": "recipe-forward-labeled-emails",
+    "installsRaw": "11.8K",
+    "installs": 11800,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-forward-labeled-emails"
+  },
+  {
+    "slug": "persona-customer-support",
+    "installsRaw": "11.7K",
+    "installs": 11700,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/persona-customer-support"
+  },
+  {
+    "slug": "persona-sales-ops",
+    "installsRaw": "11.7K",
+    "installs": 11700,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/persona-sales-ops"
+  },
+  {
+    "slug": "content-creation",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/content-creation"
+  },
+  {
+    "slug": "product-brainstorming",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/product-brainstorming"
+  },
+  {
+    "slug": "brand-voice-enforcement",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/brand-voice-enforcement"
+  },
+  {
+    "slug": "customer-research",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/customer-research"
+  },
+  {
+    "slug": "discover-brand",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/discover-brand"
+  },
+  {
+    "slug": "shopify-expert",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/shopify-expert"
+  },
+  {
+    "slug": "daiso-product-search",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "nomadamas/k-skill",
+    "sourceLower": "nomadamas/k-skill",
+    "stars": 4500,
+    "repoUrl": "https://github.com/nomadamas/k-skill",
+    "skillUrl": "https://skills.sh/nomadamas/k-skill/daiso-product-search"
+  },
+  {
+    "slug": "coupang-product-search",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "nomadamas/k-skill",
+    "sourceLower": "nomadamas/k-skill",
+    "stars": 4500,
+    "repoUrl": "https://github.com/nomadamas/k-skill",
+    "skillUrl": "https://skills.sh/nomadamas/k-skill/coupang-product-search"
+  },
+  {
+    "slug": "olive-young-search",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "nomadamas/k-skill",
+    "sourceLower": "nomadamas/k-skill",
+    "stars": 4500,
+    "repoUrl": "https://github.com/nomadamas/k-skill",
+    "skillUrl": "https://skills.sh/nomadamas/k-skill/olive-young-search"
+  },
+  {
+    "slug": "dbs",
+    "installsRaw": "5.0K",
+    "installs": 5000,
+    "source": "dontbesilent2025/dbskill",
+    "sourceLower": "dontbesilent2025/dbskill",
+    "stars": 4300,
+    "repoUrl": "https://github.com/dontbesilent2025/dbskill",
+    "skillUrl": "https://skills.sh/dontbesilent2025/dbskill/dbs"
+  }
+]

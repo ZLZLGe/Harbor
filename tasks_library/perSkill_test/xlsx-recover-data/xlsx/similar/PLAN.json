@@ -1,8 +1,0 @@
-{
-  "derivedTaskId": "similar",
-  "taskRole": "similar",
-  "title": "Similar - Workbook Recovery Baseline",
-  "goal": "Recover all placeholder cells in the baseline budget workbook and save a corrected copy.",
-  "primaryOutputFile": "/root/budget_similar_recovered.xlsx",
-  "skillScope": "xlsx"
-}

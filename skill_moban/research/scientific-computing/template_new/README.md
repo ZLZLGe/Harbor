@@ -1,67 +1,81 @@
-# Scientific Computing Data Analysis Template
+# Scientific-Computing Template
 
-这是面向 scientific-computing 类 skill 的模板。它综合参考 SkillsMP Scientific Computing 类热门 skill 的共性能力：多源科学数据读取、SQL/pandas 数据清洗、统计趋势检验、可解释归因建模、质量控制和可复现实验交付。
+这是面向 `scientific-computing` 类 skill 的模板。它综合参考 SkillsMP scientific-computing 类热门 skill 的共性能力：多格式科学文件识别、结构勘查、质量检查、分析前 intake 组织、约定对齐，以及把局部分析结果收束为可继续处理的交付物。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：Scientific Computing 类热门 skill 的共同价值，是把复杂科学数据从“能读文件”推进到“能解释、能复核、能稳定复现”的分析链路。它们通常覆盖数据结构识别、领域变量清洗、统计建模、质量控制和机器可读报告，使 agent 不只修表面格式，而是按科学分析工作流完成交付。
-* **Task 目标形态**：任务应提供真实风格的多源数据链路，例如数据库、仪器观测、元数据、事件窗口和下游 schema，而不是静态 toy CSV。目标输出应包含主结果、诊断摘要和 workflow audit，迫使 solver 同时完成 SQL 抽取、pandas 转换、统计分析和解释性报告。
-* **Verifier 设计重点**：Verifier 需要同时检查输出契约、数据链路、统计合理性和防作弊约束。对于科学计算任务，不宜只卡唯一数值答案，而应动态重算关键 oracle、验证质量控制和模型输出范围，并检查 solver 是否留下足够的 SQL/pandas/统计工作流证据。
+* **Skill 价值定位**：scientific-computing 类热门 skill 的共性价值，在于把 netCDF、XML、原始观测文本、JSON contract 这类异构科学输入组织成稳定的分析前工作流。模板任务应把重点放在候选文件发现、结构理解、质量归纳和正式交付，而不是把方法细节直接写进题面。
+* **Task 目标形态**：这类任务适合落在研究 intake、预筛查、局部预处理和分析准备场景里，要求 Agent 先识别应使用的输入，再依据本地 contract 产出可复跑的结构化结果与简短说明。题面应强调输出合同和业务约束，把诊断路径留给 solver 自行完成。
+* **Verifier 设计重点**：Verifier 应优先检查 solver 是否走通了多格式发现与聚合链路，并验证关键约定、精度策略、mutation 响应和可重放性。防作弊设计要覆盖文件名扰动、contract 变更、metadata 变更以及输入完整性，避免只靠表层模板或手写答案过关。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`scientific-computing__lake-observatory-qc-attribution`
-- 类别：Scientific Computing
+- 任务 ID：`scientific-computing__marine-heat-intake-screening`
+- 类别：`scientific-computing`
 - 难度：`hard`
-- 绑定 Skill：`data-analyst`
+- 绑定 Skill：`exploratory-data-analysis`
+- 输入数据参考来源：
+  - `environment/data/grids/thermal_subset_alpha.nc`：任务内 OISST 候选网格子集之一；数据形态参考 NOAA OISST daily netCDF  
+    https://www.ncei.noaa.gov/products/optimum-interpolation-sst
+  - `environment/data/grids/thermal_subset_beta.nc`：候选网格文件目录与逐日组织形态参考  
+    https://www.ncei.noaa.gov/thredds/catalog/OisstBase/NetCDF/V2.1/AVHRR/202404/catalog.html
+  - `environment/data/buoys/coastal_extract_alpha.txt`：任务内浮标候选观测文本之一；数据形态参考 NDBC historical stdmet  
+    https://www.ndbc.noaa.gov/data/historical/stdmet/44013h2024.txt.gz
+  - `environment/data/buoys/coastal_extract_beta.txt`：第二份浮标候选观测文本；来源形态同上  
+    https://www.ndbc.noaa.gov/data/historical/stdmet/44013h2024.txt.gz
+  - `environment/data/metadata/platform_record_alpha.xml`：任务内站点候选元数据 XML 之一；内容形态参考 NDBC station page metadata/history  
+    https://www.ndbc.noaa.gov/station_page.php?station=44013
+  - `environment/data/metadata/platform_record_beta.xml`：第二份站点候选元数据 XML；来源形态同上  
+    https://www.ndbc.noaa.gov/station_page.php?station=44013
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：官方解法从 SQLite 和 CSV 原始输入重建完整湖泊观测分析链路，完成去重、单位换算、QC/event-window 过滤、日尺度聚合、鲁棒趋势、驱动因子归因和 workflow audit。E2B oracle `lake-observatory-oracle-e2b-20260429-010944` 已通过，Reward 为 `1.0`。
+- Oracle：oracle 从本地 buoy 文本、metadata XML、OISST netCDF 和 contract JSON 直接重算输入选择、日级 merged panel、数据问题表和 shortlist，并生成 markdown intake。它证明任务可运行、可验证，且答案完全由本地输入推导。
 - Verifier策略：
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+主测试
+
+| 测试点 | 验证内容 | 对应skill内化点 |
+| :--- | :--- | :--- |
+| 输出合同与候选发现 | 检查 5 个输出文件存在、可解析，且所选 buoy/XML/netCDF 与 contract 约束一致 | 先识别文件类型与候选集，再建立正式交付 |
+| 结构化重算 | 从文本、XML、netCDF、JSON 重算 input summary、daily panel、candidate windows，并检查 issue vocabulary 与精度策略 | 多格式读取、质量检查、精度控制、contract 驱动筛选 |
+| Intake 可追溯 | 检查 markdown intake 是否写明选中输入、grid 点位、主要问题和 shortlist 结论 | 把分析过程收束成可继续使用的分析前说明 |
+
+防作弊测试
+
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| 必需 CSV/JSON 输出存在、字段顺序和类型可解析 | 结构化数据分析交付 |
-| 从 SQLite/CSV 动态复算站点、raw rows、日期范围和 QC 统计 | SQL 数据抽取、数据库设计理解、pandas 清洗 |
-| 检查站点趋势使用鲁棒/非参数方法且斜率、p-value、缺失率处于合理范围 | 时间序列分析、假设检验、异常值处理 |
-| 检查 Heat/Flow/Wind/Human 四类归因、贡献率归一化、rank 与 summary 一致 | 相关性分析、基础预测建模、解释性归因 |
-| 检查 `analysis_workflow_audit.json` 中 SQL、pandas、统计、性能、示例结果和解释性证据 | skill 输出格式：注释、示例结果、性能考虑、发现解释 |
-| 防硬编码、禁复制输入数据、禁外部账号/云服务、重复运行确定性，并确认绑定 skill 原样安装 | 防作弊、可复现性、skill 绑定与安全边界 |
+| Contract mutation | 调整 top-k 与阈值后，candidate shortlist 必须跟着变化 |
+| Metadata mutation | 改动 latest history 坐标后，grid mapping 与输出必须同步变化 |
+| Filename obfuscation | 打乱候选文件名后，仍需选中同一组核心输入 |
+| 输入与技能完整性 | `/root/data` 与 `/root/.codex/skills` 内容不得变化，官方入口重复运行需产出一致结果 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把 SQLite 抽取、pandas 清洗、鲁棒趋势检验、归因建模和 workflow audit 标准化；新增的 audit 输出专门验证 solver 是否内化了 SQL/pandas/statistics 工作流，而不是只凑 CSV 字段。
+结论：强相关。这个任务里，Skill 的核心价值是把候选科学文件识别、结构理解、质量检查和 markdown intake 组织成一条清晰链路；新增的本地 probe 只暴露输出约定，不直接泄露答案，因此仍然要求 solver 主动完成文件发现、问题归纳和 contract 响应。
 
-基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最终口径下 **5** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0/3` | `3/3` | Without Skill 均未通过，主要因为剥离 `environment/skills/` 后缺少绑定 `data-analyst` skill，并更容易遗漏 skill 输出格式 audit；With Skill 三次均形成完整 SQL/pandas/统计交付链路 |
-| Agent 执行耗时 | `644.0s` | `596.1s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `7.4%` |
-| Tokens | `939.0K` | `778.6K` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.21x` |
+| 通过率 | `0%` | `100%` | 近 5 次有效对照里，without Skill 全部失败，主要落在 issue coverage 不完整、数值被手动截断、以及 contract / metadata mutation 响应不稳；with Skill 5 次全部通过。 |
+| Agent 执行耗时 | `449.5s` | `501.1s` | With Skill 的平均耗时略高，主要来自更完整的 intake 和 probe 对齐步骤；但它显著提升了收敛稳定性。 |
+| Tokens | `0.76M` | `0.76M` | 两组 token 规模接近；with Skill 略低，说明额外约定并没有带来明显上下文膨胀。 |
 
 ## 📁 标准目录结构说明
 
 ```text
-template_new/
-├── instruction.md
-├── task.toml
-├── PLAN.json
-├── README.md
-├── environment/
-│   ├── Dockerfile
-│   ├── generate_seed_data.py
-│   └── skills/
-│       └── data-analyst/
-│           └── SKILL.md
-├── tests/
-│   ├── reference_metrics.py
-│   ├── test.sh
-│   └── test_outputs.py
-└── solution/
-    ├── fixed_run_analysis.py
-    └── solve.sh
+模板任务：
+├── instruction.md          # 任务说明（仅包含症状、业务约束和禁止事项）
+├── task.toml               # 任务元数据（标签、技能要求、运行入口）
+├── PLAN.json               # 任务构建过程的结构化元信息
+├── environment/            # 运行环境
+│   ├── Dockerfile          # 单容器镜像定义
+│   ├── data/               # 本地输入数据与 contract
+│   ├── workspace/          # 官方入口与工作区骨架
+│   └── skills/             # 任务绑定 skill 定义与附带探针清单
+├── tests/                  # Verifier 与 Guardrail 测试集
+└── solution/               # 官方参考代码及 solve.sh
 ```

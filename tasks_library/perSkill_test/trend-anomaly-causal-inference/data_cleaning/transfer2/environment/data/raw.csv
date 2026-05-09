@@ -1,8 +1,0 @@
-sensor_id,reading_date,plot,moisture_pct,battery_note,technician_email
-S-01,2021-07-01,North-1,24,battery good for 72 hours,field.one@example.net
-S-01,2021-07-01,North-1,24,battery good for 72 hours,field.one@example.net
-S-02,2021-07-01,North-2,31,battery 48h left,north.two@example.net
-S-03,2021-07-02,,27,battery 36h left,missing.plot@example.net
-S-04,2021-07-03,South-1,120,,south.one@example.net
-S-05,2021-07-04,South-2,19,battery good for 60 hours, backup <south.two@example.net>
-S-06,2021-07-04,West-1,22,battery good for 54 hours,west.one@example.net

@@ -1,6 +1,0 @@
-[
-  {"scenario_id": "ridge_swarm", "prior_templates": true, "target_signal": "small", "network_density": "dense", "urgency": "research"},
-  {"scenario_id": "remote_deploy", "prior_templates": false, "target_signal": "general", "network_density": "sparse", "urgency": "research"},
-  {"scenario_id": "ops_screen", "prior_templates": false, "target_signal": "general", "network_density": "dense", "urgency": "realtime"},
-  {"scenario_id": "aftershock_refresh", "prior_templates": false, "target_signal": "general", "network_density": "dense", "urgency": "research"}
-]

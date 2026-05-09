@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "fix",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "facebook/react",
+    "sourceLower": "facebook/react",
+    "stars": 244800,
+    "repoUrl": "https://github.com/facebook/react",
+    "skillUrl": "https://skills.sh/facebook/react/fix"
+  },
+  {
+    "slug": "writing-plans",
+    "installsRaw": "85.6K",
+    "installs": 85600,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/writing-plans"
+  },
+  {
+    "slug": "requesting-code-review",
+    "installsRaw": "75.0K",
+    "installs": 75000,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/requesting-code-review"
+  },
+  {
+    "slug": "test-driven-development",
+    "installsRaw": "74.7K",
+    "installs": 74700,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/test-driven-development"
+  },
+  {
+    "slug": "verification-before-completion",
+    "installsRaw": "61.6K",
+    "installs": 61600,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/verification-before-completion"
+  },
+  {
+    "slug": "receiving-code-review",
+    "installsRaw": "59.4K",
+    "installs": 59400,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/receiving-code-review"
+  },
+  {
+    "slug": "security-review",
+    "installsRaw": "7.5K",
+    "installs": 7500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/security-review"
+  },
+  {
+    "slug": "python-patterns",
+    "installsRaw": "4.6K",
+    "installs": 4600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/python-patterns"
+  },
+  {
+    "slug": "java-coding-standards",
+    "installsRaw": "4.4K",
+    "installs": 4400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/java-coding-standards"
+  },
+  {
+    "slug": "continuous-learning",
+    "installsRaw": "4.0K",
+    "installs": 4000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/continuous-learning"
+  },
+  {
+    "slug": "cpp-coding-standards",
+    "installsRaw": "3.8K",
+    "installs": 3800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/cpp-coding-standards"
+  },
+  {
+    "slug": "eval-harness",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/eval-harness"
+  },
+  {
+    "slug": "configure-ecc",
+    "installsRaw": "3.5K",
+    "installs": 3500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/configure-ecc"
+  },
+  {
+    "slug": "verification-loop",
+    "installsRaw": "3.5K",
+    "installs": 3500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/verification-loop"
+  },
+  {
+    "slug": "django-verification",
+    "installsRaw": "3.4K",
+    "installs": 3400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/django-verification"
+  },
+  {
+    "slug": "springboot-verification",
+    "installsRaw": "3.4K",
+    "installs": 3400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/springboot-verification"
+  },
+  {
+    "slug": "plankton-code-quality",
+    "installsRaw": "3.0K",
+    "installs": 3000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/plankton-code-quality"
+  },
+  {
+    "slug": "flutter-dart-code-review",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/flutter-dart-code-review"
+  },
+  {
+    "slug": "perl-patterns",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/perl-patterns"
+  },
+  {
+    "slug": "quality-nonconformance",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/quality-nonconformance"
+  },
+  {
+    "slug": "agent-eval",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/agent-eval"
+  },
+  {
+    "slug": "laravel-verification",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/laravel-verification"
+  },
+  {
+    "slug": "gateguard",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/gateguard"
+  },
+  {
+    "slug": "component-refactoring",
+    "installsRaw": "3.3K",
+    "installs": 3300,
+    "source": "langgenius/dify",
+    "sourceLower": "langgenius/dify",
+    "stars": 140300,
+    "repoUrl": "https://github.com/langgenius/dify",
+    "skillUrl": "https://skills.sh/langgenius/dify/component-refactoring"
+  },
+  {
+    "slug": "code-reviewer",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/code-reviewer"
+  },
+  {
+    "slug": "request-refactor-plan",
+    "installsRaw": "7.1K",
+    "installs": 7100,
+    "source": "mattpocock/skills",
+    "sourceLower": "mattpocock/skills",
+    "stars": 62100,
+    "repoUrl": "https://github.com/mattpocock/skills",
+    "skillUrl": "https://skills.sh/mattpocock/skills/request-refactor-plan"
+  },
+  {
+    "slug": "caveman-review",
+    "installsRaw": "60.2K",
+    "installs": 60200,
+    "source": "juliusbrussee/caveman",
+    "sourceLower": "juliusbrussee/caveman",
+    "stars": 54900,
+    "repoUrl": "https://github.com/juliusbrussee/caveman",
+    "skillUrl": "https://skills.sh/juliusbrussee/caveman/caveman-review"
+  },
+  {
+    "slug": "multi-reviewer-patterns",
+    "installsRaw": "4.9K",
+    "installs": 4900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/multi-reviewer-patterns"
+  },
+  {
+    "slug": "refactor",
+    "installsRaw": "15.7K",
+    "installs": 15700,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/refactor"
+  },
+  {
+    "slug": "web-design-reviewer",
+    "installsRaw": "10.7K",
+    "installs": 10700,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/web-design-reviewer"
+  },
+  {
+    "slug": "refactor-plan",
+    "installsRaw": "10.2K",
+    "installs": 10200,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/refactor-plan"
+  },
+  {
+    "slug": "sql-code-review",
+    "installsRaw": "10.0K",
+    "installs": 10000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/sql-code-review"
+  },
+  {
+    "slug": "postgresql-code-review",
+    "installsRaw": "9.8K",
+    "installs": 9800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/postgresql-code-review"
+  },
+  {
+    "slug": "dotnet-design-pattern-review",
+    "installsRaw": "9.6K",
+    "installs": 9600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/dotnet-design-pattern-review"
+  },
+  {
+    "slug": "review-and-refactor",
+    "installsRaw": "9.6K",
+    "installs": 9600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/review-and-refactor"
+  },
+  {
+    "slug": "apple-appstore-reviewer",
+    "installsRaw": "9.3K",
+    "installs": 9300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/apple-appstore-reviewer"
+  },
+  {
+    "slug": "ai-prompt-engineering-safety-review",
+    "installsRaw": "9.2K",
+    "installs": 9200,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/ai-prompt-engineering-safety-review"
+  },
+  {
+    "slug": "refactor-method-complexity-reduce",
+    "installsRaw": "8.9K",
+    "installs": 8900,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/refactor-method-complexity-reduce"
+  },
+  {
+    "slug": "java-refactoring-extract-method",
+    "installsRaw": "8.6K",
+    "installs": 8600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/java-refactoring-extract-method"
+  },
+  {
+    "slug": "java-refactoring-remove-parameter",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/java-refactoring-remove-parameter"
+  },
+  {
+    "slug": "power-bi-model-design-review",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/power-bi-model-design-review"
+  },
+  {
+    "slug": "codeql",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/codeql"
+  },
+  {
+    "slug": "literature-review",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/literature-review"
+  },
+  {
+    "slug": "recipe-review-overdue-tasks",
+    "installsRaw": "11.9K",
+    "installs": 11900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-review-overdue-tasks"
+  },
+  {
+    "slug": "recipe-review-meet-participants",
+    "installsRaw": "11.8K",
+    "installs": 11800,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-review-meet-participants"
+  },
+  {
+    "slug": "accessibility-review",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/accessibility-review"
+  },
+  {
+    "slug": "review-contract",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/review-contract"
+  },
+  {
+    "slug": "brand-review",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/brand-review"
+  },
+  {
+    "slug": "performance-review",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/performance-review"
+  },
+  {
+    "slug": "semgrep",
+    "installsRaw": "3.5K",
+    "installs": 3500,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/semgrep"
+  }
+]

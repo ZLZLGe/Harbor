@@ -1,6 +1,0 @@
-request_id,origin,destination,max_taxi_budget
-TX-201,Dallas,Austin,320
-TX-202,Austin,San Antonio,140
-TX-203,Houston,San Antonio,310
-TX-204,San Antonio,Corpus Christi,240
-TX-205,Dallas,Waco,160

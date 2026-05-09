@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "transfer3",
-  "taskRole": "transfer",
-  "title": "Transfer - Scene Presence Summary",
-  "goal": "Summarize each scene with its dominant speaker, visual support ratio, and any supporting segments that were delivered off-screen.",
-  "primaryOutputFile": "/root/transfer3_scene_presence_summary.json",
-  "source_task_id": "speaker-diarization-subtitles",
-  "skillScope": "multimodal-fusion"
-}

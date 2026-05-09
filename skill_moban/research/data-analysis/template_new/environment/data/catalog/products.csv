@@ -1,7 +1,0 @@
-product_id,category_id,category_name,unit_cost,active
-P-APPLE,produce,Produce,1.1,true
-P-BERRY,produce,Produce,2.4,true
-P-MILK,dairy,Dairy,1.8,true
-P-YOGURT,dairy,Dairy,0.95,true
-P-PASTA,pantry,Pantry,1.25,true
-P-SAUCE,pantry,Pantry,1.45,true

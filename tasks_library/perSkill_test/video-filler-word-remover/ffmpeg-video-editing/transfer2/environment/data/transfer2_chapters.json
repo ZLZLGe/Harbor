@@ -1,7 +1,0 @@
-[
-  {"chapter_id": "ch01", "topic": "opening-summary", "start": 5.0},
-  {"chapter_id": "ch02", "topic": "problem-statement", "start": 18.0},
-  {"chapter_id": "ch03", "topic": "example-walkthrough", "start": 31.5},
-  {"chapter_id": "ch04", "topic": "tradeoff-discussion", "start": 47.0},
-  {"chapter_id": "ch05", "topic": "next-steps", "start": 64.0}
-]

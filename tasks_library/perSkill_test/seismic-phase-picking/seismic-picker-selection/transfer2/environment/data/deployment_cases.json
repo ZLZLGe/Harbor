@@ -1,6 +1,0 @@
-[
-  {"case_id": "templates_ready", "prior_templates": true, "compute_budget": "high", "network_density": "dense"},
-  {"case_id": "edge_box", "prior_templates": false, "compute_budget": "low", "network_density": "dense"},
-  {"case_id": "sparse_portable", "prior_templates": false, "compute_budget": "high", "network_density": "sparse"},
-  {"case_id": "ops_default", "prior_templates": false, "compute_budget": "high", "network_density": "dense"}
-]

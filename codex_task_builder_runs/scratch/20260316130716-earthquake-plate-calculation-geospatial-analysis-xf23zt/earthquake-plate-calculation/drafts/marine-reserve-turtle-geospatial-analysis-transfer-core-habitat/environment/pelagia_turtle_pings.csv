@@ -1,9 +1,0 @@
-tag_id,observed_at,latitude,longitude,species,quality_flag
-T-201,2025-04-02T10:15:00Z,-0.35,-90.7,green,validated
-T-202,2025-04-02T16:40:00Z,0.42,-90.4,green,validated
-T-203,2025-04-03T05:05:00Z,0.0,-90.1,green,validated
-T-204,2025-04-03T13:25:00Z,-0.18,-89.65,hawksbill,validated
-T-205,2025-04-04T07:55:00Z,0.51,-90.95,green,validated
-T-206,2025-04-04T21:10:00Z,0.12,-89.05,hawksbill,validated
-T-207,2025-04-05T09:35:00Z,0.83,-90.15,green,validated
-T-208,2025-04-05T22:45:00Z,-0.62,-90.32,green,validated

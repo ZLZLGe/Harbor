@@ -1,8 +1,0 @@
-{
-  "derivedTaskId": "transfer2",
-  "taskRole": "transfer",
-  "title": "Transfer - Share and CAGR Reconciliation",
-  "goal": "Recover missing values tied to percentage-share and CAGR constraints.",
-  "primaryOutputFile": "/root/reconcile_transfer2_recovered.xlsx",
-  "skillScope": "data-reconciliation"
-}

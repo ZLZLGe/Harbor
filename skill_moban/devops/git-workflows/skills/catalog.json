@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "github",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "openclaw/openclaw",
+    "sourceLower": "openclaw/openclaw",
+    "stars": 368900,
+    "repoUrl": "https://github.com/openclaw/openclaw",
+    "skillUrl": "https://skills.sh/openclaw/openclaw/github"
+  },
+  {
+    "slug": "requesting-code-review",
+    "installsRaw": "75.0K",
+    "installs": 75000,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/requesting-code-review"
+  },
+  {
+    "slug": "receiving-code-review",
+    "installsRaw": "59.4K",
+    "installs": 59400,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/receiving-code-review"
+  },
+  {
+    "slug": "using-git-worktrees",
+    "installsRaw": "57.4K",
+    "installs": 57400,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/using-git-worktrees"
+  },
+  {
+    "slug": "finishing-a-development-branch",
+    "installsRaw": "55.3K",
+    "installs": 55300,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/finishing-a-development-branch"
+  },
+  {
+    "slug": "golang-patterns",
+    "installsRaw": "7.1K",
+    "installs": 7100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/golang-patterns"
+  },
+  {
+    "slug": "tdd-workflow",
+    "installsRaw": "4.7K",
+    "installs": 4700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/tdd-workflow"
+  },
+  {
+    "slug": "swift-concurrency-6-2",
+    "installsRaw": "3.1K",
+    "installs": 3100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/swift-concurrency-6-2"
+  },
+  {
+    "slug": "dmux-workflows",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/dmux-workflows"
+  },
+  {
+    "slug": "git-workflow",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/git-workflow"
+  },
+  {
+    "slug": "opensource-pipeline",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/opensource-pipeline"
+  },
+  {
+    "slug": "project-flow-ops",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/project-flow-ops"
+  },
+  {
+    "slug": "github-ops",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/github-ops"
+  },
+  {
+    "slug": "unified-notifications-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/unified-notifications-ops"
+  },
+  {
+    "slug": "code-reviewer",
+    "installsRaw": "6.3K",
+    "installs": 6300,
+    "source": "google-gemini/gemini-cli",
+    "sourceLower": "google-gemini/gemini-cli",
+    "stars": 103200,
+    "repoUrl": "https://github.com/google-gemini/gemini-cli",
+    "skillUrl": "https://skills.sh/google-gemini/gemini-cli/code-reviewer"
+  },
+  {
+    "slug": "pr-creator",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "google-gemini/gemini-cli",
+    "sourceLower": "google-gemini/gemini-cli",
+    "stars": 103200,
+    "repoUrl": "https://github.com/google-gemini/gemini-cli",
+    "skillUrl": "https://skills.sh/google-gemini/gemini-cli/pr-creator"
+  },
+  {
+    "slug": "claude-code-plugin-release",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "thedotmack/claude-mem",
+    "sourceLower": "thedotmack/claude-mem",
+    "stars": 72700,
+    "repoUrl": "https://github.com/thedotmack/claude-mem",
+    "skillUrl": "https://skills.sh/thedotmack/claude-mem/claude-code-plugin-release"
+  },
+  {
+    "slug": "github-deep-research",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/github-deep-research"
+  },
+  {
+    "slug": "git-guardrails-claude-code",
+    "installsRaw": "5.4K",
+    "installs": 5400,
+    "source": "mattpocock/skills",
+    "sourceLower": "mattpocock/skills",
+    "stars": 62100,
+    "repoUrl": "https://github.com/mattpocock/skills",
+    "skillUrl": "https://skills.sh/mattpocock/skills/git-guardrails-claude-code"
+  },
+  {
+    "slug": "firebase",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/firebase"
+  },
+  {
+    "slug": "git-commit",
+    "installsRaw": "29.4K",
+    "installs": 29400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/git-commit"
+  },
+  {
+    "slug": "memory-merger",
+    "installsRaw": "11.7K",
+    "installs": 11700,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/memory-merger"
+  },
+  {
+    "slug": "conventional-commit",
+    "installsRaw": "11.3K",
+    "installs": 11300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/conventional-commit"
+  },
+  {
+    "slug": "my-pull-requests",
+    "installsRaw": "9.4K",
+    "installs": 9400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/my-pull-requests"
+  },
+  {
+    "slug": "create-github-action-workflow-specification",
+    "installsRaw": "9.1K",
+    "installs": 9100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-action-workflow-specification"
+  },
+  {
+    "slug": "create-github-pull-request-from-specification",
+    "installsRaw": "8.9K",
+    "installs": 8900,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-pull-request-from-specification"
+  },
+  {
+    "slug": "git-flow-branch-creator",
+    "installsRaw": "8.8K",
+    "installs": 8800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/git-flow-branch-creator"
+  },
+  {
+    "slug": "project-workflow-analysis-blueprint-generator",
+    "installsRaw": "8.8K",
+    "installs": 8800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/project-workflow-analysis-blueprint-generator"
+  },
+  {
+    "slug": "create-github-issue-feature-from-specification",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-issue-feature-from-specification"
+  },
+  {
+    "slug": "create-github-issues-feature-from-implementation-plan",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-issues-feature-from-implementation-plan"
+  },
+  {
+    "slug": "create-github-issues-for-unmet-specification-requirements",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-issues-for-unmet-specification-requirements"
+  },
+  {
+    "slug": "github-copilot-starter",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/github-copilot-starter"
+  },
+  {
+    "slug": "suggest-awesome-github-copilot-skills",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/suggest-awesome-github-copilot-skills"
+  },
+  {
+    "slug": "suggest-awesome-github-copilot-agents",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/suggest-awesome-github-copilot-agents"
+  },
+  {
+    "slug": "suggest-awesome-github-copilot-instructions",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/suggest-awesome-github-copilot-instructions"
+  },
+  {
+    "slug": "suggest-awesome-github-copilot-prompts",
+    "installsRaw": "6.8K",
+    "installs": 6800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/suggest-awesome-github-copilot-prompts"
+  },
+  {
+    "slug": "gws-workflow",
+    "installsRaw": "13.6K",
+    "installs": 13600,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/gws-workflow"
+  },
+  {
+    "slug": "gws-workflow-email-to-task",
+    "installsRaw": "13.1K",
+    "installs": 13100,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/gws-workflow-email-to-task"
+  },
+  {
+    "slug": "gws-workflow-meeting-prep",
+    "installsRaw": "12.9K",
+    "installs": 12900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/gws-workflow-meeting-prep"
+  },
+  {
+    "slug": "gws-workflow-standup-report",
+    "installsRaw": "12.8K",
+    "installs": 12800,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/gws-workflow-standup-report"
+  },
+  {
+    "slug": "gws-workflow-weekly-digest",
+    "installsRaw": "12.8K",
+    "installs": 12800,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/gws-workflow-weekly-digest"
+  },
+  {
+    "slug": "gws-workflow-file-announce",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/gws-workflow-file-announce"
+  },
+  {
+    "slug": "release-skills",
+    "installsRaw": "16.3K",
+    "installs": 16300,
+    "source": "jimliu/baoyu-skills",
+    "sourceLower": "jimliu/baoyu-skills",
+    "stars": 17200,
+    "repoUrl": "https://github.com/jimliu/baoyu-skills",
+    "skillUrl": "https://skills.sh/jimliu/baoyu-skills/release-skills"
+  },
+  {
+    "slug": "lark-workflow-meeting-summary",
+    "installsRaw": "101.7K",
+    "installs": 101700,
+    "source": "larksuite/cli",
+    "sourceLower": "larksuite/cli",
+    "stars": 9300,
+    "repoUrl": "https://github.com/larksuite/cli",
+    "skillUrl": "https://skills.sh/larksuite/cli/lark-workflow-meeting-summary"
+  },
+  {
+    "slug": "lark-workflow-standup-report",
+    "installsRaw": "101.5K",
+    "installs": 101500,
+    "source": "larksuite/cli",
+    "sourceLower": "larksuite/cli",
+    "stars": 9300,
+    "repoUrl": "https://github.com/larksuite/cli",
+    "skillUrl": "https://skills.sh/larksuite/cli/lark-workflow-standup-report"
+  },
+  {
+    "slug": "firebase-basics",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "google/skills",
+    "sourceLower": "google/skills",
+    "stars": 6700,
+    "repoUrl": "https://github.com/google/skills",
+    "skillUrl": "https://skills.sh/google/skills/firebase-basics"
+  },
+  {
+    "slug": "secure-workflow-guide",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/secure-workflow-guide"
+  },
+  {
+    "slug": "firebase-apk-scanner",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/firebase-apk-scanner"
+  },
+  {
+    "slug": "git-cleanup",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/git-cleanup"
+  },
+  {
+    "slug": "designing-workflow-skills",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/designing-workflow-skills"
+  }
+]

@@ -1,9 +1,0 @@
-{
-  "input_segments": [
-    "/root/data/intro.json",
-    "/root/data/holds.json",
-    "/root/data/handoff.json"
-  ],
-  "output_json": "/root/compliance_all_segments.json",
-  "summary_json": "/root/compliance_segment_summary.json"
-}

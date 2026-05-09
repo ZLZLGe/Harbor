@@ -1,6 +1,0 @@
-{
-  "counterweight_link": "fixed",
-  "fork_slide": "prismatic",
-  "mast_link": "fixed",
-  "sensor_hinge": "revolute"
-}

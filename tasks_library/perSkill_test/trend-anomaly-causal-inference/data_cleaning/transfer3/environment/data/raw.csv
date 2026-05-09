@@ -1,8 +1,0 @@
-applicant_id,intake_date,program_track,pledge_amount,household_members,counselor_email
-A-100,2021-08-01,STEM,1200,family of 4,mentor.one@example.edu
-A-100,2021-08-01,STEM,1200,family of 4,mentor.one@example.edu
-A-101,2021-08-02,Arts,950,3 dependents,arts.track@example.edu
-A-102,2021-08-03,,800,2 dependents,missing.track@example.edu
-A-103,2021-08-04,Public Service,10000,, public.service@example.edu 
-A-104,2021-08-05,STEM,1100,5 members, backup <stem.two@example.edu>
-A-105,2021-08-06,Business,990,2 members,biz.one@example.edu

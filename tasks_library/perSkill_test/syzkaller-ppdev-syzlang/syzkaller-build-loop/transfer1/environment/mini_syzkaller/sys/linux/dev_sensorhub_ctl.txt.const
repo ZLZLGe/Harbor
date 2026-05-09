@@ -1,4 +1,0 @@
-arches = amd64
-
-SNS_GET_SNAPSHOT = 1
-SNS_SET_MODE = 0

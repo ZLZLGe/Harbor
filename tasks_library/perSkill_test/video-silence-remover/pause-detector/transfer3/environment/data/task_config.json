@@ -1,9 +1,0 @@
-{
-  "input_energies": "/root/data/qa_energies.json",
-  "output_json": "/root/qa_pauses.json",
-  "summary_json": "/root/qa_pause_summary.json",
-  "start_time": 0,
-  "threshold_ratio": 0.55,
-  "min_duration": 3,
-  "window_size": 5
-}

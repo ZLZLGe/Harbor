@@ -1,7 +1,0 @@
-attempt=1 status=200 limit=5 remaining=3 scope=all_tenants
-attempt=2 status=200 limit=5 remaining=2 scope=all_tenants
-attempt=3 status=200 limit=5 remaining=1 scope=all_tenants
-attempt=4 status=200 limit=5 remaining=0 scope=all_tenants
-attempt=5 status=200 limit=5 remaining=-1 scope=all_tenants
-attempt=6 status=200 limit=5 remaining=-2 scope=all_tenants
-attempt=7 status=200 limit=5 remaining=-3 scope=all_tenants

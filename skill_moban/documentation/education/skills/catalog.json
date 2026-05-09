@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "writing-plans",
+    "installsRaw": "85.6K",
+    "installs": 85600,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/writing-plans"
+  },
+  {
+    "slug": "writing-skills",
+    "installsRaw": "59.3K",
+    "installs": 59300,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/writing-skills"
+  },
+  {
+    "slug": "continuous-learning-v2",
+    "installsRaw": "4.9K",
+    "installs": 4900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/continuous-learning-v2"
+  },
+  {
+    "slug": "tdd-workflow",
+    "installsRaw": "4.7K",
+    "installs": 4700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/tdd-workflow"
+  },
+  {
+    "slug": "continuous-learning",
+    "installsRaw": "4.0K",
+    "installs": 4000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/continuous-learning"
+  },
+  {
+    "slug": "article-writing",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/article-writing"
+  },
+  {
+    "slug": "eval-harness",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/eval-harness"
+  },
+  {
+    "slug": "market-research",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/market-research"
+  },
+  {
+    "slug": "deep-research",
+    "installsRaw": "3.1K",
+    "installs": 3100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/deep-research"
+  },
+  {
+    "slug": "documentation-lookup",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/documentation-lookup"
+  },
+  {
+    "slug": "dmux-workflows",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/dmux-workflows"
+  },
+  {
+    "slug": "rules-distill",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/rules-distill"
+  },
+  {
+    "slug": "design-system",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/design-system"
+  },
+  {
+    "slug": "git-workflow",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/git-workflow"
+  },
+  {
+    "slug": "knowledge-ops",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/knowledge-ops"
+  },
+  {
+    "slug": "project-guidelines-example",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/project-guidelines-example"
+  },
+  {
+    "slug": "code-tour",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/code-tour"
+  },
+  {
+    "slug": "ecc-tools-cost-audit",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/ecc-tools-cost-audit"
+  },
+  {
+    "slug": "research-ops",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/research-ops"
+  },
+  {
+    "slug": "brand-guidelines",
+    "installsRaw": "36.9K",
+    "installs": 36900,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/brand-guidelines"
+  },
+  {
+    "slug": "slack-gif-creator",
+    "installsRaw": "30.5K",
+    "installs": 30500,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/slack-gif-creator"
+  },
+  {
+    "slug": "writing-hookify-rules",
+    "installsRaw": "6.6K",
+    "installs": 6600,
+    "source": "anthropics/claude-code",
+    "sourceLower": "anthropics/claude-code",
+    "stars": 120800,
+    "repoUrl": "https://github.com/anthropics/claude-code",
+    "skillUrl": "https://skills.sh/anthropics/claude-code/writing-hookify-rules"
+  },
+  {
+    "slug": "academic-researcher",
+    "installsRaw": "4.1K",
+    "installs": 4100,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/academic-researcher"
+  },
+  {
+    "slug": "technical-writer",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/technical-writer"
+  },
+  {
+    "slug": "karpathy-guidelines",
+    "installsRaw": "9.8K",
+    "installs": 9800,
+    "source": "forrestchang/andrej-karpathy-skills",
+    "sourceLower": "forrestchang/andrej-karpathy-skills",
+    "stars": 106900,
+    "repoUrl": "https://github.com/forrestchang/andrej-karpathy-skills",
+    "skillUrl": "https://skills.sh/forrestchang/andrej-karpathy-skills/karpathy-guidelines"
+  },
+  {
+    "slug": "skill-writer",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "pytorch/pytorch",
+    "sourceLower": "pytorch/pytorch",
+    "stars": 99700,
+    "repoUrl": "https://github.com/pytorch/pytorch",
+    "skillUrl": "https://skills.sh/pytorch/pytorch/skill-writer"
+  },
+  {
+    "slug": "github-deep-research",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/github-deep-research"
+  },
+  {
+    "slug": "content-research-writer",
+    "installsRaw": "3.9K",
+    "installs": 3900,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/content-research-writer"
+  },
+  {
+    "slug": "lead-research-assistant",
+    "installsRaw": "2.5K",
+    "installs": 2500,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/lead-research-assistant"
+  },
+  {
+    "slug": "skill-share",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/skill-share"
+  },
+  {
+    "slug": "api-documentation-generator",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/api-documentation-generator"
+  },
+  {
+    "slug": "backend-dev-guidelines",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/backend-dev-guidelines"
+  },
+  {
+    "slug": "documentation-templates",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/documentation-templates"
+  },
+  {
+    "slug": "documentation-writer",
+    "installsRaw": "17.0K",
+    "installs": 17000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/documentation-writer"
+  },
+  {
+    "slug": "add-educational-comments",
+    "installsRaw": "8.6K",
+    "installs": 8600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/add-educational-comments"
+  },
+  {
+    "slug": "comment-code-generate-a-tutorial",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/comment-code-generate-a-tutorial"
+  },
+  {
+    "slug": "create-oo-component-documentation",
+    "installsRaw": "7.0K",
+    "installs": 7000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-oo-component-documentation"
+  },
+  {
+    "slug": "update-oo-component-documentation",
+    "installsRaw": "7.0K",
+    "installs": 7000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/update-oo-component-documentation"
+  },
+  {
+    "slug": "winui3-migration-guide",
+    "installsRaw": "5.4K",
+    "installs": 5400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/winui3-migration-guide"
+  },
+  {
+    "slug": "oo-component-documentation",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/oo-component-documentation"
+  },
+  {
+    "slug": "recipe-create-classroom-course",
+    "installsRaw": "11.4K",
+    "installs": 11400,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-classroom-course"
+  },
+  {
+    "slug": "knowledge-synthesis",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/knowledge-synthesis"
+  },
+  {
+    "slug": "guideline-generation",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/guideline-generation"
+  },
+  {
+    "slug": "guidelines-advisor",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/guidelines-advisor"
+  },
+  {
+    "slug": "testing-handbook-generator",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/testing-handbook-generator"
+  },
+  {
+    "slug": "lesson-learned",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "softaworks/agent-toolkit",
+    "sourceLower": "softaworks/agent-toolkit",
+    "stars": 1700,
+    "repoUrl": "https://github.com/softaworks/agent-toolkit",
+    "skillUrl": "https://skills.sh/softaworks/agent-toolkit/lesson-learned"
+  },
+  {
+    "slug": "adk-dev-guide",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "google/adk-docs",
+    "sourceLower": "google/adk-docs",
+    "stars": 1300,
+    "repoUrl": "https://github.com/google/adk-docs",
+    "skillUrl": "https://skills.sh/google/adk-docs/adk-dev-guide"
+  },
+  {
+    "slug": "adk-deploy-guide",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "google/adk-docs",
+    "sourceLower": "google/adk-docs",
+    "stars": 1300,
+    "repoUrl": "https://github.com/google/adk-docs",
+    "skillUrl": "https://skills.sh/google/adk-docs/adk-deploy-guide"
+  },
+  {
+    "slug": "adk-eval-guide",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "google/adk-docs",
+    "sourceLower": "google/adk-docs",
+    "stars": 1300,
+    "repoUrl": "https://github.com/google/adk-docs",
+    "skillUrl": "https://skills.sh/google/adk-docs/adk-eval-guide"
+  },
+  {
+    "slug": "adk-observability-guide",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "google/adk-docs",
+    "sourceLower": "google/adk-docs",
+    "stars": 1300,
+    "repoUrl": "https://github.com/google/adk-docs",
+    "skillUrl": "https://skills.sh/google/adk-docs/adk-observability-guide"
+  }
+]

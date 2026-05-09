@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "systematic-debugging",
+    "installsRaw": "86.3K",
+    "installs": 86300,
+    "source": "obra/superpowers",
+    "sourceLower": "obra/superpowers",
+    "stars": 180100,
+    "repoUrl": "https://github.com/obra/superpowers",
+    "skillUrl": "https://skills.sh/obra/superpowers/systematic-debugging"
+  },
+  {
+    "slug": "backend-patterns",
+    "installsRaw": "6.3K",
+    "installs": 6300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/backend-patterns"
+  },
+  {
+    "slug": "frontend-patterns",
+    "installsRaw": "6.3K",
+    "installs": 6300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-patterns"
+  },
+  {
+    "slug": "golang-testing",
+    "installsRaw": "5.8K",
+    "installs": 5800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/golang-testing"
+  },
+  {
+    "slug": "python-testing",
+    "installsRaw": "4.3K",
+    "installs": 4300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/python-testing"
+  },
+  {
+    "slug": "continuous-learning",
+    "installsRaw": "4.0K",
+    "installs": 4000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/continuous-learning"
+  },
+  {
+    "slug": "e2e-testing",
+    "installsRaw": "3.8K",
+    "installs": 3800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/e2e-testing"
+  },
+  {
+    "slug": "clickhouse-io",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/clickhouse-io"
+  },
+  {
+    "slug": "cpp-testing",
+    "installsRaw": "3.5K",
+    "installs": 3500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/cpp-testing"
+  },
+  {
+    "slug": "prompt-optimizer",
+    "installsRaw": "3.4K",
+    "installs": 3400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/prompt-optimizer"
+  },
+  {
+    "slug": "deep-research",
+    "installsRaw": "3.1K",
+    "installs": 3100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/deep-research"
+  },
+  {
+    "slug": "swift-protocol-di-testing",
+    "installsRaw": "3.1K",
+    "installs": 3100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/swift-protocol-di-testing"
+  },
+  {
+    "slug": "rust-testing",
+    "installsRaw": "2.9K",
+    "installs": 2900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/rust-testing"
+  },
+  {
+    "slug": "ai-regression-testing",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/ai-regression-testing"
+  },
+  {
+    "slug": "exa-search",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/exa-search"
+  },
+  {
+    "slug": "flutter-dart-code-review",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/flutter-dart-code-review"
+  },
+  {
+    "slug": "kotlin-testing",
+    "installsRaw": "2.7K",
+    "installs": 2700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/kotlin-testing"
+  },
+  {
+    "slug": "agent-eval",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/agent-eval"
+  },
+  {
+    "slug": "context-budget",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/context-budget"
+  },
+  {
+    "slug": "perl-security",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/perl-security"
+  },
+  {
+    "slug": "perl-testing",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/perl-testing"
+  },
+  {
+    "slug": "click-path-audit",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/click-path-audit"
+  },
+  {
+    "slug": "design-system",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/design-system"
+  },
+  {
+    "slug": "browser-qa",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/browser-qa"
+  },
+  {
+    "slug": "benchmark",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/benchmark"
+  },
+  {
+    "slug": "canary-watch",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/canary-watch"
+  },
+  {
+    "slug": "agent-introspection-debugging",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/agent-introspection-debugging"
+  },
+  {
+    "slug": "csharp-testing",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/csharp-testing"
+  },
+  {
+    "slug": "frontend-testing",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "langgenius/dify",
+    "sourceLower": "langgenius/dify",
+    "stars": 140300,
+    "repoUrl": "https://github.com/langgenius/dify",
+    "skillUrl": "https://skills.sh/langgenius/dify/frontend-testing"
+  },
+  {
+    "slug": "webapp-testing",
+    "installsRaw": "63.6K",
+    "installs": 63600,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/webapp-testing"
+  },
+  {
+    "slug": "debugger",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/debugger"
+  },
+  {
+    "slug": "ckm:design-system",
+    "installsRaw": "14.3K",
+    "installs": 14300,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:design-system"
+  },
+  {
+    "slug": "data-analysis",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/data-analysis"
+  },
+  {
+    "slug": "consulting-analysis",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/consulting-analysis"
+  },
+  {
+    "slug": "paperclip",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "paperclipai/paperclip",
+    "sourceLower": "paperclipai/paperclip",
+    "stars": 62900,
+    "repoUrl": "https://github.com/paperclipai/paperclip",
+    "skillUrl": "https://skills.sh/paperclipai/paperclip/paperclip"
+  },
+  {
+    "slug": "developer-growth-analysis",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/developer-growth-analysis"
+  },
+  {
+    "slug": "web-performance-optimization",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/web-performance-optimization"
+  },
+  {
+    "slug": "parallel-debugging",
+    "installsRaw": "5.1K",
+    "installs": 5100,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/parallel-debugging"
+  },
+  {
+    "slug": "project-workflow-analysis-blueprint-generator",
+    "installsRaw": "8.8K",
+    "installs": 8800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/project-workflow-analysis-blueprint-generator"
+  },
+  {
+    "slug": "power-bi-performance-troubleshooting",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/power-bi-performance-troubleshooting"
+  },
+  {
+    "slug": "datanalysis-credit-risk",
+    "installsRaw": "6.8K",
+    "installs": 6800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/datanalysis-credit-risk"
+  },
+  {
+    "slug": "flowstudio-power-automate-debug",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/flowstudio-power-automate-debug"
+  },
+  {
+    "slug": "excel-analysis",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/excel-analysis"
+  },
+  {
+    "slug": "exploratory-data-analysis",
+    "installsRaw": "1.3K",
+    "installs": 1300,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/exploratory-data-analysis"
+  },
+  {
+    "slug": "variance-analysis",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/variance-analysis"
+  },
+  {
+    "slug": "performance-review",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "anthropics/knowledge-work-plugins",
+    "sourceLower": "anthropics/knowledge-work-plugins",
+    "stars": 11800,
+    "repoUrl": "https://github.com/anthropics/knowledge-work-plugins",
+    "skillUrl": "https://skills.sh/anthropics/knowledge-work-plugins/performance-review"
+  },
+  {
+    "slug": "vision-analysis",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "minimax-ai/skills",
+    "sourceLower": "minimax-ai/skills",
+    "stars": 11600,
+    "repoUrl": "https://github.com/minimax-ai/skills",
+    "skillUrl": "https://skills.sh/minimax-ai/skills/vision-analysis"
+  },
+  {
+    "slug": "monitoring-expert",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/monitoring-expert"
+  },
+  {
+    "slug": "debugging-wizard",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "jeffallan/claude-skills",
+    "sourceLower": "jeffallan/claude-skills",
+    "stars": 8800,
+    "repoUrl": "https://github.com/jeffallan/claude-skills",
+    "skillUrl": "https://skills.sh/jeffallan/claude-skills/debugging-wizard"
+  },
+  {
+    "slug": "coverage-analysis",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "trailofbits/skills",
+    "sourceLower": "trailofbits/skills",
+    "stars": 5076,
+    "repoUrl": "https://github.com/trailofbits/skills",
+    "skillUrl": "https://skills.sh/trailofbits/skills/coverage-analysis"
+  }
+]

@@ -1,30 +1,30 @@
 version = "1.0"
 
 [metadata]
-id = "scientific-computing__lake-observatory-qc-attribution"
-name = "Lake Observatory QC Attribution"
-description = "Repair a lake-observatory scientific data analysis pipeline so SQLite observations, station metadata, event-window quality control, robust trends, and driver attribution produce consistent downstream deliverables."
+id = "scientific-computing__marine-heat-intake-screening"
+name = "Marine Heat Intake Screening"
+description = "Discover the matching buoy, metadata, and OISST candidate files from local directories, then prepare an intake package and shortlist warming windows from the selected inputs and the screening contract."
 difficulty = "hard"
 category = "scientific-computing"
 tags = [
   "scientific-computing",
-  "data-analysis",
-  "sqlite",
-  "pandas",
-  "time-series",
-  "statistics",
-  "quality-control",
+  "netcdf",
+  "xml",
+  "oceanography",
+  "data-intake",
+  "environmental-data",
+  "quality-screening",
 ]
-required_skills = ["data-analyst"]
-primary_output_file = "/root/output/run_summary.json"
-source_template_id = "scientific-computing__lake-observatory-qc-attribution"
+required_skills = ["exploratory-data-analysis"]
+primary_output_file = "/root/output/candidate_windows.csv"
+source_template_id = "scientific-computing__marine-heat-intake-screening"
 task_role = "template"
 
 [verifier]
-timeout_sec = 600.0
+timeout_sec = 900.0
 
 [agent]
-timeout_sec = 1600.0
+timeout_sec = 1400.0
 
 [environment]
 build_timeout_sec = 1200.0

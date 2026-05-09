@@ -1,6 +1,0 @@
-service,risk_score,priority,missing_controls
-auth-service,100,critical,auth_enabled;input_validation;csrf_protection;rate_limit;secrets_vault
-billing-api,80,critical,input_validation;csrf_protection;rate_limit;secrets_vault
-public-site,60,critical,auth_enabled;csrf_protection;secrets_vault
-admin-portal,20,medium,rate_limit
-legacy-reports,0,low,none

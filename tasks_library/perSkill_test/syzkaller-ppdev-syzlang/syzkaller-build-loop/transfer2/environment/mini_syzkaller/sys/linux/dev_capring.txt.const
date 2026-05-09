@@ -1,3 +1,0 @@
-arches = amd64, 386
-
-CAPRING_GET_SLOT = 1

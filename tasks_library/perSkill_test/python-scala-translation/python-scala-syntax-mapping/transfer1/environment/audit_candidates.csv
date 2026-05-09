@@ -1,7 +1,0 @@
-case_id,python,proposed_scala
-A1,x = 5,val x = 5
-A2,x: int = 5,var x: int = 5
-A3,for i in range(10): print(i),for (i <- 0 to 9) println(i)
-A4,f"Value: {x:.2f}",f"Value: $x%.2f"
-A5,user_active and not suspended,user_active && !suspended
-A6,evens = [x for x in numbers if x % 2 == 0],val evens = numbers.map(_ * 2)

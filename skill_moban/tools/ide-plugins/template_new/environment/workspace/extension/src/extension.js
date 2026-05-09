@@ -10,6 +10,8 @@ const {
 class ReleaseTreeProvider {
   constructor(dataRoot) {
     this.dataRoot = dataRoot;
+    this._onDidChangeTreeData = new vscode.EventEmitter();
+    this.onDidChangeTreeData = this._onDidChangeTreeData.event;
   }
 
   getChildren() {
@@ -27,6 +29,10 @@ class ReleaseTreeProvider {
       };
       return item;
     });
+  }
+
+  refresh() {
+    this._onDidChangeTreeData.fire();
   }
 }
 
@@ -50,6 +56,13 @@ function activate(context) {
         outputRoot
       );
       vscode.window.showInformationMessage(message);
+    })
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand("releaseBriefing.refreshReleaseIndex", async () => {
+      treeProvider.refresh();
+      vscode.window.setStatusBarMessage(vscode.l10n.t("Release list refreshed."), 2500);
     })
   );
 

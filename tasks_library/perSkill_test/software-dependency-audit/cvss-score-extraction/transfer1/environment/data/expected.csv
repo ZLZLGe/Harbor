@@ -1,5 +1,0 @@
-Package,CVE_ID,Selected_Score,Selected_Source,Release_Gate
-body-parser,CVE-2025-1001,9.3,ghsa,block
-glob-parent,CVE-2025-1002,7.8,redhat,review
-hoek,CVE-2025-1004,N/A,none,manual-review
-cookie,CVE-2025-1003,6.1,nvd,monitor

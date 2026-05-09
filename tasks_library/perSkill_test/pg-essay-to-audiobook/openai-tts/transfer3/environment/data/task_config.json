@@ -1,7 +1,0 @@
-{
-  "output_audio": "/root/transfer3_release_digest.aac",
-  "output_markers": "/root/transfer3_release_markers.csv",
-  "voice": "sage",
-  "model": "gpt-4o-mini-tts",
-  "response_format": "aac"
-}

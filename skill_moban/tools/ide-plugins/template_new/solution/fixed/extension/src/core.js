@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { syncLocaleAssets } = require("./sync-locales");
 
 const SUPPORTED_LOCALES = ["en", "pt-br", "zh-cn"];
 const FALLBACK_LOCALE = "en";
@@ -174,16 +175,16 @@ function renderBriefing(locale, request, releases, terms, bundle) {
   lines.push(`- ${terms.labels.versions}: ${request.versions.join(", ")}`);
   lines.push(`- ${terms.labels.focus_areas}: ${getFocusNames(request, terms).join(", ")}`);
   lines.push("");
-  lines.push(`## ${terms.headings.overview}`);
+  lines.push(`## ${bundle["Overview"]}`);
   lines.push(terms.summary_template.replace("{audience}", pickText(request.audience, locale)));
   lines.push("");
-  lines.push(`## ${terms.headings.highlights}`);
+  lines.push(`## ${bundle["Highlights"]}`);
   lines.push("");
 
   for (const release of releases) {
     const selected = selectHighlights(release, request);
     lines.push(`### VS Code ${release.version}`);
-    lines.push(`- ${terms.labels.published}: ${release.published}`);
+    lines.push(`- ${bundle["Published"]}: ${release.published}`);
     if (selected.length === 0) {
       lines.push(`- ${bundle["No highlights matched the selected focus areas."]}`);
     } else {
@@ -194,14 +195,14 @@ function renderBriefing(locale, request, releases, terms, bundle) {
     lines.push("");
   }
 
-  lines.push(`## ${terms.headings.actions}`);
+  lines.push(`## ${bundle["Action items"]}`);
   for (const release of releases) {
     for (const highlight of selectHighlights(release, request)) {
       lines.push(`- ${pickText(highlight.action, locale)}`);
     }
   }
   lines.push("");
-  lines.push(`> ${terms.labels.generated_with}: ${bundle["Release Briefing Explorer"]}`);
+  lines.push(`> ${bundle["Generated with"]}: ${bundle["Release Briefing Explorer"]}`);
   lines.push("");
   return lines.join("\n");
 }
@@ -209,6 +210,7 @@ function renderBriefing(locale, request, releases, terms, bundle) {
 function buildBriefings(options = {}) {
   const extensionRoot = options.extensionRoot || path.resolve(__dirname, "..");
   const dataRoot = options.dataRoot || DEFAULT_DATA_ROOT;
+  syncLocaleAssets({ extensionRoot, dataRoot });
   const request = readRequest(dataRoot, options.requestPath);
   const outputRoot = resolveOutputRoot(options);
   const releases = request.versions.map((version) => readRelease(dataRoot, version));
@@ -249,6 +251,7 @@ function renderReleaseNote(
 ) {
   const request = readRequest(dataRoot, requestPath);
   const release = readRelease(dataRoot, version);
+  syncLocaleAssets({ extensionRoot, dataRoot });
   const terms = readTerms(dataRoot, locale);
   const bundle = readBundle(extensionRoot, locale);
   const lines = [];
@@ -257,7 +260,7 @@ function renderReleaseNote(
 
   lines.push(`# VS Code ${release.version}`);
   lines.push("");
-  lines.push(`- ${terms.labels.published}: ${release.published}`);
+  lines.push(`- ${bundle["Published"]}: ${release.published}`);
   lines.push(`- ${terms.labels.focus_areas}: ${getFocusNames(request, terms).join(", ")}`);
   lines.push("");
   lines.push(`## ${bundle["Highlights in briefing scope"]}`);

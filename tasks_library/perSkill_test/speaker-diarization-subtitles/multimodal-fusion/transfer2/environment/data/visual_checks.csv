@@ -1,6 +1,0 @@
-timestamp,visible_tracks,lip_tracks
-0.6,track_anchor|track_guest,track_anchor
-2.2,track_anchor|track_guest,track_guest
-3.9,track_anchor|track_specialist,track_specialist
-5.4,track_anchor|track_guest|track_specialist,
-6.9,,

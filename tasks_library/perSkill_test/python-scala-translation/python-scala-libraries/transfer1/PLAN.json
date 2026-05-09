@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "transfer1",
-  "taskRole": "transfer",
-  "title": "Transfer - security event ingestion translation for a SOC data pipeline",
-  "goal": "Translate the provided Python tokenizer module into Scala 2.13 with preserved behavior and maintainable design.",
-  "primaryOutputFile": "/root/libraries_transfer1.scala",
-  "source_task_id": "python-scala-translation",
-  "targetSkillDirName": "python-scala-libraries"
-}

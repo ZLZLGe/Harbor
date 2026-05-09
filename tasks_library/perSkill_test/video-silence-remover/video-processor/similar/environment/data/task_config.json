@@ -1,9 +1,0 @@
-{
-  "input_video": "/root/data/input.mp4",
-  "remove_segments": [
-    "/root/data/remove_segments.json"
-  ],
-  "output_video": "/root/lecture_trimmed.mp4",
-  "summary_json": "/root/lecture_trim_summary.json",
-  "report_json": "/root/lecture_trimmed_report.json"
-}

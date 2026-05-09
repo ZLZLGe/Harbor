@@ -1,7 +1,0 @@
-[
-  {"date": "2024-04-01", "clinic": "north", "patients": 10, "avg_wait_min": 12},
-  {"date": "2024-04-01", "clinic": "south", "patients": 20, "avg_wait_min": 18},
-  {"date": "2024-04-02", "clinic": "north", "patients": 15, "avg_wait_min": 10},
-  {"date": "2024-04-02", "clinic": "south", "patients": 5, "avg_wait_min": 30},
-  {"date": "2024-04-03", "clinic": "east", "patients": 0, "avg_wait_min": 25}
-]

@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "similar",
-  "taskRole": "similar",
-  "title": "Similar - core tokenizer migration for an existing ETL backend",
-  "goal": "Translate the provided Python tokenizer module into Scala 2.13 with preserved behavior and maintainable design.",
-  "primaryOutputFile": "/root/libraries_similar.scala",
-  "source_task_id": "python-scala-translation",
-  "targetSkillDirName": "python-scala-libraries"
-}

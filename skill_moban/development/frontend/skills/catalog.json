@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "coding-standards",
+    "installsRaw": "6.4K",
+    "installs": 6400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/coding-standards"
+  },
+  {
+    "slug": "frontend-patterns",
+    "installsRaw": "6.3K",
+    "installs": 6300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-patterns"
+  },
+  {
+    "slug": "frontend-slides",
+    "installsRaw": "4.4K",
+    "installs": 4400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-slides"
+  },
+  {
+    "slug": "liquid-glass-design",
+    "installsRaw": "3.5K",
+    "installs": 3500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/liquid-glass-design"
+  },
+  {
+    "slug": "swiftui-patterns",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/swiftui-patterns"
+  },
+  {
+    "slug": "documentation-lookup",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/documentation-lookup"
+  },
+  {
+    "slug": "nextjs-turbopack",
+    "installsRaw": "2.8K",
+    "installs": 2800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/nextjs-turbopack"
+  },
+  {
+    "slug": "team-builder",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/team-builder"
+  },
+  {
+    "slug": "nuxt4-patterns",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/nuxt4-patterns"
+  },
+  {
+    "slug": "remotion-video-creation",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/remotion-video-creation"
+  },
+  {
+    "slug": "ui-demo",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/ui-demo"
+  },
+  {
+    "slug": "frontend-design",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-design"
+  },
+  {
+    "slug": "api-connector-builder",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/api-connector-builder"
+  },
+  {
+    "slug": "dashboard-builder",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/dashboard-builder"
+  },
+  {
+    "slug": "project-guidelines-example",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/project-guidelines-example"
+  },
+  {
+    "slug": "frontend-testing",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "langgenius/dify",
+    "sourceLower": "langgenius/dify",
+    "stars": 140300,
+    "repoUrl": "https://github.com/langgenius/dify",
+    "skillUrl": "https://skills.sh/langgenius/dify/frontend-testing"
+  },
+  {
+    "slug": "mcp-builder",
+    "installsRaw": "50.0K",
+    "installs": 50000,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/mcp-builder"
+  },
+  {
+    "slug": "web-artifacts-builder",
+    "installsRaw": "41.2K",
+    "installs": 41200,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/web-artifacts-builder"
+  },
+  {
+    "slug": "brand-guidelines",
+    "installsRaw": "36.9K",
+    "installs": 36900,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/brand-guidelines"
+  },
+  {
+    "slug": "karpathy-guidelines",
+    "installsRaw": "9.8K",
+    "installs": 9800,
+    "source": "forrestchang/andrej-karpathy-skills",
+    "sourceLower": "forrestchang/andrej-karpathy-skills",
+    "stars": 106900,
+    "repoUrl": "https://github.com/forrestchang/andrej-karpathy-skills",
+    "skillUrl": "https://skills.sh/forrestchang/andrej-karpathy-skills/karpathy-guidelines"
+  },
+  {
+    "slug": "react",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "lobehub/lobehub",
+    "sourceLower": "lobehub/lobehub",
+    "stars": 76100,
+    "repoUrl": "https://github.com/lobehub/lobehub",
+    "skillUrl": "https://skills.sh/lobehub/lobehub/react"
+  },
+  {
+    "slug": "zustand",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "lobehub/lobehub",
+    "sourceLower": "lobehub/lobehub",
+    "stars": 76100,
+    "repoUrl": "https://github.com/lobehub/lobehub",
+    "skillUrl": "https://skills.sh/lobehub/lobehub/zustand"
+  },
+  {
+    "slug": "i18n",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "lobehub/lobehub",
+    "sourceLower": "lobehub/lobehub",
+    "stars": 76100,
+    "repoUrl": "https://github.com/lobehub/lobehub",
+    "skillUrl": "https://skills.sh/lobehub/lobehub/i18n"
+  },
+  {
+    "slug": "ui-ux-pro-max",
+    "installsRaw": "152.9K",
+    "installs": 152900,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max"
+  },
+  {
+    "slug": "ckm:ui-styling",
+    "installsRaw": "14.2K",
+    "installs": 14200,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:ui-styling"
+  },
+  {
+    "slug": "ubiquitous-language",
+    "installsRaw": "6.8K",
+    "installs": 6800,
+    "source": "mattpocock/skills",
+    "sourceLower": "mattpocock/skills",
+    "stars": 62100,
+    "repoUrl": "https://github.com/mattpocock/skills",
+    "skillUrl": "https://skills.sh/mattpocock/skills/ubiquitous-language"
+  },
+  {
+    "slug": "artifacts-builder",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/artifacts-builder"
+  },
+  {
+    "slug": "nextjs-best-practices",
+    "installsRaw": "5.0K",
+    "installs": 5000,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-best-practices"
+  },
+  {
+    "slug": "nextjs-supabase-auth",
+    "installsRaw": "4.7K",
+    "installs": 4700,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-supabase-auth"
+  },
+  {
+    "slug": "telegram-bot-builder",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/telegram-bot-builder"
+  },
+  {
+    "slug": "backend-dev-guidelines",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/backend-dev-guidelines"
+  },
+  {
+    "slug": "react-native-design",
+    "installsRaw": "8.7K",
+    "installs": 8700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/react-native-design"
+  },
+  {
+    "slug": "accessibility-compliance",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/accessibility-compliance"
+  },
+  {
+    "slug": "penpot-uiux-design",
+    "installsRaw": "10.1K",
+    "installs": 10100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/penpot-uiux-design"
+  },
+  {
+    "slug": "prompt-builder",
+    "installsRaw": "9.3K",
+    "installs": 9300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/prompt-builder"
+  },
+  {
+    "slug": "copilot-cli-quickstart",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/copilot-cli-quickstart"
+  },
+  {
+    "slug": "create-github-issues-for-unmet-specification-requirements",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/create-github-issues-for-unmet-specification-requirements"
+  },
+  {
+    "slug": "fluentui-blazor",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/fluentui-blazor"
+  },
+  {
+    "slug": "legacy-circuit-mockups",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/legacy-circuit-mockups"
+  },
+  {
+    "slug": "dataverse-python-quickstart",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/dataverse-python-quickstart"
+  },
+  {
+    "slug": "dataverse-python-usecase-builder",
+    "installsRaw": "8.4K",
+    "installs": 8400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/dataverse-python-usecase-builder"
+  },
+  {
+    "slug": "power-platform-mcp-connector-suite",
+    "installsRaw": "8.3K",
+    "installs": 8300,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/power-platform-mcp-connector-suite"
+  },
+  {
+    "slug": "winui3-migration-guide",
+    "installsRaw": "5.4K",
+    "installs": 5400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/winui3-migration-guide"
+  },
+  {
+    "slug": "premium-frontend-ui",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/premium-frontend-ui"
+  },
+  {
+    "slug": "flowstudio-power-automate-build",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/flowstudio-power-automate-build"
+  },
+  {
+    "slug": "unit-test-vue-pinia",
+    "installsRaw": "1.4K",
+    "installs": 1400,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/unit-test-vue-pinia"
+  },
+  {
+    "slug": "heroui-native",
+    "installsRaw": "5.0K",
+    "installs": 5000,
+    "source": "heroui-inc/heroui",
+    "sourceLower": "heroui-inc/heroui",
+    "stars": 29100,
+    "repoUrl": "https://github.com/heroui-inc/heroui",
+    "skillUrl": "https://skills.sh/heroui-inc/heroui/heroui-native"
+  },
+  {
+    "slug": "heroui-migration",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "heroui-inc/heroui",
+    "sourceLower": "heroui-inc/heroui",
+    "stars": 29100,
+    "repoUrl": "https://github.com/heroui-inc/heroui",
+    "skillUrl": "https://skills.sh/heroui-inc/heroui/heroui-migration"
+  },
+  {
+    "slug": "ui-design-system",
+    "installsRaw": "1.0K",
+    "installs": 1000,
+    "source": "davila7/claude-code-templates",
+    "sourceLower": "davila7/claude-code-templates",
+    "stars": 26800,
+    "repoUrl": "https://github.com/davila7/claude-code-templates",
+    "skillUrl": "https://skills.sh/davila7/claude-code-templates/ui-design-system"
+  },
+  {
+    "slug": "frontend-skill",
+    "installsRaw": "1.5K",
+    "installs": 1500,
+    "source": "openai/skills",
+    "sourceLower": "openai/skills",
+    "stars": 18400,
+    "repoUrl": "https://github.com/openai/skills",
+    "skillUrl": "https://skills.sh/openai/skills/frontend-skill"
+  }
+]

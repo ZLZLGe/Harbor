@@ -1,6 +1,0 @@
-[
-  {"request_id": "archive_waveforms", "needs": ["waveforms"], "requires_response_archive": false},
-  {"request_id": "bundle_station_event", "needs": ["waveforms", "stations", "events"], "requires_response_archive": false},
-  {"request_id": "legacy_response_export", "needs": ["stations"], "requires_response_archive": true},
-  {"request_id": "regional_event_list", "needs": ["events"], "requires_response_archive": false}
-]

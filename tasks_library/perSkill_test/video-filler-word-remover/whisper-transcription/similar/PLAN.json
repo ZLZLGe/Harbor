@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "similar",
-  "taskRole": "similar",
-  "title": "Similar - Interview Filler Annotation Export",
-  "goal": "Detect configured filler words and phrases from a word-level transcript and emit ordered timestamp annotations.",
-  "primaryOutputFile": "/root/similar_annotations.json",
-  "source_task_id": "video-filler-word-remover",
-  "skillScope": "whisper-transcription"
-}

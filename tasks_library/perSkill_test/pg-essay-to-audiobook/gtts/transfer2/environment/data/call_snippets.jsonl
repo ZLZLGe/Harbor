@@ -1,6 +1,0 @@
-{"case_id":"case-17","speaker":"Mina","severity":"high","text":"Gateway retries rose after a certificate rollover and manual cache flush stabilized the edge nodes"}
-{"case_id":"case-22","speaker":"Ravi","severity":"critical","text":"Payment authorization failed in two regions until the failover ledger was promoted"}
-{"case_id":"case-09","speaker":"Elena","severity":"normal","text":"Documentation links in the internal runbook still reference the retired endpoint"}
-{"case_id":"case-22","speaker":"Sofia","severity":"critical","text":"Reconciliation backlog dropped once duplicate webhook delivery was throttled"}
-{"case_id":"case-31","speaker":"Kai","severity":"high","text":"Queue depth is falling but customer callbacks remain above target during peak hour"}
-{"case_id":"case-09","speaker":"Imran","severity":"normal","text":"On-call handoff notes were updated with the new storage bucket naming rule"}

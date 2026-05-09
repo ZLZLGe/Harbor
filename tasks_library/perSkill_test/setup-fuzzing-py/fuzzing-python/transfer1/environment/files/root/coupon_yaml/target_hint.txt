@@ -1,1 +1,0 @@
-Primary target: coupon_yaml.decoder.parse_coupon_note

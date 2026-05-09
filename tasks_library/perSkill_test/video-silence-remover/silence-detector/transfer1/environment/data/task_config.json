@@ -1,8 +1,0 @@
-{
-  "input_energies": "/root/data/compliance_energies.json",
-  "output_json": "/root/compliance_silence.json",
-  "summary_json": "/root/compliance_silence_summary.json",
-  "threshold_multiplier": 2.0,
-  "initial_window": 5,
-  "smoothing_window": 4
-}

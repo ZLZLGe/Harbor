@@ -1,27 +1,30 @@
 version = "1.0"
 
 [metadata]
-id = "astronomy_physics__fits-transient-triage"
-name = "FITS Transient Candidate Triage"
-description = "Rebuild a reproducible astronomy candidate triage bundle from FITS WCS images, detection photometry, catalog cross-matches, and a local field-context service."
+id = "astronomy-physics__m101-candidate-review"
+name = "M101 Candidate Review Bundle"
+description = "Build a reproducible M101 candidate review bundle from FITS cutouts, detector-space candidates, catalog crossmatches, and observation metadata."
 difficulty = "hard"
 category = "astronomy-physics"
 tags = [
-  "astronomy",
+  "astronomy-physics",
   "astropy",
   "fits",
   "wcs",
   "coordinates",
-  "photometry",
+  "time-series-metadata",
+  "catalog-crossmatch",
   "cosmology",
 ]
-required_skills = ["astropy"]
+required_skills = [
+  "astropy",
+]
 primary_output_file = "/root/answer/report.json"
-source_template_id = "astronomy_physics__fits-transient-triage"
-task_role = "similar"
+source_template_id = "astronomy-physics__m101-candidate-review"
+task_role = "template"
 
 [verifier]
-timeout_sec = 600.0
+timeout_sec = 700.0
 
 [agent]
 timeout_sec = 700.0

@@ -1,76 +1,38 @@
 {
-  "template_path": "/home/lenovo/skill/Harbor/skill_moban/research/academic/template_new",
+  "task_id": "academic__reasoning-method-review-packet",
+  "category": "academic",
   "selected_skill": {
-    "local_path": "environment/skills/02__academic-researcher/SKILL.md",
-    "source_skill_path": "/home/lenovo/skill/Harbor/skill_moban/research/academic/skills/02__academic-researcher/SKILL.md",
-    "skillsmp_reference": "academic-researcher.md",
-    "skillsmp_stars": "106.7k",
-    "selection_reason": "High-star academic skill available locally; its paper-analysis and literature-review workflow maps directly to claim verification, bibliography cleaning, and evidence synthesis."
+    "name": "academic-researcher",
+    "source": "https://skillsmp.com/skills/shubhamsaboo-awesome-llm-apps-awesome-agent-skills-academic-researcher-skill-md"
   },
-  "task_design": {
-    "style_reference": [
-      "research/academic/skillsbench_reference/citation-check",
-      "research/academic/skillsbench_reference/latex-formula-extraction",
-      "research/academic/skillsbench_reference/paper-anonymizer"
-    ],
-    "task_type": "academic evidence packet preparation",
-    "primary_inputs": [
-      "/root/research_packet/draft_claims.md",
-      "/root/research_packet/seed_library.bib",
-      "/root/research_packet/topic_scope.json",
-      "http://127.0.0.1:8765 local evidence gateway"
-    ],
-    "required_outputs": [
-      "/root/answer/evidence_matrix.json",
-      "/root/answer/references.bib",
-      "/root/answer/literature_note.md"
-    ],
-    "claim_count": 12,
-    "source_assessment_required": true
-  },
-  "environment_design": {
-    "single_container": true,
-    "realistic_chain": "Input manuscript claims and noisy BibTeX records must be checked against a local HTTP scholarly metadata and abstract gateway.",
-    "data_determinism": "Evidence gateway serves a fixed snapshot from evidence_snapshot.json with stable paper metadata, abstracts, findings, duplicate records, and unverified records.",
-    "with_without_skill_control": "The with_skill and without_skill variants must differ only by presence or removal of environment/skills and the corresponding runtime copy logic."
-  },
-  "verifier_design": {
-    "main_tests": [
-      "required output existence and parseability",
-      "claim coverage and decision labels",
-      "per-source research design and methodological limitation assessment",
-      "clean in-scope BibTeX bibliography",
-      "literature-note section and synthesis checks"
-    ],
-    "guardrail_tests": [
-      "local evidence gateway snapshot health check",
-      "rejected noisy records and reasons",
-      "forbidden fake/out-of-scope sources excluded from final outputs",
-      "all evidence keys resolve to accepted BibTeX entries"
-    ]
-  },
-  "experiment_plan": {
-    "oracle": "Run solution/solve.sh in the task container and require full verifier pass.",
-    "skill_effect": "Run at least three valid E2B task-level trials each for with_skill and without_skill using codex + gpt-5.4; only environment/skills differs.",
-    "readme": "Fill README.md after oracle and comparison results are available."
-  },
-  "experiment_results": {
-    "e2b_oracle": {
-      "job_name": "academic-evidence-oracle-e2b-20260426-r4",
-      "reward": 1.0,
-      "tests_passed": "9/9"
-    },
-    "codex_gpt54_comparison": {
-      "with_skill_job": "academic-evidence-with-skills-e2b-20260426-r4",
-      "without_skill_job": "academic-evidence-without-skills-e2b-20260426-r4",
-      "valid_trials_each": 3,
-      "with_skill_pass_rate": "1/3",
-      "without_skill_pass_rate": "0/3",
-      "with_skill_avg_agent_seconds": 185.3,
-      "without_skill_avg_agent_seconds": 198.9,
-      "with_skill_avg_input_tokens": 214399,
-      "without_skill_avg_input_tokens": 237796,
-      "control_diff_check": "No differences outside environment/skills in the r4 runtime pair."
-    }
-  }
+  "with_without_policy": "with_skill and without_skill may differ only by environment/skills presence and the runtime copy logic used by the experiment harness.",
+  "data_sources": [
+    "/root/environment/data/metadata/arxiv_id_feed.xml",
+    "/root/environment/data/metadata/candidate_manifest.tsv",
+    "/root/environment/data/text/",
+    "/root/environment/data/scope/review_scope.md"
+  ],
+  "outputs": [
+    "/root/answer/screening_decisions.tsv",
+    "/root/answer/included_papers.tsv",
+    "/root/answer/evidence_table.tsv",
+    "/root/answer/theme_map.json",
+    "/root/answer/literature_review.md",
+    "/root/answer/review_summary.json",
+    "/root/answer/references.bib"
+  ],
+  "verification_focus": [
+    "candidate coverage",
+    "scope classification",
+    "evidence alignment",
+    "cross-file consistency",
+    "bibliography alignment",
+    "theme synthesis granularity",
+    "legacy worksheet correction"
+  ],
+  "notes": [
+    "The bundle uses public arXiv metadata and local abstract snapshots.",
+    "The skill payload is mirrored under environment/skills without changing its body.",
+    "The formal with-skill and without-skill comparison may differ only by environment/skills presence and the runtime copy logic that removes skill loading from the without-skill copy."
+  ]
 }

@@ -1,285 +1,206 @@
+from __future__ import annotations
+
+import csv
 import json
-from functools import lru_cache
+import os
+import re
 from pathlib import Path
 
 import pandas as pd
-from pydeseq2.dds import DeseqDataSet
-from pydeseq2.default_inference import DefaultInference
-from pydeseq2.ds import DeseqStats
+
+from reference_pipeline import (
+    ANNOTATION_COLUMNS,
+    CLUSTER_SUMMARY_COLUMNS,
+    MARKER_COLUMNS,
+    expected_bundle,
+    read_marker_panel,
+    read_policy,
+    resolve_policy,
+)
 
 
-OUTPUT_DIR = Path("/root/answer")
-BROKEN_DIR = Path("/root/environment/broken_outputs")
-PANEL_PATH = Path("/root/environment/data/gene_panel/priority_panel.tsv")
-METADATA_PATH = Path("/root/environment/data/metadata/sample_metadata.tsv")
-CONFIG_PATH = Path("/root/environment/data/gene_panel/analysis_config.json")
-COUNTS_PATH = Path("/root/environment/data/counts/raw_counts.tsv")
-ANNOTATION_PATH = Path("/services/panel-annotation/annotations.tsv")
-
-REQUIRED_RESULT_COLUMNS = [
-    "gene_id",
-    "base_mean",
-    "log2_fold_change",
-    "lfc_se",
-    "stat",
-    "pvalue",
-    "padj",
-    "direction",
-]
-
-REQUIRED_DIAGNOSTIC_COLUMNS = [
-    "gene_id",
-    "review_bucket",
-    "report_priority",
-    "note",
-    "baseline_base_mean",
-    "baseline_log2_fold_change",
-    "baseline_lfc_se",
-    "baseline_stat",
-    "baseline_pvalue",
-    "baseline_padj",
-    "baseline_direction",
-    "corrected_log2_fold_change",
-    "corrected_base_mean",
-    "corrected_lfc_se",
-    "corrected_stat",
-    "corrected_pvalue",
-    "corrected_padj",
-    "corrected_direction",
-    "baseline_significant",
-    "corrected_significant",
-    "diagnostic_status",
-    "reportable",
-    "final_direction",
-    "diagnosis_note",
-    "display_name",
-    "summary_label",
-]
+DATA_DIR = Path(os.environ.get("DATA_DIR", "/root/data"))
+OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "/root/output"))
 
 
-def _run_reference_deseq(
-    counts: pd.DataFrame,
-    metadata: pd.DataFrame,
-    design: str,
-    contrast: list[str],
-    alpha: float,
-) -> pd.DataFrame:
-    inference = DefaultInference(n_cpus=1)
-    dds = DeseqDataSet(
-        counts=counts,
-        metadata=metadata,
-        design=design,
-        refit_cooks=True,
-        inference=inference,
+def load_csv(name: str) -> list[dict]:
+    with (OUTPUT_DIR / name).open(newline="", encoding="utf-8") as fh:
+        return list(csv.DictReader(fh))
+
+
+def _assert_close(actual: float, expected: float, label: str, tol: float = 0.011) -> None:
+    assert abs(float(actual) - float(expected)) <= tol, f"{label} differs: expected {expected}, got {actual}"
+
+
+def _parse_marker_list(raw: str) -> list[str]:
+    tokens = [token.strip() for token in re.split(r"[;,]", raw or "") if token.strip()]
+    return tokens
+
+
+def test_required_output_files_exist() -> None:
+    required = [
+        "qc_summary.json",
+        "cluster_summary.csv",
+        "marker_genes.csv",
+        "cluster_annotations.csv",
+        "report.md",
+        "umap_clusters.png",
+        "umap_cell_types.png",
+    ]
+    for filename in required:
+        assert (OUTPUT_DIR / filename).exists(), f"Missing required output file: {filename}"
+
+
+def test_qc_summary_matches_current_policy() -> None:
+    expected = expected_bundle(DATA_DIR)["qc_summary"]
+    actual = json.loads((OUTPUT_DIR / "qc_summary.json").read_text(encoding="utf-8"))
+    assert set(expected.keys()).issubset(actual.keys()), "qc_summary.json is missing required top-level fields"
+    for field in ["cells_before_qc", "cells_after_qc", "genes_before_qc", "genes_after_qc"]:
+        assert int(actual[field]) == int(expected[field]), f"qc_summary.json field {field} does not match the current-policy output"
+    qc_field_tolerances = {
+        "median_genes_after_qc": 2.1,
+        "median_counts_after_qc": 2.1,
+        "median_pct_mito_after_qc": 0.05,
+    }
+    for field, tol in qc_field_tolerances.items():
+        _assert_close(actual[field], expected[field], f"qc_summary.json field {field}", tol=tol)
+
+    actual_thresholds = actual["thresholds_used"]
+    expected_thresholds = expected["thresholds_used"]
+    required_thresholds = ["min_genes_per_cell", "min_cells_per_gene", "max_pct_counts_mt"]
+    for field in required_thresholds:
+        assert field in actual_thresholds, f"qc_summary.json thresholds_used is missing {field}"
+        _assert_close(actual_thresholds[field], expected_thresholds[field], f"qc_summary.json thresholds_used.{field}", tol=1e-9)
+
+
+def test_cluster_summary_matches_current_policy() -> None:
+    expected_qc = expected_bundle(DATA_DIR)["qc_summary"]
+    actual_rows = load_csv("cluster_summary.csv")
+    assert actual_rows, "cluster_summary.csv is empty"
+    assert list(actual_rows[0].keys()) == CLUSTER_SUMMARY_COLUMNS, "cluster_summary.csv columns do not match the required schema"
+    actual = pd.DataFrame(actual_rows, columns=CLUSTER_SUMMARY_COLUMNS)
+    for column in ["cell_count"]:
+        actual[column] = actual[column].astype(int)
+    for column in ["median_detected_genes", "median_total_counts", "median_pct_mito"]:
+        actual[column] = actual[column].astype(float)
+    assert actual["cluster_id"].is_unique, "cluster_summary.csv cluster_id values must be unique"
+    assert actual["cluster_id"].astype(str).str.len().gt(0).all(), "cluster_summary.csv contains an empty cluster_id"
+    assert actual["cell_type_label"].astype(str).str.len().gt(0).all(), "cluster_summary.csv contains an empty cell_type_label"
+    assert actual["representative_marker_gene"].astype(str).str.len().gt(0).all(), (
+        "cluster_summary.csv contains an empty representative_marker_gene"
     )
-    dds.deseq2()
-    ds = DeseqStats(
-        dds,
-        contrast=contrast,
-        alpha=alpha,
-        inference=inference,
+    assert actual["cell_count"].gt(0).all(), "cluster_summary.csv contains a non-positive cell_count"
+    assert actual["cell_count"].sum() == int(expected_qc["cells_after_qc"]), (
+        "cluster_summary.csv cell counts do not sum to the retained cell count from qc_summary.json"
     )
-    ds.summary()
-    results = ds.results_df.reset_index().rename(
-        columns={
-            "baseMean": "base_mean",
-            "log2FoldChange": "log2_fold_change",
-            "lfcSE": "lfc_se",
-        }
-    )
-    results["direction"] = results["log2_fold_change"].apply(lambda value: "up" if value > 0 else "down")
-    return results
+    for column in ["median_detected_genes", "median_total_counts"]:
+        assert actual[column].gt(0).all(), f"cluster_summary.csv column {column} must contain positive values"
+    assert actual["median_pct_mito"].between(0, 100).all(), "cluster_summary.csv median_pct_mito must be between 0 and 100"
 
 
-@lru_cache(maxsize=1)
-def reference_bundle() -> dict[str, object]:
-    config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    counts = pd.read_csv(COUNTS_PATH, sep="\t", index_col=0).T
-    metadata = pd.read_csv(METADATA_PATH, sep="\t").set_index("sample_id")
-    panel = pd.read_csv(PANEL_PATH, sep="\t")
-    annotations = pd.read_csv(ANNOTATION_PATH, sep="\t")
-    counts = counts.loc[metadata.index]
-    counts = counts.loc[:, counts.sum(axis=0) >= config["min_total_counts"]]
+def test_marker_genes_match_current_policy() -> None:
+    policy = resolve_policy(read_policy(DATA_DIR, client="verifier-marker-rules"))
+    actual_rows = load_csv("marker_genes.csv")
+    assert actual_rows, "marker_genes.csv is empty"
+    assert list(actual_rows[0].keys()) == MARKER_COLUMNS, "marker_genes.csv columns do not match the required schema"
+    actual = pd.DataFrame(actual_rows, columns=MARKER_COLUMNS)
+    actual["rank"] = actual["rank"].astype(int)
+    for column in ["score", "logfoldchange", "adjusted_p_value"]:
+        actual[column] = actual[column].astype(float)
+    summary = pd.DataFrame(load_csv("cluster_summary.csv"), columns=CLUSTER_SUMMARY_COLUMNS)
+    cluster_ids = summary["cluster_id"].astype(str).tolist()
+    prefixes = tuple(policy["marker_ranking"]["exclude_gene_prefixes"])
+    min_logfc = float(policy["marker_ranking"]["min_logfoldchange"])
+    max_adjusted_p = float(policy["marker_ranking"]["max_adjusted_p_value"])
+    top_n = int(policy["marker_ranking"]["top_n"])
 
-    corrected_results = _run_reference_deseq(
-        counts,
-        metadata,
-        "~" + " + ".join(config["design_factors"]),
-        config["contrast"],
-        config["alpha"],
-    )
-    baseline_results = _run_reference_deseq(
-        counts,
-        metadata,
-        f"~{config['contrast'][0]}",
-        config["contrast"],
-        config["alpha"],
-    )
+    actual_groups = actual.groupby("cluster_id", sort=False)
+    assert list(actual_groups.groups.keys()) == cluster_ids, "marker_genes.csv cluster IDs must align with cluster_summary.csv"
 
-    diagnostics = (
-        panel.merge(
-            corrected_results.loc[:, ["gene_id", "log2_fold_change", "padj", "direction"]],
-            on="gene_id",
-            how="left",
+    for cluster_id, actual_group in actual_groups:
+        actual_group = actual_group.reset_index(drop=True)
+        assert actual_group["cell_type_label"].astype(str).str.len().gt(0).all(), (
+            f"marker_genes.csv cluster {cluster_id} contains an empty cell_type_label"
         )
-        .rename(
-            columns={
-                "log2_fold_change": "corrected_log2_fold_change",
-                "padj": "corrected_padj",
-                "direction": "corrected_direction",
-            }
+        assert len(actual_group) >= 3, f"marker_genes.csv cluster {cluster_id} has too few ranked markers"
+        assert len(actual_group) <= top_n, f"marker_genes.csv cluster {cluster_id} has too many ranked markers"
+        assert actual_group["rank"].tolist() == list(range(1, len(actual_group) + 1)), (
+            f"marker_genes.csv cluster {cluster_id} ranks must start at 1 and increase by 1"
         )
-        .merge(
-            baseline_results.loc[:, ["gene_id", "log2_fold_change", "padj", "direction"]],
-            on="gene_id",
-            how="left",
+        assert actual_group["gene_symbol"].astype(str).str.len().gt(0).all(), (
+            f"marker_genes.csv cluster {cluster_id} contains an empty gene_symbol"
         )
-        .rename(
-            columns={
-                "log2_fold_change": "baseline_log2_fold_change",
-                "padj": "baseline_padj",
-                "direction": "baseline_direction",
-            }
+        assert not actual_group["gene_symbol"].astype(str).str.startswith(prefixes).any(), (
+            f"marker_genes.csv cluster {cluster_id} includes genes excluded by the current policy"
         )
-        .merge(annotations, on=["gene_id", "review_bucket"], how="left")
+        assert actual_group["score"].gt(0).all(), f"marker_genes.csv cluster {cluster_id} contains a non-positive score"
+        assert actual_group["logfoldchange"].ge(min_logfc - 1e-9).all(), (
+            f"marker_genes.csv cluster {cluster_id} contains a marker below the current-policy log fold change floor"
+        )
+        assert actual_group["adjusted_p_value"].le(max_adjusted_p + 1e-12).all(), (
+            f"marker_genes.csv cluster {cluster_id} contains a marker above the current-policy adjusted p-value ceiling"
+        )
+
+
+def test_cluster_annotations_match_current_panel() -> None:
+    marker_panel_rows = read_marker_panel(DATA_DIR, client="verifier-annotations")
+    panel_by_label: dict[str, set[str]] = {}
+    for row in marker_panel_rows:
+        panel_by_label.setdefault(row["cell_type_label"], set()).add(row["marker_gene"])
+    actual_rows = load_csv("cluster_annotations.csv")
+    assert actual_rows, "cluster_annotations.csv is empty"
+    assert list(actual_rows[0].keys()) == ANNOTATION_COLUMNS, "cluster_annotations.csv columns do not match the required schema"
+    actual = pd.DataFrame(actual_rows, columns=ANNOTATION_COLUMNS)
+    actual["cell_count"] = actual["cell_count"].astype(int)
+    summary = pd.DataFrame(load_csv("cluster_summary.csv"), columns=CLUSTER_SUMMARY_COLUMNS)
+    assert actual["cluster_id"].tolist() == summary["cluster_id"].tolist(), (
+        "cluster_annotations.csv cluster IDs must align with cluster_summary.csv"
     )
-    diagnostics["baseline_significant"] = diagnostics["baseline_padj"].fillna(1.0) < config["alpha"]
-    diagnostics["corrected_significant"] = diagnostics["corrected_padj"].fillna(1.0) < config["alpha"]
+    assert actual["cell_count"].tolist() == summary["cell_count"].astype(int).tolist(), (
+        "cluster_annotations.csv cell counts must align with cluster_summary.csv"
+    )
 
-    def classify(row: pd.Series) -> str:
-        if row["baseline_significant"] and row["corrected_significant"]:
-            return "stable_treatment_signal"
-        if row["corrected_significant"] and not row["baseline_significant"]:
-            return "rescued_after_adjustment"
-        if row["baseline_significant"] and not row["corrected_significant"]:
-            return "nuisance_sensitive_drop"
-        return "nonreportable_background"
-
-    diagnostics["diagnostic_status"] = diagnostics.apply(classify, axis=1)
-    diagnostics["reportable"] = diagnostics["corrected_significant"]
-    diagnostics = diagnostics.sort_values(
-        ["report_priority", "corrected_padj", "baseline_padj", "gene_id"],
-        na_position="last",
-    ).reset_index(drop=True)
-    significant = diagnostics[diagnostics["reportable"]].reset_index(drop=True)
-
-    return {
-        "config": config,
-        "diagnostics": diagnostics,
-        "significant": significant,
-        "corrected_results": corrected_results,
+    marker_genes = pd.DataFrame(load_csv("marker_genes.csv"), columns=MARKER_COLUMNS)
+    marker_groups = {
+        cluster_id: group.reset_index(drop=True)
+        for cluster_id, group in marker_genes.groupby("cluster_id", sort=False)
     }
 
-
-def test_required_outputs_exist_and_parse() -> None:
-    result_path = OUTPUT_DIR / "differential_expression.csv"
-    sig_path = OUTPUT_DIR / "significant_genes.tsv"
-    norm_path = OUTPUT_DIR / "normalized_counts.tsv"
-    diagnostics_path = OUTPUT_DIR / "panel_diagnostics.tsv"
-    report_path = OUTPUT_DIR / "report.json"
-
-    assert result_path.exists()
-    assert sig_path.exists()
-    assert norm_path.exists()
-    assert diagnostics_path.exists()
-    assert report_path.exists()
-
-    results = pd.read_csv(result_path)
-    significant = pd.read_csv(sig_path, sep="\t")
-    normalized = pd.read_csv(norm_path, sep="\t", index_col=0)
-    diagnostics = pd.read_csv(diagnostics_path, sep="\t")
-    report = json.loads(report_path.read_text(encoding="utf-8"))
-
-    assert list(results.columns) == REQUIRED_RESULT_COLUMNS
-    assert len(results) == 9921
-    assert results["gene_id"].is_unique
-    assert set(significant["gene_id"]).issubset(set(results["gene_id"]))
-    assert set(REQUIRED_DIAGNOSTIC_COLUMNS).issubset(set(diagnostics.columns))
-    assert set(normalized.columns) == set(pd.read_csv(METADATA_PATH, sep="\t")["sample_id"])
-    assert set(report) == {
-        "contrast",
-        "n_tested_genes",
-        "n_significant_genes",
-        "upregulated_genes",
-        "downregulated_genes",
-        "panel_summary",
-        "diagnostic_summary",
-        "notes",
-    }
+    for idx, (cluster_id, label, actual_raw) in enumerate(
+        zip(actual["cluster_id"], actual["cell_type_label"], actual["supporting_markers"], strict=True)
+    ):
+        assert label == "Unassigned" or label in panel_by_label, (
+            f"cluster_annotations.csv row {idx} uses an unknown cell_type_label"
+        )
+        actual_markers = _parse_marker_list(str(actual_raw))
+        assert len(actual_markers) <= 3, f"cluster_annotations.csv row {idx} has too many supporting markers"
+        cluster_marker_genes = set(marker_groups[cluster_id]["gene_symbol"].astype(str).tolist())
+        if label == "Unassigned":
+            assert set(actual_markers).issubset(cluster_marker_genes), (
+                f"cluster_annotations.csv row {idx} uses unassigned supporting markers outside its ranked marker list"
+            )
+            continue
+        assert actual_markers, f"cluster_annotations.csv row {idx} has no supporting markers"
+        assert set(actual_markers).issubset(panel_by_label[label]), (
+            f"cluster_annotations.csv row {idx} uses supporting markers outside the current marker panel"
+        )
 
 
-def test_panel_significant_behavior_matches_corrected_analysis() -> None:
-    expected = reference_bundle()
-    significant = pd.read_csv(OUTPUT_DIR / "significant_genes.tsv", sep="\t")
-    diagnostics = pd.read_csv(OUTPUT_DIR / "panel_diagnostics.tsv", sep="\t")
-    panel_significant = significant[significant["is_panel_gene"]].copy()
+def test_report_sections_and_consistency() -> None:
+    report = (OUTPUT_DIR / "report.md").read_text(encoding="utf-8")
+    for section in ["QC", "Groups", "Limits"]:
+        assert re.search(rf"(?m)^#+\s+{re.escape(section)}\s*$", report), f"report.md is missing the {section} section"
 
-    assert set(panel_significant["gene_id"]) == set(expected["significant"]["gene_id"])
-    assert set(panel_significant["diagnostic_status"]) == {
-        "stable_treatment_signal",
-        "rescued_after_adjustment",
-    }
-    assert set(diagnostics["diagnostic_status"]) == {
-        "stable_treatment_signal",
-        "rescued_after_adjustment",
-        "nuisance_sensitive_drop",
-    }
-    assert set(diagnostics.loc[diagnostics["reportable"], "gene_id"]) == set(panel_significant["gene_id"])
+    cluster_rows = load_csv("cluster_summary.csv")
+    qc_summary = json.loads((OUTPUT_DIR / "qc_summary.json").read_text(encoding="utf-8"))
+    assert str(qc_summary["cells_after_qc"]) in report, "report.md does not mention the retained cell count"
+    assert str(len(cluster_rows)) in report, "report.md does not mention the number of reported groups"
+    for label in sorted({row["cell_type_label"] for row in cluster_rows}):
+        assert label in report, f"report.md does not mention reported label {label}"
 
 
-def test_report_is_consistent_with_significant_gene_table() -> None:
-    expected = reference_bundle()
-    significant = pd.read_csv(OUTPUT_DIR / "significant_genes.tsv", sep="\t")
-    diagnostics = pd.read_csv(OUTPUT_DIR / "panel_diagnostics.tsv", sep="\t")
-    panel_significant = significant[significant["is_panel_gene"]].copy()
-    report = json.loads((OUTPUT_DIR / "report.json").read_text(encoding="utf-8"))
-
-    assert report["n_tested_genes"] == 9921
-    assert report["n_significant_genes"] == len(significant)
-    assert set(report["upregulated_genes"]) == set(
-        significant.loc[significant["direction"] == "up", "gene_id"]
-    )
-    assert set(report["downregulated_genes"]) == set(
-        significant.loc[significant["direction"] == "down", "gene_id"]
-    )
-    assert report["panel_summary"]["diagnostic_status_counts"] == (
-        panel_significant.groupby("diagnostic_status").size().to_dict()
-    )
-    assert set(report["panel_summary"]["reportable_genes"]) == set(panel_significant["gene_id"])
-    assert report["panel_summary"]["n_reportable_panel_genes"] == len(panel_significant)
-    assert report["diagnostic_summary"]["panel_gene_count"] == len(diagnostics)
-    assert report["diagnostic_summary"]["reportable_gene_count"] == len(expected["significant"])
-    assert report["diagnostic_summary"]["status_counts"] == diagnostics.groupby("diagnostic_status").size().to_dict()
-    assert report["contrast"]["baseline_design_formula"] == f"~{expected['config']['contrast'][0]}"
-    assert report["contrast"]["corrected_design_formula"] == "~" + " + ".join(expected["config"]["design_factors"])
-
-
-def test_normalized_counts_cover_panel_and_sample_contract() -> None:
-    normalized = pd.read_csv(OUTPUT_DIR / "normalized_counts.tsv", sep="\t", index_col=0)
-    diagnostics = pd.read_csv(OUTPUT_DIR / "panel_diagnostics.tsv", sep="\t")
-    significant = pd.read_csv(OUTPUT_DIR / "significant_genes.tsv", sep="\t")
-    panel = pd.read_csv(PANEL_PATH, sep="\t")
-
-    assert normalized.shape[1] == 7
-    assert set(significant["gene_id"]).issubset(set(normalized.index))
-    assert set(panel["gene_id"]).issubset(set(normalized.index))
-    assert set(diagnostics["gene_id"]) == set(panel["gene_id"])
-    assert (normalized.loc[list(significant["gene_id"])].sum(axis=1) > 0).all()
-
-
-def test_guardrail_outputs_do_not_match_broken_behavior() -> None:
-    significant = pd.read_csv(OUTPUT_DIR / "significant_genes.tsv", sep="\t")
-    broken_significant = pd.read_csv(BROKEN_DIR / "significant_genes.tsv", sep="\t")
-    diagnostics = pd.read_csv(OUTPUT_DIR / "panel_diagnostics.tsv", sep="\t")
-    panel_significant = significant[significant["is_panel_gene"]].copy()
-    report = json.loads((OUTPUT_DIR / "report.json").read_text(encoding="utf-8"))
-    broken_report = json.loads((BROKEN_DIR / "report.json").read_text(encoding="utf-8"))
-
-    assert set(panel_significant["gene_id"]) != set(broken_significant["gene_id"])
-    assert report["panel_summary"] != broken_report["panel_summary"]
-    assert report["contrast"]["corrected_design_formula"] != report["contrast"]["baseline_design_formula"]
-    assert "type" in report["contrast"]["corrected_design_formula"]
-    assert "condition" in report["contrast"]["corrected_design_formula"]
-    assert set(diagnostics.loc[diagnostics["diagnostic_status"] == "nuisance_sensitive_drop", "gene_id"]).isdisjoint(
-        set(panel_significant["gene_id"])
-    )
+def test_umap_images_exist_and_nontrivial() -> None:
+    for filename in ["umap_clusters.png", "umap_cell_types.png"]:
+        path = OUTPUT_DIR / filename
+        assert path.exists(), f"{filename} was not generated"
+        assert path.stat().st_size > 10000, f"{filename} appears too small to contain a usable plot"

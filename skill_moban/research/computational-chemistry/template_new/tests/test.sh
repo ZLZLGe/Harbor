@@ -1,18 +1,18 @@
 #!/bin/bash
-set -euo pipefail
+set -uo pipefail
 
 mkdir -p /logs/verifier
-REWARD_FILE="/logs/verifier/reward.txt"
-RESULT_FILE="/logs/verifier/result.json"
 
-python /services/safety-normalizer/server.py >/tmp/safety-normalizer.log 2>&1 &
-SERVICE_PID=$!
-trap 'kill ${SERVICE_PID} >/dev/null 2>&1 || true' EXIT
+python3 -m pytest \
+  --ctrf /logs/verifier/ctrf.json \
+  /tests/test_outputs.py \
+  -rA
 
-if python3 -m pytest -q /tests/test_outputs.py; then
-  printf '1.0\n' > "${REWARD_FILE}"
-  printf '{"reward": 1.0}\n' > "${RESULT_FILE}"
+status=$?
+if [ $status -eq 0 ]; then
+  echo 1 > /logs/verifier/reward.txt
 else
-  printf '0.0\n' > "${REWARD_FILE}"
-  printf '{"reward": 0.0}\n' > "${RESULT_FILE}"
+  echo 0 > /logs/verifier/reward.txt
 fi
+
+exit $status

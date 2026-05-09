@@ -1,9 +1,0 @@
-{
-  "derivedTaskId": "transfer3",
-  "taskRole": "transfer",
-  "title": "Transfer - multi-tenant telemetry normalization translation for platform operations",
-  "goal": "Translate the provided Python tokenizer module into Scala 2.13 with preserved behavior and maintainable design.",
-  "primaryOutputFile": "/root/libraries_transfer3.scala",
-  "source_task_id": "python-scala-translation",
-  "targetSkillDirName": "python-scala-libraries"
-}

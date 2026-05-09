@@ -1,7 +1,0 @@
-service_id,framework,needs_api,needs_db,needs_auth,needs_external_service,criticality
-svc-002,django,yes,yes,yes,no,critical
-svc-001,laravel,no,yes,yes,yes,high
-svc-006,springboot,yes,yes,no,yes,medium
-svc-003,django,no,no,no,no,low
-svc-005,laravel,yes,no,no,no,medium
-svc-004,springboot,yes,yes,yes,no,critical

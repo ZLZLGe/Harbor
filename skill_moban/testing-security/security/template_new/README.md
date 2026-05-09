@@ -1,65 +1,67 @@
 # Security Template
 
-这是面向 `security` 类 skill 的模板。它综合参考 SkillsMP 安全类热门 skill 的共性能力：认证与授权检查、租户隔离确认、限流与配额观察、错误信息暴露判断，以及把检查结果沉淀为可交付的证据包与审计报告。
+这是面向 `security` 类 skill 的模板。它综合参考 SkillsMP 安全类热门 skill 的共性能力：认证与授权检查、输入校验确认、租户范围约束、限流与配额验证，以及把服务实现问题收口成可运行的交付任务。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：这类热门 skill 的价值，主要体现在把 API 安全检查串成一条可执行链路，让 Agent 能从接口发现、身份切换、对象级授权、输入边界到错误语义一路收口。模板题面应把重心放在交付物、业务范围和约束条件，让具体排查顺序由 skill 与 solver 自行展开。
-* **Task 目标形态**：适合设计成带有多身份、多租户、多接口面的本地服务审计任务。目标应要求 solver 直接操作运行中的系统、提取证据、写出结构化结论，并保证每次执行都能稳定复现。
-* **Verifier 设计重点**：Verifier 应优先检查 solver 是否真的走过了 live API 审计链路，是否覆盖了关键身份与关键接口，是否把结论落实到证据文件。防作弊点要覆盖伪造报告、只做静态阅读、只对样例特判以及改动输入或环境文件。
+* **Skill 价值定位**：security 类热门 skill 的共同价值，在于帮助 Agent 把认证、授权、输入校验、敏感导出和错误处理串成一条完整检查链路。模板任务应把题面重心放在交付合同、业务边界和禁止事项上，让具体排查和实现路径更多留给 skill 与 solver 自主识别。
+* **Task 目标形态**：这类任务适合设计成多租户 API 交付场景，例如鉴权接口、租户范围隔离、批量查询限制、导出控制或敏感数据约束。目标应强调可运行、可验证、可重复执行，同时把只读输入快照与运行态 state/output 的边界交代清楚，不退化成静态报告或只改文案。
+* **Verifier 设计重点**：Verifier 应优先检查 solver 是否沿服务链路完成鉴权、授权、输入校验、导出约束和错误语义补齐，并验证行为在替身数据上仍然成立。防作弊点应覆盖只对样例特判、只改少数响应、绕过本地数据源、误改输入快照和删除安全控制。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`security__orderhub-api-security-review`
+- 任务 ID：`security__tenant-vulnerability-advisory-api`
 - 类别：`security`
 - 难度：`hard`
-- 绑定 Skill：`api-security-testing`
+- 绑定 Skill：`security-review`
 - 输入数据参考来源：
-  - `environment/data/contracts/orderhub-public-openapi.yaml`：任务内 API 合同文件；设计形态参考 OpenAPI 3.0.3  
-    https://spec.openapis.org/oas/v3.0.3
-  - `environment/data/engagement/rules_of_engagement.md`、`environment/data/engagement/target_profile.json`：任务内审计边界、请求预算与身份约束；组织方式参考通用渗透测试 pre-engagement 实践  
-    https://csrc.nist.gov/pubs/sp/800/115/final  
-    https://csrc.nist.gov/glossary/term/rules_of_engagement  
-    https://pentest-standard.readthedocs.io/en/latest/preengagement_interactions.html
-  - `environment/data/seed/customers.json`、`orders.json`、`order_details.csv`、`products.json`、`employees.json`、`shippers.json`：任务内订单域快照；数据形态参考 Northwind sample database  
-    https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
-  - `environment/data/tenancy/account_map.json`：任务内租户与账户映射；为本模板本地输入
+  - `environment/workspace/data/nvd_cves.ndjson`：任务内 CVE 快照；字段形态参考 NVD CVE API 2.0  
+    https://nvd.nist.gov/developers/vulnerabilities  
+    https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2024-3094
+  - `environment/workspace/data/kev_catalog.json`：任务内 exploited-vulnerability 目录；数据形态参考 CISA KEV catalog  
+    https://www.cisa.gov/known-exploited-vulnerabilities-catalog  
+    https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+  - `environment/workspace/data/epss_scores.csv`：任务内 exploitability 分数；数据形态参考 FIRST EPSS  
+    https://www.first.org/epss/data_stats  
+    https://epss.empiricalsecurity.com/epss_scores-current.csv.gz
+  - `environment/workspace/data/tenants.json`：任务内租户、scope、配额与导出约束；为本模板自定义的本地输入，无单独公开来源
+  - `environment/workspace/data/export_jobs.json`：任务内导出任务初始状态；为本模板自定义的本地输入，无单独公开来源
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 通过 `solution/solve.sh` 直接审计本地运行中的 OrderHub API，生成结构化 findings、复现文档和证据目录，再运行 verifier 验证全部测试点。
+- Oracle：Oracle 通过 `solution/solve.sh` 把参考实现写回 workspace，再运行本地 verifier，验证鉴权、范围约束、批量校验、导出产物和替身数据泛化全部通过。它不依赖隐藏答案文件，直接以本地服务行为为准。
 - Verifier策略：
 
 主测试
 
 | 测试点 | 验证内容 | 对应skill内化点 |
 | :--- | :--- | :--- |
-| 接口发现与身份覆盖 | 检查 solver 是否读取公开合同并覆盖全部给定身份 | API discovery、authentication |
-| 对象级授权确认 | 检查是否完成跨租户订单读取并记录证据 | authorization、multi-tenant isolation |
-| 导出与限流确认 | 检查是否执行跨租户导出和连续请求序列 | rate limiting、sensitive export review |
-| 错误暴露确认 | 检查是否触发错误路径并保留回溯与 SQL 片段证据 | error handling、input validation follow-through |
-| 输出交付合同 | 检查 findings、reproduction 和 evidence 目录结构与内容 | report generation、evidence discipline |
+| 列表与分页 | 检查租户范围、筛选、排序和分页稳定性 | 认证后先看可见数据面，再确认数据边界 |
+| 详情与批量 | 检查 detail / bulk 的输入校验、scope 与错误语义 | 输入校验、授权与批量接口限制 |
+| 导出任务 | 检查 analyst-only 导出授权、行数上限和 CSV 产物 | 敏感导出控制与最小权限 |
+| 限流语义 | 检查 401 / 403 / 429 与限流头 | 安全错误语义与资源保护 |
 
 防作弊测试
 
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| Live API 轨迹 | 通过访问日志确认 solver 走过了要求的审计动作 |
-| 输入与服务完整性 | 校验 `/root/data` 和隐藏服务文件 hash 未变化 |
-| Skill 完整性 | 校验已安装的 skill 文件未被改动 |
-| 服务健康 | 验证审计结束后目标服务仍可正常响应 |
+| 替身数据泛化 | 改动 advisory / KEV / EPSS 子集后，服务行为仍按数据源重算 |
+| 输入文件完整性 | data 目录 hash 不能变化 |
+| 结构完整性 | server、service 和 tests 入口保持存在 |
 
 ### ⚡ Skill 相关性评估
 
-结论：待实验补充。这个任务与 `api-security-testing` 的相关性很强，因为核心工作集中在接口发现、身份切换、对象级授权、限流观察和错误处理确认。对照实验完成后，会把最近至少 3 次有效 with_skill / without_skill 结果补入下表。
+结论：强相关。这个任务里，Skill 的核心价值在于把认证、授权、输入校验、批量限制、导出权限和只读输入/运行态边界串成一条连续检查链路；without-skill 虽然能补齐大部分接口，但最近 3 次有效对照都在导出权限动作链路上遗留主测试失败。
+
+基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `待补` | `待补` | 待实验补充 |
-| Agent 执行耗时 | `待补` | `待补` | 待实验补充 |
-| Tokens | `待补` | `待补` | 待实验补充 |
+| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 都保留了 `test_export_jobs_create_csv_and_enforce_limits` 失败，问题集中在 analyst-only 导出权限与导出约束动作链路。 |
+| Agent 执行耗时 | `591.5s` | `613.6s` | 本轮样本里耗时接近，With Skill 未表现出稳定耗时优势，平均约高 `3.7%`，但最终交付成功率更稳定。 |
+| Tokens | `1.18M` | `1.20M` | 两组 token 基本同量级，With Skill 略高约 `1.5%`；主要收益体现在减少关键安全动作遗漏，而不是压低上下文消耗。 |
 
 ## 📁 标准目录结构说明
 
@@ -71,7 +73,7 @@ template_new/
 ├── README.md
 ├── environment/
 │   ├── Dockerfile
-│   ├── hidden-service-src/
+│   ├── workspace/
 │   └── skills/
 ├── tests/
 └── solution/

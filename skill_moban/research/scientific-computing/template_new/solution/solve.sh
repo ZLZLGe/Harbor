@@ -1,7 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cp "${SCRIPT_DIR}/fixed_run_analysis.py" /root/workspace/run_analysis.py
-chmod +x /root/workspace/run_analysis.py
-python /root/workspace/run_analysis.py --data /root/data --output /root/output
+SOLUTION_ROOT="${SOLUTION_ROOT:-/solution}"
+WORKSPACE_ROOT="${TASK_WORKSPACE_DIR:-/root/workspace}"
+DATA_ROOT="${TASK_DATA_DIR:-/root/data}"
+OUTPUT_ROOT="${TASK_OUTPUT_DIR:-/root/output}"
+
+cp "${SOLUTION_ROOT}/fixed/run_marine_heat_intake.py" "${WORKSPACE_ROOT}/run_marine_heat_intake.py"
+chmod +x "${WORKSPACE_ROOT}/run_marine_heat_intake.py"
+python3 "${WORKSPACE_ROOT}/run_marine_heat_intake.py" --data "${DATA_ROOT}" --output "${OUTPUT_ROOT}"

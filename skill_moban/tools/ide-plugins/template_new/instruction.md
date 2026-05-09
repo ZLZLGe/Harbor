@@ -8,7 +8,7 @@ Input data is in:
 
 Your task
 1. Complete the extension so users can browse the provided update snapshots from the existing Activity Bar entry and open per-release notes inside VS Code.
-2. Complete the extension's localized UI text, in-editor release notes, and generated briefing content for `en`, `pt-br`, and `zh-cn`.
+2. Complete the extension's multi-language delivery for `en`, `pt-br`, and `zh-cn` across browsing, export, and packaging.
 3. Add or finish the export flow so the workspace writes the required Markdown briefings into `/app/workspace/output/`.
 4. Keep the extension buildable and locally distributable so the repository can generate one `.vsix` package from the provided codebase.
 
@@ -21,7 +21,8 @@ Output:
 
 Notes:
 - Use the provided local update snapshots and locale assets.
-- Keep both exported briefings and opened release notes driven by the provided locale assets.
+- Keep the delivered language content aligned with the provided locale assets and the extension's shipped language resources, including section headings, release-note labels, footer/generator copy, and onboarding guidance.
+- Keep exported briefings and opened release notes driven by those provided language assets so summary wording, scoped highlight labels, and localized UI wording stay in step across locales.
 - Keep the current extension entrypoints, workspace layout, and packaging flow.
 - You may add dependencies if they support the extension workflow.
 - Do not modify files under `/app/data/`.

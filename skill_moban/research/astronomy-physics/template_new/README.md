@@ -1,46 +1,67 @@
-# Astronomy Physics Template
+# Astronomy & Physics Template
 
-这是面向 `astronomy-physics` 类 skill 的模板。它综合参考 SkillsMP 该类热门 skill 的共性能力：科学数据处理、坐标/空间参照转换、单位与时间系统、真实观测或环境数据链路、数值计算、外部/本地服务集成，以及可复核的分析报告生成。
+这是面向 astronomy-physics 类 skill 的模板。它综合参考 SkillsMP 这一类热门 skill 的共性能力：把公开科学数据整理为可复现的分析流程，围绕坐标、时间、表格、FITS、交叉匹配和宇宙学量计算形成可验证交付物。模板任务强调多源输入、确定性输出和可审计中间量，尤其强调 detector-space 到 sky-coordinate 的重建和 nearest-host 距离上下文。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：这类 Skill 的价值应体现在把领域知识转化为稳定、可复用的科学分析流程。任务设计应让 Skill 帮助 Agent 正确处理坐标系、单位、时间、物理量、数据格式和领域诊断工具，而不是提供静态答案。好的 Skill 还应降低排查成本，使 Agent 能快速定位数据解释、阈值判断和结果一致性问题。
-* **Task 目标形态**：任务应要求 Agent 面对真实风格的科学数据和上下游链路，产出可运行、可复核、可追溯的结果包。输入可以是 FITS、表格、模拟结果、时空数据、观测记录或本地服务响应，输出应包含正式分析结果和必要审计信息。任务不应退化为 puzzle、单纯格式转换、隐藏答案匹配或只修一个表层报错。
-* **Verifier 设计重点**：Verifier 应重算关键行为结果，并检查物理/空间/时间一致性，而不是绑定某个唯一代码实现。它应覆盖输入全量性、单位和坐标正确性、阈值边界、数值误差、服务链路和报告一致性。防作弊测试应拦截静态占位输出、跳过真实链路、删行规避、硬编码摘要和只满足表面格式的解法。
+* **Skill 价值定位**：这一类 skill 的核心价值是把科学数据处理拆成稳定的对象级工作流，例如 WCS 坐标重建、时间系统归一化、目录交叉匹配、单位与宇宙学量计算。任务设计应把重点放在“从原始科学输入到审阅结论”的完整链路，避免退化成单点脚本拼接。
+* **Task 目标形态**：适合采用多文件交付，既要有面向业务汇报的总报告，也要有便于追责的审计表和诊断表。输入应来自公开数据切片或公开数据形态，结构上要保留 FITS、catalog、metadata 之间的关联。
+* **Verifier 设计重点**：Verifier 需要同时检查数值正确性、表间一致性和流程依赖性。除了比对最终输出，还应加入输入变异测试，确认 solver 确实读取了 WCS、阈值配置、host slice 和目录数据，避免写死答案。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
-
-- 任务 ID：`astronomy_physics__fits-transient-triage`
+- 任务 ID：`astronomy-physics__m101-candidate-review`
 - 类别：`astronomy-physics`
 - 难度：`hard`
 - 绑定 Skill：`astropy`
+- 输入数据参考来源：
+  - `environment/data/fits/m101_field_g.fits`：M101 视场 g 波段 FITS cutout；设计直接取自 Legacy Survey DR10 cutout 接口  
+    [https://www.legacysurvey.org/viewer/fits-cutout?ra=210.8023&dec=54.349&layer=ls-dr10&pixscale=0.262&bands=g&size=512](https://www.legacysurvey.org/viewer/fits-cutout?ra=210.8023&dec=54.349&layer=ls-dr10&pixscale=0.262&bands=g&size=512)
+  - `environment/data/fits/m101_field_r.fits`：M101 视场 r 波段 FITS cutout；设计直接取自 Legacy Survey DR10 cutout 接口  
+    [https://www.legacysurvey.org/viewer/fits-cutout?ra=210.8023&dec=54.349&layer=ls-dr10&pixscale=0.262&bands=r&size=512](https://www.legacysurvey.org/viewer/fits-cutout?ra=210.8023&dec=54.349&layer=ls-dr10&pixscale=0.262&bands=r&size=512)
+  - `environment/data/fits/m101_field_z.fits`：M101 视场 z 波段 FITS cutout；设计直接取自 Legacy Survey DR10 cutout 接口  
+    [https://www.legacysurvey.org/viewer/fits-cutout?ra=210.8023&dec=54.349&layer=ls-dr10&pixscale=0.262&bands=z&size=512](https://www.legacysurvey.org/viewer/fits-cutout?ra=210.8023&dec=54.349&layer=ls-dr10&pixscale=0.262&bands=z&size=512)
+  - `environment/data/catalogs/gaia_m101_cone.ecsv`：M101 同视场 Gaia DR3 cone-search 目录切片；设计直接参考 Gaia Archive 目录查询  
+    [https://gea.esac.esa.int/archive/](https://gea.esac.esa.int/archive/)
+  - `environment/data/catalogs/host_galaxies.tsv`：M101 主宿主加 nearby-galaxy review slice；主宿主条目形态参考 SIMBAD 的 M101 条目，邻近宿主切片形态参考 NED 的公开 extragalactic search workflow  
+    [https://simbad.cds.unistra.fr/simbad/sim-id?Ident=M+101](https://simbad.cds.unistra.fr/simbad/sim-id?Ident=M+101)  
+    [https://ned.ipac.caltech.edu/Documents/Guides/Searches](https://ned.ipac.caltech.edu/Documents/Guides/Searches)
 
 ### 📊 验证与测试指标（Oracle & Verifier）
+- Oracle：官方解法把 FITS/WCS、Gaia 交叉匹配、时间归一化、计数率光度标定、nearest-host 距离量和 `FlatLambdaCDM(H0=70, Om0=0.3, Tcmb0=2.725)` 分类逻辑串成单一流水线，然后要求整套 bundle 在 E2B 中通过全部 9 个测试点。
+- Verifier 策略：
 
-- Oracle：官方解法重写正式 triage 入口，从公开 FITS、检测表、星表、校准表和本地 field context 服务生成全部交付物。Oracle 在 E2B 上通过 `7/7` 测试，Reward 为 `1.0`。
+主测试
 
-| Verifier 测试内容 | 对应 skill 要求掌握的部分 |
+| 测试点 | 验证内容 | 对应 skill 内化点 |
+| :--- | :--- | :--- |
+| 输出合同 | 所有目标文件存在、可解析、列契约完整 | `Table` I/O、结构化交付 |
+| 坐标与时间 | WCS 坐标、Galactic 坐标、UTC/MJD 归一化正确 | `fits`、`WCS`、`SkyCoord`、`Time` |
+| 目录匹配 | Gaia 最近邻、host 分离角和匹配结果一致 | `SkyCoord`、角距离、目录读取 |
+| 光度与距离 | AB 星等、误差传播、nearest-host 距离和绝对星等一致 | `units`、`SkyCoord`、`cosmology`、数值链路 |
+| 报告一致性 | summary、reportable 列表和支持表彼此一致 | 多表对账、结果汇总 |
+
+防作弊测试
+
+| 测试点 | 验证内容 |
 | :--- | :--- |
-| 输出文件、列合同和输入 detection 全量覆盖 | `astropy.table.Table`、ECSV/TSV/JSON 结果组织 |
-| FITS WCS 坐标、银道坐标、UTC 曝光中点和 MJD | FITS HDU、WCS、`SkyCoord`、`Time` |
-| Gaia、宿主星系、移动天体交叉匹配与分类 | 球面角距离、角秒阈值、分类优先级 |
-| AB 星等、误差传播、红移距离和绝对星等 | 单位、测光公式、`Planck18` 宇宙学 |
-| `triage_diagnostics.tsv` 诊断 ledger | WCS round-trip、阈值 margin、task-bound signature kernel |
-| `report.json` 与 `field_context.json` 一致性 | 本地下游服务调用、报告汇总和候选体集合对齐 |
+| 位置变异 | 修改检测像素坐标后，重跑结果必须改变 sky outputs |
+| 阈值变异 | 修改 review 规则后，分类结果必须随之改变 |
+| 宿主变异 | 修改匹配宿主的 redshift 后，距离驱动的分类结果必须随之改变 |
+| 代码依赖 | 流水线脚本必须显式读取 FITS、catalog、host slice 和 review rules，并出现关键 astropy 工作流标记 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把 FITS/WCS、`SkyCoord`、`Time`、测光、`Planck18` 和 task-bound diagnostics signature kernel 标准化，从而显著降低诊断与收敛成本；without Skill 仍能手写可见科学链路，但无法稳定复现 Skill 侧诊断内核约定。
+结论：强相关。这个任务把 `astropy` 的 WCS、SkyCoord、Time、Table 和 cosmology 工作流组合成同一条业务链路，with_skill 更容易把 FITS 1-based 像素原点、Gaia/host 最近邻匹配和距离驱动分类一起做对；without_skill 即使修到接近可用，也更容易在 sky-coordinate 重建上留下系统性偏差。
 
-基于最近 **5** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除 build cancelled 与 setup 失败的 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` (`0/5`) | `100%` (`5/5`) | Without Skill 能重建部分科学结果，但无法复现 task-bound diagnostics kernel，无法稳定通过诊断 ledger |
-| Agent 执行耗时 | `337.7s` | `303.3s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `10%` |
-| Tokens | `588,755` | `551,304` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.07x` |
+| 通过率 | `0%` | `66.7%` | 最近 3 次有效对照里，without Skill 都保留 verifier 失败；主要失分点是 FITS 1-based WCS 重建误差连带影响 Gaia 分离角和 reportable 坐标。 |
+| Agent 执行耗时 | `287.2s` | `319.6s` | With Skill 会额外核对 WCS、crossmatch 和 cosmology 约定，平均耗时略高，但通过率明显更好。 |
+| Tokens | `0.87M` | `0.86M` | 这里按输入、缓存和输出合计 tokens 统计；两边成本接近，With Skill 略低，主要收益体现在成功率提升，成本变化很小。 |
 
 ## 📁 标准目录结构说明
 
@@ -51,6 +72,10 @@ template_new/
 ├── PLAN.json
 ├── README.md
 ├── environment/
+│   ├── Dockerfile
+│   ├── data/
+│   ├── skills/
+│   └── workspace/
 ├── tests/
 └── solution/
 ```

@@ -1,6 +1,0 @@
-{
-  "customer": 200,
-  "peer": 100,
-  "provider": 50,
-  "description": "Standard BGP local preference weights for Azure Route Server service insertion"
-}

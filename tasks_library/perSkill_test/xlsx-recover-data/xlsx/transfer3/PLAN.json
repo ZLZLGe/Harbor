@@ -1,8 +1,0 @@
-{
-  "derivedTaskId": "transfer3",
-  "taskRole": "transfer",
-  "title": "Transfer - Growth Checkpoint Workbook",
-  "goal": "Resolve chain-dependent missing values and produce a growth checkpoint workbook.",
-  "primaryOutputFile": "/root/growth_transfer_recovered.xlsx",
-  "skillScope": "xlsx"
-}

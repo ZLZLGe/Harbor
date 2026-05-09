@@ -1,9 +1,0 @@
-file_name,p_pick_idx,s_pick_idx,sp_gap_samples,recovery_band
-BG.SQK..DP.0399575.npz,6000,6057,57,tight
-BG.EPR..DP.0252305.npz,6000,6187,187,medium
-BG.TCH..DP.0283495.npz,6000,6057,57,tight
-BK.MHC.00.BH.0255749.npz,6001,6177,176,medium
-NC.GDXB..HN.0244608.npz,6001,6058,57,tight
-NC.MDY..HN.0376095.npz,6001,6120,119,medium
-BG.DRK..DP.0351524.npz,6000,6103,103,medium
-BG.HER..DP.0254197.npz,6000,6142,142,medium

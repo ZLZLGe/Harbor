@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "api-design",
+    "installsRaw": "4.6K",
+    "installs": 4600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/api-design"
+  },
+  {
+    "slug": "frontend-slides",
+    "installsRaw": "4.4K",
+    "installs": 4400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-slides"
+  },
+  {
+    "slug": "liquid-glass-design",
+    "installsRaw": "3.5K",
+    "installs": 3500,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/liquid-glass-design"
+  },
+  {
+    "slug": "swiftui-patterns",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/swiftui-patterns"
+  },
+  {
+    "slug": "dmux-workflows",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/dmux-workflows"
+  },
+  {
+    "slug": "team-builder",
+    "installsRaw": "2.6K",
+    "installs": 2600,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/team-builder"
+  },
+  {
+    "slug": "nuxt4-patterns",
+    "installsRaw": "2.4K",
+    "installs": 2400,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/nuxt4-patterns"
+  },
+  {
+    "slug": "design-system",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/design-system"
+  },
+  {
+    "slug": "brand-voice",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/brand-voice"
+  },
+  {
+    "slug": "ui-demo",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/ui-demo"
+  },
+  {
+    "slug": "frontend-design",
+    "installsRaw": "1.8K",
+    "installs": 1800,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/frontend-design"
+  },
+  {
+    "slug": "api-connector-builder",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/api-connector-builder"
+  },
+  {
+    "slug": "dashboard-builder",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/dashboard-builder"
+  },
+  {
+    "slug": "project-guidelines-example",
+    "installsRaw": "1.7K",
+    "installs": 1700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/project-guidelines-example"
+  },
+  {
+    "slug": "canvas-design",
+    "installsRaw": "50.1K",
+    "installs": 50100,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/canvas-design"
+  },
+  {
+    "slug": "mcp-builder",
+    "installsRaw": "50.0K",
+    "installs": 50000,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/mcp-builder"
+  },
+  {
+    "slug": "web-artifacts-builder",
+    "installsRaw": "41.2K",
+    "installs": 41200,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/web-artifacts-builder"
+  },
+  {
+    "slug": "brand-guidelines",
+    "installsRaw": "36.9K",
+    "installs": 36900,
+    "source": "anthropics/skills",
+    "sourceLower": "anthropics/skills",
+    "stars": 128900,
+    "repoUrl": "https://github.com/anthropics/skills",
+    "skillUrl": "https://skills.sh/anthropics/skills/brand-guidelines"
+  },
+  {
+    "slug": "ux-designer",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/ux-designer"
+  },
+  {
+    "slug": "visualization-expert",
+    "installsRaw": "2.1K",
+    "installs": 2100,
+    "source": "shubhamsaboo/awesome-llm-apps",
+    "sourceLower": "shubhamsaboo/awesome-llm-apps",
+    "stars": 109000,
+    "repoUrl": "https://github.com/shubhamsaboo/awesome-llm-apps",
+    "skillUrl": "https://skills.sh/shubhamsaboo/awesome-llm-apps/visualization-expert"
+  },
+  {
+    "slug": "karpathy-guidelines",
+    "installsRaw": "9.8K",
+    "installs": 9800,
+    "source": "forrestchang/andrej-karpathy-skills",
+    "sourceLower": "forrestchang/andrej-karpathy-skills",
+    "stars": 106900,
+    "repoUrl": "https://github.com/forrestchang/andrej-karpathy-skills",
+    "skillUrl": "https://skills.sh/forrestchang/andrej-karpathy-skills/karpathy-guidelines"
+  },
+  {
+    "slug": "ui-ux-pro-max",
+    "installsRaw": "152.9K",
+    "installs": 152900,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max"
+  },
+  {
+    "slug": "ckm:design-system",
+    "installsRaw": "14.3K",
+    "installs": 14300,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:design-system"
+  },
+  {
+    "slug": "ckm:ui-styling",
+    "installsRaw": "14.2K",
+    "installs": 14200,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:ui-styling"
+  },
+  {
+    "slug": "ckm:design",
+    "installsRaw": "14.1K",
+    "installs": 14100,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:design"
+  },
+  {
+    "slug": "ckm:banner-design",
+    "installsRaw": "14.0K",
+    "installs": 14000,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:banner-design"
+  },
+  {
+    "slug": "ckm:brand",
+    "installsRaw": "14.0K",
+    "installs": 14000,
+    "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "sourceLower": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "stars": 73300,
+    "repoUrl": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "skillUrl": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:brand"
+  },
+  {
+    "slug": "ppt-generation",
+    "installsRaw": "1.6K",
+    "installs": 1600,
+    "source": "bytedance/deer-flow",
+    "sourceLower": "bytedance/deer-flow",
+    "stars": 65300,
+    "repoUrl": "https://github.com/bytedance/deer-flow",
+    "skillUrl": "https://skills.sh/bytedance/deer-flow/ppt-generation"
+  },
+  {
+    "slug": "design-an-interface",
+    "installsRaw": "7.5K",
+    "installs": 7500,
+    "source": "mattpocock/skills",
+    "sourceLower": "mattpocock/skills",
+    "stars": 62100,
+    "repoUrl": "https://github.com/mattpocock/skills",
+    "skillUrl": "https://skills.sh/mattpocock/skills/design-an-interface"
+  },
+  {
+    "slug": "ubiquitous-language",
+    "installsRaw": "6.8K",
+    "installs": 6800,
+    "source": "mattpocock/skills",
+    "sourceLower": "mattpocock/skills",
+    "stars": 62100,
+    "repoUrl": "https://github.com/mattpocock/skills",
+    "skillUrl": "https://skills.sh/mattpocock/skills/ubiquitous-language"
+  },
+  {
+    "slug": "artifacts-builder",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "composiohq/awesome-claude-skills",
+    "sourceLower": "composiohq/awesome-claude-skills",
+    "stars": 58200,
+    "repoUrl": "https://github.com/composiohq/awesome-claude-skills",
+    "skillUrl": "https://skills.sh/composiohq/awesome-claude-skills/artifacts-builder"
+  },
+  {
+    "slug": "mobile-design",
+    "installsRaw": "2.3K",
+    "installs": 2300,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/mobile-design"
+  },
+  {
+    "slug": "telegram-bot-builder",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/telegram-bot-builder"
+  },
+  {
+    "slug": "database-design",
+    "installsRaw": "1.2K",
+    "installs": 1200,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/database-design"
+  },
+  {
+    "slug": "backend-dev-guidelines",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/backend-dev-guidelines"
+  },
+  {
+    "slug": "bash-linux",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "sickn33/antigravity-awesome-skills",
+    "sourceLower": "sickn33/antigravity-awesome-skills",
+    "stars": 36853,
+    "repoUrl": "https://github.com/sickn33/antigravity-awesome-skills",
+    "skillUrl": "https://skills.sh/sickn33/antigravity-awesome-skills/bash-linux"
+  },
+  {
+    "slug": "tailwind-design-system",
+    "installsRaw": "39.9K",
+    "installs": 39900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/tailwind-design-system"
+  },
+  {
+    "slug": "postgresql-table-design",
+    "installsRaw": "16.3K",
+    "installs": 16300,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/postgresql-table-design"
+  },
+  {
+    "slug": "mobile-ios-design",
+    "installsRaw": "14.4K",
+    "installs": 14400,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/mobile-ios-design"
+  },
+  {
+    "slug": "mobile-android-design",
+    "installsRaw": "13.9K",
+    "installs": 13900,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/mobile-android-design"
+  },
+  {
+    "slug": "responsive-design",
+    "installsRaw": "10.5K",
+    "installs": 10500,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/responsive-design"
+  },
+  {
+    "slug": "python-design-patterns",
+    "installsRaw": "10.0K",
+    "installs": 10000,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/python-design-patterns"
+  },
+  {
+    "slug": "design-system-patterns",
+    "installsRaw": "8.8K",
+    "installs": 8800,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/design-system-patterns"
+  },
+  {
+    "slug": "react-native-design",
+    "installsRaw": "8.7K",
+    "installs": 8700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/react-native-design"
+  },
+  {
+    "slug": "interaction-design",
+    "installsRaw": "7.7K",
+    "installs": 7700,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/interaction-design"
+  },
+  {
+    "slug": "visual-design-foundations",
+    "installsRaw": "7.2K",
+    "installs": 7200,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/visual-design-foundations"
+  },
+  {
+    "slug": "excalidraw-diagram-generator",
+    "installsRaw": "16.0K",
+    "installs": 16000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/excalidraw-diagram-generator"
+  },
+  {
+    "slug": "penpot-uiux-design",
+    "installsRaw": "10.1K",
+    "installs": 10100,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/penpot-uiux-design"
+  },
+  {
+    "slug": "plantuml-ascii",
+    "installsRaw": "9.0K",
+    "installs": 9000,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/plantuml-ascii"
+  },
+  {
+    "slug": "legacy-circuit-mockups",
+    "installsRaw": "8.5K",
+    "installs": 8500,
+    "source": "github/awesome-copilot",
+    "sourceLower": "github/awesome-copilot",
+    "stars": 32200,
+    "repoUrl": "https://github.com/github/awesome-copilot",
+    "skillUrl": "https://skills.sh/github/awesome-copilot/legacy-circuit-mockups"
+  }
+]

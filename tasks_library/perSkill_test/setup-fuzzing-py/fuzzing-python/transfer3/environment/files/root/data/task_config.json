@@ -1,6 +1,0 @@
-{
-  "repo_root": "/root/archive_header",
-  "primary_output_file": "/root/archive_header/fuzz.py",
-  "fuzz_log_file": "/root/archive_header/fuzz.log",
-  "target_symbol": "decode_header"
-}

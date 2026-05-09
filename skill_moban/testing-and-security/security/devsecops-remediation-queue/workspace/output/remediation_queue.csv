@@ -1,5 +1,0 @@
-finding_key,severity,scanner,owner_team,sla_days,fix_version
-CVE-2024-0001,critical,deps,appsec,3,2.4.1
-API-7,high,api,backend,7,2026.04
-PT-9,medium,pentest,cloudsec,30,
-OPS-2,low,iac,platform,90,n/a

@@ -1,4 +1,0 @@
-image_id,width,height,bright_pixels,total_pixels,edge_score
-IMG-01,64,64,1800,4096,0.82
-IMG-02,64,64,900,4096,0.45
-IMG-03,32,32,700,1024,0.73

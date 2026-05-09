@@ -1,4 +1,0 @@
-{"id":"job-001","enabled":true,"voice_id":"EXAVITQu4vr4xnSDxMaL","text":"Morning briefing includes updated priorities and outreach schedule.","stability":0.3,"similarity_boost":1.2}
-{"id":"job-002","enabled":false,"voice_id":"ErXwobaYiN019PkySvjV","text":"Should be rejected because disabled.","stability":0.5,"similarity_boost":0.5}
-{"id":"job-003","enabled":true,"voice_id":"invalid-voice","text":"Incident recap [3] with rollback timeline. https://example.net/postmortem","stability":"oops","similarity_boost":0.4}
-{"id":"job-004","enabled":true,"voice_id":"TxGEqnHWrfWFTfGW9XjX","text":"   ","stability":0.8,"similarity_boost":0.2}

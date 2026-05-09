@@ -1,7 +1,0 @@
-{
-  "output_audio": "/root/similar_founder_notes.mp3",
-  "output_manifest": "/root/similar_founder_notes_manifest.json",
-  "voice": "coral",
-  "model": "gpt-4o-mini-tts",
-  "response_format": "mp3"
-}

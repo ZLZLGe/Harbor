@@ -1,9 +1,0 @@
-module_id,runner,core_pattern,mock_style,advanced_track,coverage_tool,verification_command
-mod-002,ctest --output-on-failure,GoogleTest fixture + CTest target for daemon modules,lightweight fake collaborators,libFuzzer property corpus; async callback harness,gcovr --xml-pretty --print-summary,cmake -S . -B build && cmake --build build && ctest --test-dir build --output-on-failure
-mod-004,cargo test,cargo test + rstest cases for library modules,mockall trait mocks,proptest strategies; criterion benchmark group; #[tokio::test] async cases,cargo llvm-cov --summary-only,cargo test
-mod-005,prove -lr t,Test2::V0 subtests + Test::More assertions for script modules,table-driven fixtures with plain Perl helpers,,cover -test,prove -lr t
-mod-010,pytest -q,pytest fixtures + parametrize for service modules,pytest-mock patching for IO boundaries,Hypothesis property tests; pytest-asyncio event loop cases,pytest --cov --cov-report=term-missing,pytest -q
-mod-013,./gradlew test,Kotest FunSpec + MockK seams for api modules,MockK coEvery/coVerify seams,coroutine test dispatcher scenarios,./gradlew koverHtmlReport,./gradlew test koverVerify
-mod-017,go test ./...,table-driven subtests for service modules,interface stubs for IO collaborators,context-aware async subtests,go test ./... -coverprofile=coverage.out,go test ./...
-mod-021,go test ./...,table-driven subtests for cli modules,table-driven fixtures and in-memory fakes,go test fuzz targets; Benchmark* subbenchmarks,go test ./... -coverprofile=coverage.out,go test ./...
-mod-090,ctest --output-on-failure,GoogleTest fixture + CTest target for library modules,GoogleMock interface mock,google-benchmark microbench,gcovr --xml-pretty --print-summary,cmake -S . -B build && cmake --build build && ctest --test-dir build --output-on-failure

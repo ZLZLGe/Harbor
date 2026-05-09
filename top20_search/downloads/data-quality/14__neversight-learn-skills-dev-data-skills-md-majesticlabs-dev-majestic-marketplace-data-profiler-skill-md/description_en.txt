@@ -1,1 +1,0 @@
-Generate data profiles with column stats, correlations, and missing patterns for DataFrames. Use for EDA and data discovery.

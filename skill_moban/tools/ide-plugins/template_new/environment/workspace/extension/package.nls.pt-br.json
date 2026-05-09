@@ -1,7 +1,0 @@
-{
-  "extension.displayName": "Release Briefing Explorer",
-  "extension.description": "Navegue por atualizações do VS Code e exporte resumos.",
-  "command.category": "Release Briefing",
-  "command.export.title": "Export localized briefings",
-  "view.container.title": "Release Briefing"
-}

@@ -1,3 +1,0 @@
-services:
-  main:
-    image: hb__threejs_to_obj_obj_exporter_transfer3

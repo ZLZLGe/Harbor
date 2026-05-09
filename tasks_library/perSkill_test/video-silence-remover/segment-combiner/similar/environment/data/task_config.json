@@ -1,8 +1,0 @@
-{
-  "input_segments": [
-    "/root/data/opening.json",
-    "/root/data/pauses.json"
-  ],
-  "output_json": "/root/lecture_all_segments.json",
-  "summary_json": "/root/lecture_segment_summary.json"
-}

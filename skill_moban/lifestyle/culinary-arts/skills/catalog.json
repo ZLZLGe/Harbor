@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "market-research",
+    "installsRaw": "3.7K",
+    "installs": 3700,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/market-research"
+  },
+  {
+    "slug": "content-engine",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/content-engine"
+  },
+  {
+    "slug": "content-hash-cache-pattern",
+    "installsRaw": "3.2K",
+    "installs": 3200,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/content-hash-cache-pattern"
+  },
+  {
+    "slug": "deep-research",
+    "installsRaw": "3.1K",
+    "installs": 3100,
+    "source": "affaan-m/everything-claude-code",
+    "sourceLower": "affaan-m/everything-claude-code",
+    "stars": 175900,
+    "repoUrl": "https://github.com/affaan-m/everything-claude-code",
+    "skillUrl": "https://skills.sh/affaan-m/everything-claude-code/deep-research"
+  },
+  {
+    "slug": "dogfood",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "nousresearch/hermes-agent",
+    "sourceLower": "nousresearch/hermes-agent",
+    "stars": 135200,
+    "repoUrl": "https://github.com/nousresearch/hermes-agent",
+    "skillUrl": "https://skills.sh/nousresearch/hermes-agent/dogfood"
+  },
+  {
+    "slug": "signed-audit-trails-recipe",
+    "installsRaw": "1.1K",
+    "installs": 1100,
+    "source": "wshobson/agents",
+    "sourceLower": "wshobson/agents",
+    "stars": 35018,
+    "repoUrl": "https://github.com/wshobson/agents",
+    "skillUrl": "https://skills.sh/wshobson/agents/signed-audit-trails-recipe"
+  },
+  {
+    "slug": "recipe-create-presentation",
+    "installsRaw": "12.9K",
+    "installs": 12900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-presentation"
+  },
+  {
+    "slug": "recipe-create-gmail-filter",
+    "installsRaw": "12.6K",
+    "installs": 12600,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-gmail-filter"
+  },
+  {
+    "slug": "recipe-backup-sheet-as-csv",
+    "installsRaw": "12.5K",
+    "installs": 12500,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-backup-sheet-as-csv"
+  },
+  {
+    "slug": "recipe-find-free-time",
+    "installsRaw": "12.4K",
+    "installs": 12400,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-find-free-time"
+  },
+  {
+    "slug": "recipe-save-email-attachments",
+    "installsRaw": "12.4K",
+    "installs": 12400,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-save-email-attachments"
+  },
+  {
+    "slug": "recipe-bulk-download-folder",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-bulk-download-folder"
+  },
+  {
+    "slug": "recipe-compare-sheet-tabs",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-compare-sheet-tabs"
+  },
+  {
+    "slug": "recipe-create-doc-from-template",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-doc-from-template"
+  },
+  {
+    "slug": "recipe-organize-drive-folder",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-organize-drive-folder"
+  },
+  {
+    "slug": "recipe-plan-weekly-schedule",
+    "installsRaw": "12.3K",
+    "installs": 12300,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-plan-weekly-schedule"
+  },
+  {
+    "slug": "recipe-draft-email-from-doc",
+    "installsRaw": "12.2K",
+    "installs": 12200,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-draft-email-from-doc"
+  },
+  {
+    "slug": "recipe-email-drive-link",
+    "installsRaw": "12.2K",
+    "installs": 12200,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-email-drive-link"
+  },
+  {
+    "slug": "recipe-generate-report-from-sheet",
+    "installsRaw": "12.2K",
+    "installs": 12200,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-generate-report-from-sheet"
+  },
+  {
+    "slug": "recipe-reschedule-meeting",
+    "installsRaw": "12.2K",
+    "installs": 12200,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-reschedule-meeting"
+  },
+  {
+    "slug": "recipe-create-shared-drive",
+    "installsRaw": "12.1K",
+    "installs": 12100,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-shared-drive"
+  },
+  {
+    "slug": "recipe-label-and-archive-emails",
+    "installsRaw": "12.1K",
+    "installs": 12100,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-label-and-archive-emails"
+  },
+  {
+    "slug": "recipe-save-email-to-doc",
+    "installsRaw": "12.1K",
+    "installs": 12100,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-save-email-to-doc"
+  },
+  {
+    "slug": "recipe-watch-drive-changes",
+    "installsRaw": "12.1K",
+    "installs": 12100,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-watch-drive-changes"
+  },
+  {
+    "slug": "recipe-block-focus-time",
+    "installsRaw": "12.0K",
+    "installs": 12000,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-block-focus-time"
+  },
+  {
+    "slug": "recipe-copy-sheet-for-new-month",
+    "installsRaw": "12.0K",
+    "installs": 12000,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-copy-sheet-for-new-month"
+  },
+  {
+    "slug": "recipe-create-task-list",
+    "installsRaw": "12.0K",
+    "installs": 12000,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-task-list"
+  },
+  {
+    "slug": "recipe-find-large-files",
+    "installsRaw": "12.0K",
+    "installs": 12000,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-find-large-files"
+  },
+  {
+    "slug": "recipe-schedule-recurring-event",
+    "installsRaw": "12.0K",
+    "installs": 12000,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-schedule-recurring-event"
+  },
+  {
+    "slug": "recipe-batch-invite-to-event",
+    "installsRaw": "11.9K",
+    "installs": 11900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-batch-invite-to-event"
+  },
+  {
+    "slug": "recipe-collect-form-responses",
+    "installsRaw": "11.9K",
+    "installs": 11900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-collect-form-responses"
+  },
+  {
+    "slug": "recipe-create-events-from-sheet",
+    "installsRaw": "11.9K",
+    "installs": 11900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-events-from-sheet"
+  },
+  {
+    "slug": "recipe-review-overdue-tasks",
+    "installsRaw": "11.9K",
+    "installs": 11900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-review-overdue-tasks"
+  },
+  {
+    "slug": "recipe-share-doc-and-notify",
+    "installsRaw": "11.9K",
+    "installs": 11900,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-share-doc-and-notify"
+  },
+  {
+    "slug": "recipe-create-expense-tracker",
+    "installsRaw": "11.8K",
+    "installs": 11800,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-expense-tracker"
+  },
+  {
+    "slug": "recipe-create-meet-space",
+    "installsRaw": "11.8K",
+    "installs": 11800,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-meet-space"
+  },
+  {
+    "slug": "recipe-forward-labeled-emails",
+    "installsRaw": "11.8K",
+    "installs": 11800,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-forward-labeled-emails"
+  },
+  {
+    "slug": "recipe-review-meet-participants",
+    "installsRaw": "11.8K",
+    "installs": 11800,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-review-meet-participants"
+  },
+  {
+    "slug": "recipe-create-feedback-form",
+    "installsRaw": "11.7K",
+    "installs": 11700,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-feedback-form"
+  },
+  {
+    "slug": "recipe-create-vacation-responder",
+    "installsRaw": "11.7K",
+    "installs": 11700,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-vacation-responder"
+  },
+  {
+    "slug": "recipe-post-mortem-setup",
+    "installsRaw": "11.7K",
+    "installs": 11700,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-post-mortem-setup"
+  },
+  {
+    "slug": "recipe-share-folder-with-team",
+    "installsRaw": "11.7K",
+    "installs": 11700,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-share-folder-with-team"
+  },
+  {
+    "slug": "recipe-send-team-announcement",
+    "installsRaw": "11.6K",
+    "installs": 11600,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-send-team-announcement"
+  },
+  {
+    "slug": "recipe-share-event-materials",
+    "installsRaw": "11.6K",
+    "installs": 11600,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-share-event-materials"
+  },
+  {
+    "slug": "recipe-sync-contacts-to-sheet",
+    "installsRaw": "11.6K",
+    "installs": 11600,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-sync-contacts-to-sheet"
+  },
+  {
+    "slug": "recipe-log-deal-update",
+    "installsRaw": "11.5K",
+    "installs": 11500,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-log-deal-update"
+  },
+  {
+    "slug": "recipe-create-classroom-course",
+    "installsRaw": "11.4K",
+    "installs": 11400,
+    "source": "googleworkspace/cli",
+    "sourceLower": "googleworkspace/cli",
+    "stars": 25800,
+    "repoUrl": "https://github.com/googleworkspace/cli",
+    "skillUrl": "https://skills.sh/googleworkspace/cli/recipe-create-classroom-course"
+  },
+  {
+    "slug": "google-cloud-recipe-auth",
+    "installsRaw": "2.2K",
+    "installs": 2200,
+    "source": "google/skills",
+    "sourceLower": "google/skills",
+    "stars": 6700,
+    "repoUrl": "https://github.com/google/skills",
+    "skillUrl": "https://skills.sh/google/skills/google-cloud-recipe-auth"
+  },
+  {
+    "slug": "google-cloud-recipe-onboarding",
+    "installsRaw": "2.0K",
+    "installs": 2000,
+    "source": "google/skills",
+    "sourceLower": "google/skills",
+    "stars": 6700,
+    "repoUrl": "https://github.com/google/skills",
+    "skillUrl": "https://skills.sh/google/skills/google-cloud-recipe-onboarding"
+  },
+  {
+    "slug": "google-cloud-recipe-networking-observability",
+    "installsRaw": "1.9K",
+    "installs": 1900,
+    "source": "google/skills",
+    "sourceLower": "google/skills",
+    "stars": 6700,
+    "repoUrl": "https://github.com/google/skills",
+    "skillUrl": "https://skills.sh/google/skills/google-cloud-recipe-networking-observability"
+  }
+]

@@ -1,7 +1,0 @@
-# Mixed reference identifiers from a collaborator's scratchpad.
-10.1038/171737a0
-25430774
-https://pubmed.ncbi.nlm.nih.gov/25430774/
-1706.03762
-https://arxiv.org/abs/1706.03762
-https://doi.org/10.18653/v1/P17-1147

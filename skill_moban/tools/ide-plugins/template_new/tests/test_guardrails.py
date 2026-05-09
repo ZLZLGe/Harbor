@@ -1,20 +1,26 @@
 from __future__ import annotations
 
-import json
 import hashlib
+import json
 import os
 import re
 from pathlib import Path
 
 WORKSPACE_ROOT = Path(os.environ.get("WORKSPACE_ROOT", "/app/workspace"))
 EXTENSION_ROOT = WORKSPACE_ROOT / "extension"
+DATA_ROOT = Path(os.environ.get("DATA_ROOT", "/app/data"))
 INPUT_HASH_RECORD = Path(os.environ.get("INPUT_HASH_RECORD", "/opt/release-briefing-inputs.sha256"))
+SUPPORTED_LOCALES = ["en", "pt-br", "zh-cn"]
 
 
 def sha256_bytes(path: Path) -> str:
     digest = hashlib.sha256()
     digest.update(path.read_bytes())
     return digest.hexdigest()
+
+
+def read_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def test_input_hashes_match_build_record() -> None:
@@ -30,11 +36,11 @@ def test_input_hashes_match_build_record() -> None:
         assert actual == digest, f"input file changed: {file_path}"
 
 
-def test_locale_files_cover_required_manifest_keys() -> None:
-    manifest = json.loads((EXTENSION_ROOT / "package.json").read_text(encoding="utf-8"))
-    token_keys = set()
+def test_locale_copy_schema_matches_manifest_tokens() -> None:
+    manifest = read_json(EXTENSION_ROOT / "package.json")
+    token_keys: set[str] = set()
 
-    def walk(value):
+    def walk(value: object) -> None:
         if isinstance(value, str):
             token_keys.update(token[1:-1] for token in re.findall(r"%[^%]+%", value))
         elif isinstance(value, list):
@@ -45,31 +51,37 @@ def test_locale_files_cover_required_manifest_keys() -> None:
                 walk(item)
 
     walk(manifest)
-    assert "walkthrough.step.browse.markdown" in token_keys
-    assert "walkthrough.step.export.markdown" in token_keys
-
-    for locale_file in [
-        EXTENSION_ROOT / "package.nls.json",
-        EXTENSION_ROOT / "package.nls.pt-br.json",
-        EXTENSION_ROOT / "package.nls.zh-cn.json",
-    ]:
-        payload = json.loads(locale_file.read_text(encoding="utf-8"))
+    for locale in SUPPORTED_LOCALES:
+        payload = read_json(DATA_ROOT / "locales" / locale / "extension_copy.json")
+        package_copy = payload["package"]
         for key in token_keys:
-            assert key in payload and payload[key], f"missing key {key} in {locale_file.name}"
+            assert package_copy.get(key), f"missing manifest token {key} in {locale} locale copy"
+
+        for key, section_name in [
+            ("walkthrough.step.browse.markdown", "browse"),
+            ("walkthrough.step.export.markdown", "export"),
+            ("walkthrough.step.package.markdown", "package"),
+        ]:
+            relative = package_copy[key]
+            assert relative.startswith(f"./resources/walkthrough/{locale}/"), (
+                f"{locale} walkthrough path should stay in its locale directory"
+            )
+            assert payload["walkthrough"].get(section_name), f"missing walkthrough copy for {locale}:{section_name}"
 
 
-def test_runtime_bundles_share_the_same_keyset() -> None:
+def test_locale_copy_bundles_cover_runtime_strings() -> None:
     extension_source = (EXTENSION_ROOT / "src" / "extension.js").read_text(encoding="utf-8")
     core_source = (EXTENSION_ROOT / "src" / "core.js").read_text(encoding="utf-8")
-    english = json.loads((EXTENSION_ROOT / "l10n" / "bundle.l10n.json").read_text(encoding="utf-8"))
-    pt = json.loads((EXTENSION_ROOT / "l10n" / "bundle.l10n.pt-br.json").read_text(encoding="utf-8"))
-    zh = json.loads((EXTENSION_ROOT / "l10n" / "bundle.l10n.zh-cn.json").read_text(encoding="utf-8"))
-
-    expected_keys = set(english)
+    english_bundle = read_json(DATA_ROOT / "locales" / "en" / "extension_copy.json")["bundle"]
     runtime_keys = set(re.findall(r'vscode\.l10n\.t\(\s*"([^"]+)"', extension_source))
     runtime_keys.update(re.findall(r'bundle\["([^"]+)"\]', core_source))
 
-    missing = sorted(runtime_keys - expected_keys)
-    assert not missing, f"english runtime bundle is missing referenced keys: {missing}"
-    assert set(pt) == expected_keys, "pt-br runtime bundle keys differ from english bundle"
-    assert set(zh) == expected_keys, "zh-cn runtime bundle keys differ from english bundle"
+    assert runtime_keys <= set(english_bundle), "english locale copy is missing runtime strings used in source"
+    assert not re.search(r'bundle\["briefing\.[^"]+"\]', core_source), (
+        "runtime bundle lookups should use English source-string keys"
+    )
+
+    english_keys = set(english_bundle)
+    for locale in ["pt-br", "zh-cn"]:
+        localized_keys = set(read_json(DATA_ROOT / "locales" / locale / "extension_copy.json")["bundle"])
+        assert localized_keys == english_keys, f"{locale} runtime bundle keys differ from english locale copy"
