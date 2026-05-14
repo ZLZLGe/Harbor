@@ -495,10 +495,3 @@ def baseline_data_listing() -> str:
     if candidate.exists():
         return normalize_listing_text(candidate.read_text(encoding="utf-8"), DATA_ROOT)
     return directory_listing(DATA_ROOT)
-
-
-def baseline_skill_listing() -> str:
-    candidate = Path("/opt/task-baselines/axiom-skill.sha256")
-    if candidate.exists():
-        return normalize_listing_text(candidate.read_text(encoding="utf-8"), SKILL_ROOT)
-    return directory_listing(SKILL_ROOT)

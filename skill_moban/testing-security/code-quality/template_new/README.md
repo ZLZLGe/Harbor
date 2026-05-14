@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`code-quality` 类热门 skill 的共同价值，在于帮助 Agent 用稳定的验证顺序覆盖 build、type、lint、test、security scan 和 diff review，并避免停留在单点通过。高质量 skill 往往会强化当前会话命令证据、阻断项归因和最终 gate 决策的一致性。
-* **Task 目标形态**：这类模板适合设计成发布前审计、质量门禁或候选版本评审任务。题面重点应放在交付合同、输入边界、只读约束和最终产物上，把具体排查路径更多留给 skill 与 solver 去识别。
 * **Verifier 设计重点**：verifier 既要确认 build / type / lint / test 等常规门禁被正确执行，也要确认安全扫描和 diff 审查没有被省略或弱化。对照实验应重点观察 with_skill 是否更容易补齐完整验证闭环，以及 without_skill 是否会在动作级判断上遗留至少一项失败。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`code-quality__toolchain-release-readiness-audit`
 - 类别：`code-quality`
-- 难度：`hard`
 - 绑定 Skill：`verification-loop`
 - 输入数据参考来源：
   - `environment/workspace/data/npm/typescript_latest.json`：任务内 TypeScript npm latest 快照；数据形态参考 npm Registry latest package document  
@@ -32,7 +30,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：官方解法直接运行仓库既有 build / type / lint / test 路径，再补上 `security_scan` 与 `diff_review` 两个 gate，最后生成结构化 JSON 报告。oracle 以当前容器里的实际命令结果为准，不依赖隐藏答案文件。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier 策略：
 
 主测试
@@ -50,9 +48,9 @@
 
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| Input immutability | `environment/workspace/data` 哈希不得变化 |
-| Skill immutability | `/root/.codex/skills` 载荷哈希不得变化 |
-| Candidate diff immutability | 仓库原始 tracked diff 哈希不得变化 |
+| Input immutability | `environment/workspace/data` 不可修改 |
+| Skill availability | `/root/.codex/skills` 在 with-skill 运行时可读，并作为只读工作流参考 |
+| Candidate diff immutability | 仓库原始 tracked diff 不可修改 |
 
 ### ⚡ Skill 相关性评估
 

@@ -1,182 +1,114 @@
 {
-  "task_id": "productivity_tools__developer_feed_digest",
+  "task_id": "productivity_tools__engineering_release_watch_digest",
   "category": "productivity-tools",
-  "design_status": "complete",
+  "task_role": "template",
+  "difficulty": "hard",
+  "primary_output_file": "/app/output/engineering_release_digest.md",
   "selected_skill": {
-    "name": "blogwatcher",
-    "local_path": "environment/skills/blogwatcher/SKILL.md",
-    "source_skill_path": "https://skillsmp.com/zh/skills/openclaw-openclaw-skills-blogwatcher-skill-md",
-    "skillsmp_reference": "blogwatcher",
-    "skillsmp_stars": "367,621",
-    "selection_reason": "This skill matches a public feed-monitoring workflow, uses low-sensitivity inputs, and does not depend on private accounts or external workspace permissions."
-  },
-  "design_goals": [
-    "Keep the task as a monitoring and digest-construction task rather than a repair task.",
-    "Make with-skill and without-skill differ only through environment/skills and the corresponding runtime skill-copy behavior.",
-    "Force action-level work around feed discovery, cross-format scanning, duplicate handling, and article-level triage."
-  ],
-  "input_data": [
-    {
-      "path": "environment/data/mirror/site/feeds/github-changelog.xml",
-      "source": "https://github.blog/changelog/feed/",
-      "notes": "Selected RSS entries derived from the GitHub Changelog feed."
-    },
-    {
-      "path": "environment/data/mirror/site/feeds/github-changelog-team.atom",
-      "source": "https://github.blog/changelog/feed/",
-      "notes": "Selected Atom-style mirror of the same public feed to create duplicate references across source aliases."
-    },
-    {
-      "path": "environment/data/mirror/site/feeds/github-blog.xml",
-      "source": "https://github.blog/feed/",
-      "notes": "Selected GitHub Blog entries covering security, tutorials, and company updates."
-    },
-    {
-      "path": "environment/data/mirror/site/feeds/python-blog.atom",
-      "source": "https://blog.python.org/feeds/posts/default",
-      "notes": "Selected Python Insider entries covering releases, prereleases, and project updates."
-    },
-    {
-      "path": "environment/data/mirror/site/feeds/node-blog.xml",
-      "source": "https://nodejs.org/en/feed/blog.xml",
-      "notes": "Selected Node.js Blog entries covering LTS releases, event recaps, and security program updates."
-    },
-    {
-      "path": "environment/data/mirror/site/feeds/docker-blog.xml",
-      "source": "https://www.docker.com/blog/feed/",
-      "notes": "Selected Docker Blog entries covering supply-chain security analysis and product-marketing posts."
-    }
-  ],
-  "task_shape": {
-    "service_type": "local mirrored feed-monitoring workspace",
-    "runtime": "single container with an internal static HTTP service and optional skill-installed CLI",
-    "solver_action": "scan mirrored feeds, merge duplicate article references, classify the in-scope items, and deliver the digest outputs",
-    "required_outputs": [
-      "/app/output/feed_digest.json",
-      "/app/output/feed_digest.md"
+    "dir": "blogwatcher",
+    "purpose": "Use a feed-monitoring workflow to onboard tracked sources, resolve feed inputs, scan for unread items, and preserve read-state across repeated digest runs.",
+    "skillsmp_references": [
+      {
+        "name": "blogwatcher",
+        "stars": "370.5k",
+        "relevance": "Direct match for watch-list setup, source scanning, article review, and read-state handling."
+      },
+      {
+        "name": "taskflow",
+        "stars": "370.5k",
+        "relevance": "Adjacent productivity workflow around durable multi-step execution and state-aware reruns."
+      },
+      {
+        "name": "clawhub",
+        "stars": "370.5k",
+        "relevance": "Adjacent registry-oriented workflow with repeatable CLI operations and local state."
+      },
+      {
+        "name": "data-scraper-agent",
+        "stars": "177.6k",
+        "relevance": "Adjacent public-source collection workflow that reinforces source normalization and repeatable extraction."
+      }
     ]
   },
-  "intended_failures": [
-    "Naive parsers miss Atom entries or relative links and leave out actionable items.",
-    "Naive digest builders skip article-level canonicalization and fail to merge duplicate references.",
-    "Naive classification logic keeps tutorials, event posts, and marketing material in the final digest.",
-    "Naive output generation omits skipped duplicate records or mislabels before-checkpoint items."
-  ],
-  "verifier_focus": [
-    "Recompute the expected digest independently from the mirrored feeds and article pages.",
-    "Check that duplicate relevant references are merged by canonical URL while duplicate skip records are still present.",
-    "Check that publication-time filtering follows the checkpoint file rather than feed order alone.",
-    "Protect the input mirror files and skill definition from solver edits.",
-    "Require both the structured JSON digest and the markdown brief."
-  ],
-  "with_without_difference_policy": "Only environment/skills/ and the corresponding runtime skill-copy logic may differ between with-skill and without-skill variants.",
-  "iteration_notes": [
-    "Do not modify the selected skill.",
-    "Do not rewrite the task into a repair scenario.",
-    "without-skill failure should stay action-level, with at least one verifier miss outside trivial formatting drift.",
-    "README comparison metrics will be filled after completed task-level experiments."
-  ],
-  "oracle_validation": {
-    "local_verifier_command": "TASK_APP_ROOT=/home/lenovo/skill/Harbor/skill_moban/tools/productivity-tools/template_new/environment TASK_SKILL_ROOT=/home/lenovo/skill/Harbor/skill_moban/tools/productivity-tools/template_new/environment/skills TASK_INPUT_HASH_PATH=/home/lenovo/skill/Harbor/skill_moban/tools/productivity-tools/template_new/environment/runtime/input.sha256 TASK_SKILL_HASH_PATH=/home/lenovo/skill/Harbor/skill_moban/tools/productivity-tools/template_new/environment/runtime/skill.sha256 PYTHONPATH=/home/lenovo/skill/Harbor/skill_moban/tools/productivity-tools/template_new/tests python3 -m unittest discover -s /home/lenovo/skill/Harbor/skill_moban/tools/productivity-tools/template_new/tests -p 'test_*.py'",
-    "local_verifier_result": "10/10 tests passed",
+  "source_data": {
+    "registry_file": "environment/release_watch/data/watch_targets.csv",
+    "references": [
+      {
+        "local_path": "environment/release_watch/data/mirror/uv-releases/feed.atom",
+        "source_url": "https://github.com/astral-sh/uv/releases.atom"
+      },
+      {
+        "local_path": "environment/release_watch/data/mirror/nodejs-blog/feed.xml",
+        "source_url": "https://nodejs.org/en/feed/blog.xml"
+      },
+      {
+        "local_path": "environment/release_watch/data/mirror/github-blog-changelog/feed.xml",
+        "source_url": "https://github.blog/changelog/feed/"
+      },
+      {
+        "local_path": "environment/release_watch/data/mirror/typescript-releases/feed.atom",
+        "source_url": "https://github.com/microsoft/typescript/releases.atom"
+      }
+    ]
+  },
+  "environment_design": {
+    "shape": "single Docker container",
+    "live_services": [],
+    "determinism": "The task ships a fixed draft digest, a fixed contract, a fixed tracked-source registry, and bundled HTML plus RSS/Atom snapshots. The verifier recomputes the expected digest, inventory, and manifest from those local inputs and checks a repeated-run state transition on the same workspace.",
+    "anti_toy_features": [
+      "mixed discovery modes: some sources resolve feeds from a homepage snapshot while others rely on an explicit feed override",
+      "mixed content formats: both RSS and Atom must be parsed correctly",
+      "repeat-run behavior: the same unchanged bundle must produce no new digest items on the second run",
+      "formal local build entrypoint must stay reusable instead of being bypassed by a one-off output dump",
+      "alternate-fixture test mutates a source feed so the build must react to changed inputs"
+    ]
+  },
+  "verifier_design": {
+    "main_tests": [
+      "formal build entrypoint produces exactly the required digest, inventory, and manifest",
+      "digest bullets match the unread article set derived from the bundled feeds and preserve the draft shell",
+      "inventory rows match the resolved feed locations, formats, counts, and latest timestamps from the local mirror",
+      "second run over unchanged inputs emits no new items because state is preserved in the workspace",
+      "alternate fixture changes the feed snapshot and forces the digest and manifest to change"
+    ],
+    "guardrails": [
+      "input release-watch bundle remains unchanged",
+      "output directory contains only the required deliverables",
+      "outputs do not contain placeholder residue or verifier-oriented text"
+    ]
+  },
+  "expected_skill_effect": {
+    "without_skill": "Without the blogwatcher workflow and task-local feed-discovery helper, agents are more likely to stop after a partial parser, skip one of discovery or state handling, or emit a digest that never transitions items from unread to read.",
+    "with_skill": "The skill gives the agent a concrete loop for source onboarding, scanning, article review, and read-state transitions, which materially improves the odds of finishing the repeated-run workflow end to end."
+  },
+  "experiment_results": {
+    "oracle_e2b_reward": 1.0,
+    "oracle_job": "/home/lenovo/skill/Harbor/skill_moban/e2b_jobs/prodtools-releasewatch-oracle-r8-20260514",
+    "valid_comparison_runs": 3,
+    "with_skill": {
+      "pass_rate": "100.0%",
+      "mean_agent_trajectory_sec": 380.659499,
+      "mean_tokens_prompt_plus_completion": 368039,
+      "rewards": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "without_skill": {
+      "pass_rate": "0.0%",
+      "mean_agent_trajectory_sec": 264.932226,
+      "mean_tokens_prompt_plus_completion": 421019,
+      "rewards": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
     "notes": [
-      "The oracle independently recomputes the digest from mirrored feeds and article pages.",
-      "The with-skill and without-skill variants use the same task, tests, data, dependencies, and instruction; only environment/skills presence differs."
-    ]
-  },
-  "final_experiments": {
-    "counting_rule": "Recent valid task-level runs with complete agent trajectories; startup-only failures were excluded.",
-    "with_skill_runs": [
-      {
-        "run_id": "with_pass1",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-230639_with_pass1",
-        "trial_dir": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-230639_with_pass1/productivity_blogwatcher_20260505-230639_with_pass1/task_with_skills_e2b__kJUAtpy",
-        "reward": 1.0,
-        "agent_duration_sec": 228.0,
-        "prompt_tokens": 244701,
-        "cache_tokens": 194560,
-        "completion_tokens": 10909
-      },
-      {
-        "run_id": "with_pass2",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232235_with_pass2",
-        "trial_dir": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232235_with_pass2/productivity_blogwatcher_20260505-232235_with_pass2/task_with_skills_e2b__ac8KJeC",
-        "reward": 1.0,
-        "agent_duration_sec": 370.9,
-        "prompt_tokens": 409838,
-        "cache_tokens": 306688,
-        "completion_tokens": 19078
-      },
-      {
-        "run_id": "with_pass3b",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232826_with_pass3b",
-        "trial_dir": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232826_with_pass3b/productivity_blogwatcher_20260505-232826_with_pass3b/task_with_skills_e2b__vdciTGU",
-        "reward": 1.0,
-        "agent_duration_sec": 239.4,
-        "prompt_tokens": 204173,
-        "cache_tokens": 113152,
-        "completion_tokens": 10508,
-        "artifact_note": "Verifier reward, verifier output, and complete trajectory were present; Harbor summary result.json was not emitted for this run."
-      }
-    ],
-    "without_skill_runs": [
-      {
-        "run_id": "without_pass1",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-231444_without_pass1",
-        "trial_dir": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-231444_without_pass1/productivity_blogwatcher_20260505-231444_without_pass1/task_without_skills_e2b__YB5PSEY",
-        "reward": 0.0,
-        "agent_duration_sec": 315.2,
-        "prompt_tokens": 333352,
-        "cache_tokens": 221696,
-        "completion_tokens": 15866,
-        "failure_summary": "Misclassified one deprecation item priority and placed it in the wrong markdown priority section."
-      },
-      {
-        "run_id": "without_pass2",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232235_without_pass2",
-        "trial_dir": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232235_without_pass2/productivity_blogwatcher_20260505-232235_without_pass2/task_without_skills_e2b__ugt6DgA",
-        "reward": 0.0,
-        "agent_duration_sec": 244.2,
-        "prompt_tokens": 244437,
-        "cache_tokens": 200704,
-        "completion_tokens": 10134,
-        "failure_summary": "Skipped-item records were incomplete, leaving verifier-visible misses outside formatting drift."
-      },
-      {
-        "run_id": "without_pass4",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-233625_without_pass4",
-        "trial_dir": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-233625_without_pass4/productivity_blogwatcher_20260505-233625_without_pass4/task_without_skills_e2b__6md2Vq8",
-        "reward": 1.0,
-        "agent_duration_sec": 293.8,
-        "prompt_tokens": 343941,
-        "cache_tokens": 218112,
-        "completion_tokens": 14669
-      }
-    ],
-    "aggregate": {
-      "with_skill_pass_rate": "3/3",
-      "without_skill_pass_rate": "1/3",
-      "with_skill_avg_agent_duration_sec": 279.4,
-      "without_skill_avg_agent_duration_sec": 284.4,
-      "with_skill_avg_total_tokens": 504536,
-      "without_skill_avg_total_tokens": 534304
-    },
-    "excluded_runs": [
-      {
-        "run_id": "with_pass3",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232619_with_pass3",
-        "reason": "Background launcher path did not produce a task-level trial."
-      },
-      {
-        "run_id": "without_pass3",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232619_without_pass3",
-        "reason": "Background launcher path did not produce a task-level trial."
-      },
-      {
-        "run_id": "without_pass3b",
-        "job_root": "/home/lenovo/.tmp_harbor_jobs_productivity_blogwatcher_20260505-232826_without_pass3b",
-        "reason": "Agent rollout completed, but verifier artifacts did not fully materialize, so the run was excluded from aggregate comparison."
-      }
+      "Effective runs used pair1 seq2d plus pair2/pair3 seq5d. Earlier build-cancel and verifier-only intermediary trials were excluded from the comparison summary.",
+      "Across all three without-skill runs, the agent finished digest and inventory generation but stopped short of persisting source-level tracker state, so the task kept at least one action-level verifier failure.",
+      "With-skill experimental runtime copies added a temporary reminder to inspect /root/.codex/skills and keep source-level tracker entries in state. The final submitted template does not include that reminder."
     ]
   }
 }

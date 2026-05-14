@@ -1,13 +1,19 @@
+---
+name: django-tdd
+description: Django testing strategies with pytest-django, TDD methodology, factory_boy, mocking, coverage, and testing Django REST Framework APIs.
+origin: ECC
+---
+
 # Django Testing with TDD
 
-Test-driven development for Django applications using pytest, factory\_boy, and Django REST Framework.
+Test-driven development for Django applications using pytest, factory_boy, and Django REST Framework.
 
 ## When to Activate
 
-* Writing new Django applications
-* Implementing Django REST Framework APIs
-* Testing Django models, views, and serializers
-* Setting up testing infrastructure for Django projects
+- Writing new Django applications
+- Implementing Django REST Framework APIs
+- Testing Django models, views, and serializers
+- Setting up testing infrastructure for Django projects
 
 ## TDD Workflow for Django
 
@@ -25,7 +31,6 @@ def test_user_creation():
 # Create User model or factory
 
 # Step 3: REFACTOR - Improve while keeping tests green
-
 ```
 
 ## Setup
@@ -50,7 +55,6 @@ addopts =
 markers =
     slow: marks tests as slow
     integration: marks tests as integration tests
-
 ```
 
 ### Test Settings
@@ -88,7 +92,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Celery always eager
 CELERY_TASK_ALWAYS_EAGER = True
 CELERY_TASK_EAGER_PROPAGATES = True
-
 ```
 
 ### conftest.py
@@ -141,7 +144,6 @@ def authenticated_api_client(api_client, user):
     """Return authenticated API client."""
     api_client.force_authenticate(user=user)
     return api_client
-
 ```
 
 ## Factory Boy
@@ -204,7 +206,6 @@ class ProductFactory(factory.django.DjangoModelFactory):
         if extracted:
             for tag in extracted:
                 self.tags.add(tag)
-
 ```
 
 ### Using Factories
@@ -231,7 +232,6 @@ def test_multiple_products():
     """Test creating multiple products."""
     products = ProductFactory.create_batch(10)
     assert len(products) == 10
-
 ```
 
 ## Model Testing
@@ -308,7 +308,6 @@ class TestProductModel:
 
         with pytest.raises(ValueError):
             product.reduce_stock(10)  # Not enough stock
-
 ```
 
 ## View Testing
@@ -369,7 +368,6 @@ class TestProductViews:
 
         assert response.status_code == 302
         assert Product.objects.filter(name='Test Product').exists()
-
 ```
 
 ## DRF API Testing
@@ -440,7 +438,6 @@ class TestProductSerializer:
 
         assert not serializer.is_valid()
         assert 'stock' in serializer.errors
-
 ```
 
 ### API ViewSet Testing
@@ -547,7 +544,6 @@ class TestProductAPI:
 
         assert response.status_code == status.HTTP_200_OK
         assert response.data['count'] == 1
-
 ```
 
 ## Mocking and Patching
@@ -594,7 +590,6 @@ class TestPaymentView:
 
         assert response.status_code == 302
         assert 'error' in response.url
-
 ```
 
 ### Mocking Email Sending
@@ -612,7 +607,6 @@ def test_order_confirmation_email(db, order):
     assert len(mail.outbox) == 1
     assert order.user.email in mail.outbox[0].to
     assert 'Order Confirmation' in mail.outbox[0].subject
-
 ```
 
 ## Integration Testing
@@ -669,31 +663,30 @@ class TestCheckoutFlow:
 
         assert response.status_code == 302
         assert Order.objects.filter(user__email='test@example.com').exists()
-
 ```
 
 ## Testing Best Practices
 
 ### DO
 
-* **Use factories**: Instead of manual object creation
-* **One assertion per test**: Keep tests focused
-* **Descriptive test names**: `test_user_cannot_delete_others_post`
-* **Test edge cases**: Empty inputs, None values, boundary conditions
-* **Mock external services**: Don't depend on external APIs
-* **Use fixtures**: Eliminate duplication
-* **Test permissions**: Ensure authorization works
-* **Keep tests fast**: Use `--reuse-db` and `--nomigrations`
+- **Use factories**: Instead of manual object creation
+- **One assertion per test**: Keep tests focused
+- **Descriptive test names**: `test_user_cannot_delete_others_post`
+- **Test edge cases**: Empty inputs, None values, boundary conditions
+- **Mock external services**: Don't depend on external APIs
+- **Use fixtures**: Eliminate duplication
+- **Test permissions**: Ensure authorization works
+- **Keep tests fast**: Use `--reuse-db` and `--nomigrations`
 
 ### DON'T
 
-* **Don't test Django internals**: Trust Django to work
-* **Don't test third-party code**: Trust libraries to work
-* **Don't ignore failing tests**: All tests must pass
-* **Don't make tests dependent**: Tests should run in any order
-* **Don't over-mock**: Mock only external dependencies
-* **Don't test private methods**: Test public interface
-* **Don't use production database**: Always use test database
+- **Don't test Django internals**: Trust Django to work
+- **Don't test third-party code**: Trust libraries to work
+- **Don't ignore failing tests**: All tests must pass
+- **Don't make tests dependent**: Tests should run in any order
+- **Don't over-mock**: Mock only external dependencies
+- **Don't test private methods**: Test public interface
+- **Don't use production database**: Always use test database
 
 ## Coverage
 
@@ -705,33 +698,32 @@ pytest --cov=apps --cov-report=html --cov-report=term-missing
 
 # Generate HTML report
 open htmlcov/index.html
-
 ```
 
 ### Coverage Goals
 
-| Component   | Target Coverage |
-| ----------- | --------------- |
-| Models      | 90%+            |
-| Serializers | 85%+            |
-| Views       | 80%+            |
-| Services    | 90%+            |
-| Utilities   | 80%+            |
-| Overall     | 80%+            |
+| Component | Target Coverage |
+|-----------|-----------------|
+| Models | 90%+ |
+| Serializers | 85%+ |
+| Views | 80%+ |
+| Services | 90%+ |
+| Utilities | 80%+ |
+| Overall | 80%+ |
 
 ## Quick Reference
 
-| Pattern                  | Usage                          |
-| ------------------------ | ------------------------------ |
-| @pytest.mark.django\_db  | Enable database access         |
-| client                   | Django test client             |
-| api\_client              | DRF API client                 |
-| factory.create\_batch(n) | Create multiple objects        |
-| patch('module.function') | Mock external dependencies     |
-| override\_settings       | Temporarily change settings    |
-| force\_authenticate()    | Bypass authentication in tests |
-| assertRedirects          | Check for redirects            |
-| assertTemplateUsed       | Verify template usage          |
-| mail.outbox              | Check sent emails              |
+| Pattern | Usage |
+|---------|-------|
+| `@pytest.mark.django_db` | Enable database access |
+| `client` | Django test client |
+| `api_client` | DRF API client |
+| `factory.create_batch(n)` | Create multiple objects |
+| `patch('module.function')` | Mock external dependencies |
+| `override_settings` | Temporarily change settings |
+| `force_authenticate()` | Bypass authentication in tests |
+| `assertRedirects` | Check for redirects |
+| `assertTemplateUsed` | Verify template usage |
+| `mail.outbox` | Check sent emails |
 
 Remember: Tests are documentation. Good tests explain how your code should work. Keep them simple, readable, and maintainable.

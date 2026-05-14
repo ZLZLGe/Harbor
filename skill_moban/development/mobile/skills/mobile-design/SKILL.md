@@ -1,14 +1,23 @@
+---
+name: mobile-design
+description: "(Mobile-First · Touch-First · Platform-Respectful)"
+risk: unknown
+source: community
+date_added: "2026-02-27"
+---
 # Mobile Design System
 
 **(Mobile-First · Touch-First · Platform-Respectful)**
 
-> **Philosophy:** Touch-first. Battery-conscious. Platform-respectful. Offline-capable. **Core Law:** Mobile is NOT a small desktop. **Operating Rule:** Think constraints first, aesthetics second.
+> **Philosophy:** Touch-first. Battery-conscious. Platform-respectful. Offline-capable.
+> **Core Law:** Mobile is NOT a small desktop.
+> **Operating Rule:** Think constraints first, aesthetics second.
 
 This skill exists to **prevent desktop-thinking, AI-defaults, and unsafe assumptions** when designing or building mobile applications.
 
 ---
 
-## 1\. Mobile Feasibility & Risk Index (MFRI)
+## 1. Mobile Feasibility & Risk Index (MFRI)
 
 Before designing or implementing **any mobile feature or screen**, assess feasibility.
 
@@ -24,10 +33,9 @@ Before designing or implementing **any mobile feature or screen**, assess feasib
 
 ### Score Formula
 
-```text
+```
 MFRI = (Platform Clarity + Accessibility Readiness)
        − (Interaction Complexity + Performance Risk + Offline Dependence)
-
 ```
 
 **Range:** `-10 → +10`
@@ -43,7 +51,7 @@ MFRI = (Platform Clarity + Accessibility Readiness)
 
 ---
 
-## 2\. Mandatory Thinking Before Any Work
+## 2. Mandatory Thinking Before Any Work
 
 ### ⛔ STOP: Ask Before Assuming (Required)
 
@@ -62,7 +70,7 @@ If **any of the following are not explicitly stated**, you MUST ask before proce
 
 ---
 
-## 3\. Mandatory Reference Reading (Enforced)
+## 3. Mandatory Reference Reading (Enforced)
 
 ### Universal (Always Read First)
 
@@ -87,7 +95,7 @@ If **any of the following are not explicitly stated**, you MUST ask before proce
 
 ---
 
-## 4\. AI Mobile Anti-Patterns (Hard Bans)
+## 4. AI Mobile Anti-Patterns (Hard Bans)
 
 ### 🚫 Performance Sins (Non-Negotiable)
 
@@ -125,9 +133,9 @@ If **any of the following are not explicitly stated**, you MUST ask before proce
 
 ---
 
-## 5\. Platform Unification vs Divergence Matrix
+## 5. Platform Unification vs Divergence Matrix
 
-```text
+```
 UNIFY                          DIVERGE
 ──────────────────────────     ─────────────────────────
 Business logic                Navigation behavior
@@ -135,7 +143,6 @@ Data models                    Gestures
 API contracts                  Icons
 Validation                     Typography
 Error semantics                Pickers / dialogs
-
 ```
 
 ### Platform Defaults
@@ -150,7 +157,7 @@ Error semantics                Pickers / dialogs
 
 ---
 
-## 6\. Mobile UX Psychology (Non-Optional)
+## 6. Mobile UX Psychology (Non-Optional)
 
 ### Fitts’ Law (Touch Reality)
 
@@ -166,7 +173,7 @@ Error semantics                Pickers / dialogs
 
 ---
 
-## 7\. Performance Doctrine
+## 7. Performance Doctrine
 
 ### React Native (Required Pattern)
 
@@ -190,7 +197,6 @@ const renderItem = useCallback(
     index: i,
   })}
 />
-
 ```
 
 ### Flutter (Required Pattern)
@@ -204,7 +210,6 @@ class Item extends StatelessWidget {
     return const Text('Static');
   }
 }
-
 ```
 
 * `const` everywhere possible
@@ -212,11 +217,11 @@ class Item extends StatelessWidget {
 
 ---
 
-## 8\. Mandatory Mobile Checkpoint
+## 8. Mandatory Mobile Checkpoint
 
 Before writing **any code**, you must complete this:
 
-```text
+```
 🧠 MOBILE CHECKPOINT
 
 Platform:     ___________
@@ -231,43 +236,41 @@ Files Read:   ___________
 Anti-Patterns I Will Avoid:
 1.
 2.
-
 ```
 
 ❌ Cannot complete → go back and read.
 
 ---
 
-## 9\. Framework Decision Tree (Canonical)
+## 9. Framework Decision Tree (Canonical)
 
-```text
+```
 Need OTA + web team → React Native + Expo
 High-perf UI → Flutter
 iOS only → SwiftUI
 Android only → Compose
-
 ```
 
 No debate without justification.
 
 ---
 
-## 10\. Release Readiness Checklist
+## 10. Release Readiness Checklist
 
 ### Before Shipping
 
-* Touch targets ≥ 44–48px
-* Offline handled
-* Secure storage used
-* Lists optimized
-* Logs stripped
-* Tested on low-end devices
-* Accessibility labels present
-* MFRI ≥ 3
+* [ ] Touch targets ≥ 44–48px
+* [ ] Offline handled
+* [ ] Secure storage used
+* [ ] Lists optimized
+* [ ] Logs stripped
+* [ ] Tested on low-end devices
+* [ ] Accessibility labels present
+* [ ] MFRI ≥ 3
 
 ---
 
-## 11\. Related Skills
+## 11. Related Skills
 
 * **frontend-design** – Visual systems & components
 * **frontend-dev-guidelines** – RN/TS architecture
@@ -276,16 +279,16 @@ No debate without justification.
 
 ---
 
-> **Final Law:**Mobile users are distracted, interrupted, and impatient—often using one hand on a bad network with low battery. **Design for that reality, or your app will fail quietly.**
+> **Final Law:**
+> Mobile users are distracted, interrupted, and impatient—often using one hand on a bad network with low battery.
+> **Design for that reality, or your app will fail quietly.**
 
 ---
 
 ## When to Use
-
 This skill is applicable to execute the workflow or actions described in the overview.
 
 ## Limitations
-
-* Use this skill only when the task clearly matches the scope described above.
-* Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
-* Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

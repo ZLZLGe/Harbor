@@ -1,14 +1,20 @@
+---
+name: django-security
+description: Django security best practices, authentication, authorization, CSRF protection, SQL injection prevention, XSS prevention, and secure deployment configurations.
+origin: ECC
+---
+
 # Django Security Best Practices
 
 Comprehensive security guidelines for Django applications to protect against common vulnerabilities.
 
 ## When to Activate
 
-* Setting up Django authentication and authorization
-* Implementing user permissions and roles
-* Configuring production security settings
-* Reviewing Django application for security issues
-* Deploying Django applications to production
+- Setting up Django authentication and authorization
+- Implementing user permissions and roles
+- Configuring production security settings
+- Reviewing Django application for security issues
+- Deploying Django applications to production
 
 ## Core Security Settings
 
@@ -62,7 +68,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 ```
 
 ## Authentication
@@ -93,7 +98,6 @@ class User(AbstractUser):
 
 # settings/base.py
 AUTH_USER_MODEL = 'users.User'
-
 ```
 
 ### Password Hashing
@@ -106,7 +110,6 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
-
 ```
 
 ### Session Management
@@ -118,7 +121,6 @@ SESSION_CACHE_ALIAS = 'default'
 SESSION_COOKIE_AGE = 3600 * 24 * 7  # 1 week
 SESSION_SAVE_EVERY_REQUEST = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Better UX, but less secure
-
 ```
 
 ## Authorization
@@ -157,7 +159,6 @@ class PostUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     def get_queryset(self):
         """Only allow users to edit their own posts."""
         return Post.objects.filter(author=self.request.user)
-
 ```
 
 ### Custom Permissions
@@ -190,7 +191,6 @@ class IsVerifiedUser(permissions.BasePermission):
 
     def has_permission(self, request, view):
         return request.user and request.user.is_authenticated and request.user.is_verified
-
 ```
 
 ### Role-Based Access Control (RBAC)
@@ -222,7 +222,6 @@ class AdminRequiredMixin:
             from django.core.exceptions import PermissionDenied
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
-
 ```
 
 ## SQL Injection Prevention
@@ -253,7 +252,6 @@ def search_users_complex(query):
         Q(username__icontains=query) |
         Q(email__icontains=query)
     )  # Safe
-
 ```
 
 ### Extra Security with raw()
@@ -264,7 +262,6 @@ User.objects.raw(
     'SELECT * FROM users WHERE email = %s AND status = %s',
     [user_input_email, status]
 )
-
 ```
 
 ## XSS Prevention
@@ -286,7 +283,6 @@ User.objects.raw(
 <script>
     var username = {{ username|escapejs }};
 </script>
-
 ```
 
 ### Safe String Handling
@@ -307,8 +303,7 @@ def render_good(user_input):
 from django.utils.html import format_html
 
 def greet_user(username):
-    return format_html('{}', escape(username))
-
+    return format_html('<span class="user">{}</span>', escape(username))
 ```
 
 ### HTTP Headers
@@ -333,7 +328,6 @@ class SecurityHeaderMiddleware:
         response['X-XSS-Protection'] = '1; mode=block'
         response['Content-Security-Policy'] = "default-src 'self'"
         return response
-
 ```
 
 ## CSRF Protection
@@ -378,7 +372,6 @@ fetch('/api/endpoint/', {
     },
     body: JSON.stringify(data)
 });
-
 ```
 
 ### Exempting Views (Use Carefully)
@@ -390,7 +383,6 @@ from django.views.decorators.csrf import csrf_exempt
 def webhook_view(request):
     # Webhook from external service
     pass
-
 ```
 
 ## File Upload Security
@@ -420,7 +412,6 @@ class Document(models.Model):
         upload_to='documents/',
         validators=[validate_file_extension, validate_file_size]
     )
-
 ```
 
 ### Secure File Storage
@@ -436,7 +427,6 @@ MEDIA_DOMAIN = 'https://media.example.com'
 # Don't serve user uploads directly
 # Use whitenoise or a CDN for static files
 # Use a separate server or S3 for media files
-
 ```
 
 ## API Security
@@ -467,7 +457,6 @@ class BurstRateThrottle(UserRateThrottle):
 class SustainedRateThrottle(UserRateThrottle):
     scope = 'sustained'
     rate = '1000/day'
-
 ```
 
 ### Authentication for APIs
@@ -493,7 +482,6 @@ from rest_framework.permissions import IsAuthenticated
 @permission_classes([IsAuthenticated])
 def protected_view(request):
     return Response({'message': 'You are authenticated'})
-
 ```
 
 ## Security Headers
@@ -523,7 +511,6 @@ class CSPMiddleware:
             f"connect-src {CSP_CONNECT_SRC}"
         )
         return response
-
 ```
 
 ## Environment Variables
@@ -551,7 +538,6 @@ DEBUG=False
 SECRET_KEY=your-secret-key-here
 DATABASE_URL=postgresql://user:password@localhost:5432/dbname
 ALLOWED_HOSTS=example.com,www.example.com
-
 ```
 
 ## Logging Security Events
@@ -585,24 +571,23 @@ LOGGING = {
         },
     },
 }
-
 ```
 
 ## Quick Security Checklist
 
-| Check               | Description                                           |
-| ------------------- | ----------------------------------------------------- |
-| DEBUG = False       | Never run with DEBUG in production                    |
-| HTTPS only          | Force SSL, secure cookies                             |
-| Strong secrets      | Use environment variables for SECRET\_KEY             |
-| Password validation | Enable all password validators                        |
-| CSRF protection     | Enabled by default, don't disable                     |
-| XSS prevention      | Django auto-escapes, don't use \|safe with user input |
-| SQL injection       | Use ORM, never concatenate strings in queries         |
-| File uploads        | Validate file type and size                           |
-| Rate limiting       | Throttle API endpoints                                |
-| Security headers    | CSP, X-Frame-Options, HSTS                            |
-| Logging             | Log security events                                   |
-| Updates             | Keep Django and dependencies updated                  |
+| Check | Description |
+|-------|-------------|
+| `DEBUG = False` | Never run with DEBUG in production |
+| HTTPS only | Force SSL, secure cookies |
+| Strong secrets | Use environment variables for SECRET_KEY |
+| Password validation | Enable all password validators |
+| CSRF protection | Enabled by default, don't disable |
+| XSS prevention | Django auto-escapes, don't use `&#124;safe` with user input |
+| SQL injection | Use ORM, never concatenate strings in queries |
+| File uploads | Validate file type and size |
+| Rate limiting | Throttle API endpoints |
+| Security headers | CSP, X-Frame-Options, HSTS |
+| Logging | Log security events |
+| Updates | Keep Django and dependencies updated |
 
 Remember: Security is a process, not a product. Regularly review and update your security practices.

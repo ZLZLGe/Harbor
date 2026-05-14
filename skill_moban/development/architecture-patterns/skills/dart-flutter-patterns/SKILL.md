@@ -1,20 +1,24 @@
+---
+name: dart-flutter-patterns
+description: Production-ready Dart and Flutter patterns covering null safety, immutable state, async composition, widget architecture, popular state management frameworks (BLoC, Riverpod, Provider), GoRouter navigation, Dio networking, Freezed code generation, and clean architecture.
+origin: ECC
+---
+
 # Dart/Flutter Patterns
 
 ## When to Use
 
 Use this skill when:
-
-* Starting a new Flutter feature and need idiomatic patterns for state management, navigation, or data access
-* Reviewing or writing Dart code and need guidance on null safety, sealed types, or async composition
-* Setting up a new Flutter project and choosing between BLoC, Riverpod, or Provider
-* Implementing secure HTTP clients, WebView integration, or local storage
-* Writing tests for Flutter widgets, Cubits, or Riverpod providers
-* Wiring up GoRouter with authentication guards
+- Starting a new Flutter feature and need idiomatic patterns for state management, navigation, or data access
+- Reviewing or writing Dart code and need guidance on null safety, sealed types, or async composition
+- Setting up a new Flutter project and choosing between BLoC, Riverpod, or Provider
+- Implementing secure HTTP clients, WebView integration, or local storage
+- Writing tests for Flutter widgets, Cubits, or Riverpod providers
+- Wiring up GoRouter with authentication guards
 
 ## How It Works
 
 This skill provides copy-paste-ready Dart/Flutter code patterns organized by concern:
-
 1. **Null safety** — avoid `!`, prefer `?.`/`??`/pattern matching
 2. **Immutable state** — sealed classes, `freezed`, `copyWith`
 3. **Async composition** — concurrent `Future.wait`, safe `BuildContext` after `await`
@@ -55,7 +59,6 @@ double cartTotal(Ref ref) {
     return total + (product?.price ?? 0) * item.quantity;
   });
 }
-
 ```
 
 ---
@@ -64,7 +67,7 @@ Practical, production-ready patterns for Dart and Flutter applications. Library-
 
 ---
 
-## 1\. Null Safety Fundamentals
+## 1. Null Safety Fundamentals
 
 ### Prefer Patterns Over Bang Operator
 
@@ -86,7 +89,6 @@ String getUserName(User? user) {
   if (user == null) return 'Unknown';
   return user.name; // promoted to non-null after check
 }
-
 ```
 
 ### Avoid `late` Overuse
@@ -107,12 +109,11 @@ void initState() {
   super.initState();
   _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
 }
-
 ```
 
 ---
 
-## 2\. Immutable State
+## 2. Immutable State
 
 ### Sealed Classes for State Hierarchies
 
@@ -140,7 +141,6 @@ Widget buildFrom(UserState state) => switch (state) {
   UserLoaded(:final user) => UserCard(user: user),
   UserError(:final message) => ErrorText(message),
 };
-
 ```
 
 ### Freezed for Boilerplate-Free Immutability
@@ -168,12 +168,11 @@ final user = User(id: '1', name: 'Alice', email: 'alice@example.com');
 final updated = user.copyWith(name: 'Alice Smith'); // immutable update
 final json = user.toJson();
 final fromJson = User.fromJson(json);
-
 ```
 
 ---
 
-## 3\. Async Composition
+## 3. Async Composition
 
 ### Structured Concurrency with Future.wait
 
@@ -187,7 +186,6 @@ Future<DashboardData> loadDashboard(UserRepository users, OrderRepository orders
 
   return DashboardData(users: userList, orders: orderList);
 }
-
 ```
 
 ### Stream Patterns
@@ -209,7 +207,6 @@ StreamBuilder<List<Item>>(
     _ => const SizedBox.shrink(),
   },
 )
-
 ```
 
 ### BuildContext After Await
@@ -229,12 +226,11 @@ Future<void> _handleSubmit() async {
     if (mounted) setState(() => _isLoading = false);
   }
 }
-
 ```
 
 ---
 
-## 4\. Widget Architecture
+## 4. Widget Architecture
 
 ### Extract to Classes, Not Methods
 
@@ -260,7 +256,6 @@ class _PageHeader extends StatelessWidget {
     );
   }
 }
-
 ```
 
 ### const Propagation
@@ -277,7 +272,6 @@ child: const Padding(
   padding: EdgeInsets.all(16.0),
   child: Icon(Icons.home, size: 24.0),
 )
-
 ```
 
 ### Scoped Rebuilds
@@ -323,12 +317,11 @@ class _CounterDisplay extends ConsumerWidget {
     return Text('$count');
   }
 }
-
 ```
 
 ---
 
-## 5\. State Management: BLoC/Cubit
+## 5. State Management: BLoC/Cubit
 
 ```dart
 // Cubit — synchronous or simple async state
@@ -361,12 +354,11 @@ BlocBuilder<AuthCubit, AuthState>(
     AuthError(:final message) => ErrorView(message: message),
   },
 )
-
 ```
 
 ---
 
-## 6\. State Management: Riverpod
+## 6. State Management: Riverpod
 
 ```dart
 // Auto-dispose async provider
@@ -415,12 +407,11 @@ double cartTotal(Ref ref) {
     return total + (product?.price ?? 0) * item.quantity;
   });
 }
-
 ```
 
 ---
 
-## 7\. Navigation with GoRouter
+## 7. Navigation with GoRouter
 
 ```dart
 final router = GoRouter(
@@ -449,12 +440,11 @@ final router = GoRouter(
     ),
   ],
 );
-
 ```
 
 ---
 
-## 8\. HTTP with Dio
+## 8. HTTP with Dio
 
 ```dart
 final dio = Dio(BaseOptions(
@@ -495,12 +485,11 @@ class UserApiDataSource {
     return User.fromJson(response.data!);
   }
 }
-
 ```
 
 ---
 
-## 9\. Error Handling Architecture
+## 9. Error Handling Architecture
 
 ```dart
 // Global error capture — set up in main()
@@ -526,12 +515,11 @@ class App extends StatelessWidget {
     return MaterialApp.router(routerConfig: router);
   }
 }
-
 ```
 
 ---
 
-## 10\. Testing Quick Reference
+## 10. Testing Quick Reference
 
 ```dart
 // Unit test — use case
@@ -559,18 +547,17 @@ testWidgets('CartBadge shows item count', (tester) async {
   );
   expect(find.text('3'), findsOneWidget);
 });
-
 ```
 
 ---
 
 ## References
 
-* [Effective Dart: Design](https://dart.dev/effective-dart/design)
-* [Flutter Performance Best Practices](https://docs.flutter.dev/perf/best-practices)
-* [Riverpod Documentation](https://riverpod.dev/)
-* [BLoC Library](https://bloclibrary.dev/)
-* [GoRouter](https://pub.dev/packages/go%5Frouter)
-* [Freezed](https://pub.dev/packages/freezed)
-* Skill: `flutter-dart-code-review` — comprehensive review checklist
-* Rules: `rules/dart/` — coding style, patterns, security, testing, hooks
+- [Effective Dart: Design](https://dart.dev/effective-dart/design)
+- [Flutter Performance Best Practices](https://docs.flutter.dev/perf/best-practices)
+- [Riverpod Documentation](https://riverpod.dev/)
+- [BLoC Library](https://bloclibrary.dev/)
+- [GoRouter](https://pub.dev/packages/go_router)
+- [Freezed](https://pub.dev/packages/freezed)
+- Skill: `flutter-dart-code-review` — comprehensive review checklist
+- Rules: `rules/dart/` — coding style, patterns, security, testing, hooks

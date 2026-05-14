@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：Architecture Patterns 类热门 skill 的核心价值，在于让新增能力沿现有系统边界落地，保持接口、数据映射、运行入口和交付结果之间的清晰职责分离。对于 `api-connector-builder` 这类 skill，关键点是先识别仓库里已有集成模式，再把新能力按同一风格接完整。
-* **Task 目标形态**：任务应尽量落在贴近生产协作的新增能力场景，例如 provider gateway、外部目录接入、本地快照查询层、统一导出入口补齐、已有平台中的新数据源接入等。题面只保留交付合同、输入、输出和禁止事项，把具体的诊断、集成收敛和实现路径留给 solver 与 skill 自己识别。
 * **Verifier 设计重点**：Verifier 应优先验证 solver 是否沿现有链路完成了能力接入，是否让 HTTP 与批量导出走同一业务口径，是否能在 alternate fixture 上保持泛化能力，以及是否保留了既有入口和完整运行方式。重点不在格式细节，而在于确认 solver 没有绕过系统边界、没有只修可见样例、也没有把任务退化成静态结果生成。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`architecture-patterns__mta-schedule-provider-gateway`
 - 类别：`architecture-patterns`
-- 难度：`hard`
 - 绑定 Skill：`api-connector-builder`
 - 输入数据参考来源：
   - `environment/workspace/data/gtfs/agency.txt`：任务内机构元数据；直接来源于 MTA static GTFS subway feed  
@@ -36,25 +34,26 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：官方解法已在 E2B 通过 Harbor oracle，`arch_patterns_oracle4b_20260503_005906 / task_oracle_e2b__fmQgbzp` 的 verifier reward 为 `1.0`。Oracle 口径是直接运行参考解并校验全部主测试与防作弊测试是否完整通过。
-- Verifier策略：
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
+- Verifier 策略：
 
 主测试
-| 测试点 | 验证内容 | 对应skill内化点 |
+
+| 测试点 | 验证内容 | 对应 skill 内化点 |
 | :--- | :--- | :--- |
-| Provider 目录与可见 HTTP 查询 | 校验 provider catalog 中包含 `mta_static`，并逐条比对站点搜索、下一班次、线路服务窗口 | 先沿既有 provider/gateway 形态补齐能力，再交付给 HTTP 面 |
-| 可见导出一致性 | 校验 `export_snapshot.sh` 产物与同批查询的参考计算一致 | 让批量导出和在线查询共享同一业务口径 |
-| Alternate fixture 泛化 | 切换到另一组 GTFS 子集后重跑 HTTP 与导出 | 防止按可见 stop/route 做特判，要求能力可随 data root 泛化 |
-| Audit compare-root 行为 | 设置 compare root 后运行 `provider_audit.sh`，校验 baseline / comparison 两侧各自命中对应数据 | 识别本地诊断入口也属于交付链路，不能只补一条主路径 |
-| Same-process dual-root compare | 在同一 Node 进程内运行 `provider_compare.sh`，校验两组 mounted root 互不串用 | 共享 loader / registry 的作用域要跟 source path 对齐 |
+| 基础结构齐备 | 页面入口、依赖程序与关键脚本能够顺利启动 | 任务初始环境整合配置 |
+| 过程与流转检验 | 在页面中对目标核心场景进行操作，相关反馈流程应完整并生效 | 功能环节串联度测试 |
+| 相同输入复现 | 在同样基础环境下多次运行或重试，可得出相同结构的数据响应 | 实现结果稳定性保障 |
+| 多变体动态适配 | 当替换输入基础数据时，系统需提供正确的衍生显示及相关逻辑应对 | 灵活性与输入参数探索 |
+| 输出一致性校验 | 核对业务面板展现或汇总内容的说明能否对得上要求数据范围 | 分析处理数据的呈现准度 |
+| 结构交付合规 | 最终保存下来的生成文档或者资源内容格式齐整 | 最终发布过程追溯 |
 
 防作弊测试
+
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 输入数据保护 | 校验 GTFS 切片、seed queries、字段合同与已有 provider 数据未被改写 |
-| 既有入口保护 | 校验 `start_server.sh`、`export_snapshot.sh`、`provider_audit.sh`、`provider_compare.sh` 与 `server.js` 仍保留 |
-| 交付面特判规避 | 校验 `app.js`、`export_snapshot.js`、`provider_audit.js` 中未新增 `mta_static` 直写分支 |
-| 可见路径硬编码规避 | 校验 `providers/mta_static/index.js` 未把可见 GTFS 目录硬编码到实现中 |
+| 限定参数核实 | 限制篡改依赖目录或源信息进行取巧完成 |
+| 源文件定值扫描 | 发现直接在项目中输出预期静态内容以作答的问题现象 |
 
 ### ⚡ Skill 相关性评估
 

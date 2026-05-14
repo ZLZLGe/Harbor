@@ -112,7 +112,7 @@ Notes
   `/environment/workspace/docs/`.
 - Do not change the required output paths or filenames.
 - Do not modify the tests, validation logic, pinned dependencies, environment
-  configuration, or skill files.
+  or configuration files.
 - Do not split the work across multiple pages.
 - Do not narrow the delivery to a summary, a README rewrite, or a raw symbol
   listing without page-level explanation.

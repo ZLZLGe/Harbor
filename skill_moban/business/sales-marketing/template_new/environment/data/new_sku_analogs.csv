@@ -1,0 +1,4 @@
+store_id,sku_id,analog_sku_id,analog_factor,history_weeks_required
+NORTH,SKU-FOXTROT,SKU-ALPHA,0.46,8
+CENTRAL,SKU-FOXTROT,SKU-ALPHA,0.43,8
+SOUTH,SKU-FOXTROT,SKU-ALPHA,0.5,8

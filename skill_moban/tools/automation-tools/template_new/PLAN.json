@@ -43,7 +43,7 @@
     "Stable minor updates reach latest.md and index.md, while preview minor updates reach preview.md",
     "Highlights, announcement PRs, and changelog link are grounded in the bundled release material",
     "Alternate fixture reruns prove the workflow is not hardcoded to one visible release payload",
-    "Input bundle and shipped skill area remain unchanged"
+    "Input bundle remains unchanged"
   ],
   "real_data_sources": [
     {
@@ -90,7 +90,7 @@
     "local_test_command": "tests/test.sh"
   },
   "iteration_notes": [
-    "Do not modify the selected skill contents.",
+    "Do not rely on editing the selected skill contents to complete the task.",
     "Do not alter instruction.md, tests, data, dependencies, or contracts between with_skill and without_skill variants.",
     "Favor action-level failures such as updating the wrong changelog page, omitting announcement data, or hardcoding one channel path over cosmetic markdown differences.",
     "Finalize README metrics only after completed E2B comparison runs."

@@ -12,15 +12,12 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 COPY . /opt/task-env
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /app/data /app/workspace /app/workspace/output /logs/agent /logs/verifier /root/.codex/skills \
   && cp -R /opt/task-env/data/. /app/data/ \
   && cp -R /opt/task-env/workspace/. /app/workspace/ \
-  && if [ -d /opt/task-env/skills ]; then \
-       cp -R /opt/task-env/skills/. /root/.codex/skills/ && \
-       mkdir -p /logs/agent/skills && \
-       cp -R /opt/task-env/skills/. /logs/agent/skills/; \
-     fi \
   && cd /app/workspace/extension \
   && npm install --silent \
   && sha256sum /app/data/briefing_request.json /app/data/releases/*.json /app/data/locales/en/briefing_terms.json /app/data/locales/en/extension_copy.json /app/data/locales/pt-br/briefing_terms.json /app/data/locales/pt-br/extension_copy.json /app/data/locales/zh-cn/briefing_terms.json /app/data/locales/zh-cn/extension_copy.json > /opt/release-briefing-inputs.sha256

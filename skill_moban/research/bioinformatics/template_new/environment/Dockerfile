@@ -1,120 +1,61 @@
 FROM python:3.12-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PIP_NO_CACHE_DIR=1
-ENV PIP_PROGRESS_BAR=off
 ENV MPLBACKEND=Agg
-ENV BIOINFO_SCANPY_PORT=8143
-ENV BIOINFO_SCANPY_SEED_DIR=/opt/bioinfo-scanpy/seed
+ENV PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    bash \
-    ca-certificates \
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    g++ \
+    gcc \
+    gfortran \
+    curl \
+    git \
+    libopenblas-dev \
+    liblapack-dev \
     nodejs \
     npm \
     ripgrep \
-    tini \
-    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install --upgrade pip \
-    && python3 -m pip install --timeout 120 \
-      scanpy==1.10.2 \
-      igraph==0.11.5 \
-      leidenalg==0.10.2
+RUN printf '%s\n' \
+    '#!/bin/bash' \
+    'if [ "${1:-}" = "-o-" ] && [ "${2:-}" = "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh" ]; then' \
+    '  printf "%s\\n" "#!/bin/bash" "mkdir -p \\"\\$HOME/.nvm\\"" "printf '\''nvm() { return 0; }\\n'\'' > \\"\\$HOME/.nvm/nvm.sh\\""' \
+    '  exit 0' \
+    'fi' \
+    'exec /usr/bin/curl "$@"' \
+    > /usr/local/bin/curl \
+    && chmod +x /usr/local/bin/curl
 
-RUN npm install -g @openai/codex@0.120.0
+RUN pip install --no-cache-dir \
+    statsmodels==0.14.4 \
+    pydeseq2==0.5.4 \
+    pytest==8.4.2 \
+    pytest-json-ctrf==0.3.5
 
-RUN mkdir -p /services/bioinfo-scanpy \
-    /opt/bioinfo-scanpy/seed \
-    /root/data \
-    /root/output \
-    /root/workspace \
-    /root/.codex/skills \
-    /logs/agent/skills \
-    /logs/verifier \
-    /var/log/bioinfo-scanpy
+COPY codex_vendor_split /opt/codex_vendor_split
 
-COPY data /root/data
-COPY service_seed /opt/bioinfo-scanpy/seed
-COPY hidden-service-src/server.py /services/bioinfo-scanpy/server.py
-COPY skills /tmp/skills
+RUN cat /opt/codex_vendor_split/codex.part.* > /usr/local/bin/codex \
+    && chmod +x /usr/local/bin/codex \
+    && printf '%s\n' \
+    '#!/bin/bash' \
+    'if [ "${1:-}" = "install" ] && [ "${2:-}" = "-g" ] && [ "${3:-}" = "@openai/codex@0.120.0" ]; then' \
+    '  exit 0' \
+    'fi' \
+    'exec /usr/bin/npm "$@"' \
+    > /usr/local/bin/npm \
+    && chmod +x /usr/local/bin/npm \
+    && codex --version
 
-RUN if [ -d /tmp/skills ]; then \
-      for skill_dir in /tmp/skills/*; do \
-        [ -d "$skill_dir" ] || continue; \
-        skill_name="$(basename "$skill_dir")"; \
-        install -d "/root/.codex/skills/$skill_name" "/logs/agent/skills/$skill_name"; \
-        cp -R "$skill_dir"/. "/root/.codex/skills/$skill_name/"; \
-        cp -R "$skill_dir"/. "/logs/agent/skills/$skill_name/"; \
-        if [ -f "$skill_dir/SKILL.md" ]; then \
-          cp "$skill_dir/SKILL.md" "/root/.codex/skills/$skill_name/SOURCE_SKILL.md"; \
-          cp "$skill_dir/SKILL.md" "/logs/agent/skills/$skill_name/SOURCE_SKILL.md"; \
-          if [ "$skill_name" = "scanpy" ]; then \
-            description='Analyze single-cell RNA-seq data with scanpy workflows for QC, preprocessing, clustering, marker ranking, annotation, and UMAP-style visualization.'; \
-          else \
-            description="Task-bound skill $skill_name"; \
-          fi; \
-          { \
-            printf '%s\n' '---'; \
-            printf 'name: %s\n' "$skill_name"; \
-            printf 'description: \"%s\"\n' "$description"; \
-            printf '%s\n\n' '---'; \
-            cat "$skill_dir/SKILL.md"; \
-          } > "/root/.codex/skills/$skill_name/SKILL.md"; \
-          { \
-            printf '%s\n' '---'; \
-            printf 'name: %s\n' "$skill_name"; \
-            printf 'description: \"%s\"\n' "$description"; \
-            printf '%s\n\n' '---'; \
-            cat "$skill_dir/SKILL.md"; \
-          } > "/logs/agent/skills/$skill_name/SKILL.md"; \
-        fi; \
-      done; \
-    fi \
-    && rm -rf /tmp/skills \
-    && find /services/bioinfo-scanpy -type f -name '*.py' -print0 | sort -z | xargs -0 sha256sum > /opt/bioinfo-scanpy-service.sha256 \
-    && find /root/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/bioinfo-scanpy-data.sha256 \
-    && find /opt/bioinfo-scanpy/seed -type f -print0 | sort -z | xargs -0 sha256sum > /opt/bioinfo-scanpy-seed.sha256 \
-    && chmod 755 /services/bioinfo-scanpy/server.py \
-    && chmod -R a+rX /root/data /opt/bioinfo-scanpy/seed /root/.codex/skills /logs/agent/skills \
-    && chmod 777 /root/output /root/workspace /var/log/bioinfo-scanpy
+WORKDIR /root
 
-RUN printf '#!/bin/bash\n\
-set -euo pipefail\n\
-if ! python3 -c '"'"'import urllib.request; urllib.request.urlopen(\"http://127.0.0.1:8143/health\", timeout=1).read()'"'"' >/dev/null 2>&1; then\n\
-  nohup python3 /services/bioinfo-scanpy/server.py >/tmp/bioinfo-scanpy.log 2>&1 &\n\
-  for i in $(seq 1 120); do\n\
-    if python3 -c '"'"'import urllib.request; urllib.request.urlopen(\"http://127.0.0.1:8143/health\", timeout=1).read()'"'"' >/dev/null 2>&1; then\n\
-      break\n\
-    fi\n\
-    sleep 0.5\n\
-  done\n\
-fi\n\
-python3 -c '"'"'import urllib.request; urllib.request.urlopen(\"http://127.0.0.1:8143/health\", timeout=1).read()'"'"' >/dev/null 2>&1 || {\n\
-  echo \"bioinfo-scanpy service failed to start\" >&2\n\
-  [ -f /tmp/bioinfo-scanpy.log ] && cat /tmp/bioinfo-scanpy.log >&2 || true\n\
-  exit 1\n\
-}\n' > /usr/local/bin/start-bioinfo-scanpy-service \
-    && chmod 755 /usr/local/bin/start-bioinfo-scanpy-service
-
-RUN printf '#!/bin/bash\n\
-set -euo pipefail\n\
-/usr/local/bin/start-bioinfo-scanpy-service\n\
-if [ \"$#\" -eq 0 ]; then\n\
-  exec /bin/bash\n\
-elif [ \"$#\" -eq 1 ]; then\n\
-  exec /bin/bash -lc \"$1\"\n\
-else\n\
-  exec \"$@\"\n\
-fi\n' > /usr/local/bin/bioinfo-scanpy-entrypoint \
-    && chmod 755 /usr/local/bin/bioinfo-scanpy-entrypoint
-
-RUN printf '\nif command -v start-bioinfo-scanpy-service >/dev/null 2>&1; then\n  start-bioinfo-scanpy-service >/dev/null 2>&1 || true\nfi\n' >> /root/.bashrc
-
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/bioinfo-scanpy-entrypoint"]
-CMD ["/bin/bash"]
+COPY data /root/environment/data
+COPY skills /root/environment/skills
+COPY skills /root/.claude/skills
+COPY skills /root/.codex/skills
+COPY skills /root/.opencode/skill
+COPY skills /root/.goose/skills
+COPY skills /root/.factory/skills
+COPY skills /root/.agents/skills
+COPY skills /root/.gemini/skills

@@ -1,3 +1,8 @@
+---
+name: token-integration-analyzer
+description: Token integration and implementation analyzer based on Trail of Bits' token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity, checks for 20+ weird token patterns, assesses contract composition and owner privileges, performs on-chain scarcity analysis, and evaluates how protocols handle non-standard tokens. Context-aware for both token implementations and token integrations.
+---
+
 # Token Integration Analyzer
 
 ## Purpose
@@ -16,92 +21,82 @@ Systematically analyzes the codebase for token-related security concerns using T
 ## How This Works
 
 ### Phase 1: Context Discovery
-
 Determines analysis context:
-
-* **Token implementation**: Are you building a token contract?
-* **Token integration**: Does your protocol interact with external tokens?
-* **Platform**: Ethereum, other EVM chains, or different platform?
-* **Token types**: ERC20, ERC721, or both?
+- **Token implementation**: Are you building a token contract?
+- **Token integration**: Does your protocol interact with external tokens?
+- **Platform**: Ethereum, other EVM chains, or different platform?
+- **Token types**: ERC20, ERC721, or both?
 
 ### Phase 2: Slither Analysis (if Solidity)
-
 For Solidity projects, I'll help run:
-
-* `slither-check-erc` \- ERC conformity checks
-* `slither --print human-summary` \- Complexity and upgrade analysis
-* `slither --print contract-summary` \- Function analysis
-* `slither-prop` \- Property generation for testing
+- `slither-check-erc` - ERC conformity checks
+- `slither --print human-summary` - Complexity and upgrade analysis
+- `slither --print contract-summary` - Function analysis
+- `slither-prop` - Property generation for testing
 
 ### Phase 3: Code Analysis
-
 Analyzes:
-
-* Contract composition and complexity
-* Owner privileges and centralization risks
-* ERC20/ERC721 conformity
-* Known weird token patterns
-* Integration safety patterns
+- Contract composition and complexity
+- Owner privileges and centralization risks
+- ERC20/ERC721 conformity
+- Known weird token patterns
+- Integration safety patterns
 
 ### Phase 4: On-chain Analysis (if deployed)
-
 If you provide a contract address, I'll query:
-
-* Token scarcity and distribution
-* Total supply and holder concentration
-* Exchange listings
-* On-chain configuration
+- Token scarcity and distribution
+- Total supply and holder concentration
+- Exchange listings
+- On-chain configuration
 
 ### Phase 5: Risk Assessment
-
 Provides:
-
-* Identified vulnerabilities
-* Non-standard behaviors
-* Integration risks
-* Prioritized recommendations
+- Identified vulnerabilities
+- Non-standard behaviors
+- Integration risks
+- Prioritized recommendations
 
 ---
 
 ## Assessment Categories
 
-I check 10 comprehensive categories covering all aspects of token security. For detailed criteria, patterns, and checklists, see [ASSESSMENT\_CATEGORIES.md](https://github.com/trailofbits/skills/blob/HEAD/plugins/building-secure-contracts/skills/token-integration-analyzer/resources/ASSESSMENT%5FCATEGORIES.md).
+I check 10 comprehensive categories covering all aspects of token security. For detailed criteria, patterns, and checklists, see [ASSESSMENT_CATEGORIES.md](resources/ASSESSMENT_CATEGORIES.md).
 
 ### Quick Reference:
 
-1. **General Considerations** \- Security reviews, team transparency, security contacts
-2. **Contract Composition** \- Complexity analysis, SafeMath usage, function count, entry points
-3. **Owner Privileges** \- Upgradeability, minting, pausability, blacklisting, team accountability
-4. **ERC20 Conformity** \- Return values, metadata, decimals, race conditions, Slither checks
-5. **ERC20 Extension Risks** \- External calls/hooks, transfer fees, rebasing/yield-bearing tokens
-6. **Token Scarcity Analysis** \- Supply distribution, holder concentration, exchange distribution, flash loan/mint risks
-7. **Weird ERC20 Patterns** (24 patterns including):  
-  * Reentrant calls (ERC777 hooks)
-  * Missing return values (USDT, BNB, OMG)
-  * Fee on transfer (STA, PAXG)
-  * Balance modifications outside transfers (Ampleforth, Compound)
-  * Upgradable tokens (USDC, USDT)
-  * Flash mintable (DAI)
-  * Blocklists (USDC, USDT)
-  * Pausable tokens (BNB, ZIL)
-  * Approval race protections (USDT, KNC)
-  * Revert on approval/transfer to zero address
-  * Revert on zero value approvals/transfers
-  * Multiple token addresses
-  * Low decimals (USDC: 6, Gemini: 2)
-  * High decimals (YAM-V2: 24)
-  * transferFrom with src == msg.sender
-  * Non-string metadata (MKR)
-  * No revert on failure (ZRX, EURS)
-  * Revert on large approvals (UNI, COMP)
-  * Code injection via token name
-  * Unusual permit function (DAI, RAI, GLM)
-  * Transfer less than amount (cUSDCv3)
-  * ERC-20 native currency representation (Celo, Polygon, zkSync)
-  * [And more...](https://github.com/trailofbits/skills/blob/HEAD/plugins/building-secure-contracts/skills/token-integration-analyzer/resources/ASSESSMENT%5FCATEGORIES.md#7-weird-erc20-patterns)
-8. **Token Integration Safety** \- Safe transfer patterns, balance verification, allowlists, wrappers, defensive patterns
-9. **ERC721 Conformity** \- Transfer to 0x0, safeTransferFrom, metadata, ownerOf, approval clearing, token ID immutability
-10. **ERC721 Common Risks** \- onERC721Received reentrancy, safe minting, burning approval clearing
+1. **General Considerations** - Security reviews, team transparency, security contacts
+2. **Contract Composition** - Complexity analysis, SafeMath usage, function count, entry points
+3. **Owner Privileges** - Upgradeability, minting, pausability, blacklisting, team accountability
+4. **ERC20 Conformity** - Return values, metadata, decimals, race conditions, Slither checks
+5. **ERC20 Extension Risks** - External calls/hooks, transfer fees, rebasing/yield-bearing tokens
+6. **Token Scarcity Analysis** - Supply distribution, holder concentration, exchange distribution, flash loan/mint risks
+7. **Weird ERC20 Patterns** (24 patterns including):
+   - Reentrant calls (ERC777 hooks)
+   - Missing return values (USDT, BNB, OMG)
+   - Fee on transfer (STA, PAXG)
+   - Balance modifications outside transfers (Ampleforth, Compound)
+   - Upgradable tokens (USDC, USDT)
+   - Flash mintable (DAI)
+   - Blocklists (USDC, USDT)
+   - Pausable tokens (BNB, ZIL)
+   - Approval race protections (USDT, KNC)
+   - Revert on approval/transfer to zero address
+   - Revert on zero value approvals/transfers
+   - Multiple token addresses
+   - Low decimals (USDC: 6, Gemini: 2)
+   - High decimals (YAM-V2: 24)
+   - transferFrom with src == msg.sender
+   - Non-string metadata (MKR)
+   - No revert on failure (ZRX, EURS)
+   - Revert on large approvals (UNI, COMP)
+   - Code injection via token name
+   - Unusual permit function (DAI, RAI, GLM)
+   - Transfer less than amount (cUSDCv3)
+   - ERC-20 native currency representation (Celo, Polygon, zkSync)
+   - [And more...](resources/ASSESSMENT_CATEGORIES.md#7-weird-erc20-patterns)
+8. **Token Integration Safety** - Safe transfer patterns, balance verification, allowlists, wrappers, defensive patterns
+9. **ERC721 Conformity** - Transfer to 0x0, safeTransferFrom, metadata, ownerOf, approval clearing, token ID immutability
+10. **ERC721 Common Risks** - onERC721Received reentrancy, safe minting, burning approval clearing
 
 ---
 
@@ -109,7 +104,7 @@ I check 10 comprehensive categories covering all aspects of token security. For 
 
 When analysis is complete, you'll receive a comprehensive report structured as follows:
 
-```text
+```
 === TOKEN INTEGRATION ANALYSIS REPORT ===
 
 Project: MultiToken DEX
@@ -207,36 +202,46 @@ File: contracts/RewardToken.sol:89
 function mint(address to, uint256 amount) external onlyOwner {
     _mint(to, amount);  // No cap!
 }
-
 ```
 
-**Risk:** Owner can inflate supply arbitrarily **Fix:** Add maximum supply cap or rate-limited minting
+**Risk:** Owner can inflate supply arbitrarily
+**Fix:** Add maximum supply cap or rate-limited minting
 
 ### Pausability
 
-✓ Pausable pattern implemented (OpenZeppelin) ✓ Only owner can pause ⚠ Paused state affects all transfers (including existing holders)
+✓ Pausable pattern implemented (OpenZeppelin)
+✓ Only owner can pause
+⚠ Paused state affects all transfers (including existing holders)
 
-**Risk:** Owner can trap all user funds **Mitigation:** Use multi-sig for pause function (already implemented ✓)
+**Risk:** Owner can trap all user funds
+**Mitigation:** Use multi-sig for pause function (already implemented ✓)
 
 ### Blacklisting
 
-✗ No blacklist functionality **Assessment:** Good - no centralized censorship risk
+✗ No blacklist functionality
+**Assessment:** Good - no centralized censorship risk
 
 ### Team Transparency
 
-✓ Team members public (team.md) ✓ Company registered in Switzerland ✓ Accountable and contactable
+✓ Team members public (team.md)
+✓ Company registered in Switzerland
+✓ Accountable and contactable
 
 **Status:** ACCEPTABLE
 
 ---
 
-## 4\. ERC20 CONFORMITY
+## 4. ERC20 CONFORMITY
 
 ### Slither-check-erc Results
 
 Command: slither-check-erc . RewardToken --erc erc20
 
-✓ transfer returns bool ✓ transferFrom returns bool ✓ name, decimals, symbol present ✓ decimals returns uint8 (value: 18) ✓ Race condition mitigated (increaseAllowance/decreaseAllowance)
+✓ transfer returns bool
+✓ transferFrom returns bool
+✓ name, decimals, symbol present
+✓ decimals returns uint8 (value: 18)
+✓ Race condition mitigated (increaseAllowance/decreaseAllowance)
 
 **Status:** FULLY COMPLIANT
 
@@ -244,7 +249,12 @@ Command: slither-check-erc . RewardToken --erc erc20
 
 Command: slither-prop . --contract RewardToken
 
-**Generated 12 properties, all passed:**✓ Transfer doesn't change total supply ✓ Allowance correctly updates ✓ Balance updates match transfer amounts ✓ No balance manipulation possible \[... 8 more properties ...\]
+**Generated 12 properties, all passed:**
+✓ Transfer doesn't change total supply
+✓ Allowance correctly updates
+✓ Balance updates match transfer amounts
+✓ No balance manipulation possible
+[... 8 more properties ...]
 
 **Echidna fuzzing:** 50,000 runs, no violations ✓
 
@@ -252,12 +262,11 @@ Command: slither-prop . --contract RewardToken
 
 ---
 
-## 5\. WEIRD TOKEN PATTERN ANALYSIS
+## 5. WEIRD TOKEN PATTERN ANALYSIS
 
 ### Integration Safety Check
 
 **Your Protocol Integrates 5 External Tokens:**
-
 1. USDT (0xdac17f9...)
 2. USDC (0xa0b86991...)
 3. DAI (0x6b175474...)
@@ -266,40 +275,47 @@ Command: slither-prop . --contract RewardToken
 
 ### Critical Issues Found
 
-❌ **Pattern 7.2: Missing Return Values** **Found in:** USDT integration File: contracts/Vault.sol:156
-
+❌ **Pattern 7.2: Missing Return Values**
+**Found in:** USDT integration
+File: contracts/Vault.sol:156
 ```solidity
 IERC20(usdt).transferFrom(msg.sender, address(this), amount);
 // No return value check! USDT doesn't return bool
-
 ```
 
-**Risk:** Silent failures on USDT transfers **Exploit:** User appears to deposit, but no tokens moved **Fix:** Use OpenZeppelin SafeERC20 wrapper
+**Risk:** Silent failures on USDT transfers
+**Exploit:** User appears to deposit, but no tokens moved
+**Fix:** Use OpenZeppelin SafeERC20 wrapper
 
 ---
 
-❌ **Pattern 7.3: Fee on Transfer** **Risk for:** Any token with transfer fees File: contracts/Vault.sol:170
-
+❌ **Pattern 7.3: Fee on Transfer**
+**Risk for:** Any token with transfer fees
+File: contracts/Vault.sol:170
 ```solidity
 uint256 balanceBefore = IERC20(token).balanceOf(address(this));
 token.transferFrom(msg.sender, address(this), amount);
 shares = amount * exchangeRate;  // WRONG! Should use actual received amount
-
 ```
 
-**Risk:** Accounting mismatch if token takes fees **Exploit:** User credited more shares than tokens deposited **Fix:** Calculate shares from `balanceAfter - balanceBefore`
+**Risk:** Accounting mismatch if token takes fees
+**Exploit:** User credited more shares than tokens deposited
+**Fix:** Calculate shares from `balanceAfter - balanceBefore`
 
 ---
 
 ### Known Non-Standard Token Handling
 
-✓ **USDC:** Properly handled (SafeERC20, 6 decimals accounted for) ⚠ **DAI:** permit() function not used (opportunity for gas savings) ✗ **USDT:** Missing return value not handled (CRITICAL) ✓ **WETH:** Standard wrapper, properly handled ⚠ **UNI:** Large approval handling not checked (reverts >= 2^96)
+✓ **USDC:** Properly handled (SafeERC20, 6 decimals accounted for)
+⚠ **DAI:** permit() function not used (opportunity for gas savings)
+✗ **USDT:** Missing return value not handled (CRITICAL)
+✓ **WETH:** Standard wrapper, properly handled
+⚠ **UNI:** Large approval handling not checked (reverts >= 2^96)
 
 ---
 
-\[... Additional sections for remaining analysis categories ...\]
-
-```text
+[... Additional sections for remaining analysis categories ...]
+```
 
 For complete report template and deliverables format, see [REPORT_TEMPLATES.md](resources/REPORT_TEMPLATES.md).
 
@@ -344,5 +360,3 @@ Complete deliverable templates available in [REPORT_TEMPLATES.md](resources/REPO
 - RPC endpoint (if querying on-chain)
 
 Let's analyze your token implementation or integration for security risks!
-
-```

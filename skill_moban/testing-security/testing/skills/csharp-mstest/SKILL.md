@@ -1,21 +1,26 @@
+---
+name: csharp-mstest
+description: 'Get best practices for MSTest 3.x/4.x unit testing, including modern assertion APIs and data-driven tests'
+---
+
 # MSTest Best Practices (MSTest 3.x/4.x)
 
 Your goal is to help me write effective unit tests with modern MSTest, using current APIs and best practices.
 
 ## Project Setup
 
-* Use a separate test project with naming convention `[ProjectName].Tests`
-* Reference MSTest 3.x+ NuGet packages (includes analyzers)
-* Consider using MSTest.Sdk for simplified project setup
-* Run tests with `dotnet test`
+- Use a separate test project with naming convention `[ProjectName].Tests`
+- Reference MSTest 3.x+ NuGet packages (includes analyzers)
+- Consider using MSTest.Sdk for simplified project setup
+- Run tests with `dotnet test`
 
 ## Test Class Structure
 
-* Use `[TestClass]` attribute for test classes
-* **Seal test classes by default** for performance and design clarity
-* Use `[TestMethod]` for test methods (prefer over `[DataTestMethod]`)
-* Follow Arrange-Act-Assert (AAA) pattern
-* Name tests using pattern `MethodName_Scenario_ExpectedBehavior`
+- Use `[TestClass]` attribute for test classes
+- **Seal test classes by default** for performance and design clarity
+- Use `[TestMethod]` for test methods (prefer over `[DataTestMethod]`)
+- Follow Arrange-Act-Assert (AAA) pattern
+- Name tests using pattern `MethodName_Scenario_ExpectedBehavior`
 
 ```csharp
 [TestClass]
@@ -34,14 +39,13 @@ public sealed class CalculatorTests
         Assert.AreEqual(5, result);
     }
 }
-
 ```
 
 ## Test Lifecycle
 
-* **Prefer constructors over `[TestInitialize]`** \- enables `readonly` fields and follows standard C# patterns
-* Use `[TestCleanup]` for cleanup that must run even if test fails
-* Combine constructor with async `[TestInitialize]` when async setup is needed
+- **Prefer constructors over `[TestInitialize]`** - enables `readonly` fields and follows standard C# patterns
+- Use `[TestCleanup]` for cleanup that must run even if test fails
+- Combine constructor with async `[TestInitialize]` when async setup is needed
 
 ```csharp
 [TestClass]
@@ -64,24 +68,23 @@ public sealed class ServiceTests
     [TestCleanup]
     public void Cleanup() => _service.Reset();
 }
-
 ```
 
 ### Execution Order
 
-1. **Assembly Initialization** \- `[AssemblyInitialize]` (once per test assembly)
-2. **Class Initialization** \- `[ClassInitialize]` (once per test class)
-3. **Test Initialization** (for every test method):  
-  1. Constructor
-  2. Set `TestContext` property
-  3. `[TestInitialize]`
-4. **Test Execution** \- test method runs
-5. **Test Cleanup** (for every test method):  
-  1. `[TestCleanup]`
-  2. `DisposeAsync` (if implemented)
-  3. `Dispose` (if implemented)
-6. **Class Cleanup** \- `[ClassCleanup]` (once per test class)
-7. **Assembly Cleanup** \- `[AssemblyCleanup]` (once per test assembly)
+1. **Assembly Initialization** - `[AssemblyInitialize]` (once per test assembly)
+2. **Class Initialization** - `[ClassInitialize]` (once per test class)
+3. **Test Initialization** (for every test method):
+   1. Constructor
+   2. Set `TestContext` property
+   3. `[TestInitialize]`
+4. **Test Execution** - test method runs
+5. **Test Cleanup** (for every test method):
+   1. `[TestCleanup]`
+   2. `DisposeAsync` (if implemented)
+   3. `Dispose` (if implemented)
+6. **Class Cleanup** - `[ClassCleanup]` (once per test class)
+7. **Assembly Cleanup** - `[AssemblyCleanup]` (once per test assembly)
 
 ## Modern Assertion APIs
 
@@ -107,7 +110,6 @@ Assert.IsFalse(condition);
 // Fail/Inconclusive
 Assert.Fail("Test failed due to...");
 Assert.Inconclusive("Test cannot be completed because...");
-
 ```
 
 ### Exception Testing (Prefer over `[ExpectedException]`)
@@ -123,7 +125,6 @@ var ex = Assert.ThrowsExactly<InvalidOperationException>(() => Method());
 // Async versions
 var ex = await Assert.ThrowsAsync<HttpRequestException>(async () => await client.GetAsync(url));
 var ex = await Assert.ThrowsExactlyAsync<InvalidOperationException>(async () => await Method());
-
 ```
 
 ### Collection Assertions (Assert class)
@@ -135,7 +136,6 @@ Assert.ContainsSingle(collection);  // exactly one element
 Assert.HasCount(5, collection);
 Assert.IsEmpty(collection);
 Assert.IsNotEmpty(collection);
-
 ```
 
 ### String Assertions (Assert class)
@@ -148,7 +148,6 @@ Assert.DoesNotStartWith("prefix", actualString);
 Assert.DoesNotEndWith("suffix", actualString);
 Assert.MatchesRegex(@"\d{3}-\d{4}", phoneNumber);
 Assert.DoesNotMatchRegex(@"\d+", textOnly);
-
 ```
 
 ### Comparison Assertions
@@ -161,7 +160,6 @@ Assert.IsLessThanOrEqualTo(upperBound, actual);
 Assert.IsInRange(actual, low, high);
 Assert.IsPositive(number);
 Assert.IsNegative(number);
-
 ```
 
 ### Type Assertions
@@ -176,14 +174,12 @@ var typed = Assert.IsInstanceOfType<MyClass>(obj);
 typed.DoSomething();
 
 Assert.IsNotInstanceOfType<WrongType>(obj);
-
 ```
 
 ### Assert.That (MSTest 4.0+)
 
 ```csharp
 Assert.That(result.Count > 0);  // Auto-captures expression in failure message
-
 ```
 
 ### StringAssert Class
@@ -196,7 +192,6 @@ StringAssert.StartsWith(actualString, "prefix");
 StringAssert.EndsWith(actualString, "suffix");
 StringAssert.Matches(actualString, new Regex(@"\d{3}-\d{4}"));
 StringAssert.DoesNotMatch(actualString, new Regex(@"\d+"));
-
 ```
 
 ### CollectionAssert Class
@@ -224,7 +219,6 @@ CollectionAssert.IsNotSubsetOf(notSubset, collection);
 CollectionAssert.AllItemsAreInstancesOfType(collection, typeof(MyClass));
 CollectionAssert.AllItemsAreNotNull(collection);
 CollectionAssert.AllItemsAreUnique(collection);
-
 ```
 
 ## Data-Driven Tests
@@ -240,17 +234,16 @@ public void Add_ReturnsSum(int a, int b, int expected)
 {
     Assert.AreEqual(expected, Calculator.Add(a, b));
 }
-
 ```
 
 ### DynamicData
 
 The data source can return any of the following types:
 
-* `IEnumerable<(T1, T2, ...)>` (ValueTuple) - **preferred**, provides type safety (MSTest 3.7+)
-* `IEnumerable<Tuple<T1, T2, ...>>` \- provides type safety
-IEnumerable \- provides type safety plus control over test metadata (display name, categories) 
-* `IEnumerable<object[]>` \- **least preferred**, no type safety
+- `IEnumerable<(T1, T2, ...)>` (ValueTuple) - **preferred**, provides type safety (MSTest 3.7+)
+- `IEnumerable<Tuple<T1, T2, ...>>` - provides type safety
+- `IEnumerable<TestDataRow>` - provides type safety plus control over test metadata (display name, categories)
+- `IEnumerable<object[]>` - **least preferred**, no type safety
 
 > **Note:** When creating new test data methods, prefer `ValueTuple` or `TestDataRow` over `IEnumerable<object[]>`. The `object[]` approach provides no compile-time type checking and can lead to runtime errors from type mismatches.
 
@@ -283,12 +276,12 @@ public static IEnumerable<object[]> LegacyTestData =>
     [1, 2, 3],
     [0, 0, 0],
 ];
-
 ```
 
 ## TestContext
 
-The `TestContext` class provides test run information, cancellation support, and output methods. See [TestContext documentation](https://learn.microsoft.com/dotnet/core/testing/unit-testing-mstest-writing-tests-testcontext) for complete reference.
+The `TestContext` class provides test run information, cancellation support, and output methods.
+See [TestContext documentation](https://learn.microsoft.com/dotnet/core/testing/unit-testing-mstest-writing-tests-testcontext) for complete reference.
 
 ### Accessing TestContext
 
@@ -318,7 +311,6 @@ public static void ClassCleanup(TestContext context) { }
 
 [AssemblyCleanup]
 public static void AssemblyCleanup(TestContext context) { }
-
 ```
 
 ### Cancellation Token
@@ -332,7 +324,6 @@ public async Task LongRunningTest()
 {
     await _httpClient.GetAsync(url, TestContext.CancellationToken);
 }
-
 ```
 
 ### Test Run Properties
@@ -344,7 +335,6 @@ TestContext.CurrentTestOutcome    // Pass/Fail/InProgress
 TestContext.TestData              // Parameterized test data (3.7+, in TestInitialize/Cleanup)
 TestContext.TestException         // Exception if test failed (3.7+, in TestCleanup)
 TestContext.DeploymentDirectory   // Directory with deployment items
-
 ```
 
 ### Output and Result Files
@@ -358,7 +348,6 @@ TestContext.AddResultFile(screenshotPath);
 
 // Store/retrieve data across test methods
 TestContext.Properties["SharedKey"] = computedValue;
-
 ```
 
 ## Advanced Features
@@ -369,7 +358,6 @@ TestContext.Properties["SharedKey"] = computedValue;
 [TestMethod]
 [Retry(3)]
 public void FlakyTest() { }
-
 ```
 
 ### Conditional Execution (MSTest 3.10+)
@@ -398,7 +386,6 @@ public void CIOnlyTest() { }
 [TestMethod]
 [CICondition(ConditionMode.Exclude)]  // Skips in CI, runs locally
 public void LocalOnlyTest() { }
-
 ```
 
 ### Parallelization
@@ -411,7 +398,6 @@ public void LocalOnlyTest() { }
 [TestClass]
 [DoNotParallelize]
 public sealed class SequentialTests { }
-
 ```
 
 ### Work Item Traceability (MSTest 3.8+)
@@ -434,14 +420,12 @@ public void Feature_CoversMultipleRequirements() { }
 [TestMethod]
 [GitHubWorkItem("https://github.com/owner/repo/issues/42")]
 public void BugFix_Issue42_IsResolved() { }
-
 ```
 
 Work item associations appear in test results and can be used for:
-
-  * Tracing test coverage to requirements
-  * Linking bug fixes to regression tests
-  * Generating traceability reports in CI/CD pipelines
+- Tracing test coverage to requirements
+- Linking bug fixes to regression tests
+- Generating traceability reports in CI/CD pipelines
 
 ## Common Mistakes to Avoid
 
@@ -477,19 +461,18 @@ public TestContext? TestContext { get; set; }
 public TestContext TestContext { get; set; } = null!;
 // ✅ Declare without nullable or initializer - MSTest handles the warning
 public TestContext TestContext { get; set; }
-
 ```
 
 ## Test Organization
 
-  * Group tests by feature or component
-  * Use `[TestCategory("Category")]` for filtering
-  * Use `[TestProperty("Name", "Value")]` for custom metadata (e.g., `[TestProperty("Bug", "12345")]`)
-  * Use `[Priority(1)]` for critical tests
-  * Enable relevant MSTest analyzers (MSTEST0020 for constructor preference)
+- Group tests by feature or component
+- Use `[TestCategory("Category")]` for filtering
+- Use `[TestProperty("Name", "Value")]` for custom metadata (e.g., `[TestProperty("Bug", "12345")]`)
+- Use `[Priority(1)]` for critical tests
+- Enable relevant MSTest analyzers (MSTEST0020 for constructor preference)
 
 ## Mocking and Isolation
 
-  * Use Moq or NSubstitute for mocking dependencies
-  * Use interfaces to facilitate mocking
-  * Mock dependencies to isolate units under test
+- Use Moq or NSubstitute for mocking dependencies
+- Use interfaces to facilitate mocking
+- Mock dependencies to isolate units under test

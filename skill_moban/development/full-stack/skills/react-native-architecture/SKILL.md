@@ -1,21 +1,26 @@
+---
+name: react-native-architecture
+description: Build production React Native apps with Expo, navigation, native modules, offline sync, and cross-platform patterns. Use when developing mobile apps, implementing native integrations, or architecting React Native projects.
+---
+
 # React Native Architecture
 
 Production-ready patterns for React Native development with Expo, including navigation, state management, native modules, and offline-first architecture.
 
 ## When to Use This Skill
 
-* Starting a new React Native or Expo project
-* Implementing complex navigation patterns
-* Integrating native modules and platform APIs
-* Building offline-first mobile applications
-* Optimizing React Native performance
-* Setting up CI/CD for mobile releases
+- Starting a new React Native or Expo project
+- Implementing complex navigation patterns
+- Integrating native modules and platform APIs
+- Building offline-first mobile applications
+- Optimizing React Native performance
+- Setting up CI/CD for mobile releases
 
 ## Core Concepts
 
-### 1\. Project Structure
+### 1. Project Structure
 
-```text
+```
 src/
 ├── app/                    # Expo Router screens
 │   ├── (auth)/            # Auth group
@@ -29,10 +34,9 @@ src/
 ├── stores/                # State management
 ├── utils/                 # Utilities
 └── types/                 # TypeScript types
-
 ```
 
-### 2\. Expo vs Bare React Native
+### 2. Expo vs Bare React Native
 
 | Feature            | Expo           | Bare RN        |
 | ------------------ | -------------- | -------------- |
@@ -52,7 +56,6 @@ npx create-expo-app@latest my-app -t expo-template-blank-typescript
 npx expo install expo-router expo-status-bar react-native-safe-area-context
 npx expo install @react-native-async-storage/async-storage
 npx expo install expo-secure-store expo-haptics
-
 ```
 
 ```typescript
@@ -74,7 +77,6 @@ export default function RootLayout() {
     </QueryProvider>
   )
 }
-
 ```
 
 ## Patterns
@@ -153,7 +155,6 @@ router.push({
   pathname: '/product/[id]',
   params: { id: '123', referrer: 'home' },
 })
-
 ```
 
 ### Pattern 2: Authentication Flow
@@ -238,7 +239,6 @@ export const useAuth = () => {
   if (!context) throw new Error('useAuth must be used within AuthProvider')
   return context
 }
-
 ```
 
 ### Pattern 3: Offline-First with React Query
@@ -326,7 +326,6 @@ export function useCreateProduct() {
     },
   })
 }
-
 ```
 
 ### Pattern 4: Native Module Integration
@@ -424,7 +423,6 @@ export async function registerForPushNotifications() {
 
   return token;
 }
-
 ```
 
 ### Pattern 5: Platform-Specific Code
@@ -541,7 +539,6 @@ const styles = StyleSheet.create({
     color: '#007AFF',
   },
 })
-
 ```
 
 ### Pattern 6: Performance Optimization
@@ -605,7 +602,6 @@ export function ProductList({ products, onProductPress }: ProductListProps) {
     />
   )
 }
-
 ```
 
 ## EAS Build & Submit
@@ -635,7 +631,6 @@ export function ProductList({ products, onProductPress }: ProductListProps) {
     }
   }
 }
-
 ```
 
 ```bash
@@ -650,23 +645,22 @@ eas submit --platform android
 
 # OTA updates
 eas update --branch production --message "Bug fixes"
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Use Expo** \- Faster development, OTA updates, managed native code
-* **FlashList over FlatList** \- Better performance for long lists
-* **Memoize components** \- Prevent unnecessary re-renders
-* **Use Reanimated** \- 60fps animations on native thread
-* **Test on real devices** \- Simulators miss real-world issues
+- **Use Expo** - Faster development, OTA updates, managed native code
+- **FlashList over FlatList** - Better performance for long lists
+- **Memoize components** - Prevent unnecessary re-renders
+- **Use Reanimated** - 60fps animations on native thread
+- **Test on real devices** - Simulators miss real-world issues
 
 ### Don'ts
 
-* **Don't inline styles** \- Use StyleSheet.create for performance
-* **Don't fetch in render** \- Use useEffect or React Query
-* **Don't ignore platform differences** \- Test on both iOS and Android
-* **Don't store secrets in code** \- Use environment variables
-* **Don't skip error boundaries** \- Mobile crashes are unforgiving
+- **Don't inline styles** - Use StyleSheet.create for performance
+- **Don't fetch in render** - Use useEffect or React Query
+- **Don't ignore platform differences** - Test on both iOS and Android
+- **Don't store secrets in code** - Use environment variables
+- **Don't skip error boundaries** - Mobile crashes are unforgiving

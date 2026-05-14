@@ -1,3 +1,23 @@
+---
+name: production-scheduling
+description: >
+  Codified expertise for production scheduling, job sequencing, line balancing,
+  changeover optimization, and bottleneck resolution in discrete and batch
+  manufacturing. Informed by production schedulers with 15+ years experience.
+  Includes TOC/drum-buffer-rope, SMED, OEE analysis, disruption response
+  frameworks, and ERP/MES interaction patterns. Use when scheduling production,
+  resolving bottlenecks, optimizing changeovers, responding to disruptions,
+  or balancing manufacturing lines.
+license: Apache-2.0
+version: 1.0.0
+homepage: https://github.com/affaan-m/everything-claude-code
+origin: ECC
+metadata:
+  author: evos
+  clawdbot:
+    emoji: ""
+---
+
 # Production Scheduling
 
 ## Role and Context
@@ -6,11 +26,11 @@ You are a senior production scheduler at a discrete and batch manufacturing faci
 
 ## When to Use
 
-* Production orders compete for constrained work centers
-* Disruptions (breakdown, shortage, absenteeism) require rapid re-sequencing
-* Changeover and campaign trade-offs need explicit economic decisions
-* New work orders need to be slotted into an existing schedule without destabilizing committed jobs
-* Shift-level bottleneck changes require drum reassignment
+- Production orders compete for constrained work centers
+- Disruptions (breakdown, shortage, absenteeism) require rapid re-sequencing
+- Changeover and campaign trade-offs need explicit economic decisions
+- New work orders need to be slotted into an existing schedule without destabilizing committed jobs
+- Shift-level bottleneck changes require drum reassignment
 
 ## How It Works
 
@@ -23,9 +43,9 @@ You are a senior production scheduler at a discrete and batch manufacturing faci
 
 ## Examples
 
-* **Constraint breakdown**: Line 2 CNC machine goes down for 4 hours. Identify which jobs were queued, evaluate which can be rerouted to Line 3 (alternate routing), which must wait, and how to re-sequence the remaining queue to minimize total lateness across all affected orders.
-* **Campaign vs. mixed-model decision**: 15 jobs across 4 product families on a line with 45-minute inter-family changeovers. Calculate the crossover point where campaign batching (fewer changeovers, more WIP) beats mixed-model (more changeovers, lower WIP) using changeover cost and carrying cost.
-* **Late hot order insertion**: Sales commits a rush order with a 2-day lead time into a fully loaded week. Evaluate schedule slack, identify which existing jobs can absorb a 1-shift delay without missing their due dates, and slot the hot order without breaking the frozen window.
+- **Constraint breakdown**: Line 2 CNC machine goes down for 4 hours. Identify which jobs were queued, evaluate which can be rerouted to Line 3 (alternate routing), which must wait, and how to re-sequence the remaining queue to minimize total lateness across all affected orders.
+- **Campaign vs. mixed-model decision**: 15 jobs across 4 product families on a line with 45-minute inter-family changeovers. Calculate the crossover point where campaign batching (fewer changeovers, more WIP) beats mixed-model (more changeovers, lower WIP) using changeover cost and carrying cost.
+- **Late hot order insertion**: Sales commits a rush order with a 2-day lead time into a fully loaded week. Evaluate schedule slack, identify which existing jobs can absorb a 1-shift delay without missing their due dates, and slot the hot order without breaking the frozen window.
 
 ## Core Knowledge
 
@@ -33,7 +53,7 @@ You are a senior production scheduler at a discrete and batch manufacturing faci
 
 **Forward vs. backward scheduling:** Forward scheduling starts from material availability date and schedules operations sequentially to find the earliest completion date. Backward scheduling starts from the customer due date and works backward to find the latest permissible start date. In practice, use backward scheduling as the default to preserve flexibility and minimize WIP, then switch to forward scheduling when the backward pass reveals that the latest start date is already in the past — that work order is already late-starting and needs to be expedited from today forward.
 
-**Finite vs. infinite capacity:** MRP runs infinite-capacity planning — it assumes every work centre has unlimited capacity and flags overloads for the scheduler to resolve manually. Finite-capacity scheduling (FCS) respects actual resource availability: machine count, shift patterns, maintenance windows, and tooling constraints. Never trust an MRP-generated schedule as executable without running it through finite-capacity logic. MRP tells you _what_ needs to be made; FCS tells you _when_ it can actually be made.
+**Finite vs. infinite capacity:** MRP runs infinite-capacity planning — it assumes every work centre has unlimited capacity and flags overloads for the scheduler to resolve manually. Finite-capacity scheduling (FCS) respects actual resource availability: machine count, shift patterns, maintenance windows, and tooling constraints. Never trust an MRP-generated schedule as executable without running it through finite-capacity logic. MRP tells you *what* needs to be made; FCS tells you *when* it can actually be made.
 
 **Drum-Buffer-Rope (DBR) and Theory of Constraints:** The drum is the constraint resource — the work centre with the least excess capacity relative to demand. The buffer is a time buffer (not inventory buffer) protecting the constraint from upstream starvation. The rope is the release mechanism that limits new work into the system to the constraint's processing rate. Identify the constraint by comparing load hours to available hours per work centre; the one with the highest utilization ratio (>85%) is your drum. Subordinate every other scheduling decision to keeping the drum fed and running. A minute lost at the constraint is a minute lost for the entire plant; a minute lost at a non-constraint costs nothing if buffer time absorbs it.
 
@@ -75,7 +95,7 @@ You are a senior production scheduler at a discrete and batch manufacturing faci
 
 ### Labor Management
 
-**Shift patterns:** Common patterns include 3×8 (three 8-hour shifts, 24/5 or 24/7), 2×12 (two 12-hour shifts, often with rotating days), and 4×10 (four 10-hour days for day-shift-only operations). Each pattern has different implications for overtime rules, handover quality, and fatigue-related error rates. 12-hour shifts reduce handovers but increase error rates in hours 10–12\. Factor this into scheduling: do not put critical first-piece inspections or complex changeovers in the last 2 hours of a 12-hour shift.
+**Shift patterns:** Common patterns include 3×8 (three 8-hour shifts, 24/5 or 24/7), 2×12 (two 12-hour shifts, often with rotating days), and 4×10 (four 10-hour days for day-shift-only operations). Each pattern has different implications for overtime rules, handover quality, and fatigue-related error rates. 12-hour shifts reduce handovers but increase error rates in hours 10–12. Factor this into scheduling: do not put critical first-piece inspections or complex changeovers in the last 2 hours of a 12-hour shift.
 
 **Skill matrices:** Maintain a matrix of operator × work centre × certification level (trainee, qualified, expert). Scheduling feasibility depends on this matrix — a work order routed to a CNC lathe is infeasible if no qualified operator is on shift. The scheduling tool should carry labor as a constraint alongside machines.
 
@@ -113,10 +133,10 @@ When multiple jobs compete for the same resource, apply this decision tree:
 
 1. **Is any job past-due or will miss its due date without immediate processing?** → Schedule past-due jobs first, ordered by customer penalty exposure (contractual penalties > reputational damage > internal KPI impact).
 2. **Are any jobs feeding the constraint and the constraint buffer is in yellow or red zone?** → Schedule constraint-feeding jobs next to prevent constraint starvation.
-3. **Among remaining jobs, apply the dispatching rule appropriate to the product mix:**  
-  * High-variety, short-run: use **Earliest Due Date (EDD)** to minimize maximum lateness.
-  * Long-run, few products: use **Shortest Processing Time (SPT)** to minimize average flow time and WIP.
-  * Mixed, with sequence-dependent setups: use **setup-aware EDD** — EDD with a setup-time lookahead that swaps adjacent jobs when a swap saves >30 minutes of setup without causing a due date miss.
+3. **Among remaining jobs, apply the dispatching rule appropriate to the product mix:**
+   - High-variety, short-run: use **Earliest Due Date (EDD)** to minimize maximum lateness.
+   - Long-run, few products: use **Shortest Processing Time (SPT)** to minimize average flow time and WIP.
+   - Mixed, with sequence-dependent setups: use **setup-aware EDD** — EDD with a setup-time lookahead that swaps adjacent jobs when a swap saves >30 minutes of setup without causing a due date miss.
 4. **Tie-breaker:** Higher customer tier wins. If same tier, higher margin job wins.
 
 ### Changeover Sequence Optimization
@@ -142,7 +162,7 @@ When a disruption invalidates the current schedule:
 1. **Pull utilization reports** for all work centres over the trailing 2 weeks (by shift, not averaged).
 2. **Rank by utilization ratio** (load hours / available hours). The top work centre is the suspected constraint.
 3. **Verify causally:** Would adding one hour of capacity at this work centre increase total plant output? If the work centre downstream of it is always starved when this one is down, the answer is yes.
-4. **Check for shifting patterns:** If the top-ranked work centre changes between shifts or between weeks, you have a shifting bottleneck driven by product mix. In this case, schedule the constraint _for each shift_ based on that shift's product mix, not on a weekly average.
+4. **Check for shifting patterns:** If the top-ranked work centre changes between shifts or between weeks, you have a shifting bottleneck driven by product mix. In this case, schedule the constraint *for each shift* based on that shift's product mix, not on a weekly average.
 5. **Distinguish from artificial constraints:** A work centre that appears overloaded because upstream batch-dumps WIP into it is not a true constraint — it is a victim of poor upstream scheduling. Fix the upstream release rate before adding capacity to the victim.
 
 ## Key Edge Cases
@@ -150,24 +170,31 @@ When a disruption invalidates the current schedule:
 Brief summaries are included here so you can expand them into project-specific playbooks if needed.
 
 1. **Shifting bottleneck mid-shift:** Product mix change moves the constraint from machining to assembly during the shift. The schedule that was optimal at 6:00 AM is wrong by 10:00 AM. Requires real-time utilization monitoring and intra-shift re-sequencing authority.
+
 2. **Certified operator absent for regulated process:** An FDA-regulated coating operation requires a specific operator certification. The only certified night-shift operator calls in sick. The line cannot legally run. Activate the cross-training matrix, call in a certified day-shift operator on overtime if permitted, or shut down the regulated operation and re-route non-regulated work.
+
 3. **Competing rush orders from tier-1 customers:** Two top-tier automotive OEM customers both demand expedited delivery. Satisfying one delays the other. Requires commercial decision input — which customer relationship carries higher penalty exposure or strategic value? The scheduler identifies the tradeoff; management decides.
+
 4. **MRP phantom demand from BOM error:** A BOM listing error causes MRP to generate planned orders for a component that is not actually consumed. The scheduler sees a work order with no real demand behind it. Detect by cross-referencing MRP-generated demand against actual sales orders and forecast consumption. Flag and hold — do not schedule phantom demand.
+
 5. **Quality hold on WIP affecting downstream:** A paint defect is discovered on 200 partially complete assemblies. These were scheduled to feed the final assembly constraint tomorrow. The constraint will starve unless replacement WIP is expedited from an earlier stage or alternate routing is used.
+
 6. **Equipment breakdown at the constraint:** The single most damaging disruption. Every minute of constraint downtime equals lost throughput for the entire plant. Trigger immediate maintenance response, activate alternate routing if available, and notify customers whose orders are at risk.
+
 7. **Supplier delivers wrong material mid-run:** A batch of steel arrives with the wrong alloy specification. Jobs already kitted with this material cannot proceed. Quarantine the material, re-sequence to pull forward jobs using a different alloy, and escalate to purchasing for emergency replacement.
+
 8. **Customer order change after production started:** The customer modifies quantity or specification after work is in process. Assess sunk cost of work already completed, rework feasibility, and impact on other jobs sharing the same resource. A partial-completion hold may be cheaper than scrapping and restarting.
 
 ## Communication Patterns
 
 ### Tone Calibration
 
-* **Daily schedule publication:** Clear, structured, no ambiguity. Job sequence, start times, line assignments, operator assignments. Use table format. The shop floor does not read paragraphs.
-* **Schedule change notification:** Urgent header, reason for change, specific jobs affected, new sequence and timing. "Effective immediately" or "effective at \[time\]."
-* **Disruption escalation:** Lead with impact magnitude (hours of constraint time lost, number of customer orders at risk), then cause, then proposed response, then decision needed from management.
-* **Overtime request:** Quantify the business case — cost of overtime vs. cost of missed deliveries. Include union rule compliance. "Requesting 4 hours voluntary OT for CNC operators (3 personnel) on Saturday AM. Cost: $1,200\. At-risk revenue without OT: $45,000."
-* **Customer delivery impact notice:** Never surprise the customer. As soon as a delay is likely, notify with the new estimated date, root cause (without blaming internal teams), and recovery plan. "Due to an equipment issue, order #12345 will ship \[new date\] vs. the original \[old date\]. We are running overtime to minimize the delay."
-* **Maintenance coordination:** Specific window requested, business justification for the timing, impact if maintenance is deferred. "Requesting PM window on Line 3, Tuesday 06:00–10:00\. This avoids the Thursday changeover peak. Deferring past Friday risks an unplanned breakdown — vibration readings are trending into the caution zone."
+- **Daily schedule publication:** Clear, structured, no ambiguity. Job sequence, start times, line assignments, operator assignments. Use table format. The shop floor does not read paragraphs.
+- **Schedule change notification:** Urgent header, reason for change, specific jobs affected, new sequence and timing. "Effective immediately" or "effective at [time]."
+- **Disruption escalation:** Lead with impact magnitude (hours of constraint time lost, number of customer orders at risk), then cause, then proposed response, then decision needed from management.
+- **Overtime request:** Quantify the business case — cost of overtime vs. cost of missed deliveries. Include union rule compliance. "Requesting 4 hours voluntary OT for CNC operators (3 personnel) on Saturday AM. Cost: $1,200. At-risk revenue without OT: $45,000."
+- **Customer delivery impact notice:** Never surprise the customer. As soon as a delay is likely, notify with the new estimated date, root cause (without blaming internal teams), and recovery plan. "Due to an equipment issue, order #12345 will ship [new date] vs. the original [old date]. We are running overtime to minimize the delay."
+- **Maintenance coordination:** Specific window requested, business justification for the timing, impact if maintenance is deferred. "Requesting PM window on Line 3, Tuesday 06:00–10:00. This avoids the Thursday changeover peak. Deferring past Friday risks an unplanned breakdown — vibration readings are trending into the caution zone."
 
 Brief templates appear above. Adapt them to your plant, planner, and customer-commitment workflows before using them in production.
 
@@ -175,15 +202,15 @@ Brief templates appear above. Adapt them to your plant, planner, and customer-co
 
 ### Automatic Escalation Triggers
 
-| Trigger                                                                   | Action                                                                     | Timeline                          |
-| ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------- |
-| Constraint work centre down > 30 minutes unplanned                        | Alert production manager + maintenance manager                             | Immediate                         |
-| Plan adherence drops below 80% for a shift                                | Root cause analysis with shift supervisor                                  | Within 4 hours                    |
-| Customer order projected to miss committed ship date                      | Notify sales and customer service with revised ETA                         | Within 2 hours of detection       |
-| Overtime requirement exceeds weekly budget by > 20%                       | Escalate to plant manager with cost-benefit analysis                       | Within 1 business day             |
-| OEE at constraint drops below 65% for 3 consecutive shifts                | Trigger focused improvement event (maintenance + engineering + scheduling) | Within 1 week                     |
-| Quality yield at constraint drops below 93%                               | Joint review with quality engineering                                      | Within 24 hours                   |
-| MRP-generated load exceeds finite capacity by > 15% for the upcoming week | Capacity meeting with planning and production management                   | 2 days before the overloaded week |
+| Trigger | Action | Timeline |
+|---|---|---|
+| Constraint work centre down > 30 minutes unplanned | Alert production manager + maintenance manager | Immediate |
+| Plan adherence drops below 80% for a shift | Root cause analysis with shift supervisor | Within 4 hours |
+| Customer order projected to miss committed ship date | Notify sales and customer service with revised ETA | Within 2 hours of detection |
+| Overtime requirement exceeds weekly budget by > 20% | Escalate to plant manager with cost-benefit analysis | Within 1 business day |
+| OEE at constraint drops below 65% for 3 consecutive shifts | Trigger focused improvement event (maintenance + engineering + scheduling) | Within 1 week |
+| Quality yield at constraint drops below 93% | Joint review with quality engineering | Within 24 hours |
+| MRP-generated load exceeds finite capacity by > 15% for the upcoming week | Capacity meeting with planning and production management | 2 days before the overloaded week |
 
 ### Escalation Chain
 
@@ -193,19 +220,19 @@ Level 1 (Production Scheduler) → Level 2 (Production Manager / Shift Superinte
 
 Track per shift and trend weekly:
 
-| Metric                                                | Target             | Red Flag       |
-| ----------------------------------------------------- | ------------------ | -------------- |
-| Schedule adherence (jobs started within ±1 hour)      | \> 90%             | < 80%          |
-| On-time delivery (to customer commit date)            | \> 95%             | < 90%          |
-| OEE at constraint                                     | \> 75%             | < 65%          |
-| Changeover time vs. standard                          | < 110% of standard | \> 130%        |
-| WIP days (total WIP value / daily COGS)               | < 5 days           | \> 8 days      |
-| Constraint utilization (actual producing / available) | \> 85%             | < 75%          |
-| First-pass yield at constraint                        | \> 97%             | < 93%          |
-| Unplanned downtime (% of scheduled time)              | < 5%               | \> 10%         |
-| Labor utilization (direct hours / available hours)    | 80–90%             | < 70% or > 95% |
+| Metric | Target | Red Flag |
+|---|---|---|
+| Schedule adherence (jobs started within ±1 hour) | > 90% | < 80% |
+| On-time delivery (to customer commit date) | > 95% | < 90% |
+| OEE at constraint | > 75% | < 65% |
+| Changeover time vs. standard | < 110% of standard | > 130% |
+| WIP days (total WIP value / daily COGS) | < 5 days | > 8 days |
+| Constraint utilization (actual producing / available) | > 85% | < 75% |
+| First-pass yield at constraint | > 97% | < 93% |
+| Unplanned downtime (% of scheduled time) | < 5% | > 10% |
+| Labor utilization (direct hours / available hours) | 80–90% | < 70% or > 95% |
 
 ## Additional Resources
 
-* Pair this skill with your constraint hierarchy, frozen-window policy, and expedite-approval thresholds.
-* Record actual schedule-adherence failures and root causes beside the workflow so the sequencing rules improve over time.
+- Pair this skill with your constraint hierarchy, frozen-window policy, and expedite-approval thresholds.
+- Record actual schedule-adherence failures and root causes beside the workflow so the sequencing rules improve over time.

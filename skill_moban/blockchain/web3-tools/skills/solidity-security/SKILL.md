@@ -1,20 +1,25 @@
+---
+name: solidity-security
+description: Master smart contract security best practices to prevent common vulnerabilities and implement secure Solidity patterns. Use when writing smart contracts, auditing existing contracts, or implementing security measures for blockchain applications.
+---
+
 # Solidity Security
 
 Master smart contract security best practices, vulnerability prevention, and secure Solidity development patterns.
 
 ## When to Use This Skill
 
-* Writing secure smart contracts
-* Auditing existing contracts for vulnerabilities
-* Implementing secure DeFi protocols
-* Preventing reentrancy, overflow, and access control issues
-* Optimizing gas usage while maintaining security
-* Preparing contracts for professional audits
-* Understanding common attack vectors
+- Writing secure smart contracts
+- Auditing existing contracts for vulnerabilities
+- Implementing secure DeFi protocols
+- Preventing reentrancy, overflow, and access control issues
+- Optimizing gas usage while maintaining security
+- Preparing contracts for professional audits
+- Understanding common attack vectors
 
 ## Critical Vulnerabilities
 
-### 1\. Reentrancy
+### 1. Reentrancy
 
 Attacker calls back into your contract before state is updated.
 
@@ -35,7 +40,6 @@ contract VulnerableBank {
         balances[msg.sender] = 0;  // Too late!
     }
 }
-
 ```
 
 **Secure Pattern (Checks-Effects-Interactions):**
@@ -56,7 +60,6 @@ contract SecureBank {
         require(success, "Transfer failed");
     }
 }
-
 ```
 
 **Alternative: ReentrancyGuard**
@@ -77,10 +80,9 @@ contract SecureBank is ReentrancyGuard {
         require(success, "Transfer failed");
     }
 }
-
 ```
 
-### 2\. Integer Overflow/Underflow
+### 2. Integer Overflow/Underflow
 
 **Vulnerable Code (Solidity < 0.8.0):**
 
@@ -95,7 +97,6 @@ contract VulnerableToken {
         balances[to] += amount;          // Can overflow!
     }
 }
-
 ```
 
 **Secure Pattern (Solidity >= 0.8.0):**
@@ -111,7 +112,6 @@ contract SecureToken {
         balances[to] += amount;
     }
 }
-
 ```
 
 **For Solidity < 0.8.0, use SafeMath:**
@@ -128,10 +128,9 @@ contract SecureToken {
         balances[to] = balances[to].add(amount);
     }
 }
-
 ```
 
-### 3\. Access Control
+### 3. Access Control
 
 **Vulnerable Code:**
 
@@ -145,7 +144,6 @@ contract VulnerableContract {
         payable(msg.sender).transfer(amount);
     }
 }
-
 ```
 
 **Secure Pattern:**
@@ -172,10 +170,9 @@ contract RoleBasedContract {
         // Protected function
     }
 }
-
 ```
 
-### 4\. Front-Running
+### 4. Front-Running
 
 **Vulnerable:**
 
@@ -189,7 +186,6 @@ contract VulnerableDEX {
         // Perform swap
     }
 }
-
 ```
 
 **Mitigation:**
@@ -216,7 +212,6 @@ contract SecureDEX {
         // Perform swap
     }
 }
-
 ```
 
 ## Security Best Practices
@@ -240,7 +235,6 @@ contract SecurePattern {
         require(success, "Transfer failed");
     }
 }
-
 ```
 
 ### Pull Over Push Pattern
@@ -272,7 +266,6 @@ contract RiskyPayment {
         }
     }
 }
-
 ```
 
 ### Input Validation
@@ -291,7 +284,6 @@ contract SecureContract {
         balances[to] += amount;
     }
 }
-
 ```
 
 ### Emergency Stop (Circuit Breaker)
@@ -312,7 +304,6 @@ contract EmergencyStop is Pausable, Ownable {
         _unpause();
     }
 }
-
 ```
 
 ## Gas Optimization
@@ -337,7 +328,6 @@ contract GasInefficient {
         value = _value;  // Extra gas for type conversion
     }
 }
-
 ```
 
 ### Pack Storage Variables
@@ -358,7 +348,6 @@ contract UnpackedStorage {
     uint256 public c;  // Slot 2
     uint256 public d;  // Slot 3
 }
-
 ```
 
 ### Use `calldata` Instead of `memory` for Function Arguments
@@ -375,7 +364,6 @@ contract GasOptimized {
         return data[0];
     }
 }
-
 ```
 
 ### Use Events for Data Storage (When Appropriate)
@@ -390,7 +378,6 @@ contract EventStorage {
         // Don't store in contract storage unless needed
     }
 }
-
 ```
 
 ## Common Vulnerabilities Checklist
@@ -416,7 +403,6 @@ contract SecurityChecklist {
      * [ ] Upgrade mechanism (if proxy pattern)
      */
 }
-
 ```
 
 ## Testing for Security
@@ -466,7 +452,6 @@ describe("Security Tests", function () {
     );
   });
 });
-
 ```
 
 ## Audit Preparation
@@ -508,5 +493,4 @@ contract WellDocumentedContract {
         require(success, "Transfer failed");
     }
 }
-
 ```

@@ -1,6 +1,11 @@
+---
+name: frontend-testing
+description: Generate Vitest + React Testing Library tests for Dify frontend components, hooks, and utilities. Triggers on testing, spec files, coverage, Vitest, RTL, unit tests, integration tests, or write/review test requests.
+---
+
 # Dify Frontend Testing Skill
 
-This skill enables Claude to generate high-quality, comprehensive frontend tests for the Dify project following established conventions and best practices.
+This skill enables Codex to generate high-quality, comprehensive frontend tests for the Dify project following established conventions and best practices.
 
 > **⚠️ Authoritative Source**: This skill is derived from `web/docs/test.md`. Use Vitest mock/timer APIs (`vi.*`).
 
@@ -8,60 +13,51 @@ This skill enables Claude to generate high-quality, comprehensive frontend tests
 
 Apply this skill when the user:
 
-* Asks to **write tests** for a component, hook, or utility
-* Asks to **review existing tests** for completeness
-* Mentions **Vitest**, **React Testing Library**, **RTL**, or **spec files**
-* Requests **test coverage** improvement
-* Uses `pnpm analyze-component` output as context
-* Mentions **testing**, **unit tests**, or **integration tests** for frontend code
-* Wants to understand **testing patterns** in the Dify codebase
+- Asks to **write tests** for a component, hook, or utility
+- Asks to **review existing tests** for completeness
+- Mentions **Vitest**, **React Testing Library**, **RTL**, or **spec files**
+- Requests **test coverage** improvement
+- Uses `pnpm analyze-component` output as context
+- Mentions **testing**, **unit tests**, or **integration tests** for frontend code
+- Wants to understand **testing patterns** in the Dify codebase
 
 **Do NOT apply** when:
 
-* User is asking about backend/API tests (Python/pytest)
-* User is asking about E2E tests (Playwright/Cypress)
-* User is only asking conceptual questions without code context
+- User is asking about backend/API tests (Python/pytest)
+- User is asking about E2E tests (Cucumber + Playwright under `e2e/`)
+- User is only asking conceptual questions without code context
 
 ## Quick Reference
 
-### Tech Stack
-
-| Tool                  | Version | Purpose           |
-| --------------------- | ------- | ----------------- |
-| Vitest                | 4.0.16  | Test runner       |
-| React Testing Library | 16.0    | Component testing |
-| jsdom                 | \-      | Test environment  |
-| nock                  | 14.0    | HTTP mocking      |
-| TypeScript            | 5.x     | Type safety       |
-
 ### Key Commands
+
+Run these commands from `web/`. From the repository root, prefix them with `pnpm -C web`.
 
 ```bash
 # Run all tests
 pnpm test
 
 # Watch mode
-pnpm test:watch
+pnpm test --watch
 
 # Run specific file
 pnpm test path/to/file.spec.tsx
 
 # Generate coverage report
-pnpm test:coverage
+pnpm test --coverage
 
 # Analyze component complexity
 pnpm analyze-component <path>
 
 # Review existing test
 pnpm analyze-component <path> --review
-
 ```
 
 ### File Naming
 
-* Test files: `ComponentName.spec.tsx` inside a same-level `__tests__/` directory
-* Placement rule: Component, hook, and utility tests must live in a sibling `__tests__/` folder at the same level as the source under test. For example, `foo/index.tsx` maps to `foo/__tests__/index.spec.tsx`, and `foo/bar.ts` maps to `foo/__tests__/bar.spec.ts`.
-* Integration tests: `web/__tests__/` directory
+- Test files: `ComponentName.spec.tsx` inside a same-level `__tests__/` directory
+- Placement rule: Component, hook, and utility tests must live in a sibling `__tests__/` folder at the same level as the source under test. For example, `foo/index.tsx` maps to `foo/__tests__/index.spec.tsx`, and `foo/bar.ts` maps to `foo/__tests__/bar.spec.ts`.
+- Integration tests: `web/__tests__/` directory
 
 ## Test Structure Template
 
@@ -139,7 +135,6 @@ describe('ComponentName', () => {
     })
   })
 })
-
 ```
 
 ## Testing Workflow (CRITICAL)
@@ -149,127 +144,88 @@ describe('ComponentName', () => {
 **NEVER generate all test files at once.** For complex components or multi-file directories:
 
 1. **Analyze & Plan**: List all files, order by complexity (simple → complex)
-2. **Process ONE at a time**: Write test → Run test → Fix if needed → Next
-3. **Verify before proceeding**: Do NOT continue to next file until current passes
+1. **Process ONE at a time**: Write test → Run test → Fix if needed → Next
+1. **Verify before proceeding**: Do NOT continue to next file until current passes
 
+```
 For each file:
   ┌────────────────────────────────────────┐
   │ 1. Write test                          │
-  │ 2. Run: pnpm test .spec.tsx      │
+  │ 2. Run: pnpm test <file>.spec.tsx      │
   │ 3. PASS? → Mark complete, next file    │
   │    FAIL? → Fix first, then continue    │
   └────────────────────────────────────────┘
+```
 
 ### Complexity-Based Order
 
-
 Process in this order for multi-file testing:
 
-
 1. 🟢 Utility functions (simplest)
-
-2. 🟢 Custom hooks
-
-3. 🟡 Simple components (presentational)
-
-4. 🟡 Medium components (state, effects)
-
-5. 🔴 Complex components (API, routing)
-
-6. 🔴 Integration tests (index files - last)
-
+1. 🟢 Custom hooks
+1. 🟡 Simple components (presentational)
+1. 🟡 Medium components (state, effects)
+1. 🔴 Complex components (API, routing)
+1. 🔴 Integration tests (index files - last)
 
 ### When to Refactor First
 
-
-* **Complexity > 50**: Break into smaller pieces before testing
-
-* **500+ lines**: Consider splitting before testing
-
-* **Many dependencies**: Extract logic into hooks first
-
+- **Complexity > 50**: Break into smaller pieces before testing
+- **500+ lines**: Consider splitting before testing
+- **Many dependencies**: Extract logic into hooks first
 
 > 📖 See `references/workflow.md` for complete workflow details and todo list format.
 
-
 ## Testing Strategy
-
 
 ### Path-Level Testing (Directory Testing)
 
-
 When assigned to test a directory/path, test **ALL content** within that path:
 
-
-* Test all components, hooks, utilities in the directory (not just `index` file)
-
-* Use incremental approach: one file at a time, verify each before proceeding
-
-* Goal: 100% coverage of ALL files in the directory
-
+- Test all components, hooks, utilities in the directory (not just `index` file)
+- Use incremental approach: one file at a time, verify each before proceeding
+- Goal: 100% coverage of ALL files in the directory
 
 ### Integration Testing First
 
-
 **Prefer integration testing** when writing tests for a directory:
 
-
-* ✅ **Import real project components** directly (including base components and siblings)
-
-* ✅ **Only mock**: API services (`@/service/*`), `next/navigation`, complex context providers
-
-* ❌ **DO NOT mock** base components (`@/app/components/base/*`) or dify-ui primitives (`@langgenius/dify-ui/*`)
-
-* ❌ **DO NOT mock** sibling/child components in the same directory
-
+- ✅ **Import real project components** directly (including base components and siblings)
+- ✅ **Only mock**: API services (`@/service/*`), `next/navigation`, complex context providers
+- ❌ **DO NOT mock** base components (`@/app/components/base/*`) or dify-ui primitives (`@langgenius/dify-ui/*`)
+- ❌ **DO NOT mock** sibling/child components in the same directory
 
 > See [Test Structure Template](#test-structure-template) for correct import/mock patterns.
 
-
 ### `nuqs` Query State Testing (Required for URL State Hooks)
-
 
 When a component or hook uses `useQueryState` / `useQueryStates`:
 
-
-* ✅ Use `NuqsTestingAdapter` (prefer shared helpers in `web/test/nuqs-testing.tsx`)
-
-* ✅ Assert URL synchronization via `onUrlUpdate` (`searchParams`, `options.history`)
-
-* ✅ For custom parsers (`createParser`), keep `parse` and `serialize` bijective and add round-trip edge cases (`%2F`, `%25`, spaces, legacy encoded values)
-
-* ✅ Verify default-clearing behavior (default values should be removed from URL when applicable)
-
-* ⚠️ Only mock `nuqs` directly when URL behavior is explicitly out of scope for the test
-
+- ✅ Use `NuqsTestingAdapter` (prefer shared helpers in `web/test/nuqs-testing.tsx`)
+- ✅ Assert URL synchronization via `onUrlUpdate` (`searchParams`, `options.history`)
+- ✅ For custom parsers (`createParser`), keep `parse` and `serialize` bijective and add round-trip edge cases (`%2F`, `%25`, spaces, legacy encoded values)
+- ✅ Verify default-clearing behavior (default values should be removed from URL when applicable)
+- ⚠️ Only mock `nuqs` directly when URL behavior is explicitly out of scope for the test
 
 ## Core Principles
 
-
 ### 1. AAA Pattern (Arrange-Act-Assert)
-
 
 Every test should clearly separate:
 
-
-* **Arrange**: Setup test data and render component
-
-* **Act**: Perform user actions
-
-* **Assert**: Verify expected outcomes
-
+- **Arrange**: Setup test data and render component
+- **Act**: Perform user actions
+- **Assert**: Verify expected outcomes
 
 ### 2. Black-Box Testing
 
-
-* Test observable behavior, not implementation details
-
-* Use semantic queries (getByRole, getByLabelText)
-
-* Avoid testing internal state directly
-
-* **Prefer pattern matching over hardcoded strings** in assertions:
-
+- Test observable behavior, not implementation details
+- Use semantic queries (`getByRole` with accessible `name`, `getByLabelText`, `getByPlaceholderText`, `getByText`, and scoped `within(...)`)
+- Treat `getByTestId` as a last resort. If a control cannot be found by role/name, label, landmark, or dialog scope, fix the component accessibility first instead of adding or relying on `data-testid`.
+- Remove production `data-testid` attributes when semantic selectors can cover the behavior. Keep them only for non-visual mocked boundaries, editor/browser shims such as Monaco, canvas/chart output, or third-party widgets with no accessible DOM in the test environment.
+- Do not assert decorative icons by test id. Assert the named control that contains them, or mark decorative icons `aria-hidden`.
+- Avoid testing internal state directly
+- **Prefer pattern matching over hardcoded strings** in assertions:
 
 ```typescript
 // ❌ Avoid: hardcoded text assertions
@@ -280,15 +236,11 @@ expect(screen.getByRole('status')).toBeInTheDocument()
 
 // ✅ Better: pattern matching
 expect(screen.getByText(/loading/i)).toBeInTheDocument()
-
 ```
-
 
 ### 3. Single Behavior Per Test
 
-
 Each test verifies ONE user-observable behavior:
-
 
 ```typescript
 // ✅ Good: One behavior
@@ -304,132 +256,76 @@ it('should handle loading state', () => {
   expect(screen.getByText('Loading...')).toBeInTheDocument()
   expect(screen.getByRole('button')).toHaveClass('loading')
 })
-
 ```
-
 
 ### 4. Semantic Naming
 
-
-Use should  when :
+Use `should <behavior> when <condition>`:
 
 ```typescript
 it('should show error message when validation fails')
 it('should call onSubmit when form is valid')
 it('should disable input when isReadOnly is true')
-
 ```
-
 
 ## Required Test Scenarios
 
-
 ### Always Required (All Components)
 
-
 1. **Rendering**: Component renders without crashing
-
-2. **Props**: Required props, optional props, default values
-
-3. **Edge Cases**: null, undefined, empty values, boundary conditions
-
+1. **Props**: Required props, optional props, default values
+1. **Edge Cases**: null, undefined, empty values, boundary conditions
 
 ### Conditional (When Present)
 
-
-| |                                         |
-| ----------------------------------------- |
-| Feature                                   |
-| Test Focus                                |
-| |                                         |
-| useState                                  |
-| Initial state, transitions, cleanup       |
-| |                                         |
-| useEffect                                 |
-| Execution, dependencies, cleanup          |
-| |                                         |
-| Event handlers                            |
-| All onClick, onChange, onSubmit, keyboard |
-| |                                         |
-| API calls                                 |
-| Loading, success, error states            |
-| |                                         |
-| Routing                                   |
-| Navigation, params, query strings         |
-| |                                         |
-| useCallback/useMemo                       |
-| Referential equality                      |
-| |                                         |
-| Context                                   |
-| Provider values, consumer behavior        |
-| |                                         |
-| Forms                                     |
-| Validation, submission, error display     |
-
+| Feature | Test Focus |
+|---------|-----------|
+| `useState` | Initial state, transitions, cleanup |
+| `useEffect` | Execution, dependencies, cleanup |
+| Event handlers | All onClick, onChange, onSubmit, keyboard |
+| API calls | Loading, success, error states |
+| Routing | Navigation, params, query strings |
+| `useCallback`/`useMemo` | Referential equality |
+| Context | Provider values, consumer behavior |
+| Forms | Validation, submission, error display |
 
 ## Coverage Goals (Per File)
 
-
 For each test file generated, aim for:
 
-
-* ✅ **100%** function coverage
-
-* ✅ **100%** statement coverage
-
-* ✅ **>95%** branch coverage
-
-* ✅ **>95%** line coverage
-
+- ✅ **100%** function coverage
+- ✅ **100%** statement coverage
+- ✅ **>95%** branch coverage
+- ✅ **>95%** line coverage
 
 > **Note**: For multi-file directories, process one file at a time with full coverage each. See `references/workflow.md`.
 
-
 ## Detailed Guides
-
 
 For more detailed information, refer to:
 
-
-* `references/workflow.md` - **Incremental testing workflow** (MUST READ for multi-file testing)
-
-* `references/mocking.md` - Mock patterns, Zustand store testing, and best practices
-
-* `references/async-testing.md` - Async operations and API calls
-
-* `references/domain-components.md` - Workflow, Dataset, Configuration testing
-
-* `references/common-patterns.md` - Frequently used testing patterns
-
-* `references/checklist.md` - Test generation checklist and validation steps
-
+- `references/workflow.md` - **Incremental testing workflow** (MUST READ for multi-file testing)
+- `references/mocking.md` - Mock patterns, Zustand store testing, and best practices
+- `references/async-testing.md` - Async operations and API calls
+- `references/domain-components.md` - Workflow, Dataset, Configuration testing
+- `references/common-patterns.md` - Frequently used testing patterns
+- `references/checklist.md` - Test generation checklist and validation steps
 
 ## Authoritative References
 
-
 ### Primary Specification (MUST follow)
 
-
-* **`web/docs/test.md`** - The canonical testing specification. This skill is derived from this document.
-
+- **`web/docs/test.md`** - The canonical testing specification. This skill is derived from this document.
 
 ### Reference Examples in Codebase
 
-
-* `web/utils/classnames.spec.ts` - Utility function tests
-
-* `web/app/components/base/radio/__tests__/index.spec.tsx` - Component tests
-
-* `web/__mocks__/provider-context.ts` - Mock factory example
-
+- `web/utils/classnames.spec.ts` - Utility function tests
+- `web/app/components/base/radio/__tests__/index.spec.tsx` - Component tests
+- `web/__mocks__/provider-context.ts` - Mock factory example
 
 ### Project Configuration
 
-
-* `web/vite.config.ts` - Vite/Vitest configuration
-
-* `web/vitest.setup.ts` - Test environment setup
-
-* `web/scripts/analyze-component.js` - Component analysis tool
-
-* Modules are not mocked automatically. Global mocks live in `web/vitest.setup.ts` (for example `react-i18next`, `next/image`); mock other modules like `ky` or `mime` locally in test files.
+- `web/vite.config.ts` - Vite/Vitest configuration
+- `web/vitest.setup.ts` - Test environment setup
+- `web/scripts/analyze-component.js` - Component analysis tool
+- Modules are not mocked automatically. Global mocks live in `web/vitest.setup.ts` (for example `react-i18next`, `next/image`); mock other modules like `ky` or `mime` locally in test files.

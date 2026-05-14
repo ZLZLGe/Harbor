@@ -69,7 +69,7 @@
     "guardrails": [
       "application files outside the test area must remain unchanged",
       "input data files must remain unchanged",
-      "installed skill files must remain unchanged",
+      "installed skill remains available as read-only runtime guidance when present",
       "the suite must not replace the repository server wiring from inside tests",
       "route-access logs must show detail, compare, and export traversal"
     ],

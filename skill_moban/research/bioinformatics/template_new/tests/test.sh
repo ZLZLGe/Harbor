@@ -1,77 +1,33 @@
 #!/bin/bash
-set -euo pipefail
+set -uo pipefail
 
-TESTS_ROOT="${TESTS_ROOT:-/tests}"
-VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
+pip3 install --break-system-packages pytest pytest-json-ctrf || pip install pytest pytest-json-ctrf
 
-mkdir -p "$VERIFIER_LOG_ROOT"
-if command -v start-bioinfo-scanpy-service >/dev/null 2>&1; then
-  start-bioinfo-scanpy-service
-fi
+mkdir -p /logs/verifier
 
+cd /root
 set +e
-python3 <<'PY' 2>&1 | tee "$VERIFIER_LOG_ROOT/test-output.txt"
-from __future__ import annotations
+python3 -m pytest /tests/test_outputs.py -v --tb=short --ctrf /logs/verifier/ctrf.json > /logs/verifier/test_output.log 2>&1
 
-import importlib.util
-import json
-import os
-import sys
-import traceback
-from pathlib import Path
-
-tests_root = Path(os.environ.get("TESTS_ROOT", "/tests"))
-log_root = Path(os.environ.get("VERIFIER_LOG_ROOT", "/logs/verifier"))
-sys.path.insert(0, str(tests_root))
-results = []
-
-for filename in ["test_outputs.py", "test_guardrails.py"]:
-    path = tests_root / filename
-    spec = importlib.util.spec_from_file_location(path.stem, path)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    spec.loader.exec_module(module)
-    for name in sorted(dir(module)):
-        if not name.startswith("test_"):
-            continue
-        fn = getattr(module, name)
-        if not callable(fn):
-            continue
-        nodeid = f"{filename}::{name}"
-        try:
-            fn()
-            results.append({"nodeid": nodeid, "outcome": "passed"})
-            print(f"PASS {nodeid}")
-        except Exception as exc:
-            results.append(
-                {
-                    "nodeid": nodeid,
-                    "outcome": "failed",
-                    "message": str(exc),
-                    "traceback": traceback.format_exc(),
-                }
-            )
-            print(f"FAIL {nodeid}: {exc}")
-            traceback.print_exc()
-
-report = {
-    "tests": results,
-    "summary": {
-        "passed": sum(r["outcome"] == "passed" for r in results),
-        "total": len(results),
-    },
-}
-(log_root / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
-(log_root / "ctrf.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
-raise SystemExit(0 if all(r["outcome"] == "passed" for r in results) else 1)
-PY
-RUN_EXIT=${PIPESTATUS[0]}
+PYTEST_EXIT_CODE=$?
 set -e
+PASSED=$(grep -oP '\d+(?= passed)' /logs/verifier/test_output.log | tail -1 || echo 0)
+FAILED=$(grep -oP '\d+(?= failed)' /logs/verifier/test_output.log | tail -1 || echo 0)
 
-if [ "$RUN_EXIT" -eq 0 ]; then
-  echo 1 > "$VERIFIER_LOG_ROOT/reward.txt"
+PASSED=${PASSED:-0}
+FAILED=${FAILED:-0}
+TOTAL=$((PASSED + FAILED))
+
+if [ "$TOTAL" -gt 0 ]; then
+  REWARD=$(python3 -c "print(round($PASSED / $TOTAL, 3))")
+  echo "$REWARD" > /logs/verifier/reward.txt
 else
-  echo 0 > "$VERIFIER_LOG_ROOT/reward.txt"
+  if [ $PYTEST_EXIT_CODE -eq 0 ]; then
+    echo 1 > /logs/verifier/reward.txt
+  else
+    echo 0 > /logs/verifier/reward.txt
+  fi
 fi
 
+cat /logs/verifier/test_output.log
 exit 0

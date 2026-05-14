@@ -1,16 +1,23 @@
+---
+name: healthcare-phi-compliance
+description: Protected Health Information (PHI) and Personally Identifiable Information (PII) compliance patterns for healthcare applications. Covers data classification, access control, audit trails, encryption, and common leak vectors.
+origin: Health1 Super Speciality Hospitals — contributed by Dr. Keyur Patel
+version: "1.0.0"
+---
+
 # Healthcare PHI/PII Compliance Patterns
 
 Patterns for protecting patient data, clinician data, and financial data in healthcare applications. Applicable to HIPAA (US), DISHA (India), GDPR (EU), and general healthcare data protection.
 
 ## When to Use
 
-* Building any feature that touches patient records
-* Implementing access control or authentication for clinical systems
-* Designing database schemas for healthcare data
-* Building APIs that return patient or clinician data
-* Implementing audit trails or logging
-* Reviewing code for data exposure vulnerabilities
-* Setting up Row-Level Security (RLS) for multi-tenant healthcare systems
+- Building any feature that touches patient records
+- Implementing access control or authentication for clinical systems
+- Designing database schemas for healthcare data
+- Building APIs that return patient or clinician data
+- Implementing audit trails or logging
+- Reviewing code for data exposure vulnerabilities
+- Setting up Row-Level Security (RLS) for multi-tenant healthcare systems
 
 ## How It Works
 
@@ -40,7 +47,6 @@ CREATE POLICY "audit_insert_only" ON audit_log FOR INSERT
   TO authenticated WITH CHECK (user_id = auth.uid());
 CREATE POLICY "audit_no_modify" ON audit_log FOR UPDATE USING (false);
 CREATE POLICY "audit_no_delete" ON audit_log FOR DELETE USING (false);
-
 ```
 
 ### Audit Trail
@@ -59,7 +65,6 @@ interface AuditEntry {
   ip_address: string;
   session_id: string;
 }
-
 ```
 
 ### Common Leak Vectors
@@ -72,7 +77,7 @@ interface AuditEntry {
 
 **Browser storage:** Never store PHI in localStorage or sessionStorage. Keep PHI in memory only, fetch on demand.
 
-**Service role keys:** Never use the service\_role key in client-side code. Always use the anon/publishable key and let RLS enforce access.
+**Service role keys:** Never use the service_role key in client-side code. Always use the anon/publishable key and let RLS enforce access.
 
 **Logs and monitoring:** Never log full patient records. Use opaque record IDs only (not medical record numbers). Sanitize stack traces before sending to error tracking services.
 
@@ -85,23 +90,21 @@ COMMENT ON COLUMN patients.name IS 'PHI: patient_name';
 COMMENT ON COLUMN patients.dob IS 'PHI: date_of_birth';
 COMMENT ON COLUMN patients.aadhaar IS 'PHI: national_id';
 COMMENT ON COLUMN doctor_payouts.amount IS 'PII: financial';
-
 ```
 
 ### Deployment Checklist
 
 Before every deployment:
-
-* No PHI in error messages or stack traces
-* No PHI in console.log/console.error
-* No PHI in URL parameters
-* No PHI in browser storage
-* No service\_role key in client code
-* RLS enabled on all PHI/PII tables
-* Audit trail for all data modifications
-* Session timeout configured
-* API authentication on all PHI endpoints
-* Cross-facility data isolation verified
+- No PHI in error messages or stack traces
+- No PHI in console.log/console.error
+- No PHI in URL parameters
+- No PHI in browser storage
+- No service_role key in client code
+- RLS enabled on all PHI/PII tables
+- Audit trail for all data modifications
+- Session timeout configured
+- API authentication on all PHI endpoints
+- Cross-facility data isolation verified
 
 ## Examples
 
@@ -114,7 +117,6 @@ throw new Error(`Patient ${patient.name} not found in ${patient.facility}`);
 // GOOD — generic error, details logged server-side with opaque IDs only
 logger.error('Patient lookup failed', { recordId: patient.id, facilityId });
 throw new Error('Record not found');
-
 ```
 
 ### Example 2: RLS Policy for Multi-Facility Isolation
@@ -129,7 +131,6 @@ CREATE POLICY "facility_isolation"
 
 -- Test: login as doctor-facility-a, query facility-b patients
 -- Expected: 0 rows returned
-
 ```
 
 ### Example 3: Safe Logging
@@ -141,5 +142,4 @@ console.log('Processing patient:', patient);
 // GOOD — logs only opaque internal record ID
 console.log('Processing record:', patient.id);
 // Note: even patient.id should be an opaque UUID, not a medical record number
-
 ```

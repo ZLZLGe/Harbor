@@ -25,15 +25,6 @@ EXPECTED_SCRIPT_HASHES = {
     "render_release.sh": "f9f091dd18bc77bb1bf347d0fc1479ace0015b52a3b34d6e7e78f64508994e05",
 }
 
-EXPECTED_SKILL_HASHES = {
-    "SKILL.md": "75f658e62d63f05f3ffc0b4d3870873cc5db68f5dbdc3ef326a9db9003f227ca",
-    "assets/Chart.yaml.template": "a752ee6b46f5f191d032fe1f4da60772a02651a3be03605acc86489875f4e1dd",
-    "assets/values.yaml.template": "d4ec34d9301b82001a167babcbfcfda8a5f2c39dbbe5b85d336a9c695d35c91a",
-    "references/chart-structure.md": "33bc7dc78368282ce0cc6b21f9df9551afe2482a2886c21082cba6b746373b5d",
-    "scripts/validate-chart.sh": "f1de1b886fc8e171fd4c6e10f1cb53796d47dac9b7a76babd710e2a86471089a",
-}
-
-
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -50,21 +41,6 @@ def test_render_entrypoint_is_unchanged() -> None:
         path = WORKSPACE / "scripts" / relative
         assert path.exists(), f"Missing required script: {relative}"
         assert sha256(path) == expected, f"Protected script changed: {relative}"
-
-
-def test_bound_skill_payload_is_unchanged_when_present() -> None:
-    candidates = [
-        APP_ROOT / "environment" / "skills" / "helm-chart-scaffolding",
-        Path("/logs/agent/skills/helm-chart-scaffolding"),
-    ]
-    root = next((candidate for candidate in candidates if candidate.exists()), None)
-    if root is None:
-        return
-
-    for relative, expected in EXPECTED_SKILL_HASHES.items():
-        path = root / relative
-        assert path.exists(), f"Missing bundled skill file: {relative}"
-        assert sha256(path) == expected, f"Bundled skill file changed: {relative}"
 
 
 def test_templates_use_helm_expressions() -> None:

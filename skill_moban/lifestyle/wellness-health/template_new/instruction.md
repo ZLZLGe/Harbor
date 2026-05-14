@@ -110,5 +110,5 @@ Notes:
 - Do not invent venues, activities, or policy thresholds.
 - Do not keep a requested setup unchanged when current constraints make it non-compliant and an allowed alternative exists.
 - Do not bypass the local planning service, hardcode final outputs, or reduce scope by dropping sessions that can still be scheduled.
-- Do not modify tests, verifier files, skill files, or environment files.
+- Do not modify tests, verifier files, or environment files.
 - You may write helper scripts in the workspace, but the final submission only needs the required files under `/root/output/`.

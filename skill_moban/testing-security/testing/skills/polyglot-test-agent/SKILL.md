@@ -1,170 +1,46 @@
-# Polyglot Test Generation Skill
+---
+name: polyglot-test-agent
+description: Generate or extend high-quality automated tests across multiple languages and test frameworks. Use when the task is to add unit or integration tests and the stack may be Jest, Pytest, JUnit, NUnit, MSTest, TUnit, Vue/Pinia, Spring Boot, or a mixed-language codebase.
+---
 
-An AI-powered skill that generates comprehensive, workable unit tests for any programming language using a coordinated multi-agent pipeline.
+# Polyglot Test Agent
 
-## When to Use This Skill
+Use this skill when the user asks for tests and the repository is not limited to a single language or framework.
 
-Use this skill when you need to:
+## Goals
 
-* Generate unit tests for an entire project or specific files
-* Improve test coverage for existing codebases
-* Create test files that follow project conventions
-* Write tests that actually compile and pass
-* Add tests for new features or untested code
+- Identify the active test stack before writing tests.
+- Reuse existing project test conventions instead of inventing new patterns.
+- Prefer focused tests that validate behavior, not implementation trivia.
+- Add or extend fixtures, helpers, and mocks only when they are required by the target behavior.
 
-## How It Works
+## Workflow
 
-This skill coordinates multiple specialized agents in a **Research → Plan → Implement** pipeline:
+1. Detect the language, package manager, and test framework already used by the repository.
+2. Inspect neighboring tests for naming, setup, fixtures, assertions, and mocking patterns.
+3. Map the requested behavior into concrete test cases:
+   - happy path
+   - validation and error paths
+   - edge cases
+   - regression coverage for the reported bug or scenario
+4. Write tests in the native framework for that area:
+   - JavaScript/TypeScript: Jest, Vitest, Playwright, or existing frontend tooling
+   - Python: Pytest or existing project tooling
+   - Java/Kotlin: JUnit or Spring test patterns
+   - .NET: xUnit, NUnit, MSTest, or TUnit
+   - Vue: follow Pinia/component patterns already present
+5. Run the narrowest relevant test command first, then broaden only if needed.
 
-### Pipeline Overview
+## Rules
 
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                     TEST GENERATOR                          │
-│  Coordinates the full pipeline and manages state            │
-└─────────────────────┬───────────────────────────────────────┘
-                      │
-        ┌─────────────┼─────────────┐
-        ▼             ▼             ▼
-┌───────────┐  ┌───────────┐  ┌───────────────┐
-│ RESEARCHER│  │  PLANNER  │  │  IMPLEMENTER  │
-│           │  │           │  │               │
-│ Analyzes  │  │ Creates   │  │ Writes tests  │
-│ codebase  │→ │ phased    │→ │ per phase     │
-│           │  │ plan      │  │               │
-└───────────┘  └───────────┘  └───────┬───────┘
-                                      │
-                    ┌─────────┬───────┼───────────┐
-                    ▼         ▼       ▼           ▼
-              ┌─────────┐ ┌───────┐ ┌───────┐ ┌───────┐
-              │ BUILDER │ │TESTER │ │ FIXER │ │LINTER │
-              │         │ │       │ │       │ │       │
-              │ Compiles│ │ Runs  │ │ Fixes │ │Formats│
-              │ code    │ │ tests │ │ errors│ │ code  │
-              └─────────┘ └───────┘ └───────┘ └───────┘
+- Do not introduce a new framework if the project already has one.
+- Do not rewrite existing tests unless the task requires it.
+- Keep test data minimal and readable.
+- Mock only unstable or external boundaries; prefer real code paths when practical.
+- If the code is hard to test, note the seam and add the smallest viable refactor to enable coverage.
 
-```
+## Output
 
-## Step-by-Step Instructions
-
-### Step 1: Determine the User Request
-
-Make sure you understand what user is asking and for what scope. When the user does not express strong requirements for test style, coverage goals, or conventions, source the guidelines from [unit-test-generation.prompt.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/polyglot-test-agent/unit-test-generation.prompt.md). This prompt provides best practices for discovering conventions, parameterization strategies, coverage goals (aim for 80%), and language-specific patterns.
-
-### Step 2: Invoke the Test Generator
-
-Start by calling the `polyglot-test-generator` agent with your test generation request:
-
-```text
-Generate unit tests for [path or description of what to test], following the [unit-test-generation.prompt.md](unit-test-generation.prompt.md) guidelines
-
-```
-
-The Test Generator will manage the entire pipeline automatically.
-
-### Step 3: Research Phase (Automatic)
-
-The `polyglot-test-researcher` agent analyzes your codebase to understand:
-
-* **Language & Framework**: Detects C#, TypeScript, Python, Go, Rust, Java, etc.
-* **Testing Framework**: Identifies MSTest, xUnit, Jest, pytest, go test, etc.
-* **Project Structure**: Maps source files, existing tests, and dependencies
-* **Build Commands**: Discovers how to build and test the project
-
-Output: `.testagent/research.md`
-
-### Step 4: Planning Phase (Automatic)
-
-The `polyglot-test-planner` agent creates a structured implementation plan:
-
-* Groups files into logical phases (2-5 phases typical)
-* Prioritizes by complexity and dependencies
-* Specifies test cases for each file
-* Defines success criteria per phase
-
-Output: `.testagent/plan.md`
-
-### Step 5: Implementation Phase (Automatic)
-
-The `polyglot-test-implementer` agent executes each phase sequentially:
-
-1. **Read** source files to understand the API
-2. **Write** test files following project patterns
-3. **Build** using the `polyglot-test-builder` subagent to verify compilation
-4. **Test** using the `polyglot-test-tester` subagent to verify tests pass
-5. **Fix** using the `polyglot-test-fixer` subagent if errors occur
-6. **Lint** using the `polyglot-test-linter` subagent for code formatting
-
-Each phase completes before the next begins, ensuring incremental progress.
-
-### Coverage Types
-
-* **Happy path**: Valid inputs produce expected outputs
-* **Edge cases**: Empty values, boundaries, special characters
-* **Error cases**: Invalid inputs, null handling, exceptions
-
-## State Management
-
-All pipeline state is stored in `.testagent/` folder:
-
-| File                   | Purpose                      |
-| ---------------------- | ---------------------------- |
-| .testagent/research.md | Codebase analysis results    |
-| .testagent/plan.md     | Phased implementation plan   |
-| .testagent/status.md   | Progress tracking (optional) |
-
-## Examples
-
-### Example 1: Full Project Testing
-
-```text
-Generate unit tests for my Calculator project at C:\src\Calculator
-
-```
-
-### Example 2: Specific File Testing
-
-```text
-Generate unit tests for src/services/UserService.ts
-
-```
-
-### Example 3: Targeted Coverage
-
-```text
-Add tests for the authentication module with focus on edge cases
-
-```
-
-## Agent Reference
-
-| Agent                     | Purpose              | Tools                                                        |
-| ------------------------- | -------------------- | ------------------------------------------------------------ |
-| polyglot-test-generator   | Coordinates pipeline | runCommands, codebase, editFiles, search, runSubagent        |
-| polyglot-test-researcher  | Analyzes codebase    | runCommands, codebase, editFiles, search, fetch, runSubagent |
-| polyglot-test-planner     | Creates test plan    | codebase, editFiles, search, runSubagent                     |
-| polyglot-test-implementer | Writes test files    | runCommands, codebase, editFiles, search, runSubagent        |
-| polyglot-test-builder     | Compiles code        | runCommands, codebase, search                                |
-| polyglot-test-tester      | Runs tests           | runCommands, codebase, search                                |
-| polyglot-test-fixer       | Fixes errors         | runCommands, codebase, editFiles, search                     |
-| polyglot-test-linter      | Formats code         | runCommands, codebase, search                                |
-
-## Requirements
-
-* Project must have a build/test system configured
-* Testing framework should be installed (or installable)
-* VS Code with GitHub Copilot extension
-
-## Troubleshooting
-
-### Tests don't compile
-
-The `polyglot-test-fixer` agent will attempt to resolve compilation errors. Check `.testagent/plan.md` for the expected test structure.
-
-### Tests fail
-
-Review the test output and adjust test expectations. Some tests may require mocking dependencies.
-
-### Wrong testing framework detected
-
-Specify your preferred framework in the initial request: "Generate Jest tests for..."
+- Add tests in the closest existing test location.
+- Match local naming and folder conventions.
+- Report what behavior is covered and what remains unverified if execution is blocked.

@@ -18,7 +18,7 @@
     "intro handoff structure includes audience, learning goals, and a clear workflow preview near the start",
     "charts and summary claims are grounded in source_bundle data and obey analysis_rules.md and chart_requirements.json",
     "cohort_indicator_table.csv is cohort-filtered, year-aligned, correctly ordered, and consistent with lesson_summary.json",
-    "input bundle and bundled skill files were not modified"
+    "input bundle files were not modified"
   ],
   "oracle_validation": {
     "local": "passed (7/7 pytest on official solution under the final verifier)",

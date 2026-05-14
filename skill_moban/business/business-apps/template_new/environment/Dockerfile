@@ -18,21 +18,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir pyyaml
-RUN npm install -g @openai/codex@0.120.0
 
 COPY . /opt/revops-task-env
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /services/revops /root/.codex/skills /logs/agent/skills /logs/verifier /var/log/revops /root/output \
     && cp -R /opt/revops-task-env/data /root/data \
-    && if [ -d /opt/revops-task-env/skills ]; then cp -R /opt/revops-task-env/skills/. /root/.codex/skills/; fi \
-    && if [ -d /opt/revops-task-env/skills ]; then cp -R /opt/revops-task-env/skills/. /logs/agent/skills/; fi \
     && python3 /opt/revops-task-env/hidden-service-src/build_runtime_service.py \
     && find /root/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/revops-data.sha256 \
     && find /services/revops -type f -print0 | sort -z | xargs -0 sha256sum > /opt/revops-service.sha256 \
-    && if [ -d /root/.codex/skills ] && find /root/.codex/skills -type f | grep -q .; then find /root/.codex/skills -type f -print0 | sort -z | xargs -0 sha256sum > /opt/revops-skills.sha256; fi \
     && chmod -R 755 /services/revops \
     && chmod 644 /opt/revops-data.sha256 /opt/revops-service.sha256 \
-    && if [ -f /opt/revops-skills.sha256 ]; then chmod 644 /opt/revops-skills.sha256; fi \
     && chmod 777 /var/log/revops
 
 RUN printf '#!/bin/bash\n\

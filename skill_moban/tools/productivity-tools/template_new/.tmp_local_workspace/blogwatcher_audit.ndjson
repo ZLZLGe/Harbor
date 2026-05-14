@@ -1,0 +1,15 @@
+{"ts": "2026-05-14T10:17:09.573804Z", "stage": "seed", "args": ["add", "uv Releases", "http://127.0.0.1:19100/mirror/uv-releases/index.html", "--feed-url", "http://127.0.0.1:19100/mirror/uv-releases/feed.atom"]}
+{"ts": "2026-05-14T10:17:09.601293Z", "stage": "seed", "args": ["add", "Node.js Blog", "http://127.0.0.1:19100/mirror/nodejs-blog/index.html", "--feed-url", "http://127.0.0.1:19100/mirror/nodejs-blog/feed.xml"]}
+{"ts": "2026-05-14T10:17:09.610804Z", "stage": "seed", "args": ["add", "Legacy Ops Weekly", "http://127.0.0.1:19100/legacy/ops-weekly/index.html", "--feed-url", "http://127.0.0.1:19100/legacy/ops-weekly/feed.xml"]}
+{"ts": "2026-05-14T10:17:09.622890Z", "stage": "seed", "args": ["scan", "uv Releases"]}
+{"ts": "2026-05-14T10:17:09.646557Z", "stage": "seed", "args": ["scan", "Node.js Blog"]}
+{"ts": "2026-05-14T10:17:10.495820Z", "stage": "build", "args": ["remove", "Legacy Ops Weekly", "-y"]}
+{"ts": "2026-05-14T10:17:10.513147Z", "stage": "build", "args": ["add", "GitHub Changelog", "http://127.0.0.1:19100/mirror/github-blog-changelog/index.html", "--feed-url", "http://127.0.0.1:19100/mirror/github-blog-changelog/feed.xml"]}
+{"ts": "2026-05-14T10:17:10.530998Z", "stage": "build", "args": ["add", "TypeScript Releases", "http://127.0.0.1:19100/mirror/typescript-releases/index.html", "--feed-url", "http://127.0.0.1:19100/mirror/typescript-releases/feed.atom"]}
+{"ts": "2026-05-14T10:17:10.543193Z", "stage": "build", "args": ["scan"]}
+{"ts": "2026-05-14T10:17:10.613361Z", "stage": "build", "args": ["read", "1"]}
+{"ts": "2026-05-14T10:17:10.627907Z", "stage": "build", "args": ["read", "2"]}
+{"ts": "2026-05-14T10:17:10.640159Z", "stage": "build", "args": ["read", "9"]}
+{"ts": "2026-05-14T10:17:10.654275Z", "stage": "build", "args": ["read", "10"]}
+{"ts": "2026-05-14T10:17:10.669164Z", "stage": "build", "args": ["read", "13"]}
+{"ts": "2026-05-14T10:17:10.681615Z", "stage": "build", "args": ["read", "14"]}

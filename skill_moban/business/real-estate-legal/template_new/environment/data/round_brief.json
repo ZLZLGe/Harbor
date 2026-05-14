@@ -1,0 +1,17 @@
+{
+  "company_name": "NoticeFlow",
+  "round": {
+    "instrument": "post-money SAFE",
+    "target_raise_usd": 2250000,
+    "minimum_raise_usd": 1500000,
+    "close_target_quarter": "2026-Q4",
+    "runway_months_target": 18
+  },
+  "model_start_quarter": "2026-Q4",
+  "current_cash_usd": 620000,
+  "approved_metros": [
+    "Atlanta",
+    "Dallas",
+    "Phoenix"
+  ]
+}

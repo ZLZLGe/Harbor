@@ -1,74 +1,55 @@
 # Security Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/security`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/security，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 37 个 skills，其中 29 个 installs >= 1000，8 个 installs 在 500-999。
 
 ## 技能清单
 
-1. requesting-code-review | 来源: https://skills.sh/obra/superpowers/requesting-code-review | installs: 75.0K | stars: 180100
-2. receiving-code-review | 来源: https://skills.sh/obra/superpowers/receiving-code-review | installs: 59.4K | stars: 180100
-3. security-review | 来源: https://skills.sh/affaan-m/everything-claude-code/security-review | installs: 7.5K | stars: 175900
-4. golang-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/golang-testing | installs: 5.8K | stars: 175900
-5. python-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/python-testing | installs: 4.3K | stars: 175900
-6. springboot-security | 来源: https://skills.sh/affaan-m/everything-claude-code/springboot-security | installs: 4.3K | stars: 175900
-7. django-security | 来源: https://skills.sh/affaan-m/everything-claude-code/django-security | installs: 4.1K | stars: 175900
-8. e2e-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/e2e-testing | installs: 3.8K | stars: 175900
-9. cpp-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/cpp-testing | installs: 3.5K | stars: 175900
-10. swift-protocol-di-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/swift-protocol-di-testing | installs: 3.1K | stars: 175900
-11. laravel-security | 来源: https://skills.sh/affaan-m/everything-claude-code/laravel-security | installs: 3.0K | stars: 175900
-12. rust-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/rust-testing | installs: 2.9K | stars: 175900
-13. ai-regression-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/ai-regression-testing | installs: 2.8K | stars: 175900
-14. customs-trade-compliance | 来源: https://skills.sh/affaan-m/everything-claude-code/customs-trade-compliance | installs: 2.8K | stars: 175900
-15. flutter-dart-code-review | 来源: https://skills.sh/affaan-m/everything-claude-code/flutter-dart-code-review | installs: 2.7K | stars: 175900
-16. kotlin-ktor-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/kotlin-ktor-patterns | installs: 2.7K | stars: 175900
-17. kotlin-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/kotlin-testing | installs: 2.7K | stars: 175900
-18. perl-security | 来源: https://skills.sh/affaan-m/everything-claude-code/perl-security | installs: 2.6K | stars: 175900
-19. perl-testing | 来源: https://skills.sh/affaan-m/everything-claude-code/perl-testing | installs: 2.6K | stars: 175900
-20. click-path-audit | 来源: https://skills.sh/affaan-m/everything-claude-code/click-path-audit | installs: 2.3K | stars: 175900
-21. santa-method | 来源: https://skills.sh/affaan-m/everything-claude-code/santa-method | installs: 2.3K | stars: 175900
-22. healthcare-phi-compliance | 来源: https://skills.sh/affaan-m/everything-claude-code/healthcare-phi-compliance | installs: 2.0K | stars: 175900
-23. workspace-surface-audit | 来源: https://skills.sh/affaan-m/everything-claude-code/workspace-surface-audit | installs: 1.8K | stars: 175900
-24. security-bounty-hunter | 来源: https://skills.sh/affaan-m/everything-claude-code/security-bounty-hunter | installs: 1.7K | stars: 175900
-25. automation-audit-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops | installs: 1.6K | stars: 175900
-26. defi-amm-security | 来源: https://skills.sh/affaan-m/everything-claude-code/defi-amm-security | installs: 1.6K | stars: 175900
-27. ecc-tools-cost-audit | 来源: https://skills.sh/affaan-m/everything-claude-code/ecc-tools-cost-audit | installs: 1.6K | stars: 175900
-28. hipaa-compliance | 来源: https://skills.sh/affaan-m/everything-claude-code/hipaa-compliance | installs: 1.6K | stars: 175900
-29. llm-trading-agent-security | 来源: https://skills.sh/affaan-m/everything-claude-code/llm-trading-agent-security | installs: 1.6K | stars: 175900
-30. doc-coauthoring | 来源: https://skills.sh/anthropics/skills/doc-coauthoring | installs: 38.2K | stars: 128900
-31. api-security-best-practices | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/api-security-best-practices | installs: 6.9K | stars: 36853
-32. nextjs-supabase-auth | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-supabase-auth | installs: 4.7K | stars: 36853
-33. accessibility-compliance | 来源: https://skills.sh/wshobson/agents/accessibility-compliance | installs: 8.4K | stars: 35018
-34. signed-audit-trails-recipe | 来源: https://skills.sh/wshobson/agents/signed-audit-trails-recipe | installs: 1.1K | stars: 35018
-35. bigquery-pipeline-audit | 来源: https://skills.sh/github/awesome-copilot/bigquery-pipeline-audit | installs: 8.4K | stars: 32200
-36. secret-scanning | 来源: https://skills.sh/github/awesome-copilot/secret-scanning | installs: 2.4K | stars: 32200
-37. codeql | 来源: https://skills.sh/github/awesome-copilot/codeql | installs: 1.5K | stars: 32200
-38. audit-support | 来源: https://skills.sh/anthropics/knowledge-work-plugins/audit-support | installs: 1.2K | stars: 11800
-39. compliance-tracking | 来源: https://skills.sh/anthropics/knowledge-work-plugins/compliance-tracking | installs: 1.1K | stars: 11800
-40. compliance-check | 来源: https://skills.sh/anthropics/knowledge-work-plugins/compliance-check | installs: 1.0K | stars: 11800
-41. google-cloud-recipe-auth | 来源: https://skills.sh/google/skills/google-cloud-recipe-auth | installs: 2.2K | stars: 6700
-42. google-cloud-waf-security | 来源: https://skills.sh/google/skills/google-cloud-waf-security | installs: 1.9K | stars: 6700
-43. semgrep | 来源: https://skills.sh/trailofbits/skills/semgrep | installs: 3.5K | stars: 5076
-44. solana-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/solana-vulnerability-scanner | installs: 2.3K | stars: 5076
-45. audit-prep-assistant | 来源: https://skills.sh/trailofbits/skills/audit-prep-assistant | installs: 2.2K | stars: 5076
-46. algorand-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/algorand-vulnerability-scanner | installs: 2.1K | stars: 5076
-47. cairo-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/cairo-vulnerability-scanner | installs: 2.1K | stars: 5076
-48. cosmos-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/cosmos-vulnerability-scanner | installs: 2.1K | stars: 5076
-49. substrate-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/substrate-vulnerability-scanner | installs: 2.1K | stars: 5076
-50. ton-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/ton-vulnerability-scanner | installs: 2.1K | stars: 5076
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | security-review | affaan-m/everything-claude-code | 177611 | 7985 | https://skills.sh/affaan-m/everything-claude-code/security-review |
+| 2 | springboot-security | affaan-m/everything-claude-code | 177611 | 4604 | https://skills.sh/affaan-m/everything-claude-code/springboot-security |
+| 3 | django-security | affaan-m/everything-claude-code | 177611 | 4485 | https://skills.sh/affaan-m/everything-claude-code/django-security |
+| 4 | laravel-security | affaan-m/everything-claude-code | 177611 | 3391 | https://skills.sh/affaan-m/everything-claude-code/laravel-security |
+| 5 | kotlin-ktor-patterns | affaan-m/everything-claude-code | 177611 | 3006 | https://skills.sh/affaan-m/everything-claude-code/kotlin-ktor-patterns |
+| 6 | perl-security | affaan-m/everything-claude-code | 177611 | 2955 | https://skills.sh/affaan-m/everything-claude-code/perl-security |
+| 7 | santa-method | affaan-m/everything-claude-code | 177611 | 2570 | https://skills.sh/affaan-m/everything-claude-code/santa-method |
+| 8 | healthcare-phi-compliance | affaan-m/everything-claude-code | 177611 | 2296 | https://skills.sh/affaan-m/everything-claude-code/healthcare-phi-compliance |
+| 9 | hipaa-compliance | affaan-m/everything-claude-code | 177611 | 1908 | https://skills.sh/affaan-m/everything-claude-code/hipaa-compliance |
+| 10 | security-and-hardening | addyosmani/agent-skills | 38375 | 2738 | https://skills.sh/addyosmani/agent-skills/security-and-hardening |
+| 11 | api-security-best-practices | sickn33/antigravity-awesome-skills | 37047 | 6995 | https://skills.sh/sickn33/antigravity-awesome-skills/api-security-best-practices |
+| 12 | nextjs-supabase-auth | sickn33/antigravity-awesome-skills | 37047 | 4814 | https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-supabase-auth |
+| 13 | k8s-security-policies | wshobson/agents | 35133 | 9747 | https://skills.sh/wshobson/agents/k8s-security-policies |
+| 14 | gdpr-data-handling | wshobson/agents | 35133 | 9520 | https://skills.sh/wshobson/agents/gdpr-data-handling |
+| 15 | auth-implementation-patterns | wshobson/agents | 35133 | 7640 | https://skills.sh/wshobson/agents/auth-implementation-patterns |
+| 16 | secrets-management | wshobson/agents | 35133 | 7188 | https://skills.sh/wshobson/agents/secrets-management |
+| 17 | sast-configuration | wshobson/agents | 35133 | 6049 | https://skills.sh/wshobson/agents/sast-configuration |
+| 18 | mtls-configuration | wshobson/agents | 35133 | 5847 | https://skills.sh/wshobson/agents/mtls-configuration |
+| 19 | azure-role-selector | github/awesome-copilot | 32605 | 9097 | https://skills.sh/github/awesome-copilot/azure-role-selector |
+| 20 | gws-shared | googleworkspace/cli | 26030 | 18935 | https://skills.sh/googleworkspace/cli/gws-shared |
+| 21 | security-best-practices | openai/skills | 18740 | 2534 | https://skills.sh/openai/skills/security-best-practices |
+| 22 | oauth | vercel-labs/portless | 9190 | 1395 | https://skills.sh/vercel-labs/portless/oauth |
+| 23 | secure-code-guardian | Jeffallan/claude-skills | 8935 | 2217 | https://skills.sh/Jeffallan/claude-skills/secure-code-guardian |
+| 24 | google-cloud-recipe-auth | google/skills | 6914 | 2801 | https://skills.sh/google/skills/google-cloud-recipe-auth |
+| 25 | insecure-defaults | trailofbits/skills | 5109 | 3515 | https://skills.sh/trailofbits/skills/insecure-defaults |
+| 26 | mfds-drug-safety | NomaDamas/k-skill | 4668 | 1127 | https://skills.sh/NomaDamas/k-skill/mfds-drug-safety |
+| 27 | ctf-web | ljagiello/ctf-skills | 1923 | 3531 | https://skills.sh/ljagiello/ctf-skills/ctf-web |
+| 28 | ctf-crypto | ljagiello/ctf-skills | 1923 | 3318 | https://skills.sh/ljagiello/ctf-skills/ctf-crypto |
+| 29 | golang-security | samber/cc-skills-golang | 1601 | 2444 | https://skills.sh/samber/cc-skills-golang/golang-security |
 
-- https://skills.sh/obra/superpowers
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/anthropics/skills
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
-- https://skills.sh/anthropics/knowledge-work-plugins
-- https://skills.sh/google/skills
-- https://skills.sh/trailofbits/skills
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 30 | 1password | openclaw/openclaw | 370546 | 894 | https://skills.sh/openclaw/openclaw/1password |
+| 31 | cc-skill-security-review | sickn33/antigravity-awesome-skills | 37047 | 948 | https://skills.sh/sickn33/antigravity-awesome-skills/cc-skill-security-review |
+| 32 | clerk-auth | sickn33/antigravity-awesome-skills | 37047 | 572 | https://skills.sh/sickn33/antigravity-awesome-skills/clerk-auth |
+| 33 | backend-security-coder | sickn33/antigravity-awesome-skills | 37047 | 561 | https://skills.sh/sickn33/antigravity-awesome-skills/backend-security-coder |
+| 34 | agent-owasp-compliance | github/awesome-copilot | 32605 | 705 | https://skills.sh/github/awesome-copilot/agent-owasp-compliance |
+| 35 | agent-supply-chain | github/awesome-copilot | 32605 | 640 | https://skills.sh/github/awesome-copilot/agent-supply-chain |
+| 36 | salesforce-component-standards | github/awesome-copilot | 32605 | 560 | https://skills.sh/github/awesome-copilot/salesforce-component-standards |
+| 37 | oauth | mcollina/skills | 1784 | 530 | https://skills.sh/mcollina/skills/oauth |

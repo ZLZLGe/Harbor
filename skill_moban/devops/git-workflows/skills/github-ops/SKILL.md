@@ -1,21 +1,27 @@
+---
+name: github-ops
+description: GitHub repository operations, automation, and management. Issue triage, PR management, CI/CD operations, release management, and security monitoring using the gh CLI. Use when the user wants to manage GitHub issues, PRs, CI status, releases, contributors, stale items, or any GitHub operational task beyond simple git commands.
+origin: ECC
+---
+
 # GitHub Operations
 
 Manage GitHub repositories with a focus on community health, CI reliability, and contributor experience.
 
 ## When to Activate
 
-* Triaging issues (classifying, labeling, responding, deduplicating)
-* Managing PRs (review status, CI checks, stale PRs, merge readiness)
-* Debugging CI/CD failures
-* Preparing releases and changelogs
-* Monitoring Dependabot and security alerts
-* Managing contributor experience on open-source projects
-* User says "check GitHub", "triage issues", "review PRs", "merge", "release", "CI is broken"
+- Triaging issues (classifying, labeling, responding, deduplicating)
+- Managing PRs (review status, CI checks, stale PRs, merge readiness)
+- Debugging CI/CD failures
+- Preparing releases and changelogs
+- Monitoring Dependabot and security alerts
+- Managing contributor experience on open-source projects
+- User says "check GitHub", "triage issues", "review PRs", "merge", "release", "CI is broken"
 
 ## Tool Requirements
 
-* **gh CLI** for all GitHub API operations
-* Repository access configured via `gh auth login`
+- **gh CLI** for all GitHub API operations
+- Repository access configured via `gh auth login`
 
 ## Issue Triage
 
@@ -44,23 +50,23 @@ gh issue edit <number> --add-label "bug,high-priority"
 
 # Comment on issue
 gh issue comment <number> --body "Thanks for reporting. Could you share reproduction steps?"
-
 ```
 
 ## PR Management
 
 ### Review Checklist
 
-Check CI status: gh pr checks Check if mergeable: gh pr view  \--json mergeable 
-1. Check age and last activity
-2. Flag PRs >5 days with no review
-3. For community PRs: ensure they have tests and follow conventions
+1. Check CI status: `gh pr checks <number>`
+2. Check if mergeable: `gh pr view <number> --json mergeable`
+3. Check age and last activity
+4. Flag PRs >5 days with no review
+5. For community PRs: ensure they have tests and follow conventions
 
 ### Stale Policy
 
-  * Issues with no activity in 14+ days: add `stale` label, comment asking for update
-  * PRs with no activity in 7+ days: comment asking if still active
-  * Auto-close stale issues after 30 days with no response (add `closed-stale` label)
+- Issues with no activity in 14+ days: add `stale` label, comment asking for update
+- PRs with no activity in 7+ days: comment asking if still active
+- Auto-close stale issues after 30 days with no response (add `closed-stale` label)
 
 ```bash
 # Find stale issues (no activity in 14+ days)
@@ -68,18 +74,17 @@ gh issue list --label "stale" --state open
 
 # Find PRs with no recent activity
 gh pr list --json number,title,updatedAt --jq '.[] | select(.updatedAt < "2026-03-01")'
-
 ```
 
 ## CI/CD Operations
 
 When CI fails:
 
-Check the workflow run: gh run view  \--log-failed 
-4. Identify the failing step
-5. Check if it is a flaky test vs real failure
-6. For real failures: identify the root cause and suggest a fix
-7. For flaky tests: note the pattern for future investigation
+1. Check the workflow run: `gh run view <run-id> --log-failed`
+2. Identify the failing step
+3. Check if it is a flaky test vs real failure
+4. For real failures: identify the root cause and suggest a fix
+5. For flaky tests: note the pattern for future investigation
 
 ```bash
 # List recent failed runs
@@ -90,17 +95,16 @@ gh run view <run-id> --log-failed
 
 # Re-run a failed workflow
 gh run rerun <run-id> --failed
-
 ```
 
 ## Release Management
 
 When preparing a release:
 
-  1. Check all CI is green on main
-  2. Review unreleased changes: `gh pr list --state merged --base main`
-  3. Generate changelog from PR titles
-  4. Create release: `gh release create`
+1. Check all CI is green on main
+2. Review unreleased changes: `gh pr list --state merged --base main`
+3. Generate changelog from PR titles
+4. Create release: `gh release create`
 
 ```bash
 # List merged PRs since last release
@@ -111,7 +115,6 @@ gh release create v1.2.0 --title "v1.2.0" --generate-notes
 
 # Create a pre-release
 gh release create v1.3.0-rc1 --prerelease --title "v1.3.0 Release Candidate 1"
-
 ```
 
 ## Security Monitoring
@@ -125,19 +128,17 @@ gh api repos/{owner}/{repo}/secret-scanning/alerts --jq '.[].state'
 
 # Review and auto-merge safe dependency bumps
 gh pr list --label "dependencies" --json number,title
-
 ```
 
-  * Review and auto-merge safe dependency bumps
-  * Flag any critical/high severity alerts immediately
-  * Check for new Dependabot alerts weekly at minimum
+- Review and auto-merge safe dependency bumps
+- Flag any critical/high severity alerts immediately
+- Check for new Dependabot alerts weekly at minimum
 
 ## Quality Gate
 
 Before completing any GitHub operations task:
-
-  * all issues triaged have appropriate labels
-  * no PRs older than 7 days without a review or comment
-  * CI failures have been investigated (not just re-run)
-  * releases include accurate changelogs
-  * security alerts are acknowledged and tracked
+- all issues triaged have appropriate labels
+- no PRs older than 7 days without a review or comment
+- CI failures have been investigated (not just re-run)
+- releases include accurate changelogs
+- security alerts are acknowledged and tracked

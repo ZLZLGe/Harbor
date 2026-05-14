@@ -1,16 +1,20 @@
+---
+name: creating-oracle-to-postgres-master-migration-plan
+description: 'Discovers all projects in a .NET solution, classifies each for Oracle-to-PostgreSQL migration eligibility, and produces a persistent master migration plan. Use when starting a multi-project Oracle-to-PostgreSQL migration, creating a migration inventory, or assessing which .NET projects contain Oracle dependencies.'
+---
+
 # Creating an Oracle-to-PostgreSQL Master Migration Plan
 
 Analyze a .NET solution, classify every project for Oracle→PostgreSQL migration eligibility, and write a structured plan that downstream agents and skills can parse.
 
 ## Workflow
 
-```text
+```
 Progress:
 - [ ] Step 1: Discover projects in the solution
 - [ ] Step 2: Classify each project
 - [ ] Step 3: Confirm with user
 - [ ] Step 4: Write the plan file
-
 ```
 
 **Step 1: Discover projects**
@@ -21,19 +25,19 @@ Find the Solution File (it has a `.sln` or `.slnx` extension) in the workspace r
 
 Scan every non-test project for Oracle indicators:
 
-* NuGet references: `Oracle.ManagedDataAccess`, `Oracle.EntityFrameworkCore` (check `.csproj` and `packages.config`)
-* Config entries: Oracle connection strings in `appsettings.json`, `web.config`, `app.config`
-* Code usage: `OracleConnection`, `OracleCommand`, `OracleDataReader`
-* DDL cross-references under `.github/oracle-to-postgres-migration/DDL/Oracle/` (if present)
+- NuGet references: `Oracle.ManagedDataAccess`, `Oracle.EntityFrameworkCore` (check `.csproj` and `packages.config`)
+- Config entries: Oracle connection strings in `appsettings.json`, `web.config`, `app.config`
+- Code usage: `OracleConnection`, `OracleCommand`, `OracleDataReader`
+- DDL cross-references under `.github/oracle-to-postgres-migration/DDL/Oracle/` (if present)
 
 Assign one classification per project:
 
-| Classification        | Meaning                                                          |
-| --------------------- | ---------------------------------------------------------------- |
-| **MIGRATE**           | Has Oracle interactions requiring conversion                     |
-| **SKIP**              | No Oracle indicators (UI-only, shared utility, etc.)             |
-| **ALREADY\_MIGRATED** | A \-postgres or .Postgres duplicate exists and appears processed |
-| **TEST\_PROJECT**     | Test project; handled by the testing workflow                    |
+| Classification | Meaning |
+|---|---|
+| **MIGRATE** | Has Oracle interactions requiring conversion |
+| **SKIP** | No Oracle indicators (UI-only, shared utility, etc.) |
+| **ALREADY_MIGRATED** | A `-postgres` or `.Postgres` duplicate exists and appears processed |
+| **TEST_PROJECT** | Test project; handled by the testing workflow |
 
 **Step 3: Confirm with user**
 
@@ -45,7 +49,7 @@ Save to: `.github/oracle-to-postgres-migration/Reports/Master Migration Plan.md`
 
 Use this exact template — downstream consumers depend on the structure:
 
-```markdown
+````markdown
 # Master Migration Plan
 
 **Solution:** {solution file name}
@@ -74,7 +78,6 @@ Use this exact template — downstream consumers depend on the structure:
 
 1. **{ProjectName}** — {rationale, e.g., "Core data access library; other projects depend on it."}
 2. **{ProjectName}** — {rationale}
-
-```
+````
 
 Order projects so that shared/foundational libraries are migrated before their dependents.

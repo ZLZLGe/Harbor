@@ -1,3 +1,13 @@
+---
+name: bun-development
+description: "Fast, modern JavaScript/TypeScript development with the Bun runtime, inspired by [oven-sh/bun](https://github.com/oven-sh/bun)."
+risk: critical
+source: community
+date_added: "2026-02-27"
+---
+
+<!-- security-allowlist: curl-pipe-bash, irm-pipe-iex -->
+
 # ⚡ Bun Development
 
 > Fast, modern JavaScript/TypeScript development with the Bun runtime, inspired by [oven-sh/bun](https://github.com/oven-sh/bun).
@@ -6,15 +16,15 @@
 
 Use this skill when:
 
-* Starting new JS/TS projects with Bun
-* Migrating from Node.js to Bun
-* Optimizing development speed
-* Using Bun's built-in tools (bundler, test runner)
-* Troubleshooting Bun-specific issues
+- Starting new JS/TS projects with Bun
+- Migrating from Node.js to Bun
+- Optimizing development speed
+- Using Bun's built-in tools (bundler, test runner)
+- Troubleshooting Bun-specific issues
 
 ---
 
-## 1\. Getting Started
+## 1. Getting Started
 
 ### 1.1 Installation
 
@@ -34,14 +44,13 @@ npm install -g bun
 
 # Upgrade
 bun upgrade
-
 ```
 
 ### 1.2 Why Bun?
 
 | Feature         | Bun            | Node.js                     |
-| --------------- | -------------- | --------------------------- |
-| Startup time    | \~25ms         | \~100ms+                    |
+| :-------------- | :------------- | :-------------------------- |
+| Startup time    | ~25ms          | ~100ms+                     |
 | Package install | 10-100x faster | Baseline                    |
 | TypeScript      | Native         | Requires transpiler         |
 | JSX             | Native         | Requires transpiler         |
@@ -50,7 +59,7 @@ bun upgrade
 
 ---
 
-## 2\. Project Setup
+## 2. Project Setup
 
 ### 2.1 Create New Project
 
@@ -72,7 +81,6 @@ bun create react my-app        # React app
 bun create next my-app         # Next.js app
 bun create vite my-app         # Vite app
 bun create elysia my-api       # Elysia API
-
 ```
 
 ### 2.2 package.json
@@ -97,7 +105,6 @@ bun create elysia my-api       # Elysia API
     "typescript": "^5.0.0"
   }
 }
-
 ```
 
 ### 2.3 tsconfig.json (Bun-optimized)
@@ -123,12 +130,11 @@ bun create elysia my-api       # Elysia API
     "types": ["bun-types"]
   }
 }
-
 ```
 
 ---
 
-## 3\. Package Management
+## 3. Package Management
 
 ### 3.1 Installing Packages
 
@@ -153,7 +159,6 @@ bun add react@next
 # From git
 bun add github:user/repo
 bun add git+https://github.com/user/repo.git
-
 ```
 
 ### 3.2 Removing & Updating
@@ -169,7 +174,6 @@ bun update --latest     # Update to latest (ignore ranges)
 
 # Check outdated
 bun outdated
-
 ```
 
 ### 3.3 bunx (npx equivalent)
@@ -185,7 +189,6 @@ bunx -p typescript@4.9 tsc --version
 
 # Run without installing
 bunx cowsay "Hello from Bun!"
-
 ```
 
 ### 3.4 Lockfile
@@ -197,12 +200,11 @@ bun install --yarn    # Creates yarn.lock
 
 # Trust existing lockfile
 bun install --frozen-lockfile
-
 ```
 
 ---
 
-## 4\. Running Code
+## 4. Running Code
 
 ### 4.1 Basic Execution
 
@@ -223,7 +225,6 @@ bun run build
 # Short form (for scripts)
 bun dev
 bun build
-
 ```
 
 ### 4.2 Watch Mode
@@ -234,7 +235,6 @@ bun --watch run index.ts
 
 # With hot reloading
 bun --hot run server.ts
-
 ```
 
 ### 4.3 Environment Variables
@@ -248,18 +248,16 @@ const port = Bun.env.PORT ?? "3000";
 
 // Or use process.env (Node.js compatible)
 const dbUrl = process.env.DATABASE_URL;
-
 ```
 
 ```bash
 # Run with specific env file
 bun --env-file=.env.production run index.ts
-
 ```
 
 ---
 
-## 5\. Built-in APIs
+## 5. Built-in APIs
 
 ### 5.1 File System (Bun.file)
 
@@ -283,7 +281,6 @@ const reader = file.stream();
 for await (const chunk of reader) {
   console.log(chunk);
 }
-
 ```
 
 ### 5.2 HTTP Server (Bun.serve)
@@ -315,7 +312,6 @@ const server = Bun.serve({
 });
 
 console.log(`Server running at http://localhost:${server.port}`);
-
 ```
 
 ### 5.3 WebSocket Server
@@ -348,7 +344,6 @@ const server = Bun.serve({
     },
   },
 });
-
 ```
 
 ### 5.4 SQLite (Bun.sql)
@@ -378,7 +373,6 @@ console.log(user); // { id: 1, name: "Alice", email: "alice@example.com" }
 
 // Query all
 const allUsers = db.query("SELECT * FROM users").all();
-
 ```
 
 ### 5.5 Password Hashing
@@ -397,12 +391,11 @@ const bcryptHash = await Bun.password.hash(password, {
   algorithm: "bcrypt",
   cost: 12,
 });
-
 ```
 
 ---
 
-## 6\. Testing
+## 6. Testing
 
 ### 6.1 Basic Tests
 
@@ -419,7 +412,6 @@ describe("Math operations", () => {
     expect(5 - 3).toBe(2);
   });
 });
-
 ```
 
 ### 6.2 Running Tests
@@ -442,7 +434,6 @@ bun test --coverage
 
 # Timeout
 bun test --timeout 5000
-
 ```
 
 ### 6.3 Matchers
@@ -481,7 +472,6 @@ test("matchers", () => {
   await expect(Promise.resolve(1)).resolves.toBe(1);
   await expect(Promise.reject("err")).rejects.toBe("err");
 });
-
 ```
 
 ### 6.4 Mocking
@@ -503,12 +493,11 @@ const obj = {
 const spy = spyOn(obj, "method").mockReturnValue("mocked");
 expect(obj.method()).toBe("mocked");
 expect(spy).toHaveBeenCalled();
-
 ```
 
 ---
 
-## 7\. Bundling
+## 7. Bundling
 
 ### 7.1 Basic Build
 
@@ -522,7 +511,6 @@ bun build ./src/index.ts \
   --target browser \
   --minify \
   --sourcemap
-
 ```
 
 ### 7.2 Build API
@@ -556,7 +544,6 @@ const result = await Bun.build({
 if (!result.success) {
   console.error(result.logs);
 }
-
 ```
 
 ### 7.3 Compile to Executable
@@ -571,12 +558,11 @@ bun build ./src/cli.ts --compile --target=bun-darwin-arm64 --outfile myapp-mac
 
 # With embedded assets
 bun build ./src/cli.ts --compile --outfile myapp --embed ./assets
-
 ```
 
 ---
 
-## 8\. Migration from Node.js
+## 8. Migration from Node.js
 
 ### 8.1 Compatibility
 
@@ -596,7 +582,6 @@ const buf = Buffer.from("hello");
 // __dirname and __filename work
 console.log(__dirname);
 console.log(__filename);
-
 ```
 
 ### 8.2 Common Migration Steps
@@ -615,7 +600,6 @@ bun install
 
 # 4. Add Bun types
 bun add -d @types/bun
-
 ```
 
 ### 8.3 Differences from Node.js
@@ -639,12 +623,11 @@ setImmediate()                // Use queueMicrotask()
 const file = Bun.file("./data.txt");  // Fast file API
 Bun.serve({ port: 3000, fetch: ... }); // Fast HTTP server
 Bun.password.hash(password);           // Built-in hashing
-
 ```
 
 ---
 
-## 9\. Performance Tips
+## 9. Performance Tips
 
 ### 9.1 Use Bun-native APIs
 
@@ -656,7 +639,6 @@ const content = await fs.readFile("./data.txt", "utf-8");
 // Fast (Bun-native)
 const file = Bun.file("./data.txt");
 const content = await file.text();
-
 ```
 
 ### 9.2 Use Bun.serve for HTTP
@@ -676,7 +658,6 @@ Bun.serve({
 // Or use Elysia (Bun-optimized framework)
 import { Elysia } from "elysia";
 new Elysia().get("/", () => "Hello!").listen(3000);
-
 ```
 
 ### 9.3 Bundle for Production
@@ -687,15 +668,34 @@ bun build ./src/index.ts --outdir ./dist --minify --target node
 
 # Then run the bundle
 bun run ./dist/index.js
-
 ```
 
 ---
 
 ## Quick Reference
 
-| Task         | Command             |         |
-| ------------ | ------------------- | ------- |
-| Init project | bun init            |         |
-| Install deps | bun install         |         |
-| Add package  | bun add  Run script | bun run |
+| Task         | Command                                    |
+| :----------- | :----------------------------------------- |
+| Init project | `bun init`                                 |
+| Install deps | `bun install`                              |
+| Add package  | `bun add <pkg>`                            |
+| Run script   | `bun run <script>`                         |
+| Run file     | `bun run file.ts`                          |
+| Watch mode   | `bun --watch run file.ts`                  |
+| Run tests    | `bun test`                                 |
+| Build        | `bun build ./src/index.ts --outdir ./dist` |
+| Execute pkg  | `bunx <pkg>`                               |
+
+---
+
+## Resources
+
+- [Bun Documentation](https://bun.sh/docs)
+- [Bun GitHub](https://github.com/oven-sh/bun)
+- [Elysia Framework](https://elysiajs.com/)
+- [Bun Discord](https://bun.sh/discord)
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

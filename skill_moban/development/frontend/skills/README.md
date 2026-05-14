@@ -1,79 +1,98 @@
 # Frontend Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/frontend`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/frontend，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 80 个 skills，其中 71 个 installs >= 1000，9 个 installs 在 500-999。
 
 ## 技能清单
 
-1. coding-standards | 来源: https://skills.sh/affaan-m/everything-claude-code/coding-standards | installs: 6.4K | stars: 175900
-2. frontend-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-patterns | installs: 6.3K | stars: 175900
-3. frontend-slides | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-slides | installs: 4.4K | stars: 175900
-4. liquid-glass-design | 来源: https://skills.sh/affaan-m/everything-claude-code/liquid-glass-design | installs: 3.5K | stars: 175900
-5. swiftui-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/swiftui-patterns | installs: 3.2K | stars: 175900
-6. documentation-lookup | 来源: https://skills.sh/affaan-m/everything-claude-code/documentation-lookup | installs: 2.8K | stars: 175900
-7. nextjs-turbopack | 来源: https://skills.sh/affaan-m/everything-claude-code/nextjs-turbopack | installs: 2.8K | stars: 175900
-8. team-builder | 来源: https://skills.sh/affaan-m/everything-claude-code/team-builder | installs: 2.6K | stars: 175900
-9. nuxt4-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/nuxt4-patterns | installs: 2.4K | stars: 175900
-10. remotion-video-creation | 来源: https://skills.sh/affaan-m/everything-claude-code/remotion-video-creation | installs: 2.0K | stars: 175900
-11. ui-demo | 来源: https://skills.sh/affaan-m/everything-claude-code/ui-demo | installs: 1.9K | stars: 175900
-12. frontend-design | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-design | installs: 1.8K | stars: 175900
-13. api-connector-builder | 来源: https://skills.sh/affaan-m/everything-claude-code/api-connector-builder | installs: 1.7K | stars: 175900
-14. dashboard-builder | 来源: https://skills.sh/affaan-m/everything-claude-code/dashboard-builder | installs: 1.7K | stars: 175900
-15. project-guidelines-example | 来源: https://skills.sh/affaan-m/everything-claude-code/project-guidelines-example | installs: 1.7K | stars: 175900
-16. frontend-testing | 来源: https://skills.sh/langgenius/dify/frontend-testing | installs: 2.2K | stars: 140300
-17. mcp-builder | 来源: https://skills.sh/anthropics/skills/mcp-builder | installs: 50.0K | stars: 128900
-18. web-artifacts-builder | 来源: https://skills.sh/anthropics/skills/web-artifacts-builder | installs: 41.2K | stars: 128900
-19. brand-guidelines | 来源: https://skills.sh/anthropics/skills/brand-guidelines | installs: 36.9K | stars: 128900
-20. karpathy-guidelines | 来源: https://skills.sh/forrestchang/andrej-karpathy-skills/karpathy-guidelines | installs: 9.8K | stars: 106900
-21. react | 来源: https://skills.sh/lobehub/lobehub/react | installs: 2.0K | stars: 76100
-22. zustand | 来源: https://skills.sh/lobehub/lobehub/zustand | installs: 1.5K | stars: 76100
-23. i18n | 来源: https://skills.sh/lobehub/lobehub/i18n | installs: 1.0K | stars: 76100
-24. ui-ux-pro-max | 来源: https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max | installs: 152.9K | stars: 73300
-25. ckm:ui-styling | 来源: https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:ui-styling | installs: 14.2K | stars: 73300
-26. ubiquitous-language | 来源: https://skills.sh/mattpocock/skills/ubiquitous-language | installs: 6.8K | stars: 62100
-27. artifacts-builder | 来源: https://skills.sh/composiohq/awesome-claude-skills/artifacts-builder | installs: 1.9K | stars: 58200
-28. nextjs-best-practices | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-best-practices | installs: 5.0K | stars: 36853
-29. nextjs-supabase-auth | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-supabase-auth | installs: 4.7K | stars: 36853
-30. telegram-bot-builder | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/telegram-bot-builder | installs: 2.2K | stars: 36853
-31. backend-dev-guidelines | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/backend-dev-guidelines | installs: 1.1K | stars: 36853
-32. react-native-design | 来源: https://skills.sh/wshobson/agents/react-native-design | installs: 8.7K | stars: 35018
-33. accessibility-compliance | 来源: https://skills.sh/wshobson/agents/accessibility-compliance | installs: 8.4K | stars: 35018
-34. penpot-uiux-design | 来源: https://skills.sh/github/awesome-copilot/penpot-uiux-design | installs: 10.1K | stars: 32200
-35. prompt-builder | 来源: https://skills.sh/github/awesome-copilot/prompt-builder | installs: 9.3K | stars: 32200
-36. copilot-cli-quickstart | 来源: https://skills.sh/github/awesome-copilot/copilot-cli-quickstart | installs: 8.5K | stars: 32200
-37. create-github-issues-for-unmet-specification-requirements | 来源: https://skills.sh/github/awesome-copilot/create-github-issues-for-unmet-specification-requirements | installs: 8.5K | stars: 32200
-38. fluentui-blazor | 来源: https://skills.sh/github/awesome-copilot/fluentui-blazor | installs: 8.5K | stars: 32200
-39. legacy-circuit-mockups | 来源: https://skills.sh/github/awesome-copilot/legacy-circuit-mockups | installs: 8.5K | stars: 32200
-40. dataverse-python-quickstart | 来源: https://skills.sh/github/awesome-copilot/dataverse-python-quickstart | installs: 8.4K | stars: 32200
-41. dataverse-python-usecase-builder | 来源: https://skills.sh/github/awesome-copilot/dataverse-python-usecase-builder | installs: 8.4K | stars: 32200
-42. power-platform-mcp-connector-suite | 来源: https://skills.sh/github/awesome-copilot/power-platform-mcp-connector-suite | installs: 8.3K | stars: 32200
-43. winui3-migration-guide | 来源: https://skills.sh/github/awesome-copilot/winui3-migration-guide | installs: 5.4K | stars: 32200
-44. premium-frontend-ui | 来源: https://skills.sh/github/awesome-copilot/premium-frontend-ui | installs: 1.8K | stars: 32200
-45. flowstudio-power-automate-build | 来源: https://skills.sh/github/awesome-copilot/flowstudio-power-automate-build | installs: 1.6K | stars: 32200
-46. unit-test-vue-pinia | 来源: https://skills.sh/github/awesome-copilot/unit-test-vue-pinia | installs: 1.4K | stars: 32200
-47. heroui-native | 来源: https://skills.sh/heroui-inc/heroui/heroui-native | installs: 5.0K | stars: 29100
-48. heroui-migration | 来源: https://skills.sh/heroui-inc/heroui/heroui-migration | installs: 1.2K | stars: 29100
-49. ui-design-system | 来源: https://skills.sh/davila7/claude-code-templates/ui-design-system | installs: 1.0K | stars: 26800
-50. frontend-skill | 来源: https://skills.sh/openai/skills/frontend-skill | installs: 1.5K | stars: 18400
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | coding-standards | affaan-m/everything-claude-code | 177611 | 6723 | https://skills.sh/affaan-m/everything-claude-code/coding-standards |
+| 2 | frontend-patterns | affaan-m/everything-claude-code | 177611 | 6679 | https://skills.sh/affaan-m/everything-claude-code/frontend-patterns |
+| 3 | documentation-lookup | affaan-m/everything-claude-code | 177611 | 3088 | https://skills.sh/affaan-m/everything-claude-code/documentation-lookup |
+| 4 | remotion-video-creation | affaan-m/everything-claude-code | 177611 | 2319 | https://skills.sh/affaan-m/everything-claude-code/remotion-video-creation |
+| 5 | web-artifacts-builder | anthropics/skills | 131614 | 44015 | https://skills.sh/anthropics/skills/web-artifacts-builder |
+| 6 | react | lobehub/lobehub | 76794 | 2092 | https://skills.sh/lobehub/lobehub/react |
+| 7 | zustand | lobehub/lobehub | 76794 | 1723 | https://skills.sh/lobehub/lobehub/zustand |
+| 8 | i18n | lobehub/lobehub | 76794 | 1075 | https://skills.sh/lobehub/lobehub/i18n |
+| 9 | ui-ux-pro-max | nextlevelbuilder/ui-ux-pro-max-skill | 75985 | 161313 | https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max |
+| 10 | tailwind-design-system | wshobson/agents | 35133 | 41231 | https://skills.sh/wshobson/agents/tailwind-design-system |
+| 11 | typescript-advanced-types | wshobson/agents | 35133 | 40616 | https://skills.sh/wshobson/agents/typescript-advanced-types |
+| 12 | nextjs-app-router-patterns | wshobson/agents | 35133 | 17198 | https://skills.sh/wshobson/agents/nextjs-app-router-patterns |
+| 13 | mobile-android-design | wshobson/agents | 35133 | 14285 | https://skills.sh/wshobson/agents/mobile-android-design |
+| 14 | responsive-design | wshobson/agents | 35133 | 10850 | https://skills.sh/wshobson/agents/responsive-design |
+| 15 | react-native-design | wshobson/agents | 35133 | 8989 | https://skills.sh/wshobson/agents/react-native-design |
+| 16 | react-native-architecture | wshobson/agents | 35133 | 8975 | https://skills.sh/wshobson/agents/react-native-architecture |
+| 17 | react-state-management | wshobson/agents | 35133 | 8434 | https://skills.sh/wshobson/agents/react-state-management |
+| 18 | web-component-design | wshobson/agents | 35133 | 7700 | https://skills.sh/wshobson/agents/web-component-design |
+| 19 | react-modernization | wshobson/agents | 35133 | 7122 | https://skills.sh/wshobson/agents/react-modernization |
+| 20 | angular-migration | wshobson/agents | 35133 | 6170 | https://skills.sh/wshobson/agents/angular-migration |
+| 21 | heroui-react | heroui-inc/heroui | 29231 | 5197 | https://skills.sh/heroui-inc/heroui/heroui-react |
+| 22 | heroui-native | heroui-inc/heroui | 29231 | 5156 | https://skills.sh/heroui-inc/heroui/heroui-native |
+| 23 | vercel-composition-patterns | vercel-labs/agent-skills | 26355 | 171599 | https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns |
+| 24 | gws-modelarmor | googleworkspace/cli | 26030 | 12229 | https://skills.sh/googleworkspace/cli/gws-modelarmor |
+| 25 | gws-modelarmor-create-template | googleworkspace/cli | 26030 | 12154 | https://skills.sh/googleworkspace/cli/gws-modelarmor-create-template |
+| 26 | tailwind-best-practices | mastra-ai/mastra | 23747 | 1090 | https://skills.sh/mastra-ai/mastra/tailwind-best-practices |
+| 27 | react-email | resend/react-email | 19141 | 5113 | https://skills.sh/resend/react-email/react-email |
+| 28 | remotion-to-hyperframes | heygen-com/hyperframes | 16773 | 21838 | https://skills.sh/heygen-com/hyperframes/remotion-to-hyperframes |
+| 29 | css-animations | heygen-com/hyperframes | 16773 | 19305 | https://skills.sh/heygen-com/hyperframes/css-animations |
+| 30 | tailwind | heygen-com/hyperframes | 16773 | 18570 | https://skills.sh/heygen-com/hyperframes/tailwind |
+| 31 | waapi | heygen-com/hyperframes | 16773 | 18525 | https://skills.sh/heygen-com/hyperframes/waapi |
+| 32 | react | vercel-labs/json-render | 14713 | 1894 | https://skills.sh/vercel-labs/json-render/react |
+| 33 | shadcn | vercel-labs/json-render | 14713 | 1016 | https://skills.sh/vercel-labs/json-render/shadcn |
+| 34 | coss | cosscom/coss | 9664 | 1154 | https://skills.sh/cosscom/coss/coss |
+| 35 | flutter-expert | Jeffallan/claude-skills | 8935 | 10660 | https://skills.sh/Jeffallan/claude-skills/flutter-expert |
+| 36 | javascript-pro | Jeffallan/claude-skills | 8935 | 2569 | https://skills.sh/Jeffallan/claude-skills/javascript-pro |
+| 37 | nextjs-developer | Jeffallan/claude-skills | 8935 | 2566 | https://skills.sh/Jeffallan/claude-skills/nextjs-developer |
+| 38 | react-expert | Jeffallan/claude-skills | 8935 | 2331 | https://skills.sh/Jeffallan/claude-skills/react-expert |
+| 39 | fullstack-guardian | Jeffallan/claude-skills | 8935 | 2322 | https://skills.sh/Jeffallan/claude-skills/fullstack-guardian |
+| 40 | react-native-expert | Jeffallan/claude-skills | 8935 | 2290 | https://skills.sh/Jeffallan/claude-skills/react-native-expert |
+| 41 | angular-architect | Jeffallan/claude-skills | 8935 | 2217 | https://skills.sh/Jeffallan/claude-skills/angular-architect |
+| 42 | vue-expert | Jeffallan/claude-skills | 8935 | 1993 | https://skills.sh/Jeffallan/claude-skills/vue-expert |
+| 43 | vue-expert-js | Jeffallan/claude-skills | 8935 | 1756 | https://skills.sh/Jeffallan/claude-skills/vue-expert-js |
+| 44 | nuxt-ui | nuxt/ui | 6564 | 11178 | https://skills.sh/nuxt/ui/nuxt-ui |
+| 45 | remotion | google-labs-code/stitch-skills | 5314 | 25374 | https://skills.sh/google-labs-code/stitch-skills/remotion |
+| 46 | libfuzzer | trailofbits/skills | 5109 | 2209 | https://skills.sh/trailofbits/skills/libfuzzer |
+| 47 | ruzzy | trailofbits/skills | 5109 | 2181 | https://skills.sh/trailofbits/skills/ruzzy |
+| 48 | vite | antfu/skills | 4897 | 21973 | https://skills.sh/antfu/skills/vite |
+| 49 | vue | antfu/skills | 4897 | 21936 | https://skills.sh/antfu/skills/vue |
+| 50 | nuxt | antfu/skills | 4897 | 14948 | https://skills.sh/antfu/skills/nuxt |
+| 51 | unocss | antfu/skills | 4897 | 11153 | https://skills.sh/antfu/skills/unocss |
+| 52 | pinia | antfu/skills | 4897 | 11037 | https://skills.sh/antfu/skills/pinia |
+| 53 | vitepress | antfu/skills | 4897 | 7461 | https://skills.sh/antfu/skills/vitepress |
+| 54 | agentation | benjitaylor/agentation | 3548 | 9059 | https://skills.sh/benjitaylor/agentation/agentation |
+| 55 | expect | millionco/expect | 3461 | 1704 | https://skills.sh/millionco/expect/expect |
+| 56 | swiftui-ui-patterns | Dimillian/Skills | 3440 | 2258 | https://skills.sh/Dimillian/Skills/swiftui-ui-patterns |
+| 57 | gsap-react | greensock/gsap-skills | 3178 | 9484 | https://skills.sh/greensock/gsap-skills/gsap-react |
+| 58 | gsap-frameworks | greensock/gsap-skills | 3178 | 8999 | https://skills.sh/greensock/gsap-skills/gsap-frameworks |
+| 59 | vue-best-practices | vuejs-ai/skills | 2382 | 7141 | https://skills.sh/vuejs-ai/skills/vue-best-practices |
+| 60 | vue-debug-guides | vuejs-ai/skills | 2382 | 6091 | https://skills.sh/vuejs-ai/skills/vue-debug-guides |
+| 61 | vue-router-best-practices | vuejs-ai/skills | 2382 | 5980 | https://skills.sh/vuejs-ai/skills/vue-router-best-practices |
+| 62 | create-adaptable-composable | vuejs-ai/skills | 2382 | 5922 | https://skills.sh/vuejs-ai/skills/create-adaptable-composable |
+| 63 | vue-options-api-best-practices | vuejs-ai/skills | 2382 | 5050 | https://skills.sh/vuejs-ai/skills/vue-options-api-best-practices |
+| 64 | threejs-materials | CloudAI-X/threejs-skills | 2168 | 3214 | https://skills.sh/CloudAI-X/threejs-skills/threejs-materials |
+| 65 | threejs-loaders | CloudAI-X/threejs-skills | 2168 | 2817 | https://skills.sh/CloudAI-X/threejs-skills/threejs-loaders |
+| 66 | react-useeffect | softaworks/agent-toolkit | 1722 | 3536 | https://skills.sh/softaworks/agent-toolkit/react-useeffect |
+| 67 | react-dev | softaworks/agent-toolkit | 1722 | 3524 | https://skills.sh/softaworks/agent-toolkit/react-dev |
+| 68 | baseline-ui | ibelick/ui-skills | 1648 | 11256 | https://skills.sh/ibelick/ui-skills/baseline-ui |
+| 69 | golang-samber-ro | samber/cc-skills-golang | 1601 | 2071 | https://skills.sh/samber/cc-skills-golang/golang-samber-ro |
+| 70 | uniwind | uni-stack/uniwind | 1528 | 1795 | https://skills.sh/uni-stack/uniwind/uniwind |
+| 71 | migrate-nativewind-to-uniwind | uni-stack/uniwind | 1528 | 1083 | https://skills.sh/uni-stack/uniwind/migrate-nativewind-to-uniwind |
 
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/langgenius/dify
-- https://skills.sh/anthropics/skills
-- https://skills.sh/forrestchang/andrej-karpathy-skills
-- https://skills.sh/lobehub/lobehub
-- https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill
-- https://skills.sh/mattpocock/skills
-- https://skills.sh/composiohq/awesome-claude-skills
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
-- https://skills.sh/heroui-inc/heroui
-- https://skills.sh/davila7/claude-code-templates
-- https://skills.sh/openai/skills
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 72 | extract-errors | facebook/react | 244928 | 959 | https://skills.sh/facebook/react/extract-errors |
+| 73 | react-vendoring | vercel/next.js | 139364 | 919 | https://skills.sh/vercel/next.js/react-vendoring |
+| 74 | vercel-composition-patterns | supabase/supabase | 102120 | 575 | https://skills.sh/supabase/supabase/vercel-composition-patterns |
+| 75 | angular-developer | angular/angular | 100067 | 992 | https://skills.sh/angular/angular/angular-developer |
+| 76 | modal | lobehub/lobehub | 76794 | 886 | https://skills.sh/lobehub/lobehub/modal |
+| 77 | docs-demo | remotion-dev/remotion | 46451 | 676 | https://skills.sh/remotion-dev/remotion/docs-demo |
+| 78 | react-ui-patterns | sickn33/antigravity-awesome-skills | 37047 | 951 | https://skills.sh/sickn33/antigravity-awesome-skills/react-ui-patterns |
+| 79 | react-patterns | sickn33/antigravity-awesome-skills | 37047 | 715 | https://skills.sh/sickn33/antigravity-awesome-skills/react-patterns |
+| 80 | tailwind-design-system | sickn33/antigravity-awesome-skills | 37047 | 708 | https://skills.sh/sickn33/antigravity-awesome-skills/tailwind-design-system |

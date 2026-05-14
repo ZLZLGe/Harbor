@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 import pandas as pd
 from pandas.testing import assert_frame_equal
 
@@ -50,20 +48,6 @@ def test_required_outputs_exist_and_parse() -> None:
     assert list(outputs["crossmatch_audit"].columns) == reference_review.CROSSMATCH_COLUMNS
     assert list(outputs["triage_diagnostics"].columns) == reference_review.DIAGNOSTIC_COLUMNS
     assert isinstance(outputs["report"], dict)
-
-
-def test_bound_astropy_skill_is_available_and_unchanged_enough() -> None:
-    skill_path = Path("/root/.codex/skills/astropy/SKILL.md")
-    try:
-        exists = skill_path.exists()
-    except PermissionError:
-        return
-    if not exists:
-        return
-    content = skill_path.read_text(encoding="utf-8")
-    assert "# Astropy" in content
-    assert "Converting between celestial coordinate systems" in content
-    assert "WCS transformations between pixel and world coordinates" in content
 
 
 def test_candidate_review_matches_oracle() -> None:

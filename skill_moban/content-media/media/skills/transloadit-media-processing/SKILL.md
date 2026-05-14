@@ -1,28 +1,37 @@
+---
+name: transloadit-media-processing
+description: 'Process media files (video, audio, images, documents) using Transloadit. Use when asked to encode video to HLS/MP4, generate thumbnails, resize or watermark images, extract audio, concatenate clips, add subtitles, OCR documents, or run any media processing pipeline. Covers 86+ processing robots for file transformation at scale.'
+license: MIT
+compatibility: Requires a free Transloadit account (https://transloadit.com/signup). Uses the @transloadit/mcp-server MCP server or the @transloadit/node CLI.
+---
+
 # Transloadit Media Processing
 
-Process, transform, and encode media files using Transloadit's cloud infrastructure. Supports video, audio, images, and documents with 86+ specialized processing robots.
+Process, transform, and encode media files using Transloadit's cloud infrastructure.
+Supports video, audio, images, and documents with 86+ specialized processing robots.
 
 ## When to Use This Skill
 
 Use this skill when you need to:
 
-* Encode video to HLS, MP4, WebM, or other formats
-* Generate thumbnails or animated GIFs from video
-* Resize, crop, watermark, or optimize images
-* Convert between image formats (JPEG, PNG, WebP, AVIF, HEIF)
-* Extract or transcode audio (MP3, AAC, FLAC, WAV)
-* Concatenate video or audio clips
-* Add subtitles or overlay text on video
-* OCR documents (PDF, scanned images)
-* Run speech-to-text or text-to-speech
-* Apply AI-based content moderation or object detection
-* Build multi-step media pipelines that chain operations together
+- Encode video to HLS, MP4, WebM, or other formats
+- Generate thumbnails or animated GIFs from video
+- Resize, crop, watermark, or optimize images
+- Convert between image formats (JPEG, PNG, WebP, AVIF, HEIF)
+- Extract or transcode audio (MP3, AAC, FLAC, WAV)
+- Concatenate video or audio clips
+- Add subtitles or overlay text on video
+- OCR documents (PDF, scanned images)
+- Run speech-to-text or text-to-speech
+- Apply AI-based content moderation or object detection
+- Build multi-step media pipelines that chain operations together
 
 ## Setup
 
 ### Option A: MCP Server (recommended for Copilot)
 
-Add the Transloadit MCP server to your IDE config. This gives the agent direct access to Transloadit tools (`create_template`, `create_assembly`, `list_assembly_notifications`, etc.).
+Add the Transloadit MCP server to your IDE config. This gives the agent direct access
+to Transloadit tools (`create_template`, `create_assembly`, `list_assembly_notifications`, etc.).
 
 **VS Code / GitHub Copilot** (`.vscode/mcp.json` or user settings):
 
@@ -39,10 +48,9 @@ Add the Transloadit MCP server to your IDE config. This gives the agent direct a
     }
   }
 }
-
 ```
 
-Get your API credentials at <https://transloadit.com/c/-/api-credentials>
+Get your API credentials at https://transloadit.com/c/-/api-credentials
 
 ### Option B: CLI
 
@@ -53,7 +61,6 @@ npx -y @transloadit/node assemblies create \
   --steps '{"encoded": {"robot": "/video/encode", "use": ":original", "preset": "hls-1080p"}}' \
   --wait \
   --input ./my-video.mp4
-
 ```
 
 ## Core Workflows
@@ -70,7 +77,6 @@ npx -y @transloadit/node assemblies create \
     }
   }
 }
-
 ```
 
 ### Generate Thumbnails from Video
@@ -87,7 +93,6 @@ npx -y @transloadit/node assemblies create \
     }
   }
 }
-
 ```
 
 ### Resize and Watermark Images
@@ -111,7 +116,6 @@ npx -y @transloadit/node assemblies create \
     }
   }
 }
-
 ```
 
 ### OCR a Document
@@ -127,7 +131,6 @@ npx -y @transloadit/node assemblies create \
     }
   }
 }
-
 ```
 
 ### Concatenate Audio Clips
@@ -146,7 +149,6 @@ npx -y @transloadit/node assemblies create \
     }
   }
 }
-
 ```
 
 ## Multi-Step Pipelines
@@ -173,21 +175,20 @@ Steps can be chained using the `"use"` field. Each step references a previous st
     }
   }
 }
-
 ```
 
 ## Key Concepts
 
-* **Assembly**: A single processing job. Created via `create_assembly` (MCP) or `assemblies create` (CLI).
-* **Template**: A reusable set of steps stored on Transloadit. Created via `create_template` (MCP) or `templates create` (CLI).
-* **Robot**: A processing unit (e.g., `/video/encode`, `/image/resize`). See full list at <https://transloadit.com/docs/transcoding/>
-* **Steps**: JSON object defining the pipeline. Each key is a step name, each value configures a robot.
-* **`:original`**: Refers to the uploaded input file.
+- **Assembly**: A single processing job. Created via `create_assembly` (MCP) or `assemblies create` (CLI).
+- **Template**: A reusable set of steps stored on Transloadit. Created via `create_template` (MCP) or `templates create` (CLI).
+- **Robot**: A processing unit (e.g., `/video/encode`, `/image/resize`). See full list at https://transloadit.com/docs/transcoding/
+- **Steps**: JSON object defining the pipeline. Each key is a step name, each value configures a robot.
+- **`:original`**: Refers to the uploaded input file.
 
 ## Tips
 
-* Use `--wait` with the CLI to block until processing completes.
-* Use `preset` values (e.g., `"hls-1080p"`, `"mp3"`, `"webp"`) for common format targets instead of specifying every parameter.
-* Chain `"use": "step_name"` to build multi-step pipelines without intermediate downloads.
-* For batch processing, use `/http/import` to pull files from URLs, S3, GCS, Azure, FTP, or Dropbox.
-* Templates can include `${variables}` for dynamic values passed at assembly creation time.
+- Use `--wait` with the CLI to block until processing completes.
+- Use `preset` values (e.g., `"hls-1080p"`, `"mp3"`, `"webp"`) for common format targets instead of specifying every parameter.
+- Chain `"use": "step_name"` to build multi-step pipelines without intermediate downloads.
+- For batch processing, use `/http/import` to pull files from URLs, S3, GCS, Azure, FTP, or Dropbox.
+- Templates can include `${variables}` for dynamic values passed at assembly creation time.

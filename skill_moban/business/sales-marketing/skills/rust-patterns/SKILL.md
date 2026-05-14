@@ -1,21 +1,27 @@
+---
+name: rust-patterns
+description: Idiomatic Rust patterns, ownership, error handling, traits, concurrency, and best practices for building safe, performant applications.
+origin: ECC
+---
+
 # Rust Development Patterns
 
 Idiomatic Rust patterns and best practices for building safe, performant, and maintainable applications.
 
 ## When to Use
 
-* Writing new Rust code
-* Reviewing Rust code
-* Refactoring existing Rust code
-* Designing crate structure and module layout
+- Writing new Rust code
+- Reviewing Rust code
+- Refactoring existing Rust code
+- Designing crate structure and module layout
 
 ## How It Works
 
-This skill enforces idiomatic Rust conventions across six key areas: ownership and borrowing to prevent data races at compile time, `Result`/`?` error propagation with `thiserror` for libraries and `anyhow` for applications, enums and exhaustive pattern matching to make illegal states unrepresentable, traits and generics for zero-cost abstraction, safe concurrency via Arc<Mutex\>, channels, and async/await, and minimal `pub` surfaces organized by domain. 
+This skill enforces idiomatic Rust conventions across six key areas: ownership and borrowing to prevent data races at compile time, `Result`/`?` error propagation with `thiserror` for libraries and `anyhow` for applications, enums and exhaustive pattern matching to make illegal states unrepresentable, traits and generics for zero-cost abstraction, safe concurrency via `Arc<Mutex<T>>`, channels, and async/await, and minimal `pub` surfaces organized by domain.
 
 ## Core Principles
 
-### 1\. Ownership and Borrowing
+### 1. Ownership and Borrowing
 
 Rust's ownership system prevents data races and memory bugs at compile time.
 
@@ -35,7 +41,6 @@ fn process_bad(data: &Vec<u8>) -> usize {
     let cloned = data.clone(); // Wasteful — just borrow
     cloned.len()
 }
-
 ```
 
 ### Use `Cow` for Flexible Ownership
@@ -50,7 +55,6 @@ fn normalize(input: &str) -> Cow<'_, str> {
         Cow::Borrowed(input) // Zero-cost when no mutation needed
     }
 }
-
 ```
 
 ## Error Handling
@@ -74,7 +78,6 @@ fn load_config_bad(path: &str) -> Config {
     let content = std::fs::read_to_string(path).unwrap(); // Panics!
     toml::from_str(&content).unwrap()
 }
-
 ```
 
 ### Library Errors with `thiserror`, Application Errors with `anyhow`
@@ -103,7 +106,6 @@ fn run() -> Result<()> {
     }
     Ok(())
 }
-
 ```
 
 ### `Option` Combinators Over Nested Matching
@@ -125,7 +127,6 @@ fn find_user_email_bad(users: &[User], id: u64) -> Option<String> {
         None => None,
     }
 }
-
 ```
 
 ## Enums and Pattern Matching
@@ -151,7 +152,6 @@ fn handle(state: &ConnectionState) {
         ConnectionState::Failed { reason, .. } => log_failure(reason),
     }
 }
-
 ```
 
 ### Exhaustive Matching — No Catch-All for Business Logic
@@ -170,7 +170,6 @@ match command {
     Command::Start => start_service(),
     _ => {} // Silently ignores Stop, Restart, and future variants
 }
-
 ```
 
 ## Traits and Generics
@@ -189,7 +188,6 @@ fn read_all(reader: &mut impl Read) -> std::io::Result<Vec<u8>> {
 fn process<T: Display + Send + 'static>(item: T) -> String {
     format!("processed: {item}")
 }
-
 ```
 
 ### Trait Objects for Dynamic Dispatch
@@ -208,7 +206,6 @@ struct Router {
 fn fast_process<H: Handler>(handler: &H, request: &Request) -> Response {
     handler.handle(request)
 }
-
 ```
 
 ### Newtype Pattern for Type Safety
@@ -227,7 +224,6 @@ fn get_order(user: UserId, order: OrderId) -> Result<Order> {
 fn get_order_bad(user_id: u64, order_id: u64) -> Result<Order> {
     todo!()
 }
-
 ```
 
 ## Structs and Data Modeling
@@ -257,7 +253,6 @@ impl ServerConfigBuilder {
 }
 
 // Usage: ServerConfig::builder("localhost", 8080).max_connections(200).build()
-
 ```
 
 ## Iterators and Closures
@@ -278,7 +273,6 @@ for user in &users {
         active_emails.push(user.email.clone());
     }
 }
-
 ```
 
 ### Use `collect()` with Type Annotation
@@ -291,12 +285,11 @@ let combined: String = parts.iter().copied().collect();
 
 // Collect Results — short-circuits on first error
 let parsed: Result<Vec<i32>, _> = strings.iter().map(|s| s.parse()).collect();
-
 ```
 
 ## Concurrency
 
-Arc<Mutex\> for Shared Mutable State 
+### `Arc<Mutex<T>>` for Shared Mutable State
 
 ```rust
 use std::sync::{Arc, Mutex};
@@ -313,7 +306,6 @@ let handles: Vec<_> = (0..10).map(|_| {
 for handle in handles {
     handle.join().expect("worker thread panicked");
 }
-
 ```
 
 ### Channels for Message Passing
@@ -334,7 +326,6 @@ drop(tx); // Close sender so rx iterator terminates
 for msg in rx {
     println!("{msg}");
 }
-
 ```
 
 ### Async with Tokio
@@ -368,7 +359,6 @@ async fn fetch_all(urls: Vec<String>) -> Vec<Result<String>> {
     }
     results
 }
-
 ```
 
 ## Unsafe Code
@@ -387,7 +377,6 @@ unsafe fn widget_from_raw<'a>(ptr: *const Widget) -> &'a Widget {
 // Acceptable: Performance-critical path with proof of correctness
 // SAFETY: index is always < len due to the loop bound
 unsafe { slice.get_unchecked(index) }
-
 ```
 
 ### When Unsafe Is NOT Acceptable
@@ -397,7 +386,6 @@ unsafe { slice.get_unchecked(index) }
 // Bad: Using unsafe for convenience
 // Bad: Using unsafe without a Safety comment
 // Bad: Transmuting between unrelated types
-
 ```
 
 ## Module System and Crate Structure
@@ -423,7 +411,6 @@ my_app/
 ├── tests/             # Integration tests
 ├── benches/           # Benchmarks
 └── Cargo.toml
-
 ```
 
 ### Visibility — Expose Minimally
@@ -440,7 +427,6 @@ pub use auth::AuthMiddleware;
 
 // Bad: Making everything pub
 pub fn internal_helper() {} // Should be pub(crate) or private
-
 ```
 
 ## Tooling Integration
@@ -467,26 +453,47 @@ cargo update             # Update dependencies
 
 # Performance
 cargo bench              # Run benchmarks
-
 ```
 
 ## Quick Reference: Rust Idioms
 
-| Idiom                               | Description                                                |
-| ----------------------------------- | ---------------------------------------------------------- |
-| Borrow, don't clone                 | Pass &T instead of cloning unless ownership is needed      |
-| Make illegal states unrepresentable | Use enums to model valid states only                       |
-| ? over unwrap()                     | Propagate errors, never panic in library/production code   |
-| Parse, don't validate               | Convert unstructured data to typed structs at the boundary |
-| Newtype for type safety             | Wrap primitives in newtypes to prevent argument swaps      |
-| Prefer iterators over loops         | Declarative chains are clearer and often faster            |
-| #\[must\_use\] on Results           | Ensure callers handle return values                        |
-| Cow for flexible ownership          | Avoid allocations when borrowing suffices                  |
-| Exhaustive matching                 | No wildcard \_ for business-critical enums                 |
-| Minimal pub surface                 | Use pub(crate) for internal APIs                           |
+| Idiom | Description |
+|-------|-------------|
+| Borrow, don't clone | Pass `&T` instead of cloning unless ownership is needed |
+| Make illegal states unrepresentable | Use enums to model valid states only |
+| `?` over `unwrap()` | Propagate errors, never panic in library/production code |
+| Parse, don't validate | Convert unstructured data to typed structs at the boundary |
+| Newtype for type safety | Wrap primitives in newtypes to prevent argument swaps |
+| Prefer iterators over loops | Declarative chains are clearer and often faster |
+| `#[must_use]` on Results | Ensure callers handle return values |
+| `Cow` for flexible ownership | Avoid allocations when borrowing suffices |
+| Exhaustive matching | No wildcard `_` for business-critical enums |
+| Minimal `pub` surface | Use `pub(crate)` for internal APIs |
 
 ## Anti-Patterns to Avoid
 
-// Bad: .unwrap() in production code let value \= map.get("key").unwrap(); // Bad: .clone() to satisfy borrow checker without understanding why let data \= expensive\_data.clone(); process(&original, &data); // Bad: Using String when &str suffices fn greet(name: String) { /\* should be &str \*/ } // Bad: Box in libraries (use thiserror instead) fn parse(input: &str) \-> Result<Data, Box<dyn std::error::Error\>> { todo!() } // Bad: Ignoring must\_use warnings let \_ \= validate(input); // Silently discarding a Result // Bad: Blocking in async context async fn bad\_async() { std::thread::sleep(Duration::from\_secs(1)); // Blocks the executor! // Use: tokio::time::sleep(Duration::from\_secs(1)).await; } 
+```rust
+// Bad: .unwrap() in production code
+let value = map.get("key").unwrap();
+
+// Bad: .clone() to satisfy borrow checker without understanding why
+let data = expensive_data.clone();
+process(&original, &data);
+
+// Bad: Using String when &str suffices
+fn greet(name: String) { /* should be &str */ }
+
+// Bad: Box<dyn Error> in libraries (use thiserror instead)
+fn parse(input: &str) -> Result<Data, Box<dyn std::error::Error>> { todo!() }
+
+// Bad: Ignoring must_use warnings
+let _ = validate(input); // Silently discarding a Result
+
+// Bad: Blocking in async context
+async fn bad_async() {
+    std::thread::sleep(Duration::from_secs(1)); // Blocks the executor!
+    // Use: tokio::time::sleep(Duration::from_secs(1)).await;
+}
+```
 
 **Remember**: If it compiles, it's probably correct — but only if you avoid `unwrap()`, minimize `unsafe`, and let the type system work for you.

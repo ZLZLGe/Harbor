@@ -1,80 +1,72 @@
 # Bioinformatics Template
 
-这是面向 `bioinformatics` 类 skill 的模板。它综合参考 SkillsMP bioinformatics 类热门 skill 的共性能力：读取公开来源分子数据、识别分析口径、完成结构化 QC 与统计链路、生成可复跑图表，并把结果收口为研究交接材料。
+这是面向 `bioinformatics` 类 skill 的模板。它综合参考 SkillsMP bioinformatics 方向热门 skill 的共性能力：对结构化实验输入做样本对齐、建模、结果导出、阈值判断和审阅收口，并把分析过程压缩成可复核的交付包。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：bioinformatics 类热门 skill 的共同价值，在于帮助 Agent 识别数据形态、分析阶段和约束来源，再把清洗、统计、注释和交付组织成一条稳定工作流。模板任务应把价值放在“如何从公开来源数据稳定走到可验证交付”，并避免把方法细节全部摊开在题面里。
-* **Task 目标形态**：这类任务适合设计成单数据集但多产物的分析交付题，例如单细胞、表达矩阵、lab 表格或实验摘要一起进入判断，最后产出结构化结果表、图和 handoff。目标应强调可运行、可追溯和可重复执行，不应退化成只改格式或只补文案。
-* **Verifier 设计重点**：Verifier 应优先验证 solver 是否沿数据链路完成读取、清洗、统计、分组和结果回写，并检查多份交付物之间的一致性。对于绑定工作流型 skill 的任务，还应验证 solver 是否使用当前 authority source，并拦截只依赖旧导出或静态答案的捷径。
+* **Skill 价值定位**：这类 skill 的核心价值，是把专业分析流程收束成一条稳定链路，包括计数矩阵方向处理、样本与元数据对齐、多因素设计、统计结果提取，以及把结论整理成可交付的表格和摘要。模板任务应把难点放在分析路径和判断质量，而不是只放在文件格式。
+* **Verifier 设计重点**：Verifier 应优先检查 solver 是否沿着完整分析链路完成工作，包括输入对齐、主模型与敏感性重跑是否一致使用同一批样本和基因、panel 审阅状态是否来自两套分析结果、以及 summary 能否和结果表互相印证。防作弊测试需要拦下只做 panel 子集、跳过敏感性重跑或用原始效应值替代审阅排序依据的做法。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`bioinformatics__pbmc-single-cell-cluster-handoff`
+- 任务 ID：`pasilla-release-package`
 - 类别：`bioinformatics`
-- 难度：`hard`
-- 绑定 Skill：`scanpy`
+- 绑定 Skill：`pydeseq2`
 - 输入数据参考来源：
-  - `environment/data/pbmc3k_filtered_gene_bc_matrices.tar.gz`：任务内 PBMC 10x 计数矩阵；数据直接来源于 10x Genomics PBMC 3k 数据集  
-    https://cf.10xgenomics.com/samples/cell-exp/1.1.0/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz  
-    https://www.10xgenomics.com/resources/datasets/3-k-pbm-cs-from-a-healthy-donor-1-standard-1-1-0
-  - `environment/service_seed/current_marker_panel.csv`：任务内 marker panel 的设计形态参考 Scanpy PBMC3k tutorial  
-    https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html
-  - `environment/data/analysis_manifest.json`：任务内 local policy service 地址与 authority 说明，无单独公开数据链接
-  - `environment/data/submission_contract.json`：任务内交付合同文件，无单独公开数据链接
-  - `environment/data/reference_analysis_policy.json`：任务内旧口径分析提示，无单独公开数据链接
-  - `environment/data/reference_marker_panel.csv`：任务内旧口径 marker panel 提示，无单独公开数据链接
+  - `environment/data/counts/raw_counts.tsv`：任务内基因层面原始计数表；设计形态参考 Bioconductor `pasilla` 实验包中的 `pasilla_gene_counts.tsv`  
+    【https://bioconductor.org/packages/3.22/data/experiment/src/contrib/pasilla_1.38.0.tar.gz】
+  - `environment/data/metadata/sample_metadata.tsv`：任务内样本信息表；设计形态参考同一数据包中的 `pasilla_sample_annotation.csv`  
+    【https://bioconductor.org/packages/3.22/data/experiment/src/contrib/pasilla_1.38.0.tar.gz】
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 从任务内 10x 矩阵、当前 local analysis policy 和当前 marker panel 重新完成 QC、分群、marker 排名、粗粒度注释与 handoff 写出。它不依赖隐藏答案表，而是按当前输入和当前 policy 重算；Verifier 对 QC 口径保持精确校验，并对分组、marker、注释和报告做当前规则下的一致性检查。
-- Verifier 策略：
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
+- Verifier策略：
 
 主测试
 
-| 测试点 | 验证内容 | 对应 skill 内化点 |
+| 测试点 | 验证内容 | 对应skill内化点 |
 | :--- | :--- | :--- |
-| 输出契约 | 检查 7 个交付物存在、可解析，并包含必需字段、列名和章节 | 先理解正式交付合同，再组织结构化结果 |
-| QC 重算 | 按当前 policy 重算 retained cells、retained genes、阈值和中位数统计 | 单细胞 QC 与过滤口径 |
-| 分群摘要 | 按当前 policy 重算分群结果，核对 cluster 级别统计与代表 marker | 预处理、降维、分群与结果汇总 |
-| Marker 排名 | 按当前 marker 规则重算每个 group 的 marker gene 排名 | marker gene 识别与排序 |
-| 注释与 handoff | 检查 coarse cell-type label、支持 markers、报告段落与图是否一致 | 基于 marker 的注释与研究交接 |
+| 输出完整性 | 四个交付文件都生成且能正确读取 | 交付收束 |
+| 发布结果表 | 发布模型结果来自本地 raw counts 与样本信息，并覆盖全部保留基因 | 计数矩阵方向、过滤、差异分析 |
+| 归一化计数 | 归一化表与保留样本顺序、保留基因集合一致 | 样本对齐、模型输出提取 |
+| panel 审阅表 | panel 基因的 release/reference 状态分类、后续动作和排序正确 | 多因素设计、敏感性重跑、审阅判断 |
+| 汇总 JSON | 汇总字段能和发布结果及 panel 审阅表互相印证 | 结果汇总与审阅输出 |
 
 防作弊测试
 
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 当前 authority source | 访问日志必须证明 solver 查询了当前 policy 和 marker panel endpoint；只依赖 `reference_*` 不能通过 |
-| 数据与环境完整性 | `/root/data`、隐藏 service 和 seed 内容不得变化；service 在 verifier 结束时仍健康 |
+| 模型一致性 | panel 状态必须同时反映 release 和 sensitivity rerun 两套分析 |
+| 排序依赖性 | manual review 排序必须跟随主模型稳定化效应值，而不是原始效应值大小 |
+| 输入依赖性 | 发布结果必须覆盖全部保留基因，不能只做 panel 子集 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把 10x 读入、QC、降维、分群、marker 排名和注释整理成一条稳定工作流，从而明显降低分析偏航和试错成本；without Skill 更容易停在旧口径依赖、分群失配、marker 排名方法失配或 annotation 判断偏差这类分析级失败上。
+结论：强相关。这个任务的关键难点不在于导出几张表，而在于先把 counts 与 metadata 对齐，再完成主模型、敏感性重跑、panel 审阅分类和基于稳定化效应值的人工复核排序。without_skill 更容易停在设计公式选择、系数解释和 follow-up 排序依据这类行动/分析级失败上。
 
-基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3 组** 有效对照实验（均跑到 task-level，存在完整 agent 轨迹；已排除刚才因 provider 断流未产出结果的重跑）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 稳定保留当前 policy 下的 QC retained-cell 偏差，并进一步带出 group total 不一致；with Skill 能稳定完成当前口径交付 |
-| Agent 执行耗时 | `501.1s` | `390.5s` | With Skill 的工作流收敛更快，平均 Agent 耗时降低约 `22.1%` |
-| Tokens | `1.63M` | `1.11M` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.46x` |
+| 通过率 | `0%` | `33.3%` | 最近 3 组有效对照里，without_skill 都至少保留 1 项 verifier 失败，主要集中在主模型效应值错误、panel follow-up 状态漂移，以及 manual review 排序依据用错。with_skill 至少拿到 1 次完整通过。 |
+| Agent 执行耗时 | `543.6s` | `561.7s` | without_skill 往往更早停在分析错误上，因此平均耗时略短；with_skill 会继续完成完整分析和交付。 |
+| Tokens | `1.00M` | `1.07M` | 这里按输入、缓存和输出合计 tokens 统计；with_skill 成本略高，但换来了更高的任务完成度。 |
 
 ## 📁 标准目录结构说明
 
 ```text
-模板任务：
-├── instruction.md          # 任务说明（仅包含症状、业务约束和禁止事项）
-├── task.toml               # 任务元数据（标签、技能要求、运行入口）
-├── PLAN.json               # 任务构建过程的结构化元信息
+template_new/
+├── instruction.md
+├── task.toml
+├── PLAN.json
 ├── README.md
-├── environment/            # 运行环境
-│   ├── Dockerfile          # 单容器镜像定义；在同一容器内启动本地 policy service
+├── environment/
+│   ├── Dockerfile
 │   ├── data/
-│   ├── hidden-service-src/
-│   ├── service_seed/
 │   └── skills/
-├── tests/                  # Verifier 与 Guardrail 测试集
-└── solution/               # 官方参考解法及 solve.sh
+├── tests/
+└── solution/
 ```

@@ -1,10 +1,16 @@
+---
+name: e2e-testing
+description: Playwright E2E testing patterns, Page Object Model, configuration, CI/CD integration, artifact management, and flaky test strategies.
+origin: ECC
+---
+
 # E2E Testing Patterns
 
 Comprehensive Playwright patterns for building stable, fast, and maintainable E2E test suites.
 
 ## Test File Organization
 
-```text
+```
 tests/
 ├── e2e/
 │   ├── auth/
@@ -21,7 +27,6 @@ tests/
 │   ├── auth.ts
 │   └── data.ts
 └── playwright.config.ts
-
 ```
 
 ## Page Object Model (POM)
@@ -57,7 +62,6 @@ export class ItemsPage {
     return await this.itemCards.count()
   }
 }
-
 ```
 
 ## Test Structure
@@ -91,7 +95,6 @@ test.describe('Item Search', () => {
     expect(await itemsPage.getItemCount()).toBe(0)
   })
 })
-
 ```
 
 ## Playwright Configuration
@@ -131,7 +134,6 @@ export default defineConfig({
     timeout: 120000,
   },
 })
-
 ```
 
 ## Flaky Test Patterns
@@ -148,7 +150,6 @@ test('conditional skip', async ({ page }) => {
   test.skip(process.env.CI, 'Flaky in CI - Issue #123')
   // test code...
 })
-
 ```
 
 ### Identify Flakiness
@@ -156,35 +157,29 @@ test('conditional skip', async ({ page }) => {
 ```bash
 npx playwright test tests/search.spec.ts --repeat-each=10
 npx playwright test tests/search.spec.ts --retries=3
-
 ```
 
 ### Common Causes & Fixes
 
 **Race conditions:**
-
 ```typescript
 // Bad: assumes element is ready
 await page.click('[data-testid="button"]')
 
 // Good: auto-wait locator
 await page.locator('[data-testid="button"]').click()
-
 ```
 
 **Network timing:**
-
 ```typescript
 // Bad: arbitrary timeout
 await page.waitForTimeout(5000)
 
 // Good: wait for specific condition
 await page.waitForResponse(resp => resp.url().includes('/api/data'))
-
 ```
 
 **Animation timing:**
-
 ```typescript
 // Bad: click during animation
 await page.click('[data-testid="menu-item"]')
@@ -193,7 +188,6 @@ await page.click('[data-testid="menu-item"]')
 await page.locator('[data-testid="menu-item"]').waitFor({ state: 'visible' })
 await page.waitForLoadState('networkidle')
 await page.locator('[data-testid="menu-item"]').click()
-
 ```
 
 ## Artifact Management
@@ -204,7 +198,6 @@ await page.locator('[data-testid="menu-item"]').click()
 await page.screenshot({ path: 'artifacts/after-login.png' })
 await page.screenshot({ path: 'artifacts/full-page.png', fullPage: true })
 await page.locator('[data-testid="chart"]').screenshot({ path: 'artifacts/chart.png' })
-
 ```
 
 ### Traces
@@ -217,7 +210,6 @@ await browser.startTracing(page, {
 })
 // ... test actions ...
 await browser.stopTracing()
-
 ```
 
 ### Video
@@ -228,7 +220,6 @@ use: {
   video: 'retain-on-failure',
   videosPath: 'artifacts/videos/'
 }
-
 ```
 
 ## CI/CD Integration
@@ -257,7 +248,6 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-
 ```
 
 ## Test Report Template
@@ -285,7 +275,6 @@ jobs:
 - Screenshots: artifacts/*.png
 - Videos: artifacts/videos/*.webm
 - Traces: artifacts/*.zip
-
 ```
 
 ## Wallet / Web3 Testing
@@ -308,7 +297,6 @@ test('wallet connection', async ({ page, context }) => {
   await page.locator('[data-testid="connect-wallet"]').click()
   await expect(page.locator('[data-testid="wallet-address"]')).toContainText('0x1234')
 })
-
 ```
 
 ## Financial / Critical Flow Testing
@@ -335,5 +323,4 @@ test('trade execution', async ({ page }) => {
 
   await expect(page.locator('[data-testid="trade-success"]')).toBeVisible()
 })
-
 ```

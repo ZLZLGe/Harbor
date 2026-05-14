@@ -9,11 +9,10 @@ skill 的共性能力：围绕公开教育数据、课堂交付合同和可复�
 * **Skill 价值定位**：education 类 skill 的常见价值，是把课程目标、学习者
   受众、公开数据和分析边界收束成一套可直接交付的教学材料。模板任务适合让
   agent 在数据处理、讲解组织、练习设置和结论收口之间做完整交付。
-* **Task 目标形态**：这类任务适合设计成教程 notebook、课堂练习讲义、带
   数据证据的 lesson artifact、可复跑分析包等交付。目标应强调输入边界固定、
   输出件明确、可以顺序执行，并带有教学使用场景。
 * **Verifier 设计重点**：Verifier 应覆盖正式交付件、从头执行能力、数据
-  取值与结论一致性、教程结构完整性，以及输入包和 skill 目录不可改动。验证
+  取值与结论一致性、教程结构完整性，以及输入包不可改动。验证
   重点落在完整教学工作流、证据绑定和复跑能力，同时对表层措辞保持较宽松。
 
 ## 第二部分：示例任务
@@ -22,7 +21,6 @@ skill 的共性能力：围绕公开教育数据、课堂交付合同和可复�
 
 - 任务 ID：`education__global_education_cohort_notebook`
 - 类别：`education`
-- 难度：`hard`
 - 绑定 Skill：`jupyter-notebook`
 - 输入数据参考来源：
   - `environment/source_bundle/years_of_schooling.csv`：任务内受教育年限指标快照  
@@ -34,7 +32,7 @@ skill 的共性能力：围绕公开教育数据、课堂交付合同和可复�
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 读取同一份 `source_bundle`，按规则生成 cohort 长表、结论
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
   JSON 和教学 notebook，再独立校验导出值、证据绑定、共同年份和 notebook
   可执行性。
 - Verifier策略：
@@ -54,7 +52,6 @@ skill 的共性能力：围绕公开教育数据、课堂交付合同和可复�
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | 输入不可变 | `source_bundle` 哈希不变 |
-| Skill 载荷不可变 | `environment/skills/jupyter-notebook` 哈希不变 |
 | 输出白名单 | `/root/output` 顶层只保留规定产物 |
 | 源驱动校验 | 变异源数据后输出必须跟着变化 |
 

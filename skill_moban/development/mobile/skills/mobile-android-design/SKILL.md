@@ -1,32 +1,39 @@
+---
+name: mobile-android-design
+description: Master Material Design 3 and Jetpack Compose patterns for building native Android apps. Use when designing Android interfaces, implementing Compose UI, or following Google's Material Design guidelines.
+---
+
 # Android Mobile Design
 
 Master Material Design 3 (Material You) and Jetpack Compose to build modern, adaptive Android applications that integrate seamlessly with the Android ecosystem.
 
 ## When to Use This Skill
 
-* Designing Android app interfaces following Material Design 3
-* Building Jetpack Compose UI and layouts
-* Implementing Android navigation patterns (Navigation Compose)
-* Creating adaptive layouts for phones, tablets, and foldables
-* Using Material 3 theming with dynamic colors
-* Building accessible Android interfaces
-* Implementing Android-specific gestures and interactions
-* Designing for different screen configurations
+- Designing Android app interfaces following Material Design 3
+- Building Jetpack Compose UI and layouts
+- Implementing Android navigation patterns (Navigation Compose)
+- Creating adaptive layouts for phones, tablets, and foldables
+- Using Material 3 theming with dynamic colors
+- Building accessible Android interfaces
+- Implementing Android-specific gestures and interactions
+- Designing for different screen configurations
 
 ## Core Concepts
 
-### 1\. Material Design 3 Principles
+### 1. Material Design 3 Principles
 
-**Personalization**: Dynamic color adapts UI to user's wallpaper **Accessibility**: Tonal palettes ensure sufficient color contrast **Large Screens**: Responsive layouts for tablets and foldables
+**Personalization**: Dynamic color adapts UI to user's wallpaper
+**Accessibility**: Tonal palettes ensure sufficient color contrast
+**Large Screens**: Responsive layouts for tablets and foldables
 
 **Material Components:**
 
-* Cards, Buttons, FABs, Chips
-* Navigation (rail, drawer, bottom nav)
-* Text fields, Dialogs, Sheets
-* Lists, Menus, Progress indicators
+- Cards, Buttons, FABs, Chips
+- Navigation (rail, drawer, bottom nav)
+- Text fields, Dialogs, Sheets
+- Lists, Menus, Progress indicators
 
-### 2\. Jetpack Compose Layout System
+### 2. Jetpack Compose Layout System
 
 **Column and Row:**
 
@@ -61,7 +68,6 @@ Row(
         Text("View All")
     }
 }
-
 ```
 
 **Lazy Lists and Grids:**
@@ -97,10 +103,9 @@ LazyVerticalGrid(
         ItemCard(item = item)
     }
 }
-
 ```
 
-### 3\. Navigation Patterns
+### 3. Navigation Patterns
 
 **Bottom Navigation:**
 
@@ -147,7 +152,6 @@ fun MainScreen() {
         }
     }
 }
-
 ```
 
 **Navigation Drawer:**
@@ -201,10 +205,9 @@ fun DrawerNavigation() {
         }
     }
 }
-
 ```
 
-### 4\. Material 3 Theming
+### 4. Material 3 Theming
 
 **Color Scheme:**
 
@@ -231,7 +234,6 @@ private val LightColorScheme = lightColorScheme(
     surface = Color(0xFFFFFBFE),
     onSurface = Color(0xFF1C1B1F),
 )
-
 ```
 
 **Typography:**
@@ -269,10 +271,9 @@ val AppTypography = Typography(
         lineHeight = 16.sp
     )
 )
-
 ```
 
-### 5\. Component Examples
+### 5. Component Examples
 
 **Cards:**
 
@@ -316,7 +317,6 @@ fun FeatureCard(
         }
     }
 }
-
 ```
 
 **Buttons:**
@@ -352,7 +352,6 @@ FloatingActionButton(
 ) {
     Icon(Icons.Default.Add, contentDescription = "Add")
 }
-
 ```
 
 ## Quick Start Component
@@ -411,7 +410,6 @@ fun ItemListCard(
         }
     }
 }
-
 ```
 
 ## Best Practices
@@ -427,9 +425,9 @@ fun ItemListCard(
 
 ## Common Issues
 
-* **Recomposition Issues**: Avoid passing unstable lambdas; use `remember`
-* **State Loss**: Use `rememberSaveable` for configuration changes
-* **Performance**: Use `LazyColumn` instead of `Column` for long lists
-* **Theme Leaks**: Ensure `MaterialTheme` wraps all composables
-* **Navigation Crashes**: Handle back press and deep links properly
-* **Memory Leaks**: Cancel coroutines in `DisposableEffect`
+- **Recomposition Issues**: Avoid passing unstable lambdas; use `remember`
+- **State Loss**: Use `rememberSaveable` for configuration changes
+- **Performance**: Use `LazyColumn` instead of `Column` for long lists
+- **Theme Leaks**: Ensure `MaterialTheme` wraps all composables
+- **Navigation Crashes**: Handle back press and deep links properly
+- **Memory Leaks**: Cancel coroutines in `DisposableEffect`

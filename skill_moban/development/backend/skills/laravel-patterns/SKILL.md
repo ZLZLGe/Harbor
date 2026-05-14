@@ -1,22 +1,28 @@
+---
+name: laravel-patterns
+description: Laravel architecture patterns, routing/controllers, Eloquent ORM, service layers, queues, events, caching, and API resources for production apps.
+origin: ECC
+---
+
 # Laravel Development Patterns
 
 Production-grade Laravel architecture patterns for scalable, maintainable applications.
 
 ## When to Use
 
-* Building Laravel web applications or APIs
-* Structuring controllers, services, and domain logic
-* Working with Eloquent models and relationships
-* Designing APIs with resources and pagination
-* Adding queues, events, caching, and background jobs
+- Building Laravel web applications or APIs
+- Structuring controllers, services, and domain logic
+- Working with Eloquent models and relationships
+- Designing APIs with resources and pagination
+- Adding queues, events, caching, and background jobs
 
 ## How It Works
 
-* Structure the app around clear boundaries (controllers -> services/actions -> models).
-* Use explicit bindings and scoped bindings to keep routing predictable; still enforce authorization for access control.
-* Favor typed models, casts, and scopes to keep domain logic consistent.
-* Keep IO-heavy work in queues and cache expensive reads.
-* Centralize config in `config/*` and keep environments explicit.
+- Structure the app around clear boundaries (controllers -> services/actions -> models).
+- Use explicit bindings and scoped bindings to keep routing predictable; still enforce authorization for access control.
+- Favor typed models, casts, and scopes to keep domain logic consistent.
+- Keep IO-heavy work in queues and cache expensive reads.
+- Centralize config in `config/*` and keep environments explicit.
 
 ## Examples
 
@@ -26,7 +32,7 @@ Use a conventional Laravel layout with clear layer boundaries (HTTP, services/ac
 
 ### Recommended Layout
 
-```text
+```
 app/
 ├── Actions/            # Single-purpose use cases
 ├── Console/
@@ -55,7 +61,6 @@ routes/
 ├── api.php
 ├── web.php
 └── console.php
-
 ```
 
 ### Controllers -> Services -> Actions
@@ -89,7 +94,6 @@ final class OrdersController extends Controller
         ], 201);
     }
 }
-
 ```
 
 ### Routing and Controllers
@@ -102,7 +106,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('projects', ProjectController::class);
 });
-
 ```
 
 ### Route Model Binding (Scoped)
@@ -113,14 +116,13 @@ Use scoped bindings to prevent cross-tenant access.
 Route::scopeBindings()->group(function () {
     Route::get('/accounts/{account}/projects/{project}', [ProjectController::class, 'show']);
 });
-
 ```
 
 ### Nested Routes and Binding Names
 
-* Keep prefixes and paths consistent to avoid double nesting (e.g., `conversation` vs `conversations`).
-* Use a single parameter name that matches the bound model (e.g., `{conversation}` for `Conversation`).
-* Prefer scoped bindings when nesting to enforce parent-child relationships.
+- Keep prefixes and paths consistent to avoid double nesting (e.g., `conversation` vs `conversations`).
+- Use a single parameter name that matches the bound model (e.g., `{conversation}` for `Conversation`).
+- Prefer scoped bindings when nesting to enforce parent-child relationships.
 
 ```php
 use App\Http\Controllers\Api\ConversationController;
@@ -141,7 +143,6 @@ Route::middleware('auth:sanctum')->prefix('conversations')->group(function () {
             ->name('conversation-messages.show');
     });
 });
-
 ```
 
 If you want a parameter to resolve to a different model class, define explicit binding. For custom binding logic, use `Route::bind()` or implement `resolveRouteBinding()` on the model.
@@ -151,7 +152,6 @@ use App\Models\AiConversation;
 use Illuminate\Support\Facades\Route;
 
 Route::model('conversation', AiConversation::class);
-
 ```
 
 ### Service Container Bindings
@@ -170,7 +170,6 @@ final class AppServiceProvider extends ServiceProvider
         $this->app->bind(OrderRepository::class, EloquentOrderRepository::class);
     }
 }
-
 ```
 
 ### Eloquent Model Patterns
@@ -199,7 +198,6 @@ final class Project extends Model
         return $query->whereNull('archived_at');
     }
 }
-
 ```
 
 ### Custom Casts and Value Objects
@@ -212,7 +210,6 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 protected $casts = [
     'status' => ProjectStatus::class,
 ];
-
 ```
 
 ```php
@@ -223,7 +220,6 @@ protected function budgetCents(): Attribute
         set: fn (Money $money) => $money->toCents(),
     );
 }
-
 ```
 
 ### Eager Loading to Avoid N+1
@@ -233,7 +229,6 @@ $orders = Order::query()
     ->with(['customer', 'items.product'])
     ->latest()
     ->paginate(25);
-
 ```
 
 ### Query Objects for Complex Filters
@@ -262,12 +257,12 @@ final class ProjectQuery
         return $this->query;
     }
 }
-
 ```
 
 ### Global Scopes and Soft Deletes
 
-Use global scopes for default filtering and `SoftDeletes` for recoverable records. Use either a global scope or a named scope for the same filter, not both, unless you intend layered behavior.
+Use global scopes for default filtering and `SoftDeletes` for recoverable records.
+Use either a global scope or a named scope for the same filter, not both, unless you intend layered behavior.
 
 ```php
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -284,7 +279,6 @@ final class Project extends Model
         });
     }
 }
-
 ```
 
 ### Query Scopes for Reusable Filters
@@ -302,7 +296,6 @@ final class Project extends Model
 
 // In service, repository etc.
 $projects = Project::ownedBy($user->id)->get();
-
 ```
 
 ### Transactions for Multi-Step Updates
@@ -314,16 +307,15 @@ DB::transaction(function (): void {
     $order->update(['status' => 'paid']);
     $order->items()->update(['paid_at' => now()]);
 });
-
 ```
 
 ### Migrations
 
 ### Naming Convention
 
-* File names use timestamps: `YYYY_MM_DD_HHMMSS_create_users_table.php`
-* Migrations use anonymous classes (no named class); the filename communicates intent
-* Table names are `snake_case` and plural by default
+- File names use timestamps: `YYYY_MM_DD_HHMMSS_create_users_table.php`
+- Migrations use anonymous classes (no named class); the filename communicates intent
+- Table names are `snake_case` and plural by default
 
 ### Example Migration
 
@@ -350,7 +342,6 @@ return new class extends Migration
         Schema::dropIfExists('orders');
     }
 };
-
 ```
 
 ### Form Requests and Validation
@@ -385,7 +376,6 @@ final class StoreOrderRequest extends FormRequest
         );
     }
 }
-
 ```
 
 ### API Resources
@@ -405,22 +395,21 @@ return response()->json([
         'total' => $projects->total(),
     ],
 ]);
-
 ```
 
 ### Events, Jobs, and Queues
 
-* Emit domain events for side effects (emails, analytics)
-* Use queued jobs for slow work (reports, exports, webhooks)
-* Prefer idempotent handlers with retries and backoff
+- Emit domain events for side effects (emails, analytics)
+- Use queued jobs for slow work (reports, exports, webhooks)
+- Prefer idempotent handlers with retries and backoff
 
 ### Caching
 
-* Cache read-heavy endpoints and expensive queries
-* Invalidate caches on model events (created/updated/deleted)
-* Use tags when caching related data for easy invalidation
+- Cache read-heavy endpoints and expensive queries
+- Invalidate caches on model events (created/updated/deleted)
+- Use tags when caching related data for easy invalidation
 
 ### Configuration and Environments
 
-* Keep secrets in `.env` and config in `config/*.php`
-* Use per-environment config overrides and `config:cache` in production
+- Keep secrets in `.env` and config in `config/*.php`
+- Use per-environment config overrides and `config:cache` in production

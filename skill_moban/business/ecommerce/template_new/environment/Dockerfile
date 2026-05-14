@@ -7,6 +7,15 @@ ENV ECOMMERCE_RECON_PORT=8123
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    coreutils \
+    curl \
+    nodejs \
+    npm \
+    ripgrep \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN mkdir -p /services/ecommerce-recon /root/.codex/skills /logs/agent/skills
 
 COPY data /root/data

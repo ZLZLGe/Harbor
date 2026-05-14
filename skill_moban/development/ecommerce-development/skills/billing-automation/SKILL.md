@@ -1,53 +1,57 @@
+---
+name: billing-automation
+description: Build automated billing systems for recurring payments, invoicing, subscription lifecycle, and dunning management. Use when implementing subscription billing, automating invoicing, or managing recurring payment systems.
+---
+
 # Billing Automation
 
 Master automated billing systems including recurring billing, invoice generation, dunning management, proration, and tax calculation.
 
 ## When to Use This Skill
 
-* Implementing SaaS subscription billing
-* Automating invoice generation and delivery
-* Managing failed payment recovery (dunning)
-* Calculating prorated charges for plan changes
-* Handling sales tax, VAT, and GST
-* Processing usage-based billing
-* Managing billing cycles and renewals
+- Implementing SaaS subscription billing
+- Automating invoice generation and delivery
+- Managing failed payment recovery (dunning)
+- Calculating prorated charges for plan changes
+- Handling sales tax, VAT, and GST
+- Processing usage-based billing
+- Managing billing cycles and renewals
 
 ## Core Concepts
 
-### 1\. Billing Cycles
+### 1. Billing Cycles
 
 **Common Intervals:**
 
-* Monthly (most common for SaaS)
-* Annual (discounted long-term)
-* Quarterly
-* Weekly
-* Custom (usage-based, per-seat)
+- Monthly (most common for SaaS)
+- Annual (discounted long-term)
+- Quarterly
+- Weekly
+- Custom (usage-based, per-seat)
 
-### 2\. Subscription States
-
-```text
-trial → active → past_due → canceled
-              → paused → resumed
+### 2. Subscription States
 
 ```
+trial → active → past_due → canceled
+              → paused → resumed
+```
 
-### 3\. Dunning Management
+### 3. Dunning Management
 
 Automated process to recover failed payments through:
 
-* Retry schedules
-* Customer notifications
-* Grace periods
-* Account restrictions
+- Retry schedules
+- Customer notifications
+- Grace periods
+- Account restrictions
 
-### 4\. Proration
+### 4. Proration
 
 Adjusting charges when:
 
-* Upgrading/downgrading mid-cycle
-* Adding/removing seats
-* Changing billing frequency
+- Upgrading/downgrading mid-cycle
+- Adding/removing seats
+- Changing billing frequency
 
 ## Quick Start
 
@@ -67,7 +71,6 @@ subscription = billing.create_subscription(
 
 # Process billing cycle
 billing.process_billing_cycle(subscription.id)
-
 ```
 
 ## Subscription Lifecycle Management
@@ -128,7 +131,6 @@ class Subscription:
             return self.current_period_start + timedelta(days=365)
         elif self.plan.interval == 'week':
             return self.current_period_start + timedelta(days=7)
-
 ```
 
 ## Billing Cycle Processing
@@ -208,7 +210,6 @@ class BillingEngine:
             return PaymentResult(success=True, transaction_id=charge.id)
         except stripe.error.CardError as e:
             return PaymentResult(success=False, error=str(e))
-
 ```
 
 ## Dunning Management
@@ -282,7 +283,6 @@ class DunningManager:
             subject=email_content['subject'],
             body=email_content['body']
         )
-
 ```
 
 ## Proration
@@ -333,7 +333,6 @@ class ProrationCalculator:
             'prorated_charge': max(0, prorated_amount),  # No refund for removing seats mid-cycle
             'effective_date': change_date
         }
-
 ```
 
 ## Tax Calculation
@@ -403,11 +402,11 @@ class TaxCalculator:
         # Use VIES API for validation
         # Returns True if valid, False otherwise
         pass
-
 ```
 
 ## Invoice Generation
 
+```python
 class Invoice:
     def __init__(self, customer_id, subscription_id=None):
         self.id = generate_invoice_number()
@@ -454,40 +453,22 @@ class Invoice:
         """Generate HTML invoice."""
         template = """
         <!DOCTYPE html>
-            
-
-# Invoice #{invoice_number}
-            
-
-Date: {date}
-            
-
-## Bill To:
-            
-
-{customer_name}  
-{customer_address}
-                
-
-Description
-
-Quantity
-
-Amount
-
-
+        <html>
+        <head><title>Invoice #{invoice_number}</title></head>
+        <body>
+            <h1>Invoice #{invoice_number}</h1>
+            <p>Date: {date}</p>
+            <h2>Bill To:</h2>
+            <p>{customer_name}<br>{customer_address}</p>
+            <table>
+                <tr><th>Description</th><th>Quantity</th><th>Amount</th></tr>
                 {line_items}
-            
-
-Subtotal: ${subtotal}
-            
-
-Tax: ${tax}
-            
-
-### Total: ${total}
-        
-        
+            </table>
+            <p>Subtotal: ${subtotal}</p>
+            <p>Tax: ${tax}</p>
+            <h3>Total: ${total}</h3>
+        </body>
+        </html>
         """
 
         return template.format(
@@ -500,9 +481,9 @@ Tax: ${tax}
             tax=self.tax,
             total=self.total
         )
+```
 
 ## Usage-Based Billing
-
 
 ```python
 class UsageBillingEngine:
@@ -553,5 +534,4 @@ class UsageBillingEngine:
                 break
 
         return charge
-
 ```

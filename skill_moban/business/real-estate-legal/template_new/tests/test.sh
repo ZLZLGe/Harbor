@@ -5,9 +5,6 @@ TESTS_ROOT="${TESTS_ROOT:-/tests}"
 VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
 
 mkdir -p "$VERIFIER_LOG_ROOT"
-if command -v start-real-estate-legal-audit >/dev/null 2>&1; then
-  start-real-estate-legal-audit
-fi
 
 set +e
 python3 <<'PY' 2>&1 | tee "$VERIFIER_LOG_ROOT/test-output.txt"
@@ -16,11 +13,13 @@ from __future__ import annotations
 import importlib.util
 import json
 import os
+import sys
 import traceback
 from pathlib import Path
 
 tests_root = Path(os.environ.get("TESTS_ROOT", "/tests"))
 log_root = Path(os.environ.get("VERIFIER_LOG_ROOT", "/logs/verifier"))
+sys.path.insert(0, str(tests_root))
 results = []
 
 for filename in ["test_outputs.py", "test_guardrails.py"]:
@@ -41,14 +40,12 @@ for filename in ["test_outputs.py", "test_guardrails.py"]:
             results.append({"nodeid": nodeid, "outcome": "passed"})
             print(f"PASS {nodeid}")
         except Exception as exc:
-            results.append(
-                {
-                    "nodeid": nodeid,
-                    "outcome": "failed",
-                    "message": str(exc),
-                    "traceback": traceback.format_exc(),
-                }
-            )
+            results.append({
+                "nodeid": nodeid,
+                "outcome": "failed",
+                "message": str(exc),
+                "traceback": traceback.format_exc(),
+            })
             print(f"FAIL {nodeid}: {exc}")
             traceback.print_exc()
 
@@ -63,10 +60,10 @@ report = {
 (log_root / "ctrf.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
 raise SystemExit(0 if all(r["outcome"] == "passed" for r in results) else 1)
 PY
-RUN_EXIT=${PIPESTATUS[0]}
+PY_EXIT=${PIPESTATUS[0]}
 set -e
 
-if [ "$RUN_EXIT" -eq 0 ]; then
+if [ "$PY_EXIT" -eq 0 ]; then
   echo 1 > "$VERIFIER_LOG_ROOT/reward.txt"
 else
   echo 0 > "$VERIFIER_LOG_ROOT/reward.txt"

@@ -1,90 +1,80 @@
-# SEO Launch Readiness Remediation Template
+# Sales-Marketing Template
 
-这是面向 `sales-marketing` 类 SEO skill 的模板。它综合参考 SkillsMP 销售营销类热门 SEO 能力的共性：本地营销站审计、收录准备度诊断、页面规范化修复、站内发现路径修复、sitemap 治理、结构化数据校验和 source-backed 发布说明。
+这是面向 `sales-marketing` 类 skill 的模板。它综合参考 SkillsMP `sales-marketing` 类热门 skill 的共性能力：围绕业务目标收集结构化输入、做出带约束的判断、把分析结果落到可执行交付物，并在预算、优先级、例外项和风险之间完成收口。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：SEO 类 skill 的共同价值，不是生成一份泛泛的优化建议，而是把“用 live crawl / audit 找根因、修真实页面、重建站点、再复验”的流程标准化。高质量 skill 应帮助 agent 优先区分历史 snapshot 和当前事实源，并把页面修复与站点级发布门槛联动起来。
-* **Task 目标形态**：任务应提供真实风格的营销站源码、本地审计服务、关键词映射、旧 crawl snapshot、内容 brief 和参考资料包。目标不应只是写审计报告，而应要求 agent 完成页面修复、遗留 URL 规范化、发现路径改造、sitemap 修复和机器可读交付。
-* **Verifier 设计重点**：Verifier 应同时验证目标页面最终状态、站点级发现路径、旧 URL 归并、输出合同和防作弊边界。重点包括 live audit 是否通过、target page 是否全部过 gate、关键词覆盖和输出是否一致、输入和隐藏服务是否未被修改，以及 solver 是否真的用了本地 live audit 链路。
+* **Skill 价值定位**：`sales-marketing` 类热门 skill 常见价值，是把业务分析、优先级判断、约束识别和结果落地串成一条可执行路径。对这类模板来说，skill 不应直接把答案写在题面里，而应帮助 solver 更快识别输入信号、选择方法、完成取舍，并把结论整理成团队可用的输出。
+* **Verifier 设计重点**：这类任务的 verifier 应优先检查 solver 是否完成了关键业务动作和结果闭环，不要只卡表面格式。它应核对输入是否被完整使用、确认 promo / launch / budget tradeoff 是否体现在行动里、检查约束是否被遵守，并拦住硬编码、忽略状态阻断、把 review set 塞满低优先级行或只做表层汇总的捷径。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`sales-marketing__seo_launch_readiness_remediation`
+- 任务 ID：`sales-marketing__retail-replenishment-planning`
 - 类别：`sales-marketing`
 - 难度：`hard`
-- 绑定 Skill：`seo`
+- 绑定 Skill：`inventory-demand-planning`
 - 输入数据参考来源：
-  - `environment/data/reference_pages/posthog-product-analytics.json`：任务内产品分析页参考形态；来源于  
-    [https://posthog.com/product-analytics](https://posthog.com/product-analytics)
-  - `environment/data/reference_pages/posthog-pricing.json`：任务内定价页参考形态；来源于  
-    [https://posthog.com/pricing](https://posthog.com/pricing)
-  - `environment/data/reference_pages/sentry-error-monitoring.json`：任务内错误监控页参考形态；来源于  
-    [https://sentry.io/for/performance/](https://sentry.io/for/performance/)
-  - `environment/data/reference_pages/posthog-docs.json`：任务内 docs hub 发现路径参考形态；来源于  
-    [https://posthog.com/docs](https://posthog.com/docs)
+  - `environment/data/historical_demand_weekly.csv`：任务内周级销量历史；设计形态参考 UCI `Sales Transactions Weekly`，并扩展为门店维度规划场景  
+    https://archive.ics.uci.edu/dataset/396/sales+transactions+dataset+weekly
+  - `environment/data/planning_manifest.json`：任务内规划窗口和范围声明，来自模板内部配置
+  - `environment/data/sku_store_setup.csv`：任务内门店与 SKU 配置，来自模板内部配置
+  - `environment/data/inventory_snapshot.csv`：任务内库存与占用快照，来自模板内部配置
+  - `environment/data/open_purchase_orders.csv`：任务内在途到货数据，来自模板内部配置
+  - `environment/data/promotion_schedule.csv`：任务内促销排期，来自模板内部配置
+  - `environment/data/vendor_constraints.csv`：任务内供应约束与成本数据，来自模板内部配置
+  - `environment/data/planning_policy.yaml`：任务内规划规则与预算阈值，来自模板内部配置
+  - `environment/data/new_sku_analogs.csv`：任务内短历史商品类比映射，来自模板内部配置
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：官方解法通过本地 `seo-audit` 服务读取 live release gate、逐页修复源码、重新 build 站点，并在最终 live audit 全绿后生成 `seo_fixes_report.json`、`keyword_coverage.csv` 和 `growth_summary.md`。Oracle 关注是否真的修复了站点和发现路径，而不是只生成一份静态 SEO 报告。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
 
-| 测试点 | 验证内容 | 对应 skill 内化点 |
+| 测试点 | 验证内容 | 对应 Skill 考察点 |
 | :--- | :--- | :--- |
-| 输出文件存在且可解析 | 3 个要求文件存在并能正确解析 | 结构化交付 |
-| target page 全量覆盖 | 报告和覆盖表完整覆盖 manifest 里的目标页 | 面向发布门槛的全量审查 |
-| live release gate 通过 | 所有目标页在当前 `seo-audit` 下无 blocker | 基于真实 crawl / audit 的修复闭环 |
-| 页面状态与 live audit 一致 | canonical、title、meta、H1、结构化数据、内部发现路径结果一致 | 技术 SEO 修复与复验 |
-| 旧 URL 归并 | legacy URL 正常规范化且不再污染 sitemap | canonical / redirect 治理 |
-| 关键词覆盖 | `keyword_coverage.csv` 与 live audit、keyword map 一致 | 关键词映射与页面信号校验 |
-| 摘要文件业务可读 | 增长摘要包含修复概况、风险、发现路径和发布建议 | 面向业务方的 SEO 说明 |
+| 格式要求 | 检查最终输出（CSV / JSON / Markdown）是否齐全、可读且字段完整 | 明确交付标准后，再组织内容 |
+| 预测覆盖与准确度 | 确认预测涵盖所有门店和 SKU，并核对各种商品状态（平稳/趋势/新品）的预测特征是否合理 | 结合实际需求规律选择预测方法，并考虑促销与库存缓冲 |
+| 核心补货订单 | 确认当期补货计划中，是否在有限的处理额度内优先保障了促销和新品需求 | 将预测结果转化为区分优先级的执行动作 |
+| 结果闭环 | 检查汇总指标（总额、预算校验、风险项、例外情况）是否与明细数据一致 | 确保明细报表与汇总结论完全对齐 |
 
 防作弊测试
 
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| live audit 访问痕迹 | solver 在 verifier 前确实调用了 release gate、逐页 audit 和 link graph 等 live 审计链路 |
-| 输入不可变 | `seo_inputs/` 未被修改 |
-| 隐藏服务不可变 | 本地 `seo-audit` 服务未被篡改 |
-| skill 不可变 | skill 存在时，bundled skill 内容未被修改 |
-| 输出无占位符 | 没有 placeholder、todo、verifier hack 痕迹 |
+| 输入数据保护 | 原始数据文件（`/app/data`）不允许被修改 |
+| 业务规则校验 | 已阻断或停用状态的商品不能出现在补货计划中 |
+| 新品逻辑透明度 | 总结报告中必须体现出新品的参考指标与预算预留 |
+| 优先级过滤 | 当期执行计划不能被低优先级的补货任务注水占满 |
+| 促销反馈 | 预测数据必须明显反映出促销活动带来的销量波峰与波谷 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把“先查 live gate、再逐页复验、再修发现路径和旧 URL、最后重跑 build 和 audit”的工作流标准化，从而明显降低遗漏收录阻塞和误用旧 snapshot 的概率。
+结论：强相关。这个任务里，Skill 的主要价值是帮助 solver 更快锁定 demand-profile 对应方法、short-history analog 处理、promo / launch 优先级，以及 review-cap 内的 current-cycle action 取舍。按当前 final verifier 口径统一复核最近 3 次有效对照后，with_skill 全部可通过；without_skill 都保留了至少一项动作级失败，主要集中在预算利用、launch 保护和例外项闭环。
 
-基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial，并按当前 final verifier 口径统一复核）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0/3` | `3/3` | `without_skill` 三次都至少保留 1 项 verifier 失败；代表性失败是没走 live release gate，导致 live blockers 仍存在，属于行动级失败。 |
-| Agent 执行耗时 | `356.9s` | `371.5s` | 这组任务的主要分离信号不是更短耗时，而是 `with_skill` 更稳定走完整 live SEO workflow；`without_skill` 往往更早停在不完整修复。 |
-| Tokens | `0.50M` | `0.98M` | `without_skill` 通常 token 更少，因为它经常少做 live 诊断和复验动作；这里更关键的是完成率和工作流遵循度，而不是省 token。 |
+| 通过率 | `0/3` | `3/3` | 近 3 次有效对照里，without Skill 都留下了至少一项动作级失败；with Skill 在当前 final verifier 口径下可稳定通过。 |
+| Agent 执行耗时 | `658.4s` | `695.9s` | 这 3 轮里 With Skill 的主要收益体现在通过率，不体现在平均耗时。 |
+| Tokens | `0.91M` | `1.28M` | 这 3 轮里 With Skill 的平均 tokens 更高，优势主要来自方法收敛质量而不是更低上下文开销。 |
 
 ## 📁 标准目录结构说明
 
 ```text
-template_new/
-├── instruction.md
-├── task.toml
-├── PLAN.json
-├── README.md
-├── environment/
-│   ├── Dockerfile
-│   ├── bin/
-│   ├── data/
-│   ├── hidden-service-src/
-│   └── skills/
-├── tests/
-│   ├── conftest.py
-│   ├── test.sh
-│   ├── test_outputs.py
-│   └── test_guardrails.py
-└── solution/
-    ├── solve.py
-    └── solve.sh
+模板任务：
+├── instruction.md          # 任务说明（症状、业务约束、输出合同、禁止事项）
+├── task.toml               # 任务元数据（标签、技能要求、超时、环境资源）
+├── PLAN.json               # 任务构建元信息（设计理由、环境取舍、verifier 重点、实验口径）
+├── README.md               # 模板说明、实验结果与目录结构
+├── environment/            # 单容器运行环境
+│   ├── Dockerfile          # 环境镜像定义
+│   ├── data/               # 固定输入数据
+│   └── skills/             # 仅 with_skill 环境保留的绑定 skill
+├── tests/                  # Verifier 主测试与防作弊测试
+└── solution/               # 官方参考解与 solve.sh
 ```

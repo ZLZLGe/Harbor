@@ -15,14 +15,13 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir pytest
-RUN npm install -g @openai/codex@0.120.0
 
 COPY . /opt/meridian-task-env
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /root/.codex/skills /logs/agent/skills /logs/verifier /root/output /opt/task-baselines \
     && cp -R /opt/meridian-task-env/data /root/data \
-    && if [ -d /opt/meridian-task-env/skills ]; then cp -R /opt/meridian-task-env/skills/. /root/.codex/skills/; fi \
-    && if [ -d /opt/meridian-task-env/skills ]; then cp -R /opt/meridian-task-env/skills/. /logs/agent/skills/; fi \
     && python3 /opt/meridian-task-env/bootstrap/create_meridian_repo.py \
     && find /root/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/task-baselines/data.sha256 \
     && chmod -R 755 /opt/meridian-task-env/bootstrap \

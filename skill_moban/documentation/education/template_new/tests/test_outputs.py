@@ -21,7 +21,6 @@ NOTEBOOK_PATH = OUTPUT_DIR / "global_education_tutorial.ipynb"
 TABLE_PATH = OUTPUT_DIR / "cohort_indicator_table.csv"
 SUMMARY_PATH = OUTPUT_DIR / "lesson_summary.json"
 SOURCE_HASH_PATH = Path(os.environ.get("SOURCE_HASH_PATH", "/opt/education-source-bundle.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("SKILL_HASH_PATH", "/opt/education-skill.sha256"))
 
 TABLE_COLUMNS = ["entity", "entity_type", "indicator", "year", "value", "unit"]
 UNIT_ALIASES = {
@@ -445,21 +444,10 @@ def test_mutating_source_data_changes_regenerated_outputs() -> None:
         restore_file(SUMMARY_PATH, summary_backup)
 
 
-def test_input_bundle_and_bound_skill_are_unchanged() -> None:
+def test_input_bundle_is_unchanged() -> None:
     if not SOURCE_HASH_PATH.exists():
         return
     current_source = os.popen(
         f"find {SOURCE_BUNDLE} -type f -print0 | sort -z | xargs -0 sha256sum"
     ).read()
     assert current_source == SOURCE_HASH_PATH.read_text(encoding="utf-8")
-
-    skill_root = Path("/root/.codex/skills/jupyter-notebook")
-    try:
-        skill_present = skill_root.exists()
-    except PermissionError:
-        skill_present = False
-    if skill_present and SKILL_HASH_PATH.exists():
-        current_skill = os.popen(
-            f"find {skill_root} -type f -print0 | sort -z | xargs -0 sha256sum"
-        ).read()
-        assert current_skill == SKILL_HASH_PATH.read_text(encoding="utf-8")

@@ -1,31 +1,36 @@
+---
+name: python-resource-management
+description: Python resource management with context managers, cleanup patterns, and streaming. Use when managing connections, file handles, implementing cleanup logic, or building streaming responses with accumulated state.
+---
+
 # Python Resource Management
 
 Manage resources deterministically using context managers. Resources like database connections, file handles, and network sockets should be released reliably, even when exceptions occur.
 
 ## When to Use This Skill
 
-* Managing database connections and connection pools
-* Working with file handles and I/O
-* Implementing custom context managers
-* Building streaming responses with state
-* Handling nested resource cleanup
-* Creating async context managers
+- Managing database connections and connection pools
+- Working with file handles and I/O
+- Implementing custom context managers
+- Building streaming responses with state
+- Handling nested resource cleanup
+- Creating async context managers
 
 ## Core Concepts
 
-### 1\. Context Managers
+### 1. Context Managers
 
 The `with` statement ensures resources are released automatically, even on exceptions.
 
-### 2\. Protocol Methods
+### 2. Protocol Methods
 
 `__enter__`/`__exit__` for sync, `__aenter__`/`__aexit__` for async resource management.
 
-### 3\. Unconditional Cleanup
+### 3. Unconditional Cleanup
 
 `__exit__` always runs, regardless of whether an exception occurred.
 
-### 4\. Exception Handling
+### 4. Exception Handling
 
 Return `True` from `__exit__` to suppress exceptions, `False` to propagate them.
 
@@ -44,7 +49,6 @@ def managed_resource():
 
 with managed_resource() as r:
     r.do_work()
-
 ```
 
 ## Fundamental Patterns
@@ -96,7 +100,6 @@ try:
     result = db.execute(query)
 finally:
     db.close()
-
 ```
 
 ### Pattern 2: Async Context Manager
@@ -140,7 +143,6 @@ class AsyncDatabasePool:
 # Usage
 async with AsyncDatabasePool(dsn) as pool:
     users = await pool.execute("SELECT * FROM users WHERE active = $1", True)
-
 ```
 
 ### Pattern 3: Using @contextmanager Decorator
@@ -183,7 +185,6 @@ async def database_transaction(conn: AsyncConnection):
 async with database_transaction(conn) as tx:
     await tx.execute("INSERT INTO users ...")
     await tx.execute("INSERT INTO audit_log ...")
-
 ```
 
 ### Pattern 4: Unconditional Resource Release
@@ -222,7 +223,6 @@ class FileProcessor:
                 pass  # Best effort cleanup
 
         # Return None/False to propagate any exception
-
 ```
 
 ## Advanced Patterns
@@ -256,7 +256,6 @@ class StreamWriter:
             return True  # Exception suppressed
 
         return False  # Propagate all other exceptions
-
 ```
 
 ### Pattern 6: Streaming with Accumulated State
@@ -308,7 +307,6 @@ def stream_with_accumulation(
         yield result.content, chunk
 
     return result.finalize()
-
 ```
 
 ### Pattern 7: Efficient String Accumulation
@@ -328,7 +326,6 @@ def accumulate_stream(stream) -> str:
     for chunk in stream:
         chunks.append(chunk)
     return "".join(chunks)  # Single allocation
-
 ```
 
 ### Pattern 8: Tracking Stream Metrics
@@ -371,7 +368,6 @@ def stream_with_metrics(
         "chunk_count": chunk_count,
         "total_bytes": total_bytes,
     }
-
 ```
 
 ### Pattern 9: Managing Multiple Resources with ExitStack
@@ -409,18 +405,17 @@ async def process_connections(hosts: list[str]) -> list[dict]:
             results.append(await conn.fetch_data())
 
     return results
-
 ```
 
 ## Best Practices Summary
 
-1. **Always use context managers** \- For any resource that needs cleanup
-2. **Clean up unconditionally** \- `__exit__` runs even on exception
-3. **Don't suppress unexpectedly** \- Return `False` unless suppression is intentional
-4. **Use @contextmanager** \- For simple resource patterns
-5. **Implement both protocols** \- Support `with` and manual management
-6. **Use ExitStack** \- For dynamic numbers of resources
-7. **Accumulate efficiently** \- List + join, not string concatenation
-8. **Track metrics** \- Time-to-first-byte matters for streaming
-9. **Document behavior** \- Especially exception suppression
-10. **Test cleanup paths** \- Verify resources are released on errors
+1. **Always use context managers** - For any resource that needs cleanup
+2. **Clean up unconditionally** - `__exit__` runs even on exception
+3. **Don't suppress unexpectedly** - Return `False` unless suppression is intentional
+4. **Use @contextmanager** - For simple resource patterns
+5. **Implement both protocols** - Support `with` and manual management
+6. **Use ExitStack** - For dynamic numbers of resources
+7. **Accumulate efficiently** - List + join, not string concatenation
+8. **Track metrics** - Time-to-first-byte matters for streaming
+9. **Document behavior** - Especially exception suppression
+10. **Test cleanup paths** - Verify resources are released on errors

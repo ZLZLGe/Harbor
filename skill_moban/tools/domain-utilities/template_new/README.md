@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`domain-utilities` 类热门 skill 的关键价值，在于帮助 Agent 先理解具体业务语境，再把候选项的批量核对、约束过滤和排序决策串成稳定流程。对 `domain-name-brainstormer` 这类 skill 来说，重点是减少拍脑袋式命名和零散检查，把动作收敛到“候选生成或读取、跨后缀核对、保留备选、给出推荐”的可复算路径。
-* **Task 目标形态**：这类任务适合落在命名评估、可用性盘点、规范化映射、规则筛选和清单交付等场景。题面应重点交代输入包、交付文件、排序合同、唯一性约束和禁止事项，把具体诊断顺序与执行习惯留给 solver 自己判断。
 * **Verifier 设计重点**：Verifier 应优先检查 solver 是否完成了全量核对、是否遵守约束和排序规则、以及最终推荐与备选之间是否自洽。除了输出内容，还要覆盖输入不可改写、结果可重跑、候选来源受限和交付范围收敛。
 
 ## 第二部分：示例任务
@@ -13,7 +12,6 @@
 ### 📌 任务元数据
 - 任务 ID：`domain-utilities__developer-workflow-domain-shortlist`
 - 类别：`domain-utilities`
-- 难度：`hard`
 - 绑定 Skill：`domain-name-brainstormer`
 - 输入数据参考来源：
   - `environment/data/market_examples.csv`：任务内相关品牌与域名样本；设计形态参考公开产品官网  
@@ -38,7 +36,7 @@
     `https://rdap.centralnic.com/xyz/domain/<domain>`
 
 ### 📊 验证与测试指标（Oracle & Verifier）
-- Oracle：Oracle 会读取任务内业务 brief、候选池、后缀策略和 RDAP 状态快照，重算全部候选的分数与排序，输出完整 audit 和最终 shortlist。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -52,8 +50,8 @@
 防作弊测试
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 输入完整性 | brief、候选池、状态快照和策略文件哈希不得变化 |
-| 技能文件完整性 | shipped skill 文件哈希不得变化 |
+| 输入完整性 | brief、候选池、状态快照和策略文件不可修改 |
+| 技能可用性 | shipped skill 在 with-skill 运行时可读，并作为只读命名流程参考 |
 | 候选来源约束 | 所有 shortlisted 和 runner-up 域名都必须来自任务内 snapshot |
 
 ### ⚡ Skill 相关性评估

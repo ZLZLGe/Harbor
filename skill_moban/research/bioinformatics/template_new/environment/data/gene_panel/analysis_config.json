@@ -1,0 +1,17 @@
+{
+  "count_matrix": "/root/environment/data/counts/raw_counts.tsv",
+  "sample_metadata": "/root/environment/data/metadata/sample_metadata.tsv",
+  "panel_file": "/root/environment/data/gene_panel/priority_panel.tsv",
+  "min_total_counts": 10,
+  "alpha": 0.1,
+  "design_factors": [
+    "type",
+    "condition"
+  ],
+  "contrast": [
+    "condition",
+    "treated",
+    "untreated"
+  ],
+  "report_top_n": 8
+}

@@ -1,39 +1,42 @@
+---
+name: lead-intelligence
+description: AI-native lead intelligence and outreach pipeline. Replaces Apollo, Clay, and ZoomInfo with agent-powered signal scoring, mutual ranking, warm path discovery, source-derived voice modeling, and channel-specific outreach across email, LinkedIn, and X. Use when the user wants to find, qualify, and reach high-value contacts.
+origin: ECC
+---
+
 # Lead Intelligence
 
 Agent-powered lead intelligence pipeline that finds, scores, and reaches high-value contacts through social graph analysis and warm path discovery.
 
 ## When to Activate
 
-* User wants to find leads or prospects in a specific industry
-* Building an outreach list for partnerships, sales, or fundraising
-* Researching who to reach out to and the best path to reach them
-* User says "find leads", "outreach list", "who should I reach out to", "warm intros"
-* Needs to score or rank a list of contacts by relevance
-* Wants to map mutual connections to find warm introduction paths
+- User wants to find leads or prospects in a specific industry
+- Building an outreach list for partnerships, sales, or fundraising
+- Researching who to reach out to and the best path to reach them
+- User says "find leads", "outreach list", "who should I reach out to", "warm intros"
+- Needs to score or rank a list of contacts by relevance
+- Wants to map mutual connections to find warm introduction paths
 
 ## Tool Requirements
 
 ### Required
-
-* **Exa MCP** — Deep web search for people, companies, and signals (`web_search_exa`)
-* **X API** — Follower/following graph, mutual analysis, recent activity (`X_BEARER_TOKEN`, plus write-context credentials such as `X_CONSUMER_KEY`, `X_CONSUMER_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET`)
+- **Exa MCP** — Deep web search for people, companies, and signals (`web_search_exa`)
+- **X API** — Follower/following graph, mutual analysis, recent activity (`X_BEARER_TOKEN`, plus write-context credentials such as `X_CONSUMER_KEY`, `X_CONSUMER_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET`)
 
 ### Optional (enhance results)
-
-* **LinkedIn** — Direct API if available, otherwise browser control for search, profile inspection, and drafting
-* **Apollo/Clay API** — For enrichment cross-reference if user has access
-* **GitHub MCP** — For developer-centric lead qualification
-* **Apple Mail / Mail.app** — Draft cold or warm email without sending automatically
-* **Browser control** — For LinkedIn and X when API coverage is missing or constrained
+- **LinkedIn** — Direct API if available, otherwise browser control for search, profile inspection, and drafting
+- **Apollo/Clay API** — For enrichment cross-reference if user has access
+- **GitHub MCP** — For developer-centric lead qualification
+- **Apple Mail / Mail.app** — Draft cold or warm email without sending automatically
+- **Browser control** — For LinkedIn and X when API coverage is missing or constrained
 
 ## Pipeline Overview
 
-```text
+```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────────┐     ┌──────────────┐     ┌─────────────────┐
 │ 1. Signal   │────>│ 2. Mutual    │────>│ 3. Warm Path    │────>│ 4. Enrich    │────>│ 5. Outreach     │
 │    Scoring  │     │    Ranking   │     │    Discovery    │     │              │     │    Draft        │
 └─────────────┘     └──────────────┘     └─────────────────┘     └──────────────┘     └─────────────────┘
-
 ```
 
 ## Voice Before Outreach
@@ -48,14 +51,14 @@ If live X access is available, pull recent original posts before drafting. If no
 
 Search for high-signal people in target verticals. Assign a weight to each based on:
 
-| Signal                       | Weight | Source             |
-| ---------------------------- | ------ | ------------------ |
-| Role/title alignment         | 30%    | Exa, LinkedIn      |
-| Industry match               | 25%    | Exa company search |
-| Recent activity on topic     | 20%    | X API search, Exa  |
-| Follower count / influence   | 10%    | X API              |
-| Location proximity           | 10%    | Exa, LinkedIn      |
-| Engagement with your content | 5%     | X API interactions |
+| Signal | Weight | Source |
+|--------|--------|--------|
+| Role/title alignment | 30% | Exa, LinkedIn |
+| Industry match | 25% | Exa company search |
+| Recent activity on topic | 20% | X API search, Exa |
+| Follower count / influence | 10% | X API |
+| Location proximity | 10% | Exa, LinkedIn |
+| Engagement with your content | 5% | X API interactions |
 
 ### Signal Search Approach
 
@@ -80,7 +83,6 @@ x_search = search_recent_tweets(
     max_results=100
 )
 # Extract and score unique authors
-
 ```
 
 ## Stage 2: Mutual Ranking
@@ -94,20 +96,19 @@ For each scored target, analyze the user's social graph to find the warmest path
 3. Apply the `social-graph-ranker` model to score bridge value
 4. Rank mutuals by:
 
-| Factor                           | Weight                                                |
-| -------------------------------- | ----------------------------------------------------- |
+| Factor | Weight |
+|--------|--------|
 | Number of connections to targets | 40% — highest weight, most connections = highest rank |
-| Mutual's current role/company    | 20% — decision maker vs individual contributor        |
-| Mutual's location                | 15% — same city = easier intro                        |
-| Industry alignment               | 15% — same vertical = natural intro                   |
-| Mutual's X handle / LinkedIn     | 10% — identifiability for outreach                    |
+| Mutual's current role/company | 20% — decision maker vs individual contributor |
+| Mutual's location | 15% — same city = easier intro |
+| Industry alignment | 15% — same vertical = natural intro |
+| Mutual's X handle / LinkedIn | 10% — identifiability for outreach |
 
 Canonical rule:
 
 ```text
 Use social-graph-ranker when the user wants the graph math itself,
 the bridge ranking as a standalone report, or explicit decay-model tuning.
-
 ```
 
 Inside this skill, use the same weighted bridge model:
@@ -115,18 +116,16 @@ Inside this skill, use the same weighted bridge model:
 ```text
 B(m) = Σ_{t ∈ T} w(t) · λ^(d(m,t) - 1)
 R(m) = B_ext(m) · (1 + β · engagement(m))
-
 ```
 
 Interpretation:
-
-* Tier 1: high `R(m)` and direct bridge paths -> warm intro asks
-* Tier 2: medium `R(m)` and one-hop bridge paths -> conditional intro asks
-* Tier 3: no viable bridge -> direct cold outreach using the same lead record
+- Tier 1: high `R(m)` and direct bridge paths -> warm intro asks
+- Tier 2: medium `R(m)` and one-hop bridge paths -> conditional intro asks
+- Tier 3: no viable bridge -> direct cold outreach using the same lead record
 
 ### Output Format
 
-```text
+```
 
 If the user explicitly wants the ranking engine broken out, the math visualized, or the network scored outside the full lead workflow, run `social-graph-ranker` as a standalone pass first and feed the result back into this pipeline.
 MUTUAL RANKING REPORT
@@ -142,22 +141,19 @@ MUTUAL RANKING REPORT
 
 #2  @mutual_handle2 (Score: 85)
     ...
-
 ```
 
 ## Stage 3: Warm Path Discovery
 
 For each target, find the shortest introduction chain:
 
-```text
+```
 You ──[follows]──> Mutual A ──[invested in]──> Target Company
 You ──[follows]──> Mutual B ──[co-founded with]──> Target Person
 You ──[met at]──> Event ──[also attended]──> Target Person
-
 ```
 
 ### Path Types (ordered by warmth)
-
 1. **Direct mutual** — You both follow/know the same person
 2. **Portfolio connection** — Mutual invested in or advises target's company
 3. **Co-worker/alumni** — Mutual worked at same company or attended same school
@@ -168,18 +164,17 @@ You ──[met at]──> Event ──[also attended]──> Target Person
 
 For each qualified lead, pull:
 
-* Full name, current title, company
-* Company size, funding stage, recent news
-* Recent X posts (last 30 days) — topics, tone, interests
-* Mutual interests with user (shared follows, similar content)
-* Recent company events (product launch, funding round, hiring)
+- Full name, current title, company
+- Company size, funding stage, recent news
+- Recent X posts (last 30 days) — topics, tone, interests
+- Mutual interests with user (shared follows, similar content)
+- Recent company events (product launch, funding round, hiring)
 
 ### Enrichment Sources
-
-* Exa: company data, news, blog posts
-* X API: recent tweets, bio, followers
-* GitHub: open source contributions (for developer-centric leads)
-* LinkedIn (via browser-use): full profile, experience, education
+- Exa: company data, news, blog posts
+- X API: recent tweets, bio, followers
+- GitHub: open source contributions (for developer-centric leads)
+- LinkedIn (via browser-use): full profile, experience, education
 
 ## Stage 5: Outreach Draft
 
@@ -189,24 +184,24 @@ Generate personalized outreach for each lead. The draft should match the source-
 
 #### Email
 
-* Use for the highest-value cold outreach, warm intros, investor outreach, and partnership asks
-* Default to drafting in Apple Mail / Mail.app when local desktop control is available
-* Create drafts first, do not send automatically unless the user explicitly asks
-* Subject line should be plain and specific, not clever
+- Use for the highest-value cold outreach, warm intros, investor outreach, and partnership asks
+- Default to drafting in Apple Mail / Mail.app when local desktop control is available
+- Create drafts first, do not send automatically unless the user explicitly asks
+- Subject line should be plain and specific, not clever
 
 #### LinkedIn
 
-* Use when the target is active there, when mutual graph context is stronger on LinkedIn, or when email confidence is low
-* Prefer API access if available
-* Otherwise use browser control to inspect profiles, recent activity, and draft the message
-* Keep it shorter than email and avoid fake professional warmth
+- Use when the target is active there, when mutual graph context is stronger on LinkedIn, or when email confidence is low
+- Prefer API access if available
+- Otherwise use browser control to inspect profiles, recent activity, and draft the message
+- Keep it shorter than email and avoid fake professional warmth
 
 #### X
 
-* Use for high-context operator, builder, or investor outreach where public posting behavior matters
-* Prefer API access for search, timeline, and engagement analysis
-* Fall back to browser control when needed
-* DMs and public replies should be much tighter than email and should reference something real from the target's timeline
+- Use for high-context operator, builder, or investor outreach where public posting behavior matters
+- Prefer API access for search, timeline, and engagement analysis
+- Fall back to browser control when needed
+- DMs and public replies should be much tighter than email and should reference something real from the target's timeline
 
 #### Channel Selection Heuristic
 
@@ -223,30 +218,30 @@ Use multi-channel only when there is a strong reason and the cadence will not fe
 
 Goal:
 
-* one clear ask
-* one concrete reason this intro makes sense
-* easy-to-forward blurb if needed
+- one clear ask
+- one concrete reason this intro makes sense
+- easy-to-forward blurb if needed
 
 Avoid:
 
-* overexplaining your company
-* social-proof stacking
-* sounding like a fundraiser template
+- overexplaining your company
+- social-proof stacking
+- sounding like a fundraiser template
 
 ### Direct Cold Outreach (to target)
 
 Goal:
 
-* open from something specific and recent
-* explain why the fit is real
-* make one low-friction ask
+- open from something specific and recent
+- explain why the fit is real
+- make one low-friction ask
 
 Avoid:
 
-* generic admiration
-* feature dumping
-* broad asks like "would love to connect"
-* forced rhetorical questions
+- generic admiration
+- feature dumping
+- broad asks like "would love to connect"
+- forced rhetorical questions
 
 ### Execution Pattern
 
@@ -260,24 +255,24 @@ For each target, produce:
 
 If browser control is available:
 
-* LinkedIn: inspect target profile, recent activity, and mutual context, then draft or prepare the message
-* X: inspect recent posts or replies, then draft DM or public reply language
+- LinkedIn: inspect target profile, recent activity, and mutual context, then draft or prepare the message
+- X: inspect recent posts or replies, then draft DM or public reply language
 
 If desktop automation is available:
 
-* Apple Mail: create draft email with subject, body, and recipient
+- Apple Mail: create draft email with subject, body, and recipient
 
 Do not send messages automatically without explicit user approval.
 
 ### Anti-Patterns
 
-* generic templates with no personalization
-* long paragraphs explaining your whole company
-* multiple asks in one message
-* fake familiarity without specifics
-* bulk-sent messages with visible merge fields
-* identical copy reused for email, LinkedIn, and X
-* platform-shaped slop instead of the author's actual voice
+- generic templates with no personalization
+- long paragraphs explaining your whole company
+- multiple asks in one message
+- fake familiarity without specifics
+- bulk-sent messages with visible merge fields
+- identical copy reused for email, LinkedIn, and X
+- platform-shaped slop instead of the author's actual voice
 
 ## Configuration
 
@@ -295,21 +290,20 @@ export EXA_API_KEY="..."
 # Optional
 export LINKEDIN_COOKIE="..." # For browser-use LinkedIn access
 export APOLLO_API_KEY="..."  # For Apollo enrichment
-
 ```
 
 ## Agents
 
 This skill includes specialized agents in the `agents/` subdirectory:
 
-* **signal-scorer** — Searches and ranks prospects by relevance signals
-* **mutual-mapper** — Maps social graph connections and finds warm paths
-* **enrichment-agent** — Pulls detailed profile and company data
-* **outreach-drafter** — Generates personalized messages
+- **signal-scorer** — Searches and ranks prospects by relevance signals
+- **mutual-mapper** — Maps social graph connections and finds warm paths
+- **enrichment-agent** — Pulls detailed profile and company data
+- **outreach-drafter** — Generates personalized messages
 
 ## Example Usage
 
-```text
+```
 User: find me the top 20 people in prediction markets I should reach out to
 
 Agent workflow:
@@ -319,10 +313,9 @@ Agent workflow:
 4. outreach-drafter generates personalized messages for top ranked leads
 
 Output: Ranked list with warm paths, voice profile summary, and channel-specific outreach drafts or drafts-in-app
-
 ```
 
 ## Related Skills
 
-* `brand-voice` for canonical voice capture
-* `connections-optimizer` for review-first network pruning and expansion before outreach
+- `brand-voice` for canonical voice capture
+- `connections-optimizer` for review-first network pruning and expansion before outreach

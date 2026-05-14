@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-mkdir -p /root/output
-if command -v start-ap-review >/dev/null 2>&1; then
-  start-ap-review
-fi
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-python3 "$SCRIPT_DIR/solve.py"
+
+rm -rf /root/app
+mkdir -p /root/app /root/output
+cp -R "$SCRIPT_DIR/fixed/app/." /root/app/
+
+python3 /root/app/main.py --data-root /root/data --output-root /root/output

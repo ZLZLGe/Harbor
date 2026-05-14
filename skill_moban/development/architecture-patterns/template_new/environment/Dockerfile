@@ -13,12 +13,12 @@ RUN apt-get update \
 WORKDIR /root/environment
 
 COPY . /root/environment
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /app /environment /root/.codex/skills /logs/agent/skills /logs/verifier \
   && cp -R /root/environment/workspace /app/workspace \
   && ln -s /app/workspace /environment/workspace \
-  && if [ -d /root/environment/skills ]; then cp -R /root/environment/skills/. /root/.codex/skills/; fi \
-  && if [ -d /root/environment/skills ]; then cp -R /root/environment/skills/. /logs/agent/skills/; fi \
   && cd /app/workspace \
   && npm ci
 

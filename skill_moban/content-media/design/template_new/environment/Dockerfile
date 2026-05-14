@@ -1,47 +1,73 @@
-FROM ubuntu:24.04
+FROM python:3.12-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+ENV PIP_NO_CACHE_DIR=1
+ENV HOME=/root
+ENV TASK_ROOT=/app
+ENV TASK_BRIEF_ROOT=/app/power_brief
+ENV TASK_WORKSPACE_ROOT=/app/workspace
+ENV TASK_OUTPUT_ROOT=/app/output
+ENV PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright
 
-RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
-    python3-venv \
-    curl \
-    ca-certificates \
-    fonts-dejavu-core \
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libasound2 \
+        libatk-bridge2.0-0 \
+        libatk1.0-0 \
+        bash \
+        ca-certificates \
+        coreutils \
+        libcups2 \
+        findutils \
+        fonts-dejavu-core \
+        fonts-liberation \
+        grep \
+        libdrm2 \
+        libgbm1 \
+        libgtk-3-0 \
+        libnspr4 \
+        libnss3 \
+        libx11-6 \
+        libx11-xcb1 \
+        libxcb1 \
+        libxcomposite1 \
+        libxdamage1 \
+        libxext6 \
+        libxfixes3 \
+        libxkbcommon0 \
+        libxrandr2 \
+        procps \
+        ripgrep \
+        sed \
+        tini \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --break-system-packages \
-    pytest==8.3.5 \
+RUN pip install --no-cache-dir \
+    beautifulsoup4 \
     playwright==1.52.0 \
-    requests==2.32.3 \
-    && python3 -m playwright install --with-deps chromium
+    pytest \
+    pytest-json-ctrf
 
-COPY . /tmp/environment-context
+RUN mkdir -p /root/.cache/ms-playwright \
+    && python -m playwright install chromium
+
+COPY power_brief /app/power_brief
+COPY workspace /app/workspace
+COPY skills /root/.codex/skills
 
 RUN mkdir -p \
-    /root/environment \
-    /root/.claude/skills \
-    /root/.codex/skills \
-    /root/.opencode/skill \
-    /root/.goose/skills \
-    /root/.factory/skills \
-    /root/.agents/skills \
-    /root/.gemini/skills \
-    /root/answer \
-    /logs/verifier && \
-    cp -R /tmp/environment-context/data /root/environment/data && \
-    cp -R /tmp/environment-context/deck /root/environment/deck && \
-    cp -R /tmp/environment-context/services /services && \
-    if [ -d /tmp/environment-context/skills ] && [ "$(ls -A /tmp/environment-context/skills 2>/dev/null)" ]; then \
-      cp -R /tmp/environment-context/skills/. /root/.claude/skills/ && \
-      cp -R /tmp/environment-context/skills/. /root/.codex/skills/ && \
-      cp -R /tmp/environment-context/skills/. /root/.opencode/skill/ && \
-      cp -R /tmp/environment-context/skills/. /root/.goose/skills/ && \
-      cp -R /tmp/environment-context/skills/. /root/.factory/skills/ && \
-      cp -R /tmp/environment-context/skills/. /root/.agents/skills/ && \
-      cp -R /tmp/environment-context/skills/. /root/.gemini/skills/ ; \
-    fi && \
-    rm -rf /tmp/environment-context
+        /app/output \
+        /root/.codex/skills \
+        /logs/verifier \
+        /opt/task-baselines \
+        /root/.cache/ms-playwright \
+    && if [ -d /app/power_brief ]; then cd /app/power_brief && find . -type f -print0 | sort -z | xargs -0 sha256sum > /opt/task-baselines/power-brief.sha256; else printf '' > /opt/task-baselines/power-brief.sha256; fi \
+    && chmod -R a+rwX /app/workspace /app/output /logs /root/.codex /root/.cache \
+    && if [ -f /app/workspace/build_site.py ]; then chmod 755 /app/workspace/build_site.py; fi \
+    && chmod 644 /opt/task-baselines/power-brief.sha256
 
-WORKDIR /root
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["/bin/bash"]

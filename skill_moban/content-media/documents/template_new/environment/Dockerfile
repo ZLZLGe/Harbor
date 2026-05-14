@@ -43,22 +43,19 @@ RUN pip install --no-cache-dir \
     pytest-json-ctrf \
     requests
 
-RUN npm install -g @openai/codex@0.120.0
-
 COPY . /opt/documents-task-env
+COPY skills /root/.codex/skills
+COPY skills /root/.claude/skills
+COPY skills /etc/claude-code/.claude/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /app/briefing /app/workspace /app/output /root/.codex/skills /root/.claude/skills /etc/claude-code/.claude/skills /logs/agent/skills /logs/verifier /opt/task-baselines \
     && cp -R /opt/documents-task-env/briefing/. /app/briefing/ \
     && cp -R /opt/documents-task-env/workspace/. /app/workspace/ \
-    && if [ -d /opt/documents-task-env/skills ]; then cp -R /opt/documents-task-env/skills/. /root/.codex/skills/; fi \
-    && if [ -d /opt/documents-task-env/skills ]; then cp -R /opt/documents-task-env/skills/. /root/.claude/skills/; fi \
-    && if [ -d /opt/documents-task-env/skills ]; then cp -R /opt/documents-task-env/skills/. /etc/claude-code/.claude/skills/; fi \
-    && if [ -d /opt/documents-task-env/skills ]; then cp -R /opt/documents-task-env/skills/. /logs/agent/skills/; fi \
     && find /app/briefing -type f -print0 | sort -z | xargs -0 sha256sum > /opt/task-baselines/briefing.sha256 \
-    && if [ -d /root/.codex/skills/docx ]; then cd /root/.codex/skills/docx && find . -type f -print0 | sort -z | xargs -0 sha256sum > /opt/task-baselines/docx-skill.sha256; else printf '' > /opt/task-baselines/docx-skill.sha256; fi \
     && chmod -R a+rwX /app/workspace /app/output /logs \
     && chmod 755 /app/workspace/build_packet.py \
-    && chmod 644 /opt/task-baselines/briefing.sha256 /opt/task-baselines/docx-skill.sha256
+    && chmod 644 /opt/task-baselines/briefing.sha256
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/bin/bash"]

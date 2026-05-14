@@ -1,3 +1,11 @@
+---
+name: backend-dev-guidelines
+description: "You are a senior backend engineer operating production-grade services under strict architectural and reliability constraints. Use when routes, controllers, services, repositories, express middleware, or prisma database access."
+risk: unknown
+source: community
+date_added: "2026-02-27"
+---
+
 # Backend Development Guidelines
 
 **(Node.js · Express · TypeScript · Microservices)**
@@ -16,7 +24,7 @@ This skill defines **how backend code must be written**, not merely suggestions.
 
 ---
 
-## 1\. Backend Feasibility & Risk Index (BFRI)
+## 1. Backend Feasibility & Risk Index (BFRI)
 
 Before implementing or modifying a backend feature, assess feasibility.
 
@@ -32,9 +40,8 @@ Before implementing or modifying a backend feature, assess feasibility.
 
 ### Score Formula
 
-```text
+```
 BFRI = (Architectural Fit + Testability) − (Complexity + Data Risk + Operational Risk)
-
 ```
 
 **Range:** `-10 → +10`
@@ -51,7 +58,6 @@ BFRI = (Architectural Fit + Testability) − (Complexity + Data Risk + Operation
 ---
 
 ## When to Use
-
 Automatically applies when working on:
 
 * Routes, controllers, services, repositories
@@ -64,13 +70,12 @@ Automatically applies when working on:
 
 ---
 
-## 2\. Core Architecture Doctrine (Non-Negotiable)
+## 2. Core Architecture Doctrine (Non-Negotiable)
 
-### 1\. Layered Architecture Is Mandatory
+### 1. Layered Architecture Is Mandatory
 
-```text
+```
 Routes → Controllers → Services → Repositories → Database
-
 ```
 
 * No layer skipping
@@ -79,7 +84,7 @@ Routes → Controllers → Services → Repositories → Database
 
 ---
 
-### 2\. Routes Only Route
+### 2. Routes Only Route
 
 ```ts
 // ❌ NEVER
@@ -91,14 +96,13 @@ router.post('/create', async (req, res) => {
 router.post('/create', (req, res) =>
   userController.create(req, res)
 );
-
 ```
 
 Routes must contain **zero business logic**.
 
 ---
 
-### 3\. Controllers Coordinate, Services Decide
+### 3. Controllers Coordinate, Services Decide
 
 * Controllers:
 
@@ -106,6 +110,7 @@ Routes must contain **zero business logic**.
   * Call services
   * Handle response formatting
   * Handle errors via BaseController
+
 * Services:
 
   * Contain business rules
@@ -115,7 +120,7 @@ Routes must contain **zero business logic**.
 
 ---
 
-### 4\. All Controllers Extend `BaseController`
+### 4. All Controllers Extend `BaseController`
 
 ```ts
 export class UserController extends BaseController {
@@ -128,28 +133,28 @@ export class UserController extends BaseController {
     }
   }
 }
-
 ```
 
 No raw `res.json` calls outside BaseController helpers.
 
 ---
 
-### 5\. All Errors Go to Sentry
+### 5. All Errors Go to Sentry
 
 ```ts
 catch (error) {
   Sentry.captureException(error);
   throw error;
 }
-
 ```
 
-❌ `console.log`❌ silent failures ❌ swallowed errors
+❌ `console.log`
+❌ silent failures
+❌ swallowed errors
 
 ---
 
-### 6\. unifiedConfig Is the Only Config Source
+### 6. unifiedConfig Is the Only Config Source
 
 ```ts
 // ❌ NEVER
@@ -158,12 +163,11 @@ process.env.JWT_SECRET;
 // ✅ ALWAYS
 import { config } from '@/config/unifiedConfig';
 config.auth.jwtSecret;
-
 ```
 
 ---
 
-### 7\. Validate All External Input with Zod
+### 7. Validate All External Input with Zod
 
 * Request bodies
 * Query params
@@ -176,16 +180,15 @@ const schema = z.object({
 });
 
 const input = schema.parse(req.body);
-
 ```
 
 No validation = bug.
 
 ---
 
-## 3\. Directory Structure (Canonical)
+## 3. Directory Structure (Canonical)
 
-```text
+```
 src/
 ├── config/              # unifiedConfig
 ├── controllers/         # BaseController + controllers
@@ -200,24 +203,23 @@ src/
 ├── instrument.ts        # Sentry (FIRST IMPORT)
 ├── app.ts               # Express app
 └── server.ts            # HTTP server
-
 ```
 
 ---
 
-## 4\. Naming Conventions (Strict)
+## 4. Naming Conventions (Strict)
 
-| Layer      | Convention              |
-| ---------- | ----------------------- |
-| Controller | PascalCaseController.ts |
-| Service    | camelCaseService.ts     |
-| Repository | PascalCaseRepository.ts |
-| Routes     | camelCaseRoutes.ts      |
-| Validators | camelCase.schema.ts     |
+| Layer      | Convention                |
+| ---------- | ------------------------- |
+| Controller | `PascalCaseController.ts` |
+| Service    | `camelCaseService.ts`     |
+| Repository | `PascalCaseRepository.ts` |
+| Routes     | `camelCaseRoutes.ts`      |
+| Validators | `camelCase.schema.ts`     |
 
 ---
 
-## 5\. Dependency Injection Rules
+## 5. Dependency Injection Rules
 
 * Services receive dependencies via constructor
 * No importing repositories directly inside controllers
@@ -229,12 +231,11 @@ export class UserService {
     private readonly userRepository: UserRepository
   ) {}
 }
-
 ```
 
 ---
 
-## 6\. Prisma & Repository Rules
+## 6. Prisma & Repository Rules
 
 * Prisma client **never used directly in controllers**
 * Repositories:
@@ -245,12 +246,11 @@ export class UserService {
 
 ```ts
 await userRepository.findActiveUsers();
-
 ```
 
 ---
 
-## 7\. Async & Error Handling
+## 7. Async & Error Handling
 
 ### asyncErrorWrapper Required
 
@@ -263,14 +263,13 @@ router.get(
     controller.list(req, res)
   )
 );
-
 ```
 
 No unhandled promise rejections.
 
 ---
 
-## 8\. Observability & Monitoring
+## 8. Observability & Monitoring
 
 ### Required
 
@@ -282,7 +281,7 @@ Every critical path must be observable.
 
 ---
 
-## 9\. Testing Discipline
+## 9. Testing Discipline
 
 ### Required Tests
 
@@ -296,20 +295,25 @@ describe('UserService', () => {
     expect(user).toBeDefined();
   });
 });
-
 ```
 
 No tests → no merge.
 
 ---
 
-## 10\. Anti-Patterns (Immediate Rejection)
+## 10. Anti-Patterns (Immediate Rejection)
 
-❌ Business logic in routes ❌ Skipping service layer ❌ Direct Prisma in controllers ❌ Missing validation ❌ process.env usage ❌ console.log instead of Sentry ❌ Untested business logic
+❌ Business logic in routes
+❌ Skipping service layer
+❌ Direct Prisma in controllers
+❌ Missing validation
+❌ process.env usage
+❌ console.log instead of Sentry
+❌ Untested business logic
 
 ---
 
-## 11\. Integration With Other Skills
+## 11. Integration With Other Skills
 
 * **frontend-dev-guidelines** → API contract alignment
 * **error-tracking** → Sentry standards
@@ -319,30 +323,30 @@ No tests → no merge.
 
 ---
 
-## 12\. Operator Validation Checklist
+## 12. Operator Validation Checklist
 
 Before finalizing backend work:
 
-* BFRI ≥ 3
-* Layered architecture respected
-* Input validated
-* Errors captured in Sentry
-* unifiedConfig used
-* Tests written
-* No anti-patterns present
+* [ ] BFRI ≥ 3
+* [ ] Layered architecture respected
+* [ ] Input validated
+* [ ] Errors captured in Sentry
+* [ ] unifiedConfig used
+* [ ] Tests written
+* [ ] No anti-patterns present
 
 ---
 
-## 13\. Skill Status
+## 13. Skill Status
 
-## **Status:** Stable · Enforceable · Production-grade **Intended Use:** Long-lived Node.js microservices with real traffic and real risk
+**Status:** Stable · Enforceable · Production-grade
+**Intended Use:** Long-lived Node.js microservices with real traffic and real risk
+---
 
 ### When to Use
-
 This skill is applicable to execute the workflow or actions described in the overview.
 
 ## Limitations
-
-* Use this skill only when the task clearly matches the scope described above.
-* Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
-* Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

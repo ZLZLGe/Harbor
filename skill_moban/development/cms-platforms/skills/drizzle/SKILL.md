@@ -1,24 +1,30 @@
+---
+name: drizzle
+description: "Drizzle ORM schema authoring and query style for LobeHub (postgres, strict mode). Use when editing anything under `src/database/schemas/`, defining `pgTable` columns/indexes/junction tables, spreading `...timestamps`, generating `createInsertSchema`/`$inferSelect`/`$inferInsert` types, writing `db.select().from(...).leftJoin(...)` queries, or deciding when to split a relational `with:` into two queries. Triggers on `pgTable`, `db.select`, `db.query`, `eq()`/`and()`/`inArray()`, `uniqueIndex`, `primaryKey`, `references({ onDelete })`, 'add a column', 'new table', 'foreign key', 'junction table', 'schema field'. For migration files specifically, see the `db-migrations` skill."
+user-invocable: false
+---
+
 # Drizzle ORM Schema Style Guide
 
 ## Configuration
 
-* Config: `drizzle.config.ts`
-* Schemas: `src/database/schemas/`
-* Migrations: `src/database/migrations/`
-* Dialect: `postgresql` with `strict: true`
+- Config: `drizzle.config.ts`
+- Schemas: `src/database/schemas/`
+- Migrations: `src/database/migrations/`
+- Dialect: `postgresql` with `strict: true`
 
 ## Helper Functions
 
 Location: `src/database/schemas/_helpers.ts`
 
-* `timestamptz(name)`: Timestamp with timezone
-* `createdAt()`, `updatedAt()`, `accessedAt()`: Standard timestamp columns
-* `timestamps`: Object with all three for easy spread
+- `timestamptz(name)`: Timestamp with timezone
+- `createdAt()`, `updatedAt()`, `accessedAt()`: Standard timestamp columns
+- `timestamps`: Object with all three for easy spread
 
 ## Naming Conventions
 
-* **Tables**: Plural snake\_case (`users`, `session_groups`)
-* **Columns**: snake\_case (`user_id`, `created_at`)
+- **Tables**: Plural snake_case (`users`, `session_groups`)
+- **Columns**: snake_case (`user_id`, `created_at`)
 
 ## Column Definitions
 
@@ -29,7 +35,6 @@ id: text('id')
   .primaryKey()
   .$defaultFn(() => idGenerator('agents'))
   .notNull(),
-
 ```
 
 ID prefixes make entity types distinguishable. For internal tables, use `uuid`.
@@ -40,14 +45,12 @@ ID prefixes make entity types distinguishable. For internal tables, use `uuid`.
 userId: text('user_id')
   .references(() => users.id, { onDelete: 'cascade' })
   .notNull(),
-
 ```
 
 ### Timestamps
 
 ```typescript
 ...timestamps,  // Spread from _helpers.ts
-
 ```
 
 ### Indexes
@@ -55,7 +58,6 @@ userId: text('user_id')
 ```typescript
 // Return array (object style deprecated)
 (t) => [uniqueIndex('client_id_user_id_unique').on(t.clientId, t.userId)],
-
 ```
 
 ## Type Inference
@@ -64,7 +66,6 @@ userId: text('user_id')
 export const insertAgentSchema = createInsertSchema(agents);
 export type NewAgent = typeof agents.$inferInsert;
 export type AgentItem = typeof agents.$inferSelect;
-
 ```
 
 ## Example Pattern
@@ -89,7 +90,6 @@ export const agents = pgTable(
   },
   (t) => [uniqueIndex('client_id_user_id_unique').on(t.clientId, t.userId)],
 );
-
 ```
 
 ## Common Patterns
@@ -114,7 +114,6 @@ export const agentsKnowledgeBases = pgTable(
   },
   (t) => [primaryKey({ columns: [t.agentId, t.knowledgeBaseId] })],
 );
-
 ```
 
 ## Query Style
@@ -127,18 +126,13 @@ The relational API generates complex lateral joins with `json_build_array` that 
 
 ```typescript
 // ✅ Good
-const [result] = await this.db
-  .select()
-  .from(agents)
-  .where(eq(agents.id, id))
-  .limit(1);
+const [result] = await this.db.select().from(agents).where(eq(agents.id, id)).limit(1);
 return result;
 
 // ❌ Bad: relational API
 return this.db.query.agents.findFirst({
   where: eq(agents.id, id),
 });
-
 ```
 
 ### Select with JOIN
@@ -163,7 +157,6 @@ return this.db.query.agentEvalRunTopics.findMany({
   where: eq(agentEvalRunTopics.runId, runId),
   with: { testCase: true, topic: true },
 });
-
 ```
 
 ### Select with Aggregation
@@ -179,7 +172,6 @@ const rows = await this.db
   .from(agentEvalDatasets)
   .leftJoin(agentEvalTestCases, eq(agentEvalDatasets.id, agentEvalTestCases.datasetId))
   .groupBy(agentEvalDatasets.id);
-
 ```
 
 ### One-to-Many (Separate Queries)
@@ -203,7 +195,6 @@ const testCases = await this.db
   .orderBy(asc(agentEvalTestCases.sortOrder));
 
 return { ...dataset, testCases };
-
 ```
 
 ## Database Migrations

@@ -1,79 +1,70 @@
 # Real-Estate-Legal Template
 
-这是面向 `real-estate-legal` 类 skill 的模板。它综合参考 SkillsMP `real-estate-legal` 类热门 skill 的共性能力：公开拍卖公告核对、条款抽取、债务与责任归属判断、买方现金支出测算，以及面向投委会的结论整理。
+这是面向 `real-estate-legal` 类模板任务的示例。它综合参考 SkillsMP 中与融资材料、市场梳理、文档一致性和结构化交付相关的高星 skill 共性能力：先收拢当前业务口径，再把 memo、one-pager、财务模型和资金分配表对齐到同一组公开来源与当前公司输入。
 
 ## 第一部分：任务设计参考
 
-* **Skill 价值定位**：`real-estate-legal` 类热门 skill 的共同价值，在于把公告、法条、税费规则和业务口径组织成一条可执行审查链路。模板任务应把重点放在“当前该查什么、如何收口、如何形成正式交付”。
-* **Task 目标形态**：任务应落在拍卖前审查、房产出价决策、法务核查或投委会准备这类明确业务场景中，要求 Agent 同时处理结构化提取、风险判断、成本核算和结论写作。题面应交代交付合同与业务约束，但不直接展开完整工作流。
-* **Verifier 设计重点**：Verifier 应优先验证 solver 是否走过当前权威数据链路，并检查事实、责任归属、现金支出和结论之间是否一致。防作弊测试应重点拦截只看旧导出、跳过本地 authority service、漏拿分页风险和沿用旧成本表的捷径。
+* **Skill 价值定位**：这类 skill 的核心价值，是在多份对外材料同时存在时，帮助 Agent 先整理当前口径，再把数字、条款、市场范围和里程碑写到多份交付中，并持续对数。模板任务应让 skill 在口径统一、旧稿排查、模型滚动和多文件一致性上形成稳定优势。
+* **Verifier 设计重点**：Verifier 应重算结构化事实、季度模型和资金分配，同时检查文档是否带入旧稿里的过期值。重点应放在当前口径是否被正确采用、公开市场快照是否被正确使用、以及多份交付是否前后一致，而不是把压力堆到版式细节。
 
 ## 第二部分：示例任务
 
 ### 📌 任务元数据
 
-- 任务 ID：`real-estate-legal__caixa-auction-edital-audit`
+- 任务 ID：`real-estate-legal__noticeflow-seed-materials`
 - 类别：`real-estate-legal`
-- 难度：`hard`
-- 绑定 Skill：`leiloeiro-edital`
+- 绑定 Skill：`investor-materials`
 - 输入数据参考来源：
-  - `environment/data/source_notice_batch.pdf`：任务内公告 PDF；设计形态参考 CAIXA 拍卖公告  
-    https://venda-imoveis.caixa.gov.br/editais/EL00200226CPARE.PDF
-  - `environment/data/source_notice_excerpt.pdf`：任务内公告摘录页；内容来自同一份 CAIXA 公告  
-    https://venda-imoveis.caixa.gov.br/editais/EL00200226CPARE.PDF
-  - `environment/data/source_itbi_sp.html`：任务内圣保罗市 ITBI 页面快照  
-    https://prefeitura.sp.gov.br/cidade/secretarias/fazenda/servicos/itbi/index.php?p=2513
-  - `environment/data/source_fiduciary_law.html`：任务内法拍流程法条页面快照；设计形态参考《Lei 9.514/1997》Art. 27  
-    https://www.planalto.gov.br/ccivil_03/Leis/l9514.htm
-  - `environment/data/source_cpc.html`：任务内拍卖程序法条页面快照；设计形态参考《Lei 13.105/2015》  
-    https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/L13105.htm
+  - `environment/data/market_snapshots/metro_housing_snapshot.csv`：任务内 Atlanta、Dallas、Phoenix 住房市场快照；数据取自 Census Reporter ACS API，对应表 `B25003`、`B25071`、`B25064`、`B19013`  
+    https://api.censusreporter.org/1.0/data/show/latest?table_ids=B25003,B25071,B25064,B19013&geo_ids=31000US12060,31000US19100,31000US38060
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：oracle 通过 `job_manifest.json` 读取任务上下文，访问容器内 authority service 的当前标的、当前成本模型、分页风险集和决策口径，再独立生成结构化提取、风险登记表、现金支出测算和投委会 memo。它证明任务可运行、可验证，且不依赖隐藏答案文件。
-- Verifier策略：
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
+- Verifier 策略：
 
 主测试
 
-| 测试点 | 验证内容 | 对应skill内化点 |
+| 测试点 | 验证内容 | 对应 skill 内化点 |
 | :--- | :--- | :--- |
-| 输出契约 | 检查 4 个输出文件存在、可解析，并满足字段、列名和标题要求 | 先理解正式交付合同，再组织结构化结果 |
-| 公告提取重算 | 用 authority service 当前标的事实重算 `notice_extract.json` | 当前公告事实抽取与条款归一 |
-| 现金支出重算 | 用当前 cost model 重算佣金、ITBI、登记和各项 modeled reserve | 税费换算、责任归属、买方支出测算 |
-| 风险登记校验 | 用 live risk set 校验风险覆盖、级别和证据出处 | 风险分类、证据映射、业务表达 |
-| Memo 一致性 | 检查 memo 与结构化输出的一致性，以及关键风险与资金约束是否被提及 | 投委会表达与闭环交付 |
+| 输出契约 | 检查 6 个交付文件是否齐全、可解析、字段完整 | 多材料交付完整性 |
+| 当前口径重算 | 重算融资条款、定价、经营指标、市场快照和里程碑 | 当前事实集整理 |
+| 财务模型重算 | 重算 8 个季度的客户滚动、收入、净消耗和现金滚动 | 财务模型与算数闭环 |
+| 资金分配校验 | 校验金额总和、比例总和和分类顺序 | 融资金额分配一致性 |
+| 冲突与张力校验 | 校验旧稿冲突覆盖完整，并校验当前里程碑与 base-case 模型张力是否被记录 | 旧稿排查与输入张力识别 |
+| 文档一致性 | 校验 memo 和 one-pager 中的关键数字与结构化事实一致 | 多份材料对数 |
 
 防作弊测试
 
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 当前链路访问 | access log 必须证明 solver 在 verifier 前访问了 authority service，且走过 manifest、当前标的、当前成本口径和风险分页链路 |
-| 旧导出规避 | 旧 second-auction bid、旧支付方式、旧税费假设和旧总成本不能作为最终答案 |
-| 环境完整性 | `/root/data/`、隐藏服务代码和 seed 数据不得变化，服务在 verifier 结束时仍健康 |
+| 输入不可变 | 校验 `/root/data` 原始输入 hash 不变 |
+| 旧稿污染 | 检查输出中未带入旧稿里的过期融资金额、工具类型、定价和市场范围 |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务里，Skill 的核心价值是把 `job_manifest.json`、authority service、分页风险集、当前成本口径和投委会输出串成一条稳定工作流，从而明显降低旧导出依赖和 live-only 更新漏拿的概率。基于最近 5 次有效 task-level 对比，with Skill 的通过率明显高于 without Skill，且平均耗时和 tokens 都更低。
+结论：强相关。这个任务里，skill 的核心价值在于帮助 Agent 先整理当前融资口径，再把旧稿冲突和当前输入张力显式记录出来，随后生成 memo、one-pager、模型和资金分配表，并把数字逐项对齐；without skill 更容易漏掉冲突清单或漏掉当前计划里的关键张力。
 
-基于最近 **5** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial；统计按当前 verifier 语义复核，`reconciliation_log.csv` 仅放宽等价值写法与行顺序）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0/5` | `60% (3/5)` | 近 5 次有效对照里，without Skill 始终未通过；常见失败路径是没有先走 manifest 和当前 authority service 链路，随后沿用旧口径或漏拿 live-only 更新。 |
-| Agent 执行耗时 | `437.7s` | `389.3s` | With Skill 的诊断与收敛更快，平均 Agent 耗时降低约 `11.1%`。 |
-| Tokens | `1.89M` | `1.70M` | With Skill 的上下文与试错开销更低，Without Skill 约为 With Skill 的 `1.11x`。 |
+| 通过率 | `0/3 (0%)` | `3/3 (100%)` | 近 3 次有效对照里，without Skill 更容易把旧稿冲突清单写残或把里程碑张力里的当前值与冲突值写反，因此始终保留至少 1 项 verifier 失败。 |
+| Agent 执行耗时 | `344.0s` | `300.0s` | With Skill 的口径收拢与对数更快，平均 Agent 耗时降低约 `12.8%`。 |
+| Tokens | `376.3k` | `312.5k` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.20x`。 |
 
 ## 📁 标准目录结构说明
 
 ```text
-模板任务：
-├── instruction.md          # 任务说明（仅包含症状、业务约束和禁止事项）
-├── task.toml               # 任务元数据（标签、技能要求、运行入口）
-├── PLAN.json               # 任务构建过程的结构化元信息
-├── environment/            # 运行环境
-│   ├── Dockerfile          # 单容器镜像定义；在同一容器内启动 authority service 与隐藏下游数据
-│   ├── ...                 # 可选的 source 快照 / service seed / scripts
-│   └── skills/             # 任务绑定的 real-estate-legal skill 定义与辅助脚本
-├── tests/                  # Verifier 与 Guardrail 测试集
-└── solution/               # 官方参考代码及 solve.sh
+template_new/
+├── instruction.md
+├── task.toml
+├── PLAN.json
+├── README.md
+├── environment/
+│   ├── Dockerfile
+│   ├── data/
+│   └── skills/
+├── tests/
+└── solution/
 ```

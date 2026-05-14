@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`cli-tools` 类热门 skill 的关键价值，在于帮助 Agent 先识别仓库已经提供的命令面，再沿着这些入口完成构建、打包、校验和交付。对 `discovering-make-commands` 这类 skill 来说，重点是把动作收敛到仓库既有的 `make` 工作流，避免直接跳到临时脚本或单步输出。
-* **Task 目标形态**：这类任务适合落在命令行项目发布、归档打包、命令目录整理、smoke 校验和产物一致性检查等场景。题面应重点交代输入包、交付文件、字段合同、以及禁止事项，把命令发现和阶段选择留给 solver 自己完成。
 * **Verifier 设计重点**：Verifier 应优先检查 solver 是否沿项目内的命令入口完成分阶段打包和 smoke 校验，并验证 manifest、checksum、命令目录和发布物之间是否互相一致。除了输出内容，还要覆盖重跑稳定性、输入不可改写、打包产物来源和命令目录对齐。
 
 ## 第二部分：示例任务
@@ -13,7 +12,6 @@
 ### 📌 任务元数据
 - 任务 ID：`cli-tools__airdesk-release-pack`
 - 类别：`cli-tools`
-- 难度：`hard`
 - 绑定 Skill：`discovering-make-commands`
 - 输入数据参考来源：
   - `environment/data/ourairports/countries.csv`：任务内国家参考数据；数据直接来源于  
@@ -28,7 +26,7 @@
     `https://raw.githubusercontent.com/davidmegginson/ourairports-data/main/airport-frequencies.csv`
 
 ### 📊 验证与测试指标（Oracle & Verifier）
-- Oracle：Oracle 会沿仓库内的 Make 工作流生成发布产物，写出 manifest、命令目录、checksum 和 smoke 期望，并用交付中的 CLI 包重跑 contract 里的全部命令场景。最终版 E2B oracle 已于 `2026-05-06` 跑通，reward=`1.0`。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -43,7 +41,7 @@
 防作弊测试
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 输入完整性 | 机场数据和 contract 哈希不得变化 |
+| 输入完整性 | 机场数据和 contract 不可修改 |
 | 产物来源 | 交付中的 CLI 包必须来自工作区项目，不能用外部脚本替代 |
 | smoke 期望来源 | smoke 期望必须由输入数据推导，不能手写固定答案 |
 

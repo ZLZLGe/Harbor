@@ -25,25 +25,15 @@ RUN pip install --no-cache-dir \
     lxml==5.3.0 \
     pytest==8.4.1
 
-RUN npm install -g @openai/codex@0.120.0 \
-    && codex --version
-
 RUN mkdir -p /opt/task-env /root/data /root/workspace /root/output /root/.codex/skills /logs/agent/skills /logs/verifier
 
 COPY . /opt/task-env
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN cp -R /opt/task-env/data/. /root/data/ \
     && cp -R /opt/task-env/workspace/. /root/workspace/ \
-    && if [ -d /opt/task-env/skills ]; then \
-         cp -R /opt/task-env/skills/. /root/.codex/skills/; \
-         cp -R /opt/task-env/skills/. /logs/agent/skills/; \
-       fi \
     && find /root/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/task-data.sha256 \
-    && if find /root/.codex/skills -type f | grep -q .; then \
-         find /root/.codex/skills -type f -print0 | sort -z | xargs -0 sha256sum > /opt/task-skills.sha256; \
-       else \
-         : > /opt/task-skills.sha256; \
-       fi \
     && chmod 755 /root \
     && chmod -R a+rX /root/data /root/workspace /root/.codex/skills /logs/agent/skills \
     && chmod 777 /root/output \

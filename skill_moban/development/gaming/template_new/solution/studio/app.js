@@ -882,8 +882,8 @@
     collectDom();
     await loadData();
     populateZones();
-    syncUiFromState();
     bindEvents();
+    syncUiFromState();
     drawScene();
     window.__atlasState = state;
     window.__ATLAS_READY__ = true;

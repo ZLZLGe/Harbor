@@ -1,21 +1,26 @@
+---
+name: sql-optimization-patterns
+description: Master SQL query optimization, indexing strategies, and EXPLAIN analysis to dramatically improve database performance and eliminate slow queries. Use when debugging slow queries, designing database schemas, or optimizing application performance.
+---
+
 # SQL Optimization Patterns
 
 Transform slow database queries into lightning-fast operations through systematic optimization, proper indexing, and query plan analysis.
 
 ## When to Use This Skill
 
-* Debugging slow-running queries
-* Designing performant database schemas
-* Optimizing application response times
-* Reducing database load and costs
-* Improving scalability for growing datasets
-* Analyzing EXPLAIN query plans
-* Implementing efficient indexes
-* Resolving N+1 query problems
+- Debugging slow-running queries
+- Designing performant database schemas
+- Optimizing application response times
+- Reducing database load and costs
+- Improving scalability for growing datasets
+- Analyzing EXPLAIN query plans
+- Implementing efficient indexes
+- Resolving N+1 query problems
 
 ## Core Concepts
 
-### 1\. Query Execution Plans (EXPLAIN)
+### 1. Query Execution Plans (EXPLAIN)
 
 Understanding EXPLAIN output is fundamental to optimization.
 
@@ -35,32 +40,31 @@ SELECT u.*, o.order_total
 FROM users u
 JOIN orders o ON u.id = o.user_id
 WHERE u.created_at > NOW() - INTERVAL '30 days';
-
 ```
 
 **Key Metrics to Watch:**
 
-* **Seq Scan**: Full table scan (usually slow for large tables)
-* **Index Scan**: Using index (good)
-* **Index Only Scan**: Using index without touching table (best)
-* **Nested Loop**: Join method (okay for small datasets)
-* **Hash Join**: Join method (good for larger datasets)
-* **Merge Join**: Join method (good for sorted data)
-* **Cost**: Estimated query cost (lower is better)
-* **Rows**: Estimated rows returned
-* **Actual Time**: Real execution time
+- **Seq Scan**: Full table scan (usually slow for large tables)
+- **Index Scan**: Using index (good)
+- **Index Only Scan**: Using index without touching table (best)
+- **Nested Loop**: Join method (okay for small datasets)
+- **Hash Join**: Join method (good for larger datasets)
+- **Merge Join**: Join method (good for sorted data)
+- **Cost**: Estimated query cost (lower is better)
+- **Rows**: Estimated rows returned
+- **Actual Time**: Real execution time
 
-### 2\. Index Strategies
+### 2. Index Strategies
 
 Indexes are the most powerful optimization tool.
 
 **Index Types:**
 
-* **B-Tree**: Default, good for equality and range queries
-* **Hash**: Only for equality (=) comparisons
-* **GIN**: Full-text search, array queries, JSONB
-* **GiST**: Geometric data, full-text search
-* **BRIN**: Block Range INdex for very large tables with correlation
+- **B-Tree**: Default, good for equality and range queries
+- **Hash**: Only for equality (=) comparisons
+- **GIN**: Full-text search, array queries, JSONB
+- **GiST**: Geometric data, full-text search
+- **BRIN**: Block Range INdex for very large tables with correlation
 
 ```sql
 -- Standard B-Tree index
@@ -86,10 +90,9 @@ USING GIN(to_tsvector('english', title || ' ' || body));
 
 -- JSONB index
 CREATE INDEX idx_metadata ON events USING GIN(metadata);
-
 ```
 
-### 3\. Query Optimization Patterns
+### 3. Query Optimization Patterns
 
 **Avoid SELECT \*:**
 
@@ -99,7 +102,6 @@ SELECT * FROM users WHERE id = 123;
 
 -- Good: Fetch only what you need
 SELECT id, email, name FROM users WHERE id = 123;
-
 ```
 
 **Use WHERE Clause Efficiently:**
@@ -115,7 +117,6 @@ SELECT * FROM users WHERE LOWER(email) = 'user@example.com';
 
 -- Or store normalized data
 SELECT * FROM users WHERE email = 'user@example.com';
-
 ```
 
 **Optimize JOINs:**
@@ -136,7 +137,6 @@ WHERE u.created_at > '2024-01-01';
 SELECT u.name, o.total
 FROM (SELECT * FROM users WHERE created_at > '2024-01-01') u
 JOIN orders o ON u.id = o.user_id;
-
 ```
 
 ## Optimization Patterns
@@ -151,7 +151,6 @@ users = db.query("SELECT * FROM users LIMIT 10")
 for user in users:
     orders = db.query("SELECT * FROM orders WHERE user_id = ?", user.id)
     # Process orders
-
 ```
 
 **Solution: Use JOINs or Batch Loading**
@@ -168,7 +167,6 @@ WHERE u.id IN (1, 2, 3, 4, 5);
 -- Solution 2: Batch query
 SELECT * FROM orders
 WHERE user_id IN (1, 2, 3, 4, 5);
-
 ```
 
 ```python
@@ -192,7 +190,6 @@ orders = db.query(
 orders_by_user = {}
 for order in orders:
     orders_by_user.setdefault(order.user_id, []).append(order)
-
 ```
 
 ### Pattern 2: Optimize Pagination
@@ -204,7 +201,6 @@ for order in orders:
 SELECT * FROM users
 ORDER BY created_at DESC
 LIMIT 20 OFFSET 100000;  -- Very slow!
-
 ```
 
 **Good: Cursor-Based Pagination**
@@ -224,7 +220,6 @@ LIMIT 20;
 
 -- Requires index
 CREATE INDEX idx_users_cursor ON users(created_at DESC, id DESC);
-
 ```
 
 ### Pattern 3: Aggregate Efficiently
@@ -248,7 +243,6 @@ WHERE created_at > NOW() - INTERVAL '7 days';
 CREATE INDEX idx_orders_created ON orders(created_at);
 SELECT COUNT(*) FROM orders
 WHERE created_at > NOW() - INTERVAL '7 days';
-
 ```
 
 **Optimize GROUP BY:**
@@ -269,7 +263,6 @@ HAVING COUNT(*) > 10;
 
 -- Best: Use covering index
 CREATE INDEX idx_orders_user_status ON orders(user_id, status);
-
 ```
 
 ### Pattern 4: Subquery Optimization
@@ -294,7 +287,6 @@ SELECT DISTINCT ON (u.id)
     COUNT(o.id) OVER (PARTITION BY u.id) as order_count
 FROM users u
 LEFT JOIN orders o ON o.user_id = u.id;
-
 ```
 
 **Use CTEs for Clarity:**
@@ -315,7 +307,6 @@ user_order_counts AS (
 SELECT ru.name, ru.email, COALESCE(uoc.order_count, 0) as orders
 FROM recent_users ru
 LEFT JOIN user_order_counts uoc ON ru.id = uoc.user_id;
-
 ```
 
 ### Pattern 5: Batch Operations
@@ -336,7 +327,6 @@ INSERT INTO users (name, email) VALUES
 
 -- Better: Use COPY for bulk inserts (PostgreSQL)
 COPY users (name, email) FROM '/tmp/users.csv' CSV HEADER;
-
 ```
 
 **Batch UPDATE:**
@@ -360,7 +350,6 @@ UPDATE users u
 SET status = t.new_status
 FROM temp_user_updates t
 WHERE u.id = t.id;
-
 ```
 
 ## Advanced Techniques
@@ -395,7 +384,6 @@ REFRESH MATERIALIZED VIEW CONCURRENTLY user_order_summary;
 SELECT * FROM user_order_summary
 WHERE total_spent > 1000
 ORDER BY total_spent DESC;
-
 ```
 
 ### Partitioning
@@ -422,7 +410,6 @@ CREATE TABLE orders_2024_q2 PARTITION OF orders
 SELECT * FROM orders
 WHERE created_at BETWEEN '2024-02-01' AND '2024-02-28';
 -- Only scans orders_2024_q1 partition
-
 ```
 
 ### Query Hints and Optimization
@@ -439,7 +426,6 @@ SELECT * FROM large_table WHERE condition;
 
 -- Join hints (PostgreSQL)
 SET enable_nestloop = OFF;  -- Force hash or merge join
-
 ```
 
 ## Best Practices
@@ -465,18 +451,17 @@ VACUUM FULL users;  -- Reclaim space (locks table)
 -- Reindex
 REINDEX INDEX idx_users_email;
 REINDEX TABLE users;
-
 ```
 
 ## Common Pitfalls
 
-* **Over-Indexing**: Each index slows down INSERT/UPDATE/DELETE
-* **Unused Indexes**: Waste space and slow writes
-* **Missing Indexes**: Slow queries, full table scans
-* **Implicit Type Conversion**: Prevents index usage
-* **OR Conditions**: Can't use indexes efficiently
-* **LIKE with Leading Wildcard**: `LIKE '%abc'` can't use index
-* **Function in WHERE**: Prevents index usage unless functional index exists
+- **Over-Indexing**: Each index slows down INSERT/UPDATE/DELETE
+- **Unused Indexes**: Waste space and slow writes
+- **Missing Indexes**: Slow queries, full table scans
+- **Implicit Type Conversion**: Prevents index usage
+- **OR Conditions**: Can't use indexes efficiently
+- **LIKE with Leading Wildcard**: `LIKE '%abc'` can't use index
+- **Function in WHERE**: Prevents index usage unless functional index exists
 
 ## Monitoring Queries
 
@@ -511,5 +496,4 @@ SELECT
 FROM pg_stat_user_indexes
 WHERE idx_scan = 0
 ORDER BY pg_relation_size(indexrelid) DESC;
-
 ```

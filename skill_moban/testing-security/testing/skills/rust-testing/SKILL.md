@@ -1,14 +1,20 @@
+---
+name: rust-testing
+description: Rust testing patterns including unit tests, integration tests, async testing, property-based testing, mocking, and coverage. Follows TDD methodology.
+origin: ECC
+---
+
 # Rust Testing Patterns
 
 Comprehensive Rust testing patterns for writing reliable, maintainable tests following TDD methodology.
 
 ## When to Use
 
-* Writing new Rust functions, methods, or traits
-* Adding test coverage to existing code
-* Creating benchmarks for performance-critical code
-* Implementing property-based tests for input validation
-* Following TDD workflow in Rust projects
+- Writing new Rust functions, methods, or traits
+- Adding test coverage to existing code
+- Creating benchmarks for performance-critical code
+- Implementing property-based tests for input validation
+- Following TDD workflow in Rust projects
 
 ## How It Works
 
@@ -24,12 +30,11 @@ Comprehensive Rust testing patterns for writing reliable, maintainable tests fol
 
 ### The RED-GREEN-REFACTOR Cycle
 
-```text
+```
 RED     → Write a failing test first
 GREEN   → Write minimal code to pass the test
 REFACTOR → Improve code while keeping tests green
 REPEAT  → Continue with next requirement
-
 ```
 
 ### Step-by-Step TDD in Rust
@@ -45,14 +50,12 @@ mod tests {
     fn test_add() { assert_eq!(add(2, 3), 5); }
 }
 // cargo test → panics at 'not yet implemented'
-
 ```
 
 ```rust
 // GREEN: Replace todo!() with minimal implementation
 pub fn add(a: i32, b: i32) -> i32 { a + b }
 // cargo test → PASS, then REFACTOR while keeping tests green
-
 ```
 
 ## Unit Tests
@@ -98,7 +101,6 @@ mod tests {
         assert!(result.unwrap_err().contains("invalid email"));
     }
 }
-
 ```
 
 ### Assertion Macros
@@ -109,7 +111,6 @@ assert_ne!(2 + 2, 5);                                    // Inequality
 assert!(vec![1, 2, 3].contains(&2));                     // Boolean
 assert_eq!(value, 42, "expected 42 but got {value}");    // Custom message
 assert!((0.1_f64 + 0.2 - 0.3).abs() < f64::EPSILON);   // Float comparison
-
 ```
 
 ## Error and Panic Testing
@@ -133,7 +134,6 @@ fn parse_succeeds_for_valid_input() -> Result<(), Box<dyn std::error::Error>> {
     assert_eq!(config.port, 8080);
     Ok(()) // Test fails if any ? returns Err
 }
-
 ```
 
 ### Testing Panics
@@ -151,7 +151,6 @@ fn panics_with_specific_message() {
     let v: Vec<i32> = vec![];
     let _ = v[0];
 }
-
 ```
 
 ## Integration Tests
@@ -167,7 +166,6 @@ my_crate/
 │   ├── db_test.rs
 │   └── common/         # Shared test utilities
 │       └── mod.rs
-
 ```
 
 ### Writing Integration Tests
@@ -185,7 +183,6 @@ fn full_request_lifecycle() {
     assert_eq!(response.status, 200);
     assert_eq!(response.body, "OK");
 }
-
 ```
 
 ## Async Tests
@@ -211,7 +208,6 @@ async fn handles_timeout() {
 
     assert!(result.is_err(), "should have timed out");
 }
-
 ```
 
 ## Test Organization Patterns
@@ -240,7 +236,6 @@ fn test_insert(test_db: TestDb) {
     test_db.insert("key", "value");
     assert_eq!(test_db.get("key"), Some("value".into()));
 }
-
 ```
 
 ### Test Helpers
@@ -261,7 +256,6 @@ mod tests {
         assert_eq!(user.display_name(), "alice");
     }
 }
-
 ```
 
 ## Property-Based Testing with `proptest`
@@ -294,7 +288,6 @@ proptest! {
         }
     }
 }
-
 ```
 
 ### Custom Strategies
@@ -313,7 +306,6 @@ proptest! {
         assert!(User::new("Test", &email).is_ok());
     }
 }
-
 ```
 
 ## Mocking with `mockall`
@@ -351,7 +343,6 @@ fn service_returns_none_when_not_found() {
     let service = UserService::new(Box::new(mock));
     assert!(service.get_user(99).is_none());
 }
-
 ```
 
 ## Doc Tests
@@ -394,7 +385,6 @@ pub fn add(a: i32, b: i32) -> i32 {
 pub fn parse_config(input: &str) -> Result<Config, ParseError> {
     todo!()
 }
-
 ```
 
 ## Benchmarking with Criterion
@@ -407,7 +397,6 @@ criterion = { version = "0.5", features = ["html_reports"] }
 [[bench]]
 name = "benchmark"
 harness = false
-
 ```
 
 ```rust
@@ -427,7 +416,6 @@ fn bench_fibonacci(c: &mut Criterion) {
 
 criterion_group!(benches, bench_fibonacci);
 criterion_main!(benches);
-
 ```
 
 ## Test Coverage
@@ -440,16 +428,15 @@ cargo llvm-cov                    # Summary
 cargo llvm-cov --html             # HTML report
 cargo llvm-cov --lcov > lcov.info # LCOV format for CI
 cargo llvm-cov --fail-under-lines 80  # Fail if below threshold
-
 ```
 
 ### Coverage Targets
 
-| Code Type                | Target  |
-| ------------------------ | ------- |
-| Critical business logic  | 100%    |
-| Public API               | 90%+    |
-| General code             | 80%+    |
+| Code Type | Target |
+|-----------|--------|
+| Critical business logic | 100% |
+| Public API | 90%+ |
+| General code | 80%+ |
 | Generated / FFI bindings | Exclude |
 
 ## Testing Commands
@@ -463,28 +450,25 @@ cargo test --test api_test        # Integration tests only
 cargo test --doc                  # Doc tests only
 cargo test --no-fail-fast         # Don't stop on first failure
 cargo test -- --ignored           # Run ignored tests
-
 ```
 
 ## Best Practices
 
 **DO:**
-
-* Write tests FIRST (TDD)
-* Use `#[cfg(test)]` modules for unit tests
-* Test behavior, not implementation
-* Use descriptive test names that explain the scenario
-* Prefer `assert_eq!` over `assert!` for better error messages
-* Use `?` in tests that return `Result` for cleaner error output
-* Keep tests independent — no shared mutable state
+- Write tests FIRST (TDD)
+- Use `#[cfg(test)]` modules for unit tests
+- Test behavior, not implementation
+- Use descriptive test names that explain the scenario
+- Prefer `assert_eq!` over `assert!` for better error messages
+- Use `?` in tests that return `Result` for cleaner error output
+- Keep tests independent — no shared mutable state
 
 **DON'T:**
-
-* Use `#[should_panic]` when you can test `Result::is_err()` instead
-* Mock everything — prefer integration tests when feasible
-* Ignore flaky tests — fix or quarantine them
-* Use `sleep()` in tests — use channels, barriers, or `tokio::time::pause()`
-* Skip error path testing
+- Use `#[should_panic]` when you can test `Result::is_err()` instead
+- Mock everything — prefer integration tests when feasible
+- Ignore flaky tests — fix or quarantine them
+- Use `sleep()` in tests — use channels, barriers, or `tokio::time::pause()`
+- Skip error path testing
 
 ## CI Integration
 
@@ -511,7 +495,6 @@ test:
 
     - name: Coverage
       run: cargo llvm-cov --fail-under-lines 80
-
 ```
 
 **Remember**: Tests are documentation. They show how your code is meant to be used. Write them clearly and keep them up to date.

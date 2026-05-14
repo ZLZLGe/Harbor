@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     git \
     jq \
+    nodejs \
+    npm \
     python3 \
     python3-pip \
     python-is-python3 \
@@ -33,6 +35,15 @@ RUN pip3 install --break-system-packages --no-cache-dir \
 WORKDIR /app
 
 COPY . /tmp/task_environment
+COPY skills /app/environment/skills
+COPY skills /logs/agent/skills
+COPY skills /root/.claude/skills
+COPY skills /root/.codex/skills
+COPY skills /root/.opencode/skill
+COPY skills /root/.goose/skills
+COPY skills /root/.factory/skills
+COPY skills /root/.agents/skills
+COPY skills /root/.gemini/skills
 
 RUN mkdir -p \
       /app/data \
@@ -48,17 +59,6 @@ RUN mkdir -p \
       /root/.gemini/skills && \
     cp -R /tmp/task_environment/data/. /app/data/ && \
     cp -R /tmp/task_environment/workspace/. /app/workspace/ && \
-    if [ -d /tmp/task_environment/skills ]; then \
-      cp -R /tmp/task_environment/skills/. /app/environment/skills/ && \
-      cp -R /tmp/task_environment/skills/. /logs/agent/skills/ && \
-      cp -R /tmp/task_environment/skills/. /root/.claude/skills/ && \
-      cp -R /tmp/task_environment/skills/. /root/.codex/skills/ && \
-      cp -R /tmp/task_environment/skills/. /root/.opencode/skill/ && \
-      cp -R /tmp/task_environment/skills/. /root/.goose/skills/ && \
-      cp -R /tmp/task_environment/skills/. /root/.factory/skills/ && \
-      cp -R /tmp/task_environment/skills/. /root/.agents/skills/ && \
-      cp -R /tmp/task_environment/skills/. /root/.gemini/skills/; \
-    fi && \
     chmod -R a+rX /app /logs/agent /root/.claude /root/.codex /root/.opencode /root/.goose /root/.factory /root/.agents /root/.gemini && \
     rm -rf /tmp/task_environment
 

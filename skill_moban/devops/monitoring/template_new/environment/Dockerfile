@@ -14,11 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tini \
     && rm -rf /var/lib/apt/lists/*
 
-RUN node --version \
-    && npm --version \
-    && npm install -g @openai/codex@0.120.0 \
-    && codex --version
-
 RUN curl -fsSL https://github.com/prometheus/prometheus/releases/download/v2.55.1/prometheus-2.55.1.linux-amd64.tar.gz \
     | tar -xz -C /tmp \
     && mv /tmp/prometheus-2.55.1.linux-amd64/prometheus /usr/local/bin/prometheus \
@@ -27,6 +22,8 @@ RUN curl -fsSL https://github.com/prometheus/prometheus/releases/download/v2.55.
 
 WORKDIR /app
 COPY . /tmp/template-environment
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p \
       /app/bin \
@@ -46,8 +43,6 @@ RUN mkdir -p \
     && cp -R /app/runtime/inventory/. /app/workspace/prometheus/inventory/ \
     && mkdir -p /app/workspace/prometheus/skill_hints \
     && if [ -d /tmp/template-environment/skills ]; then \
-         cp -R /tmp/template-environment/skills/. /root/.codex/skills/; \
-         cp -R /tmp/template-environment/skills/. /logs/agent/skills/; \
          find /tmp/template-environment/skills -mindepth 2 -maxdepth 4 -type f \( -path "*/resources/*" -o -path "*/references/*" -o -path "*/assets/*" \) -print0 | while IFS= read -r -d "" file; do \
            rel="${file#/tmp/template-environment/skills/}"; \
            skill_name="${rel%%/*}"; \

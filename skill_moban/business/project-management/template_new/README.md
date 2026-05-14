@@ -38,7 +38,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：oracle 从本地 planning service 全量抓取分页 backlog 和明细事实，再结合容量与 policy 文件重算 Sprint 承诺、拒绝原因、容量摘要和经理更新内容。它证明任务可运行、可重算，而且不依赖隐藏答案文件。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试

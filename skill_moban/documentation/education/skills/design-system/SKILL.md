@@ -1,12 +1,18 @@
+---
+name: design-system
+description: Use this skill to generate or audit design systems, check visual consistency, and review PRs that touch styling.
+origin: ECC
+---
+
 # Design System — Generate & Audit Visual Systems
 
 ## When to Use
 
-* Starting a new project that needs a design system
-* Auditing an existing codebase for visual consistency
-* Before a redesign — understand what you have
-* When the UI looks "off" but you can't pinpoint why
-* Reviewing PRs that touch styling
+- Starting a new project that needs a design system
+- Auditing an existing codebase for visual consistency
+- Before a redesign — understand what you have
+- When the UI looks "off" but you can't pinpoint why
+- Reviewing PRs that touch styling
 
 ## How It Works
 
@@ -14,23 +20,22 @@
 
 Analyzes your codebase and generates a cohesive design system:
 
-```text
+```
 1. Scan CSS/Tailwind/styled-components for existing patterns
 2. Extract: colors, typography, spacing, border-radius, shadows, breakpoints
 3. Research 3 competitor sites for inspiration (via browser MCP)
 4. Propose a design token set (JSON + CSS custom properties)
 5. Generate DESIGN.md with rationale for each decision
 6. Create an interactive HTML preview page (self-contained, no deps)
-
 ```
 
-Output: `DESIGN.md` \+ `design-tokens.json` \+ `design-preview.html`
+Output: `DESIGN.md` + `design-tokens.json` + `design-preview.html`
 
 ### Mode 2: Visual Audit
 
 Scores your UI across 10 dimensions (0-10 each):
 
-```text
+```
 1. Color consistency — are you using your palette or random hex values?
 2. Typography hierarchy — clear h1 > h2 > h3 > body > caption?
 3. Spacing rhythm — consistent scale (4px/8px/16px) or arbitrary?
@@ -41,7 +46,6 @@ Scores your UI across 10 dimensions (0-10 each):
 8. Accessibility — contrast ratios, focus states, touch targets
 9. Information density — cluttered or clean?
 10. Polish — hover states, transitions, loading states, empty states
-
 ```
 
 Each dimension gets a score, specific examples, and a fix with exact file:line.
@@ -50,7 +54,7 @@ Each dimension gets a score, specific examples, and a fix with exact file:line.
 
 Identifies generic AI-generated design patterns:
 
-```text
+```
 - Gratuitous gradients on everything
 - Purple-to-blue defaults
 - "Glass morphism" cards with no purpose
@@ -58,28 +62,21 @@ Identifies generic AI-generated design patterns:
 - Excessive animations on scroll
 - Generic hero with centered text over stock gradient
 - Sans-serif font stack with no personality
-
 ```
 
 ## Examples
 
 **Generate for a SaaS app:**
-
-```text
+```
 /design-system generate --style minimal --palette earth-tones
-
 ```
 
 **Audit existing UI:**
-
-```text
+```
 /design-system audit --url http://localhost:3000 --pages / /pricing /docs
-
 ```
 
 **Check for AI slop:**
-
-```text
+```
 /design-system slop-check
-
 ```

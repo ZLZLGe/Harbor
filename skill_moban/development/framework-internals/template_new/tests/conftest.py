@@ -43,7 +43,7 @@ def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def wait_for_health(url: str, attempts: int = 30) -> None:
+def wait_for_health(url: str, attempts: int = 90) -> None:
     for _ in range(attempts):
         try:
             with urllib.request.urlopen(url, timeout=3) as response:

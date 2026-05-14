@@ -72,7 +72,7 @@
       "The solution must read the contract and appear to query PostgreSQL rather than hard-coding answer rows.",
       "Mutating the contract must change the ranking output in a rerun.",
       "Repeated runs must produce stable deliverables for the same inputs.",
-      "The bound skill file must remain unchanged."
+      "The bound skill file, when present, must be discoverable by the runtime."
     ],
     "failure_target": "Without-skill failures should concentrate on action-level misses such as incomplete schema harmonization, non-executable query packs, wrong partner-zone denominator semantics, or rankings that do not follow the contract, not merely cosmetic formatting issues."
   },

@@ -1,0 +1,251 @@
+{
+  "workout_rules": {
+    "min_exercises_per_day": 4,
+    "max_exercises_per_day": 4,
+    "required_coverage": [
+      "push",
+      "pull",
+      "squat_or_lunge",
+      "hinge",
+      "core"
+    ],
+    "weekly_set_minimums": {
+      "push": 10,
+      "pull": 10,
+      "squat_or_lunge": 10,
+      "hinge": 7,
+      "core": 9
+    },
+    "hard_excluded_exercise_ids": [
+      1073
+    ],
+    "day_templates": [
+      {
+        "day_id": "DAY-1",
+        "focus": "upper_push",
+        "estimated_duration_min": 58,
+        "required_patterns": [
+          "horizontal_push",
+          "vertical_push",
+          "push_accessory",
+          "core"
+        ]
+      },
+      {
+        "day_id": "DAY-2",
+        "focus": "lower_1",
+        "estimated_duration_min": 60,
+        "required_patterns": [
+          "squat_or_lunge",
+          "unilateral_leg",
+          "hinge",
+          "core"
+        ]
+      },
+      {
+        "day_id": "DAY-3",
+        "focus": "upper_pull",
+        "estimated_duration_min": 57,
+        "required_patterns": [
+          "horizontal_pull",
+          "vertical_pull",
+          "pull_accessory",
+          "arm_accessory"
+        ]
+      },
+      {
+        "day_id": "DAY-4",
+        "focus": "lower_2_core",
+        "estimated_duration_min": 61,
+        "required_patterns": [
+          "hinge",
+          "squat_or_lunge",
+          "core_rotation",
+          "carry"
+        ]
+      }
+    ]
+  },
+  "nutrition_rules": {
+    "daily_calories_kcal": [
+      2300,
+      2400
+    ],
+    "daily_protein_min_g": 190,
+    "daily_carb_range_g": [
+      210,
+      250
+    ],
+    "daily_fat_range_g": [
+      60,
+      85
+    ],
+    "required_meal_slots": [
+      "breakfast",
+      "lunch",
+      "dinner",
+      "snack"
+    ],
+    "plan_day_templates": [
+      {
+        "plan_day": "PLAN-A",
+        "slot_roles": {
+          "breakfast": [
+            {
+              "role": "breakfast_protein",
+              "serving_grams": 250
+            },
+            {
+              "role": "breakfast_carb",
+              "serving_grams": 80
+            },
+            {
+              "role": "quick_fruit",
+              "serving_grams": 120
+            }
+          ],
+          "lunch": [
+            {
+              "role": "lean_protein",
+              "serving_grams": 220
+            },
+            {
+              "role": "grain_carb",
+              "serving_grams": 250
+            },
+            {
+              "role": "lunch_vegetable",
+              "serving_grams": 150
+            },
+            {
+              "role": "added_fat",
+              "serving_grams": 10
+            }
+          ],
+          "dinner": [
+            {
+              "role": "fatty_protein",
+              "serving_grams": 180
+            },
+            {
+              "role": "starchy_carb",
+              "serving_grams": 250
+            },
+            {
+              "role": "dinner_vegetable",
+              "serving_grams": 60
+            }
+          ],
+          "snack": [
+            {
+              "role": "slow_dairy_protein",
+              "serving_grams": 250
+            },
+            {
+              "role": "berry_fruit",
+              "serving_grams": 140
+            },
+            {
+              "role": "fat_support",
+              "serving_grams": 20
+            }
+          ]
+        }
+      },
+      {
+        "plan_day": "PLAN-B",
+        "slot_roles": {
+          "breakfast": [
+            {
+              "role": "protein_plus_fat",
+              "serving_grams": 200
+            },
+            {
+              "role": "breakfast_carb",
+              "serving_grams": 70
+            },
+            {
+              "role": "berry_fruit",
+              "serving_grams": 100
+            }
+          ],
+          "lunch": [
+            {
+              "role": "mixed_protein",
+              "serving_grams": 220
+            },
+            {
+              "role": "alt_grain_carb",
+              "serving_grams": 250
+            },
+            {
+              "role": "lunch_vegetable",
+              "serving_grams": 150
+            },
+            {
+              "role": "added_fat",
+              "serving_grams": 12
+            }
+          ],
+          "dinner": [
+            {
+              "role": "lean_protein",
+              "serving_grams": 180
+            },
+            {
+              "role": "grain_carb",
+              "serving_grams": 220
+            },
+            {
+              "role": "dinner_vegetable",
+              "serving_grams": 60
+            }
+          ],
+          "snack": [
+            {
+              "role": "light_dairy_protein",
+              "serving_grams": 200
+            },
+            {
+              "role": "orchard_fruit",
+              "serving_grams": 180
+            },
+            {
+              "role": "fat_support",
+              "serving_grams": 18
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "selection_policy": {
+    "exercise_sort": [
+      "-priority_score",
+      "exercise_id"
+    ],
+    "food_sort": [
+      "-priority_score",
+      "food_id"
+    ]
+  },
+  "handoff_requirements": {
+    "must_call_out_replaced_shortlist_ids": [
+      1055,
+      1061,
+      1073,
+      3102,
+      3118,
+      3127
+    ],
+    "must_call_out_new_current_ids": [
+      1107,
+      1114,
+      1122,
+      1129,
+      3208,
+      3215,
+      3232
+    ]
+  }
+}

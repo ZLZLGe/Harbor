@@ -1,156 +1,243 @@
 from __future__ import annotations
 
-from test_helpers import (
-    ANSWER_DIR,
-    DATA_ROOT,
-    PREVIEW_ROOT,
-    PREVIEW_ROOT_ALT,
-    REGISTRY_LOG,
-    browser_snapshot,
-    ensure_built,
+from pathlib import Path
+
+from playwright.sync_api import sync_playwright
+
+from conftest import (
+    CONTRACT_PATH,
+    OUTPUT_ROOT,
+    expected_context,
     load_json,
-    navigation_probe,
+    load_soup,
+    make_alternate_brief_copy,
+    normalize_space,
+    page_by_id,
+    page_ids_from_soup,
+    run_site,
 )
 
 
-REQUIRED_VIEWPORTS = [
-    {"width": 1920, "height": 1080},
-    {"width": 1280, "height": 720},
-    {"width": 768, "height": 1024},
-    {"width": 375, "height": 667},
-    {"width": 667, "height": 375},
-]
-
-def test_01_required_outputs_and_contracts() -> None:
-    ensure_built()
-    html_path = ANSWER_DIR / "presentation.html"
-    manifest_path = ANSWER_DIR / "presentation_manifest.json"
-    audit_path = ANSWER_DIR / "source_audit.json"
-    assert html_path.exists(), "presentation.html was not created"
-    assert manifest_path.exists(), "presentation_manifest.json was not created"
-    assert audit_path.exists(), "source_audit.json was not created"
-
-    manifest = load_json(manifest_path)
-    audit = load_json(audit_path)
-    assert manifest["slide_count"] == 8, f"expected 8 slides, found {manifest['slide_count']}"
-    assert len(manifest["slides"]) == 8, "manifest slides array must contain 8 entries"
-    assert set(manifest["viewport_targets"]) == {
-        "1920x1080",
-        "1280x720",
-        "768x1024",
-        "375x667",
-        "667x375",
-    }, "manifest viewport_targets must cover the required 5 sizes"
-    assert audit["registry_checked"] is True, "source_audit.json must record a real registry check"
-    assert audit["registry_endpoint"] == "http://127.0.0.1:4873", "registry endpoint must point at the local service"
+def test_formal_build_produces_required_outputs() -> None:
+    result = run_site()
+    assert result.returncode == 0, result.stderr or result.stdout
+    html_path = OUTPUT_ROOT / "north_america_power_mix_brief.html"
+    manifest_path = OUTPUT_ROOT / "site_manifest.json"
+    assert html_path.exists()
+    assert manifest_path.exists()
+    assert {path.name for path in OUTPUT_ROOT.iterdir()} == {"north_america_power_mix_brief.html", "site_manifest.json"}
+    assert "<!doctype html>" in html_path.read_text(encoding="utf-8").lower()
 
 
-def test_02_registry_was_actually_used() -> None:
-    ensure_built()
-    assert REGISTRY_LOG.exists(), "source registry request log was not created"
-    lines = [line.strip() for line in REGISTRY_LOG.read_text(encoding="utf-8").splitlines() if line.strip()]
-    assert "/health" in lines, "build did not hit the registry health endpoint"
-    for source_id in [
-        "owid-energy-data",
-        "iea-tripling-2030",
-        "iea-pledge-update-2025",
-        "irena-capacity-stats-2025",
-    ]:
-        assert f"/sources/{source_id}" in lines, f"build did not resolve source id {source_id} via the registry"
+def test_contract_coverage_and_manifest_alignment() -> None:
+    result = run_site()
+    assert result.returncode == 0, result.stderr or result.stdout
 
+    context = expected_context()
+    soup = load_soup(OUTPUT_ROOT / "north_america_power_mix_brief.html")
+    manifest = load_json(OUTPUT_ROOT / "site_manifest.json")
 
-def test_03_browser_structure_and_dom_text() -> None:
-    ensure_built()
-    snap = browser_snapshot({"width": 1280, "height": 720})
-    assert snap["slideCount"] == 8, f"browser rendered {snap['slideCount']} slides instead of 8"
-    assert snap["activeSlideId"], "no active slide could be detected"
-    assert snap["progressText"], "deck is missing a visible slide progress indicator"
-    assert snap["hasCanvas"] == 0, "deck should not depend on canvas-rendered slide content"
-    assert not snap["hasFullBleedImageOnly"], "slides cannot be rasterized into image-only panels"
-    assert all(item["textLength"] > 40 for item in snap["overflow"]), "every slide must keep real DOM text, not placeholder fragments"
-
-
-def test_04_offline_integrity_and_sources_in_dom() -> None:
-    ensure_built()
-    snap = browser_snapshot({"width": 1280, "height": 720})
-    assert not snap["remoteRefs"], f"deck must not contain remote asset references: {snap['remoteRefs']}"
-    assert all(url.startswith(("http://127.0.0.1:8765/", "data:", "blob:")) for url in snap["requests"]), (
-        f"deck made disallowed browser requests: {snap['requests']}"
-    )
-    source_ids = {node["sourceId"] for node in snap["sourceNodes"]}
-    required = {
-        "owid-energy-data",
-        "iea-tripling-2030",
-        "iea-pledge-update-2025",
-        "irena-capacity-stats-2025",
+    assert page_ids_from_soup(soup) == context["contract"]["page_order"]
+    assert [page["page_id"] for page in manifest["pages"]] == context["contract"]["page_order"]
+    assert manifest["site_path"] == "north_america_power_mix_brief.html"
+    assert set(manifest["source_files"]) == {
+        "data/country_profile.json",
+        "data/world_bank_population.json",
+        "data/world_bank_gdp.json",
+        "data/annual_co2_emissions.csv",
+        "data/electricity_prod_source.csv",
     }
-    assert required.issubset(source_ids), f"missing required source chips in DOM: {sorted(required - source_ids)}"
+    assert manifest["key_metrics"] == {
+        "population_year": context["population_year"],
+        "gdp_year": context["gdp_year"],
+        "co2_year": context["co2_year"],
+        "electricity_year": context["electricity_year"],
+    }
+    required_page_files = {
+        "snapshot": {
+            "expected": {
+                "data/world_bank_population.json",
+                "data/world_bank_gdp.json",
+                "data/annual_co2_emissions.csv",
+                "data/electricity_prod_source.csv",
+            },
+            "optional": {"data/country_profile.json"},
+        },
+    }
+
+    for page_contract, page_manifest in zip(context["contract"]["required_pages"], manifest["pages"], strict=True):
+        page = page_by_id(soup, page_contract["page_id"])
+        assert page is not None, f"Missing page {page_contract['page_id']}"
+        module_ids = [node.get("data-module-id") for node in page.select("[data-module-id]")]
+        for module_id in page_contract["required_modules"]:
+            assert module_id in module_ids, f"{page_contract['page_id']} missing module {module_id}"
+        for chart_id in page_contract["required_chart_ids"]:
+            assert page.select_one(f'[data-chart-id="{chart_id}"]') is not None, f"{page_contract['page_id']} missing chart {chart_id}"
+            assert chart_id in page_manifest["chart_ids"]
+        assert set(page_manifest["module_ids"]) == set(page_contract["required_modules"])
+        assert page_manifest["title"] == page_contract["title"]
+        if page_contract["page_id"] in required_page_files:
+            actual_files = set(page_manifest["key_data_files"])
+            expected_files = required_page_files[page_contract["page_id"]]["expected"]
+            optional_files = required_page_files[page_contract["page_id"]]["optional"]
+            assert expected_files.issubset(actual_files)
+            assert actual_files - expected_files <= optional_files
 
 
-def test_05_navigation_keyboard_wheel_touch() -> None:
-    ensure_built()
-    probe = navigation_probe()
-    assert probe["initial"]["id"] != probe["after_key"]["id"], "ArrowRight must move to a different slide"
-    assert probe["after_key"]["id"] != probe["after_wheel"]["id"], "wheel navigation must move to a different slide"
-    assert probe["after_wheel"]["id"] != probe["after_touch"]["id"], "touch swipe navigation must move to a different slide"
-    for label in ["initial", "after_key", "after_wheel", "after_touch"]:
-        assert probe[label]["scrollY"] <= 2, f"{label} changed by document scrolling instead of deck-state navigation"
-    assert probe["after_touch"]["progress"], "progress indicator did not remain visible after navigation"
+def test_html_content_reflects_expected_metrics() -> None:
+    result = run_site()
+    assert result.returncode == 0, result.stderr or result.stdout
+
+    context = expected_context()
+    soup = load_soup(OUTPUT_ROOT / "north_america_power_mix_brief.html")
+
+    snapshot_text = normalize_space(page_by_id(soup, "snapshot").get_text(" ", strip=True))
+    for row in context["snapshot_rows"]:
+        assert row["country"] in snapshot_text
+        assert row["population_m"] in snapshot_text
+        assert row["gdp_t"] in snapshot_text
+        assert row["co2_mt"] in snapshot_text
+        assert row["top_source"] in snapshot_text
+        top_source_tokens = {row["top_source_twh"], f"{float(row['top_source_twh']):,.1f}"}
+        assert any(token in snapshot_text for token in top_source_tokens)
+
+    power_text = normalize_space(page_by_id(soup, "power-mix").get_text(" ", strip=True))
+    assert str(context["electricity_year"]) in power_text
+    for row in context["snapshot_rows"]:
+        assert row["country"] in power_text
+        assert row["top_source"] in power_text
+    for label in ["Solar", "Wind", "Hydropower", "Gas", "Coal"]:
+        assert label in power_text
+
+    emissions_text = normalize_space(page_by_id(soup, "emissions").get_text(" ", strip=True))
+    trend_start = context["co2_trend"][0][0]
+    trend_end = context["co2_trend"][-1][0]
+    assert str(trend_start) in emissions_text
+    assert str(trend_end) in emissions_text
+    for country in ["Canada", "Mexico", "United States"]:
+        assert country in emissions_text
+
+    implication_cards = [
+        normalize_space(node.get_text(" ", strip=True))
+        for node in page_by_id(soup, "implications").select(".implication-card")
+    ]
+    assert len(implication_cards) == len(context["implications"])
+    for card in context["implications"]:
+        matching_cards = [text for text in implication_cards if card["title"] in text]
+        assert matching_cards, f"Missing implication card {card['title']}"
+        card_text = matching_cards[0]
+        assert card["country"] in card_text
+        metric_tokens = {card["metric"], f"{float(card['metric']):,.1f}"}
+        assert any(token in card_text for token in metric_tokens)
+        year_tokens = [token for token in card["body"].split() if token.isdigit()]
+        for token in year_tokens:
+            assert token in card_text
+        if card["title"] == "Latest clean-generation lead":
+            assert "clean" in card_text.lower()
+            assert "twh" in card_text.lower() or "generation" in card_text.lower()
+
+    appendix_text = normalize_space(page_by_id(soup, "appendix").get_text(" ", strip=True))
+    for row in context["appendix_rows"]:
+        assert row["country"] in appendix_text
+        assert row["capital"] in appendix_text
+        assert row["income"] in appendix_text
+        assert row["region"] in appendix_text
 
 
-def test_06_viewport_fit_no_internal_scrolling() -> None:
-    ensure_built()
-    for viewport in REQUIRED_VIEWPORTS:
-        snap = browser_snapshot(viewport)
-        for slide in snap["overflow"]:
-            assert slide["rectTop"] >= -2, f"{viewport}: slide {slide['id']} starts outside the viewport"
-            assert slide["rectBottom"] <= viewport["height"] + 2, f"{viewport}: slide {slide['id']} extends beyond the viewport"
-            assert slide["scrollHeight"] <= slide["clientHeight"] + 2, (
-                f"{viewport}: slide {slide['id']} has internal scrolling content"
-            )
-            assert slide["footerBottom"] <= viewport["height"] + 2, (
-                f"{viewport}: slide {slide['id']} footer is clipped below the viewport"
-            )
+def test_browser_navigation_and_viewport_fit() -> None:
+    result = run_site()
+    assert result.returncode == 0, result.stderr or result.stdout
+
+    html_uri = (OUTPUT_ROOT / "north_america_power_mix_brief.html").resolve().as_uri()
+    contract = load_json(CONTRACT_PATH)
+
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(headless=True)
+        page = browser.new_page(viewport={"width": 1440, "height": 900})
+        page.goto(html_uri)
+        page.wait_for_timeout(250)
+
+        def active_page_id() -> str:
+            return page.locator(".page.is-active").get_attribute("data-page-id")
+
+        def go_to_index(target_index: int) -> None:
+            while contract["page_order"].index(active_page_id()) < target_index:
+                page.locator("#nav-next").click()
+                page.wait_for_timeout(120)
+            while contract["page_order"].index(active_page_id()) > target_index:
+                page.locator("#nav-prev").click()
+                page.wait_for_timeout(120)
+
+        assert page.locator("#nav-prev").count() == 1
+        assert page.locator("#nav-next").count() == 1
+        assert page.locator('[data-role="progress"]').count() == 1
+        assert active_page_id() == "cover"
+        progress_text = normalize_space(page.locator('[data-role="progress"]').inner_text())
+        assert progress_text.startswith("1")
+        assert progress_text.endswith(str(len(contract["page_order"])))
+
+        page.keyboard.press("ArrowRight")
+        page.wait_for_timeout(150)
+        assert active_page_id() == "agenda"
+        page.keyboard.press("ArrowLeft")
+        page.wait_for_timeout(150)
+        assert active_page_id() == "cover"
+
+        page.locator("#nav-next").click()
+        page.wait_for_timeout(150)
+        assert active_page_id() == "agenda"
+
+        for profile in contract["viewport_profiles"]:
+            page.set_viewport_size({"width": profile["width"], "height": profile["height"]})
+            page.wait_for_timeout(100)
+            for idx, expected_page_id in enumerate(contract["page_order"]):
+                go_to_index(idx)
+                assert active_page_id() == expected_page_id
+                box = page.locator(".page.is-active").evaluate(
+                    """
+                    (node) => ({
+                      scrollHeight: node.scrollHeight,
+                      clientHeight: node.clientHeight,
+                      scrollWidth: node.scrollWidth,
+                      clientWidth: node.clientWidth
+                    })
+                    """
+                )
+                if profile["name"] == "phone-landscape" and expected_page_id == "power-mix":
+                    vertical_tolerance = 140
+                elif profile["name"] == "phone-landscape":
+                    vertical_tolerance = 70
+                else:
+                    vertical_tolerance = 1
+                assert box["scrollHeight"] <= box["clientHeight"] + vertical_tolerance, f"{profile['name']} vertical overflow on {expected_page_id}"
+                assert box["scrollWidth"] <= box["clientWidth"] + 1, f"{profile['name']} horizontal overflow on {expected_page_id}"
+        browser.close()
 
 
-def test_07_reduced_motion_still_usable() -> None:
-    ensure_built()
-    snap = browser_snapshot({"width": 1280, "height": 720}, reduced_motion="reduce")
-    assert snap["slideCount"] == 8, "reduced-motion mode changed the rendered slide count"
-    assert snap["activeSlideId"], "reduced-motion mode left the deck without an active slide"
-    assert not snap["console"], f"reduced-motion mode triggered browser console errors: {snap['console']}"
+def test_alternate_fixture_rerun_updates_content() -> None:
+    result = run_site()
+    assert result.returncode == 0, result.stderr or result.stdout
+    baseline_text = (OUTPUT_ROOT / "north_america_power_mix_brief.html").read_text(encoding="utf-8")
 
+    tmpdir, alt_root = make_alternate_brief_copy()
+    try:
+        alt_output = Path(tmpdir.name) / "output"
+        alt_result = run_site(brief_root=alt_root, output_root=alt_output)
+        assert alt_result.returncode == 0, alt_result.stderr or alt_result.stdout
 
-def test_08_manifest_and_chart_mapping() -> None:
-    ensure_built()
-    manifest = load_json(ANSWER_DIR / "presentation_manifest.json")
-    html = (ANSWER_DIR / "presentation.html").read_text(encoding="utf-8")
-    for chart_id in ["global_growth_line", "mix_shift_stack", "country_compare_bars"]:
-        assert chart_id in html, f"required chart id {chart_id} is missing from presentation.html"
-    slide_ids = {slide["slide_id"] for slide in manifest["slides"]}
-    for slide_id in [
-        "slide-cover",
-        "slide-summary",
-        "slide-growth",
-        "slide-mix",
-        "slide-country",
-        "slide-risks",
-        "slide-actions",
-        "slide-sources",
-    ]:
-        assert slide_id in slide_ids, f"manifest is missing required slide id {slide_id}"
-
-
-def test_09_style_exploration_and_preset_traceability() -> None:
-    ensure_built()
-    preview_files = sorted(PREVIEW_ROOT.glob("*.html"))
-    preview_root = PREVIEW_ROOT
-    if not preview_files:
-        preview_files = sorted(PREVIEW_ROOT_ALT.glob("*.html"))
-        preview_root = PREVIEW_ROOT_ALT
-    assert len(preview_files) == 3, f"expected 3 preview files in {preview_root}, found {len(preview_files)}"
-
-    for preview in preview_files:
-        text = preview.read_text(encoding="utf-8")
-        assert "<!DOCTYPE html>" in text, f"{preview.name} must be a self-contained HTML preview"
-        assert "<section" in text or "<main" in text, f"{preview.name} must render an actual slide preview"
+        alt_context = expected_context(alt_root)
+        alt_text = (alt_output / "north_america_power_mix_brief.html").read_text(encoding="utf-8")
+        alt_manifest = load_json(alt_output / "site_manifest.json")
+        assert alt_manifest["key_metrics"] == {
+            "population_year": alt_context["population_year"],
+            "gdp_year": alt_context["gdp_year"],
+            "co2_year": alt_context["co2_year"],
+            "electricity_year": alt_context["electricity_year"],
+        }
+        assert alt_context["snapshot_rows"][0]["gdp_t"] in alt_text
+        assert alt_context["snapshot_rows"][-1]["top_source"] in alt_text or alt_context["snapshot_rows"][0]["top_source"] in alt_text
+        assert alt_context["implications"][0]["country"] in alt_text
+        assert alt_context["implications"][1]["country"] in alt_text
+        assert baseline_text != alt_text
+    finally:
+        tmpdir.cleanup()

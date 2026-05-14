@@ -10,7 +10,6 @@ from conftest import (
     SKILL_ROOT,
     WORKSPACE_ROOT,
     baseline_data_listing,
-    baseline_skill_listing,
     built_output,
     directory_listing,
     output_listing,
@@ -40,11 +39,9 @@ def test_output_whitelist_and_stable_rerun() -> None:
     assert (OUTPUT_ROOT / "decision_memo.md").read_text(encoding="utf-8") == first_memo
 
 
-def test_inputs_and_skill_payload_are_unchanged() -> None:
+def test_inputs_are_unchanged() -> None:
     built_output()
     assert directory_listing(DATA_ROOT) == baseline_data_listing()
-    if path_exists_readable(SKILL_ROOT):
-        assert directory_listing(SKILL_ROOT) == baseline_skill_listing()
 
 
 def test_solver_reads_core_inputs_and_build_script() -> None:

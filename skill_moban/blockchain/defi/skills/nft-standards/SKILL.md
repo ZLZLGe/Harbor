@@ -1,15 +1,20 @@
+---
+name: nft-standards
+description: Implement NFT standards (ERC-721, ERC-1155) with proper metadata handling, minting strategies, and marketplace integration. Use when creating NFT contracts, building NFT marketplaces, or implementing digital asset systems.
+---
+
 # NFT Standards
 
 Master ERC-721 and ERC-1155 NFT standards, metadata best practices, and advanced NFT features.
 
 ## When to Use This Skill
 
-* Creating NFT collections (art, gaming, collectibles)
-* Implementing marketplace functionality
-* Building on-chain or off-chain metadata
-* Creating soulbound tokens (non-transferable)
-* Implementing royalties and revenue sharing
-* Developing dynamic/evolving NFTs
+- Creating NFT collections (art, gaming, collectibles)
+- Implementing marketplace functionality
+- Building on-chain or off-chain metadata
+- Creating soulbound tokens (non-transferable)
+- Implementing royalties and revenue sharing
+- Developing dynamic/evolving NFTs
 
 ## ERC-721 (Non-Fungible Token Standard)
 
@@ -81,7 +86,6 @@ contract MyNFT is ERC721URIStorage, ERC721Enumerable, Ownable {
         payable(owner()).transfer(address(this).balance);
     }
 }
-
 ```
 
 ## ERC-1155 (Multi-Token Standard)
@@ -141,7 +145,6 @@ contract GameItems is ERC1155, Ownable {
         tokenSupply[id] -= amount;
     }
 }
-
 ```
 
 ## Metadata Standards
@@ -170,7 +173,6 @@ contract GameItems is ERC1155, Ownable {
     }
   ]
 }
-
 ```
 
 ### On-Chain Metadata
@@ -213,7 +215,6 @@ contract OnChainNFT is ERC721 {
         return "...";
     }
 }
-
 ```
 
 ## Royalties (EIP-2981)
@@ -254,7 +255,6 @@ contract NFTWithRoyalties is ERC721, IERC2981 {
                super.supportsInterface(interfaceId);
     }
 }
-
 ```
 
 ## Soulbound Tokens (Non-Transferable)
@@ -284,7 +284,6 @@ contract SoulboundToken is ERC721 {
         _burn(tokenId);
     }
 }
-
 ```
 
 ## Dynamic NFTs
@@ -329,7 +328,6 @@ contract DynamicNFT is ERC721 {
         return "";
     }
 }
-
 ```
 
 ## Gas-Optimized Minting (ERC721A)
@@ -354,5 +352,4 @@ contract OptimizedNFT is ERC721A {
         return "ipfs://QmBaseHash/";
     }
 }
-
 ```

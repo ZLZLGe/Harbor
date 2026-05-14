@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：这类热门 skill 的共同价值，在于帮助 Agent 沿着 CMS 平台的主工作流完成 collections、relationships、draft/publish、access control 与 feed/query 设计。高质量模板应让 skill 在内容模型、行为约束、行级可见范围和接口拼装上提供帮助，而不是把任务压成纯脚本生成或简单格式修改。
-* **Task 目标形态**：这类任务适合设计成单容器内可运行的 CMS 工作区建设题，输入含多份结构化内容数据和业务约束文件，输出是可重建的数据后台与对外接口。任务目标应强调可运行、可核验和可重复重建，同时保留角色边界、发布约束、草稿归属与关系查询这类平台行为。
 * **Verifier 设计重点**：Verifier 应优先验证 solver 是否沿着内容导入、关系建模、发布控制、接口过滤和角色授权这条链路完成交付，并检查输出文件与接口结果之间的一致性。对于这类 skill，还应重点验证 local API、draft/publish、row-level access 和草稿工作队列的执行结果，而不是只看静态文件是否存在。
 
 ## 第二部分：示例任务
@@ -13,7 +12,6 @@
 ### 📌 任务元数据
 - 任务 ID：`cms-platforms__met-highlight-feed`
 - 类别：`cms-platforms`
-- 难度：`hard`
 - 绑定 Skill：`payload`
 - 输入数据参考来源：
   - `environment/data/met_departments.json`：任务内部门数据；设计形态参考 The Met Collection API departments endpoint  
@@ -24,25 +22,27 @@
     【https://github.com/metmuseum/openaccess】
 
 ### 📊 验证与测试指标（Oracle & Verifier）
-- Oracle：Oracle 从任务内 seed CSV、对象详情 NDJSON 和 lane 配置重算 summary 与公开 feed 结果，再结合在线接口验证角色动作是否真正改变系统状态。
-- Verifier策略：
+
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
+- Verifier 策略：
 
 主测试
-| 测试点 | 验证内容 | 对应skill内化点 |
+
+| 测试点 | 验证内容 | 对应 skill 内化点 |
 | :--- | :--- | :--- |
-| 数据重建入口 | 校验 `scripts/reseed.ts` 能基于当前输入生成 `seed-summary.json` | 本地导入链路与 Payload 数据重建 |
-| 内容关系 | 校验部门、艺术家、馆藏条目、lane 与 highlight 的数量和关系结果 | collection 建模与 relationship 使用 |
-| 公开 feed | 精确比对 `/api/highlight-lanes/feed` 返回结果 | custom endpoint、query、depth、字段拼装 |
-| 过滤行为 | 校验 `department`、`audience`、`limit` 过滤 | relationship query 与结果裁剪 |
-| 发布边界 | 校验未满足条件或仍为 draft 的内容不会进入公开 feed | draft/publish 工作流 |
-| 角色动作 | 校验 editor 与 curator 对 publish/order 的操作结果不同 | access control 与行为边界 |
-| 草稿归属 | 校验编辑者只能看到并修改自己的草稿队列，且删除动作不会越过角色边界 | row-level access 与 owner/workflow 约束 |
+| 基础结构齐备 | 页面入口、依赖程序与关键脚本能够顺利启动 | 任务初始环境整合配置 |
+| 过程与流转检验 | 在页面中对目标核心场景进行操作，相关反馈流程应完整并生效 | 功能环节串联度测试 |
+| 相同输入复现 | 在同样基础环境下多次运行或重试，可得出相同结构的数据响应 | 实现结果稳定性保障 |
+| 多变体动态适配 | 当替换输入基础数据时，系统需提供正确的衍生显示及相关逻辑应对 | 灵活性与输入参数探索 |
+| 输出一致性校验 | 核对业务面板展现或汇总内容的说明能否对得上要求数据范围 | 分析处理数据的呈现准度 |
+| 结构交付合规 | 最终保存下来的生成文档或者资源内容格式齐整 | 最终发布过程追溯 |
 
 防作弊测试
+
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 输入变更重跑 | 改动 `met_objects_seed.csv` 后 rerun，summary 与 feed 必须变化 |
-| 静态答案拦截 | 禁止把公开 feed、summary 或 slug 直接写死在代码里 |
+| 限定参数核实 | 限制篡改依赖目录或源信息进行取巧完成 |
+| 源文件定值扫描 | 发现直接在项目中输出预期静态内容以作答的问题现象 |
 
 ### ⚡ Skill 相关性评估
 

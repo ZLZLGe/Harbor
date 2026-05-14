@@ -1,20 +1,26 @@
+---
+name: django-patterns
+description: Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps.
+origin: ECC
+---
+
 # Django Development Patterns
 
 Production-grade Django architecture patterns for scalable, maintainable applications.
 
 ## When to Activate
 
-* Building Django web applications
-* Designing Django REST Framework APIs
-* Working with Django ORM and models
-* Setting up Django project structure
-* Implementing caching, signals, middleware
+- Building Django web applications
+- Designing Django REST Framework APIs
+- Working with Django ORM and models
+- Setting up Django project structure
+- Implementing caching, signals, middleware
 
 ## Project Structure
 
 ### Recommended Layout
 
-```text
+```
 myproject/
 ├── config/
 │   ├── __init__.py
@@ -42,7 +48,6 @@ myproject/
     │   └── tests/
     └── products/
         └── ...
-
 ```
 
 ### Split Settings Pattern
@@ -143,7 +148,6 @@ LOGGING = {
         },
     },
 }
-
 ```
 
 ## Model Design Patterns
@@ -219,7 +223,6 @@ class Product(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
-
 ```
 
 ### QuerySet Best Practices
@@ -260,7 +263,6 @@ class Product(models.Model):
 
 # Usage
 Product.objects.active().with_category().in_stock()
-
 ```
 
 ### Manager Methods
@@ -291,7 +293,6 @@ class ProductManager(models.Manager):
 class Product(models.Model):
     # ... fields ...
     custom = ProductManager()
-
 ```
 
 ## Django REST Framework Patterns
@@ -377,7 +378,6 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
-
 ```
 
 ### ViewSet Patterns
@@ -437,7 +437,6 @@ class ProductViewSet(viewsets.ModelViewSet):
         page = self.paginate_queryset(products)
         serializer = self.get_serializer(page, many=True)
         return self.get_paginated_response(serializer.data)
-
 ```
 
 ### Custom Actions
@@ -470,7 +469,6 @@ def add_to_cart(request):
     )
 
     return Response({'message': 'Added to cart'}, status=status.HTTP_201_CREATED)
-
 ```
 
 ## Service Layer Pattern
@@ -529,7 +527,6 @@ class OrderService:
         """Send order confirmation email."""
         # Email sending logic
         pass
-
 ```
 
 ## Caching Strategies
@@ -545,7 +542,6 @@ class ProductListView(generic.ListView):
     model = Product
     template_name = 'products/list.html'
     context_object_name = 'products'
-
 ```
 
 ### Template Fragment Caching
@@ -555,7 +551,6 @@ class ProductListView(generic.ListView):
 {% cache 500 sidebar %}
     ... expensive sidebar content ...
 {% endcache %}
-
 ```
 
 ### Low-Level Caching
@@ -573,7 +568,6 @@ def get_featured_products():
         cache.set(cache_key, products, timeout=60 * 15)  # 15 minutes
 
     return products
-
 ```
 
 ### QuerySet Caching
@@ -592,7 +586,6 @@ def get_popular_categories():
         cache.set(cache_key, categories, timeout=60 * 60)  # 1 hour
 
     return categories
-
 ```
 
 ## Signals
@@ -629,7 +622,6 @@ class UsersConfig(AppConfig):
     def ready(self):
         """Import signals when app is ready."""
         import apps.users.signals
-
 ```
 
 ## Middleware
@@ -664,7 +656,6 @@ class RequestLoggingMiddleware(MiddlewareMixin):
             duration = time.time() - request.start_time
             logger.info(f'{request.method} {request.path} - {response.status_code} - {duration:.3f}s')
         return response
-
 ```
 
 ## Performance Optimization
@@ -687,7 +678,6 @@ products = Product.objects.prefetch_related('tags').all()
 for product in products:
     for tag in product.tags.all():
         print(tag.name)
-
 ```
 
 ### Database Indexing
@@ -705,7 +695,6 @@ class Product(models.Model):
             models.Index(fields=['-created_at']),
             models.Index(fields=['category', 'created_at']),
         ]
-
 ```
 
 ### Bulk Operations
@@ -725,22 +714,21 @@ Product.objects.bulk_update(products, ['is_active'])
 
 # Bulk delete
 Product.objects.filter(stock=0).delete()
-
 ```
 
 ## Quick Reference
 
-| Pattern               | Description                     |
-| --------------------- | ------------------------------- |
-| Split settings        | Separate dev/prod/test settings |
-| Custom QuerySet       | Reusable query methods          |
-| Service Layer         | Business logic separation       |
-| ViewSet               | REST API endpoints              |
+| Pattern | Description |
+|---------|-------------|
+| Split settings | Separate dev/prod/test settings |
+| Custom QuerySet | Reusable query methods |
+| Service Layer | Business logic separation |
+| ViewSet | REST API endpoints |
 | Serializer validation | Request/response transformation |
-| select\_related       | Foreign key optimization        |
-| prefetch\_related     | Many-to-many optimization       |
-| Cache first           | Cache expensive operations      |
-| Signals               | Event-driven actions            |
-| Middleware            | Request/response processing     |
+| select_related | Foreign key optimization |
+| prefetch_related | Many-to-many optimization |
+| Cache first | Cache expensive operations |
+| Signals | Event-driven actions |
+| Middleware | Request/response processing |
 
 Remember: Django provides many shortcuts, but for production applications, structure and organization matter more than concise code. Build for maintainability.

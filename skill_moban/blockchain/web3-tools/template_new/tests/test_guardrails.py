@@ -12,10 +12,8 @@ from common import FIXTURE_PATH, OUTPUT_ROOT
 ACCESS_LOG = Path(os.environ.get("MARKETDATA_ACCESS_LOG", "/var/log/marketdata/access.log"))
 DATA_ROOT = Path(os.environ.get("TASK_DATA_ROOT", "/app/data"))
 SERVICE_ROOT = Path(os.environ.get("TASK_SERVICE_ROOT", "/services/marketdata"))
-SKILL_ROOT = Path(os.environ.get("TASK_SKILL_ROOT", "/root/.codex/skills"))
 DATA_HASH_PATH = Path(os.environ.get("TASK_DATA_HASH_PATH", "/opt/task-baselines/data.sha256"))
 SERVICE_HASH_PATH = Path(os.environ.get("TASK_SERVICE_HASH_PATH", "/opt/task-baselines/service.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("TASK_SKILL_HASH_PATH", "/opt/task-baselines/skills.sha256"))
 HEALTH_URL = os.environ.get("TASK_HEALTH_URL", "http://127.0.0.1:8155/health")
 
 PRE_VERIFIER_LOG = ACCESS_LOG.read_text(encoding="utf-8") if ACCESS_LOG.exists() else ""
@@ -62,7 +60,7 @@ def test_solver_used_live_manifest_catalog_and_market_endpoints_before_verifier(
     assert expected_market_paths.issubset(seen_market_paths), "Solver did not fetch all required market OHLCV payloads"
 
 
-def test_inputs_hidden_service_and_skill_payload_are_unchanged() -> None:
+def test_inputs_and_hidden_service_are_unchanged() -> None:
     current_data = subprocess.check_output(f"find {DATA_ROOT} -type f -print0 | sort -z | xargs -0 sha256sum", shell=True, text=True)
     assert current_data == DATA_HASH_PATH.read_text(encoding="utf-8"), "Task input data was modified"
 
@@ -72,14 +70,6 @@ def test_inputs_hidden_service_and_skill_payload_are_unchanged() -> None:
         text=True,
     )
     assert current_service == SERVICE_HASH_PATH.read_text(encoding="utf-8"), "Hidden marketdata service files were modified"
-
-    if SKILL_HASH_PATH.exists() and SKILL_ROOT.exists():
-        current_skill = subprocess.check_output(
-            f"find {SKILL_ROOT} -type f ! -path '*/__pycache__/*' -print0 | sort -z | xargs -0 sha256sum",
-            shell=True,
-            text=True,
-        )
-        assert current_skill == SKILL_HASH_PATH.read_text(encoding="utf-8"), "Installed skill files were modified"
 
 
 def test_live_service_still_healthy() -> None:

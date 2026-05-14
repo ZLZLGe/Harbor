@@ -36,13 +36,6 @@ RUN mkdir -p /app/output /logs/agent /logs/verifier \
 RUN find /app/workspace/data -type f -print0 \
       | sort -z \
       | xargs -0 -r sha256sum > /opt/toolchain-data.sha256 \
-    && if [ -d /root/.codex/skills ]; then \
-         find /root/.codex/skills -type f -print0 \
-           | sort -z \
-           | xargs -0 -r sha256sum > /opt/toolchain-skills.sha256; \
-       else \
-         : > /opt/toolchain-skills.sha256; \
-       fi \
     && cd /app/workspace/package \
     && git diff --binary | sha256sum | awk '{print $1}' > /opt/toolchain-package.diff.sha256
 

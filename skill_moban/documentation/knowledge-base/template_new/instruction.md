@@ -56,7 +56,7 @@ Output
 Notes
 - Do not modify the bundled input data, contract files, or notes under `/app/knowledge-base/`.
 - Do not change the required output paths or filenames.
-- Do not modify the tests, validation logic, pinned dependencies, environment configuration, or skill files.
+- Do not modify the tests, validation logic, pinned dependencies, or environment configuration.
 - Do not narrow the delivery to only a report, only a link list, or only part of the required resource sections.
 - Do not rely on hardcoded visible titles, hand-written final output that only works for the current bundle, or one-off cases tied to a single candidate resource.
 - `resource_audit_report.md` must include these headings:

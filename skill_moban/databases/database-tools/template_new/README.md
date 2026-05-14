@@ -4,14 +4,12 @@
 
 ## 第一部分：任务设计参考
 * **Skill 价值定位**：这类 skill 的共性价值，是把数据库变更放回仓库工作流中处理，而不是临时手改或只做表面产物。它们通常强调迁移边界、回退路径、数据回填、以及面向当前输入的重复构建验证。
-* **Task 目标形态**：合适的任务应当要求 solver 在既有数据库工作流里交付一版增量发布，并保持重建、回退、重放都成立。任务重点应落在结构化变更、数据语义一致性、以及发布前后状态的可验证差异上。
 * **Verifier 设计重点**：Verifier 应同时覆盖最终数据内容、迁移状态、回退后状态、以及对当前输入目录变化的响应，避免只检验单次静态输出。对数据库工具类任务，还应防止通过改输入、缓存答案、绕开数据库入口或重写已交付迁移来取巧。
 
 ## 第二部分：示例任务
 ### 📌 任务元数据
 - 任务 ID：`database-tools-movielens-catalog-release`
 - 类别：`database-tools`
-- 难度：`hard`
 - 绑定 Skill：`database-migrations`, `database-migrations-codex`
 - 输入数据参考来源：
   - `environment/data/movies.csv`：任务内电影主数据；设计形态参考 MovieLens Latest Small 数据集中的电影与类型字段  
@@ -24,7 +22,7 @@
     【https://files.grouplens.org/datasets/movielens/ml-latest-small.zip】
 
 ### 📊 验证与测试指标（Oracle & Verifier）
-- Oracle：官方解通过新增发布层迁移、回退边界控制、以及基于当前数据库重写报告，验证完整 rebuild、回退、重放和输入切换都可稳定通过。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试

@@ -1,51 +1,56 @@
+---
+name: design-system-patterns
+description: Build scalable design systems with design tokens, theming infrastructure, and component architecture patterns. Use when creating design tokens, implementing theme switching, building component libraries, or establishing design system foundations.
+---
+
 # Design System Patterns
 
 Master design system architecture to create consistent, maintainable, and scalable UI foundations across web and mobile applications.
 
 ## When to Use This Skill
 
-* Creating design tokens for colors, typography, spacing, and shadows
-* Implementing light/dark theme switching with CSS custom properties
-* Building multi-brand theming systems
-* Architecting component libraries with consistent APIs
-* Establishing design-to-code workflows with Figma tokens
-* Creating semantic token hierarchies (primitive, semantic, component)
-* Setting up design system documentation and guidelines
+- Creating design tokens for colors, typography, spacing, and shadows
+- Implementing light/dark theme switching with CSS custom properties
+- Building multi-brand theming systems
+- Architecting component libraries with consistent APIs
+- Establishing design-to-code workflows with Figma tokens
+- Creating semantic token hierarchies (primitive, semantic, component)
+- Setting up design system documentation and guidelines
 
 ## Core Capabilities
 
-### 1\. Design Tokens
+### 1. Design Tokens
 
-* Primitive tokens (raw values: colors, sizes, fonts)
-* Semantic tokens (contextual meaning: text-primary, surface-elevated)
-* Component tokens (specific usage: button-bg, card-border)
-* Token naming conventions and organization
-* Multi-platform token generation (CSS, iOS, Android)
+- Primitive tokens (raw values: colors, sizes, fonts)
+- Semantic tokens (contextual meaning: text-primary, surface-elevated)
+- Component tokens (specific usage: button-bg, card-border)
+- Token naming conventions and organization
+- Multi-platform token generation (CSS, iOS, Android)
 
-### 2\. Theming Infrastructure
+### 2. Theming Infrastructure
 
-* CSS custom properties architecture
-* Theme context providers in React
-* Dynamic theme switching
-* System preference detection (prefers-color-scheme)
-* Persistent theme storage
-* Reduced motion and high contrast modes
+- CSS custom properties architecture
+- Theme context providers in React
+- Dynamic theme switching
+- System preference detection (prefers-color-scheme)
+- Persistent theme storage
+- Reduced motion and high contrast modes
 
-### 3\. Component Architecture
+### 3. Component Architecture
 
-* Compound component patterns
-* Polymorphic components (as prop)
-* Variant and size systems
-* Slot-based composition
-* Headless UI patterns
-* Style props and responsive variants
+- Compound component patterns
+- Polymorphic components (as prop)
+- Variant and size systems
+- Slot-based composition
+- Headless UI patterns
+- Style props and responsive variants
 
-### 4\. Token Pipeline
+### 4. Token Pipeline
 
-* Figma to code synchronization
-* Style Dictionary configuration
-* Token transformation and formatting
-* CI/CD integration for token updates
+- Figma to code synchronization
+- Style Dictionary configuration
+- Token transformation and formatting
+- CI/CD integration for token updates
 
 ## Quick Start
 
@@ -84,7 +89,6 @@ const tokens = {
     },
   },
 };
-
 ```
 
 ## Key Patterns
@@ -130,7 +134,6 @@ const tokens = {
   --button-padding-x: var(--space-4);
   --button-padding-y: var(--space-2);
 }
-
 ```
 
 ### Pattern 2: Theme Switching with React
@@ -195,7 +198,6 @@ export const useTheme = () => {
   if (!context) throw new Error("useTheme must be used within ThemeProvider");
   return context;
 };
-
 ```
 
 ### Pattern 3: Variant System with CVA
@@ -249,7 +251,6 @@ export function Button({ className, variant, size, ...props }: ButtonProps) {
     />
   );
 }
-
 ```
 
 ### Pattern 4: Style Dictionary Configuration
@@ -306,7 +307,6 @@ module.exports = {
     },
   },
 };
-
 ```
 
 ## Best Practices
@@ -321,9 +321,9 @@ module.exports = {
 
 ## Common Issues
 
-* **Token Sprawl**: Too many tokens without clear hierarchy
-* **Inconsistent Naming**: Mixed conventions (camelCase vs kebab-case)
-* **Missing Dark Mode**: Tokens that don't adapt to theme changes
-* **Hardcoded Values**: Using raw values instead of tokens
-* **Circular References**: Tokens referencing each other in loops
-* **Platform Gaps**: Tokens missing for some platforms (web but not mobile)
+- **Token Sprawl**: Too many tokens without clear hierarchy
+- **Inconsistent Naming**: Mixed conventions (camelCase vs kebab-case)
+- **Missing Dark Mode**: Tokens that don't adapt to theme changes
+- **Hardcoded Values**: Using raw values instead of tokens
+- **Circular References**: Tokens referencing each other in loops
+- **Platform Gaps**: Tokens missing for some platforms (web but not mobile)

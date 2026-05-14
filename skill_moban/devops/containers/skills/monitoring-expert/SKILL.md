@@ -1,3 +1,18 @@
+---
+name: monitoring-expert
+description: Configures monitoring systems, implements structured logging pipelines, creates Prometheus/Grafana dashboards, defines alerting rules, and instruments distributed tracing. Implements Prometheus/Grafana stacks, conducts load testing, performs application profiling, and plans infrastructure capacity. Use when setting up application monitoring, adding observability to services, debugging production issues with logs/metrics/traces, running load tests with k6 or Artillery, profiling CPU/memory bottlenecks, or forecasting capacity needs.
+license: MIT
+metadata:
+  author: https://github.com/Jeffallan
+  version: "1.1.0"
+  domain: devops
+  triggers: monitoring, observability, logging, metrics, tracing, alerting, Prometheus, Grafana, DataDog, APM, performance testing, load testing, profiling, capacity planning, bottleneck
+  role: specialist
+  scope: implementation
+  output-format: code
+  related-skills: devops-engineer, debugging-wizard, architecture-designer
+---
+
 # Monitoring Expert
 
 Observability and performance specialist implementing comprehensive monitoring, alerting, tracing, and performance testing systems.
@@ -13,7 +28,6 @@ Observability and performance specialist implementing comprehensive monitoring, 
 ## Quick-Start Examples
 
 ### Structured Logging (Node.js / Pino)
-
 ```js
 import pino from 'pino';
 
@@ -24,11 +38,9 @@ logger.info({ requestId: req.id, userId: req.user.id, durationMs: elapsed }, 'or
 
 // Bad — string interpolation, no correlation
 console.log(`Order created for user ${userId}`);
-
 ```
 
 ### Prometheus Metrics (Node.js)
-
 ```js
 import { Counter, Histogram, register } from 'prom-client';
 
@@ -60,11 +72,9 @@ app.get('/metrics', async (req, res) => {
   res.set('Content-Type', register.contentType);
   res.end(await register.metrics());
 });
-
 ```
 
 ### OpenTelemetry Tracing (Node.js)
-
 ```js
 import { NodeSDK } from '@opentelemetry/sdk-node';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
@@ -92,11 +102,9 @@ async function processOrder(orderId) {
     span.end();
   }
 }
-
 ```
 
 ### Prometheus Alerting Rule
-
 ```yaml
 groups:
   - name: api.rules
@@ -110,11 +118,9 @@ groups:
           severity: critical
         annotations:
           summary: "Error rate above 5% on {{ $labels.route }}"
-
 ```
 
 ### k6 Load Test
-
 ```js
 import http from 'k6/http';
 import { check, sleep } from 'k6';
@@ -136,40 +142,37 @@ export default function () {
   check(res, { 'status is 200': (r) => r.status === 200 });
   sleep(1);
 }
-
 ```
 
 ## Reference Guide
 
 Load detailed guidance based on context:
 
-| Topic               | Reference                           | Load When                               |
-| ------------------- | ----------------------------------- | --------------------------------------- |
-| Logging             | references/structured-logging.md    | Pino, JSON logging                      |
-| Metrics             | references/prometheus-metrics.md    | Counter, Histogram, Gauge               |
-| Tracing             | references/opentelemetry.md         | OpenTelemetry, spans                    |
-| Alerting            | references/alerting-rules.md        | Prometheus alerts                       |
-| Dashboards          | references/dashboards.md            | RED/USE method, Grafana                 |
-| Performance Testing | references/performance-testing.md   | Load testing, k6, Artillery, benchmarks |
-| Profiling           | references/application-profiling.md | CPU/memory profiling, bottlenecks       |
-| Capacity Planning   | references/capacity-planning.md     | Scaling, forecasting, budgets           |
+| Topic | Reference | Load When |
+|-------|-----------|-----------|
+| Logging | `references/structured-logging.md` | Pino, JSON logging |
+| Metrics | `references/prometheus-metrics.md` | Counter, Histogram, Gauge |
+| Tracing | `references/opentelemetry.md` | OpenTelemetry, spans |
+| Alerting | `references/alerting-rules.md` | Prometheus alerts |
+| Dashboards | `references/dashboards.md` | RED/USE method, Grafana |
+| Performance Testing | `references/performance-testing.md` | Load testing, k6, Artillery, benchmarks |
+| Profiling | `references/application-profiling.md` | CPU/memory profiling, bottlenecks |
+| Capacity Planning | `references/capacity-planning.md` | Scaling, forecasting, budgets |
 
 ## Constraints
 
 ### MUST DO
-
-* Use structured logging (JSON)
-* Include request IDs for correlation
-* Set up alerts for critical paths
-* Monitor business metrics, not just technical
-* Use appropriate metric types (counter/gauge/histogram)
-* Implement health check endpoints
+- Use structured logging (JSON)
+- Include request IDs for correlation
+- Set up alerts for critical paths
+- Monitor business metrics, not just technical
+- Use appropriate metric types (counter/gauge/histogram)
+- Implement health check endpoints
 
 ### MUST NOT DO
-
-* Log sensitive data (passwords, tokens, PII)
-* Alert on every error (alert fatigue)
-* Use string interpolation in logs (use structured fields)
-* Skip correlation IDs in distributed systems
+- Log sensitive data (passwords, tokens, PII)
+- Alert on every error (alert fatigue)
+- Use string interpolation in logs (use structured fields)
+- Skip correlation IDs in distributed systems
 
 [Documentation](https://jeffallan.github.io/claude-skills/skills/devops/monitoring-expert/)

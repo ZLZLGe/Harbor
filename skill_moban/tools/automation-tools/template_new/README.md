@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`automation-tools` 类热门 skill 的核心价值，是把零散发布材料收束成稳定的执行路径，让 solver 能较快识别输入、目标页、结构要求和收尾动作。对于 `docs-changelog` 这类 skill，价值主要体现在版本通道判断、页面职责划分和 changelog 内容整理。
-* **Task 目标形态**：这类任务适合设计成单容器内的交付类工作流，例如 changelog 更新、发布摘要整理、结构化清单生成或批量格式化产物。题面应重点交代交付物、输入边界和禁止事项，把页面选择、内容组织和生成细节留给 solver 自行识别。
 * **Verifier 设计重点**：Verifier 应重点检查 solver 是否沿正式入口完成了可重复执行的结果，是否把内容写到正确目标页，是否根据输入版本走对分支，以及是否避免把任务收缩成一次性手工导出。防作弊测试应覆盖输入完整性、skill 区域完整性和错误页面更新。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`automation_tools__channel_aware_changelog_delivery`
 - 类别：`automation-tools`
-- 难度：`hard`
 - 绑定 Skill：`docs-changelog`
 - 输入数据参考来源：
   - `environment/reference_bundle/workspace/docs/changelogs/index.md`：任务内发布总览页；直接来源于 Gemini CLI `v0.40.0` tag  
@@ -32,7 +30,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：oracle 会通过正式生成入口读取同一份 changelog 工作区和发布材料，生成输出目录下的三个 markdown 页面与 manifest，并在 alternate fixture 下复跑另一条版本通道，确认生成逻辑不是写死当前样例。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -48,7 +46,7 @@
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | 输入完整性 | `reference_bundle` 内容哈希保持一致 |
-| Skill 完整性 | `environment/skills/docs-changelog` 内容哈希保持一致 |
+| Skill 可用性 | `docs-changelog` 在 with-skill 运行时可读，并作为只读结构化交付参考 |
 | 输出白名单 | 输出目录顶层只保留合同要求的 4 个文件 |
 | 错页写入 | 不允许把 stable 内容写进 `preview.md`，也不允许把 preview 内容写进 `latest.md` |
 | 一次性导出 | 重新执行正式入口后结果仍一致 |

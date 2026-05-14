@@ -23,7 +23,7 @@
     "Shortlist writes validate allowed fields and persist across restart",
     "Browser flow reaches the real page and updates shortlist state",
     "Synthetic alternate fixture catches hardcoded catalog answers",
-    "Input data and skill payload remain unchanged"
+    "Input data remains unchanged"
   ],
   "real_data_sources": [
     {
@@ -71,7 +71,7 @@
     "timeout_rationale": "Observed with-skill agent execution peaked at about 719 seconds; the task timeout was raised to 1500 seconds as the next higher 100-second bucket above 2x that solve time."
   },
   "iteration_notes": [
-    "Do not modify the shipped skill payload.",
+    "Do not modify the shipped input data.",
     "Do not finalize README experiment metrics until E2B runs complete.",
     "Without-skill failure target is task execution or contract behavior, not minor formatting drift."
   ]

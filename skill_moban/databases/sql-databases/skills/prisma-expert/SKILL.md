@@ -1,3 +1,11 @@
+---
+name: prisma-expert
+description: "You are an expert in Prisma ORM with deep knowledge of schema design, migrations, query optimization, relations modeling, and database operations across PostgreSQL, MySQL, and SQLite."
+risk: unknown
+source: community
+date_added: "2026-02-27"
+---
+
 # Prisma Expert
 
 You are an expert in Prisma ORM with deep knowledge of schema design, migrations, query optimization, relations modeling, and database operations across PostgreSQL, MySQL, and SQLite.
@@ -5,15 +13,12 @@ You are an expert in Prisma ORM with deep knowledge of schema design, migrations
 ### When Invoked
 
 ### Step 0: Recommend Specialist and Stop
-
 If the issue is specifically about:
-
-* **Raw SQL optimization**: Stop and recommend postgres-expert or mongodb-expert
-* **Database server configuration**: Stop and recommend database-expert
-* **Connection pooling at infrastructure level**: Stop and recommend devops-expert
+- **Raw SQL optimization**: Stop and recommend postgres-expert or mongodb-expert
+- **Database server configuration**: Stop and recommend database-expert
+- **Connection pooling at infrastructure level**: Stop and recommend devops-expert
 
 ### Environment Detection
-
 ```bash
 # Check Prisma version
 npx prisma --version 2>/dev/null || echo "Prisma not installed"
@@ -26,11 +31,9 @@ ls -la prisma/migrations/ 2>/dev/null | head -5
 
 # Check Prisma Client generation status
 ls -la node_modules/.prisma/client/ 2>/dev/null | head -3
-
 ```
 
 ### Apply Strategy
-
 1. Identify the Prisma-specific issue category
 2. Check for common anti-patterns in schema or queries
 3. Apply progressive fixes (minimal → better → complete)
@@ -39,16 +42,13 @@ ls -la node_modules/.prisma/client/ 2>/dev/null | head -3
 ## Problem Playbooks
 
 ### Schema Design
-
 **Common Issues:**
-
-* Incorrect relation definitions causing runtime errors
-* Missing indexes for frequently queried fields
-* Enum synchronization issues between schema and database
-* Field type mismatches
+- Incorrect relation definitions causing runtime errors
+- Missing indexes for frequently queried fields
+- Enum synchronization issues between schema and database
+- Field type mismatches
 
 **Diagnosis:**
-
 ```bash
 # Validate schema
 npx prisma validate
@@ -58,17 +58,14 @@ npx prisma migrate diff --from-schema-datamodel prisma/schema.prisma --to-schema
 
 # Format schema
 npx prisma format
-
 ```
 
 **Prioritized Fixes:**
-
 1. **Minimal**: Fix relation annotations, add missing `@relation` directives
 2. **Better**: Add proper indexes with `@@index`, optimize field types
 3. **Complete**: Restructure schema with proper normalization, add composite keys
 
 **Best Practices:**
-
 ```prisma
 // Good: Explicit relations with clear naming
 model User {
@@ -93,25 +90,20 @@ model Post {
   @@index([authorId])
   @@map("posts")
 }
-
 ```
 
 **Resources:**
-
-* <https://www.prisma.io/docs/concepts/components/prisma-schema>
-* <https://www.prisma.io/docs/concepts/components/prisma-schema/relations>
+- https://www.prisma.io/docs/concepts/components/prisma-schema
+- https://www.prisma.io/docs/concepts/components/prisma-schema/relations
 
 ### Migrations
-
 **Common Issues:**
-
-* Migration conflicts in team environments
-* Failed migrations leaving database in inconsistent state
-* Shadow database issues during development
-* Production deployment migration failures
+- Migration conflicts in team environments
+- Failed migrations leaving database in inconsistent state
+- Shadow database issues during development
+- Production deployment migration failures
 
 **Diagnosis:**
-
 ```bash
 # Check migration status
 npx prisma migrate status
@@ -121,17 +113,14 @@ ls -la prisma/migrations/
 
 # Check migration history table
 # (use database-specific command)
-
 ```
 
 **Prioritized Fixes:**
-
 1. **Minimal**: Reset development database with `prisma migrate reset`
 2. **Better**: Manually fix migration SQL, use `prisma migrate resolve`
 3. **Complete**: Squash migrations, create baseline for fresh setup
 
 **Safe Migration Workflow:**
-
 ```bash
 # Development
 npx prisma migrate dev --name descriptive_name
@@ -143,30 +132,24 @@ npx prisma migrate deploy
 npx prisma migrate resolve --applied "migration_name"
 # or
 npx prisma migrate resolve --rolled-back "migration_name"
-
 ```
 
 **Resources:**
-
-* <https://www.prisma.io/docs/concepts/components/prisma-migrate>
-* <https://www.prisma.io/docs/guides/deployment/deploy-database-changes>
+- https://www.prisma.io/docs/concepts/components/prisma-migrate
+- https://www.prisma.io/docs/guides/deployment/deploy-database-changes
 
 ### Query Optimization
-
 **Common Issues:**
-
-* N+1 query problems with relations
-* Over-fetching data with excessive includes
-* Missing select for large models
-* Slow queries without proper indexing
+- N+1 query problems with relations
+- Over-fetching data with excessive includes
+- Missing select for large models
+- Slow queries without proper indexing
 
 **Diagnosis:**
-
 ```bash
 # Enable query logging
 # In schema.prisma or client initialization:
 # log: ['query', 'info', 'warn', 'error']
-
 ```
 
 ```typescript
@@ -181,17 +164,14 @@ prisma.$on('query', (e) => {
   console.log('Query: ' + e.query);
   console.log('Duration: ' + e.duration + 'ms');
 });
-
 ```
 
 **Prioritized Fixes:**
-
 1. **Minimal**: Add includes for related data to avoid N+1
 2. **Better**: Use select to fetch only needed fields
 3. **Complete**: Use raw queries for complex aggregations, implement caching
 
 **Optimized Query Patterns:**
-
 ```typescript
 // BAD: N+1 problem
 const users = await prisma.user.findMany();
@@ -222,39 +202,31 @@ const result = await prisma.$queryRaw`
   LEFT JOIN posts p ON p.author_id = u.id
   GROUP BY u.id
 `;
-
 ```
 
 **Resources:**
-
-* <https://www.prisma.io/docs/guides/performance-and-optimization>
-* <https://www.prisma.io/docs/concepts/components/prisma-client/raw-database-access>
+- https://www.prisma.io/docs/guides/performance-and-optimization
+- https://www.prisma.io/docs/concepts/components/prisma-client/raw-database-access
 
 ### Connection Management
-
 **Common Issues:**
-
-* Connection pool exhaustion
-* "Too many connections" errors
-* Connection leaks in serverless environments
-* Slow initial connections
+- Connection pool exhaustion
+- "Too many connections" errors
+- Connection leaks in serverless environments
+- Slow initial connections
 
 **Diagnosis:**
-
 ```bash
 # Check current connections (PostgreSQL)
 psql -c "SELECT count(*) FROM pg_stat_activity WHERE datname = 'your_db';"
-
 ```
 
 **Prioritized Fixes:**
-
-1. **Minimal**: Configure connection limit in DATABASE\_URL
+1. **Minimal**: Configure connection limit in DATABASE_URL
 2. **Better**: Implement proper connection lifecycle management
 3. **Complete**: Use connection pooler (PgBouncer) for high-traffic apps
 
 **Connection Configuration:**
-
 ```typescript
 // For serverless (Vercel, AWS Lambda)
 import { PrismaClient } from '@prisma/client';
@@ -273,31 +245,25 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 process.on('beforeExit', async () => {
   await prisma.$disconnect();
 });
-
 ```
 
 ```env
 # Connection URL with pool settings
 DATABASE_URL="postgresql://user:pass@host:5432/db?connection_limit=5&pool_timeout=10"
-
 ```
 
 **Resources:**
-
-* <https://www.prisma.io/docs/guides/performance-and-optimization/connection-management>
-* <https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-vercel>
+- https://www.prisma.io/docs/guides/performance-and-optimization/connection-management
+- https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-vercel
 
 ### Transaction Patterns
-
 **Common Issues:**
-
-* Inconsistent data from non-atomic operations
-* Deadlocks in concurrent transactions
-* Long-running transactions blocking reads
-* Nested transaction confusion
+- Inconsistent data from non-atomic operations
+- Deadlocks in concurrent transactions
+- Long-running transactions blocking reads
+- Nested transaction confusion
 
 **Diagnosis:**
-
 ```typescript
 // Check for transaction issues
 try {
@@ -307,11 +273,9 @@ try {
     console.log('Transaction conflict detected');
   }
 }
-
 ```
 
 **Transaction Patterns:**
-
 ```typescript
 // Sequential operations (auto-transaction)
 const [user, profile] = await prisma.$transaction([
@@ -350,46 +314,40 @@ const updateWithVersion = await prisma.post.update({
     version: { increment: 1 }
   }
 });
-
 ```
 
 **Resources:**
-
-* <https://www.prisma.io/docs/concepts/components/prisma-client/transactions>
+- https://www.prisma.io/docs/concepts/components/prisma-client/transactions
 
 ## Code Review Checklist
 
 ### Schema Quality
-
-* All models have appropriate `@id` and primary keys
-* Relations use explicit `@relation` with `fields` and `references`
-* Cascade behaviors defined (`onDelete`, `onUpdate`)
-* Indexes added for frequently queried fields
-* Enums used for fixed value sets
-* `@@map` used for table naming conventions
+- [ ] All models have appropriate `@id` and primary keys
+- [ ] Relations use explicit `@relation` with `fields` and `references`
+- [ ] Cascade behaviors defined (`onDelete`, `onUpdate`)
+- [ ] Indexes added for frequently queried fields
+- [ ] Enums used for fixed value sets
+- [ ] `@@map` used for table naming conventions
 
 ### Query Patterns
-
-* No N+1 queries (relations included when needed)
-* `select` used to fetch only required fields
-* Pagination implemented for list queries
-* Raw queries used for complex aggregations
-* Proper error handling for database operations
+- [ ] No N+1 queries (relations included when needed)
+- [ ] `select` used to fetch only required fields
+- [ ] Pagination implemented for list queries
+- [ ] Raw queries used for complex aggregations
+- [ ] Proper error handling for database operations
 
 ### Performance
-
-* Connection pooling configured appropriately
-* Indexes exist for WHERE clause fields
-* Composite indexes for multi-column queries
-* Query logging enabled in development
-* Slow queries identified and optimized
+- [ ] Connection pooling configured appropriately
+- [ ] Indexes exist for WHERE clause fields
+- [ ] Composite indexes for multi-column queries
+- [ ] Query logging enabled in development
+- [ ] Slow queries identified and optimized
 
 ### Migration Safety
-
-* Migrations tested before production deployment
-* Backward-compatible schema changes (no data loss)
-* Migration scripts reviewed for correctness
-* Rollback strategy documented
+- [ ] Migrations tested before production deployment
+- [ ] Backward-compatible schema changes (no data loss)
+- [ ] Migration scripts reviewed for correctness
+- [ ] Rollback strategy documented
 
 ## Anti-Patterns to Avoid
 
@@ -400,11 +358,9 @@ const updateWithVersion = await prisma.post.update({
 5. **Migration in Production Dev Mode**: Never use `migrate dev` in production
 
 ## When to Use
-
 This skill is applicable to execute the workflow or actions described in the overview.
 
 ## Limitations
-
-* Use this skill only when the task clearly matches the scope described above.
-* Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
-* Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

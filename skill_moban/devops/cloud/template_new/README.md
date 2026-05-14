@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：Cloud 类热门 skill 的核心价值，不是把某个环境临时堆出来，而是把基础设施能力建设成可复用、可推广、可交接的工程资产。模板任务应强调模块抽象、跨环境一致性、输入输出合同、资源标签治理和真实 Terraform 验证链路，而不是把题退化成一次性脚本拼装。
-* **Task 目标形态**：任务应落在真实风格的云基础设施建设场景里，例如共享 VPC 模块库、标准化网络基线、可复用部署骨架、多环境 Terraform 入口统一等。题面主要交代业务目标、输入合同、交付边界和禁止事项，把模块设计、接口抽象、示例补齐和验证收敛路径交给 solver 自己完成。
 * **Verifier 设计重点**：Verifier 应优先验证 solver 是否真的沿 Terraform 真实链路建设了共享模块，是否让多个环境消费同一个模块接口，是否满足子网、路由、NAT、标签和 EKS 接入等资源行为合同，以及是否保留了模块文档、示例、版本约束和测试配套。防作弊点应覆盖平行模块、环境特化硬编码、保留重复资源实现、静态产物替代和只对单一蓝图成立的实现。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`cloud__terraform-shared-vpc-module-library`
 - 类别：`cloud`
-- 难度：`hard`
 - 绑定 Skill：`terraform-module-library`
 - 输入数据参考来源：
   - `environment/data/environment_blueprints/staging.json`：任务内 `staging` 网络蓝图；设计形态参考 `terraform-aws-modules/terraform-aws-vpc` 的共享 VPC 模块使用方式  
@@ -30,7 +28,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 会在仓库内建设共享 Terraform AWS VPC 模块库，并让 `staging`、`prod` 和 verifier 临时生成的隐藏 `qa` 根模块都消费同一个模块；随后沿 `terraform fmt -> init -> validate -> plan` 的真实本地链路验证结构合同和资源行为合同全部成立。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试

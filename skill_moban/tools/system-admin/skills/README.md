@@ -1,72 +1,98 @@
 # System Admin Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/system-admin`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/system-admin，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 80 个 skills，其中 64 个 installs >= 1000，16 个 installs 在 500-999。
 
 ## 技能清单
 
-1. systematic-debugging | 来源: https://skills.sh/obra/superpowers/systematic-debugging | installs: 86.3K | stars: 180100
-2. security-review | 来源: https://skills.sh/affaan-m/everything-claude-code/security-review | installs: 7.5K | stars: 175900
-3. security-scan | 来源: https://skills.sh/affaan-m/everything-claude-code/security-scan | installs: 3.8K | stars: 175900
-4. autonomous-loops | 来源: https://skills.sh/affaan-m/everything-claude-code/autonomous-loops | installs: 3.2K | stars: 175900
-5. enterprise-agent-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/enterprise-agent-ops | installs: 2.9K | stars: 175900
-6. bun-runtime | 来源: https://skills.sh/affaan-m/everything-claude-code/bun-runtime | installs: 2.7K | stars: 175900
-7. mcp-server-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/mcp-server-patterns | installs: 2.7K | stars: 175900
-8. rust-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/rust-patterns | installs: 2.7K | stars: 175900
-9. dmux-workflows | 来源: https://skills.sh/affaan-m/everything-claude-code/dmux-workflows | installs: 2.6K | stars: 175900
-10. design-system | 来源: https://skills.sh/affaan-m/everything-claude-code/design-system | installs: 2.3K | stars: 175900
-11. autonomous-agent-harness | 来源: https://skills.sh/affaan-m/everything-claude-code/autonomous-agent-harness | installs: 1.9K | stars: 175900
-12. customer-billing-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/customer-billing-ops | installs: 1.8K | stars: 175900
-13. google-workspace-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/google-workspace-ops | installs: 1.8K | stars: 175900
-14. project-flow-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/project-flow-ops | installs: 1.8K | stars: 175900
-15. workspace-surface-audit | 来源: https://skills.sh/affaan-m/everything-claude-code/workspace-surface-audit | installs: 1.8K | stars: 175900
-16. github-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/github-ops | installs: 1.7K | stars: 175900
-17. knowledge-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/knowledge-ops | installs: 1.7K | stars: 175900
-18. automation-audit-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops | installs: 1.6K | stars: 175900
-19. email-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/email-ops | installs: 1.6K | stars: 175900
-20. finance-billing-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/finance-billing-ops | installs: 1.6K | stars: 175900
-21. messages-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/messages-ops | installs: 1.6K | stars: 175900
-22. research-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/research-ops | installs: 1.6K | stars: 175900
-23. terminal-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/terminal-ops | installs: 1.6K | stars: 175900
-24. unified-notifications-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/unified-notifications-ops | installs: 1.6K | stars: 175900
-25. remote-browser | 来源: https://skills.sh/browser-use/browser-use/remote-browser | installs: 2.2K | stars: 92400
-26. ckm:design-system | 来源: https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ckm:design-system | installs: 14.3K | stars: 73300
-27. agent-memory-systems | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/agent-memory-systems | installs: 1.3K | stars: 36853
-28. bash-linux | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/bash-linux | installs: 1.1K | stars: 36853
-29. aws-serverless | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/aws-serverless | installs: 1.0K | stars: 36853
-30. design-system-patterns | 来源: https://skills.sh/wshobson/agents/design-system-patterns | installs: 8.8K | stars: 35018
-31. azure-devops-cli | 来源: https://skills.sh/github/awesome-copilot/azure-devops-cli | installs: 10.3K | stars: 32200
-32. typescript-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/typescript-mcp-server-generator | installs: 9.8K | stars: 32200
-33. python-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/python-mcp-server-generator | installs: 9.3K | stars: 32200
-34. devops-rollout-plan | 来源: https://skills.sh/github/awesome-copilot/devops-rollout-plan | installs: 8.9K | stars: 32200
-35. pdftk-server | 来源: https://skills.sh/github/awesome-copilot/pdftk-server | installs: 8.7K | stars: 32200
-36. rust-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/rust-mcp-server-generator | installs: 8.6K | stars: 32200
-37. arch-linux-triage | 来源: https://skills.sh/github/awesome-copilot/arch-linux-triage | installs: 8.5K | stars: 32200
-38. debian-linux-triage | 来源: https://skills.sh/github/awesome-copilot/debian-linux-triage | installs: 8.5K | stars: 32200
-39. php-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/php-mcp-server-generator | installs: 8.5K | stars: 32200
-40. csharp-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/csharp-mcp-server-generator | installs: 8.4K | stars: 32200
-41. fedora-linux-triage | 来源: https://skills.sh/github/awesome-copilot/fedora-linux-triage | installs: 8.4K | stars: 32200
-42. go-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/go-mcp-server-generator | installs: 8.4K | stars: 32200
-43. java-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/java-mcp-server-generator | installs: 8.4K | stars: 32200
-44. swift-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/swift-mcp-server-generator | installs: 8.4K | stars: 32200
-45. centos-linux-triage | 来源: https://skills.sh/github/awesome-copilot/centos-linux-triage | installs: 8.3K | stars: 32200
-46. kotlin-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/kotlin-mcp-server-generator | installs: 8.3K | stars: 32200
-47. mcp-copilot-studio-server-generator | 来源: https://skills.sh/github/awesome-copilot/mcp-copilot-studio-server-generator | installs: 8.3K | stars: 32200
-48. ruby-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/ruby-mcp-server-generator | installs: 8.3K | stars: 32200
-49. import-infrastructure-as-code | 来源: https://skills.sh/github/awesome-copilot/import-infrastructure-as-code | installs: 6.5K | stars: 32200
-50. gtm-developer-ecosystem | 来源: https://skills.sh/github/awesome-copilot/gtm-developer-ecosystem | installs: 1.2K | stars: 32200
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | security-review | affaan-m/everything-claude-code | 177611 | 7985 | https://skills.sh/affaan-m/everything-claude-code/security-review |
+| 2 | security-scan | affaan-m/everything-claude-code | 177611 | 4169 | https://skills.sh/affaan-m/everything-claude-code/security-scan |
+| 3 | enterprise-agent-ops | affaan-m/everything-claude-code | 177611 | 3164 | https://skills.sh/affaan-m/everything-claude-code/enterprise-agent-ops |
+| 4 | bun-runtime | affaan-m/everything-claude-code | 177611 | 3073 | https://skills.sh/affaan-m/everything-claude-code/bun-runtime |
+| 5 | rust-patterns | affaan-m/everything-claude-code | 177611 | 3057 | https://skills.sh/affaan-m/everything-claude-code/rust-patterns |
+| 6 | dmux-workflows | affaan-m/everything-claude-code | 177611 | 2946 | https://skills.sh/affaan-m/everything-claude-code/dmux-workflows |
+| 7 | autonomous-agent-harness | affaan-m/everything-claude-code | 177611 | 2261 | https://skills.sh/affaan-m/everything-claude-code/autonomous-agent-harness |
+| 8 | workspace-surface-audit | affaan-m/everything-claude-code | 177611 | 2079 | https://skills.sh/affaan-m/everything-claude-code/workspace-surface-audit |
+| 9 | remote-browser | browser-use/browser-use | 93208 | 2361 | https://skills.sh/browser-use/browser-use/remote-browser |
+| 10 | context-engineering | addyosmani/agent-skills | 38375 | 2718 | https://skills.sh/addyosmani/agent-skills/context-engineering |
+| 11 | using-agent-skills | addyosmani/agent-skills | 38375 | 2671 | https://skills.sh/addyosmani/agent-skills/using-agent-skills |
+| 12 | firebase | sickn33/antigravity-awesome-skills | 37047 | 1106 | https://skills.sh/sickn33/antigravity-awesome-skills/firebase |
+| 13 | secrets-management | wshobson/agents | 35133 | 7188 | https://skills.sh/wshobson/agents/secrets-management |
+| 14 | bash-defensive-patterns | wshobson/agents | 35133 | 6779 | https://skills.sh/wshobson/agents/bash-defensive-patterns |
+| 15 | python-observability | wshobson/agents | 35133 | 6174 | https://skills.sh/wshobson/agents/python-observability |
+| 16 | incident-runbook-templates | wshobson/agents | 35133 | 6131 | https://skills.sh/wshobson/agents/incident-runbook-templates |
+| 17 | bats-testing-patterns | wshobson/agents | 35133 | 5920 | https://skills.sh/wshobson/agents/bats-testing-patterns |
+| 18 | on-call-handoff-patterns | wshobson/agents | 35133 | 5895 | https://skills.sh/wshobson/agents/on-call-handoff-patterns |
+| 19 | task-coordination-strategies | wshobson/agents | 35133 | 5234 | https://skills.sh/wshobson/agents/task-coordination-strategies |
+| 20 | team-communication-protocols | wshobson/agents | 35133 | 5129 | https://skills.sh/wshobson/agents/team-communication-protocols |
+| 21 | mcp-cli | github/awesome-copilot | 32605 | 9090 | https://skills.sh/github/awesome-copilot/mcp-cli |
+| 22 | debian-linux-triage | github/awesome-copilot | 32605 | 8564 | https://skills.sh/github/awesome-copilot/debian-linux-triage |
+| 23 | arch-linux-triage | github/awesome-copilot | 32605 | 8509 | https://skills.sh/github/awesome-copilot/arch-linux-triage |
+| 24 | fedora-linux-triage | github/awesome-copilot | 32605 | 8395 | https://skills.sh/github/awesome-copilot/fedora-linux-triage |
+| 25 | centos-linux-triage | github/awesome-copilot | 32605 | 8336 | https://skills.sh/github/awesome-copilot/centos-linux-triage |
+| 26 | flowstudio-power-automate-mcp | github/awesome-copilot | 32605 | 3875 | https://skills.sh/github/awesome-copilot/flowstudio-power-automate-mcp |
+| 27 | deploy-to-vercel | vercel-labs/agent-skills | 26355 | 49502 | https://skills.sh/vercel-labs/agent-skills/deploy-to-vercel |
+| 28 | vercel-cli-with-tokens | vercel-labs/agent-skills | 26355 | 32041 | https://skills.sh/vercel-labs/agent-skills/vercel-cli-with-tokens |
+| 29 | gws-drive | googleworkspace/cli | 26030 | 26239 | https://skills.sh/googleworkspace/cli/gws-drive |
+| 30 | gws-tasks | googleworkspace/cli | 26030 | 18243 | https://skills.sh/googleworkspace/cli/gws-tasks |
+| 31 | gws-meet | googleworkspace/cli | 26030 | 16645 | https://skills.sh/googleworkspace/cli/gws-meet |
+| 32 | gws-keep | googleworkspace/cli | 26030 | 15524 | https://skills.sh/googleworkspace/cli/gws-keep |
+| 33 | gws-chat | googleworkspace/cli | 26030 | 13710 | https://skills.sh/googleworkspace/cli/gws-chat |
+| 34 | gws-people | googleworkspace/cli | 26030 | 13303 | https://skills.sh/googleworkspace/cli/gws-people |
+| 35 | persona-exec-assistant | googleworkspace/cli | 26030 | 13057 | https://skills.sh/googleworkspace/cli/persona-exec-assistant |
+| 36 | persona-it-admin | googleworkspace/cli | 26030 | 12380 | https://skills.sh/googleworkspace/cli/persona-it-admin |
+| 37 | writing-hookify-rules | anthropics/claude-plugins-official | 19038 | 2387 | https://skills.sh/anthropics/claude-plugins-official/writing-hookify-rules |
+| 38 | build-mcpb | anthropics/claude-plugins-official | 19038 | 1812 | https://skills.sh/anthropics/claude-plugins-official/build-mcpb |
+| 39 | screenshot | openai/skills | 18740 | 2732 | https://skills.sh/openai/skills/screenshot |
+| 40 | pua | tanweai/pua | 17213 | 7043 | https://skills.sh/tanweai/pua/pua |
+| 41 | cmux | manaflow-ai/cmux | 16632 | 1628 | https://skills.sh/manaflow-ai/cmux/cmux |
+| 42 | cmux-browser | manaflow-ai/cmux | 16632 | 1212 | https://skills.sh/manaflow-ai/cmux/cmux-browser |
+| 43 | create-cowork-plugin | anthropics/knowledge-work-plugins | 12009 | 1138 | https://skills.sh/anthropics/knowledge-work-plugins/create-cowork-plugin |
+| 44 | cowork-plugin-customizer | anthropics/knowledge-work-plugins | 12009 | 1130 | https://skills.sh/anthropics/knowledge-work-plugins/cowork-plugin-customizer |
+| 45 | mcp-apps-builder | mcp-use/mcp-use | 9923 | 10323 | https://skills.sh/mcp-use/mcp-use/mcp-apps-builder |
+| 46 | mcp-builder | mcp-use/mcp-use | 9923 | 9158 | https://skills.sh/mcp-use/mcp-use/mcp-builder |
+| 47 | lark-drive | larksuite/cli | 9590 | 122267 | https://skills.sh/larksuite/cli/lark-drive |
+| 48 | lark-shared | larksuite/cli | 9590 | 122080 | https://skills.sh/larksuite/cli/lark-shared |
+| 49 | lark-task | larksuite/cli | 9590 | 121913 | https://skills.sh/larksuite/cli/lark-task |
+| 50 | kubernetes-specialist | Jeffallan/claude-skills | 8935 | 9146 | https://skills.sh/Jeffallan/claude-skills/kubernetes-specialist |
+| 51 | devops-engineer | Jeffallan/claude-skills | 8935 | 4691 | https://skills.sh/Jeffallan/claude-skills/devops-engineer |
+| 52 | monitoring-expert | Jeffallan/claude-skills | 8935 | 2411 | https://skills.sh/Jeffallan/claude-skills/monitoring-expert |
+| 53 | sre-engineer | Jeffallan/claude-skills | 8935 | 2168 | https://skills.sh/Jeffallan/claude-skills/sre-engineer |
+| 54 | cloud-architect | Jeffallan/claude-skills | 8935 | 2072 | https://skills.sh/Jeffallan/claude-skills/cloud-architect |
+| 55 | cloud-run-basics | google/skills | 6914 | 3163 | https://skills.sh/google/skills/cloud-run-basics |
+| 56 | alloydb-basics | google/skills | 6914 | 2067 | https://skills.sh/google/skills/alloydb-basics |
+| 57 | seatbelt-sandboxer | trailofbits/skills | 5109 | 1685 | https://skills.sh/trailofbits/skills/seatbelt-sandboxer |
+| 58 | n8n-mcp-tools-expert | czlonkowski/n8n-skills | 4894 | 3995 | https://skills.sh/czlonkowski/n8n-skills/n8n-mcp-tools-expert |
+| 59 | ktx-booking | NomaDamas/k-skill | 4668 | 2029 | https://skills.sh/NomaDamas/k-skill/ktx-booking |
+| 60 | dbs-save | dontbesilent2025/dbskill | 4550 | 1196 | https://skills.sh/dontbesilent2025/dbskill/dbs-save |
+| 61 | claude-to-im | op7418/Claude-to-IM-skill | 2438 | 5503 | https://skills.sh/op7418/Claude-to-IM-skill/claude-to-im |
+| 62 | solve-challenge | ljagiello/ctf-skills | 1923 | 3189 | https://skills.sh/ljagiello/ctf-skills/solve-challenge |
+| 63 | dependency-updater | softaworks/agent-toolkit | 1722 | 3630 | https://skills.sh/softaworks/agent-toolkit/dependency-updater |
+| 64 | smux | ShawnPana/smux | 1396 | 1800 | https://skills.sh/ShawnPana/smux/smux |
 
-- https://skills.sh/obra/superpowers
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/browser-use/browser-use
-- https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 65 | mcporter | openclaw/openclaw | 370546 | 918 | https://skills.sh/openclaw/openclaw/mcporter |
+| 66 | tmux | openclaw/openclaw | 370546 | 866 | https://skills.sh/openclaw/openclaw/tmux |
+| 67 | healthcheck | openclaw/openclaw | 370546 | 809 | https://skills.sh/openclaw/openclaw/healthcheck |
+| 68 | things-mac | openclaw/openclaw | 370546 | 710 | https://skills.sh/openclaw/openclaw/things-mac |
+| 69 | openhue | openclaw/openclaw | 370546 | 705 | https://skills.sh/openclaw/openclaw/openhue |
+| 70 | sonoscli | openclaw/openclaw | 370546 | 695 | https://skills.sh/openclaw/openclaw/sonoscli |
+| 71 | eightctl | openclaw/openclaw | 370546 | 694 | https://skills.sh/openclaw/openclaw/eightctl |
+| 72 | agent-sessions-layout | microsoft/vscode | 184753 | 913 | https://skills.sh/microsoft/vscode/agent-sessions-layout |
+| 73 | add-setting-env | lobehub/lobehub | 76794 | 865 | https://skills.sh/lobehub/lobehub/add-setting-env |
+| 74 | vercel-deploy | bytedance/deer-flow | 66390 | 845 | https://skills.sh/bytedance/deer-flow/vercel-deploy |
+| 75 | inngest | sickn33/antigravity-awesome-skills | 37047 | 830 | https://skills.sh/sickn33/antigravity-awesome-skills/inngest |
+| 76 | agent-manager-skill | sickn33/antigravity-awesome-skills | 37047 | 599 | https://skills.sh/sickn33/antigravity-awesome-skills/agent-manager-skill |
+| 77 | server-management | sickn33/antigravity-awesome-skills | 37047 | 561 | https://skills.sh/sickn33/antigravity-awesome-skills/server-management |
+| 78 | file-uploads | sickn33/antigravity-awesome-skills | 37047 | 530 | https://skills.sh/sickn33/antigravity-awesome-skills/file-uploads |
+| 79 | openviking | volcengine/OpenViking | 23738 | 658 | https://skills.sh/volcengine/OpenViking/openviking |
+| 80 | configure | anthropics/claude-plugins-official | 19038 | 733 | https://skills.sh/anthropics/claude-plugins-official/configure |

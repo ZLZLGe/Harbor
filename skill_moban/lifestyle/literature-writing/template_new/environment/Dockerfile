@@ -18,9 +18,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir pytest
-RUN npm install -g @openai/codex@0.120.0
 
 COPY . /opt/literature-writing-environment
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /workspace/notes /workspace/drafts /workspace/examples/approved_copy /opt/launch-copy-data /services/launch-copy-service /var/log/launch-copy /root/.codex/skills /logs/agent/skills \
     && cp /opt/literature-writing-environment/data/work_order.json /workspace/work_order.json \
@@ -30,14 +31,11 @@ RUN mkdir -p /workspace/notes /workspace/drafts /workspace/examples/approved_cop
     && cp -R /opt/literature-writing-environment/data/tone_examples/. /workspace/examples/approved_copy/ \
     && cp -R /opt/literature-writing-environment/data/. /opt/launch-copy-data/ \
     && cp -R /opt/literature-writing-environment/hidden-service-src/. /services/launch-copy-service/ \
-    && if [ -d /opt/literature-writing-environment/skills ]; then cp -R /opt/literature-writing-environment/skills/. /root/.codex/skills/; fi \
-    && if [ -d /opt/literature-writing-environment/skills ]; then cp -R /opt/literature-writing-environment/skills/. /logs/agent/skills/; fi \
     && find /workspace/work_order.json /workspace/service_manifest.json /workspace/notes /workspace/drafts /workspace/examples/approved_copy -type f -print0 | sort -z | xargs -0 sha256sum > /opt/workspace-inputs.sha256 \
     && find /opt/launch-copy-data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/launch-copy-data.sha256 \
     && find /services/launch-copy-service -type f -print0 | sort -z | xargs -0 sha256sum > /opt/launch-copy-service.sha256 \
-    && if [ -d /root/.codex/skills ]; then find /root/.codex/skills -type f -print0 | sort -z | xargs -0 sha256sum > /opt/launch-copy-skills.sha256; else printf '' > /opt/launch-copy-skills.sha256; fi \
     && chmod -R 755 /services/launch-copy-service \
-    && chmod 644 /opt/workspace-inputs.sha256 /opt/launch-copy-data.sha256 /opt/launch-copy-service.sha256 /opt/launch-copy-skills.sha256
+    && chmod 644 /opt/workspace-inputs.sha256 /opt/launch-copy-data.sha256 /opt/launch-copy-service.sha256
 
 RUN printf '#!/bin/bash\n\
 set -euo pipefail\n\

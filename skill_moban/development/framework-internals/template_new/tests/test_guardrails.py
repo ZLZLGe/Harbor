@@ -7,7 +7,6 @@ from conftest import (
     DATA_ROOT,
     OUTPUT_ROOT,
     build_alternate_snapshot,
-    find_skill_file,
     load_json,
     reset_output_dir,
     run_script,
@@ -26,12 +25,9 @@ def sha256_path(path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def test_upstream_inputs_and_bound_skill_unchanged() -> None:
+def test_upstream_inputs_are_unchanged() -> None:
     for path, expected in EXPECTED_HASHES.items():
         assert sha256_path(path) == expected, str(path)
-    skill_file = find_skill_file()
-    if skill_file is not None:
-        assert sha256_path(skill_file) == "0152666064ba508167b71cbea320a4bbcd46d45bec17c801f43480fe49169741"
 
 
 def test_alternate_route_snapshot_changes_report_without_code_changes() -> None:

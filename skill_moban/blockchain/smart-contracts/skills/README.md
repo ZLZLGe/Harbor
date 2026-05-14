@@ -1,73 +1,35 @@
 # Smart Contracts Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/smart-contracts`，再在 `skills.sh` 中补足相关的 blockchain/web3 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 46 个 installs >= 1000，4 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
-- blockchain-developer | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/blockchain-developer | installs: 652
-- dimensional-analysis | 来源: https://skills.sh/trailofbits/skills/dimensional-analysis | installs: 974
-- mutation-testing | 来源: https://skills.sh/trailofbits/skills/mutation-testing | installs: 795
-- crypto-protocol-diagram | 来源: https://skills.sh/trailofbits/skills/crypto-protocol-diagram | installs: 781
+- 来源：先参考 https://skillsmp.com/categories/smart-contracts，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 17 个 skills，其中 16 个 installs >= 1000，1 个 installs 在 500-999。
 
 ## 技能清单
 
-1. defi-amm-security | 来源: https://skills.sh/affaan-m/everything-claude-code/defi-amm-security | installs: 1.6K | stars: 175900
-2. evm-token-decimals | 来源: https://skills.sh/affaan-m/everything-claude-code/evm-token-decimals | installs: 1.6K | stars: 175900
-3. blockchain-developer | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/blockchain-developer | installs: 652 | stars: 36853
-4. solidity-security | 来源: https://skills.sh/wshobson/agents/solidity-security | installs: 10.2K | stars: 35018
-5. web3-testing | 来源: https://skills.sh/wshobson/agents/web3-testing | installs: 6.0K | stars: 35018
-6. defi-protocol-templates | 来源: https://skills.sh/wshobson/agents/defi-protocol-templates | installs: 5.7K | stars: 35018
-7. nft-standards | 来源: https://skills.sh/wshobson/agents/nft-standards | installs: 5.6K | stars: 35018
-8. semgrep | 来源: https://skills.sh/trailofbits/skills/semgrep | installs: 3.5K | stars: 5076
-9. codeql | 来源: https://skills.sh/trailofbits/skills/codeql | installs: 3.3K | stars: 5076
-10. insecure-defaults | 来源: https://skills.sh/trailofbits/skills/insecure-defaults | installs: 3.2K | stars: 5076
-11. secure-workflow-guide | 来源: https://skills.sh/trailofbits/skills/secure-workflow-guide | installs: 3.2K | stars: 5076
-12. code-maturity-assessor | 来源: https://skills.sh/trailofbits/skills/code-maturity-assessor | installs: 3.0K | stars: 5076
-13. differential-review | 来源: https://skills.sh/trailofbits/skills/differential-review | installs: 2.8K | stars: 5076
-14. supply-chain-risk-auditor | 来源: https://skills.sh/trailofbits/skills/supply-chain-risk-auditor | installs: 2.7K | stars: 5076
-15. audit-context-building | 来源: https://skills.sh/trailofbits/skills/audit-context-building | installs: 2.5K | stars: 5076
-16. fp-check | 来源: https://skills.sh/trailofbits/skills/fp-check | installs: 2.5K | stars: 5076
-17. sharp-edges | 来源: https://skills.sh/trailofbits/skills/sharp-edges | installs: 2.5K | stars: 5076
-18. property-based-testing | 来源: https://skills.sh/trailofbits/skills/property-based-testing | installs: 2.4K | stars: 5076
-19. variant-analysis | 来源: https://skills.sh/trailofbits/skills/variant-analysis | installs: 2.4K | stars: 5076
-20. solana-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/solana-vulnerability-scanner | installs: 2.3K | stars: 5076
-21. spec-to-code-compliance | 来源: https://skills.sh/trailofbits/skills/spec-to-code-compliance | installs: 2.3K | stars: 5076
-22. audit-prep-assistant | 来源: https://skills.sh/trailofbits/skills/audit-prep-assistant | installs: 2.2K | stars: 5076
-23. coverage-analysis | 来源: https://skills.sh/trailofbits/skills/coverage-analysis | installs: 2.2K | stars: 5076
-24. entry-point-analyzer | 来源: https://skills.sh/trailofbits/skills/entry-point-analyzer | installs: 2.2K | stars: 5076
-25. fuzzing-obstacles | 来源: https://skills.sh/trailofbits/skills/fuzzing-obstacles | installs: 2.2K | stars: 5076
-26. guidelines-advisor | 来源: https://skills.sh/trailofbits/skills/guidelines-advisor | installs: 2.2K | stars: 5076
-27. sarif-parsing | 来源: https://skills.sh/trailofbits/skills/sarif-parsing | installs: 2.2K | stars: 5076
-28. semgrep-rule-creator | 来源: https://skills.sh/trailofbits/skills/semgrep-rule-creator | installs: 2.2K | stars: 5076
-29. token-integration-analyzer | 来源: https://skills.sh/trailofbits/skills/token-integration-analyzer | installs: 2.2K | stars: 5076
-30. aflpp | 来源: https://skills.sh/trailofbits/skills/aflpp | installs: 2.1K | stars: 5076
-31. algorand-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/algorand-vulnerability-scanner | installs: 2.1K | stars: 5076
-32. atheris | 来源: https://skills.sh/trailofbits/skills/atheris | installs: 2.1K | stars: 5076
-33. cairo-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/cairo-vulnerability-scanner | installs: 2.1K | stars: 5076
-34. cargo-fuzz | 来源: https://skills.sh/trailofbits/skills/cargo-fuzz | installs: 2.1K | stars: 5076
-35. constant-time-analysis | 来源: https://skills.sh/trailofbits/skills/constant-time-analysis | installs: 2.1K | stars: 5076
-36. constant-time-testing | 来源: https://skills.sh/trailofbits/skills/constant-time-testing | installs: 2.1K | stars: 5076
-37. cosmos-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/cosmos-vulnerability-scanner | installs: 2.1K | stars: 5076
-38. harness-writing | 来源: https://skills.sh/trailofbits/skills/harness-writing | installs: 2.1K | stars: 5076
-39. libfuzzer | 来源: https://skills.sh/trailofbits/skills/libfuzzer | installs: 2.1K | stars: 5076
-40. ossfuzz | 来源: https://skills.sh/trailofbits/skills/ossfuzz | installs: 2.1K | stars: 5076
-41. substrate-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/substrate-vulnerability-scanner | installs: 2.1K | stars: 5076
-42. ton-vulnerability-scanner | 来源: https://skills.sh/trailofbits/skills/ton-vulnerability-scanner | installs: 2.1K | stars: 5076
-43. wycheproof | 来源: https://skills.sh/trailofbits/skills/wycheproof | installs: 2.1K | stars: 5076
-44. libafl | 来源: https://skills.sh/trailofbits/skills/libafl | installs: 2.0K | stars: 5076
-45. ruzzy | 来源: https://skills.sh/trailofbits/skills/ruzzy | installs: 2.0K | stars: 5076
-46. yara-rule-authoring | 来源: https://skills.sh/trailofbits/skills/yara-rule-authoring | installs: 1.9K | stars: 5076
-47. zeroize-audit | 来源: https://skills.sh/trailofbits/skills/zeroize-audit | installs: 1.6K | stars: 5076
-48. dimensional-analysis | 来源: https://skills.sh/trailofbits/skills/dimensional-analysis | installs: 974 | stars: 5076
-49. mutation-testing | 来源: https://skills.sh/trailofbits/skills/mutation-testing | installs: 795 | stars: 5076
-50. crypto-protocol-diagram | 来源: https://skills.sh/trailofbits/skills/crypto-protocol-diagram | installs: 781 | stars: 5076
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | defi-amm-security | affaan-m/everything-claude-code | 177611 | 1892 | https://skills.sh/affaan-m/everything-claude-code/defi-amm-security |
+| 2 | solidity-security | wshobson/agents | 35133 | 10448 | https://skills.sh/wshobson/agents/solidity-security |
+| 3 | web3-testing | wshobson/agents | 35133 | 6204 | https://skills.sh/wshobson/agents/web3-testing |
+| 4 | defi-protocol-templates | wshobson/agents | 35133 | 5990 | https://skills.sh/wshobson/agents/defi-protocol-templates |
+| 5 | nft-standards | wshobson/agents | 35133 | 5854 | https://skills.sh/wshobson/agents/nft-standards |
+| 6 | property-based-testing | trailofbits/skills | 5109 | 2601 | https://skills.sh/trailofbits/skills/property-based-testing |
+| 7 | solana-vulnerability-scanner | trailofbits/skills | 5109 | 2476 | https://skills.sh/trailofbits/skills/solana-vulnerability-scanner |
+| 8 | token-integration-analyzer | trailofbits/skills | 5109 | 2358 | https://skills.sh/trailofbits/skills/token-integration-analyzer |
+| 9 | entry-point-analyzer | trailofbits/skills | 5109 | 2348 | https://skills.sh/trailofbits/skills/entry-point-analyzer |
+| 10 | guidelines-advisor | trailofbits/skills | 5109 | 2327 | https://skills.sh/trailofbits/skills/guidelines-advisor |
+| 11 | cosmos-vulnerability-scanner | trailofbits/skills | 5109 | 2233 | https://skills.sh/trailofbits/skills/cosmos-vulnerability-scanner |
+| 12 | algorand-vulnerability-scanner | trailofbits/skills | 5109 | 2222 | https://skills.sh/trailofbits/skills/algorand-vulnerability-scanner |
+| 13 | ton-vulnerability-scanner | trailofbits/skills | 5109 | 2206 | https://skills.sh/trailofbits/skills/ton-vulnerability-scanner |
+| 14 | substrate-vulnerability-scanner | trailofbits/skills | 5109 | 2204 | https://skills.sh/trailofbits/skills/substrate-vulnerability-scanner |
+| 15 | cairo-vulnerability-scanner | trailofbits/skills | 5109 | 2201 | https://skills.sh/trailofbits/skills/cairo-vulnerability-scanner |
+| 16 | best-practices | addyosmani/web-quality-skills | 1903 | 6041 | https://skills.sh/addyosmani/web-quality-skills/best-practices |
 
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/trailofbits/skills
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 17 | security-auditor | sickn33/antigravity-awesome-skills | 37047 | 656 | https://skills.sh/sickn33/antigravity-awesome-skills/security-auditor |

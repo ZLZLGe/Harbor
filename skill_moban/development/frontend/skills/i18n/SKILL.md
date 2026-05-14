@@ -1,9 +1,15 @@
+---
+name: i18n
+description: "LobeHub internationalization with react-i18next. Use when adding any user-facing string in `.tsx`/`.ts` files, creating or renaming a key under `src/locales/default/{namespace}.ts`, deciding the `{feature}.{context}.{action}` flat-key pattern, wiring a new namespace into `src/locales/default/index.ts`, or translating zh-CN/en-US JSON for dev preview. Triggers on `useTranslation`, `t('foo.bar')`, `i18next.t`, `{{variable}}` interpolation, hardcoded UI strings (zh or en) that should be extracted, 'add i18n', '加 i18n key', '翻译', 'locale key', 'namespace', 'pnpm i18n'."
+user-invocable: false
+---
+
 # LobeHub Internationalization Guide
 
-* Default language: English (en-US)
-* Framework: react-i18next
-* **Only edit files in `src/locales/default/`** \- Never edit JSON files in `locales/`
-* Run `pnpm i18n` to generate translations (or manually translate zh-CN/en-US for dev preview)
+- Default language: English (en-US)
+- Framework: react-i18next
+- **Only edit files in `src/locales/default/`** - Never edit JSON files in `locales/`
+- Run `pnpm i18n` to generate translations (or manually translate zh-CN/en-US for dev preview)
 
 ## Key Naming Convention
 
@@ -21,7 +27,6 @@ export default {
 export default {
   alert: { cloud: { action: '...' } },
 };
-
 ```
 
 **Patterns:** `{feature}.{context}.{action|status}`
@@ -30,7 +35,6 @@ export default {
 
 ```typescript
 'alert.cloud.desc': '我们提供 {{credit}} 额度积分',
-
 ```
 
 **Avoid key conflicts:**
@@ -43,7 +47,6 @@ export default {
 // ✅ Solution
 'clientDB.solve.action': '自助解决',
 'clientDB.solve.backup.title': '数据备份',
-
 ```
 
 ## Workflow
@@ -66,7 +69,6 @@ t('alert.cloud.desc', { credit: '1000' });
 // Multiple namespaces
 const { t } = useTranslation(['common', 'chat']);
 t('common:save');
-
 ```
 
 ## Common Namespaces

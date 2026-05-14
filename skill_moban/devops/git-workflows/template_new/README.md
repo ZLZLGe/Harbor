@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`git-workflows` 类热门 skill 的核心价值，不是单纯给出 git 命令，而是帮助 solver 在分支、工作区、提交历史和交付链之间做出正确动作选择。对于 `using-git-worktrees` 这一类 skill，价值尤其体现在“当前工作区不能动，但另一条修复链必须继续”时，能快速建立可靠的隔离工作区并保护现场状态。
-* **Task 目标形态**：这类任务适合落在真实工程中的 hotfix、release prep、分支整理、并行修复或交付前校验场景。题面应重点交代症状、交付合同和禁止事项，把“应该使用哪种 git 工作流”尽量留给 solver 自己识别。
 * **Verifier 设计重点**：Verifier 应优先验证 solver 是否沿真实 git 工作流完成了动作，例如是否保护了主工作目录、是否从正确基线分支衍生出修复链路、是否在预置的隐藏 worktree 目录而非主 checkout 或随意目录中完成修复、以及是否让该隔离工作区上的真实发布链路可以复跑。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`git-workflows__meridian-hotfix-isolated-worktree`
 - 类别：`git-workflows`
-- 难度：`hard`
 - 绑定 Skill：`using-git-worktrees`
 - 输入数据参考来源：
   - `environment/data/reference/git_worktree.md`：任务内隔离工作区流程参考；直接来源于 Git 官方 `git-worktree` 文档  
@@ -31,7 +29,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：oracle 先在主 checkout 保持 dirty 现场不变，然后基于请求的 `release/2026.04` 分支在预置的隐藏 `.worktrees/` 目录下创建隔离 linked worktree，修复 release 分支上的定价回归，最后复用仓库内现有 `ops/hotfix/run_hotfix.sh` 生成 `hotfix_report.json` 与 `release_notes.md`。它证明任务不依赖隐藏答案文件，而是沿真实 git 链路和真实脚本链完成。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试

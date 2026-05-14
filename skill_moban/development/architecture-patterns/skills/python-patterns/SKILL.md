@@ -1,17 +1,23 @@
+---
+name: python-patterns
+description: Pythonic idioms, PEP 8 standards, type hints, and best practices for building robust, efficient, and maintainable Python applications.
+origin: ECC
+---
+
 # Python Development Patterns
 
 Idiomatic Python patterns and best practices for building robust, efficient, and maintainable applications.
 
 ## When to Activate
 
-* Writing new Python code
-* Reviewing Python code
-* Refactoring existing Python code
-* Designing Python packages/modules
+- Writing new Python code
+- Reviewing Python code
+- Refactoring existing Python code
+- Designing Python packages/modules
 
 ## Core Principles
 
-### 1\. Readability Counts
+### 1. Readability Counts
 
 Python prioritizes readability. Code should be obvious and easy to understand.
 
@@ -25,10 +31,9 @@ def get_active_users(users: list[User]) -> list[User]:
 # Bad: Clever but confusing
 def get_active_users(u):
     return [x for x in u if x.a]
-
 ```
 
-### 2\. Explicit is Better Than Implicit
+### 2. Explicit is Better Than Implicit
 
 Avoid magic; be clear about what your code does.
 
@@ -44,10 +49,9 @@ logging.basicConfig(
 # Bad: Hidden side effects
 import some_module
 some_module.setup()  # What does this do?
-
 ```
 
-### 3\. EAFP - Easier to Ask Forgiveness Than Permission
+### 3. EAFP - Easier to Ask Forgiveness Than Permission
 
 Python prefers exception handling over checking conditions.
 
@@ -65,7 +69,6 @@ def get_value(dictionary: dict, key: str) -> Any:
         return dictionary[key]
     else:
         return default_value
-
 ```
 
 ## Type Hints
@@ -84,7 +87,6 @@ def process_user(
     if not active:
         return None
     return User(user_id, data)
-
 ```
 
 ### Modern Type Hints (Python 3.9+)
@@ -99,7 +101,6 @@ from typing import List, Dict
 
 def process_items(items: List[str]) -> Dict[str, int]:
     return {item: len(item) for item in items}
-
 ```
 
 ### Type Aliases and TypeVar
@@ -119,7 +120,6 @@ T = TypeVar('T')
 def first(items: list[T]) -> T | None:
     """Return the first item or None if list is empty."""
     return items[0] if items else None
-
 ```
 
 ### Protocol-Based Duck Typing
@@ -134,7 +134,6 @@ class Renderable(Protocol):
 def render_all(items: list[Renderable]) -> str:
     """Render all items that implement the Renderable protocol."""
     return "\n".join(item.render() for item in items)
-
 ```
 
 ## Error Handling Patterns
@@ -159,7 +158,6 @@ def load_config(path: str) -> Config:
             return Config.from_json(f.read())
     except:
         return None  # Silent failure!
-
 ```
 
 ### Exception Chaining
@@ -171,7 +169,6 @@ def process_data(data: str) -> Result:
     except json.JSONDecodeError as e:
         # Chain exceptions to preserve the traceback
         raise ValueError(f"Failed to parse data: {data}") from e
-
 ```
 
 ### Custom Exception Hierarchy
@@ -195,7 +192,6 @@ def get_user(user_id: str) -> User:
     if not user:
         raise NotFoundError(f"User not found: {user_id}")
     return user
-
 ```
 
 ## Context Managers
@@ -215,7 +211,6 @@ def process_file(path: str) -> str:
         return f.read()
     finally:
         f.close()
-
 ```
 
 ### Custom Context Managers
@@ -234,7 +229,6 @@ def timer(name: str):
 # Usage
 with timer("data processing"):
     process_large_dataset()
-
 ```
 
 ### Context Manager Classes
@@ -259,7 +253,6 @@ class DatabaseTransaction:
 with DatabaseTransaction(conn):
     user = conn.create_user(user_data)
     conn.create_profile(user.id, profile_data)
-
 ```
 
 ## Comprehensions and Generators
@@ -287,7 +280,6 @@ def filter_and_transform(items: Iterable[int]) -> list[int]:
         if x > 0 and x % 2 == 0:
             result.append(x * 2)
     return result
-
 ```
 
 ### Generator Expressions
@@ -298,7 +290,6 @@ total = sum(x * x for x in range(1_000_000))
 
 # Bad: Creates large intermediate list
 total = sum([x * x for x in range(1_000_000)])
-
 ```
 
 ### Generator Functions
@@ -313,7 +304,6 @@ def read_large_file(path: str) -> Iterator[str]:
 # Usage
 for line in read_large_file("huge.txt"):
     process(line)
-
 ```
 
 ## Data Classes and Named Tuples
@@ -339,7 +329,6 @@ user = User(
     name="Alice",
     email="alice@example.com"
 )
-
 ```
 
 ### Data Classes with Validation
@@ -357,7 +346,6 @@ class User:
         # Validate age range
         if self.age < 0 or self.age > 150:
             raise ValueError(f"Invalid age: {self.age}")
-
 ```
 
 ### Named Tuples
@@ -377,7 +365,6 @@ class Point(NamedTuple):
 p1 = Point(0, 0)
 p2 = Point(3, 4)
 print(p1.distance(p2))  # 5.0
-
 ```
 
 ## Decorators
@@ -404,7 +391,6 @@ def slow_function():
     time.sleep(1)
 
 # slow_function() prints: slow_function took 1.0012s
-
 ```
 
 ### Parameterized Decorators
@@ -427,7 +413,6 @@ def greet(name: str) -> str:
     return f"Hello, {name}!"
 
 # greet("Alice") returns ["Hello, Alice!", "Hello, Alice!", "Hello, Alice!"]
-
 ```
 
 ### Class-Based Decorators
@@ -450,7 +435,6 @@ def process():
     pass
 
 # Each call to process() prints the call count
-
 ```
 
 ## Concurrency Patterns
@@ -479,7 +463,6 @@ def fetch_all_urls(urls: list[str]) -> dict[str, str]:
             except Exception as e:
                 results[url] = f"Error: {e}"
     return results
-
 ```
 
 ### Multiprocessing for CPU-Bound Tasks
@@ -494,7 +477,6 @@ def process_all(datasets: list[list[int]]) -> list[int]:
     with concurrent.futures.ProcessPoolExecutor() as executor:
         results = list(executor.map(process_data, datasets))
     return results
-
 ```
 
 ### Async/Await for Concurrent I/O
@@ -514,14 +496,13 @@ async def fetch_all(urls: list[str]) -> dict[str, str]:
     tasks = [fetch_async(url) for url in urls]
     results = await asyncio.gather(*tasks, return_exceptions=True)
     return dict(zip(urls, results))
-
 ```
 
 ## Package Organization
 
 ### Standard Project Layout
 
-```text
+```
 myproject/
 ├── src/
 │   └── mypackage/
@@ -544,7 +525,6 @@ myproject/
 ├── pyproject.toml
 ├── README.md
 └── .gitignore
-
 ```
 
 ### Import Conventions
@@ -563,10 +543,9 @@ from mypackage.utils import format_name
 
 # Good: Use isort for automatic import sorting
 # pip install isort
-
 ```
 
-### **init**.py for Package Exports
+### __init__.py for Package Exports
 
 ```python
 # mypackage/__init__.py
@@ -579,12 +558,11 @@ from mypackage.models import User, Post
 from mypackage.utils import format_name
 
 __all__ = ["User", "Post", "format_name"]
-
 ```
 
 ## Memory and Performance
 
-### Using **slots** for Memory Efficiency
+### Using __slots__ for Memory Efficiency
 
 ```python
 # Bad: Regular class uses __dict__ (more memory)
@@ -600,7 +578,6 @@ class Point:
     def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
-
 ```
 
 ### Generator for Large Data
@@ -616,7 +593,6 @@ def read_lines(path: str) -> Iterator[str]:
     with open(path) as f:
         for line in f:
             yield line.strip()
-
 ```
 
 ### Avoid String Concatenation in Loops
@@ -637,7 +613,6 @@ buffer = StringIO()
 for item in items:
     buffer.write(str(item))
 result = buffer.getvalue()
-
 ```
 
 ## Python Tooling Integration
@@ -665,7 +640,6 @@ bandit -r .
 # Dependency management
 pip-audit
 safety check
-
 ```
 
 ### pyproject.toml Configuration
@@ -706,23 +680,22 @@ disallow_untyped_defs = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "--cov=mypackage --cov-report=term-missing"
-
 ```
 
 ## Quick Reference: Python Idioms
 
-| Idiom               | Description                                     |
-| ------------------- | ----------------------------------------------- |
-| EAFP                | Easier to Ask Forgiveness than Permission       |
-| Context managers    | Use with for resource management                |
-| List comprehensions | For simple transformations                      |
-| Generators          | For lazy evaluation and large datasets          |
-| Type hints          | Annotate function signatures                    |
-| Dataclasses         | For data containers with auto-generated methods |
-| \_\_slots\_\_       | For memory optimization                         |
-| f-strings           | For string formatting (Python 3.6+)             |
-| pathlib.Path        | For path operations (Python 3.4+)               |
-| enumerate           | For index-element pairs in loops                |
+| Idiom | Description |
+|-------|-------------|
+| EAFP | Easier to Ask Forgiveness than Permission |
+| Context managers | Use `with` for resource management |
+| List comprehensions | For simple transformations |
+| Generators | For lazy evaluation and large datasets |
+| Type hints | Annotate function signatures |
+| Dataclasses | For data containers with auto-generated methods |
+| `__slots__` | For memory optimization |
+| f-strings | For string formatting (Python 3.6+) |
+| `pathlib.Path` | For path operations (Python 3.4+) |
+| `enumerate` | For index-element pairs in loops |
 
 ## Anti-Patterns to Avoid
 
@@ -772,7 +745,6 @@ try:
     risky_operation()
 except SpecificError as e:
     logger.error(f"Operation failed: {e}")
-
 ```
 
-**Remember**: Python code should be readable, explicit, and follow the principle of least surprise. When in doubt, prioritize clarity over cleverness.
+__Remember__: Python code should be readable, explicit, and follow the principle of least surprise. When in doubt, prioritize clarity over cleverness.

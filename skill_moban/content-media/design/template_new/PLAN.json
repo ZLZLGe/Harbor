@@ -1,91 +1,126 @@
 {
-  "task_id": "design__renewable-briefing-deck",
-  "task_name": "renewable-briefing-deck",
-  "template_category": "design",
-  "scenario": "building a management-ready offline HTML presentation from a renewable-energy briefing pack, local visual assets, local data snapshots, and a local source registry",
-  "user_visible_goal": "Produce a reproducible HTML deck for executive review that fits multiple viewports, stays offline, preserves citations, and can be regenerated through the formal deck builder.",
-  "input_assets": [
-    "/root/environment/data/brief/briefing_requirements.json",
-    "/root/environment/data/brief/editorial_notes.json",
-    "/root/environment/data/series/global_renewables_2014_2023.csv",
-    "/root/environment/data/series/country_renewables_share_2019_2023.csv",
-    "/root/environment/data/series/country_mix_2023.csv",
-    "/root/environment/data/assets/brand-mark.svg",
-    "/root/environment/data/assets/grid-pattern.svg",
-    "/root/environment/data/sources/source_catalog.json",
-    "/root/environment/deck/build_briefing.py",
-    "/services/source-registry/server.py"
-  ],
-  "required_outputs": [
-    "/root/answer/presentation.html",
-    "/root/answer/presentation_manifest.json",
-    "/root/answer/source_audit.json"
-  ],
-  "shipped_skills": [
-    "frontend-slides"
-  ],
-  "skill_assets": [
-    "/root/.codex/skills/frontend-slides/SKILL.md",
-    "/root/.codex/skills/frontend-slides/STYLE_PRESETS.md"
-  ],
-  "skill_hypothesis": {
-    "with_skill": "The solver is more likely to follow a slide-building workflow that enforces viewport-fit, offline packaging, multi-input navigation, reduced-motion behavior, and deliberate visual structure instead of stopping at a static long page.",
-    "without_skill": "The solver is more likely to produce a generic or partly interactive HTML page that misses no-scroll viewport fit, wheel/touch navigation parity, or the local registry-backed citation flow."
-  },
-  "verifier_strategy": {
-    "main_tests": [
-      "All required outputs exist, parse, and satisfy the declared contract.",
-      "The deck is offline-safe, browser-runnable, and contains 8 real slides with DOM-visible copy.",
-      "Keyboard, wheel, and touch navigation all move between slides without relying on document scrolling.",
-      "Each required viewport shows the active slide without internal scrolling or clipped critical regions.",
-      "The build uses the local source registry and the final citation labels and URLs match its resolved output."
+  "task_id": "design__north_america_power_mix_brief_site",
+  "category": "design",
+  "task_role": "template",
+  "difficulty": "hard",
+  "primary_output_file": "/app/output/north_america_power_mix_brief.html",
+  "selected_skill": {
+    "dir": "single-file-briefing-deck",
+    "purpose": "Guide the agent to turn a fixed contract, wireframes, and public data snapshots into a single-file browser briefing site with contract-complete pages, embedded charts, and local-file playback.",
+    "naming_note": "This template binds the shipped task-local skill directory `single-file-briefing-deck` under environment/skills. The without-skill comparison removes only that directory during runtime copy.",
+    "key_workflow_points": [
+      "read the page contract before editing code",
+      "track page completion against required page ids, modules, and chart ids",
+      "derive shared metric years from the bundled data instead of guessing them",
+      "keep the deck in one HTML file plus one manifest file",
+      "audit navigation and viewport fit in a browser before handoff"
     ],
-    "guardrails": [
-      "Remote fonts, scripts, stylesheets, and external fetches fail the task.",
-      "A long scrolling page, rasterized slide export, or canvas-only content cannot pass.",
-      "Changing protected inputs or bypassing the local source-registry access path cannot satisfy the request-log and checksum checks."
+    "skillsmp_references": [
+      {
+        "name": "frontend-slides",
+        "stars": "177.6k",
+        "relevance": "High-overlap workflow for browser-run presentations, page sequencing, and viewport-safe delivery."
+      },
+      {
+        "name": "concept-diagrams",
+        "stars": "142.4k",
+        "relevance": "Reinforces structured visual explanation and diagram-plus-copy composition inside a browser artifact."
+      },
+      {
+        "name": "popular-web-designs",
+        "stars": "142.4k",
+        "relevance": "Contributes strong browser-delivery expectations for polished layout, visual hierarchy, and page composition."
+      },
+      {
+        "name": "sketch",
+        "stars": "142.4k",
+        "relevance": "Supports quick layout variation thinking and wireframe-aware page composition for browser-delivered work."
+      },
+      {
+        "name": "canvas-design",
+        "stars": "131.6k",
+        "relevance": "Contributes presentation-level craft expectations for static visual framing without changing the task into an art-only deliverable."
+      },
+      {
+        "name": "imagegen",
+        "stars": "81.5k",
+        "relevance": "Relevant neighboring design skill for raster outputs, included here as a contrast point because this template stays code-native in HTML."
+      },
+      {
+        "name": "ckmbanner-design",
+        "stars": "76.0k",
+        "relevance": "Useful comparison point for high-direction visual polish and structured design guidance."
+      },
+      {
+        "name": "ppt-generation",
+        "stars": "66.4k",
+        "relevance": "Adjacent briefing-delivery workflow for structured page composition and chart-heavy storytelling."
+      },
+      {
+        "name": "editorial-burgundy-principles-template",
+        "stars": "36.2k",
+        "relevance": "Provides a close deck-oriented comparison point for page-by-page editorial presentation work."
+      },
+      {
+        "name": "open-design-landing-deck",
+        "stars": "36.2k",
+        "relevance": "Another strong browser deck reference for navigation chrome, slide sequencing, and single-file presentation behavior."
+      },
+      {
+        "name": "html-ppt-zhangzara-block-frame",
+        "stars": "36.2k",
+        "relevance": "Useful reference for bold deck page composition and review-ready presentation framing."
+      },
+      {
+        "name": "tailwind-design-system",
+        "stars": "35.1k",
+        "relevance": "Useful comparison point for token-driven layout consistency and reusable page modules."
+      },
+      {
+        "name": "excalidraw-diagram-generator",
+        "stars": "32.6k",
+        "relevance": "Useful lower-level diagram reference for structured visual explanation, though this template delivers in HTML rather than Excalidraw JSON."
+      },
+      {
+        "name": "legacy-circuit-mockups",
+        "stars": "32.6k",
+        "relevance": "Another comparison point for generated visual artifacts with deterministic structure and browser-visible output."
+      }
     ]
   },
-  "data_provenance": {
-    "world_and_country_series": "Filtered local snapshots derived from the Our World in Data energy dataset.",
-    "briefing_context": "Locally curated executive briefing requirements shaped by IEA and IRENA public reporting.",
-    "source_registry": "Deterministic local service backed by a checked-in source catalog."
+  "environment_design": {
+    "shape": "single Docker container",
+    "live_services": [],
+    "hidden_services": [],
+    "determinism": "The task uses fixed public-data snapshots, fixed wireframes, and a fixed page contract. Verifier-side checks recompute expected metrics from the local snapshots, inspect the generated HTML structure, and replay viewport checks instead of trusting filenames or summaries alone.",
+    "with_without_rule": "The with-skill and without-skill variants may differ only by the presence or absence of environment/skills and the established runtime copy logic that removes that directory for the without-skill run. Instruction, tests, data, dependencies, and the skill contents themselves must stay identical across the comparison.",
+    "anti_toy_features": [
+      "multiple public-source datasets in mixed formats with different metric vintages",
+      "contract-defined page order plus wireframe-defined layout expectations, so page completion requires more than filling text slots",
+      "required chart, table, and explanatory-text colocation on the same page sections",
+      "single-file HTML delivery with local-file playback, navigation behavior, and viewport constraints",
+      "manifest cross-checks against page ids, chart ids, module ids, and metric years",
+      "formal local build entrypoint that must remain reusable on alternate fixtures"
+    ]
   },
-  "validation_results": {
-    "local_oracle": {
-      "tests_passed": "not run locally; final acceptance was validated through E2B oracle runs",
-      "command": null
-    },
-    "e2b_oracle": {
-      "job": "/home/lenovo/.tmp_harbor_jobs_design_20260501-061556-oracle-final7/design-template-oracle-20260501-061556-oracle-final7/task_oracle_e2b__WtRaev7",
-      "reward": 1.0,
-      "tests_passed": "12/12"
-    },
-    "e2b_comparison": {
-      "with_skill_jobs": [
-        "/home/lenovo/.tmp_harbor_jobs_design_20260501-061706-final-with-e/design-template-with-skill-20260501-061706-final-with-e/task_with_skills_e2b__dRMP958",
-        "/home/lenovo/.tmp_harbor_jobs_design_20260501-063408-final-with-f/design-template-with-skill-20260501-063408-final-with-f/task_with_skills_e2b__VrXbifw",
-        "/home/lenovo/.tmp_harbor_jobs_design_20260501-071830-final-with-i/design-template-with-skill-20260501-071830-final-with-i/task_with_skills_e2b__Z6Sry27"
-      ],
-      "without_skill_jobs": [
-        "/home/lenovo/.tmp_harbor_jobs_design_20260501-053136-final-without-b/design-template-without-skill-20260501-053136-final-without-b/task_without_skills_e2b__B4JWisM",
-        "/home/lenovo/.tmp_harbor_jobs_design_20260501-061706-final-without-d/design-template-without-skill-20260501-061706-final-without-d/task_without_skills_e2b__6BBQGHB",
-        "/home/lenovo/.tmp_harbor_jobs_design_20260501-065642-final-without-f/design-template-without-skill-20260501-065642-final-without-f/task_without_skills_e2b__UHFxXbp"
-      ],
-      "valid_trials_per_condition": 3,
-      "with_skill_pass_at_n": "3/3",
-      "without_skill_pass_at_n": "0/3",
-      "with_skill_avg_agent_seconds": 1219.0586906666667,
-      "without_skill_avg_agent_seconds": 736.9519706666666,
-      "with_skill_avg_input_tokens": 4063987.6666666665,
-      "without_skill_avg_input_tokens": 838794.6666666666,
-      "with_skill_avg_output_tokens": 53391.333333333336,
-      "without_skill_avg_output_tokens": 37126.666666666664,
-      "notes": [
-        "The chosen with_skill set uses three final-version valid successful runs on the unchanged task checksum 9086c3a1a0933b2dbfd10cad914541a4508844c0cae7216f61bf43bd4ac2feba.",
-        "The chosen without_skill set uses three final-version valid failed runs where environment/skills was removed at runtime copy time and no other task components were changed.",
-        "Observed with_skill failures on other valid runs were near-miss execution gaps such as not preserving the three exploration previews or leaving one slide under the DOM text threshold; without_skill failures were broader workflow misses."
-      ]
-    }
+  "verifier_design": {
+    "main_tests": [
+      "formal build entrypoint produces the required HTML site and manifest",
+      "required page ids, page order, module coverage, and chart coverage match the contract",
+      "computed metrics and captions match the bundled data snapshots",
+      "wireframe-sensitive structure checks confirm that required sections appear on the intended pages",
+      "viewport-fit and navigation checks run across all required pages instead of stopping at the first pass",
+      "manifest and HTML stay consistent on page ids, chart ids, embedded assets, and metric years"
+    ],
+    "guardrails": [
+      "input files under /app/power_brief remain unchanged",
+      "the shipped input area remains unchanged",
+      "top-level output inventory exactly matches the contract",
+      "placeholder-oriented or verifier-oriented text in the formal outputs fails"
+    ]
+  },
+  "expected_skill_effect": {
+    "without_skill": "Without the bundled skill, agents are more likely to drift into building a generic webpage, miss the contract-to-wireframe mapping, skip viewport and navigation auditing, or stop after partial page assembly. Those are action-level or analysis-level misses rather than narrow formatting misses.",
+    "with_skill": "The bundled skill can provide a compact workflow for contract reading, page-by-page module tracking, local-file browser verification, and final manifest alignment, which should materially improve completion odds without changing the task statement or test surface."
   }
 }

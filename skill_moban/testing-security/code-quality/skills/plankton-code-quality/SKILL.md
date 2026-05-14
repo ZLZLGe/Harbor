@@ -1,13 +1,19 @@
+---
+name: plankton-code-quality
+description: "Write-time code quality enforcement using Plankton — auto-formatting, linting, and Claude-powered fixes on every file edit via hooks."
+origin: community
+---
+
 # Plankton Code Quality Skill
 
 Integration reference for Plankton (credit: @alxfazio), a write-time code quality enforcement system for Claude Code. Plankton runs formatters and linters on every file edit via PostToolUse hooks, then spawns Claude subprocesses to fix violations the agent didn't catch.
 
 ## When to Use
 
-* You want automatic formatting and linting on every file edit (not just at commit time)
-* You need defense against agents modifying linter configs to pass instead of fixing code
-* You want tiered model routing for fixes (Haiku for simple style, Sonnet for logic, Opus for types)
-* You work with multiple languages (Python, TypeScript, Shell, YAML, JSON, TOML, Markdown, Dockerfile)
+- You want automatic formatting and linting on every file edit (not just at commit time)
+- You need defense against agents modifying linter configs to pass instead of fixing code
+- You want tiered model routing for fixes (Haiku for simple style, Sonnet for logic, Opus for types)
+- You work with multiple languages (Python, TypeScript, Shell, YAML, JSON, TOML, Markdown, Dockerfile)
 
 ## How It Works
 
@@ -15,7 +21,7 @@ Integration reference for Plankton (credit: @alxfazio), a write-time code qualit
 
 Every time Claude Code edits or writes a file, Plankton's `multi_linter.sh` PostToolUse hook runs:
 
-```text
+```
 Phase 1: Auto-Format (Silent)
 ├─ Runs formatters (ruff format, biome, shfmt, taplo, markdownlint)
 ├─ Fixes 40-50% of issues silently
@@ -34,17 +40,16 @@ Phase 3: Delegate + Verify
 │   └─ Opus: type system, deep reasoning (unresolved-attribute) — 600s timeout
 ├─ Re-runs Phase 1+2 to verify fixes
 └─ Exit 0 if clean, Exit 2 if violations remain (reported to main agent)
-
 ```
 
 ### What the Main Agent Sees
 
-| Scenario                           | Agent sees                     | Hook exit |
-| ---------------------------------- | ------------------------------ | --------- |
-| No violations                      | Nothing                        | 0         |
-| All fixed by subprocess            | Nothing                        | 0         |
-| Violations remain after subprocess | \[hook\] N violation(s) remain | 2         |
-| Advisory (duplicates, old tooling) | \[hook:advisory\] ...          | 0         |
+| Scenario | Agent sees | Hook exit |
+|----------|-----------|-----------|
+| No violations | Nothing | 0 |
+| All fixed by subprocess | Nothing | 0 |
+| Violations remain after subprocess | `[hook] N violation(s) remain` | 2 |
+| Advisory (duplicates, old tooling) | `[hook:advisory] ...` | 0 |
 
 The main agent only sees issues the subprocess couldn't fix. Most quality problems are resolved transparently.
 
@@ -59,10 +64,9 @@ LLMs will modify `.ruff.toml` or `biome.json` to disable rules rather than fix c
 ### Package Manager Enforcement
 
 A PreToolUse hook on Bash blocks legacy package managers:
-
-* `pip`, `pip3`, `poetry`, `pipenv` → Blocked (use `uv`)
-* `npm`, `yarn`, `pnpm` → Blocked (use `bun`)
-* Allowed exceptions: `npm audit`, `npm view`, `npm publish`
+- `pip`, `pip3`, `poetry`, `pipenv` → Blocked (use `uv`)
+- `npm`, `yarn`, `pnpm` → Blocked (use `bun`)
+- Allowed exceptions: `npm audit`, `npm view`, `npm publish`
 
 ## Setup
 
@@ -79,7 +83,6 @@ uv sync --all-extras
 
 # Start Claude Code — hooks activate automatically
 claude
-
 ```
 
 No install command, no plugin config. The hooks in `.claude/settings.json` are picked up automatically when you run Claude Code in the Plankton directory.
@@ -95,29 +98,29 @@ To use Plankton hooks in your own project:
 
 ### Language-Specific Dependencies
 
-| Language      | Required             | Optional                                           |
-| ------------- | -------------------- | -------------------------------------------------- |
-| Python        | ruff, uv             | ty (types), vulture (dead code), bandit (security) |
-| TypeScript/JS | biome                | oxlint, semgrep, knip (dead exports)               |
-| Shell         | shellcheck, shfmt    | —                                                  |
-| YAML          | yamllint             | —                                                  |
-| Markdown      | markdownlint-cli2    | —                                                  |
-| Dockerfile    | hadolint (>= 2.12.0) | —                                                  |
-| TOML          | taplo                | —                                                  |
-| JSON          | jaq                  | —                                                  |
+| Language | Required | Optional |
+|----------|----------|----------|
+| Python | `ruff`, `uv` | `ty` (types), `vulture` (dead code), `bandit` (security) |
+| TypeScript/JS | `biome` | `oxlint`, `semgrep`, `knip` (dead exports) |
+| Shell | `shellcheck`, `shfmt` | — |
+| YAML | `yamllint` | — |
+| Markdown | `markdownlint-cli2` | — |
+| Dockerfile | `hadolint` (>= 2.12.0) | — |
+| TOML | `taplo` | — |
+| JSON | `jaq` | — |
 
 ## Pairing with ECC
 
 ### Complementary, Not Overlapping
 
-| Concern                  | ECC                                  | Plankton                                           |
-| ------------------------ | ------------------------------------ | -------------------------------------------------- |
-| Code quality enforcement | PostToolUse hooks (Prettier, tsc)    | PostToolUse hooks (20+ linters + subprocess fixes) |
-| Security scanning        | AgentShield, security-reviewer agent | Bandit (Python), Semgrep (TypeScript)              |
-| Config protection        | —                                    | PreToolUse blocks + Stop hook detection            |
-| Package manager          | Detection + setup                    | Enforcement (blocks legacy PMs)                    |
-| CI integration           | —                                    | Pre-commit hooks for git                           |
-| Model routing            | Manual (/model opus)                 | Automatic (violation complexity → tier)            |
+| Concern | ECC | Plankton |
+|---------|-----|----------|
+| Code quality enforcement | PostToolUse hooks (Prettier, tsc) | PostToolUse hooks (20+ linters + subprocess fixes) |
+| Security scanning | AgentShield, security-reviewer agent | Bandit (Python), Semgrep (TypeScript) |
+| Config protection | — | PreToolUse blocks + Stop hook detection |
+| Package manager | Detection + setup | Enforcement (blocks legacy PMs) |
+| CI integration | — | Pre-commit hooks for git |
+| Model routing | Manual (`/model opus`) | Automatic (violation complexity → tier) |
 
 ### Recommended Combination
 
@@ -129,10 +132,9 @@ To use Plankton hooks in your own project:
 ### Avoiding Hook Conflicts
 
 If running both ECC and Plankton hooks:
-
-* ECC's Prettier hook and Plankton's biome formatter may conflict on JS/TS files
-* Resolution: disable ECC's Prettier PostToolUse hook when using Plankton (Plankton's biome is more comprehensive)
-* Both can coexist on different file types (ECC handles what Plankton doesn't cover)
+- ECC's Prettier hook and Plankton's biome formatter may conflict on JS/TS files
+- Resolution: disable ECC's Prettier PostToolUse hook when using Plankton (Plankton's biome is more comprehensive)
+- Both can coexist on different file types (ECC handles what Plankton doesn't cover)
 
 ## Configuration Reference
 
@@ -168,29 +170,27 @@ Plankton's `.claude/hooks/config.json` controls all behavior:
     "volume_threshold": 5
   }
 }
-
 ```
 
 **Key settings:**
-
-* Disable languages you don't use to speed up hooks
-* `volume_threshold` — violations > this count auto-escalate to a higher model tier
-* `subprocess_delegation: false` — skip Phase 3 entirely (just report violations)
+- Disable languages you don't use to speed up hooks
+- `volume_threshold` — violations > this count auto-escalate to a higher model tier
+- `subprocess_delegation: false` — skip Phase 3 entirely (just report violations)
 
 ## Environment Overrides
 
-| Variable                    | Purpose                                  |
-| --------------------------- | ---------------------------------------- |
-| HOOK\_SKIP\_SUBPROCESS=1    | Skip Phase 3, report violations directly |
-| HOOK\_SUBPROCESS\_TIMEOUT=N | Override tier timeout                    |
-| HOOK\_DEBUG\_MODEL=1        | Log model selection decisions            |
-| HOOK\_SKIP\_PM=1            | Bypass package manager enforcement       |
+| Variable | Purpose |
+|----------|---------|
+| `HOOK_SKIP_SUBPROCESS=1` | Skip Phase 3, report violations directly |
+| `HOOK_SUBPROCESS_TIMEOUT=N` | Override tier timeout |
+| `HOOK_DEBUG_MODEL=1` | Log model selection decisions |
+| `HOOK_SKIP_PM=1` | Bypass package manager enforcement |
 
 ## References
 
-* Plankton (credit: @alxfazio)
-* Plankton REFERENCE.md — Full architecture documentation (credit: @alxfazio)
-* Plankton SETUP.md — Detailed installation guide (credit: @alxfazio)
+- Plankton (credit: @alxfazio)
+- Plankton REFERENCE.md — Full architecture documentation (credit: @alxfazio)
+- Plankton SETUP.md — Detailed installation guide (credit: @alxfazio)
 
 ## ECC v1.8 Additions
 
@@ -202,20 +202,19 @@ Set strict quality behavior:
 export ECC_HOOK_PROFILE=strict
 export ECC_QUALITY_GATE_FIX=true
 export ECC_QUALITY_GATE_STRICT=true
-
 ```
 
 ### Language Gate Table
 
-* TypeScript/JavaScript: Biome preferred, Prettier fallback
-* Python: Ruff format/check
-* Go: gofmt
+- TypeScript/JavaScript: Biome preferred, Prettier fallback
+- Python: Ruff format/check
+- Go: gofmt
 
 ### Config Tamper Guard
 
 During quality enforcement, flag changes to config files in same iteration:
 
-* `biome.json`, `.eslintrc*`, `prettier.config*`, `tsconfig.json`, `pyproject.toml`
+- `biome.json`, `.eslintrc*`, `prettier.config*`, `tsconfig.json`, `pyproject.toml`
 
 If config is changed to suppress violations, require explicit review before merge.
 
@@ -231,8 +230,7 @@ Use the same commands in CI as local hooks:
 ### Health Metrics
 
 Track:
-
-* edits flagged by gates
-* average remediation time
-* repeat violations by category
-* merge blocks due to gate failures
+- edits flagged by gates
+- average remediation time
+- repeat violations by category
+- merge blocks due to gate failures

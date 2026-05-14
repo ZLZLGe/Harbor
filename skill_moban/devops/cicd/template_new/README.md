@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：CI/CD 类 skill 的核心价值，是把分散在 workflow、镜像发布、环境切分、复用校验和发布推进中的高成本决策标准化，帮助 Agent 更快收敛到可交付的自动化方案。模板任务应让 skill 主要作用在 job 编排、依赖关系、环境门禁、可复用校验入口、制品提升和 rollout 策略这些环节。
-* **Task 目标形态**：任务应要求 Agent 基于现有仓库、合同数据和现有脚本入口，补齐一条可运行的发布自动化链路，并产出结构化交付摘要。目标更适合做“交付链搭建”和“发布方案落地”类任务，让 solver 同时处理 workflow 编排、共享校验、镜像发布、不可变制品推进、环境拆分和 rollout 设计。
 * **Verifier 设计重点**：Verifier 应优先验证自动化链路是否按合同落地，并通过既有入口产生产物，而不是只检查 YAML 外形。重点应覆盖触发条件、复用校验、制品构建、不可变制品在环境阶段的延续、环境约束、发布策略、输入不可变以及 entrypoint 对仓库当前状态的响应能力。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`cicd__saturn-checkout-release-automation`
 - 类别：`cicd`
-- 难度：`hard`
 - 绑定 Skill：`github-actions-templates`
 - 输入数据参考来源：
   - `environment/data/reference/github_actions_node_ci.md`：Node.js 校验 workflow 形态参考  
@@ -32,7 +30,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 写入两份 GitHub Actions workflow 和一份生产 rollout 配置，再沿用仓库内 `npm`、部署脚本和 `make release-bundle` 入口生成 `artifacts/release_bundle.json`。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -47,7 +45,7 @@
 防作弊测试
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 输入完整性 | `/app/data/` 下合同与参考文件哈希不得变化 |
+| 输入完整性 | `/app/data/` 下合同与参考文件不可修改 |
 | 入口重跑 | 删除结果后重新执行 `make release-bundle`，语义结果应保持一致 |
 | 变更感知 | 临时改坏 rollout 权重后，entrypoint 应拒绝生成 bundle |
 | 旁路防护 | 仅手写答案文件、跳过不可变制品提升或只留表面摘要，无法通过独立重算与 mutation 校验 |

@@ -1,3 +1,12 @@
+---
+name: gtm-product-led-growth
+description: Build self-serve acquisition and expansion motions. Use when deciding PLG vs sales-led, optimizing activation, driving freemium conversion, building growth equations, or recognizing when product complexity demands human touch. Includes the parallel test where sales-led won 10x on revenue.
+license: MIT
+metadata:
+  author: Smit Patel (https://linkedin.com/in/smitkpatel)
+  source: https://github.com/beingsmit/technical-product-gtm
+---
+
 # Product-Led Growth
 
 Build self-serve acquisition and expansion motions. But first, figure out if PLG is even the right motion for your product.
@@ -5,27 +14,25 @@ Build self-serve acquisition and expansion motions. But first, figure out if PLG
 ## When to Use
 
 **Triggers:**
-
-* "Should we build PLG or sales-led?"
-* "How do we drive self-serve adoption?"
-* "Freemium to paid conversion isn't working"
-* "Developer-led adoption strategy"
-* "Which growth channels should we invest in?"
-* "How do I know if PLG will work?"
+- "Should we build PLG or sales-led?"
+- "How do we drive self-serve adoption?"
+- "Freemium to paid conversion isn't working"
+- "Developer-led adoption strategy"
+- "Which growth channels should we invest in?"
+- "How do I know if PLG will work?"
 
 **Context:**
-
-* Developer tools and platforms
-* B2B SaaS with self-serve potential
-* Products where value is obvious without demo
-* Bottom-up adoption motions
-* Growth channel prioritization
+- Developer tools and platforms
+- B2B SaaS with self-serve potential
+- Products where value is obvious without demo
+- Bottom-up adoption motions
+- Growth channel prioritization
 
 ---
 
 ## Core Frameworks
 
-### 1\. The PLG Reality Check (Test Before You Commit)
+### 1. The PLG Reality Check (Test Before You Commit)
 
 **What I Learned Running Both Motions in Parallel:**
 
@@ -33,31 +40,29 @@ Classic startup debate. PLG camp: "Developers want self-serve." Sales camp: "Ent
 
 **The Results:**
 
-PLG: High volume, low ACV (~~$5K), fast time-to-revenue, higher churn. Sales-led: Lower volume, high ACV (~~$50K), slower time-to-revenue, lower churn. **Sales won 10x on dollars despite 10x less volume.**
+PLG: High volume, low ACV (~$5K), fast time-to-revenue, higher churn. Sales-led: Lower volume, high ACV (~$50K), slower time-to-revenue, lower churn. **Sales won 10x on dollars despite 10x less volume.**
 
 **Why:** Product complexity + buyer seniority = sales-led wins. The product required integration with existing infrastructure, change management across teams, and multi-stakeholder alignment. Developers loved self-serve. But they weren't the economic buyer.
 
 **PLG works when:**
-
-* Value is obvious in first 5 minutes
-* Implementation is trivial
-* Individual user gets value without team buy-in
-* No procurement/legal hurdles
-* Buyer = user
+- Value is obvious in first 5 minutes
+- Implementation is trivial
+- Individual user gets value without team buy-in
+- No procurement/legal hurdles
+- Buyer = user
 
 **Sales-led works when:**
-
-* Product requires integration/setup
-* Multiple stakeholders need alignment
-* Buyer ≠ user
-* Deal size justifies human touch
-* Customer needs education to see value
+- Product requires integration/setup
+- Multiple stakeholders need alignment
+- Buyer ≠ user
+- Deal size justifies human touch
+- Customer needs education to see value
 
 **Before building PLG, test your motion. Don't assume PLG is better because it's trendy.** PLG is efficient at volume, but sales-led can be more profitable with complexity.
 
 ---
 
-### 2\. The Growth Equation (Map Inputs to Outputs)
+### 2. The Growth Equation (Map Inputs to Outputs)
 
 **The Pattern:**
 
@@ -67,10 +72,10 @@ Growth compounds when you systematize the relationship between activities and us
 
 For each channel, define: Activity (input) → Traffic (output) → Conversions.
 
-* **Organic Search:** 1 quality blog post → 400 users/month → 5% conversion = 20 new users
-* **Paid Ads:** $1K spend at 8% conversion on 100K impressions = 8K clicks → conversions at X%
-* **Community Events:** 1 event → 60 attendees → 35% conversion = 21 users
-* **Referral:** 1 integration partner → N referred users → conversions at Y%
+- **Organic Search:** 1 quality blog post → 400 users/month → 5% conversion = 20 new users
+- **Paid Ads:** $1K spend at 8% conversion on 100K impressions = 8K clicks → conversions at X%
+- **Community Events:** 1 event → 60 attendees → 35% conversion = 21 users
+- **Referral:** 1 integration partner → N referred users → conversions at Y%
 
 **Why This Matters:**
 
@@ -90,14 +95,13 @@ Guessing at conversion rates without testing. Assuming all users from the same c
 
 ---
 
-### 3\. Channel Economics (Kill Losers, Double Down on Winners)
+### 3. Channel Economics (Kill Losers, Double Down on Winners)
 
 **The Pattern:**
 
 Every channel has economics. Without tracking them, you over-invest in losers and under-invest in winners.
 
 **Track Per Channel:**
-
 1. **CAC:** Total spend / new users
 2. **Conversion rate:** Signups → paying
 3. **Retention:** 30-day, 90-day by source
@@ -106,9 +110,9 @@ Every channel has economics. Without tracking them, you over-invest in losers an
 
 **The Decision Framework:**
 
-* CAC < (LTV × margin) → Scale aggressively
-* CAC ≈ (LTV × margin) → Optimize, don't scale
-* CAC > (LTV × margin) → Kill within 4 weeks
+- CAC < (LTV × margin) → Scale aggressively
+- CAC ≈ (LTV × margin) → Optimize, don't scale
+- CAC > (LTV × margin) → Kill within 4 weeks
 
 **Monthly channel review:** Which channels are profitable? Which are drains? Quarterly reallocation: 3x budget to winners, kill losers.
 
@@ -126,7 +130,7 @@ Tracking CAC without retention. A cheap channel that churns users costs more tha
 
 ---
 
-### 4\. Time to First Value (The Only Activation Metric)
+### 4. Time to First Value (The Only Activation Metric)
 
 **The Pattern:**
 
@@ -158,7 +162,7 @@ Assuming users will read documentation. They won't. They'll click around for 5 m
 
 ---
 
-### 5\. The $5K → $50K Inflection (When PLG Breaks)
+### 5. The $5K → $50K Inflection (When PLG Breaks)
 
 **The Pattern:**
 
@@ -174,13 +178,14 @@ PLG works for $1K-$10K ARR. Between $20K-$50K, the motion breaks because organiz
 
 **PQL Signals (When to Trigger Sales):**
 
-* **Usage depth:** Daily active, core features used, approaching limits
-* **Expansion signals:** Multiple users from same company, team features, integrations
-* **Buying signals:** Requests for SSO/compliance/SLAs, asks about team pricing
+- **Usage depth:** Daily active, core features used, approaching limits
+- **Expansion signals:** Multiple users from same company, team features, integrations
+- **Buying signals:** Requests for SSO/compliance/SLAs, asks about team pricing
 
 **The Handoff:**
 
-Bad: "Hey, I saw you signed up." (Cold, generic, kills trust) Good: "Your team is using \[specific feature\] across 12 repos. We can help you \[specific value\]. Want 15 minutes?" (Warm, specific, offers value)
+Bad: "Hey, I saw you signed up." (Cold, generic, kills trust)
+Good: "Your team is using [specific feature] across 12 repos. We can help you [specific value]. Want 15 minutes?" (Warm, specific, offers value)
 
 **Common Mistake:**
 
@@ -188,7 +193,7 @@ Sales engaging too early on <$5K deals. Kills PLG motion, scares users. Let them
 
 ---
 
-### 6\. Growth Forecasting (Plan for Uncertainty)
+### 6. Growth Forecasting (Plan for Uncertainty)
 
 **The Pattern:**
 
@@ -197,31 +202,27 @@ Forecasts are always wrong. Plans are still valuable because they force thinking
 **Model Three Scenarios:**
 
 **Baseline (current trajectory continues):**
-
-* Organic search: 35% growth → 40K new users
-* Paid: Flat → 2K new users
-* Community: 10% growth → 400 new users
-* Total: 42.4K
+- Organic search: 35% growth → 40K new users
+- Paid: Flat → 2K new users
+- Community: 10% growth → 400 new users
+- Total: 42.4K
 
 **Upside (if all growth initiatives execute):**
-
-* Organic: 50% growth (3x content) → 48K
-* Paid: 2x spend, same efficiency → 4K
-* New initiative (partnerships): ramp → 3K
-* Total: 55K
+- Organic: 50% growth (3x content) → 48K
+- Paid: 2x spend, same efficiency → 4K
+- New initiative (partnerships): ramp → 3K
+- Total: 55K
 
 **Downside (if key channels fail):**
-
-* Organic: 0% growth → 26K
-* Paid: CPA doubles → 1K
-* Total: 27K
+- Organic: 0% growth → 26K
+- Paid: CPA doubles → 1K
+- Total: 27K
 
 **Use This For:**
-
-* Setting baseline targets (baseline scenario)
-* Stretch goals (upside scenario)
-* Escalation triggers (if you hit downside, something needs to change)
-* Resource allocation (what inputs change to hit upside?)
+- Setting baseline targets (baseline scenario)
+- Stretch goals (upside scenario)
+- Escalation triggers (if you hit downside, something needs to change)
+- Resource allocation (what inputs change to hit upside?)
 
 **Monthly Update:** Compare forecast to actual. Adjust model. Don't forecast-and-forget.
 
@@ -231,7 +232,7 @@ Overly optimistic forecasts that assume everything works. Not updating monthly. 
 
 ---
 
-### 7\. The Playbook Documentation Habit
+### 7. The Playbook Documentation Habit
 
 **The Pattern:**
 
@@ -239,7 +240,7 @@ Knowledge dies with people. The goal isn't one-off wins — it's systematizing w
 
 **After every successful campaign or experiment, write a 1-page playbook:**
 
-```text
+```
 PLAYBOOK: [Channel/Tactic Name]
 
 Goal: [What outcome]
@@ -249,7 +250,6 @@ Metrics to Track: [How to measure]
 Risks & Mitigations: [What could go wrong]
 Owner: [Name]
 Last Updated: [Date]
-
 ```
 
 **The Test:** Could someone who wasn't involved execute this playbook? If not, it's too vague.
@@ -266,7 +266,7 @@ Running experiments without documenting learnings. Scaling before you understand
 
 ### Should We Build PLG or Sales-Led?
 
-```text
+```
 Can users get value in <10 min without docs?
 ├─ No → Sales-led required
 └─ Yes → Can they self-serve implementation?
@@ -274,35 +274,39 @@ Can users get value in <10 min without docs?
     └─ Yes → Is buyer = user?
         ├─ No → Hybrid (PLG + sales-assist)
         └─ Yes → Pure PLG viable
-
 ```
 
 ### Keep, Scale, or Kill This Channel?
 
-```text
+```
 CAC < (LTV × margin)?
 ├─ No → Kill within 4 weeks
 └─ Yes → 90-day retention > 60%?
     ├─ No → Optimize (improve activation/onboarding)
     └─ Yes → Scale aggressively (3x budget)
-
 ```
 
 ---
 
 ## Common Mistakes
 
-**1\. Assuming PLG always works**Product complexity + buyer seniority = sales-led wins. Test before committing.
+**1. Assuming PLG always works**
+Product complexity + buyer seniority = sales-led wins. Test before committing.
 
-**2\. No channel economics**Every channel has CAC, retention, and LTV. Track them or you're flying blind.
+**2. No channel economics**
+Every channel has CAC, retention, and LTV. Track them or you're flying blind.
 
-**3\. Free tier too generous or too limited**Too generous: no conversion. Too limited: no activation. Allow 10-20 aha moments.
+**3. Free tier too generous or too limited**
+Too generous: no conversion. Too limited: no activation. Allow 10-20 aha moments.
 
-**4\. No growth equation**"Do more marketing" isn't a strategy. Map inputs → outputs → conversions per channel.
+**4. No growth equation**
+"Do more marketing" isn't a strategy. Map inputs → outputs → conversions per channel.
 
-**5\. Scaling before validating**4 weeks of data before scaling any channel. Kill decisively if economics don't work.
+**5. Scaling before validating**
+4 weeks of data before scaling any channel. Kill decisively if economics don't work.
 
-**6\. Growth knowledge in one person's head**Document every successful experiment as a playbook.
+**6. Growth knowledge in one person's head**
+Document every successful experiment as a playbook.
 
 ---
 
@@ -326,10 +330,10 @@ CAC < (LTV × margin)?
 
 ## Related Skills
 
-* **technical-product-pricing**: Freemium thresholds and pricing gates
-* **developer-ecosystem**: Developer-specific adoption programs
-* **0-to-1-launch**: Finding first customers before PLG scales
+- **technical-product-pricing**: Freemium thresholds and pricing gates
+- **developer-ecosystem**: Developer-specific adoption programs
+- **0-to-1-launch**: Finding first customers before PLG scales
 
 ---
 
-_Based on experience across multiple platform companies — leading a growth team building PLG and sales-led motions from scratch, and operating inside successful PLG + sales-led machines at hypergrowth companies. The combination taught both sides: what it takes to establish these motions early (when resources are thin and every bet matters) and what the mature version looks like at scale (growth equations, channel economics systems, freemium pricing gates, and systematic A/B testing that documents every win and loss into executable playbooks). Not theory — lessons from building the machine and operating inside ones that worked._
+*Based on experience across multiple platform companies — leading a growth team building PLG and sales-led motions from scratch, and operating inside successful PLG + sales-led machines at hypergrowth companies. The combination taught both sides: what it takes to establish these motions early (when resources are thin and every bet matters) and what the mature version looks like at scale (growth equations, channel economics systems, freemium pricing gates, and systematic A/B testing that documents every win and loss into executable playbooks). Not theory — lessons from building the machine and operating inside ones that worked.*

@@ -1,3 +1,8 @@
+---
+name: github-actions-templates
+description: Create production-ready GitHub Actions workflows for automated testing, building, and deploying applications. Use when setting up CI/CD with GitHub Actions, automating development workflows, or creating reusable workflow templates.
+---
+
 # GitHub Actions Templates
 
 Production-ready GitHub Actions workflow patterns for testing, building, and deploying applications.
@@ -8,11 +13,11 @@ Create efficient, secure GitHub Actions workflows for continuous integration and
 
 ## When to Use
 
-* Automate testing and deployment
-* Build Docker images and push to registries
-* Deploy to Kubernetes clusters
-* Run security scans
-* Implement matrix builds for multiple environments
+- Automate testing and deployment
+- Build Docker images and push to registries
+- Deploy to Kubernetes clusters
+- Run security scans
+- Implement matrix builds for multiple environments
 
 ## Common Workflow Patterns
 
@@ -57,7 +62,6 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           files: ./coverage/lcov.info
-
 ```
 
 **Reference:** See `assets/test-workflow.yml`
@@ -113,7 +117,6 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
 ```
 
 **Reference:** See `assets/deploy-workflow.yml`
@@ -155,7 +158,6 @@ jobs:
         run: |
           kubectl get pods -n production
           kubectl describe deployment my-app -n production
-
 ```
 
 ### Pattern 4: Matrix Build
@@ -189,7 +191,6 @@ jobs:
 
       - name: Run tests
         run: pytest
-
 ```
 
 **Reference:** See `assets/matrix-build.yml`
@@ -233,7 +234,6 @@ jobs:
           node-version: ${{ inputs.node-version }}
       - run: npm ci
       - run: npm test
-
 ```
 
 **Use reusable workflow:**
@@ -246,7 +246,6 @@ jobs:
       node-version: "20.x"
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
 ```
 
 ## Security Scanning
@@ -284,7 +283,6 @@ jobs:
         uses: snyk/actions/node@0.4.0
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-
 ```
 
 ## Deployment with Approvals
@@ -320,11 +318,11 @@ jobs:
             {
               "text": "Deployment to production completed successfully!"
             }
-
 ```
+
 
 ## Related Skills
 
-* `gitlab-ci-patterns` \- For GitLab CI workflows
-* `deployment-pipeline-design` \- For pipeline architecture
-* `secrets-management` \- For secrets handling
+- `gitlab-ci-patterns` - For GitLab CI workflows
+- `deployment-pipeline-design` - For pipeline architecture
+- `secrets-management` - For secrets handling

@@ -1,83 +1,86 @@
 {
-  "task_id": "content-creation__agent_first_campaign_pack",
+  "template_id": "content_creation__north_america_power_mix_multichannel_pack",
   "category": "content-creation",
-  "difficulty": "hard",
   "selected_skill": {
     "name": "content-engine",
-    "stars": "169.2k",
-    "rationale": "High-star public-safe content-creation skill with a clear workflow for turning one source bundle into multiple channel-specific assets without requiring external posting accounts or private data."
+    "source_page": "https://skillsmp.com/skills/maninthebox235-skillshop-skills-content-engine-skill-md",
+    "stars_reference": "177600 (skillsmp category page, checked 2026-05-13)"
   },
-  "design_goals": [
-    "Require the solver to turn one bundled source packet into three channel-specific assets plus source coverage and publish-gap outputs.",
-    "Keep the business contract explicit while leaving source triage, voice extraction, focus assignment, and self-check workflow to the bundled skill.",
-    "Keep with_skill and without_skill identical except for environment/skills presence."
-  ],
-  "verifier_focus": [
-    "all required outputs exist, parse, and satisfy channel-specific structural constraints",
-    "source_map line references are valid and grounded in the bundled source packet",
-    "each asset uses distinct channel emphasis, avoids red-flag phrasing, and avoids cross-channel copy reuse",
-    "solver consulted the local review service before verifier",
-    "input bundle, hidden review service, and bundled skill files were not modified"
-  ],
-  "oracle_validation": {
-    "local": "Passed with the official solution and the full verifier suite in /tmp/content_creation_regress3.Vzsomu.",
-    "e2b": "Passed in E2B with the bundled with-skill runtime on r10, r11, and r12; each run cleared all 13 verifier checks."
+  "design_summary": {
+    "scenario": "Build a coordinated publisher content pack from a bundled North America power-data snapshot and a local claim catalog.",
+    "why_skill_relevant": "The task turns one research packet into multiple platform-native drafts while keeping claim fidelity and output differentiation.",
+    "hidden_service_used": false
   },
-  "contrast_experiments": {
-    "valid_trials": 3,
-    "without_skill": {
-      "pass_rate": "0%",
-      "avg_agent_seconds": 221.26,
-      "avg_tokens": 344639
-    },
-    "with_skill": {
-      "pass_rate": "100%",
-      "avg_agent_seconds": 175.53,
-      "avg_tokens": 223731
-    },
-    "comparison_rule": "with_skill and without_skill differ only by environment/skills presence in the runtime copy.",
-    "notes": "Final stats use r10-bak1, r11-bak2, and r12-bak2 only. r11-bak1 was excluded because E2B returned a build-time team-blocked 403 before task execution. Across the three valid runs, with_skill passed 13/13 every time. without_skill kept at least one verifier failure in every run: r10 missed source-map coverage and inspected hidden service code; r11 inspected hidden service code; r12 inspected hidden service files and skipped one review-service document check."
-  },
-  "reference_data": [
+  "data_sources": [
     {
-      "file": "environment/data/anchor_article.md",
-      "source_url": "https://newsletter.posthog.com/p/what-we-wish-we-knew-before-building"
+      "file": "environment/input/data/country_profile.json",
+      "source": "https://api.worldbank.org/v2/country/USA;CAN;MEX?format=json&per_page=100"
     },
     {
-      "file": "environment/data/supporting_context/agent_first_rules.md",
-      "source_url": "https://newsletter.posthog.com/p/the-golden-rules-of-agent-first-product"
+      "file": "environment/input/data/world_bank_population.json",
+      "source": "https://api.worldbank.org/v2/country/USA;CAN;MEX/indicator/SP.POP.TOTL?format=json&per_page=20000"
     },
     {
-      "file": "environment/data/supporting_context/ai_features_lessons.md",
-      "source_url": "https://newsletter.posthog.com/p/what-weve-learned-about-building"
+      "file": "environment/input/data/world_bank_gdp.json",
+      "source": "https://api.worldbank.org/v2/country/USA;CAN;MEX/indicator/NY.GDP.MKTP.CD?format=json&per_page=20000"
     },
     {
-      "file": "environment/data/supporting_context/posthog_overview.md",
-      "source_url": "https://posthog.com/"
+      "file": "environment/input/data/annual_co2_emissions.csv",
+      "source": "https://ourworldindata.org/grapher/annual-co2-emissions-per-country.csv?v=1&csvType=full&useColumnShortNames=false"
     },
     {
-      "file": "environment/data/supporting_context/product_for_engineers_about.md",
-      "source_url": "https://newsletter.posthog.com/about"
-    },
-    {
-      "file": "environment/data/voice_samples/how_we_choose_technologies.md",
-      "source_url": "https://newsletter.posthog.com/p/how-we-choose-technologies"
-    },
-    {
-      "file": "environment/data/voice_samples/using_your_own_product_is_a_superpower.md",
-      "source_url": "https://newsletter.posthog.com/p/using-your-own-product-is-a-superpower"
-    },
-    {
-      "file": "environment/data/voice_samples/beyond_the_10x_engineer.md",
-      "source_url": "https://newsletter.posthog.com/p/beyond-the-10x-engineer"
-    },
-    {
-      "file": "environment/data/voice_samples/the_hidden_danger_of_shipping_fast.md",
-      "source_url": "https://newsletter.posthog.com/p/the-hidden-danger-of-shipping-fast"
-    },
-    {
-      "file": "environment/data/voice_samples/great_companies_are_built_in_hackathons.md",
-      "source_url": "https://newsletter.posthog.com/p/great-companies-are-built-in-hackathons"
+      "file": "environment/input/data/electricity_prod_source.csv",
+      "source": "https://ourworldindata.org/grapher/electricity-prod-source-stacked.csv?v=1&csvType=full&useColumnShortNames=false"
     }
-  ]
+  ],
+  "verifier_plan": {
+    "main_tests": [
+      "formal build produces the full output pack",
+      "manifest lines up with the brief and claim mapping",
+      "content drafts cover required claims and platform rules",
+      "alternate input rerun updates output values"
+    ],
+    "guardrails": [
+      "input files unchanged",
+      "output inventory restricted",
+      "no placeholder or verifier-targeting strings"
+    ]
+  },
+  "experiment_status": {
+    "local_verification": "completed; local oracle output passes current verifier with 10/10 tests",
+    "with_skill_runs": [
+      {
+        "run_id": "content_creation_pair1_20260513_214420/task_with_skills_e2b__u4KrR5i",
+        "result": "pass after recheck under current verifier",
+        "notes": "current stable verifier passes all checks; older run used an earlier stricter verifier snapshot"
+      },
+      {
+        "run_id": "content_creation_pair2_20260513_220136/task_with_skills_e2b__XbK54xJ",
+        "result": "pass",
+        "notes": "clean 10/10 pass; chosen as final with-skill reference trace"
+      },
+      {
+        "run_id": "content_creation_pair4_20260513_223232/task_with_skills_e2b__SgVQ4mw",
+        "result": "fail",
+        "notes": "used manifest top-level key entries instead of outputs"
+      }
+    ],
+    "without_skill_runs": [
+      {
+        "run_id": "content_creation_pair1_20260513_214420/task_without_skills_e2b__2W4Fa5n",
+        "result": "fail",
+        "notes": "manifest source tracing omitted required brief and catalog linkage"
+      },
+      {
+        "run_id": "content_creation_pair2_20260513_220136/task_without_skills_e2b__dLZttR2",
+        "result": "fail",
+        "notes": "manifest source tracing omitted data/claim_catalog.json"
+      },
+      {
+        "run_id": "content_creation_pair4_20260513_223232/task_without_skills_e2b__4RjMtRD",
+        "result": "fail",
+        "notes": "manifest source tracing omitted brief/source_packet.md"
+      }
+    ]
+  }
 }

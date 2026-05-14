@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：literature-writing 类热门 skill 的核心价值，不只是“写一段更顺的文字”，而是把语气、信息优先级、来源边界、自检口径和交付结构一起拉齐。模板任务应让 skill 承接素材取舍、语气迁移、风险措辞收口和最终自查，而题面只保留业务合同和禁止事项。
-* **Task 目标形态**：这类任务适合落在公开发布文案、产品介绍、开发者向更新说明、品牌文案包、专题页首屏和多场景写作收口上。任务目标应明确交付件、受众、字数和事实边界，把具体怎么整理语气、怎么追踪来源、怎么完成终稿收敛留给 solver 与 skill。
 * **Verifier 设计重点**：Verifier 应优先验证 solver 是否沿本地素材链路完成了完整写作动作，而不只看文案表层是否流畅。重点应覆盖事实来源、术语与禁写项、交付结构、局部场景差异、审校闭环，以及对跳过本地服务、查看隐藏实现、硬编码输出和改输入的防护。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`literature_writing__zed_parallel_agents_launch_copy`
 - 类别：`literature-writing`
-- 难度：`hard`
 - 绑定 Skill：`brand-writer`
 - 输入数据参考来源：
   - `environment/data/source_packets/ai_overview.json`：任务内 AI 总览资料包；设计形态参考 Zed AI overview documentation  
@@ -30,7 +28,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 通过容器内本地内容服务读取同一份 source packet、写出完整 JSON 文案包，再调用质量闸口回填 scorecard。它证明任务可重跑、可核对，并且不依赖隐藏答案文件。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -47,7 +45,7 @@
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | 本地内容服务链路 | 要求 solver 在 verifier 前访问 source index、全部文档、禁写项、拒稿记录和质量闸口 |
-| 环境完整性 | 禁止修改工作区输入、本地数据包、隐藏服务与 skill 文件，并阻止查看隐藏实现 |
+| 环境完整性 | 禁止修改工作区输入、本地数据包与隐藏服务，并阻止查看隐藏实现 |
 
 ### ⚡ Skill 相关性评估
 

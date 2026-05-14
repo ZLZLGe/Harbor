@@ -1,229 +1,225 @@
 from __future__ import annotations
 
+import json
+import re
+import sys
 from pathlib import Path
 
-from common import REPORT_PATH, SPEC_ROOT, load_report, run_query_state, run_replay_in_temp
-from reference_model import build_reference_model
+import pandas as pd
+
+sys.path.insert(0, "/tests")
+import reference_model
+from common import OUTPUT_ROOT, TASK_ROOT
 
 
-REQUIRED_TOP_LEVEL_KEYS = {
-    "pair",
-    "governance_token",
-    "reward_program",
-    "scenario_results",
-    "invariant_checks",
-}
+def _read_outputs() -> dict[str, object]:
+    return {
+        "review": (OUTPUT_ROOT / "token_onboarding_review.md").read_text(encoding="utf-8"),
+        "decisions": pd.read_csv(OUTPUT_ROOT / "token_decisions.tsv", sep="\t", keep_default_na=False),
+        "findings": pd.read_csv(OUTPUT_ROOT / "token_behavior_findings.tsv", sep="\t", keep_default_na=False),
+        "coverage": pd.read_csv(OUTPUT_ROOT / "guardrail_coverage.tsv", sep="\t", keep_default_na=False),
+        "evidence": json.loads((OUTPUT_ROOT / "evidence_index.json").read_text(encoding="utf-8")),
+    }
 
 
-def _normalize(value):
-    if isinstance(value, dict):
-        out = {}
-        for key, item in value.items():
-            if key in {
-                "period_finish",
-                "eta",
-                "block_number",
-                "timestamp",
-                "observed_offset_seconds",
-                "lateness_seconds",
-                "observed_value",
-            }:
+def _split_multi(value: str) -> list[str]:
+    return [item for item in value.split(";") if item]
+
+
+def _ref_path(ref: str) -> str:
+    if "#L" in ref:
+        return ref.split("#L", 1)[0]
+    return ref.split(":", 1)[0]
+
+
+def _extract_protocol_file_paths(protocol_files: object) -> set[str]:
+    paths: set[str] = set()
+    if isinstance(protocol_files, list):
+        for item in protocol_files:
+            if isinstance(item, dict) and isinstance(item.get("path"), str):
+                paths.add(item["path"])
+            elif isinstance(item, str):
+                paths.add(item)
+    elif isinstance(protocol_files, dict):
+        for key, item in protocol_files.items():
+            if isinstance(item, dict) and isinstance(item.get("path"), str):
+                paths.add(item["path"])
+            elif isinstance(key, str):
+                paths.add(key)
+    return paths
+
+
+def _extract_mapping_rows(node: object) -> dict[str, dict]:
+    if isinstance(node, dict):
+        return {str(key): value for key, value in node.items() if isinstance(value, dict)}
+    if isinstance(node, list):
+        rows = {}
+        for item in node:
+            if not isinstance(item, dict):
                 continue
-            out[key] = _normalize(item)
-        return out
-    if isinstance(value, list):
-        return [_normalize(item) for item in value]
-    return value
+            key = item.get("token_id") or item.get("measure_id")
+            if isinstance(key, str):
+                rows[key] = item
+        return rows
+    return {}
 
 
-def _as_int(value):
-    return int(value) if isinstance(value, str) else value
+def _measure_requirement_map() -> dict[str, str]:
+    policy = reference_model.expected_bundle(TASK_ROOT)["policy"]
+    return {
+        item["requirement"]: item["measure_id"]
+        for item in policy["protocol_measures"]
+    }
 
 
-def _proposal_status(report: dict) -> dict | None:
-    for key in ("proposal_status", "active_proposal", "proposal", "latest_proposal"):
-        proposal = report["governance_token"].get(key)
-        if proposal is not None:
-            return proposal
-    if report.get("scenario_results"):
-        governance = report["scenario_results"][-1].get("governance", {})
-        for key in ("proposal_status", "active_proposal", "proposal", "latest_proposal"):
-            proposal = governance.get(key)
-            if proposal is not None:
-                return proposal
-    return None
+def _normalize_measure_value(value: str) -> str:
+    requirement_map = _measure_requirement_map()
+    return requirement_map.get(value, value)
 
 
-def _proposal_count(report: dict) -> int:
-    if "proposal_count" in report["governance_token"]:
-        return _as_int(report["governance_token"]["proposal_count"])
-    proposal = _proposal_status(report)
-    return 1 if proposal is not None else 0
+def test_required_outputs_exist_and_parse() -> None:
+    required = [
+        OUTPUT_ROOT / "token_onboarding_review.md",
+        OUTPUT_ROOT / "token_decisions.tsv",
+        OUTPUT_ROOT / "token_behavior_findings.tsv",
+        OUTPUT_ROOT / "guardrail_coverage.tsv",
+        OUTPUT_ROOT / "evidence_index.json",
+    ]
+    for path in required:
+        assert path.exists(), f"missing required output: {path}"
+        assert path.stat().st_size > 0, f"empty required output: {path}"
+
+    expected = reference_model.expected_bundle(TASK_ROOT)
+    actual = _read_outputs()
+    assert list(actual["decisions"].columns) == expected["policy"]["output_contract"]["token_decisions_columns"]
+    assert list(actual["findings"].columns) == expected["policy"]["output_contract"]["token_behavior_findings_columns"]
+    assert list(actual["coverage"].columns) == expected["policy"]["output_contract"]["guardrail_coverage_columns"]
 
 
-def _current_votes(report: dict) -> dict:
-    votes = {}
-    current_votes = report["governance_token"].get("current_votes")
-    if isinstance(current_votes, dict):
-        votes.update(current_votes)
-    actor_summaries = report.get("actor_summaries", {})
-    votes.update(
-        {
-            actor: summary.get("delegated_voting_power", summary.get("voting_power", summary.get("votes")))
-            for actor, summary in actor_summaries.items()
-            if "delegated_voting_power" in summary or "voting_power" in summary or "votes" in summary
-        }
-    )
-    if report.get("scenario_results"):
-        latest_actor_state = report["scenario_results"][-1].get("actors", {})
-        votes.update(
-            {
-                actor: summary.get("delegated_voting_power", summary.get("voting_power", summary.get("votes")))
-                for actor, summary in latest_actor_state.items()
-                if "delegated_voting_power" in summary or "voting_power" in summary or "votes" in summary
-            }
+def test_decisions_match_oracle_core() -> None:
+    expected = reference_model.expected_bundle(TASK_ROOT)["decisions"].set_index("token_id")
+    actual = _read_outputs()["decisions"].set_index("token_id")
+
+    assert list(actual.index) == list(expected.index)
+    assert actual["symbol"].to_dict() == expected["symbol"].to_dict()
+    assert actual["decision"].to_dict() == expected["decision"].to_dict()
+    assert actual["overall_risk"].to_dict() == expected["overall_risk"].to_dict()
+
+    for token_id in expected.index:
+        assert _split_multi(actual.at[token_id, "required_protocol_measures"]) == _split_multi(
+            expected.at[token_id, "required_protocol_measures"]
         )
-    return votes
+
+        blockers = _split_multi(actual.at[token_id, "blocking_conditions"])
+        if expected.at[token_id, "decision"] == "allow":
+            assert not blockers
+        else:
+            assert blockers, f"{token_id} should document at least one blocking condition"
+
+        evidence_refs = _split_multi(actual.at[token_id, "evidence_refs"])
+        assert evidence_refs, f"{token_id} should include evidence refs"
+        assert any(
+            ref.startswith(f"data/token_profiles/{token_id}.json")
+            for ref in evidence_refs
+        ), f"{token_id} is missing a token profile evidence ref"
 
 
-def _lp_balances(report: dict) -> dict:
-    balances = report["pair"].get("lp_balances")
-    if balances is not None:
-        return balances
-    actor_summaries = report.get("actor_summaries", {})
-    return {
-        actor: summary["lp_balance"]
-        for actor, summary in actor_summaries.items()
-        if "lp_balance" in summary
+def test_findings_match_oracle_core() -> None:
+    expected = reference_model.expected_bundle(TASK_ROOT)["findings"]
+    actual = _read_outputs()["findings"]
+    coverage = _read_outputs()["coverage"].set_index("measure_id")
+
+    expected_requirements = {
+        token_id: sorted(_normalize_measure_value(value) for value in group["protocol_requirement"].tolist())
+        for token_id, group in expected.groupby("token_id")
     }
-
-
-def _staker_balances(report: dict) -> dict:
-    balances = report["reward_program"].get("staker_balances")
-    if balances is not None:
-        return balances
-    actor_summaries = report.get("actor_summaries", {})
-    return {
-        actor: summary.get("staked_lp_balance", summary.get("staked_lp"))
-        for actor, summary in actor_summaries.items()
-        if "staked_lp_balance" in summary or "staked_lp" in summary
+    actual_requirements = {
+        token_id: sorted(_normalize_measure_value(value) for value in group["protocol_requirement"].tolist())
+        for token_id, group in actual.groupby("token_id")
     }
+    assert actual_requirements == expected_requirements
+
+    assert actual.groupby(["token_id", "protocol_requirement"]).size().max() == 1
+    assert actual["severity"].isin({"info", "low", "medium", "high", "critical"}).all()
+    assert actual["integration_impact"].map(lambda value: len(str(value).strip()) >= 20).all()
+    assert actual["evidence_refs"].map(lambda value: bool(_split_multi(str(value)))).all()
 
 
-def _stable_report_projection(report: dict) -> dict:
-    proposal = _proposal_status(report)
-    return {
-        "pair": {
-            "fee_bps": _as_int(report["pair"]["fee_bps"]),
-            "reserve0": report["pair"]["reserve0"],
-            "reserve1": report["pair"]["reserve1"],
-            "total_lp_supply": report["pair"]["total_lp_supply"],
-            "lp_balance_actors": sorted(_lp_balances(report).keys()),
-        },
-        "governance_token": {
-            "name": report["governance_token"]["name"],
-            "symbol": report["governance_token"]["symbol"],
-            "decimals": _as_int(report["governance_token"]["decimals"]),
-            "cap": report["governance_token"]["cap"],
-            "proposal_count": _proposal_count(report),
-            "current_vote_actors": sorted(_current_votes(report).keys()),
-            "proposal_status": {
-                "queued": proposal["queued"] if proposal else None,
-                "executed": proposal["executed"] if proposal else None,
-                "for_votes": proposal.get("for_votes", proposal.get("forVotes")) if proposal else None,
-                "against_votes": proposal.get("against_votes", proposal.get("againstVotes")) if proposal else None,
-            },
-        },
-        "reward_program": {
-            "total_funded": report["reward_program"]["total_funded"],
-            "rewards_duration_seconds": _as_int(report["reward_program"]["rewards_duration_seconds"]),
-            "epoch_ids": [item["epoch_id"] for item in report["reward_program"].get("epochs", [])],
-            "staker_actors": sorted(_staker_balances(report).keys()),
-        },
-        "scenario_results": [(item["step_id"], item["action"]) for item in report["scenario_results"]],
-        "actor_summaries": sorted(report.get("actor_summaries", {}).keys()),
+def test_coverage_matches_oracle_core() -> None:
+    expected = reference_model.expected_bundle(TASK_ROOT)["coverage"]
+    actual = _read_outputs()["coverage"].set_index("measure_id").sort_index()
+    expected = expected.set_index("measure_id").sort_index()
+
+    assert list(actual.index) == list(expected.index)
+    assert actual["requirement"].to_dict() == expected["requirement"].to_dict()
+    for measure_id, expected_status in expected["coverage_status"].items():
+        actual_status = actual.at[measure_id, "coverage_status"]
+        if measure_id == "pause_blocklist_runbook":
+            assert actual_status in {"missing", "partial"}
+        else:
+            assert actual_status == expected_status
+    assert set(actual["coverage_status"]) == {"supported", "partial", "missing"}
+
+    for measure_id in expected.index:
+        assert _split_multi(actual.at[measure_id, "covered_tokens"]) == _split_multi(
+            expected.at[measure_id, "covered_tokens"]
+        )
+        refs = _split_multi(actual.at[measure_id, "protocol_location"])
+        if actual.at[measure_id, "coverage_status"] == "missing":
+            continue
+        assert refs, f"{measure_id} should cite protocol locations when coverage is not missing"
+        for ref in refs:
+            if not ref.startswith("protocol/"):
+                continue
+            path = TASK_ROOT / _ref_path(ref)
+            assert path.exists(), f"{measure_id} references missing protocol path {ref}"
+
+
+def test_evidence_index_is_consistent() -> None:
+    actual = _read_outputs()["evidence"]
+    decisions = _read_outputs()["decisions"].set_index("token_id")
+    coverage = _read_outputs()["coverage"].set_index("measure_id")
+
+    for key in ["protocol_files", "candidate_tokens", "decisions", "coverage", "notes"]:
+        assert key in actual, f"missing top-level key {key}"
+
+    expected_protocol_paths = {
+        f"protocol/contracts/{path.name}"
+        for path in sorted((TASK_ROOT / "protocol" / "contracts").glob("*.sol"))
     }
+    assert _extract_protocol_file_paths(actual["protocol_files"]) == expected_protocol_paths
+
+    candidate_rows = _extract_mapping_rows(actual["candidate_tokens"])
+    assert set(candidate_rows) == set(decisions.index)
+
+    decision_rows = _extract_mapping_rows(actual["decisions"])
+    assert set(decision_rows) == set(decisions.index)
+    for token_id, row in decision_rows.items():
+        if "decision" in row:
+            assert row["decision"] == decisions.at[token_id, "decision"]
+        if "overall_risk" in row:
+            assert row["overall_risk"] == decisions.at[token_id, "overall_risk"]
+
+    coverage_rows = _extract_mapping_rows(actual["coverage"])
+    assert set(coverage_rows) == set(coverage.index)
+    for measure_id, row in coverage_rows.items():
+        if "coverage_status" in row:
+            assert row["coverage_status"] == coverage.at[measure_id, "coverage_status"]
+
+    assert actual["notes"], "evidence_index notes should not be empty"
 
 
-def test_required_output_file_exists() -> None:
-    assert REPORT_PATH.exists(), "Missing /root/workspace/out/launch_report.json"
+def test_review_markdown_is_traceable() -> None:
+    bundle = reference_model.expected_bundle(TASK_ROOT)
+    review = _read_outputs()["review"]
 
+    for heading in bundle["policy"]["markdown_headings"]:
+        assert re.search(rf"(?m)^#{{1,6}}\s+{re.escape(heading)}\s*$", review), f"missing heading {heading}"
 
-def test_report_contract_and_basic_shape() -> None:
-    report = load_report()
-    assert REQUIRED_TOP_LEVEL_KEYS.issubset(report.keys()), "Report missing required top-level keys"
+    decisions = bundle["decisions"]
+    for row in decisions.itertuples(index=False):
+        assert row.symbol in review
+        assert row.decision in review
 
-    assert isinstance(report["scenario_results"], list), "scenario_results must be an array"
-    assert isinstance(report["invariant_checks"], list), "invariant_checks must be an array"
-    for item in report["invariant_checks"]:
-        assert isinstance(item, dict), "Each invariant check entry must be an object"
-        assert {"name", "status", "observed_value"}.issubset(item.keys())
-
-    assert isinstance(report["pair"]["reserve0"], str)
-    assert isinstance(report["pair"]["reserve1"], str)
-    assert isinstance(report["reward_program"]["total_funded"], str)
-    assert isinstance(report["reward_program"]["total_claimed"], str)
-
-
-def test_fresh_run_reproduces_submitted_report() -> None:
-    result, workspace_copy = run_replay_in_temp()
-    assert result.returncode == 0, (
-        "Fresh replay run failed.\n"
-        f"stdout:\n{result.stdout}\n"
-        f"stderr:\n{result.stderr}"
-    )
-    fresh_report = load_report(workspace_copy / "out" / "launch_report.json")
-    submitted_report = load_report()
-    assert _stable_report_projection(fresh_report) == _stable_report_projection(
-        submitted_report
-    ), "Submitted report does not match a fresh replay run on stable report fields"
-
-
-def test_protocol_semantics_against_public_inputs() -> None:
-    model = build_reference_model(SPEC_ROOT)
-    report = load_report()
-    state = run_query_state(REPORT_PATH)
-
-    assert _as_int(report["pair"]["fee_bps"]) == model.final_fee_bps
-    assert report["governance_token"]["cap"] == model.governance_cap
-    assert _as_int(report["governance_token"]["decimals"]) == model.governance_decimals
-    assert report["reward_program"]["total_funded"] == str(model.total_reward_funding)
-    assert _as_int(report["reward_program"]["rewards_duration_seconds"]) == model.reward_duration_seconds
-
-    total_claimed = int(report["reward_program"]["total_claimed"])
-    total_funded = int(report["reward_program"]["total_funded"])
-    assert 0 <= total_claimed <= total_funded, "Rewards claimed cannot exceed rewards funded"
-
-    proposal = _proposal_status(report)
-    assert proposal is not None, "Expected a governance proposal status block"
-    assert proposal["queued"] is True, "Proposal should be queued before execution"
-    assert proposal["executed"] is True, "Proposal should be executed in the replay"
-    for_votes = int(proposal.get("for_votes", proposal.get("forVotes")))
-    against_votes = int(proposal.get("against_votes", proposal.get("againstVotes")))
-    assert for_votes >= model.governance_quorum_votes
-    assert for_votes > against_votes
-
-    expected_steps = model.scenario_step_ids
-    observed_steps = [item["step_id"] for item in report["scenario_results"]]
-    assert observed_steps == expected_steps, "scenario_results ordering must follow scenario_replay.json"
-
-    assert state["monotonic_k_on_swaps"] is True, "Swap flow should preserve non-decreasing reserve product"
-
-
-def test_required_actions_were_executed() -> None:
-    model = build_reference_model(SPEC_ROOT)
-    must_have_actions = {
-        "seed_pair",
-        "fund_rewards",
-        "stake_lp",
-        "claim_rewards",
-        "delegate_votes",
-        "propose_fee_update",
-        "queue",
-        "execute",
-    }
-    assert must_have_actions.issubset(set(model.scenario_actions)), "Scenario input is missing required action types"
-
-    report = load_report()
-    observed_actions = [item["action"] for item in report["scenario_results"]]
-    assert must_have_actions.issubset(set(observed_actions)), "Report replay is missing required action types"
+    for measure_id in bundle["coverage"]["measure_id"].tolist():
+        assert measure_id in review

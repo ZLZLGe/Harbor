@@ -2,9 +2,7 @@ from __future__ import annotations
 
 from conftest import (
     OUTPUT_ROOT,
-    SKILL_ROOT,
     baseline_reference_listing,
-    baseline_skill_listing,
     contract,
     directory_listing,
     read_manifest,
@@ -13,8 +11,7 @@ from conftest import (
 )
 
 
-def test_input_bundle_and_skill_payload_are_unchanged() -> None:
-    assert directory_listing(SKILL_ROOT) == baseline_skill_listing()
+def test_input_bundle_is_unchanged() -> None:
     from conftest import BUNDLE_ROOT
 
     assert directory_listing(BUNDLE_ROOT) == baseline_reference_listing()

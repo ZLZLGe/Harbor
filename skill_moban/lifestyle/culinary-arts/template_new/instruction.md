@@ -55,7 +55,7 @@ Notes
 - The Paprika workspace is the authority for scheduled meals, recipe details, and grocery carryovers during this run.
 - Use the Paprika interface exposed in the workspace for schedule, recipe, and carryover lookup. Do not read its backing store files directly.
 - Apply pantry and carryover deductions by exact `ingredient_id` only.
-- Keep `/root/data/`, the Paprika workspace files, tests, verifier files, and skill files unchanged.
+- Keep `/root/data/`, the Paprika workspace files, tests, and verifier files unchanged.
 - Do not replace the meal schedule with a different set of meals.
 - Do not add extra top-level outputs outside `/root/output/`.
 - Final grading only checks the required files under `/root/output/`.

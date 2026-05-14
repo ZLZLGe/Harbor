@@ -1,13 +1,19 @@
+---
+name: swift-actor-persistence
+description: Thread-safe data persistence in Swift using actors — in-memory cache with file-backed storage, eliminating data races by design.
+origin: ECC
+---
+
 # Swift Actors for Thread-Safe Persistence
 
 Patterns for building thread-safe data persistence layers using Swift actors. Combines in-memory caching with file-backed storage, leveraging the actor model to eliminate data races at compile time.
 
 ## When to Activate
 
-* Building a data persistence layer in Swift 5.5+
-* Need thread-safe access to shared mutable state
-* Want to eliminate manual synchronization (locks, DispatchQueues)
-* Building offline-first apps with local storage
+- Building a data persistence layer in Swift 5.5+
+- Need thread-safe access to shared mutable state
+- Want to eliminate manual synchronization (locks, DispatchQueues)
+- Building offline-first apps with local storage
 
 ## Core Pattern
 
@@ -61,7 +67,6 @@ public actor LocalRepository<T: Codable & Identifiable> where T.ID == String {
         return Dictionary(uniqueKeysWithValues: items.map { ($0.id, $0) })
     }
 }
-
 ```
 
 ### Usage
@@ -78,7 +83,6 @@ let allQuestions = await repository.loadAll()
 // Write — updates cache and persists to file atomically
 try await repository.save(newQuestion)
 try await repository.delete("q-001")
-
 ```
 
 ### Combining with @Observable ViewModel
@@ -102,39 +106,38 @@ final class QuestionListViewModel {
         questions = await repository.loadAll()
     }
 }
-
 ```
 
 ## Key Design Decisions
 
-| Decision                            | Rationale                                                  |
-| ----------------------------------- | ---------------------------------------------------------- |
-| Actor (not class + lock)            | Compiler-enforced thread safety, no manual synchronization |
-| In-memory cache + file persistence  | Fast reads from cache, durable writes to disk              |
-| Synchronous init loading            | Avoids async initialization complexity                     |
-| Dictionary keyed by ID              | O(1) lookups by identifier                                 |
-| Generic over Codable & Identifiable | Reusable across any model type                             |
-| Atomic file writes (.atomic)        | Prevents partial writes on crash                           |
+| Decision | Rationale |
+|----------|-----------|
+| Actor (not class + lock) | Compiler-enforced thread safety, no manual synchronization |
+| In-memory cache + file persistence | Fast reads from cache, durable writes to disk |
+| Synchronous init loading | Avoids async initialization complexity |
+| Dictionary keyed by ID | O(1) lookups by identifier |
+| Generic over `Codable & Identifiable` | Reusable across any model type |
+| Atomic file writes (`.atomic`) | Prevents partial writes on crash |
 
 ## Best Practices
 
-* **Use `Sendable` types** for all data crossing actor boundaries
-* **Keep the actor's public API minimal** — only expose domain operations, not persistence details
-* **Use `.atomic` writes** to prevent data corruption if the app crashes mid-write
-* **Load synchronously in `init`** — async initializers add complexity with minimal benefit for local files
-* **Combine with `@Observable`** ViewModels for reactive UI updates
+- **Use `Sendable` types** for all data crossing actor boundaries
+- **Keep the actor's public API minimal** — only expose domain operations, not persistence details
+- **Use `.atomic` writes** to prevent data corruption if the app crashes mid-write
+- **Load synchronously in `init`** — async initializers add complexity with minimal benefit for local files
+- **Combine with `@Observable`** ViewModels for reactive UI updates
 
 ## Anti-Patterns to Avoid
 
-* Using `DispatchQueue` or `NSLock` instead of actors for new Swift concurrency code
-* Exposing the internal cache dictionary to external callers
-* Making the file URL configurable without validation
-* Forgetting that all actor method calls are `await` — callers must handle async context
-* Using `nonisolated` to bypass actor isolation (defeats the purpose)
+- Using `DispatchQueue` or `NSLock` instead of actors for new Swift concurrency code
+- Exposing the internal cache dictionary to external callers
+- Making the file URL configurable without validation
+- Forgetting that all actor method calls are `await` — callers must handle async context
+- Using `nonisolated` to bypass actor isolation (defeats the purpose)
 
 ## When to Use
 
-* Local data storage in iOS/macOS apps (user data, settings, cached content)
-* Offline-first architectures that sync to a server later
-* Any shared mutable state that multiple parts of the app access concurrently
-* Replacing legacy `DispatchQueue`\-based thread safety with modern Swift concurrency
+- Local data storage in iOS/macOS apps (user data, settings, cached content)
+- Offline-first architectures that sync to a server later
+- Any shared mutable state that multiple parts of the app access concurrently
+- Replacing legacy `DispatchQueue`-based thread safety with modern Swift concurrency

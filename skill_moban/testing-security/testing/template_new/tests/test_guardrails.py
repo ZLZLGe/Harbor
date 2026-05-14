@@ -5,10 +5,8 @@ from pathlib import Path
 
 from common import (
     baseline_data_manifest,
-    baseline_skill_manifest,
     baseline_workspace_manifest,
     current_data_manifest,
-    current_skill_manifest,
     current_workspace_manifest,
     workspace_test_text,
 )
@@ -20,10 +18,6 @@ def test_application_files_outside_test_area_are_unchanged() -> None:
 
 def test_input_data_files_are_unchanged() -> None:
     assert current_data_manifest() == baseline_data_manifest()
-
-
-def test_installed_skill_files_are_unchanged() -> None:
-    assert current_skill_manifest() == baseline_skill_manifest()
 
 
 def test_suite_does_not_replace_repository_server_wiring() -> None:

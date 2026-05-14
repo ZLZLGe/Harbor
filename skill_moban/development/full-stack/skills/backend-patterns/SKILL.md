@@ -1,16 +1,22 @@
+---
+name: backend-patterns
+description: Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.
+origin: ECC
+---
+
 # Backend Development Patterns
 
 Backend architecture patterns and best practices for scalable server-side applications.
 
 ## When to Activate
 
-* Designing REST or GraphQL API endpoints
-* Implementing repository, service, or controller layers
-* Optimizing database queries (N+1, indexing, connection pooling)
-* Adding caching (Redis, in-memory, HTTP cache headers)
-* Setting up background jobs or async processing
-* Structuring error handling and validation for APIs
-* Building middleware (auth, logging, rate limiting)
+- Designing REST or GraphQL API endpoints
+- Implementing repository, service, or controller layers
+- Optimizing database queries (N+1, indexing, connection pooling)
+- Adding caching (Redis, in-memory, HTTP cache headers)
+- Setting up background jobs or async processing
+- Structuring error handling and validation for APIs
+- Building middleware (auth, logging, rate limiting)
 
 ## API Design Patterns
 
@@ -27,7 +33,6 @@ DELETE /api/markets/:id             # Delete resource
 
 // PASS: Query parameters for filtering, sorting, pagination
 GET /api/markets?status=active&sort=volume&limit=20&offset=0
-
 ```
 
 ### Repository Pattern
@@ -62,7 +67,6 @@ class SupabaseMarketRepository implements MarketRepository {
 
   // Other methods...
 }
-
 ```
 
 ### Service Layer Pattern
@@ -92,7 +96,6 @@ class MarketService {
     // Vector search implementation
   }
 }
-
 ```
 
 ### Middleware Pattern
@@ -121,7 +124,6 @@ export function withAuth(handler: NextApiHandler): NextApiHandler {
 export default withAuth(async (req, res) => {
   // Handler has access to req.user
 })
-
 ```
 
 ## Database Patterns
@@ -141,7 +143,6 @@ const { data } = await supabase
 const { data } = await supabase
   .from('markets')
   .select('*')
-
 ```
 
 ### N+1 Query Prevention
@@ -162,7 +163,6 @@ const creatorMap = new Map(creators.map(c => [c.id, c]))
 markets.forEach(market => {
   market.creator = creatorMap.get(market.creator_id)
 })
-
 ```
 
 ### Transaction Pattern
@@ -201,7 +201,6 @@ EXCEPTION
     RETURN jsonb_build_object('success', false, 'error', SQLERRM);
 END;
 $$;
-
 ```
 
 ## Caching Strategies
@@ -238,7 +237,6 @@ class CachedMarketRepository implements MarketRepository {
     await this.redis.del(`market:${id}`)
   }
 }
-
 ```
 
 ### Cache-Aside Pattern
@@ -261,7 +259,6 @@ async function getMarketWithCache(id: string): Promise<Market> {
 
   return market
 }
-
 ```
 
 ## Error Handling Patterns
@@ -314,7 +311,6 @@ export async function GET(request: Request) {
     return errorHandler(error, request)
   }
 }
-
 ```
 
 ### Retry with Exponential Backoff
@@ -345,7 +341,6 @@ async function fetchWithRetry<T>(
 
 // Usage
 const data = await fetchWithRetry(() => fetchFromAPI())
-
 ```
 
 ## Authentication & Authorization
@@ -388,7 +383,6 @@ export async function GET(request: Request) {
 
   return NextResponse.json({ success: true, data })
 }
-
 ```
 
 ### Role-Based Access Control
@@ -432,57 +426,18 @@ export const DELETE = requirePermission('delete')(
     return new Response('Deleted', { status: 200 })
   }
 )
-
 ```
 
 ## Rate Limiting
 
-### Simple In-Memory Rate Limiter
+Rate limiting must use a shared store such as Redis, a gateway, or the
+platform's native limiter. Do not use per-process in-memory counters for
+production APIs: they reset on deploy, split across replicas, and fail open in
+serverless or multi-instance environments.
 
-```typescript
-class RateLimiter {
-  private requests = new Map<string, number[]>()
-
-  async checkLimit(
-    identifier: string,
-    maxRequests: number,
-    windowMs: number
-  ): Promise<boolean> {
-    const now = Date.now()
-    const requests = this.requests.get(identifier) || []
-
-    // Remove old requests outside window
-    const recentRequests = requests.filter(time => now - time < windowMs)
-
-    if (recentRequests.length >= maxRequests) {
-      return false  // Rate limit exceeded
-    }
-
-    // Add current request
-    recentRequests.push(now)
-    this.requests.set(identifier, recentRequests)
-
-    return true
-  }
-}
-
-const limiter = new RateLimiter()
-
-export async function GET(request: Request) {
-  const ip = request.headers.get('x-forwarded-for') || 'unknown'
-
-  const allowed = await limiter.checkLimit(ip, 100, 60000)  // 100 req/min
-
-  if (!allowed) {
-    return NextResponse.json({
-      error: 'Rate limit exceeded'
-    }, { status: 429 })
-  }
-
-  // Continue with request
-}
-
-```
+Keep the backend layer responsible for choosing the integration point and error
+shape; use `api-design` for the HTTP contract and `security-review` for abuse
+case review.
 
 ## Background Jobs & Queues
 
@@ -537,7 +492,6 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ success: true, message: 'Job queued' })
 }
-
 ```
 
 ## Logging & Monitoring
@@ -602,7 +556,6 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Internal error' }, { status: 500 })
   }
 }
-
 ```
 
 **Remember**: Backend patterns enable scalable, maintainable server-side applications. Choose patterns that fit your complexity level.

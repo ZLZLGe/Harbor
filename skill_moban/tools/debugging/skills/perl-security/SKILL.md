@@ -1,15 +1,21 @@
+---
+name: perl-security
+description: Comprehensive Perl security covering taint mode, input validation, safe process execution, DBI parameterized queries, web security (XSS/SQLi/CSRF), and perlcritic security policies.
+origin: ECC
+---
+
 # Perl Security Patterns
 
 Comprehensive security guidelines for Perl applications covering input validation, injection prevention, and secure coding practices.
 
 ## When to Activate
 
-* Handling user input in Perl applications
-* Building Perl web applications (CGI, Mojolicious, Dancer2, Catalyst)
-* Reviewing Perl code for security vulnerabilities
-* Performing file operations with user-supplied paths
-* Executing system commands from Perl
-* Writing DBI database queries
+- Handling user input in Perl applications
+- Building Perl web applications (CGI, Mojolicious, Dancer2, Catalyst)
+- Reviewing Perl code for security vulnerabilities
+- Performing file operations with user-supplied paths
+- Executing system commands from Perl
+- Writing DBI database queries
 
 ## How It Works
 
@@ -21,21 +27,22 @@ Perl's taint mode (`-T`) tracks data from external sources and prevents it from 
 
 ### Enabling Taint Mode
 
+```perl
 #!/usr/bin/perl -T
 use v5.36;
 
 # Tainted: anything from outside the program
 my $input    = $ARGV[0];        # Tainted
 my $env_path = $ENV{PATH};      # Tainted
-my $form     = ;         # Tainted
+my $form     = <STDIN>;         # Tainted
 my $query    = $ENV{QUERY_STRING}; # Tainted
 
 # Sanitize PATH early (required in taint mode)
 $ENV{PATH} = '/usr/local/bin:/usr/bin:/bin';
 delete @ENV{qw(IFS CDPATH ENV BASH_ENV)};
+```
 
 ### Untainting Pattern
-
 
 ```perl
 use v5.36;
@@ -61,15 +68,11 @@ sub bad_untaint($input) {
     $input =~ /^(.*)$/s;
     return $1;  # Accepts ANYTHING — pointless
 }
-
 ```
-
 
 ## Input Validation
 
-
 ### Allowlist Over Blocklist
-
 
 ```perl
 use v5.36;
@@ -101,12 +104,9 @@ sub bad_validate($input) {
     die "Invalid" if $input =~ /[<>"';&|]/;  # Misses encoded attacks
     return $input;
 }
-
 ```
 
-
 ### Length Constraints
-
 
 ```perl
 use v5.36;
@@ -116,18 +116,13 @@ sub validate_comment($text) {
     die "Comment exceeds 10000 chars\n" if length($text) > 10_000;
     return $text;
 }
-
 ```
-
 
 ## Safe Regular Expressions
 
-
 ### ReDoS Prevention
 
-
 Catastrophic backtracking occurs with nested quantifiers on overlapping patterns.
-
 
 ```perl
 use v5.36;
@@ -159,15 +154,11 @@ sub safe_match($string, $pattern, $timeout = 2) {
     die $@ if $@;
     return $matched;
 }
-
 ```
-
 
 ## Safe File Operations
 
-
 ### Three-Argument Open
-
 
 ```perl
 use v5.36;
@@ -187,12 +178,9 @@ sub bad_read($path) {
     open my $fh, $path;        # If $path = "|rm -rf /", runs command!
     open my $fh, "< $path";   # Shell metacharacter injection
 }
-
 ```
 
-
 ### TOCTOU Prevention and Path Traversal
-
 
 ```perl
 use v5.36;
@@ -216,18 +204,13 @@ sub safe_path($base_dir, $user_path) {
     die "Path traversal blocked\n" unless $real =~ /^\Q$base_real\E(?:\/|\z)/;
     return $real;
 }
-
 ```
-
 
 Use `File::Temp` for temporary files (`tempfile(UNLINK => 1)`) and `flock(LOCK_EX)` to prevent race conditions.
 
-
 ## Safe Process Execution
 
-
 ### List-Form system and exec
-
 
 ```perl
 use v5.36;
@@ -258,18 +241,13 @@ sub bad_search($pattern) {
 
 # Bad: Backticks with interpolation
 my $output = `ls $user_dir`;   # Shell injection risk
-
 ```
-
 
 Also use `Capture::Tiny` for capturing stdout/stderr from external commands safely.
 
-
 ## SQL Injection Prevention
 
-
 ### DBI Placeholders
-
 
 ```perl
 use v5.36;
@@ -303,12 +281,9 @@ sub bad_find($dbh, $email) {
     $sth->execute;
     return $sth->fetchrow_hashref;
 }
-
 ```
 
-
 ### Dynamic Column Allowlists
-
 
 ```perl
 use v5.36;
@@ -330,12 +305,9 @@ sub order_by($dbh, $column, $direction) {
 sub bad_order($dbh, $column) {
     $dbh->prepare("SELECT * FROM users ORDER BY $column");  # SQLi!
 }
-
 ```
 
-
 ### DBIx::Class (ORM Safety)
-
 
 ```perl
 use v5.36;
@@ -348,16 +320,13 @@ my @users = $schema->resultset('User')->search({
     order_by => { -asc => 'name' },
     rows     => 50,
 });
-
 ```
-
 
 ## Web Security
 
-
 ### XSS Prevention
 
-
+```perl
 use v5.36;
 use HTML::Entities qw(encode_entities);
 use URI::Escape qw(uri_escape_utf8);
@@ -387,8 +356,148 @@ sub safe_json($data) {
 
 # Bad: Raw output in HTML
 sub bad_html($input) {
-    print "
+    print "<div>$input</div>";  # XSS if $input contains <script>
+}
+```
 
-$input
+### CSRF Protection
 
-";  # XSS if $input contains
+```perl
+use v5.36;
+use Crypt::URandom qw(urandom);
+use MIME::Base64 qw(encode_base64url);
+
+sub generate_csrf_token() {
+    return encode_base64url(urandom(32));
+}
+```
+
+Use constant-time comparison when verifying tokens. Most web frameworks (Mojolicious, Dancer2, Catalyst) provide built-in CSRF protection — prefer those over hand-rolled solutions.
+
+### Session and Header Security
+
+```perl
+use v5.36;
+
+# Mojolicious session + headers
+$app->secrets(['long-random-secret-rotated-regularly']);
+$app->sessions->secure(1);          # HTTPS only
+$app->sessions->samesite('Lax');
+
+$app->hook(after_dispatch => sub ($c) {
+    $c->res->headers->header('X-Content-Type-Options' => 'nosniff');
+    $c->res->headers->header('X-Frame-Options'        => 'DENY');
+    $c->res->headers->header('Content-Security-Policy' => "default-src 'self'");
+    $c->res->headers->header('Strict-Transport-Security' => 'max-age=31536000; includeSubDomains');
+});
+```
+
+## Output Encoding
+
+Always encode output for its context: `HTML::Entities::encode_entities()` for HTML, `URI::Escape::uri_escape_utf8()` for URLs, `JSON::MaybeXS::encode_json()` for JSON.
+
+## CPAN Module Security
+
+- **Pin versions** in cpanfile: `requires 'DBI', '== 1.643';`
+- **Prefer maintained modules**: Check MetaCPAN for recent releases
+- **Minimize dependencies**: Each dependency is an attack surface
+
+## Security Tooling
+
+### perlcritic Security Policies
+
+```ini
+# .perlcriticrc — security-focused configuration
+severity = 3
+theme = security + core
+
+# Require three-arg open
+[InputOutput::RequireThreeArgOpen]
+severity = 5
+
+# Require checked system calls
+[InputOutput::RequireCheckedSyscalls]
+functions = :builtins
+severity = 4
+
+# Prohibit string eval
+[BuiltinFunctions::ProhibitStringyEval]
+severity = 5
+
+# Prohibit backtick operators
+[InputOutput::ProhibitBacktickOperators]
+severity = 4
+
+# Require taint checking in CGI
+[Modules::RequireTaintChecking]
+severity = 5
+
+# Prohibit two-arg open
+[InputOutput::ProhibitTwoArgOpen]
+severity = 5
+
+# Prohibit bare-word filehandles
+[InputOutput::ProhibitBarewordFileHandles]
+severity = 5
+```
+
+### Running perlcritic
+
+```bash
+# Check a file
+perlcritic --severity 3 --theme security lib/MyApp/Handler.pm
+
+# Check entire project
+perlcritic --severity 3 --theme security lib/
+
+# CI integration
+perlcritic --severity 4 --theme security --quiet lib/ || exit 1
+```
+
+## Quick Security Checklist
+
+| Check | What to Verify |
+|---|---|
+| Taint mode | `-T` flag on CGI/web scripts |
+| Input validation | Allowlist patterns, length limits |
+| File operations | Three-arg open, path traversal checks |
+| Process execution | List-form system, no shell interpolation |
+| SQL queries | DBI placeholders, never interpolate |
+| HTML output | `encode_entities()`, template auto-escape |
+| CSRF tokens | Generated, verified on state-changing requests |
+| Session config | Secure, HttpOnly, SameSite cookies |
+| HTTP headers | CSP, X-Frame-Options, HSTS |
+| Dependencies | Pinned versions, audited modules |
+| Regex safety | No nested quantifiers, anchored patterns |
+| Error messages | No stack traces or paths leaked to users |
+
+## Anti-Patterns
+
+```perl
+# 1. Two-arg open with user data (command injection)
+open my $fh, $user_input;               # CRITICAL vulnerability
+
+# 2. String-form system (shell injection)
+system("convert $user_file output.png"); # CRITICAL vulnerability
+
+# 3. SQL string interpolation
+$dbh->do("DELETE FROM users WHERE id = $id");  # SQLi
+
+# 4. eval with user input (code injection)
+eval $user_code;                         # Remote code execution
+
+# 5. Trusting $ENV without sanitizing
+my $path = $ENV{UPLOAD_DIR};             # Could be manipulated
+system("ls $path");                      # Double vulnerability
+
+# 6. Disabling taint without validation
+($input) = $input =~ /(.*)/s;           # Lazy untaint — defeats purpose
+
+# 7. Raw user data in HTML
+print "<div>Welcome, $username!</div>";  # XSS
+
+# 8. Unvalidated redirects
+print $cgi->redirect($user_url);         # Open redirect
+```
+
+**Remember**: Perl's flexibility is powerful but requires discipline. Use taint mode for web-facing code, validate all input with allowlists, use DBI placeholders for every query, and encode all output for its context. Defense in depth — never rely on a single layer.

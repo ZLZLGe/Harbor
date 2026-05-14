@@ -1,15 +1,21 @@
+---
+name: git-workflow
+description: Git workflow patterns including branching strategies, commit conventions, merge vs rebase, conflict resolution, and collaborative development best practices for teams of all sizes.
+origin: ECC
+---
+
 # Git Workflow Patterns
 
 Best practices for Git version control, branching strategies, and collaborative development.
 
 ## When to Activate
 
-* Setting up Git workflow for a new project
-* Deciding on branching strategy (GitFlow, trunk-based, GitHub flow)
-* Writing commit messages and PR descriptions
-* Resolving merge conflicts
-* Managing releases and version tags
-* Onboarding new team members to Git practices
+- Setting up Git workflow for a new project
+- Deciding on branching strategy (GitFlow, trunk-based, GitHub flow)
+- Writing commit messages and PR descriptions
+- Resolving merge conflicts
+- Managing releases and version tags
+- Onboarding new team members to Git practices
 
 ## Branching Strategies
 
@@ -17,48 +23,44 @@ Best practices for Git version control, branching strategies, and collaborative 
 
 Best for continuous deployment and small-to-medium teams.
 
-```text
+```
 main (protected, always deployable)
   │
   ├── feature/user-auth      → PR → merge to main
   ├── feature/payment-flow   → PR → merge to main
   └── fix/login-bug          → PR → merge to main
-
 ```
 
 **Rules:**
-
-* `main` is always deployable
-* Create feature branches from `main`
-* Open Pull Request when ready for review
-* After approval and CI passes, merge to `main`
-* Deploy immediately after merge
+- `main` is always deployable
+- Create feature branches from `main`
+- Open Pull Request when ready for review
+- After approval and CI passes, merge to `main`
+- Deploy immediately after merge
 
 ### Trunk-Based Development (High-Velocity Teams)
 
 Best for teams with strong CI/CD and feature flags.
 
-```text
+```
 main (trunk)
   │
   ├── short-lived feature (1-2 days max)
   ├── short-lived feature
   └── short-lived feature
-
 ```
 
 **Rules:**
-
-* Everyone commits to `main` or very short-lived branches
-* Feature flags hide incomplete work
-* CI must pass before merge
-* Deploy multiple times per day
+- Everyone commits to `main` or very short-lived branches
+- Feature flags hide incomplete work
+- CI must pass before merge
+- Deploy multiple times per day
 
 ### GitFlow (Complex, Release-Cycle Driven)
 
 Best for scheduled releases and enterprise projects.
 
-```text
+```
 main (production releases)
   │
   └── develop (integration branch)
@@ -69,89 +71,53 @@ main (production releases)
         ├── release/1.0.0    → merge to main and develop
         │
         └── hotfix/critical  → merge to main and develop
-
 ```
 
 **Rules:**
-
-* `main` contains production-ready code only
-* `develop` is the integration branch
-* Feature branches from `develop`, merge back to `develop`
-* Release branches from `develop`, merge to `main` and `develop`
-* Hotfix branches from `main`, merge to both `main` and `develop`
+- `main` contains production-ready code only
+- `develop` is the integration branch
+- Feature branches from `develop`, merge back to `develop`
+- Release branches from `develop`, merge to `main` and `develop`
+- Hotfix branches from `main`, merge to both `main` and `develop`
 
 ### When to Use Which
 
-| Strategy    | Team Size      | Release Cadence | Best For                           |
-| ----------- | -------------- | --------------- | ---------------------------------- |
-| GitHub Flow | Any            | Continuous      | SaaS, web apps, startups           |
-| Trunk-Based | 5+ experienced | Multiple/day    | High-velocity teams, feature flags |
-| GitFlow     | 10+            | Scheduled       | Enterprise, regulated industries   |
+| Strategy | Team Size | Release Cadence | Best For |
+|----------|-----------|-----------------|----------|
+| GitHub Flow | Any | Continuous | SaaS, web apps, startups |
+| Trunk-Based | 5+ experienced | Multiple/day | High-velocity teams, feature flags |
+| GitFlow | 10+ | Scheduled | Enterprise, regulated industries |
 
 ## Commit Messages
 
 ### Conventional Commits Format
 
-(): 
+```
+<type>(<scope>): <subject>
 
 [optional body]
 
 [optional footer(s)]
+```
 
 ### Types
 
-
-| |                                               |
-| ----------------------------------------------- |
-| Type                                            |
-| Use For                                         |
-| Example                                         |
-| |                                               |
-| feat                                            |
-| New feature                                     |
-| feat(auth): add OAuth2 login                    |
-| |                                               |
-| fix                                             |
-| Bug fix                                         |
-| fix(api): handle null response in user endpoint |
-| |                                               |
-| docs                                            |
-| Documentation                                   |
-| docs(readme): update installation instructions  |
-| |                                               |
-| style                                           |
-| Formatting, no code change                      |
-| style: fix indentation in login component       |
-| |                                               |
-| refactor                                        |
-| Code refactoring                                |
-| refactor(db): extract connection pool to module |
-| |                                               |
-| test                                            |
-| Adding/updating tests                           |
-| test(auth): add unit tests for token validation |
-| |                                               |
-| chore                                           |
-| Maintenance tasks                               |
-| chore(deps): update dependencies                |
-| |                                               |
-| perf                                            |
-| Performance improvement                         |
-| perf(query): add index to users table           |
-| |                                               |
-| ci                                              |
-| CI/CD changes                                   |
-| ci: add PostgreSQL service to test workflow     |
-| |                                               |
-| revert                                          |
-| Revert previous commit                          |
-| revert: revert "feat(auth): add OAuth2 login"   |
-
+| Type | Use For | Example |
+|------|---------|---------|
+| `feat` | New feature | `feat(auth): add OAuth2 login` |
+| `fix` | Bug fix | `fix(api): handle null response in user endpoint` |
+| `docs` | Documentation | `docs(readme): update installation instructions` |
+| `style` | Formatting, no code change | `style: fix indentation in login component` |
+| `refactor` | Code refactoring | `refactor(db): extract connection pool to module` |
+| `test` | Adding/updating tests | `test(auth): add unit tests for token validation` |
+| `chore` | Maintenance tasks | `chore(deps): update dependencies` |
+| `perf` | Performance improvement | `perf(query): add index to users table` |
+| `ci` | CI/CD changes | `ci: add PostgreSQL service to test workflow` |
+| `revert` | Revert previous commit | `revert: revert "feat(auth): add OAuth2 login"` |
 
 ### Good vs Bad Examples
 
-
-```text
+```
 # BAD: Vague, no context
 git commit -m "fixed stuff"
 git commit -m "updates"
@@ -164,32 +130,27 @@ The external API occasionally returns 503 errors during peak hours.
 Added exponential backoff retry logic with max 3 attempts.
 
 Closes #123"
-
 ```
-
 
 ### Commit Message Template
 
-
 Create `.gitmessage` in repo root:
 
-
-# (): 
+```
+# <type>(<scope>): <subject>
 # # Types: feat, fix, docs, style, refactor, test, chore, perf, ci, revert
 # Scope: api, ui, db, auth, etc.
 # Subject: imperative mood, no period, max 50 chars
 #
 # [optional body] - explain why, not what
 # [optional footer] - Breaking changes, closes #issue
+```
 
 Enable with: `git config commit.template .gitmessage`
 
-
 ## Merge vs Rebase
 
-
 ### Merge (Preserves History)
-
 
 ```bash
 # Creates a merge commit
@@ -202,24 +163,15 @@ git merge feature/user-auth
 # | * feature commits
 # |/
 # * main commits
-
 ```
 
-
 **Use when:**
-
-
-* Merging feature branches into `main`
-
-* You want to preserve exact history
-
-* Multiple people worked on the branch
-
-* The branch has been pushed and others may have based work on it
-
+- Merging feature branches into `main`
+- You want to preserve exact history
+- Multiple people worked on the branch
+- The branch has been pushed and others may have based work on it
 
 ### Rebase (Linear History)
-
 
 ```bash
 # Rewrites feature commits onto target branch
@@ -229,24 +181,15 @@ git rebase main
 # Result:
 # * feature commits (rewritten)
 # * main commits
-
 ```
 
-
 **Use when:**
-
-
-* Updating your local feature branch with latest `main`
-
-* You want a linear, clean history
-
-* The branch is local-only (not pushed)
-
-* You're the only one working on the branch
-
+- Updating your local feature branch with latest `main`
+- You want a linear, clean history
+- The branch is local-only (not pushed)
+- You're the only one working on the branch
 
 ### Rebase Workflow
-
 
 ```bash
 # Update feature branch with latest main (before PR)
@@ -259,14 +202,11 @@ git rebase origin/main
 
 # Force push (only if you're the only contributor)
 git push --force-with-lease origin feature/user-auth
-
 ```
-
 
 ### When NOT to Rebase
 
-
-```text
+```
 # NEVER rebase branches that:
 - Have been pushed to a shared repository
 - Other people have based work on
@@ -274,25 +214,22 @@ git push --force-with-lease origin feature/user-auth
 - Are already merged
 
 # Why: Rebase rewrites history, breaking others' work
-
 ```
-
 
 ## Pull Request Workflow
 
-
 ### PR Title Format
 
-
-(): 
+```
+<type>(<scope>): <description>
 
 Examples:
 feat(auth): add SSO support for enterprise users
 fix(api): resolve race condition in order processing
 docs(api): add OpenAPI specification for v2 endpoints
+```
 
 ### PR Description Template
-
 
 ```markdown
 ## What
@@ -328,48 +265,30 @@ Before/after screenshots for UI changes.
 - [ ] Related issues linked
 
 Closes #123
-
 ```
-
 
 ### Code Review Checklist
 
-
 **For Reviewers:**
 
-
-* Does the code solve the stated problem?
-
-* Are there any edge cases not handled?
-
-* Is the code readable and maintainable?
-
-* Are there sufficient tests?
-
-* Are there security concerns?
-
-* Is the commit history clean (squashed if needed)?
-
+- [ ] Does the code solve the stated problem?
+- [ ] Are there any edge cases not handled?
+- [ ] Is the code readable and maintainable?
+- [ ] Are there sufficient tests?
+- [ ] Are there security concerns?
+- [ ] Is the commit history clean (squashed if needed)?
 
 **For Authors:**
 
-
-* Self-review completed before requesting review
-
-* CI passes (tests, lint, typecheck)
-
-* PR size is reasonable (<500 lines ideal)
-
-* Related to a single feature/fix
-
-* Description clearly explains the change
-
+- [ ] Self-review completed before requesting review
+- [ ] CI passes (tests, lint, typecheck)
+- [ ] PR size is reasonable (<500 lines ideal)
+- [ ] Related to a single feature/fix
+- [ ] Description clearly explains the change
 
 ## Conflict Resolution
 
-
 ### Identify Conflicts
-
 
 ```bash
 # Check for conflicts before merge
@@ -379,12 +298,9 @@ git merge feature/user-auth --no-commit --no-ff
 # If conflicts, Git will show:
 # CONFLICT (content): Merge conflict in src/auth/login.ts
 # Automatic merge failed; fix conflicts and then commit the result.
-
 ```
 
-
 ### Resolve Conflicts
-
 
 ```bash
 # See conflicted files
@@ -410,12 +326,9 @@ git checkout --theirs src/auth/login.ts  # Keep feature version
 # After resolving, stage and commit
 git add src/auth/login.ts
 git commit
-
 ```
 
-
 ### Conflict Prevention Strategies
-
 
 ```bash
 # 1. Keep feature branches small and short-lived
@@ -427,17 +340,13 @@ git rebase origin/main
 # 3. Communicate with team about touching shared files
 # 4. Use feature flags instead of long-lived branches
 # 5. Review and merge PRs promptly
-
 ```
-
 
 ## Branch Management
 
-
 ### Naming Conventions
 
-
-```text
+```
 # Feature branches
 feature/user-authentication
 feature/JIRA-123-payment-integration
@@ -457,12 +366,9 @@ release/2024-01-hotfix
 # Experiments/POCs
 experiment/new-caching-strategy
 poc/graphql-migration
-
 ```
 
-
 ### Branch Cleanup
-
 
 ```bash
 # Delete local branches that are merged
@@ -477,12 +383,9 @@ git branch -D feature/user-auth  # Force delete
 
 # Delete remote branch
 git push origin --delete feature/user-auth
-
 ```
 
-
 ### Stash Workflow
-
 
 ```bash
 # Save work in progress
@@ -499,17 +402,13 @@ git stash apply stash@{2}
 
 # Drop stash
 git stash drop stash@{0}
-
 ```
-
 
 ## Release Management
 
-
 ### Semantic Versioning
 
-
-```text
+```
 MAJOR.MINOR.PATCH
 
 MAJOR: Breaking changes
@@ -520,12 +419,9 @@ Examples:
 1.0.0 → 1.0.1 (patch: bug fix)
 1.0.1 → 1.1.0 (minor: new feature)
 1.1.0 → 2.0.0 (major: breaking change)
-
 ```
 
-
 ### Creating Releases
-
 
 ```bash
 # Create annotated tag
@@ -550,12 +446,9 @@ git tag -l
 # Delete tag
 git tag -d v1.2.0
 git push origin --delete v1.2.0
-
 ```
 
-
 ### Changelog Generation
-
 
 ```bash
 # Generate changelog from commits
@@ -563,15 +456,11 @@ git log v1.1.0..v1.2.0 --oneline --no-merges
 
 # Or use conventional-changelog
 npx conventional-changelog -i CHANGELOG.md -s
-
 ```
-
 
 ## Git Configuration
 
-
 ### Essential Configs
-
 
 ```bash
 # User identity
@@ -595,12 +484,9 @@ git config --global diff.algorithm histogram
 
 # Color output
 git config --global color.ui auto
-
 ```
 
-
 ### Useful Aliases
-
 
 ```bash
 # Add to ~/.gitconfig
@@ -616,12 +502,9 @@ git config --global color.ui auto
     wip = commit -m "WIP"
     undo = reset --soft HEAD~1
     contributors = shortlog -sn
-
 ```
 
-
 ### Gitignore Patterns
-
 
 ```gitignore
 # Dependencies
@@ -659,15 +542,11 @@ coverage/
 # Cache
 .cache/
 *.tsbuildinfo
-
 ```
-
 
 ## Common Workflows
 
-
 ### Starting a New Feature
-
 
 ```bash
 # 1. Update main branch
@@ -685,12 +564,9 @@ git commit -m "feat(auth): implement OAuth2 login"
 git push -u origin feature/user-auth
 
 # 5. Create Pull Request on GitHub/GitLab
-
 ```
 
-
 ### Updating a PR with New Changes
-
 
 ```bash
 # 1. Make additional changes
@@ -699,12 +575,9 @@ git commit -m "feat(auth): add error handling"
 
 # 2. Push updates
 git push origin feature/user-auth
-
 ```
 
-
 ### Syncing Fork with Upstream
-
 
 ```bash
 # 1. Add upstream remote (once)
@@ -719,12 +592,9 @@ git merge upstream/main
 
 # 4. Push to your fork
 git push origin main
-
 ```
 
-
 ### Undoing Mistakes
-
 
 ```bash
 # Undo last commit (keep changes)
@@ -746,15 +616,11 @@ git commit --amend -m "New message"
 # Add forgotten file to last commit
 git add forgotten-file
 git commit --amend --no-edit
-
 ```
-
 
 ## Git Hooks
 
-
 ### Pre-Commit Hook
-
 
 ```bash
 #!/bin/bash
@@ -771,12 +637,9 @@ if git diff --cached | grep -E '(password|api_key|secret)'; then
     echo "Possible secret detected. Commit aborted."
     exit 1
 fi
-
 ```
 
-
 ### Pre-Push Hook
-
 
 ```bash
 #!/bin/bash
@@ -790,14 +653,11 @@ if git diff origin/main | grep -E 'console\.log'; then
     echo "Remove console.log statements before pushing."
     exit 1
 fi
-
 ```
-
 
 ## Anti-Patterns
 
-
-```text
+```
 # BAD: Committing directly to main
 git checkout main
 git commit -m "fix bug"
@@ -833,56 +693,23 @@ git add dist/
 git add node_modules/
 
 # GOOD: Add to .gitignore
-
 ```
-
 
 ## Quick Reference
 
-
-| |                            |
-| ---------------------------- |
-| Task                         |
-| Command                      |
-| |                            |
-| Create branch                |
-| git checkout -b feature/name |
-| |                            |
-| Switch branch                |
-| git checkout branch-name     |
-| |                            |
-| Delete branch                |
-| git branch -d branch-name    |
-| |                            |
-| Merge branch                 |
-| git merge branch-name        |
-| |                            |
-| Rebase branch                |
-| git rebase main              |
-| |                            |
-| View history                 |
-| git log --oneline --graph    |
-| |                            |
-| View changes                 |
-| git diff                     |
-| |                            |
-| Stage changes                |
-| git add . or git add -p      |
-| |                            |
-| Commit                       |
-| git commit -m "message"      |
-| |                            |
-| Push                         |
-| git push origin branch-name  |
-| |                            |
-| Pull                         |
-| git pull origin branch-name  |
-| |                            |
-| Stash                        |
-| git stash push -m "message"  |
-| |                            |
-| Undo last commit             |
-| git reset --soft HEAD~1      |
-| |                            |
-| Revert commit                |
-| git revert HEAD              |
+| Task | Command |
+|------|---------|
+| Create branch | `git checkout -b feature/name` |
+| Switch branch | `git checkout branch-name` |
+| Delete branch | `git branch -d branch-name` |
+| Merge branch | `git merge branch-name` |
+| Rebase branch | `git rebase main` |
+| View history | `git log --oneline --graph` |
+| View changes | `git diff` |
+| Stage changes | `git add .` or `git add -p` |
+| Commit | `git commit -m "message"` |
+| Push | `git push origin branch-name` |
+| Pull | `git pull origin branch-name` |
+| Stash | `git stash push -m "message"` |
+| Undo last commit | `git reset --soft HEAD~1` |
+| Revert commit | `git revert HEAD` |

@@ -54,7 +54,7 @@
     ],
     "guardrails": [
       "input files under /root/media_pick/input must remain unchanged",
-      "the shipped skill area must remain unchanged, and an empty skill area must stay empty",
+      "the shipped media input area must remain unchanged",
       "top-level output inventory must match the contract",
       "placeholder or verifier-oriented text in JSON outputs fails"
     ]

@@ -1,20 +1,26 @@
+---
+name: android-clean-architecture
+description: Clean Architecture patterns for Android and Kotlin Multiplatform projects — module structure, dependency rules, UseCases, Repositories, and data layer patterns.
+origin: ECC
+---
+
 # Android Clean Architecture
 
 Clean Architecture patterns for Android and KMP projects. Covers module boundaries, dependency inversion, UseCase/Repository patterns, and data layer design with Room, SQLDelight, and Ktor.
 
 ## When to Activate
 
-* Structuring Android or KMP project modules
-* Implementing UseCases, Repositories, or DataSources
-* Designing data flow between layers (domain, data, presentation)
-* Setting up dependency injection with Koin or Hilt
-* Working with Room, SQLDelight, or Ktor in a layered architecture
+- Structuring Android or KMP project modules
+- Implementing UseCases, Repositories, or DataSources
+- Designing data flow between layers (domain, data, presentation)
+- Setting up dependency injection with Koin or Hilt
+- Working with Room, SQLDelight, or Ktor in a layered architecture
 
 ## Module Structure
 
 ### Recommended Layout
 
-```text
+```
 project/
 ├── app/                  # Android entry point, DI wiring, Application class
 ├── core/                 # Shared utilities, base classes, error types
@@ -26,18 +32,16 @@ project/
     ├── auth/
     ├── settings/
     └── profile/
-
 ```
 
 ### Dependency Rules
 
-```text
+```
 app → presentation, domain, data, core
 presentation → domain, design-system, core
 data → domain, core
 domain → core (or no dependencies)
 core → (nothing)
-
 ```
 
 **Critical**: `domain` must NEVER depend on `data`, `presentation`, or any framework. It contains pure Kotlin only.
@@ -65,7 +69,6 @@ class ObserveUserProgressUseCase(
         return repository.observeProgress(userId)
     }
 }
-
 ```
 
 ### Domain Models
@@ -83,7 +86,6 @@ data class Item(
 )
 
 enum class Status { DRAFT, ACTIVE, ARCHIVED }
-
 ```
 
 ### Repository Interfaces
@@ -96,7 +98,6 @@ interface ItemRepository {
     suspend fun saveItem(item: Item): Result<Unit>
     fun observeItems(): Flow<List<Item>>
 }
-
 ```
 
 ## Data Layer
@@ -131,7 +132,6 @@ class ItemRepositoryImpl(
         }
     }
 }
-
 ```
 
 ### Mapper Pattern
@@ -157,7 +157,6 @@ fun ItemDto.toEntity() = ItemEntity(
     status = status,
     category = category
 )
-
 ```
 
 ### Room Database (Android)
@@ -184,7 +183,6 @@ interface ItemDao {
     @Query("SELECT * FROM items")
     fun observeAll(): Flow<List<ItemEntity>>
 }
-
 ```
 
 ### SQLDelight (KMP)
@@ -209,7 +207,6 @@ VALUES (?, ?, ?, ?, ?, ?);
 
 observeAll:
 SELECT * FROM ItemEntity;
-
 ```
 
 ### Ktor Network Client (KMP)
@@ -230,7 +227,6 @@ val httpClient = HttpClient {
     install(Logging) { level = LogLevel.HEADERS }
     defaultRequest { url("https://api.example.com/") }
 }
-
 ```
 
 ## Dependency Injection
@@ -256,7 +252,6 @@ val presentationModule = module {
     viewModelOf(::ItemListViewModel)
     viewModelOf(::DashboardViewModel)
 }
-
 ```
 
 ### Hilt (Android-only)
@@ -273,14 +268,13 @@ abstract class RepositoryModule {
 class ItemListViewModel @Inject constructor(
     private val getItems: GetItemsByCategoryUseCase
 ) : ViewModel()
-
 ```
 
 ## Error Handling
 
 ### Result/Try Pattern
 
-Use Result or a custom sealed type for error propagation: 
+Use `Result<T>` or a custom sealed type for error propagation:
 
 ```kotlin
 sealed interface Try<out T> {
@@ -301,7 +295,6 @@ viewModelScope.launch {
         is Try.Failure -> _state.update { it.copy(error = result.error.toMessage(), isLoading = false) }
     }
 }
-
 ```
 
 ## Convention Plugins (Gradle)
@@ -322,7 +315,6 @@ kotlin {
         commonTest.dependencies { implementation(kotlin("test")) }
     }
 }
-
 ```
 
 Apply in modules:
@@ -330,18 +322,18 @@ Apply in modules:
 ```kotlin
 // domain/build.gradle.kts
 plugins { id("kmp-library") }
-
 ```
 
 ## Anti-Patterns to Avoid
 
-* Importing Android framework classes in `domain` — keep it pure Kotlin
-* Exposing database entities or DTOs to the UI layer — always map to domain models
-* Putting business logic in ViewModels — extract to UseCases
-* Using `GlobalScope` or unstructured coroutines — use `viewModelScope` or structured concurrency
-* Fat repository implementations — split into focused DataSources
-* Circular module dependencies — if A depends on B, B must not depend on A
+- Importing Android framework classes in `domain` — keep it pure Kotlin
+- Exposing database entities or DTOs to the UI layer — always map to domain models
+- Putting business logic in ViewModels — extract to UseCases
+- Using `GlobalScope` or unstructured coroutines — use `viewModelScope` or structured concurrency
+- Fat repository implementations — split into focused DataSources
+- Circular module dependencies — if A depends on B, B must not depend on A
 
 ## References
 
-See skill: `compose-multiplatform-patterns` for UI patterns. See skill: `kotlin-coroutines-flows` for async patterns.
+See skill: `compose-multiplatform-patterns` for UI patterns.
+See skill: `kotlin-coroutines-flows` for async patterns.

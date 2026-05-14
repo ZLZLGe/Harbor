@@ -1,3 +1,9 @@
+---
+name: nutrient-document-processing
+description: Process, convert, OCR, extract, redact, sign, and fill documents using the Nutrient DWS API. Works with PDFs, DOCX, XLSX, PPTX, HTML, and images.
+origin: ECC
+---
+
 # Nutrient Document Processing
 
 > **Note:** This skill integrates with the Nutrient commercial API. Review their terms before use.
@@ -6,11 +12,10 @@ Process documents with the [Nutrient DWS Processor API](https://www.nutrient.io/
 
 ## Setup
 
-Get a free API key at **[nutrient.io](https://dashboard.nutrient.io/sign%5Fup/?product=processor)**
+Get a free API key at **[nutrient.io](https://dashboard.nutrient.io/sign_up/?product=processor)**
 
 ```bash
 export NUTRIENT_API_KEY="pdf_live_..."
-
 ```
 
 All requests go to `https://api.nutrient.io/build` as multipart POST with an `instructions` JSON field.
@@ -40,7 +45,6 @@ curl -X POST https://api.nutrient.io/build \
   -F "index.html=@index.html" \
   -F 'instructions={"parts":[{"html":"index.html"}]}' \
   -o output.pdf
-
 ```
 
 Supported inputs: PDF, DOCX, XLSX, PPTX, DOC, XLS, PPT, PPS, PPSX, ODT, RTF, HTML, JPG, PNG, TIFF, HEIC, GIF, WebP, SVG, TGA, EPS.
@@ -61,7 +65,6 @@ curl -X POST https://api.nutrient.io/build \
   -F "document.pdf=@document.pdf" \
   -F 'instructions={"parts":[{"file":"document.pdf"}],"output":{"type":"xlsx"}}' \
   -o tables.xlsx
-
 ```
 
 ### OCR Scanned Documents
@@ -73,7 +76,6 @@ curl -X POST https://api.nutrient.io/build \
   -F "scanned.pdf=@scanned.pdf" \
   -F 'instructions={"parts":[{"file":"scanned.pdf"}],"actions":[{"type":"ocr","language":"english"}]}' \
   -o searchable.pdf
-
 ```
 
 Languages: Supports 100+ languages via ISO 639-2 codes (e.g., `eng`, `deu`, `fra`, `spa`, `jpn`, `kor`, `chi_sim`, `chi_tra`, `ara`, `hin`, `rus`). Full language names like `english` or `german` also work. See the [complete OCR language table](https://www.nutrient.io/guides/document-engine/ocr/language-support/) for all supported codes.
@@ -94,7 +96,6 @@ curl -X POST https://api.nutrient.io/build \
   -F "document.pdf=@document.pdf" \
   -F 'instructions={"parts":[{"file":"document.pdf"}],"actions":[{"type":"redaction","strategy":"regex","strategyOptions":{"regex":"\\b[A-Z]{2}\\d{6}\\b"}}]}' \
   -o redacted.pdf
-
 ```
 
 Presets: `social-security-number`, `email-address`, `credit-card-number`, `international-phone-number`, `north-american-phone-number`, `date`, `time`, `url`, `ipv4`, `ipv6`, `mac-address`, `us-zip-code`, `vin`.
@@ -107,7 +108,6 @@ curl -X POST https://api.nutrient.io/build \
   -F "document.pdf=@document.pdf" \
   -F 'instructions={"parts":[{"file":"document.pdf"}],"actions":[{"type":"watermark","text":"CONFIDENTIAL","fontSize":72,"opacity":0.3,"rotation":-45}]}' \
   -o watermarked.pdf
-
 ```
 
 ### Digital Signatures
@@ -119,7 +119,6 @@ curl -X POST https://api.nutrient.io/build \
   -F "document.pdf=@document.pdf" \
   -F 'instructions={"parts":[{"file":"document.pdf"}],"actions":[{"type":"sign","signatureType":"cms"}]}' \
   -o signed.pdf
-
 ```
 
 ### Fill PDF Forms
@@ -130,7 +129,6 @@ curl -X POST https://api.nutrient.io/build \
   -F "form.pdf=@form.pdf" \
   -F 'instructions={"parts":[{"file":"form.pdf"}],"actions":[{"type":"fillForm","formFields":{"name":"Jane Smith","email":"jane@example.com","date":"2026-02-06"}}]}' \
   -o filled.pdf
-
 ```
 
 ## MCP Server (Alternative)
@@ -150,21 +148,20 @@ For native tool integration, use the MCP server instead of curl:
     }
   }
 }
-
 ```
 
 ## When to Use
 
-* Converting documents between formats (PDF, DOCX, XLSX, PPTX, HTML, images)
-* Extracting text, tables, or key-value pairs from PDFs
-* OCR on scanned documents or images
-* Redacting PII before sharing documents
-* Adding watermarks to drafts or confidential documents
-* Digitally signing contracts or agreements
-* Filling PDF forms programmatically
+- Converting documents between formats (PDF, DOCX, XLSX, PPTX, HTML, images)
+- Extracting text, tables, or key-value pairs from PDFs
+- OCR on scanned documents or images
+- Redacting PII before sharing documents
+- Adding watermarks to drafts or confidential documents
+- Digitally signing contracts or agreements
+- Filling PDF forms programmatically
 
 ## Links
 
-* [API Playground](https://dashboard.nutrient.io/processor-api/playground/)
-* [Full API Docs](https://www.nutrient.io/guides/dws-processor/)
-* [npm MCP Server](https://www.npmjs.com/package/@nutrient-sdk/dws-mcp-server)
+- [API Playground](https://dashboard.nutrient.io/processor-api/playground/)
+- [Full API Docs](https://www.nutrient.io/guides/dws-processor/)
+- [npm MCP Server](https://www.npmjs.com/package/@nutrient-sdk/dws-mcp-server)

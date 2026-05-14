@@ -1,17 +1,23 @@
+---
+name: dotnet-patterns
+description: Idiomatic C# and .NET patterns, conventions, dependency injection, async/await, and best practices for building robust, maintainable .NET applications.
+origin: ECC
+---
+
 # .NET Development Patterns
 
 Idiomatic C# and .NET patterns for building robust, performant, and maintainable applications.
 
 ## When to Activate
 
-* Writing new C# code
-* Reviewing C# code
-* Refactoring existing .NET applications
-* Designing service architectures with ASP.NET Core
+- Writing new C# code
+- Reviewing C# code
+- Refactoring existing .NET applications
+- Designing service architectures with ASP.NET Core
 
 ## Core Principles
 
-### 1\. Prefer Immutability
+### 1. Prefer Immutability
 
 Use records and init-only properties for data models. Mutability should be an explicit, justified choice.
 
@@ -32,10 +38,9 @@ public class Order
     public string CustomerId { get; set; }
     public List<OrderItem> Items { get; set; }
 }
-
 ```
 
-### 2\. Explicit Over Implicit
+### 2. Explicit Over Implicit
 
 Be clear about nullability, access modifiers, and intent.
 
@@ -57,10 +62,9 @@ public sealed class UserService
         return await _repository.FindByIdAsync(id, cancellationToken);
     }
 }
-
 ```
 
-### 3\. Depend on Abstractions
+### 3. Depend on Abstractions
 
 Use interfaces for service boundaries. Register via DI container.
 
@@ -75,7 +79,6 @@ public interface IOrderRepository
 
 // Registration
 builder.Services.AddScoped<IOrderRepository, SqlOrderRepository>();
-
 ```
 
 ## Async/Await Patterns
@@ -102,7 +105,6 @@ public OrderSummary GetOrderSummary(Guid orderId)
     var order = _repository.FindByIdAsync(orderId, CancellationToken.None).Result; // Deadlock risk
     return new OrderSummary(order);
 }
-
 ```
 
 ### Parallel Async Operations
@@ -122,7 +124,6 @@ public async Task<DashboardData> LoadDashboardAsync(CancellationToken cancellati
         Metrics: await metricsTask,
         Alerts: await alertsTask);
 }
-
 ```
 
 ## Options Pattern
@@ -149,7 +150,6 @@ public class EmailService(IOptions<SmtpOptions> options)
 {
     private readonly SmtpOptions _smtp = options.Value;
 }
-
 ```
 
 ## Result Pattern
@@ -180,7 +180,6 @@ public async Task<Result<Order>> PlaceOrderAsync(CreateOrderRequest request)
     await _repository.AddAsync(order, CancellationToken.None);
     return Result<Order>.Success(order);
 }
-
 ```
 
 ## Repository Pattern with EF Core
@@ -217,7 +216,6 @@ public sealed class SqlOrderRepository : IOrderRepository
         await _db.SaveChangesAsync(cancellationToken);
     }
 }
-
 ```
 
 ## Middleware and Pipeline
@@ -254,7 +252,6 @@ public sealed class RequestTimingMiddleware
         }
     }
 }
-
 ```
 
 ## Minimal API Patterns
@@ -286,7 +283,6 @@ orders.MapPost("/", async (
         ? TypedResults.Created($"/api/orders/{result.Value!.Id}", result.Value)
         : TypedResults.BadRequest(result.Error);
 });
-
 ```
 
 ## Guard Clauses
@@ -309,18 +305,17 @@ public async Task<ProcessResult> ProcessPaymentAsync(
     var gateway = _gatewayFactory.Create(request.Currency);
     return await gateway.ChargeAsync(request, cancellationToken);
 }
-
 ```
 
 ## Anti-Patterns to Avoid
 
-| Anti-Pattern                  | Fix                                               |
-| ----------------------------- | ------------------------------------------------- |
-| async void methods            | Return Task (except event handlers)               |
-| .Result or .Wait()            | Use await                                         |
-| catch (Exception) { }         | Handle or rethrow with context                    |
-| new Service() in constructors | Use constructor injection                         |
-| public fields                 | Use properties with appropriate accessors         |
-| dynamic in business logic     | Use generics or explicit types                    |
-| Mutable static state          | Use DI scoping or ConcurrentDictionary            |
-| string.Format in loops        | Use StringBuilder or interpolated string handlers |
+| Anti-Pattern | Fix |
+|---|---|
+| `async void` methods | Return `Task` (except event handlers) |
+| `.Result` or `.Wait()` | Use `await` |
+| `catch (Exception) { }` | Handle or rethrow with context |
+| `new Service()` in constructors | Use constructor injection |
+| `public` fields | Use properties with appropriate accessors |
+| `dynamic` in business logic | Use generics or explicit types |
+| Mutable `static` state | Use DI scoping or `ConcurrentDictionary` |
+| `string.Format` in loops | Use `StringBuilder` or interpolated string handlers |

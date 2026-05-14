@@ -1,21 +1,26 @@
+---
+name: service-mesh-observability
+description: Implement comprehensive observability for service meshes including distributed tracing, metrics, and visualization. Use when setting up mesh monitoring, debugging latency issues, or implementing SLOs for service communication.
+---
+
 # Service Mesh Observability
 
 Complete guide to observability patterns for Istio, Linkerd, and service mesh deployments.
 
 ## When to Use This Skill
 
-* Setting up distributed tracing across services
-* Implementing service mesh metrics and dashboards
-* Debugging latency and error issues
-* Defining SLOs for service communication
-* Visualizing service dependencies
-* Troubleshooting mesh connectivity
+- Setting up distributed tracing across services
+- Implementing service mesh metrics and dashboards
+- Debugging latency and error issues
+- Defining SLOs for service communication
+- Visualizing service dependencies
+- Troubleshooting mesh connectivity
 
 ## Core Concepts
 
-### 1\. Three Pillars of Observability
+### 1. Three Pillars of Observability
 
-```text
+```
 ┌─────────────────────────────────────────────────────┐
 │                  Observability                       │
 ├─────────────────┬─────────────────┬─────────────────┤
@@ -26,17 +31,16 @@ Complete guide to observability patterns for Istio, Linkerd, and service mesh de
 │ • Latency P50   │ • Dependencies  │ • Debug info    │
 │ • Saturation    │ • Bottlenecks   │ • Audit trail   │
 └─────────────────┴─────────────────┴─────────────────┘
-
 ```
 
-### 2\. Golden Signals for Mesh
+### 2. Golden Signals for Mesh
 
 | Signal         | Description               | Alert Threshold   |
 | -------------- | ------------------------- | ----------------- |
 | **Latency**    | Request duration P50, P99 | P99 > 500ms       |
 | **Traffic**    | Requests per second       | Anomaly detection |
-| **Errors**     | 5xx error rate            | \> 1%             |
-| **Saturation** | Resource utilization      | \> 80%            |
+| **Errors**     | 5xx error rate            | > 1%              |
+| **Saturation** | Resource utilization      | > 80%             |
 
 ## Templates
 
@@ -78,7 +82,6 @@ spec:
   endpoints:
     - port: http-monitoring
       interval: 15s
-
 ```
 
 ### Template 2: Key Istio Metrics Queries
@@ -103,7 +106,6 @@ sum(istio_tcp_connections_opened_total{reporter="destination"}) by (destination_
 histogram_quantile(0.99,
   sum(rate(istio_request_bytes_bucket{reporter="destination"}[5m]))
   by (le, destination_service_name))
-
 ```
 
 ### Template 3: Jaeger Distributed Tracing
@@ -151,7 +153,6 @@ spec:
           env:
             - name: COLLECTOR_ZIPKIN_HOST_PORT
               value: ":9411"
-
 ```
 
 ### Template 4: Linkerd Viz Dashboard
@@ -175,7 +176,6 @@ linkerd viz tap deploy/my-app --to deploy/backend
 
 # Service edges (dependencies)
 linkerd viz edges deployment -n my-namespace
-
 ```
 
 ### Template 5: Grafana Dashboard JSON
@@ -237,7 +237,6 @@ linkerd viz edges deployment -n my-namespace
     ]
   }
 }
-
 ```
 
 ### Template 6: Kiali Service Mesh Visualization
@@ -262,7 +261,6 @@ spec:
       url: http://jaeger-query.istio-system:16686
     grafana:
       url: http://grafana.istio-system:3000
-
 ```
 
 ### Template 7: OpenTelemetry Integration
@@ -319,7 +317,6 @@ spec:
     - providers:
         - name: otel
       randomSamplingPercentage: 10
-
 ```
 
 ## Alerting Rules
@@ -361,22 +358,21 @@ spec:
             severity: warning
           annotations:
             summary: "Mesh certificate expiring in less than 7 days"
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Sample appropriately** \- 100% in dev, 1-10% in prod
-* **Use trace context** \- Propagate headers consistently
-* **Set up alerts** \- For golden signals
-* **Correlate metrics/traces** \- Use exemplars
-* **Retain strategically** \- Hot/cold storage tiers
+- **Sample appropriately** - 100% in dev, 1-10% in prod
+- **Use trace context** - Propagate headers consistently
+- **Set up alerts** - For golden signals
+- **Correlate metrics/traces** - Use exemplars
+- **Retain strategically** - Hot/cold storage tiers
 
 ### Don'ts
 
-* **Don't over-sample** \- Storage costs add up
-* **Don't ignore cardinality** \- Limit label values
-* **Don't skip dashboards** \- Visualize dependencies
-* **Don't forget costs** \- Monitor observability costs
+- **Don't over-sample** - Storage costs add up
+- **Don't ignore cardinality** - Limit label values
+- **Don't skip dashboards** - Visualize dependencies
+- **Don't forget costs** - Monitor observability costs

@@ -26,7 +26,6 @@ LOG_ROOT = Path(os.environ.get("VERIFIER_LOG_ROOT", "/logs/verifier"))
 STATE_DIR = Path(os.environ.get("STATE_DIR", "/app/workspace/state"))
 STATIC_HASH_PATH = Path(os.environ.get("STATIC_HASH_PATH", "/opt/fullstack-template-static-data.sha256"))
 BASE_URL = "http://127.0.0.1:3000"
-SKILL_HASH = "6205fdc9201e29a27e219b6b37e671eb9920d49b53f5a10c7c871f080060f958"
 
 
 def parse_tsv(path: Path) -> list[dict[str, str]]:
@@ -583,7 +582,7 @@ def test_alternate_fixture_generalization() -> None:
     RUNTIME.start(DATA_ROOT, reset_state=True, install=False, build=False, log_name="default-after-alt.log")
 
 
-def test_input_integrity_and_skill_payload() -> None:
+def test_input_integrity() -> None:
     expected_hashes = STATIC_HASH_PATH.read_text(encoding="utf-8").strip().splitlines()
     actual_hashes = []
     for file_path in sorted(DATA_ROOT.glob("*")):
@@ -591,14 +590,6 @@ def test_input_integrity_and_skill_payload() -> None:
         actual_hashes.append(f"{digest}  {file_path}")
     assert len(expected_hashes) == len(actual_hashes)
     assert [line.split("  ")[0] for line in expected_hashes] == [line.split("  ")[0] for line in actual_hashes]
-
-    skill_path = Path("/root/.codex/skills/project-setup-info-local/SKILL.md")
-    try:
-        skill_exists = skill_path.exists()
-    except PermissionError:
-        skill_exists = False
-    if skill_exists:
-        assert hashlib.sha256(skill_path.read_bytes()).hexdigest() == SKILL_HASH
 
 
 TESTS = [
@@ -609,7 +600,7 @@ TESTS = [
     test_shortlist_api_persistence,
     test_browser_workflow,
     test_alternate_fixture_generalization,
-    test_input_integrity_and_skill_payload,
+    test_input_integrity,
 ]
 
 

@@ -1,91 +1,264 @@
-# React Component Writing Guide
+---
+name: react
+description: React renderer for json-render that turns JSON specs into React components. Use when working with @json-render/react, building React UIs from JSON, creating component catalogs, or rendering AI-generated specs.
+---
 
-* Use antd-style for complex styles; for simple cases, use inline `style` attribute  
-  * **Prefer `createStaticStyles` with `cssVar.*`** (zero-runtime) — module-level, no hook call required
-  * Only fall back to `createStyles` \+ `token` when styles genuinely need runtime computation (dynamic props, JS color fns like `readableColor`/`chroma`)
-  * See `.cursor/docs/createStaticStyles_migration_guide.md` for full pattern
-* Use `Flexbox` and `Center` from `@lobehub/ui` for layouts (see `references/layout-kit.md`)
-* Component priority: `src/components` \> `@lobehub/ui/base-ui` \> `@lobehub/ui` \> custom implementation  
-  * Always prefer `@lobehub/ui/base-ui` primitives (Select, Modal, DropdownMenu, Popover, Switch, ScrollArea…) over antd equivalents
-  * Fall back to `@lobehub/ui` higher-level components when base-ui has no match
-  * Only implement a custom component as a last resort — never reach for antd directly
-* Use selectors to access zustand store data
+# @json-render/react
 
-## @lobehub/ui Components
+React renderer that converts JSON specs into React component trees.
 
-If unsure about component usage, search existing code in this project. Most components extend antd with additional props.
+## Quick Start
 
-Reference: `node_modules/@lobehub/ui/es/index.mjs` for all available components.
+```typescript
+import { defineRegistry, Renderer } from "@json-render/react";
+import { catalog } from "./catalog";
 
-**Common Components:**
+const { registry } = defineRegistry(catalog, {
+  components: {
+    Card: ({ props, children }) => <div>{props.title}{children}</div>,
+  },
+});
 
-* General: ActionIcon, ActionIconGroup, Block, Button, Icon
-* Data Display: Avatar, Collapse, Empty, Highlighter, Markdown, Tag, Tooltip
-* Data Entry: CodeEditor, CopyButton, EditableText, Form, FormModal, Input, SearchBar, Select
-* Feedback: Alert, Drawer, Modal
-* Layout: Center, DraggablePanel, Flexbox, Grid, Header, MaskShadow
-* Navigation: Burger, Dropdown, Menu, SideNav, Tabs
-
-## Routing Architecture
-
-Hybrid routing: Next.js App Router (static pages) + React Router DOM (main SPA).
-
-| Route Type         | Use Case                          | Implementation                                                            |
-| ------------------ | --------------------------------- | ------------------------------------------------------------------------- |
-| Next.js App Router | Auth pages (login, signup, oauth) | src/app/\[variants\]/(auth)/                                              |
-| React Router DOM   | Main SPA (chat, settings)         | desktopRouter.config.tsx \+ desktopRouter.config.desktop.tsx (must match) |
-
-### Key Files
-
-* Entry: `src/spa/entry.web.tsx` (web), `src/spa/entry.mobile.tsx`, `src/spa/entry.desktop.tsx`
-* Desktop router (pair — **always edit both** when changing routes): `src/spa/router/desktopRouter.config.tsx` (dynamic imports) and `src/spa/router/desktopRouter.config.desktop.tsx` (sync imports). Drift can cause unregistered routes / blank screen.
-* Mobile router: `src/spa/router/mobileRouter.config.tsx`
-* Router utilities: `src/utils/router.tsx`
-
-### `.desktop.{ts,tsx}` File Sync Rule
-
-**CRITICAL**: Some files have a `.desktop.ts(x)` variant that Electron uses instead of the base file. When editing a base file, **always check** if a `.desktop` counterpart exists and update it in sync. Drift causes blank pages or missing features in Electron.
-
-Known pairs that must stay in sync:
-
-| Base file (web, dynamic imports)                    | Desktop file (Electron, sync imports)                       |
-| --------------------------------------------------- | ----------------------------------------------------------- |
-| src/spa/router/desktopRouter.config.tsx             | src/spa/router/desktopRouter.config.desktop.tsx             |
-| src/routes/(main)/settings/features/componentMap.ts | src/routes/(main)/settings/features/componentMap.desktop.ts |
-
-**How to check**: After editing any `.ts` / `.tsx` file, run `Glob` for .desktop.{ts,tsx} in the same directory. If a match exists, update it with the equivalent sync-import change. 
-
-### Router Utilities
-
-```tsx
-import { dynamicElement, redirectElement, ErrorBoundary } from '@/utils/router';
-
-element: dynamicElement(() => import('./chat'), 'Desktop > Chat');
-element: redirectElement('/settings/profile');
-errorElement: <ErrorBoundary />;
-
+function App({ spec }) {
+  return <Renderer spec={spec} registry={registry} />;
+}
 ```
 
-### Navigation
+## Creating a Catalog
 
-**Important**: For SPA pages, use `Link` from `react-router-dom`, NOT `next/link`.
+```typescript
+import { defineCatalog } from "@json-render/core";
+import { schema } from "@json-render/react/schema";
+import { defineRegistry } from "@json-render/react";
+import { z } from "zod";
+
+// Create catalog with props schemas
+export const catalog = defineCatalog(schema, {
+  components: {
+    Button: {
+      props: z.object({
+        label: z.string(),
+        variant: z.enum(["primary", "secondary"]).nullable(),
+      }),
+      description: "Clickable button",
+    },
+    Card: {
+      props: z.object({ title: z.string() }),
+      description: "Card container with title",
+    },
+  },
+});
+
+// Define component implementations with type-safe props
+const { registry } = defineRegistry(catalog, {
+  components: {
+    Button: ({ props }) => (
+      <button className={props.variant}>{props.label}</button>
+    ),
+    Card: ({ props, children }) => (
+      <div className="card">
+        <h2>{props.title}</h2>
+        {children}
+      </div>
+    ),
+  },
+});
+```
+
+## Spec Structure (Element Tree)
+
+The React schema uses an element tree format:
+
+```json
+{
+  "root": {
+    "type": "Card",
+    "props": { "title": "Hello" },
+    "children": [
+      { "type": "Button", "props": { "label": "Click me" } }
+    ]
+  }
+}
+```
+
+## Visibility Conditions
+
+Use `visible` on elements to show/hide based on state. New syntax: `{ "$state": "/path" }`, `{ "$state": "/path", "eq": value }`, `{ "$state": "/path", "not": true }`, `{ "$and": [cond1, cond2] }` for AND, `{ "$or": [cond1, cond2] }` for OR. Helpers: `visibility.when("/path")`, `visibility.unless("/path")`, `visibility.eq("/path", val)`, `visibility.and(cond1, cond2)`, `visibility.or(cond1, cond2)`.
+
+## Providers
+
+| Provider | Purpose |
+|----------|---------|
+| `StateProvider` | Share state across components (JSON Pointer paths). Accepts optional `store` prop for controlled mode. |
+| `ActionProvider` | Handle actions dispatched via the event system |
+| `VisibilityProvider` | Enable conditional rendering based on state |
+| `ValidationProvider` | Form field validation |
+
+### External Store (Controlled Mode)
+
+Pass a `StateStore` to `StateProvider` (or `JSONUIProvider` / `createRenderer`) to use external state management (Redux, Zustand, XState, etc.):
 
 ```tsx
-// ❌ Wrong
-import Link from 'next/link';
-<Link href="/">Home</Link>;
+import { createStateStore, type StateStore } from "@json-render/react";
 
-// ✅ Correct
-import { Link } from 'react-router-dom';
-<Link to="/">Home</Link>;
+const store = createStateStore({ count: 0 });
 
-// In components
-import { useNavigate } from 'react-router-dom';
-const navigate = useNavigate();
-navigate('/chat');
+<StateProvider store={store}>{children}</StateProvider>
 
-// From stores
-const navigate = useGlobalStore.getState().navigate;
-navigate?.('/settings');
-
+// Mutate from anywhere — React re-renders automatically:
+store.set("/count", 1);
 ```
+
+When `store` is provided, `initialState` and `onStateChange` are ignored.
+
+## Dynamic Prop Expressions
+
+Any prop value can be a data-driven expression resolved by the renderer before components receive props:
+
+- **`{ "$state": "/state/key" }`** - reads from state model (one-way read)
+- **`{ "$bindState": "/path" }`** - two-way binding: reads from state and enables write-back. Use on the natural value prop (value, checked, pressed, etc.) of form components.
+- **`{ "$bindItem": "field" }`** - two-way binding to a repeat item field. Use inside repeat scopes.
+- **`{ "$cond": <condition>, "$then": <value>, "$else": <value> }`** - conditional value
+- **`{ "$template": "Hello, ${/name}!" }`** - interpolates state values into strings
+- **`{ "$computed": "fn", "args": { ... } }`** - calls registered functions with resolved args
+
+```json
+{
+  "type": "Input",
+  "props": {
+    "value": { "$bindState": "/form/email" },
+    "placeholder": "Email"
+  }
+}
+```
+
+Components do not use a `statePath` prop for two-way binding. Use `{ "$bindState": "/path" }` on the natural value prop instead.
+
+Components receive already-resolved props. For two-way bound props, use the `useBoundProp` hook with the `bindings` map the renderer provides.
+
+Register `$computed` functions via the `functions` prop on `JSONUIProvider` or `createRenderer`:
+
+```tsx
+<JSONUIProvider
+  functions={{ fullName: (args) => `${args.first} ${args.last}` }}
+>
+```
+
+## Event System
+
+Components use `emit` to fire named events, or `on()` to get an event handle with metadata. The element's `on` field maps events to action bindings:
+
+```tsx
+// Simple event firing
+Button: ({ props, emit }) => (
+  <button onClick={() => emit("press")}>{props.label}</button>
+),
+
+// Event handle with metadata (e.g. preventDefault)
+Link: ({ props, on }) => {
+  const click = on("click");
+  return (
+    <a href={props.href} onClick={(e) => {
+      if (click.shouldPreventDefault) e.preventDefault();
+      click.emit();
+    }}>{props.label}</a>
+  );
+},
+```
+
+```json
+{
+  "type": "Button",
+  "props": { "label": "Submit" },
+  "on": { "press": { "action": "submit" } }
+}
+```
+
+The `EventHandle` returned by `on()` has: `emit()`, `shouldPreventDefault` (boolean), and `bound` (boolean).
+
+## State Watchers
+
+Elements can declare a `watch` field (top-level, sibling of type/props/children) to trigger actions when state values change:
+
+```json
+{
+  "type": "Select",
+  "props": { "value": { "$bindState": "/form/country" }, "options": ["US", "Canada"] },
+  "watch": { "/form/country": { "action": "loadCities" } },
+  "children": []
+}
+```
+
+## Built-in Actions
+
+The `setState`, `pushState`, `removeState`, and `validateForm` actions are built into the React schema and handled automatically by `ActionProvider`. They are injected into AI prompts without needing to be declared in catalog `actions`:
+
+```json
+{ "action": "setState", "params": { "statePath": "/activeTab", "value": "home" } }
+{ "action": "pushState", "params": { "statePath": "/items", "value": { "text": "New" } } }
+{ "action": "removeState", "params": { "statePath": "/items", "index": 0 } }
+{ "action": "validateForm", "params": { "statePath": "/formResult" } }
+```
+
+`validateForm` validates all registered fields and writes `{ valid, errors }` to state.
+
+Note: `statePath` in action params (e.g. `setState.statePath`) targets the mutation path. Two-way binding in component props uses `{ "$bindState": "/path" }` on the value prop, not `statePath`.
+
+## useBoundProp
+
+For form components that need two-way binding, use `useBoundProp` with the `bindings` map the renderer provides when a prop uses `{ "$bindState": "/path" }` or `{ "$bindItem": "field" }`:
+
+```tsx
+import { useBoundProp } from "@json-render/react";
+
+Input: ({ element, bindings }) => {
+  const [value, setValue] = useBoundProp<string>(
+    element.props.value,
+    bindings?.value
+  );
+  return (
+    <input
+      value={value ?? ""}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
+},
+```
+
+`useBoundProp(propValue, bindingPath)` returns `[value, setValue]`. The `value` is the resolved prop; `setValue` writes back to the bound state path (no-op if not bound).
+
+## BaseComponentProps
+
+For building reusable component libraries not tied to a specific catalog (e.g. `@json-render/shadcn`):
+
+```typescript
+import type { BaseComponentProps } from "@json-render/react";
+
+const Card = ({ props, children }: BaseComponentProps<{ title?: string }>) => (
+  <div>{props.title}{children}</div>
+);
+```
+
+## defineRegistry
+
+`defineRegistry` conditionally requires the `actions` field only when the catalog declares actions. Catalogs with `actions: {}` can omit it.
+
+## Key Exports
+
+| Export | Purpose |
+|--------|---------|
+| `defineRegistry` | Create a type-safe component registry from a catalog |
+| `Renderer` | Render a spec using a registry |
+| `schema` | Element tree schema (includes built-in state actions: setState, pushState, removeState, validateForm) |
+| `useStateStore` | Access state context |
+| `useStateValue` | Get single value from state |
+| `useBoundProp` | Two-way binding for `$bindState`/`$bindItem` expressions |
+| `useActions` | Access actions context |
+| `useAction` | Get a single action dispatch function |
+| `useOptionalValidation` | Non-throwing variant of useValidation (returns null if no provider) |
+| `useUIStream` | Stream specs from an API endpoint |
+| `createStateStore` | Create a framework-agnostic in-memory `StateStore` |
+| `StateStore` | Interface for plugging in external state management |
+| `BaseComponentProps` | Catalog-agnostic base type for reusable component libraries |
+| `EventHandle` | Event handle type (`emit`, `shouldPreventDefault`, `bound`) |
+| `ComponentContext` | Typed component context (catalog-aware) |

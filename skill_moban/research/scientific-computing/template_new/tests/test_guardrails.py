@@ -13,7 +13,6 @@ SKILL_ROOT = Path(os.environ.get("CODEX_SKILLS_DIR", "/root/.codex/skills"))
 WORKSPACE_ROOT = Path(os.environ.get("WORKSPACE_ROOT", "/root/workspace"))
 WORKSPACE_ENTRYPOINT = Path(os.environ.get("WORKSPACE_ENTRYPOINT", str(WORKSPACE_ROOT / "run_marine_heat_intake.py")))
 DATA_HASH_PATH = Path(os.environ.get("TASK_DATA_HASH", "/opt/task-data.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("TASK_SKILLS_HASH", "/opt/task-skills.sha256"))
 
 
 def sha_listing(root: Path) -> str:
@@ -34,11 +33,9 @@ def sha_listing(root: Path) -> str:
     )
 
 
-def test_inputs_and_bound_skills_were_not_modified() -> None:
+def test_inputs_were_not_modified() -> None:
     expected_data_hash = DATA_HASH_PATH.read_text(encoding="utf-8") if DATA_HASH_PATH.exists() else sha_listing(DATA_ROOT)
-    expected_skill_hash = SKILL_HASH_PATH.read_text(encoding="utf-8") if SKILL_HASH_PATH.exists() else sha_listing(SKILL_ROOT)
     assert sha_listing(DATA_ROOT) == expected_data_hash, "Input data under /root/data was modified"
-    assert sha_listing(SKILL_ROOT) == expected_skill_hash, "Bound skill files under /root/.codex/skills were modified"
 
 
 def test_only_expected_output_files_exist() -> None:

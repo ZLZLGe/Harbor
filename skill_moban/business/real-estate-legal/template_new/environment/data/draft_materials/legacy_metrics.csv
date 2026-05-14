@@ -1,0 +1,10 @@
+metric_name,legacy_value,notes
+target_raise_usd,2500000,Older round target from early planning pass
+minimum_raise_usd,1250000,Older round floor
+instrument,priced_seed,Older instrument choice
+pm_monthly_subscription_usd,1190,Older pricing card
+law_firm_monthly_subscription_usd,1790,Older pricing card
+annualized_platform_revenue_usd,455880,Earlier operating metric snapshot
+pilot_conversion_rate,0.52,Earlier conversion snapshot
+gross_revenue_retention,0.89,Earlier retention snapshot
+metro_3,Tampa,Earlier market list

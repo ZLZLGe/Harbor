@@ -1,14 +1,20 @@
+---
+name: compose-multiplatform-patterns
+description: Compose Multiplatform and Jetpack Compose patterns for KMP projects — state management, navigation, theming, performance, and platform-specific UI.
+origin: ECC
+---
+
 # Compose Multiplatform Patterns
 
 Patterns for building shared UI across Android, iOS, Desktop, and Web using Compose Multiplatform and Jetpack Compose. Covers state management, navigation, theming, and performance.
 
 ## When to Activate
 
-* Building Compose UI (Jetpack Compose or Compose Multiplatform)
-* Managing UI state with ViewModels and Compose state
-* Implementing navigation in KMP or Android projects
-* Designing reusable composables and design systems
-* Optimizing recomposition and rendering performance
+- Building Compose UI (Jetpack Compose or Compose Multiplatform)
+- Managing UI state with ViewModels and Compose state
+- Implementing navigation in KMP or Android projects
+- Designing reusable composables and design systems
+- Optimizing recomposition and rendering performance
 
 ## State Management
 
@@ -45,7 +51,6 @@ class ItemListViewModel(
         }
     }
 }
-
 ```
 
 ### Collecting State in Compose
@@ -68,7 +73,6 @@ private fun ItemListContent(
 ) {
     // Stateless composable — easy to preview and test
 }
-
 ```
 
 ### Event Sink Pattern
@@ -96,7 +100,6 @@ ItemListContent(
     state = state,
     onEvent = viewModel::onEvent
 )
-
 ```
 
 ## Navigation
@@ -123,7 +126,6 @@ fun AppNavHost(navController: NavHostController = rememberNavController()) {
         composable<SettingsRoute> { SettingsScreen() }
     }
 }
-
 ```
 
 ### Dialog and Bottom Sheet Navigation
@@ -142,7 +144,6 @@ NavHost(navController, startDestination = HomeRoute) {
         )
     }
 }
-
 ```
 
 ## Composable Design
@@ -167,7 +168,6 @@ fun AppCard(
         }
     }
 }
-
 ```
 
 ### Modifier Ordering
@@ -183,7 +183,6 @@ Text(
         .background(Color.White) // 3. Drawing (background, border)
         .clickable { }           // 4. Interaction
 )
-
 ```
 
 ## KMP Platform-Specific UI
@@ -207,7 +206,6 @@ actual fun PlatformStatusBar(darkIcons: Boolean) {
 actual fun PlatformStatusBar(darkIcons: Boolean) {
     // iOS handles this via UIKit interop or Info.plist
 }
-
 ```
 
 ## Performance
@@ -224,7 +222,6 @@ data class ItemUiModel(
     val description: String,
     val progress: Float
 )
-
 ```
 
 ### Use `key()` and Lazy Lists Correctly
@@ -238,7 +235,6 @@ LazyColumn {
         ItemRow(item = item)
     }
 }
-
 ```
 
 ### Defer Reads with `derivedStateOf`
@@ -248,7 +244,6 @@ val listState = rememberLazyListState()
 val showScrollToTop by remember {
     derivedStateOf { listState.firstVisibleItemIndex > 5 }
 }
-
 ```
 
 ### Avoid Allocations in Recomposition
@@ -264,7 +259,6 @@ activeItems.forEach { item ->
         ActiveItem(item, onClick = { handle(item) })
     }
 }
-
 ```
 
 ## Theming
@@ -289,17 +283,17 @@ fun AppTheme(
 
     MaterialTheme(colorScheme = colorScheme, content = content)
 }
-
 ```
 
 ## Anti-Patterns to Avoid
 
-* Using `mutableStateOf` in ViewModels when `MutableStateFlow` with `collectAsStateWithLifecycle` is safer for lifecycle
-* Passing `NavController` deep into composables — pass lambda callbacks instead
-* Heavy computation inside `@Composable` functions — move to ViewModel or `remember {}`
-* Using `LaunchedEffect(Unit)` as a substitute for ViewModel init — it re-runs on configuration change in some setups
-* Creating new object instances in composable parameters — causes unnecessary recomposition
+- Using `mutableStateOf` in ViewModels when `MutableStateFlow` with `collectAsStateWithLifecycle` is safer for lifecycle
+- Passing `NavController` deep into composables — pass lambda callbacks instead
+- Heavy computation inside `@Composable` functions — move to ViewModel or `remember {}`
+- Using `LaunchedEffect(Unit)` as a substitute for ViewModel init — it re-runs on configuration change in some setups
+- Creating new object instances in composable parameters — causes unnecessary recomposition
 
 ## References
 
-See skill: `android-clean-architecture` for module structure and layering. See skill: `kotlin-coroutines-flows` for coroutine and Flow patterns.
+See skill: `android-clean-architecture` for module structure and layering.
+See skill: `kotlin-coroutines-flows` for coroutine and Flow patterns.

@@ -22,7 +22,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN mkdir -p /root/environment/data /root/environment/workspace /root/.codex/skills /root/answer
 
 COPY . /root/environment
-
-RUN if [ -d /root/environment/skills ]; then \
-      cp -R /root/environment/skills/. /root/.codex/skills/; \
-    fi
+COPY skills /root/.codex/skills

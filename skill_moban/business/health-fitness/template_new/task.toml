@@ -1,26 +1,25 @@
 version = "1.0"
 
 [metadata]
-id = "health-fitness__boutique-gym-onboarding-plan"
-name = "Template: Boutique Gym Onboarding Plan"
-description = "Create a coach-ready 7-day onboarding plan using local live exercise and nutrition services rather than stale exports."
+id = "health-fitness__strength-cycle-meal-plan"
+name = "Template: Strength Cycle and Meal Plan"
+description = "Prepare a compliant 4-day strength split and 2-day repeatable meal plan from current planning inputs and older shortlist exports."
 difficulty = "hard"
 category = "health-fitness"
 tags = [
   "health-fitness",
-  "nutrition",
-  "meal-planning",
+  "strength-training",
+  "nutrition-planning",
+  "meal-prep",
+  "macro-targets",
   "exercise-selection",
   "coach-handoff",
-  "constraint-solving",
-  "usda",
-  "wger",
 ]
 required_skills = [
   "fitness-nutrition",
 ]
-primary_output_file = "/root/output/member_assessment.json"
-source_template_id = "health-fitness__boutique-gym-onboarding-plan"
+primary_output_file = "/root/output/plan_summary.json"
+source_template_id = "health-fitness__strength-cycle-meal-plan"
 task_role = "template"
 
 [verifier]

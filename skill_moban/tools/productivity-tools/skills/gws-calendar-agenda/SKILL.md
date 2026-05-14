@@ -1,3 +1,16 @@
+---
+name: gws-calendar-agenda
+description: "Google Calendar: Show upcoming events across all calendars."
+metadata:
+  version: 0.22.5
+  openclaw:
+    category: "productivity"
+    requires:
+      bins:
+        - gws
+    cliHelp: "gws calendar +agenda --help"
+---
+
 # calendar +agenda
 
 > **PREREQUISITE:** Read `../gws-shared/SKILL.md` for auth, global flags, and security rules. If missing, run `gws generate-skills` to create it.
@@ -8,19 +21,18 @@ Show upcoming events across all calendars
 
 ```bash
 gws calendar +agenda
-
 ```
 
 ## Flags
 
-| Flag        | Required | Default | Description                                                                        |
-| ----------- | -------- | ------- | ---------------------------------------------------------------------------------- |
-| \--today    | —        | —       | Show today's events                                                                |
-| \--tomorrow | —        | —       | Show tomorrow's events                                                             |
-| \--week     | —        | —       | Show this week's events                                                            |
-| \--days     | —        | —       | Number of days ahead to show                                                       |
-| \--calendar | —        | —       | Filter to specific calendar name or ID                                             |
-| \--timezone | —        | —       | IANA timezone override (e.g. America/Denver). Defaults to Google account timezone. |
+| Flag | Required | Default | Description |
+|------|----------|---------|-------------|
+| `--today` | — | — | Show today's events |
+| `--tomorrow` | — | — | Show tomorrow's events |
+| `--week` | — | — | Show this week's events |
+| `--days` | — | — | Number of days ahead to show |
+| `--calendar` | — | — | Filter to specific calendar name or ID |
+| `--timezone` | — | — | IANA timezone override (e.g. America/Denver). Defaults to Google account timezone. |
 
 ## Examples
 
@@ -30,16 +42,15 @@ gws calendar +agenda --today
 gws calendar +agenda --week --format table
 gws calendar +agenda --days 3 --calendar 'Work'
 gws calendar +agenda --today --timezone America/New_York
-
 ```
 
 ## Tips
 
-* Read-only — never modifies events.
-* Queries all calendars by default; use --calendar to filter.
-* Uses your Google account timezone by default; override with --timezone.
+- Read-only — never modifies events.
+- Queries all calendars by default; use --calendar to filter.
+- Uses your Google account timezone by default; override with --timezone.
 
 ## See Also
 
-* [gws-shared](https://github.com/googleworkspace/cli/blob/HEAD/skills/gws-calendar-agenda/../gws-shared/SKILL.md) — Global flags and auth
-* [gws-calendar](https://github.com/googleworkspace/cli/blob/HEAD/skills/gws-calendar-agenda/../gws-calendar/SKILL.md) — All manage calendars and events commands
+- [gws-shared](../gws-shared/SKILL.md) — Global flags and auth
+- [gws-calendar](../gws-calendar/SKILL.md) — All manage calendars and events commands

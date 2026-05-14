@@ -1,141 +1,65 @@
+---
+name: code-reviewer
+description:
+  Use this skill to review code. It supports both local changes (staged or working tree)
+  and remote Pull Requests (by ID or URL). It focuses on correctness, maintainability,
+  and adherence to project standards.
+---
+
 # Code Reviewer
 
-You are an expert code reviewer who identifies security vulnerabilities, performance issues, and code quality problems.
+This skill guides the agent in conducting professional and thorough code reviews for both local development and remote Pull Requests.
 
-## When to Apply
+## Workflow
 
-Use this skill when:
+### 1. Determine Review Target
+*   **Remote PR**: If the user provides a PR number or URL (e.g., "Review PR #123"), target that remote PR.
+*   **Local Changes**: If no specific PR is mentioned, or if the user asks to "review my changes", target the current local file system states (staged and unstaged changes).
 
-* Reviewing pull requests
-* Performing security audits
-* Checking code quality
-* Identifying performance bottlenecks
-* Ensuring best practices
-* Pre-deployment code review
+### 2. Preparation
 
-## How to Use This Skill
+#### For Remote PRs:
+1.  **Checkout**: Use the GitHub CLI to checkout the PR.
+    ```bash
+    gh pr checkout <PR_NUMBER>
+    ```
+2.  **Preflight**: Execute the project's standard verification suite to catch automated failures early.
+    ```bash
+    npm run preflight
+    ```
+3.  **Context**: Read the PR description and any existing comments to understand the goal and history.
 
-This skill contains **detailed rules** in the `rules/` directory, organized by category and priority.
+#### For Local Changes:
+1.  **Identify Changes**:
+    *   Check status: `git status`
+    *   Read diffs: `git diff` (working tree) and/or `git diff --staged` (staged).
+2.  **Preflight (Optional)**: If the changes are substantial, ask the user if they want to run `npm run preflight` before reviewing.
 
-### Quick Start
+### 3. In-Depth Analysis
+Analyze the code changes based on the following pillars:
 
-1. **Review [AGENTS.md](https://github.com/shubhamsaboo/awesome-llm-apps/blob/HEAD/awesome%5Fagent%5Fskills/code-reviewer/AGENTS.md)** for a complete compilation of all rules with examples
-2. **Reference specific rules** from `rules/` directory for deep dives
-3. **Follow priority order**: Security → Performance → Correctness → Maintainability
+*   **Correctness**: Does the code achieve its stated purpose without bugs or logical errors?
+*   **Maintainability**: Is the code clean, well-structured, and easy to understand and modify in the future? Consider factors like code clarity, modularity, and adherence to established design patterns.
+*   **Readability**: Is the code well-commented (where necessary) and consistently formatted according to our project's coding style guidelines?
+*   **Efficiency**: Are there any obvious performance bottlenecks or resource inefficiencies introduced by the changes?
+*   **Security**: Are there any potential security vulnerabilities or insecure coding practices?
+*   **Edge Cases and Error Handling**: Does the code appropriately handle edge cases and potential errors?
+*   **Testability**: Is the new or modified code adequately covered by tests (even if preflight checks pass)? Suggest additional test cases that would improve coverage or robustness.
 
-### Available Rules
+### 4. Provide Feedback
 
-**Security (CRITICAL)**
+#### Structure
+*   **Summary**: A high-level overview of the review.
+*   **Findings**:
+    *   **Critical**: Bugs, security issues, or breaking changes.
+    *   **Improvements**: Suggestions for better code quality or performance.
+    *   **Nitpicks**: Formatting or minor style issues (optional).
+*   **Conclusion**: Clear recommendation (Approved / Request Changes).
 
-* [SQL Injection Prevention](https://github.com/shubhamsaboo/awesome-llm-apps/blob/HEAD/awesome%5Fagent%5Fskills/code-reviewer/rules/security-sql-injection.md)
-* [XSS Prevention](https://github.com/shubhamsaboo/awesome-llm-apps/blob/HEAD/awesome%5Fagent%5Fskills/code-reviewer/rules/security-xss-prevention.md)
+#### Tone
+*   Be constructive, professional, and friendly.
+*   Explain *why* a change is requested.
+*   For approvals, acknowledge the specific value of the contribution.
 
-**Performance (HIGH)**
-
-* [Avoid N+1 Query Problem](https://github.com/shubhamsaboo/awesome-llm-apps/blob/HEAD/awesome%5Fagent%5Fskills/code-reviewer/rules/performance-n-plus-one.md)
-
-**Correctness (HIGH)**
-
-* [Proper Error Handling](https://github.com/shubhamsaboo/awesome-llm-apps/blob/HEAD/awesome%5Fagent%5Fskills/code-reviewer/rules/correctness-error-handling.md)
-
-**Maintainability (MEDIUM)**
-
-* [Use Meaningful Variable Names](https://github.com/shubhamsaboo/awesome-llm-apps/blob/HEAD/awesome%5Fagent%5Fskills/code-reviewer/rules/maintainability-naming.md)
-* [Add Type Hints](https://github.com/shubhamsaboo/awesome-llm-apps/blob/HEAD/awesome%5Fagent%5Fskills/code-reviewer/rules/maintainability-type-hints.md)
-
-## Review Process
-
-### 1\. **Security First** (CRITICAL)
-
-Look for vulnerabilities that could lead to data breaches or unauthorized access:
-
-* SQL injection
-* XSS (Cross-Site Scripting)
-* Authentication/authorization bypasses
-* Hardcoded secrets
-* Insecure dependencies
-
-### 2\. **Performance** (HIGH)
-
-Identify code that will cause slow performance at scale:
-
-* N+1 database queries
-* Missing indexes
-* Inefficient algorithms
-* Memory leaks
-* Unnecessary API calls
-
-### 3\. **Correctness** (HIGH)
-
-Find bugs and edge cases:
-
-* Error handling gaps
-* Race conditions
-* Off-by-one errors
-* Null/undefined handling
-* Input validation
-
-### 4\. **Maintainability** (MEDIUM)
-
-Improve code quality for long-term health:
-
-* Clear naming
-* Type safety
-* DRY principle
-* Single responsibility
-* Documentation
-
-### 5\. **Testing**
-
-Verify adequate coverage:
-
-* Unit tests for new code
-* Edge case testing
-* Error path testing
-* Integration tests where needed
-
-## Review Output Format
-
-Structure your reviews as:
-
-```markdown
-This function retrieves user data but has critical security and reliability issues.
-
-## Critical Issues 🔴
-
-1. **SQL Injection Vulnerability** (Line 2)
-   - **Problem:** User input directly interpolated into SQL query
-   - **Impact:** Attackers can execute arbitrary SQL commands
-   - **Fix:** Use parameterized queries
-   ```python
-   query = "SELECT * FROM users WHERE id = ?"
-   result = db.execute(query, (user_id,))
-
-```
-
-## High Priority 🟠
-
-1. **No Error Handling** (Line 3-4)
-
-  * **Problem:** Assumes result always has data
-  * **Impact:** IndexError if user doesn't exist
-  * **Fix:** Check result before accessing  
-```python  
-if not result:  
-    return None  
-return result[0]  
-```
-2. **Missing Type Hints** (Line 1)
-
-  * **Problem:** No type annotations
-  * **Impact:** Reduces code clarity and IDE support
-  * **Fix:** Add type hints  
-```python  
-def get_user(user_id: int) -> Optional[Dict[str, Any]]:  
-```
-
-## Recommendations
-
-* Add logging for debugging
-* Consider using an ORM to prevent SQL injection
-* Add input validation for user\_id
+### 5. Cleanup (Remote PRs only)
+*   After the review, ask the user if they want to switch back to the default branch (e.g., `main` or `master`).

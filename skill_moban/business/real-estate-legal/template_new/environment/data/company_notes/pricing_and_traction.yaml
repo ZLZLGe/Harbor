@@ -1,0 +1,13 @@
+pricing:
+  property_manager:
+    monthly_subscription_usd: 1290
+    implementation_fee_usd: 4000
+  law_firm:
+    monthly_subscription_usd: 1890
+    implementation_fee_usd: 5500
+traction:
+  active_property_manager_customers: 18
+  active_law_firm_customers: 9
+  annualized_platform_revenue_usd: 482760
+  pilot_conversion_rate: 0.58
+  gross_revenue_retention: 0.93

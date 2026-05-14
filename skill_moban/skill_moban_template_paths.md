@@ -4,11 +4,12 @@
 
 - 远端分支：`origin/codex/perskill-s-z-20260325`
 - 本地来源：`/home/lenovo/skill/Harbor/skill_moban`
-- 同步范围：`skill_moban` 下各小类目录内的 `skills` 与 `template_new`
+- 同步范围：12 个正式大类下各小类目录内的 `skills` 与 `template_new`
 - 同步口径：本地内容全量覆盖远端同路径，未提及的远端文件删除
 
 ## 概览
 
+- 正式大类：12 个
 - `skills`：63 个
 - `template_new`：63 个
 - 合计目录：126 个

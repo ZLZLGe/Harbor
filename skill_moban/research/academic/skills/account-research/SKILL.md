@@ -1,10 +1,15 @@
+---
+name: account-research
+description: Research a company or person and get actionable sales intel. Works standalone with web search, supercharged when you connect enrichment tools or your CRM. Trigger with "research [company]", "look up [person]", "intel on [prospect]", "who is [name] at [company]", or "tell me about [company]".
+---
+
 # Account Research
 
 Get a complete picture of any company or person before outreach. This skill always works with web search, and gets significantly better with enrichment and CRM data.
 
 ## How It Works
 
-```text
+```
 ┌─────────────────────────────────────────────────────────────────┐
 │                     ACCOUNT RESEARCH                             │
 ├─────────────────────────────────────────────────────────────────┤
@@ -19,7 +24,6 @@ Get a complete picture of any company or person before outreach. This skill alwa
 │  + Enrichment: verified emails, phone, tech stack, org chart    │
 │  + CRM: prior relationship, past opportunities, contacts        │
 └─────────────────────────────────────────────────────────────────┘
-
 ```
 
 ---
@@ -28,11 +32,11 @@ Get a complete picture of any company or person before outreach. This skill alwa
 
 Just tell me who to research:
 
-* "Research Stripe"
-* "Look up the CTO at Notion"
-* "Intel on acme.com"
-* "Who is Sarah Chen at TechCorp?"
-* "Tell me about \[company\] before my call"
+- "Research Stripe"
+- "Look up the CTO at Notion"
+- "Intel on acme.com"
+- "Who is Sarah Chen at TechCorp?"
+- "Tell me about [company] before my call"
 
 I'll run web searches immediately. If you have enrichment or CRM connected, I'll pull that data too.
 
@@ -42,10 +46,10 @@ I'll run web searches immediately. If you have enrichment or CRM connected, I'll
 
 Connect your tools to supercharge this skill:
 
-| Connector      | What It Adds                                                             |
-| -------------- | ------------------------------------------------------------------------ |
-| **Enrichment** | Verified emails, phone numbers, tech stack, org chart, funding details   |
-| **CRM**        | Prior relationship history, past opportunities, existing contacts, notes |
+| Connector | What It Adds |
+|-----------|--------------|
+| **Enrichment** | Verified emails, phone numbers, tech stack, org chart, funding details |
+| **CRM** | Prior relationship history, past opportunities, existing contacts, notes |
 
 > **No connectors?** No problem. Web search provides solid research for any company or person.
 
@@ -168,7 +172,6 @@ Connect your tools to supercharge this skill:
 ## Sources
 - [Source 1](URL)
 - [Source 2](URL)
-
 ```
 
 ---
@@ -177,18 +180,17 @@ Connect your tools to supercharge this skill:
 
 ### Step 1: Parse Request
 
-```text
+```
 Identify what to research:
 - "Research Stripe" → Company research
 - "Look up John Smith at Acme" → Person + company
 - "Who is the CTO at Notion" → Role-based search
 - "Intel on acme.com" → Domain-based lookup
-
 ```
 
 ### Step 2: Web Search (Always)
 
-```text
+```
 Run these searches:
 1. "[Company name]" → Homepage, about page
 2. "[Company name] news" → Recent announcements
@@ -197,65 +199,58 @@ Run these searches:
 5. "[Person name] [Company] LinkedIn" → Profile info
 6. "[Company name] product" → What they sell
 7. "[Company name] customers" → Who they serve
-
 ```
 
 **Extract:**
-
-* Company description and positioning
-* Recent news (last 90 days)
-* Leadership team
-* Open job postings
-* Technology mentions
-* Customer base
+- Company description and positioning
+- Recent news (last 90 days)
+- Leadership team
+- Open job postings
+- Technology mentions
+- Customer base
 
 ### Step 3: Enrichment (If Connected)
 
-```text
+```
 If enrichment tools available:
 1. Enrich company → Firmographics, funding, tech stack
 2. Search people → Org chart, contact list
 3. Enrich person → Email, phone, background
 4. Get signals → Intent data, hiring velocity
-
 ```
 
 **Enrichment adds:**
-
-* Verified contact info
-* Complete org chart
-* Precise employee count
-* Detailed tech stack
-* Funding history with investors
+- Verified contact info
+- Complete org chart
+- Precise employee count
+- Detailed tech stack
+- Funding history with investors
 
 ### Step 4: CRM Check (If Connected)
 
-```text
+```
 If CRM available:
 1. Search for account by domain
 2. Get related contacts
 3. Get opportunity history
 4. Get activity timeline
-
 ```
 
 **CRM adds:**
-
-* Prior relationship context
-* What happened before (won/lost deals)
-* Who we've talked to
-* Notes and history
+- Prior relationship context
+- What happened before (won/lost deals)
+- Who we've talked to
+- Notes and history
 
 ### Step 5: Synthesize
 
-```text
+```
 1. Combine all sources
 2. Prioritize enrichment data over web (more accurate)
 3. Add CRM context if exists
 4. Identify qualification signals
 5. Generate talking points
 6. Recommend approach
-
 ```
 
 ---
@@ -263,19 +258,15 @@ If CRM available:
 ## Research Variations
 
 ### Company Research
-
 Focus on: Business overview, news, hiring, leadership
 
 ### Person Research
-
 Focus on: Background, role, LinkedIn activity, talking points
 
 ### Competitor Research
-
 Focus on: Product comparison, positioning, win/loss patterns
 
 ### Pre-Meeting Research
-
 Focus on: Attendee backgrounds, recent news, relationship history
 
 ---
@@ -291,6 +282,6 @@ Focus on: Attendee backgrounds, recent news, relationship history
 
 ## Related Skills
 
-* **call-prep** — Full meeting prep with this research plus context
-* **draft-outreach** — Write personalized message based on research
-* **prospecting** — Qualify and prioritize research targets
+- **call-prep** — Full meeting prep with this research plus context
+- **draft-outreach** — Write personalized message based on research
+- **prospecting** — Qualify and prioritize research targets

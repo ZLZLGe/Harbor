@@ -29,22 +29,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --no-cache-dir openpyxl pytest-json-ctrf
-RUN npm install -g @openai/codex@0.120.0
 
 COPY . /opt/web3-task-env
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /app/data /app/workspace/marketwatch /app/output/surveillance /root/.codex/skills /logs/agent/skills /logs/verifier /services/marketdata /opt/task-baselines /var/log/marketdata \
     && cp -R /opt/web3-task-env/data/. /app/data/ \
     && cp -R /opt/web3-task-env/workspace/marketwatch/. /app/workspace/marketwatch/ \
     && cp -R /opt/web3-task-env/hidden-service-src/. /services/marketdata/ \
-    && if [ -d /opt/web3-task-env/skills ]; then cp -R /opt/web3-task-env/skills/. /root/.codex/skills/; fi \
-    && if [ -d /opt/web3-task-env/skills ]; then cp -R /opt/web3-task-env/skills/. /logs/agent/skills/; fi \
     && find /app/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/task-baselines/data.sha256 \
     && find /services/marketdata -type f ! -path '*/__pycache__/*' -print0 | sort -z | xargs -0 sha256sum > /opt/task-baselines/service.sha256 \
-    && if [ -d /root/.codex/skills ] && find /root/.codex/skills -type f | grep -q .; then find /root/.codex/skills -type f ! -path '*/__pycache__/*' -print0 | sort -z | xargs -0 sha256sum > /opt/task-baselines/skills.sha256; fi \
     && chmod -R a+rwX /app/workspace /app/output /logs /var/log/marketdata \
-    && chmod 644 /opt/task-baselines/data.sha256 /opt/task-baselines/service.sha256 \
-    && if [ -f /opt/task-baselines/skills.sha256 ]; then chmod 644 /opt/task-baselines/skills.sha256; fi
+    && chmod 644 /opt/task-baselines/data.sha256 /opt/task-baselines/service.sha256
 
 RUN printf '#!/bin/bash\n\
 set -euo pipefail\n\

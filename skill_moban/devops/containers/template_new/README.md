@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：Containers 类热门 skill 的价值，通常落在可复用部署骨架、配置抽象、模板组织、依赖边界和交付验证上。模板任务应强调 chart 结构、values 分层、环境差异表达和稳定渲染链路，让 solver 通过工程化交付动作完成任务。
-* **Task 目标形态**：任务宜采用“已有骨架待补全”的交付场景，例如 Helm chart、多环境 values、K8s 资源模板、服务暴露和扩缩容配置。题面主要说明输入合同、交付边界、运行入口和禁止事项，把模板组织与诊断收敛交给 solver 自行处理。
 * **Verifier 设计重点**：Verifier 应优先验证 solver 是否沿 Helm 渲染链路交付了可复用 chart，是否正确表达环境差异、服务暴露、配置注入和可用性约束，是否能在隐藏 overlay 上保持泛化。防作弊点应覆盖静态清单复制、环境特化硬编码、跳过渲染入口和修改输入合同。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`containers__helm-multi-env-release-chart`
 - 类别：`containers`
-- 难度：`hard`
 - 绑定 Skill：`helm-chart-scaffolding`
 - 输入数据参考来源：
   - `environment/data/app_contract.json`：任务内应用规格合同；设计形态参考 `podinfo` Helm chart values 与 deployment 模板  
@@ -31,7 +29,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 会在 `workspace/chart/` 和 `workspace/releases/` 中补全 Helm chart 与两套环境 values，然后用 `helm lint`、`helm template` 与 shipped `render_release.sh` 入口验证显式环境和隐藏环境合同全部成立。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -49,11 +47,11 @@
 | :--- | :--- |
 | 输入与入口保护 | 禁止修改输入合同和 shipped render_release.sh |
 | 静态产物规避 | 禁止提交环境特化的渲染结果文件来替代 Helm 模板 |
-| Skill 只读 | with_skill 场景下绑定 skill 文件必须保持原样 |
+| Skill 使用轨迹 | with_skill 场景下需在修改 chart 前成功读取绑定 skill |
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务把 Helm chart 骨架、values 分层、模板 helpers、多环境 overlay 和 Helm 校验链路放在同一条交付路径里；skill 的核心价值正是把这些动作组织成稳定的工作流。当前 verifier 还专门检查 solver 是否在改 chart 之前成功读取绑定 skill，能拦住绕开技能载荷、伪造技能文件或只补表层产物的做法。
+结论：强相关。这个任务把 Helm chart 骨架、values 分层、模板 helpers、多环境 overlay 和 Helm 校验链路放在同一条交付路径里；skill 的核心价值正是把这些动作组织成稳定的工作流。当前 verifier 会检查 solver 是否在改 chart 之前成功读取绑定 skill，能拦住绕开技能载荷或只补表层产物的做法。
 
 基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
 

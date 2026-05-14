@@ -1,14 +1,29 @@
+---
+name: kubernetes-specialist
+description: Use when deploying or managing Kubernetes workloads. Invoke to create deployment manifests, configure pod security policies, set up service accounts, define network isolation rules, debug pod crashes, analyze resource limits, inspect container logs, or right-size workloads. Use for Helm charts, RBAC policies, NetworkPolicies, storage configuration, performance optimization, GitOps pipelines, and multi-cluster management.
+license: MIT
+metadata:
+  author: https://github.com/Jeffallan
+  version: "1.1.1"
+  domain: infrastructure
+  triggers: Kubernetes, K8s, kubectl, Helm, container orchestration, pod deployment, RBAC, NetworkPolicy, Ingress, StatefulSet, Operator, CRD, CustomResourceDefinition, ArgoCD, Flux, GitOps, Istio, Linkerd, service mesh, multi-cluster, cost optimization, VPA, spot instances
+  role: specialist
+  scope: infrastructure
+  output-format: manifests
+  related-skills: devops-engineer, cloud-architect, sre-engineer, terraform-engineer, security-reviewer, chaos-engineer
+---
+
 # Kubernetes Specialist
 
 ## When to Use This Skill
 
-* Deploying workloads (Deployments, StatefulSets, DaemonSets, Jobs)
-* Configuring networking (Services, Ingress, NetworkPolicies)
-* Managing configuration (ConfigMaps, Secrets, environment variables)
-* Setting up persistent storage (PV, PVC, StorageClasses)
-* Creating Helm charts for application packaging
-* Troubleshooting cluster and workload issues
-* Implementing security best practices
+- Deploying workloads (Deployments, StatefulSets, DaemonSets, Jobs)
+- Configuring networking (Services, Ingress, NetworkPolicies)
+- Managing configuration (ConfigMaps, Secrets, environment variables)
+- Setting up persistent storage (PV, PVC, StorageClasses)
+- Creating Helm charts for application packaging
+- Troubleshooting cluster and workload issues
+- Implementing security best practices
 
 ## Core Workflow
 
@@ -16,50 +31,48 @@
 2. **Design architecture** — Choose workload types, networking patterns, storage solutions
 3. **Implement manifests** — Create declarative YAML with proper resource limits, health checks
 4. **Secure** — Apply RBAC, NetworkPolicies, Pod Security Standards, least privilege
-**Validate** — Run `kubectl rollout status`, `kubectl get pods -w`, and kubectl describe pod  to confirm health; roll back with `kubectl rollout undo` if needed 
+5. **Validate** — Run `kubectl rollout status`, `kubectl get pods -w`, and `kubectl describe pod <name>` to confirm health; roll back with `kubectl rollout undo` if needed
 
 ## Reference Guide
 
 Load detailed guidance based on context:
 
-| Topic             | Reference                       | Load When                                                        |
-| ----------------- | ------------------------------- | ---------------------------------------------------------------- |
-| Workloads         | references/workloads.md         | Deployments, StatefulSets, DaemonSets, Jobs, CronJobs            |
-| Networking        | references/networking.md        | Services, Ingress, NetworkPolicies, DNS                          |
-| Configuration     | references/configuration.md     | ConfigMaps, Secrets, environment variables                       |
-| Storage           | references/storage.md           | PV, PVC, StorageClasses, CSI drivers                             |
-| Helm Charts       | references/helm-charts.md       | Chart structure, values, templates, hooks, testing, repositories |
-| Troubleshooting   | references/troubleshooting.md   | kubectl debug, logs, events, common issues                       |
-| Custom Operators  | references/custom-operators.md  | CRD, Operator SDK, controller-runtime, reconciliation            |
-| Service Mesh      | references/service-mesh.md      | Istio, Linkerd, traffic management, mTLS, canary                 |
-| GitOps            | references/gitops.md            | ArgoCD, Flux, progressive delivery, sealed secrets               |
-| Cost Optimization | references/cost-optimization.md | VPA, HPA tuning, spot instances, quotas, right-sizing            |
-| Multi-Cluster     | references/multi-cluster.md     | Cluster API, federation, cross-cluster networking, DR            |
+| Topic | Reference | Load When |
+|-------|-----------|-----------|
+| Workloads | `references/workloads.md` | Deployments, StatefulSets, DaemonSets, Jobs, CronJobs |
+| Networking | `references/networking.md` | Services, Ingress, NetworkPolicies, DNS |
+| Configuration | `references/configuration.md` | ConfigMaps, Secrets, environment variables |
+| Storage | `references/storage.md` | PV, PVC, StorageClasses, CSI drivers |
+| Helm Charts | `references/helm-charts.md` | Chart structure, values, templates, hooks, testing, repositories |
+| Troubleshooting | `references/troubleshooting.md` | kubectl debug, logs, events, common issues |
+| Custom Operators | `references/custom-operators.md` | CRD, Operator SDK, controller-runtime, reconciliation |
+| Service Mesh | `references/service-mesh.md` | Istio, Linkerd, traffic management, mTLS, canary |
+| GitOps | `references/gitops.md` | ArgoCD, Flux, progressive delivery, sealed secrets |
+| Cost Optimization | `references/cost-optimization.md` | VPA, HPA tuning, spot instances, quotas, right-sizing |
+| Multi-Cluster | `references/multi-cluster.md` | Cluster API, federation, cross-cluster networking, DR |
 
 ## Constraints
 
 ### MUST DO
-
-  * Use declarative YAML manifests (avoid imperative kubectl commands)
-  * Set resource requests and limits on all containers
-  * Include liveness and readiness probes
-  * Use secrets for sensitive data (never hardcode credentials)
-  * Apply least privilege RBAC permissions
-  * Implement NetworkPolicies for network segmentation
-  * Use namespaces for logical isolation
-  * Label resources consistently for organization
-  * Document configuration decisions in annotations
+- Use declarative YAML manifests (avoid imperative kubectl commands)
+- Set resource requests and limits on all containers
+- Include liveness and readiness probes
+- Use secrets for sensitive data (never hardcode credentials)
+- Apply least privilege RBAC permissions
+- Implement NetworkPolicies for network segmentation
+- Use namespaces for logical isolation
+- Label resources consistently for organization
+- Document configuration decisions in annotations
 
 ### MUST NOT DO
-
-  * Deploy to production without resource limits
-  * Store secrets in ConfigMaps or as plain environment variables
-  * Use default ServiceAccount for application pods
-  * Allow unrestricted network access (default allow-all)
-  * Run containers as root without justification
-  * Skip health checks (liveness/readiness probes)
-  * Use latest tag for production images
-  * Expose unnecessary ports or services
+- Deploy to production without resource limits
+- Store secrets in ConfigMaps or as plain environment variables
+- Use default ServiceAccount for application pods
+- Allow unrestricted network access (default allow-all)
+- Run containers as root without justification
+- Skip health checks (liveness/readiness probes)
+- Use latest tag for production images
+- Expose unnecessary ports or services
 
 ## Common YAML Patterns
 
@@ -122,7 +135,6 @@ spec:
           envFrom:
             - secretRef:
                 name: my-app-secret   # pull credentials from Secret, not ConfigMap
-
 ```
 
 ### Minimal RBAC (least privilege)
@@ -157,7 +169,6 @@ roleRef:
   kind: Role
   name: my-app-role
   apiGroup: rbac.authorization.k8s.io
-
 ```
 
 ### NetworkPolicy (default-deny + explicit allow)
@@ -192,7 +203,6 @@ spec:
       ports:
         - protocol: TCP
           port: 8080
-
 ```
 
 ## Validation Commands
@@ -220,16 +230,14 @@ kubectl auth can-i --list --as=system:serviceaccount:my-namespace:my-app-sa
 
 # Roll back a failed deployment
 kubectl rollout undo deployment/my-app -n my-namespace
-
 ```
 
 ## Output Templates
 
 When implementing Kubernetes resources, provide:
-
-  1. Complete YAML manifests with proper structure
-  2. RBAC configuration if needed (ServiceAccount, Role, RoleBinding)
-  3. NetworkPolicy for network isolation
-  4. Brief explanation of design decisions and security considerations
+1. Complete YAML manifests with proper structure
+2. RBAC configuration if needed (ServiceAccount, Role, RoleBinding)
+3. NetworkPolicy for network isolation
+4. Brief explanation of design decisions and security considerations
 
 [Documentation](https://jeffallan.github.io/claude-skills/skills/infrastructure/kubernetes-specialist/)

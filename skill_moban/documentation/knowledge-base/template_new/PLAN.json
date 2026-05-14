@@ -54,7 +54,6 @@
     ],
     "guardrails": [
       "input knowledge-base files remain unchanged",
-      "the shipped skill area remains unchanged, and an empty skill area remains empty",
       "top-level output inventory exactly matches the contract",
       "outputs do not contain placeholder or verifier-oriented residue"
     ]

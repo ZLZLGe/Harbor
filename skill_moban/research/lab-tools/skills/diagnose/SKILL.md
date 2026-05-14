@@ -1,3 +1,8 @@
+---
+name: diagnose
+description: Disciplined diagnosis loop for hard bugs and performance regressions. Reproduce → minimise → hypothesise → instrument → fix → regression-test. Use when user says "diagnose this" / "debug this", reports a bug, says something is broken/throwing/failing, or describes a performance regression.
+---
+
 # Diagnose
 
 A discipline for hard bugs. Skip phases only when explicitly justified.
@@ -29,9 +34,9 @@ Build the right feedback loop, and the bug is 90% fixed.
 
 Treat the loop as a product. Once you have _a_ loop, ask:
 
-* Can I make it faster? (Cache setup, skip unrelated init, narrow the test scope.)
-* Can I make the signal sharper? (Assert on the specific symptom, not "didn't crash".)
-* Can I make it more deterministic? (Pin time, seed RNG, isolate filesystem, freeze network.)
+- Can I make it faster? (Cache setup, skip unrelated init, narrow the test scope.)
+- Can I make the signal sharper? (Assert on the specific symptom, not "didn't crash".)
+- Can I make it more deterministic? (Pin time, seed RNG, isolate filesystem, freeze network.)
 
 A 30-second flaky loop is barely better than no loop. A 2-second deterministic loop is a debugging superpower.
 
@@ -51,9 +56,9 @@ Run the loop. Watch the bug appear.
 
 Confirm:
 
-* The loop produces the failure mode the **user** described — not a different failure that happens to be nearby. Wrong bug = wrong fix.
-* The failure is reproducible across multiple runs (or, for non-deterministic bugs, reproducible at a high enough rate to debug against).
-* You have captured the exact symptom (error message, wrong output, slow timing) so later phases can verify the fix actually addresses it.
+- [ ] The loop produces the failure mode the **user** described — not a different failure that happens to be nearby. Wrong bug = wrong fix.
+- [ ] The failure is reproducible across multiple runs (or, for non-deterministic bugs, reproducible at a high enough rate to debug against).
+- [ ] You have captured the exact symptom (error message, wrong output, slow timing) so later phases can verify the fix actually addresses it.
 
 Do not proceed until you reproduce the bug.
 
@@ -63,7 +68,7 @@ Generate **3–5 ranked hypotheses** before testing any of them. Single-hypothes
 
 Each hypothesis must be **falsifiable**: state the prediction it makes.
 
-> Format: "If is the cause, then will make the bug disappear / will make it worse."
+> Format: "If <X> is the cause, then <changing Y> will make the bug disappear / <changing Z> will make it worse."
 
 If you cannot state the prediction, the hypothesis is a vibe — discard or sharpen it.
 
@@ -71,7 +76,7 @@ If you cannot state the prediction, the hypothesis is a vibe — discard or shar
 
 ## Phase 4 — Instrument
 
-Each probe must map to a specific prediction from Phase 3\. **Change one variable at a time.**
+Each probe must map to a specific prediction from Phase 3. **Change one variable at a time.**
 
 Tool preference:
 
@@ -103,10 +108,10 @@ If a correct seam exists:
 
 Required before declaring done:
 
-* Original repro no longer reproduces (re-run the Phase 1 loop)
-* Regression test passes (or absence of seam is documented)
-* All `[DEBUG-...]` instrumentation removed (`grep` the prefix)
-* Throwaway prototypes deleted (or moved to a clearly-marked debug location)
-* The hypothesis that turned out correct is stated in the commit / PR message — so the next debugger learns
+- [ ] Original repro no longer reproduces (re-run the Phase 1 loop)
+- [ ] Regression test passes (or absence of seam is documented)
+- [ ] All `[DEBUG-...]` instrumentation removed (`grep` the prefix)
+- [ ] Throwaway prototypes deleted (or moved to a clearly-marked debug location)
+- [ ] The hypothesis that turned out correct is stated in the commit / PR message — so the next debugger learns
 
 **Then ask: what would have prevented this bug?** If the answer involves architectural change (no good test seam, tangled callers, hidden coupling) hand off to the `/improve-codebase-architecture` skill with the specifics. Make the recommendation **after** the fix is in, not before — you have more information now than when you started.

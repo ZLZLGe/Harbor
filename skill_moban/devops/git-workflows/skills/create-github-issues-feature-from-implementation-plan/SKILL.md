@@ -1,3 +1,8 @@
+---
+name: create-github-issues-feature-from-implementation-plan
+description: 'Create GitHub Issues from implementation plan phases using feature_request.yml or chore_request.yml templates.'
+---
+
 # Create GitHub Issue from Implementation Plan
 
 Create GitHub Issues for the implementation plan at `${file}`.
@@ -11,13 +16,13 @@ Create GitHub Issues for the implementation plan at `${file}`.
 
 ## Requirements
 
-* One issue per implementation phase
-* Clear, structured titles and descriptions
-* Include only changes required by the plan
-* Verify against existing issues before creation
+- One issue per implementation phase
+- Clear, structured titles and descriptions
+- Include only changes required by the plan
+- Verify against existing issues before creation
 
 ## Issue Content
 
-* Title: Phase name from implementation plan
-* Description: Phase details, requirements, and context
-* Labels: Appropriate for issue type (feature/chore)
+- Title: Phase name from implementation plan
+- Description: Phase details, requirements, and context
+- Labels: Appropriate for issue type (feature/chore)

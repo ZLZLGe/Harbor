@@ -1,3 +1,8 @@
+---
+name: create-github-issue-feature-from-specification
+description: 'Create GitHub Issue for feature request from specification file using feature_request.yml template.'
+---
+
 # Create GitHub Issue from Specification
 
 Create GitHub Issue for the specification at `${file}`.
@@ -11,13 +16,13 @@ Create GitHub Issue for the specification at `${file}`.
 
 ## Requirements
 
-* Single issue for the complete specification
-* Clear title identifying the specification
-* Include only changes required by the specification
-* Verify against existing issues before creation
+- Single issue for the complete specification
+- Clear title identifying the specification
+- Include only changes required by the specification
+- Verify against existing issues before creation
 
 ## Issue Content
 
-* Title: Feature name from specification
-* Description: Problem statement, proposed solution, and context
-* Labels: feature, enhancement (as appropriate)
+- Title: Feature name from specification
+- Description: Problem statement, proposed solution, and context
+- Labels: feature, enhancement (as appropriate)

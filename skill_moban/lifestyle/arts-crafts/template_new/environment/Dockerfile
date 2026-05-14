@@ -20,16 +20,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zip \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g @openai/codex@0.120.0
-
 COPY . /opt/arts-crafts-task-environment
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /root/environment/data /root/.codex/skills /logs/agent/skills /root/answer /logs/verifier /services/model-source /srv/model-source/files /var/log/model-source \
     && cp -R /opt/arts-crafts-task-environment/data/. /root/environment/data/ \
     && cp -R /opt/arts-crafts-task-environment/services/model-source/. /services/model-source/ \
     && cp -R /opt/arts-crafts-task-environment/mirror/files/. /srv/model-source/files/ \
-    && if [ -d /opt/arts-crafts-task-environment/skills ]; then cp -R /opt/arts-crafts-task-environment/skills/. /root/.codex/skills/; fi \
-    && if [ -d /opt/arts-crafts-task-environment/skills ]; then cp -R /opt/arts-crafts-task-environment/skills/. /logs/agent/skills/; fi \
     && mkdir -p /services/model-source/tls \
     && openssl req -x509 -newkey rsa:2048 -sha256 -days 3650 -nodes \
          -keyout /services/model-source/tls/model-source-ca.key \
@@ -55,9 +53,8 @@ RUN mkdir -p /root/environment/data /root/.codex/skills /logs/agent/skills /root
     && find /root/environment/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/model-bundle-data.sha256 \
     && find /services/model-source -type f -print0 | sort -z | xargs -0 sha256sum > /opt/model-source-service.sha256 \
     && find /srv/model-source/files -type f -print0 | sort -z | xargs -0 sha256sum > /opt/model-source-files.sha256 \
-    && if [ -d /root/.codex/skills ] && find /root/.codex/skills -type f | grep -q .; then find /root/.codex/skills -type f -print0 | sort -z | xargs -0 sha256sum > /opt/model-source-skills.sha256; else printf '' > /opt/model-source-skills.sha256; fi \
     && chmod -R 755 /services/model-source /srv/model-source \
-    && chmod 644 /opt/model-bundle-data.sha256 /opt/model-source-service.sha256 /opt/model-source-files.sha256 /opt/model-source-skills.sha256 \
+    && chmod 644 /opt/model-bundle-data.sha256 /opt/model-source-service.sha256 /opt/model-source-files.sha256 \
     && chmod 777 /var/log/model-source
 
 RUN printf '#!/bin/bash\n\

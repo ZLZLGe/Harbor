@@ -1,51 +1,60 @@
-#!/usr/bin/env python3
 from __future__ import annotations
 
-import hashlib
-import os
-import unittest
-from pathlib import Path
-
-APP_ROOT = Path(os.environ.get("TASK_APP_ROOT", "/app"))
-OUTPUT_DIR = APP_ROOT / "output"
-DATA_ROOT = APP_ROOT / "data"
-SKILL_ROOT = Path(os.environ.get("TASK_SKILL_ROOT", "/root/.codex/skills"))
-INPUT_HASH_PATH = Path(os.environ.get("TASK_INPUT_HASH_PATH", "/opt/productivity-input.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("TASK_SKILL_HASH_PATH", "/opt/productivity-skill.sha256"))
-
-
-def compute_hash_listing(root: Path) -> str:
-    lines = []
-    for path in sorted(p for p in root.rglob("*") if p.is_file()):
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
-        rel = path.relative_to(root).as_posix()
-        lines.append(f"{digest}  {rel}")
-    return "\n".join(lines) + "\n"
+from conftest import (
+    OUTPUT_ROOT,
+    baseline_bundle_listing,
+    contract,
+    directory_listing,
+    read_digest,
+    read_inventory,
+    read_manifest,
+    run_build,
+)
 
 
-class GuardrailTests(unittest.TestCase):
-    def test_input_data_unchanged(self) -> None:
-        baseline = INPUT_HASH_PATH.read_text(encoding="utf-8")
-        current = compute_hash_listing(DATA_ROOT)
-        self.assertEqual(current, baseline)
+def test_input_bundle_is_unchanged() -> None:
+    from conftest import BUNDLE_ROOT
 
-    def test_skill_unchanged_if_present(self) -> None:
-        baseline = SKILL_HASH_PATH.read_text(encoding="utf-8")
-        if not baseline.strip():
-            try:
-                skill_exists = SKILL_ROOT.exists() and any(SKILL_ROOT.rglob("*"))
-            except PermissionError:
-                skill_exists = False
-            self.assertFalse(skill_exists)
-            return
-        current_root = SKILL_ROOT / "blogwatcher" if (SKILL_ROOT / "blogwatcher").is_dir() else SKILL_ROOT
-        current = compute_hash_listing(current_root)
-        self.assertEqual(current, baseline)
-
-    def test_output_whitelist(self) -> None:
-        files = sorted(p.name for p in OUTPUT_DIR.iterdir() if p.is_file())
-        self.assertEqual(files, ["feed_digest.json", "feed_digest.md"])
+    assert directory_listing(BUNDLE_ROOT) == baseline_bundle_listing()
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_output_inventory_is_restricted() -> None:
+    result = run_build(clear_state=True)
+    assert result.returncode == 0, result.stderr or result.stdout
+    payload = contract()
+    assert {path.name for path in OUTPUT_ROOT.iterdir()} == {
+        payload["output_file"],
+        payload["inventory_file"],
+        payload["manifest_file"],
+    }
+
+
+def test_outputs_do_not_contain_placeholder_or_verifier_strings() -> None:
+    result = run_build(clear_state=True)
+    assert result.returncode == 0, result.stderr or result.stdout
+
+    digest = read_digest().lower()
+    inventory_text = read_inventory().__repr__().lower()
+    manifest_text = read_manifest().__repr__().lower()
+
+    for text in [digest, inventory_text, manifest_text]:
+        assert "todo" not in text
+        assert "placeholder" not in text
+        assert "verifier" not in text
+
+
+def test_manifest_shape_is_stable() -> None:
+    result = run_build(clear_state=True)
+    assert result.returncode == 0, result.stderr or result.stdout
+
+    inventory = read_inventory()
+    manifest = read_manifest()
+    assert isinstance(inventory["tracked_sources"], list)
+    assert isinstance(inventory["removed_blog_names"], list)
+    assert isinstance(inventory["notes"], list)
+    assert isinstance(manifest["delivered_article_urls"], list)
+    assert isinstance(manifest["read_marked_article_urls"], list)
+    assert isinstance(manifest["tracked_source_ids"], list)
+    assert isinstance(manifest["removed_blog_names"], list)
+    assert isinstance(manifest["source_files"], list)
+    assert isinstance(manifest["notes"], list)

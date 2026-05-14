@@ -32,7 +32,7 @@
       "Outputs stay reproducible across reruns and remain consistent with the provided business brief and policy files."
     ],
     "guardrails": [
-      "Input data and shipped skill files remain unchanged.",
+      "Input data remains unchanged while the bound skill stays available as runtime guidance.",
       "Only the required output files are left in /root/output.",
       "Selected domains must come from the provided availability snapshot rather than fabricated names."
     ]

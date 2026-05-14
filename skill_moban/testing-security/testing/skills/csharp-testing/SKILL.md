@@ -1,24 +1,30 @@
+---
+name: csharp-testing
+description: C# and .NET testing patterns with xUnit, FluentAssertions, mocking, integration tests, and test organization best practices.
+origin: ECC
+---
+
 # C# Testing Patterns
 
 Comprehensive testing patterns for .NET applications using xUnit, FluentAssertions, and modern testing practices.
 
 ## When to Activate
 
-* Writing new tests for C# code
-* Reviewing test quality and coverage
-* Setting up test infrastructure for .NET projects
-* Debugging flaky or slow tests
+- Writing new tests for C# code
+- Reviewing test quality and coverage
+- Setting up test infrastructure for .NET projects
+- Debugging flaky or slow tests
 
 ## Test Framework Stack
 
-| Tool                       | Purpose                                  |
-| -------------------------- | ---------------------------------------- |
-| **xUnit**                  | Test framework (preferred for .NET)      |
-| **FluentAssertions**       | Readable assertion syntax                |
-| **NSubstitute** or **Moq** | Mocking dependencies                     |
-| **Testcontainers**         | Real infrastructure in integration tests |
-| **WebApplicationFactory**  | ASP.NET Core integration tests           |
-| **Bogus**                  | Realistic test data generation           |
+| Tool | Purpose |
+|---|---|
+| **xUnit** | Test framework (preferred for .NET) |
+| **FluentAssertions** | Readable assertion syntax |
+| **NSubstitute** or **Moq** | Mocking dependencies |
+| **Testcontainers** | Real infrastructure in integration tests |
+| **WebApplicationFactory** | ASP.NET Core integration tests |
+| **Bogus** | Realistic test data generation |
 
 ## Unit Test Structure
 
@@ -73,7 +79,6 @@ public sealed class OrderServiceTests
         result.Error.Should().Contain("at least one item");
     }
 }
-
 ```
 
 ### Parameterized Tests with Theory
@@ -106,7 +111,6 @@ public static TheoryData<CreateOrderRequest, string> InvalidOrderCases => new()
     { new() { CustomerId = "c1", Items = [] }, "at least one item" },
     { new() { CustomerId = "c1", Items = [new("", 1, 10m)] }, "SKU" },
 };
-
 ```
 
 ## Mocking with NSubstitute
@@ -141,7 +145,6 @@ public async Task PlaceOrderAsync_PersistsOrder()
         Arg.Is<Order>(o => o.CustomerId == request.CustomerId),
         Arg.Any<CancellationToken>());
 }
-
 ```
 
 ## ASP.NET Core Integration Tests
@@ -190,7 +193,6 @@ public sealed class OrderApiTests : IClassFixture<WebApplicationFactory<Program>
         response.Headers.Location.Should().NotBeNull();
     }
 }
-
 ```
 
 ### Testing with Testcontainers
@@ -233,12 +235,11 @@ public sealed class PostgresOrderRepositoryTests : IAsyncLifetime
         found!.Items.Should().HaveCount(1);
     }
 }
-
 ```
 
 ## Test Organization
 
-```text
+```
 tests/
   MyApp.UnitTests/
     Services/
@@ -256,7 +257,6 @@ tests/
       OrderBuilder.cs
     Fixtures/
       DatabaseFixture.cs
-
 ```
 
 ## Test Data Builders
@@ -287,20 +287,19 @@ var order = new OrderBuilder()
     .WithCustomer("cust-vip")
     .WithItem("SKU-PREMIUM", 3, 99.99m)
     .Build();
-
 ```
 
 ## Common Anti-Patterns
 
-| Anti-Pattern                         | Fix                                                        |
-| ------------------------------------ | ---------------------------------------------------------- |
-| Testing implementation details       | Test behavior and outcomes                                 |
-| Shared mutable test state            | Fresh instance per test (xUnit does this via constructors) |
-| Thread.Sleep in async tests          | Use Task.Delay with timeout, or polling helpers            |
-| Asserting on ToString() output       | Assert on typed properties                                 |
-| One giant assertion per test         | One logical assertion per test                             |
-| Test names describing implementation | Name by behavior: Method\_ExpectedResult\_WhenCondition    |
-| Ignoring CancellationToken           | Always pass and verify cancellation                        |
+| Anti-Pattern | Fix |
+|---|---|
+| Testing implementation details | Test behavior and outcomes |
+| Shared mutable test state | Fresh instance per test (xUnit does this via constructors) |
+| `Thread.Sleep` in async tests | Use `Task.Delay` with timeout, or polling helpers |
+| Asserting on `ToString()` output | Assert on typed properties |
+| One giant assertion per test | One logical assertion per test |
+| Test names describing implementation | Name by behavior: `Method_ExpectedResult_WhenCondition` |
+| Ignoring `CancellationToken` | Always pass and verify cancellation |
 
 ## Running Tests
 
@@ -319,5 +318,4 @@ dotnet test --filter "FullyQualifiedName~OrderService"
 
 # Watch mode during development
 dotnet watch test --project tests/MyApp.UnitTests/
-
 ```

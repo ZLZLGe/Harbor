@@ -1,13 +1,19 @@
+---
+name: python-testing
+description: Python testing strategies using pytest, TDD methodology, fixtures, mocking, parametrization, and coverage requirements.
+origin: ECC
+---
+
 # Python Testing Patterns
 
 Comprehensive testing strategies for Python applications using pytest, TDD methodology, and best practices.
 
 ## When to Activate
 
-* Writing new Python code (follow TDD: red, green, refactor)
-* Designing test suites for Python projects
-* Reviewing Python test coverage
-* Setting up testing infrastructure
+- Writing new Python code (follow TDD: red, green, refactor)
+- Designing test suites for Python projects
+- Reviewing Python test coverage
+- Setting up testing infrastructure
 
 ## Core Testing Philosophy
 
@@ -30,18 +36,16 @@ def add(a, b):
     return a + b
 
 # Step 3: Refactor if needed (REFACTOR)
-
 ```
 
 ### Coverage Requirements
 
-* **Target**: 80%+ code coverage
-* **Critical paths**: 100% coverage required
-* Use `pytest --cov` to measure coverage
+- **Target**: 80%+ code coverage
+- **Critical paths**: 100% coverage required
+- Use `pytest --cov` to measure coverage
 
 ```bash
 pytest --cov=mypackage --cov-report=term-missing --cov-report=html
-
 ```
 
 ## pytest Fundamentals
@@ -66,7 +70,6 @@ def test_list_append():
     items.append(4)
     assert 4 in items
     assert len(items) == 4
-
 ```
 
 ### Assertions
@@ -108,7 +111,6 @@ with pytest.raises(ValueError, match="invalid input"):
 with pytest.raises(ValueError) as exc_info:
     raise ValueError("error message")
 assert str(exc_info.value) == "error message"
-
 ```
 
 ## Fixtures
@@ -127,7 +129,6 @@ def test_sample_data(sample_data):
     """Test using the fixture."""
     assert sample_data["name"] == "Alice"
     assert sample_data["age"] == 30
-
 ```
 
 ### Fixture with Setup/Teardown
@@ -150,7 +151,6 @@ def test_database_query(database):
     """Test database operations."""
     result = database.query("SELECT * FROM users")
     assert len(result) > 0
-
 ```
 
 ### Fixture Scopes
@@ -177,7 +177,6 @@ def shared_resource():
     resource = ExpensiveResource()
     yield resource
     resource.cleanup()
-
 ```
 
 ### Fixture with Parameters
@@ -191,7 +190,6 @@ def number(request):
 def test_numbers(number):
     """Test runs 3 times, once for each parameter."""
     assert number > 0
-
 ```
 
 ### Using Multiple Fixtures
@@ -208,7 +206,6 @@ def admin():
 def test_user_admin_interaction(user, admin):
     """Test using multiple fixtures."""
     assert admin.can_manage(user)
-
 ```
 
 ### Autouse Fixtures
@@ -224,7 +221,6 @@ def reset_config():
 def test_without_fixture_call():
     # reset_config runs automatically
     assert Config.get_setting("debug") is False
-
 ```
 
 ### Conftest.py for Shared Fixtures
@@ -249,7 +245,6 @@ def auth_headers(client):
     })
     token = response.json["token"]
     return {"Authorization": f"Bearer {token}"}
-
 ```
 
 ## Parametrization
@@ -265,7 +260,6 @@ def auth_headers(client):
 def test_uppercase(input, expected):
     """Test runs 3 times with different inputs."""
     assert input.upper() == expected
-
 ```
 
 ### Multiple Parameters
@@ -280,7 +274,6 @@ def test_uppercase(input, expected):
 def test_add(a, b, expected):
     """Test addition with multiple inputs."""
     assert add(a, b) == expected
-
 ```
 
 ### Parametrize with IDs
@@ -294,7 +287,6 @@ def test_add(a, b, expected):
 def test_email_validation(input, expected):
     """Test email validation with readable test IDs."""
     assert is_valid_email(input) is expected
-
 ```
 
 ### Parametrized Fixtures
@@ -314,7 +306,6 @@ def test_database_operations(db):
     """Test runs 3 times, once for each database."""
     result = db.query("SELECT 1")
     assert result is not None
-
 ```
 
 ## Markers and Test Selection
@@ -337,7 +328,6 @@ def test_api_integration():
 @pytest.mark.unit
 def test_unit_logic():
     assert calculate(2, 3) == 5
-
 ```
 
 ### Run Specific Tests
@@ -354,7 +344,6 @@ pytest -m "integration or slow"
 
 # Run tests marked as unit but not slow
 pytest -m "unit and not slow"
-
 ```
 
 ### Configure Markers in pytest.ini
@@ -366,7 +355,6 @@ markers =
     integration: marks tests as integration tests
     unit: marks tests as unit tests
     django: marks tests as requiring Django
-
 ```
 
 ## Mocking and Patching
@@ -385,7 +373,6 @@ def test_with_mock(api_call_mock):
 
     api_call_mock.assert_called_once()
     assert result["status"] == "success"
-
 ```
 
 ### Mocking Return Values
@@ -400,7 +387,6 @@ def test_database_connection(connect_mock):
     db.connect()
 
     connect_mock.assert_called_once_with("localhost")
-
 ```
 
 ### Mocking Exceptions
@@ -415,7 +401,6 @@ def test_api_error_handling(api_call_mock):
         api_call()
 
     api_call_mock.assert_called_once()
-
 ```
 
 ### Mocking Context Managers
@@ -430,7 +415,6 @@ def test_file_reading(mock_file):
 
     mock_file.assert_called_once_with("test.txt", "r")
     assert result == "file content"
-
 ```
 
 ### Using Autospec
@@ -444,7 +428,6 @@ def test_autospec(db_mock):
 
     # This would fail if DBConnection doesn't have query method
     db_mock.assert_called_once()
-
 ```
 
 ### Mock Class Instances
@@ -461,7 +444,6 @@ class TestUserService:
 
         assert user.name == "Alice"
         repo_mock.return_value.save.assert_called_once()
-
 ```
 
 ### Mock Property
@@ -479,7 +461,6 @@ def test_with_mock_config(mock_config):
     """Test with mocked config properties."""
     assert mock_config.debug is True
     assert mock_config.api_key == "test-key"
-
 ```
 
 ## Testing Async Code
@@ -500,7 +481,6 @@ async def test_async_with_fixture(async_client):
     """Test async with async fixture."""
     response = await async_client.get("/api/users")
     assert response.status_code == 200
-
 ```
 
 ### Async Fixture
@@ -518,7 +498,6 @@ async def test_api_endpoint(async_client):
     """Test using async fixture."""
     response = await async_client.get("/api/data")
     assert response.status_code == 200
-
 ```
 
 ### Mocking Async Functions
@@ -534,7 +513,6 @@ async def test_async_mock(api_call_mock):
 
     api_call_mock.assert_awaited_once()
     assert result["status"] == "ok"
-
 ```
 
 ## Testing Exceptions
@@ -551,7 +529,6 @@ def test_custom_exception():
     """Test custom exception with message."""
     with pytest.raises(ValueError, match="invalid input"):
         validate_input("invalid")
-
 ```
 
 ### Testing Exception Attributes
@@ -564,7 +541,6 @@ def test_exception_with_details():
 
     assert exc_info.value.code == 400
     assert "error" in str(exc_info.value)
-
 ```
 
 ## Testing Side Effects
@@ -586,10 +562,9 @@ def test_file_processing():
         assert result == "processed: test content"
     finally:
         os.unlink(temp_path)
-
 ```
 
-### Testing with pytest's tmp\_path Fixture
+### Testing with pytest's tmp_path Fixture
 
 ```python
 def test_with_tmp_path(tmp_path):
@@ -600,7 +575,6 @@ def test_with_tmp_path(tmp_path):
     result = process_file(str(test_file))
     assert result == "hello world"
     # tmp_path automatically cleaned up
-
 ```
 
 ### Testing with tmpdir Fixture
@@ -613,14 +587,13 @@ def test_with_tmpdir(tmpdir):
 
     result = process_file(str(test_file))
     assert result == "data"
-
 ```
 
 ## Test Organization
 
 ### Directory Structure
 
-```text
+```
 tests/
 ├── conftest.py                 # Shared fixtures
 ├── __init__.py
@@ -636,7 +609,6 @@ tests/
 └── e2e/                        # End-to-end tests
     ├── __init__.py
     └── test_user_flow.py
-
 ```
 
 ### Test Classes
@@ -660,32 +632,31 @@ class TestUserService:
         user = User(id=1, name="Bob")
         self.service.delete_user(user)
         assert not self.service.user_exists(1)
-
 ```
 
 ## Best Practices
 
 ### DO
 
-* **Follow TDD**: Write tests before code (red-green-refactor)
-* **Test one thing**: Each test should verify a single behavior
-* **Use descriptive names**: `test_user_login_with_invalid_credentials_fails`
-* **Use fixtures**: Eliminate duplication with fixtures
-* **Mock external dependencies**: Don't depend on external services
-* **Test edge cases**: Empty inputs, None values, boundary conditions
-* **Aim for 80%+ coverage**: Focus on critical paths
-* **Keep tests fast**: Use marks to separate slow tests
+- **Follow TDD**: Write tests before code (red-green-refactor)
+- **Test one thing**: Each test should verify a single behavior
+- **Use descriptive names**: `test_user_login_with_invalid_credentials_fails`
+- **Use fixtures**: Eliminate duplication with fixtures
+- **Mock external dependencies**: Don't depend on external services
+- **Test edge cases**: Empty inputs, None values, boundary conditions
+- **Aim for 80%+ coverage**: Focus on critical paths
+- **Keep tests fast**: Use marks to separate slow tests
 
 ### DON'T
 
-* **Don't test implementation**: Test behavior, not internals
-* **Don't use complex conditionals in tests**: Keep tests simple
-* **Don't ignore test failures**: All tests must pass
-* **Don't test third-party code**: Trust libraries to work
-* **Don't share state between tests**: Tests should be independent
-* **Don't catch exceptions in tests**: Use `pytest.raises`
-* **Don't use print statements**: Use assertions and pytest output
-* **Don't write tests that are too brittle**: Avoid over-specific mocks
+- **Don't test implementation**: Test behavior, not internals
+- **Don't use complex conditionals in tests**: Keep tests simple
+- **Don't ignore test failures**: All tests must pass
+- **Don't test third-party code**: Trust libraries to work
+- **Don't share state between tests**: Tests should be independent
+- **Don't catch exceptions in tests**: Use `pytest.raises`
+- **Don't use print statements**: Use assertions and pytest output
+- **Don't write tests that are too brittle**: Avoid over-specific mocks
 
 ## Common Patterns
 
@@ -709,7 +680,6 @@ def test_create_user(client):
     })
     assert response.status_code == 201
     assert response.json["name"] == "Alice"
-
 ```
 
 ### Testing Database Operations
@@ -731,7 +701,6 @@ def test_create_user(db_session):
 
     retrieved = db_session.query(User).filter_by(name="Alice").first()
     assert retrieved.email == "alice@example.com"
-
 ```
 
 ### Testing Class Methods
@@ -748,7 +717,6 @@ class TestCalculator:
     def test_divide_by_zero(self, calculator):
         with pytest.raises(ZeroDivisionError):
             calculator.divide(10, 0)
-
 ```
 
 ## pytest Configuration
@@ -771,7 +739,6 @@ markers =
     slow: marks tests as slow
     integration: marks tests as integration tests
     unit: marks tests as unit tests
-
 ```
 
 ### pyproject.toml
@@ -793,7 +760,6 @@ markers = [
     "integration: marks tests as integration tests",
     "unit: marks tests as unit tests",
 ]
-
 ```
 
 ## Running Tests
@@ -831,21 +797,20 @@ pytest -k "test_user"
 
 # Run with debugger on failure
 pytest --pdb
-
 ```
 
 ## Quick Reference
 
-| Pattern                    | Usage                          |
-| -------------------------- | ------------------------------ |
-| pytest.raises()            | Test expected exceptions       |
-| @pytest.fixture()          | Create reusable test fixtures  |
-| @pytest.mark.parametrize() | Run tests with multiple inputs |
-| @pytest.mark.slow          | Mark slow tests                |
-| pytest -m "not slow"       | Skip slow tests                |
-| @patch()                   | Mock functions and classes     |
-| tmp\_path fixture          | Automatic temp directory       |
-| pytest --cov               | Generate coverage report       |
-| assert                     | Simple and readable assertions |
+| Pattern | Usage |
+|---------|-------|
+| `pytest.raises()` | Test expected exceptions |
+| `@pytest.fixture()` | Create reusable test fixtures |
+| `@pytest.mark.parametrize()` | Run tests with multiple inputs |
+| `@pytest.mark.slow` | Mark slow tests |
+| `pytest -m "not slow"` | Skip slow tests |
+| `@patch()` | Mock functions and classes |
+| `tmp_path` fixture | Automatic temp directory |
+| `pytest --cov` | Generate coverage report |
+| `assert` | Simple and readable assertions |
 
 **Remember**: Tests are code too. Keep them clean, readable, and maintainable. Good tests catch bugs; great tests prevent them.

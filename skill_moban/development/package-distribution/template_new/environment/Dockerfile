@@ -9,7 +9,6 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install --no-cache-dir build mypy pytest virtualenv
-RUN npm install -g @openai/codex@0.120.0
 
 WORKDIR /workspace
 

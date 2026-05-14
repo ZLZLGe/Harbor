@@ -22,12 +22,19 @@ RUN apt-get update \
         ripgrep \
         tar \
         tini \
-    && npm install -g @openai/codex@0.120.0 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 COPY . /tmp/template-environment
+COPY skills /root/.claude/skills
+COPY skills /root/.codex/skills
+COPY skills /root/.opencode/skill
+COPY skills /root/.goose/skills
+COPY skills /root/.factory/skills
+COPY skills /root/.agents/skills
+COPY skills /root/.gemini/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p \
         /app/data \
@@ -45,16 +52,6 @@ RUN mkdir -p \
     && : > /logs/agent/command.log \
     && cp -R /tmp/template-environment/data/. /app/data/ \
     && cp -R /tmp/template-environment/repo/. /app/workspace/airdesk/ \
-    && if [ -d /tmp/template-environment/skills ]; then \
-        cp -R /tmp/template-environment/skills/. /root/.claude/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.codex/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.opencode/skill/; \
-        cp -R /tmp/template-environment/skills/. /root/.goose/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.factory/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.agents/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.gemini/skills/; \
-        cp -R /tmp/template-environment/skills/. /logs/agent/skills/; \
-      fi \
     && chmod -R a+rX /app /logs/agent/skills
 
 ENV HARBOR_LOG_AGENT_CMDS=1

@@ -1,42 +1,49 @@
 ---
 name: content-engine
-description: Turn one bundled source packet into channel-specific content assets with grounded source references, a consistent operator voice, and a final self-check pass.
+description: Transform articles, URLs, or raw content into platform-specific social media content while preserving voice and extracting key insights. Creates threads, posts, newsletter teasers, and more from a single source.
 ---
 
 # Content Engine
 
-Use this skill when a task asks for a campaign pack, social thread, newsletter draft, content repurposing, or source-grounded multi-channel writing from one bundled source set.
+Turn any article, URL, or raw content into social-ready posts tailored to each platform while maintaining voice, hooks, and contextual accuracy.
 
-## What This Skill Is Good For
+## When to use this skill
 
-- Converting one anchor asset plus supporting context into multiple outward-facing drafts.
-- Building a line-aware source registry before writing so references stay valid.
-- Deriving a reusable operator-style voice from sample texts without copying sentences.
-- Splitting channels by emphasis so every asset earns its slot.
-- Running a final lint pass for source coverage, red-flag phrasing, and cross-channel duplication.
+Use this skill when:
+- You have a blog post, article, essay, or thread and need to repurpose it for X, LinkedIn, Newsletter, or other platforms
+- You want to convert a single piece of source material into multiple platform-native content outputs
+- You need to retain tone and substance while adapting structure and length for distribution
+- You want content that feels written for the platform, not copy-pasted across formats
 
-## Recommended Workflow
+## What it does
 
-1. Read `/root/workspace/source_bundle/source_index.json` and `/root/workspace/source_bundle/campaign_constraints.json`.
-2. Query the local review service for `/api/index`, `/api/constraints`, and every `/api/document/<doc_id>` entry before drafting.
-3. Build a local registry of line-addressable notes so you can cite files and line ranges accurately.
-4. Review the `voice_samples/` material and write short scratch notes about rhythm, confidence level, tradeoff language, and repeated proof habits.
-5. Assign one clear emphasis to each deliverable before drafting; keep overlap low across channels.
-6. Draft the outward-facing assets, then fill in `source_map.json` and `publish_gaps.json` from the same grounded reading.
-7. Mirror `required_shared_limits` from `campaign_constraints.json` into `source_map.json` exactly, with the same wording and order.
-8. Run the bundle lint script before finalizing, and keep editing until it returns `{"ok": true, "issues": []}`.
+This skill:
+- Extracts key ideas, punchy phrasing, and audience-ready insights from a source
+- Reframes content into platform-specific formats like X threads, LinkedIn posts, newsletters, and summaries
+- Preserves the original voice while adjusting pacing, formatting, and hook style
+- Avoids generic repetition so each output feels deliberate and native
 
-## Helper Scripts
+## Inputs
 
-- `python3 /root/.codex/skills/content-engine/scripts/build_source_registry.py`
-  - Pulls the review-service index, constraints, and every document into one local JSON registry with line-addressable content.
-- `python3 /root/.codex/skills/content-engine/scripts/summarize_voice_samples.py`
-  - Reads the built registry and prints concise voice cues from the bundled voice samples.
-- `python3 /root/.codex/skills/content-engine/scripts/lint_campaign_bundle.py /root/output`
-  - Checks output presence, source refs, exact shared limits, red-flag phrasing, channel duplication, and the main per-channel structural constraints.
+You can provide:
+- A URL
+- A file path
+- Pasted text
+- Optional direction on platform, tone, or target audience
 
-## Notes
+## Deliverables
 
-- The task is grounded in the bundled source packet; do not add outside claims.
-- The local review service exists to make source coverage and line refs cheaper to validate.
-- A good bundle reuses source material, not paragraphs.
+It can produce:
+- X threads
+- LinkedIn posts
+- Newsletter intros or issue drafts
+- Blog intros or summaries
+- Multi-platform content packs from a single source
+
+## Hard rules
+
+- Do not write platform variants that are nearly identical to each other
+- Lead with a strong hook suited to the platform
+- Keep fidelity to the underlying source and avoid unsupported claims
+- Match the source tone before adding polish
+- End with a platform-appropriate CTA only when the format benefits from it

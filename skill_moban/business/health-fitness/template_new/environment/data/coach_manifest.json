@@ -1,0 +1,37 @@
+{
+  "task_id": "health-fitness__strength-cycle-meal-plan",
+  "member_id": "MEM-001",
+  "member_name": "Jordan Hale",
+  "goal": "build_strength_and_muscle",
+  "timezone": "America/Chicago",
+  "training_days": [
+    "DAY-1",
+    "DAY-2",
+    "DAY-3",
+    "DAY-4"
+  ],
+  "meal_days": [
+    "PLAN-A",
+    "PLAN-B"
+  ],
+  "equipment_available": [
+    "barbell",
+    "bench",
+    "cable",
+    "dumbbell",
+    "bodyweight",
+    "pull-up bar",
+    "farmer handles"
+  ],
+  "excluded_food_tags": [
+    "added_sugar",
+    "peanut",
+    "processed_shake"
+  ],
+  "required_outputs": [
+    "/root/output/workout_plan.json",
+    "/root/output/meal_plan.csv",
+    "/root/output/plan_summary.json",
+    "/root/output/coach_handoff.md"
+  ]
+}

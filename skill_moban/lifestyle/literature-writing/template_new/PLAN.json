@@ -43,7 +43,7 @@
     "fact_ledger is grounded in allowed fact ids from the source packet",
     "banned phrases and unsupported hype are removed",
     "solver queries the local content service and runs the local quality gate",
-    "workspace inputs, hidden service files, and bundled skill files remain unchanged"
+    "workspace inputs and hidden service files remain unchanged"
   ],
   "real_data_sources": [
     {
@@ -99,7 +99,7 @@
     "notes": "Valid with-skill trials: litwrite_fix3_20260505_025511, litwrite_with3_20260505_032020, litwrite_with4_20260505_032718. Valid without-skill trials: litwrite_noskill1_20260505_030102, litwrite_noskill3_20260505_032021, litwrite_noskill4_20260505_033039."
   },
   "iteration_notes": [
-    "Do not modify the selected skill contents.",
+    "Do not rely on editing the selected skill contents to complete the task.",
     "Do not alter instruction.md, tests, data, dependencies, or contracts between with_skill and without_skill variants.",
     "Prefer action-level failures such as skipping source packet reads, missing fact coverage, or omitting quality-gate execution over cosmetic prose failures.",
     "Finalize README metrics only after completed E2B comparison runs."

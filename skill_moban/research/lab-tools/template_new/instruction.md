@@ -82,7 +82,7 @@ Notes
 
 - `legacy_shortlist.csv` is for context only.
 - Use only the files under `/root/data/` for the review.
-- Do not modify any input files under `/root/data/`, tests, environment files, or skill files.
+- Do not modify any input files under `/root/data/`, tests, or environment files.
 - Do not leave temporary notebook-builder or scaffolding files behind after you finish.
 - Do not write the final outputs by hand or hard-code the final panel.
 - Do not use extra network calls during solving.

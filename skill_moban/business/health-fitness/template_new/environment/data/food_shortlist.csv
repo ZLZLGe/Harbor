@@ -1,0 +1,9 @@
+rank,food_id,description,notes
+1,3118,"Yogurt, Fruit Sweetened",Earlier breakfast pick from member onboarding notes
+2,3102,"Protein Bar, Chocolate",Earlier snack pick before the ingredient review
+3,3210,"Tuna, Canned in Water",Earlier lunch protein fallback
+4,3224,"Jasmine Rice, Cooked",Earlier carb base from prep list
+5,3238,Avocado,Earlier fat add-on from prep list
+6,3127,"Ready-to-Drink Mass Shake",Earlier post-workout shake draft
+7,3244,"Salmon, Cooked",Earlier dinner protein pick
+8,3272,"Sweet Potato, Baked",Earlier dinner carb pick

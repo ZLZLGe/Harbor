@@ -1,69 +1,53 @@
+---
+name: build-dashboard
+description: Build an interactive HTML dashboard with charts, filters, and tables. Use when creating an executive overview with KPI cards, turning query results into a shareable self-contained report, building a team monitoring snapshot, or needing multiple charts with filters in one browser-openable file.
+argument-hint: "<description> [data source]"
+---
+
 # /build-dashboard - Build Interactive Dashboards
 
-> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](https://github.com/anthropics/knowledge-work-plugins/blob/HEAD/data/skills/build-dashboard/../../CONNECTORS.md).
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../../CONNECTORS.md).
 
 Build a self-contained interactive HTML dashboard with charts, filters, tables, and professional styling. Opens directly in a browser -- no server or dependencies required.
 
 ## Usage
 
-/build-dashboard  [data source]
+```
+/build-dashboard <description of dashboard> [data source]
+```
 
 ## Workflow
 
-
 ### 1. Understand the Dashboard Requirements
-
 
 Determine:
 
-
-* **Purpose**: Executive overview, operational monitoring, deep-dive analysis, team reporting
-
-* **Audience**: Who will use this dashboard?
-
-* **Key metrics**: What numbers matter most?
-
-* **Dimensions**: What should users be able to filter or slice by?
-
-* **Data source**: Live query, pasted data, CSV file, or sample data
-
+- **Purpose**: Executive overview, operational monitoring, deep-dive analysis, team reporting
+- **Audience**: Who will use this dashboard?
+- **Key metrics**: What numbers matter most?
+- **Dimensions**: What should users be able to filter or slice by?
+- **Data source**: Live query, pasted data, CSV file, or sample data
 
 ### 2. Gather the Data
 
-
 **If data warehouse is connected:**
-
-
 1. Query the necessary data
-
 2. Embed the results as JSON within the HTML file
 
-
 **If data is pasted or uploaded:**
-
-
 1. Parse and clean the data
-
 2. Embed as JSON in the dashboard
 
-
 **If working from a description without data:**
-
-
 1. Create a realistic sample dataset matching the described schema
-
 2. Note in the dashboard that it uses sample data
-
 3. Provide instructions for swapping in real data
-
 
 ### 3. Design the Dashboard Layout
 
-
 Follow a standard dashboard layout pattern:
 
-
-```text
+```
 ┌──────────────────────────────────────────────────┐
 │  Dashboard Title                    [Filters ▼]  │
 ├────────────┬────────────┬────────────┬───────────┤
@@ -78,128 +62,73 @@ Follow a standard dashboard layout pattern:
 │    Detail Table (sortable, scrollable)           │
 │                                                  │
 └──────────────────────────────────────────────────┘
-
 ```
 
-
 **Adapt the layout to the content:**
-
-
-* 2-4 KPI cards at the top for headline numbers
-
-* 1-3 charts in the middle section for trends and breakdowns
-
-* Optional detail table at the bottom for drill-down data
-
-* Filters in the header or sidebar depending on complexity
-
+- 2-4 KPI cards at the top for headline numbers
+- 1-3 charts in the middle section for trends and breakdowns
+- Optional detail table at the bottom for drill-down data
+- Filters in the header or sidebar depending on complexity
 
 ### 4. Build the HTML Dashboard
 
-
 Generate a single self-contained HTML file using the base template below. The file includes:
 
-
 **Structure (HTML):**
-
-
-* Semantic HTML5 layout
-
-* Responsive grid using CSS Grid or Flexbox
-
-* Filter controls (dropdowns, date pickers, toggles)
-
-* KPI cards with values and labels
-
-* Chart containers
-
-* Data table with sortable headers
-
+- Semantic HTML5 layout
+- Responsive grid using CSS Grid or Flexbox
+- Filter controls (dropdowns, date pickers, toggles)
+- KPI cards with values and labels
+- Chart containers
+- Data table with sortable headers
 
 **Styling (CSS):**
-
-
-* Professional color scheme (clean whites, grays, with accent colors for data)
-
-* Card-based layout with subtle shadows
-
-* Consistent typography (system fonts for fast loading)
-
-* Responsive design that works on different screen sizes
-
-* Print-friendly styles
-
+- Professional color scheme (clean whites, grays, with accent colors for data)
+- Card-based layout with subtle shadows
+- Consistent typography (system fonts for fast loading)
+- Responsive design that works on different screen sizes
+- Print-friendly styles
 
 **Interactivity (JavaScript):**
-
-
-* Chart.js for interactive charts (included via CDN)
-
-* Filter dropdowns that update all charts and tables simultaneously
-
-* Sortable table columns
-
-* Hover tooltips on charts
-
-* Number formatting (commas, currency, percentages)
-
+- Chart.js for interactive charts (included via CDN)
+- Filter dropdowns that update all charts and tables simultaneously
+- Sortable table columns
+- Hover tooltips on charts
+- Number formatting (commas, currency, percentages)
 
 **Data (embedded JSON):**
-
-
-* All data embedded directly in the HTML as JavaScript variables
-
-* No external data fetches required
-
-* Dashboard works completely offline
-
+- All data embedded directly in the HTML as JavaScript variables
+- No external data fetches required
+- Dashboard works completely offline
 
 ### 5. Implement Chart Types
 
-
 Use Chart.js for all charts. Common dashboard chart patterns:
 
-
-* **Line chart**: Time series trends
-
-* **Bar chart**: Category comparisons
-
-* **Doughnut chart**: Composition (when <6 categories)
-
-* **Stacked bar**: Composition over time
-
-* **Mixed (bar + line)**: Volume with rate overlay
-
+- **Line chart**: Time series trends
+- **Bar chart**: Category comparisons
+- **Doughnut chart**: Composition (when <6 categories)
+- **Stacked bar**: Composition over time
+- **Mixed (bar + line)**: Volume with rate overlay
 
 Use the Chart.js integration patterns below for each chart type.
 
-
 ### 6. Add Interactivity
-
 
 Use the filter and interactivity implementation patterns below for dropdown filters, date range filters, combined filter logic, sortable tables, and chart updates.
 
-
 ### 7. Save and Open
 
-
 1. Save the dashboard as an HTML file with a descriptive name (e.g., `sales_dashboard.html`)
-
 2. Open it in the user's default browser
-
 3. Confirm it renders correctly
-
 4. Provide instructions for updating data or customizing
-
 
 ---
 
-
 ## Base Template
 
-
 Every dashboard follows this structure:
-
 
 ```html
 <!DOCTYPE html>
@@ -219,20 +148,20 @@ Every dashboard follows this structure:
         <header class="dashboard-header">
             <h1>Dashboard Title</h1>
             <div class="filters">
-                
+                <!-- Filter controls -->
             </div>
         </header>
 
         <section class="kpi-row">
-            
+            <!-- KPI cards -->
         </section>
 
         <section class="chart-row">
-            
+            <!-- Chart containers -->
         </section>
 
         <section class="table-section">
-            
+            <!-- Data table -->
         </section>
 
         <footer class="dashboard-footer">
@@ -278,12 +207,9 @@ Every dashboard follows this structure:
     </script>
 </body>
 </html>
-
 ```
 
-
 ## KPI Card Pattern
-
 
 ```html
 <div class="kpi-card">
@@ -291,9 +217,7 @@ Every dashboard follows this structure:
     <div class="kpi-value" id="kpi-revenue">$0</div>
     <div class="kpi-change positive" id="kpi-revenue-change">+0%</div>
 </div>
-
 ```
-
 
 ```javascript
 function renderKPI(elementId, value, previousValue, format = 'number') {
@@ -328,27 +252,20 @@ function formatValue(value, format) {
             return value.toString();
     }
 }
-
 ```
-
 
 ## Chart.js Integration
 
-
 ### Chart Container Pattern
-
 
 ```html
 <div class="chart-container">
     <h3 class="chart-title">Monthly Revenue Trend</h3>
     <canvas id="revenue-chart"></canvas>
 </div>
-
 ```
 
-
 ### Line Chart
-
 
 ```javascript
 function createLineChart(canvasId, labels, datasets) {
@@ -405,12 +322,9 @@ function createLineChart(canvasId, labels, datasets) {
         }
     });
 }
-
 ```
 
-
 ### Bar Chart
-
 
 ```javascript
 function createBarChart(canvasId, labels, data, options = {}) {
@@ -467,12 +381,9 @@ function createBarChart(canvasId, labels, data, options = {}) {
         }
     });
 }
-
 ```
 
-
 ### Doughnut Chart
-
 
 ```javascript
 function createDoughnutChart(canvasId, labels, data) {
@@ -510,12 +421,9 @@ function createDoughnutChart(canvasId, labels, data) {
         }
     });
 }
-
 ```
 
-
 ### Updating Charts on Filter Change
-
 
 ```javascript
 function updateChart(chart, newLabels, newData) {
@@ -532,15 +440,11 @@ function updateChart(chart, newLabels, newData) {
 
     chart.update('none'); // 'none' disables animation for instant update
 }
-
 ```
-
 
 ## Filter and Interactivity Implementation
 
-
 ### Dropdown Filter
-
 
 ```html
 <div class="filter-group">
@@ -549,9 +453,7 @@ function updateChart(chart, newLabels, newData) {
         <option value="all">All Regions</option>
     </select>
 </div>
-
 ```
-
 
 ```javascript
 function populateFilter(selectId, data, field) {
@@ -571,12 +473,9 @@ function getFilterValue(selectId) {
     const val = document.getElementById(selectId).value;
     return val === 'all' ? null : val;
 }
-
 ```
 
-
 ### Date Range Filter
-
 
 ```html
 <div class="filter-group">
@@ -585,9 +484,7 @@ function getFilterValue(selectId) {
     <span>to</span>
     <input type="date" id="filter-date-end" onchange="dashboard.applyFilters()">
 </div>
-
 ```
-
 
 ```javascript
 function filterByDateRange(data, dateField, startDate, endDate) {
@@ -598,12 +495,9 @@ function filterByDateRange(data, dateField, startDate, endDate) {
         return true;
     });
 }
-
 ```
 
-
 ### Combined Filter Logic
-
 
 ```javascript
 applyFilters() {
@@ -624,42 +518,40 @@ applyFilters() {
     this.updateCharts();
     this.renderTable();
 }
-
 ```
-
 
 ### Sortable Table
 
-
+```javascript
 function renderTable(containerId, data, columns) {
     const container = document.getElementById(containerId);
     let sortCol = null;
     let sortDir = 'desc';
 
     function render(sortedData) {
-        let html = '';
+        let html = '<table class="data-table">';
 
         // Header
-        html += '';
+        html += '<thead><tr>';
         columns.forEach(col => {
             const arrow = sortCol === col.field
                 ? (sortDir === 'asc' ? ' ▲' : ' ▼')
                 : '';
-            html += `${col.field}')" style="cursor:pointer">${col.label}${arrow}`;
+            html += `<th onclick="sortTable('${col.field}')" style="cursor:pointer">${col.label}${arrow}</th>`;
         });
-        html += '';
+        html += '</tr></thead>';
 
         // Body
-        html += '';
+        html += '<tbody>';
         sortedData.forEach(row => {
-            html += '';
+            html += '<tr>';
             columns.forEach(col => {
                 const value = col.format ? formatValue(row[col.field], col.format) : row[col.field];
-                html += `${value}`;
+                html += `<td>${value}</td>`;
             });
-            html += '';
+            html += '</tr>';
         });
-        html += '';
+        html += '</tbody></table>';
 
         container.innerHTML = html;
     }
@@ -681,12 +573,11 @@ function renderTable(containerId, data, columns) {
 
     render(data);
 }
+```
 
 ## CSS Styling for Dashboards
 
-
 ### Color System
-
 
 ```css
 :root {
@@ -717,12 +608,9 @@ function renderTable(containerId, data, columns) {
     --gap: 16px;
     --radius: 8px;
 }
-
 ```
 
-
 ### Layout
-
 
 ```css
 * {
@@ -761,12 +649,9 @@ body {
     font-size: 20px;
     font-weight: 600;
 }
-
 ```
 
-
 ### KPI Cards
-
 
 ```css
 .kpi-row {
@@ -805,12 +690,9 @@ body {
 
 .kpi-change.positive { color: var(--positive); }
 .kpi-change.negative { color: var(--negative); }
-
 ```
 
-
 ### Chart Containers
-
 
 ```css
 .chart-row {
@@ -837,12 +719,9 @@ body {
 .chart-container canvas {
     max-height: 300px;
 }
-
 ```
 
-
 ### Filters
-
 
 ```css
 .filters {
@@ -877,12 +756,9 @@ body {
     background: var(--bg-header);
     color: var(--text-on-dark);
 }
-
 ```
 
-
 ### Data Table
-
 
 ```css
 .table-section {
@@ -929,12 +805,9 @@ body {
 .data-table tbody tr:last-child td {
     border-bottom: none;
 }
-
 ```
 
-
 ### Responsive Design
-
 
 ```css
 @media (max-width: 768px) {
@@ -964,39 +837,22 @@ body {
     .chart-container { break-inside: avoid; }
     .kpi-card { border: 1px solid #dee2e6; box-shadow: none; }
 }
-
 ```
-
 
 ## Performance Considerations for Large Datasets
 
-
 ### Data Size Guidelines
 
-
-| |                                                                  |
-| ------------------------------------------------------------------ |
-| Data Size                                                          |
-| Approach                                                           |
-| |                                                                  |
-| <1,000 rows                                                        |
-| Embed directly in HTML. Full interactivity.                        |
-| |                                                                  |
-| 1,000 - 10,000 rows                                                |
-| Embed in HTML. May need to pre-aggregate for charts.               |
-| |                                                                  |
-| 10,000 - 100,000 rows                                              |
-| Pre-aggregate server-side. Embed only aggregated data.             |
-| |                                                                  |
-| >100,000 rows                                                      |
-| Not suitable for client-side dashboard. Use a BI tool or paginate. |
-
+| Data Size | Approach |
+|---|---|
+| <1,000 rows | Embed directly in HTML. Full interactivity. |
+| 1,000 - 10,000 rows | Embed in HTML. May need to pre-aggregate for charts. |
+| 10,000 - 100,000 rows | Pre-aggregate server-side. Embed only aggregated data. |
+| >100,000 rows | Not suitable for client-side dashboard. Use a BI tool or paginate. |
 
 ### Pre-Aggregation Pattern
 
-
 Instead of embedding raw data and aggregating in the browser:
-
 
 ```javascript
 // DON'T: embed 50,000 raw rows
@@ -1019,33 +875,21 @@ const CHART_DATA = {
         avg_order_value: 127,
     }
 };
-
 ```
-
 
 ### Chart Performance
 
-
-* Limit line charts to <500 data points per series (downsample if needed)
-
-* Limit bar charts to <50 categories
-
-* For scatter plots, cap at 1,000 points (use sampling for larger datasets)
-
-* Disable animations for dashboards with many charts: `animation: false` in Chart.js options
-
-* Use `Chart.update('none')` instead of `Chart.update()` for filter-triggered updates
-
+- Limit line charts to <500 data points per series (downsample if needed)
+- Limit bar charts to <50 categories
+- For scatter plots, cap at 1,000 points (use sampling for larger datasets)
+- Disable animations for dashboards with many charts: `animation: false` in Chart.js options
+- Use `Chart.update('none')` instead of `Chart.update()` for filter-triggered updates
 
 ### DOM Performance
 
-
-* Limit data tables to 100-200 visible rows. Add pagination for more.
-
-* Use `requestAnimationFrame` for coordinated chart updates
-
-* Avoid rebuilding the entire DOM on filter change -- update only changed elements
-
+- Limit data tables to 100-200 visible rows. Add pagination for more.
+- Use `requestAnimationFrame` for coordinated chart updates
+- Avoid rebuilding the entire DOM on filter change -- update only changed elements
 
 ```javascript
 // Efficient table pagination
@@ -1056,38 +900,25 @@ function renderTablePage(data, page, pageSize = 50) {
     // Render only pageData
     // Show pagination controls: "Showing 1-50 of 2,340"
 }
-
 ```
-
 
 ## Examples
 
-
-```text
+```
 /build-dashboard Monthly sales dashboard with revenue trend, top products, and regional breakdown. Data is in the orders table.
-
 ```
 
-
-```text
+```
 /build-dashboard Here's our support ticket data [pastes CSV]. Build a dashboard showing volume by priority, response time trends, and resolution rates.
-
 ```
 
-
-```text
+```
 /build-dashboard Create a template executive dashboard for a SaaS company showing MRR, churn, new customers, and NPS. Use sample data.
-
 ```
-
 
 ## Tips
 
-
-* Dashboards are fully self-contained HTML files -- share them with anyone by sending the file
-
-* For real-time dashboards, consider connecting to a BI tool instead. These dashboards are point-in-time snapshots
-
-* Request "dark mode" or "presentation mode" for different styling
-
-* You can request a specific color scheme to match your brand
+- Dashboards are fully self-contained HTML files -- share them with anyone by sending the file
+- For real-time dashboards, consider connecting to a BI tool instead. These dashboards are point-in-time snapshots
+- Request "dark mode" or "presentation mode" for different styling
+- You can request a specific color scheme to match your brand

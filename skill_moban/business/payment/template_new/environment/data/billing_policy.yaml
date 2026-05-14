@@ -1,0 +1,24 @@
+tax_rates:
+  US: 0.0825
+  DE: 0.19
+  SG: 0.09
+  GB: 0.20
+
+retry_rules:
+  max_attempts: 3
+
+collection_exhausted:
+  pause_after_attempt_count: 4
+  pause_after_days_past_due: 21
+
+blocked_action_buckets:
+  - collect_payment_method
+  - pause_entitlement
+
+next_steps:
+  charge_renewal: "Finalize the renewal invoice and collect the charge."
+  send_manual_invoice: "Finalize and send the invoice to the billing contact."
+  retry_payment: "Wait for the scheduled retry and monitor the payment attempt."
+  collect_payment_method: "Request a new payment method before retrying collection."
+  pause_entitlement: "Pause service access and open a collections escalation."
+  monitor: "No immediate action in this batch."

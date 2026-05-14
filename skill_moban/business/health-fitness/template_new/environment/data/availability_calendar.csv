@@ -1,0 +1,13 @@
+row_type,day_id,plan_day,meal_slot,calendar_date,max_duration_min,time_window_local
+training,DAY-1,,,2026-06-08,58,
+training,DAY-2,,,2026-06-09,60,
+training,DAY-3,,,2026-06-11,57,
+training,DAY-4,,,2026-06-13,61,
+meal,,PLAN-A,breakfast,,,07:00-08:30
+meal,,PLAN-A,lunch,,,12:00-13:30
+meal,,PLAN-A,dinner,,,18:00-19:30
+meal,,PLAN-A,snack,,,21:00-22:00
+meal,,PLAN-B,breakfast,,,07:00-08:30
+meal,,PLAN-B,lunch,,,12:00-13:30
+meal,,PLAN-B,dinner,,,18:00-19:30
+meal,,PLAN-B,snack,,,21:00-22:00

@@ -1,18 +1,24 @@
+---
+name: pytorch-patterns
+description: PyTorch deep learning patterns and best practices for building robust, efficient, and reproducible training pipelines, model architectures, and data loading.
+origin: ECC
+---
+
 # PyTorch Development Patterns
 
 Idiomatic PyTorch patterns and best practices for building robust, efficient, and reproducible deep learning applications.
 
 ## When to Activate
 
-* Writing new PyTorch models or training scripts
-* Reviewing deep learning code
-* Debugging training loops or data pipelines
-* Optimizing GPU memory usage or training speed
-* Setting up reproducible experiments
+- Writing new PyTorch models or training scripts
+- Reviewing deep learning code
+- Debugging training loops or data pipelines
+- Optimizing GPU memory usage or training speed
+- Setting up reproducible experiments
 
 ## Core Principles
 
-### 1\. Device-Agnostic Code
+### 1. Device-Agnostic Code
 
 Always write code that works on both CPU and GPU without hardcoding devices.
 
@@ -25,10 +31,9 @@ data = data.to(device)
 # Bad: Hardcoded device
 model = MyModel().cuda()  # Crashes if no GPU
 data = data.cuda()
-
 ```
 
-### 2\. Reproducibility First
+### 2. Reproducibility First
 
 Set all random seeds for reproducible results.
 
@@ -44,10 +49,9 @@ def set_seed(seed: int = 42) -> None:
 
 # Bad: No seed control
 model = MyModel()  # Different weights every run
-
 ```
 
-### 3\. Explicit Shape Management
+### 3. Explicit Shape Management
 
 Always document and verify tensor shapes.
 
@@ -66,7 +70,6 @@ def forward(self, x):
     x = self.pool(x)
     x = x.view(x.size(0), -1)  # What size is this?
     return self.fc(x)           # Will this even work?
-
 ```
 
 ## Model Architecture Patterns
@@ -102,7 +105,6 @@ class ImageClassifier(nn.Module):
     def forward(self, x):
         x = F.conv2d(x, weight=self.make_weight())  # Creates weight each call!
         return x
-
 ```
 
 ### Proper Weight Initialization
@@ -122,7 +124,6 @@ def _init_weights(self, module: nn.Module) -> None:
 
 model = MyModel()
 model.apply(model._init_weights)
-
 ```
 
 ## Training Loop Patterns
@@ -166,7 +167,6 @@ def train_one_epoch(
         total_loss += loss.item()
 
     return total_loss / len(dataloader)
-
 ```
 
 ### Validation Loop
@@ -193,7 +193,6 @@ def evaluate(
         total += target.size(0)
 
     return total_loss / len(dataloader), correct / total
-
 ```
 
 ## Data Pipeline Patterns
@@ -224,7 +223,6 @@ class ImageDataset(Dataset):
             img = self.transform(img)
 
         return img, label
-
 ```
 
 ### Efficient DataLoader Configuration
@@ -243,7 +241,6 @@ dataloader = DataLoader(
 
 # Bad: Slow defaults
 dataloader = DataLoader(dataset, batch_size=32)  # num_workers=0, no pin_memory
-
 ```
 
 ### Custom Collate for Variable-Length Data
@@ -257,7 +254,6 @@ def collate_fn(batch: list[tuple[torch.Tensor, int]]) -> tuple[torch.Tensor, tor
     return padded, torch.tensor(labels)
 
 dataloader = DataLoader(dataset, batch_size=32, collate_fn=collate_fn)
-
 ```
 
 ## Checkpointing Patterns
@@ -293,7 +289,6 @@ def load_checkpoint(
 
 # Bad: Only saving model weights (can't resume training)
 torch.save(model.state_dict(), "model.pt")
-
 ```
 
 ## Performance Optimization
@@ -311,7 +306,6 @@ for data, target in dataloader:
     scaler.step(optimizer)
     scaler.update()
     optimizer.zero_grad(set_to_none=True)
-
 ```
 
 ### Gradient Checkpointing for Large Models
@@ -326,7 +320,6 @@ class LargeModel(nn.Module):
         x = checkpoint(self.block1, x, use_reentrant=False)
         x = checkpoint(self.block2, x, use_reentrant=False)
         return self.head(x)
-
 ```
 
 ### torch.compile for Speed
@@ -337,23 +330,22 @@ model = MyModel().to(device)
 model = torch.compile(model, mode="reduce-overhead")
 
 # Modes: "default" (safe), "reduce-overhead" (faster), "max-autotune" (fastest)
-
 ```
 
 ## Quick Reference: PyTorch Idioms
 
-| Idiom                                    | Description                            |
-| ---------------------------------------- | -------------------------------------- |
-| model.train() / model.eval()             | Always set mode before train/eval      |
-| torch.no\_grad()                         | Disable gradients for inference        |
-| optimizer.zero\_grad(set\_to\_none=True) | More efficient gradient clearing       |
-| .to(device)                              | Device-agnostic tensor/model placement |
-| torch.amp.autocast                       | Mixed precision for 2x speed           |
-| pin\_memory=True                         | Faster CPU→GPU data transfer           |
-| torch.compile                            | JIT compilation for speed (2.0+)       |
-| weights\_only=True                       | Secure model loading                   |
-| torch.manual\_seed                       | Reproducible experiments               |
-| gradient\_checkpointing                  | Trade compute for memory               |
+| Idiom | Description |
+|-------|-------------|
+| `model.train()` / `model.eval()` | Always set mode before train/eval |
+| `torch.no_grad()` | Disable gradients for inference |
+| `optimizer.zero_grad(set_to_none=True)` | More efficient gradient clearing |
+| `.to(device)` | Device-agnostic tensor/model placement |
+| `torch.amp.autocast` | Mixed precision for 2x speed |
+| `pin_memory=True` | Faster CPU→GPU data transfer |
+| `torch.compile` | JIT compilation for speed (2.0+) |
+| `weights_only=True` | Secure model loading |
+| `torch.manual_seed` | Reproducible experiments |
+| `gradient_checkpointing` | Trade compute for memory |
 
 ## Anti-Patterns to Avoid
 
@@ -399,7 +391,6 @@ torch.save(model, "model.pt")  # Saves entire model (fragile, not portable)
 
 # Good: Save state_dict
 torch.save(model.state_dict(), "model.pt")
-
 ```
 
-**Remember**: PyTorch code should be device-agnostic, reproducible, and memory-conscious. When in doubt, profile with `torch.profiler` and check GPU memory with `torch.cuda.memory_summary()`.
+__Remember__: PyTorch code should be device-agnostic, reproducible, and memory-conscious. When in doubt, profile with `torch.profiler` and check GPU memory with `torch.cuda.memory_summary()`.

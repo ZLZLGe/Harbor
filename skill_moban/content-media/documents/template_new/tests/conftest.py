@@ -58,10 +58,6 @@ def load_csv_rows(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(fh))
 
 
-def sha256_file(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
 def sha256_tree(root: Path) -> str:
     digest = hashlib.sha256()
     for path in sorted(p for p in root.rglob("*") if p.is_file()):
@@ -73,7 +69,6 @@ def sha256_tree(root: Path) -> str:
 def briefing_integrity() -> dict[str, str]:
     return {
         "briefing_sha256": sha256_tree(BRIEFING_ROOT),
-        "skill_sha256": sha256_file(Path("/opt/task-baselines/docx-skill.sha256")),
     }
 
 

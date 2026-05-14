@@ -1,21 +1,26 @@
+---
+name: visual-design-foundations
+description: Apply typography, color theory, spacing systems, and iconography principles to create cohesive visual designs. Use when establishing design tokens, building style guides, or improving visual hierarchy and consistency.
+---
+
 # Visual Design Foundations
 
 Build cohesive, accessible visual systems using typography, color, spacing, and iconography fundamentals.
 
 ## When to Use This Skill
 
-* Establishing design tokens for a new project
-* Creating or refining a spacing and sizing system
-* Selecting and pairing typefaces
-* Building accessible color palettes
-* Designing icon systems and visual assets
-* Improving visual hierarchy and readability
-* Auditing designs for visual consistency
-* Implementing dark mode or theming
+- Establishing design tokens for a new project
+- Creating or refining a spacing and sizing system
+- Selecting and pairing typefaces
+- Building accessible color palettes
+- Designing icon systems and visual assets
+- Improving visual hierarchy and readability
+- Auditing designs for visual consistency
+- Implementing dark mode or theming
 
 ## Core Systems
 
-### 1\. Typography Scale
+### 1. Typography Scale
 
 **Modular Scale** (ratio-based sizing):
 
@@ -31,18 +36,16 @@ Build cohesive, accessible visual systems using typography, color, spacing, and 
   --font-size-4xl: 2.25rem; /* 36px */
   --font-size-5xl: 3rem; /* 48px */
 }
-
 ```
 
 **Line Height Guidelines**:
-
 | Text Type | Line Height |
-| --------- | ----------- |
-| Headings  | 1.1 - 1.3   |
-| Body text | 1.5 - 1.7   |
-| UI labels | 1.2 - 1.4   |
+|-----------|-------------|
+| Headings | 1.1 - 1.3 |
+| Body text | 1.5 - 1.7 |
+| UI labels | 1.2 - 1.4 |
 
-### 2\. Spacing System
+### 2. Spacing System
 
 **8-point grid** (industry standard):
 
@@ -59,10 +62,9 @@ Build cohesive, accessible visual systems using typography, color, spacing, and 
   --space-12: 3rem; /* 48px */
   --space-16: 4rem; /* 64px */
 }
-
 ```
 
-### 3\. Color System
+### 3. Color System
 
 **Semantic color tokens**:
 
@@ -91,7 +93,6 @@ Build cohesive, accessible visual systems using typography, color, spacing, and 
   --color-gray-800: #1f2937;
   --color-gray-900: #111827;
 }
-
 ```
 
 ## Quick Start: Design Tokens in Tailwind
@@ -129,7 +130,6 @@ module.exports = {
     },
   },
 };
-
 ```
 
 ## Typography Best Practices
@@ -138,9 +138,9 @@ module.exports = {
 
 **Safe combinations**:
 
-* Heading: **Inter** / Body: **Inter** (single family)
-* Heading: **Playfair Display** / Body: **Source Sans Pro** (contrast)
-* Heading: **Space Grotesk** / Body: **IBM Plex Sans** (geometric)
+- Heading: **Inter** / Body: **Inter** (single family)
+- Heading: **Playfair Display** / Body: **Source Sans Pro** (contrast)
+- Heading: **Space Grotesk** / Body: **IBM Plex Sans** (geometric)
 
 ### Responsive Typography
 
@@ -156,7 +156,6 @@ p {
   line-height: 1.6;
   max-width: 65ch; /* Optimal reading width */
 }
-
 ```
 
 ### Font Loading
@@ -169,7 +168,6 @@ p {
   font-display: swap;
   font-weight: 400 700;
 }
-
 ```
 
 ## Color Theory
@@ -201,7 +199,6 @@ p {
   --text-secondary: #9ca3af;
   --border: #374151;
 }
-
 ```
 
 ### Color Accessibility
@@ -225,20 +222,18 @@ function getContrastRatio(foreground: string, background: string): number {
 
   return (lighter + 0.05) / (darker + 0.05);
 }
-
 ```
 
 ## Spacing Guidelines
 
 ### Component Spacing
 
-```text
+```
 Card padding:      16-24px (--space-4 to --space-6)
 Section gap:       32-64px (--space-8 to --space-16)
 Form field gap:    16-24px (--space-4 to --space-6)
 Button padding:    8-16px vertical, 16-24px horizontal
 Icon-text gap:     8px (--space-2)
-
 ```
 
 ### Visual Rhythm
@@ -256,7 +251,6 @@ Icon-text gap:     8px (--space-2)
 .prose > * + h2 {
   margin-top: var(--space-8);
 }
-
 ```
 
 ## Iconography
@@ -271,7 +265,6 @@ Icon-text gap:     8px (--space-2)
   --icon-lg: 24px;
   --icon-xl: 32px;
 }
-
 ```
 
 ### Icon Component
@@ -303,7 +296,6 @@ export function Icon({ name, size = "md", className }: IconProps) {
     </svg>
   );
 }
-
 ```
 
 ## Best Practices
@@ -318,9 +310,9 @@ export function Icon({ name, size = "md", className }: IconProps) {
 
 ## Common Issues
 
-* **Inconsistent Spacing**: Not using a defined scale
-* **Poor Contrast**: Failing WCAG requirements
-* **Font Overload**: Too many families or weights
-* **Magic Numbers**: Arbitrary values instead of tokens
-* **Missing States**: Forgetting hover, focus, disabled
-* **No Dark Mode Plan**: Retrofitting is harder than planning
+- **Inconsistent Spacing**: Not using a defined scale
+- **Poor Contrast**: Failing WCAG requirements
+- **Font Overload**: Too many families or weights
+- **Magic Numbers**: Arbitrary values instead of tokens
+- **Missing States**: Forgetting hover, focus, disabled
+- **No Dark Mode Plan**: Retrofitting is harder than planning

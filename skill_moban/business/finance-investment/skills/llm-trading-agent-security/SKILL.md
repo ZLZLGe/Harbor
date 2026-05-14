@@ -1,13 +1,20 @@
+---
+name: llm-trading-agent-security
+description: Security patterns for autonomous trading agents with wallet or transaction authority. Covers prompt injection, spend limits, pre-send simulation, circuit breakers, MEV protection, and key handling.
+origin: ECC direct-port adaptation
+version: "1.0.0"
+---
+
 # LLM Trading Agent Security
 
 Autonomous trading agents have a harsher threat model than normal LLM apps: an injection or bad tool path can turn directly into asset loss.
 
 ## When to Use
 
-* Building an AI agent that signs and sends transactions
-* Auditing a trading bot or on-chain execution assistant
-* Designing wallet key management for an agent
-* Giving an LLM access to order placement, swaps, or treasury operations
+- Building an AI agent that signs and sends transactions
+- Auditing a trading bot or on-chain execution assistant
+- Designing wallet key management for an agent
+- Giving an LLM access to order placement, swaps, or treasury operations
 
 ## How It Works
 
@@ -34,7 +41,6 @@ def sanitize_onchain_data(text: str) -> str:
         if re.search(pattern, text, re.IGNORECASE):
             raise ValueError(f"Potential prompt injection: {text[:100]}")
     return text
-
 ```
 
 Do not blindly inject token names, pair labels, webhooks, or social feeds into an execution-capable prompt.
@@ -60,7 +66,6 @@ class SpendLimitGuard:
             raise SpendLimitError(f"Daily limit: ${daily} + ${usd_amount} > ${MAX_DAILY_SPEND_USD}")
 
         self._record_spend(usd_amount)
-
 ```
 
 ### Simulate before sending
@@ -81,7 +86,6 @@ async def safe_execute(self, tx: dict, expected_min_out: int | None = None) -> s
 
     signed = self.account.sign_transaction(tx)
     return await self.w3.eth.send_raw_transaction(signed.raw_transaction)
-
 ```
 
 ### Circuit breaker
@@ -102,7 +106,6 @@ class TradingCircuitBreaker:
         hourly_pnl = (portfolio_value - self.hour_start_value) / self.hour_start_value
         if hourly_pnl < -self.MAX_HOURLY_LOSS_PCT:
             self.halt(f"Hourly PnL {hourly_pnl:.1%} below threshold")
-
 ```
 
 ### Wallet isolation
@@ -116,7 +119,6 @@ if not private_key:
     raise EnvironmentError("TRADING_WALLET_PRIVATE_KEY not set")
 
 account = Account.from_key(private_key)
-
 ```
 
 Use a dedicated hot wallet with only the required session funds. Never point the agent at a primary treasury wallet.
@@ -129,17 +131,16 @@ import time
 PRIVATE_RPC = "https://rpc.flashbots.net"
 MAX_SLIPPAGE_BPS = {"stable": 10, "volatile": 50}
 deadline = int(time.time()) + 60
-
 ```
 
 ## Pre-Deploy Checklist
 
-* External data is sanitized before entering the LLM context
-* Spend limits are enforced independently from model output
-* Transactions are simulated before send
-* `min_amount_out` is mandatory
-* Circuit breakers halt on drawdown or invalid state
-* Keys come from env or a secret manager, never code or logs
-* Private mempool or protected routing is used when appropriate
-* Slippage and deadlines are set per strategy
-* All agent decisions are audit-logged, not just successful sends
+- External data is sanitized before entering the LLM context
+- Spend limits are enforced independently from model output
+- Transactions are simulated before send
+- `min_amount_out` is mandatory
+- Circuit breakers halt on drawdown or invalid state
+- Keys come from env or a secret manager, never code or logs
+- Private mempool or protected routing is used when appropriate
+- Slippage and deadlines are set per strategy
+- All agent decisions are audit-logged, not just successful sends

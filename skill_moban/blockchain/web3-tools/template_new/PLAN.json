@@ -33,7 +33,7 @@
       "Rerun the workspace entrypoint and confirm the required artifacts remain stable."
     ],
     "guardrails": [
-      "Input data, hidden service files, and installed skill files must stay unchanged.",
+      "Input data and hidden service files must stay unchanged.",
       "Placeholder or truncated outputs must fail.",
       "Output inventory is restricted to the four required delivery files.",
       "The final outputs must be reproducible through the workspace project entrypoint."

@@ -1,12 +1,27 @@
+---
+name: swift-expert
+description: Builds iOS/macOS/watchOS/tvOS applications, implements SwiftUI views and state management, designs protocol-oriented architectures, handles async/await concurrency, implements actors for thread safety, and debugs Swift-specific issues. Use when building iOS/macOS applications with Swift 5.9+, SwiftUI, or async/await concurrency. Invoke for protocol-oriented programming, SwiftUI state management, actors, server-side Swift, UIKit integration, Combine, or Vapor.
+license: MIT
+metadata:
+  author: https://github.com/Jeffallan
+  version: "1.1.0"
+  domain: language
+  triggers: Swift, SwiftUI, iOS development, macOS development, async/await Swift, Combine, UIKit, Vapor
+  role: specialist
+  scope: implementation
+  output-format: code
+  related-skills: 
+---
+
 # Swift Expert
 
 ## Core Workflow
 
-1. **Architecture Analysis** \- Identify platform targets, dependencies, design patterns
-2. **Design Protocols** \- Create protocol-first APIs with associated types
-3. **Implement** \- Write type-safe code with async/await and value semantics
-4. **Optimize** \- Profile with Instruments, ensure thread safety
-5. **Test** \- Write comprehensive tests with XCTest and async patterns
+1. **Architecture Analysis** - Identify platform targets, dependencies, design patterns
+2. **Design Protocols** - Create protocol-first APIs with associated types
+3. **Implement** - Write type-safe code with async/await and value semantics
+4. **Optimize** - Profile with Instruments, ensure thread safety
+5. **Test** - Write comprehensive tests with XCTest and async patterns
 
 > **Validation checkpoints:** After step 3, run `swift build` to verify compilation. After step 4, run `swift build -warnings-as-errors` to surface actor isolation and Sendable warnings. After step 5, run `swift test` and confirm all async tests pass.
 
@@ -14,13 +29,13 @@
 
 Load detailed guidance based on context:
 
-| Topic       | Reference                        | Load When                                   |
-| ----------- | -------------------------------- | ------------------------------------------- |
-| SwiftUI     | references/swiftui-patterns.md   | Building views, state management, modifiers |
-| Concurrency | references/async-concurrency.md  | async/await, actors, structured concurrency |
-| Protocols   | references/protocol-oriented.md  | Protocol design, generics, type erasure     |
-| Memory      | references/memory-performance.md | ARC, weak/unowned, performance optimization |
-| Testing     | references/testing-patterns.md   | XCTest, async tests, mocking strategies     |
+| Topic | Reference | Load When |
+|-------|-----------|-----------|
+| SwiftUI | `references/swiftui-patterns.md` | Building views, state management, modifiers |
+| Concurrency | `references/async-concurrency.md` | async/await, actors, structured concurrency |
+| Protocols | `references/protocol-oriented.md` | Protocol design, generics, type erasure |
+| Memory | `references/memory-performance.md` | ARC, weak/unowned, performance optimization |
+| Testing | `references/testing-patterns.md` | XCTest, async tests, mocking strategies |
 
 ## Code Patterns
 
@@ -43,7 +58,6 @@ func fetchUser(id: String) async throws -> User {
         }
     }
 }
-
 ```
 
 ### SwiftUI State Management
@@ -71,7 +85,6 @@ struct CounterView: View {
 class LegacyViewModel: ObservableObject {
     @Published var count = 0  // Unnecessary boilerplate in Swift 5.9+
 }
-
 ```
 
 ### Protocol-Oriented Architecture
@@ -94,7 +107,6 @@ struct UserRepository: Repository {
 class BaseRepository {  // Avoid class inheritance for shared behavior
     func fetch(id: UUID) async throws -> Any { fatalError("Override required") }
 }
-
 ```
 
 ### Actor for Thread Safety
@@ -117,37 +129,33 @@ class UnsafeImageCache {
         return cache[url]
     }
 }
-
 ```
 
 ## Constraints
 
 ### MUST DO
-
-* Use type hints and inference appropriately
-* Follow Swift API Design Guidelines
-* Use `async/await` for asynchronous operations (see pattern above)
-* Ensure `Sendable` compliance for concurrency
-* Use value types (`struct`/`enum`) by default
-* Document APIs with markup comments (`/// …`)
-* Use property wrappers for cross-cutting concerns
-* Profile with Instruments before optimizing
+- Use type hints and inference appropriately
+- Follow Swift API Design Guidelines
+- Use `async/await` for asynchronous operations (see pattern above)
+- Ensure `Sendable` compliance for concurrency
+- Use value types (`struct`/`enum`) by default
+- Document APIs with markup comments (`/// …`)
+- Use property wrappers for cross-cutting concerns
+- Profile with Instruments before optimizing
 
 ### MUST NOT DO
-
-* Use force unwrapping (`!`) without justification
-* Create retain cycles in closures
-* Mix synchronous and asynchronous code improperly
-* Ignore actor isolation warnings
-* Use implicitly unwrapped optionals unnecessarily
-* Skip error handling
-* Use Objective-C patterns when Swift alternatives exist
-* Hardcode platform-specific values
+- Use force unwrapping (`!`) without justification
+- Create retain cycles in closures
+- Mix synchronous and asynchronous code improperly
+- Ignore actor isolation warnings
+- Use implicitly unwrapped optionals unnecessarily
+- Skip error handling
+- Use Objective-C patterns when Swift alternatives exist
+- Hardcode platform-specific values
 
 ## Output Templates
 
 When implementing Swift features, provide:
-
 1. Protocol definitions and type aliases
 2. Model types (structs/classes with value semantics)
 3. View implementations (SwiftUI) or view controllers

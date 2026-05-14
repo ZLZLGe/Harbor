@@ -16,7 +16,6 @@ VERIFIER_LOG_ROOT = Path(os.environ.get("VERIFIER_LOG_ROOT", "/logs/verifier"))
 ACCESS_LOG_PATH = Path(os.environ.get("AIRPORT_OPS_ACCESS_LOG", "/tmp/airport-ops-access.log"))
 APP_HASH_PATH = Path(os.environ.get("AIRPORT_APP_HASH_PATH", "/opt/airport-app.sha256"))
 DATA_HASH_PATH = Path(os.environ.get("AIRPORT_DATA_HASH_PATH", "/opt/airport-data.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("AIRPORT_SKILL_HASH_PATH", "/opt/airport-skills.sha256"))
 
 
 @dataclass(frozen=True)
@@ -135,20 +134,9 @@ def current_data_manifest() -> dict[str, str]:
     return manifest_for_paths(path for path in DATA_ROOT.rglob("*") if path.is_file())
 
 
-def current_skill_manifest() -> dict[str, str]:
-    skill_root = Path("/root/.codex/skills")
-    if not skill_root.exists():
-        return {}
-    return manifest_for_paths(path for path in skill_root.rglob("*") if path.is_file())
-
-
 def baseline_workspace_manifest() -> dict[str, str]:
     return read_manifest(APP_HASH_PATH)
 
 
 def baseline_data_manifest() -> dict[str, str]:
     return read_manifest(DATA_HASH_PATH)
-
-
-def baseline_skill_manifest() -> dict[str, str]:
-    return read_manifest(SKILL_HASH_PATH)

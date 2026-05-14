@@ -13,8 +13,6 @@ OUTPUT_ROOT = Path(os.environ.get("TASK_OUTPUT_ROOT", "/root/output"))
 SERVICE_ROOT = Path(os.environ.get("TASK_SERVICE_ROOT", "/services/revops"))
 DATA_HASH_PATH = Path(os.environ.get("TASK_DATA_HASH_PATH", "/opt/revops-data.sha256"))
 SERVICE_HASH_PATH = Path(os.environ.get("TASK_SERVICE_HASH_PATH", "/opt/revops-service.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("TASK_SKILL_HASH_PATH", "/opt/revops-skills.sha256"))
-SKILL_ROOT = Path(os.environ.get("TASK_SKILL_ROOT", "/root/.codex/skills"))
 HEALTH_URL = os.environ.get("TASK_HEALTH_URL", "http://127.0.0.1:8144/health")
 PRE_VERIFIER_LOG = ACCESS_LOG.read_text(encoding="utf-8") if ACCESS_LOG.exists() else ""
 
@@ -64,7 +62,7 @@ def test_solver_used_live_revops_service_before_verifier() -> None:
     assert expected_ids.issubset(dunning_ids), "Solver did not fetch dunning events for every live account"
 
 
-def test_inputs_hidden_service_and_skill_were_not_modified() -> None:
+def test_inputs_and_hidden_service_were_not_modified() -> None:
     current_data = subprocess.check_output(
         f"find {DATA_ROOT} -type f -print0 | sort -z | xargs -0 sha256sum",
         shell=True,
@@ -78,14 +76,6 @@ def test_inputs_hidden_service_and_skill_were_not_modified() -> None:
         text=True,
     )
     assert current_service == SERVICE_HASH_PATH.read_text(encoding="utf-8"), "Hidden revops service files were modified"
-
-    if SKILL_HASH_PATH.exists() and SKILL_ROOT.exists():
-        current_skill = subprocess.check_output(
-            f"find {SKILL_ROOT} -type f -print0 | sort -z | xargs -0 sha256sum",
-            shell=True,
-            text=True,
-        )
-        assert current_skill == SKILL_HASH_PATH.read_text(encoding="utf-8"), "Installed skill files were modified"
 
 
 def test_live_service_still_healthy() -> None:

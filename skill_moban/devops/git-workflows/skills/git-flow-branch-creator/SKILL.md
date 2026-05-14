@@ -1,3 +1,8 @@
+---
+name: git-flow-branch-creator
+description: 'Intelligent Git Flow branch creator that analyzes git status/diff and creates appropriate branches following the nvie Git Flow branching model.'
+---
+
 ### Instructions
 
 ```xml
@@ -8,7 +13,6 @@
 		Just run this prompt and Copilot will analyze your changes and create the appropriate Git Flow branch for you.
 	</note>
 </instructions>
-
 ```
 
 ### Workflow
@@ -73,7 +77,6 @@
 		</hotfix>
 	</branch-types>
 </analysis-framework>
-
 ```
 
 ### Branch Naming Conventions
@@ -109,7 +112,6 @@
 		</examples>
 	</hotfix-branches>
 </naming-conventions>
-
 ```
 
 ### Analysis Process
@@ -151,7 +153,6 @@
 		</guidelines>
 	</step-3>
 </analysis-process>
-
 ```
 
 ### Edge Cases and Validation
@@ -178,7 +179,6 @@
 		<resolution>Append incremental suffix or suggest alternative name</resolution>
 	</conflicting-names>
 </edge-cases>
-
 ```
 
 ### Examples
@@ -217,7 +217,6 @@
 		<command>git checkout -b feature/database-performance-optimization develop</command>
 	</example-4>
 </examples>
-
 ```
 
 ### Validation Checklist
@@ -243,7 +242,6 @@
 		<check>User has appropriate permissions to create branches</check>
 	</execution-safety>
 </validation>
-
 ```
 
 ### Final Execution
@@ -268,7 +266,6 @@
 		<manual-override>Allow user to specify different branch type if analysis seems incorrect</manual-override>
 	</fallback-options>
 </execution-protocol>
-
 ```
 
 ### Git Flow Reference
@@ -292,5 +289,4 @@
 		<cleanup>Delete branches after successful merge</cleanup>
 	</merge-strategy>
 </gitflow-reference>
-
 ```

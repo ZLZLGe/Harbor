@@ -1,0 +1,55 @@
+{
+  "tracked_sources": [
+    {
+      "source_id": "uv_releases",
+      "label": "uv Releases",
+      "priority_tier": "high",
+      "homepage_url": "https://github.com/astral-sh/uv/releases",
+      "resolved_feed_reference": "data/mirror/uv-releases/feed.atom",
+      "content_format": "atom",
+      "article_count": 4,
+      "unread_count": 2,
+      "latest_published_at": "2026-05-12T18:04:36Z"
+    },
+    {
+      "source_id": "nodejs_blog",
+      "label": "Node.js Blog",
+      "priority_tier": "high",
+      "homepage_url": "https://nodejs.org/en/blog",
+      "resolved_feed_reference": "data/mirror/nodejs-blog/feed.xml",
+      "content_format": "rss",
+      "article_count": 4,
+      "unread_count": 0,
+      "latest_published_at": "2026-05-07T10:09:15Z"
+    },
+    {
+      "source_id": "github_blog_changelog",
+      "label": "GitHub Changelog",
+      "priority_tier": "standard",
+      "homepage_url": "https://github.blog/changelog/",
+      "resolved_feed_reference": "data/mirror/github-blog-changelog/feed.xml",
+      "content_format": "rss",
+      "article_count": 4,
+      "unread_count": 4,
+      "latest_published_at": "2026-05-12T19:14:26Z"
+    },
+    {
+      "source_id": "typescript_releases",
+      "label": "TypeScript Releases",
+      "priority_tier": "standard",
+      "homepage_url": "https://github.com/microsoft/typescript/releases",
+      "resolved_feed_reference": "data/mirror/typescript-releases/feed.atom",
+      "content_format": "atom",
+      "article_count": 4,
+      "unread_count": 4,
+      "latest_published_at": "2026-04-17T18:24:03Z"
+    }
+  ],
+  "removed_blog_names": [
+    "Legacy Ops Weekly"
+  ],
+  "notes": [
+    "Unread counts reflect the watch database before this run marked delivered items as read.",
+    "State database: blogwatcher.db"
+  ]
+}

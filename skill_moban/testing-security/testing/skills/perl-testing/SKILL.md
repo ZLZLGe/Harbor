@@ -1,15 +1,21 @@
+---
+name: perl-testing
+description: Perl testing patterns using Test2::V0, Test::More, prove runner, mocking, coverage with Devel::Cover, and TDD methodology.
+origin: ECC
+---
+
 # Perl Testing Patterns
 
 Comprehensive testing strategies for Perl applications using Test2::V0, Test::More, prove, and TDD methodology.
 
 ## When to Activate
 
-* Writing new Perl code (follow TDD: red, green, refactor)
-* Designing test suites for Perl modules or applications
-* Reviewing Perl test coverage
-* Setting up Perl testing infrastructure
-* Migrating tests from Test::More to Test2::V0
-* Debugging failing Perl tests
+- Writing new Perl code (follow TDD: red, green, refactor)
+- Designing test suites for Perl modules or applications
+- Reviewing Perl test coverage
+- Setting up Perl testing infrastructure
+- Migrating tests from Test::More to Test2::V0
+- Debugging failing Perl tests
 
 ## TDD Workflow
 
@@ -46,7 +52,6 @@ sub add($self, $a, $b) {
 
 # Step 3: REFACTOR — Improve while tests stay green
 # Run: prove -lv t/unit/calculator.t
-
 ```
 
 ## Test::More Fundamentals
@@ -86,7 +91,6 @@ isa_ok($obj, 'MyApp::User');
 can_ok($obj, 'save', 'delete');
 
 done_testing;
-
 ```
 
 ### SKIP and TODO
@@ -111,7 +115,6 @@ TODO: {
 }
 
 done_testing;
-
 ```
 
 ## Test2::V0 Modern Framework
@@ -120,11 +123,11 @@ Test2::V0 is the modern replacement for Test::More — richer assertions, better
 
 ### Why Test2?
 
-* Superior deep comparison with hash/array builders
-* Better diagnostic output on failures
-* Subtests with cleaner scoping
-* Extensible via Test2::Tools::\* plugins
-* Backward-compatible with Test::More tests
+- Superior deep comparison with hash/array builders
+- Better diagnostic output on failures
+- Subtests with cleaner scoping
+- Extensible via Test2::Tools::* plugins
+- Backward-compatible with Test::More tests
 
 ### Deep Comparison with Builders
 
@@ -166,7 +169,6 @@ is(
     },
     'has all required tags regardless of order'
 );
-
 ```
 
 ### Subtests
@@ -190,7 +192,6 @@ subtest 'User validation' => sub {
 };
 
 done_testing;
-
 ```
 
 ### Exception Testing with Test2
@@ -220,7 +221,6 @@ subtest 'error handling' => sub {
 };
 
 done_testing;
-
 ```
 
 ## Test Organization and prove
@@ -243,7 +243,6 @@ t/
 └── fixtures/
     ├── config.json        # Test data files
     └── users.csv
-
 ```
 
 ### prove Commands
@@ -272,7 +271,6 @@ prove -l --color --timer t/
 
 # TAP output for CI
 prove -l --formatter TAP::Formatter::JUnit t/ > results.xml
-
 ```
 
 ### .proverc Configuration
@@ -284,7 +282,6 @@ prove -l --formatter TAP::Formatter::JUnit t/ > results.xml
 -r
 -j4
 --state=save
-
 ```
 
 ## Fixtures and Setup/Teardown
@@ -309,7 +306,6 @@ subtest 'file processing' => sub {
 
     # Teardown happens automatically (CLEANUP => 1)
 };
-
 ```
 
 ### Shared Test Helpers
@@ -349,7 +345,6 @@ subtest 'mock external API' => sub {
 
 # Bad: Monkey-patching without restoration
 # *MyApp::API::fetch_user = sub { ... };  # NEVER — leaks across tests
-
 ```
 
 For lightweight mock objects, use `Test::MockObject` to create injectable test doubles with `->mock()` and verify calls with `->called_ok()`.
@@ -376,7 +371,6 @@ cover -test -report text | grep 'Total'
 # CI-friendly: fail under threshold
 cover -test && cover -report text -select '^lib/' \
   | perl -ne 'if (/Total.*?(\d+\.\d+)/) { exit 1 if $1 < 80 }'
-
 ```
 
 ### Integration Testing
@@ -400,49 +394,48 @@ subtest 'database integration' => sub {
 };
 
 done_testing;
-
 ```
 
 ## Best Practices
 
 ### DO
 
-* **Follow TDD**: Write tests before implementation (red-green-refactor)
-* **Use Test2::V0**: Modern assertions, better diagnostics
-* **Use subtests**: Group related assertions, isolate state
-* **Mock external dependencies**: Network, database, file system
-* **Use `prove -l`**: Always include lib/ in `@INC`
-* **Name tests clearly**: `'user login with invalid password fails'`
-* **Test edge cases**: Empty strings, undef, zero, boundary values
-* **Aim for 80%+ coverage**: Focus on business logic paths
-* **Keep tests fast**: Mock I/O, use in-memory databases
+- **Follow TDD**: Write tests before implementation (red-green-refactor)
+- **Use Test2::V0**: Modern assertions, better diagnostics
+- **Use subtests**: Group related assertions, isolate state
+- **Mock external dependencies**: Network, database, file system
+- **Use `prove -l`**: Always include lib/ in `@INC`
+- **Name tests clearly**: `'user login with invalid password fails'`
+- **Test edge cases**: Empty strings, undef, zero, boundary values
+- **Aim for 80%+ coverage**: Focus on business logic paths
+- **Keep tests fast**: Mock I/O, use in-memory databases
 
 ### DON'T
 
-* **Don't test implementation**: Test behavior and output, not internals
-* **Don't share state between subtests**: Each subtest should be independent
-* **Don't skip `done_testing`**: Ensures all planned tests ran
-* **Don't over-mock**: Mock boundaries only, not the code under test
-* **Don't use `Test::More` for new projects**: Prefer Test2::V0
-* **Don't ignore test failures**: All tests must pass before merge
-* **Don't test CPAN modules**: Trust libraries to work correctly
-* **Don't write brittle tests**: Avoid over-specific string matching
+- **Don't test implementation**: Test behavior and output, not internals
+- **Don't share state between subtests**: Each subtest should be independent
+- **Don't skip `done_testing`**: Ensures all planned tests ran
+- **Don't over-mock**: Mock boundaries only, not the code under test
+- **Don't use `Test::More` for new projects**: Prefer Test2::V0
+- **Don't ignore test failures**: All tests must pass before merge
+- **Don't test CPAN modules**: Trust libraries to work correctly
+- **Don't write brittle tests**: Avoid over-specific string matching
 
 ## Quick Reference
 
-| Task                 | Command / Pattern                                    |
-| -------------------- | ---------------------------------------------------- |
-| Run all tests        | prove -lr t/                                         |
-| Run one test verbose | prove -lv t/unit/user.t                              |
-| Parallel test run    | prove -lr -j8 t/                                     |
-| Coverage report      | cover -test && cover -report html                    |
-| Test equality        | is($got, $expected, 'label')                         |
-| Deep comparison      | is($got, hash { field k => 'v'; etc() }, 'label')    |
-| Test exception       | like(dies { ... }, qr/msg/, 'label')                 |
-| Test no exception    | ok(lives { ... }, 'label')                           |
-| Mock a method        | Test::MockModule->new('Pkg')->mock(m => sub { ... }) |
-| Skip tests           | SKIP: { skip 'reason', $count unless $cond; ... }    |
-| TODO tests           | TODO: { local $TODO = 'reason'; ... }                |
+| Task | Command / Pattern |
+|---|---|
+| Run all tests | `prove -lr t/` |
+| Run one test verbose | `prove -lv t/unit/user.t` |
+| Parallel test run | `prove -lr -j8 t/` |
+| Coverage report | `cover -test && cover -report html` |
+| Test equality | `is($got, $expected, 'label')` |
+| Deep comparison | `is($got, hash { field k => 'v'; etc() }, 'label')` |
+| Test exception | `like(dies { ... }, qr/msg/, 'label')` |
+| Test no exception | `ok(lives { ... }, 'label')` |
+| Mock a method | `Test::MockModule->new('Pkg')->mock(m => sub { ... })` |
+| Skip tests | `SKIP: { skip 'reason', $count unless $cond; ... }` |
+| TODO tests | `TODO: { local $TODO = 'reason'; ... }` |
 
 ## Common Pitfalls
 
@@ -458,7 +451,6 @@ is(1, 1, 'works');
 use Test2::V0;
 is(1, 1, 'works');
 done_testing;
-
 ```
 
 ### Missing `-l` Flag
@@ -470,12 +462,11 @@ prove t/unit/user.t
 
 # Good: Include lib/ in @INC
 prove -l t/unit/user.t
-
 ```
 
 ### Over-Mocking
 
-Mock the _dependency_, not the code under test. If your test only verifies that a mock returns what you told it to, it tests nothing.
+Mock the *dependency*, not the code under test. If your test only verifies that a mock returns what you told it to, it tests nothing.
 
 ### Test Pollution
 

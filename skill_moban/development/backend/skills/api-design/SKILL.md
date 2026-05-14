@@ -1,21 +1,27 @@
+---
+name: api-design
+description: REST API design patterns including resource naming, status codes, pagination, filtering, error responses, versioning, and rate limiting for production APIs.
+origin: ECC
+---
+
 # API Design Patterns
 
 Conventions and best practices for designing consistent, developer-friendly REST APIs.
 
 ## When to Activate
 
-* Designing new API endpoints
-* Reviewing existing API contracts
-* Adding pagination, filtering, or sorting
-* Implementing error handling for APIs
-* Planning API versioning strategy
-* Building public or partner-facing APIs
+- Designing new API endpoints
+- Reviewing existing API contracts
+- Adding pagination, filtering, or sorting
+- Implementing error handling for APIs
+- Planning API versioning strategy
+- Building public or partner-facing APIs
 
 ## Resource Design
 
 ### URL Structure
 
-```text
+```
 # Resources are nouns, plural, lowercase, kebab-case
 GET    /api/v1/users
 GET    /api/v1/users/:id
@@ -32,12 +38,11 @@ POST   /api/v1/users/:id/orders
 POST   /api/v1/orders/:id/cancel
 POST   /api/v1/auth/login
 POST   /api/v1/auth/refresh
-
 ```
 
 ### Naming Rules
 
-```text
+```
 # GOOD
 /api/v1/team-members          # kebab-case for multi-word resources
 /api/v1/orders?status=active  # query params for filtering
@@ -48,26 +53,25 @@ POST   /api/v1/auth/refresh
 /api/v1/user                  # singular (use plural)
 /api/v1/team_members          # snake_case in URLs
 /api/v1/users/123/getOrders   # verb in nested resource
-
 ```
 
 ## HTTP Methods and Status Codes
 
 ### Method Semantics
 
-| Method | Idempotent | Safe | Use For                           |
-| ------ | ---------- | ---- | --------------------------------- |
-| GET    | Yes        | Yes  | Retrieve resources                |
-| POST   | No         | No   | Create resources, trigger actions |
-| PUT    | Yes        | No   | Full replacement of a resource    |
-| PATCH  | No\*       | No   | Partial update of a resource      |
-| DELETE | Yes        | No   | Remove a resource                 |
+| Method | Idempotent | Safe | Use For |
+|--------|-----------|------|---------|
+| GET | Yes | Yes | Retrieve resources |
+| POST | No | No | Create resources, trigger actions |
+| PUT | Yes | No | Full replacement of a resource |
+| PATCH | No* | No | Partial update of a resource |
+| DELETE | Yes | No | Remove a resource |
 
-\*PATCH can be made idempotent with proper implementation
+*PATCH can be made idempotent with proper implementation
 
 ### Status Code Reference
 
-```text
+```
 # Success
 200 OK                    — GET, PUT, PATCH (with response body)
 201 Created               — POST (include Location header)
@@ -86,12 +90,11 @@ POST   /api/v1/auth/refresh
 500 Internal Server Error — Unexpected failure (never expose details)
 502 Bad Gateway           — Upstream service failed
 503 Service Unavailable   — Temporary overload, include Retry-After
-
 ```
 
 ### Common Mistakes
 
-```text
+```
 # BAD: 200 for everything
 { "status": 200, "success": false, "error": "Not found" }
 
@@ -106,7 +109,6 @@ HTTP/1.1 404 Not Found
 # GOOD: 201 with Location header
 HTTP/1.1 201 Created
 Location: /api/v1/users/abc-123
-
 ```
 
 ## Response Format
@@ -122,7 +124,6 @@ Location: /api/v1/users/abc-123
     "created_at": "2025-01-15T10:30:00Z"
   }
 }
-
 ```
 
 ### Collection Response (with Pagination)
@@ -145,7 +146,6 @@ Location: /api/v1/users/abc-123
     "last": "/api/v1/users?page=8&per_page=20"
   }
 }
-
 ```
 
 ### Error Response
@@ -169,7 +169,6 @@ Location: /api/v1/users/abc-123
     ]
   }
 }
-
 ```
 
 ### Response Envelope Variants
@@ -194,28 +193,27 @@ interface ApiError {
 // Success: just return the resource directly
 // Error: return error object
 // Distinguish by HTTP status code
-
 ```
 
 ## Pagination
 
 ### Offset-Based (Simple)
 
-```text
+```
 GET /api/v1/users?page=2&per_page=20
 
 # Implementation
 SELECT * FROM users
 ORDER BY created_at DESC
 LIMIT 20 OFFSET 20;
-
 ```
 
-**Pros:** Easy to implement, supports "jump to page N" **Cons:** Slow on large offsets (OFFSET 100000), inconsistent with concurrent inserts
+**Pros:** Easy to implement, supports "jump to page N"
+**Cons:** Slow on large offsets (OFFSET 100000), inconsistent with concurrent inserts
 
 ### Cursor-Based (Scalable)
 
-```text
+```
 GET /api/v1/users?cursor=eyJpZCI6MTIzfQ&limit=20
 
 # Implementation
@@ -223,7 +221,6 @@ SELECT * FROM users
 WHERE id > :cursor_id
 ORDER BY id ASC
 LIMIT 21;  -- fetch one extra to determine has_next
-
 ```
 
 ```json
@@ -234,25 +231,25 @@ LIMIT 21;  -- fetch one extra to determine has_next
     "next_cursor": "eyJpZCI6MTQzfQ"
   }
 }
-
 ```
 
-**Pros:** Consistent performance regardless of position, stable with concurrent inserts **Cons:** Cannot jump to arbitrary page, cursor is opaque
+**Pros:** Consistent performance regardless of position, stable with concurrent inserts
+**Cons:** Cannot jump to arbitrary page, cursor is opaque
 
 ### When to Use Which
 
-| Use Case                                | Pagination Type                         |
-| --------------------------------------- | --------------------------------------- |
-| Admin dashboards, small datasets (<10K) | Offset                                  |
-| Infinite scroll, feeds, large datasets  | Cursor                                  |
-| Public APIs                             | Cursor (default) with offset (optional) |
-| Search results                          | Offset (users expect page numbers)      |
+| Use Case | Pagination Type |
+|----------|----------------|
+| Admin dashboards, small datasets (<10K) | Offset |
+| Infinite scroll, feeds, large datasets | Cursor |
+| Public APIs | Cursor (default) with offset (optional) |
+| Search results | Offset (users expect page numbers) |
 
 ## Filtering, Sorting, and Search
 
 ### Filtering
 
-```text
+```
 # Simple equality
 GET /api/v1/orders?status=active&customer_id=abc-123
 
@@ -265,45 +262,41 @@ GET /api/v1/products?category=electronics,clothing
 
 # Nested fields (dot notation)
 GET /api/v1/orders?customer.country=US
-
 ```
 
 ### Sorting
 
-```text
+```
 # Single field (prefix - for descending)
 GET /api/v1/products?sort=-created_at
 
 # Multiple fields (comma-separated)
 GET /api/v1/products?sort=-featured,price,-created_at
-
 ```
 
 ### Full-Text Search
 
-```text
+```
 # Search query parameter
 GET /api/v1/products?q=wireless+headphones
 
 # Field-specific search
 GET /api/v1/users?email=alice
-
 ```
 
 ### Sparse Fieldsets
 
-```text
+```
 # Return only specified fields (reduces payload)
 GET /api/v1/users?fields=id,name,email
 GET /api/v1/orders?fields=id,total,status&include=customer.name
-
 ```
 
 ## Authentication and Authorization
 
 ### Token-Based Auth
 
-```text
+```
 # Bearer token in Authorization header
 GET /api/v1/users
 Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
@@ -311,7 +304,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
 # API key (for server-to-server)
 GET /api/v1/data
 X-API-Key: sk_live_abc123
-
 ```
 
 ### Authorization Patterns
@@ -330,14 +322,13 @@ app.delete("/api/v1/users/:id", requireRole("admin"), async (req, res) => {
   await User.delete(req.params.id);
   return res.status(204).send();
 });
-
 ```
 
 ## Rate Limiting
 
 ### Headers
 
-```text
+```
 HTTP/1.1 200 OK
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 95
@@ -352,43 +343,42 @@ Retry-After: 60
     "message": "Rate limit exceeded. Try again in 60 seconds."
   }
 }
-
 ```
 
 ### Rate Limit Tiers
 
-| Tier          | Limit     | Window      | Use Case            |
-| ------------- | --------- | ----------- | ------------------- |
-| Anonymous     | 30/min    | Per IP      | Public endpoints    |
-| Authenticated | 100/min   | Per user    | Standard API access |
-| Premium       | 1000/min  | Per API key | Paid API plans      |
-| Internal      | 10000/min | Per service | Service-to-service  |
+| Tier | Limit | Window | Use Case |
+|------|-------|--------|----------|
+| Anonymous | 30/min | Per IP | Public endpoints |
+| Authenticated | 100/min | Per user | Standard API access |
+| Premium | 1000/min | Per API key | Paid API plans |
+| Internal | 10000/min | Per service | Service-to-service |
 
 ## Versioning
 
 ### URL Path Versioning (Recommended)
 
-```text
+```
 /api/v1/users
 /api/v2/users
-
 ```
 
-**Pros:** Explicit, easy to route, cacheable **Cons:** URL changes between versions
+**Pros:** Explicit, easy to route, cacheable
+**Cons:** URL changes between versions
 
 ### Header Versioning
 
-```text
+```
 GET /api/users
 Accept: application/vnd.myapp.v2+json
-
 ```
 
-**Pros:** Clean URLs **Cons:** Harder to test, easy to forget
+**Pros:** Clean URLs
+**Cons:** Harder to test, easy to forget
 
 ### Versioning Strategy
 
-```text
+```
 1. Start with /api/v1/ — don't version until you need to
 2. Maintain at most 2 active versions (current + previous)
 3. Deprecation timeline:
@@ -404,7 +394,6 @@ Accept: application/vnd.myapp.v2+json
    - Changing field types
    - Changing URL structure
    - Changing authentication method
-
 ```
 
 ## Implementation Patterns
@@ -448,7 +437,6 @@ export async function POST(req: NextRequest) {
     },
   );
 }
-
 ```
 
 ### Python (Django REST Framework)
@@ -484,7 +472,6 @@ class UserViewSet(viewsets.ModelViewSet):
             status=status.HTTP_201_CREATED,
             headers={"Location": f"/api/v1/users/{user.id}"},
         )
-
 ```
 
 ### Go (net/http)
@@ -516,22 +503,21 @@ func (h *UserHandler) CreateUser(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Location", fmt.Sprintf("/api/v1/users/%s", user.ID))
     writeJSON(w, http.StatusCreated, map[string]any{"data": user})
 }
-
 ```
 
 ## API Design Checklist
 
 Before shipping a new endpoint:
 
-* Resource URL follows naming conventions (plural, kebab-case, no verbs)
-* Correct HTTP method used (GET for reads, POST for creates, etc.)
-* Appropriate status codes returned (not 200 for everything)
-* Input validated with schema (Zod, Pydantic, Bean Validation)
-* Error responses follow standard format with codes and messages
-* Pagination implemented for list endpoints (cursor or offset)
-* Authentication required (or explicitly marked as public)
-* Authorization checked (user can only access their own resources)
-* Rate limiting configured
-* Response does not leak internal details (stack traces, SQL errors)
-* Consistent naming with existing endpoints (camelCase vs snake\_case)
-* Documented (OpenAPI/Swagger spec updated)
+- [ ] Resource URL follows naming conventions (plural, kebab-case, no verbs)
+- [ ] Correct HTTP method used (GET for reads, POST for creates, etc.)
+- [ ] Appropriate status codes returned (not 200 for everything)
+- [ ] Input validated with schema (Zod, Pydantic, Bean Validation)
+- [ ] Error responses follow standard format with codes and messages
+- [ ] Pagination implemented for list endpoints (cursor or offset)
+- [ ] Authentication required (or explicitly marked as public)
+- [ ] Authorization checked (user can only access their own resources)
+- [ ] Rate limiting configured
+- [ ] Response does not leak internal details (stack traces, SQL errors)
+- [ ] Consistent naming with existing endpoints (camelCase vs snake_case)
+- [ ] Documented (OpenAPI/Swagger spec updated)

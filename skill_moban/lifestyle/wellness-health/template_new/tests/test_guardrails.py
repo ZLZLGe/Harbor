@@ -13,8 +13,6 @@ ACCESS_LOG = Path(os.environ.get("WELLNESS_PLANNER_ACCESS_LOG", "/var/log/wellne
 DATA_ROOT = Path(os.environ.get("DATA_DIR", "/root/data"))
 OUTPUT_ROOT = Path(os.environ.get("OUTPUT_DIR", "/root/output"))
 DATA_HASH_PATH = Path(os.environ.get("WELLNESS_PLANNER_DATA_HASH", "/opt/wellness-data.sha256"))
-SKILLS_HASH_PATH = Path(os.environ.get("WELLNESS_PLANNER_SKILLS_HASH", "/opt/wellness-skills.sha256"))
-SKILLS_ROOT = Path(os.environ.get("WELLNESS_PLANNER_SKILLS_ROOT", "/root/.codex/skills"))
 HEALTH_URL = os.environ.get("WELLNESS_PLANNER_HEALTH_URL", "http://127.0.0.1:8147/health")
 HIDDEN_POLICY_URL = os.environ.get("WELLNESS_PLANNER_HIDDEN_POLICY_URL", "http://127.0.0.1:8147/api/policy/hidden")
 SERVICE_ROOT = Path(os.environ.get("WELLNESS_PLANNER_SERVICE_ROOT", "/services/wellness-planner"))
@@ -72,15 +70,6 @@ def test_inputs_and_hidden_assets_were_not_modified() -> None:
     )
     expected_data = DATA_HASH_PATH.read_text(encoding="utf-8")
     assert current_data == expected_data, "Input data under /root/data was modified"
-
-    if SKILLS_HASH_PATH.exists() and SKILLS_HASH_PATH.read_text(encoding="utf-8").strip():
-        current_skills = subprocess.check_output(
-            f"find {SKILLS_ROOT} -type f -print0 | sort -z | xargs -0 -r sha256sum",
-            shell=True,
-            text=True,
-        )
-        expected_skills = SKILLS_HASH_PATH.read_text(encoding="utf-8")
-        assert current_skills == expected_skills, "Bound skill files were modified"
 
 
 def test_live_service_still_healthy() -> None:

@@ -1,80 +1,71 @@
 # Data Engineering Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/data-engineering`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/data-engineering，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 53 个 skills，其中 49 个 installs >= 1000，4 个 installs 在 500-999。
 
 ## 技能清单
 
-1. postgres-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/postgres-patterns | installs: 4.8K | stars: 175900
-2. database-migrations | 来源: https://skills.sh/affaan-m/everything-claude-code/database-migrations | installs: 3.9K | stars: 175900
-3. deployment-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/deployment-patterns | installs: 3.8K | stars: 175900
-4. clickhouse-io | 来源: https://skills.sh/affaan-m/everything-claude-code/clickhouse-io | installs: 3.7K | stars: 175900
-5. cost-aware-llm-pipeline | 来源: https://skills.sh/affaan-m/everything-claude-code/cost-aware-llm-pipeline | installs: 3.4K | stars: 175900
-6. ai-first-engineering | 来源: https://skills.sh/affaan-m/everything-claude-code/ai-first-engineering | installs: 3.2K | stars: 175900
-7. content-hash-cache-pattern | 来源: https://skills.sh/affaan-m/everything-claude-code/content-hash-cache-pattern | installs: 3.2K | stars: 175900
-8. inventory-demand-planning | 来源: https://skills.sh/affaan-m/everything-claude-code/inventory-demand-planning | installs: 2.8K | stars: 175900
-9. ralphinho-rfc-pipeline | 来源: https://skills.sh/affaan-m/everything-claude-code/ralphinho-rfc-pipeline | installs: 2.8K | stars: 175900
-10. architecture-decision-records | 来源: https://skills.sh/affaan-m/everything-claude-code/architecture-decision-records | installs: 2.7K | stars: 175900
-11. crosspost | 来源: https://skills.sh/affaan-m/everything-claude-code/crosspost | installs: 2.7K | stars: 175900
-12. claude-devfleet | 来源: https://skills.sh/affaan-m/everything-claude-code/claude-devfleet | installs: 2.6K | stars: 175900
-13. kotlin-exposed-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/kotlin-exposed-patterns | installs: 2.6K | stars: 175900
-14. opensource-pipeline | 来源: https://skills.sh/affaan-m/everything-claude-code/opensource-pipeline | installs: 1.8K | stars: 175900
-15. automation-audit-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops | installs: 1.6K | stars: 175900
-16. evm-token-decimals | 来源: https://skills.sh/affaan-m/everything-claude-code/evm-token-decimals | installs: 1.6K | stars: 175900
-17. claude-opus-4-5-migration | 来源: https://skills.sh/anthropics/claude-code/claude-opus-4-5-migration | installs: 5.5K | stars: 120800
-18. data-analyst | 来源: https://skills.sh/shubhamsaboo/awesome-llm-apps/data-analyst | installs: 2.5K | stars: 109000
-19. drizzle | 来源: https://skills.sh/lobehub/lobehub/drizzle | installs: 1.0K | stars: 76100
-20. data-analysis | 来源: https://skills.sh/bytedance/deer-flow/data-analysis | installs: 1.5K | stars: 65300
-21. browser-automation | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/browser-automation | installs: 4.5K | stars: 36853
-22. database-design | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/database-design | installs: 1.2K | stars: 36853
-23. postgresql-table-design | 来源: https://skills.sh/wshobson/agents/postgresql-table-design | installs: 16.3K | stars: 35018
-24. sql-optimization | 来源: https://skills.sh/github/awesome-copilot/sql-optimization | installs: 10.7K | stars: 32200
-25. sql-code-review | 来源: https://skills.sh/github/awesome-copilot/sql-code-review | installs: 10.0K | stars: 32200
-26. postgresql-code-review | 来源: https://skills.sh/github/awesome-copilot/postgresql-code-review | installs: 9.8K | stars: 32200
-27. playwright-automation-fill-in-form | 来源: https://skills.sh/github/awesome-copilot/playwright-automation-fill-in-form | installs: 9.6K | stars: 32200
-28. dataverse-python-production-code | 来源: https://skills.sh/github/awesome-copilot/dataverse-python-production-code | installs: 9.1K | stars: 32200
-29. dataverse-python-advanced-patterns | 来源: https://skills.sh/github/awesome-copilot/dataverse-python-advanced-patterns | installs: 8.7K | stars: 32200
-30. snowflake-semanticview | 来源: https://skills.sh/github/awesome-copilot/snowflake-semanticview | installs: 8.6K | stars: 32200
-31. bigquery-pipeline-audit | 来源: https://skills.sh/github/awesome-copilot/bigquery-pipeline-audit | installs: 8.4K | stars: 32200
-32. dataverse-python-quickstart | 来源: https://skills.sh/github/awesome-copilot/dataverse-python-quickstart | installs: 8.4K | stars: 32200
-33. dataverse-python-usecase-builder | 来源: https://skills.sh/github/awesome-copilot/dataverse-python-usecase-builder | installs: 8.4K | stars: 32200
-34. fabric-lakehouse | 来源: https://skills.sh/github/awesome-copilot/fabric-lakehouse | installs: 8.4K | stars: 32200
-35. winui3-migration-guide | 来源: https://skills.sh/github/awesome-copilot/winui3-migration-guide | installs: 5.4K | stars: 32200
-36. creating-oracle-to-postgres-master-migration-plan | 来源: https://skills.sh/github/awesome-copilot/creating-oracle-to-postgres-master-migration-plan | installs: 1.5K | stars: 32200
-37. creating-oracle-to-postgres-migration-bug-report | 来源: https://skills.sh/github/awesome-copilot/creating-oracle-to-postgres-migration-bug-report | installs: 1.5K | stars: 32200
-38. creating-oracle-to-postgres-migration-integration-tests | 来源: https://skills.sh/github/awesome-copilot/creating-oracle-to-postgres-migration-integration-tests | installs: 1.5K | stars: 32200
-39. issue-fields-migration | 来源: https://skills.sh/github/awesome-copilot/issue-fields-migration | installs: 1.5K | stars: 32200
-40. planning-oracle-to-postgres-migration-integration-testing | 来源: https://skills.sh/github/awesome-copilot/planning-oracle-to-postgres-migration-integration-testing | installs: 1.5K | stars: 32200
-41. reviewing-oracle-to-postgres-migration | 来源: https://skills.sh/github/awesome-copilot/reviewing-oracle-to-postgres-migration | installs: 1.5K | stars: 32200
-42. scaffolding-oracle-to-postgres-migration-test-project | 来源: https://skills.sh/github/awesome-copilot/scaffolding-oracle-to-postgres-migration-test-project | installs: 1.5K | stars: 32200
-43. heroui-migration | 来源: https://skills.sh/heroui-inc/heroui/heroui-migration | installs: 1.2K | stars: 29100
-44. recipe-batch-invite-to-event | 来源: https://skills.sh/googleworkspace/cli/recipe-batch-invite-to-event | installs: 11.9K | stars: 25800
-45. recruiting-pipeline | 来源: https://skills.sh/anthropics/knowledge-work-plugins/recruiting-pipeline | installs: 1.0K | stars: 11800
-46. ml-pipeline | 来源: https://skills.sh/jeffallan/claude-skills/ml-pipeline | installs: 1.6K | stars: 8800
-47. spark-engineer | 来源: https://skills.sh/jeffallan/claude-skills/spark-engineer | installs: 1.5K | stars: 8800
-48. bigquery-basics | 来源: https://skills.sh/google/skills/bigquery-basics | installs: 2.1K | stars: 6700
-49. seatbelt-sandboxer | 来源: https://skills.sh/trailofbits/skills/seatbelt-sandboxer | installs: 1.5K | stars: 5076
-50. dbs-agent-migration | 来源: https://skills.sh/dontbesilent2025/dbskill/dbs-agent-migration | installs: 1.9K | stars: 4300
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | postgres-patterns | affaan-m/everything-claude-code | 177611 | 5120 | https://skills.sh/affaan-m/everything-claude-code/postgres-patterns |
+| 2 | deployment-patterns | affaan-m/everything-claude-code | 177611 | 4095 | https://skills.sh/affaan-m/everything-claude-code/deployment-patterns |
+| 3 | clickhouse-io | affaan-m/everything-claude-code | 177611 | 4056 | https://skills.sh/affaan-m/everything-claude-code/clickhouse-io |
+| 4 | content-hash-cache-pattern | affaan-m/everything-claude-code | 177611 | 3554 | https://skills.sh/affaan-m/everything-claude-code/content-hash-cache-pattern |
+| 5 | ai-first-engineering | affaan-m/everything-claude-code | 177611 | 3470 | https://skills.sh/affaan-m/everything-claude-code/ai-first-engineering |
+| 6 | ralphinho-rfc-pipeline | affaan-m/everything-claude-code | 177611 | 3121 | https://skills.sh/affaan-m/everything-claude-code/ralphinho-rfc-pipeline |
+| 7 | inventory-demand-planning | affaan-m/everything-claude-code | 177611 | 3062 | https://skills.sh/affaan-m/everything-claude-code/inventory-demand-planning |
+| 8 | architecture-decision-records | affaan-m/everything-claude-code | 177611 | 3039 | https://skills.sh/affaan-m/everything-claude-code/architecture-decision-records |
+| 9 | crosspost | affaan-m/everything-claude-code | 177611 | 2979 | https://skills.sh/affaan-m/everything-claude-code/crosspost |
+| 10 | kotlin-exposed-patterns | affaan-m/everything-claude-code | 177611 | 2952 | https://skills.sh/affaan-m/everything-claude-code/kotlin-exposed-patterns |
+| 11 | claude-devfleet | affaan-m/everything-claude-code | 177611 | 2888 | https://skills.sh/affaan-m/everything-claude-code/claude-devfleet |
+| 12 | evm-token-decimals | affaan-m/everything-claude-code | 177611 | 1868 | https://skills.sh/affaan-m/everything-claude-code/evm-token-decimals |
+| 13 | data-analyst | Shubhamsaboo/awesome-llm-apps | 109559 | 2620 | https://skills.sh/Shubhamsaboo/awesome-llm-apps/data-analyst |
+| 14 | drizzle | lobehub/lobehub | 76794 | 1105 | https://skills.sh/lobehub/lobehub/drizzle |
+| 15 | sql-optimization-patterns | wshobson/agents | 35133 | 12954 | https://skills.sh/wshobson/agents/sql-optimization-patterns |
+| 16 | database-migration | wshobson/agents | 35133 | 11405 | https://skills.sh/wshobson/agents/database-migration |
+| 17 | data-storytelling | wshobson/agents | 35133 | 10256 | https://skills.sh/wshobson/agents/data-storytelling |
+| 18 | kpi-dashboard-design | wshobson/agents | 35133 | 8226 | https://skills.sh/wshobson/agents/kpi-dashboard-design |
+| 19 | data-quality-frameworks | wshobson/agents | 35133 | 6363 | https://skills.sh/wshobson/agents/data-quality-frameworks |
+| 20 | dbt-transformation-patterns | wshobson/agents | 35133 | 6263 | https://skills.sh/wshobson/agents/dbt-transformation-patterns |
+| 21 | airflow-dag-patterns | wshobson/agents | 35133 | 6235 | https://skills.sh/wshobson/agents/airflow-dag-patterns |
+| 22 | ml-pipeline-workflow | wshobson/agents | 35133 | 6210 | https://skills.sh/wshobson/agents/ml-pipeline-workflow |
+| 23 | projection-patterns | wshobson/agents | 35133 | 6081 | https://skills.sh/wshobson/agents/projection-patterns |
+| 24 | spark-optimization | wshobson/agents | 35133 | 6077 | https://skills.sh/wshobson/agents/spark-optimization |
+| 25 | create-specification | github/awesome-copilot | 32605 | 10736 | https://skills.sh/github/awesome-copilot/create-specification |
+| 26 | dataverse-python-production-code | github/awesome-copilot | 32605 | 9132 | https://skills.sh/github/awesome-copilot/dataverse-python-production-code |
+| 27 | create-architectural-decision-record | github/awesome-copilot | 32605 | 8971 | https://skills.sh/github/awesome-copilot/create-architectural-decision-record |
+| 28 | powerbi-modeling | github/awesome-copilot | 32605 | 8864 | https://skills.sh/github/awesome-copilot/powerbi-modeling |
+| 29 | dataverse-python-advanced-patterns | github/awesome-copilot | 32605 | 8726 | https://skills.sh/github/awesome-copilot/dataverse-python-advanced-patterns |
+| 30 | snowflake-semanticview | github/awesome-copilot | 32605 | 8623 | https://skills.sh/github/awesome-copilot/snowflake-semanticview |
+| 31 | bigquery-pipeline-audit | github/awesome-copilot | 32605 | 8435 | https://skills.sh/github/awesome-copilot/bigquery-pipeline-audit |
+| 32 | az-cost-optimize | github/awesome-copilot | 32605 | 8343 | https://skills.sh/github/awesome-copilot/az-cost-optimize |
+| 33 | planning-oracle-to-postgres-migration-integration-testing | github/awesome-copilot | 32605 | 1485 | https://skills.sh/github/awesome-copilot/planning-oracle-to-postgres-migration-integration-testing |
+| 34 | dotnet-timezone | github/awesome-copilot | 32605 | 1163 | https://skills.sh/github/awesome-copilot/dotnet-timezone |
+| 35 | status | alirezarezvani/claude-skills | 14336 | 1167 | https://skills.sh/alirezarezvani/claude-skills/status |
+| 36 | sql-queries | anthropics/knowledge-work-plugins | 12009 | 1861 | https://skills.sh/anthropics/knowledge-work-plugins/sql-queries |
+| 37 | data-context-extractor | anthropics/knowledge-work-plugins | 12009 | 1236 | https://skills.sh/anthropics/knowledge-work-plugins/data-context-extractor |
+| 38 | sql-pro | Jeffallan/claude-skills | 8935 | 3320 | https://skills.sh/Jeffallan/claude-skills/sql-pro |
+| 39 | postgres-pro | Jeffallan/claude-skills | 8935 | 3207 | https://skills.sh/Jeffallan/claude-skills/postgres-pro |
+| 40 | pandas-pro | Jeffallan/claude-skills | 8935 | 2594 | https://skills.sh/Jeffallan/claude-skills/pandas-pro |
+| 41 | database-optimizer | Jeffallan/claude-skills | 8935 | 2536 | https://skills.sh/Jeffallan/claude-skills/database-optimizer |
+| 42 | salesforce-developer | Jeffallan/claude-skills | 8935 | 1943 | https://skills.sh/Jeffallan/claude-skills/salesforce-developer |
+| 43 | ml-pipeline | Jeffallan/claude-skills | 8935 | 1681 | https://skills.sh/Jeffallan/claude-skills/ml-pipeline |
+| 44 | spark-engineer | Jeffallan/claude-skills | 8935 | 1654 | https://skills.sh/Jeffallan/claude-skills/spark-engineer |
+| 45 | seo-schema | AgriciDaniel/claude-seo | 6296 | 1514 | https://skills.sh/AgriciDaniel/claude-seo/seo-schema |
+| 46 | codeql | trailofbits/skills | 5109 | 3618 | https://skills.sh/trailofbits/skills/codeql |
+| 47 | archimate | markdown-viewer/skills | 2399 | 1648 | https://skills.sh/markdown-viewer/skills/archimate |
+| 48 | data-analytics | markdown-viewer/skills | 2399 | 1629 | https://skills.sh/markdown-viewer/skills/data-analytics |
+| 49 | apify-actor-development | apify/agent-skills | 2005 | 6714 | https://skills.sh/apify/agent-skills/apify-actor-development |
 
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/anthropics/claude-code
-- https://skills.sh/shubhamsaboo/awesome-llm-apps
-- https://skills.sh/lobehub/lobehub
-- https://skills.sh/bytedance/deer-flow
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
-- https://skills.sh/heroui-inc/heroui
-- https://skills.sh/googleworkspace/cli
-- https://skills.sh/anthropics/knowledge-work-plugins
-- https://skills.sh/jeffallan/claude-skills
-- https://skills.sh/google/skills
-- https://skills.sh/trailofbits/skills
-- https://skills.sh/dontbesilent2025/dbskill
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 50 | para-memory-files | paperclipai/paperclip | 63929 | 562 | https://skills.sh/paperclipai/paperclip/para-memory-files |
+| 51 | production-code-audit | sickn33/antigravity-awesome-skills | 37047 | 706 | https://skills.sh/sickn33/antigravity-awesome-skills/production-code-audit |
+| 52 | database-architect | sickn33/antigravity-awesome-skills | 37047 | 568 | https://skills.sh/sickn33/antigravity-awesome-skills/database-architect |
+| 53 | arize-link | github/awesome-copilot | 32605 | 793 | https://skills.sh/github/awesome-copilot/arize-link |

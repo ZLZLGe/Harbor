@@ -1,3 +1,9 @@
+---
+name: ai-first-engineering
+description: Engineering operating model for teams where AI agents generate a large share of implementation output.
+origin: ECC
+---
+
 # AI-First Engineering
 
 Use this skill when designing process, reviews, and architecture for teams shipping with AI-assisted code generation.
@@ -11,39 +17,35 @@ Use this skill when designing process, reviews, and architecture for teams shipp
 ## Architecture Requirements
 
 Prefer architectures that are agent-friendly:
-
-* explicit boundaries
-* stable contracts
-* typed interfaces
-* deterministic tests
+- explicit boundaries
+- stable contracts
+- typed interfaces
+- deterministic tests
 
 Avoid implicit behavior spread across hidden conventions.
 
 ## Code Review in AI-First Teams
 
 Review for:
-
-* behavior regressions
-* security assumptions
-* data integrity
-* failure handling
-* rollout safety
+- behavior regressions
+- security assumptions
+- data integrity
+- failure handling
+- rollout safety
 
 Minimize time spent on style issues already covered by automation.
 
 ## Hiring and Evaluation Signals
 
 Strong AI-first engineers:
-
-* decompose ambiguous work cleanly
-* define measurable acceptance criteria
-* produce high-signal prompts and evals
-* enforce risk controls under delivery pressure
+- decompose ambiguous work cleanly
+- define measurable acceptance criteria
+- produce high-signal prompts and evals
+- enforce risk controls under delivery pressure
 
 ## Testing Standard
 
 Raise testing bar for generated code:
-
-* required regression coverage for touched domains
-* explicit edge-case assertions
-* integration checks for interface boundaries
+- required regression coverage for touched domains
+- explicit edge-case assertions
+- integration checks for interface boundaries

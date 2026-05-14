@@ -1,0 +1,5 @@
+change_request_id,subscription_id,effective_date,apply_timing,status,target_plan_id,target_price_id,target_quantity,notes
+CR-1006-PENDING,SUB-1006,2026-05-15,current_cycle,pending,starter,price_starter_monthly,8,pending seat request
+CR-1007-UPSIZE,SUB-1007,2026-05-10,current_cycle,approved,growth,price_growth_monthly,14,approved expansion
+CR-1008-DOWNSIZE,SUB-1008,2026-05-08,current_cycle,approved,starter,price_starter_monthly,8,approved downgrade
+CR-1009-NEXT,SUB-1009,2026-06-13,next_cycle,approved,enterprise,price_enterprise_monthly,2,next cycle seat increase

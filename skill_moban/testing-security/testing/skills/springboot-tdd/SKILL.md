@@ -1,19 +1,25 @@
+---
+name: springboot-tdd
+description: Test-driven development for Spring Boot using JUnit 5, Mockito, MockMvc, Testcontainers, and JaCoCo. Use when adding features, fixing bugs, or refactoring.
+origin: ECC
+---
+
 # Spring Boot TDD Workflow
 
 TDD guidance for Spring Boot services with 80%+ coverage (unit + integration).
 
 ## When to Use
 
-* New features or endpoints
-* Bug fixes or refactors
-* Adding data access logic or security rules
+- New features or endpoints
+- Bug fixes or refactors
+- Adding data access logic or security rules
 
 ## Workflow
 
-1. Write tests first (they should fail)
-2. Implement minimal code to pass
-3. Refactor with tests green
-4. Enforce coverage (JaCoCo)
+1) Write tests first (they should fail)
+2) Implement minimal code to pass
+3) Refactor with tests green
+4) Enforce coverage (JaCoCo)
 
 ## Unit Tests (JUnit 5 + Mockito)
 
@@ -34,14 +40,12 @@ class MarketServiceTest {
     verify(repo).save(any());
   }
 }
-
 ```
 
 Patterns:
-
-* Arrange-Act-Assert
-* Avoid partial mocks; prefer explicit stubbing
-* Use `@ParameterizedTest` for variants
+- Arrange-Act-Assert
+- Avoid partial mocks; prefer explicit stubbing
+- Use `@ParameterizedTest` for variants
 
 ## Web Layer Tests (MockMvc)
 
@@ -60,7 +64,6 @@ class MarketControllerTest {
         .andExpect(jsonPath("$.content").isArray());
   }
 }
-
 ```
 
 ## Integration Tests (SpringBootTest)
@@ -82,7 +85,6 @@ class MarketIntegrationTest {
       .andExpect(status().isCreated());
   }
 }
-
 ```
 
 ## Persistence Tests (DataJpaTest)
@@ -104,18 +106,16 @@ class MarketRepositoryTest {
     assertThat(found).isPresent();
   }
 }
-
 ```
 
 ## Testcontainers
 
-* Use reusable containers for Postgres/Redis to mirror production
-* Wire via `@DynamicPropertySource` to inject JDBC URLs into Spring context
+- Use reusable containers for Postgres/Redis to mirror production
+- Wire via `@DynamicPropertySource` to inject JDBC URLs into Spring context
 
 ## Coverage (JaCoCo)
 
 Maven snippet:
-
 ```xml
 <plugin>
   <groupId>org.jacoco</groupId>
@@ -132,14 +132,13 @@ Maven snippet:
     </execution>
   </executions>
 </plugin>
-
 ```
 
 ## Assertions
 
-* Prefer AssertJ (`assertThat`) for readability
-* For JSON responses, use `jsonPath`
-* For exceptions: `assertThatThrownBy(...)`
+- Prefer AssertJ (`assertThat`) for readability
+- For JSON responses, use `jsonPath`
+- For exceptions: `assertThatThrownBy(...)`
 
 ## Test Data Builders
 
@@ -149,12 +148,11 @@ class MarketBuilder {
   MarketBuilder withName(String name) { this.name = name; return this; }
   Market build() { return new Market(null, name, MarketStatus.ACTIVE); }
 }
-
 ```
 
 ## CI Commands
 
-* Maven: `mvn -T 4 test` or `mvn verify`
-* Gradle: `./gradlew test jacocoTestReport`
+- Maven: `mvn -T 4 test` or `mvn verify`
+- Gradle: `./gradlew test jacocoTestReport`
 
 **Remember**: Keep tests fast, isolated, and deterministic. Test behavior, not implementation details.

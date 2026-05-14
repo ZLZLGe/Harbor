@@ -1,46 +1,80 @@
-You are preparing an analysis handoff for a PBMC single-cell RNA-seq pilot. The downstream immunology team needs a reproducible package generated from the provided count matrix and the current local analysis policy.
+You are preparing the follow-up package for the pasilla treatment comparison.
 
-Input data is in `/root/data/`.
+Input data is in `/root/environment/data/`:
+- `counts/raw_counts.tsv`: gene-level raw read counts for all samples
+- `metadata/sample_metadata.tsv`: sample metadata, including treatment labels and technical factors
+- `gene_panel/priority_panel.tsv`: genes that must appear in the follow-up review table
+- `gene_panel/analysis_config.json`: comparison settings, model factors, filtering rule, and reporting threshold
 
-- `pbmc3k_filtered_gene_bc_matrices.tar.gz`: filtered 10x feature-barcode matrix for the PBMC pilot
-- `analysis_manifest.json`: local service endpoints and authority notes for the current analysis policy
-- `submission_contract.json`: required artifact names and top-level output fields
-- `reference_analysis_policy.json`: earlier workflow notes kept only for orientation
-- `reference_marker_panel.csv`: earlier marker-panel extract kept only for orientation
+Your task:
+1. Produce the primary treated-versus-untreated analysis using the factors listed in `analysis_config.json`.
+2. Produce a condition-only sensitivity rerun for the same comparison on the same retained samples and genes.
+3. Deliver the result table, normalized counts, panel review table, and summary JSON.
 
-Your task
+Output:
+- `/root/pasilla_differential_expression.csv`
+  - UTF-8 CSV
+  - Columns, in this order:
+    `gene_id,baseMean,log2FoldChange,lfcSE,stat,pvalue,padj,direction`
+  - Sort rows by `padj` ascending, then `log2FoldChange` descending, then `gene_id` ascending; place missing `padj` values last
+  - `direction` must be one of: `up`, `down`, `ns`
+  - Set `direction` from the sign of `log2FoldChange`: positive = `up`, negative = `down`, zero or missing = `ns`
+  - Include every gene retained by the primary analysis
 
-1. Build a reproducible single-cell analysis starting from the provided 10x matrix bundle and the current local analysis policy.
-2. Remove low-quality observations and summarize the retained dataset at both dataset and group level.
-3. Derive data-driven groups, rank marker genes for every reported group, and assign a coarse cell-type label to each reported group.
-4. Write a short handoff note that explains the QC outcome, the major group structure, and any analysis limits that the downstream team should know.
+- `/root/pasilla_normalized_counts.tsv`
+  - Tab-separated table
+  - Rows must be retained samples
+  - Columns must be retained genes
 
-Output
+- `/root/pasilla_panel_review.tsv`
+  - Tab-separated table
+  - Include every gene from `priority_panel.tsv`
+  - Columns, in this order:
+    `gene_id,review_bucket,report_priority,note,release_baseMean,release_log2FoldChange,release_padj,reference_log2FoldChange,reference_padj,release_significant,reference_significant,stabilized_abs_log2FoldChange,follow_up_action,manual_review_rank,final_direction`
+  - Sort rows by `report_priority`, then `review_bucket`, then `gene_id`
+  - Set `release_significant` and `reference_significant` from the adjusted p-value threshold in `analysis_config.json`
+  - `stabilized_abs_log2FoldChange` must be non-negative and must come from the primary analysis
+  - `follow_up_action` must be one of:
+    `ready_for_release`, `release_with_caution`, `needs_manual_review`, `no_follow_up`
+  - Set `follow_up_action` with these rules:
+    both significant = `ready_for_release`
+    release significant only = `release_with_caution`
+    sensitivity rerun significant only = `needs_manual_review`
+    neither significant = `no_follow_up`
+  - `manual_review_rank` must be blank for rows outside `needs_manual_review`
+  - For `needs_manual_review` rows, assign consecutive ranks starting from `1`, ordered by `stabilized_abs_log2FoldChange` descending, then `gene_id` ascending
+  - `final_direction` must mirror the primary analysis direction for the same gene; use `ns` only when no release direction is available
 
-- `/root/output/qc_summary.json`
-  - include the retained cell count, retained gene count, and the QC thresholds used
-- `/root/output/cluster_summary.csv`
-  - one row per reported group
-  - include cluster ID, cell count, cell-type label, median detected genes, median total counts, median mitochondrial percentage, and one representative marker gene
-- `/root/output/marker_genes.csv`
-  - include ranked marker genes for every reported group
-  - include cluster ID, cell-type label, gene symbol, rank, score, log fold change, and adjusted p-value
-- `/root/output/cluster_annotations.csv`
-  - include cluster ID, assigned cell-type label, supporting markers, and cell count
-- `/root/output/report.md`
-  - include sections named `QC`, `Groups`, and `Limits`
-- `/root/output/umap_clusters.png`
-- `/root/output/umap_cell_types.png`
+- `/root/pasilla_summary.json`
+  - JSON object
+  - Include:
+    `comparison`: string, must be `treated vs untreated`
+    `release_design_factors`: array, use the factor order from `analysis_config.json`
+    `sensitivity_design`: string, must be `~condition`
+    `sample_count`
+    `tested_gene_count`
+    `significant_up_count`
+    `significant_down_count`
+    `release_panel_gene_count`
+    `manual_review_gene_count`
+    `release_panel_genes`: array of panel genes with `release_significant = true`
+    `manual_review_shortlist`: array of panel genes with `follow_up_action = needs_manual_review`, in `manual_review_rank` order
+    `top_up_genes`: the first `report_top_n` significant `up` genes from the sorted primary result table
+    `top_down_genes`: the first `report_top_n` significant `down` genes from the sorted primary result table
+    `follow_up_action_counts`: object with all four keys
+      `ready_for_release`
+      `release_with_caution`
+      `needs_manual_review`
+      `no_follow_up`
 
-Notes
-
-- Generate every artifact from code or scripted commands inside the sandbox.
-- Use the provided dataset only.
-- Keep the workflow reproducible. Any stochastic step must use random seed `0`.
-- Use the current local analysis policy and current local marker panel as the authoritative source.
-- The current local analysis policy publishes the active workflow profile for this pilot together with marker-reporting and reporting rules. Do not rely on the earlier orientation files when they point in another direction.
-- Keep the structured outputs aligned to one current-policy run.
-- Do not substitute a retuned exploratory grouping profile for the active workflow profile published by the current local analysis policy.
-- Follow `submission_contract.json` for the required artifact names and top-level output fields.
-- Do not submit manually edited tables or image-only results.
-- Keep file names and output paths exactly as specified.
+Notes:
+- Use the provided raw counts as the analysis input.
+- Keep sample IDs aligned between the count matrix and the metadata, and preserve the sample order from `sample_metadata.tsv` in the normalized counts output and in the model input.
+- Use the same retained sample set and retained gene set for both analyses.
+- Treat the model factors used in the design as categorical metadata fields.
+- Apply the reporting threshold from `analysis_config.json`.
+- Use the primary analysis when you compute `stabilized_abs_log2FoldChange` for manual review ranking.
+- Do not modify files under `/root/environment/data/`.
+- Do not download additional datasets or use external online analysis services.
+- Only write the output files listed above.
+- Do not alter installed skill files.

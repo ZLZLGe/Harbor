@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：system-admin 类热门 skill 的核心价值，是把“能登录进去”提升为“能沿着正确运维链路完成恢复并留下可复核证据”。对于 `tmux` 这类 skill，重点不是单次命令执行，而是隔离交互会话、驱动 TTY-only 控制台、观察运行中状态并在合适时机继续动作。
-* **Task 目标形态**：任务应尽量贴近真实运维恢复场景，例如交互式控制台、受限 runbook、发布门禁、会话内确认 token、审计日志、live session 接管和状态回写。题面只保留事故症状、交付合同和禁止事项，把具体的交互控制工作流留给 solver 和 skill 自己识别。
 * **Verifier 设计重点**：Verifier 应验证 solver 是否真的续接了既有控制链路、是否由同一条已 staged 的 live session 完成关键动作，以及是否保留了真实输入与控制台实现不变。重点应覆盖发布产物重算、审计轨迹、会话身份一致性、环境完整性和防止手写结果、替代链路、篡改输入或直接改控制台规避。
 
 ## 第二部分：示例任务
@@ -14,13 +13,12 @@
 
 - 任务 ID：`system-admin__debian-security-digest-recovery`
 - 类别：`system-admin`
-- 难度：`hard`
 - 绑定 Skill：`tmux`
 - 数据来源：`snapshot.debian.org`
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 在真实单容器环境中通过 `tmux` 发现已经 staged 且已经持有发布权的 live recovery console，会话内抓取 publish token，沿现有恢复链路完成 publish，并把最终报告写到 `/app/output/recovery_report.json`。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -34,7 +32,7 @@
 防作弊测试
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 输入与控制台完整性 | 上游 snapshot 数据、incident 文件和控制台实现哈希不得变化 |
+| 输入与控制台完整性 | 上游 snapshot 数据、incident 文件和控制台实现不可修改 |
 | 运行后健康状态 | pipeline 必须为 active、stale lock 清除、published=true，且发布、写报告与 staged session owner 身份一致 |
 
 ### ⚡ Skill 相关性评估

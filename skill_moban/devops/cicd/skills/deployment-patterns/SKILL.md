@@ -1,15 +1,21 @@
+---
+name: deployment-patterns
+description: Deployment workflows, CI/CD pipeline patterns, Docker containerization, health checks, rollback strategies, and production readiness checklists for web applications.
+origin: ECC
+---
+
 # Deployment Patterns
 
 Production deployment workflows and CI/CD best practices.
 
 ## When to Activate
 
-* Setting up CI/CD pipelines
-* Dockerizing an application
-* Planning deployment strategy (blue-green, canary, rolling)
-* Implementing health checks and readiness probes
-* Preparing for a production release
-* Configuring environment-specific settings
+- Setting up CI/CD pipelines
+- Dockerizing an application
+- Planning deployment strategy (blue-green, canary, rolling)
+- Implementing health checks and readiness probes
+- Preparing for a production release
+- Configuring environment-specific settings
 
 ## Deployment Strategies
 
@@ -17,7 +23,7 @@ Production deployment workflows and CI/CD best practices.
 
 Replace instances gradually — old and new versions run simultaneously during rollout.
 
-```text
+```
 Instance 1: v1 → v2  (update first)
 Instance 2: v1        (still running v1)
 Instance 3: v1        (still running v1)
@@ -29,32 +35,34 @@ Instance 3: v1
 Instance 1: v2
 Instance 2: v2
 Instance 3: v1 → v2  (update last)
-
 ```
 
-**Pros:** Zero downtime, gradual rollout **Cons:** Two versions run simultaneously — requires backward-compatible changes **Use when:** Standard deployments, backward-compatible changes
+**Pros:** Zero downtime, gradual rollout
+**Cons:** Two versions run simultaneously — requires backward-compatible changes
+**Use when:** Standard deployments, backward-compatible changes
 
 ### Blue-Green Deployment
 
 Run two identical environments. Switch traffic atomically.
 
-```text
+```
 Blue  (v1) ← traffic
 Green (v2)   idle, running new version
 
 # After verification:
 Blue  (v1)   idle (becomes standby)
 Green (v2) ← traffic
-
 ```
 
-**Pros:** Instant rollback (switch back to blue), clean cutover **Cons:** Requires 2x infrastructure during deployment **Use when:** Critical services, zero-tolerance for issues
+**Pros:** Instant rollback (switch back to blue), clean cutover
+**Cons:** Requires 2x infrastructure during deployment
+**Use when:** Critical services, zero-tolerance for issues
 
 ### Canary Deployment
 
 Route a small percentage of traffic to the new version first.
 
-```text
+```
 v1: 95% of traffic
 v2:  5% of traffic  (canary)
 
@@ -64,10 +72,11 @@ v2: 50% of traffic
 
 # Final:
 v2: 100% of traffic
-
 ```
 
-**Pros:** Catches issues with real traffic before full rollout **Cons:** Requires traffic splitting infrastructure, monitoring **Use when:** High-traffic services, risky changes, feature flags
+**Pros:** Catches issues with real traffic before full rollout
+**Cons:** Requires traffic splitting infrastructure, monitoring
+**Use when:** High-traffic services, risky changes, feature flags
 
 ## Docker
 
@@ -106,7 +115,6 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:3000/health || exit 1
 
 CMD ["node", "dist/server.js"]
-
 ```
 
 ### Multi-Stage Dockerfile (Go)
@@ -129,7 +137,6 @@ COPY --from=builder /server /server
 EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=3s CMD wget -qO- http://localhost:8080/health || exit 1
 CMD ["/server"]
-
 ```
 
 ### Multi-Stage Dockerfile (Python/Django)
@@ -156,12 +163,11 @@ EXPOSE 8000
 
 HEALTHCHECK --interval=30s --timeout=3s CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/')" || exit 1
 CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "4"]
-
 ```
 
 ### Docker Best Practices
 
-```text
+```
 # GOOD practices
 - Use specific version tags (node:22-alpine, not node:latest)
 - Multi-stage builds to minimize image size
@@ -177,7 +183,6 @@ CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000", "--workers
 - Copying entire repo in one COPY layer
 - Installing dev dependencies in production image
 - Storing secrets in image (use env vars or secrets manager)
-
 ```
 
 ## CI/CD Pipeline
@@ -244,18 +249,16 @@ jobs:
           # Vercel: vercel --prod
           # K8s: kubectl set image deployment/app app=ghcr.io/${{ github.repository }}:${{ github.sha }}
           echo "Deploying ${{ github.sha }}"
-
 ```
 
 ### Pipeline Stages
 
-```text
+```
 PR opened:
   lint → typecheck → unit tests → integration tests → preview deploy
 
 Merged to main:
   lint → typecheck → unit tests → integration tests → build image → deploy staging → smoke tests → deploy production
-
 ```
 
 ## Health Checks
@@ -295,7 +298,6 @@ async function checkDatabase(): Promise<HealthCheck> {
     return { status: "error", message: "Database unreachable" };
   }
 }
-
 ```
 
 ### Kubernetes Probes
@@ -324,7 +326,6 @@ startupProbe:
   initialDelaySeconds: 0
   periodSeconds: 5
   failureThreshold: 30    # 30 * 5s = 150s max startup time
-
 ```
 
 ## Environment Configuration
@@ -342,7 +343,6 @@ PORT=3000
 # Environment-specific behavior
 NODE_ENV=production          # or staging, development
 APP_ENV=production           # explicit app environment
-
 ```
 
 ### Configuration Validation
@@ -361,7 +361,6 @@ const envSchema = z.object({
 
 // Validate at startup — fail fast if config is wrong
 export const env = envSchema.parse(process.env);
-
 ```
 
 ## Rollback Strategy
@@ -380,55 +379,49 @@ railway up --commit <previous-sha>
 
 # Database: rollback migration (if reversible)
 npx prisma migrate resolve --rolled-back <migration-name>
-
 ```
 
 ### Rollback Checklist
 
-* Previous image/artifact is available and tagged
-* Database migrations are backward-compatible (no destructive changes)
-* Feature flags can disable new features without deploy
-* Monitoring alerts configured for error rate spikes
-* Rollback tested in staging before production release
+- [ ] Previous image/artifact is available and tagged
+- [ ] Database migrations are backward-compatible (no destructive changes)
+- [ ] Feature flags can disable new features without deploy
+- [ ] Monitoring alerts configured for error rate spikes
+- [ ] Rollback tested in staging before production release
 
 ## Production Readiness Checklist
 
 Before any production deployment:
 
 ### Application
-
-* All tests pass (unit, integration, E2E)
-* No hardcoded secrets in code or config files
-* Error handling covers all edge cases
-* Logging is structured (JSON) and does not contain PII
-* Health check endpoint returns meaningful status
+- [ ] All tests pass (unit, integration, E2E)
+- [ ] No hardcoded secrets in code or config files
+- [ ] Error handling covers all edge cases
+- [ ] Logging is structured (JSON) and does not contain PII
+- [ ] Health check endpoint returns meaningful status
 
 ### Infrastructure
-
-* Docker image builds reproducibly (pinned versions)
-* Environment variables documented and validated at startup
-* Resource limits set (CPU, memory)
-* Horizontal scaling configured (min/max instances)
-* SSL/TLS enabled on all endpoints
+- [ ] Docker image builds reproducibly (pinned versions)
+- [ ] Environment variables documented and validated at startup
+- [ ] Resource limits set (CPU, memory)
+- [ ] Horizontal scaling configured (min/max instances)
+- [ ] SSL/TLS enabled on all endpoints
 
 ### Monitoring
-
-* Application metrics exported (request rate, latency, errors)
-* Alerts configured for error rate > threshold
-* Log aggregation set up (structured logs, searchable)
-* Uptime monitoring on health endpoint
+- [ ] Application metrics exported (request rate, latency, errors)
+- [ ] Alerts configured for error rate > threshold
+- [ ] Log aggregation set up (structured logs, searchable)
+- [ ] Uptime monitoring on health endpoint
 
 ### Security
-
-* Dependencies scanned for CVEs
-* CORS configured for allowed origins only
-* Rate limiting enabled on public endpoints
-* Authentication and authorization verified
-* Security headers set (CSP, HSTS, X-Frame-Options)
+- [ ] Dependencies scanned for CVEs
+- [ ] CORS configured for allowed origins only
+- [ ] Rate limiting enabled on public endpoints
+- [ ] Authentication and authorization verified
+- [ ] Security headers set (CSP, HSTS, X-Frame-Options)
 
 ### Operations
-
-* Rollback plan documented and tested
-* Database migration tested against production-sized data
-* Runbook for common failure scenarios
-* On-call rotation and escalation path defined
+- [ ] Rollback plan documented and tested
+- [ ] Database migration tested against production-sized data
+- [ ] Runbook for common failure scenarios
+- [ ] On-call rotation and escalation path defined

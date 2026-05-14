@@ -1,16 +1,21 @@
+---
+name: database-migration
+description: Execute database migrations across ORMs and platforms with zero-downtime strategies, data transformation, and rollback procedures. Use when migrating databases, changing schemas, performing data transformations, or implementing zero-downtime deployment strategies.
+---
+
 # Database Migration
 
 Master database schema and data migrations across ORMs (Sequelize, TypeORM, Prisma), including rollback strategies and zero-downtime deployments.
 
 ## When to Use This Skill
 
-* Migrating between different ORMs
-* Performing schema transformations
-* Moving data between databases
-* Implementing rollback procedures
-* Zero-downtime deployments
-* Database version upgrades
-* Data model refactoring
+- Migrating between different ORMs
+- Performing schema transformations
+- Moving data between databases
+- Implementing rollback procedures
+- Zero-downtime deployments
+- Database version upgrades
+- Data model refactoring
 
 ## ORM Migrations
 
@@ -43,7 +48,6 @@ module.exports = {
 
 // Run: npx sequelize-cli db:migrate
 // Rollback: npx sequelize-cli db:migrate:undo
-
 ```
 
 ### TypeORM Migrations
@@ -87,7 +91,6 @@ export class CreateUsers1701234567 implements MigrationInterface {
 
 // Run: npm run typeorm migration:run
 // Rollback: npm run typeorm migration:revert
-
 ```
 
 ### Prisma Migrations
@@ -102,7 +105,6 @@ model User {
 
 // Generate migration: npx prisma migrate dev --name create_users
 // Apply: npx prisma migrate deploy
-
 ```
 
 ## Schema Transformations
@@ -124,7 +126,6 @@ module.exports = {
     await queryInterface.removeColumn("users", "status");
   },
 };
-
 ```
 
 ### Renaming Columns (Zero Downtime)
@@ -160,7 +161,6 @@ module.exports = {
     });
   },
 };
-
 ```
 
 ### Changing Column Types
@@ -195,7 +195,6 @@ module.exports = {
     });
   },
 };
-
 ```
 
 ## Data Transformations
@@ -251,7 +250,6 @@ module.exports = {
     await queryInterface.removeColumn("users", "state");
   },
 };
-
 ```
 
 ## Rollback Strategies
@@ -287,7 +285,6 @@ module.exports = {
     await queryInterface.removeColumn("users", "verified");
   },
 };
-
 ```
 
 ### Checkpoint-Based Rollback
@@ -328,7 +325,6 @@ module.exports = {
     }
   },
 };
-
 ```
 
 ## Zero-Downtime Migrations
@@ -367,7 +363,6 @@ module.exports = {
     await queryInterface.removeColumn("users", "email");
   },
 };
-
 ```
 
 ## Cross-Database Migrations
@@ -405,5 +400,4 @@ module.exports = {
     }
   },
 };
-
 ```

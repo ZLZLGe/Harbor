@@ -1,195 +1,198 @@
-# Deep Research
+---
+name: deep-research
+description: Use this skill instead of WebSearch for ANY question requiring web research. Trigger on queries like "what is X", "explain X", "compare X and Y", "research X", or before content generation tasks. Provides systematic multi-angle research methodology instead of single superficial searches. Use this proactively when the user's question needs online information.
+---
 
-You are an expert researcher who provides thorough, well-cited analysis by synthesizing information from multiple perspectives.
+# Deep Research Skill
 
-## When to Apply
+## Overview
 
-Use this skill when:
+This skill provides a systematic methodology for conducting thorough web research. **Load this skill BEFORE starting any content generation task** to ensure you gather sufficient information from multiple angles, depths, and sources.
 
-* Conducting in-depth research on a topic
-* Synthesizing information from multiple sources
-* Creating research summaries with proper citations
-* Analyzing different viewpoints and perspectives
-* Identifying key findings and trends
-* Evaluating the quality and credibility of sources
+## When to Use This Skill
 
-## Research Process
+**Always load this skill when:**
 
-Follow this systematic approach:
+### Research Questions
+- User asks "what is X", "explain X", "research X", "investigate X"
+- User wants to understand a concept, technology, or topic in depth
+- The question requires current, comprehensive information from multiple sources
+- A single web search would be insufficient to answer properly
 
-### 1\. **Clarify the Research Question**
+### Content Generation (Pre-research)
+- Creating presentations (PPT/slides)
+- Creating frontend designs or UI mockups
+- Writing articles, reports, or documentation
+- Producing videos or multimedia content
+- Any content that requires real-world information, examples, or current data
 
-* What exactly needs to be researched?
-* What level of detail is required?
-* Are there specific angles to prioritize?
-* What is the purpose of the research?
+## Core Principle
 
-### 2\. **Identify Key Aspects**
+**Never generate content based solely on general knowledge.** The quality of your output directly depends on the quality and quantity of research conducted beforehand. A single search query is NEVER enough.
 
-* Break the topic into subtopics or dimensions
-* List main questions to answer
-* Note important context or background needed
+## Research Methodology
 
-### 3\. **Gather Information**
+### Phase 1: Broad Exploration
 
-* Consider multiple perspectives
-* Look for primary and secondary sources
-* Check publication dates and currency
-* Evaluate source credibility
+Start with broad searches to understand the landscape:
 
-### 4\. **Synthesize Findings**
+1. **Initial Survey**: Search for the main topic to understand the overall context
+2. **Identify Dimensions**: From initial results, identify key subtopics, themes, angles, or aspects that need deeper exploration
+3. **Map the Territory**: Note different perspectives, stakeholders, or viewpoints that exist
 
-* Identify patterns and themes
-* Note areas of consensus and disagreement
-* Highlight key insights
-* Connect related information
+Example:
+```
+Topic: "AI in healthcare"
+Initial searches:
+- "AI healthcare applications 2024"
+- "artificial intelligence medical diagnosis"
+- "healthcare AI market trends"
 
-### 5\. **Document Sources**
-
-* Use numbered citations \[1\], \[2\], etc.
-* List full sources at the end
-* Note if information is uncertain or contested
-* Indicate confidence levels where appropriate
-
-## Output Format
-
-Structure your research as:
-
-```markdown
-## Executive Summary
-[2-3 sentence overview of key findings]
-
-## Key Findings
-- **[Finding 1]**: [Brief explanation] [1]
-- **[Finding 2]**: [Brief explanation] [2]
-- **[Finding 3]**: [Brief explanation] [3]
-
-## Detailed Analysis
-
-### [Subtopic 1]
-[In-depth analysis with citations]
-
-### [Subtopic 2]
-[In-depth analysis with citations]
-
-## Areas of Consensus
-[What sources agree on]
-
-## Areas of Debate
-[Where sources disagree or uncertainty exists]
-
-## Sources
-[1] [Full citation with credibility note]
-[2] [Full citation with credibility note]
-
-## Gaps and Further Research
-[What's still unknown or needs investigation]
-
+Identified dimensions:
+- Diagnostic AI (radiology, pathology)
+- Treatment recommendation systems
+- Administrative automation
+- Patient monitoring
+- Regulatory landscape
+- Ethical considerations
 ```
 
-## Source Evaluation Criteria
+### Phase 2: Deep Dive
 
-When citing sources, note:
+For each important dimension identified, conduct targeted research:
 
-* **Peer-reviewed journals** \- Highest credibility
-* **Official reports/statistics** \- Authoritative data
-* **News from reputable outlets** \- Timely, fact-checked
-* **Expert commentary** \- Qualified opinions
-* **General websites** \- verify independently
+1. **Specific Queries**: Search with precise keywords for each subtopic
+2. **Multiple Phrasings**: Try different keyword combinations and phrasings
+3. **Fetch Full Content**: Use `web_fetch` to read important sources in full, not just snippets
+4. **Follow References**: When sources mention other important resources, search for those too
 
-## Example
+Example:
+```
+Dimension: "Diagnostic AI in radiology"
+Targeted searches:
+- "AI radiology FDA approved systems"
+- "chest X-ray AI detection accuracy"
+- "radiology AI clinical trials results"
 
-**User Request:** "Research the benefits and risks of intermittent fasting"
+Then fetch and read:
+- Key research papers or summaries
+- Industry reports
+- Real-world case studies
+```
 
-**Response:**
+### Phase 3: Diversity & Validation
 
-## Executive Summary
+Ensure comprehensive coverage by seeking diverse information types:
 
-Intermittent fasting (IF) shows promising benefits for weight loss and metabolic health based on current research, though long-term effects remain under study. Evidence supports its safety for most healthy adults, with certain populations requiring medical supervision \[1\]\[2\].
+| Information Type | Purpose | Example Searches |
+|-----------------|---------|------------------|
+| **Facts & Data** | Concrete evidence | "statistics", "data", "numbers", "market size" |
+| **Examples & Cases** | Real-world applications | "case study", "example", "implementation" |
+| **Expert Opinions** | Authority perspectives | "expert analysis", "interview", "commentary" |
+| **Trends & Predictions** | Future direction | "trends 2024", "forecast", "future of" |
+| **Comparisons** | Context and alternatives | "vs", "comparison", "alternatives" |
+| **Challenges & Criticisms** | Balanced view | "challenges", "limitations", "criticism" |
 
-## Key Findings
+### Phase 4: Synthesis Check
 
-* **Weight Loss**: IF produces similar weight loss to calorie restriction (5-8% body weight over 12 weeks), with potentially better adherence \[1\]
-* **Metabolic Health**: May improve insulin sensitivity by 20-31% and reduce inflammation markers \[2\]
-* **Longevity**: Animal studies show promise; human long-term data is limited \[3\]
-* **Safety**: Not recommended for pregnant women, diabetics without supervision, or those with eating disorder history \[4\]
+Before proceeding to content generation, verify:
 
-## Detailed Analysis
+- [ ] Have I searched from at least 3-5 different angles?
+- [ ] Have I fetched and read the most important sources in full?
+- [ ] Do I have concrete data, examples, and expert perspectives?
+- [ ] Have I explored both positive aspects and challenges/limitations?
+- [ ] Is my information current and from authoritative sources?
 
-### Weight Management
+**If any answer is NO, continue researching before generating content.**
 
-Studies comparing IF to traditional calorie restriction show similar weight loss outcomes. The main advantage appears to be adherence - many people find time-restricted eating easier to maintain than calorie counting \[1\]. Typical results show 5-8% body weight loss over 12-16 weeks.
+## Search Strategy Tips
 
-Common IF protocols:
+### Effective Query Patterns
 
-* **16:8** \- 16 hours fasting, 8-hour eating window
-* **5:2** \- Normal eating 5 days, restricted calories 2 days
-* **Alternate day** \- Alternating between fasting and eating days
+```
+# Be specific with context
+❌ "AI trends"
+✅ "enterprise AI adoption trends 2024"
 
-### Metabolic Effects
+# Include authoritative source hints
+"[topic] research paper"
+"[topic] McKinsey report"
+"[topic] industry analysis"
 
-Research indicates improvements in several biomarkers \[2\]:
+# Search for specific content types
+"[topic] case study"
+"[topic] statistics"
+"[topic] expert interview"
 
-* Fasting insulin levels decreased 20-31%
-* Blood pressure reductions (3-8 mmHg systolic)
-* Inflammatory marker (CRP) reductions
-* Improved lipid profiles in some studies
+# Use temporal qualifiers — always use the ACTUAL current year from <current_date>
+"[topic] 2026"   # ← replace with real current year, never hardcode a past year
+"[topic] latest"
+"[topic] recent developments"
+```
 
-However, individual responses vary significantly. Some people show dramatic improvements while others see minimal changes.
+### Temporal Awareness
 
-### Potential Mechanisms
+**Always check `<current_date>` in your context before forming ANY search query.**
 
-Several explanations for observed benefits:
+`<current_date>` gives you the full date: year, month, day, and weekday (e.g. `2026-02-28, Saturday`). Use the right level of precision depending on what the user is asking:
 
-1. **Caloric restriction** \- IF naturally reduces total calories
-2. **Circadian alignment** \- Eating during daytime hours aligns with metabolism
-3. **Autophagy** \- Cellular cleanup processes activated during fasting
-4. **Hormetic stress** \- Mild stress that improves adaptation
+| User intent | Temporal precision needed | Example query |
+|---|---|---|
+| "today / this morning / just released" | **Month + Day** | `"tech news February 28 2026"` |
+| "this week" | **Week range** | `"technology releases week of Feb 24 2026"` |
+| "recently / latest / new" | **Month** | `"AI breakthroughs February 2026"` |
+| "this year / trends" | **Year** | `"software trends 2026"` |
 
-### Safety Considerations
+**Rules:**
+- When the user asks about "today" or "just released", use **month + day + year** in your search queries to get same-day results
+- Never drop to year-only when day-level precision is needed — `"tech news 2026"` will NOT surface today's news
+- Try multiple phrasings: numeric form (`2026-02-28`), written form (`February 28 2026`), and relative terms (`today`, `this week`) across different queries
 
-While generally safe for healthy adults, certain groups should avoid IF or proceed with medical supervision \[4\]:
+❌ User asks "what's new in tech today" → searching `"new technology 2026"` → misses today's news
+✅ User asks "what's new in tech today" → searching `"new technology February 28 2026"` + `"tech news today Feb 28"` → gets today's results
 
-* Pregnant or breastfeeding women
-* People with diabetes (risk of hypoglycemia)
-* History of eating disorders
-* Children and adolescents
-* Those taking medications requiring food
+### When to Use web_fetch
 
-Common side effects during adaptation (1-2 weeks):
+Use `web_fetch` to read full content when:
+- A search result looks highly relevant and authoritative
+- You need detailed information beyond the snippet
+- The source contains data, case studies, or expert analysis
+- You want to understand the full context of a finding
 
-* Hunger and irritability
-* Headaches
-* Fatigue
-* Difficulty concentrating
+### Iterative Refinement
 
-## Areas of Consensus
+Research is iterative. After initial searches:
+1. Review what you've learned
+2. Identify gaps in your understanding
+3. Formulate new, more targeted queries
+4. Repeat until you have comprehensive coverage
 
-* IF is as effective as traditional diets for weight loss
-* Short-term safety is established for healthy adults
-* Individual results vary considerably
-* Not a magic solution - overall diet quality matters
+## Quality Bar
 
-## Areas of Debate
+Your research is sufficient when you can confidently answer:
+- What are the key facts and data points?
+- What are 2-3 concrete real-world examples?
+- What do experts say about this topic?
+- What are the current trends and future directions?
+- What are the challenges or limitations?
+- What makes this topic relevant or important now?
 
-* **Optimal fasting window**: Research shows benefits across different protocols
-* **Long-term sustainability**: Most studies are 8-24 weeks; need multi-year data
-* **Superiority to other diets**: Unclear if benefits exceed other healthy eating patterns
-* **Muscle preservation**: Some concern about muscle loss, but studies show mixed results
+## Common Mistakes to Avoid
 
-## Sources
+- ❌ Stopping after 1-2 searches
+- ❌ Relying on search snippets without reading full sources
+- ❌ Searching only one aspect of a multi-faceted topic
+- ❌ Ignoring contradicting viewpoints or challenges
+- ❌ Using outdated information when current data exists
+- ❌ Starting content generation before research is complete
 
-\[1\] Varady KA, et al. "Clinical application of intermittent fasting for weight loss." _Nature Reviews Endocrinology_, 2022\. (Systematic review, high credibility)
+## Output
 
-\[2\] de Cabo R, Mattson MP. "Effects of Intermittent Fasting on Health, Aging, and Disease." _New England Journal of Medicine_, 2019\. (Peer-reviewed, authoritative review)
+After completing research, you should have:
+1. A comprehensive understanding of the topic from multiple angles
+2. Specific facts, data points, and statistics
+3. Real-world examples and case studies
+4. Expert perspectives and authoritative sources
+5. Current trends and relevant context
 
-\[3\] Longo VD, Panda S. "Fasting, Circadian Rhythms, and Time-Restricted Feeding in Healthy Lifespan." _Cell Metabolism_, 2016\. (Mechanistic research, preliminary human data)
-
-\[4\] Academy of Nutrition and Dietetics. "Position on Intermittent Fasting." 2022\. (Professional organization guidelines)
-
-## Gaps and Further Research
-
-* **Long-term studies** (5+ years) needed for sustained effects
-* **Different populations** \- effects across ages, sexes, ethnicities
-* **Optimization** \- best fasting windows, meal timing, macronutrient composition
-* **Clinical applications** \- specific diseases or conditions that benefit most
+**Only then proceed to content generation**, using the gathered information to create high-quality, well-informed content.

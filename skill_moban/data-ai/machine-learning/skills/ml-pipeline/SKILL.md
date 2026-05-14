@@ -1,3 +1,18 @@
+---
+name: ml-pipeline
+description: "Designs and implements production-grade ML pipeline infrastructure: configures experiment tracking with MLflow or Weights & Biases, creates Kubeflow or Airflow DAGs for training orchestration, builds feature store schemas with Feast, deploys model registries, and automates retraining and validation workflows. Use when building ML pipelines, orchestrating training workflows, automating model lifecycle, implementing feature stores, managing experiment tracking systems, setting up DVC for data versioning, tuning hyperparameters, or configuring MLOps tooling like Kubeflow, Airflow, MLflow, or Prefect."
+license: MIT
+metadata:
+  author: https://github.com/Jeffallan
+  version: "1.1.0"
+  domain: data-ml
+  triggers: ML pipeline, MLflow, Kubeflow, feature engineering, model training, experiment tracking, feature store, hyperparameter tuning, pipeline orchestration, model registry, training workflow, MLOps, model deployment, data pipeline, model versioning
+  role: expert
+  scope: implementation
+  output-format: code
+  related-skills: devops-engineer, kubernetes-specialist, cloud-architect, python-pro
+---
+
 # ML Pipeline Expert
 
 Senior ML pipeline engineer specializing in production-grade machine learning infrastructure, orchestration systems, and automated training workflows.
@@ -15,13 +30,13 @@ Senior ML pipeline engineer specializing in production-grade machine learning in
 
 Load detailed guidance based on context:
 
-| Topic                  | Reference                            | Load When                                                                                |
-| ---------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------- |
-| Feature Engineering    | references/feature-engineering.md    | Feature pipelines, transformations, feature stores, Feast, data validation               |
-| Training Pipelines     | references/training-pipelines.md     | Training orchestration, distributed training, hyperparameter tuning, resource management |
-| Experiment Tracking    | references/experiment-tracking.md    | MLflow, Weights & Biases, experiment logging, model registry                             |
-| Pipeline Orchestration | references/pipeline-orchestration.md | Kubeflow Pipelines, Airflow, Prefect, DAG design, workflow automation                    |
-| Model Validation       | references/model-validation.md       | Evaluation strategies, validation workflows, A/B testing, shadow deployment              |
+| Topic | Reference | Load When |
+|-------|-----------|-----------|
+| Feature Engineering | `references/feature-engineering.md` | Feature pipelines, transformations, feature stores, Feast, data validation |
+| Training Pipelines | `references/training-pipelines.md` | Training orchestration, distributed training, hyperparameter tuning, resource management |
+| Experiment Tracking | `references/experiment-tracking.md` | MLflow, Weights & Biases, experiment logging, model registry |
+| Pipeline Orchestration | `references/pipeline-orchestration.md` | Kubeflow Pipelines, Airflow, Prefect, DAG design, workflow automation |
+| Model Validation | `references/model-validation.md` | Evaluation strategies, validation workflows, A/B testing, shadow deployment |
 
 ## Code Templates
 
@@ -57,7 +72,6 @@ with mlflow.start_run():
     # Log and register the model artifact
     mlflow.sklearn.log_model(model, artifact_path="model",
                              registered_model_name="my-classifier")
-
 ```
 
 ### Kubeflow Pipeline Component (single-step template)
@@ -94,7 +108,6 @@ def train_model(
 def training_pipeline(data_path: str, n_estimators: int = 100):
     train_step = train_model(n_estimators=n_estimators)
     # Chain additional steps (validate, register, deploy) here
-
 ```
 
 ### Data Validation Checkpoint (Great Expectations style)
@@ -111,32 +124,28 @@ def validate_training_data(df):
     if not results["success"]:
         raise ValueError(f"Data validation failed: {results['result']}")
     return df  # safe to proceed to training
-
 ```
 
 ## Constraints
 
 **Always:**
-
-* Version all data, code, and models explicitly (DVC, Git tags, model registry)
-* Pin dependencies and random seeds for reproducible training environments
-* Log all hyperparameters, metrics, and artifacts to experiment tracking
-* Validate data schema and distribution before training begins
-* Use containerized environments; store credentials in secrets managers, never in code
-* Implement error handling, retry logic, and pipeline alerting
-* Separate training and inference code clearly
+- Version all data, code, and models explicitly (DVC, Git tags, model registry)
+- Pin dependencies and random seeds for reproducible training environments
+- Log all hyperparameters, metrics, and artifacts to experiment tracking
+- Validate data schema and distribution before training begins
+- Use containerized environments; store credentials in secrets managers, never in code
+- Implement error handling, retry logic, and pipeline alerting
+- Separate training and inference code clearly
 
 **Never:**
-
-* Run training without experiment tracking or without logging hyperparameters
-* Deploy a model without recorded validation metrics
-* Use non-reproducible random states or skip data validation
-* Ignore pipeline failures silently or mix credentials into pipeline code
+- Run training without experiment tracking or without logging hyperparameters
+- Deploy a model without recorded validation metrics
+- Use non-reproducible random states or skip data validation
+- Ignore pipeline failures silently or mix credentials into pipeline code
 
 ## Output Format
 
 When implementing a pipeline, provide:
-
 1. Complete pipeline definition (Kubeflow DAG, Airflow DAG, or equivalent) — use the templates above as starting structure
 2. Feature engineering code with inline data validation calls
 3. Training script with MLflow (or equivalent) experiment logging

@@ -1,21 +1,26 @@
+---
+name: react-native-design
+description: Master React Native styling, navigation, and Reanimated animations for cross-platform mobile development. Use when building React Native apps, implementing navigation patterns, or creating performant animations.
+---
+
 # React Native Design
 
 Master React Native styling patterns, React Navigation, and Reanimated 3 to build performant, cross-platform mobile applications with native-quality user experiences.
 
 ## When to Use This Skill
 
-* Building cross-platform mobile apps with React Native
-* Implementing navigation with React Navigation 6+
-* Creating performant animations with Reanimated 3
-* Styling components with StyleSheet and styled-components
-* Building responsive layouts for different screen sizes
-* Implementing platform-specific designs (iOS/Android)
-* Creating gesture-driven interactions with Gesture Handler
-* Optimizing React Native performance
+- Building cross-platform mobile apps with React Native
+- Implementing navigation with React Navigation 6+
+- Creating performant animations with Reanimated 3
+- Styling components with StyleSheet and styled-components
+- Building responsive layouts for different screen sizes
+- Implementing platform-specific designs (iOS/Android)
+- Creating gesture-driven interactions with Gesture Handler
+- Optimizing React Native performance
 
 ## Core Concepts
 
-### 1\. StyleSheet and Styling
+### 1. StyleSheet and Styling
 
 **Basic StyleSheet:**
 
@@ -49,7 +54,6 @@ function Card() {
     </View>
   );
 }
-
 ```
 
 **Dynamic Styles:**
@@ -92,10 +96,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
 ```
 
-### 2\. Flexbox Layout
+### 2. Flexbox Layout
 
 **Row and Column Layouts:**
 
@@ -129,10 +132,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
 ```
 
-### 3\. React Navigation Setup
+### 3. React Navigation Setup
 
 **Stack Navigator:**
 
@@ -176,7 +178,6 @@ function AppNavigator() {
     </NavigationContainer>
   );
 }
-
 ```
 
 **Tab Navigator:**
@@ -215,10 +216,9 @@ function TabNavigator() {
     </Tab.Navigator>
   );
 }
-
 ```
 
-### 4\. Reanimated 3 Basics
+### 4. Reanimated 3 Basics
 
 **Animated Values:**
 
@@ -251,7 +251,6 @@ function AnimatedBox() {
     </Pressable>
   );
 }
-
 ```
 
 **Gesture Handler Integration:**
@@ -293,10 +292,9 @@ function DraggableCard() {
     </GestureDetector>
   );
 }
-
 ```
 
-### 5\. Platform-Specific Styling
+### 5. Platform-Specific Styling
 
 ```typescript
 import { Platform, StyleSheet } from "react-native";
@@ -325,7 +323,6 @@ const styles = StyleSheet.create({
 // Platform-specific components
 import { Platform } from "react-native";
 const StatusBarHeight = Platform.OS === "ios" ? 44 : 0;
-
 ```
 
 ## Quick Start Component
@@ -412,7 +409,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
 });
-
 ```
 
 ## Best Practices
@@ -428,9 +424,9 @@ const styles = StyleSheet.create({
 
 ## Common Issues
 
-* **Gesture Conflicts**: Wrap gestures with `GestureDetector` and use `simultaneousHandlers`
-* **Navigation Type Errors**: Define `ParamList` types for all navigators
-* **Animation Jank**: Move animations to UI thread with `runOnUI` worklets
-* **Memory Leaks**: Cancel animations and cleanup in useEffect
-* **Font Loading**: Use `expo-font` or `react-native-asset` for custom fonts
-* **Safe Area Issues**: Test on notched devices (iPhone, Android with cutouts)
+- **Gesture Conflicts**: Wrap gestures with `GestureDetector` and use `simultaneousHandlers`
+- **Navigation Type Errors**: Define `ParamList` types for all navigators
+- **Animation Jank**: Move animations to UI thread with `runOnUI` worklets
+- **Memory Leaks**: Cancel animations and cleanup in useEffect
+- **Font Loading**: Use `expo-font` or `react-native-asset` for custom fonts
+- **Safe Area Issues**: Test on notched devices (iPhone, Android with cutouts)

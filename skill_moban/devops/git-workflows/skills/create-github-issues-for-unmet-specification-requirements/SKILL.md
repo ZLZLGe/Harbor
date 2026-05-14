@@ -1,3 +1,8 @@
+---
+name: create-github-issues-for-unmet-specification-requirements
+description: 'Create GitHub Issues for unimplemented requirements from specification files using feature_request.yml template.'
+---
+
 # Create GitHub Issues for Unmet Specification Requirements
 
 Create GitHub Issues for unimplemented requirements in the specification at `${file}`.
@@ -12,19 +17,19 @@ Create GitHub Issues for unimplemented requirements in the specification at `${f
 
 ## Requirements
 
-* One issue per unimplemented requirement from specification
-* Clear requirement ID and description mapping
-* Include implementation guidance and acceptance criteria
-* Verify against existing issues before creation
+- One issue per unimplemented requirement from specification
+- Clear requirement ID and description mapping
+- Include implementation guidance and acceptance criteria
+- Verify against existing issues before creation
 
 ## Issue Content
 
-* Title: Requirement ID and brief description
-* Description: Detailed requirement, implementation method, and context
-* Labels: feature, enhancement (as appropriate)
+- Title: Requirement ID and brief description
+- Description: Detailed requirement, implementation method, and context
+- Labels: feature, enhancement (as appropriate)
 
 ## Implementation Check
 
-* Search codebase for related code patterns
-* Check related specification files in `/spec/` directory
-* Verify requirement isn't partially implemented
+- Search codebase for related code patterns
+- Check related specification files in `/spec/` directory
+- Verify requirement isn't partially implemented

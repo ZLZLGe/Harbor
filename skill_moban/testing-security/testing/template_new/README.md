@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：这类 skill 的核心价值，是把浏览器侧验证从单点冒烟提升为可复跑、可定位、可收敛的端到端覆盖。高质量 skill 通常会强化首帧状态判断、延迟内容量测、等待节奏和结果复核。
-* **Task 目标形态**：模板任务应围绕单一控制台或面板，把首屏主题、延迟内容、详情、比较和导出串成一组可执行的验证合同。输入数据要有业务结构复杂度，但执行链路要完全本地化。
 * **Verifier 设计重点**：verifier 既要确认业务流是否都被覆盖，也要确认断言是否足够深入，能拦下只看终态文本或只做浅层等待的方案。对照实验还要放入局部语义回归点，观察 with_skill 是否更容易命中首帧与稳定性关键路径。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`testing__airport-ops-console-browser-coverage`
 - 类别：`testing`
-- 难度：`hard`
 - 绑定 Skill：`browser-testing`
 - 输入数据参考来源：
   - `environment/data/airports.csv`：机场主数据快照；设计形态参考 OurAirports 机场目录  
@@ -28,7 +26,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：官方解法在测试区内补齐 Playwright 浏览器套件，并对首帧主题、延迟内容稳定性、详情、比较和导出给出可复算的断言。oracle 还会在隐藏 mutation 下复跑，确认主题闪烁、布局位移和导出回归都能被拦住。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier 策略：
 
 主测试
@@ -50,9 +48,8 @@
 
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| App immutability | 测试区外应用文件哈希不得变化 |
-| Data immutability | 输入数据哈希不得变化 |
-| Skill immutability | 已安装 skill 文件哈希不得变化 |
+| App immutability | 测试区外应用文件不可修改 |
+| Data immutability | 输入数据不可修改 |
 | Server wiring | 测试不得自起并替换仓库既有 server wiring |
 | Journey logging | access log 必须显示 detail / compare / export 都被走到 |
 

@@ -1,31 +1,36 @@
+---
+name: python-background-jobs
+description: Python background job patterns including task queues, workers, and event-driven architecture. Use when implementing async task processing, job queues, long-running operations, or decoupling work from request/response cycles.
+---
+
 # Python Background Jobs & Task Queues
 
 Decouple long-running or unreliable work from request/response cycles. Return immediately to the user while background workers handle the heavy lifting asynchronously.
 
 ## When to Use This Skill
 
-* Processing tasks that take longer than a few seconds
-* Sending emails, notifications, or webhooks
-* Generating reports or exporting data
-* Processing uploads or media transformations
-* Integrating with unreliable external services
-* Building event-driven architectures
+- Processing tasks that take longer than a few seconds
+- Sending emails, notifications, or webhooks
+- Generating reports or exporting data
+- Processing uploads or media transformations
+- Integrating with unreliable external services
+- Building event-driven architectures
 
 ## Core Concepts
 
-### 1\. Task Queue Pattern
+### 1. Task Queue Pattern
 
 API accepts request, enqueues a job, returns immediately with a job ID. Workers process jobs asynchronously.
 
-### 2\. Idempotency
+### 2. Idempotency
 
 Tasks may be retried on failure. Design for safe re-execution.
 
-### 3\. Job State Machine
+### 3. Job State Machine
 
 Jobs transition through states: pending → running → succeeded/failed.
 
-### 4\. At-Least-Once Delivery
+### 4. At-Least-Once Delivery
 
 Most queues guarantee at-least-once delivery. Your code must handle duplicates.
 
@@ -45,7 +50,6 @@ def send_email(to: str, subject: str, body: str) -> None:
 
 # In your API handler
 send_email.delay("user@example.com", "Welcome!", "Thanks for signing up")
-
 ```
 
 ## Fundamental Patterns
@@ -101,7 +105,6 @@ async def start_export(request: ExportRequest) -> JobResponse:
         status="pending",
         poll_url=f"/jobs/{job_id}",
     )
-
 ```
 
 ### Pattern 2: Celery Task Configuration
@@ -139,7 +142,6 @@ def process_payment(self, payment_id: str) -> dict:
     except TransientError as e:
         # Retry with exponential backoff
         raise self.retry(exc=e, countdown=2 ** self.request.retries * 60)
-
 ```
 
 ### Pattern 3: Make Tasks Idempotent
@@ -169,7 +171,6 @@ def process_order(self, order_id: str) -> None:
     )
 
     orders_repo.update(order_id, status=OrderStatus.COMPLETED)
-
 ```
 
 **Idempotency Strategies:**
@@ -220,7 +221,6 @@ class JobRepository:
             job_id=job_id,
             status=status.value,
         )
-
 ```
 
 ## Advanced Patterns
@@ -257,7 +257,6 @@ def process_webhook(self, webhook_id: str, payload: dict) -> None:
 
         # Exponential backoff retry
         raise self.retry(exc=e, countdown=2 ** self.request.retries * 60)
-
 ```
 
 ### Pattern 6: Status Polling Endpoint
@@ -288,7 +287,6 @@ async def get_job_status(job_id: str) -> JobStatusResponse:
         # Helpful for clients
         is_terminal=job.status in (JobStatus.SUCCEEDED, JobStatus.FAILED),
     )
-
 ```
 
 ### Pattern 7: Task Chaining and Workflows
@@ -320,7 +318,6 @@ workflow = chord(
 )
 
 workflow.apply_async()
-
 ```
 
 ### Pattern 8: Alternative Task Queues
@@ -328,18 +325,15 @@ workflow.apply_async()
 Choose the right tool for your needs.
 
 **RQ (Redis Queue)**: Simple, Redis-based
-
 ```python
 from rq import Queue
 from redis import Redis
 
 queue = Queue(connection=Redis())
 job = queue.enqueue(send_email, "user@example.com", "Subject", "Body")
-
 ```
 
 **Dramatiq**: Modern Celery alternative
-
 ```python
 import dramatiq
 from dramatiq.brokers.redis import RedisBroker
@@ -349,24 +343,22 @@ dramatiq.set_broker(RedisBroker())
 @dramatiq.actor
 def send_email(to: str, subject: str, body: str) -> None:
     email_client.send(to, subject, body)
-
 ```
 
 **Cloud-native options:**
-
-* AWS SQS + Lambda
-* Google Cloud Tasks
-* Azure Functions
+- AWS SQS + Lambda
+- Google Cloud Tasks
+- Azure Functions
 
 ## Best Practices Summary
 
-1. **Return immediately** \- Don't block requests for long operations
-2. **Persist job state** \- Enable status polling and debugging
-3. **Make tasks idempotent** \- Safe to retry on any failure
-4. **Use idempotency keys** \- For external service calls
-5. **Set timeouts** \- Both soft and hard limits
-6. **Implement DLQ** \- Capture permanently failed tasks
-7. **Log transitions** \- Track job state changes
-8. **Retry appropriately** \- Exponential backoff for transient errors
-9. **Don't retry permanent failures** \- Validation errors, invalid credentials
-10. **Monitor queue depth** \- Alert on backlog growth
+1. **Return immediately** - Don't block requests for long operations
+2. **Persist job state** - Enable status polling and debugging
+3. **Make tasks idempotent** - Safe to retry on any failure
+4. **Use idempotency keys** - For external service calls
+5. **Set timeouts** - Both soft and hard limits
+6. **Implement DLQ** - Capture permanently failed tasks
+7. **Log transitions** - Track job state changes
+8. **Retry appropriately** - Exponential backoff for transient errors
+9. **Don't retry permanent failures** - Validation errors, invalid credentials
+10. **Monitor queue depth** - Alert on backlog growth

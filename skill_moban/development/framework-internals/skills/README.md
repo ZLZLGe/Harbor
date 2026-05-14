@@ -1,76 +1,44 @@
 # Framework Internals Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/framework-internals`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/framework-internals，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 26 个 skills，其中 19 个 installs >= 1000，7 个 installs 在 500-999。
 
 ## 技能清单
 
-1. systematic-debugging | 来源: https://skills.sh/obra/superpowers/systematic-debugging | installs: 86.3K | stars: 180100
-2. backend-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/backend-patterns | installs: 6.3K | stars: 175900
-3. frontend-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-patterns | installs: 6.3K | stars: 175900
-4. springboot-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/springboot-patterns | installs: 5.3K | stars: 175900
-5. frontend-slides | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-slides | installs: 4.4K | stars: 175900
-6. springboot-security | 来源: https://skills.sh/affaan-m/everything-claude-code/springboot-security | installs: 4.3K | stars: 175900
-7. springboot-tdd | 来源: https://skills.sh/affaan-m/everything-claude-code/springboot-tdd | installs: 4.0K | stars: 175900
-8. springboot-verification | 来源: https://skills.sh/affaan-m/everything-claude-code/springboot-verification | installs: 3.4K | stars: 175900
-9. regex-vs-llm-structured-text | 来源: https://skills.sh/affaan-m/everything-claude-code/regex-vs-llm-structured-text | installs: 3.2K | stars: 175900
-10. nextjs-turbopack | 来源: https://skills.sh/affaan-m/everything-claude-code/nextjs-turbopack | installs: 2.8K | stars: 175900
-11. bun-runtime | 来源: https://skills.sh/affaan-m/everything-claude-code/bun-runtime | installs: 2.7K | stars: 175900
-12. pytorch-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/pytorch-patterns | installs: 2.6K | stars: 175900
-13. nuxt4-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/nuxt4-patterns | installs: 2.4K | stars: 175900
-14. frontend-design | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-design | installs: 1.8K | stars: 175900
-15. agent-introspection-debugging | 来源: https://skills.sh/affaan-m/everything-claude-code/agent-introspection-debugging | installs: 1.7K | stars: 175900
-16. frontend-testing | 来源: https://skills.sh/langgenius/dify/frontend-testing | installs: 2.2K | stars: 140300
-17. react | 来源: https://skills.sh/lobehub/lobehub/react | installs: 2.0K | stars: 76100
-18. git-guardrails-claude-code | 来源: https://skills.sh/mattpocock/skills/git-guardrails-claude-code | installs: 5.4K | stars: 62100
-19. caveman | 来源: https://skills.sh/juliusbrussee/caveman/caveman | installs: 120.3K | stars: 54900
-20. nextjs-best-practices | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-best-practices | installs: 5.0K | stars: 36853
-21. nextjs-supabase-auth | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-supabase-auth | installs: 4.7K | stars: 36853
-22. web-performance-optimization | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/web-performance-optimization | installs: 1.9K | stars: 36853
-23. backend-dev-guidelines | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/backend-dev-guidelines | installs: 1.1K | stars: 36853
-24. react-native-design | 来源: https://skills.sh/wshobson/agents/react-native-design | installs: 8.7K | stars: 35018
-25. memory-safety-patterns | 来源: https://skills.sh/wshobson/agents/memory-safety-patterns | installs: 6.7K | stars: 35018
-26. parallel-debugging | 来源: https://skills.sh/wshobson/agents/parallel-debugging | installs: 5.1K | stars: 35018
-27. signed-audit-trails-recipe | 来源: https://skills.sh/wshobson/agents/signed-audit-trails-recipe | installs: 1.1K | stars: 35018
-28. java-springboot | 来源: https://skills.sh/github/awesome-copilot/java-springboot | installs: 13.9K | stars: 32200
-29. multi-stage-dockerfile | 来源: https://skills.sh/github/awesome-copilot/multi-stage-dockerfile | installs: 12.9K | stars: 32200
-30. create-implementation-plan | 来源: https://skills.sh/github/awesome-copilot/create-implementation-plan | installs: 10.1K | stars: 32200
-31. nano-banana-pro-openrouter | 来源: https://skills.sh/github/awesome-copilot/nano-banana-pro-openrouter | installs: 9.4K | stars: 32200
-32. csharp-async | 来源: https://skills.sh/github/awesome-copilot/csharp-async | installs: 8.9K | stars: 32200
-33. refactor-method-complexity-reduce | 来源: https://skills.sh/github/awesome-copilot/refactor-method-complexity-reduce | installs: 8.9K | stars: 32200
-34. kotlin-springboot | 来源: https://skills.sh/github/awesome-copilot/kotlin-springboot | installs: 8.8K | stars: 32200
-35. create-spring-boot-java-project | 来源: https://skills.sh/github/awesome-copilot/create-spring-boot-java-project | installs: 8.7K | stars: 32200
-36. dotnet-upgrade | 来源: https://skills.sh/github/awesome-copilot/dotnet-upgrade | installs: 8.7K | stars: 32200
-37. ef-core | 来源: https://skills.sh/github/awesome-copilot/ef-core | installs: 8.6K | stars: 32200
-38. create-spring-boot-kotlin-project | 来源: https://skills.sh/github/awesome-copilot/create-spring-boot-kotlin-project | installs: 8.4K | stars: 32200
-39. containerize-aspnet-framework | 来源: https://skills.sh/github/awesome-copilot/containerize-aspnet-framework | installs: 8.3K | stars: 32200
-40. microsoft-agent-framework | 来源: https://skills.sh/github/awesome-copilot/microsoft-agent-framework | installs: 1.4K | stars: 32200
-41. semantic-kernel | 来源: https://skills.sh/github/awesome-copilot/semantic-kernel | installs: 1.4K | stars: 32200
-42. spring-boot-testing | 来源: https://skills.sh/github/awesome-copilot/spring-boot-testing | installs: 1.4K | stars: 32200
-43. unit-test-vue-pinia | 来源: https://skills.sh/github/awesome-copilot/unit-test-vue-pinia | installs: 1.4K | stars: 32200
-44. recipe-batch-invite-to-event | 来源: https://skills.sh/googleworkspace/cli/recipe-batch-invite-to-event | installs: 11.9K | stars: 25800
-45. spring-boot-engineer | 来源: https://skills.sh/jeffallan/claude-skills/spring-boot-engineer | installs: 5.5K | stars: 8800
-46. nextjs-developer | 来源: https://skills.sh/jeffallan/claude-skills/nextjs-developer | installs: 2.4K | stars: 8800
-47. rails-expert | 来源: https://skills.sh/jeffallan/claude-skills/rails-expert | installs: 2.1K | stars: 8800
-48. react-native-expert | 来源: https://skills.sh/jeffallan/claude-skills/react-native-expert | installs: 2.1K | stars: 8800
-49. vue-expert | 来源: https://skills.sh/jeffallan/claude-skills/vue-expert | installs: 1.9K | stars: 8800
-50. vue-expert-js | 来源: https://skills.sh/jeffallan/claude-skills/vue-expert-js | installs: 1.6K | stars: 8800
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | regex-vs-llm-structured-text | affaan-m/everything-claude-code | 177611 | 3534 | https://skills.sh/affaan-m/everything-claude-code/regex-vs-llm-structured-text |
+| 2 | pytorch-patterns | affaan-m/everything-claude-code | 177611 | 2928 | https://skills.sh/affaan-m/everything-claude-code/pytorch-patterns |
+| 3 | caveman | JuliusBrussee/caveman | 57013 | 134157 | https://skills.sh/JuliusBrussee/caveman/caveman |
+| 4 | memory-safety-patterns | wshobson/agents | 35133 | 6943 | https://skills.sh/wshobson/agents/memory-safety-patterns |
+| 5 | multi-stage-dockerfile | github/awesome-copilot | 32605 | 13327 | https://skills.sh/github/awesome-copilot/multi-stage-dockerfile |
+| 6 | create-implementation-plan | github/awesome-copilot | 32605 | 10243 | https://skills.sh/github/awesome-copilot/create-implementation-plan |
+| 7 | refactor-method-complexity-reduce | github/awesome-copilot | 32605 | 8970 | https://skills.sh/github/awesome-copilot/refactor-method-complexity-reduce |
+| 8 | csharp-async | github/awesome-copilot | 32605 | 8942 | https://skills.sh/github/awesome-copilot/csharp-async |
+| 9 | dotnet-upgrade | github/awesome-copilot | 32605 | 8688 | https://skills.sh/github/awesome-copilot/dotnet-upgrade |
+| 10 | ef-core | github/awesome-copilot | 32605 | 8680 | https://skills.sh/github/awesome-copilot/ef-core |
+| 11 | semantic-kernel | github/awesome-copilot | 32605 | 1377 | https://skills.sh/github/awesome-copilot/semantic-kernel |
+| 12 | rust-engineer | Jeffallan/claude-skills | 8935 | 3085 | https://skills.sh/Jeffallan/claude-skills/rust-engineer |
+| 13 | embedded-systems | Jeffallan/claude-skills | 8935 | 2958 | https://skills.sh/Jeffallan/claude-skills/embedded-systems |
+| 14 | cpp-pro | Jeffallan/claude-skills | 8935 | 2388 | https://skills.sh/Jeffallan/claude-skills/cpp-pro |
+| 15 | aflpp | trailofbits/skills | 5109 | 2203 | https://skills.sh/trailofbits/skills/aflpp |
+| 16 | golang-naming | samber/cc-skills-golang | 1601 | 2396 | https://skills.sh/samber/cc-skills-golang/golang-naming |
+| 17 | golang-samber-lo | samber/cc-skills-golang | 1601 | 2117 | https://skills.sh/samber/cc-skills-golang/golang-samber-lo |
+| 18 | golang-samber-mo | samber/cc-skills-golang | 1601 | 2070 | https://skills.sh/samber/cc-skills-golang/golang-samber-mo |
+| 19 | react-native-best-practices | callstackincubator/agent-skills | 1317 | 13764 | https://skills.sh/callstackincubator/agent-skills/react-native-best-practices |
 
-- https://skills.sh/obra/superpowers
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/langgenius/dify
-- https://skills.sh/lobehub/lobehub
-- https://skills.sh/mattpocock/skills
-- https://skills.sh/juliusbrussee/caveman
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
-- https://skills.sh/googleworkspace/cli
-- https://skills.sh/jeffallan/claude-skills
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 20 | flags | vercel/next.js | 139364 | 876 | https://skills.sh/vercel/next.js/flags |
+| 21 | add-uint-support | pytorch/pytorch | 99787 | 893 | https://skills.sh/pytorch/pytorch/add-uint-support |
+| 22 | at-dispatch-v2 | pytorch/pytorch | 99787 | 891 | https://skills.sh/pytorch/pytorch/at-dispatch-v2 |
+| 23 | metal-kernel | pytorch/pytorch | 99787 | 879 | https://skills.sh/pytorch/pytorch/metal-kernel |
+| 24 | aoti-debug | pytorch/pytorch | 99787 | 853 | https://skills.sh/pytorch/pytorch/aoti-debug |
+| 25 | unreal-engine-cpp-pro | sickn33/antigravity-awesome-skills | 37047 | 593 | https://skills.sh/sickn33/antigravity-awesome-skills/unreal-engine-cpp-pro |
+| 26 | golang-spf13-viper | samber/cc-skills-golang | 1601 | 526 | https://skills.sh/samber/cc-skills-golang/golang-spf13-viper |

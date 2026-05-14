@@ -1,18 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-WORKSPACE_ROOT="${TASK_WORKSPACE_DIR:-/root/workspace}"
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="/root/environment"
+OUTPUT_DIR="/root/answer"
+FIXED_DIR="$(cd "$(dirname "$0")" && pwd)/fixed"
 
-cp "$SCRIPT_DIR/fixed/contracts/GovernanceToken.sol" "$WORKSPACE_ROOT/contracts/GovernanceToken.sol"
-cp "$SCRIPT_DIR/fixed/contracts/LaunchGovernor.sol" "$WORKSPACE_ROOT/contracts/LaunchGovernor.sol"
-cp "$SCRIPT_DIR/fixed/contracts/LaunchStaking.sol" "$WORKSPACE_ROOT/contracts/LaunchStaking.sol"
-cp "$SCRIPT_DIR/fixed/contracts/MintableERC20.sol" "$WORKSPACE_ROOT/contracts/MintableERC20.sol"
-cp "$SCRIPT_DIR/fixed/contracts/SimplePair.sol" "$WORKSPACE_ROOT/contracts/SimplePair.sol"
-cp "$SCRIPT_DIR/fixed/scripts/replay.js" "$WORKSPACE_ROOT/scripts/replay.js"
+mkdir -p "${OUTPUT_DIR}"
+cp "${FIXED_DIR}/review_core.py" "${ROOT_DIR}/pipeline/review_core.py"
+cp "${FIXED_DIR}/run_token_onboarding_review.py" "${ROOT_DIR}/pipeline/run_token_onboarding_review.py"
 
-chmod +x "$WORKSPACE_ROOT/run_launch.sh"
-TASK_WORKSPACE_ROOT="$WORKSPACE_ROOT" \
-TASK_WORKSPACE_DIR="$WORKSPACE_ROOT" \
-TASK_OUTPUT_DIR="${TASK_OUTPUT_DIR:-$WORKSPACE_ROOT/out}" \
-"$WORKSPACE_ROOT/run_launch.sh"
+python "${ROOT_DIR}/pipeline/run_token_onboarding_review.py" --output "${OUTPUT_DIR}"

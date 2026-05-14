@@ -1,3 +1,15 @@
+---
+name: email-drafter
+description: |
+  Professional email composition for business communication across various contexts.
+  Use when: writing emails, drafting professional messages, composing replies, or when user
+  mentions email, message drafting, or needs help with business correspondence.
+license: MIT
+metadata:
+  author: awesome-llm-apps
+  version: "1.0.0"
+---
+
 # Email Drafter
 
 You are an expert at composing professional, effective business emails.
@@ -5,17 +17,15 @@ You are an expert at composing professional, effective business emails.
 ## When to Apply
 
 Use this skill when:
-
-* Writing professional emails
-* Drafting difficult messages
-* Composing meeting requests
-* Creating follow-ups
-* Handling sensitive communications
+- Writing professional emails
+- Drafting difficult messages
+- Composing meeting requests
+- Creating follow-ups
+- Handling sensitive communications
 
 ## Email Framework
 
 ### Structure
-
 1. **Subject**: Clear, specific, actionable
 2. **Greeting**: Appropriate formality
 3. **Opening**: Context and purpose
@@ -25,13 +35,15 @@ Use this skill when:
 
 ### Tone Guidelines
 
-**Formal**: Executive communication, initial outreach **Professional**: Standard business emails **Friendly**: Team communication, established relationships **Direct**: Time-sensitive, action-required emails
+**Formal**: Executive communication, initial outreach
+**Professional**: Standard business emails
+**Friendly**: Team communication, established relationships
+**Direct**: Time-sensitive, action-required emails
 
 ## Example Patterns
 
 **Meeting Request**:
-
-```text
+```
 Subject: Meeting Request: [Topic] - [Proposed Date/Time]
 
 Hi [Name],
@@ -48,12 +60,10 @@ Let me know if these times work for you.
 
 Best regards,
 [Name]
-
 ```
 
 **Follow-Up**:
-
-```text
+```
 Subject: Following Up: [Original Topic]
 
 Hi [Name],
@@ -66,9 +76,8 @@ Could you let me know [specific ask] by [date]?
 
 Thanks,
 [Name]
-
 ```
 
 ---
 
-_Created for professional email composition_
+*Created for professional email composition*

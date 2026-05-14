@@ -1,21 +1,26 @@
+---
+name: attack-tree-construction
+description: Build comprehensive attack trees to visualize threat paths. Use when mapping attack scenarios, identifying defense gaps, or communicating security risks to stakeholders.
+---
+
 # Attack Tree Construction
 
 Systematic attack path visualization and analysis.
 
 ## When to Use This Skill
 
-* Visualizing complex attack scenarios
-* Identifying defense gaps and priorities
-* Communicating risks to stakeholders
-* Planning defensive investments
-* Penetration test planning
-* Security architecture review
+- Visualizing complex attack scenarios
+- Identifying defense gaps and priorities
+- Communicating risks to stakeholders
+- Planning defensive investments
+- Penetration test planning
+- Security architecture review
 
 ## Core Concepts
 
-### 1\. Attack Tree Structure
+### 1. Attack Tree Structure
 
-```text
+```
                     [Root Goal]
                          |
             ┌────────────┴────────────┐
@@ -27,10 +32,9 @@ Systematic attack path visualization and analysis.
       │           │             │           │
    [Attack]   [Attack]      [Attack]   [Attack]
     (leaf)     (leaf)        (leaf)     (leaf)
-
 ```
 
-### 2\. Node Types
+### 2. Node Types
 
 | Type     | Symbol    | Description             |
 | -------- | --------- | ----------------------- |
@@ -38,7 +42,7 @@ Systematic attack path visualization and analysis.
 | **AND**  | Rectangle | All children required   |
 | **Leaf** | Box       | Atomic attack step      |
 
-### 3\. Attack Attributes
+### 3. Attack Attributes
 
 | Attribute     | Description             | Values             |
 | ------------- | ----------------------- | ------------------ |
@@ -244,7 +248,6 @@ class AttackTree:
             "version": self.version,
             "root": self.root.to_dict()
         }, indent=2)
-
 ```
 
 ### Template 2: Attack Tree Builder
@@ -412,7 +415,6 @@ def build_account_takeover_tree() -> AttackTree:
 
         .build()
     )
-
 ```
 
 ### Template 3: Mermaid Diagram Generator
@@ -504,7 +506,6 @@ class PlantUMLExporter:
 
         for child in node.children:
             self._export_node(child, lines, depth + 1)
-
 ```
 
 ### Template 4: Attack Path Analysis
@@ -659,23 +660,22 @@ class AttackPathAnalyzer:
                 })
 
         return sorted(recommendations, key=lambda x: x["coverage_impact"], reverse=True)
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Start with clear goals** \- Define what attacker wants
-* **Be exhaustive** \- Consider all attack vectors
-* **Attribute attacks** \- Cost, skill, and detection
-* **Update regularly** \- New threats emerge
-* **Validate with experts** \- Red team review
+- **Start with clear goals** - Define what attacker wants
+- **Be exhaustive** - Consider all attack vectors
+- **Attribute attacks** - Cost, skill, and detection
+- **Update regularly** - New threats emerge
+- **Validate with experts** - Red team review
 
 ### Don'ts
 
-* **Don't oversimplify** \- Real attacks are complex
-* **Don't ignore dependencies** \- AND nodes matter
-* **Don't forget insider threats** \- Not all attackers are external
-* **Don't skip mitigations** \- Trees are for defense planning
-* **Don't make it static** \- Threat landscape evolves
+- **Don't oversimplify** - Real attacks are complex
+- **Don't ignore dependencies** - AND nodes matter
+- **Don't forget insider threats** - Not all attackers are external
+- **Don't skip mitigations** - Trees are for defense planning
+- **Don't make it static** - Threat landscape evolves

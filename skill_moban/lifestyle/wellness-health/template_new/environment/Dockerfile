@@ -33,15 +33,12 @@ COPY scripts/start-wellness-planner.sh /usr/local/bin/start-wellness-planner
 COPY scripts/wellness-entrypoint.sh /usr/local/bin/wellness-entrypoint
 COPY scripts/wellness-start-planner-profile.sh /etc/profile.d/wellness-start-planner.sh
 COPY . /tmp/environment
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
-RUN if [ -d /tmp/environment/skills ]; then \
-      cp -R /tmp/environment/skills/. /root/.codex/skills/; \
-      cp -R /tmp/environment/skills/. /logs/agent/skills/; \
-    fi \
-    && python3 /tmp/environment/build_runtime_service.py \
+RUN python3 /tmp/environment/build_runtime_service.py \
     && rm -rf /tmp/environment \
     && find /root/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/wellness-data.sha256 \
-    && (find /root/.codex/skills -type f -print0 | sort -z | xargs -0 -r sha256sum > /opt/wellness-skills.sha256 || true) \
     && chmod 755 /services/wellness-planner/server.py \
     && chmod 755 /opt/wellness-runtime/server_runtime.pyc \
     && chmod 755 /usr/local/bin/start-wellness-planner /usr/local/bin/wellness-entrypoint /etc/profile.d/wellness-start-planner.sh \

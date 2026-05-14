@@ -52,7 +52,7 @@
       "The solution must read the committee brief, option matrix, and decision contract rather than hardcoding one outcome.",
       "Mutating the committee budget cap in a rerun must change the selected outcome.",
       "Repeated runs must produce stable outputs.",
-      "Bundled skill files and task input data must remain unchanged."
+      "Task input data must remain unchanged, and bundled skills must stay available as runtime references."
     ]
   },
   "data_provenance": {

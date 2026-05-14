@@ -87,5 +87,5 @@ Notes
 - Use only files from `/root/workspace/source_bundle/` for analysis, writing, and numeric values.
 - Do not add country groupings, years, values, conclusions, or policy advice that are not provided by or derivable from the input materials.
 - Do not skip the cleaning and alignment steps. The notebook must make intermediate work visible to a teaching assistant.
-- Do not modify the input directory, tests, environment files, or any content under a `skills` directory.
+- Do not modify the input directory, tests, or environment files.
 - You may create helper scripts or temporary working files while solving the task. The final deliverables must remain only the 3 required files under `/root/output/`.

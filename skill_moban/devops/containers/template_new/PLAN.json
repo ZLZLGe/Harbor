@@ -32,7 +32,7 @@
     ],
     "guardrails": [
       "Hash-check all visible input contracts and the render script.",
-      "Hash-check the bundled skill payload whenever environment/skills is present.",
+      "Require the agent trace to show a successful read of the bound skill before chart edits.",
       "Reject solutions that bypass Helm rendering with static manifests or environment-specific rendered outputs.",
       "Check for checksum-based config rollout wiring and helper-driven label reuse to reduce shallow one-off charts."
     ]
@@ -46,7 +46,7 @@
       "same Dockerfile",
       "same dependencies",
       "same solution oracle",
-      "skill payload is copied unchanged into with_skill runtime"
+      "skill payload is available in with_skill runtime"
     ]
   },
   "oracle_validation": {

@@ -1,19 +1,24 @@
+---
+name: memory-safety-patterns
+description: Implement memory-safe programming with RAII, ownership, smart pointers, and resource management across Rust, C++, and C. Use when writing safe systems code, managing resources, or preventing memory bugs.
+---
+
 # Memory Safety Patterns
 
 Cross-language patterns for memory-safe programming including RAII, ownership, smart pointers, and resource management.
 
 ## When to Use This Skill
 
-* Writing memory-safe systems code
-* Managing resources (files, sockets, memory)
-* Preventing use-after-free and leaks
-* Implementing RAII patterns
-* Choosing between languages for safety
-* Debugging memory issues
+- Writing memory-safe systems code
+- Managing resources (files, sockets, memory)
+- Preventing use-after-free and leaks
+- Implementing RAII patterns
+- Choosing between languages for safety
+- Debugging memory issues
 
 ## Core Concepts
 
-### 1\. Memory Bug Categories
+### 1. Memory Bug Categories
 
 | Bug Type             | Description                      | Prevention        |
 | -------------------- | -------------------------------- | ----------------- |
@@ -24,25 +29,25 @@ Cross-language patterns for memory-safe programming including RAII, ownership, s
 | **Dangling pointer** | Pointer to freed memory          | Lifetime tracking |
 | **Data race**        | Concurrent unsynchronized access | Ownership, Sync   |
 
-### 2\. Safety Spectrum
+### 2. Safety Spectrum
 
-```text
+```
 Manual (C) → Smart Pointers (C++) → Ownership (Rust) → GC (Go, Java)
 Less safe                                              More safe
 More control                                           Less control
-
 ```
 
 ## Patterns by Language
 
 ### Pattern 1: RAII in C++
 
+```cpp
 // RAII: Resource Acquisition Is Initialization
 // Resource lifetime tied to object lifetime
 
-#include 
-#include 
-#include 
+#include <memory>
+#include <fstream>
+#include <mutex>
 
 // File handle with RAII
 class FileHandle {
@@ -114,11 +119,12 @@ private:
     T backup_;
     bool committed_;
 };
+```
 
 ### Pattern 2: Smart Pointers in C++
 
-
-#include 
+```cpp
+#include <memory>
 
 // unique_ptr: Single ownership
 class Engine {
@@ -196,9 +202,9 @@ void bestPractices() {
     // For arrays
     auto arr = std::make_unique<int[]>(10);
 }
+```
 
 ### Pattern 3: Ownership in Rust
-
 
 ```rust
 // Move semantics (default)
@@ -300,17 +306,15 @@ fn arc_example() {
         handle.join().unwrap();
     }
 }
-
 ```
-
 
 ### Pattern 4: Safe Resource Management in C
 
-
+```c
 // C doesn't have RAII, but we can use patterns
 
-#include 
-#include 
+#include <stdlib.h>
+#include <stdio.h>
 
 // Pattern: goto cleanup
 int process_file(const char* path) {
@@ -390,14 +394,15 @@ void auto_free_example(void) {
     AUTO_FREE char* buffer = malloc(1024);
     // buffer automatically freed at end of scope
 }
+```
 
 ### Pattern 5: Bounds Checking
 
-
+```cpp
 // C++: Use containers instead of raw arrays
-#include 
-#include 
-#include 
+#include <vector>
+#include <array>
+#include <span>
 
 void safe_array_access() {
     std::vector<int> vec = {1, 2, 3, 4, 5};
@@ -430,6 +435,7 @@ void fixed_array() {
     // Safe access
     int val = arr.at(2);
 }
+```
 
 ```rust
 // Rust: Bounds checking by default
@@ -454,17 +460,15 @@ fn rust_bounds_checking() {
     // Slices are bounds-checked
     let slice = &vec[1..3]; // [2, 3]
 }
-
 ```
-
 
 ### Pattern 6: Preventing Data Races
 
-
+```cpp
 // C++: Thread-safe shared state
-#include 
-#include 
-#include 
+#include <mutex>
+#include <shared_mutex>
+#include <atomic>
 
 class ThreadSafeCounter {
 public:
@@ -501,6 +505,7 @@ private:
     mutable std::shared_mutex mutex_;
     std::map<std::string, int> data_;
 };
+```
 
 ```rust
 // Rust: Data race prevention at compile time
@@ -558,43 +563,27 @@ fn rwlock_example() {
     // Writer blocks readers
     let write_guard = data.write().unwrap();
 }
-
 ```
-
 
 ## Best Practices
 
-
 ### Do's
 
-
-* **Prefer RAII** - Tie resource lifetime to scope
-
-* **Use smart pointers** - Avoid raw pointers in C++
-
-* **Understand ownership** - Know who owns what
-
-* **Check bounds** - Use safe access methods
-
-* **Use tools** - AddressSanitizer, Valgrind, Miri
-
+- **Prefer RAII** - Tie resource lifetime to scope
+- **Use smart pointers** - Avoid raw pointers in C++
+- **Understand ownership** - Know who owns what
+- **Check bounds** - Use safe access methods
+- **Use tools** - AddressSanitizer, Valgrind, Miri
 
 ### Don'ts
 
-
-* **Don't use raw pointers** - Unless interfacing with C
-
-* **Don't return local references** - Dangling pointer
-
-* **Don't ignore compiler warnings** - They catch bugs
-
-* **Don't use `unsafe` carelessly** - In Rust, minimize it
-
-* **Don't assume thread safety** - Be explicit
-
+- **Don't use raw pointers** - Unless interfacing with C
+- **Don't return local references** - Dangling pointer
+- **Don't ignore compiler warnings** - They catch bugs
+- **Don't use `unsafe` carelessly** - In Rust, minimize it
+- **Don't assume thread safety** - Be explicit
 
 ## Debugging Tools
-
 
 ```bash
 # AddressSanitizer (Clang/GCC)
@@ -608,5 +597,4 @@ cargo +nightly miri run
 
 # ThreadSanitizer
 clang++ -fsanitize=thread -g source.cpp
-
 ```

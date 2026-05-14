@@ -1,0 +1,101 @@
+{
+  "products": [
+    {
+      "product_id": "prod_starter",
+      "name": "Starter",
+      "plan_id": "starter"
+    },
+    {
+      "product_id": "prod_growth",
+      "name": "Growth",
+      "plan_id": "growth"
+    },
+    {
+      "product_id": "prod_enterprise",
+      "name": "Enterprise",
+      "plan_id": "enterprise"
+    },
+    {
+      "product_id": "prod_api_calls",
+      "name": "API Calls",
+      "plan_id": "addon_api_calls"
+    },
+    {
+      "product_id": "prod_storage",
+      "name": "Storage",
+      "plan_id": "addon_storage_gb"
+    }
+  ],
+  "prices": [
+    {
+      "id": "price_starter_monthly",
+      "product": "prod_starter",
+      "lookup_key": "starter-monthly",
+      "currency": "usd",
+      "billing_scheme": "per_unit",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1
+      },
+      "usage_type": "licensed",
+      "unit_amount_decimal": "39.00",
+      "tax_behavior": "exclusive"
+    },
+    {
+      "id": "price_growth_monthly",
+      "product": "prod_growth",
+      "lookup_key": "growth-monthly",
+      "currency": "usd",
+      "billing_scheme": "per_unit",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1
+      },
+      "usage_type": "licensed",
+      "unit_amount_decimal": "79.00",
+      "tax_behavior": "exclusive"
+    },
+    {
+      "id": "price_enterprise_monthly",
+      "product": "prod_enterprise",
+      "lookup_key": "enterprise-monthly",
+      "currency": "usd",
+      "billing_scheme": "per_unit",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1
+      },
+      "usage_type": "licensed",
+      "unit_amount_decimal": "149.00",
+      "tax_behavior": "exclusive"
+    },
+    {
+      "id": "price_api_calls_metered",
+      "product": "prod_api_calls",
+      "lookup_key": "api-calls-metered",
+      "currency": "usd",
+      "billing_scheme": "per_unit",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1
+      },
+      "usage_type": "metered",
+      "unit_amount_decimal": "0.08",
+      "tax_behavior": "exclusive"
+    },
+    {
+      "id": "price_storage_gb_metered",
+      "product": "prod_storage",
+      "lookup_key": "storage-gb-metered",
+      "currency": "usd",
+      "billing_scheme": "per_unit",
+      "recurring": {
+        "interval": "month",
+        "interval_count": 1
+      },
+      "usage_type": "metered",
+      "unit_amount_decimal": "1.50",
+      "tax_behavior": "exclusive"
+    }
+  ]
+}

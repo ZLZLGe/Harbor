@@ -3,6 +3,15 @@ FROM ubuntu:24.04
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    ca-certificates \
+    curl \
+    nodejs \
+    npm \
+    ripgrep \
+    && rm -rf /var/lib/apt/lists/*
+
 COPY workspace /app/workspace
 WORKDIR /app/workspace
 

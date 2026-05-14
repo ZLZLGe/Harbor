@@ -19,10 +19,10 @@
     "filter_audit.csv, scenario_comparison.csv, and candidate_trace.json expose intermediate reasoning and match oracle recomputation",
     "the notebook executes top-to-bottom, regenerates all deliverables, and visibly performs the review workflow",
     "mutating the bundled source data or contract changes the rerun outputs",
-    "input data and bundled skill files are not modified"
+    "input data is not modified"
   ],
   "oracle_validation": {
-    "local": "passed: 16 passed via pytest with generated data and skill hash manifests on 2026-05-07",
+    "local": "passed: 16 passed via pytest with generated data manifests on 2026-05-07",
     "e2b": "passed: Harbor oracle reward 1.0 in jobs labtools-egfr-oracle4-20260507-current and labtools-egfr-oracle5-20260507-current"
   },
   "contrast_experiments": {

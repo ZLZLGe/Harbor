@@ -1,14 +1,20 @@
+---
+name: database-migrations
+description: Database migration best practices for schema changes, data migrations, rollbacks, and zero-downtime deployments across PostgreSQL, MySQL, and common ORMs (Prisma, Drizzle, Kysely, Django, TypeORM, golang-migrate).
+origin: ECC
+---
+
 # Database Migration Patterns
 
 Safe, reversible database schema changes for production systems.
 
 ## When to Activate
 
-* Creating or altering database tables
-* Adding/removing columns or indexes
-* Running data migrations (backfill, transform)
-* Planning zero-downtime schema changes
-* Setting up migration tooling for a new project
+- Creating or altering database tables
+- Adding/removing columns or indexes
+- Running data migrations (backfill, transform)
+- Planning zero-downtime schema changes
+- Setting up migration tooling for a new project
 
 ## Core Principles
 
@@ -22,13 +28,13 @@ Safe, reversible database schema changes for production systems.
 
 Before applying any migration:
 
-* Migration has both UP and DOWN (or is explicitly marked irreversible)
-* No full table locks on large tables (use concurrent operations)
-* New columns have defaults or are nullable (never add NOT NULL without default)
-* Indexes created concurrently (not inline with CREATE TABLE for existing tables)
-* Data backfill is a separate migration from schema change
-* Tested against a copy of production data
-* Rollback plan documented
+- [ ] Migration has both UP and DOWN (or is explicitly marked irreversible)
+- [ ] No full table locks on large tables (use concurrent operations)
+- [ ] New columns have defaults or are nullable (never add NOT NULL without default)
+- [ ] Indexes created concurrently (not inline with CREATE TABLE for existing tables)
+- [ ] Data backfill is a separate migration from schema change
+- [ ] Tested against a copy of production data
+- [ ] Rollback plan documented
 
 ## PostgreSQL Patterns
 
@@ -44,7 +50,6 @@ ALTER TABLE users ADD COLUMN is_active BOOLEAN NOT NULL DEFAULT true;
 -- BAD: NOT NULL without default on existing table (requires full rewrite)
 ALTER TABLE users ADD COLUMN role TEXT NOT NULL;
 -- This locks the table and rewrites every row
-
 ```
 
 ### Adding an Index Without Downtime
@@ -58,7 +63,6 @@ CREATE INDEX CONCURRENTLY idx_users_email ON users (email);
 
 -- Note: CONCURRENTLY cannot run inside a transaction block
 -- Most migration tools need special handling for this
-
 ```
 
 ### Renaming a Column (Zero-Downtime)
@@ -77,7 +81,6 @@ UPDATE users SET display_name = username WHERE display_name IS NULL;
 
 -- Step 4: Stop writing to old column, drop it (migration 003)
 ALTER TABLE users DROP COLUMN username;
-
 ```
 
 ### Removing a Column Safely
@@ -90,7 +93,6 @@ ALTER TABLE orders DROP COLUMN legacy_status;
 
 -- For Django: use SeparateDatabaseAndState to remove from model
 -- without generating DROP COLUMN (then drop in next migration)
-
 ```
 
 ### Large Data Migrations
@@ -120,7 +122,6 @@ BEGIN
     COMMIT;
   END LOOP;
 END $$;
-
 ```
 
 ## Prisma (TypeScript/Node.js)
@@ -139,7 +140,6 @@ npx prisma migrate reset
 
 # Generate client after schema changes
 npx prisma generate
-
 ```
 
 ### Schema Example
@@ -157,7 +157,6 @@ model User {
   @@map("users")
   @@index([email])
 }
-
 ```
 
 ### Custom SQL Migration
@@ -167,14 +166,12 @@ For operations Prisma cannot express (concurrent indexes, data backfills):
 ```bash
 # Create empty migration, then edit the SQL manually
 npx prisma migrate dev --create-only --name add_email_index
-
 ```
 
 ```sql
 -- migrations/20240115_add_email_index/migration.sql
 -- Prisma cannot generate CONCURRENTLY, so we write it manually
 CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_users_email ON users (email);
-
 ```
 
 ## Drizzle (TypeScript/Node.js)
@@ -190,7 +187,6 @@ npx drizzle-kit migrate
 
 # Push schema directly (dev only, no migration file)
 npx drizzle-kit push
-
 ```
 
 ### Schema Example
@@ -206,7 +202,6 @@ export const users = pgTable("users", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
-
 ```
 
 ## Kysely (TypeScript/Node.js)
@@ -228,15 +223,15 @@ kysely migrate down
 
 # Show migration status
 kysely migrate list
-
 ```
 
 ### Migration File
 
+```typescript
 // migrations/2024_01_15_001_create_user_profile.ts
 import { type Kysely, sql } from 'kysely'
 
-// IMPORTANT: Always use Kysely, not your typed DB interface.
+// IMPORTANT: Always use Kysely<any>, not your typed DB interface.
 // Migrations are frozen in time and must not depend on current schema types.
 export async function up(db: Kysely<any>): Promise<void> {
   await db.schema
@@ -259,10 +254,11 @@ export async function up(db: Kysely<any>): Promise<void> {
 export async function down(db: Kysely<any>): Promise<void> {
   await db.schema.dropTable('user_profile').execute()
 }
+```
 
 ### Programmatic Migrator
 
-
+```typescript
 import { Migrator, FileMigrationProvider } from 'kysely'
 import { promises as fs } from 'fs'
 import * as path from 'path'
@@ -273,7 +269,7 @@ const migrationFolder = path.join(
   './migrations',
 )
 
-// `db` is your Kysely database instance
+// `db` is your Kysely<any> database instance
 const migrator = new Migrator({
   db,
   provider: new FileMigrationProvider({
@@ -300,12 +296,11 @@ if (error) {
   console.error('migration failed', error)
   process.exit(1)
 }
+```
 
 ## Django (Python)
 
-
 ### Workflow
-
 
 ```bash
 # Generate migration from model changes
@@ -319,12 +314,9 @@ python manage.py showmigrations
 
 # Generate empty migration for custom SQL
 python manage.py makemigrations --empty app_name -n description
-
 ```
 
-
 ### Data Migration
-
 
 ```python
 from django.db import migrations
@@ -348,15 +340,11 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(backfill_display_names, reverse_backfill),
     ]
-
 ```
-
 
 ### SeparateDatabaseAndState
 
-
 Remove a column from the Django model without dropping it from the database immediately:
-
 
 ```python
 class Migration(migrations.Migration):
@@ -368,15 +356,11 @@ class Migration(migrations.Migration):
             database_operations=[],  # Don't touch the DB yet
         ),
     ]
-
 ```
-
 
 ## golang-migrate (Go)
 
-
 ### Workflow
-
 
 ```bash
 # Create migration pair
@@ -390,12 +374,9 @@ migrate -path migrations -database "$DATABASE_URL" down 1
 
 # Force version (fix dirty state)
 migrate -path migrations -database "$DATABASE_URL" force VERSION
-
 ```
 
-
 ### Migration Files
-
 
 ```sql
 -- migrations/000003_add_user_avatar.up.sql
@@ -405,17 +386,13 @@ CREATE INDEX CONCURRENTLY idx_users_avatar ON users (avatar_url) WHERE avatar_ur
 -- migrations/000003_add_user_avatar.down.sql
 DROP INDEX IF EXISTS idx_users_avatar;
 ALTER TABLE users DROP COLUMN IF EXISTS avatar_url;
-
 ```
-
 
 ## Zero-Downtime Migration Strategy
 
-
 For critical production changes, follow the expand-contract pattern:
 
-
-```text
+```
 Phase 1: EXPAND
   - Add new column/table (nullable or with default)
   - Deploy: app writes to BOTH old and new
@@ -428,52 +405,25 @@ Phase 2: MIGRATE
 Phase 3: CONTRACT
   - Deploy: app only uses NEW
   - Drop old column/table in separate migration
-
 ```
-
 
 ### Timeline Example
 
-
-```text
+```
 Day 1: Migration adds new_status column (nullable)
 Day 1: Deploy app v2 — writes to both status and new_status
 Day 2: Run backfill migration for existing rows
 Day 3: Deploy app v3 — reads from new_status only
 Day 7: Migration drops old status column
-
 ```
-
 
 ## Anti-Patterns
 
-
-| |                                           |
-| ------------------------------------------- |
-| Anti-Pattern                                |
-| Why It Fails                                |
-| Better Approach                             |
-| |                                           |
-| Manual SQL in production                    |
-| No audit trail, unrepeatable                |
-| Always use migration files                  |
-| |                                           |
-| Editing deployed migrations                 |
-| Causes drift between environments           |
-| Create new migration instead                |
-| |                                           |
-| NOT NULL without default                    |
-| Locks table, rewrites all rows              |
-| Add nullable, backfill, then add constraint |
-| |                                           |
-| Inline index on large table                 |
-| Blocks writes during build                  |
-| CREATE INDEX CONCURRENTLY                   |
-| |                                           |
-| Schema + data in one migration              |
-| Hard to rollback, long transactions         |
-| Separate migrations                         |
-| |                                           |
-| Dropping column before removing code        |
-| Application errors on missing column        |
-| Remove code first, drop column next deploy  |
+| Anti-Pattern | Why It Fails | Better Approach |
+|-------------|-------------|-----------------|
+| Manual SQL in production | No audit trail, unrepeatable | Always use migration files |
+| Editing deployed migrations | Causes drift between environments | Create new migration instead |
+| NOT NULL without default | Locks table, rewrites all rows | Add nullable, backfill, then add constraint |
+| Inline index on large table | Blocks writes during build | CREATE INDEX CONCURRENTLY |
+| Schema + data in one migration | Hard to rollback, long transactions | Separate migrations |
+| Dropping column before removing code | Application errors on missing column | Remove code first, drop column next deploy |

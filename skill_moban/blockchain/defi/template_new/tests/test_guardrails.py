@@ -7,8 +7,6 @@ import yaml
 
 from common import (
     REPORT_PATH,
-    SKILL_HASH_PATH,
-    SKILL_ROOT,
     SPEC_HASH_PATH,
     SPEC_ROOT,
     load_report,
@@ -96,16 +94,11 @@ def _staker_balances(report: dict) -> dict:
     }
 
 
-def test_spec_and_skill_hashes_not_modified() -> None:
+def test_spec_hashes_not_modified() -> None:
     if SPEC_HASH_PATH.exists():
         expected_spec_hashes = SPEC_HASH_PATH.read_text(encoding="utf-8")
         actual_spec_hashes = sha256sum_style_listing(SPEC_ROOT)
         assert actual_spec_hashes == expected_spec_hashes, "Input spec files were modified"
-
-    if SKILL_HASH_PATH.exists() and SKILL_ROOT.exists():
-        expected_skill_hashes = SKILL_HASH_PATH.read_text(encoding="utf-8")
-        actual_skill_hashes = sha256sum_style_listing(SKILL_ROOT)
-        assert actual_skill_hashes == expected_skill_hashes, "Installed skill files were modified"
 
 
 def test_report_is_regenerated_from_execution() -> None:

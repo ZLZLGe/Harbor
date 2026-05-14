@@ -27,7 +27,4 @@ RUN mkdir -p /root/workspace/source_bundle /root/output /root/.codex/skills
 COPY source_bundle /root/workspace/source_bundle
 COPY skills /root/.codex/skills
 
-RUN find /root/workspace/source_bundle -type f -print0 | sort -z | xargs -0 sha256sum > /opt/education-source-bundle.sha256 \
-    && if [ -d /root/.codex/skills/jupyter-notebook ]; then \
-         find /root/.codex/skills/jupyter-notebook -type f -print0 | sort -z | xargs -0 sha256sum > /opt/education-skill.sha256; \
-       fi
+RUN find /root/workspace/source_bundle -type f -print0 | sort -z | xargs -0 sha256sum > /opt/education-source-bundle.sha256

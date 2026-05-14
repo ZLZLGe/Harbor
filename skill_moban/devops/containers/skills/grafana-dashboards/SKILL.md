@@ -1,3 +1,8 @@
+---
+name: grafana-dashboards
+description: Create and manage production Grafana dashboards for real-time visualization of system and application metrics. Use when building monitoring dashboards, visualizing metrics, or creating operational observability interfaces.
+---
+
 # Grafana Dashboards
 
 Create and manage production-ready Grafana dashboards for comprehensive system observability.
@@ -8,17 +13,17 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
 
 ## When to Use
 
-* Visualize Prometheus metrics
-* Create custom dashboards
-* Implement SLO dashboards
-* Monitor infrastructure
-* Track business KPIs
+- Visualize Prometheus metrics
+- Create custom dashboards
+- Implement SLO dashboards
+- Monitor infrastructure
+- Track business KPIs
 
 ## Dashboard Design Principles
 
-### 1\. Hierarchy of Information
+### 1. Hierarchy of Information
 
-```text
+```
 ┌─────────────────────────────────────┐
 │  Critical Metrics (Big Numbers)     │
 ├─────────────────────────────────────┤
@@ -26,20 +31,19 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
 ├─────────────────────────────────────┤
 │  Detailed Metrics (Tables/Heatmaps) │
 └─────────────────────────────────────┘
-
 ```
 
-### 2\. RED Method (Services)
+### 2. RED Method (Services)
 
-* **Rate** \- Requests per second
-* **Errors** \- Error rate
-* **Duration** \- Latency/response time
+- **Rate** - Requests per second
+- **Errors** - Error rate
+- **Duration** - Latency/response time
 
-### 3\. USE Method (Resources)
+### 3. USE Method (Resources)
 
-* **Utilization** \- % time resource is busy
-* **Saturation** \- Queue length/wait time
-* **Errors** \- Error count
+- **Utilization** - % time resource is busy
+- **Saturation** - Queue length/wait time
+- **Errors** - Error count
 
 ## Dashboard Structure
 
@@ -99,14 +103,13 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
     ]
   }
 }
-
 ```
 
 **Reference:** See `assets/api-dashboard.json`
 
 ## Panel Types
 
-### 1\. Stat Panel (Single Value)
+### 1. Stat Panel (Single Value)
 
 ```json
 {
@@ -139,10 +142,9 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
     }
   }
 }
-
 ```
 
-### 2\. Time Series Graph
+### 2. Time Series Graph
 
 ```json
 {
@@ -158,10 +160,9 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
     { "format": "short" }
   ]
 }
-
 ```
 
-### 3\. Table Panel
+### 3. Table Panel
 
 ```json
 {
@@ -189,10 +190,9 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
     }
   ]
 }
-
 ```
 
-### 4\. Heatmap
+### 4. Heatmap
 
 ```json
 {
@@ -209,7 +209,6 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
     "format": "s"
   }
 }
-
 ```
 
 ## Variables
@@ -239,14 +238,12 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
     ]
   }
 }
-
 ```
 
 ### Use Variables in Queries
 
-```text
+```
 sum(rate(http_requests_total{namespace="$namespace", service=~"$service"}[5m]))
-
 ```
 
 ## Alerts in Dashboards
@@ -277,7 +274,6 @@ sum(rate(http_requests_total{namespace="$namespace", service=~"$service"}[5m]))
     "notifications": [{ "uid": "slack-channel" }]
   }
 }
-
 ```
 
 ## Dashboard Provisioning
@@ -297,7 +293,6 @@ providers:
     allowUiUpdates: true
     options:
       path: /etc/grafana/dashboards
-
 ```
 
 ## Common Dashboard Patterns
@@ -306,12 +301,12 @@ providers:
 
 **Key Panels:**
 
-* CPU utilization per node
-* Memory usage per node
-* Disk I/O
-* Network traffic
-* Pod count by namespace
-* Node status
+- CPU utilization per node
+- Memory usage per node
+- Disk I/O
+- Network traffic
+- Pod count by namespace
+- Node status
 
 **Reference:** See `assets/infrastructure-dashboard.json`
 
@@ -319,13 +314,13 @@ providers:
 
 **Key Panels:**
 
-* Queries per second
-* Connection pool usage
-* Query latency (P50, P95, P99)
-* Active connections
-* Database size
-* Replication lag
-* Slow queries
+- Queries per second
+- Connection pool usage
+- Query latency (P50, P95, P99)
+- Active connections
+- Database size
+- Replication lag
+- Slow queries
 
 **Reference:** See `assets/database-dashboard.json`
 
@@ -333,12 +328,12 @@ providers:
 
 **Key Panels:**
 
-* Request rate
-* Error rate
-* Response time (percentiles)
-* Active users/sessions
-* Cache hit rate
-* Queue length
+- Request rate
+- Error rate
+- Response time (percentiles)
+- Active users/sessions
+- Cache hit rate
+- Queue length
 
 ## Best Practices
 
@@ -366,7 +361,6 @@ resource "grafana_dashboard" "api_monitoring" {
 resource "grafana_folder" "monitoring" {
   title = "Production Monitoring"
 }
-
 ```
 
 ### Ansible Provisioning
@@ -379,10 +373,10 @@ resource "grafana_folder" "monitoring" {
   with_fileglob:
     - "dashboards/*.json"
   notify: restart grafana
-
 ```
+
 
 ## Related Skills
 
-* `prometheus-configuration` \- For metric collection
-* `slo-implementation` \- For SLO dashboards
+- `prometheus-configuration` - For metric collection
+- `slo-implementation` - For SLO dashboards

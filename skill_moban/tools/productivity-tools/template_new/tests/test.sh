@@ -1,18 +1,20 @@
 #!/bin/bash
-set -euo pipefail
+set -uo pipefail
 
 VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
 mkdir -p "$VERIFIER_LOG_ROOT"
 
-set +e
-python3 -m unittest discover -s "$(dirname "$0")" -p 'test_*.py' 2>&1 | tee "$VERIFIER_LOG_ROOT/test-output.txt"
-TEST_EXIT=${PIPESTATUS[0]}
-set -e
+cd /app
 
-if [ "$TEST_EXIT" -eq 0 ]; then
-  echo 1 > "$VERIFIER_LOG_ROOT/reward.txt"
+if python3 -m pytest /tests/test_outputs.py /tests/test_guardrails.py -rA -v "$@" \
+  | tee "$VERIFIER_LOG_ROOT/pytest-output.txt"; then
+  printf '1.0\n' > "$VERIFIER_LOG_ROOT/reward.txt"
 else
-  echo 0 > "$VERIFIER_LOG_ROOT/reward.txt"
+  printf '0.0\n' > "$VERIFIER_LOG_ROOT/reward.txt"
 fi
 
-exit "$TEST_EXIT"
+cp /app/output/engineering_release_digest.md "$VERIFIER_LOG_ROOT/" 2>/dev/null || true
+cp /app/output/feed_inventory.json "$VERIFIER_LOG_ROOT/" 2>/dev/null || true
+cp /app/output/delivery_manifest.json "$VERIFIER_LOG_ROOT/" 2>/dev/null || true
+
+exit 0

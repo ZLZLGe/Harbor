@@ -17,22 +17,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tini \
     && rm -rf /var/lib/apt/lists/*
 
-RUN node --version \
-    && npm --version \
-    && npm install -g @openai/codex@0.120.0 \
-    && REAL_CODEX_BIN="$(command -v codex)" \
-    && ln -sf "$REAL_CODEX_BIN" /usr/local/bin/codex-real \
-    && printf '%s\n' '#!/bin/bash' \
-      'set -euo pipefail' \
-      'CODEX_SKILL_HOME="${CODEX_HOME:-$HOME/.codex}/skills"' \
-      'mkdir -p "$CODEX_SKILL_HOME"' \
-      'if [ "$CODEX_SKILL_HOME" != "/root/.codex/skills" ] && [ -d /root/.codex/skills ]; then' \
-      '  cp -R /root/.codex/skills/. "$CODEX_SKILL_HOME/"' \
-      'fi' \
-      'exec /usr/local/bin/codex-real "$@"' > /usr/local/bin/codex \
-    && chmod 755 /usr/local/bin/codex \
-    && /usr/local/bin/codex --version
-
 WORKDIR /app
 COPY . /tmp/template-environment
 COPY skills /logs/agent/skills
@@ -54,15 +38,6 @@ RUN mkdir -p \
 
 RUN printf '%s\n' '#!/bin/bash' \
     'set -euo pipefail' \
-    'TASK_ENV_ROOT="/tmp/template-environment"' \
-    'if [ -d /tmp/template-environment/environment ]; then' \
-    '  TASK_ENV_ROOT="/tmp/template-environment/environment"' \
-    'fi' \
-    'mkdir -p /root/.codex/skills /logs/agent/skills' \
-    'if [ -d "$TASK_ENV_ROOT/skills" ]; then' \
-    '  cp -R "$TASK_ENV_ROOT/skills/." /root/.codex/skills/' \
-    '  cp -R "$TASK_ENV_ROOT/skills/." /logs/agent/skills/' \
-    'fi' \
     'if [ "$#" -eq 0 ]; then' \
     '  exec /bin/bash' \
     'elif [ "$#" -eq 1 ]; then' \

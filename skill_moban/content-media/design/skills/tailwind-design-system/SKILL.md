@@ -1,3 +1,8 @@
+---
+name: tailwind-design-system
+description: Build scalable design systems with Tailwind CSS v4, design tokens, component libraries, and responsive patterns. Use when creating component libraries, implementing design systems, or standardizing UI patterns.
+---
+
 # Tailwind Design System (v4)
 
 Build production-ready design systems with Tailwind CSS v4, including CSS-first configuration, design tokens, component variants, responsive patterns, and accessibility.
@@ -6,22 +11,22 @@ Build production-ready design systems with Tailwind CSS v4, including CSS-first 
 
 ## When to Use This Skill
 
-* Creating a component library with Tailwind v4
-* Implementing design tokens and theming with CSS-first configuration
-* Building responsive and accessible components
-* Standardizing UI patterns across a codebase
-* Migrating from Tailwind v3 to v4
-* Setting up dark mode with native CSS features
+- Creating a component library with Tailwind v4
+- Implementing design tokens and theming with CSS-first configuration
+- Building responsive and accessible components
+- Standardizing UI patterns across a codebase
+- Migrating from Tailwind v3 to v4
+- Setting up dark mode with native CSS features
 
 ## Key v4 Changes
 
-| v3 Pattern                          | v4 Pattern                                                       |
-| ----------------------------------- | ---------------------------------------------------------------- |
-| tailwind.config.ts                  | @theme in CSS                                                    |
-| @tailwind base/components/utilities | @import "tailwindcss"                                            |
-| darkMode: "class"                   | @custom-variant dark (&:where(.dark, .dark \*))                  |
-| theme.extend.colors                 | @theme { --color-\*: value }                                     |
-| require("tailwindcss-animate")      | CSS @keyframes in @theme \+ @starting-style for entry animations |
+| v3 Pattern                            | v4 Pattern                                                            |
+| ------------------------------------- | --------------------------------------------------------------------- |
+| `tailwind.config.ts`                  | `@theme` in CSS                                                       |
+| `@tailwind base/components/utilities` | `@import "tailwindcss"`                                               |
+| `darkMode: "class"`                   | `@custom-variant dark (&:where(.dark, .dark *))`                      |
+| `theme.extend.colors`                 | `@theme { --color-*: value }`                                         |
+| `require("tailwindcss-animate")`      | CSS `@keyframes` in `@theme` + `@starting-style` for entry animations |
 
 ## Quick Start
 
@@ -154,28 +159,25 @@ Build production-ready design systems with Tailwind CSS v4, including CSS-first 
     @apply bg-background text-foreground antialiased;
   }
 }
-
 ```
 
 ## Core Concepts
 
-### 1\. Design Token Hierarchy
+### 1. Design Token Hierarchy
 
-```text
+```
 Brand Tokens (abstract)
     └── Semantic Tokens (purpose)
         └── Component Tokens (specific)
 
 Example:
     oklch(45% 0.2 260) → --color-primary → bg-primary
-
 ```
 
-### 2\. Component Architecture
+### 2. Component Architecture
 
-```text
+```
 Base styles → Variants → Sizes → States → Overrides
-
 ```
 
 ## Patterns
@@ -244,7 +246,6 @@ export function Button({
 <Button variant="destructive" size="lg">Delete</Button>
 <Button variant="outline">Cancel</Button>
 <Button asChild><Link href="/home">Home</Link></Button>
-
 ```
 
 ### Pattern 2: Compound Components (React 19)
@@ -350,7 +351,6 @@ export function CardFooter({
     <Button>Save</Button>
   </CardFooter>
 </Card>
-
 ```
 
 ### Pattern 3: Form Components
@@ -448,7 +448,6 @@ function LoginForm() {
     </form>
   )
 }
-
 ```
 
 ### Pattern 4: Responsive Grid System
@@ -527,13 +526,12 @@ export function Container({ className, size, ...props }: ContainerProps) {
     ))}
   </Grid>
 </Container>
-
 ```
 
-For advanced animation and dark mode patterns, see [references/advanced-patterns.md](https://github.com/wshobson/agents/blob/HEAD/plugins/frontend-mobile-development/skills/tailwind-design-system/references/advanced-patterns.md):
+For advanced animation and dark mode patterns, see [references/advanced-patterns.md](references/advanced-patterns.md):
 
-* **Pattern 5: Native CSS Animations** — dialog `@keyframes`, native popover API with `@starting-style`, `allow-discrete` transitions, and a full `DialogContent`/`DialogOverlay` implementation using Radix UI
-* **Pattern 6: Dark Mode** — `ThemeProvider` context with `localStorage` persistence, `prefers-color-scheme` detection, meta `theme-color` update, and a `ThemeToggle` button component
+- **Pattern 5: Native CSS Animations** — dialog `@keyframes`, native popover API with `@starting-style`, `allow-discrete` transitions, and a full `DialogContent`/`DialogOverlay` implementation using Radix UI
+- **Pattern 6: Dark Mode** — `ThemeProvider` context with `localStorage` persistence, `prefers-color-scheme` detection, meta `theme-color` update, and a `ThemeToggle` button component
 
 ## Utility Functions
 
@@ -554,15 +552,14 @@ export const focusRing = cn(
 
 // Disabled utility
 export const disabled = "disabled:pointer-events-none disabled:opacity-50";
-
 ```
 
-For advanced v4 CSS patterns, the full v3-to-v4 migration checklist, and complete best practices, see [references/advanced-patterns.md](https://github.com/wshobson/agents/blob/HEAD/plugins/frontend-mobile-development/skills/tailwind-design-system/references/advanced-patterns.md):
+For advanced v4 CSS patterns, the full v3-to-v4 migration checklist, and complete best practices, see [references/advanced-patterns.md](references/advanced-patterns.md):
 
-* **Custom `@utility`** — reusable CSS utilities for decorative lines and text gradients
-* **Theme modifiers** — `@theme inline` (reference other CSS vars), `@theme static` (always output), `@import "tailwindcss" theme(static)`
-* **Namespace overrides** — clearing default Tailwind color scales with `--color-*: initial`
-* **Semi-transparent variants** — `color-mix()` for alpha scale generation
-* **Container queries** — `--container-*` token definitions
-* **v3→v4 migration checklist** — 10-item checklist covering config, directives, colors, dark mode, animations, React 19 ref changes
-* **Best practices** — full Do's and Don'ts list
+- **Custom `@utility`** — reusable CSS utilities for decorative lines and text gradients
+- **Theme modifiers** — `@theme inline` (reference other CSS vars), `@theme static` (always output), `@import "tailwindcss" theme(static)`
+- **Namespace overrides** — clearing default Tailwind color scales with `--color-*: initial`
+- **Semi-transparent variants** — `color-mix()` for alpha scale generation
+- **Container queries** — `--container-*` token definitions
+- **v3→v4 migration checklist** — 10-item checklist covering config, directives, colors, dark mode, animations, React 19 ref changes
+- **Best practices** — full Do's and Don'ts list

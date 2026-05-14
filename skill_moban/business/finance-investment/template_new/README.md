@@ -27,7 +27,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 使用同一批冻结市场价格、Fama-French 因子与策略阈值文件，独立重算 ARKK 相对 QQQ 的风险、因子暴露、bootstrap tail risk、stress grid 和 policy breaches。它关注行为结果是否可复算，而不是实现路径是否一致。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 
 - Verifier 策略：
 

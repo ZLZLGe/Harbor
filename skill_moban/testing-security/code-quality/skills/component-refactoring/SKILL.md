@@ -1,3 +1,8 @@
+---
+name: component-refactoring
+description: Refactor high-complexity React components in Dify frontend. Use when `pnpm analyze-component --json` shows complexity > 50 or lineCount > 300, when the user asks for code splitting, hook extraction, or complexity reduction, or when `pnpm analyze-component` warns to refactor before testing; avoid for simple/well-structured components, third-party wrappers, or when the user explicitly wants testing without refactoring.
+---
+
 # Dify Component Refactoring Skill
 
 Refactor high-complexity React components in the Dify frontend codebase with the patterns and workflow below.
@@ -8,7 +13,8 @@ Refactor high-complexity React components in the Dify frontend codebase with the
 
 ### Commands (run from `web/`)
 
-Use paths relative to `web/` (e.g., `app/components/...`). Use `refactor-component` for refactoring prompts and `analyze-component` for testing prompts and metrics.
+Use paths relative to `web/` (e.g., `app/components/...`).
+Use `refactor-component` for refactoring prompts and `analyze-component` for testing prompts and metrics.
 
 ```bash
 cd web
@@ -24,7 +30,6 @@ pnpm analyze-component <path>
 
 # Output testing analysis as JSON
 pnpm analyze-component <path> --json
-
 ```
 
 ### Complexity Analysis
@@ -37,17 +42,16 @@ pnpm analyze-component <path> --json
 # - complexity: normalized score 0-100 (target < 50)
 # - maxComplexity: highest single function complexity
 # - lineCount: total lines (target < 300)
-
 ```
 
 ### Complexity Score Interpretation
 
-| Score  | Level           | Action                      |
-| ------ | --------------- | --------------------------- |
-| 0-25   | 🟢 Simple       | Ready for testing           |
-| 26-50  | 🟡 Medium       | Consider minor refactoring  |
-| 51-75  | 🟠 Complex      | **Refactor before testing** |
-| 76-100 | 🔴 Very Complex | **Must refactor**           |
+| Score | Level | Action |
+|-------|-------|--------|
+| 0-25 | 🟢 Simple | Ready for testing |
+| 26-50 | 🟡 Medium | Consider minor refactoring |
+| 51-75 | 🟠 Complex | **Refactor before testing** |
+| 76-100 | 🔴 Very Complex | **Must refactor** |
 
 ## Core Refactoring Patterns
 
@@ -55,11 +59,11 @@ pnpm analyze-component <path> --json
 
 **When**: Component has complex state management, multiple `useState`/`useEffect`, or business logic mixed with UI.
 
-**Dify Convention**: Place hooks in a `hooks/` subdirectory or alongside the component as use-.ts. 
+**Dify Convention**: Place hooks in a `hooks/` subdirectory or alongside the component as `use-<feature>.ts`.
 
 ```typescript
 // ❌ Before: Complex state logic in component
-const Configuration: FC = () => {
+function Configuration() {
   const [modelConfig, setModelConfig] = useState<ModelConfig>(...)
   const [datasetConfigs, setDatasetConfigs] = useState<DatasetConfigs>(...)
   const [completionParams, setCompletionParams] = useState<FormValue>({})
@@ -81,18 +85,16 @@ export const useModelConfig = (appId: string) => {
 }
 
 // Component becomes cleaner
-const Configuration: FC = () => {
+function Configuration() {
   const { modelConfig, setModelConfig } = useModelConfig(appId)
   return <div>...</div>
 }
-
 ```
 
 **Dify Examples**:
-
-* `web/app/components/app/configuration/hooks/use-advanced-prompt-config.ts`
-* `web/app/components/app/configuration/debug/hooks.tsx`
-* `web/app/components/workflow/hooks/use-workflow.ts`
+- `web/app/components/app/configuration/hooks/use-advanced-prompt-config.ts`
+- `web/app/components/app/configuration/debug/hooks.tsx`
+- `web/app/components/workflow/hooks/use-workflow.ts`
 
 ### Pattern 2: Extract Sub-Components
 
@@ -130,13 +132,11 @@ const AppInfo = () => {
     </div>
   )
 }
-
 ```
 
 **Dify Examples**:
-
-* `web/app/components/app/configuration/` directory structure
-* `web/app/components/workflow/nodes/` per-node organization
+- `web/app/components/app/configuration/` directory structure
+- `web/app/components/workflow/nodes/` per-node organization
 
 ### Pattern 3: Simplify Conditional Logic
 
@@ -181,7 +181,6 @@ const Template = useMemo(() => {
   const TemplateComponent = modeTemplates[locale] || modeTemplates.default
   return <TemplateComponent appDetail={appDetail} />
 }, [appDetail, locale])
-
 ```
 
 ### Pattern 4: Extract API/Data Logic
@@ -189,19 +188,15 @@ const Template = useMemo(() => {
 **When**: Component directly handles API calls, data transformation, or complex async operations.
 
 **Dify Convention**:
-
-* This skill is for component decomposition, not query/mutation design.
-* When refactoring data fetching, follow `web/AGENTS.md`.
-* Use `frontend-query-mutation` for contracts, query shape, data-fetching wrappers, query/mutation call-site patterns, conditional queries, invalidation, and mutation error handling.
-* Do not introduce deprecated `useInvalid` / `useReset`.
-* Do not add thin passthrough `useQuery` wrappers during refactoring; only extract a custom hook when it truly orchestrates multiple queries/mutations or shared derived state.
+- This skill is for component decomposition, not query/mutation design.
+- Do not introduce deprecated `useInvalid` / `useReset`.
+- Do not add thin passthrough `useQuery` wrappers during refactoring; only extract a custom hook when it truly orchestrates multiple queries/mutations or shared derived state.
 
 **Dify Examples**:
-
-* `web/service/use-workflow.ts`
-* `web/service/use-common.ts`
-* `web/service/knowledge/use-dataset.ts`
-* `web/service/knowledge/use-document.ts`
+- `web/service/use-workflow.ts`
+- `web/service/use-common.ts`
+- `web/service/knowledge/use-dataset.ts`
+- `web/service/knowledge/use-document.ts`
 
 ### Pattern 5: Extract Modal/Dialog Management
 
@@ -236,7 +231,6 @@ const useAppInfoModals = () => {
     isOpen: (type: ModalType) => activeModal === type,
   }
 }
-
 ```
 
 ### Pattern 6: Extract Form Logic
@@ -257,12 +251,11 @@ const ConfigForm = () => {
   
   return <form.Provider>...</form.Provider>
 }
-
 ```
 
 ## Dify-Specific Refactoring Guidelines
 
-### 1\. Context Provider Extraction
+### 1. Context Provider Extraction
 
 **When**: Component provides complex context values with multiple states.
 
@@ -283,41 +276,45 @@ return <ConfigContext.Provider value={value}>...</ConfigContext.Provider>
     </UIConfigProvider>
   </DatasetConfigProvider>
 </ModelConfigProvider>
-
 ```
 
 **Dify Reference**: `web/context/` directory structure
 
-### 2\. Workflow Node Components
+### 2. Workflow Node Components
 
 **When**: Refactoring workflow node components (`web/app/components/workflow/nodes/`).
 
 **Conventions**:
+- Keep node logic in `use-interactions.ts`
+- Extract panel UI to separate files
+- Use `_base` components for common patterns
 
-* Keep node logic in `use-interactions.ts`
-* Extract panel UI to separate files
-* Use `_base` components for common patterns
-nodes//  ├── index.tsx # Node registration  ├── node.tsx # Node visual component  ├── panel.tsx # Configuration panel  ├── use-interactions.ts # Node-specific hooks  └── types.ts # Type definitions 
+```
+nodes/<node-type>/
+  ├── index.tsx              # Node registration
+  ├── node.tsx               # Node visual component
+  ├── panel.tsx              # Configuration panel
+  ├── use-interactions.ts    # Node-specific hooks
+  └── types.ts               # Type definitions
+```
 
-### 3\. Configuration Components
+### 3. Configuration Components
 
 **When**: Refactoring app configuration components.
 
 **Conventions**:
+- Separate config sections into subdirectories
+- Use existing patterns from `web/app/components/app/configuration/`
+- Keep feature toggles in dedicated components
 
-* Separate config sections into subdirectories
-* Use existing patterns from `web/app/components/app/configuration/`
-* Keep feature toggles in dedicated components
-
-### 4\. Tool/Plugin Components
+### 4. Tool/Plugin Components
 
 **When**: Refactoring tool-related components (`web/app/components/tools/`).
 
 **Conventions**:
-
-* Follow existing modal patterns
-* Use service hooks from `web/service/use-tools.ts`
-* Keep provider-specific logic isolated
+- Follow existing modal patterns
+- Use service hooks from `web/service/use-tools.ts`
+- Keep provider-specific logic isolated
 
 ## Refactoring Workflow
 
@@ -325,41 +322,37 @@ nodes//  ├── index.tsx # Node registration  ├── node.tsx # Node visu
 
 ```bash
 pnpm refactor-component <path>
-
 ```
 
 This command will:
-
-* Analyze component complexity and features
-* Identify specific refactoring actions needed
-* Generate a prompt for AI assistant (auto-copied to clipboard on macOS)
-* Provide detailed requirements based on detected patterns
+- Analyze component complexity and features
+- Identify specific refactoring actions needed
+- Generate a prompt for AI assistant (auto-copied to clipboard on macOS)
+- Provide detailed requirements based on detected patterns
 
 ### Step 2: Analyze Details
 
 ```bash
 pnpm analyze-component <path> --json
-
 ```
 
 Identify:
-
-* Total complexity score
-* Max function complexity
-* Line count
-* Features detected (state, effects, API, etc.)
+- Total complexity score
+- Max function complexity
+- Line count
+- Features detected (state, effects, API, etc.)
 
 ### Step 3: Plan
 
 Create a refactoring plan based on detected features:
 
-| Detected Feature                   | Refactoring Action         |
-| ---------------------------------- | -------------------------- |
-| hasState: true \+ hasEffects: true | Extract custom hook        |
-| hasAPI: true                       | Extract data/service hook  |
-| hasEvents: true (many)             | Extract event handlers     |
-| lineCount > 300                    | Split into sub-components  |
-| maxComplexity > 50                 | Simplify conditional logic |
+| Detected Feature | Refactoring Action |
+|------------------|-------------------|
+| `hasState: true` + `hasEffects: true` | Extract custom hook |
+| `hasAPI: true` | Extract data/service hook |
+| `hasEvents: true` (many) | Extract event handlers |
+| `lineCount > 300` | Split into sub-components |
+| `maxComplexity > 50` | Simplify conditional logic |
 
 ### Step 4: Execute Incrementally
 
@@ -367,7 +360,7 @@ Create a refactoring plan based on detected features:
 2. **Run lint, type-check, and tests after each extraction**
 3. **Verify functionality before next step**
 
-```text
+```
 For each extraction:
   ┌────────────────────────────────────────┐
   │ 1. Extract code                        │
@@ -378,7 +371,6 @@ For each extraction:
   │ 6. PASS? → Next extraction             │
   │    FAIL? → Fix before continuing       │
   └────────────────────────────────────────┘
-
 ```
 
 ### Step 5: Verify
@@ -399,7 +391,6 @@ pnpm analyze-component <path> --json
 # - complexity < 50
 # - lineCount < 300
 # - maxComplexity < 30
-
 ```
 
 ## Common Mistakes to Avoid
@@ -419,32 +410,31 @@ const useButtonState = () => {
   const [loading, setLoading] = useState(false)
   return { text, setText, disabled, setDisabled, loading, setLoading }
 }
-
 ```
 
 ### ❌ Breaking Existing Patterns
 
-* Follow existing directory structures
-* Maintain naming conventions
-* Preserve export patterns for compatibility
+- Follow existing directory structures
+- Maintain naming conventions
+- Preserve export patterns for compatibility
 
 ### ❌ Premature Abstraction
 
-* Only extract when there's clear complexity benefit
-* Don't create abstractions for single-use code
-* Keep refactored code in the same domain area
+- Only extract when there's clear complexity benefit
+- Don't create abstractions for single-use code
+- Keep refactored code in the same domain area
 
 ## References
 
 ### Dify Codebase Examples
 
-* **Hook extraction**: `web/app/components/app/configuration/hooks/`
-* **Component splitting**: `web/app/components/app/configuration/`
-* **Service hooks**: `web/service/use-*.ts`
-* **Workflow patterns**: `web/app/components/workflow/hooks/`
-* **Form patterns**: `web/app/components/base/form/`
+- **Hook extraction**: `web/app/components/app/configuration/hooks/`
+- **Component splitting**: `web/app/components/app/configuration/`
+- **Service hooks**: `web/service/use-*.ts`
+- **Workflow patterns**: `web/app/components/workflow/hooks/`
+- **Form patterns**: `web/app/components/base/form/`
 
 ### Related Skills
 
-* `frontend-testing` \- For testing refactored components
-* `web/docs/test.md` \- Testing specification
+- `frontend-testing` - For testing refactored components
+- `web/docs/test.md` - Testing specification

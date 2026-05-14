@@ -1,3 +1,9 @@
+---
+name: claude-api
+description: "Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (4.5 → 4.6, 4.6 → 4.7, retired-model replacements). TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`; user asks for the Claude API, Anthropic SDK, or Managed Agents; user adds/modifies/tunes a Claude feature (caching, thinking, compaction, tool use, batch, files, citations, memory) or model (Opus/Sonnet/Haiku) in a file; questions about prompt caching / cache hit rate in an Anthropic SDK project. SKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-generic.py`, provider-neutral code, general programming/ML."
+license: Complete terms in LICENSE.txt
+---
+
 # Building LLM-Powered Applications with Claude
 
 This skill helps you build LLM-powered applications with Claude. Choose the right surface based on your needs, detect the project language, then read the relevant language-specific documentation.
@@ -27,7 +33,8 @@ For the Claude model version, please use Claude Opus 4.7, which you can access v
 
 ## Subcommands
 
-If the User Request at the bottom of this prompt is a bare subcommand string (no prose), search every **Subcommands** table in this document — including any in sections appended below — and follow the matching Action column directly. This lets users invoke specific flows via /claude-api . If no table in the document matches, treat the request as normal prose. 
+If the User Request at the bottom of this prompt is a bare subcommand string (no prose), search every **Subcommands** table in this document — including any in sections appended below — and follow the matching Action column directly. This lets users invoke specific flows via `/claude-api <subcommand>`. If no table in the document matches, treat the request as normal prose.
+
 
 ---
 
@@ -37,42 +44,46 @@ Before reading code examples, determine which language the user is working in:
 
 1. **Look at project files** to infer the language:
 
-  * `*.py`, `requirements.txt`, `pyproject.toml`, `setup.py`, `Pipfile` → **Python** — read from `python/`
-  * `*.ts`, `*.tsx`, `package.json`, `tsconfig.json` → **TypeScript** — read from `typescript/`
-  * `*.js`, `*.jsx` (no `.ts` files present) → **TypeScript** — JS uses the same SDK, read from `typescript/`
-  * `*.java`, `pom.xml`, `build.gradle` → **Java** — read from `java/`
-  * `*.kt`, `*.kts`, `build.gradle.kts` → **Java** — Kotlin uses the Java SDK, read from `java/`
-  * `*.scala`, `build.sbt` → **Java** — Scala uses the Java SDK, read from `java/`
-  * `*.go`, `go.mod` → **Go** — read from `go/`
-  * `*.rb`, `Gemfile` → **Ruby** — read from `ruby/`
-  * `*.cs`, `*.csproj` → **C#** — read from `csharp/`
-  * `*.php`, `composer.json` → **PHP** — read from `php/`
+   - `*.py`, `requirements.txt`, `pyproject.toml`, `setup.py`, `Pipfile` → **Python** — read from `python/`
+   - `*.ts`, `*.tsx`, `package.json`, `tsconfig.json` → **TypeScript** — read from `typescript/`
+   - `*.js`, `*.jsx` (no `.ts` files present) → **TypeScript** — JS uses the same SDK, read from `typescript/`
+   - `*.java`, `pom.xml`, `build.gradle` → **Java** — read from `java/`
+   - `*.kt`, `*.kts`, `build.gradle.kts` → **Java** — Kotlin uses the Java SDK, read from `java/`
+   - `*.scala`, `build.sbt` → **Java** — Scala uses the Java SDK, read from `java/`
+   - `*.go`, `go.mod` → **Go** — read from `go/`
+   - `*.rb`, `Gemfile` → **Ruby** — read from `ruby/`
+   - `*.cs`, `*.csproj` → **C#** — read from `csharp/`
+   - `*.php`, `composer.json` → **PHP** — read from `php/`
+
 2. **If multiple languages detected** (e.g., both Python and TypeScript files):
 
-  * Check which language the user's current file or question relates to
-  * If still ambiguous, ask: "I detected both Python and TypeScript files. Which language are you using for the Claude API integration?"
+   - Check which language the user's current file or question relates to
+   - If still ambiguous, ask: "I detected both Python and TypeScript files. Which language are you using for the Claude API integration?"
+
 3. **If language can't be inferred** (empty project, no source files, or unsupported language):
 
-  * Use AskUserQuestion with options: Python, TypeScript, Java, Go, Ruby, cURL/raw HTTP, C#, PHP
-  * If AskUserQuestion is unavailable, default to Python examples and note: "Showing Python examples. Let me know if you need a different language."
+   - Use AskUserQuestion with options: Python, TypeScript, Java, Go, Ruby, cURL/raw HTTP, C#, PHP
+   - If AskUserQuestion is unavailable, default to Python examples and note: "Showing Python examples. Let me know if you need a different language."
+
 4. **If unsupported language detected** (Rust, Swift, C++, Elixir, etc.):
 
-  * Suggest cURL/raw HTTP examples from `curl/` and note that community SDKs may exist
-  * Offer to show Python or TypeScript examples as reference implementations
+   - Suggest cURL/raw HTTP examples from `curl/` and note that community SDKs may exist
+   - Offer to show Python or TypeScript examples as reference implementations
+
 5. **If user needs cURL/raw HTTP examples**, read from `curl/`.
 
 ### Language-Specific Feature Support
 
-| Language   | Tool Runner | Managed Agents | Notes                                |
-| ---------- | ----------- | -------------- | ------------------------------------ |
-| Python     | Yes (beta)  | Yes (beta)     | Full support — @beta\_tool decorator |
-| TypeScript | Yes (beta)  | Yes (beta)     | Full support — betaZodTool \+ Zod    |
-| Java       | Yes (beta)  | Yes (beta)     | Beta tool use with annotated classes |
-| Go         | Yes (beta)  | Yes (beta)     | BetaToolRunner in toolrunner pkg     |
-| Ruby       | Yes (beta)  | Yes (beta)     | BaseTool \+ tool\_runner in beta     |
-| C#         | No          | No             | Official SDK                         |
-| PHP        | Yes (beta)  | Yes (beta)     | BetaRunnableTool \+ toolRunner()     |
-| cURL       | N/A         | Yes (beta)     | Raw HTTP, no SDK features            |
+| Language   | Tool Runner | Managed Agents | Notes                                 |
+| ---------- | ----------- | -------------- | ------------------------------------- |
+| Python     | Yes (beta)  | Yes (beta)     | Full support — `@beta_tool` decorator |
+| TypeScript | Yes (beta)  | Yes (beta)     | Full support — `betaZodTool` + Zod    |
+| Java       | Yes (beta)  | Yes (beta)     | Beta tool use with annotated classes  |
+| Go         | Yes (beta)  | Yes (beta)     | `BetaToolRunner` in `toolrunner` pkg  |
+| Ruby       | Yes (beta)  | Yes (beta)     | `BaseTool` + `tool_runner` in beta    |
+| C#         | No          | No             | Official SDK                          |
+| PHP        | Yes (beta)  | Yes (beta)     | `BetaRunnableTool` + `toolRunner()`   |
+| cURL       | N/A         | Yes (beta)     | Raw HTTP, no SDK features             |
 
 > **Managed Agents code examples**: dedicated language-specific READMEs are provided for Python, TypeScript, Go, Ruby, PHP, Java, and cURL (`{lang}/managed-agents/README.md`, `curl/managed-agents.md`). Read your language's README plus the language-agnostic `shared/managed-agents-*.md` concept files. **Agents are persistent — create once, reference by ID.** Store the agent ID returned by `agents.create` and pass it to every subsequent `sessions.create`; do not call `agents.create` in the request path. The Anthropic CLI is one convenient way to create agents and environments from version-controlled YAML — its URL is in `shared/live-sources.md`. If a binding you need isn't shown in the README, WebFetch the relevant entry from `shared/live-sources.md` rather than guess. C# does not currently have Managed Agents support; use cURL-style raw HTTP requests against the API.
 
@@ -92,13 +103,13 @@ Before reading code examples, determine which language the user is working in:
 | Persisted, versioned agent configs              | Agent           | **Managed Agents**        | Agents are stored objects; sessions pin to a version         |
 | Long-running multi-turn agent with file mounts  | Agent           | **Managed Agents**        | Per-session containers, SSE event stream, Skills + MCP       |
 
-> **Note:** Managed Agents is the right choice when you want Anthropic to run the agent loop _and_ host the container where tools execute — file ops, bash, code execution all run in the per-session workspace. If you want to host the compute yourself or run your own custom tool runtime, Claude API + tool use is the right choice — use the tool runner for automatic loop handling, or the manual loop for fine-grained control (approval gates, custom logging, conditional execution).
+> **Note:** Managed Agents is the right choice when you want Anthropic to run the agent loop *and* host the container where tools execute — file ops, bash, code execution all run in the per-session workspace. If you want to host the compute yourself or run your own custom tool runtime, Claude API + tool use is the right choice — use the tool runner for automatic loop handling, or the manual loop for fine-grained control (approval gates, custom logging, conditional execution).
 
 > **Third-party providers (Amazon Bedrock, Google Vertex AI, Microsoft Foundry):** Managed Agents is **not available** on Bedrock, Vertex, or Foundry. If you are deploying through any third-party provider, use **Claude API + tool use** for all use cases — including ones where Managed Agents would otherwise be the recommended surface.
 
 ### Decision Tree
 
-```text
+```
 What does your application need?
 
 0. Are you deploying through Amazon Bedrock, Google Vertex AI, or Microsoft Foundry?
@@ -121,17 +132,16 @@ What does your application need?
 
 4. Open-ended agent (model decides its own trajectory, your own tools, you host the compute)
    └── Claude API agentic loop (maximum flexibility)
-
 ```
 
 ### Should I Build an Agent?
 
 Before choosing the agent tier, check all four criteria:
 
-* **Complexity** — Is the task multi-step and hard to fully specify in advance? (e.g., "turn this design doc into a PR" vs. "extract the title from this PDF")
-* **Value** — Does the outcome justify higher cost and latency?
-* **Viability** — Is Claude capable at this task type?
-* **Cost of error** — Can errors be caught and recovered from? (tests, review, rollback)
+- **Complexity** — Is the task multi-step and hard to fully specify in advance? (e.g., "turn this design doc into a PR" vs. "extract the title from this PDF")
+- **Value** — Does the outcome justify higher cost and latency?
+- **Viability** — Is Claude capable at this task type?
+- **Cost of error** — Can errors be caught and recovered from? (tests, review, rollback)
 
 If the answer is "no" to any of these, stay at a simpler tier (single call or workflow).
 
@@ -153,12 +163,12 @@ Everything goes through `POST /v1/messages`. Tools and output constraints are fe
 
 ## Current Models (cached: 2026-04-15)
 
-| Model             | Model ID          | Context | Input $/1M | Output $/1M |
-| ----------------- | ----------------- | ------- | ---------- | ----------- |
-| Claude Opus 4.7   | claude-opus-4-7   | 1M      | $5.00      | $25.00      |
-| Claude Opus 4.6   | claude-opus-4-6   | 1M      | $5.00      | $25.00      |
-| Claude Sonnet 4.6 | claude-sonnet-4-6 | 1M      | $3.00      | $15.00      |
-| Claude Haiku 4.5  | claude-haiku-4-5  | 200K    | $1.00      | $5.00       |
+| Model             | Model ID            | Context        | Input $/1M | Output $/1M |
+| ----------------- | ------------------- | -------------- | ---------- | ----------- |
+| Claude Opus 4.7   | `claude-opus-4-7`   | 1M             | $5.00      | $25.00      |
+| Claude Opus 4.6   | `claude-opus-4-6`   | 1M             | $5.00      | $25.00      |
+| Claude Sonnet 4.6 | `claude-sonnet-4-6` | 1M             | $3.00      | $15.00      |
+| Claude Haiku 4.5  | `claude-haiku-4-5`  | 200K           | $1.00      | $5.00       |
 
 **ALWAYS use `claude-opus-4-7` unless the user explicitly names a different model.** This is non-negotiable. Do not use `claude-sonnet-4-6`, `claude-sonnet-4-5`, or any other model unless the user literally says "use sonnet" or "use haiku". Never downgrade for cost — that's the user's decision, not yours.
 
@@ -172,7 +182,9 @@ A note: if any of the model strings above look unfamiliar to you, that's to be e
 
 ## Thinking & Effort (Quick Reference)
 
-**Opus 4.7 — Adaptive thinking only:** Use `thinking: {type: "adaptive"}`. `thinking: {type: "enabled", budget_tokens: N}` returns a 400 on Opus 4.7 — adaptive is the only on-mode. `{type: "disabled"}` and omitting `thinking` both work. Sampling parameters (`temperature`, `top_p`, `top_k`) are also removed and will 400\. See `shared/model-migration.md` → Migrating to Opus 4.7 for the full breaking-change list. **Opus 4.6 — Adaptive thinking (recommended):** Use `thinking: {type: "adaptive"}`. Claude dynamically decides when and how much to think. No `budget_tokens` needed — `budget_tokens` is deprecated on Opus 4.6 and Sonnet 4.6 and should not be used for new code. Adaptive thinking also automatically enables interleaved thinking (no beta header needed). **When the user asks for "extended thinking", a "thinking budget", or `budget_tokens`: always use Opus 4.7 or 4.6 with `thinking: {type: "adaptive"}`. The concept of a fixed token budget for thinking is deprecated — adaptive thinking replaces it. Do NOT use `budget_tokens` for new 4.6/4.7 code and do NOT switch to an older model.** _Gradual-migration carve-out:_ `budget_tokens` is still functional on Opus 4.6 and Sonnet 4.6 as a transitional escape hatch — if you're migrating existing code and need a hard token ceiling before you've tuned `effort`, see `shared/model-migration.md` → Transitional escape hatch. Note: this carve-out does **not** apply to Opus 4.7 — `budget_tokens` is fully removed there. **Effort parameter (GA, no beta header):** Controls thinking depth and overall token spend via `output_config: {effort: "low"|"medium"|"high"|"max"}` (inside `output_config`, not top-level). Default is `high` (equivalent to omitting it). `max` is Opus-tier only (Opus 4.6 and later — not Sonnet or Haiku). Opus 4.7 adds `"xhigh"` (between `high` and `max`) — the best setting for most coding and agentic use cases on 4.7, and the default in Claude Code; use a minimum of `high` for most intelligence-sensitive work. Works on Opus 4.5, Opus 4.6, Opus 4.7, and Sonnet 4.6\. Will error on Sonnet 4.5 / Haiku 4.5\. On Opus 4.7, effort matters more than on any prior Opus — re-tune it when migrating. Combine with adaptive thinking for the best cost-quality tradeoffs. Lower effort means fewer and more-consolidated tool calls, less preamble, and terser confirmations — `high` is often the sweet spot balancing quality and token efficiency; use `max` when correctness matters more than cost; use `low` for subagents or simple tasks.
+**Opus 4.7 — Adaptive thinking only:** Use `thinking: {type: "adaptive"}`. `thinking: {type: "enabled", budget_tokens: N}` returns a 400 on Opus 4.7 — adaptive is the only on-mode. `{type: "disabled"}` and omitting `thinking` both work. Sampling parameters (`temperature`, `top_p`, `top_k`) are also removed and will 400. See `shared/model-migration.md` → Migrating to Opus 4.7 for the full breaking-change list.
+**Opus 4.6 — Adaptive thinking (recommended):** Use `thinking: {type: "adaptive"}`. Claude dynamically decides when and how much to think. No `budget_tokens` needed — `budget_tokens` is deprecated on Opus 4.6 and Sonnet 4.6 and should not be used for new code. Adaptive thinking also automatically enables interleaved thinking (no beta header needed). **When the user asks for "extended thinking", a "thinking budget", or `budget_tokens`: always use Opus 4.7 or 4.6 with `thinking: {type: "adaptive"}`. The concept of a fixed token budget for thinking is deprecated — adaptive thinking replaces it. Do NOT use `budget_tokens` for new 4.6/4.7 code and do NOT switch to an older model.** *Gradual-migration carve-out:* `budget_tokens` is still functional on Opus 4.6 and Sonnet 4.6 as a transitional escape hatch — if you're migrating existing code and need a hard token ceiling before you've tuned `effort`, see `shared/model-migration.md` → Transitional escape hatch. Note: this carve-out does **not** apply to Opus 4.7 — `budget_tokens` is fully removed there.
+**Effort parameter (GA, no beta header):** Controls thinking depth and overall token spend via `output_config: {effort: "low"|"medium"|"high"|"max"}` (inside `output_config`, not top-level). Default is `high` (equivalent to omitting it). `max` is Opus-tier only (Opus 4.6 and later — not Sonnet or Haiku). Opus 4.7 adds `"xhigh"` (between `high` and `max`) — the best setting for most coding and agentic use cases on 4.7, and the default in Claude Code; use a minimum of `high` for most intelligence-sensitive work. Works on Opus 4.5, Opus 4.6, Opus 4.7, and Sonnet 4.6. Will error on Sonnet 4.5 / Haiku 4.5. On Opus 4.7, effort matters more than on any prior Opus — re-tune it when migrating. Combine with adaptive thinking for the best cost-quality tradeoffs. Lower effort means fewer and more-consolidated tool calls, less preamble, and terser confirmations — `high` is often the sweet spot balancing quality and token efficiency; use `max` when correctness matters more than cost; use `low` for subagents or simple tasks.
 
 **Opus 4.7 — thinking content omitted by default:** `thinking` blocks still stream but their text is empty unless you opt in with `thinking: {type: "adaptive", display: "summarized"}` (default is `"omitted"`). Silent change — no error. If you stream reasoning to users, the default looks like a long pause before output; set `"summarized"` to restore visible progress.
 
@@ -198,7 +210,7 @@ See `{lang}/claude-api/README.md` (Compaction section) for code examples. Full d
 
 **Prefix match.** Any byte change anywhere in the prefix invalidates everything after it. Render order is `tools` → `system` → `messages`. Keep stable content first (frozen system prompt, deterministic tool list), put volatile content (timestamps, per-request IDs, varying questions) after the last `cache_control` breakpoint.
 
-**Top-level auto-caching** (`cache_control: {type: "ephemeral"}` on `messages.create()`) is the simplest option when you don't need fine-grained placement. Max 4 breakpoints per request. Minimum cacheable prefix is \~1024 tokens — shorter prefixes silently won't cache.
+**Top-level auto-caching** (`cache_control: {type: "ephemeral"}` on `messages.create()`) is the simplest option when you don't need fine-grained placement. Max 4 breakpoints per request. Minimum cacheable prefix is ~1024 tokens — shorter prefixes silently won't cache.
 
 **Verify with `usage.cache_read_input_tokens`** — if it's zero across repeated requests, a silent invalidator is at work (`datetime.now()` in system prompt, unsorted JSON, varying tool set).
 
@@ -216,11 +228,11 @@ For placement patterns, architectural guidance, and the silent-invalidator audit
 
 **Beta headers:** `managed-agents-2026-04-01` — the SDK sets this automatically for all `client.beta.{agents,environments,sessions,vaults,memory_stores}.*` calls. Skills API uses `skills-2025-10-02` and Files API uses `files-api-2025-04-14`, but you don't need to explicitly pass those in for endpoints other than `/v1/skills` and `/v1/files`.
 
-**Subcommands** — invoke directly with /claude-api : 
+**Subcommands** — invoke directly with `/claude-api <subcommand>`:
 
-| Subcommand             | Action                                                                                                                                                                                                                                                                              |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| managed-agents-onboard | Walk the user through setting up a Managed Agent from scratch. **Read shared/managed-agents-onboarding.md immediately** and follow its interview script: mental model → know-or-explore branch → template config → session setup → emit code. Do not summarize — run the interview. |
+| Subcommand | Action |
+|---|---|
+| `managed-agents-onboard` | Walk the user through setting up a Managed Agent from scratch. **Read `shared/managed-agents-onboarding.md` immediately** and follow its interview script: mental model → know-or-explore branch → template config → session setup → emit code. Do not summarize — run the interview. |
 
 **Reading guide:** Start with `shared/managed-agents-overview.md`, then the topical `shared/managed-agents-*.md` files (core, environments, tools, events, outcomes, multiagent, webhooks, memory, client-patterns, onboarding, api-reference). For Python, TypeScript, Go, Ruby, PHP, and Java, read `{lang}/managed-agents/README.md` for code examples. For cURL, read `curl/managed-agents.md`. **Agents are persistent — create once, reference by ID.** Store the agent ID returned by `agents.create` and pass it to every subsequent `sessions.create`; do not call `agents.create` in the request path. The Anthropic CLI is one convenient way to create agents and environments from version-controlled YAML (URL in `shared/live-sources.md`). If a binding you need isn't shown in the language README, WebFetch the relevant entry from `shared/live-sources.md` rather than guess. C# does not currently have Managed Agents support; use raw HTTP from `curl/managed-agents.md` as a reference.
 
@@ -236,21 +248,33 @@ After detecting the language, read the relevant files based on what the user nee
 
 ### Quick Task Reference
 
-**Single text classification/summarization/extraction/Q&A:**→ Read only `{lang}/claude-api/README.md`
+**Single text classification/summarization/extraction/Q&A:**
+→ Read only `{lang}/claude-api/README.md`
 
-**Chat UI or real-time response display:**→ Read `{lang}/claude-api/README.md` \+ `{lang}/claude-api/streaming.md`
+**Chat UI or real-time response display:**
+→ Read `{lang}/claude-api/README.md` + `{lang}/claude-api/streaming.md`
 
-**Long-running conversations (may exceed context window):**→ Read `{lang}/claude-api/README.md` — see Compaction section **Migrating to a newer model (Opus 4.7 / Opus 4.6 / Sonnet 4.6) or replacing a retired model:**→ Read `shared/model-migration.md` **Prompt caching / optimize caching / "why is my cache hit rate low":**→ Read `shared/prompt-caching.md` \+ `{lang}/claude-api/README.md` (Prompt Caching section)
+**Long-running conversations (may exceed context window):**
+→ Read `{lang}/claude-api/README.md` — see Compaction section
+**Migrating to a newer model (Opus 4.7 / Opus 4.6 / Sonnet 4.6) or replacing a retired model:**
+→ Read `shared/model-migration.md`
+**Prompt caching / optimize caching / "why is my cache hit rate low":**
+→ Read `shared/prompt-caching.md` + `{lang}/claude-api/README.md` (Prompt Caching section)
 
-**Function calling / tool use / agents:**→ Read `{lang}/claude-api/README.md` \+ `shared/tool-use-concepts.md` \+ `{lang}/claude-api/tool-use.md`
+**Function calling / tool use / agents:**
+→ Read `{lang}/claude-api/README.md` + `shared/tool-use-concepts.md` + `{lang}/claude-api/tool-use.md`
 
-**Agent design (tool surface, context management, caching strategy):**→ Read `shared/agent-design.md`
+**Agent design (tool surface, context management, caching strategy):**
+→ Read `shared/agent-design.md`
 
-**Batch processing (non-latency-sensitive):**→ Read `{lang}/claude-api/README.md` \+ `{lang}/claude-api/batches.md`
+**Batch processing (non-latency-sensitive):**
+→ Read `{lang}/claude-api/README.md` + `{lang}/claude-api/batches.md`
 
-**File uploads across multiple requests:**→ Read `{lang}/claude-api/README.md` \+ `{lang}/claude-api/files-api.md`
+**File uploads across multiple requests:**
+→ Read `{lang}/claude-api/README.md` + `{lang}/claude-api/files-api.md`
 
-**Managed Agents (server-managed stateful agents with workspace):**→ Read `shared/managed-agents-overview.md` \+ the rest of the `shared/managed-agents-*.md` files. For Python, TypeScript, Go, Ruby, PHP, and Java, read `{lang}/managed-agents/README.md` for code examples. For cURL, read `curl/managed-agents.md`. **Agents are persistent — create once, reference by ID.** Store the agent ID returned by `agents.create` and pass it to every subsequent `sessions.create`; do not call `agents.create` in the request path. The Anthropic CLI is one convenient way to create agents and environments from version-controlled YAML (URL in `shared/live-sources.md`). If a binding you need isn't shown in the language README, WebFetch the relevant entry from `shared/live-sources.md` rather than guess. C# does not currently support Managed Agents — use raw HTTP from `curl/managed-agents.md` as a reference.
+**Managed Agents (server-managed stateful agents with workspace):**
+→ Read `shared/managed-agents-overview.md` + the rest of the `shared/managed-agents-*.md` files. For Python, TypeScript, Go, Ruby, PHP, and Java, read `{lang}/managed-agents/README.md` for code examples. For cURL, read `curl/managed-agents.md`. **Agents are persistent — create once, reference by ID.** Store the agent ID returned by `agents.create` and pass it to every subsequent `sessions.create`; do not call `agents.create` in the request path. The Anthropic CLI is one convenient way to create agents and environments from version-controlled YAML (URL in `shared/live-sources.md`). If a binding you need isn't shown in the language README, WebFetch the relevant entry from `shared/live-sources.md` rather than guess. C# does not currently support Managed Agents — use raw HTTP from `curl/managed-agents.md` as a reference.
 
 ### Claude API (Full File Reference)
 
@@ -278,23 +302,23 @@ Read the **language-specific Claude API folder** (`{language}/claude-api/`):
 
 Use WebFetch to get the latest documentation when:
 
-* User asks for "latest" or "current" information
-* Cached data seems incorrect
-* User asks about features not covered here
+- User asks for "latest" or "current" information
+- Cached data seems incorrect
+- User asks about features not covered here
 
 Live documentation URLs are in `shared/live-sources.md`.
 
 ## Common Pitfalls
 
-* Don't truncate inputs when passing files or content to the API. If the content is too long to fit in the context window, notify the user and discuss options (chunking, summarization, etc.) rather than silently truncating.
-* **Opus 4.7 thinking:** Adaptive only. `thinking: {type: "enabled", budget_tokens: N}` returns 400 on Opus 4.7 — `budget_tokens` is fully removed there (along with `temperature`, `top_p`, `top_k`). Use `thinking: {type: "adaptive"}`.
-* **Opus 4.6 / Sonnet 4.6 thinking:** Use `thinking: {type: "adaptive"}` — do NOT use `budget_tokens` for new 4.6 code (deprecated on both Opus 4.6 and Sonnet 4.6; for gradual migration of existing code, see the transitional escape hatch in `shared/model-migration.md` — note this carve-out does not apply to Opus 4.7). For older models, `budget_tokens` must be less than `max_tokens` (minimum 1024). This will throw an error if you get it wrong.
-* **4.6/4.7 family prefill removed:** Assistant message prefills (last-assistant-turn prefills) return a 400 error on Opus 4.6, Opus 4.7, and Sonnet 4.6\. Use structured outputs (`output_config.format`) or system prompt instructions to control response format instead.
-* **Confirm migration scope before editing:** When a user asks to migrate code to a newer Claude model without naming a specific file, directory, or file list, **ask which scope to apply first** — the entire working directory, a specific subdirectory, or a specific set of files. Do not start editing until the user confirms. Imperative phrasings like "migrate my codebase", "move my project to X", "upgrade to Sonnet 4.6", or bare "migrate to Opus 4.7" are **still ambiguous** — they tell you what to do but not where, so ask. Proceed without asking only when the prompt names an exact file, a specific directory, or an explicit file list ("migrate `app.py`", "migrate everything under `services/`", "update `a.py` and `b.py`"). See `shared/model-migration.md` Step 0.
-* **`max_tokens` defaults:** Don't lowball `max_tokens` — hitting the cap truncates output mid-thought and requires a retry. For non-streaming requests, default to `~16000` (keeps responses under SDK HTTP timeouts). For streaming requests, default to `~64000` (timeouts aren't a concern, so give the model room). Only go lower when you have a hard reason: classification (`~256`), cost caps, or deliberately short outputs.
-* **128K output tokens:** Opus 4.6 and Opus 4.7 support up to 128K `max_tokens`, but the SDKs require streaming for values that large to avoid HTTP timeouts. Use `.stream()` with `.get_final_message()` / `.finalMessage()`.
-* **Tool call JSON parsing (4.6/4.7 family):** Opus 4.6, Opus 4.7, and Sonnet 4.6 may produce different JSON string escaping in tool call `input` fields (e.g., Unicode or forward-slash escaping). Always parse tool inputs with `json.loads()` / `JSON.parse()` — never do raw string matching on the serialized input.
-* **Structured outputs (all models):** Use `output_config: {format: {...}}` instead of the deprecated `output_format` parameter on `messages.create()`. This is a general API change, not 4.6-specific.
-* **Don't reimplement SDK functionality:** The SDK provides high-level helpers — use them instead of building from scratch. Specifically: use `stream.finalMessage()` instead of wrapping `.on()` events in `new Promise()`; use typed exception classes (`Anthropic.RateLimitError`, etc.) instead of string-matching error messages; use SDK types (`Anthropic.MessageParam`, `Anthropic.Tool`, `Anthropic.Message`, etc.) instead of redefining equivalent interfaces.
-* **Don't define custom types for SDK data structures:** The SDK exports types for all API objects. Use `Anthropic.MessageParam` for messages, `Anthropic.Tool` for tool definitions, `Anthropic.ToolUseBlock` / `Anthropic.ToolResultBlockParam` for tool results, `Anthropic.Message` for responses. Defining your own `interface ChatMessage { role: string; content: unknown }` duplicates what the SDK already provides and loses type safety.
-* **Report and document output:** For tasks that produce reports, documents, or visualizations, the code execution sandbox has `python-docx`, `python-pptx`, `matplotlib`, `pillow`, and `pypdf` pre-installed. Claude can generate formatted files (DOCX, PDF, charts) and return them via the Files API — consider this for "report" or "document" type requests instead of plain stdout text.
+- Don't truncate inputs when passing files or content to the API. If the content is too long to fit in the context window, notify the user and discuss options (chunking, summarization, etc.) rather than silently truncating.
+- **Opus 4.7 thinking:** Adaptive only. `thinking: {type: "enabled", budget_tokens: N}` returns 400 on Opus 4.7 — `budget_tokens` is fully removed there (along with `temperature`, `top_p`, `top_k`). Use `thinking: {type: "adaptive"}`.
+- **Opus 4.6 / Sonnet 4.6 thinking:** Use `thinking: {type: "adaptive"}` — do NOT use `budget_tokens` for new 4.6 code (deprecated on both Opus 4.6 and Sonnet 4.6; for gradual migration of existing code, see the transitional escape hatch in `shared/model-migration.md` — note this carve-out does not apply to Opus 4.7). For older models, `budget_tokens` must be less than `max_tokens` (minimum 1024). This will throw an error if you get it wrong.
+- **4.6/4.7 family prefill removed:** Assistant message prefills (last-assistant-turn prefills) return a 400 error on Opus 4.6, Opus 4.7, and Sonnet 4.6. Use structured outputs (`output_config.format`) or system prompt instructions to control response format instead.
+- **Confirm migration scope before editing:** When a user asks to migrate code to a newer Claude model without naming a specific file, directory, or file list, **ask which scope to apply first** — the entire working directory, a specific subdirectory, or a specific set of files. Do not start editing until the user confirms. Imperative phrasings like "migrate my codebase", "move my project to X", "upgrade to Sonnet 4.6", or bare "migrate to Opus 4.7" are **still ambiguous** — they tell you what to do but not where, so ask. Proceed without asking only when the prompt names an exact file, a specific directory, or an explicit file list ("migrate `app.py`", "migrate everything under `services/`", "update `a.py` and `b.py`"). See `shared/model-migration.md` Step 0.
+- **`max_tokens` defaults:** Don't lowball `max_tokens` — hitting the cap truncates output mid-thought and requires a retry. For non-streaming requests, default to `~16000` (keeps responses under SDK HTTP timeouts). For streaming requests, default to `~64000` (timeouts aren't a concern, so give the model room). Only go lower when you have a hard reason: classification (`~256`), cost caps, or deliberately short outputs.
+- **128K output tokens:** Opus 4.6 and Opus 4.7 support up to 128K `max_tokens`, but the SDKs require streaming for values that large to avoid HTTP timeouts. Use `.stream()` with `.get_final_message()` / `.finalMessage()`.
+- **Tool call JSON parsing (4.6/4.7 family):** Opus 4.6, Opus 4.7, and Sonnet 4.6 may produce different JSON string escaping in tool call `input` fields (e.g., Unicode or forward-slash escaping). Always parse tool inputs with `json.loads()` / `JSON.parse()` — never do raw string matching on the serialized input.
+- **Structured outputs (all models):** Use `output_config: {format: {...}}` instead of the deprecated `output_format` parameter on `messages.create()`. This is a general API change, not 4.6-specific.
+- **Don't reimplement SDK functionality:** The SDK provides high-level helpers — use them instead of building from scratch. Specifically: use `stream.finalMessage()` instead of wrapping `.on()` events in `new Promise()`; use typed exception classes (`Anthropic.RateLimitError`, etc.) instead of string-matching error messages; use SDK types (`Anthropic.MessageParam`, `Anthropic.Tool`, `Anthropic.Message`, etc.) instead of redefining equivalent interfaces.
+- **Don't define custom types for SDK data structures:** The SDK exports types for all API objects. Use `Anthropic.MessageParam` for messages, `Anthropic.Tool` for tool definitions, `Anthropic.ToolUseBlock` / `Anthropic.ToolResultBlockParam` for tool results, `Anthropic.Message` for responses. Defining your own `interface ChatMessage { role: string; content: unknown }` duplicates what the SDK already provides and loses type safety.
+- **Report and document output:** For tasks that produce reports, documents, or visualizations, the code execution sandbox has `python-docx`, `python-pptx`, `matplotlib`, `pillow`, and `pypdf` pre-installed. Claude can generate formatted files (DOCX, PDF, charts) and return them via the Files API — consider this for "report" or "document" type requests instead of plain stdout text.

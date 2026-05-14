@@ -1,124 +1,129 @@
-You need to remove organic-search release blockers for a developer-tools SaaS team's product marketing site before launch. The team has placed the site source code, keyword plan, historical snapshots, reference materials, and the current release validation pipeline into this container, but the growth team still cannot approve this release.
+You are preparing the next 8-week replenishment plan for a regional retail chain before the next ordering cycle closes.
 
-Input data is inside the container:
+Input data is under `/app/data/`:
 
-- `/root/workspace/site/`: the marketing site source code and build scripts.
-- `/root/workspace/seo_inputs/site_manifest.json`: site entrypoints, target pages, the official build command, and output requirements.
-- `/root/workspace/seo_inputs/keyword_map.csv`: target pages, primary keywords, secondary keywords, search intent, page type, and title constraints.
-- `/root/workspace/seo_inputs/search_console_snapshot.json`: an earlier export of index coverage, queries, and landing-page performance; it may be outdated.
-- `/root/workspace/seo_inputs/crawl_snapshot.ndjson`: an earlier crawl snapshot of pages and on-site signals; it may only cover some URLs and no longer reflect the current real site.
-- `/root/workspace/seo_inputs/content_briefs/`: per-page briefs including product positioning, feature facts, audience, forbidden claims, and allowable evidence.
-- `/root/workspace/seo_inputs/reference_pages/`: a normalized reference packet derived from public product pages, docs pages, and pricing pages.
-- The container also provides local preview and validation tools required by the current release checks.
+- `planning_manifest.json`: planning window, in-scope stores, and in-scope SKUs.
+- `historical_demand_weekly.csv`: weekly unit demand history for each store and SKU.
+- `sku_store_setup.csv`: store and SKU demand profile, service tier, current status, and target cover.
+- `inventory_snapshot.csv`: current on-hand units and committed demand by store and SKU.
+- `open_purchase_orders.csv`: in-flight receipts that already have an arrival week.
+- `vendor_constraints.csv`: unit cost, lead time, ordering cadence, case pack, and MOQ inputs.
+- `promotion_schedule.csv`: approved promotion weeks for selected store and SKU combinations.
+- `new_sku_analogs.csv`: analog mappings and launch factors for short-history items.
+- `planning_policy.yaml`: forecast rules, review-capacity rules, budget rules, and risk policy.
 
 ## Your Task
 
-1. Review the target pages, site source code, historical snapshots, and the current release validation results to identify the root causes preventing target pages from meeting the launch bar.
-2. Without changing the site's core product positioning or each page's intended use, fix these release blockers so all target pages meet the requirements defined in `site_manifest.json` and `keyword_map.csv`.
-3. Rebuild the site using the official build, and use the container's current validation pipeline to confirm the target pages now meet the release criteria.
-4. Produce a machine-readable fix report, a keyword coverage table, and a short summary for the growth lead.
+1. Build an 8-week weekly forecast for every in-scope `store_id + sku_id` pair.
+2. Use the provided inventory position, ordering constraints, and policy rules to determine which replenishment actions should be recommended in the current planning cycle.
+3. Identify the remaining service-risk items and planning exceptions after the recommended orders are applied.
+4. Write the required planning outputs to `/app/output/`.
 
-## Business Rules
+## Business Constraints
 
-1. Every target page listed in `site_manifest.json` must be checked; no omissions.
-2. `search_console_snapshot.json` and `crawl_snapshot.ndjson` are historical context only and must not replace the actual validation results from the current build.
-3. All target pages must ultimately meet the release bar; you must not evade issues by deleting pages, switching them to noindex, adding robots blocking, replacing them with placeholder pages, or changing the pages' intended purpose.
-4. The page positioning, keyword mapping, and title constraints defined in `keyword_map.csv` must be followed; do not rewrite target keywords or loosen the bar on your own.
-5. If a historical URL has been replaced by a new page, you must handle it per the site's rules via a canonical redirect or canonicalization merge; do not keep competing duplicate official pages.
-6. Page facts must come from allowable evidence in the existing source code, content briefs, or reference packets. Do not fabricate product capabilities, customer cases, performance numbers, integration counts, security/compliance commitments, or market rankings.
+1. Every in-scope `store_id + sku_id + week_start` combination must appear in the forecast output.
+2. `historical_demand_weekly.csv`, `sku_store_setup.csv`, `inventory_snapshot.csv`, `open_purchase_orders.csv`, `vendor_constraints.csv`, `promotion_schedule.csv`, `new_sku_analogs.csv`, and `planning_policy.yaml` are the authoritative planning inputs for this task.
+3. Items with `status != active` in `sku_store_setup.csv` must not receive a recommended order.
+4. Recommended order quantities must respect case-pack rounding and MOQ rules.
+5. Short-history items must use the provided analog mapping in the forecast and in the current-cycle planning decision.
+6. The final recommended plan must stay within the budget limit defined in `planning_policy.yaml`.
+7. The buying team can review at most five current-cycle recommendation lines, so the final plan must stay focused on the highest-priority lines.
+8. When tradeoffs are required, protect approved near-term promotion demand and short-history launch exposure before lower-priority lines that can wait for a later cycle.
 
-## Output Format
+## Output
 
-If `/root/output/` does not exist, create it first.
+If `/app/output/` does not exist, create it first.
 
-Write `/root/output/seo_fixes_report.json` with the following structure:
+Write `/app/output/forecast_review.csv` with these exact columns:
+
+```csv
+store_id,sku_id,week_start,forecast_method,baseline_units,promo_lift_units,final_forecast_units,service_level,safety_stock_units,reorder_point_units
+```
+
+Requirements:
+
+- Include one row per `store_id + sku_id + week_start`.
+- `week_start` must use `YYYY-MM-DD`.
+- Numeric fields must be numbers.
+- `final_forecast_units` must equal `baseline_units + promo_lift_units`.
+
+Write `/app/output/replenishment_plan.csv` with these exact columns:
+
+```csv
+store_id,sku_id,order_week_start,arrival_week_start,recommended_order_qty,inventory_position_before_order,inventory_position_after_order,coverage_weeks,decision_reason
+```
+
+Requirements:
+
+- Include one row for every recommended order with `recommended_order_qty > 0`.
+- `order_week_start` and `arrival_week_start` must use `YYYY-MM-DD`.
+- `recommended_order_qty` must be a non-negative integer.
+- `decision_reason` must be a short operational reason.
+
+Write `/app/output/planning_summary.json` with this structure:
 
 ```json
 {
-  "site_id": "site-000",
-  "target_pages": [
-    {
-      "page_id": "pricing",
-      "url": "https://example.test/pricing",
-      "primary_keyword": "string",
-      "indexable": true,
-      "canonical_url": "https://example.test/pricing",
-      "title": "string",
-      "meta_description": "string",
-      "h1": "string",
-      "incoming_internal_links": 2,
-      "structured_data_types": ["SoftwareApplication"],
-      "fixes_applied": ["string"],
-      "evidence_refs": ["brief:pricing", "ref:posthog-pricing"]
-    }
-  ],
-  "sitemap_summary": {
-    "sitemap_path": "string",
-    "expected_urls_present": true,
-    "unexpected_urls": []
+  "planning_window": {
+    "start_week": "YYYY-MM-DD",
+    "end_week": "YYYY-MM-DD"
   },
-  "redirects_or_canonicalizations": [
+  "totals": {
+    "sku_store_pairs": 0,
+    "forecast_rows": 0,
+    "planned_orders": 0,
+    "total_recommended_units": 0
+  },
+  "budget_check": {
+    "within_budget": true,
+    "budget_limit": 0.0,
+    "planned_cost": 0.0
+  },
+  "service_risk_items": [
     {
-      "source_url": "string",
-      "target_url": "string",
-      "reason": "string"
+      "store_id": "STORE_1",
+      "sku_id": "SKU_1",
+      "risk_level": "high",
+      "reason": "Example"
     }
   ],
-  "remaining_risks": [
+  "exceptions": [
     {
-      "page_id": "string",
-      "risk": "string",
-      "why_not_blocking": "string"
+      "store_id": "STORE_1",
+      "sku_id": "SKU_1",
+      "exception_code": "budget_hold",
+      "detail": "Example"
     }
   ],
-  "validation": {
-    "build_status": "pass",
-    "seo_audit_status": "pass"
-  }
+  "notes": [
+    "Example note"
+  ]
 }
 ```
 
 Requirements:
 
-- `target_pages` must cover all target pages in `site_manifest.json`, and each `page_id` may appear only once.
-- `indexable` must be `true` or `false`.
-- `canonical_url` must be the final official canonical URL.
-- `incoming_internal_links` must be a JSON number.
-- `structured_data_types` must list the schema type(s) for this page as detected by the current release validation pipeline.
-- `fixes_applied` must list at least the key fixes applied to the page.
-- `evidence_refs` must include at least 2 references, with at least 1 from `content_briefs/` and at least 1 from `reference_pages/`.
-- `validation.build_status` and `validation.seo_audit_status` must both be `pass`.
+- `forecast_rows` must match the number of rows in `forecast_review.csv`.
+- `planned_orders` must match the number of rows in `replenishment_plan.csv`.
+- `within_budget` must reflect the final plan against `planning_policy.yaml`.
+- `service_risk_items` must include every material remaining risk after planning.
 
-Write `/root/output/keyword_coverage.csv` with column names exactly as follows:
+Write `/app/output/planner_memo.md`.
 
-```csv
-page_id,url,primary_keyword,secondary_keywords,title_length,primary_keyword_in_title,primary_keyword_in_h1,meta_description_present,canonical_self_referencing,indexable,incoming_internal_links,structured_data_ok
-```
+The memo must include:
 
-Requirements:
-
-- Must cover all target pages.
-- `secondary_keywords` must be `|`-separated.
-- `title_length` must be numeric.
-- `primary_keyword_in_title`, `primary_keyword_in_h1`, `meta_description_present`, `canonical_self_referencing`, `indexable`, and `structured_data_ok` must be `true` or `false`.
-
-Write `/root/output/growth_summary.md`. It must include:
-
-- the site ID;
-- the number of target pages fixed;
-- any remaining non-blocking risks;
-- a summary of sitemap and canonicalization handling;
-- a summary of keyword coverage;
-- the most important changes to on-site discovery paths;
-- the most important structured data changes;
-- a short release recommendation to the growth lead.
+- the planning window;
+- the number of planned orders;
+- total recommended units;
+- the main budget and vendor constraints;
+- the short-history assumption for `SKU-FOXTROT`;
+- how open purchase orders affected the current-cycle plan;
+- the main remaining service risks;
+- the major tradeoffs in the final plan.
 
 ## Notes
 
-- Do not modify any input files under `/root/workspace/seo_inputs/`.
-- Do not treat historical snapshots as the sole source of truth, and do not bypass the actual validation pipeline in this container.
-- Do not replace real site fixes with a static hand-written report, fabricated crawl results, fabricated structured-data results, or cached answers.
-- Do not evade issues by deleting target pages, disabling build checks, disabling sitemap validation, removing discovery-path requirements, or reducing functionality.
-- Do not modify verifier files, task metadata, environment files, or any `skills` directory content.
-- You may write helper scripts in the working directory, but in the end you only need to submit the 3 required files under `/root/output/` and keep the site-fix results in place.
-
+- Do not modify files under `/app/data/`.
+- Do not modify tests, verifier files, task metadata, or environment files.
+- Do not replace the requested planning workflow with hardcoded final answers, cached outputs, or fabricated calculations.
+- You may write helper scripts in the working directory, but the only required deliverables are the four files under `/app/output/`.

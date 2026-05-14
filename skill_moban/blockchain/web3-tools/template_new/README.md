@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`web3-tools` 类热门 skill 的共性价值，通常落在公开市场数据接入、交易所命名差异处理、行情序列整理和稳定落盘上。对这类任务，skill 的作用是让 Agent 先建立交易所视角的数据模型，再进入指标计算、对照和交付。
-* **Task 目标形态**：这类任务适合落在公开行情巡检、跨交易所观察、OHLCV 序列归一化、市场覆盖确认、告警清单生成和机器可读报告产出等场景。题面重点应放在输入包、交付文件、字段合同和禁止事项，把市场发现、符号映射和计算流程留给 solver 自行完成。
 * **Verifier 设计重点**：Verifier 应独立重算关键市场指标，并检查市场覆盖、native symbol、时间顺序、成交量口径、告警阈值和输出排序是否一致。除了结果数值，还要覆盖输入不可改写、服务访问路径、source manifest 一致性和项目入口可复跑性。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`web3-tools__cross-exchange-daily-surveillance`
 - 类别：`web3-tools`
-- 难度：`hard`
 - 绑定 Skill：`ccxt-python`
 - 输入数据参考来源：
   - `environment/data/service_fixtures/market_data.json`：任务内 Coinbase 市场分页目录与 `BTC-USD` / `ETH-USD` 日线载荷；数据整理参考公开历史数据仓库  
@@ -26,7 +24,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 会从 task manifest、contract、参考导出和隐藏服务返回的分页 catalog 与 OHLCV 载荷独立重算市场指标、告警列表、cross-exchange 汇总和 source manifest，再校验 workspace 入口的可复跑性。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -42,7 +40,7 @@
 防作弊测试
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 输入完整性 | data、hidden service 和 installed skill 哈希不得变化 |
+| 输入完整性 | data 与 hidden service 不可修改 |
 | 服务访问路径 | solver 必须在 verifier 之前访问 `/api/manifest`、全部 catalog 分页和全部目标 OHLCV 端点 |
 | 占位输出拦截 | 禁止占位文本、删减输出、额外输出文件和 verifier 字样泄漏 |
 | 交付来源 | 输出必须由 `/app/workspace/marketwatch/` 中的项目入口复跑得出 |

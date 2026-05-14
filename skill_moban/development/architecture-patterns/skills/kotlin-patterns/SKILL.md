@@ -1,14 +1,20 @@
+---
+name: kotlin-patterns
+description: Idiomatic Kotlin patterns, best practices, and conventions for building robust, efficient, and maintainable Kotlin applications with coroutines, null safety, and DSL builders.
+origin: ECC
+---
+
 # Kotlin Development Patterns
 
 Idiomatic Kotlin patterns and best practices for building robust, efficient, and maintainable applications.
 
 ## When to Use
 
-* Writing new Kotlin code
-* Reviewing Kotlin code
-* Refactoring existing Kotlin code
-* Designing Kotlin modules or libraries
-* Configuring Gradle Kotlin DSL builds
+- Writing new Kotlin code
+- Reviewing Kotlin code
+- Refactoring existing Kotlin code
+- Designing Kotlin modules or libraries
+- Configuring Gradle Kotlin DSL builds
 
 ## How It Works
 
@@ -17,28 +23,23 @@ This skill enforces idiomatic Kotlin conventions across seven key areas: null sa
 ## Examples
 
 **Null safety with Elvis operator:**
-
 ```kotlin
 fun getUserEmail(userId: String): String {
     val user = userRepository.findById(userId)
     return user?.email ?: "unknown@example.com"
 }
-
 ```
 
 **Sealed class for exhaustive results:**
-
 ```kotlin
 sealed class Result<out T> {
     data class Success<T>(val data: T) : Result<T>()
     data class Failure(val error: AppError) : Result<Nothing>()
     data object Loading : Result<Nothing>()
 }
-
 ```
 
 **Structured concurrency with async/await:**
-
 ```kotlin
 suspend fun fetchUserWithPosts(userId: String): UserProfile =
     coroutineScope {
@@ -46,12 +47,11 @@ suspend fun fetchUserWithPosts(userId: String): UserProfile =
         val posts = async { postService.getUserPosts(userId) }
         UserProfile(user = user.await(), posts = posts.await())
     }
-
 ```
 
 ## Core Principles
 
-### 1\. Null Safety
+### 1. Null Safety
 
 Kotlin's type system distinguishes nullable and non-nullable types. Leverage it fully.
 
@@ -73,10 +73,9 @@ fun getUserEmail(userId: String): String {
     val user = userRepository.findById(userId)
     return user!!.email // Throws NPE if null
 }
-
 ```
 
-### 2\. Immutability by Default
+### 2. Immutability by Default
 
 Prefer `val` over `var`, immutable collections over mutable ones.
 
@@ -99,10 +98,9 @@ val filtered = users.filter { it.email.isNotBlank() }
 // Bad: Mutable state
 var currentUser: User? = null // Avoid mutable global state
 val mutableUsers = mutableListOf<User>() // Avoid unless truly needed
-
 ```
 
-### 3\. Expression Bodies and Single-Expression Functions
+### 3. Expression Bodies and Single-Expression Functions
 
 Use expression bodies for concise, readable functions.
 
@@ -128,10 +126,9 @@ fun statusMessage(code: Int): String = when (code) {
 fun isAdult(age: Int): Boolean {
     return age >= 18
 }
-
 ```
 
-### 4\. Data Classes for Value Objects
+### 4. Data Classes for Value Objects
 
 Use data classes for types that primarily hold data.
 
@@ -159,7 +156,6 @@ value class Email(val value: String) {
 }
 
 fun getUser(id: UserId): User = userRepository.findById(id)
-
 ```
 
 ## Sealed Classes and Interfaces
@@ -185,7 +181,6 @@ fun <T> Result<T>.getOrThrow(): T = when (this) {
     is Result.Failure -> throw error.toException()
     is Result.Loading -> throw IllegalStateException("Still loading")
 }
-
 ```
 
 ### Sealed Interfaces for API Responses
@@ -212,7 +207,6 @@ fun ApiError.toStatusCode(): Int = when (this) {
     is ApiError.Validation -> 422
     is ApiError.Internal -> 500
 }
-
 ```
 
 ## Scope Functions
@@ -244,7 +238,6 @@ val csv = with(StringBuilder()) {
     users.forEach { appendLine("${it.name},${it.email}") }
     toString()
 }
-
 ```
 
 ### Anti-Patterns
@@ -262,7 +255,6 @@ user?.let { u ->
 // Good: Chain safe calls instead
 val city = user?.address?.city
 city?.let { println(it) }
-
 ```
 
 ## Extension Functions
@@ -292,7 +284,6 @@ class UserService {
 
     fun getActiveUsers(): List<User> = userRepository.findAll().filter { it.isActive() }
 }
-
 ```
 
 ## Coroutines
@@ -337,7 +328,6 @@ suspend fun fetchDashboard(userId: String): Dashboard =
             },
         )
     }
-
 ```
 
 ### Flow for Reactive Streams
@@ -363,7 +353,6 @@ fun searchUsers(query: Flow<String>): Flow<List<User>> =
         .filter { it.length >= 2 }
         .mapLatest { q -> userRepository.search(q) }
         .catch { emit(emptyList()) }
-
 ```
 
 ### Cancellation and Cleanup
@@ -388,7 +377,6 @@ suspend fun acquireAndProcess() {
         }
     }
 }
-
 ```
 
 ## Delegation
@@ -414,7 +402,6 @@ class Config(private val map: Map<String, Any?>) {
 }
 
 val config = Config(mapOf("host" to "localhost", "port" to 8080, "debug" to true))
-
 ```
 
 ### Interface Delegation
@@ -433,7 +420,6 @@ class LoggingUserRepository(
         }
     }
 }
-
 ```
 
 ## DSL Builders
@@ -470,7 +456,6 @@ val page = html {
         p("Hello, World!")
     }
 }
-
 ```
 
 ### Configuration DSL
@@ -513,7 +498,6 @@ val config = serverConfig {
     ssl("/certs/cert.pem", "/certs/key.pem")
     database("jdbc:postgresql://localhost:5432/mydb", maxPoolSize = 20)
 }
-
 ```
 
 ## Sequences for Lazy Evaluation
@@ -540,7 +524,6 @@ val fibonacci: Sequence<Long> = sequence {
 }
 
 val first20 = fibonacci.take(20).toList()
-
 ```
 
 ## Gradle Kotlin DSL
@@ -600,7 +583,6 @@ detekt {
     config.setFrom(files("config/detekt/detekt.yml"))
     buildUponDefaultConfig = true
 }
-
 ```
 
 ## Error Handling Patterns
@@ -626,7 +608,6 @@ suspend fun createUser(request: CreateUserRequest): Result<User> = runCatching {
 val displayName = createUser(request)
     .map { it.name }
     .getOrElse { "Unknown" }
-
 ```
 
 ### require, check, error
@@ -639,7 +620,6 @@ fun withdraw(account: Account, amount: Money): Account {
 
     return account.copy(balance = account.balance - amount)
 }
-
 ```
 
 ## Collection Operations
@@ -664,28 +644,27 @@ val usersById: Map<UserId, User> = users.associateBy { it.id }
 
 // Good: Partition for splitting
 val (active, inactive) = users.partition { it.isActive }
-
 ```
 
 ## Quick Reference: Kotlin Idioms
 
-| Idiom                   | Description                                 |
-| ----------------------- | ------------------------------------------- |
-| val over var            | Prefer immutable variables                  |
-| data class              | For value objects with equals/hashCode/copy |
-| sealed class/interface  | For restricted type hierarchies             |
-| value class             | For type-safe wrappers with zero overhead   |
-| Expression when         | Exhaustive pattern matching                 |
-| Safe call ?.            | Null-safe member access                     |
-| Elvis ?:                | Default value for nullables                 |
-| let/apply/also/run/with | Scope functions for clean code              |
-| Extension functions     | Add behavior without inheritance            |
-| copy()                  | Immutable updates on data classes           |
-| require/check           | Precondition assertions                     |
-| Coroutine async/await   | Structured concurrent execution             |
-| Flow                    | Cold reactive streams                       |
-| sequence                | Lazy evaluation                             |
-| Delegation by           | Reuse implementation without inheritance    |
+| Idiom | Description |
+|-------|-------------|
+| `val` over `var` | Prefer immutable variables |
+| `data class` | For value objects with equals/hashCode/copy |
+| `sealed class/interface` | For restricted type hierarchies |
+| `value class` | For type-safe wrappers with zero overhead |
+| Expression `when` | Exhaustive pattern matching |
+| Safe call `?.` | Null-safe member access |
+| Elvis `?:` | Default value for nullables |
+| `let`/`apply`/`also`/`run`/`with` | Scope functions for clean code |
+| Extension functions | Add behavior without inheritance |
+| `copy()` | Immutable updates on data classes |
+| `require`/`check` | Precondition assertions |
+| Coroutine `async`/`await` | Structured concurrent execution |
+| `Flow` | Cold reactive streams |
+| `sequence` | Lazy evaluation |
+| Delegation `by` | Reuse implementation without inheritance |
 
 ## Anti-Patterns to Avoid
 
@@ -727,7 +706,6 @@ user?.let { u ->
 
 // Good: Direct null-safe chain
 user?.address?.city?.let { process(it) }
-
 ```
 
 **Remember**: Kotlin code should be concise but readable. Leverage the type system for safety, prefer immutability, and use coroutines for concurrency. When in doubt, let the compiler help you.

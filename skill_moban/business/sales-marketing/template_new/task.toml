@@ -1,25 +1,25 @@
 version = "1.0"
 
 [metadata]
-id = "sales-marketing__seo_launch_readiness_remediation"
-name = "Template: SEO Launch Readiness Remediation"
-description = "Repair a developer-tool SaaS marketing site so target landing pages satisfy a local SEO release gate backed by live crawl, discovery-path, and sitemap checks."
+id = "sales-marketing__retail-replenishment-planning"
+name = "Template: Retail Replenishment Planning"
+description = "Build an 8-week store-level replenishment plan from public-source-derived demand history, store and SKU rules, supplier constraints, promotions, and a capped current-cycle review set."
 difficulty = "hard"
 category = "sales-marketing"
 tags = [
-  "seo",
-  "marketing-site",
-  "static-site",
-  "crawl-audit",
-  "sitemap",
-  "structured-data",
-  "internal-linking",
+  "sales-marketing",
+  "inventory-planning",
+  "demand-forecasting",
+  "replenishment",
+  "retail-operations",
+  "promotions",
+  "budgeting",
 ]
 required_skills = [
-  "seo",
+  "inventory-demand-planning",
 ]
-primary_output_file = "/root/output/seo_fixes_report.json"
-source_template_id = "sales-marketing__seo_launch_readiness_remediation"
+primary_output_file = "/app/output/planning_summary.json"
+source_template_id = "sales-marketing__retail-replenishment-planning"
 task_role = "template"
 
 [verifier]

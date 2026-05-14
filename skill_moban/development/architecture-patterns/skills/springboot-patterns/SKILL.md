@@ -1,15 +1,21 @@
+---
+name: springboot-patterns
+description: Spring Boot architecture patterns, REST API design, layered services, data access, caching, async processing, and logging. Use for Java Spring Boot backend work.
+origin: ECC
+---
+
 # Spring Boot Development Patterns
 
 Spring Boot architecture and API patterns for scalable, production-grade services.
 
 ## When to Activate
 
-* Building REST APIs with Spring MVC or WebFlux
-* Structuring controller → service → repository layers
-* Configuring Spring Data JPA, caching, or async processing
-* Adding validation, exception handling, or pagination
-* Setting up profiles for dev/staging/production environments
-* Implementing event-driven patterns with Spring Events or Kafka
+- Building REST APIs with Spring MVC or WebFlux
+- Structuring controller → service → repository layers
+- Configuring Spring Data JPA, caching, or async processing
+- Adding validation, exception handling, or pagination
+- Setting up profiles for dev/staging/production environments
+- Implementing event-driven patterns with Spring Events or Kafka
 
 ## REST API Structure
 
@@ -38,7 +44,6 @@ class MarketController {
     return ResponseEntity.status(HttpStatus.CREATED).body(MarketResponse.from(market));
   }
 }
-
 ```
 
 ## Repository Pattern (Spring Data JPA)
@@ -48,7 +53,6 @@ public interface MarketRepository extends JpaRepository<MarketEntity, Long> {
   @Query("select m from MarketEntity m where m.status = :status order by m.volume desc")
   List<MarketEntity> findActive(@Param("status") MarketStatus status, Pageable pageable);
 }
-
 ```
 
 ## Service Layer with Transactions
@@ -69,7 +73,6 @@ public class MarketService {
     return Market.from(saved);
   }
 }
-
 ```
 
 ## DTOs and Validation
@@ -86,7 +89,6 @@ public record MarketResponse(Long id, String name, MarketStatus status) {
     return new MarketResponse(market.id(), market.name(), market.status());
   }
 }
-
 ```
 
 ## Exception Handling
@@ -114,7 +116,6 @@ class GlobalExceptionHandler {
         .body(ApiError.of("Internal server error"));
   }
 }
-
 ```
 
 ## Caching
@@ -140,7 +141,6 @@ public class MarketCacheService {
   @CacheEvict(value = "market", key = "#id")
   public void evict(Long id) {}
 }
-
 ```
 
 ## Async Processing
@@ -156,7 +156,6 @@ public class NotificationService {
     return CompletableFuture.completedFuture(null);
   }
 }
-
 ```
 
 ## Logging (SLF4J)
@@ -177,7 +176,6 @@ public class ReportService {
     return new Report();
   }
 }
-
 ```
 
 ## Middleware / Filters
@@ -200,7 +198,6 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
     }
   }
 }
-
 ```
 
 ## Pagination and Sorting
@@ -208,7 +205,6 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
 ```java
 PageRequest page = PageRequest.of(pageNumber, pageSize, Sort.by("createdAt").descending());
 Page<Market> results = marketService.list(page);
-
 ```
 
 ## Error-Resilient External Calls
@@ -233,19 +229,21 @@ public <T> T withRetry(Supplier<T> supplier, int maxRetries) {
     }
   }
 }
-
 ```
 
 ## Rate Limiting (Filter + Bucket4j)
 
-**Security Note**: The `X-Forwarded-For` header is untrusted by default because clients can spoof it. Only use forwarded headers when:
-
+**Security Note**: The `X-Forwarded-For` header is untrusted by default because clients can spoof it.
+Only use forwarded headers when:
 1. Your app is behind a trusted reverse proxy (nginx, AWS ALB, etc.)
 2. You have registered `ForwardedHeaderFilter` as a bean
 3. You have configured `server.forward-headers-strategy=NATIVE` or `FRAMEWORK` in application properties
 4. Your proxy is configured to overwrite (not append to) the `X-Forwarded-For` header
 
-When `ForwardedHeaderFilter` is properly configured, `request.getRemoteAddr()` will automatically return the correct client IP from the forwarded headers. Without this configuration, use `request.getRemoteAddr()` directly—it returns the immediate connection IP, which is the only trustworthy value.
+When `ForwardedHeaderFilter` is properly configured, `request.getRemoteAddr()` will automatically
+return the correct client IP from the forwarded headers. Without this configuration, use
+`request.getRemoteAddr()` directly—it returns the immediate connection IP, which is the only
+trustworthy value.
 
 ```java
 @Component
@@ -293,7 +291,6 @@ public class RateLimitFilter extends OncePerRequestFilter {
     }
   }
 }
-
 ```
 
 ## Background Jobs
@@ -302,16 +299,16 @@ Use Spring’s `@Scheduled` or integrate with queues (e.g., Kafka, SQS, RabbitMQ
 
 ## Observability
 
-* Structured logging (JSON) via Logback encoder
-* Metrics: Micrometer + Prometheus/OTel
-* Tracing: Micrometer Tracing with OpenTelemetry or Brave backend
+- Structured logging (JSON) via Logback encoder
+- Metrics: Micrometer + Prometheus/OTel
+- Tracing: Micrometer Tracing with OpenTelemetry or Brave backend
 
 ## Production Defaults
 
-* Prefer constructor injection, avoid field injection
-* Enable `spring.mvc.problemdetails.enabled=true` for RFC 7807 errors (Spring Boot 3+)
-* Configure HikariCP pool sizes for workload, set timeouts
-* Use `@Transactional(readOnly = true)` for queries
-* Enforce null-safety via `@NonNull` and `Optional` where appropriate
+- Prefer constructor injection, avoid field injection
+- Enable `spring.mvc.problemdetails.enabled=true` for RFC 7807 errors (Spring Boot 3+)
+- Configure HikariCP pool sizes for workload, set timeouts
+- Use `@Transactional(readOnly = true)` for queries
+- Enforce null-safety via `@NonNull` and `Optional` where appropriate
 
 **Remember**: Keep controllers thin, services focused, repositories simple, and errors handled centrally. Optimize for maintainability and testability.

@@ -1,27 +1,34 @@
+---
+name: penpot-uiux-design
+description: 'Comprehensive guide for creating professional UI/UX designs in Penpot using MCP tools. Use this skill when: (1) Creating new UI/UX designs for web, mobile, or desktop applications, (2) Building design systems with components and tokens, (3) Designing dashboards, forms, navigation, or landing pages, (4) Applying accessibility standards and best practices, (5) Following platform guidelines (iOS, Android, Material Design), (6) Reviewing or improving existing Penpot designs for usability. Triggers: "design a UI", "create interface", "build layout", "design dashboard", "create form", "design landing page", "make it accessible", "design system", "component library".'
+---
+
 # Penpot UI/UX Design Guide
 
 Create professional, user-centered designs in Penpot using the `penpot/penpot-mcp` MCP server and proven UI/UX principles.
 
 ## Available MCP Tools
 
-| Tool                               | Purpose                                                          |
-| ---------------------------------- | ---------------------------------------------------------------- |
-| mcp\_\_penpot\_\_execute\_code     | Run JavaScript in Penpot plugin context to create/modify designs |
-| mcp\_\_penpot\_\_export\_shape     | Export shapes as PNG/SVG for visual inspection                   |
-| mcp\_\_penpot\_\_import\_image     | Import images (icons, photos, logos) into designs                |
-| mcp\_\_penpot\_\_penpot\_api\_info | Retrieve Penpot API documentation                                |
+| Tool | Purpose |
+| ---- | ------- |
+| `mcp__penpot__execute_code` | Run JavaScript in Penpot plugin context to create/modify designs |
+| `mcp__penpot__export_shape` | Export shapes as PNG/SVG for visual inspection |
+| `mcp__penpot__import_image` | Import images (icons, photos, logos) into designs |
+| `mcp__penpot__penpot_api_info` | Retrieve Penpot API documentation |
 
 ## MCP Server Setup
 
-The Penpot MCP tools require the `penpot/penpot-mcp` server running locally. For detailed installation and troubleshooting, see [setup-troubleshooting.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/penpot-uiux-design/references/setup-troubleshooting.md).
+The Penpot MCP tools require the `penpot/penpot-mcp` server running locally. For detailed installation and troubleshooting, see [setup-troubleshooting.md](references/setup-troubleshooting.md).
 
 ### Before Setup: Check If Already Running
 
 **Always check if the MCP server is already available before attempting setup:**
 
-1. **Try calling a tool first**: Attempt `mcp__penpot__penpot_api_info` \- if it succeeds, the server is running and connected. No setup needed.
-2. **If the tool fails**, ask the user:  
-> "The Penpot MCP server doesn't appear to be connected. Is the server already installed and running? If so, I can help troubleshoot. If not, I can guide you through the setup."
+1. **Try calling a tool first**: Attempt `mcp__penpot__penpot_api_info` - if it succeeds, the server is running and connected. No setup needed.
+
+2. **If the tool fails**, ask the user:
+   > "The Penpot MCP server doesn't appear to be connected. Is the server already installed and running? If so, I can help troubleshoot. If not, I can guide you through the setup."
+
 3. **Only proceed with setup instructions if the user confirms the server is not installed.**
 
 ### Quick Start (Only If Not Installed)
@@ -34,11 +41,9 @@ npm install
 
 # Build and start servers
 npm run bootstrap
-
 ```
 
 Then in Penpot:
-
 1. Open a design file
 2. Go to **Plugins** → **Load plugin from URL**
 3. Enter: `http://localhost:4400/manifest.json`
@@ -47,7 +52,6 @@ Then in Penpot:
 ### VS Code Configuration
 
 Add to `settings.json`:
-
 ```json
 {
   "mcp": {
@@ -58,27 +62,26 @@ Add to `settings.json`:
     }
   }
 }
-
 ```
 
 ### Troubleshooting (If Server Is Installed But Not Working)
 
-| Issue                          | Solution                                                                   |
-| ------------------------------ | -------------------------------------------------------------------------- |
-| Plugin won't connect           | Check servers are running (npm run start:all in penpot-mcp dir)            |
-| Browser blocks localhost       | Allow local network access prompt, or disable Brave Shield, or try Firefox |
-| Tools not appearing in client  | Restart VS Code/Claude completely after config changes                     |
-| Tool execution fails/times out | Ensure Penpot plugin UI is open and shows "Connected"                      |
-| "WebSocket connection failed"  | Check firewall allows ports 4400, 4401, 4402                               |
+| Issue | Solution |
+| ----- | -------- |
+| Plugin won't connect | Check servers are running (`npm run start:all` in penpot-mcp dir) |
+| Browser blocks localhost | Allow local network access prompt, or disable Brave Shield, or try Firefox |
+| Tools not appearing in client | Restart VS Code/Claude completely after config changes |
+| Tool execution fails/times out | Ensure Penpot plugin UI is open and shows "Connected" |
+| "WebSocket connection failed" | Check firewall allows ports 4400, 4401, 4402 |
 
 ## Quick Reference
 
-| Task                                      | Reference File                                                                                                                                |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| MCP server installation & troubleshooting | [setup-troubleshooting.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/penpot-uiux-design/references/setup-troubleshooting.md) |
-| Component specs (buttons, forms, nav)     | [component-patterns.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/penpot-uiux-design/references/component-patterns.md)       |
-| Accessibility (contrast, touch targets)   | [accessibility.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/penpot-uiux-design/references/accessibility.md)                 |
-| Screen sizes & platform specs             | [platform-guidelines.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/penpot-uiux-design/references/platform-guidelines.md)     |
+| Task | Reference File |
+| ---- | -------------- |
+| MCP server installation & troubleshooting | [setup-troubleshooting.md](references/setup-troubleshooting.md) |
+| Component specs (buttons, forms, nav) | [component-patterns.md](references/component-patterns.md) |
+| Accessibility (contrast, touch targets) | [accessibility.md](references/accessibility.md) |
+| Screen sizes & platform specs | [platform-guidelines.md](references/platform-guidelines.md) |
 
 ## Core Design Principles
 
@@ -133,28 +136,27 @@ const textStyles = allShapes
 const components = penpot.library.local.components;
 
 return { colors: [...colors], textStyles, componentCount: components.length };
-
 ```
 
 **If user HAS a design system:**
 
-* Use their specified colors, spacing, typography
-* Match their existing component patterns
-* Follow their naming conventions
+- Use their specified colors, spacing, typography
+- Match their existing component patterns
+- Follow their naming conventions
 
 **If user has NO design system:**
 
-* Use the default tokens below as a starting point
-* Offer to help establish consistent patterns
-* Reference specs in [component-patterns.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/penpot-uiux-design/references/component-patterns.md)
+- Use the default tokens below as a starting point
+- Offer to help establish consistent patterns
+- Reference specs in [component-patterns.md](references/component-patterns.md)
 
 ## Key Penpot API Gotchas
 
-* `width`/`height` are READ-ONLY → use `shape.resize(w, h)`
-* `parentX`/`parentY` are READ-ONLY → use `penpotUtils.setParentXY(shape, x, y)`
-* Use `insertChild(index, shape)` for z-ordering (not `appendChild`)
-* Flex children array order is REVERSED for `dir="column"` or `dir="row"`
-* After `text.resize()`, reset `growType` to `"auto-width"` or `"auto-height"`
+- `width`/`height` are READ-ONLY → use `shape.resize(w, h)`
+- `parentX`/`parentY` are READ-ONLY → use `penpotUtils.setParentXY(shape, x, y)`
+- Use `insertChild(index, shape)` for z-ordering (not `appendChild`)
+- Flex children array order is REVERSED for `dir="column"` or `dir="row"`
+- After `text.resize()`, reset `growType` to `"auto-width"` or `"auto-height"`
 
 ## Positioning New Boards
 
@@ -181,15 +183,14 @@ const newBoard = penpot.createBoard();
 newBoard.x = nextX;
 newBoard.y = 0;
 newBoard.resize(375, 812);
-
 ```
 
 **Board spacing guidelines:**
 
-* Use 100px gap between related screens (same flow)
-* Use 200px+ gap between different sections/flows
-* Align boards vertically (same y) for visual organization
-* Group related screens horizontally in user flow order
+- Use 100px gap between related screens (same flow)
+- Use 200px+ gap between different sections/flows
+- Align boards vertically (same y) for visual organization
+- Group related screens horizontally in user flow order
 
 ## Default Design Tokens
 
@@ -197,37 +198,37 @@ newBoard.resize(375, 812);
 
 ### Spacing Scale (8px base)
 
-| Token       | Value | Usage                 |
-| ----------- | ----- | --------------------- |
-| spacing-xs  | 4px   | Tight inline elements |
-| spacing-sm  | 8px   | Related elements      |
-| spacing-md  | 16px  | Default padding       |
-| spacing-lg  | 24px  | Section spacing       |
-| spacing-xl  | 32px  | Major sections        |
-| spacing-2xl | 48px  | Page-level spacing    |
+| Token | Value | Usage |
+| ----- | ----- | ----- |
+| `spacing-xs` | 4px | Tight inline elements |
+| `spacing-sm` | 8px | Related elements |
+| `spacing-md` | 16px | Default padding |
+| `spacing-lg` | 24px | Section spacing |
+| `spacing-xl` | 32px | Major sections |
+| `spacing-2xl` | 48px | Page-level spacing |
 
 ### Typography Scale
 
-| Level   | Size    | Weight   | Usage           |
-| ------- | ------- | -------- | --------------- |
-| Display | 48-64px | Bold     | Hero headlines  |
-| H1      | 32-40px | Bold     | Page titles     |
-| H2      | 24-28px | Semibold | Section headers |
-| H3      | 20-22px | Semibold | Subsections     |
-| Body    | 16px    | Regular  | Main content    |
-| Small   | 14px    | Regular  | Secondary text  |
-| Caption | 12px    | Regular  | Labels, hints   |
+| Level | Size | Weight | Usage |
+| ----- | ---- | ------ | ----- |
+| Display | 48-64px | Bold | Hero headlines |
+| H1 | 32-40px | Bold | Page titles |
+| H2 | 24-28px | Semibold | Section headers |
+| H3 | 20-22px | Semibold | Subsections |
+| Body | 16px | Regular | Main content |
+| Small | 14px | Regular | Secondary text |
+| Caption | 12px | Regular | Labels, hints |
 
 ### Color Usage
 
-| Purpose   | Recommendation                |
-| --------- | ----------------------------- |
-| Primary   | Main brand color, CTAs        |
-| Secondary | Supporting actions            |
-| Success   | #22C55E range (confirmations) |
-| Warning   | #F59E0B range (caution)       |
-| Error     | #EF4444 range (errors)        |
-| Neutral   | Gray scale for text/borders   |
+| Purpose | Recommendation |
+| ------- | -------------- |
+| Primary | Main brand color, CTAs |
+| Secondary | Supporting actions |
+| Success | #22C55E range (confirmations) |
+| Warning | #F59E0B range (caution) |
+| Error | #EF4444 range (errors) |
+| Neutral | Gray scale for text/borders |
 
 ## Common Layouts
 
@@ -248,7 +249,6 @@ newBoard.resize(375, 812);
 │ Bottom Nav/CTA (84px)       │
 └─────────────────────────────┘
 
-
 ```
 
 ### Desktop Dashboard (1440×900)
@@ -266,33 +266,32 @@ newBoard.resize(375, 812);
 │      │                                  │
 └──────┴──────────────────────────────────┘
 
-
 ```
 
 ## Component Checklist
 
 ### Buttons
 
-* Clear, action-oriented label (2-3 words)
-* Minimum touch target: 44×44px
-* Visual states: default, hover, active, disabled, loading
-* Sufficient contrast (3:1 against background)
-* Consistent border radius across app
+- [ ] Clear, action-oriented label (2-3 words)
+- [ ] Minimum touch target: 44×44px
+- [ ] Visual states: default, hover, active, disabled, loading
+- [ ] Sufficient contrast (3:1 against background)
+- [ ] Consistent border radius across app
 
 ### Forms
 
-* Labels above inputs (not just placeholders)
-* Required field indicators
-* Error messages adjacent to fields
-* Logical tab order
-* Input types match content (email, tel, etc.)
+- [ ] Labels above inputs (not just placeholders)
+- [ ] Required field indicators
+- [ ] Error messages adjacent to fields
+- [ ] Logical tab order
+- [ ] Input types match content (email, tel, etc.)
 
 ### Navigation
 
-* Current location clearly indicated
-* Consistent position across screens
-* Maximum 7±2 top-level items
-* Touch-friendly on mobile (48px targets)
+- [ ] Current location clearly indicated
+- [ ] Consistent position across screens
+- [ ] Maximum 7±2 top-level items
+- [ ] Touch-friendly on mobile (48px targets)
 
 ## Accessibility Quick Checks
 
@@ -307,25 +306,25 @@ newBoard.resize(375, 812);
 
 Before finalizing any design:
 
-* Visual hierarchy is clear
-* Consistent spacing and alignment
-* Typography is readable (16px+ body text)
-* Color contrast meets WCAG AA
-* Interactive elements are obvious
-* Mobile-friendly touch targets
-* Loading/empty/error states considered
-* Consistent with design system
+- [ ] Visual hierarchy is clear
+- [ ] Consistent spacing and alignment
+- [ ] Typography is readable (16px+ body text)
+- [ ] Color contrast meets WCAG AA
+- [ ] Interactive elements are obvious
+- [ ] Mobile-friendly touch targets
+- [ ] Loading/empty/error states considered
+- [ ] Consistent with design system
 
 ## Validating Designs
 
 Use these validation approaches with `mcp__penpot__execute_code`:
 
-| Check                   | Method                                                   |
-| ----------------------- | -------------------------------------------------------- |
-| Elements outside bounds | penpotUtils.analyzeDescendants() with isContainedIn()    |
-| Text too small (<12px)  | penpotUtils.findShapes() filtering by fontSize           |
-| Missing contrast        | Call mcp\_\_penpot\_\_export\_shape and visually inspect |
-| Hierarchy structure     | penpotUtils.shapeStructure() to review nesting           |
+| Check | Method |
+| ----- | ------ |
+| Elements outside bounds | `penpotUtils.analyzeDescendants()` with `isContainedIn()` |
+| Text too small (<12px) | `penpotUtils.findShapes()` filtering by `fontSize` |
+| Missing contrast | Call `mcp__penpot__export_shape` and visually inspect |
+| Hierarchy structure | `penpotUtils.shapeStructure()` to review nesting |
 
 ### Export CSS
 

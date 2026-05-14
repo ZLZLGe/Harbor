@@ -45,7 +45,7 @@
     ],
     "guardrails": [
       "input data hashes must remain unchanged",
-      "skill files must remain unchanged when present",
+      "input data must remain unchanged",
       "no placeholder or verifier-hack output in studio files"
     ]
   },

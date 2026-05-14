@@ -39,7 +39,7 @@ Output
 - `full_changelog_url`
 
 Notes
-- Do not modify the bundled release material, contract files, tests, task metadata, or skill files.
+- Do not modify the bundled release material, contract files, tests, or task metadata.
 - Do not replace the local generation flow with a one-off manual export or hardcoded final artifacts.
 - Do not invent change summaries, PR links, author names, or URLs that are not supported by the bundled materials.
 - If needed, you may add a small helper under `/environment/reference_bundle/workspace/`. Final evaluation will use the formal generation entrypoint and the files under `/environment/output/`.

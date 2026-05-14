@@ -1,22 +1,27 @@
+---
+name: fastapi-templates
+description: Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensive error handling. Use when building new FastAPI applications or setting up backend API projects.
+---
+
 # FastAPI Project Templates
 
 Production-ready FastAPI project structures with async patterns, dependency injection, middleware, and best practices for building high-performance APIs.
 
 ## When to Use This Skill
 
-* Starting new FastAPI projects from scratch
-* Implementing async REST APIs with Python
-* Building high-performance web services and microservices
-* Creating async applications with PostgreSQL, MongoDB
-* Setting up API projects with proper structure and testing
+- Starting new FastAPI projects from scratch
+- Implementing async REST APIs with Python
+- Building high-performance web services and microservices
+- Creating async applications with PostgreSQL, MongoDB
+- Setting up API projects with proper structure and testing
 
 ## Core Concepts
 
-### 1\. Project Structure
+### 1. Project Structure
 
 **Recommended Layout:**
 
-```text
+```
 app/
 ├── api/                    # API routes
 │   ├── v1/
@@ -43,26 +48,25 @@ app/
 │   ├── user_repository.py
 │   └── item_repository.py
 └── main.py                 # Application entry
-
 ```
 
-### 2\. Dependency Injection
+### 2. Dependency Injection
 
 FastAPI's built-in DI system using `Depends`:
 
-* Database session management
-* Authentication/authorization
-* Shared business logic
-* Configuration injection
+- Database session management
+- Authentication/authorization
+- Shared business logic
+- Configuration injection
 
-### 3\. Async Patterns
+### 3. Async Patterns
 
 Proper async/await usage:
 
-* Async route handlers
-* Async database operations
-* Async background tasks
-* Async middleware
+- Async route handlers
+- Async database operations
+- Async background tasks
+- Async middleware
 
 ## Implementation Patterns
 
@@ -153,7 +157,6 @@ async def get_db() -> AsyncSession:
             raise
         finally:
             await session.close()
-
 ```
 
 ### Pattern 2: CRUD Repository Pattern
@@ -249,7 +252,6 @@ class UserRepository(BaseRepository[User, UserCreate, UserUpdate]):
         return user.is_active if user else False
 
 user_repository = UserRepository(User)
-
 ```
 
 ### Pattern 3: Service Layer
@@ -322,7 +324,6 @@ class UserService:
         return await self.repository.update(db, user, user_in)
 
 user_service = UserService()
-
 ```
 
 ### Pattern 4: API Endpoints with Dependencies
@@ -400,7 +401,6 @@ async def delete_user(
     deleted = await user_service.repository.delete(db, user_id)
     if not deleted:
         raise HTTPException(status_code=404, detail="User not found")
-
 ```
 
 ### Pattern 5: Authentication & Authorization
@@ -474,7 +474,6 @@ async def get_current_user(
         raise credentials_exception
 
     return user
-
 ```
 
 ## Testing
@@ -538,5 +537,4 @@ async def test_create_user(client):
     data = response.json()
     assert data["email"] == "test@example.com"
     assert "id" in data
-
 ```

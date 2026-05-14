@@ -1,3 +1,9 @@
+---
+name: unit-test-vue-pinia
+category: testing
+description: 'Write and review unit tests for Vue 3 + TypeScript + Vitest + Pinia codebases. Use when creating or updating tests for components, composables, and stores; mocking Pinia with createTestingPinia; applying Vue Test Utils patterns; and enforcing black-box assertions over implementation details.'
+---
+
 # unit-test-vue-pinia
 
 Use this skill to create or review unit tests for Vue components, composables, and Pinia stores. Keep tests small, deterministic, and behavior-first.
@@ -13,12 +19,12 @@ Use this skill to create or review unit tests for Vue components, composables, a
 
 ## Core Rules
 
-* Test one behavior per test.
-* Assert observable input/output behavior first (rendered text, emitted events, callback calls, store state changes).
-* Avoid implementation-coupled assertions.
-* Access `wrapper.vm` only in exceptional cases when there is no reasonable DOM, prop, emit, or store-level assertion.
-* Prefer explicit setup in `beforeEach()` and reset mocks every test.
-* Use checked-in reference material in `references/pinia-patterns.md` as the local source of truth for standard Pinia test setups.
+- Test one behavior per test.
+- Assert observable input/output behavior first (rendered text, emitted events, callback calls, store state changes).
+- Avoid implementation-coupled assertions.
+- Access `wrapper.vm` only in exceptional cases when there is no reasonable DOM, prop, emit, or store-level assertion.
+- Prefer explicit setup in `beforeEach()` and reset mocks every test.
+- Use checked-in reference material in `references/pinia-patterns.md` as the local source of truth for standard Pinia test setups.
 
 ## Pinia Testing Approach
 
@@ -26,7 +32,8 @@ Use `references/pinia-patterns.md` first, then fall back to Pinia's testing cook
 
 ### Default pattern for component tests
 
-Use `createTestingPinia` as a global plugin while mounting. Prefer `createSpy: vi.fn` as the default for consistency and easier action-spy assertions.
+Use `createTestingPinia` as a global plugin while mounting.
+Prefer `createSpy: vi.fn` as the default for consistency and easier action-spy assertions.
 
 ```ts
 const wrapper = mount(ComponentUnderTest, {
@@ -38,18 +45,18 @@ const wrapper = mount(ComponentUnderTest, {
 		],
 	},
 });
-
 ```
 
-By default, actions are stubbed and spied. Use `stubActions: true` (default) when the test only needs to verify whether an action was called (or not called).
+By default, actions are stubbed and spied.
+Use `stubActions: true` (default) when the test only needs to verify whether an action was called (or not called).
 
 ### Accepted minimal Pinia setups
 
 The following are also valid and should not be flagged as incorrect:
 
-* `createTestingPinia({})` when the test does not assert Pinia action spy behavior.
-* `createTestingPinia({ initialState: ... })` or `createTestingPinia({ stubActions: ... })` without `createSpy`, when the test only needs state seeding or action stubbing behavior and does not inspect generated spies.
-* `setActivePinia(createTestingPinia(...))` in store/composable-focused tests (without mounting a component) when mocking/seeding dependent stores is needed.
+- `createTestingPinia({})` when the test does not assert Pinia action spy behavior.
+- `createTestingPinia({ initialState: ... })` or `createTestingPinia({ stubActions: ... })` without `createSpy`, when the test only needs state seeding or action stubbing behavior and does not inspect generated spies.
+- `setActivePinia(createTestingPinia(...))` in store/composable-focused tests (without mounting a component) when mocking/seeding dependent stores is needed.
 
 Use `createSpy: vi.fn` when action spy assertions are part of the test intent.
 
@@ -68,7 +75,6 @@ const wrapper = mount(ComponentUnderTest, {
 		],
 	},
 });
-
 ```
 
 ### Seed store state with `initialState`
@@ -87,7 +93,6 @@ const wrapper = mount(ComponentUnderTest, {
 		],
 	},
 });
-
 ```
 
 ### Add Pinia plugins through `createTestingPinia`
@@ -103,7 +108,6 @@ const wrapper = mount(ComponentUnderTest, {
 		],
 	},
 });
-
 ```
 
 ### Getter override pattern for edge cases
@@ -115,7 +119,6 @@ const store = useCounterStore(pinia);
 store.double = 999;
 // @ts-expect-error test-only reset of overridden getter
 store.double = undefined;
-
 ```
 
 ### Pure store unit tests
@@ -132,20 +135,19 @@ it("increments", () => {
 	counter.increment();
 	expect(counter.n).toBe(1);
 });
-
 ```
 
 ## Vue Test Utils Approach
 
 Follow Vue Test Utils guidance: <https://test-utils.vuejs.org/guide/>
 
-* Mount shallow by default for focused unit tests.
-* Mount full component trees only when integration behavior is the subject.
-* Drive behavior through props, user-like interactions, and emitted events.
-* Prefer `findComponent(...).vm.$emit(...)` for child stub events instead of touching parent internals.
-* Use `nextTick` only when updates are async.
-* Assert emitted events and payloads with `wrapper.emitted(...)`.
-* Access `wrapper.vm` only when no DOM assertion, emitted event assertion, prop assertion, or store-level assertion can express the behavior. Treat it as an exception and keep the assertion narrowly scoped.
+- Mount shallow by default for focused unit tests.
+- Mount full component trees only when integration behavior is the subject.
+- Drive behavior through props, user-like interactions, and emitted events.
+- Prefer `findComponent(...).vm.$emit(...)` for child stub events instead of touching parent internals.
+- Use `nextTick` only when updates are async.
+- Assert emitted events and payloads with `wrapper.emitted(...)`.
+- Access `wrapper.vm` only when no DOM assertion, emitted event assertion, prop assertion, or store-level assertion can express the behavior. Treat it as an exception and keep the assertion narrowly scoped.
 
 ## Key Testing Snippets
 
@@ -154,7 +156,6 @@ Emit and assert payload:
 ```ts
 await wrapper.find("button").trigger("click");
 expect(wrapper.emitted("submit")?.[0]?.[0]).toBe("Mango Mission");
-
 ```
 
 Update input and assert output:
@@ -163,7 +164,6 @@ Update input and assert output:
 await wrapper.find("input").setValue("Agent Violet");
 await wrapper.find("form").trigger("submit");
 expect(wrapper.emitted("save")?.[0]?.[0]).toBe("Agent Violet");
-
 ```
 
 ## Test Writing Workflow
@@ -177,22 +177,22 @@ expect(wrapper.emitted("save")?.[0]?.[0]).toBe("Agent Violet");
 
 ## Constraints and Safety
 
-* Do not test private/internal implementation details.
-* Do not overuse snapshots for dynamic UI behavior.
-* Do not assert every field in large objects if only one behavior matters.
-* Keep fake data deterministic; avoid random values.
-* Do not claim a Pinia setup is wrong when it is one of the accepted minimal setups above.
-* Do not rewrite working tests toward deeper mounting or real actions unless the behavior under test requires that extra surface area.
-* Flag missing test coverage, brittle selectors, and implementation-coupled assertions explicitly during review.
+- Do not test private/internal implementation details.
+- Do not overuse snapshots for dynamic UI behavior.
+- Do not assert every field in large objects if only one behavior matters.
+- Keep fake data deterministic; avoid random values.
+- Do not claim a Pinia setup is wrong when it is one of the accepted minimal setups above.
+- Do not rewrite working tests toward deeper mounting or real actions unless the behavior under test requires that extra surface area.
+- Flag missing test coverage, brittle selectors, and implementation-coupled assertions explicitly during review.
 
 ## Output Contract
 
-* For `create` or `update`, return the finished test code plus a short note describing the selected Pinia strategy.
-* For `review`, return concrete findings first, then missing coverage or brittleness risks.
-* When the safest choice is ambiguous, state the assumption that drove the chosen test setup.
+- For `create` or `update`, return the finished test code plus a short note describing the selected Pinia strategy.
+- For `review`, return concrete findings first, then missing coverage or brittleness risks.
+- When the safest choice is ambiguous, state the assumption that drove the chosen test setup.
 
 ## References
 
-* `references/pinia-patterns.md`
-* Pinia testing cookbook: <https://pinia.vuejs.org/cookbook/testing.html>
-* Vue Test Utils guide: <https://test-utils.vuejs.org/guide/>
+- `references/pinia-patterns.md`
+- Pinia testing cookbook: <https://pinia.vuejs.org/cookbook/testing.html>
+- Vue Test Utils guide: <https://test-utils.vuejs.org/guide/>

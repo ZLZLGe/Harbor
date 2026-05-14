@@ -1,81 +1,93 @@
 # CMS Platforms Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/cms-platforms`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/cms-platforms，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 80 个 skills，其中 80 个 installs >= 1000，0 个 installs 在 500-999。
 
 ## 技能清单
 
-1. coding-agent | 来源: https://skills.sh/openclaw/openclaw/coding-agent | installs: 1.2K | stars: 368900
-2. security-review | 来源: https://skills.sh/affaan-m/everything-claude-code/security-review | installs: 7.5K | stars: 175900
-3. backend-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/backend-patterns | installs: 6.3K | stars: 175900
-4. frontend-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-patterns | installs: 6.3K | stars: 175900
-5. tdd-workflow | 来源: https://skills.sh/affaan-m/everything-claude-code/tdd-workflow | installs: 4.7K | stars: 175900
-6. frontend-slides | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-slides | installs: 4.4K | stars: 175900
-7. continuous-learning | 来源: https://skills.sh/affaan-m/everything-claude-code/continuous-learning | installs: 4.0K | stars: 175900
-8. content-engine | 来源: https://skills.sh/affaan-m/everything-claude-code/content-engine | installs: 3.2K | stars: 175900
-9. content-hash-cache-pattern | 来源: https://skills.sh/affaan-m/everything-claude-code/content-hash-cache-pattern | installs: 3.2K | stars: 175900
-10. dmux-workflows | 来源: https://skills.sh/affaan-m/everything-claude-code/dmux-workflows | installs: 2.6K | stars: 175900
-11. git-workflow | 来源: https://skills.sh/affaan-m/everything-claude-code/git-workflow | installs: 2.2K | stars: 175900
-12. frontend-design | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-design | installs: 1.8K | stars: 175900
-13. seo | 来源: https://skills.sh/affaan-m/everything-claude-code/seo | installs: 1.8K | stars: 175900
-14. automation-audit-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops | installs: 1.6K | stars: 175900
-15. frontend-testing | 来源: https://skills.sh/langgenius/dify/frontend-testing | installs: 2.2K | stars: 140300
-16. theme-factory | 来源: https://skills.sh/anthropics/skills/theme-factory | installs: 37.9K | stars: 128900
-17. content-creator | 来源: https://skills.sh/shubhamsaboo/awesome-llm-apps/content-creator | installs: 3.4K | stars: 109000
-18. react | 来源: https://skills.sh/lobehub/lobehub/react | installs: 2.0K | stars: 76100
-19. drizzle | 来源: https://skills.sh/lobehub/lobehub/drizzle | installs: 1.0K | stars: 76100
-20. paperclip-create-plugin | 来源: https://skills.sh/paperclipai/paperclip/paperclip-create-plugin | installs: 1.0K | stars: 62900
-21. content-research-writer | 来源: https://skills.sh/composiohq/awesome-claude-skills/content-research-writer | installs: 3.9K | stars: 58200
-22. developer-growth-analysis | 来源: https://skills.sh/composiohq/awesome-claude-skills/developer-growth-analysis | installs: 1.8K | stars: 58200
-23. browser-automation | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/browser-automation | installs: 4.5K | stars: 36853
-24. shopify-development | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/shopify-development | installs: 1.3K | stars: 36853
-25. backend-dev-guidelines | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/backend-dev-guidelines | installs: 1.1K | stars: 36853
-26. tailwind-design-system | 来源: https://skills.sh/wshobson/agents/tailwind-design-system | installs: 39.9K | stars: 35018
-27. api-design-principles | 来源: https://skills.sh/wshobson/agents/api-design-principles | installs: 19.9K | stars: 35018
-28. nextjs-app-router-patterns | 来源: https://skills.sh/wshobson/agents/nextjs-app-router-patterns | installs: 16.5K | stars: 35018
-29. fastapi-templates | 来源: https://skills.sh/wshobson/agents/fastapi-templates | installs: 16.4K | stars: 35018
-30. mobile-ios-design | 来源: https://skills.sh/wshobson/agents/mobile-ios-design | installs: 14.4K | stars: 35018
-31. mobile-android-design | 来源: https://skills.sh/wshobson/agents/mobile-android-design | installs: 13.9K | stars: 35018
-32. github-actions-templates | 来源: https://skills.sh/wshobson/agents/github-actions-templates | installs: 9.4K | stars: 35018
-33. design-system-patterns | 来源: https://skills.sh/wshobson/agents/design-system-patterns | installs: 8.8K | stars: 35018
-34. react-native-architecture | 来源: https://skills.sh/wshobson/agents/react-native-architecture | installs: 8.7K | stars: 35018
-35. react-native-design | 来源: https://skills.sh/wshobson/agents/react-native-design | installs: 8.7K | stars: 35018
-36. godot-gdscript-patterns | 来源: https://skills.sh/wshobson/agents/godot-gdscript-patterns | installs: 8.1K | stars: 35018
-37. context-driven-development | 来源: https://skills.sh/wshobson/agents/context-driven-development | installs: 6.1K | stars: 35018
-38. dbt-transformation-patterns | 来源: https://skills.sh/wshobson/agents/dbt-transformation-patterns | installs: 6.0K | stars: 35018
-39. python-observability | 来源: https://skills.sh/wshobson/agents/python-observability | installs: 5.9K | stars: 35018
-40. playwright-automation-fill-in-form | 来源: https://skills.sh/github/awesome-copilot/playwright-automation-fill-in-form | installs: 9.6K | stars: 32200
-41. create-github-action-workflow-specification | 来源: https://skills.sh/github/awesome-copilot/create-github-action-workflow-specification | installs: 9.1K | stars: 32200
-42. project-workflow-analysis-blueprint-generator | 来源: https://skills.sh/github/awesome-copilot/project-workflow-analysis-blueprint-generator | installs: 8.8K | stars: 32200
-43. premium-frontend-ui | 来源: https://skills.sh/github/awesome-copilot/premium-frontend-ui | installs: 1.8K | stars: 32200
-44. persona-content-creator | 来源: https://skills.sh/googleworkspace/cli/persona-content-creator | installs: 12.2K | stars: 25800
-45. content-creation | 来源: https://skills.sh/anthropics/knowledge-work-plugins/content-creation | installs: 2.2K | stars: 11800
-46. wordpress-pro | 来源: https://skills.sh/jeffallan/claude-skills/wordpress-pro | installs: 4.0K | stars: 8800
-47. shopify-expert | 来源: https://skills.sh/jeffallan/claude-skills/shopify-expert | installs: 2.7K | stars: 8800
-48. seoul-subway-arrival | 来源: https://skills.sh/nomadamas/k-skill/seoul-subway-arrival | installs: 1.8K | stars: 4500
-49. joseon-sillok-search | 来源: https://skills.sh/nomadamas/k-skill/joseon-sillok-search | installs: 1.5K | stars: 4500
-50. dbs-content | 来源: https://skills.sh/dontbesilent2025/dbskill/dbs-content | installs: 4.8K | stars: 4300
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
-
-- https://skills.sh/openclaw/openclaw
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/langgenius/dify
-- https://skills.sh/anthropics/skills
-- https://skills.sh/shubhamsaboo/awesome-llm-apps
-- https://skills.sh/lobehub/lobehub
-- https://skills.sh/paperclipai/paperclip
-- https://skills.sh/composiohq/awesome-claude-skills
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
-- https://skills.sh/googleworkspace/cli
-- https://skills.sh/anthropics/knowledge-work-plugins
-- https://skills.sh/jeffallan/claude-skills
-- https://skills.sh/nomadamas/k-skill
-- https://skills.sh/dontbesilent2025/dbskill
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | coding-agent | openclaw/openclaw | 370546 | 1230 | https://skills.sh/openclaw/openclaw/coding-agent |
+| 2 | security-review | affaan-m/everything-claude-code | 177611 | 7974 | https://skills.sh/affaan-m/everything-claude-code/security-review |
+| 3 | continuous-learning | affaan-m/everything-claude-code | 177611 | 4302 | https://skills.sh/affaan-m/everything-claude-code/continuous-learning |
+| 4 | theme-factory | anthropics/skills | 131614 | 40271 | https://skills.sh/anthropics/skills/theme-factory |
+| 5 | react | lobehub/lobehub | 76794 | 2092 | https://skills.sh/lobehub/lobehub/react |
+| 6 | drizzle | lobehub/lobehub | 76794 | 1105 | https://skills.sh/lobehub/lobehub/drizzle |
+| 7 | project-overview | lobehub/lobehub | 76794 | 1055 | https://skills.sh/lobehub/lobehub/project-overview |
+| 8 | paperclip-create-plugin | paperclipai/paperclip | 63929 | 1190 | https://skills.sh/paperclipai/paperclip/paperclip-create-plugin |
+| 9 | developer-growth-analysis | ComposioHQ/awesome-claude-skills | 59078 | 1888 | https://skills.sh/ComposioHQ/awesome-claude-skills/developer-growth-analysis |
+| 10 | shopify-development | sickn33/antigravity-awesome-skills | 37047 | 1327 | https://skills.sh/sickn33/antigravity-awesome-skills/shopify-development |
+| 11 | tailwind-design-system | wshobson/agents | 35133 | 41231 | https://skills.sh/wshobson/agents/tailwind-design-system |
+| 12 | api-design-principles | wshobson/agents | 35133 | 20387 | https://skills.sh/wshobson/agents/api-design-principles |
+| 13 | nextjs-app-router-patterns | wshobson/agents | 35133 | 17198 | https://skills.sh/wshobson/agents/nextjs-app-router-patterns |
+| 14 | fastapi-templates | wshobson/agents | 35133 | 16825 | https://skills.sh/wshobson/agents/fastapi-templates |
+| 15 | mobile-ios-design | wshobson/agents | 35133 | 14792 | https://skills.sh/wshobson/agents/mobile-ios-design |
+| 16 | mobile-android-design | wshobson/agents | 35133 | 14285 | https://skills.sh/wshobson/agents/mobile-android-design |
+| 17 | github-actions-templates | wshobson/agents | 35133 | 9774 | https://skills.sh/wshobson/agents/github-actions-templates |
+| 18 | design-system-patterns | wshobson/agents | 35133 | 9124 | https://skills.sh/wshobson/agents/design-system-patterns |
+| 19 | react-native-design | wshobson/agents | 35133 | 8989 | https://skills.sh/wshobson/agents/react-native-design |
+| 20 | react-native-architecture | wshobson/agents | 35133 | 8975 | https://skills.sh/wshobson/agents/react-native-architecture |
+| 21 | godot-gdscript-patterns | wshobson/agents | 35133 | 8460 | https://skills.sh/wshobson/agents/godot-gdscript-patterns |
+| 22 | web-component-design | wshobson/agents | 35133 | 7700 | https://skills.sh/wshobson/agents/web-component-design |
+| 23 | context-driven-development | wshobson/agents | 35133 | 6383 | https://skills.sh/wshobson/agents/context-driven-development |
+| 24 | dbt-transformation-patterns | wshobson/agents | 35133 | 6267 | https://skills.sh/wshobson/agents/dbt-transformation-patterns |
+| 25 | python-observability | wshobson/agents | 35133 | 6174 | https://skills.sh/wshobson/agents/python-observability |
+| 26 | web-design-reviewer | github/awesome-copilot | 32605 | 10785 | https://skills.sh/github/awesome-copilot/web-design-reviewer |
+| 27 | penpot-uiux-design | github/awesome-copilot | 32605 | 10243 | https://skills.sh/github/awesome-copilot/penpot-uiux-design |
+| 28 | php-mcp-server-generator | github/awesome-copilot | 32605 | 8475 | https://skills.sh/github/awesome-copilot/php-mcp-server-generator |
+| 29 | containerize-aspnetcore | github/awesome-copilot | 32605 | 8417 | https://skills.sh/github/awesome-copilot/containerize-aspnetcore |
+| 30 | containerize-aspnet-framework | github/awesome-copilot | 32605 | 8338 | https://skills.sh/github/awesome-copilot/containerize-aspnet-framework |
+| 31 | heroui-react | heroui-inc/heroui | 29231 | 5197 | https://skills.sh/heroui-inc/heroui/heroui-react |
+| 32 | heroui-native | heroui-inc/heroui | 29231 | 5156 | https://skills.sh/heroui-inc/heroui/heroui-native |
+| 33 | obsidian-markdown | kepano/obsidian-skills | 29193 | 30329 | https://skills.sh/kepano/obsidian-skills/obsidian-markdown |
+| 34 | obsidian-bases | kepano/obsidian-skills | 29193 | 26863 | https://skills.sh/kepano/obsidian-skills/obsidian-bases |
+| 35 | json-canvas | kepano/obsidian-skills | 29193 | 21405 | https://skills.sh/kepano/obsidian-skills/json-canvas |
+| 36 | schema-markup | coreyhaines31/marketingskills | 27653 | 55251 | https://skills.sh/coreyhaines31/marketingskills/schema-markup |
+| 37 | playground | anthropics/claude-plugins-official | 19038 | 3344 | https://skills.sh/anthropics/claude-plugins-official/playground |
+| 38 | claude-automation-recommender | anthropics/claude-plugins-official | 19038 | 3274 | https://skills.sh/anthropics/claude-plugins-official/claude-automation-recommender |
+| 39 | skill-development | anthropics/claude-plugins-official | 19038 | 2506 | https://skills.sh/anthropics/claude-plugins-official/skill-development |
+| 40 | hook-development | anthropics/claude-plugins-official | 19038 | 2428 | https://skills.sh/anthropics/claude-plugins-official/hook-development |
+| 41 | command-development | anthropics/claude-plugins-official | 19038 | 2413 | https://skills.sh/anthropics/claude-plugins-official/command-development |
+| 42 | writing-hookify-rules | anthropics/claude-plugins-official | 19038 | 2387 | https://skills.sh/anthropics/claude-plugins-official/writing-hookify-rules |
+| 43 | plugin-structure | anthropics/claude-plugins-official | 19038 | 2346 | https://skills.sh/anthropics/claude-plugins-official/plugin-structure |
+| 44 | plugin-settings | anthropics/claude-plugins-official | 19038 | 2334 | https://skills.sh/anthropics/claude-plugins-official/plugin-settings |
+| 45 | figma-implement-design | openai/skills | 18740 | 2211 | https://skills.sh/openai/skills/figma-implement-design |
+| 46 | cloudflare-deploy | openai/skills | 18740 | 1410 | https://skills.sh/openai/skills/cloudflare-deploy |
+| 47 | netlify-deploy | openai/skills | 18740 | 1182 | https://skills.sh/openai/skills/netlify-deploy |
+| 48 | notion-spec-to-implementation | openai/skills | 18740 | 1050 | https://skills.sh/openai/skills/notion-spec-to-implementation |
+| 49 | render-deploy | openai/skills | 18740 | 1024 | https://skills.sh/openai/skills/render-deploy |
+| 50 | baoyu-markdown-to-html | JimLiu/baoyu-skills | 17661 | 20989 | https://skills.sh/JimLiu/baoyu-skills/baoyu-markdown-to-html |
+| 51 | create-cowork-plugin | anthropics/knowledge-work-plugins | 12009 | 1138 | https://skills.sh/anthropics/knowledge-work-plugins/create-cowork-plugin |
+| 52 | cowork-plugin-customizer | anthropics/knowledge-work-plugins | 12009 | 1130 | https://skills.sh/anthropics/knowledge-work-plugins/cowork-plugin-customizer |
+| 53 | php-pro | Jeffallan/claude-skills | 8935 | 8983 | https://skills.sh/Jeffallan/claude-skills/php-pro |
+| 54 | wordpress-pro | Jeffallan/claude-skills | 8935 | 4242 | https://skills.sh/Jeffallan/claude-skills/wordpress-pro |
+| 55 | api-designer | Jeffallan/claude-skills | 8935 | 2813 | https://skills.sh/Jeffallan/claude-skills/api-designer |
+| 56 | shopify-expert | Jeffallan/claude-skills | 8935 | 2804 | https://skills.sh/Jeffallan/claude-skills/shopify-expert |
+| 57 | fullstack-guardian | Jeffallan/claude-skills | 8935 | 2322 | https://skills.sh/Jeffallan/claude-skills/fullstack-guardian |
+| 58 | nuxt-ui | nuxt/ui | 6564 | 11178 | https://skills.sh/nuxt/ui/nuxt-ui |
+| 59 | secure-workflow-guide | trailofbits/skills | 5109 | 3439 | https://skills.sh/trailofbits/skills/secure-workflow-guide |
+| 60 | devcontainer-setup | trailofbits/skills | 5109 | 1948 | https://skills.sh/trailofbits/skills/devcontainer-setup |
+| 61 | vite | antfu/skills | 4897 | 21973 | https://skills.sh/antfu/skills/vite |
+| 62 | nuxt | antfu/skills | 4897 | 14948 | https://skills.sh/antfu/skills/nuxt |
+| 63 | antfu | antfu/skills | 4897 | 10175 | https://skills.sh/antfu/skills/antfu |
+| 64 | vitepress | antfu/skills | 4897 | 7461 | https://skills.sh/antfu/skills/vitepress |
+| 65 | gsap-plugins | greensock/gsap-skills | 3178 | 9914 | https://skills.sh/greensock/gsap-skills/gsap-plugins |
+| 66 | obsidian-canvas-creator | axtonliu/axton-obsidian-visual-skills | 2716 | 1062 | https://skills.sh/axtonliu/axton-obsidian-visual-skills/obsidian-canvas-creator |
+| 67 | infographic | markdown-viewer/skills | 2399 | 1808 | https://skills.sh/markdown-viewer/skills/infographic |
+| 68 | create-mcp-app | modelcontextprotocol/ext-apps | 2230 | 1172 | https://skills.sh/modelcontextprotocol/ext-apps/create-mcp-app |
+| 69 | workflow | vercel/workflow | 2007 | 2154 | https://skills.sh/vercel/workflow/workflow |
+| 70 | expo-module | expo/skills | 1889 | 8199 | https://skills.sh/expo/skills/expo-module |
+| 71 | plugin-forge | softaworks/agent-toolkit | 1722 | 3594 | https://skills.sh/softaworks/agent-toolkit/plugin-forge |
+| 72 | wp-plugin-development | WordPress/agent-skills | 1448 | 2316 | https://skills.sh/WordPress/agent-skills/wp-plugin-development |
+| 73 | wp-block-themes | WordPress/agent-skills | 1448 | 1697 | https://skills.sh/WordPress/agent-skills/wp-block-themes |
+| 74 | wp-performance | WordPress/agent-skills | 1448 | 1589 | https://skills.sh/WordPress/agent-skills/wp-performance |
+| 75 | wp-block-development | WordPress/agent-skills | 1448 | 1568 | https://skills.sh/WordPress/agent-skills/wp-block-development |
+| 76 | wordpress-router | WordPress/agent-skills | 1448 | 1476 | https://skills.sh/WordPress/agent-skills/wordpress-router |
+| 77 | wp-wpcli-and-ops | WordPress/agent-skills | 1448 | 1238 | https://skills.sh/WordPress/agent-skills/wp-wpcli-and-ops |
+| 78 | wp-abilities-api | WordPress/agent-skills | 1448 | 1015 | https://skills.sh/WordPress/agent-skills/wp-abilities-api |
+| 79 | wp-playground | WordPress/agent-skills | 1448 | 1015 | https://skills.sh/WordPress/agent-skills/wp-playground |
+| 80 | chatgpt-app-builder | alpic-ai/skybridge | 1128 | 2587 | https://skills.sh/alpic-ai/skybridge/chatgpt-app-builder |

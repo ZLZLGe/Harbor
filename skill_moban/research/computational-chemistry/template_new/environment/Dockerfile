@@ -27,26 +27,24 @@ RUN mkdir -p /root/data /root/output /root/workspace/data /root/workspace/output
     /root/.claude/skills /root/.codex/skills /root/.opencode/skill /root/.goose/skills /root/.factory/skills /root/.agents/skills /root/.gemini/skills /app/skills
 
 COPY . /tmp/environment/
+COPY skills /app/skills
+COPY skills /root/.claude/skills
+COPY skills /root/.codex/skills
+COPY skills /root/.opencode/skill
+COPY skills /root/.goose/skills
+COPY skills /root/.factory/skills
+COPY skills /root/.agents/skills
+COPY skills /root/.gemini/skills
 
 RUN pip install --no-cache-dir /tmp/environment/workbench/unimol_tools_cli \
     && cp -R /tmp/environment/data/. /root/workspace/data/ \
     && cp -R /tmp/environment/data/. /root/data/ \
     && cp -R /tmp/environment/data/. /app/data/ \
     && cp -R /tmp/environment/workbench/. /root/workspace/workbench/ \
-    && if [ -d /tmp/environment/skills ]; then \
-        cp -R /tmp/environment/skills/. /app/skills/; \
-        cp -R /tmp/environment/skills/. /root/.claude/skills/; \
-        cp -R /tmp/environment/skills/. /root/.codex/skills/; \
-        cp -R /tmp/environment/skills/. /root/.opencode/skill/; \
-        cp -R /tmp/environment/skills/. /root/.goose/skills/; \
-        cp -R /tmp/environment/skills/. /root/.factory/skills/; \
-        cp -R /tmp/environment/skills/. /root/.agents/skills/; \
-        cp -R /tmp/environment/skills/. /root/.gemini/skills/; \
-        if [ -d /tmp/environment/skills/cli-anything-unimol-tools/helpers ]; then \
+    && if [ -d /app/skills/cli-anything-unimol-tools/helpers ]; then \
           mkdir -p /root/workspace/workbench/release_tools; \
-          cp -R /tmp/environment/skills/cli-anything-unimol-tools/helpers/. /root/workspace/workbench/release_tools/; \
-          chmod +x /root/workspace/workbench/release_tools/*.sh; \
-        fi; \
+          cp -R /app/skills/cli-anything-unimol-tools/helpers/. /root/workspace/workbench/release_tools/; \
+          find /root/workspace/workbench/release_tools -type f -name '*.sh' -exec chmod +x {} +; \
     fi \
     && rm -rf /root/workspace/workbench/unimol_tools_cli \
     && chmod 755 /root \

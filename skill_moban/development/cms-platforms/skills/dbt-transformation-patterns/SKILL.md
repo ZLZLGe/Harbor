@@ -1,21 +1,26 @@
+---
+name: dbt-transformation-patterns
+description: Master dbt (data build tool) for analytics engineering with model organization, testing, documentation, and incremental strategies. Use when building data transformations, creating data models, or implementing analytics engineering best practices.
+---
+
 # dbt Transformation Patterns
 
 Production-ready patterns for dbt (data build tool) including model organization, testing strategies, documentation, and incremental processing.
 
 ## When to Use This Skill
 
-* Building data transformation pipelines with dbt
-* Organizing models into staging, intermediate, and marts layers
-* Implementing data quality tests
-* Creating incremental models for large datasets
-* Documenting data models and lineage
-* Setting up dbt project structure
+- Building data transformation pipelines with dbt
+- Organizing models into staging, intermediate, and marts layers
+- Implementing data quality tests
+- Creating incremental models for large datasets
+- Documenting data models and lineage
+- Setting up dbt project structure
 
 ## Core Concepts
 
-### 1\. Model Layers (Medallion Architecture)
+### 1. Model Layers (Medallion Architecture)
 
-```text
+```
 sources/          Raw data definitions
     ↓
 staging/          1:1 with source, light cleaning
@@ -23,16 +28,15 @@ staging/          1:1 with source, light cleaning
 intermediate/     Business logic, joins, aggregations
     ↓
 marts/            Final analytics tables
-
 ```
 
-### 2\. Naming Conventions
+### 2. Naming Conventions
 
-| Layer        | Prefix       | Example                     |
-| ------------ | ------------ | --------------------------- |
-| Staging      | stg\_        | stg\_stripe\_\_payments     |
-| Intermediate | int\_        | int\_payments\_pivoted      |
-| Marts        | dim\_, fct\_ | dim\_customers, fct\_orders |
+| Layer        | Prefix         | Example                       |
+| ------------ | -------------- | ----------------------------- |
+| Staging      | `stg_`         | `stg_stripe__payments`        |
+| Intermediate | `int_`         | `int_payments_pivoted`        |
+| Marts        | `dim_`, `fct_` | `dim_customers`, `fct_orders` |
 
 ## Quick Start
 
@@ -61,10 +65,9 @@ models:
     marts:
       +materialized: table
       +schema: analytics
-
 ```
 
-```text
+```
 # Project structure
 models/
 ├── staging/
@@ -86,7 +89,6 @@ models/
     │   └── fct_orders.sql
     └── finance/
         └── fct_revenue.sql
-
 ```
 
 ## Patterns
@@ -134,7 +136,6 @@ sources:
               - relationships:
                   to: source('stripe', 'customers')
                   field: id
-
 ```
 
 ### Pattern 2: Staging Models
@@ -164,7 +165,6 @@ renamed as (
 )
 
 select * from renamed
-
 ```
 
 ```sql
@@ -209,7 +209,6 @@ renamed as (
 )
 
 select * from renamed
-
 ```
 
 ### Pattern 3: Intermediate Models
@@ -248,7 +247,6 @@ select
 
 from customers
 left join payment_summary using (customer_id)
-
 ```
 
 ### Pattern 4: Mart Models (Dimensions and Facts)
@@ -321,7 +319,6 @@ final as (
 )
 
 select * from final
-
 ```
 
 ```sql
@@ -379,7 +376,6 @@ final as (
 )
 
 select * from final
-
 ```
 
 ### Pattern 5: Testing and Documentation
@@ -439,7 +435,6 @@ models:
           - relationships:
               to: ref('dim_customers')
               field: customer_key
-
 ```
 
 ### Pattern 6: Macros and DRY Code
@@ -470,7 +465,6 @@ models:
 -- Usage in model
 select * from {{ ref('stg_orders') }}
 {{ limit_data_in_dev('created_at') }}
-
 ```
 
 ### Pattern 7: Incremental Strategies
@@ -516,7 +510,6 @@ from {{ ref('stg_events') }}
 {% if is_incremental() %}
 where created_date >= dateadd(day, -3, current_date)
 {% endif %}
-
 ```
 
 ## dbt Commands
@@ -542,23 +535,22 @@ dbt docs serve                   # Serve docs locally
 dbt compile                      # Compile SQL without running
 dbt debug                        # Test connection
 dbt ls --select tag:critical     # List models by tag
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Use staging layer** \- Clean data once, use everywhere
-* **Test aggressively** \- Not null, unique, relationships
-* **Document everything** \- Column descriptions, model descriptions
-* **Use incremental** \- For tables > 1M rows
-* **Version control** \- dbt project in Git
+- **Use staging layer** - Clean data once, use everywhere
+- **Test aggressively** - Not null, unique, relationships
+- **Document everything** - Column descriptions, model descriptions
+- **Use incremental** - For tables > 1M rows
+- **Version control** - dbt project in Git
 
 ### Don'ts
 
-* **Don't skip staging** \- Raw → mart is tech debt
-* **Don't hardcode dates** \- Use `{{ var('start_date') }}`
-* **Don't repeat logic** \- Extract to macros
-* **Don't test in prod** \- Use dev target
-* **Don't ignore freshness** \- Monitor source data
+- **Don't skip staging** - Raw → mart is tech debt
+- **Don't hardcode dates** - Use `{{ var('start_date') }}`
+- **Don't repeat logic** - Extract to macros
+- **Don't test in prod** - Use dev target
+- **Don't ignore freshness** - Monitor source data

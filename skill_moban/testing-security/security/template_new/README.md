@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：security 类热门 skill 的共同价值，在于帮助 Agent 把认证、授权、输入校验、敏感导出和错误处理串成一条完整检查链路。模板任务应把题面重心放在交付合同、业务边界和禁止事项上，让具体排查和实现路径更多留给 skill 与 solver 自主识别。
-* **Task 目标形态**：这类任务适合设计成多租户 API 交付场景，例如鉴权接口、租户范围隔离、批量查询限制、导出控制或敏感数据约束。目标应强调可运行、可验证、可重复执行，同时把只读输入快照与运行态 state/output 的边界交代清楚，不退化成静态报告或只改文案。
 * **Verifier 设计重点**：Verifier 应优先检查 solver 是否沿服务链路完成鉴权、授权、输入校验、导出约束和错误语义补齐，并验证行为在替身数据上仍然成立。防作弊点应覆盖只对样例特判、只改少数响应、绕过本地数据源、误改输入快照和删除安全控制。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`security__tenant-vulnerability-advisory-api`
 - 类别：`security`
-- 难度：`hard`
 - 绑定 Skill：`security-review`
 - 输入数据参考来源：
   - `environment/workspace/data/nvd_cves.ndjson`：任务内 CVE 快照；字段形态参考 NVD CVE API 2.0  
@@ -31,7 +29,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 通过 `solution/solve.sh` 把参考实现写回 workspace，再运行本地 verifier，验证鉴权、范围约束、批量校验、导出产物和替身数据泛化全部通过。它不依赖隐藏答案文件，直接以本地服务行为为准。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试

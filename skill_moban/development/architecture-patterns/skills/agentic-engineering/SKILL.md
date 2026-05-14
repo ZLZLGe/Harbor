@@ -1,3 +1,9 @@
+---
+name: agentic-engineering
+description: Operate as an agentic engineer using eval-first execution, decomposition, and cost-aware model routing.
+origin: ECC
+---
+
 # Agentic Engineering
 
 Use this skill for engineering workflows where AI agents perform most implementation work and humans enforce quality and risk controls.
@@ -19,42 +25,39 @@ Use this skill for engineering workflows where AI agents perform most implementa
 ## Task Decomposition
 
 Apply the 15-minute unit rule:
-
-* each unit should be independently verifiable
-* each unit should have a single dominant risk
-* each unit should expose a clear done condition
+- each unit should be independently verifiable
+- each unit should have a single dominant risk
+- each unit should expose a clear done condition
 
 ## Model Routing
 
-* Haiku: classification, boilerplate transforms, narrow edits
-* Sonnet: implementation and refactors
-* Opus: architecture, root-cause analysis, multi-file invariants
+- Haiku: classification, boilerplate transforms, narrow edits
+- Sonnet: implementation and refactors
+- Opus: architecture, root-cause analysis, multi-file invariants
 
 ## Session Strategy
 
-* Continue session for closely-coupled units.
-* Start fresh session after major phase transitions.
-* Compact after milestone completion, not during active debugging.
+- Continue session for closely-coupled units.
+- Start fresh session after major phase transitions.
+- Compact after milestone completion, not during active debugging.
 
 ## Review Focus for AI-Generated Code
 
 Prioritize:
-
-* invariants and edge cases
-* error boundaries
-* security and auth assumptions
-* hidden coupling and rollout risk
+- invariants and edge cases
+- error boundaries
+- security and auth assumptions
+- hidden coupling and rollout risk
 
 Do not waste review cycles on style-only disagreements when automated format/lint already enforce style.
 
 ## Cost Discipline
 
 Track per task:
-
-* model
-* token estimate
-* retries
-* wall-clock time
-* success/failure
+- model
+- token estimate
+- retries
+- wall-clock time
+- success/failure
 
 Escalate model tier only when lower tier fails with a clear reasoning gap.

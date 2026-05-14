@@ -1,66 +1,66 @@
+---
+name: coding-standards
+description: Baseline cross-project coding conventions for naming, readability, immutability, and code-quality review. Use detailed frontend or backend skills for framework-specific patterns.
+origin: ECC
+---
+
 # Coding Standards & Best Practices
 
 Baseline coding conventions applicable across projects.
 
 This skill is the shared floor, not the detailed framework playbook.
 
-* Use `frontend-patterns` for React, state, forms, rendering, and UI architecture.
-* Use `backend-patterns` or `api-design` for repository/service layers, endpoint design, validation, and server-specific concerns.
-* Use `rules/common/coding-style.md` when you need the shortest reusable rule layer instead of a full skill walkthrough.
+- Use `frontend-patterns` for React, state, forms, rendering, and UI architecture.
+- Use `backend-patterns` or `api-design` for repository/service layers, endpoint design, validation, and server-specific concerns.
+- Use `rules/common/coding-style.md` when you need the shortest reusable rule layer instead of a full skill walkthrough.
 
 ## When to Activate
 
-* Starting a new project or module
-* Reviewing code for quality and maintainability
-* Refactoring existing code to follow conventions
-* Enforcing naming, formatting, or structural consistency
-* Setting up linting, formatting, or type-checking rules
-* Onboarding new contributors to coding conventions
+- Starting a new project or module
+- Reviewing code for quality and maintainability
+- Refactoring existing code to follow conventions
+- Enforcing naming, formatting, or structural consistency
+- Setting up linting, formatting, or type-checking rules
+- Onboarding new contributors to coding conventions
 
 ## Scope Boundaries
 
 Activate this skill for:
-
-* descriptive naming
-* immutability defaults
-* readability, KISS, DRY, and YAGNI enforcement
-* error-handling expectations and code-smell review
+- descriptive naming
+- immutability defaults
+- readability, KISS, DRY, and YAGNI enforcement
+- error-handling expectations and code-smell review
 
 Do not use this skill as the primary source for:
-
-* React composition, hooks, or rendering patterns
-* backend architecture, API design, or database layering
-* domain-specific framework guidance when a narrower ECC skill already exists
+- React composition, hooks, or rendering patterns
+- backend architecture, API design, or database layering
+- domain-specific framework guidance when a narrower ECC skill already exists
 
 ## Code Quality Principles
 
-### 1\. Readability First
+### 1. Readability First
+- Code is read more than written
+- Clear variable and function names
+- Self-documenting code preferred over comments
+- Consistent formatting
 
-* Code is read more than written
-* Clear variable and function names
-* Self-documenting code preferred over comments
-* Consistent formatting
+### 2. KISS (Keep It Simple, Stupid)
+- Simplest solution that works
+- Avoid over-engineering
+- No premature optimization
+- Easy to understand > clever code
 
-### 2\. KISS (Keep It Simple, Stupid)
+### 3. DRY (Don't Repeat Yourself)
+- Extract common logic into functions
+- Create reusable components
+- Share utilities across modules
+- Avoid copy-paste programming
 
-* Simplest solution that works
-* Avoid over-engineering
-* No premature optimization
-* Easy to understand > clever code
-
-### 3\. DRY (Don't Repeat Yourself)
-
-* Extract common logic into functions
-* Create reusable components
-* Share utilities across modules
-* Avoid copy-paste programming
-
-### 4\. YAGNI (You Aren't Gonna Need It)
-
-* Don't build features before they're needed
-* Avoid speculative generality
-* Add complexity only when required
-* Start simple, refactor when needed
+### 4. YAGNI (You Aren't Gonna Need It)
+- Don't build features before they're needed
+- Avoid speculative generality
+- Add complexity only when required
+- Start simple, refactor when needed
 
 ## TypeScript/JavaScript Standards
 
@@ -76,7 +76,6 @@ const totalRevenue = 1000
 const q = 'election'
 const flag = true
 const x = 1000
-
 ```
 
 ### Function Naming
@@ -91,7 +90,6 @@ function isValidEmail(email: string): boolean { }
 async function market(id: string) { }
 function similarity(a, b) { }
 function email(e) { }
-
 ```
 
 ### Immutability Pattern (CRITICAL)
@@ -108,7 +106,6 @@ const updatedArray = [...items, newItem]
 // FAIL: NEVER mutate directly
 user.name = 'New Name'  // BAD
 items.push(newItem)     // BAD
-
 ```
 
 ### Error Handling
@@ -135,7 +132,6 @@ async function fetchData(url) {
   const response = await fetch(url)
   return response.json()
 }
-
 ```
 
 ### Async/Await Best Practices
@@ -152,7 +148,6 @@ const [users, markets, stats] = await Promise.all([
 const users = await fetchUsers()
 const markets = await fetchMarkets()
 const stats = await fetchStats()
-
 ```
 
 ### Type Safety
@@ -174,7 +169,6 @@ function getMarket(id: string): Promise<Market> {
 function getMarket(id: any): Promise<any> {
   // Implementation
 }
-
 ```
 
 ## React Best Practices
@@ -211,7 +205,6 @@ export function Button({
 export function Button(props) {
   return <button onClick={props.onClick}>{props.children}</button>
 }
-
 ```
 
 ### Custom Hooks
@@ -234,7 +227,6 @@ export function useDebounce<T>(value: T, delay: number): T {
 
 // Usage
 const debouncedQuery = useDebounce(searchQuery, 500)
-
 ```
 
 ### State Management
@@ -248,7 +240,6 @@ setCount(prev => prev + 1)
 
 // FAIL: BAD: Direct state reference
 setCount(count + 1)  // Can be stale in async scenarios
-
 ```
 
 ### Conditional Rendering
@@ -261,14 +252,13 @@ setCount(count + 1)  // Can be stale in async scenarios
 
 // FAIL: BAD: Ternary hell
 {isLoading ? <Spinner /> : error ? <ErrorMessage error={error} /> : data ? <DataDisplay data={data} /> : null}
-
 ```
 
 ## API Design Standards
 
 ### REST API Conventions
 
-```text
+```
 GET    /api/markets              # List all markets
 GET    /api/markets/:id          # Get specific market
 POST   /api/markets              # Create new market
@@ -278,7 +268,6 @@ DELETE /api/markets/:id          # Delete market
 
 # Query parameters for filtering
 GET /api/markets?status=active&limit=10&offset=0
-
 ```
 
 ### Response Format
@@ -308,7 +297,6 @@ return NextResponse.json({
   success: false,
   error: 'Invalid request'
 }, { status: 400 })
-
 ```
 
 ### Input Validation
@@ -340,14 +328,13 @@ export async function POST(request: Request) {
     }
   }
 }
-
 ```
 
 ## File Organization
 
 ### Project Structure
 
-```text
+```
 src/
 ├── app/                    # Next.js App Router
 │   ├── api/               # API routes
@@ -364,17 +351,15 @@ src/
 │   └── constants/       # Constants
 ├── types/                # TypeScript types
 └── styles/              # Global styles
-
 ```
 
 ### File Naming
 
-```text
+```
 components/Button.tsx          # PascalCase for components
 hooks/useAuth.ts              # camelCase with 'use' prefix
 lib/formatDate.ts             # camelCase for utilities
 types/market.types.ts         # camelCase with .types suffix
-
 ```
 
 ## Comments & Documentation
@@ -395,7 +380,6 @@ count++
 
 // Set name to user's name
 name = user.name
-
 ```
 
 ### JSDoc for Public APIs
@@ -421,7 +405,6 @@ export async function searchMarkets(
 ): Promise<Market[]> {
   // Implementation
 }
-
 ```
 
 ## Performance Best Practices
@@ -440,7 +423,6 @@ const sortedMarkets = useMemo(() => {
 const handleSearch = useCallback((query: string) => {
   setSearchQuery(query)
 }, [])
-
 ```
 
 ### Lazy Loading
@@ -458,7 +440,6 @@ export function Dashboard() {
     </Suspense>
   )
 }
-
 ```
 
 ### Database Queries
@@ -474,7 +455,6 @@ const { data } = await supabase
 const { data } = await supabase
   .from('markets')
   .select('*')
-
 ```
 
 ## Testing Standards
@@ -493,7 +473,6 @@ test('calculates similarity correctly', () => {
   // Assert
   expect(similarity).toBe(0)
 })
-
 ```
 
 ### Test Naming
@@ -507,15 +486,13 @@ test('falls back to substring search when Redis unavailable', () => { })
 // FAIL: BAD: Vague test names
 test('works', () => { })
 test('test search', () => { })
-
 ```
 
 ## Code Smell Detection
 
 Watch for these anti-patterns:
 
-### 1\. Long Functions
-
+### 1. Long Functions
 ```typescript
 // FAIL: BAD: Function > 50 lines
 function processMarketData() {
@@ -528,11 +505,9 @@ function processMarketData() {
   const transformed = transformData(validated)
   return saveData(transformed)
 }
-
 ```
 
-### 2\. Deep Nesting
-
+### 2. Deep Nesting
 ```typescript
 // FAIL: BAD: 5+ levels of nesting
 if (user) {
@@ -555,11 +530,9 @@ if (!market.isActive) return
 if (!hasPermission) return
 
 // Do something
-
 ```
 
-### 3\. Magic Numbers
-
+### 3. Magic Numbers
 ```typescript
 // FAIL: BAD: Unexplained numbers
 if (retryCount > 3) { }
@@ -571,7 +544,6 @@ const DEBOUNCE_DELAY_MS = 500
 
 if (retryCount > MAX_RETRIES) { }
 setTimeout(callback, DEBOUNCE_DELAY_MS)
-
 ```
 
 **Remember**: Code quality is not negotiable. Clear, maintainable code enables rapid development and confident refactoring.

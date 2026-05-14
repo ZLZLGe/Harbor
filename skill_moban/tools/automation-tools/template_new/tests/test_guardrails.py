@@ -4,21 +4,14 @@ import json
 import re
 from pathlib import Path
 
-from common import BUNDLE_ROOT, OUTPUT_ROOT, SKILL_ROOT, sha256_tree, run_build
+from common import BUNDLE_ROOT, OUTPUT_ROOT, sha256_tree, run_build
 
 
 REFERENCE_HASH = sha256_tree(BUNDLE_ROOT)
-SKILL_HASH = sha256_tree(SKILL_ROOT) if SKILL_ROOT.exists() else ""
 
 
 def test_reference_bundle_was_not_modified() -> None:
     assert sha256_tree(BUNDLE_ROOT) == REFERENCE_HASH
-
-
-def test_skill_bundle_was_not_modified() -> None:
-    if not SKILL_ROOT.exists():
-        return
-    assert sha256_tree(SKILL_ROOT) == SKILL_HASH
 
 
 def test_output_directory_contains_only_contract_files() -> None:

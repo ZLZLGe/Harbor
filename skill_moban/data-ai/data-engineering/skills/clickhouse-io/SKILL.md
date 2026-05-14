@@ -1,27 +1,32 @@
+---
+name: clickhouse-io
+description: ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads.
+origin: ECC
+---
+
 # ClickHouse Analytics Patterns
 
 ClickHouse-specific patterns for high-performance analytics and data engineering.
 
 ## When to Activate
 
-* Designing ClickHouse table schemas (MergeTree engine selection)
-* Writing analytical queries (aggregations, window functions, joins)
-* Optimizing query performance (partition pruning, projections, materialized views)
-* Ingesting large volumes of data (batch inserts, Kafka integration)
-* Migrating from PostgreSQL/MySQL to ClickHouse for analytics
-* Implementing real-time dashboards or time-series analytics
+- Designing ClickHouse table schemas (MergeTree engine selection)
+- Writing analytical queries (aggregations, window functions, joins)
+- Optimizing query performance (partition pruning, projections, materialized views)
+- Ingesting large volumes of data (batch inserts, Kafka integration)
+- Migrating from PostgreSQL/MySQL to ClickHouse for analytics
+- Implementing real-time dashboards or time-series analytics
 
 ## Overview
 
 ClickHouse is a column-oriented database management system (DBMS) for online analytical processing (OLAP). It's optimized for fast analytical queries on large datasets.
 
 **Key Features:**
-
-* Column-oriented storage
-* Data compression
-* Parallel query execution
-* Distributed queries
-* Real-time analytics
+- Column-oriented storage
+- Data compression
+- Parallel query execution
+- Distributed queries
+- Real-time analytics
 
 ## Table Design Patterns
 
@@ -41,7 +46,6 @@ CREATE TABLE markets_analytics (
 PARTITION BY toYYYYMM(date)
 ORDER BY (date, market_id)
 SETTINGS index_granularity = 8192;
-
 ```
 
 ### ReplacingMergeTree (Deduplication)
@@ -58,7 +62,6 @@ CREATE TABLE user_events (
 PARTITION BY toYYYYMM(timestamp)
 ORDER BY (user_id, event_id, timestamp)
 PRIMARY KEY (user_id, event_id);
-
 ```
 
 ### AggregatingMergeTree (Pre-aggregation)
@@ -86,7 +89,6 @@ FROM market_stats_hourly
 WHERE hour >= toStartOfHour(now() - INTERVAL 24 HOUR)
 GROUP BY hour, market_id
 ORDER BY hour DESC;
-
 ```
 
 ## Query Optimization Patterns
@@ -109,7 +111,6 @@ FROM markets_analytics
 WHERE volume > 1000
   AND market_name LIKE '%election%'
   AND date >= '2025-01-01';
-
 ```
 
 ### Aggregations
@@ -135,7 +136,6 @@ SELECT
     quantile(0.99)(trade_size) AS p99
 FROM trades
 WHERE created_at >= now() - INTERVAL 1 HOUR;
-
 ```
 
 ### Window Functions
@@ -154,7 +154,6 @@ SELECT
 FROM markets_analytics
 WHERE date >= today() - INTERVAL 30 DAY
 ORDER BY market_id, date;
-
 ```
 
 ## Data Insertion Patterns
@@ -196,7 +195,6 @@ async function insertTrade(trade: Trade) {
     INSERT INTO trades VALUES ('${trade.id}', ...)
   `).toPromise()
 }
-
 ```
 
 ### Streaming Insert
@@ -215,7 +213,6 @@ async function streamInserts() {
 
   await stream.end()
 }
-
 ```
 
 ## Materialized Views
@@ -245,7 +242,6 @@ SELECT
 FROM market_stats_hourly
 WHERE hour >= now() - INTERVAL 24 HOUR
 GROUP BY hour, market_id;
-
 ```
 
 ## Performance Monitoring
@@ -268,7 +264,6 @@ WHERE type = 'QueryFinish'
   AND event_time >= now() - INTERVAL 1 HOUR
 ORDER BY query_duration_ms DESC
 LIMIT 10;
-
 ```
 
 ### Table Statistics
@@ -285,7 +280,6 @@ FROM system.parts
 WHERE active
 GROUP BY database, table
 ORDER BY sum(bytes) DESC;
-
 ```
 
 ## Common Analytics Queries
@@ -320,7 +314,6 @@ FROM (
 )
 GROUP BY signup_date
 ORDER BY signup_date DESC;
-
 ```
 
 ### Funnel Analysis
@@ -342,7 +335,6 @@ FROM (
     WHERE event_date = today()
 )
 GROUP BY session_id;
-
 ```
 
 ### Cohort Analysis
@@ -363,7 +355,6 @@ FROM (
 )
 GROUP BY cohort, month, months_since_signup
 ORDER BY cohort, months_since_signup;
-
 ```
 
 ## Data Pipeline Patterns
@@ -390,7 +381,6 @@ async function etlPipeline() {
 
 // Run periodically
 setInterval(etlPipeline, 60 * 60 * 1000)  // Every hour
-
 ```
 
 ### Change Data Capture (CDC)
@@ -415,41 +405,35 @@ pgClient.on('notification', async (msg) => {
     }
   ])
 })
-
 ```
 
 ## Best Practices
 
-### 1\. Partitioning Strategy
+### 1. Partitioning Strategy
+- Partition by time (usually month or day)
+- Avoid too many partitions (performance impact)
+- Use DATE type for partition key
 
-* Partition by time (usually month or day)
-* Avoid too many partitions (performance impact)
-* Use DATE type for partition key
+### 2. Ordering Key
+- Put most frequently filtered columns first
+- Consider cardinality (high cardinality first)
+- Order impacts compression
 
-### 2\. Ordering Key
+### 3. Data Types
+- Use smallest appropriate type (UInt32 vs UInt64)
+- Use LowCardinality for repeated strings
+- Use Enum for categorical data
 
-* Put most frequently filtered columns first
-* Consider cardinality (high cardinality first)
-* Order impacts compression
+### 4. Avoid
+- SELECT * (specify columns)
+- FINAL (merge data before query instead)
+- Too many JOINs (denormalize for analytics)
+- Small frequent inserts (batch instead)
 
-### 3\. Data Types
-
-* Use smallest appropriate type (UInt32 vs UInt64)
-* Use LowCardinality for repeated strings
-* Use Enum for categorical data
-
-### 4\. Avoid
-
-* SELECT \* (specify columns)
-* FINAL (merge data before query instead)
-* Too many JOINs (denormalize for analytics)
-* Small frequent inserts (batch instead)
-
-### 5\. Monitoring
-
-* Track query performance
-* Monitor disk usage
-* Check merge operations
-* Review slow query log
+### 5. Monitoring
+- Track query performance
+- Monitor disk usage
+- Check merge operations
+- Review slow query log
 
 **Remember**: ClickHouse excels at analytical workloads. Design tables for your query patterns, batch inserts, and leverage materialized views for real-time aggregations.

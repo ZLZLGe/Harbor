@@ -1,49 +1,82 @@
-You are producing a formal HTML presentation deck for a quarterly briefing titled "Global Renewable Energy Expansion Progress." The strategy team has already prepared the briefing outline, data snapshots, a citation catalog, and a set of usable visual assets. They now need a browser-based deck that can be opened offline, works well for projection and mobile preview, and can be delivered directly to management.
+You need to deliver a browser-run briefing deck for a North America power mix review. The workspace already includes a delivery contract, page outlines, wireframes, public data snapshots, brand tokens, and a local build entrypoint. Complete the delivery while keeping the required output paths, data boundaries, and build flow.
 
-Input data is in:
-- `/root/environment/data/brief/`: the briefing outline, audience notes, information priority, tone requirements, section order, and final delivery constraints
-- `/root/environment/data/series/`: local numeric snapshots from public energy data sources, including global annual installed capacity, generation mix, country comparisons, and supplementary dimensions
-- `/root/environment/data/assets/`: local images, marks, and supporting visual assets available for the presentation
-- `/root/environment/data/sources/`: the source directory, short labels, and link mappings allowed for this briefing
-- `/root/environment/deck/`: the formal presentation build entrypoint, styles, scripts, and chart-generation code
-- `/services/source-registry/server.py`: the startup entrypoint for the local source registry service in the same container; it may be called but must not be modified
+Input data is available under `/app/power_brief/`:
+
+- `contracts/layout_contract.json`: the delivery contract. It defines the required page ids, page order, required modules per page, chart requirements, metric rules, navigation requirements, and cleanup requirements.
+- `outlines/slide_outline.json`: the page titles, key points, and note summaries for the briefing flow.
+- `notes/editorial_notes.md`: editorial direction, tone constraints, and page-level reminders.
+- `wireframes/`: low-fidelity page mockups for the required page sequence.
+- `data/country_profile.json`: country labels and profile data used by the briefing deck.
+- `data/world_bank_population.json`: population snapshot.
+- `data/world_bank_gdp.json`: GDP snapshot.
+- `data/annual_co2_emissions.csv`: annual CO2 emissions snapshot.
+- `data/electricity_prod_source.csv`: electricity generation by source snapshot.
+- `assets/brand_mark.svg`: the brand mark used in the site chrome.
+- `assets/brand_tokens.json`: approved color, type, and spacing tokens for the delivery.
+- `/app/workspace/build_site.py`: the current local build entrypoint. It must remain the formal generation entrypoint for this delivery.
 
 Your tasks
-1. Based on the briefing outline, data snapshots, visual assets, and audience requirements, generate a formal HTML presentation deck that fully covers every required section and key conclusion in the briefing.
-2. Management has only confirmed the content scope so far and has not yet approved the final visual direction. You must first create 3 clearly distinct single-page visual direction explorations, then converge on 1 formal presentation style for the final deck. These 3 exploration drafts must remain in the workspace for later review.
-3. The formal presentation must deliver a unified visual expression appropriate for a management briefing, must not depend on external web resources, and must work for desktop projection, small-screen portrait preview, and small-screen landscape preview. See the output requirements for the specific target sizes.
-4. All chart footnotes, source short labels, and citation links must exactly match the canonical results returned by the local source registry.
-5. If you write temporary scripts or helper files, you must still write the correct result back into the formal build pipeline and ensure the formal entrypoint `/root/environment/deck/build_briefing.py --output /root/answer` can be run repeatedly.
 
-Output:
-- `/root/answer/presentation.html`
-  - Must be a complete HTML deck that can be opened locally and does not depend on external web resources
-  - Must contain 8 formal slides, and the `slide_id` order and page anchors must use this exact fixed set of values: `slide-cover`, `slide-summary`, `slide-growth`, `slide-mix`, `slide-country`, `slide-risks`, `slide-actions`, `slide-sources`
-  - Must support slide navigation through keyboard arrow keys, mouse wheel, and touch swipe gestures, implemented through in-deck state transitions rather than full-page scrolling or anchor-only navigation; the implementation must genuinely handle browser input events such as `keydown`, `wheel`, and `touchstart` / `touchend`
-  - Must continuously display the current page index or an equivalent progress indicator so the current position is easy to identify during projection and mobile preview; this element must be directly identifiable in the DOM using `id="progress-text"` or an equivalent `data-progress-text`
-  - Except for the sources slide, any slide that uses data, judgments, or conclusions must display visible source short labels in the footer or an equivalent location and link them to the canonical links returned by the local source registry; each source marker must include `data-source-id="<source_id>"`, and you must not list sources only on the final slide
-  - Text content must remain accessible in the DOM; do not export each entire slide as a single image or a full-slide canvas
-  - Every formal slide must be fully visible within a single viewport, with no in-slide scrolling; each slide must retain enough body text, explanatory text, or footnote text to avoid leaving only a title and placeholder elements
-- `/root/answer/presentation_manifest.json`
-  - Must contain the top-level keys: `deck_title`, `slide_count`, `slides`, `data_files_used`, `asset_files_used`, `source_ids_used`, `viewport_targets`, `design_notes`
-  - `slide_count` must be `8`
-  - Each object in `slides` must contain the keys: `slide_id`, `title`, `primary_message`, `visuals_used`, `chart_ids`, `source_ids`
-  - `viewport_targets` must cover these 5 sizes: `1920x1080`, `1280x720`, `768x1024`, `375x667`, `667x375`
-  - `design_notes` must be a brief description of the overall visual direction, layout rhythm, and chart treatment principles, and must clearly record which final visual direction was selected after convergence
-- `/root/answer/source_audit.json`
-  - Must contain the top-level keys: `registry_endpoint`, `registry_checked`, `sources_resolved`, `slide_source_map`, `notes`
-  - `registry_checked` may only be `true` or `false`; the final result must be `true`
-  - `registry_endpoint` must be `http://127.0.0.1:4873`
-  - Each object in `sources_resolved` must contain the keys: `source_id`, `short_label`, `canonical_url`
-  - It must cover every required `source_id` for this task and map them back to the sources actually used on each slide
+1. Complete the final briefing deck and write it to `/app/output/north_america_power_mix_brief.html`.
+2. Follow `layout_contract.json` to complete the full deck. At minimum, the delivery must cover the cover page, agenda, country snapshot, power mix comparison, emissions trend, implications, and appendix. Use the contract and the local data files as the source of truth for page order, required modules, chart captions, metric years, and copy limits.
+3. Use `slide_outline.json`, `editorial_notes.md`, and `wireframes/` to complete the required page content and page structure. Every module required by the contract must appear in the final delivery, including three evidence-led implication cards that cover GDP scale, the lowest latest annual CO2 total, and the latest clean-generation lead.
+4. Every required chart and table must appear together with its related explanatory text in the same page section.
+5. The final delivery must be a single HTML file that can run directly in a browser from a local file path.
+6. Every page must fit within one viewport with no internal scrolling while remaining readable at the required screen sizes.
+7. Keep the local build entrypoint usable so the team can regenerate the same delivery from the current inputs.
+8. Clean the site so it is ready for review. Do not leave placeholder text, sample copy, empty modules, review residue, `TODO`, `TBD`, or demo text in the final delivery.
+9. Generate `/app/output/site_manifest.json` to record the input files used for the delivery, the final page order, chart identifiers, embedded assets, and the key metric years used in the site.
 
-Notes:
-- Use the outline, data, assets, and local source registry provided in the container to complete the task, and make sure the final result is reproducible.
-- Before producing the final presentation, you must first complete the visual direction explorations and then settle on the formal direction. Do not skip the exploration step and jump straight to the final deck, and do not delete the exploration drafts after completing the formal deck.
-- During the formal build process, you must genuinely probe the health of the local source registry and resolve the required sources one by one. The citations, short labels, links, and source mappings in the final result must match those resolved results.
-- You may freely decide the chart style, layout, color, typography, motion, information distribution within sections, and use of assets, but you must preserve the real data pipeline, complete section coverage, and reviewable citations.
-- Do not replace the real pipeline, and do not turn data loading, chart generation, source verification, or formal output into static placeholders, screenshots, screen recordings, hard-coded conclusions, or fabricated registry responses.
-- Do not degrade the browsing experience into a table-of-contents jump page or a long scrolling page; management needs stable slide-by-slide navigation and a clear current-position indicator in actual use.
-- Do not avoid the task by removing features, such as reducing the 8 formal slides to fewer pages, deleting charts, deleting the sources slide, deleting sections, removing slide navigation, or piling all content into a single long scrolling page.
-- Do not modify the input data, the local source registry service, tests, dependency baselines, or any skill files.
-- Do not require internet access during solve; the final result must be generated entirely from container data and local services.
+Output
+
+- Update the formal delivery code and any necessary supporting configuration under `/app/workspace/`.
+- Create exactly these files under `/app/output/`:
+  - `north_america_power_mix_brief.html`
+  - `site_manifest.json`
+
+`site_manifest.json` must include:
+
+```json
+{
+  "site_path": "north_america_power_mix_brief.html",
+  "pages": [
+    {
+      "page_id": "string",
+      "title": "string",
+      "source_outline_index": 0,
+      "chart_ids": ["string"],
+      "module_ids": ["string"],
+      "key_data_files": ["string"]
+    }
+  ],
+  "source_files": [
+    "data/country_profile.json",
+    "data/world_bank_population.json",
+    "data/world_bank_gdp.json",
+    "data/annual_co2_emissions.csv",
+    "data/electricity_prod_source.csv"
+  ],
+  "key_metrics": {
+    "population_year": 0,
+    "gdp_year": 0,
+    "co2_year": 0,
+    "electricity_year": 0
+  },
+  "embedded_assets": ["string"],
+  "notes": ["string"]
+}
+```
+
+Notes
+
+- Do not modify the input data, contract files, notes, wireframes, or assets under `/app/power_brief/`.
+- Before implementation, check whether a relevant local skill is available under `/root/.codex/skills/` and use it only as read-only workflow guidance when present.
+- In `site_manifest.json`, list only the data files directly used by each page. Do not pad a page with unrelated data files just because they exist elsewhere in the deck.
+- Keep manifest notes about the delivery and the bundled data. Do not include runtime checks, environment paths, or process commentary in the final outputs.
+- Do not change the required output paths or filenames.
+- Do not modify the tests, validation logic, pinned dependencies, environment configuration, or skill files.
+- Do not turn the delivery into a PDF, a slide export, a Markdown report, an image bundle, or a multi-page website.
+- Do not turn the delivery into a continuous scrolling webpage. Keep it as a page-based local-file briefing deck with working navigation.
+- Do not narrow the task to only a summary, only a subset of the required pages, or only static screenshots.
+- Do not rely on hardcoded single-year logic, single-country logic, fixed page count logic, or placeholder replacement that only works for one visible fixture.
+- You may add a small local helper script if needed, but the final evaluation will be based on the formal outputs in `/app/output/` and the formal generation entrypoint under `/app/workspace/`.

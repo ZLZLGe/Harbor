@@ -1,33 +1,37 @@
 version = "1.0"
 
 [metadata]
-id = "real-estate-legal__caixa-auction-edital-audit"
-name = "Template: Caixa Auction Edital Audit"
-description = "Assemble an investment-committee audit pack for a Caixa auction asset using the local authority service rather than stale internal exports."
+id = "real-estate-legal__noticeflow-seed-materials"
+name = "Template: NoticeFlow Seed Materials"
+description = "Build a seed fundraising package from current round inputs, metro housing snapshots, planning assumptions, and stale draft materials."
 difficulty = "hard"
 category = "real-estate-legal"
 tags = [
   "real-estate-legal",
-  "auction-audit",
-  "caixa",
-  "itbi",
-  "risk-register",
-  "cash-model",
-  "public-records",
-  "constraint-following",
+  "fundraising",
+  "investor-materials",
+  "financial-modeling",
+  "market-analysis",
+  "document-consistency",
+  "operations",
 ]
 required_skills = [
-  "leiloeiro-edital",
+  "investor-materials",
 ]
-primary_output_file = "/root/output/notice_extract.json"
-source_template_id = "real-estate-legal__caixa-auction-edital-audit"
+distractor_skills = [
+  "pitch-deck-design",
+  "market-research-summary",
+  "meeting-notes",
+]
+primary_output_file = "/root/output/fundraising_facts.json"
+source_template_id = "real-estate-legal__noticeflow-seed-materials"
 task_role = "template"
 
 [verifier]
 timeout_sec = 900.0
 
 [agent]
-timeout_sec = 900.0
+timeout_sec = 600.0
 
 [environment]
 build_timeout_sec = 900.0

@@ -15,7 +15,6 @@ CONTRACT = WORKSPACE / "contracts" / "release_contract.json"
 OUTPUT_CONTRACT = WORKSPACE / "contracts" / "output_contract.json"
 SKILLS_ROOT = Path(os.environ.get("SKILLS_ROOT", "/root/.codex/skills"))
 DATA_BASELINE_FILE = Path(os.environ.get("DATA_BASELINE_FILE", "/opt/toolchain-data.sha256"))
-SKILL_BASELINE_FILE = Path(os.environ.get("SKILL_BASELINE_FILE", "/opt/toolchain-skills.sha256"))
 PACKAGE_DIFF_BASELINE_FILE = Path(os.environ.get("PACKAGE_DIFF_BASELINE_FILE", "/opt/toolchain-package.diff.sha256"))
 
 
@@ -72,25 +71,6 @@ def baseline_data_manifest() -> dict[str, str]:
     for line in DATA_BASELINE_FILE.read_text(encoding="utf-8").splitlines():
         digest, path = line.split(maxsplit=1)
         manifest[str(Path(path).relative_to(WORKSPACE / "data"))] = digest
-    return manifest
-
-
-def current_skill_manifest() -> dict[str, str]:
-    if not SKILLS_ROOT.exists():
-        return {}
-    return {
-        str(path.relative_to(SKILLS_ROOT)): file_sha256(path)
-        for path in sorted(SKILLS_ROOT.rglob("*"))
-        if path.is_file()
-    }
-
-
-def baseline_skill_manifest() -> dict[str, str]:
-    manifest: dict[str, str] = {}
-    content = SKILL_BASELINE_FILE.read_text(encoding="utf-8")
-    for line in content.splitlines():
-        digest, path = line.split(maxsplit=1)
-        manifest[str(Path(path).relative_to(SKILLS_ROOT))] = digest
     return manifest
 
 

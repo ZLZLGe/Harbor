@@ -5,9 +5,6 @@ TESTS_ROOT="${TESTS_ROOT:-/tests}"
 VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
 
 mkdir -p "$VERIFIER_LOG_ROOT"
-if command -v start-ap-review >/dev/null 2>&1; then
-  start-ap-review
-fi
 
 set +e
 python3 <<'PY' 2>&1 | tee "$VERIFIER_LOG_ROOT/test-output.txt"
@@ -43,26 +40,30 @@ for filename in ["test_outputs.py", "test_guardrails.py"]:
             results.append({"nodeid": nodeid, "outcome": "passed"})
             print(f"PASS {nodeid}")
         except Exception as exc:
-            results.append(
-                {
-                    "nodeid": nodeid,
-                    "outcome": "failed",
-                    "message": str(exc),
-                    "traceback": traceback.format_exc(),
-                }
-            )
+            results.append({
+                "nodeid": nodeid,
+                "outcome": "failed",
+                "message": str(exc),
+                "traceback": traceback.format_exc(),
+            })
             print(f"FAIL {nodeid}: {exc}")
             traceback.print_exc()
 
-report = {"tests": results, "summary": {"passed": sum(r["outcome"] == "passed" for r in results), "total": len(results)}}
+report = {
+    "tests": results,
+    "summary": {
+        "passed": sum(r["outcome"] == "passed" for r in results),
+        "total": len(results),
+    },
+}
 (log_root / "report.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
 (log_root / "ctrf.json").write_text(json.dumps(report, indent=2, sort_keys=True), encoding="utf-8")
 raise SystemExit(0 if all(r["outcome"] == "passed" for r in results) else 1)
 PY
-PYTEST_EXIT=${PIPESTATUS[0]}
+PY_EXIT=${PIPESTATUS[0]}
 set -e
 
-if [ "$PYTEST_EXIT" -eq 0 ]; then
+if [ "$PY_EXIT" -eq 0 ]; then
   echo 1 > "$VERIFIER_LOG_ROOT/reward.txt"
 else
   echo 0 > "$VERIFIER_LOG_ROOT/reward.txt"

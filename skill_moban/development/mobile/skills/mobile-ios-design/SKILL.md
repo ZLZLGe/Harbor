@@ -1,31 +1,38 @@
+---
+name: mobile-ios-design
+description: Master iOS Human Interface Guidelines and SwiftUI patterns for building native iOS apps. Use when designing iOS interfaces, implementing SwiftUI views, or ensuring apps follow Apple's design principles.
+---
+
 # iOS Mobile Design
 
 Master iOS Human Interface Guidelines (HIG) and SwiftUI patterns to build polished, native iOS applications that feel at home on Apple platforms.
 
 ## When to Use This Skill
 
-* Designing iOS app interfaces following Apple HIG
-* Building SwiftUI views and layouts
-* Implementing iOS navigation patterns (NavigationStack, TabView, sheets)
-* Creating adaptive layouts for iPhone and iPad
-* Using SF Symbols and system typography
-* Building accessible iOS interfaces
-* Implementing iOS-specific gestures and interactions
-* Designing for Dynamic Type and Dark Mode
+- Designing iOS app interfaces following Apple HIG
+- Building SwiftUI views and layouts
+- Implementing iOS navigation patterns (NavigationStack, TabView, sheets)
+- Creating adaptive layouts for iPhone and iPad
+- Using SF Symbols and system typography
+- Building accessible iOS interfaces
+- Implementing iOS-specific gestures and interactions
+- Designing for Dynamic Type and Dark Mode
 
 ## Core Concepts
 
-### 1\. Human Interface Guidelines Principles
+### 1. Human Interface Guidelines Principles
 
-**Clarity**: Content is legible, icons are precise, adornments are subtle **Deference**: UI helps users understand content without competing with it **Depth**: Visual layers and motion convey hierarchy and enable navigation
+**Clarity**: Content is legible, icons are precise, adornments are subtle
+**Deference**: UI helps users understand content without competing with it
+**Depth**: Visual layers and motion convey hierarchy and enable navigation
 
 **Platform Considerations:**
 
-* **iOS**: Touch-first, compact displays, portrait orientation
-* **iPadOS**: Larger canvas, multitasking, pointer support
-* **visionOS**: Spatial computing, eye/hand input
+- **iOS**: Touch-first, compact displays, portrait orientation
+- **iPadOS**: Larger canvas, multitasking, pointer support
+- **visionOS**: Spatial computing, eye/hand input
 
-### 2\. SwiftUI Layout System
+### 2. SwiftUI Layout System
 
 **Stack-Based Layouts:**
 
@@ -47,7 +54,6 @@ HStack {
     Text("View All")
         .foregroundStyle(.blue)
 }
-
 ```
 
 **Grid Layouts:**
@@ -72,10 +78,9 @@ LazyVGrid(columns: [
         ItemThumbnail(item: item)
     }
 }
-
 ```
 
-### 3\. Navigation Patterns
+### 3. Navigation Patterns
 
 **NavigationStack (iOS 16+):**
 
@@ -97,7 +102,6 @@ struct ContentView: View {
         }
     }
 }
-
 ```
 
 **TabView (iOS 18+):**
@@ -122,10 +126,9 @@ struct MainTabView: View {
         }
     }
 }
-
 ```
 
-### 4\. System Integration
+### 4. System Integration
 
 **SF Symbols:**
 
@@ -144,7 +147,6 @@ Image(systemName: "speaker.wave.3.fill", variableValue: volume)
 // Symbol effect (iOS 17+)
 Image(systemName: "bell.fill")
     .symbolEffect(.bounce, value: notificationCount)
-
 ```
 
 **Dynamic Type:**
@@ -160,10 +162,9 @@ Text("Body text that scales with user preferences")
 // Custom font that respects Dynamic Type
 Text("Custom")
     .font(.custom("Avenir", size: 17, relativeTo: .body))
-
 ```
 
-### 5\. Visual Design
+### 5. Visual Design
 
 **Colors and Materials:**
 
@@ -183,7 +184,6 @@ Rectangle()
 Text("Overlay")
     .padding()
     .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
-
 ```
 
 **Shadows and Depth:**
@@ -197,7 +197,6 @@ RoundedRectangle(cornerRadius: 16)
 // Elevated appearance
 .shadow(radius: 2, y: 1)
 .shadow(radius: 8, y: 4)
-
 ```
 
 ## Quick Start Component
@@ -237,7 +236,6 @@ struct FeatureCard: View {
         .shadow(color: .black.opacity(0.05), radius: 4, y: 2)
     }
 }
-
 ```
 
 ## Best Practices
@@ -253,9 +251,9 @@ struct FeatureCard: View {
 
 ## Common Issues
 
-* **Layout Breaking**: Use `.fixedSize()` sparingly; prefer flexible layouts
-* **Performance Issues**: Use `LazyVStack`/`LazyHStack` for long scrolling lists
-* **Navigation Bugs**: Ensure `NavigationLink` values are `Hashable`
-* **Dark Mode Problems**: Avoid hardcoded colors; use semantic or asset catalog colors
-* **Accessibility Failures**: Test with VoiceOver enabled
-* **Memory Leaks**: Watch for strong reference cycles in closures
+- **Layout Breaking**: Use `.fixedSize()` sparingly; prefer flexible layouts
+- **Performance Issues**: Use `LazyVStack`/`LazyHStack` for long scrolling lists
+- **Navigation Bugs**: Ensure `NavigationLink` values are `Hashable`
+- **Dark Mode Problems**: Avoid hardcoded colors; use semantic or asset catalog colors
+- **Accessibility Failures**: Test with VoiceOver enabled
+- **Memory Leaks**: Watch for strong reference cycles in closures

@@ -5,9 +5,6 @@ TESTS_ROOT="${TESTS_ROOT:-/tests}"
 VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
 
 mkdir -p "$VERIFIER_LOG_ROOT"
-if command -v start-health-fitness-planner >/dev/null 2>&1; then
-  start-health-fitness-planner
-fi
 
 set +e
 python3 <<'PY' 2>&1 | tee "$VERIFIER_LOG_ROOT/test-output.txt"
@@ -16,11 +13,13 @@ from __future__ import annotations
 import importlib.util
 import json
 import os
+import sys
 import traceback
 from pathlib import Path
 
 tests_root = Path(os.environ.get("TESTS_ROOT", "/tests"))
 log_root = Path(os.environ.get("VERIFIER_LOG_ROOT", "/logs/verifier"))
+sys.path.insert(0, str(tests_root))
 results = []
 
 for filename in ["test_outputs.py", "test_guardrails.py"]:
@@ -60,8 +59,10 @@ set -e
 
 if [ "$RUN_EXIT" -eq 0 ]; then
   echo 1 > "$VERIFIER_LOG_ROOT/reward.txt"
+  printf '{"reward": 1.0}\n' > "$VERIFIER_LOG_ROOT/result.json"
 else
   echo 0 > "$VERIFIER_LOG_ROOT/reward.txt"
+  printf '{"reward": 0.0}\n' > "$VERIFIER_LOG_ROOT/result.json"
 fi
 
 exit 0

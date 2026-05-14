@@ -1,19 +1,24 @@
+---
+name: kpi-dashboard-design
+description: Design effective KPI dashboards with metrics selection, visualization best practices, and real-time monitoring patterns. Use this skill when building an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing an operations center with live service health and request throughput; creating a cohort retention analysis view for a product team; or debugging a dashboard where metrics contradict each other due to inconsistent calculation methodology.
+---
+
 # KPI Dashboard Design
 
 Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions.
 
 ## When to Use This Skill
 
-* Designing executive dashboards
-* Selecting meaningful KPIs
-* Building real-time monitoring displays
-* Creating department-specific metrics views
-* Improving existing dashboard layouts
-* Establishing metric governance
+- Designing executive dashboards
+- Selecting meaningful KPIs
+- Building real-time monitoring displays
+- Creating department-specific metrics views
+- Improving existing dashboard layouts
+- Establishing metric governance
 
 ## Core Concepts
 
-### 1\. KPI Framework
+### 1. KPI Framework
 
 | Level           | Focus            | Update Frequency  | Audience   |
 | --------------- | ---------------- | ----------------- | ---------- |
@@ -21,20 +26,19 @@ Comprehensive patterns for designing effective Key Performance Indicator (KPI) d
 | **Tactical**    | Department goals | Weekly/Monthly    | Managers   |
 | **Operational** | Day-to-day       | Real-time/Daily   | Teams      |
 
-### 2\. SMART KPIs
+### 2. SMART KPIs
 
-```text
+```
 Specific: Clear definition
 Measurable: Quantifiable
 Achievable: Realistic targets
 Relevant: Aligned to goals
 Time-bound: Defined period
-
 ```
 
-### 3\. Dashboard Hierarchy
+### 3. Dashboard Hierarchy
 
-```text
+```
 ├── Executive Summary (1 page)
 │   ├── 4-6 headline KPIs
 │   ├── Trend indicators
@@ -47,7 +51,6 @@ Time-bound: Defined period
 └── Detailed Drilldowns
     ├── Individual metrics
     └── Root cause analysis
-
 ```
 
 ## Common KPIs by Department
@@ -72,7 +75,6 @@ Activity Metrics:
   - Demos Scheduled
   - Proposals Sent
   - Close Rate
-
 ```
 
 ### Marketing KPIs
@@ -95,7 +97,6 @@ ROI:
   - Campaign Performance
   - Channel Attribution
   - CAC Payback Period
-
 ```
 
 ### Product KPIs
@@ -118,7 +119,6 @@ Growth:
   - Activation Rate
   - Retention Rate
   - Churn Rate
-
 ```
 
 ### Finance KPIs
@@ -141,15 +141,14 @@ Efficiency:
   - Operating Expense Ratio
   - Days Sales Outstanding
   - Inventory Turnover
-
 ```
 
 ## Dashboard Layout Patterns
 
 ### Pattern 1: Executive Summary
 
-```text
-┌──────���──────────────────────────────────────────────────────┐
+```
+┌─────────────────────────────────────────────────────────────┐
 │  EXECUTIVE DASHBOARD                        [Date Range ▼]  │
 ├─────────────┬─────────────┬─────────────┬─────────────────┤
 │   REVENUE   │   PROFIT    │  CUSTOMERS  │    NPS SCORE    │
@@ -169,12 +168,11 @@ Efficiency:
 │  🔴 Alert: Churn rate exceeded threshold (>5%)              │
 │  🟡 Warning: Support ticket volume 20% above average        │
 └─────────────────────────────────────────────────────────────┘
-
 ```
 
 ### Pattern 2: SaaS Metrics Dashboard
 
-```text
+```
 ┌─────────────────────────────────────────────────────────────┐
 │  SAAS METRICS                     Jan 2024  [Monthly ▼]     │
 ├──────────────────────┬──────────────────────────────────────┤
@@ -203,12 +201,11 @@ Efficiency:
 │  │ 4.2%     │ 1.8%     │ 3.1%     │ 2.4%                 │ │
 │  └──────────┴──────────┴──────────┴──────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
-
 ```
 
 ### Pattern 3: Real-time Operations
 
-```text
+```
 ┌─────────────────────────────────────────────────────────────┐
 │  OPERATIONS CENTER                    Live ● Last: 10:42:15 │
 ├────────────────────────────┬────────────────────────────────┤
@@ -233,7 +230,6 @@ Efficiency:
 │  10:35  🟢 Resolved: Database connection pool recovered     │
 │  10:22  🔴 Payment service circuit breaker tripped          │
 └─────────────────────────────────────────────────────────────┘
-
 ```
 
 ## Implementation Patterns
@@ -304,7 +300,6 @@ FROM (
     WHERE u.source = 'marketing'
 ) acquisition
 GROUP BY DATE_TRUNC('month', acquired_date);
-
 ```
 
 ### Python Dashboard Code (Streamlit)
@@ -406,26 +401,25 @@ for alert in alerts:
         st.error(f"🔴 {alert['message']}")
     elif alert["level"] == "warning":
         st.warning(f"🟡 {alert['message']}")
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Limit to 5-7 KPIs** \- Focus on what matters
-* **Show context** \- Comparisons, trends, targets
-* **Use consistent colors** \- Red=bad, green=good
-* **Enable drilldown** \- From summary to detail
-* **Update appropriately** \- Match metric frequency
+- **Limit to 5-7 KPIs** - Focus on what matters
+- **Show context** - Comparisons, trends, targets
+- **Use consistent colors** - Red=bad, green=good
+- **Enable drilldown** - From summary to detail
+- **Update appropriately** - Match metric frequency
 
 ### Don'ts
 
-* **Don't show vanity metrics** \- Focus on actionable data
-* **Don't overcrowd** \- White space aids comprehension
-* **Don't use 3D charts** \- They distort perception
-* **Don't hide methodology** \- Document calculations
-* **Don't ignore mobile** \- Ensure responsive design
+- **Don't show vanity metrics** - Focus on actionable data
+- **Don't overcrowd** - White space aids comprehension
+- **Don't use 3D charts** - They distort perception
+- **Don't hide methodology** - Document calculations
+- **Don't ignore mobile** - Ensure responsive design
 
 ## Troubleshooting
 
@@ -443,7 +437,6 @@ CASE subscription_interval
     WHEN 'quarterly' THEN amount / 3.0
     WHEN 'yearly'    THEN amount / 12.0
 END AS normalized_mrr
-
 ```
 
 ### Dashboard shows green but product team reports users complaining
@@ -451,10 +444,10 @@ END AS normalized_mrr
 The dashboard likely tracks system uptime (a lagging indicator) but not user-facing quality metrics. Add customer-perceived metrics alongside infrastructure metrics:
 
 | Infrastructure (green) | User-perceived (add these) |
-| ---------------------- | -------------------------- |
-| API uptime 99.9%       | P95 page load time         |
-| Error rate 0.1%        | Task completion rate       |
-| Queue depth normal     | Support ticket volume      |
+|---|---|
+| API uptime 99.9% | P95 page load time |
+| Error rate 0.1% | Task completion rate |
+| Queue depth normal | Support ticket volume |
 
 ### Retention cohort looks flat — no variation between cohorts
 
@@ -466,7 +459,6 @@ DATE_TRUNC('day', created_at) AS cohort_date
 
 -- Correct: monthly cohorts
 DATE_TRUNC('month', created_at) AS cohort_month
-
 ```
 
 ### Real-time dashboard hammers the database
@@ -482,7 +474,6 @@ def refresh_mrr_summary():
         FROM subscriptions WHERE status = 'active'
         ON CONFLICT (metric) DO UPDATE SET value = EXCLUDED.value
     """)
-
 ```
 
 ### Alert thresholds fire constantly, team ignores them
@@ -495,9 +486,8 @@ def is_anomalous(current: float, history: list[float]) -> bool:
     mean = statistics.mean(history)
     stdev = statistics.stdev(history)
     return abs(current - mean) > 2 * stdev
-
 ```
 
 ## Related Skills
 
-* `data-storytelling` \- Turn dashboard findings into narratives that drive executive decisions
+- `data-storytelling` - Turn dashboard findings into narratives that drive executive decisions

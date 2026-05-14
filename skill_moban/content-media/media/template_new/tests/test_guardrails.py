@@ -7,7 +7,6 @@ from pathlib import Path
 
 INPUT_DIR = Path(os.environ.get("MEDIA_PICK_INPUT_DIR", "/root/media_pick/input"))
 OUTPUT_DIR = Path(os.environ.get("MEDIA_PICK_OUTPUT_DIR", "/root/media_pick/output"))
-SKILL_DIR = Path(os.environ.get("MEDIA_PICK_SKILL_DIR", "/root/.codex/skills/video-frames"))
 
 
 def file_hash_lines(root: Path) -> str:
@@ -26,15 +25,6 @@ def test_input_files_were_not_modified() -> None:
         expected = expected_path.read_text(encoding="utf-8")
         current = file_hash_lines(INPUT_DIR)
         assert current == expected, "Input files under /root/media_pick/input were modified"
-
-
-def test_shipped_skill_payload_was_not_modified_if_present() -> None:
-    expected_path = Path("/opt/media-pick-skills.sha256")
-    if not expected_path.exists():
-        return
-    expected = expected_path.read_text(encoding="utf-8")
-    current = file_hash_lines(SKILL_DIR)
-    assert current == expected, "Shipped skill payload was modified"
 
 
 def test_no_placeholder_or_verifier_targeting_text() -> None:

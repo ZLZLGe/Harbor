@@ -1,42 +1,45 @@
+---
+name: data-storytelling
+description: Transform data into compelling narratives using visualization, context, and persuasive structure. Use when presenting analytics to stakeholders, creating data reports, or building executive presentations.
+---
+
 # Data Storytelling
 
 Transform raw data into compelling narratives that drive decisions and inspire action.
 
 ## When to Use This Skill
 
-* Presenting analytics to executives
-* Creating quarterly business reviews
-* Building investor presentations
-* Writing data-driven reports
-* Communicating insights to non-technical audiences
-* Making recommendations based on data
+- Presenting analytics to executives
+- Creating quarterly business reviews
+- Building investor presentations
+- Writing data-driven reports
+- Communicating insights to non-technical audiences
+- Making recommendations based on data
 
 ## Core Concepts
 
-### 1\. Story Structure
+### 1. Story Structure
 
-```text
+```
 Setup → Conflict → Resolution
 
 Setup: Context and baseline
 Conflict: The problem or opportunity
 Resolution: Insights and recommendations
-
 ```
 
-### 2\. Narrative Arc
+### 2. Narrative Arc
 
-```text
+```
 1. Hook: Grab attention with surprising insight
 2. Context: Establish the baseline
 3. Rising Action: Build through data points
 4. Climax: The key insight
 5. Resolution: Recommendations
 6. Call to Action: Next steps
-
 ```
 
-### 3\. Three Pillars
+### 3. Three Pillars
 
 | Pillar        | Purpose  | Components                       |
 | ------------- | -------- | -------------------------------- |
@@ -90,7 +93,6 @@ are 4x more likely to churn.
 ## Call to Action
 
 Approve $50K budget for onboarding automation.
-
 ```
 
 ### Framework 2: The Trend Story
@@ -130,7 +132,6 @@ have 3x higher expansion rate.
 
 Double down on hybrid model.
 Target: $1.8M MRR by Q2.
-
 ```
 
 ### Framework 3: The Comparison Story
@@ -185,7 +186,6 @@ Enter EMEA in Year 2 with localization ready.
 - Timezone coverage: Hire 24/7 support
 - Cultural fit: Local partnerships
 - Payment: Multi-currency from day 1
-
 ```
 
 ## Visualization Techniques
@@ -200,7 +200,6 @@ Slide 2: "But growth is slowing" [add growth rate overlay]
 Slide 3: "Driven by one segment" [add segment breakdown]
 Slide 4: "Which is saturating" [add market share]
 Slide 5: "We need new segments" [add opportunity zones]
-
 ```
 
 ### Technique 2: Contrast and Compare
@@ -225,7 +224,6 @@ This/That (emphasize difference):
 │ └──────────┘ └──────────┘ │
 │ Onboarded No onboarding │
 └─────────────────────────────────────┘
-
 ```
 
 ### Technique 3: Annotation and Highlight
@@ -259,14 +257,13 @@ ax.axhline(y=target, color='gray', linestyle='--',
 
 ax.set_title('Revenue Growth Story', fontsize=14, fontweight='bold')
 ax.legend()
-
 ```
 
 ## Presentation Templates
 
 ### Template 1: Executive Summary Slide
 
-```text
+```
 ┌─────────────────────────────────────────────────────────────┐
 │  KEY INSIGHT                                                │
 │  ══════════════════════════════════════════════════════════│
@@ -289,12 +286,11 @@ ax.legend()
 │  • NPS: 34           │                                      │
 │                      │                                      │
 └──────────────────────┴──────────────────────────────────────┘
-
 ```
 
 ### Template 2: Data Story Flow
 
-```text
+```
 Slide 1: THE HEADLINE
 "We can grow 40% faster by fixing onboarding"
 
@@ -327,7 +323,6 @@ Slide 7: THE ASK
 Specific request
 Decision needed
 Next steps
-
 ```
 
 ### Template 3: One-Page Dashboard Story
@@ -376,7 +371,6 @@ CPC up 35% while conversion flat.
 - Launch content marketing pilot
 - Complete self-serve MVP
 - Reduce time-to-value to < 7 days
-
 ```
 
 ## Writing Techniques
@@ -395,7 +389,6 @@ GOOD: "Content Marketing Delivers 4x ROI vs. Paid"
 
 Formula:
 [Specific Number] + [Business Impact] + [Actionable Context]
-
 ```
 
 ### Transition Phrases
@@ -418,7 +411,6 @@ Moving to action:
 • "Based on this analysis..."
 • "The implication is clear..."
 • "Our recommendation is..."
-
 ```
 
 ### Handling Uncertainty
@@ -434,23 +426,22 @@ Present ranges:
 • "Impact estimate: $400K-$600K"
 • "Confidence interval: 15-20% improvement"
 • "Best case: X, Conservative: Y"
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Start with the "so what"** \- Lead with insight
-* **Use the rule of three** \- Three points, three comparisons
-* **Show, don't tell** \- Let data speak
-* **Make it personal** \- Connect to audience goals
-* **End with action** \- Clear next steps
+- **Start with the "so what"** - Lead with insight
+- **Use the rule of three** - Three points, three comparisons
+- **Show, don't tell** - Let data speak
+- **Make it personal** - Connect to audience goals
+- **End with action** - Clear next steps
 
 ### Don'ts
 
-* **Don't data dump** \- Curate ruthlessly
-* **Don't bury the insight** \- Front-load key findings
-* **Don't use jargon** \- Match audience vocabulary
-* **Don't show methodology first** \- Context, then method
-* **Don't forget the narrative** \- Numbers need meaning
+- **Don't data dump** - Curate ruthlessly
+- **Don't bury the insight** - Front-load key findings
+- **Don't use jargon** - Match audience vocabulary
+- **Don't show methodology first** - Context, then method
+- **Don't forget the narrative** - Numbers need meaning

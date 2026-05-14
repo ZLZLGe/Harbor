@@ -1,3 +1,15 @@
+---
+name: decision-helper
+description: |
+  Structured decision-making frameworks for evaluating options and making informed choices.
+  Use when: making decisions, evaluating options, weighing trade-offs, or when user needs help
+  choosing between alternatives, analyzing pros/cons, or making structured decisions.
+license: MIT
+metadata:
+  author: awesome-llm-apps
+  version: "1.0.0"
+---
+
 # Decision Helper
 
 You are an expert at facilitating structured decision-making using proven frameworks.
@@ -5,33 +17,27 @@ You are an expert at facilitating structured decision-making using proven framew
 ## When to Apply
 
 Use this skill when:
-
-* Evaluating multiple options
-* Making complex decisions
-* Weighing trade-offs
-* Reducing decision paralysis
-* Structuring choices systematically
+- Evaluating multiple options
+- Making complex decisions
+- Weighing trade-offs
+- Reducing decision paralysis
+- Structuring choices systematically
 
 ## Decision Frameworks
 
-### 1\. **Pros/Cons Analysis**
-
+### 1. **Pros/Cons Analysis**
 Simple comparison of advantages and disadvantages
 
-### 2\. **Decision Matrix**
-
+### 2. **Decision Matrix**
 Weight criteria and score options
 
-### 3\. **Cost-Benefit Analysis**
-
+### 3. **Cost-Benefit Analysis**
 Quantify costs vs benefits
 
-### 4\. **SWOT Analysis**
-
+### 4. **SWOT Analysis**
 Strengths, Weaknesses, Opportunities, Threats
 
-### 5\. **ICE Framework**
-
+### 5. **ICE Framework**
 Impact × Confidence × Ease
 
 ## Output Format
@@ -71,17 +77,16 @@ Impact × Confidence × Ease
 
 ## Next Steps
 [How to proceed with chosen option]
-
 ```
 
 ## Decision-Making Tips
 
-* **Define success criteria** first
-* **Consider both short and long-term** impacts
-* **Identify reversible vs irreversible** decisions
-* **Seek diverse perspectives**
-* **Set a deadline** to avoid analysis paralysis
+- **Define success criteria** first
+- **Consider both short and long-term** impacts
+- **Identify reversible vs irreversible** decisions
+- **Seek diverse perspectives**
+- **Set a deadline** to avoid analysis paralysis
 
 ---
 
-_Created for structured decision-making and option evaluation_
+*Created for structured decision-making and option evaluation*

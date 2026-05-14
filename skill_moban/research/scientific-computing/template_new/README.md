@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：scientific-computing 类热门 skill 的共性价值，在于把 netCDF、XML、原始观测文本、JSON contract 这类异构科学输入组织成稳定的分析前工作流。模板任务应把重点放在候选文件发现、结构理解、质量归纳和正式交付，而不是把方法细节直接写进题面。
-* **Task 目标形态**：这类任务适合落在研究 intake、预筛查、局部预处理和分析准备场景里，要求 Agent 先识别应使用的输入，再依据本地 contract 产出可复跑的结构化结果与简短说明。题面应强调输出合同和业务约束，把诊断路径留给 solver 自行完成。
 * **Verifier 设计重点**：Verifier 应优先检查 solver 是否走通了多格式发现与聚合链路，并验证关键约定、精度策略、mutation 响应和可重放性。防作弊设计要覆盖文件名扰动、contract 变更、metadata 变更以及输入完整性，避免只靠表层模板或手写答案过关。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`scientific-computing__marine-heat-intake-screening`
 - 类别：`scientific-computing`
-- 难度：`hard`
 - 绑定 Skill：`exploratory-data-analysis`
 - 输入数据参考来源：
   - `environment/data/grids/thermal_subset_alpha.nc`：任务内 OISST 候选网格子集之一；数据形态参考 NOAA OISST daily netCDF  
@@ -32,7 +30,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：oracle 从本地 buoy 文本、metadata XML、OISST netCDF 和 contract JSON 直接重算输入选择、日级 merged panel、数据问题表和 shortlist，并生成 markdown intake。它证明任务可运行、可验证，且答案完全由本地输入推导。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -50,7 +48,7 @@
 | Contract mutation | 调整 top-k 与阈值后，candidate shortlist 必须跟着变化 |
 | Metadata mutation | 改动 latest history 坐标后，grid mapping 与输出必须同步变化 |
 | Filename obfuscation | 打乱候选文件名后，仍需选中同一组核心输入 |
-| 输入与技能完整性 | `/root/data` 与 `/root/.codex/skills` 内容不得变化，官方入口重复运行需产出一致结果 |
+| 输入与运行一致性 | `/root/data` 不得变化，官方入口重复运行需产出一致结果；绑定 skill 只作为运行时参考 |
 
 ### ⚡ Skill 相关性评估
 

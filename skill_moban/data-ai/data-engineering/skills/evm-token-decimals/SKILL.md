@@ -1,14 +1,21 @@
+---
+name: evm-token-decimals
+description: Prevent silent decimal mismatch bugs across EVM chains. Covers runtime decimal lookup, chain-aware caching, bridged-token precision drift, and safe normalization for bots, dashboards, and DeFi tools.
+origin: ECC direct-port adaptation
+version: "1.0.0"
+---
+
 # EVM Token Decimals
 
 Silent decimal mismatches are one of the easiest ways to ship balances or USD values that are off by orders of magnitude without throwing an error.
 
 ## When to Use
 
-* Reading ERC-20 balances in Python, TypeScript, or Solidity
-* Calculating fiat values from on-chain balances
-* Comparing token amounts across multiple EVM chains
-* Handling bridged assets
-* Building portfolio trackers, bots, or aggregators
+- Reading ERC-20 balances in Python, TypeScript, or Solidity
+- Calculating fiat values from on-chain balances
+- Comparing token amounts across multiple EVM chains
+- Handling bridged assets
+- Building portfolio trackers, bots, or aggregators
 
 ## How It Works
 
@@ -38,7 +45,6 @@ def get_token_balance(w3: Web3, token_address: str, wallet: str) -> Decimal:
     decimals = contract.functions.decimals().call()
     raw = contract.functions.balanceOf(Web3.to_checksum_address(wallet)).call()
     return Decimal(raw) / Decimal(10 ** decimals)
-
 ```
 
 Do not hardcode `1_000_000` because a symbol usually has 6 decimals somewhere else.
@@ -56,7 +62,6 @@ def get_decimals(chain_id: int, token_address: str) -> int:
         abi=ERC20_ABI,
     )
     return contract.functions.decimals().call()
-
 ```
 
 ### Handle odd tokens defensively
@@ -71,7 +76,6 @@ except Exception:
         chain_id,
     )
     decimals = 18
-
 ```
 
 Log the fallback and keep it visible. Old or non-standard tokens still exist.
@@ -89,7 +93,6 @@ function normalizeToWad(address token, uint256 amount) internal view returns (ui
     if (d < 18) return amount * 10 ** (18 - d);
     return amount / 10 ** (d - 18);
 }
-
 ```
 
 ### TypeScript with ethers
@@ -110,20 +113,18 @@ async function getBalance(provider: any, tokenAddress: string, wallet: string): 
   ]);
   return formatUnits(raw, decimals);
 }
-
 ```
 
 ### Quick on-chain check
 
 ```bash
 cast call <token_address> "decimals()(uint8)" --rpc-url <rpc>
-
 ```
 
 ## Rules
 
-* Always query `decimals()` at runtime
-* Cache by chain plus token address, not symbol
-* Use `Decimal`, `BigInt`, or equivalent exact math, not float
-* Re-query decimals after bridging or wrapper changes
-* Normalize internal accounting consistently before comparison or pricing
+- Always query `decimals()` at runtime
+- Cache by chain plus token address, not symbol
+- Use `Decimal`, `BigInt`, or equivalent exact math, not float
+- Re-query decimals after bridging or wrapper changes
+- Normalize internal accounting consistently before comparison or pricing

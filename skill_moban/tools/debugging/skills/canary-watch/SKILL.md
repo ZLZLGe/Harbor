@@ -1,12 +1,18 @@
+---
+name: canary-watch
+description: Use this skill to monitor a deployed URL for regressions after deploys, merges, or dependency upgrades.
+origin: ECC
+---
+
 # Canary Watch — Post-Deploy Monitoring
 
 ## When to Use
 
-* After deploying to production or staging
-* After merging a risky PR
-* When you want to verify a fix actually fixed it
-* Continuous monitoring during a launch window
-* After dependency upgrades
+- After deploying to production or staging
+- After merging a risky PR
+- When you want to verify a fix actually fixed it
+- Continuous monitoring during a launch window
+- After dependency upgrades
 
 ## How It Works
 
@@ -14,37 +20,30 @@ Monitors a deployed URL for regressions. Runs in a loop until stopped or until t
 
 ### What It Watches
 
-```text
+```
 1. HTTP Status — is the page returning 200?
 2. Console Errors — new errors that weren't there before?
 3. Network Failures — failed API calls, 5xx responses?
 4. Performance — LCP/CLS/INP regression vs baseline?
 5. Content — did key elements disappear? (h1, nav, footer, CTA)
 6. API Health — are critical endpoints responding within SLA?
-
 ```
 
 ### Watch Modes
 
 **Quick check** (default): single pass, report results
-
-```text
+```
 /canary-watch https://myapp.com
-
 ```
 
 **Sustained watch**: check every N minutes for M hours
-
-```text
+```
 /canary-watch https://myapp.com --interval 5m --duration 2h
-
 ```
 
 **Diff mode**: compare staging vs production
-
-```text
+```
 /canary-watch --compare https://staging.myapp.com https://myapp.com
-
 ```
 
 ### Alert Thresholds
@@ -65,16 +64,14 @@ warning:   # flag in report
 info:      # log only
   - Minor performance variance
   - New network requests (third-party scripts added?)
-
 ```
 
 ### Notifications
 
 When a critical threshold is crossed:
-
-* Desktop notification (macOS/Linux)
-* Optional: Slack/Discord webhook
-* Log to `~/.claude/canary-watch.log`
+- Desktop notification (macOS/Linux)
+- Optional: Slack/Discord webhook
+- Log to `~/.claude/canary-watch.log`
 
 ## Output
 
@@ -92,13 +89,11 @@ When a critical threshold is crossed:
 | API /health | 145ms ✓ | 120ms | +25ms |
 
 ### No regressions detected. Deploy is clean.
-
 ```
 
 ## Integration
 
 Pair with:
-
-* `/browser-qa` for pre-deploy verification
-* Hooks: add as a PostToolUse hook on `git push` to auto-check after deploys
-* CI: run in GitHub Actions after deploy step
+- `/browser-qa` for pre-deploy verification
+- Hooks: add as a PostToolUse hook on `git push` to auto-check after deploys
+- CI: run in GitHub Actions after deploy step

@@ -1,3 +1,23 @@
+---
+name: brand-landingpage
+description: >
+  Brand-first landing page designer — interviews the user to discover brand identity
+  (adjectives, colors, typography, shape language), then generates and iterates on a
+  polished landing page via Stitch with deployment-ready HTML output. Preferred
+  over frontend-design for standalone landing/marketing pages where the user hasn't
+  established visual direction yet.
+
+  TRIGGER when: user asks to "create/design/build a landing page", "make a homepage
+  for my project/product/service", "build a marketing page", or wants to promote an
+  app/side project. Especially when they haven't defined brand colors, fonts, or
+  visual style — the guided brand interview is the core value.
+
+  DO NOT TRIGGER when: user has a specific design mockup to implement, wants a
+  dashboard or app UI, needs component-level frontend work (buttons, forms, navbars),
+  is building a multi-page application, or is restyling an existing page with known
+  design tokens. Use frontend-design for those cases.
+---
+
 # Brand Landing Page Designer
 
 You are a design consultant embedded in a developer's workflow. Your user has built a product, side project, or service and needs a landing page -- but hasn't thought much about brand identity, visual direction, or how to communicate their product to non-technical visitors. You guide them through a focused brand interview, translate their answers into design decisions, generate screens via Stitch, lead iterative refinement through structured design feedback, and deliver a deployment-ready bundle.
@@ -14,7 +34,7 @@ Stitch enables the visual generation and iteration loop — generating designs, 
 
 ### Getting Stitch Ready
 
-Finish Phase 0 before starting Phase 1\. The interview has little use without a working Stitch connection to generate against.
+Finish Phase 0 before starting Phase 1. The interview has little use without a working Stitch connection to generate against.
 
 1. Consult the SDK documentation to verify the SDK is installed and is at its latest version. The Stitch SDK is still new and evolving, so consider the Stitch SDK documentation as the ground truth.
 2. If the SDK is missing, install it (global install by default, project's package manager if clearly inside a project).
@@ -25,9 +45,9 @@ Aim to get the user to the interview without bothering them with installation te
 
 ### SDK Usage Notes
 
-* **Discover MCP tool names through the agent runtime.** If Stitch MCP tools are available, use the agent runtime's tool-listing mechanism (e.g., `list_tools`) to capture exact tool names. Names may be prefixed (e.g., `stitch_create_project`, `mcp__stitch__create_project`). Use the discovered names for later tool calls — don't assume the unprefixed names in this document.
-* **Prefer the SDK's own response data over memory.** When an SDK call returns structured data (return types, enum values), use the returned values directly rather than guessing at shapes from training knowledge.
-* **Fail fast, recover quietly.** If an SDK call fails with a shape mismatch, fix the call based on the SDK's error message and retry once before surfacing the error to the user.
+- **Discover MCP tool names through the agent runtime.** If Stitch MCP tools are available, use the agent runtime's tool-listing mechanism (e.g., `list_tools`) to capture exact tool names. Names may be prefixed (e.g., `stitch_create_project`, `mcp__stitch__create_project`). Use the discovered names for later tool calls — don't assume the unprefixed names in this document.
+- **Prefer the SDK's own response data over memory.** When an SDK call returns structured data (return types, enum values), use the returned values directly rather than guessing at shapes from training knowledge.
+- **Fail fast, recover quietly.** If an SDK call fails with a shape mismatch, fix the call based on the SDK's error message and retry once before surfacing the error to the user.
 
 ---
 
@@ -35,24 +55,23 @@ Aim to get the user to the interview without bothering them with installation te
 
 Read these files at the indicated moments. Do not re-read them on every iteration.
 
-| File                              | When to read                                   | Contains                                                               |
-| --------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------- |
-| references/interview-framework.md | Before starting the interview (Phase 1)        | Full question bank, follow-up triggers, feedback facilitation guide    |
-| references/stitch-architecture.md | Before creating the design system (Phase 2)    | Font mappings, color variant guide, prompt templates, section taxonomy |
-| references/state-and-pitfalls.md  | At project start and before delivery (Phase 4) | metadata.json schema, state rules, common pitfalls, DEPLOY.md template |
+| File | When to read | Contains |
+|------|-------------|----------|
+| `references/interview-framework.md` | Before starting the interview (Phase 1) | Full question bank, follow-up triggers, feedback facilitation guide |
+| `references/stitch-architecture.md` | Before creating the design system (Phase 2) | Font mappings, color variant guide, prompt templates, section taxonomy |
+| `references/state-and-pitfalls.md` | At project start and before delivery (Phase 4) | metadata.json schema, state rules, common pitfalls, DEPLOY.md template |
 
 ---
 
 ## Workflow Overview
 
-```text
+```
 PHASE 0          PHASE 1          PHASE 2             PHASE 3                    PHASE 4
 SETUP     -----> INTERVIEW -----> DESIGN SYSTEM ----> GENERATE & REVIEW LOOP --> DELIVER
 Stitch SDK       (3 parts)        (translate &        (generate -> show ->       (bundle
 + env config      A: Product       create in           feedback -> edit/          zip for
 + verify          B: Brand Feel    Stitch)             variant -> repeat)         deployment)
                   C: Visual
-
 ```
 
 All project state persists in `.stitch/metadata.json` (see `references/state-and-pitfalls.md` for schema). If this file exists when the skill starts, resume from the saved state instead of re-interviewing.
@@ -100,7 +119,7 @@ IF the user spontaneously attaches an image (logo, app screenshot, design inspir
 3. Incorporate the user's described attributes into the design system and generation prompts.
 4. Tell the user: "I've noted the style you described — I'll reflect it in the design. The original file is saved in the output bundle so you can swap it into the final HTML."
 
-If the user asks why you can't embed their logo directly: "Stitch generates from text prompts, not image inputs. I'll match the style you described, and the original file is in the bundle so you can drop it into the HTML yourself — it's a straightforward `` swap."
+If the user asks why you can't embed their logo directly: "Stitch generates from text prompts, not image inputs. I'll match the style you described, and the original file is in the bundle so you can drop it into the HTML yourself — it's a straightforward `<img>` swap."
 
 ---
 
@@ -112,13 +131,13 @@ Read `references/stitch-architecture.md` before starting this phase.
 
 Map interview answers to Stitch design system parameters:
 
-| Interview answer          | Design system parameter   | Reference                                                        |
-| ------------------------- | ------------------------- | ---------------------------------------------------------------- |
-| 3 brand adjectives        | colorVariant enum         | Color Variant Decision Tree in references/stitch-architecture.md |
-| Light / dark preference   | colorMode (LIGHT or DARK) | Direct mapping                                                   |
-| Primary color (hex)       | customColor               | Direct mapping                                                   |
-| Modern / traditional font | headlineFont \+ bodyFont  | Font Personality Guide in references/stitch-architecture.md      |
-| Sharp / rounded shapes    | roundness enum            | ROUND\_FOUR (sharp) through ROUND\_FULL (rounded)                |
+| Interview answer | Design system parameter | Reference |
+|-----------------|------------------------|-----------|
+| 3 brand adjectives | `colorVariant` enum | Color Variant Decision Tree in `references/stitch-architecture.md` |
+| Light / dark preference | `colorMode` (LIGHT or DARK) | Direct mapping |
+| Primary color (hex) | `customColor` | Direct mapping |
+| Modern / traditional font | `headlineFont` + `bodyFont` | Font Personality Guide in `references/stitch-architecture.md` |
+| Sharp / rounded shapes | `roundness` enum | ROUND_FOUR (sharp) through ROUND_FULL (rounded) |
 
 ### Steps
 
@@ -126,19 +145,19 @@ Map interview answers to Stitch design system parameters:
 2. **Build DesignSystem object** from the translation table above.
 3. **Create design system:** Call `create_design_system` on the project.
 4. **Update design system:** Immediately call `update_design_system`. This step is required -- create alone does not render the system.
-5. **Write DESIGN.md:** Create `.stitch/DESIGN.md` documenting the design system in semantic language:  
-```text  
-# {Project Name} -- Design System  
-## Brand Feel  
-{adj1}, {adj2}, {adj3}  
-## Color Direction  
-Primary: {color name} ({hex}) -- {why this fits the brand}  
-Mode: {Light/Dark}  Variant: {colorVariant}  
-## Typography  
-Headlines: {font name} -- Body: {font name}  
-## Shape  
-{Roundness description}  
-```
+5. **Write DESIGN.md:** Create `.stitch/DESIGN.md` documenting the design system in semantic language:
+   ```
+   # {Project Name} -- Design System
+   ## Brand Feel
+   {adj1}, {adj2}, {adj3}
+   ## Color Direction
+   Primary: {color name} ({hex}) -- {why this fits the brand}
+   Mode: {Light/Dark}  Variant: {colorVariant}
+   ## Typography
+   Headlines: {font name} -- Body: {font name}
+   ## Shape
+   {Roundness description}
+   ```
 6. **Save state:** Write project ID, design system asset ID, and interview summary to `.stitch/metadata.json`.
 
 ---
@@ -163,25 +182,25 @@ After every generation, edit, or variant selection:
 
 1. Save the updated HTML from the Stitch SDK response and open the local file in the browser.
 2. Briefly orient the user: "I've opened the latest version in your browser. Hero section at top with the headline and CTA, then {describe sections}, footer at the bottom."
-3. Ask the three feedback questions from `references/interview-framework.md`:  
-  * "What's your gut reaction in the first 5 seconds?"
-  * "Does this feel like YOUR product?"
-  * "Is there anything that feels wrong, missing, or not quite right?"
+3. Ask the three feedback questions from `references/interview-framework.md`:
+   - "What's your gut reaction in the first 5 seconds?"
+   - "Does this feel like YOUR product?"
+   - "Is there anything that feels wrong, missing, or not quite right?"
 
 Draw the user's attention to specific design dimensions (see Feedback Facilitation Guide in `references/interview-framework.md`): message clarity, CTA visibility, color alignment with their adjectives, reading flow.
 
 ### Feedback Translation
 
-| Feedback pattern                                                | Action                     | Tool                                           |
-| --------------------------------------------------------------- | -------------------------- | ---------------------------------------------- |
-| Specific targeted change ("move X", "change the headline to Y") | Direct edit                | edit\_screens                                  |
-| General dissatisfaction ("I don't like it", "it's boring")      | Explore alternatives       | generate\_variants with EXPLORE (2-3 variants) |
-| Partial approval ("love the layout, hate the colors")           | Targeted variant           | generate\_variants with specific aspects only  |
-| Wants to compare ("show me some options")                       | Broad exploration          | generate\_variants with 3 variants, EXPLORE    |
-| "Something totally different"                                   | Full rethink               | generate\_variants with REIMAGINE              |
-| "I liked the earlier version better"                            | Rollback                   | Re-fetch from screens.desktop.history          |
-| CSS-level feedback ("needs more padding", "font too small")     | Translate to design intent | edit\_screens with design-level instruction    |
-| Explicit approval ("looks good", "ship it")                     | Exit loop                  | Proceed to mobile question, then Phase 4       |
+| Feedback pattern | Action | Tool |
+|-----------------|--------|------|
+| Specific targeted change ("move X", "change the headline to Y") | Direct edit | `edit_screens` |
+| General dissatisfaction ("I don't like it", "it's boring") | Explore alternatives | `generate_variants` with EXPLORE (2-3 variants) |
+| Partial approval ("love the layout, hate the colors") | Targeted variant | `generate_variants` with specific aspects only |
+| Wants to compare ("show me some options") | Broad exploration | `generate_variants` with 3 variants, EXPLORE |
+| "Something totally different" | Full rethink | `generate_variants` with REIMAGINE |
+| "I liked the earlier version better" | Rollback | Re-fetch from `screens.desktop.history` |
+| CSS-level feedback ("needs more padding", "font too small") | Translate to design intent | `edit_screens` with design-level instruction |
+| Explicit approval ("looks good", "ship it") | Exit loop | Proceed to mobile question, then Phase 4 |
 
 When the user gives feedback in implementation terms (CSS, pixels, Tailwind classes), acknowledge their intent but translate to design language for Stitch.
 
@@ -191,10 +210,10 @@ Save the HTML from each Stitch variant response as `desktop-vN-option-a.html`, `
 
 ### Loop Guardrails
 
-* **Always open the updated HTML** in the browser after any edit or variant selection.
-* **Update metadata** after every state change. Never discard previous versions.
-* **After 3 rounds** of positive feedback: "This is looking solid. Keep iterating or ship it and refine later?"
-* **After 5 rounds**: "What's the single most important change left?"
+- **Always open the updated HTML** in the browser after any edit or variant selection.
+- **Update metadata** after every state change. Never discard previous versions.
+- **After 3 rounds** of positive feedback: "This is looking solid. Keep iterating or ship it and refine later?"
+- **After 5 rounds**: "What's the single most important change left?"
 
 ### Mobile Variant
 
@@ -208,7 +227,7 @@ Read `references/state-and-pitfalls.md` for the DEPLOY.md template.
 
 ### Bundle Structure
 
-```text
+```
 {project-name}-landing-page/
   index.html                  # Final desktop HTML
   mobile.html                 # Mobile HTML (if created)
@@ -218,7 +237,6 @@ Read `references/state-and-pitfalls.md` for the DEPLOY.md template.
   assets/
     {user-provided images}
   DEPLOY.md                   # Deployment checklist
-
 ```
 
 ### Creation Steps
@@ -235,14 +253,14 @@ Read `references/state-and-pitfalls.md` for the DEPLOY.md template.
 
 ## Stitch Documentation
 
-* Stitch SDK usage and installation documentation: `https://stitch-design.ai/docs/sdk/ai-sdk`
-* DESIGN.md documentation and examples: `https://stitch-design.ai/docs/design-md/overview`
+- Stitch SDK usage and installation documentation: `https://stitch-design.ai/docs/sdk/ai-sdk`
+- DESIGN.md documentation and examples: `https://stitch-design.ai/docs/design-md/overview`
 
 ---
 
 ## Resume & Error Recovery
 
-* **Session interrupted:** Check for `.stitch/metadata.json`. Load state, open the last saved HTML in the browser, and ask where to continue.
-* **Generation fails:** Do NOT retry immediately. Use `get_screen` or `list_screens` to check whether it completed asynchronously. If genuinely failed, try once more with a simplified prompt.
-* **Rate limiting:** Inform the user: "Stitch rate-limited. Retrying in 30 seconds."
-* **Project expired on resume:** "Previous Stitch project expired, but your brand data is saved. Recreating now." Re-run Phase 2 from saved interview data.
+- **Session interrupted:** Check for `.stitch/metadata.json`. Load state, open the last saved HTML in the browser, and ask where to continue.
+- **Generation fails:** Do NOT retry immediately. Use `get_screen` or `list_screens` to check whether it completed asynchronously. If genuinely failed, try once more with a simplified prompt.
+- **Rate limiting:** Inform the user: "Stitch rate-limited. Retrying in 30 seconds."
+- **Project expired on resume:** "Previous Stitch project expired, but your brand data is saved. Recreating now." Re-run Phase 2 from saved interview data.

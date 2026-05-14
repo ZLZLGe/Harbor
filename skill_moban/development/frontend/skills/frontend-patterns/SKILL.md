@@ -1,16 +1,22 @@
+---
+name: frontend-patterns
+description: Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.
+origin: ECC
+---
+
 # Frontend Development Patterns
 
 Modern frontend patterns for React, Next.js, and performant user interfaces.
 
 ## When to Activate
 
-* Building React components (composition, props, rendering)
-* Managing state (useState, useReducer, Zustand, Context)
-* Implementing data fetching (SWR, React Query, server components)
-* Optimizing performance (memoization, virtualization, code splitting)
-* Working with forms (validation, controlled inputs, Zod schemas)
-* Handling client-side routing and navigation
-* Building accessible, responsive UI patterns
+- Building React components (composition, props, rendering)
+- Managing state (useState, useReducer, Zustand, Context)
+- Implementing data fetching (SWR, React Query, server components)
+- Optimizing performance (memoization, virtualization, code splitting)
+- Working with forms (validation, controlled inputs, Zod schemas)
+- Handling client-side routing and navigation
+- Building accessible, responsive UI patterns
 
 ## Component Patterns
 
@@ -40,7 +46,6 @@ export function CardBody({ children }: { children: React.ReactNode }) {
   <CardHeader>Title</CardHeader>
   <CardBody>Content</CardBody>
 </Card>
-
 ```
 
 ### Compound Components
@@ -91,7 +96,6 @@ export function Tab({ id, children }: { id: string, children: React.ReactNode })
     <Tab id="details">Details</Tab>
   </TabList>
 </Tabs>
-
 ```
 
 ### Render Props Pattern
@@ -126,7 +130,6 @@ export function DataLoader<T>({ url, children }: DataLoaderProps<T>) {
     return <MarketList markets={markets!} />
   }}
 </DataLoader>
-
 ```
 
 ## Custom Hooks Patterns
@@ -146,7 +149,6 @@ export function useToggle(initialValue = false): [boolean, () => void] {
 
 // Usage
 const [isOpen, toggleOpen] = useToggle()
-
 ```
 
 ### Async Data Fetching Hook
@@ -202,7 +204,6 @@ const { data: markets, loading, error, refetch } = useQuery(
     onError: err => console.error('Failed:', err)
   }
 )
-
 ```
 
 ### Debounce Hook
@@ -231,7 +232,6 @@ useEffect(() => {
     performSearch(debouncedQuery)
   }
 }, [debouncedQuery])
-
 ```
 
 ## State Management Patterns
@@ -287,7 +287,6 @@ export function useMarkets() {
   if (!context) throw new Error('useMarkets must be used within MarketProvider')
   return context
 }
-
 ```
 
 ## Performance Optimization
@@ -314,7 +313,6 @@ export const MarketCard = React.memo<MarketCardProps>(({ market }) => {
     </div>
   )
 })
-
 ```
 
 ### Code Splitting & Lazy Loading
@@ -339,7 +337,6 @@ export function Dashboard() {
     </div>
   )
 }
-
 ```
 
 ### Virtualization for Long Lists
@@ -384,7 +381,6 @@ export function VirtualMarketList({ markets }: { markets: Market[] }) {
     </div>
   )
 }
-
 ```
 
 ## Form Handling Patterns
@@ -462,7 +458,6 @@ export function CreateMarketForm() {
     </form>
   )
 }
-
 ```
 
 ## Error Boundary Pattern
@@ -511,7 +506,6 @@ export class ErrorBoundary extends React.Component<
 <ErrorBoundary>
   <App />
 </ErrorBoundary>
-
 ```
 
 ## Animation Patterns
@@ -566,7 +560,6 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
     </AnimatePresence>
   )
 }
-
 ```
 
 ## Accessibility Patterns
@@ -610,7 +603,6 @@ export function Dropdown({ options, onSelect }: DropdownProps) {
     </div>
   )
 }
-
 ```
 
 ### Focus Management
@@ -645,7 +637,6 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
     </div>
   ) : null
 }
-
 ```
 
 **Remember**: Modern frontend patterns enable maintainable, performant user interfaces. Choose patterns that fit your project complexity.

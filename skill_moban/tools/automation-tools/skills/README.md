@@ -1,78 +1,98 @@
 # Automation Tools Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/automation-tools`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/automation-tools，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 80 个 skills，其中 71 个 installs >= 1000，9 个 installs 在 500-999。
 
 ## 技能清单
 
-1. coding-agent | 来源: https://skills.sh/openclaw/openclaw/coding-agent | installs: 1.2K | stars: 368900
-2. fix | 来源: https://skills.sh/facebook/react/fix | installs: 1.7K | stars: 244800
-3. subagent-driven-development | 来源: https://skills.sh/obra/superpowers/subagent-driven-development | installs: 63.7K | stars: 180100
-4. dispatching-parallel-agents | 来源: https://skills.sh/obra/superpowers/dispatching-parallel-agents | installs: 57.5K | stars: 180100
-5. tdd-workflow | 来源: https://skills.sh/affaan-m/everything-claude-code/tdd-workflow | installs: 4.7K | stars: 175900
-6. continuous-learning | 来源: https://skills.sh/affaan-m/everything-claude-code/continuous-learning | installs: 4.0K | stars: 175900
-7. springboot-verification | 来源: https://skills.sh/affaan-m/everything-claude-code/springboot-verification | installs: 3.4K | stars: 175900
-8. agent-harness-construction | 来源: https://skills.sh/affaan-m/everything-claude-code/agent-harness-construction | installs: 3.3K | stars: 175900
-9. agentic-engineering | 来源: https://skills.sh/affaan-m/everything-claude-code/agentic-engineering | installs: 3.3K | stars: 175900
-10. continuous-agent-loop | 来源: https://skills.sh/affaan-m/everything-claude-code/continuous-agent-loop | installs: 3.0K | stars: 175900
-11. enterprise-agent-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/enterprise-agent-ops | installs: 2.9K | stars: 175900
-12. agent-eval | 来源: https://skills.sh/affaan-m/everything-claude-code/agent-eval | installs: 2.6K | stars: 175900
-13. dmux-workflows | 来源: https://skills.sh/affaan-m/everything-claude-code/dmux-workflows | installs: 2.6K | stars: 175900
-14. git-workflow | 来源: https://skills.sh/affaan-m/everything-claude-code/git-workflow | installs: 2.2K | stars: 175900
-15. agent-payment-x402 | 来源: https://skills.sh/affaan-m/everything-claude-code/agent-payment-x402 | installs: 2.0K | stars: 175900
-16. autonomous-agent-harness | 来源: https://skills.sh/affaan-m/everything-claude-code/autonomous-agent-harness | installs: 1.9K | stars: 175900
-17. jira-integration | 来源: https://skills.sh/affaan-m/everything-claude-code/jira-integration | installs: 1.9K | stars: 175900
-18. agent-introspection-debugging | 来源: https://skills.sh/affaan-m/everything-claude-code/agent-introspection-debugging | installs: 1.7K | stars: 175900
-19. agent-sort | 来源: https://skills.sh/affaan-m/everything-claude-code/agent-sort | installs: 1.6K | stars: 175900
-20. automation-audit-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops | installs: 1.6K | stars: 175900
-21. llm-trading-agent-security | 来源: https://skills.sh/affaan-m/everything-claude-code/llm-trading-agent-security | installs: 1.6K | stars: 175900
-22. agent-development | 来源: https://skills.sh/anthropics/claude-code/agent-development | installs: 11.0K | stars: 120800
-23. mcp-integration | 来源: https://skills.sh/anthropics/claude-code/mcp-integration | installs: 8.5K | stars: 120800
-24. code-reviewer | 来源: https://skills.sh/google-gemini/gemini-cli/code-reviewer | installs: 6.3K | stars: 103200
-25. pr-creator | 来源: https://skills.sh/google-gemini/gemini-cli/pr-creator | installs: 1.7K | stars: 103200
-26. typescript | 来源: https://skills.sh/lobehub/lobehub/typescript | installs: 1.4K | stars: 76100
-27. paperclip-create-agent | 来源: https://skills.sh/paperclipai/paperclip/paperclip-create-agent | installs: 1.4K | stars: 62900
-28. developer-growth-analysis | 来源: https://skills.sh/composiohq/awesome-claude-skills/developer-growth-analysis | installs: 1.8K | stars: 58200
-29. caveman-commit | 来源: https://skills.sh/juliusbrussee/caveman/caveman-commit | installs: 61.1K | stars: 54900
-30. browser-automation | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/browser-automation | installs: 4.5K | stars: 36853
-31. telegram-bot-builder | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/telegram-bot-builder | installs: 2.2K | stars: 36853
-32. agent-memory-systems | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/agent-memory-systems | installs: 1.3K | stars: 36853
-33. github-actions-templates | 来源: https://skills.sh/wshobson/agents/github-actions-templates | installs: 9.4K | stars: 35018
-34. gitlab-ci-patterns | 来源: https://skills.sh/wshobson/agents/gitlab-ci-patterns | installs: 7.1K | stars: 35018
-35. workflow-patterns | 来源: https://skills.sh/wshobson/agents/workflow-patterns | installs: 6.0K | stars: 35018
-36. multi-reviewer-patterns | 来源: https://skills.sh/wshobson/agents/multi-reviewer-patterns | installs: 4.9K | stars: 35018
-37. create-agentsmd | 来源: https://skills.sh/github/awesome-copilot/create-agentsmd | installs: 10.2K | stars: 32200
-38. playwright-automation-fill-in-form | 来源: https://skills.sh/github/awesome-copilot/playwright-automation-fill-in-form | installs: 9.6K | stars: 32200
-39. agentic-eval | 来源: https://skills.sh/github/awesome-copilot/agentic-eval | installs: 9.2K | stars: 32200
-40. create-github-action-workflow-specification | 来源: https://skills.sh/github/awesome-copilot/create-github-action-workflow-specification | installs: 9.1K | stars: 32200
-41. agent-governance | 来源: https://skills.sh/github/awesome-copilot/agent-governance | installs: 8.8K | stars: 32200
-42. project-workflow-analysis-blueprint-generator | 来源: https://skills.sh/github/awesome-copilot/project-workflow-analysis-blueprint-generator | installs: 8.8K | stars: 32200
-43. finalize-agent-prompt | 来源: https://skills.sh/github/awesome-copilot/finalize-agent-prompt | installs: 8.5K | stars: 32200
-44. mcp-deploy-manage-agents | 来源: https://skills.sh/github/awesome-copilot/mcp-deploy-manage-agents | installs: 8.5K | stars: 32200
-45. polyglot-test-agent | 来源: https://skills.sh/github/awesome-copilot/polyglot-test-agent | installs: 8.5K | stars: 32200
-46. declarative-agents | 来源: https://skills.sh/github/awesome-copilot/declarative-agents | installs: 8.4K | stars: 32200
-47. mcp-create-declarative-agent | 来源: https://skills.sh/github/awesome-copilot/mcp-create-declarative-agent | installs: 8.4K | stars: 32200
-48. suggest-awesome-github-copilot-agents | 来源: https://skills.sh/github/awesome-copilot/suggest-awesome-github-copilot-agents | installs: 8.4K | stars: 32200
-49. entra-agent-user | 来源: https://skills.sh/github/awesome-copilot/entra-agent-user | installs: 8.3K | stars: 32200
-50. typespec-create-agent | 来源: https://skills.sh/github/awesome-copilot/typespec-create-agent | installs: 8.3K | stars: 32200
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | coding-agent | openclaw/openclaw | 370546 | 1230 | https://skills.sh/openclaw/openclaw/coding-agent |
+| 2 | fix | facebook/react | 244928 | 1755 | https://skills.sh/facebook/react/fix |
+| 3 | continuous-learning | affaan-m/everything-claude-code | 177611 | 4302 | https://skills.sh/affaan-m/everything-claude-code/continuous-learning |
+| 4 | springboot-verification | affaan-m/everything-claude-code | 177611 | 3731 | https://skills.sh/affaan-m/everything-claude-code/springboot-verification |
+| 5 | code-reviewer | google-gemini/gemini-cli | 103596 | 6510 | https://skills.sh/google-gemini/gemini-cli/code-reviewer |
+| 6 | pr-creator | google-gemini/gemini-cli | 103596 | 1733 | https://skills.sh/google-gemini/gemini-cli/pr-creator |
+| 7 | react | lobehub/lobehub | 76794 | 2092 | https://skills.sh/lobehub/lobehub/react |
+| 8 | typescript | lobehub/lobehub | 76794 | 1455 | https://skills.sh/lobehub/lobehub/typescript |
+| 9 | project-overview | lobehub/lobehub | 76794 | 1057 | https://skills.sh/lobehub/lobehub/project-overview |
+| 10 | developer-growth-analysis | ComposioHQ/awesome-claude-skills | 59078 | 1888 | https://skills.sh/ComposioHQ/awesome-claude-skills/developer-growth-analysis |
+| 11 | caveman-commit | JuliusBrussee/caveman | 57013 | 70375 | https://skills.sh/JuliusBrussee/caveman/caveman-commit |
+| 12 | code-review-excellence | wshobson/agents | 35133 | 17476 | https://skills.sh/wshobson/agents/code-review-excellence |
+| 13 | github-actions-templates | wshobson/agents | 35133 | 9774 | https://skills.sh/wshobson/agents/github-actions-templates |
+| 14 | monorepo-management | wshobson/agents | 35133 | 8713 | https://skills.sh/wshobson/agents/monorepo-management |
+| 15 | changelog-automation | wshobson/agents | 35133 | 7953 | https://skills.sh/wshobson/agents/changelog-automation |
+| 16 | python-code-style | wshobson/agents | 35133 | 7933 | https://skills.sh/wshobson/agents/python-code-style |
+| 17 | gitlab-ci-patterns | wshobson/agents | 35133 | 7386 | https://skills.sh/wshobson/agents/gitlab-ci-patterns |
+| 18 | react-modernization | wshobson/agents | 35133 | 7127 | https://skills.sh/wshobson/agents/react-modernization |
+| 19 | nx-workspace-patterns | wshobson/agents | 35133 | 6222 | https://skills.sh/wshobson/agents/nx-workspace-patterns |
+| 20 | workflow-patterns | wshobson/agents | 35133 | 6193 | https://skills.sh/wshobson/agents/workflow-patterns |
+| 21 | shellcheck-configuration | wshobson/agents | 35133 | 6158 | https://skills.sh/wshobson/agents/shellcheck-configuration |
+| 22 | turborepo-caching | wshobson/agents | 35133 | 6049 | https://skills.sh/wshobson/agents/turborepo-caching |
+| 23 | bats-testing-patterns | wshobson/agents | 35133 | 5920 | https://skills.sh/wshobson/agents/bats-testing-patterns |
+| 24 | multi-reviewer-patterns | wshobson/agents | 35133 | 5149 | https://skills.sh/wshobson/agents/multi-reviewer-patterns |
+| 25 | git-commit | github/awesome-copilot | 32605 | 30330 | https://skills.sh/github/awesome-copilot/git-commit |
+| 26 | refactor-plan | github/awesome-copilot | 32605 | 10441 | https://skills.sh/github/awesome-copilot/refactor-plan |
+| 27 | nuget-manager | github/awesome-copilot | 32605 | 10085 | https://skills.sh/github/awesome-copilot/nuget-manager |
+| 28 | review-and-refactor | github/awesome-copilot | 32605 | 9667 | https://skills.sh/github/awesome-copilot/review-and-refactor |
+| 29 | update-implementation-plan | github/awesome-copilot | 32605 | 9598 | https://skills.sh/github/awesome-copilot/update-implementation-plan |
+| 30 | make-repo-contribution | github/awesome-copilot | 32605 | 9596 | https://skills.sh/github/awesome-copilot/make-repo-contribution |
+| 31 | context-map | github/awesome-copilot | 32605 | 8926 | https://skills.sh/github/awesome-copilot/context-map |
+| 32 | update-specification | github/awesome-copilot | 32605 | 8652 | https://skills.sh/github/awesome-copilot/update-specification |
+| 33 | java-refactoring-extract-method | github/awesome-copilot | 32605 | 8642 | https://skills.sh/github/awesome-copilot/java-refactoring-extract-method |
+| 34 | generate-custom-instructions-from-codebase | github/awesome-copilot | 32605 | 8522 | https://skills.sh/github/awesome-copilot/generate-custom-instructions-from-codebase |
+| 35 | update-markdown-file-index | github/awesome-copilot | 32605 | 8502 | https://skills.sh/github/awesome-copilot/update-markdown-file-index |
+| 36 | java-refactoring-remove-parameter | github/awesome-copilot | 32605 | 8482 | https://skills.sh/github/awesome-copilot/java-refactoring-remove-parameter |
+| 37 | suggest-awesome-github-copilot-agents | github/awesome-copilot | 32605 | 8436 | https://skills.sh/github/awesome-copilot/suggest-awesome-github-copilot-agents |
+| 38 | suggest-awesome-github-copilot-instructions | github/awesome-copilot | 32605 | 8429 | https://skills.sh/github/awesome-copilot/suggest-awesome-github-copilot-instructions |
+| 39 | turborepo | vercel/turborepo | 30365 | 27363 | https://skills.sh/vercel/turborepo/turborepo |
+| 40 | gws-drive-upload | googleworkspace/cli | 26030 | 21475 | https://skills.sh/googleworkspace/cli/gws-drive-upload |
+| 41 | recipe-watch-drive-changes | googleworkspace/cli | 26030 | 12610 | https://skills.sh/googleworkspace/cli/recipe-watch-drive-changes |
+| 42 | recipe-copy-sheet-for-new-month | googleworkspace/cli | 26030 | 12478 | https://skills.sh/googleworkspace/cli/recipe-copy-sheet-for-new-month |
+| 43 | claude-md-improver | anthropics/claude-plugins-official | 19038 | 4640 | https://skills.sh/anthropics/claude-plugins-official/claude-md-improver |
+| 44 | claude-automation-recommender | anthropics/claude-plugins-official | 19038 | 3274 | https://skills.sh/anthropics/claude-plugins-official/claude-automation-recommender |
+| 45 | plugin-structure | anthropics/claude-plugins-official | 19038 | 2346 | https://skills.sh/anthropics/claude-plugins-official/plugin-structure |
+| 46 | security-best-practices | openai/skills | 18740 | 2534 | https://skills.sh/openai/skills/security-best-practices |
+| 47 | gh-fix-ci | openai/skills | 18740 | 1565 | https://skills.sh/openai/skills/gh-fix-ci |
+| 48 | render-deploy | openai/skills | 18740 | 1024 | https://skills.sh/openai/skills/render-deploy |
+| 49 | create-cowork-plugin | anthropics/knowledge-work-plugins | 12009 | 1138 | https://skills.sh/anthropics/knowledge-work-plugins/create-cowork-plugin |
+| 50 | devops-engineer | Jeffallan/claude-skills | 8935 | 4691 | https://skills.sh/Jeffallan/claude-skills/devops-engineer |
+| 51 | code-reviewer | Jeffallan/claude-skills | 8935 | 2723 | https://skills.sh/Jeffallan/claude-skills/code-reviewer |
+| 52 | spec-miner | Jeffallan/claude-skills | 8935 | 1760 | https://skills.sh/Jeffallan/claude-skills/spec-miner |
+| 53 | stitch-loop | google-labs-code/stitch-skills | 5314 | 38946 | https://skills.sh/google-labs-code/stitch-skills/stitch-loop |
+| 54 | semgrep | trailofbits/skills | 5109 | 3818 | https://skills.sh/trailofbits/skills/semgrep |
+| 55 | secure-workflow-guide | trailofbits/skills | 5109 | 3439 | https://skills.sh/trailofbits/skills/secure-workflow-guide |
+| 56 | differential-review | trailofbits/skills | 5109 | 2971 | https://skills.sh/trailofbits/skills/differential-review |
+| 57 | audit-context-building | trailofbits/skills | 5109 | 2632 | https://skills.sh/trailofbits/skills/audit-context-building |
+| 58 | variant-analysis | trailofbits/skills | 5109 | 2512 | https://skills.sh/trailofbits/skills/variant-analysis |
+| 59 | audit-prep-assistant | trailofbits/skills | 5109 | 2342 | https://skills.sh/trailofbits/skills/audit-prep-assistant |
+| 60 | guidelines-advisor | trailofbits/skills | 5109 | 2327 | https://skills.sh/trailofbits/skills/guidelines-advisor |
+| 61 | semgrep-rule-creator | trailofbits/skills | 5109 | 2323 | https://skills.sh/trailofbits/skills/semgrep-rule-creator |
+| 62 | semgrep-rule-variant-creator | trailofbits/skills | 5109 | 2218 | https://skills.sh/trailofbits/skills/semgrep-rule-variant-creator |
+| 63 | second-opinion | trailofbits/skills | 5109 | 1941 | https://skills.sh/trailofbits/skills/second-opinion |
+| 64 | vite | antfu/skills | 4897 | 21973 | https://skills.sh/antfu/skills/vite |
+| 65 | tsdown | antfu/skills | 4897 | 8355 | https://skills.sh/antfu/skills/tsdown |
+| 66 | turborepo | antfu/skills | 4897 | 8006 | https://skills.sh/antfu/skills/turborepo |
+| 67 | vitepress | antfu/skills | 4897 | 7461 | https://skills.sh/antfu/skills/vitepress |
+| 68 | apify-actorization | apify/agent-skills | 2005 | 6290 | https://skills.sh/apify/agent-skills/apify-actorization |
+| 69 | wp-project-triage | WordPress/agent-skills | 1448 | 1273 | https://skills.sh/WordPress/agent-skills/wp-project-triage |
+| 70 | figma-use | figma/mcp-server-guide | 1377 | 2435 | https://skills.sh/figma/mcp-server-guide/figma-use |
+| 71 | github | callstackincubator/agent-skills | 1317 | 3868 | https://skills.sh/callstackincubator/agent-skills/github |
 
-- https://skills.sh/openclaw/openclaw
-- https://skills.sh/facebook/react
-- https://skills.sh/obra/superpowers
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/anthropics/claude-code
-- https://skills.sh/google-gemini/gemini-cli
-- https://skills.sh/lobehub/lobehub
-- https://skills.sh/paperclipai/paperclip
-- https://skills.sh/composiohq/awesome-claude-skills
-- https://skills.sh/juliusbrussee/caveman
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 72 | docs-changelog | google-gemini/gemini-cli | 103596 | 904 | https://skills.sh/google-gemini/gemini-cli/docs-changelog |
+| 73 | pr-review | pytorch/pytorch | 99787 | 908 | https://skills.sh/pytorch/pytorch/pr-review |
+| 74 | typescript-review | metabase/metabase | 47258 | 637 | https://skills.sh/metabase/metabase/typescript-review |
+| 75 | typescript-write | metabase/metabase | 47258 | 611 | https://skills.sh/metabase/metabase/typescript-write |
+| 76 | docs-review | metabase/metabase | 47258 | 583 | https://skills.sh/metabase/metabase/docs-review |
+| 77 | clojure-review | metabase/metabase | 47258 | 557 | https://skills.sh/metabase/metabase/clojure-review |
+| 78 | repomix-explorer | yamadashy/repomix | 24571 | 609 | https://skills.sh/yamadashy/repomix/repomix-explorer |
+| 79 | but | gitbutlerapp/gitbutler | 20782 | 578 | https://skills.sh/gitbutlerapp/gitbutler/but |
+| 80 | figma-use | openai/skills | 18740 | 595 | https://skills.sh/openai/skills/figma-use |

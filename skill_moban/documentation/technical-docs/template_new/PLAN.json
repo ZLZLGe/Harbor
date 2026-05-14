@@ -43,7 +43,7 @@
     "API behaviors are grounded in bundled source, tests, readme, and release inputs",
     "Manifest stays aligned with documented API items and example identifiers",
     "Alternate fixture reruns prove the build is not hardcoded to one visible snapshot",
-    "Input bundle and shipped skill area remain unchanged"
+    "Input bundle remains unchanged"
   ],
   "real_data_sources": [
     {
@@ -90,7 +90,7 @@
     "local_test_command": "tests/test.sh"
   },
   "iteration_notes": [
-    "Do not modify the selected skill contents.",
+    "Do not rely on editing the bundled skill contents to complete the task.",
     "Do not alter instruction.md, tests, data, dependencies, or contracts between with_skill and without_skill variants.",
     "Favor action-level failures such as missing API coverage or unsupported behavior statements over cosmetic markdown differences.",
     "Finalize README metrics only after completed E2B comparison runs."

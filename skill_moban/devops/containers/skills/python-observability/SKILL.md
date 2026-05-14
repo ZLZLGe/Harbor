@@ -1,31 +1,36 @@
+---
+name: python-observability
+description: Python observability patterns including structured logging, metrics, and distributed tracing. Use when adding logging, implementing metrics collection, setting up tracing, or debugging production systems.
+---
+
 # Python Observability
 
 Instrument Python applications with structured logs, metrics, and traces. When something breaks in production, you need to answer "what, where, and why" without deploying new code.
 
 ## When to Use This Skill
 
-* Adding structured logging to applications
-* Implementing metrics collection with Prometheus
-* Setting up distributed tracing across services
-* Propagating correlation IDs through request chains
-* Debugging production issues
-* Building observability dashboards
+- Adding structured logging to applications
+- Implementing metrics collection with Prometheus
+- Setting up distributed tracing across services
+- Propagating correlation IDs through request chains
+- Debugging production issues
+- Building observability dashboards
 
 ## Core Concepts
 
-### 1\. Structured Logging
+### 1. Structured Logging
 
 Emit logs as JSON with consistent fields for production environments. Machine-readable logs enable powerful queries and alerts. For local development, consider human-readable formats.
 
-### 2\. The Four Golden Signals
+### 2. The Four Golden Signals
 
 Track latency, traffic, errors, and saturation for every service boundary.
 
-### 3\. Correlation IDs
+### 3. Correlation IDs
 
 Thread a unique ID through all logs and spans for a single request, enabling end-to-end tracing.
 
-### 4\. Bounded Cardinality
+### 4. Bounded Cardinality
 
 Keep metric label values bounded. Unbounded labels (like user IDs) explode storage costs.
 
@@ -43,7 +48,6 @@ structlog.configure(
 
 logger = structlog.get_logger()
 logger.info("Request processed", user_id="123", duration_ms=45)
-
 ```
 
 ## Fundamental Patterns
@@ -78,7 +82,6 @@ def configure_logging(log_level: str = "INFO") -> None:
 # Initialize at application startup
 configure_logging("INFO")
 logger = structlog.get_logger()
-
 ```
 
 ### Pattern 2: Consistent Log Fields
@@ -121,19 +124,18 @@ def process_request(request: Request) -> Response:
             error_message=str(e),
         )
         raise
-
 ```
 
 ### Pattern 3: Semantic Log Levels
 
 Use log levels consistently across the application.
 
-| Level   | Purpose                       | Examples                          |
-| ------- | ----------------------------- | --------------------------------- |
-| DEBUG   | Development diagnostics       | Variable values, internal state   |
-| INFO    | Request lifecycle, operations | Request start/end, job completion |
-| WARNING | Recoverable anomalies         | Retry attempts, fallback used     |
-| ERROR   | Failures needing attention    | Exceptions, service unavailable   |
+| Level | Purpose | Examples |
+|-------|---------|----------|
+| `DEBUG` | Development diagnostics | Variable values, internal state |
+| `INFO` | Request lifecycle, operations | Request start/end, job completion |
+| `WARNING` | Recoverable anomalies | Retry attempts, fallback used |
+| `ERROR` | Failures needing attention | Exceptions, service unavailable |
 
 ```python
 # DEBUG: Detailed internal information
@@ -157,7 +159,6 @@ logger.error(
     error=str(e),
     payment_provider="stripe",
 )
-
 ```
 
 Never log expected behavior at `ERROR`. A user entering a wrong password is `INFO`, not `ERROR`.
@@ -192,7 +193,6 @@ async def correlation_middleware(request: Request, call_next):
     response = await call_next(request)
     response.headers["X-Correlation-ID"] = cid
     return response
-
 ```
 
 Propagate to outbound requests:
@@ -209,7 +209,6 @@ async def call_downstream_service(endpoint: str, data: dict) -> dict:
             headers={"X-Correlation-ID": correlation_id.get()},
         )
         return response.json()
-
 ```
 
 ## Advanced Patterns
@@ -248,7 +247,6 @@ DB_POOL_USAGE = Gauge(
     "db_connection_pool_used",
     "Number of database connections in use",
 )
-
 ```
 
 Instrument your endpoints:
@@ -283,7 +281,6 @@ def track_request(func):
             REQUEST_LATENCY.labels(method=method, endpoint=endpoint, status=status).observe(duration)
 
     return wrapper
-
 ```
 
 ### Pattern 6: Bounded Cardinality
@@ -306,7 +303,6 @@ REQUEST_COUNT.labels(
     endpoint="/users",
     user_tier="premium",  # Bounded set of values
 )
-
 ```
 
 ### Pattern 7: Timed Operations with Context Manager
@@ -350,7 +346,6 @@ def timed_operation(name: str, **extra_fields):
 # Usage
 with timed_operation("fetch_user_orders", user_id=user.id):
     orders = await order_repository.get_by_user(user.id)
-
 ```
 
 ### Pattern 8: OpenTelemetry Tracing
@@ -389,18 +384,17 @@ async def process_order(order_id: str) -> Order:
             send_confirmation(order_id)
 
         return order
-
 ```
 
 ## Best Practices Summary
 
-1. **Use structured logging** \- JSON logs with consistent fields
-2. **Propagate correlation IDs** \- Thread through all requests and logs
-3. **Track the four golden signals** \- Latency, traffic, errors, saturation
-4. **Bound label cardinality** \- Never use unbounded values as metric labels
-5. **Log at appropriate levels** \- Don't cry wolf with ERROR
-6. **Include context** \- User ID, request ID, operation name in logs
-7. **Use context managers** \- Consistent timing and error handling
-8. **Separate concerns** \- Observability code shouldn't pollute business logic
-9. **Test your observability** \- Verify logs and metrics in integration tests
-10. **Set up alerts** \- Metrics are useless without alerting
+1. **Use structured logging** - JSON logs with consistent fields
+2. **Propagate correlation IDs** - Thread through all requests and logs
+3. **Track the four golden signals** - Latency, traffic, errors, saturation
+4. **Bound label cardinality** - Never use unbounded values as metric labels
+5. **Log at appropriate levels** - Don't cry wolf with ERROR
+6. **Include context** - User ID, request ID, operation name in logs
+7. **Use context managers** - Consistent timing and error handling
+8. **Separate concerns** - Observability code shouldn't pollute business logic
+9. **Test your observability** - Verify logs and metrics in integration tests
+10. **Set up alerts** - Metrics are useless without alerting

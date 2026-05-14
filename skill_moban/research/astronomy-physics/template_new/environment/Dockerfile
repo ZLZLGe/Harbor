@@ -3,7 +3,6 @@ FROM python:3.12-slim
 WORKDIR /root
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    CODEX_HOME=/root/.codex \
     HOME=/root \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
@@ -26,6 +25,8 @@ RUN pip install --no-cache-dir \
     scipy==1.15.2
 
 COPY . /root/environment
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p \
       /root/.codex/skills \
@@ -33,8 +34,4 @@ RUN mkdir -p \
       /root/answer \
       /logs/agent/skills \
     && cp -R /root/environment/workspace/. /root/environment/pipeline/ \
-    && if [ -d /root/environment/skills ]; then \
-         cp -R /root/environment/skills/. /root/.codex/skills/; \
-         cp -R /root/environment/skills/. /logs/agent/skills/; \
-       fi \
     && chmod +x /root/environment/pipeline/build_m101_review.py

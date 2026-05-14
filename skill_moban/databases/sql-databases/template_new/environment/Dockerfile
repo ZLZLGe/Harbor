@@ -24,6 +24,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY . /tmp/task-environment
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /root/output /logs/agent /root/.codex \
     && cp -R /tmp/task-environment/data /root/data \
@@ -31,10 +33,5 @@ RUN mkdir -p /root/output /logs/agent /root/.codex \
     && chmod +x /root/workspace/bin/*.sh /root/workspace/run_airport_zone_analysis.py \
     && chmod 755 /root \
     && chmod -R a+rX /root/data /root/workspace /root/output \
-    && if [ -d /tmp/task-environment/skills ]; then \
-        mkdir -p /root/.codex/skills /logs/agent/skills; \
-        cp -R /tmp/task-environment/skills/. /root/.codex/skills/; \
-        cp -R /tmp/task-environment/skills/. /logs/agent/skills/; \
-        chmod -R a+rX /root/.codex /logs/agent; \
-    fi
+    && chmod -R a+rX /root/.codex /logs/agent
 CMD ["/bin/bash"]

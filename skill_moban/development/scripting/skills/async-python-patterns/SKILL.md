@@ -1,46 +1,51 @@
+---
+name: async-python-patterns
+description: Master Python asyncio, concurrent programming, and async/await patterns for high-performance applications. Use when building async APIs, concurrent systems, or I/O-bound applications requiring non-blocking operations.
+---
+
 # Async Python Patterns
 
 Comprehensive guidance for implementing asynchronous Python applications using asyncio, concurrent programming patterns, and async/await for building high-performance, non-blocking systems.
 
 ## When to Use This Skill
 
-* Building async web APIs (FastAPI, aiohttp, Sanic)
-* Implementing concurrent I/O operations (database, file, network)
-* Creating web scrapers with concurrent requests
-* Developing real-time applications (WebSocket servers, chat systems)
-* Processing multiple independent tasks simultaneously
-* Building microservices with async communication
-* Optimizing I/O-bound workloads
-* Implementing async background tasks and queues
+- Building async web APIs (FastAPI, aiohttp, Sanic)
+- Implementing concurrent I/O operations (database, file, network)
+- Creating web scrapers with concurrent requests
+- Developing real-time applications (WebSocket servers, chat systems)
+- Processing multiple independent tasks simultaneously
+- Building microservices with async communication
+- Optimizing I/O-bound workloads
+- Implementing async background tasks and queues
 
 ## Sync vs Async Decision Guide
 
 Before adopting async, consider whether it's the right choice for your use case.
 
-| Use Case                         | Recommended Approach                       |
-| -------------------------------- | ------------------------------------------ |
-| Many concurrent network/DB calls | asyncio                                    |
-| CPU-bound computation            | multiprocessing or thread pool             |
-| Mixed I/O + CPU                  | Offload CPU work with asyncio.to\_thread() |
-| Simple scripts, few connections  | Sync (simpler, easier to debug)            |
-| Web APIs with high concurrency   | Async frameworks (FastAPI, aiohttp)        |
+| Use Case | Recommended Approach |
+|----------|---------------------|
+| Many concurrent network/DB calls | `asyncio` |
+| CPU-bound computation | `multiprocessing` or thread pool |
+| Mixed I/O + CPU | Offload CPU work with `asyncio.to_thread()` |
+| Simple scripts, few connections | Sync (simpler, easier to debug) |
+| Web APIs with high concurrency | Async frameworks (FastAPI, aiohttp) |
 
 **Key Rule:** Stay fully sync or fully async within a call path. Mixing creates hidden blocking and complexity.
 
 ## Core Concepts
 
-### 1\. Event Loop
+### 1. Event Loop
 
 The event loop is the heart of asyncio, managing and scheduling asynchronous tasks.
 
 **Key characteristics:**
 
-* Single-threaded cooperative multitasking
-* Schedules coroutines for execution
-* Handles I/O operations without blocking
-* Manages callbacks and futures
+- Single-threaded cooperative multitasking
+- Schedules coroutines for execution
+- Handles I/O operations without blocking
+- Manages callbacks and futures
 
-### 2\. Coroutines
+### 2. Coroutines
 
 Functions defined with `async def` that can be paused and resumed.
 
@@ -50,22 +55,21 @@ Functions defined with `async def` that can be paused and resumed.
 async def my_coroutine():
     result = await some_async_operation()
     return result
-
 ```
 
-### 3\. Tasks
+### 3. Tasks
 
 Scheduled coroutines that run concurrently on the event loop.
 
-### 4\. Futures
+### 4. Futures
 
 Low-level objects representing eventual results of async operations.
 
-### 5\. Async Context Managers
+### 5. Async Context Managers
 
 Resources that support `async with` for proper cleanup.
 
-### 6\. Async Iterators
+### 6. Async Iterators
 
 Objects that support `async for` for iterating over async data sources.
 
@@ -81,7 +85,6 @@ async def main():
 
 # Python 3.7+
 asyncio.run(main())
-
 ```
 
 ## Fundamental Patterns
@@ -101,7 +104,6 @@ async def main():
     print(result)
 
 asyncio.run(main())
-
 ```
 
 ### Pattern 2: Concurrent Execution with gather()
@@ -127,7 +129,6 @@ async def main():
     print(f"Fetched {len(users)} users")
 
 asyncio.run(main())
-
 ```
 
 ### Pattern 3: Task Creation and Management
@@ -158,7 +159,6 @@ async def main():
     print(f"Results: {result1}, {result2}")
 
 asyncio.run(main())
-
 ```
 
 ### Pattern 4: Error Handling in Async Code
@@ -195,7 +195,6 @@ async def process_items(item_ids: List[int]):
     return successful
 
 asyncio.run(process_items([1, 2, 3, 4, 5, 6]))
-
 ```
 
 ### Pattern 5: Timeout Handling
@@ -217,7 +216,6 @@ async def with_timeout():
         print("Operation timed out")
 
 asyncio.run(with_timeout())
-
 ```
 
 ## Advanced Patterns
@@ -254,7 +252,6 @@ async def query_database():
         return {"rows": 10}
 
 asyncio.run(query_database())
-
 ```
 
 ### Pattern 7: Async Iterators and Generators
@@ -289,7 +286,6 @@ async def consume_async_iterator():
         print(f"Page {page_data['page']}: {len(page_data['data'])} items")
 
 asyncio.run(consume_async_iterator())
-
 ```
 
 ### Pattern 8: Producer-Consumer Pattern
@@ -346,7 +342,6 @@ async def producer_consumer_example():
         c.cancel()
 
 asyncio.run(producer_consumer_example())
-
 ```
 
 ### Pattern 9: Semaphore for Rate Limiting
@@ -375,7 +370,6 @@ async def main():
     print(f"Completed {len(results)} requests")
 
 asyncio.run(main())
-
 ```
 
 ### Pattern 10: Async Locks and Synchronization
@@ -419,7 +413,6 @@ async def test_counter():
     print(f"Final counter value: {final_value}")
 
 asyncio.run(test_counter())
-
 ```
 
 ## Real-World Applications
@@ -463,7 +456,6 @@ async def main():
         print(result)
 
 asyncio.run(main())
-
 ```
 
 ### Async Database Operations
@@ -506,7 +498,6 @@ async def main():
     print(user_data)
 
 asyncio.run(main())
-
 ```
 
 ### WebSocket Server
@@ -567,12 +558,11 @@ class WebSocketServer:
         """Iterate over messages from client."""
         for _ in range(3):  # Simulate 3 messages
             yield await websocket.recv()
-
 ```
 
 ## Performance Best Practices
 
-### 1\. Use Connection Pools
+### 1. Use Connection Pools
 
 ```python
 import asyncio
@@ -586,10 +576,9 @@ async def with_connection_pool():
         tasks = [session.get(f"https://api.example.com/item/{i}") for i in range(50)]
         responses = await asyncio.gather(*tasks)
         return responses
-
 ```
 
-### 2\. Batch Operations
+### 2. Batch Operations
 
 ```python
 async def batch_process(items: List[str], batch_size: int = 10):
@@ -604,10 +593,9 @@ async def process_item(item: str):
     """Process single item."""
     await asyncio.sleep(0.1)
     return f"Processed: {item}"
-
 ```
 
-### 3\. Avoid Blocking Operations
+### 3. Avoid Blocking Operations
 
 Never block the event loop with synchronous operations. A single blocking call stalls all concurrent tasks.
 
@@ -626,7 +614,6 @@ async def fetch_data_good(url: str):
     await asyncio.sleep(1)
     async with httpx.AsyncClient() as client:
         response = await client.get(url)
-
 ```
 
 **Wrapping Blocking Code with `asyncio.to_thread()` (Python 3.9+):**
@@ -646,7 +633,6 @@ async def call_sync_library(data: dict) -> dict:
     """Wrap a synchronous library call."""
     # Useful for sync database drivers, file I/O, CPU work
     return await asyncio.to_thread(sync_library.process, data)
-
 ```
 
 **Lower-level approach with `run_in_executor()`:**
@@ -674,12 +660,11 @@ async def main():
     print(results)
 
 asyncio.run(main())
-
 ```
 
 ## Common Pitfalls
 
-### 1\. Forgetting await
+### 1. Forgetting await
 
 ```python
 # Wrong - returns coroutine object, doesn't execute
@@ -687,10 +672,9 @@ result = async_function()
 
 # Correct
 result = await async_function()
-
 ```
 
-### 2\. Blocking the Event Loop
+### 2. Blocking the Event Loop
 
 ```python
 # Wrong - blocks event loop
@@ -701,10 +685,9 @@ async def bad():
 # Correct
 async def good():
     await asyncio.sleep(1)  # Non-blocking
-
 ```
 
-### 3\. Not Handling Cancellation
+### 3. Not Handling Cancellation
 
 ```python
 async def cancelable_task():
@@ -717,10 +700,9 @@ async def cancelable_task():
         print("Task cancelled, cleaning up...")
         # Perform cleanup
         raise  # Re-raise to propagate cancellation
-
 ```
 
-### 4\. Mixing Sync and Async Code
+### 4. Mixing Sync and Async Code
 
 ```python
 # Wrong - can't call async from sync directly
@@ -730,7 +712,6 @@ def sync_function():
 # Correct
 def sync_function():
     result = asyncio.run(async_function())
-
 ```
 
 ## Testing Async Code
@@ -751,5 +732,4 @@ async def test_with_timeout():
     """Test with timeout."""
     with pytest.raises(asyncio.TimeoutError):
         await asyncio.wait_for(slow_operation(5), timeout=1.0)
-
 ```

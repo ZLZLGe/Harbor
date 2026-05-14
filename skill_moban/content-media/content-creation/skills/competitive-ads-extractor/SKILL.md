@@ -1,16 +1,21 @@
+---
+name: competitive-ads-extractor
+description: Extracts and analyzes competitors' ads from ad libraries (Facebook, LinkedIn, etc.) to understand what messaging, problems, and creative approaches are working. Helps inspire and improve your own ad campaigns.
+---
+
 # Competitive Ads Extractor
 
 This skill extracts your competitors' ads from ad libraries and analyzes what's working—the problems they're highlighting, use cases they're targeting, and copy/creative that's resonating.
 
 ## When to Use This Skill
 
-* Researching competitor ad strategies
-* Finding inspiration for your own ads
-* Understanding market positioning
-* Identifying successful ad patterns
-* Analyzing messaging that works
-* Discovering new use cases or pain points
-* Planning ad campaigns with proven concepts
+- Researching competitor ad strategies
+- Finding inspiration for your own ads
+- Understanding market positioning
+- Identifying successful ad patterns
+- Analyzing messaging that works
+- Discovering new use cases or pain points
+- Planning ad campaigns with proven concepts
 
 ## What This Skill Does
 
@@ -25,38 +30,33 @@ This skill extracts your competitors' ads from ad libraries and analyzes what's 
 
 ### Basic Extraction
 
-```text
+```
 Extract all current ads from [Competitor Name] on Facebook Ad Library
-
 ```
 
-```text
+```
 Scrape ads from [Company] and analyze their messaging
-
 ```
 
 ### Specific Analysis
 
-```text
+```
 Get all ads from [Competitor] focusing on their messaging 
 about [specific problem]. What pain points are they highlighting?
-
 ```
 
 ### Competitive Set
 
-```text
+```
 Extract ads from these 5 competitors: [list]. 
 Compare their approaches and tell me what's working.
-
 ```
 
 ### Specific Platform
 
-```text
+```
 Get LinkedIn ads from [Competitor] and analyze their 
 B2B positioning strategy
-
 ```
 
 ## Example
@@ -64,8 +64,7 @@ B2B positioning strategy
 **User**: "Extract ads from Notion on Facebook Ad Library and tell me what messaging is working for them."
 
 **Process**:
-
-```text
+```
 Accessing Facebook Ad Library...
 Searching for: Notion
 Found: 23 active ads
@@ -80,12 +79,10 @@ Saved to: competitor-ads/notion/
 ...
 
 Analyzing messaging...
-
 ```
 
 **Output**:
-
-```text
+```
 # Notion Ad Analysis
 
 ## Overview
@@ -172,7 +169,6 @@ Based on ad variations:
 - All ads: ~/competitor-ads/notion/
 - Analysis: ~/competitor-ads/notion/analysis.md
 - Best performers: ~/competitor-ads/notion/top-10/
-
 ```
 
 **Inspired by:** Sumant Subrahmanya's use case from Lenny's Newsletter
@@ -180,41 +176,39 @@ Based on ad variations:
 ## What You Can Learn
 
 ### Messaging Analysis
-
-* What problems they emphasize
-* How they position against competition
-* Value propositions that resonate
-* Target audience segments
+- What problems they emphasize
+- How they position against competition
+- Value propositions that resonate
+- Target audience segments
 
 ### Creative Patterns
-
-* Visual styles that work
-* Video vs. static image performance
-* Color schemes and branding
-* Layout patterns
+- Visual styles that work
+- Video vs. static image performance
+- Color schemes and branding
+- Layout patterns
 
 ### Copy Formulas
-
-* Headline structures
-* Call-to-action patterns
-* Length and tone
-* Emotional triggers
+- Headline structures
+- Call-to-action patterns
+- Length and tone
+- Emotional triggers
 
 ### Campaign Strategy
-
-* Seasonal campaigns
-* Product launch approaches
-* Feature announcement tactics
-* Retargeting patterns
+- Seasonal campaigns
+- Product launch approaches
+- Feature announcement tactics
+- Retargeting patterns
 
 ## Best Practices
 
 ### Legal & Ethical
-
-✓ Only use for research and inspiration ✓ Don't copy ads directly ✓ Respect intellectual property ✓ Use insights to inform original creative ✗ Don't plagiarize copy or steal designs
+✓ Only use for research and inspiration
+✓ Don't copy ads directly
+✓ Respect intellectual property
+✓ Use insights to inform original creative
+✗ Don't plagiarize copy or steal designs
 
 ### Analysis Tips
-
 1. **Look for patterns**: What themes repeat?
 2. **Track over time**: Save ads monthly to see evolution
 3. **Test hypotheses**: Adapt successful patterns for your brand
@@ -224,41 +218,32 @@ Based on ad variations:
 ## Advanced Features
 
 ### Trend Tracking
-
-```text
+```
 Compare [Competitor]'s ads from Q1 vs Q2. 
 What messaging has changed?
-
 ```
 
 ### Multi-Competitor Analysis
-
-```text
+```
 Extract ads from [Company A], [Company B], [Company C]. 
 What are the common patterns? Where do they differ?
-
 ```
 
 ### Industry Benchmarks
-
-```text
+```
 Show me ad patterns across the top 10 project management 
 tools. What problems do they all focus on?
-
 ```
 
 ### Format Analysis
-
-```text
+```
 Analyze video ads vs static image ads from [Competitor]. 
 Which gets more engagement? (if data available)
-
 ```
 
 ## Common Workflows
 
 ### Ad Campaign Planning
-
 1. Extract competitor ads
 2. Identify successful patterns
 3. Note gaps in their messaging
@@ -266,7 +251,6 @@ Which gets more engagement? (if data available)
 5. Draft test ad variations
 
 ### Positioning Research
-
 1. Get ads from 5 competitors
 2. Map their positioning
 3. Find underserved angles
@@ -274,7 +258,6 @@ Which gets more engagement? (if data available)
 5. Test against their approaches
 
 ### Creative Inspiration
-
 1. Extract ads by theme
 2. Analyze visual patterns
 3. Note color and layout trends
@@ -293,17 +276,18 @@ Which gets more engagement? (if data available)
 
 ## Output Formats
 
-* **Screenshots**: All ads saved as images
-* **Analysis Report**: Markdown summary of insights
-* **Spreadsheet**: CSV with ad copy, CTAs, themes
-* **Presentation**: Visual deck of top performers
-* **Pattern Library**: Categorized by approach
+- **Screenshots**: All ads saved as images
+- **Analysis Report**: Markdown summary of insights
+- **Spreadsheet**: CSV with ad copy, CTAs, themes
+- **Presentation**: Visual deck of top performers
+- **Pattern Library**: Categorized by approach
 
 ## Related Use Cases
 
-* Writing better ad copy for your campaigns
-* Understanding market positioning
-* Finding content gaps in your messaging
-* Discovering new use cases for your product
-* Planning product marketing strategy
-* Inspiring social media content
+- Writing better ad copy for your campaigns
+- Understanding market positioning
+- Finding content gaps in your messaging
+- Discovering new use cases for your product
+- Planning product marketing strategy
+- Inspiring social media content
+

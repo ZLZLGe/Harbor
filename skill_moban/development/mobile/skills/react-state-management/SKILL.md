@@ -1,19 +1,24 @@
+---
+name: react-state-management
+description: Master modern React state management with Redux Toolkit, Zustand, Jotai, and React Query. Use when setting up global state, managing server state, or choosing between state management solutions.
+---
+
 # React State Management
 
 Comprehensive guide to modern React state management patterns, from local component state to global stores and server state synchronization.
 
 ## When to Use This Skill
 
-* Setting up global state management in a React app
-* Choosing between Redux Toolkit, Zustand, or Jotai
-* Managing server state with React Query or SWR
-* Implementing optimistic updates
-* Debugging state-related issues
-* Migrating from legacy Redux to modern patterns
+- Setting up global state management in a React app
+- Choosing between Redux Toolkit, Zustand, or Jotai
+- Managing server state with React Query or SWR
+- Implementing optimistic updates
+- Debugging state-related issues
+- Migrating from legacy Redux to modern patterns
 
 ## Core Concepts
 
-### 1\. State Categories
+### 1. State Categories
 
 | Type             | Description                  | Solutions                     |
 | ---------------- | ---------------------------- | ----------------------------- |
@@ -23,14 +28,13 @@ Comprehensive guide to modern React state management patterns, from local compon
 | **URL State**    | Route parameters, search     | React Router, nuqs            |
 | **Form State**   | Input values, validation     | React Hook Form, Formik       |
 
-### 2\. Selection Criteria
+### 2. Selection Criteria
 
-```text
+```
 Small app, simple state → Zustand or Jotai
 Large app, complex state → Redux Toolkit
 Heavy server interaction → React Query + light client state
 Atomic/granular updates → Jotai
-
 ```
 
 ## Quick Start
@@ -75,7 +79,6 @@ function Header() {
     </header>
   )
 }
-
 ```
 
 ## Patterns
@@ -108,7 +111,6 @@ export type AppDispatch = typeof store.dispatch;
 // Typed hooks
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-
 ```
 
 ```typescript
@@ -178,7 +180,6 @@ const userSlice = createSlice({
 
 export const { setUser, clearUser } = userSlice.actions;
 export default userSlice.reducer;
-
 ```
 
 ### Pattern 2: Zustand with Slices (Scalable)
@@ -228,7 +229,6 @@ export const useStore = create<StoreState>()((...args) => ({
 // Selective subscriptions (prevents unnecessary re-renders)
 export const useUser = () => useStore((state) => state.user);
 export const useCart = () => useStore((state) => state.cart);
-
 ```
 
 ### Pattern 3: Jotai for Atomic State
@@ -274,7 +274,6 @@ function Profile() {
     </Suspense>
   )
 }
-
 ```
 
 ### Pattern 4: React Query for Server State
@@ -348,7 +347,6 @@ export function useUpdateUser() {
     },
   });
 }
-
 ```
 
 ### Pattern 5: Combining Client + Server State
@@ -381,26 +379,25 @@ function Dashboard() {
     </div>
   )
 }
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Colocate state** \- Keep state as close to where it's used as possible
-* **Use selectors** \- Prevent unnecessary re-renders with selective subscriptions
-* **Normalize data** \- Flatten nested structures for easier updates
-* **Type everything** \- Full TypeScript coverage prevents runtime errors
-* **Separate concerns** \- Server state (React Query) vs client state (Zustand)
+- **Colocate state** - Keep state as close to where it's used as possible
+- **Use selectors** - Prevent unnecessary re-renders with selective subscriptions
+- **Normalize data** - Flatten nested structures for easier updates
+- **Type everything** - Full TypeScript coverage prevents runtime errors
+- **Separate concerns** - Server state (React Query) vs client state (Zustand)
 
 ### Don'ts
 
-* **Don't over-globalize** \- Not everything needs to be in global state
-* **Don't duplicate server state** \- Let React Query manage it
-* **Don't mutate directly** \- Always use immutable updates
-* **Don't store derived data** \- Compute it instead
-* **Don't mix paradigms** \- Pick one primary solution per category
+- **Don't over-globalize** - Not everything needs to be in global state
+- **Don't duplicate server state** - Let React Query manage it
+- **Don't mutate directly** - Always use immutable updates
+- **Don't store derived data** - Compute it instead
+- **Don't mix paradigms** - Pick one primary solution per category
 
 ## Migration Guides
 
@@ -430,5 +427,4 @@ const todosSlice = createSlice({
     },
   },
 });
-
 ```

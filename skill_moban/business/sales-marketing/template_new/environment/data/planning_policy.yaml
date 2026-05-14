@@ -1,0 +1,60 @@
+review_period_weeks: 1
+forecast_rules:
+  stable:
+    method: recent_moving_average
+    lookback_weeks: 4
+  trend:
+    method: recent_weighted_average
+    lookback_weeks: 4
+    weights:
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+  intermittent:
+    method: nonzero_rate_last8
+    lookback_weeks: 8
+  launch:
+    method: analog_recent_average
+    lookback_weeks: 4
+service_level_z:
+  A: 1.65
+  B: 1.28
+  C: 1.04
+service_level_output:
+  A: 0.97
+  B: 0.95
+  C: 0.9
+profile_sigma_multiplier:
+  stable: 1.0
+  trend: 1.1
+  intermittent: 0.9
+  launch: 1.15
+budget:
+  limit: 10000.0
+  currency: USD
+review_capacity:
+  max_order_lines: 5
+priority_rules:
+  promo_window_weeks: 3
+  launch_window_weeks: 2
+  sort_order:
+    - near_term_promo
+    - launch_exposure
+    - service_tier
+    - promo_incremental_units
+    - gap_to_reorder_point_per_cost_desc
+budget_priority:
+  tier_rank:
+  - A
+  - B
+  - C
+  within_tier_sort:
+  - gap_to_reorder_point_per_cost_desc
+  - gap_to_reorder_point_desc
+  - earlier_order_week
+allowed_exception_codes:
+- status_block
+- budget_hold
+- projected_stockout
+- analog_based_forecast

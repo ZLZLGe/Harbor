@@ -1,3 +1,8 @@
+---
+name: java-mcp-server-generator
+description: 'Generate a complete Model Context Protocol server project in Java using the official MCP Java SDK with reactive streams and optional Spring Boot integration.'
+---
+
 # Java MCP Server Generator
 
 Generate a complete, production-ready MCP server in Java using the official Java SDK with Maven or Gradle.
@@ -6,7 +11,7 @@ Generate a complete, production-ready MCP server in Java using the official Java
 
 When asked to create a Java MCP server, generate a complete project with this structure:
 
-```text
+```
 my-mcp-server/
 ├── pom.xml (or build.gradle.kts)
 ├── src/
@@ -32,7 +37,6 @@ my-mcp-server/
 │           └── com/example/mcp/
 │               └── McpServerTest.java
 └── README.md
-
 ```
 
 ## Maven pom.xml Template
@@ -65,14 +69,14 @@ my-mcp-server/
     </properties>
 
     <dependencies>
-        
+        <!-- MCP Java SDK -->
         <dependency>
             <groupId>io.modelcontextprotocol.sdk</groupId>
             <artifactId>mcp</artifactId>
             <version>${mcp.version}</version>
         </dependency>
 
-        
+        <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -84,7 +88,7 @@ my-mcp-server/
             <version>${logback.version}</version>
         </dependency>
 
-        
+        <!-- Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -133,7 +137,6 @@ my-mcp-server/
         </plugins>
     </build>
 </project>
-
 ```
 
 ## Gradle build.gradle.kts Template
@@ -176,7 +179,6 @@ application {
 tasks.test {
     useJUnitPlatform()
 }
-
 ```
 
 ## McpServerApplication.java Template
@@ -243,7 +245,6 @@ public class McpServerApplication {
         return server;
     }
 }
-
 ```
 
 ## ToolDefinitions.java Template
@@ -294,7 +295,6 @@ public class ToolDefinitions {
             .build();
     }
 }
-
 ```
 
 ## ToolHandlers.java Template
@@ -391,7 +391,6 @@ public class ToolHandlers {
             .build());
     }
 }
-
 ```
 
 ## ResourceDefinitions.java Template
@@ -422,7 +421,6 @@ public class ResourceDefinitions {
         );
     }
 }
-
 ```
 
 ## ResourceHandlers.java Template
@@ -495,7 +493,6 @@ public class ResourceHandlers {
         return Mono.empty();
     }
 }
-
 ```
 
 ## PromptDefinitions.java Template
@@ -529,7 +526,6 @@ public class PromptDefinitions {
         );
     }
 }
-
 ```
 
 ## PromptHandlers.java Template
@@ -588,7 +584,6 @@ public class PromptHandlers {
             .build());
     }
 }
-
 ```
 
 ## McpServerTest.java Template
@@ -668,7 +663,6 @@ class McpServerTest {
         assertTrue(response.isError());
     }
 }
-
 ```
 
 ## README.md Template
@@ -697,46 +691,35 @@ A Model Context Protocol server built with Java and the official MCP Java SDK.
 ### Maven
 ```bash
 mvn clean package
-
 ```
 
 ### Gradle
-
 ```bash
 ./gradlew build
-
 ```
 
 ## Run
 
 ### Maven
-
 ```bash
 java -jar target/my-mcp-server-1.0.0.jar
-
 ```
 
 ### Gradle
-
 ```bash
 ./gradlew run
-
 ```
 
 ## Testing
 
 ### Maven
-
 ```bash
 mvn test
-
 ```
 
 ### Gradle
-
 ```bash
 ./gradlew test
-
 ```
 
 ## Integration with Claude Desktop
@@ -752,14 +735,12 @@ Add to `claude_desktop_config.json`:
     }
   }
 }
-
 ```
 
 ## License
 
 MIT
-
-```text
+```
 
 ## Generation Instructions
 
@@ -773,5 +754,3 @@ MIT
 8. **Include error handling** with proper responses
 9. **Document public APIs** with Javadoc
 10. **Provide both sync and async** examples
-
-```

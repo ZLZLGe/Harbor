@@ -1,42 +1,48 @@
+---
+name: zustand
+description: "LobeHub Zustand store conventions: public/internal/dispatch action layers, optimistic update pattern, slice composition via `flattenActions`, and class-based action migration. Use whenever working under `src/store/**`, adding a `createXxxSlice`, writing `internal_*` or `internal_dispatch*` actions, designing `messagesMap`/`topicsMap` reducers, refactoring a `StateCreator` object slice into a `XxxActionImpl` class, or debugging stale store reads. Triggers on `useChatStore`/`useUserStore`/`useGlobalStore`, `createStore`, `flattenActions`, `StoreSetter`, `internal_dispatch`, 'add an action', 'zustand selector', 'store slice', 'class action', 'optimistic update'."
+user-invocable: false
+---
+
 # LobeHub Zustand State Management
 
 ## Action Type Hierarchy
 
-### 1\. Public Actions
+### 1. Public Actions
 
 Main interfaces for UI components:
 
-* Naming: Verb form (`createTopic`, `sendMessage`)
-* Responsibilities: Parameter validation, flow orchestration
+- Naming: Verb form (`createTopic`, `sendMessage`)
+- Responsibilities: Parameter validation, flow orchestration
 
-### 2\. Internal Actions (`internal_*`)
+### 2. Internal Actions (`internal_*`)
 
 Core business logic implementation:
 
-* Naming: `internal_` prefix (`internal_createTopic`)
-* Responsibilities: Optimistic updates, service calls, error handling
-* Should not be called directly by UI
+- Naming: `internal_` prefix (`internal_createTopic`)
+- Responsibilities: Optimistic updates, service calls, error handling
+- Should not be called directly by UI
 
-### 3\. Dispatch Methods (`internal_dispatch*`)
+### 3. Dispatch Methods (`internal_dispatch*`)
 
 State update handlers:
 
-* Naming: `internal_dispatch` \+ entity (`internal_dispatchTopic`)
-* Responsibilities: Calling reducers, updating store
+- Naming: `internal_dispatch` + entity (`internal_dispatchTopic`)
+- Responsibilities: Calling reducers, updating store
 
 ## When to Use Reducer vs Simple `set`
 
 **Use Reducer Pattern:**
 
-* Managing object lists/maps (`messagesMap`, `topicMaps`)
-* Optimistic updates
-* Complex state transitions
+- Managing object lists/maps (`messagesMap`, `topicMaps`)
+- Optimistic updates
+- Complex state transitions
 
 **Use Simple `set`:**
 
-* Toggling booleans
-* Updating simple values
-* Setting single state fields
+- Toggling booleans
+- Updating simple values
+- Setting single state fields
 
 ## Optimistic Update Pattern
 
@@ -57,7 +63,6 @@ internal_createTopic: async (params) => {
   await get().refreshTopic();
   return topicId;
 },
-
 ```
 
 **Delete operations**: Don't use optimistic updates (destructive, complex recovery)
@@ -66,18 +71,25 @@ internal_createTopic: async (params) => {
 
 **Actions:**
 
-* Public: `createTopic`, `sendMessage`
-* Internal: `internal_createTopic`, `internal_updateMessageContent`
-* Dispatch: `internal_dispatchTopic` **State:**
-* ID arrays: `topicEditingIds`
-* Maps: `topicMaps`, `messagesMap`
-* Active: `activeTopicId`
-* Init flags: `topicsInit`
+- Public: `createTopic`, `sendMessage`
+
+- Internal: `internal_createTopic`, `internal_updateMessageContent`
+
+- Dispatch: `internal_dispatchTopic`
+  **State:**
+
+- ID arrays: `topicEditingIds`
+
+- Maps: `topicMaps`, `messagesMap`
+
+- Active: `activeTopicId`
+
+- Init flags: `topicsInit`
 
 ## Detailed Guides
 
-* Action patterns: `references/action-patterns.md`
-* Slice organization: `references/slice-organization.md`
+- Action patterns: `references/action-patterns.md`
+- Slice organization: `references/slice-organization.md`
 
 ## Class-Based Action Implementation
 
@@ -85,11 +97,12 @@ We are migrating slices from plain `StateCreator` objects to **class-based actio
 
 ### Pattern
 
-* Define a class that encapsulates actions and receives `(set, get, api)` in the constructor.
-* Use `#private` fields (e.g., `#set`, `#get`) to avoid leaking internals.
-Prefer shared typing helpers: StoreSetter from `@/store/types` for `set`. 
-* `Pick<ActionImpl, keyof ActionImpl>` to expose only public methods.
-* Export a `create*Slice` helper that returns a class instance.
+- Define a class that encapsulates actions and receives `(set, get, api)` in the constructor.
+- Use `#private` fields (e.g., `#set`, `#get`) to avoid leaking internals.
+- Prefer shared typing helpers:
+  - `StoreSetter<T>` from `@/store/types` for `set`.
+  - `Pick<ActionImpl, keyof ActionImpl>` to expose only public methods.
+- Export a `create*Slice` helper that returns a class instance.
 
 ```ts
 type Setter = StoreSetter<HomeStore>;
@@ -112,13 +125,12 @@ export class RecentActionImpl {
 }
 
 export type RecentAction = Pick<RecentActionImpl, keyof RecentActionImpl>;
-
 ```
 
 ### Composition
 
-  * In store files, merge class instances with `flattenActions` (do not spread class instances).
-  * `flattenActions` binds methods to the original class instance and supports prototype methods and class fields.
+- In store files, merge class instances with `flattenActions` (do not spread class instances).
+- `flattenActions` binds methods to the original class instance and supports prototype methods and class fields.
 
 ```ts
 const createStore: StateCreator<HomeStore, [['zustand/devtools', never]]> = (...params) => ({
@@ -128,13 +140,12 @@ const createStore: StateCreator<HomeStore, [['zustand/devtools', never]]> = (...
     createHomeInputSlice(...params),
   ]),
 });
-
 ```
 
 ### Multi-Class Slices
 
-* For large slices that need multiple action classes, compose them in the slice entry using `flattenActions`.
-Use a local PublicActions helper if you need to combine multiple classes and hide private fields. 
+- For large slices that need multiple action classes, compose them in the slice entry using `flattenActions`.
+- Use a local `PublicActions<T>` helper if you need to combine multiple classes and hide private fields.
 
 ```ts
 type PublicActions<T> = { [K in keyof T]: T[K] };
@@ -155,21 +166,27 @@ export const chatGroupAction: StateCreator<
     new ChatGroupMemberAction(...params),
     new ChatGroupCurdAction(...params),
   ]);
-
 ```
 
 ### Store-Access Types
 
-  * For class methods that depend on actions in other classes, define explicit store augmentations:  
-    * `ChatGroupStoreWithSwitchTopic` for lifecycle `switchTopic`
-    * `ChatGroupStoreWithRefresh` for member refresh
-    * `ChatGroupStoreWithInternal` for curd `internal_dispatchChatGroup`
+- For class methods that depend on actions in other classes, define explicit store augmentations:
+  - `ChatGroupStoreWithSwitchTopic` for lifecycle `switchTopic`
+  - `ChatGroupStoreWithRefresh` for member refresh
+  - `ChatGroupStoreWithInternal` for curd `internal_dispatchChatGroup`
 
 ### Slices That Don't Currently Need `set`
 
-When a slice doesn't write local state at the moment — e.g. it reads context from `#get()` and forwards calls to another store, or just runs hooks — drop the `#set` field. Otherwise ESLint's `no-unused-vars` flags the unused private field.
+When a slice doesn't write local state at the moment — e.g. it reads context
+from `#get()` and forwards calls to another store, or just runs hooks — drop
+the `#set` field. Otherwise ESLint's `no-unused-vars` flags the unused private
+field.
 
-Mark the constructor's `set` param as `_set` and `void _set` it to keep the `(set, get, api)` shape aligned with `StateCreator`. This is **a snapshot of the current need, not a permanent contract** — if a later change needs `set`, restore the `#set` field and use it; do not invent a workaround to keep the "unused" form.
+Mark the constructor's `set` param as `_set` and `void _set` it to keep the
+`(set, get, api)` shape aligned with `StateCreator`. This is **a snapshot of
+the current need, not a permanent contract** — if a later change needs `set`,
+restore the `#set` field and use it; do not invent a workaround to keep the
+"unused" form.
 
 ```ts
 type Setter = StoreSetter<ConversationStore>;
@@ -197,20 +214,25 @@ export class ToolActionImpl {
 }
 
 export type ToolAction = Pick<ToolActionImpl, keyof ToolActionImpl>;
-
 ```
 
 Rules of thumb:
 
-  * If a slice doesn't currently call `set`, drop `#set` (use `_set` \+ `void _set`in the constructor). When a later edit needs `set`, restore `#set` and use it.
-  * Don't add `setNamespace` for slices that don't write state. Add it when the slice starts writing state.
-  * Never leave `#set` declared but unused "for future use" — lint will fail and re-adding it later costs nothing.
+- If a slice doesn't currently call `set`, drop `#set` (use `_set` + `void _set`
+  in the constructor). When a later edit needs `set`, restore `#set` and use it.
+- Don't add `setNamespace` for slices that don't write state. Add it when the
+  slice starts writing state.
+- Never leave `#set` declared but unused "for future use" — lint will fail and
+  re-adding it later costs nothing.
 
 ### Do / Don't
 
-  * **Do**: keep constructor signature aligned with `StateCreator` params `(set, get, api)`.
-  * **Do**: use `#private` to avoid `set/get` being exposed.
-  * **Do**: use `flattenActions` instead of spreading class instances.
-  * **Do**: drop `#set` (and use `_set` \+ `void _set` in the constructor) for delegate-only slices that never write state — keeps lint green without breaking the `(set, get, api)` shape.
-  * **Don't**: keep both old slice objects and class actions active at the same time.
-  * **Don't**: keep an unused `#set` field "for future use" — it fails ESLint and re-adding it later costs nothing.
+- **Do**: keep constructor signature aligned with `StateCreator` params `(set, get, api)`.
+- **Do**: use `#private` to avoid `set/get` being exposed.
+- **Do**: use `flattenActions` instead of spreading class instances.
+- **Do**: drop `#set` (and use `_set` + `void _set` in the constructor) for
+  delegate-only slices that never write state — keeps lint green without
+  breaking the `(set, get, api)` shape.
+- **Don't**: keep both old slice objects and class actions active at the same time.
+- **Don't**: keep an unused `#set` field "for future use" — it fails ESLint and
+  re-adding it later costs nothing.

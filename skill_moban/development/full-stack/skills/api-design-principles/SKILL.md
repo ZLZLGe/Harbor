@@ -1,74 +1,76 @@
+---
+name: api-design-principles
+description: Master REST and GraphQL API design principles to build intuitive, scalable, and maintainable APIs that delight developers. Use when designing new APIs, reviewing API specifications, or establishing API design standards.
+---
+
 # API Design Principles
 
 Master REST and GraphQL API design principles to build intuitive, scalable, and maintainable APIs that delight developers and stand the test of time.
 
 ## When to Use This Skill
 
-* Designing new REST or GraphQL APIs
-* Refactoring existing APIs for better usability
-* Establishing API design standards for your team
-* Reviewing API specifications before implementation
-* Migrating between API paradigms (REST to GraphQL, etc.)
-* Creating developer-friendly API documentation
-* Optimizing APIs for specific use cases (mobile, third-party integrations)
+- Designing new REST or GraphQL APIs
+- Refactoring existing APIs for better usability
+- Establishing API design standards for your team
+- Reviewing API specifications before implementation
+- Migrating between API paradigms (REST to GraphQL, etc.)
+- Creating developer-friendly API documentation
+- Optimizing APIs for specific use cases (mobile, third-party integrations)
 
 ## Core Concepts
 
-### 1\. RESTful Design Principles
+### 1. RESTful Design Principles
 
 **Resource-Oriented Architecture**
 
-* Resources are nouns (users, orders, products), not verbs
-* Use HTTP methods for actions (GET, POST, PUT, PATCH, DELETE)
-* URLs represent resource hierarchies
-* Consistent naming conventions
+- Resources are nouns (users, orders, products), not verbs
+- Use HTTP methods for actions (GET, POST, PUT, PATCH, DELETE)
+- URLs represent resource hierarchies
+- Consistent naming conventions
 
 **HTTP Methods Semantics:**
 
-* `GET`: Retrieve resources (idempotent, safe)
-* `POST`: Create new resources
-* `PUT`: Replace entire resource (idempotent)
-* `PATCH`: Partial resource updates
-* `DELETE`: Remove resources (idempotent)
+- `GET`: Retrieve resources (idempotent, safe)
+- `POST`: Create new resources
+- `PUT`: Replace entire resource (idempotent)
+- `PATCH`: Partial resource updates
+- `DELETE`: Remove resources (idempotent)
 
-### 2\. GraphQL Design Principles
+### 2. GraphQL Design Principles
 
 **Schema-First Development**
 
-* Types define your domain model
-* Queries for reading data
-* Mutations for modifying data
-* Subscriptions for real-time updates
+- Types define your domain model
+- Queries for reading data
+- Mutations for modifying data
+- Subscriptions for real-time updates
 
 **Query Structure:**
 
-* Clients request exactly what they need
-* Single endpoint, multiple operations
-* Strongly typed schema
-* Introspection built-in
+- Clients request exactly what they need
+- Single endpoint, multiple operations
+- Strongly typed schema
+- Introspection built-in
 
-### 3\. API Versioning Strategies
+### 3. API Versioning Strategies
 
 **URL Versioning:**
 
-```text
+```
 /api/v1/users
 /api/v2/users
-
 ```
 
 **Header Versioning:**
 
-```text
+```
 Accept: application/vnd.api+json; version=1
-
 ```
 
 **Query Parameter Versioning:**
 
-```text
+```
 /api/users?version=1
-
 ```
 
 ## REST API Design Patterns
@@ -92,7 +94,6 @@ POST   /api/users/{id}/orders  # Create order for user
 POST   /api/createUser
 POST   /api/getUserById
 POST   /api/deleteUser
-
 ```
 
 ### Pattern 2: Pagination and Filtering
@@ -154,7 +155,6 @@ async def list_users(
         page_size=page_size,
         pages=(total + page_size - 1) // page_size
     )
-
 ```
 
 ### Pattern 3: Error Handling and Status Codes
@@ -216,7 +216,6 @@ async def get_user(user_id: str):
     if not user:
         raise_not_found("User", user_id)
     return user
-
 ```
 
 ### Pattern 4: HATEOAS (Hypermedia as the Engine of Application State)
@@ -247,7 +246,6 @@ class UserResponse(BaseModel):
                 }
             }
         )
-
 ```
 
 ## GraphQL Design Patterns
@@ -347,7 +345,6 @@ type Error {
   field: String
   message: String!
 }
-
 ```
 
 ### Pattern 2: Resolver Design
@@ -441,7 +438,6 @@ async def resolve_create_user(obj, info, input: dict) -> dict:
             "user": None,
             "errors": [{"field": e.field, "message": e.message}]
         }
-
 ```
 
 ### Pattern 3: DataLoader (N+1 Problem Prevention)
@@ -487,7 +483,6 @@ def create_context():
             "orders_by_user": OrdersByUserLoader()
         }
     }
-
 ```
 
 ## Best Practices
@@ -514,10 +509,10 @@ def create_context():
 
 ## Common Pitfalls
 
-* **Over-fetching/Under-fetching (REST)**: Fixed in GraphQL but requires DataLoaders
-* **Breaking Changes**: Version APIs or use deprecation strategies
-* **Inconsistent Error Formats**: Standardize error responses
-* **Missing Rate Limits**: APIs without limits are vulnerable to abuse
-* **Poor Documentation**: Undocumented APIs frustrate developers
-* **Ignoring HTTP Semantics**: POST for idempotent operations breaks expectations
-* **Tight Coupling**: API structure shouldn't mirror database schema
+- **Over-fetching/Under-fetching (REST)**: Fixed in GraphQL but requires DataLoaders
+- **Breaking Changes**: Version APIs or use deprecation strategies
+- **Inconsistent Error Formats**: Standardize error responses
+- **Missing Rate Limits**: APIs without limits are vulnerable to abuse
+- **Poor Documentation**: Undocumented APIs frustrate developers
+- **Ignoring HTTP Semantics**: POST for idempotent operations breaks expectations
+- **Tight Coupling**: API structure shouldn't mirror database schema

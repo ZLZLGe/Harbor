@@ -1,0 +1,7 @@
+subscription_id,price_id,usage_quantity
+SUB-1001,price_api_calls_metered,2200
+SUB-1002,price_storage_gb_metered,12
+SUB-1004,price_storage_gb_metered,30
+SUB-1007,price_api_calls_metered,500
+SUB-1008,price_api_calls_metered,400
+SUB-1009,price_storage_gb_metered,10

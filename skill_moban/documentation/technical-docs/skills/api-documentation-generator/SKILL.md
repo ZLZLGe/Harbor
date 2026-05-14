@@ -1,3 +1,11 @@
+---
+name: api-documentation-generator
+description: "Generate comprehensive, developer-friendly API documentation from code, including endpoints, parameters, examples, and best practices"
+risk: unknown
+source: community
+date_added: "2026-02-27"
+---
+
 # API Documentation Generator
 
 ## Overview
@@ -8,86 +16,78 @@ Perfect for REST APIs, GraphQL APIs, and WebSocket APIs.
 
 ## When to Use This Skill
 
-* Use when you need to document a new API
-* Use when updating existing API documentation
-* Use when your API lacks clear documentation
-* Use when onboarding new developers to your API
-* Use when preparing API documentation for external users
-* Use when creating OpenAPI/Swagger specifications
+- Use when you need to document a new API
+- Use when updating existing API documentation
+- Use when your API lacks clear documentation
+- Use when onboarding new developers to your API
+- Use when preparing API documentation for external users
+- Use when creating OpenAPI/Swagger specifications
 
 ## How It Works
 
 ### Step 1: Analyze the API Structure
 
 First, I'll examine your API codebase to understand:
-
-* Available endpoints and routes
-* HTTP methods (GET, POST, PUT, DELETE, etc.)
-* Request parameters and body structure
-* Response formats and status codes
-* Authentication and authorization requirements
-* Error handling patterns
+- Available endpoints and routes
+- HTTP methods (GET, POST, PUT, DELETE, etc.)
+- Request parameters and body structure
+- Response formats and status codes
+- Authentication and authorization requirements
+- Error handling patterns
 
 ### Step 2: Generate Endpoint Documentation
 
 For each endpoint, I'll create documentation including:
 
 **Endpoint Details:**
-
-* HTTP method and URL path
-* Brief description of what it does
-* Authentication requirements
-* Rate limiting information (if applicable)
+- HTTP method and URL path
+- Brief description of what it does
+- Authentication requirements
+- Rate limiting information (if applicable)
 
 **Request Specification:**
-
-* Path parameters
-* Query parameters
-* Request headers
-* Request body schema (with types and validation rules)
+- Path parameters
+- Query parameters
+- Request headers
+- Request body schema (with types and validation rules)
 
 **Response Specification:**
-
-* Success response (status code + body structure)
-* Error responses (all possible error codes)
-* Response headers
+- Success response (status code + body structure)
+- Error responses (all possible error codes)
+- Response headers
 
 **Code Examples:**
-
-* cURL command
-* JavaScript/TypeScript (fetch/axios)
-* Python (requests)
-* Other languages as needed
+- cURL command
+- JavaScript/TypeScript (fetch/axios)
+- Python (requests)
+- Other languages as needed
 
 ### Step 3: Add Usage Guidelines
 
 I'll include:
-
-* Getting started guide
-* Authentication setup
-* Common use cases
-* Best practices
-* Rate limiting details
-* Pagination patterns
-* Filtering and sorting options
+- Getting started guide
+- Authentication setup
+- Common use cases
+- Best practices
+- Rate limiting details
+- Pagination patterns
+- Filtering and sorting options
 
 ### Step 4: Document Error Handling
 
 Clear error documentation including:
-
-* All possible error codes
-* Error message formats
-* Troubleshooting guide
-* Common error scenarios and solutions
+- All possible error codes
+- Error message formats
+- Troubleshooting guide
+- Common error scenarios and solutions
 
 ### Step 5: Create Interactive Examples
 
 Where possible, I'll provide:
-
-* Postman collection
-* OpenAPI/Swagger specification
-* Interactive code examples
-* Sample responses
+- Postman collection
+- OpenAPI/Swagger specification
+- Interactive code examples
+- Sample responses
 
 ## Examples
 
@@ -196,7 +196,6 @@ response = requests.post(
 user = response.json()
 print(user)
 \`\`\`
-
 ```
 
 ### Example 2: GraphQL API Documentation
@@ -267,7 +266,6 @@ query GetUser($id: ID!) {
   ]
 }
 \`\`\`
-
 ```
 
 ### Example 3: Authentication Documentation
@@ -318,128 +316,120 @@ Tokens expire after 1 hour. Use the refresh token to get a new access token:
   "refreshToken": "refresh_token_here"
 }
 \`\`\`
-
 ```
 
 ## Best Practices
 
 ### ✅ Do This
 
-* **Be Consistent** \- Use the same format for all endpoints
-* **Include Examples** \- Provide working code examples in multiple languages
-* **Document Errors** \- List all possible error codes and their meanings
-* **Show Real Data** \- Use realistic example data, not "foo" and "bar"
-* **Explain Parameters** \- Describe what each parameter does and its constraints
-* **Version Your API** \- Include version numbers in URLs (/api/v1/)
-* **Add Timestamps** \- Show when documentation was last updated
-* **Link Related Endpoints** \- Help users discover related functionality
-* **Include Rate Limits** \- Document any rate limiting policies
-* **Provide Postman Collection** \- Make it easy to test your API
+- **Be Consistent** - Use the same format for all endpoints
+- **Include Examples** - Provide working code examples in multiple languages
+- **Document Errors** - List all possible error codes and their meanings
+- **Show Real Data** - Use realistic example data, not "foo" and "bar"
+- **Explain Parameters** - Describe what each parameter does and its constraints
+- **Version Your API** - Include version numbers in URLs (/api/v1/)
+- **Add Timestamps** - Show when documentation was last updated
+- **Link Related Endpoints** - Help users discover related functionality
+- **Include Rate Limits** - Document any rate limiting policies
+- **Provide Postman Collection** - Make it easy to test your API
 
 ### ❌ Don't Do This
 
-* **Don't Skip Error Cases** \- Users need to know what can go wrong
-* **Don't Use Vague Descriptions** \- "Gets data" is not helpful
-* **Don't Forget Authentication** \- Always document auth requirements
-* **Don't Ignore Edge Cases** \- Document pagination, filtering, sorting
-* **Don't Leave Examples Broken** \- Test all code examples
-* **Don't Use Outdated Info** \- Keep documentation in sync with code
-* **Don't Overcomplicate** \- Keep it simple and scannable
-* **Don't Forget Response Headers** \- Document important headers
+- **Don't Skip Error Cases** - Users need to know what can go wrong
+- **Don't Use Vague Descriptions** - "Gets data" is not helpful
+- **Don't Forget Authentication** - Always document auth requirements
+- **Don't Ignore Edge Cases** - Document pagination, filtering, sorting
+- **Don't Leave Examples Broken** - Test all code examples
+- **Don't Use Outdated Info** - Keep documentation in sync with code
+- **Don't Overcomplicate** - Keep it simple and scannable
+- **Don't Forget Response Headers** - Document important headers
 
 ## Documentation Structure
 
 ### Recommended Sections
 
 1. **Introduction**
+   - What the API does
+   - Base URL
+   - API version
+   - Support contact
 
-  * What the API does
-  * Base URL
-  * API version
-  * Support contact
 2. **Authentication**
+   - How to authenticate
+   - Token management
+   - Security best practices
 
-  * How to authenticate
-  * Token management
-  * Security best practices
 3. **Quick Start**
+   - Simple example to get started
+   - Common use case walkthrough
 
-  * Simple example to get started
-  * Common use case walkthrough
 4. **Endpoints**
+   - Organized by resource
+   - Full details for each endpoint
 
-  * Organized by resource
-  * Full details for each endpoint
 5. **Data Models**
+   - Schema definitions
+   - Field descriptions
+   - Validation rules
 
-  * Schema definitions
-  * Field descriptions
-  * Validation rules
 6. **Error Handling**
+   - Error code reference
+   - Error response format
+   - Troubleshooting guide
 
-  * Error code reference
-  * Error response format
-  * Troubleshooting guide
 7. **Rate Limiting**
+   - Limits and quotas
+   - Headers to check
+   - Handling rate limit errors
 
-  * Limits and quotas
-  * Headers to check
-  * Handling rate limit errors
 8. **Changelog**
+   - API version history
+   - Breaking changes
+   - Deprecation notices
 
-  * API version history
-  * Breaking changes
-  * Deprecation notices
 9. **SDKs and Tools**
-
-  * Official client libraries
-  * Postman collection
-  * OpenAPI specification
+   - Official client libraries
+   - Postman collection
+   - OpenAPI specification
 
 ## Common Pitfalls
 
 ### Problem: Documentation Gets Out of Sync
-
-**Symptoms:** Examples don't work, parameters are wrong, endpoints return different data **Solution:**
-
-* Generate docs from code comments/annotations
-* Use tools like Swagger/OpenAPI
-* Add API tests that validate documentation
-* Review docs with every API change
+**Symptoms:** Examples don't work, parameters are wrong, endpoints return different data
+**Solution:** 
+- Generate docs from code comments/annotations
+- Use tools like Swagger/OpenAPI
+- Add API tests that validate documentation
+- Review docs with every API change
 
 ### Problem: Missing Error Documentation
-
-**Symptoms:** Users don't know how to handle errors, support tickets increase **Solution:**
-
-* Document every possible error code
-* Provide clear error messages
-* Include troubleshooting steps
-* Show example error responses
+**Symptoms:** Users don't know how to handle errors, support tickets increase
+**Solution:**
+- Document every possible error code
+- Provide clear error messages
+- Include troubleshooting steps
+- Show example error responses
 
 ### Problem: Examples Don't Work
-
-**Symptoms:** Users can't get started, frustration increases **Solution:**
-
-* Test every code example
-* Use real, working endpoints
-* Include complete examples (not fragments)
-* Provide a sandbox environment
+**Symptoms:** Users can't get started, frustration increases
+**Solution:**
+- Test every code example
+- Use real, working endpoints
+- Include complete examples (not fragments)
+- Provide a sandbox environment
 
 ### Problem: Unclear Parameter Requirements
-
-**Symptoms:** Users send invalid requests, validation errors **Solution:**
-
-* Mark required vs optional clearly
-* Document data types and formats
-* Show validation rules
-* Provide example values
+**Symptoms:** Users send invalid requests, validation errors
+**Solution:**
+- Mark required vs optional clearly
+- Document data types and formats
+- Show validation rules
+- Provide example values
 
 ## Tools and Formats
 
 ### OpenAPI/Swagger
-
 Generate interactive documentation:
-
 ```yaml
 openapi: 3.0.0
 info:
@@ -455,13 +445,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CreateUserRequest'
-
 ```
 
 ### Postman Collection
-
 Export collection for easy testing:
-
 ```json
 {
   "info": {
@@ -478,30 +465,28 @@ Export collection for easy testing:
     }
   ]
 }
-
 ```
 
 ## Related Skills
 
-* `@doc-coauthoring` \- For collaborative documentation writing
-* `@copywriting` \- For clear, user-friendly descriptions
-* `@test-driven-development` \- For ensuring API behavior matches docs
-* `@systematic-debugging` \- For troubleshooting API issues
+- `@doc-coauthoring` - For collaborative documentation writing
+- `@copywriting` - For clear, user-friendly descriptions
+- `@test-driven-development` - For ensuring API behavior matches docs
+- `@systematic-debugging` - For troubleshooting API issues
 
 ## Additional Resources
 
-* [OpenAPI Specification](https://swagger.io/specification/)
-* [REST API Best Practices](https://restfulapi.net/)
-* [GraphQL Documentation](https://graphql.org/learn/)
-* [API Design Patterns](https://www.apiguide.com/)
-* [Postman Documentation](https://learning.postman.com/docs/)
+- [OpenAPI Specification](https://swagger.io/specification/)
+- [REST API Best Practices](https://restfulapi.net/)
+- [GraphQL Documentation](https://graphql.org/learn/)
+- [API Design Patterns](https://www.apiguide.com/)
+- [Postman Documentation](https://learning.postman.com/docs/)
 
 ---
 
 **Pro Tip:** Keep your API documentation as close to your code as possible. Use tools that generate docs from code comments to ensure they stay in sync!
 
 ## Limitations
-
-* Use this skill only when the task clearly matches the scope described above.
-* Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
-* Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,0 +1,37 @@
+memo_required_sections:
+  - Company
+  - Problem
+  - Product
+  - Market
+  - Business Model
+  - Traction
+  - Raise
+  - Use of Funds
+  - Milestones
+one_pager_required_sections:
+  - What We Do
+  - Why Now
+  - Market Snapshot
+  - Traction
+  - Raise Summary
+approved_scenario: base
+quarter_count: 8
+financial_model_rules:
+  quarter_months: 3
+  subscription_revenue_rule: average_customers_during_quarter
+  implementation_revenue_rule: new_customers_in_quarter
+  quarter_1_beginning_cash_rule: current_cash_plus_target_raise
+  subsequent_beginning_cash_rule: prior_ending_cash
+use_of_funds:
+  - category: product_and_delivery
+    share_of_raise: 0.42
+    notes: Workflow coverage, court packet automation, and implementation capacity.
+  - category: go_to_market
+    share_of_raise: 0.25
+    notes: Field sales, channel partnerships, and metro launch support.
+  - category: customer_success_and_compliance
+    share_of_raise: 0.18
+    notes: Onboarding, policy coverage, and training support.
+  - category: working_capital
+    share_of_raise: 0.15
+    notes: Cash buffer for hiring ramp and collections timing.

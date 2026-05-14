@@ -1,0 +1,38 @@
+{
+  "task_id": "sales-marketing__retail-replenishment-planning",
+  "planning_window": {
+    "start_week": "2025-04-07",
+    "end_week": "2025-05-26",
+    "week_starts": [
+      "2025-04-07",
+      "2025-04-14",
+      "2025-04-21",
+      "2025-04-28",
+      "2025-05-05",
+      "2025-05-12",
+      "2025-05-19",
+      "2025-05-26"
+    ]
+  },
+  "history_window": {
+    "start_week": "2024-06-03",
+    "end_week": "2025-03-31"
+  },
+  "stores": [
+    "NORTH",
+    "CENTRAL",
+    "SOUTH"
+  ],
+  "skus": [
+    "SKU-ALPHA",
+    "SKU-BRAVO",
+    "SKU-CHARLIE",
+    "SKU-DELTA",
+    "SKU-ECHO",
+    "SKU-FOXTROT"
+  ],
+  "data_notes": {
+    "historical_demand_weekly_csv": "Derived from UCI Sales Transactions Weekly product histories with deterministic store scaling and timing adjustments.",
+    "launch_item_policy": "SKU-FOXTROT has short history and requires the provided analog mapping."
+  }
+}

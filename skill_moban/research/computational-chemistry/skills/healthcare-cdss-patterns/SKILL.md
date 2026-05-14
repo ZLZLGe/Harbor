@@ -1,15 +1,22 @@
+---
+name: healthcare-cdss-patterns
+description: Clinical Decision Support System (CDSS) development patterns. Drug interaction checking, dose validation, clinical scoring (NEWS2, qSOFA), alert severity classification, and integration into EMR workflows.
+origin: Health1 Super Speciality Hospitals — contributed by Dr. Keyur Patel
+version: "1.0.0"
+---
+
 # Healthcare CDSS Development Patterns
 
 Patterns for building Clinical Decision Support Systems that integrate into EMR workflows. CDSS modules are patient safety critical — zero tolerance for false negatives.
 
 ## When to Use
 
-* Implementing drug interaction checking
-* Building dose validation engines
-* Implementing clinical scoring systems (NEWS2, qSOFA, APACHE, GCS)
-* Designing alert systems for abnormal clinical values
-* Building medication order entry with safety checks
-* Integrating lab result interpretation with clinical context
+- Implementing drug interaction checking
+- Building dose validation engines
+- Implementing clinical scoring systems (NEWS2, qSOFA, APACHE, GCS)
+- Designing alert systems for abnormal clinical values
+- Building medication order entry with safety checks
+- Integrating lab result interpretation with clinical context
 
 ## How It Works
 
@@ -21,7 +28,7 @@ Three primary modules:
 2. **`validateDose(drug, dose, route, weight, age, renalFunction)`** — Validates a prescribed dose against weight-based, age-adjusted, and renal-adjusted rules. Returns `DoseValidationResult`.
 3. **`calculateNEWS2(vitals)`** — National Early Warning Score 2 from `NEWS2Input`. Returns `NEWS2Result` with total score, risk level, and escalation guidance.
 
-```text
+```
 EMR UI
   ↓ (user enters data)
 CDSS Engine (pure functions, no side effects)
@@ -31,7 +38,6 @@ CDSS Engine (pure functions, no side effects)
   └── Alert Classifier
   ↓ (returns alerts)
 EMR UI (displays alerts inline, blocks if critical)
-
 ```
 
 ### Drug Interaction Checking
@@ -69,7 +75,6 @@ function checkInteractions(
   }
   return alerts.sort((a, b) => severityOrder(a.severity) - severityOrder(b.severity));
 }
-
 ```
 
 Interaction pairs must be **bidirectional**: if Drug A interacts with Drug B, then Drug B interacts with Drug A.
@@ -139,7 +144,6 @@ function validateDose(
   return { valid: true, message: 'Within range',
     suggestedRange: { min: rules.typicalMin, max: rules.typicalMax, unit: rules.unit }, factors };
 }
-
 ```
 
 ### Clinical Scoring: NEWS2
@@ -156,18 +160,17 @@ interface NEWS2Result {
   components: Record<string, number>;
   escalation: string;
 }
-
 ```
 
 Scoring tables must match the Royal College of Physicians specification exactly.
 
 ### Alert Severity and UI Behavior
 
-| Severity | UI Behavior                               | Clinician Action Required                |
-| -------- | ----------------------------------------- | ---------------------------------------- |
+| Severity | UI Behavior | Clinician Action Required |
+|----------|-------------|--------------------------|
 | Critical | Block action. Non-dismissable modal. Red. | Must document override reason to proceed |
-| Major    | Warning banner inline. Orange.            | Must acknowledge before proceeding       |
-| Minor    | Info note inline. Yellow.                 | Awareness only, no action required       |
+| Major | Warning banner inline. Orange. | Must acknowledge before proceeding |
+| Minor | Info note inline. Yellow. | Awareness only, no action required |
 
 Critical alerts must NEVER be auto-dismissed or implemented as toast notifications. Override reasons must be stored in the audit trail.
 
@@ -195,19 +198,18 @@ describe('CDSS — Patient Safety', () => {
     expect(() => checkInteractions('', [], [])).not.toThrow();
   });
 });
-
 ```
 
 Pass criteria: 100%. A single missed interaction is a patient safety event.
 
 ### Anti-Patterns
 
-* Making CDSS checks optional or skippable without documented reason
-* Implementing interaction checks as toast notifications
-* Using `any` types for drug or clinical data
-* Hardcoding interaction pairs instead of using a maintainable data structure
-* Silently catching errors in CDSS engine (must surface failures loudly)
-* Skipping weight-based validation when weight is not available (must block, not pass)
+- Making CDSS checks optional or skippable without documented reason
+- Implementing interaction checks as toast notifications
+- Using `any` types for drug or clinical data
+- Hardcoding interaction pairs instead of using a maintainable data structure
+- Silently catching errors in CDSS engine (must surface failures loudly)
+- Skipping weight-based validation when weight is not available (must block, not pass)
 
 ## Examples
 
@@ -217,7 +219,6 @@ Pass criteria: 100%. A single missed interaction is a patient safety event.
 const alerts = checkInteractions('warfarin', ['aspirin', 'metformin'], ['penicillin']);
 // [{ severity: 'critical', pair: ['warfarin', 'aspirin'],
 //    message: 'Increased bleeding risk', recommendation: 'Avoid combination' }]
-
 ```
 
 ### Example 2: Dose Validation
@@ -231,7 +232,6 @@ const bad = validateDose('paracetamol', 5000, 'oral', 70, 45);
 
 const noWeight = validateDose('gentamicin', 300, 'iv');
 // { valid: false, factors: ['weight_missing'] }
-
 ```
 
 ### Example 3: NEWS2 Scoring
@@ -242,5 +242,4 @@ const result = calculateNEWS2({
   temperature: 38.5, systolicBP: 100, heartRate: 110, consciousness: 'voice'
 });
 // { total: 13, risk: 'high', escalation: 'Urgent clinical review. Consider ICU.' }
-
 ```

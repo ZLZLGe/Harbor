@@ -62,7 +62,7 @@
     "guardrails": [
       "solver must query the manifest endpoint and follow cursor pagination before verifier traffic",
       "solver must fetch detail, renewal preview, and dunning records for every live account",
-      "input files, hidden service files, and installed skills must remain unchanged",
+      "input files and hidden service files must remain unchanged",
       "service must remain healthy at verifier end",
       "live-only cohort accounts missing from the older export must still appear in output"
     ],

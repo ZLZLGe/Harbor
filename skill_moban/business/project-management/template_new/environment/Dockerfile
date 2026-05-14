@@ -7,15 +7,24 @@ ENV PROJECT_PLANNING_PORT=8137
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    coreutils \
+    curl \
+    nodejs \
+    npm \
+    ripgrep \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN pip install --no-cache-dir pyyaml
 
 COPY . /opt/project-planning-env
+COPY skills /root/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /services/project-planning /root/.codex/skills /logs/agent/skills /root/output /logs/verifier /var/log/project-planning \
     && cp -R /opt/project-planning-env/data /root/data \
     && cp -R /opt/project-planning-env/hidden-service-src/. /services/project-planning/ \
-    && if [ -d /opt/project-planning-env/skills ]; then cp -R /opt/project-planning-env/skills/. /root/.codex/skills/; fi \
-    && if [ -d /opt/project-planning-env/skills ]; then cp -R /opt/project-planning-env/skills/. /logs/agent/skills/; fi \
     && find /root/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/project-planning-data.sha256 \
     && find /services/project-planning -type f -print0 | sort -z | xargs -0 sha256sum > /opt/project-planning-service.sha256 \
     && chmod -R 755 /services/project-planning \

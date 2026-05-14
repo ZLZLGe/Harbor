@@ -46,7 +46,4 @@ RUN printf '%s\n' \
   'fi' > /etc/codex-command-hint.sh \
   && cp /etc/codex-command-hint.sh /etc/profile.d/domain-name-brainstormer.sh
 
-RUN find /root/workspace/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/domain-source-bundle.sha256 \
-    && if [ -d /root/.codex/skills/domain-name-brainstormer ]; then \
-         find /root/.codex/skills/domain-name-brainstormer -type f -print0 | sort -z | xargs -0 sha256sum > /opt/domain-skill.sha256; \
-       fi
+RUN find /root/workspace/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/domain-source-bundle.sha256

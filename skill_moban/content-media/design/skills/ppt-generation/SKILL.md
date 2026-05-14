@@ -1,3 +1,8 @@
+---
+name: ppt-generation
+description: Use this skill when the user requests to generate, create, or make presentations (PPT/PPTX). Creates visually rich slides by generating images for each slide and composing them into a PowerPoint file.
+---
+
 # PPT Generation Skill
 
 ## Overview
@@ -6,26 +11,26 @@ This skill generates professional PowerPoint presentations by creating AI-genera
 
 ## Core Capabilities
 
-* Plan and structure multi-slide presentations with unified visual style
-* Support multiple presentation styles: Business, Academic, Minimal, Apple Keynote, Creative
-* Generate unique AI images for each slide using image-generation skill
-* Maintain visual consistency by using previous slide as reference image
-* Compose images into a professional PPTX file
+- Plan and structure multi-slide presentations with unified visual style
+- Support multiple presentation styles: Business, Academic, Minimal, Apple Keynote, Creative
+- Generate unique AI images for each slide using image-generation skill
+- Maintain visual consistency by using previous slide as reference image
+- Compose images into a professional PPTX file
 
 ## Presentation Styles
 
 Choose one of the following styles when creating the presentation plan:
 
-| Style               | Description                                                                                                              | Best For                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
-| **glassmorphism**   | Frosted glass panels with blur effects, floating translucent cards, vibrant gradient backgrounds, depth through layering | Tech products, AI/SaaS demos, futuristic pitches           |
-| **dark-premium**    | Rich black backgrounds (#0a0a0a), luminous accent colors, subtle glow effects, luxury brand aesthetic                    | Premium products, executive presentations, high-end brands |
-| **gradient-modern** | Bold mesh gradients, fluid color transitions, contemporary typography, vibrant yet sophisticated                         | Startups, creative agencies, brand launches                |
-| **neo-brutalist**   | Raw bold typography, high contrast, intentional "ugly" aesthetic, anti-design as design, Memphis-inspired                | Edgy brands, Gen-Z targeting, disruptive startups          |
-| **3d-isometric**    | Clean isometric illustrations, floating 3D elements, soft shadows, tech-forward aesthetic                                | Tech explainers, product features, SaaS presentations      |
-| **editorial**       | Magazine-quality layouts, sophisticated typography hierarchy, dramatic photography, Vogue/Bloomberg aesthetic            | Annual reports, luxury brands, thought leadership          |
-| **minimal-swiss**   | Grid-based precision, Helvetica-inspired typography, bold use of negative space, timeless modernism                      | Architecture, design firms, premium consulting             |
-| **keynote**         | Apple-inspired aesthetic with bold typography, dramatic imagery, high contrast, cinematic feel                           | Keynotes, product reveals, inspirational talks             |
+| Style | Description | Best For |
+|-------|-------------|----------|
+| **glassmorphism** | Frosted glass panels with blur effects, floating translucent cards, vibrant gradient backgrounds, depth through layering | Tech products, AI/SaaS demos, futuristic pitches |
+| **dark-premium** | Rich black backgrounds (#0a0a0a), luminous accent colors, subtle glow effects, luxury brand aesthetic | Premium products, executive presentations, high-end brands |
+| **gradient-modern** | Bold mesh gradients, fluid color transitions, contemporary typography, vibrant yet sophisticated | Startups, creative agencies, brand launches |
+| **neo-brutalist** | Raw bold typography, high contrast, intentional "ugly" aesthetic, anti-design as design, Memphis-inspired | Edgy brands, Gen-Z targeting, disruptive startups |
+| **3d-isometric** | Clean isometric illustrations, floating 3D elements, soft shadows, tech-forward aesthetic | Tech explainers, product features, SaaS presentations |
+| **editorial** | Magazine-quality layouts, sophisticated typography hierarchy, dramatic photography, Vogue/Bloomberg aesthetic | Annual reports, luxury brands, thought leadership |
+| **minimal-swiss** | Grid-based precision, Helvetica-inspired typography, bold use of negative space, timeless modernism | Architecture, design firms, premium consulting |
+| **keynote** | Apple-inspired aesthetic with bold typography, dramatic imagery, high contrast, cinematic feel | Keynotes, product reveals, inspirational talks |
 
 ## Workflow
 
@@ -33,12 +38,12 @@ Choose one of the following styles when creating the presentation plan:
 
 When a user requests presentation generation, identify:
 
-* Topic/subject: What is the presentation about
-* Number of slides: How many slides are needed (default: 5-10)
-* **Style**: business / academic / minimal / keynote / creative
-* Aspect ratio: Standard (16:9) or classic (4:3)
-* Content outline: Key points for each slide
-* You don't need to check the folder under `/mnt/user-data`
+- Topic/subject: What is the presentation about
+- Number of slides: How many slides are needed (default: 5-10)
+- **Style**: business / academic / minimal / keynote / creative
+- Aspect ratio: Standard (16:9) or classic (4:3)
+- Content outline: Key points for each slide
+- You don't need to check the folder under `/mnt/user-data`
 
 ### Step 2: Create Presentation Plan
 
@@ -72,7 +77,6 @@ Create a JSON file in `/mnt/user-data/workspace/` with the presentation structur
     }
   ]
 }
-
 ```
 
 ### Step 3: Generate Slide Images Sequentially
@@ -80,6 +84,7 @@ Create a JSON file in `/mnt/user-data/workspace/` with the presentation structur
 **IMPORTANT**: Generate slides **strictly one by one, in order**. Do NOT parallelize or batch image generation. Each slide depends on the previous slide's output as a reference image. Generating slides in parallel will break visual consistency and is not allowed.
 
 1. Read the image-generation skill: `/mnt/skills/public/image-generation/SKILL.md`
+
 2. **For the FIRST slide (slide 1)**, create a prompt that establishes the visual style:
 
 ```json
@@ -90,7 +95,6 @@ Create a JSON file in `/mnt/user-data/workspace/` with the presentation structur
   "color_palette": "[From style_guidelines]",
   "typography": "[From style_guidelines]"
 }
-
 ```
 
 ```bash
@@ -98,10 +102,9 @@ python /mnt/skills/public/image-generation/scripts/generate.py \
   --prompt-file /mnt/user-data/workspace/slide-01-prompt.json \
   --output-file /mnt/user-data/outputs/slide-01.jpg \
   --aspect-ratio 16:9
-
 ```
 
-1. **For subsequent slides (slide 2+)**, use the PREVIOUS slide as a reference image:
+3. **For subsequent slides (slide 2+)**, use the PREVIOUS slide as a reference image:
 
 ```json
 {
@@ -111,7 +114,6 @@ python /mnt/skills/public/image-generation/scripts/generate.py \
   "color_palette": "Same as reference image",
   "consistency_note": "This slide must look like it belongs in the same presentation as the reference image"
 }
-
 ```
 
 ```bash
@@ -120,10 +122,9 @@ python /mnt/skills/public/image-generation/scripts/generate.py \
   --reference-images /mnt/user-data/outputs/slide-01.jpg \
   --output-file /mnt/user-data/outputs/slide-02.jpg \
   --aspect-ratio 16:9
-
 ```
 
-1. **Continue for all remaining slides**, always referencing the previous slide:
+4. **Continue for all remaining slides**, always referencing the previous slide:
 
 ```bash
 # Slide 3 references slide 2
@@ -139,7 +140,6 @@ python /mnt/skills/public/image-generation/scripts/generate.py \
   --reference-images /mnt/user-data/outputs/slide-03.jpg \
   --output-file /mnt/user-data/outputs/slide-04.jpg \
   --aspect-ratio 16:9
-
 ```
 
 ### Step 4: Compose PPT
@@ -151,16 +151,16 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
   --plan-file /mnt/user-data/workspace/presentation-plan.json \
   --slide-images /mnt/user-data/outputs/slide-01.jpg /mnt/user-data/outputs/slide-02.jpg /mnt/user-data/outputs/slide-03.jpg \
   --output-file /mnt/user-data/outputs/presentation.pptx
-
 ```
 
 Parameters:
 
-* `--plan-file`: Absolute path to the presentation plan JSON file (required)
-* `--slide-images`: Absolute paths to slide images in order (required, space-separated)
-* `--output-file`: Absolute path to output PPTX file (required)
+- `--plan-file`: Absolute path to the presentation plan JSON file (required)
+- `--slide-images`: Absolute paths to slide images in order (required, space-separated)
+- `--output-file`: Absolute path to output PPTX file (required)
 
-\[!NOTE\] Do NOT read the python file, just call it with the parameters.
+[!NOTE]
+Do NOT read the python file, just call it with the parameters.
 
 ## Complete Example: Glassmorphism Style (最现代前卫)
 
@@ -169,7 +169,6 @@ User request: "Create a presentation about AI product launch"
 ### Step 1: Create presentation plan
 
 Create `/mnt/user-data/workspace/ai-product-plan.json`:
-
 ```json
 {
   "title": "Introducing Nova AI",
@@ -221,7 +220,6 @@ Create `/mnt/user-data/workspace/ai-product-plan.json`:
     }
   ]
 }
-
 ```
 
 ### Step 2: Read image-generation skill
@@ -233,7 +231,6 @@ Read `/mnt/skills/public/image-generation/SKILL.md` to understand how to generat
 **Slide 1 - Title (establishes the visual language):**
 
 Create `/mnt/user-data/workspace/nova-slide-01.json`:
-
 ```json
 {
   "prompt": "Ultra-premium presentation title slide with glassmorphism design. Background: smooth flowing gradient from deep purple (#667eea) through magenta (#f093fb) to cyan (#00d4ff), soft and vibrant. Center: large frosted glass panel with strong backdrop blur effect, rounded corners 32px, containing bold white sans-serif title 'Introducing Nova AI' (72pt, SF Pro Display style, font-weight 700) with subtle text shadow, subtitle 'Intelligence, Reimagined' below in lighter weight. The glass panel has subtle white border (1px rgba 255,255,255,0.25) and soft purple-tinted drop shadow. Floating around the card: 3D glass spheres with refraction, translucent geometric shapes (icosahedrons, abstract blobs), creating depth and dimension. Soft luminous glow emanating from behind the glass panel. Small floating particles of light. Apple Vision Pro / visionOS UI aesthetic. Professional presentation slide, 16:9 aspect ratio. Hyper-modern, premium tech product launch feel.",
@@ -243,7 +240,6 @@ Create `/mnt/user-data/workspace/nova-slide-01.json`:
   "color_palette": "Purple gradient #667eea, magenta #f093fb, cyan #00d4ff, frosted white rgba(255,255,255,0.15), pure white text #ffffff",
   "effects": "Backdrop blur on glass panels, soft drop shadows with color tint, light refraction, subtle noise texture on glass, floating particles"
 }
-
 ```
 
 ```bash
@@ -251,13 +247,11 @@ python /mnt/skills/public/image-generation/scripts/generate.py \
   --prompt-file /mnt/user-data/workspace/nova-slide-01.json \
   --output-file /mnt/user-data/outputs/nova-slide-01.jpg \
   --aspect-ratio 16:9
-
 ```
 
 **Slide 2 - Content (MUST reference slide 1 for consistency):**
 
 Create `/mnt/user-data/workspace/nova-slide-02.json`:
-
 ```json
 {
   "prompt": "Presentation slide continuing EXACT visual style from reference image. SAME purple-to-cyan gradient background, SAME glassmorphism aesthetic, SAME typography style. Left side: frosted glass card with backdrop blur containing title 'Why Nova?' in bold white (matching reference font style), three feature points as subtle glass pill badges below. Right side: abstract 3D neural network visualization made of interconnected glass nodes with soft cyan glow, floating in space. Floating translucent geometric shapes (matching style from reference) adding depth. The frosted glass has identical treatment: white border, purple-tinted shadow, same blur intensity. CRITICAL: This slide must look like it belongs in the exact same presentation as the reference image - same colors, same glass treatment, same overall aesthetic.",
@@ -266,7 +260,6 @@ Create `/mnt/user-data/workspace/nova-slide-02.json`:
   "color_palette": "EXACTLY match reference: purple #667eea, cyan #00d4ff gradient, same frosted white treatment, same text white",
   "consistency_note": "CRITICAL: Must be visually identical in style to reference image. Same gradient colors, same glass blur intensity, same shadow treatment, same typography weight and style. Viewer should immediately recognize this as the same presentation."
 }
-
 ```
 
 ```bash
@@ -275,17 +268,15 @@ python /mnt/skills/public/image-generation/scripts/generate.py \
   --reference-images /mnt/user-data/outputs/nova-slide-01.jpg \
   --output-file /mnt/user-data/outputs/nova-slide-02.jpg \
   --aspect-ratio 16:9
-
 ```
 
 **Slides 3-5: Continue the same pattern, each referencing the previous slide**
 
 Key consistency rules for subsequent slides:
-
-* Always include "continuing EXACT visual style from reference image" in prompt
-* Specify "SAME gradient background", "SAME glass treatment", "SAME typography"
-* Include `consistency_note` emphasizing style matching
-* Reference the immediately previous slide image
+- Always include "continuing EXACT visual style from reference image" in prompt
+- Specify "SAME gradient background", "SAME glass treatment", "SAME typography"
+- Include `consistency_note` emphasizing style matching
+- Reference the immediately previous slide image
 
 ### Step 4: Compose final PPT
 
@@ -294,13 +285,11 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
   --plan-file /mnt/user-data/workspace/nova-plan.json \
   --slide-images /mnt/user-data/outputs/nova-slide-01.jpg /mnt/user-data/outputs/nova-slide-02.jpg /mnt/user-data/outputs/nova-slide-03.jpg /mnt/user-data/outputs/nova-slide-04.jpg /mnt/user-data/outputs/nova-slide-05.jpg \
   --output-file /mnt/user-data/outputs/nova-presentation.pptx
-
 ```
 
 ## Style-Specific Guidelines
 
 ### Glassmorphism Style (推荐 - 最现代前卫)
-
 ```json
 {
   "style": "glassmorphism",
@@ -313,11 +302,9 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
     "visual_language": "Premium tech aesthetic like Apple Vision Pro UI, depth through transparency, light refracting through glass surfaces"
   }
 }
-
 ```
 
 ### Dark Premium Style
-
 ```json
 {
   "style": "dark-premium",
@@ -330,11 +317,9 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
     "visual_language": "Luxury tech brand aesthetic (Bang & Olufsen, Porsche Design), sophistication through restraint, every element intentional"
   }
 }
-
 ```
 
 ### Gradient Modern Style
-
 ```json
 {
   "style": "gradient-modern",
@@ -347,11 +332,9 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
     "visual_language": "Contemporary SaaS aesthetic (Stripe, Linear, Vercel), energetic yet professional, forward-thinking tech vibes"
   }
 }
-
 ```
 
 ### Neo-Brutalist Style
-
 ```json
 {
   "style": "neo-brutalist",
@@ -364,11 +347,9 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
     "visual_language": "Anti-corporate rebellion, DIY zine aesthetic meets digital, raw authenticity, memorable through boldness"
   }
 }
-
 ```
 
 ### 3D Isometric Style
-
 ```json
 {
   "style": "3d-isometric",
@@ -381,11 +362,9 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
     "visual_language": "Friendly tech illustration (Slack, Notion, Asana style), approachable complexity, clarity through simplification"
   }
 }
-
 ```
 
 ### Editorial Style
-
 ```json
 {
   "style": "editorial",
@@ -398,11 +377,9 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
     "visual_language": "High-end magazine aesthetic, intellectual sophistication, content elevated through design restraint"
   }
 }
-
 ```
 
 ### Minimal Swiss Style
-
 ```json
 {
   "style": "minimal-swiss",
@@ -415,11 +392,9 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
     "visual_language": "International Typographic Style, form follows function, timeless modernism, Dieter Rams-inspired restraint"
   }
 }
-
 ```
 
 ### Keynote Style (Apple风格)
-
 ```json
 {
   "style": "keynote",
@@ -432,63 +407,57 @@ python /mnt/skills/public/ppt-generation/scripts/generate.py \
     "visual_language": "Apple WWDC keynote aesthetic, confidence through simplicity, every pixel considered, theatrical presentation"
   }
 }
-
 ```
 
 ## Output Handling
 
 After generation:
 
-* The PPTX file is saved in `/mnt/user-data/outputs/`
-* Share the generated presentation with user using `present_files` tool
-* Also share the individual slide images if requested
-* Provide brief description of the presentation
-* Offer to iterate or regenerate specific slides if needed
+- The PPTX file is saved in `/mnt/user-data/outputs/`
+- Share the generated presentation with user using `present_files` tool
+- Also share the individual slide images if requested
+- Provide brief description of the presentation
+- Offer to iterate or regenerate specific slides if needed
 
 ## Notes
 
 ### Critical Quality Guidelines
 
 **Prompt Engineering for Professional Results:**
-
-* Always use English for image prompts regardless of user's language
-* Be EXTREMELY specific about visual details - vague prompts produce generic results
-* Include exact hex color codes (e.g., #667eea not "purple")
-* Specify typography details: font weight (400/700), size hierarchy, letter-spacing
-* Describe effects precisely: "backdrop blur 20px", "drop shadow 8px blur 30% opacity"
-* Reference real design systems: "visionOS aesthetic", "Stripe website style", "Bloomberg Businessweek layout"
+- Always use English for image prompts regardless of user's language
+- Be EXTREMELY specific about visual details - vague prompts produce generic results
+- Include exact hex color codes (e.g., #667eea not "purple")
+- Specify typography details: font weight (400/700), size hierarchy, letter-spacing
+- Describe effects precisely: "backdrop blur 20px", "drop shadow 8px blur 30% opacity"
+- Reference real design systems: "visionOS aesthetic", "Stripe website style", "Bloomberg Businessweek layout"
 
 **Visual Consistency (Most Important):**
-
-* **Generate slides sequentially** \- each slide MUST reference the previous one
-* The first slide is critical - it establishes the visual language for the entire presentation
-* In every subsequent slide prompt, explicitly state: "continuing EXACT visual style from reference image"
-* Use SAME, EXACT, MATCH keywords emphatically in prompts to enforce consistency
-* Include a `consistency_note` field in every JSON prompt after slide 1
-* If a slide looks inconsistent, regenerate it with STRONGER reference emphasis
+- **Generate slides sequentially** - each slide MUST reference the previous one
+- The first slide is critical - it establishes the visual language for the entire presentation
+- In every subsequent slide prompt, explicitly state: "continuing EXACT visual style from reference image"
+- Use SAME, EXACT, MATCH keywords emphatically in prompts to enforce consistency
+- Include a `consistency_note` field in every JSON prompt after slide 1
+- If a slide looks inconsistent, regenerate it with STRONGER reference emphasis
 
 **Design Principles for Modern Aesthetics:**
-
-* Embrace negative space - 40-60% empty space creates premium feel
-* Limit elements per slide - one focal point, one message
-* Use depth through layering (shadows, transparency, z-depth)
-* Typography hierarchy: massive headlines (72pt+), comfortable body (18-24pt)
-* Color restraint: one primary palette, 1-2 accent colors maximum
+- Embrace negative space - 40-60% empty space creates premium feel
+- Limit elements per slide - one focal point, one message
+- Use depth through layering (shadows, transparency, z-depth)
+- Typography hierarchy: massive headlines (72pt+), comfortable body (18-24pt)
+- Color restraint: one primary palette, 1-2 accent colors maximum
 
 **Common Mistakes to Avoid:**
-
-* ❌ Generic prompts like "professional slide" - be specific
-* ❌ Too many elements/text per slide - cluttered = unprofessional
-* ❌ Inconsistent colors between slides - always reference previous slide
-* ❌ Skipping the reference image parameter - this breaks visual consistency
-* ❌ Using different design styles within one presentation
-* ❌ Generating slides in parallel - slides MUST be generated one at a time in order (slide 1 → 2 → 3 ...), never concurrently
+- ❌ Generic prompts like "professional slide" - be specific
+- ❌ Too many elements/text per slide - cluttered = unprofessional
+- ❌ Inconsistent colors between slides - always reference previous slide
+- ❌ Skipping the reference image parameter - this breaks visual consistency
+- ❌ Using different design styles within one presentation
+- ❌ Generating slides in parallel - slides MUST be generated one at a time in order (slide 1 → 2 → 3 ...), never concurrently
 
 **Recommended Styles for Different Contexts:**
-
-* Tech product launch → `glassmorphism` or `gradient-modern`
-* Luxury/premium brand → `dark-premium` or `editorial`
-* Startup pitch → `gradient-modern` or `minimal-swiss`
-* Executive presentation → `dark-premium` or `keynote`
-* Creative agency → `neo-brutalist` or `gradient-modern`
-* Data/analytics → `minimal-swiss` or `3d-isometric`
+- Tech product launch → `glassmorphism` or `gradient-modern`
+- Luxury/premium brand → `dark-premium` or `editorial`
+- Startup pitch → `gradient-modern` or `minimal-swiss`
+- Executive presentation → `dark-premium` or `keynote`
+- Creative agency → `neo-brutalist` or `gradient-modern`
+- Data/analytics → `minimal-swiss` or `3d-isometric`

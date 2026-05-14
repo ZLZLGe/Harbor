@@ -1,42 +1,41 @@
 version = "1.0"
 
 [metadata]
-id = "smart_contracts__governance_liquidity_launch"
-name = "Template: Governance Liquidity Launch"
-description = "Complete a local Hardhat smart-contracts workspace with governance token, AMM, LP rewards, scenario replay, and auditable report output."
+id = "smart-contracts__token_onboarding_review"
+name = "Template: Token Onboarding Review"
+description = "Build a token onboarding review workflow for a yield vault protocol from Solidity contracts, candidate token behavior profiles, and a local onboarding policy."
 difficulty = "hard"
 category = "smart-contracts"
 tags = [
   "smart-contracts",
-  "defi",
-  "amm",
-  "staking",
-  "governance",
-  "hardhat",
-  "erc20votes",
-  "liquidity-mining",
+  "erc20",
+  "erc4626",
+  "token-integration",
+  "solidity",
+  "python",
+  "risk-review",
 ]
 required_skills = [
-  "defi-protocol-templates",
+  "token-integration-analyzer",
 ]
 distractor_skills = [
-  "web3-testing",
   "solidity-security",
+  "web3-testing",
 ]
-primary_output_file = "/root/workspace/out/launch_report.json"
-source_template_id = "smart_contracts__governance_liquidity_launch"
+primary_output_file = "/root/answer/token_decisions.tsv"
+source_template_id = "smart-contracts__token_onboarding_review"
 task_role = "template"
 
 [verifier]
-timeout_sec = 1500.0
+timeout_sec = 900.0
 
 [agent]
-timeout_sec = 1200.0
+timeout_sec = 1600.0
 
 [environment]
-build_timeout_sec = 1800.0
+build_timeout_sec = 1200.0
 cpus = 2
 memory_mb = 4096
-storage_mb = 12288
+storage_mb = 10240
 gpus = 0
 allow_internet = true

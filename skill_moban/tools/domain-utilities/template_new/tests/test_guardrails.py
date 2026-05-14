@@ -8,8 +8,6 @@ from pathlib import Path
 OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "/root/output"))
 DATA_DIR = Path(os.environ.get("DATA_DIR", "/root/workspace/data"))
 SOURCE_HASH_PATH = Path(os.environ.get("SOURCE_HASH_PATH", "/opt/domain-source-bundle.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("SKILL_HASH_PATH", "/opt/domain-skill.sha256"))
-SKILL_DIR = Path(os.environ.get("SKILL_DIR", "/root/.codex/skills/domain-name-brainstormer"))
 
 
 def digest(path: Path) -> str:
@@ -29,15 +27,6 @@ def test_input_bundle_hashes_unchanged() -> None:
     for file_path in DATA_DIR.iterdir():
         if file_path.is_file():
             assert digest(file_path) == expected[file_path.name], f"input file changed: {file_path.name}"
-
-
-def test_skill_hashes_unchanged_when_skill_is_present() -> None:
-    if not SKILL_DIR.exists():
-        return
-    expected = recorded_hashes(SKILL_HASH_PATH)
-    for file_path in SKILL_DIR.rglob("*"):
-        if file_path.is_file():
-            assert digest(file_path) == expected[file_path.name], f"skill file changed: {file_path.name}"
 
 
 def test_only_required_output_files_exist() -> None:

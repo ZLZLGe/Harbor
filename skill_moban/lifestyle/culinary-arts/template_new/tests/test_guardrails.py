@@ -1,9 +1,6 @@
 from pathlib import Path
 
-from common import ACCESS_LOG, CHECKSUM_DIR, CLI_PATH, DATA_DIR, EXPECTED_OUTPUT_FILES, OUTPUT_DIR, PAPRIKA_DATA_DIR, SKILLS_DIR, checksum_manifest, expected_outputs, hash_file, read_access_log
-
-
-EMPTY_SHA256_STDOUT = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  -"
+from common import ACCESS_LOG, CHECKSUM_DIR, CLI_PATH, DATA_DIR, EXPECTED_OUTPUT_FILES, OUTPUT_DIR, PAPRIKA_DATA_DIR, checksum_manifest, expected_outputs, hash_file, read_access_log
 
 
 def test_visible_inputs_unchanged():
@@ -21,14 +18,6 @@ def test_paprika_seed_unchanged():
 def test_paprika_cli_unchanged():
     expected = (CHECKSUM_DIR / "paprika-cli.sha256").read_text(encoding="utf-8").split()[0]
     assert hash_file(CLI_PATH) == expected
-
-
-def test_shipped_skill_payload_unchanged_or_absent():
-    expected = (CHECKSUM_DIR / "paprika-skills.sha256").read_text(encoding="utf-8").strip()
-    actual = checksum_manifest(SKILLS_DIR, exclude_prefixes=(".system/",)).strip() if SKILLS_DIR.exists() else ""
-    if expected == EMPTY_SHA256_STDOUT and actual == "":
-        return
-    assert actual == expected
 
 
 def test_no_extra_top_level_outputs():

@@ -1,3 +1,8 @@
+---
+name: reviewing-oracle-to-postgres-migration
+description: 'Identifies Oracle-to-PostgreSQL migration risks by cross-referencing code against known behavioral differences (empty strings, refcursors, type coercion, sorting, timestamps, concurrent transactions, etc.). Use when planning a database migration, reviewing migration artifacts, or validating that integration tests cover Oracle/PostgreSQL differences.'
+---
+
 # Oracle-to-PostgreSQL Database Migration
 
 Surfaces migration risks and validates migration work against known Oracle/PostgreSQL behavioral differences documented in the `references/` folder.
@@ -11,16 +16,16 @@ Surfaces migration risks and validates migration work against known Oracle/Postg
 
 Determine the task type:
 
-**Planning a migration?** Follow the risk assessment workflow. **Validating completed work?** Follow the validation workflow.
+**Planning a migration?** Follow the risk assessment workflow.
+**Validating completed work?** Follow the validation workflow.
 
 ### Risk assessment workflow (planning)
 
-```text
+```
 Risk Assessment:
 - [ ] Step 1: Identify the migration scope
 - [ ] Step 2: Screen each insight for applicability
 - [ ] Step 3: Document risks and recommended actions
-
 ```
 
 **Step 1: Identify the migration scope**
@@ -29,7 +34,7 @@ List the affected database objects (procedures, triggers, queries, views) and th
 
 **Step 2: Screen each insight for applicability**
 
-Review the reference index in [references/REFERENCE.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/reviewing-oracle-to-postgres-migration/references/REFERENCE.md). For each entry, determine whether the migration scope contains patterns affected by that insight. Read the full reference file only when the insight is potentially relevant.
+Review the reference index in [references/REFERENCE.md](references/REFERENCE.md). For each entry, determine whether the migration scope contains patterns affected by that insight. Read the full reference file only when the insight is potentially relevant.
 
 **Step 3: Document risks and recommended actions**
 
@@ -37,13 +42,12 @@ For each applicable insight, note the specific risk and the recommended fix patt
 
 ### Validation workflow (post-migration)
 
-```text
+```
 Validation:
 - [ ] Step 1: Map the migration artifact
 - [ ] Step 2: Cross-check applicable insights
 - [ ] Step 3: Verify integration test coverage
 - [ ] Step 4: Gate the result
-
 ```
 
 **Step 1: Map the migration artifact**
@@ -52,7 +56,7 @@ Identify the migrated object and summarize the change set.
 
 **Step 2: Cross-check applicable insights**
 
-For each reference in [references/REFERENCE.md](https://github.com/github/awesome-copilot/blob/HEAD/skills/reviewing-oracle-to-postgres-migration/references/REFERENCE.md), confirm the behavior or test requirement is acknowledged and addressed in the migration work.
+For each reference in [references/REFERENCE.md](references/REFERENCE.md), confirm the behavior or test requirement is acknowledged and addressed in the migration work.
 
 **Step 3: Verify integration test coverage**
 

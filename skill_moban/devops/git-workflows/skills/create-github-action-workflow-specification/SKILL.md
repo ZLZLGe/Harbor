@@ -1,3 +1,8 @@
+---
+name: create-github-action-workflow-specification
+description: 'Create a formal specification for an existing GitHub Actions CI/CD workflow, optimized for AI consumption and workflow maintenance.'
+---
+
 # Create GitHub Actions Workflow Specification
 
 Create a comprehensive specification for the GitHub Actions workflow: `${input:WorkflowFile}`.
@@ -6,11 +11,11 @@ This specification serves as a specification for the workflow's behavior, requir
 
 ## AI-Optimized Requirements
 
-* **Token Efficiency**: Use concise language without sacrificing clarity
-* **Structured Data**: Leverage tables, lists, and diagrams for dense information
-* **Semantic Clarity**: Use precise terminology consistently throughout
-* **Implementation Abstraction**: Avoid specific syntax, commands, or tool versions
-* **Maintainability**: Design for easy updates as workflow evolves
+- **Token Efficiency**: Use concise language without sacrificing clarity
+- **Structured Data**: Leverage tables, lists, and diagrams for dense information
+- **Semantic Clarity**: Use precise terminology consistently throughout
+- **Implementation Abstraction**: Avoid specific syntax, commands, or tool versions
+- **Maintainability**: Design for easy updates as workflow evolves
 
 ## Specification Template
 
@@ -46,36 +51,32 @@ graph TD
     
     style A fill:#e1f5fe
     style E fill:#e8f5e8
-
 ```
 
 ## Jobs & Dependencies
 
-| Job Name | Purpose     | Dependencies      | Execution Context      |
-| -------- | ----------- | ----------------- | ---------------------- |
-| job-1    | \[Purpose\] | \[Prerequisites\] | \[Runner/Environment\] |
-| job-2    | \[Purpose\] | job-1             | \[Runner/Environment\] |
+| Job Name | Purpose | Dependencies | Execution Context |
+|----------|---------|--------------|-------------------|
+| job-1 | [Purpose] | [Prerequisites] | [Runner/Environment] |
+| job-2 | [Purpose] | job-1 | [Runner/Environment] |
 
 ## Requirements Matrix
 
 ### Functional Requirements
-
-| ID      | Requirement     | Priority | Acceptance Criteria   |
-| ------- | --------------- | -------- | --------------------- |
-| REQ-001 | \[Requirement\] | High     | \[Testable criteria\] |
-| REQ-002 | \[Requirement\] | Medium   | \[Testable criteria\] |
+| ID | Requirement | Priority | Acceptance Criteria |
+|----|-------------|----------|-------------------|
+| REQ-001 | [Requirement] | High | [Testable criteria] |
+| REQ-002 | [Requirement] | Medium | [Testable criteria] |
 
 ### Security Requirements
-
-| ID      | Requirement              | Implementation Constraint  |
-| ------- | ------------------------ | -------------------------- |
-| SEC-001 | \[Security requirement\] | \[Constraint description\] |
+| ID | Requirement | Implementation Constraint |
+|----|-------------|---------------------------|
+| SEC-001 | [Security requirement] | [Constraint description] |
 
 ### Performance Requirements
-
-| ID       | Metric     | Target           | Measurement Method |
-| -------- | ---------- | ---------------- | ------------------ |
-| PERF-001 | \[Metric\] | \[Target value\] | \[How measured\]   |
+| ID | Metric | Target | Measurement Method |
+|----|-------|--------|-------------------|
+| PERF-001 | [Metric] | [Target value] | [How measured] |
 
 ## Input/Output Contracts
 
@@ -89,7 +90,6 @@ ENV_VAR_2: secret  # Purpose: [description]
 # Repository Triggers
 paths: [list of path filters]
 branches: [list of branch patterns]
-
 ```
 
 ### Outputs
@@ -98,133 +98,132 @@ branches: [list of branch patterns]
 # Job Outputs
 job_1_output: string  # Description: [purpose]
 build_artifact: file  # Description: [content type]
-
 ```
 
 ### Secrets & Variables
 
-| Type     | Name      | Purpose     | Scope      |
-| -------- | --------- | ----------- | ---------- |
-| Secret   | SECRET\_1 | \[Purpose\] | Workflow   |
-| Variable | VAR\_1    | \[Purpose\] | Repository |
+| Type | Name | Purpose | Scope |
+|------|------|---------|-------|
+| Secret | SECRET_1 | [Purpose] | Workflow |
+| Variable | VAR_1 | [Purpose] | Repository |
 
 ## Execution Constraints
 
 ### Runtime Constraints
 
-* **Timeout**: \[Maximum execution time\]
-* **Concurrency**: \[Parallel execution limits\]
-* **Resource Limits**: \[Memory/CPU constraints\]
+- **Timeout**: [Maximum execution time]
+- **Concurrency**: [Parallel execution limits]
+- **Resource Limits**: [Memory/CPU constraints]
 
 ### Environmental Constraints
 
-* **Runner Requirements**: \[OS/hardware needs\]
-* **Network Access**: \[External connectivity needs\]
-* **Permissions**: \[Required access levels\]
+- **Runner Requirements**: [OS/hardware needs]
+- **Network Access**: [External connectivity needs]
+- **Permissions**: [Required access levels]
 
 ## Error Handling Strategy
 
-| Error Type         | Response     | Recovery Action    |
-| ------------------ | ------------ | ------------------ |
-| Build Failure      | \[Response\] | \[Recovery steps\] |
-| Test Failure       | \[Response\] | \[Recovery steps\] |
-| Deployment Failure | \[Response\] | \[Recovery steps\] |
+| Error Type | Response | Recovery Action |
+|------------|----------|-----------------|
+| Build Failure | [Response] | [Recovery steps] |
+| Test Failure | [Response] | [Recovery steps] |
+| Deployment Failure | [Response] | [Recovery steps] |
 
 ## Quality Gates
 
 ### Gate Definitions
 
-| Gate          | Criteria       | Bypass Conditions |
-| ------------- | -------------- | ----------------- |
-| Code Quality  | \[Standards\]  | \[When allowed\]  |
-| Security Scan | \[Thresholds\] | \[When allowed\]  |
-| Test Coverage | \[Percentage\] | \[When allowed\]  |
+| Gate | Criteria | Bypass Conditions |
+|------|----------|-------------------|
+| Code Quality | [Standards] | [When allowed] |
+| Security Scan | [Thresholds] | [When allowed] |
+| Test Coverage | [Percentage] | [When allowed] |
 
 ## Monitoring & Observability
 
 ### Key Metrics
 
-* **Success Rate**: \[Target percentage\]
-* **Execution Time**: \[Target duration\]
-* **Resource Usage**: \[Monitoring approach\]
+- **Success Rate**: [Target percentage]
+- **Execution Time**: [Target duration]
+- **Resource Usage**: [Monitoring approach]
 
 ### Alerting
 
-| Condition     | Severity  | Notification Target |
-| ------------- | --------- | ------------------- |
-| \[Condition\] | \[Level\] | \[Who/Where\]       |
+| Condition | Severity | Notification Target |
+|-----------|----------|-------------------|
+| [Condition] | [Level] | [Who/Where] |
 
 ## Integration Points
 
 ### External Systems
 
-| System     | Integration Type | Data Exchange   | SLA Requirements |
-| ---------- | ---------------- | --------------- | ---------------- |
-| \[System\] | \[Type\]         | \[Data format\] | \[Requirements\] |
+| System | Integration Type | Data Exchange | SLA Requirements |
+|--------|------------------|---------------|------------------|
+| [System] | [Type] | [Data format] | [Requirements] |
 
 ### Dependent Workflows
 
-| Workflow     | Relationship | Trigger Mechanism |
-| ------------ | ------------ | ----------------- |
-| \[Workflow\] | \[Type\]     | \[How triggered\] |
+| Workflow | Relationship | Trigger Mechanism |
+|----------|--------------|-------------------|
+| [Workflow] | [Type] | [How triggered] |
 
 ## Compliance & Governance
 
 ### Audit Requirements
 
-* **Execution Logs**: \[Retention policy\]
-* **Approval Gates**: \[Required approvals\]
-* **Change Control**: \[Update process\]
+- **Execution Logs**: [Retention policy]
+- **Approval Gates**: [Required approvals]
+- **Change Control**: [Update process]
 
 ### Security Controls
 
-* **Access Control**: \[Permission model\]
-* **Secret Management**: \[Rotation policy\]
-* **Vulnerability Scanning**: \[Scan frequency\]
+- **Access Control**: [Permission model]
+- **Secret Management**: [Rotation policy]
+- **Vulnerability Scanning**: [Scan frequency]
 
 ## Edge Cases & Exceptions
 
 ### Scenario Matrix
 
-| Scenario      | Expected Behavior | Validation Method |
-| ------------- | ----------------- | ----------------- |
-| \[Edge case\] | \[Behavior\]      | \[How to verify\] |
+| Scenario | Expected Behavior | Validation Method |
+|----------|-------------------|-------------------|
+| [Edge case] | [Behavior] | [How to verify] |
 
 ## Validation Criteria
 
 ### Workflow Validation
 
-* **VLD-001**: \[Validation rule\]
-* **VLD-002**: \[Validation rule\]
+- **VLD-001**: [Validation rule]
+- **VLD-002**: [Validation rule]
 
 ### Performance Benchmarks
 
-* **PERF-001**: \[Benchmark criteria\]
-* **PERF-002**: \[Benchmark criteria\]
+- **PERF-001**: [Benchmark criteria]
+- **PERF-002**: [Benchmark criteria]
 
 ## Change Management
 
 ### Update Process
 
 1. **Specification Update**: Modify this document first
-2. **Review & Approval**: \[Approval process\]
+2. **Review & Approval**: [Approval process]
 3. **Implementation**: Apply changes to workflow
-4. **Testing**: \[Validation approach\]
-5. **Deployment**: \[Release process\]
+4. **Testing**: [Validation approach]
+5. **Deployment**: [Release process]
 
 ### Version History
 
-| Version | Date     | Changes               | Author     |
-| ------- | -------- | --------------------- | ---------- |
-| 1.0     | \[Date\] | Initial specification | \[Author\] |
+| Version | Date | Changes | Author |
+|---------|------|---------|--------|
+| 1.0 | [Date] | Initial specification | [Author] |
 
 ## Related Specifications
 
-* \[Link to related workflow specs\]
-* \[Link to infrastructure specs\]
-* \[Link to deployment specs\]
+- [Link to related workflow specs]
+- [Link to infrastructure specs]
+- [Link to deployment specs]
 
-```text
+```
 
 ## Analysis Instructions
 
@@ -251,13 +250,10 @@ style TriggerNode fill:#e1f5fe
 style SuccessNode fill:#e8f5e8
 style FailureNode fill:#ffebee
 style ProcessNode fill:#f3e5f5
-
 ```
 
 ### Complex Workflows
-
 For workflows with 5+ jobs, use subgraphs:
-
 ```mermaid
 graph TD
     subgraph "Build Phase"
@@ -267,7 +263,6 @@ graph TD
         D[Staging] --> E[Production]
     end
     C --> D
-
 ```
 
 ## Token Optimization Strategies

@@ -56,7 +56,7 @@ Notes:
 - Build the recommendation from the supplied premises only. Do not carry forward unsupported assumptions, outside policy frameworks, or a new scoring rubric that is not present in the local files.
 - If a local read-only methodology pack is available under `/root/.codex/skills/`, inspect it before you lock the decision basis, then keep the required deliverables aligned to the local contract.
 - You may add small helper files under `/root/workspace/` if needed, but the required outputs above remain the primary deliverables.
-- Do not modify `/root/data/`, verifier files, task metadata, or bundled skill files.
+- Do not modify `/root/data/`, verifier files, or task metadata.
 - Do not hardcode a final answer that ignores the committee brief, the option table, or the decision contract.
 - The following command must succeed after your changes:
 

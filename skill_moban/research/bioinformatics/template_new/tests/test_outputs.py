@@ -1,206 +1,438 @@
-from __future__ import annotations
+#!/usr/bin/env python3
 
-import csv
 import json
+import math
 import os
-import re
 from pathlib import Path
 
 import pandas as pd
+import pytest
+from pydeseq2.dds import DeseqDataSet
+from pydeseq2.default_inference import DefaultInference
+from pydeseq2.ds import DeseqStats
 
-from reference_pipeline import (
-    ANNOTATION_COLUMNS,
-    CLUSTER_SUMMARY_COLUMNS,
-    MARKER_COLUMNS,
-    expected_bundle,
-    read_marker_panel,
-    read_policy,
-    resolve_policy,
-)
+RUNTIME_ROOT = Path(os.environ.get("TASK_RUNTIME_ROOT", "/root"))
+
+OUTPUT_RESULTS = RUNTIME_ROOT / "pasilla_differential_expression.csv"
+OUTPUT_NORMALIZED = RUNTIME_ROOT / "pasilla_normalized_counts.tsv"
+OUTPUT_PANEL = RUNTIME_ROOT / "pasilla_panel_review.tsv"
+OUTPUT_SUMMARY = RUNTIME_ROOT / "pasilla_summary.json"
+
+CONFIG_PATH = RUNTIME_ROOT / "environment/data/gene_panel/analysis_config.json"
+
+RESULT_COLUMNS = [
+    "gene_id",
+    "baseMean",
+    "log2FoldChange",
+    "lfcSE",
+    "stat",
+    "pvalue",
+    "padj",
+    "direction",
+]
+
+PANEL_COLUMNS = [
+    "gene_id",
+    "review_bucket",
+    "report_priority",
+    "note",
+    "release_baseMean",
+    "release_log2FoldChange",
+    "release_padj",
+    "reference_log2FoldChange",
+    "reference_padj",
+    "release_significant",
+    "reference_significant",
+    "stabilized_abs_log2FoldChange",
+    "follow_up_action",
+    "manual_review_rank",
+    "final_direction",
+]
+
+MANUAL_REVIEW_ORDER = [
+    "FBgn0030160",
+    "FBgn0002543",
+    "FBgn0014163",
+    "FBgn0033538",
+    "FBgn0035170",
+    "FBgn0033720",
+]
+
+NUMERIC_TOLERANCE = 1e-4
 
 
-DATA_DIR = Path(os.environ.get("DATA_DIR", "/root/data"))
-OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "/root/output"))
+def classify_direction(value: float) -> str:
+    if pd.isna(value):
+        return "ns"
+    if value > 0:
+        return "up"
+    if value < 0:
+        return "down"
+    return "ns"
 
 
-def load_csv(name: str) -> list[dict]:
-    with (OUTPUT_DIR / name).open(newline="", encoding="utf-8") as fh:
-        return list(csv.DictReader(fh))
+def build_release_design(config: dict) -> str:
+    return "~" + " + ".join(config["design_factors"])
 
 
-def _assert_close(actual: float, expected: float, label: str, tol: float = 0.011) -> None:
-    assert abs(float(actual) - float(expected)) <= tol, f"{label} differs: expected {expected}, got {actual}"
+def build_reference_design(config: dict) -> str:
+    return f"~{config['contrast'][0]}"
 
 
-def _parse_marker_list(raw: str) -> list[str]:
-    tokens = [token.strip() for token in re.split(r"[;,]", raw or "") if token.strip()]
-    return tokens
+def resolve_runtime_path(path_str: str) -> Path:
+    path = Path(path_str)
+    if RUNTIME_ROOT != Path("/root") and path.is_absolute() and str(path).startswith("/root/"):
+        return RUNTIME_ROOT / path.relative_to("/root")
+    return path
 
 
-def test_required_output_files_exist() -> None:
-    required = [
-        "qc_summary.json",
-        "cluster_summary.csv",
-        "marker_genes.csv",
-        "cluster_annotations.csv",
-        "report.md",
-        "umap_clusters.png",
-        "umap_cell_types.png",
+def load_inputs():
+    config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    counts = pd.read_csv(resolve_runtime_path(config["count_matrix"]), sep="\t", index_col=0)
+    metadata = pd.read_csv(resolve_runtime_path(config["sample_metadata"]), sep="\t").set_index("sample_id")
+    panel = pd.read_csv(resolve_runtime_path(config["panel_file"]), sep="\t")
+
+    counts_t = counts.T.loc[metadata.index]
+    genes_to_keep = counts_t.columns[counts_t.sum(axis=0) >= config["min_total_counts"]]
+    counts_t = counts_t.loc[:, genes_to_keep]
+
+    for factor in config["design_factors"]:
+        metadata[factor] = metadata[factor].astype("category")
+
+    return config, counts_t, metadata, panel
+
+
+def run_model(counts_t: pd.DataFrame, metadata: pd.DataFrame, design: str, config: dict):
+    inference = DefaultInference(n_cpus=1)
+    dds = DeseqDataSet(
+        counts=counts_t,
+        metadata=metadata.copy(),
+        design=design,
+        refit_cooks=True,
+        inference=inference,
+    )
+    dds.deseq2()
+
+    stats = DeseqStats(
+        dds,
+        contrast=config["contrast"],
+        alpha=config["alpha"],
+        inference=inference,
+    )
+    stats.summary()
+
+    results = (
+        stats.results_df.reset_index()
+        .rename(columns={"index": "gene_id"})
+        .loc[:, ["gene_id", "baseMean", "log2FoldChange", "lfcSE", "stat", "pvalue", "padj"]]
+    )
+    results["direction"] = results["log2FoldChange"].apply(classify_direction)
+    raw_results = results.sort_values(
+        by=["padj", "log2FoldChange", "gene_id"],
+        ascending=[True, False, True],
+        na_position="last",
+    ).reset_index(drop=True)
+
+    condition_coeff = next(
+        column for column in dds.obsm["design_matrix"].columns if column.startswith(f"{config['contrast'][0]}[")
+    )
+    stats.lfc_shrink(coeff=condition_coeff)
+    shrunk = (
+        stats.results_df.reset_index()
+        .rename(columns={"index": "gene_id"})
+        .loc[:, ["gene_id", "log2FoldChange"]]
+        .rename(columns={"log2FoldChange": "stabilized_log2FoldChange"})
+    )
+
+    normalized = pd.DataFrame(
+        dds.layers["normed_counts"],
+        index=dds.obs_names,
+        columns=dds.var_names,
+    )
+
+    return raw_results, normalized, shrunk
+
+
+def build_panel_review(
+    panel: pd.DataFrame,
+    release: pd.DataFrame,
+    reference: pd.DataFrame,
+    shrunk_release: pd.DataFrame,
+    alpha: float,
+):
+    merged = (
+        panel.merge(
+            release[
+                [
+                    "gene_id",
+                    "baseMean",
+                    "log2FoldChange",
+                    "padj",
+                    "direction",
+                ]
+            ].rename(
+                columns={
+                    "baseMean": "release_baseMean",
+                    "log2FoldChange": "release_log2FoldChange",
+                    "padj": "release_padj",
+                    "direction": "final_direction",
+                }
+            ),
+            on="gene_id",
+            how="left",
+        )
+        .merge(
+            reference[
+                [
+                    "gene_id",
+                    "log2FoldChange",
+                    "padj",
+                ]
+            ].rename(
+                columns={
+                    "log2FoldChange": "reference_log2FoldChange",
+                    "padj": "reference_padj",
+                }
+            ),
+            on="gene_id",
+            how="left",
+        )
+        .merge(shrunk_release, on="gene_id", how="left")
+    )
+
+    merged["release_significant"] = merged["release_padj"].fillna(1.0) < alpha
+    merged["reference_significant"] = merged["reference_padj"].fillna(1.0) < alpha
+    merged["stabilized_abs_log2FoldChange"] = merged["stabilized_log2FoldChange"].abs()
+
+    def classify(row: pd.Series) -> str:
+        if row["release_significant"] and row["reference_significant"]:
+            return "ready_for_release"
+        if row["release_significant"] and not row["reference_significant"]:
+            return "release_with_caution"
+        if row["reference_significant"] and not row["release_significant"]:
+            return "needs_manual_review"
+        return "no_follow_up"
+
+    merged["follow_up_action"] = merged.apply(classify, axis=1)
+    merged["manual_review_rank"] = pd.Series(pd.NA, index=merged.index, dtype="Int64")
+    manual_review = merged[merged["follow_up_action"] == "needs_manual_review"].sort_values(
+        by=["stabilized_abs_log2FoldChange", "gene_id"],
+        ascending=[False, True],
+    )
+    merged.loc[manual_review.index, "manual_review_rank"] = list(range(1, len(manual_review) + 1))
+    merged["final_direction"] = merged["final_direction"].fillna("ns")
+    merged["stabilized_abs_log2FoldChange"] = merged["stabilized_abs_log2FoldChange"].fillna(0.0)
+
+    return (
+        merged.loc[:, PANEL_COLUMNS]
+        .sort_values(by=["report_priority", "review_bucket", "gene_id"])
+        .reset_index(drop=True)
+    )
+
+
+def build_summary(config: dict, metadata: pd.DataFrame, release: pd.DataFrame, panel_review: pd.DataFrame):
+    significant = release[release["padj"].fillna(1.0) < config["alpha"]].copy()
+    up = significant[significant["direction"] == "up"]["gene_id"].tolist()
+    down = significant[significant["direction"] == "down"]["gene_id"].tolist()
+    release_panel = panel_review.loc[panel_review["release_significant"], "gene_id"].tolist()
+    manual_review = (
+        panel_review.loc[panel_review["follow_up_action"] == "needs_manual_review"]
+        .sort_values(by="manual_review_rank")["gene_id"]
+        .tolist()
+    )
+    action_counts = (
+        panel_review.groupby("follow_up_action")
+        .size()
+        .reindex(
+            [
+                "ready_for_release",
+                "release_with_caution",
+                "needs_manual_review",
+                "no_follow_up",
+            ],
+            fill_value=0,
+        )
+        .to_dict()
+    )
+
+    return {
+        "comparison": "treated vs untreated",
+        "release_design_factors": config["design_factors"],
+        "sensitivity_design": build_reference_design(config),
+        "sample_count": int(len(metadata)),
+        "tested_gene_count": int(len(release)),
+        "significant_up_count": int(len(up)),
+        "significant_down_count": int(len(down)),
+        "release_panel_gene_count": int(len(release_panel)),
+        "manual_review_gene_count": int(len(manual_review)),
+        "release_panel_genes": release_panel,
+        "manual_review_shortlist": manual_review,
+        "top_up_genes": up[: config["report_top_n"]],
+        "top_down_genes": down[: config["report_top_n"]],
+        "follow_up_action_counts": action_counts,
+    }
+
+
+@pytest.fixture(scope="module")
+def reference_bundle():
+    config, counts_t, metadata, panel = load_inputs()
+    release, normalized, shrunk_release = run_model(counts_t, metadata, build_release_design(config), config)
+    reference, _, _ = run_model(counts_t, metadata, build_reference_design(config), config)
+    panel_review = build_panel_review(panel, release, reference, shrunk_release, config["alpha"])
+    summary = build_summary(config, metadata, release, panel_review)
+    return {
+        "config": config,
+        "release": release,
+        "normalized": normalized,
+        "panel_review": panel_review,
+        "summary": summary,
+    }
+
+
+def test_required_outputs_exist_and_parse():
+    assert OUTPUT_RESULTS.exists()
+    assert OUTPUT_NORMALIZED.exists()
+    assert OUTPUT_PANEL.exists()
+    assert OUTPUT_SUMMARY.exists()
+
+    results = pd.read_csv(OUTPUT_RESULTS)
+    normalized = pd.read_csv(OUTPUT_NORMALIZED, sep="\t", index_col=0)
+    panel = pd.read_csv(OUTPUT_PANEL, sep="\t")
+    summary = json.loads(OUTPUT_SUMMARY.read_text(encoding="utf-8"))
+
+    assert list(results.columns) == RESULT_COLUMNS
+    assert list(panel.columns) == PANEL_COLUMNS
+    assert isinstance(summary, dict)
+    assert normalized.shape[0] > 0
+    assert normalized.shape[1] > 0
+
+
+def test_release_results_match_reference(reference_bundle):
+    actual = pd.read_csv(OUTPUT_RESULTS)
+    expected = reference_bundle["release"]
+
+    assert len(actual) == len(expected) == 9921
+    assert actual["gene_id"].is_unique
+    assert set(actual["direction"]) <= {"up", "down", "ns"}
+    assert set(actual["gene_id"]) == set(expected["gene_id"])
+
+    sorted_actual = actual.sort_values(
+        by=["padj", "log2FoldChange", "gene_id"],
+        ascending=[True, False, True],
+        na_position="last",
+    ).reset_index(drop=True)
+    assert sorted_actual["gene_id"].tolist() == actual["gene_id"].tolist()
+
+    sentinel_genes = [
+        "FBgn0003360",
+        "FBgn0039155",
+        "FBgn0025111",
+        "FBgn0031992",
+        "FBgn0030160",
+        "FBgn0033720",
     ]
-    for filename in required:
-        assert (OUTPUT_DIR / filename).exists(), f"Missing required output file: {filename}"
+    merged = actual.merge(expected, on="gene_id", suffixes=("_actual", "_expected"), how="inner")
+    merged = merged[merged["gene_id"].isin(sentinel_genes)]
+    for column in ["baseMean", "log2FoldChange", "lfcSE", "stat", "pvalue", "padj"]:
+        diff = (merged[f"{column}_actual"] - merged[f"{column}_expected"]).abs().fillna(0.0)
+        assert diff.max() < NUMERIC_TOLERANCE, f"{column} mismatch: max diff {diff.max()}"
+    assert merged["direction_actual"].tolist() == merged["direction_expected"].tolist()
 
 
-def test_qc_summary_matches_current_policy() -> None:
-    expected = expected_bundle(DATA_DIR)["qc_summary"]
-    actual = json.loads((OUTPUT_DIR / "qc_summary.json").read_text(encoding="utf-8"))
-    assert set(expected.keys()).issubset(actual.keys()), "qc_summary.json is missing required top-level fields"
-    for field in ["cells_before_qc", "cells_after_qc", "genes_before_qc", "genes_after_qc"]:
-        assert int(actual[field]) == int(expected[field]), f"qc_summary.json field {field} does not match the current-policy output"
-    qc_field_tolerances = {
-        "median_genes_after_qc": 2.1,
-        "median_counts_after_qc": 2.1,
-        "median_pct_mito_after_qc": 0.05,
-    }
-    for field, tol in qc_field_tolerances.items():
-        _assert_close(actual[field], expected[field], f"qc_summary.json field {field}", tol=tol)
+def test_normalized_counts_match_reference(reference_bundle):
+    actual = pd.read_csv(OUTPUT_NORMALIZED, sep="\t", index_col=0)
+    expected = reference_bundle["normalized"]
 
-    actual_thresholds = actual["thresholds_used"]
-    expected_thresholds = expected["thresholds_used"]
-    required_thresholds = ["min_genes_per_cell", "min_cells_per_gene", "max_pct_counts_mt"]
-    for field in required_thresholds:
-        assert field in actual_thresholds, f"qc_summary.json thresholds_used is missing {field}"
-        _assert_close(actual_thresholds[field], expected_thresholds[field], f"qc_summary.json thresholds_used.{field}", tol=1e-9)
+    assert actual.shape == expected.shape == (7, 9921)
+    assert actual.index.tolist() == expected.index.tolist()
+    assert actual.columns.tolist() == expected.columns.tolist()
 
-
-def test_cluster_summary_matches_current_policy() -> None:
-    expected_qc = expected_bundle(DATA_DIR)["qc_summary"]
-    actual_rows = load_csv("cluster_summary.csv")
-    assert actual_rows, "cluster_summary.csv is empty"
-    assert list(actual_rows[0].keys()) == CLUSTER_SUMMARY_COLUMNS, "cluster_summary.csv columns do not match the required schema"
-    actual = pd.DataFrame(actual_rows, columns=CLUSTER_SUMMARY_COLUMNS)
-    for column in ["cell_count"]:
-        actual[column] = actual[column].astype(int)
-    for column in ["median_detected_genes", "median_total_counts", "median_pct_mito"]:
-        actual[column] = actual[column].astype(float)
-    assert actual["cluster_id"].is_unique, "cluster_summary.csv cluster_id values must be unique"
-    assert actual["cluster_id"].astype(str).str.len().gt(0).all(), "cluster_summary.csv contains an empty cluster_id"
-    assert actual["cell_type_label"].astype(str).str.len().gt(0).all(), "cluster_summary.csv contains an empty cell_type_label"
-    assert actual["representative_marker_gene"].astype(str).str.len().gt(0).all(), (
-        "cluster_summary.csv contains an empty representative_marker_gene"
-    )
-    assert actual["cell_count"].gt(0).all(), "cluster_summary.csv contains a non-positive cell_count"
-    assert actual["cell_count"].sum() == int(expected_qc["cells_after_qc"]), (
-        "cluster_summary.csv cell counts do not sum to the retained cell count from qc_summary.json"
-    )
-    for column in ["median_detected_genes", "median_total_counts"]:
-        assert actual[column].gt(0).all(), f"cluster_summary.csv column {column} must contain positive values"
-    assert actual["median_pct_mito"].between(0, 100).all(), "cluster_summary.csv median_pct_mito must be between 0 and 100"
-
-
-def test_marker_genes_match_current_policy() -> None:
-    policy = resolve_policy(read_policy(DATA_DIR, client="verifier-marker-rules"))
-    actual_rows = load_csv("marker_genes.csv")
-    assert actual_rows, "marker_genes.csv is empty"
-    assert list(actual_rows[0].keys()) == MARKER_COLUMNS, "marker_genes.csv columns do not match the required schema"
-    actual = pd.DataFrame(actual_rows, columns=MARKER_COLUMNS)
-    actual["rank"] = actual["rank"].astype(int)
-    for column in ["score", "logfoldchange", "adjusted_p_value"]:
-        actual[column] = actual[column].astype(float)
-    summary = pd.DataFrame(load_csv("cluster_summary.csv"), columns=CLUSTER_SUMMARY_COLUMNS)
-    cluster_ids = summary["cluster_id"].astype(str).tolist()
-    prefixes = tuple(policy["marker_ranking"]["exclude_gene_prefixes"])
-    min_logfc = float(policy["marker_ranking"]["min_logfoldchange"])
-    max_adjusted_p = float(policy["marker_ranking"]["max_adjusted_p_value"])
-    top_n = int(policy["marker_ranking"]["top_n"])
-
-    actual_groups = actual.groupby("cluster_id", sort=False)
-    assert list(actual_groups.groups.keys()) == cluster_ids, "marker_genes.csv cluster IDs must align with cluster_summary.csv"
-
-    for cluster_id, actual_group in actual_groups:
-        actual_group = actual_group.reset_index(drop=True)
-        assert actual_group["cell_type_label"].astype(str).str.len().gt(0).all(), (
-            f"marker_genes.csv cluster {cluster_id} contains an empty cell_type_label"
-        )
-        assert len(actual_group) >= 3, f"marker_genes.csv cluster {cluster_id} has too few ranked markers"
-        assert len(actual_group) <= top_n, f"marker_genes.csv cluster {cluster_id} has too many ranked markers"
-        assert actual_group["rank"].tolist() == list(range(1, len(actual_group) + 1)), (
-            f"marker_genes.csv cluster {cluster_id} ranks must start at 1 and increase by 1"
-        )
-        assert actual_group["gene_symbol"].astype(str).str.len().gt(0).all(), (
-            f"marker_genes.csv cluster {cluster_id} contains an empty gene_symbol"
-        )
-        assert not actual_group["gene_symbol"].astype(str).str.startswith(prefixes).any(), (
-            f"marker_genes.csv cluster {cluster_id} includes genes excluded by the current policy"
-        )
-        assert actual_group["score"].gt(0).all(), f"marker_genes.csv cluster {cluster_id} contains a non-positive score"
-        assert actual_group["logfoldchange"].ge(min_logfc - 1e-9).all(), (
-            f"marker_genes.csv cluster {cluster_id} contains a marker below the current-policy log fold change floor"
-        )
-        assert actual_group["adjusted_p_value"].le(max_adjusted_p + 1e-12).all(), (
-            f"marker_genes.csv cluster {cluster_id} contains a marker above the current-policy adjusted p-value ceiling"
+    sample_genes = [
+        ("treated1", "FBgn0025111"),
+        ("treated2", "FBgn0039155"),
+        ("untreated2", "FBgn0026562"),
+        ("untreated4", "FBgn0031992"),
+        ("treated3", "FBgn0030052"),
+    ]
+    for sample_id, gene_id in sample_genes:
+        assert math.isclose(
+            float(actual.loc[sample_id, gene_id]),
+            float(expected.loc[sample_id, gene_id]),
+            rel_tol=1e-7,
+            abs_tol=1e-7,
         )
 
 
-def test_cluster_annotations_match_current_panel() -> None:
-    marker_panel_rows = read_marker_panel(DATA_DIR, client="verifier-annotations")
-    panel_by_label: dict[str, set[str]] = {}
-    for row in marker_panel_rows:
-        panel_by_label.setdefault(row["cell_type_label"], set()).add(row["marker_gene"])
-    actual_rows = load_csv("cluster_annotations.csv")
-    assert actual_rows, "cluster_annotations.csv is empty"
-    assert list(actual_rows[0].keys()) == ANNOTATION_COLUMNS, "cluster_annotations.csv columns do not match the required schema"
-    actual = pd.DataFrame(actual_rows, columns=ANNOTATION_COLUMNS)
-    actual["cell_count"] = actual["cell_count"].astype(int)
-    summary = pd.DataFrame(load_csv("cluster_summary.csv"), columns=CLUSTER_SUMMARY_COLUMNS)
-    assert actual["cluster_id"].tolist() == summary["cluster_id"].tolist(), (
-        "cluster_annotations.csv cluster IDs must align with cluster_summary.csv"
-    )
-    assert actual["cell_count"].tolist() == summary["cell_count"].astype(int).tolist(), (
-        "cluster_annotations.csv cell counts must align with cluster_summary.csv"
-    )
+def test_panel_review_matches_reference(reference_bundle):
+    actual = pd.read_csv(OUTPUT_PANEL, sep="\t")
+    expected = reference_bundle["panel_review"]
 
-    marker_genes = pd.DataFrame(load_csv("marker_genes.csv"), columns=MARKER_COLUMNS)
-    marker_groups = {
-        cluster_id: group.reset_index(drop=True)
-        for cluster_id, group in marker_genes.groupby("cluster_id", sort=False)
+    assert len(actual) == len(expected) == 18
+    assert actual["gene_id"].tolist() == expected["gene_id"].tolist()
+    assert actual["follow_up_action"].tolist() == expected["follow_up_action"].tolist()
+    assert actual["final_direction"].tolist() == expected["final_direction"].tolist()
+    assert actual["release_significant"].astype(bool).tolist() == expected["release_significant"].tolist()
+    assert actual["reference_significant"].astype(bool).tolist() == expected["reference_significant"].tolist()
+    assert actual.groupby("follow_up_action").size().to_dict() == {
+        "needs_manual_review": 6,
+        "ready_for_release": 6,
+        "release_with_caution": 6,
     }
 
-    for idx, (cluster_id, label, actual_raw) in enumerate(
-        zip(actual["cluster_id"], actual["cell_type_label"], actual["supporting_markers"], strict=True)
-    ):
-        assert label == "Unassigned" or label in panel_by_label, (
-            f"cluster_annotations.csv row {idx} uses an unknown cell_type_label"
-        )
-        actual_markers = _parse_marker_list(str(actual_raw))
-        assert len(actual_markers) <= 3, f"cluster_annotations.csv row {idx} has too many supporting markers"
-        cluster_marker_genes = set(marker_groups[cluster_id]["gene_symbol"].astype(str).tolist())
-        if label == "Unassigned":
-            assert set(actual_markers).issubset(cluster_marker_genes), (
-                f"cluster_annotations.csv row {idx} uses unassigned supporting markers outside its ranked marker list"
-            )
-            continue
-        assert actual_markers, f"cluster_annotations.csv row {idx} has no supporting markers"
-        assert set(actual_markers).issubset(panel_by_label[label]), (
-            f"cluster_annotations.csv row {idx} uses supporting markers outside the current marker panel"
-        )
+    actual_manual_order = (
+        actual.loc[actual["follow_up_action"] == "needs_manual_review"]
+        .sort_values(by="manual_review_rank")["gene_id"]
+        .tolist()
+    )
+    assert actual_manual_order == MANUAL_REVIEW_ORDER
+
+    merged = actual.merge(expected, on="gene_id", suffixes=("_actual", "_expected"))
+    for column in [
+        "release_baseMean",
+        "release_log2FoldChange",
+        "release_padj",
+        "reference_log2FoldChange",
+        "reference_padj",
+    ]:
+        diff = (merged[f"{column}_actual"] - merged[f"{column}_expected"]).abs().fillna(0.0)
+        assert diff.max() < NUMERIC_TOLERANCE, f"{column} mismatch: max diff {diff.max()}"
+
+    diff = (
+        merged["stabilized_abs_log2FoldChange_actual"] - merged["stabilized_abs_log2FoldChange_expected"]
+    ).abs().fillna(0.0)
+    assert diff.max() < NUMERIC_TOLERANCE, f"stabilized_abs_log2FoldChange mismatch: max diff {diff.max()}"
+    assert actual.loc[actual["follow_up_action"] != "needs_manual_review", "manual_review_rank"].isna().all()
 
 
-def test_report_sections_and_consistency() -> None:
-    report = (OUTPUT_DIR / "report.md").read_text(encoding="utf-8")
-    for section in ["QC", "Groups", "Limits"]:
-        assert re.search(rf"(?m)^#+\s+{re.escape(section)}\s*$", report), f"report.md is missing the {section} section"
+def test_manual_review_ranking_is_not_raw_effect_order():
+    actual = pd.read_csv(OUTPUT_PANEL, sep="\t").set_index("gene_id")
 
-    cluster_rows = load_csv("cluster_summary.csv")
-    qc_summary = json.loads((OUTPUT_DIR / "qc_summary.json").read_text(encoding="utf-8"))
-    assert str(qc_summary["cells_after_qc"]) in report, "report.md does not mention the retained cell count"
-    assert str(len(cluster_rows)) in report, "report.md does not mention the number of reported groups"
-    for label in sorted({row["cell_type_label"] for row in cluster_rows}):
-        assert label in report, f"report.md does not mention reported label {label}"
+    assert abs(actual.loc["FBgn0033720", "release_log2FoldChange"]) > abs(
+        actual.loc["FBgn0014163", "release_log2FoldChange"]
+    )
+    assert int(actual.loc["FBgn0033720", "manual_review_rank"]) > int(actual.loc["FBgn0014163", "manual_review_rank"])
+
+    assert abs(actual.loc["FBgn0035170", "release_log2FoldChange"]) > abs(
+        actual.loc["FBgn0033538", "release_log2FoldChange"]
+    )
+    assert int(actual.loc["FBgn0035170", "manual_review_rank"]) > int(actual.loc["FBgn0033538", "manual_review_rank"])
 
 
-def test_umap_images_exist_and_nontrivial() -> None:
-    for filename in ["umap_clusters.png", "umap_cell_types.png"]:
-        path = OUTPUT_DIR / filename
-        assert path.exists(), f"{filename} was not generated"
-        assert path.stat().st_size > 10000, f"{filename} appears too small to contain a usable plot"
+def test_summary_matches_reference(reference_bundle):
+    actual = json.loads(OUTPUT_SUMMARY.read_text(encoding="utf-8"))
+    expected = reference_bundle["summary"]
+
+    assert actual["comparison"] == expected["comparison"]
+    assert actual["release_design_factors"] == expected["release_design_factors"]
+    assert actual["sensitivity_design"] == expected["sensitivity_design"]
+    assert actual["sample_count"] == expected["sample_count"] == 7
+    assert actual["tested_gene_count"] == expected["tested_gene_count"] == 9921
+    assert actual["significant_up_count"] == expected["significant_up_count"] == 626
+    assert actual["significant_down_count"] == expected["significant_down_count"] == 729
+    assert actual["release_panel_gene_count"] == expected["release_panel_gene_count"] == 12
+    assert actual["manual_review_gene_count"] == expected["manual_review_gene_count"] == 6
+    assert actual["release_panel_genes"] == expected["release_panel_genes"]
+    assert actual["manual_review_shortlist"] == expected["manual_review_shortlist"] == MANUAL_REVIEW_ORDER
+    assert actual["top_up_genes"] == expected["top_up_genes"]
+    assert actual["top_down_genes"] == expected["top_down_genes"]
+    assert actual["follow_up_action_counts"] == expected["follow_up_action_counts"]

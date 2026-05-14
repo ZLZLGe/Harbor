@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`lab-tools` 热门 skill 的共性价值，通常在于把公开数据包上的实验、检查、复跑和书面 handoff 组织成一条低歧义工作流。它们不只产出一个最终文件，还会把中间证据、比较视角和复核入口一起交出来，方便后续人接手与追溯。
-* **Task 目标形态**：这类模板任务更适合要求智能体在单个 notebook 入口里完成数据载入、过滤、比较、导出和结果复查，并同时落地若干结构化产物。题面应把交付合同讲清楚，但把分析节奏、诊断顺序和 notebook 组织方式留给 skill 与 solver 自行完成。
 * **Verifier 设计重点**：verifier 应同时校验最终结论和中间推理痕迹，避免任务被“脚本包一层 notebook”轻易绕过。重点通常包括：结果可重算、关键中间表与审计文件可对账、重跑可再生、输入或合同变动会带来相应输出变化。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`lab-tools__egfr_bioactivity_review_notebook`
 - 类别：`lab-tools`
-- 难度：`hard`
 - 绑定 Skill：`jupyter-notebook`
 - 输入数据参考来源：
   - `environment/data/egfr_activity_snapshot.json`：任务内 EGFR 活性记录快照；设计形态参考 ChEMBL activity endpoint  
@@ -30,7 +28,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：oracle 在同一容器里运行官方 `solution/solve.sh`，生成 notebook、baseline panel、QC summary、scenario comparison、candidate trace、filter audit、brief 和 plot，再由同一套 verifier 做重算校验，证明任务可运行、可验证。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试

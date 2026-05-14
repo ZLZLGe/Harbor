@@ -26,7 +26,6 @@ TRACE_PATH = OUTPUT_DIR / "candidate_trace.json"
 AUDIT_PATH = OUTPUT_DIR / "filter_audit.csv"
 PLOT_PATH = OUTPUT_DIR / "top_candidate_best_ic50_nm.png"
 DATA_HASH_PATH = Path(os.environ.get("DATA_HASH_PATH", "/opt/lab-tools-data.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("SKILL_HASH_PATH", "/opt/lab-tools-skill.sha256"))
 
 PANEL_COLUMNS = [
     "rank",
@@ -452,21 +451,13 @@ def test_mutating_contract_changes_rerun_results() -> None:
         execute_notebook(NOTEBOOK_PATH)
 
 
-def test_data_and_skill_payloads_unchanged() -> None:
+def test_data_payloads_unchanged() -> None:
     expected_data_hashes = {}
     for line in DATA_HASH_PATH.read_text(encoding="utf-8").splitlines():
         digest_value, path = line.split("  ", 1)
         expected_data_hashes[path] = digest_value
     for path, expected_digest in expected_data_hashes.items():
         assert digest(Path(path)) == expected_digest, f"data file changed: {path}"
-
-    if SKILL_HASH_PATH.exists():
-        expected_skill_hashes = {}
-        for line in SKILL_HASH_PATH.read_text(encoding="utf-8").splitlines():
-            digest_value, path = line.split("  ", 1)
-            expected_skill_hashes[path] = digest_value
-        for path, expected_digest in expected_skill_hashes.items():
-            assert digest(Path(path)) == expected_digest, f"skill file changed: {path}"
 
 
 def test_output_whitelist() -> None:

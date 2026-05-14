@@ -22,19 +22,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tini \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g @openai/codex@0.120.0 \
-    && codex --version
-
 COPY . /tmp/environment-context
+COPY skills /root/.codex/skills
+COPY skills /home/user/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /root/data /root/output /root/.codex/skills /home/user/.codex/skills /logs/agent/skills \
     && cp -R /tmp/environment-context/data/. /root/data/ \
-    && if [ -d /tmp/environment-context/skills ]; then \
-         cp -R /tmp/environment-context/skills/. /root/.codex/skills/; \
-         cp -R /tmp/environment-context/skills/. /home/user/.codex/skills/; \
-         cp -R /tmp/environment-context/skills/. /logs/agent/skills/; \
-       fi \
-    && find /root/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/lab-tools-data.sha256 \
-    && if [ -d /root/.codex/skills/jupyter-notebook ]; then \
-         find /root/.codex/skills/jupyter-notebook -type f -print0 | sort -z | xargs -0 sha256sum > /opt/lab-tools-skill.sha256; \
-       fi
+    && find /root/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/lab-tools-data.sha256

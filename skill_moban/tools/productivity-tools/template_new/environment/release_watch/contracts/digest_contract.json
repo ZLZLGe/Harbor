@@ -1,0 +1,53 @@
+{
+  "title": "Engineering Release Watch",
+  "output_file": "engineering_release_digest.md",
+  "inventory_file": "feed_inventory.json",
+  "manifest_file": "delivery_manifest.json",
+  "state_db_file": "blogwatcher.db",
+  "audit_log_file": "blogwatcher_audit.ndjson",
+  "seed_state_file": "seed/initial_watch_state.json",
+  "local_server_port": 19100,
+  "required_sections": [
+    {
+      "tier": "high",
+      "heading": "High Priority"
+    },
+    {
+      "tier": "standard",
+      "heading": "Standard Priority"
+    }
+  ],
+  "per_source_delivery_cap": 2,
+  "required_shell_strings": [
+    "# Engineering Release Watch",
+    "## High Priority",
+    "## Standard Priority",
+    "## Source Coverage"
+  ],
+  "cleanup_tokens": [
+    "todo",
+    "placeholder",
+    "reviewer note",
+    "scratch"
+  ],
+  "required_source_labels": [
+    "uv Releases",
+    "Node.js Blog",
+    "GitHub Changelog",
+    "TypeScript Releases"
+  ],
+  "legacy_blog_names": [
+    "Legacy Ops Weekly"
+  ],
+  "notes": [
+    "Keep the local watch database aligned to the tracked-source registry.",
+    "Preserve prior read history that already exists in the watch database.",
+    "Write only articles that are unread before delivery for this run.",
+    "After a successful delivery, mark the delivered unread articles as read in the same watch database.",
+    "Apply the per-source delivery cap to the unread backlog for each run and leave the remaining unread backlog available for later reruns.",
+    "Do not bulk-mark unread backlog items as read before their delivery turn.",
+    "Resolved feed references and bundled mirror source files should stay bundle-relative and keep their data/ prefix.",
+    "The source_files audit list should cover the seed state, the registry, the contract, and only the mirror files used to resolve feeds for this run.",
+    "If any legacy blogs are removed during reconciliation, call them out in Source Coverage."
+  ]
+}

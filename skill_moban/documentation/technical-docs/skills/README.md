@@ -1,79 +1,86 @@
 # Technical Docs Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/technical-docs`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/technical-docs，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 68 个 skills，其中 45 个 installs >= 1000，23 个 installs 在 500-999。
 
 ## 技能清单
 
-1. database-migrations | 来源: https://skills.sh/affaan-m/everything-claude-code/database-migrations | installs: 3.9K | stars: 175900
-2. search-first | 来源: https://skills.sh/affaan-m/everything-claude-code/search-first | installs: 3.4K | stars: 175900
-3. android-clean-architecture | 来源: https://skills.sh/affaan-m/everything-claude-code/android-clean-architecture | installs: 3.3K | stars: 175900
-4. codebase-onboarding | 来源: https://skills.sh/affaan-m/everything-claude-code/codebase-onboarding | installs: 2.9K | stars: 175900
-5. documentation-lookup | 来源: https://skills.sh/affaan-m/everything-claude-code/documentation-lookup | installs: 2.8K | stars: 175900
-6. everything-claude-code-conventions | 来源: https://skills.sh/affaan-m/everything-claude-code/everything-claude-code-conventions | installs: 2.8K | stars: 175900
-7. architecture-decision-records | 来源: https://skills.sh/affaan-m/everything-claude-code/architecture-decision-records | installs: 2.7K | stars: 175900
-8. hexagonal-architecture | 来源: https://skills.sh/affaan-m/everything-claude-code/hexagonal-architecture | installs: 1.9K | stars: 175900
-9. jira-integration | 来源: https://skills.sh/affaan-m/everything-claude-code/jira-integration | installs: 1.9K | stars: 175900
-10. ui-demo | 来源: https://skills.sh/affaan-m/everything-claude-code/ui-demo | installs: 1.9K | stars: 175900
-11. agent-introspection-debugging | 来源: https://skills.sh/affaan-m/everything-claude-code/agent-introspection-debugging | installs: 1.7K | stars: 175900
-12. project-guidelines-example | 来源: https://skills.sh/affaan-m/everything-claude-code/project-guidelines-example | installs: 1.7K | stars: 175900
-13. doc-coauthoring | 来源: https://skills.sh/anthropics/skills/doc-coauthoring | installs: 38.2K | stars: 128900
-14. brand-guidelines | 来源: https://skills.sh/anthropics/skills/brand-guidelines | installs: 36.9K | stars: 128900
-15. skill-development | 来源: https://skills.sh/anthropics/claude-code/skill-development | installs: 10.6K | stars: 120800
-16. mcp-integration | 来源: https://skills.sh/anthropics/claude-code/mcp-integration | installs: 8.5K | stars: 120800
-17. hook-development | 来源: https://skills.sh/anthropics/claude-code/hook-development | installs: 7.6K | stars: 120800
-18. claude-opus-4-5-migration | 来源: https://skills.sh/anthropics/claude-code/claude-opus-4-5-migration | installs: 5.6K | stars: 120800
-19. technical-writer | 来源: https://skills.sh/shubhamsaboo/awesome-llm-apps/technical-writer | installs: 2.7K | stars: 109000
-20. docs-writer | 来源: https://skills.sh/google-gemini/gemini-cli/docs-writer | installs: 2.4K | stars: 103200
-21. fastapi | 来源: https://skills.sh/fastapi/fastapi/fastapi | installs: 2.3K | stars: 97900
-22. open-source | 来源: https://skills.sh/browser-use/browser-use/open-source | installs: 1.1K | stars: 92400
-23. playwright-dev | 来源: https://skills.sh/microsoft/playwright/playwright-dev | installs: 1.6K | stars: 88100
-24. make-plan | 来源: https://skills.sh/thedotmack/claude-mem/make-plan | installs: 1.9K | stars: 72700
-25. api-documentation-generator | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/api-documentation-generator | installs: 1.4K | stars: 36853
-26. documentation-templates | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/documentation-templates | installs: 1.1K | stars: 36853
-27. documentation-writer | 来源: https://skills.sh/github/awesome-copilot/documentation-writer | installs: 17.0K | stars: 32200
-28. create-readme | 来源: https://skills.sh/github/awesome-copilot/create-readme | installs: 12.4K | stars: 32200
-29. create-specification | 来源: https://skills.sh/github/awesome-copilot/create-specification | installs: 10.5K | stars: 32200
-30. microsoft-code-reference | 来源: https://skills.sh/github/awesome-copilot/microsoft-code-reference | installs: 10.0K | stars: 32200
-31. create-github-action-workflow-specification | 来源: https://skills.sh/github/awesome-copilot/create-github-action-workflow-specification | installs: 9.1K | stars: 32200
-32. create-github-pull-request-from-specification | 来源: https://skills.sh/github/awesome-copilot/create-github-pull-request-from-specification | installs: 8.9K | stars: 32200
-33. readme-blueprint-generator | 来源: https://skills.sh/github/awesome-copilot/readme-blueprint-generator | installs: 8.8K | stars: 32200
-34. update-specification | 来源: https://skills.sh/github/awesome-copilot/update-specification | installs: 8.6K | stars: 32200
-35. create-github-issue-feature-from-specification | 来源: https://skills.sh/github/awesome-copilot/create-github-issue-feature-from-specification | installs: 8.5K | stars: 32200
-36. create-github-issues-for-unmet-specification-requirements | 来源: https://skills.sh/github/awesome-copilot/create-github-issues-for-unmet-specification-requirements | installs: 8.5K | stars: 32200
-37. gen-specs-as-issues | 来源: https://skills.sh/github/awesome-copilot/gen-specs-as-issues | installs: 8.4K | stars: 32200
-38. typespec-api-operations | 来源: https://skills.sh/github/awesome-copilot/typespec-api-operations | installs: 8.4K | stars: 32200
-39. typespec-create-agent | 来源: https://skills.sh/github/awesome-copilot/typespec-create-agent | installs: 8.3K | stars: 32200
-40. typespec-create-api-plugin | 来源: https://skills.sh/github/awesome-copilot/typespec-create-api-plugin | installs: 8.3K | stars: 32200
-41. create-oo-component-documentation | 来源: https://skills.sh/github/awesome-copilot/create-oo-component-documentation | installs: 7.0K | stars: 32200
-42. update-oo-component-documentation | 来源: https://skills.sh/github/awesome-copilot/update-oo-component-documentation | installs: 7.0K | stars: 32200
-43. oo-component-documentation | 来源: https://skills.sh/github/awesome-copilot/oo-component-documentation | installs: 1.4K | stars: 32200
-44. ai-sdk | 来源: https://skills.sh/vercel/ai/ai-sdk | installs: 24.5K | stars: 24000
-45. write-spec | 来源: https://skills.sh/anthropics/knowledge-work-plugins/write-spec | installs: 1.2K | stars: 11800
-46. prospect | 来源: https://skills.sh/anthropics/knowledge-work-plugins/prospect | installs: 1.0K | stars: 11800
-47. laravel-specialist | 来源: https://skills.sh/jeffallan/claude-skills/laravel-specialist | installs: 12.6K | stars: 8800
-48. kubernetes-specialist | 来源: https://skills.sh/jeffallan/claude-skills/kubernetes-specialist | installs: 8.9K | stars: 8800
-49. kotlin-specialist | 来源: https://skills.sh/jeffallan/claude-skills/kotlin-specialist | installs: 2.5K | stars: 8800
-50. spec-miner | 来源: https://skills.sh/jeffallan/claude-skills/spec-miner | installs: 1.6K | stars: 8800
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | search-first | affaan-m/everything-claude-code | 177611 | 3770 | https://skills.sh/affaan-m/everything-claude-code/search-first |
+| 2 | codebase-onboarding | affaan-m/everything-claude-code | 177611 | 3292 | https://skills.sh/affaan-m/everything-claude-code/codebase-onboarding |
+| 3 | everything-claude-code-conventions | affaan-m/everything-claude-code | 177611 | 3080 | https://skills.sh/affaan-m/everything-claude-code/everything-claude-code-conventions |
+| 4 | ui-demo | affaan-m/everything-claude-code | 177611 | 2181 | https://skills.sh/affaan-m/everything-claude-code/ui-demo |
+| 5 | doc-coauthoring | anthropics/skills | 131614 | 40476 | https://skills.sh/anthropics/skills/doc-coauthoring |
+| 6 | technical-writer | Shubhamsaboo/awesome-llm-apps | 109559 | 2842 | https://skills.sh/Shubhamsaboo/awesome-llm-apps/technical-writer |
+| 7 | docs-writer | google-gemini/gemini-cli | 103596 | 2459 | https://skills.sh/google-gemini/gemini-cli/docs-writer |
+| 8 | fastapi | fastapi/fastapi | 98067 | 2456 | https://skills.sh/fastapi/fastapi/fastapi |
+| 9 | open-source | browser-use/browser-use | 93208 | 1236 | https://skills.sh/browser-use/browser-use/open-source |
+| 10 | playwright-dev | microsoft/playwright | 88395 | 1677 | https://skills.sh/microsoft/playwright/playwright-dev |
+| 11 | make-plan | thedotmack/claude-mem | 74468 | 2227 | https://skills.sh/thedotmack/claude-mem/make-plan |
+| 12 | source-driven-development | addyosmani/agent-skills | 38375 | 1928 | https://skills.sh/addyosmani/agent-skills/source-driven-development |
+| 13 | api-documentation-generator | sickn33/antigravity-awesome-skills | 37047 | 1462 | https://skills.sh/sickn33/antigravity-awesome-skills/api-documentation-generator |
+| 14 | documentation-templates | sickn33/antigravity-awesome-skills | 37047 | 1095 | https://skills.sh/sickn33/antigravity-awesome-skills/documentation-templates |
+| 15 | openapi-spec-generation | wshobson/agents | 35133 | 10484 | https://skills.sh/wshobson/agents/openapi-spec-generation |
+| 16 | cli-anything | HKUDS/CLI-Anything | 34142 | 1138 | https://skills.sh/HKUDS/CLI-Anything/cli-anything |
+| 17 | documentation-writer | github/awesome-copilot | 32605 | 17507 | https://skills.sh/github/awesome-copilot/documentation-writer |
+| 18 | create-readme | github/awesome-copilot | 32605 | 12732 | https://skills.sh/github/awesome-copilot/create-readme |
+| 19 | microsoft-docs | github/awesome-copilot | 32605 | 10460 | https://skills.sh/github/awesome-copilot/microsoft-docs |
+| 20 | microsoft-code-reference | github/awesome-copilot | 32605 | 10154 | https://skills.sh/github/awesome-copilot/microsoft-code-reference |
+| 21 | review-and-refactor | github/awesome-copilot | 32605 | 9667 | https://skills.sh/github/awesome-copilot/review-and-refactor |
+| 22 | java-docs | github/awesome-copilot | 32605 | 9579 | https://skills.sh/github/awesome-copilot/java-docs |
+| 23 | write-coding-standards-from-file | github/awesome-copilot | 32605 | 8940 | https://skills.sh/github/awesome-copilot/write-coding-standards-from-file |
+| 24 | readme-blueprint-generator | github/awesome-copilot | 32605 | 8839 | https://skills.sh/github/awesome-copilot/readme-blueprint-generator |
+| 25 | csharp-docs | github/awesome-copilot | 32605 | 8700 | https://skills.sh/github/awesome-copilot/csharp-docs |
+| 26 | create-llms | github/awesome-copilot | 32605 | 8619 | https://skills.sh/github/awesome-copilot/create-llms |
+| 27 | breakdown-epic-pm | github/awesome-copilot | 32605 | 8601 | https://skills.sh/github/awesome-copilot/breakdown-epic-pm |
+| 28 | copilot-instructions-blueprint-generator | github/awesome-copilot | 32605 | 8545 | https://skills.sh/github/awesome-copilot/copilot-instructions-blueprint-generator |
+| 29 | create-tldr-page | github/awesome-copilot | 32605 | 8455 | https://skills.sh/github/awesome-copilot/create-tldr-page |
+| 30 | tldr-prompt | github/awesome-copilot | 32605 | 8426 | https://skills.sh/github/awesome-copilot/tldr-prompt |
+| 31 | winui3-migration-guide | github/awesome-copilot | 32605 | 5371 | https://skills.sh/github/awesome-copilot/winui3-migration-guide |
+| 32 | oo-component-documentation | github/awesome-copilot | 32605 | 1440 | https://skills.sh/github/awesome-copilot/oo-component-documentation |
+| 33 | openai-docs | openai/skills | 18740 | 1774 | https://skills.sh/openai/skills/openai-docs |
+| 34 | documentation | anthropics/knowledge-work-plugins | 12009 | 3321 | https://skills.sh/anthropics/knowledge-work-plugins/documentation |
+| 35 | design-handoff | anthropics/knowledge-work-plugins | 12009 | 1217 | https://skills.sh/anthropics/knowledge-work-plugins/design-handoff |
+| 36 | dev | microsoft/playwright-cli | 10187 | 1387 | https://skills.sh/microsoft/playwright-cli/dev |
+| 37 | code-documenter | Jeffallan/claude-skills | 8935 | 2417 | https://skills.sh/Jeffallan/claude-skills/code-documenter |
+| 38 | vitepress | antfu/skills | 4897 | 7461 | https://skills.sh/antfu/skills/vitepress |
+| 39 | n8n-code-javascript | czlonkowski/n8n-skills | 4894 | 3331 | https://skills.sh/czlonkowski/n8n-skills/n8n-code-javascript |
+| 40 | n8n-code-python | czlonkowski/n8n-skills | 4894 | 2084 | https://skills.sh/czlonkowski/n8n-skills/n8n-code-python |
+| 41 | mermaid-diagrams | softaworks/agent-toolkit | 1722 | 4029 | https://skills.sh/softaworks/agent-toolkit/mermaid-diagrams |
+| 42 | crafting-effective-readmes | softaworks/agent-toolkit | 1722 | 3679 | https://skills.sh/softaworks/agent-toolkit/crafting-effective-readmes |
+| 43 | golang-documentation | samber/cc-skills-golang | 1601 | 2349 | https://skills.sh/samber/cc-skills-golang/golang-documentation |
+| 44 | sandbox-sdk | cloudflare/skills | 1491 | 6457 | https://skills.sh/cloudflare/skills/sandbox-sdk |
+| 45 | figma-implement-design | figma/mcp-server-guide | 1377 | 3968 | https://skills.sh/figma/mcp-server-guide/figma-implement-design |
 
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/anthropics/skills
-- https://skills.sh/anthropics/claude-code
-- https://skills.sh/shubhamsaboo/awesome-llm-apps
-- https://skills.sh/google-gemini/gemini-cli
-- https://skills.sh/fastapi/fastapi
-- https://skills.sh/browser-use/browser-use
-- https://skills.sh/microsoft/playwright
-- https://skills.sh/thedotmack/claude-mem
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/github/awesome-copilot
-- https://skills.sh/vercel/ai
-- https://skills.sh/anthropics/knowledge-work-plugins
-- https://skills.sh/jeffallan/claude-skills
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 46 | everything-claude-code | affaan-m/everything-claude-code | 177611 | 824 | https://skills.sh/affaan-m/everything-claude-code/everything-claude-code |
+| 47 | write-guide | vercel/next.js | 139364 | 697 | https://skills.sh/vercel/next.js/write-guide |
+| 48 | write-api-reference | vercel/next.js | 139364 | 682 | https://skills.sh/vercel/next.js/write-api-reference |
+| 49 | adev-writing-guide | angular/angular | 100067 | 842 | https://skills.sh/angular/angular/adev-writing-guide |
+| 50 | docstring | pytorch/pytorch | 99787 | 940 | https://skills.sh/pytorch/pytorch/docstring |
+| 51 | humanizer | zed-industries/zed | 82389 | 896 | https://skills.sh/zed-industries/zed/humanizer |
+| 52 | docs-write | metabase/metabase | 47258 | 630 | https://skills.sh/metabase/metabase/docs-write |
+| 53 | docs-review | metabase/metabase | 47258 | 583 | https://skills.sh/metabase/metabase/docs-review |
+| 54 | writing-docs | remotion-dev/remotion | 46451 | 908 | https://skills.sh/remotion-dev/remotion/writing-docs |
+| 55 | code-documentation-code-explain | sickn33/antigravity-awesome-skills | 37047 | 660 | https://skills.sh/sickn33/antigravity-awesome-skills/code-documentation-code-explain |
+| 56 | javascript-mastery | sickn33/antigravity-awesome-skills | 37047 | 621 | https://skills.sh/sickn33/antigravity-awesome-skills/javascript-mastery |
+| 57 | skill-developer | sickn33/antigravity-awesome-skills | 37047 | 502 | https://skills.sh/sickn33/antigravity-awesome-skills/skill-developer |
+| 58 | gdpr-compliant | github/awesome-copilot | 32605 | 989 | https://skills.sh/github/awesome-copilot/gdpr-compliant |
+| 59 | acquire-codebase-knowledge | github/awesome-copilot | 32605 | 619 | https://skills.sh/github/awesome-copilot/acquire-codebase-knowledge |
+| 60 | gpt-researcher | assafelovic/gpt-researcher | 26958 | 900 | https://skills.sh/assafelovic/gpt-researcher/gpt-researcher |
+| 61 | chatgpt-apps | openai/skills | 18740 | 931 | https://skills.sh/openai/skills/chatgpt-apps |
+| 62 | cli-creator | openai/skills | 18740 | 519 | https://skills.sh/openai/skills/cli-creator |
+| 63 | codegen | vercel-labs/json-render | 14713 | 654 | https://skills.sh/vercel-labs/json-render/codegen |
+| 64 | get-api-docs | andrewyng/context-hub | 13221 | 635 | https://skills.sh/andrewyng/context-hub/get-api-docs |
+| 65 | react-expert | reactjs/react.dev | 11746 | 908 | https://skills.sh/reactjs/react.dev/react-expert |
+| 66 | golang-swagger | samber/cc-skills-golang | 1601 | 556 | https://skills.sh/samber/cc-skills-golang/golang-swagger |
+| 67 | figma-code-connect | figma/mcp-server-guide | 1377 | 953 | https://skills.sh/figma/mcp-server-guide/figma-code-connect |
+| 68 | rust-skill-creator | actionbook/rust-skills | 1104 | 545 | https://skills.sh/actionbook/rust-skills/rust-skill-creator |

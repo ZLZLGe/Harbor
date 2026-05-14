@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：这一类 skill 的价值，通常体现在帮助 solver 把抽象的节俗、历法或象征性规则，落成一条能执行的资料读取、日期判定和结果整理流程。对 calendar / almanac 子类来说，skill 的重点是降低数据定位、规则套用和证据留存的成本。
-* **Task 目标形态**：这类任务适合落在节俗活动排期、文化项目编排、历法查询整理、公开资料核对或仪式性事项整理等场景里。题面应主要交代业务目标、输入边界、输出合同和禁止事项，把 archive 读取、日期解析、候选比较这些动作顺序尽量留给 skill 和 solver 自己识别。
 * **Verifier 设计重点**：Verifier 应优先验证 solver 是否完成了关键动作链，而不只看最后文件名。重点应覆盖历法数据读取、候选日期重算、约束收敛、证据文件存在性，以及拦截手写日期、绕过本地工具链、修改输入或借用题外结论等捷径。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`divination-mysticism__observance-slate-2026`
 - 类别：`divination-mysticism`
-- 难度：`hard`
 - 绑定 Skill：`ccal`
 - 输入数据参考来源：
   - `environment/skills/ccal/SKILL.md`：绑定 skill 原文  
@@ -30,7 +28,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 通过容器内 provision 的 `x` 工具和 `ccal` archive 解析全部候选节俗日期，再按 policy 与 ops 约束收敛唯一的 4 项排期方案，并写出证据文件与交接报告。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -47,7 +45,7 @@
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | canonical workflow | `/var/log/ccal/access.log` 必须证明 solver 走过 `x zuz cat` archive 读取链路，并覆盖足够多的 2026 月份数据 |
-| 环境保护 | `/root/environment/data`、`/root/.x-cmd.root/data` 和 `/usr/local/bin/x` 的文件哈希不得变化 |
+| 环境保护 | `/root/environment/data`、`/root/.x-cmd.root/data` 和 `/usr/local/bin/x` 的文件不可修改 |
 
 ### ⚡ Skill 相关性评估
 

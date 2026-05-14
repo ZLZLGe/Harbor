@@ -28,7 +28,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：oracle 使用题面给定的 manifest、catalog 和 live in-container 服务，全量拉取订单与变体、核验库存预留和 tracking 状态，并生成正式 CSV / JSON 交付物。它证明任务可运行、可解，而且不依赖隐藏答案文件。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：主测试重算异常行和汇总口径，防作弊测试验证 live 服务访问、分页、stale snapshot 规避、输入不可篡改和服务健康度。
 
 主测试

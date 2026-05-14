@@ -151,16 +151,6 @@ def baseline_reference_listing() -> str:
     return directory_listing(BUNDLE_ROOT)
 
 
-def baseline_skill_listing() -> str:
-    for candidate in [
-        Path("/opt/task-baselines/write-api-reference-skill.sha256"),
-        Path("/opt/task-baselines/write-api-reference.sha256"),
-    ]:
-        if candidate.exists():
-            return normalize_listing_text(candidate.read_text(encoding="utf-8"))
-    return directory_listing(SKILL_ROOT)
-
-
 def expected_documented_api_names(bundle_root: Path = BUNDLE_ROOT) -> list[tuple[str, str]]:
     payload = contract(bundle_root)
     pairs: list[tuple[str, str]] = [(payload["constructor"]["signature"], "constructor")]

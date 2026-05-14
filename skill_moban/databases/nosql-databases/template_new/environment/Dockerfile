@@ -21,12 +21,19 @@ RUN apt-get update \
         redis-server \
         redis-tools \
     && python3 -m pip install --break-system-packages redis==5.0.8 \
-    && npm install -g @openai/codex@0.120.0 \
-    && codex --version \
     && rm -rf /var/lib/apt/lists/*
 
 COPY workspace /app/workspace
 COPY . /tmp/task-environment
+COPY skills /root/.claude/skills
+COPY skills /root/.codex/skills
+COPY skills /root/.opencode/skill
+COPY skills /root/.goose/skills
+COPY skills /root/.factory/skills
+COPY skills /root/.agents/skills
+COPY skills /root/.gemini/skills
+COPY skills /home/user/.codex/skills
+COPY skills /logs/agent/skills
 
 RUN chmod +x /app/workspace/bin/*.sh \
     && mkdir -p \
@@ -42,18 +49,7 @@ RUN chmod +x /app/workspace/bin/*.sh \
         /root/.factory/skills \
         /root/.agents/skills \
         /root/.gemini/skills \
-        /home/user/.codex/skills \
-    && if [ -d /tmp/task-environment/skills ]; then \
-         cp -R /tmp/task-environment/skills/. /root/.claude/skills/; \
-         cp -R /tmp/task-environment/skills/. /root/.codex/skills/; \
-         cp -R /tmp/task-environment/skills/. /root/.opencode/skill/; \
-         cp -R /tmp/task-environment/skills/. /root/.goose/skills/; \
-         cp -R /tmp/task-environment/skills/. /root/.factory/skills/; \
-         cp -R /tmp/task-environment/skills/. /root/.agents/skills/; \
-         cp -R /tmp/task-environment/skills/. /root/.gemini/skills/; \
-         cp -R /tmp/task-environment/skills/. /home/user/.codex/skills/; \
-         cp -R /tmp/task-environment/skills/. /logs/agent/skills/; \
-       fi
+        /home/user/.codex/skills
 
 RUN printf '%s\n' \
     '#!/bin/bash' \

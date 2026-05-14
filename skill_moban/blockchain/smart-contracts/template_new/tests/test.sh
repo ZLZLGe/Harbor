@@ -1,23 +1,17 @@
 #!/bin/bash
-set -euo pipefail
+set -u -o pipefail
 
-TESTS_ROOT="${TESTS_ROOT:-/tests}"
-VERIFIER_LOG_ROOT="${VERIFIER_LOG_ROOT:-/logs/verifier}"
+mkdir -p /logs/verifier
+REWARD_FILE="/logs/verifier/reward.txt"
+RESULT_FILE="/logs/verifier/result.json"
 
-mkdir -p "$VERIFIER_LOG_ROOT"
-
-set +e
-python3 -m pytest -q \
-  "$TESTS_ROOT/test_outputs.py" \
-  "$TESTS_ROOT/test_guardrails.py" \
-  2>&1 | tee "$VERIFIER_LOG_ROOT/pytest-output.txt"
-PYTEST_EXIT=${PIPESTATUS[0]}
-set -e
-
-if [ "$PYTEST_EXIT" -eq 0 ]; then
-  printf '1.0\n' > "$VERIFIER_LOG_ROOT/reward.txt"
+python3 -m pytest -q /tests/test_outputs.py /tests/test_guardrails.py 2>&1 | tee /logs/verifier/pytest-output.txt
+STATUS=${PIPESTATUS[0]}
+if [ "$STATUS" -eq 0 ]; then
+  printf '1.0\n' > "${REWARD_FILE}"
+  printf '{"reward": 1.0}\n' > "${RESULT_FILE}"
 else
-  printf '0.0\n' > "$VERIFIER_LOG_ROOT/reward.txt"
+  printf '0.0\n' > "${REWARD_FILE}"
+  printf '{"reward": 0.0}\n' > "${RESULT_FILE}"
 fi
-
 exit 0

@@ -50,6 +50,6 @@ Notes:
 python /root/workspace/run_marine_heat_intake.py --data /root/data --output /root/output
 ```
 
-- Do not modify input data, test files, environment baselines, or dependency configuration.
+- Do not modify input data, test files, or dependency configuration.
 - Do not hand-write the final output files, and do not hard-code the final shortlist.
 - You may add helper scripts, but the official entrypoint must still write the results to `/root/output`.

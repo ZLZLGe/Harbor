@@ -1,14 +1,20 @@
+---
+name: perl-patterns
+description: Modern Perl 5.36+ idioms, best practices, and conventions for building robust, maintainable Perl applications.
+origin: ECC
+---
+
 # Modern Perl Development Patterns
 
 Idiomatic Perl 5.36+ patterns and best practices for building robust, maintainable applications.
 
 ## When to Activate
 
-* Writing new Perl code or modules
-* Reviewing Perl code for idiom compliance
-* Refactoring legacy Perl to modern standards
-* Designing Perl module architecture
-* Migrating pre-5.36 code to modern Perl
+- Writing new Perl code or modules
+- Reviewing Perl code for idiom compliance
+- Refactoring legacy Perl to modern standards
+- Designing Perl module architecture
+- Migrating pre-5.36 code to modern Perl
 
 ## How It Works
 
@@ -16,7 +22,7 @@ Apply these patterns as a bias toward modern Perl 5.36+ defaults: signatures, ex
 
 ## Core Principles
 
-### 1\. Use `v5.36` Pragma
+### 1. Use `v5.36` Pragma
 
 A single `use v5.36` replaces the old boilerplate and enables strict, warnings, and subroutine signatures.
 
@@ -38,10 +44,9 @@ sub greet {
     my ($name) = @_;
     say "Hello, $name!";
 }
-
 ```
 
-### 2\. Subroutine Signatures
+### 2. Subroutine Signatures
 
 Use signatures for clarity and automatic arity checking.
 
@@ -69,10 +74,9 @@ sub connect_db {
     $timeout //= 30;
     # ...
 }
-
 ```
 
-### 3\. Context Sensitivity
+### 3. Context Sensitivity
 
 Understand scalar vs list context — a core Perl concept.
 
@@ -84,10 +88,9 @@ my @items = (1, 2, 3, 4, 5);
 my @copy  = @items;            # List context: all elements
 my $count = @items;            # Scalar context: count (5)
 say "Items: " . scalar @items; # Force scalar context
-
 ```
 
-### 4\. Postfix Dereferencing
+### 4. Postfix Dereferencing
 
 Use postfix dereference syntax for readability with nested structures.
 
@@ -109,17 +112,15 @@ my %first = $data->{users}[0]->%*;
 # Bad: Circumfix dereferencing (harder to read in chains)
 my @users = @{ $data->{users} };
 my @roles = @{ $data->{users}[0]{roles} };
-
 ```
 
-### 5\. The `isa` Operator (5.32+)
+### 5. The `isa` Operator (5.32+)
 
 Infix type-check — replaces `blessed($o) && $o->isa('X')`.
 
 ```perl
 use v5.36;
 if ($obj isa 'My::Class') { $obj->do_something }
-
 ```
 
 ## Error Handling
@@ -134,7 +135,6 @@ sub parse_config($path) {
     die "Config error: $@" if $@;
     return decode_json($content);
 }
-
 ```
 
 ### Try::Tiny (Reliable Exception Handling)
@@ -154,7 +154,6 @@ sub fetch_user($id) {
     };
     return $user;
 }
-
 ```
 
 ### Native try/catch (5.40+)
@@ -172,7 +171,6 @@ sub divide($x, $y) {
         return;
     }
 }
-
 ```
 
 ## Modern OO with Moo
@@ -216,7 +214,6 @@ sub new {
 }
 sub name { return $_[0]->{name} }
 1;
-
 ```
 
 ### Moo Roles
@@ -236,7 +233,6 @@ has name  => (is => 'ro', required => 1);
 has email => (is => 'ro', required => 1);
 sub TO_HASH($self) { { name => $self->name, email => $self->email } }
 1;
-
 ```
 
 ### Native `class` Keyword (5.38+, Corinna)
@@ -254,20 +250,20 @@ class Point {
 
 my $p = Point->new(x => 3, y => 4);
 say $p->magnitude;  # 5
-
 ```
 
 ## Regular Expressions
 
 ### Named Captures and `/x` Flag
 
+```perl
 use v5.36;
 
 # Good: Named captures with /x for readability
 my $log_re = qr{
-    ^ (? \d{4}-\d{2}-\d{2} \s \d{2}:\d{2}:\d{2} )
-    \s+ \[ (? \w+ ) \]
-    \s+ (? .+ ) $
+    ^ (?<timestamp> \d{4}-\d{2}-\d{2} \s \d{2}:\d{2}:\d{2} )
+    \s+ \[ (?<level> \w+ ) \]
+    \s+ (?<message> .+ ) $
 }x;
 
 if ($line =~ $log_re) {
@@ -279,9 +275,9 @@ if ($line =~ $log_re) {
 if ($line =~ /^(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\s+\[(\w+)\]\s+(.+)$/) {
     say "Time: $1, Level: $2";
 }
+```
 
 ### Precompiled Patterns
-
 
 ```perl
 use v5.36;
@@ -292,15 +288,11 @@ my $email_re = qr/^[A-Za-z0-9._%+-]+\@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 sub validate_emails(@emails) {
     return grep { $_ =~ $email_re } @emails;
 }
-
 ```
-
 
 ## Data Structures
 
-
 ### References and Safe Deep Access
-
 
 ```perl
 use v5.36;
@@ -331,15 +323,11 @@ no warnings 'experimental::for_list';
 for my ($key, $val) (%$config) {
     say "$key => $val";
 }
-
 ```
-
 
 ## File I/O
 
-
 ### Three-Argument Open
-
 
 ```perl
 use v5.36;
@@ -358,12 +346,9 @@ sub read_file($path) {
 # Bad: Two-arg open (shell injection risk, see perl-security)
 open FH, $path;            # NEVER do this
 open FH, "< $path";        # Still bad — user data in mode string
-
 ```
 
-
 ### Path::Tiny for File Operations
-
 
 ```perl
 use v5.36;
@@ -377,15 +362,11 @@ $file->spew_utf8($new_content);
 for my $child (path('src')->children(qr/\.pl$/)) {
     say $child->basename;
 }
-
 ```
-
 
 ## Module Organization
 
-
 ### Standard Project Layout
-
 
 ```text
 MyApp/
@@ -404,12 +385,9 @@ MyApp/
 ├── cpanfile                 # Dependencies
 ├── Makefile.PL              # Build system
 └── .perlcriticrc            # Linting config
-
 ```
 
-
 ### Exporter Patterns
-
 
 ```perl
 package MyApp::Util;
@@ -422,15 +400,11 @@ our %EXPORT_TAGS = (all => \@EXPORT_OK);
 sub trim($str) { $str =~ s/^\s+|\s+$//gr }
 
 1;
-
 ```
-
 
 ## Tooling
 
-
 ### perltidy Configuration (.perltidyrc)
-
 
 ```text
 -i=4        # 4-space indent
@@ -439,12 +413,9 @@ sub trim($str) { $str =~ s/^\s+|\s+$//gr }
 -ce         # cuddled else
 -bar        # opening brace on same line
 -nolq       # don't outdent long quoted strings
-
 ```
 
-
 ### perlcritic Configuration (.perlcriticrc)
-
 
 ```ini
 severity = 3
@@ -459,20 +430,15 @@ severity = 4
 
 [ValuesAndExpressions::ProhibitMagicNumbers]
 allowed_values = 0 1 2 -1
-
 ```
 
-
 ### Dependency Management (cpanfile + carton)
-
 
 ```bash
 cpanm App::cpanminus Carton   # Install tools
 carton install                 # Install deps from cpanfile
 carton exec -- perl bin/myapp  # Run with local deps
-
 ```
-
 
 ```perl
 # cpanfile
@@ -485,57 +451,26 @@ on test => sub {
     requires 'Test2::V0';
     requires 'Test::MockModule';
 };
-
 ```
-
 
 ## Quick Reference: Modern Perl Idioms
 
-
-| |                                                  |
-| -------------------------------------------------- |
-| Legacy Pattern                                     |
-| Modern Replacement                                 |
-| |                                                  |
-| use strict; use warnings;                          |
-| use v5.36;                                         |
-| |                                                  |
-| my ($x, $y) = @_;                                  |
-| sub foo($x, $y) { ... }                            |
-| |                                                  |
-| @{ $ref }                                          |
-| $ref->@*                                           |
-| |                                                  |
-| %{ $ref }                                          |
-| $ref->%*                                           |
-| |                                                  |
-| open FH, "< $file"                                 |
-| open my $fh, '<:encoding(UTF-8)', $file            |
-| |                                                  |
-| blessed hashref                                    |
-| Moo class with types                               |
-| |                                                  |
-| $1, $2, $3                                         |
-| $+{name} (named captures)                          |
-| |                                                  |
-| eval { }; if ($@)                                  |
-| Try::Tiny or native try/catch (5.40+)              |
-| |                                                  |
-| BEGIN { require Exporter; }                        |
-| use Exporter 'import';                             |
-| |                                                  |
-| Manual file ops                                    |
-| Path::Tiny                                         |
-| |                                                  |
-| blessed($o) && $o->isa('X')                        |
-| $o isa 'X' (5.32+)                                 |
-| |                                                  |
-| builtin::true / false                              |
-| use builtin 'true', 'false'; (5.36+, experimental) |
-
+| Legacy Pattern | Modern Replacement |
+|---|---|
+| `use strict; use warnings;` | `use v5.36;` |
+| `my ($x, $y) = @_;` | `sub foo($x, $y) { ... }` |
+| `@{ $ref }` | `$ref->@*` |
+| `%{ $ref }` | `$ref->%*` |
+| `open FH, "< $file"` | `open my $fh, '<:encoding(UTF-8)', $file` |
+| `blessed hashref` | `Moo` class with types |
+| `$1, $2, $3` | `$+{name}` (named captures) |
+| `eval { }; if ($@)` | `Try::Tiny` or native `try/catch` (5.40+) |
+| `BEGIN { require Exporter; }` | `use Exporter 'import';` |
+| Manual file ops | `Path::Tiny` |
+| `blessed($o) && $o->isa('X')` | `$o isa 'X'` (5.32+) |
+| `builtin::true / false` | `use builtin 'true', 'false';` (5.36+, experimental) |
 
 ## Anti-Patterns
-
 
 ```perl
 # 1. Two-arg open (security risk)
@@ -564,8 +499,6 @@ eval "require $module";                  # Bad: code injection risk
 eval "use $module";                      # Bad
 use Module::Runtime 'require_module';    # Good: safe module loading
 require_module($module);
-
 ```
-
 
 **Remember**: Modern Perl is clean, readable, and safe. Let `use v5.36` handle the boilerplate, use Moo for objects, and prefer CPAN's battle-tested modules over hand-rolled solutions.

@@ -1,12 +1,18 @@
+---
+name: ui-demo
+description: Record polished UI demo videos using Playwright. Use when the user asks to create a demo, walkthrough, screen recording, or tutorial video of a web application. Produces WebM videos with visible cursor, natural pacing, and professional feel.
+origin: ECC
+---
+
 # UI Demo Video Recorder
 
 Record polished demo videos of web applications using Playwright's video recording with an injected cursor overlay, natural pacing, and storytelling flow.
 
 ## When to Use
 
-* User asks for a "demo video", "screen recording", "walkthrough", or "tutorial"
-* User wants to showcase a feature or workflow visually
-* User needs a video for documentation, onboarding, or stakeholder presentation
+- User asks for a "demo video", "screen recording", "walkthrough", or "tutorial"
+- User wants to showcase a feature or workflow visually
+- User needs a video for documentation, onboarding, or stakeholder presentation
 
 ## Three-Phase Process
 
@@ -20,7 +26,7 @@ Before writing any script, explore the target pages to understand what is actual
 
 ### Why
 
-You cannot script what you have not seen. Fields may be  not , dropdowns may be custom components not , and comment boxes may support `@mentions` or `#tags`. Assumptions break recordings silently. 
+You cannot script what you have not seen. Fields may be `<input>` not `<textarea>`, dropdowns may be custom components not `<select>`, and comment boxes may support `@mentions` or `#tags`. Assumptions break recordings silently.
 
 ### How
 
@@ -46,24 +52,34 @@ const fields = await page.evaluate(() => {
   return els;
 });
 console.log(JSON.stringify(fields, null, 2));
-
 ```
 
 ### What to look for
 
-**Form fields**: Are they , , custom dropdowns, or comboboxes? 
-* **Select options**: Dump option values AND text. Placeholders often have `value="0"` or `value=""` which looks non-empty. Use `Array.from(el.options).map(o => ({ value: o.value, text: o.text }))`. Skip options where text includes "Select" or value is `"0"`.
-* **Rich text**: Does the comment box support `@mentions`, `#tags`, markdown, or emoji? Check placeholder text.
-* **Required fields**: Which fields block form submission? Check `required`, `*` in labels, and try submitting empty to see validation errors.
-* **Dynamic content**: Do fields appear after other fields are filled?
-* **Button labels**: Exact text such as `"Submit"`, `"Submit Request"`, or `"Send"`.
-* **Table column headers**: For table-driven modals, map each `input[type="number"]` to its column header instead of assuming all numeric inputs mean the same thing.
+- **Form fields**: Are they `<select>`, `<input>`, custom dropdowns, or comboboxes?
+- **Select options**: Dump option values AND text. Placeholders often have `value="0"` or `value=""` which looks non-empty. Use `Array.from(el.options).map(o => ({ value: o.value, text: o.text }))`. Skip options where text includes "Select" or value is `"0"`.
+- **Rich text**: Does the comment box support `@mentions`, `#tags`, markdown, or emoji? Check placeholder text.
+- **Required fields**: Which fields block form submission? Check `required`, `*` in labels, and try submitting empty to see validation errors.
+- **Dynamic content**: Do fields appear after other fields are filled?
+- **Button labels**: Exact text such as `"Submit"`, `"Submit Request"`, or `"Send"`.
+- **Table column headers**: For table-driven modals, map each `input[type="number"]` to its column header instead of assuming all numeric inputs mean the same thing.
 
 ### Output
 
 A field map for each page, used to write correct selectors in the script. Example:
 
-/purchase-requests/new:  \- Budget Code:  (first select on page, 4 options)  \- Desired Delivery:  \- Context:  (not input)  \- BOM table: inline-editable cells with span.cursor-pointer -> input pattern  \- Submit:  text="Submit" /purchase-requests/N (detail):  \- Comment:  supports @user and #PR tags  \- Send:  text="Send" (disabled until input has content) 
+```text
+/purchase-requests/new:
+  - Budget Code: <select> (first select on page, 4 options)
+  - Desired Delivery: <input type="date">
+  - Context: <textarea> (not input)
+  - BOM table: inline-editable cells with span.cursor-pointer -> input pattern
+  - Submit: <button> text="Submit"
+
+/purchase-requests/N (detail):
+  - Comment: <input placeholder="Type a message..."> supports @user and #PR tags
+  - Send: <button> text="Send" (disabled until input has content)
+```
 
 ---
 
@@ -98,7 +114,6 @@ async function ensureVisible(page, locator, label) {
   console.log(`REHEARSAL OK: "${label}"`);
   return true;
 }
-
 ```
 
 ### Rehearsal script structure
@@ -126,7 +141,6 @@ if (!allOk) {
   process.exit(1);
 }
 console.log('REHEARSAL PASSED - all selectors verified');
-
 ```
 
 ### When rehearsal fails
@@ -145,26 +159,26 @@ Only after discovery and rehearsal pass should you create the recording.
 
 ### Recording Principles
 
-#### 1\. Storytelling Flow
+#### 1. Storytelling Flow
 
 Plan the video as a story. Follow user-specified order, or use this default:
 
-* **Entry**: Login or navigate to the starting point
-* **Context**: Pan the surroundings so viewers orient themselves
-* **Action**: Perform the main workflow steps
-* **Variation**: Show a secondary feature such as settings, theme, or localization
-* **Result**: Show the outcome, confirmation, or new state
+- **Entry**: Login or navigate to the starting point
+- **Context**: Pan the surroundings so viewers orient themselves
+- **Action**: Perform the main workflow steps
+- **Variation**: Show a secondary feature such as settings, theme, or localization
+- **Result**: Show the outcome, confirmation, or new state
 
-#### 2\. Pacing
+#### 2. Pacing
 
-* After login: `4s`
-* After navigation: `3s`
-* After clicking a button: `2s`
-* Between major steps: `1.5-2s`
-* After the final action: `3s`
-* Typing delay: `25-40ms` per character
+- After login: `4s`
+- After navigation: `3s`
+- After clicking a button: `2s`
+- Between major steps: `1.5-2s`
+- After the final action: `3s`
+- Typing delay: `25-40ms` per character
 
-#### 3\. Cursor Overlay
+#### 3. Cursor Overlay
 
 Inject an SVG arrow cursor that follows mouse movements:
 
@@ -192,12 +206,11 @@ async function injectCursor(page) {
     });
   });
 }
-
 ```
 
 Call `injectCursor(page)` after every page navigation because the overlay is destroyed on navigate.
 
-#### 4\. Mouse Movement
+#### 4. Mouse Movement
 
 Never teleport the cursor. Move to the target before clicking:
 
@@ -226,12 +239,11 @@ async function moveAndClick(page, locator, label, opts = {}) {
   await page.waitForTimeout(postClickDelay);
   return true;
 }
-
 ```
 
 Every call should include a descriptive `label` for debugging.
 
-#### 5\. Typing
+#### 5. Typing
 
 Type visibly, not instant-fill:
 
@@ -249,20 +261,18 @@ async function typeSlowly(page, locator, text, label, charDelay = 35) {
   await page.waitForTimeout(500);
   return true;
 }
-
 ```
 
-#### 6\. Scrolling
+#### 6. Scrolling
 
 Use smooth scroll instead of jumps:
 
 ```javascript
 await page.evaluate(() => window.scrollTo({ top: 400, behavior: 'smooth' }));
 await page.waitForTimeout(1500);
-
 ```
 
-#### 7\. Dashboard Panning
+#### 7. Dashboard Panning
 
 When showing a dashboard or overview page, move the cursor across key elements:
 
@@ -281,10 +291,9 @@ async function panElements(page, selector, maxCount = 6) {
     }
   }
 }
-
 ```
 
-#### 8\. Subtitles
+#### 8. Subtitles
 
 Inject a subtitle bar at the bottom of the viewport:
 
@@ -322,7 +331,6 @@ async function showSubtitle(page, text) {
   }, text);
   if (text) await page.waitForTimeout(800);
 }
-
 ```
 
 Call `injectSubtitleBar(page)` alongside `injectCursor(page)` after every navigation.
@@ -333,14 +341,13 @@ Usage pattern:
 await showSubtitle(page, 'Step 1 - Logging in');
 await showSubtitle(page, 'Step 2 - Dashboard overview');
 await showSubtitle(page, '');
-
 ```
 
 Guidelines:
 
-* Keep subtitle text short, ideally under 60 characters.
-* Use `Step N - Action` format for consistency.
-* Clear the subtitle during long pauses where the UI can speak for itself.
+- Keep subtitle text short, ideally under 60 characters.
+- Use `Step N - Action` format for consistency.
+- Clear the subtitle during long pauses where the UI can speak for itself.
 
 ## Script Template
 
@@ -414,7 +421,6 @@ const REHEARSAL = process.argv.includes('--rehearse');
     await browser.close();
   }
 })();
-
 ```
 
 Usage:
@@ -425,24 +431,23 @@ node demo-script.cjs --rehearse
 
 # Phase 3: Record
 node demo-script.cjs
-
 ```
 
 ## Checklist Before Recording
 
-* Discovery phase completed
-* Rehearsal passes with all selectors OK
-* Headless mode enabled
-* Resolution set to `1280x720`
-* Cursor and subtitle overlays re-injected after every navigation
-* `showSubtitle(page, 'Step N - ...')` used at major transitions
-* `moveAndClick` used for all clicks with descriptive labels
-* `typeSlowly` used for visible input
-* No silent catches; helpers log warnings
-* Smooth scrolling used for content reveal
-* Key pauses are visible to a human viewer
-* Flow matches the requested story order
-* Script reflects the actual UI discovered in phase 1
+- [ ] Discovery phase completed
+- [ ] Rehearsal passes with all selectors OK
+- [ ] Headless mode enabled
+- [ ] Resolution set to `1280x720`
+- [ ] Cursor and subtitle overlays re-injected after every navigation
+- [ ] `showSubtitle(page, 'Step N - ...')` used at major transitions
+- [ ] `moveAndClick` used for all clicks with descriptive labels
+- [ ] `typeSlowly` used for visible input
+- [ ] No silent catches; helpers log warnings
+- [ ] Smooth scrolling used for content reveal
+- [ ] Key pauses are visible to a human viewer
+- [ ] Flow matches the requested story order
+- [ ] Script reflects the actual UI discovered in phase 1
 
 ## Common Pitfalls
 

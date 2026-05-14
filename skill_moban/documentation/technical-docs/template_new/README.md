@@ -9,7 +9,6 @@ technical-docs 类热门 skill 的共性能力：围绕公开代码与测试输�
 * **Skill 价值定位**：technical-docs 类 skill 的核心价值，是把源码、测试、
   现有文档风格和交付合同收束成可发布的说明页。模板任务适合让 agent 在
   API coverage、行为说明、示例组织和站点格式之间做完整收尾。
-* **Task 目标形态**：这类任务适合设计成缺失页面补齐、现有参考页对齐、
   API 说明重建、参数与行为梳理等交付。目标应强调单页交付、固定输入边界、
   正式构建入口和结构化 manifest。
 * **Verifier 设计重点**：Verifier 应覆盖正式生成入口、合同约束、示例与
@@ -23,7 +22,6 @@ technical-docs 类热门 skill 的共性能力：围绕公开代码与测试输�
 
 - 任务 ID：`technical_docs__pqueue_api_reference_page`
 - 类别：`technical-docs`
-- 难度：`hard`
 - 绑定 Skill：`write-api-reference`
 - 输入数据参考来源：
   - `environment/reference_bundle/upstream/package.json`：任务内包元数据  
@@ -48,7 +46,7 @@ technical-docs 类热门 skill 的共性能力：围绕公开代码与测试输�
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 通过正式 build 入口读取同一份本地 reference bundle，
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
   生成 API 页面与 manifest，再独立核对合同中的 API 项、示例、版本说明、
   源输入引用以及源码/测试证据是否齐全。
 - Verifier策略：
@@ -69,7 +67,7 @@ technical-docs 类热门 skill 的共性能力：围绕公开代码与测试输�
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | 输入不可变 | `/environment/reference_bundle` 哈希不变 |
-| Skill 载荷不可变 | `environment/skills/write-api-reference` 哈希不变 |
+| Skill 可用性 | 运行时可发现 `write-api-reference`，帮助补齐 API 参考页结构与用例说明 |
 | 输出白名单 | `/environment/output` 顶层只保留规定产物 |
 | 残留清理 | 输出中不允许出现占位词或 verifier 痕迹 |
 

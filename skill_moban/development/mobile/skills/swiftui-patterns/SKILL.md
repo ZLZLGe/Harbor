@@ -1,14 +1,19 @@
+---
+name: swiftui-patterns
+description: SwiftUI architecture patterns, state management with @Observable, view composition, navigation, performance optimization, and modern iOS/macOS UI best practices.
+---
+
 # SwiftUI Patterns
 
 Modern SwiftUI patterns for building declarative, performant user interfaces on Apple platforms. Covers the Observation framework, view composition, type-safe navigation, and performance optimization.
 
 ## When to Activate
 
-* Building SwiftUI views and managing state (`@State`, `@Observable`, `@Binding`)
-* Designing navigation flows with `NavigationStack`
-* Structuring view models and data flow
-* Optimizing rendering performance for lists and complex layouts
-* Working with environment values and dependency injection in SwiftUI
+- Building SwiftUI views and managing state (`@State`, `@Observable`, `@Binding`)
+- Designing navigation flows with `NavigationStack`
+- Structuring view models and data flow
+- Optimizing rendering performance for lists and complex layouts
+- Working with environment values and dependency injection in SwiftUI
 
 ## State Management
 
@@ -16,14 +21,14 @@ Modern SwiftUI patterns for building declarative, performant user interfaces on 
 
 Choose the simplest wrapper that fits:
 
-| Wrapper                        | Use Case                                                          |
-| ------------------------------ | ----------------------------------------------------------------- |
-| @State                         | View-local value types (toggles, form fields, sheet presentation) |
-| @Binding                       | Two-way reference to parent's @State                              |
-| @Observable class + @State     | Owned model with multiple properties                              |
-| @Observable class (no wrapper) | Read-only reference passed from parent                            |
-| @Bindable                      | Two-way binding to an @Observable property                        |
-| @Environment                   | Shared dependencies injected via .environment()                   |
+| Wrapper | Use Case |
+|---------|----------|
+| `@State` | View-local value types (toggles, form fields, sheet presentation) |
+| `@Binding` | Two-way reference to parent's `@State` |
+| `@Observable` class + `@State` | Owned model with multiple properties |
+| `@Observable` class (no wrapper) | Read-only reference passed from parent |
+| `@Bindable` | Two-way binding to an `@Observable` property |
+| `@Environment` | Shared dependencies injected via `.environment()` |
 
 ### @Observable ViewModel
 
@@ -48,7 +53,6 @@ final class ItemListViewModel {
         items = (try? await repository.fetchAll()) ?? []
     }
 }
-
 ```
 
 ### View Consuming the ViewModel
@@ -70,7 +74,6 @@ struct ItemListView: View {
         .task { await viewModel.load() }
     }
 }
-
 ```
 
 ### Environment Injection
@@ -90,7 +93,6 @@ struct ProfileView: View {
         Text(auth.currentUser?.name ?? "Guest")
     }
 }
-
 ```
 
 ## View Composition
@@ -111,7 +113,6 @@ struct OrderView: View {
         }
     }
 }
-
 ```
 
 ### ViewModifier for Reusable Styling
@@ -131,7 +132,6 @@ extension View {
         modifier(CardModifier())
     }
 }
-
 ```
 
 ## Navigation
@@ -177,7 +177,6 @@ struct RootView: View {
         .environment(router)
     }
 }
-
 ```
 
 ## Performance
@@ -194,7 +193,6 @@ ScrollView {
         }
     }
 }
-
 ```
 
 ### Stable Identifiers
@@ -206,15 +204,14 @@ Always use stable, unique IDs in `ForEach` — avoid using array indices:
 ForEach(items, id: \.stableID) { item in
     ItemRow(item: item)
 }
-
 ```
 
 ### Avoid Expensive Work in body
 
-* Never perform I/O, network calls, or heavy computation inside `body`
-* Use `.task {}` for async work — it cancels automatically when the view disappears
-* Use `.sensoryFeedback()` and `.geometryGroup()` sparingly in scroll views
-* Minimize `.shadow()`, `.blur()`, and `.mask()` in lists — they trigger offscreen rendering
+- Never perform I/O, network calls, or heavy computation inside `body`
+- Use `.task {}` for async work — it cancels automatically when the view disappears
+- Use `.sensoryFeedback()` and `.geometryGroup()` sparingly in scroll views
+- Minimize `.shadow()`, `.blur()`, and `.mask()` in lists — they trigger offscreen rendering
 
 ### Equatable Conformance
 
@@ -232,7 +229,6 @@ struct ExpensiveChartView: View, Equatable {
         // Complex chart rendering
     }
 }
-
 ```
 
 ## Previews
@@ -247,17 +243,17 @@ Use `#Preview` macro with inline mock data for fast iteration:
 #Preview("Loaded") {
     ItemListView(viewModel: ItemListViewModel(repository: PopulatedMockRepository()))
 }
-
 ```
 
 ## Anti-Patterns to Avoid
 
-* Using `ObservableObject` / `@Published` / `@StateObject` / `@EnvironmentObject` in new code — migrate to `@Observable`
-* Putting async work directly in `body` or `init` — use `.task {}` or explicit load methods
-* Creating view models as `@State` inside child views that don't own the data — pass from parent instead
-* Using `AnyView` type erasure — prefer `@ViewBuilder` or `Group` for conditional views
-* Ignoring `Sendable` requirements when passing data to/from actors
+- Using `ObservableObject` / `@Published` / `@StateObject` / `@EnvironmentObject` in new code — migrate to `@Observable`
+- Putting async work directly in `body` or `init` — use `.task {}` or explicit load methods
+- Creating view models as `@State` inside child views that don't own the data — pass from parent instead
+- Using `AnyView` type erasure — prefer `@ViewBuilder` or `Group` for conditional views
+- Ignoring `Sendable` requirements when passing data to/from actors
 
 ## References
 
-See skill: `swift-actor-persistence` for actor-based persistence patterns. See skill: `swift-protocol-di-testing` for protocol-based DI and testing with Swift Testing.
+See skill: `swift-actor-persistence` for actor-based persistence patterns.
+See skill: `swift-protocol-di-testing` for protocol-based DI and testing with Swift Testing.

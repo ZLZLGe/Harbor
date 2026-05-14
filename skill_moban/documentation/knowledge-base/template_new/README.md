@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：knowledge-base 类 skill 的常见价值，是把公开资料查验、知识页结构、资源筛选规则和交付边界收束成一套可发布的页面更新流程。模板任务适合让 agent 在资料审校、缺口补齐、说明文字收口和输出留档之间做完整交付。
-* **Task 目标形态**：这类任务适合设计成概念页资源区更新、知识库条目补齐、学习资源页重整、公共资料审计等交付。目标应强调沿用既有页面外壳、输入边界固定、正式生成入口明确，并带有结构化审计产物。
 * **Verifier 设计重点**：Verifier 应覆盖正式生成入口、资源选择规则、页面壳保留、审计报告对齐、来源快照一致性和替代输入泛化。重点应放在是否完成了整套资源更新工作流，而不是个别句式或表层排版。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`knowledge_base__promises_async_await_resource_refresh`
 - 类别：`knowledge-base`
-- 难度：`hard`
 - 绑定 Skill：`resource-curator`
 - 输入数据参考来源：
   - `environment/knowledge_base/data/candidate_resources.json`：任务内官方参考资源形态参考  
@@ -36,7 +34,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 通过正式 build 入口读取同一份本地 knowledge-base bundle，独立应用资源筛选、覆盖补齐和 canonical URL 规则，再核对最终页面、审计报告和 manifest 是否与合同一致。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -54,7 +52,6 @@
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | 输入不可变 | `/app/knowledge-base` 哈希不变 |
-| Skill 载荷不可变 | `environment/skills/resource-curator` 哈希不变 |
 | 输出白名单 | `/app/output` 顶层只保留规定产物 |
 | 残留清理 | 输出中不允许出现占位词、TODO 或 verifier 痕迹 |
 

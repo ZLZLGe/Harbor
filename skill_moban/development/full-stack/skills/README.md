@@ -1,80 +1,74 @@
 # Full Stack Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/full-stack`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/full-stack，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 56 个 skills，其中 53 个 installs >= 1000，3 个 installs 在 500-999。
 
 ## 技能清单
 
-1. coding-standards | 来源: https://skills.sh/affaan-m/everything-claude-code/coding-standards | installs: 6.4K | stars: 175900
-2. backend-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/backend-patterns | installs: 6.3K | stars: 175900
-3. frontend-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-patterns | installs: 6.3K | stars: 175900
-4. api-design | 来源: https://skills.sh/affaan-m/everything-claude-code/api-design | installs: 4.6K | stars: 175900
-5. frontend-slides | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-slides | installs: 4.4K | stars: 175900
-6. django-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/django-patterns | installs: 4.3K | stars: 175900
-7. database-migrations | 来源: https://skills.sh/affaan-m/everything-claude-code/database-migrations | installs: 3.9K | stars: 175900
-8. nextjs-turbopack | 来源: https://skills.sh/affaan-m/everything-claude-code/nextjs-turbopack | installs: 2.8K | stars: 175900
-9. x-api | 来源: https://skills.sh/affaan-m/everything-claude-code/x-api | installs: 2.6K | stars: 175900
-10. claude-api | 来源: https://skills.sh/affaan-m/everything-claude-code/claude-api | installs: 2.4K | stars: 175900
-11. nuxt4-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/nuxt4-patterns | installs: 2.4K | stars: 175900
-12. frontend-design | 来源: https://skills.sh/affaan-m/everything-claude-code/frontend-design | installs: 1.8K | stars: 175900
-13. api-connector-builder | 来源: https://skills.sh/affaan-m/everything-claude-code/api-connector-builder | installs: 1.7K | stars: 175900
-14. frontend-testing | 来源: https://skills.sh/langgenius/dify/frontend-testing | installs: 2.2K | stars: 140300
-15. webapp-testing | 来源: https://skills.sh/anthropics/skills/webapp-testing | installs: 63.6K | stars: 128900
-16. doc-coauthoring | 来源: https://skills.sh/anthropics/skills/doc-coauthoring | installs: 38.2K | stars: 128900
-17. fullstack-developer | 来源: https://skills.sh/shubhamsaboo/awesome-llm-apps/fullstack-developer | installs: 5.4K | stars: 109000
-18. fastapi | 来源: https://skills.sh/fastapi/fastapi/fastapi | installs: 2.3K | stars: 97900
-19. react | 来源: https://skills.sh/lobehub/lobehub/react | installs: 2.0K | stars: 76100
-20. api-security-best-practices | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/api-security-best-practices | installs: 6.9K | stars: 36853
-21. nextjs-supabase-auth | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/nextjs-supabase-auth | installs: 4.7K | stars: 36853
-22. api-documentation-generator | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/api-documentation-generator | installs: 1.4K | stars: 36853
-23. senior-fullstack | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/senior-fullstack | installs: 1.3K | stars: 36853
-24. database-design | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/database-design | installs: 1.2K | stars: 36853
-25. backend-dev-guidelines | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/backend-dev-guidelines | installs: 1.1K | stars: 36853
-26. tailwind-design-system | 来源: https://skills.sh/wshobson/agents/tailwind-design-system | installs: 39.9K | stars: 35018
-27. nodejs-backend-patterns | 来源: https://skills.sh/wshobson/agents/nodejs-backend-patterns | installs: 31.2K | stars: 35018
-28. api-design-principles | 来源: https://skills.sh/wshobson/agents/api-design-principles | installs: 19.9K | stars: 35018
-29. fastapi-templates | 来源: https://skills.sh/wshobson/agents/fastapi-templates | installs: 16.4K | stars: 35018
-30. react-native-architecture | 来源: https://skills.sh/wshobson/agents/react-native-architecture | installs: 8.7K | stars: 35018
-31. react-native-design | 来源: https://skills.sh/wshobson/agents/react-native-design | installs: 8.7K | stars: 35018
-32. react-state-management | 来源: https://skills.sh/wshobson/agents/react-state-management | installs: 8.0K | stars: 35018
-33. web-component-design | 来源: https://skills.sh/wshobson/agents/web-component-design | installs: 7.4K | stars: 35018
-34. react-modernization | 来源: https://skills.sh/wshobson/agents/react-modernization | installs: 6.8K | stars: 35018
-35. python-observability | 来源: https://skills.sh/wshobson/agents/python-observability | installs: 5.9K | stars: 35018
-36. create-spring-boot-java-project | 来源: https://skills.sh/github/awesome-copilot/create-spring-boot-java-project | installs: 8.7K | stars: 32200
-37. openapi-to-application-code | 来源: https://skills.sh/github/awesome-copilot/openapi-to-application-code | installs: 8.6K | stars: 32200
-38. aspnet-minimal-api-openapi | 来源: https://skills.sh/github/awesome-copilot/aspnet-minimal-api-openapi | installs: 8.5K | stars: 32200
-39. java-mcp-server-generator | 来源: https://skills.sh/github/awesome-copilot/java-mcp-server-generator | installs: 8.4K | stars: 32200
-40. typespec-api-operations | 来源: https://skills.sh/github/awesome-copilot/typespec-api-operations | installs: 8.4K | stars: 32200
-41. typespec-create-api-plugin | 来源: https://skills.sh/github/awesome-copilot/typespec-create-api-plugin | installs: 8.3K | stars: 32200
-42. premium-frontend-ui | 来源: https://skills.sh/github/awesome-copilot/premium-frontend-ui | installs: 1.8K | stars: 32200
-43. senior-backend | 来源: https://skills.sh/davila7/claude-code-templates/senior-backend | installs: 2.1K | stars: 26800
-44. frontend-skill | 来源: https://skills.sh/openai/skills/frontend-skill | installs: 1.5K | stars: 18400
-45. waapi | 来源: https://skills.sh/heygen-com/hyperframes/waapi | installs: 11.4K | stars: 15000
-46. frontend-dev | 来源: https://skills.sh/minimax-ai/skills/frontend-dev | installs: 1.5K | stars: 11600
-47. fullstack-dev | 来源: https://skills.sh/minimax-ai/skills/fullstack-dev | installs: 1.5K | stars: 11600
-48. lark-openapi-explorer | 来源: https://skills.sh/larksuite/cli/lark-openapi-explorer | installs: 101.5K | stars: 9300
-49. fastapi-expert | 来源: https://skills.sh/jeffallan/claude-skills/fastapi-expert | installs: 2.8K | stars: 8800
-50. api-designer | 来源: https://skills.sh/jeffallan/claude-skills/api-designer | installs: 2.6K | stars: 8800
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | coding-standards | affaan-m/everything-claude-code | 177611 | 6723 | https://skills.sh/affaan-m/everything-claude-code/coding-standards |
+| 2 | frontend-patterns | affaan-m/everything-claude-code | 177611 | 6679 | https://skills.sh/affaan-m/everything-claude-code/frontend-patterns |
+| 3 | backend-patterns | affaan-m/everything-claude-code | 177611 | 6633 | https://skills.sh/affaan-m/everything-claude-code/backend-patterns |
+| 4 | django-patterns | affaan-m/everything-claude-code | 177611 | 4698 | https://skills.sh/affaan-m/everything-claude-code/django-patterns |
+| 5 | nextjs-turbopack | affaan-m/everything-claude-code | 177611 | 3111 | https://skills.sh/affaan-m/everything-claude-code/nextjs-turbopack |
+| 6 | nuxt4-patterns | affaan-m/everything-claude-code | 177611 | 2732 | https://skills.sh/affaan-m/everything-claude-code/nuxt4-patterns |
+| 7 | fullstack-developer | Shubhamsaboo/awesome-llm-apps | 109559 | 5586 | https://skills.sh/Shubhamsaboo/awesome-llm-apps/fullstack-developer |
+| 8 | react | lobehub/lobehub | 76794 | 2092 | https://skills.sh/lobehub/lobehub/react |
+| 9 | tailwind-design-system | wshobson/agents | 35133 | 41231 | https://skills.sh/wshobson/agents/tailwind-design-system |
+| 10 | nodejs-backend-patterns | wshobson/agents | 35133 | 31923 | https://skills.sh/wshobson/agents/nodejs-backend-patterns |
+| 11 | api-design-principles | wshobson/agents | 35133 | 20387 | https://skills.sh/wshobson/agents/api-design-principles |
+| 12 | nextjs-app-router-patterns | wshobson/agents | 35133 | 17198 | https://skills.sh/wshobson/agents/nextjs-app-router-patterns |
+| 13 | fastapi-templates | wshobson/agents | 35133 | 16825 | https://skills.sh/wshobson/agents/fastapi-templates |
+| 14 | react-native-design | wshobson/agents | 35133 | 8989 | https://skills.sh/wshobson/agents/react-native-design |
+| 15 | react-native-architecture | wshobson/agents | 35133 | 8975 | https://skills.sh/wshobson/agents/react-native-architecture |
+| 16 | react-state-management | wshobson/agents | 35133 | 8434 | https://skills.sh/wshobson/agents/react-state-management |
+| 17 | web-component-design | wshobson/agents | 35133 | 7700 | https://skills.sh/wshobson/agents/web-component-design |
+| 18 | react-modernization | wshobson/agents | 35133 | 7122 | https://skills.sh/wshobson/agents/react-modernization |
+| 19 | python-observability | wshobson/agents | 35133 | 6174 | https://skills.sh/wshobson/agents/python-observability |
+| 20 | typescript-mcp-server-generator | github/awesome-copilot | 32605 | 9969 | https://skills.sh/github/awesome-copilot/typescript-mcp-server-generator |
+| 21 | create-spring-boot-java-project | github/awesome-copilot | 32605 | 8767 | https://skills.sh/github/awesome-copilot/create-spring-boot-java-project |
+| 22 | rust-mcp-server-generator | github/awesome-copilot | 32605 | 8637 | https://skills.sh/github/awesome-copilot/rust-mcp-server-generator |
+| 23 | swift-mcp-server-generator | github/awesome-copilot | 32605 | 8441 | https://skills.sh/github/awesome-copilot/swift-mcp-server-generator |
+| 24 | java-mcp-server-generator | github/awesome-copilot | 32605 | 8390 | https://skills.sh/github/awesome-copilot/java-mcp-server-generator |
+| 25 | kotlin-mcp-server-generator | github/awesome-copilot | 32605 | 8359 | https://skills.sh/github/awesome-copilot/kotlin-mcp-server-generator |
+| 26 | ruby-mcp-server-generator | github/awesome-copilot | 32605 | 8320 | https://skills.sh/github/awesome-copilot/ruby-mcp-server-generator |
+| 27 | heroui-native | heroui-inc/heroui | 29231 | 5156 | https://skills.sh/heroui-inc/heroui/heroui-native |
+| 28 | netlify-deploy | openai/skills | 18740 | 1182 | https://skills.sh/openai/skills/netlify-deploy |
+| 29 | render-deploy | openai/skills | 18740 | 1024 | https://skills.sh/openai/skills/render-deploy |
+| 30 | fullstack-dev | MiniMax-AI/skills | 11680 | 1638 | https://skills.sh/MiniMax-AI/skills/fullstack-dev |
+| 31 | flutter-expert | Jeffallan/claude-skills | 8935 | 10660 | https://skills.sh/Jeffallan/claude-skills/flutter-expert |
+| 32 | api-designer | Jeffallan/claude-skills | 8935 | 2813 | https://skills.sh/Jeffallan/claude-skills/api-designer |
+| 33 | typescript-pro | Jeffallan/claude-skills | 8935 | 2783 | https://skills.sh/Jeffallan/claude-skills/typescript-pro |
+| 34 | nextjs-developer | Jeffallan/claude-skills | 8935 | 2566 | https://skills.sh/Jeffallan/claude-skills/nextjs-developer |
+| 35 | nestjs-expert | Jeffallan/claude-skills | 8935 | 2478 | https://skills.sh/Jeffallan/claude-skills/nestjs-expert |
+| 36 | react-expert | Jeffallan/claude-skills | 8935 | 2331 | https://skills.sh/Jeffallan/claude-skills/react-expert |
+| 37 | fullstack-guardian | Jeffallan/claude-skills | 8935 | 2322 | https://skills.sh/Jeffallan/claude-skills/fullstack-guardian |
+| 38 | react-native-expert | Jeffallan/claude-skills | 8935 | 2290 | https://skills.sh/Jeffallan/claude-skills/react-native-expert |
+| 39 | rails-expert | Jeffallan/claude-skills | 8935 | 2224 | https://skills.sh/Jeffallan/claude-skills/rails-expert |
+| 40 | angular-architect | Jeffallan/claude-skills | 8935 | 2217 | https://skills.sh/Jeffallan/claude-skills/angular-architect |
+| 41 | vue-expert | Jeffallan/claude-skills | 8935 | 1993 | https://skills.sh/Jeffallan/claude-skills/vue-expert |
+| 42 | migrate-to-vinext | cloudflare/vinext | 8004 | 3374 | https://skills.sh/cloudflare/vinext/migrate-to-vinext |
+| 43 | nuxt-ui | nuxt/ui | 6564 | 11178 | https://skills.sh/nuxt/ui/nuxt-ui |
+| 44 | vite | antfu/skills | 4897 | 21973 | https://skills.sh/antfu/skills/vite |
+| 45 | vue | antfu/skills | 4897 | 21936 | https://skills.sh/antfu/skills/vue |
+| 46 | nuxt | antfu/skills | 4897 | 14948 | https://skills.sh/antfu/skills/nuxt |
+| 47 | vitepress | antfu/skills | 4897 | 7461 | https://skills.sh/antfu/skills/vitepress |
+| 48 | agentation | benjitaylor/agentation | 3548 | 9059 | https://skills.sh/benjitaylor/agentation/agentation |
+| 49 | workflow-init | vercel/workflow | 2007 | 1185 | https://skills.sh/vercel/workflow/workflow-init |
+| 50 | apify-actorization | apify/agent-skills | 2005 | 6290 | https://skills.sh/apify/agent-skills/apify-actorization |
+| 51 | fastify-best-practices | mcollina/skills | 1784 | 1963 | https://skills.sh/mcollina/skills/fastify-best-practices |
+| 52 | node | mcollina/skills | 1784 | 1725 | https://skills.sh/mcollina/skills/node |
+| 53 | chatgpt-app-builder | alpic-ai/skybridge | 1128 | 2587 | https://skills.sh/alpic-ai/skybridge/chatgpt-app-builder |
 
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/langgenius/dify
-- https://skills.sh/anthropics/skills
-- https://skills.sh/shubhamsaboo/awesome-llm-apps
-- https://skills.sh/fastapi/fastapi
-- https://skills.sh/lobehub/lobehub
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
-- https://skills.sh/davila7/claude-code-templates
-- https://skills.sh/openai/skills
-- https://skills.sh/heygen-com/hyperframes
-- https://skills.sh/minimax-ai/skills
-- https://skills.sh/larksuite/cli
-- https://skills.sh/jeffallan/claude-skills
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 54 | remotion | davila7/claude-code-templates | 27127 | 833 | https://skills.sh/davila7/claude-code-templates/remotion |
+| 55 | svelte | vercel-labs/json-render | 14713 | 548 | https://skills.sh/vercel-labs/json-render/svelte |
+| 56 | threejs | mrgoonie/claudekit-skills | 2063 | 840 | https://skills.sh/mrgoonie/claudekit-skills/threejs |

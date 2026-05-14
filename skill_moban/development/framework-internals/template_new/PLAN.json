@@ -118,7 +118,7 @@
       "final report covers both scenarios and reflects the actual build and export results"
     ],
     "guardrails": [
-      "upstream task data and bound skill file remain unchanged",
+      "upstream task data remains unchanged",
       "alternate route snapshot changes route digest and summary values without code changes",
       "report regeneration time shows the file was produced by the current run rather than checked in as a fixed answer"
     ],

@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：monitoring 类 Prometheus 配置 skill 的核心价值，是把“能看到一些指标”提升为“能交付一套可运行、可扩展、可验证的监控配置包”。它强调的是采集方式、目标发现、标签整理、规则计算和告警分级，而不是事故处置叙事。
-* **Task 目标形态**：任务应要求 Agent 基于现有环境和输入合同，构建完整的 Prometheus 监控配置包，并让服务级摘要稳定产出。目标形态适合设计成配置建设、inventory 驱动发现、recording rules 计算和告警分级交付，不适合做手工算答案、单文件填空或泛化成任意运维排障题。
 * **Verifier 设计重点**：Verifier 应重点检查 bundle 是否真的完成了采集、发现、规则和告警的交付，而不是只比对 JSON 表面格式。重点应覆盖输入不可变、服务覆盖完整、影子 inventory 不会被带入、目录新增 manifest 后可自动发现、规则可评估以及报告可由当前 bundle 重建。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`monitoring__harbor-prometheus-bundle`
 - 类别：`monitoring`
-- 难度：`hard`
 - 绑定 Skill：`prometheus-configuration`
 - 输入数据参考来源：
   - `environment/data/telemetry_reference/prometheus_example_app_README.md`：HTTP 请求计数器与延迟直方图样例  
@@ -28,7 +26,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 使用官方 `solve.sh` 生成 Prometheus bundle 配置、启动现有控制脚本、等待规则生效，再用同一套报告脚本写出 `/app/output/monitoring_bundle_report.json`。当前最终版 E2B oracle 于 `2026-05-02` 跑通，reward=`1.0`。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -43,7 +41,7 @@
 防作弊测试
 | 测试点 | 验证内容 |
 | :--- | :--- |
-| 输入完整性 | `/app/data/` 的输入文件哈希不得变化 |
+| 输入完整性 | `/app/data/` 的输入文件不可修改 |
 | 目录新增 manifest | 验证阶段新增一个同批次 inventory 文件后，新目标应被自动发现 |
 | 影子目标隔离 | 非合同批次的影子 manifest 不应进入健康目标集合 |
 | 报告可重建 | 再次调用环境中的报告脚本时，应能得到与正式输出一致的语义结果 |

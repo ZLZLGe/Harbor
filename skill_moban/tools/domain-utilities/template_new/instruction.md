@@ -76,5 +76,5 @@ Notes
 
 - Use the workspace inputs as the source of record for domain status and written claims.
 - If the environment provides an installed procedure for applying the ranking contract, use that procedure instead of inventing a new scoring method.
-- Do not modify the input directory, tests, environment files, or any content under a `skills` directory.
+- Do not modify the input directory, tests, or environment files.
 - You may create helper scripts or temporary working files while solving the task. The final deliverables must remain only the 2 required files under `/root/output/`.

@@ -1,17 +1,23 @@
+---
+name: swift-protocol-di-testing
+description: Protocol-based dependency injection for testable Swift code — mock file system, network, and external APIs using focused protocols and Swift Testing.
+origin: ECC
+---
+
 # Swift Protocol-Based Dependency Injection for Testing
 
 Patterns for making Swift code testable by abstracting external dependencies (file system, network, iCloud) behind small, focused protocols. Enables deterministic tests without I/O.
 
 ## When to Activate
 
-* Writing Swift code that accesses file system, network, or external APIs
-* Need to test error handling paths without triggering real failures
-* Building modules that work across environments (app, test, SwiftUI preview)
-* Designing testable architecture with Swift concurrency (actors, Sendable)
+- Writing Swift code that accesses file system, network, or external APIs
+- Need to test error handling paths without triggering real failures
+- Building modules that work across environments (app, test, SwiftUI preview)
+- Designing testable architecture with Swift concurrency (actors, Sendable)
 
 ## Core Pattern
 
-### 1\. Define Small, Focused Protocols
+### 1. Define Small, Focused Protocols
 
 Each protocol handles exactly one external concern.
 
@@ -33,10 +39,9 @@ public protocol BookmarkStorageProviding: Sendable {
     func saveBookmark(_ data: Data, for key: String) throws
     func loadBookmark(for key: String) throws -> Data?
 }
-
 ```
 
-### 2\. Create Default (Production) Implementations
+### 2. Create Default (Production) Implementations
 
 ```swift
 public struct DefaultFileSystemProvider: FileSystemProviding {
@@ -62,10 +67,9 @@ public struct DefaultFileAccessor: FileAccessorProviding {
         FileManager.default.fileExists(atPath: url.path)
     }
 }
-
 ```
 
-### 3\. Create Mock Implementations for Testing
+### 3. Create Mock Implementations for Testing
 
 ```swift
 public final class MockFileAccessor: FileAccessorProviding, @unchecked Sendable {
@@ -92,10 +96,9 @@ public final class MockFileAccessor: FileAccessorProviding, @unchecked Sendable 
         files[url] != nil
     }
 }
-
 ```
 
-### 4\. Inject Dependencies with Default Parameters
+### 4. Inject Dependencies with Default Parameters
 
 Production code uses defaults; tests inject mocks.
 
@@ -122,10 +125,9 @@ public actor SyncManager {
         // Process data...
     }
 }
-
 ```
 
-### 5\. Write Tests with Swift Testing
+### 5. Write Tests with Swift Testing
 
 ```swift
 import Testing
@@ -162,28 +164,27 @@ func testReadError() async {
         try await manager.sync()
     }
 }
-
 ```
 
 ## Best Practices
 
-* **Single Responsibility**: Each protocol should handle one concern — don't create "god protocols" with many methods
-* **Sendable conformance**: Required when protocols are used across actor boundaries
-* **Default parameters**: Let production code use real implementations by default; only tests need to specify mocks
-* **Error simulation**: Design mocks with configurable error properties for testing failure paths
-* **Only mock boundaries**: Mock external dependencies (file system, network, APIs), not internal types
+- **Single Responsibility**: Each protocol should handle one concern — don't create "god protocols" with many methods
+- **Sendable conformance**: Required when protocols are used across actor boundaries
+- **Default parameters**: Let production code use real implementations by default; only tests need to specify mocks
+- **Error simulation**: Design mocks with configurable error properties for testing failure paths
+- **Only mock boundaries**: Mock external dependencies (file system, network, APIs), not internal types
 
 ## Anti-Patterns to Avoid
 
-* Creating a single large protocol that covers all external access
-* Mocking internal types that have no external dependencies
-* Using `#if DEBUG` conditionals instead of proper dependency injection
-* Forgetting `Sendable` conformance when used with actors
-* Over-engineering: if a type has no external dependencies, it doesn't need a protocol
+- Creating a single large protocol that covers all external access
+- Mocking internal types that have no external dependencies
+- Using `#if DEBUG` conditionals instead of proper dependency injection
+- Forgetting `Sendable` conformance when used with actors
+- Over-engineering: if a type has no external dependencies, it doesn't need a protocol
 
 ## When to Use
 
-* Any Swift code that touches file system, network, or external APIs
-* Testing error handling paths that are hard to trigger in real environments
-* Building modules that need to work in app, test, and SwiftUI preview contexts
-* Apps using Swift concurrency (actors, structured concurrency) that need testable architecture
+- Any Swift code that touches file system, network, or external APIs
+- Testing error handling paths that are hard to trigger in real environments
+- Building modules that need to work in app, test, and SwiftUI preview contexts
+- Apps using Swift concurrency (actors, structured concurrency) that need testable architecture

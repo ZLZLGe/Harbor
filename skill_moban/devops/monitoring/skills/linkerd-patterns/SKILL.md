@@ -1,21 +1,26 @@
+---
+name: linkerd-patterns
+description: Implement Linkerd service mesh patterns for lightweight, security-focused service mesh deployments. Use when setting up Linkerd, configuring traffic policies, or implementing zero-trust networking with minimal overhead.
+---
+
 # Linkerd Patterns
 
 Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kubernetes.
 
 ## When to Use This Skill
 
-* Setting up a lightweight service mesh
-* Implementing automatic mTLS
-* Configuring traffic splits for canary deployments
-* Setting up service profiles for per-route metrics
-* Implementing retries and timeouts
-* Multi-cluster service mesh
+- Setting up a lightweight service mesh
+- Implementing automatic mTLS
+- Configuring traffic splits for canary deployments
+- Setting up service profiles for per-route metrics
+- Implementing retries and timeouts
+- Multi-cluster service mesh
 
 ## Core Concepts
 
-### 1\. Linkerd Architecture
+### 1. Linkerd Architecture
 
-```text
+```
 ┌─────────────────────────────────────────────┐
 │                Control Plane                 │
 │  ┌─────────┐ ┌──────────┐ ┌──────────────┐ │
@@ -33,10 +38,9 @@ Production patterns for Linkerd service mesh - the lightweight, security-first s
 │  │ app │    │ app │    │ app │            │
 │  └─────┘    └─────┘    └─────┘            │
 └─────────────────────────────────────────────┘
-
 ```
 
-### 2\. Key Resources
+### 2. Key Resources
 
 | Resource                | Purpose                              |
 | ----------------------- | ------------------------------------ |
@@ -67,7 +71,6 @@ linkerd check
 
 # Install viz extension (optional)
 linkerd viz install | kubectl apply -f -
-
 ```
 
 ### Template 2: Inject Namespace
@@ -93,7 +96,6 @@ spec:
     metadata:
       annotations:
         linkerd.io/inject: enabled
-
 ```
 
 ### Template 3: Service Profile with Retries
@@ -133,7 +135,6 @@ spec:
     retryRatio: 0.2
     minRetriesPerSecond: 10
     ttl: 10s
-
 ```
 
 ### Template 4: Traffic Split (Canary)
@@ -151,7 +152,6 @@ spec:
       weight: 900m # 90%
     - service: my-service-canary
       weight: 100m # 10%
-
 ```
 
 ### Template 5: Server Authorization Policy
@@ -198,7 +198,6 @@ spec:
     unauthenticated: true
     networks:
       - cidr: 10.0.0.0/8
-
 ```
 
 ### Template 6: HTTPRoute for Advanced Routing
@@ -233,7 +232,6 @@ spec:
       backendRefs:
         - name: my-service-v1
           port: 8080
-
 ```
 
 ### Template 7: Multi-cluster Setup
@@ -253,7 +251,6 @@ kubectl label svc/my-service mirror.linkerd.io/exported=true
 # Verify cross-cluster connectivity
 linkerd multicluster check
 linkerd multicluster gateways
-
 ```
 
 ## Monitoring Commands
@@ -273,7 +270,6 @@ linkerd viz edges deploy -n my-namespace
 
 # Dashboard
 linkerd viz dashboard
-
 ```
 
 ## Debugging
@@ -290,21 +286,20 @@ linkerd identity -n my-namespace
 
 # Tap traffic (live)
 linkerd viz tap deploy/my-app --to deploy/my-backend
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Enable mTLS everywhere** \- It's automatic with Linkerd
-* **Use ServiceProfiles** \- Get per-route metrics and retries
-* **Set retry budgets** \- Prevent retry storms
-* **Monitor golden metrics** \- Success rate, latency, throughput
+- **Enable mTLS everywhere** - It's automatic with Linkerd
+- **Use ServiceProfiles** - Get per-route metrics and retries
+- **Set retry budgets** - Prevent retry storms
+- **Monitor golden metrics** - Success rate, latency, throughput
 
 ### Don'ts
 
-* **Don't skip check** \- Always run `linkerd check` after changes
-* **Don't over-configure** \- Linkerd defaults are sensible
-* **Don't ignore ServiceProfiles** \- They unlock advanced features
-* **Don't forget timeouts** \- Set appropriate values per route
+- **Don't skip check** - Always run `linkerd check` after changes
+- **Don't over-configure** - Linkerd defaults are sensible
+- **Don't ignore ServiceProfiles** - They unlock advanced features
+- **Don't forget timeouts** - Set appropriate values per route

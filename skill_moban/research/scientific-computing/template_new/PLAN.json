@@ -126,7 +126,7 @@
       "metadata mutation 改变 grid mapping",
       "文件名扰动后仍要选中同一组核心输入",
       "重复运行保持确定性",
-      "输入数据和 bound skill 不得被修改",
+      "输入数据不得被修改，bound skill 只作为运行时参考",
       "官方入口重放结果必须一致"
     ],
     "without_skill_failure_target": "without_skill 至少保留一项分析动作失败，优先是 issue coverage 不完整、手动截断数值、mutation 响应不稳，或未遵循 probe 指定的输出约定。"
@@ -134,7 +134,7 @@
   "environment_constraints": {
     "container_shape": "single Docker container",
     "runtime_rule": "with_skill 和 without_skill 的唯一区别只能来自 environment/skills 及其对应 runtime 复制逻辑",
-    "skill_handling": "选定 skill 只允许原样复制，不允许改写 skill 内容",
+    "skill_handling": "选定 skill 仅作为运行时参考，不应依赖改写 skill 内容完成任务",
     "e2b_rule": "每次 E2B 实验都必须从新的隔离 runtime 副本启动"
   },
   "experiment_results": {

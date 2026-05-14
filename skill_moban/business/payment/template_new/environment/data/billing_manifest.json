@@ -1,0 +1,25 @@
+{
+  "workspace_id": "billing-batch-lab",
+  "run_date": "2026-05-13",
+  "currency": "usd",
+  "batch_scope": {
+    "subscription_ids": [
+      "SUB-1001",
+      "SUB-1002",
+      "SUB-1003",
+      "SUB-1004",
+      "SUB-1005",
+      "SUB-1006",
+      "SUB-1007",
+      "SUB-1008",
+      "SUB-1009",
+      "SUB-1010"
+    ]
+  },
+  "delivery": {
+    "primary_outputs": [
+      "/root/output/billing_actions.csv",
+      "/root/output/billing_run_summary.json"
+    ]
+  }
+}

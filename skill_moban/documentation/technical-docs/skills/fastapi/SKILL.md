@@ -1,3 +1,8 @@
+---
+name: fastapi
+description: FastAPI best practices and conventions. Use when working with FastAPI APIs and Pydantic models for them. Keeps FastAPI code clean and up to date with the latest features and patterns, updated with new versions. Write new code or refactor and update old code.
+---
+
 # FastAPI
 
 Official FastAPI skill to write code with best practices, keeping up to date with new versions and features.
@@ -8,14 +13,13 @@ Run the development server on localhost with reload:
 
 ```bash
 fastapi dev
-
 ```
+
 
 Run the production server:
 
 ```bash
 fastapi run
-
 ```
 
 ### Add an entrypoint in `pyproject.toml`
@@ -25,7 +29,6 @@ FastAPI CLI will read the entrypoint in `pyproject.toml` to know where the FastA
 ```toml
 [tool.fastapi]
 entrypoint = "my_app.main:app"
-
 ```
 
 ### Use `fastapi` with a path
@@ -34,7 +37,6 @@ When adding the entrypoint to `pyproject.toml` is not possible, or the user expl
 
 ```bash
 fastapi dev my_app/main.py
-
 ```
 
 Prefer to set the entrypoint in `pyproject.toml` when possible.
@@ -63,7 +65,6 @@ async def read_item(
     q: Annotated[str | None, Query(max_length=50)] = None,
 ):
     return {"message": "Hello World"}
-
 ```
 
 instead of:
@@ -76,7 +77,6 @@ async def read_item(
     q: str | None = Query(default=None, max_length=50),
 ):
     return {"message": "Hello World"}
-
 ```
 
 ### For Dependencies
@@ -103,7 +103,6 @@ CurrentUserDep = Annotated[dict, Depends(get_current_user)]
 @app.get("/items/")
 async def read_item(current_user: CurrentUserDep):
     return {"message": "Hello World"}
-
 ```
 
 instead of:
@@ -113,10 +112,9 @@ instead of:
 @app.get("/items/")
 async def read_item(current_user: dict = Depends(get_current_user)):
     return {"message": "Hello World"}
-
 ```
 
-## Do not use Ellipsis for _path operations_ or Pydantic models
+## Do not use Ellipsis for *path operations* or Pydantic models
 
 Do not use `...` as a default value for required parameters, it's not needed and not recommended.
 
@@ -140,7 +138,6 @@ app = FastAPI()
 
 @app.post("/items/")
 async def create_item(item: Item, project_id: Annotated[int, Query()]): ...
-
 ```
 
 instead of this:
@@ -158,7 +155,6 @@ app = FastAPI()
 
 @app.post("/items/")
 async def create_item(item: Item, project_id: Annotated[int, Query(...)]): ...
-
 ```
 
 ## Return Type or Response Model
@@ -180,7 +176,6 @@ class Item(BaseModel):
 @app.get("/items/me")
 async def get_item() -> Item:
     return Item(name="Plumbus", description="All-purpose home device")
-
 ```
 
 **Important**: Return types or response models are what filter data ensuring no sensitive information is exposed. And they are used to serialize data with Pydantic (in Rust), this is the main idea that can increase response performance.
@@ -208,7 +203,6 @@ class Item(BaseModel):
 @app.get("/items/me", response_model=Item)
 async def get_item() -> Any:
     return {"name": "Foo", "description": "A very nice Item"}
-
 ```
 
 This can be particularly useful when filtering data to expose only the public fields and avoid exposing sensitive information.
@@ -239,7 +233,6 @@ async def get_item() -> Any:
         name="Foo", description="A very nice Item", secret_key="supersecret"
     )
     return item
-
 ```
 
 ## Performance
@@ -269,7 +262,6 @@ async def list_items():
 
 # In main.py
 app.include_router(router)
-
 ```
 
 instead of this:
@@ -290,7 +282,6 @@ async def list_items():
 
 # In main.py
 app.include_router(router, prefix="/items", tags=["items"])
-
 ```
 
 There could be exceptions, but try to follow this convention.
@@ -299,15 +290,15 @@ Apply shared dependencies at the router level via `dependencies=[Depends(...)]`.
 
 ## Dependency Injection
 
-See [the dependency injection reference](https://github.com/fastapi/fastapi/blob/HEAD/fastapi/.agents/skills/fastapi/references/dependencies.md) for detailed patterns including `yield` with `scope`, and class dependencies.
+See [the dependency injection reference](references/dependencies.md) for detailed patterns including `yield` with `scope`, and class dependencies.
 
 Use dependencies when the logic can't be declared in Pydantic validation, depends on external resources, needs cleanup (with `yield`), or is shared across endpoints.
 
 Apply shared dependencies at the router level via `dependencies=[Depends(...)]`.
 
-## Async vs Sync _path operations_
+## Async vs Sync *path operations*
 
-Use `async` _path operations_ only when fully certain that the logic called inside is compatible with async and await (it's called with `await`) or that doesn't block.
+Use `async` *path operations* only when fully certain that the logic called inside is compatible with async and await (it's called with `await`) or that doesn't block.
 
 ```python
 from fastapi import FastAPI
@@ -327,7 +318,6 @@ async def read_async_items():
 def read_items():
     data = some_blocking_library.fetch_items()
     return data
-
 ```
 
 In case of doubt, or by default, use regular `def` functions, those will be run in a threadpool so they don't block the event loop.
@@ -336,19 +326,19 @@ The same rules apply to dependencies.
 
 Make sure blocking code is not run inside of `async` functions. The logic will work, but will damage the performance heavily.
 
-When needing to mix blocking and async code, see Asyncer in [the other tools reference](https://github.com/fastapi/fastapi/blob/HEAD/fastapi/.agents/skills/fastapi/references/other-tools.md).
+When needing to mix blocking and async code, see Asyncer in [the other tools reference](references/other-tools.md).
 
 ## Streaming (JSON Lines, SSE, bytes)
 
-See [the streaming reference](https://github.com/fastapi/fastapi/blob/HEAD/fastapi/.agents/skills/fastapi/references/streaming.md) for JSON Lines, Server-Sent Events (`EventSourceResponse`, `ServerSentEvent`), and byte streaming (`StreamingResponse`) patterns.
+See [the streaming reference](references/streaming.md) for JSON Lines, Server-Sent Events (`EventSourceResponse`, `ServerSentEvent`), and byte streaming (`StreamingResponse`) patterns.
 
 ## Tooling
 
-See [the other tools reference](https://github.com/fastapi/fastapi/blob/HEAD/fastapi/.agents/skills/fastapi/references/other-tools.md) for details on uv, Ruff, ty for package management, linting, type checking, formatting, etc.
+See [the other tools reference](references/other-tools.md) for details on uv, Ruff, ty for package management, linting, type checking, formatting, etc.
 
 ## Other Libraries
 
-See [the other tools reference](https://github.com/fastapi/fastapi/blob/HEAD/fastapi/.agents/skills/fastapi/references/other-tools.md) for details on other libraries:
+See [the other tools reference](references/other-tools.md) for details on other libraries:
 
 * Asyncer for handling async and await, concurrency, mixing async and blocking code, prefer it over AnyIO or asyncio.
 * SQLModel for working with SQL databases, prefer it over SQLAlchemy.
@@ -372,7 +362,6 @@ app = FastAPI()
 @app.post("/items/")
 async def create_items(items: Annotated[list[int], Field(min_length=1), Body()]):
     return items
-
 ```
 
 instead of:
@@ -394,7 +383,6 @@ class ItemList(RootModel[Annotated[list[int], Field(min_length=1)]]):
 @app.post("/items/")
 async def create_items(items: ItemList):
     return items
-
 
 ```
 
@@ -425,7 +413,6 @@ async def list_items():
 @app.post("/items/")
 async def create_item(item: Item):
     return item
-
 ```
 
 instead of this:
@@ -446,5 +433,4 @@ class Item(BaseModel):
 async def handle_items(request: Request):
     if request.method == "GET":
         return []
-
 ```

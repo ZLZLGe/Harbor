@@ -1,14 +1,20 @@
+---
+name: docker-patterns
+description: Docker and Docker Compose patterns for local development, container security, networking, volume strategies, and multi-service orchestration.
+origin: ECC
+---
+
 # Docker Patterns
 
 Docker and Docker Compose best practices for containerized development.
 
 ## When to Activate
 
-* Setting up Docker Compose for local development
-* Designing multi-container architectures
-* Troubleshooting container networking or volume issues
-* Reviewing Dockerfiles for security and size
-* Migrating from local dev to containerized workflow
+- Setting up Docker Compose for local development
+- Designing multi-container architectures
+- Troubleshooting container networking or volume issues
+- Reviewing Dockerfiles for security and size
+- Migrating from local dev to containerized workflow
 
 ## Docker Compose for Local Development
 
@@ -70,7 +76,6 @@ services:
 volumes:
   pgdata:
   redisdata:
-
 ```
 
 ### Development vs Production Dockerfile
@@ -109,7 +114,6 @@ ENV NODE_ENV=production
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s CMD wget -qO- http://localhost:3000/health || exit 1
 CMD ["node", "dist/server.js"]
-
 ```
 
 ### Override Files
@@ -135,7 +139,6 @@ services:
         limits:
           cpus: "1.0"
           memory: 512M
-
 ```
 
 ```bash
@@ -144,7 +147,6 @@ docker compose up
 
 # Production
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
-
 ```
 
 ## Networking
@@ -152,12 +154,10 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 ### Service Discovery
 
 Services in the same Compose network resolve by service name:
-
-```text
+```
 # From "app" container:
 postgres://postgres:postgres@db:5432/app_dev    # "db" resolves to the db container
 redis://redis:6379/0                             # "redis" resolves to the redis container
-
 ```
 
 ### Custom Networks
@@ -180,7 +180,6 @@ services:
 networks:
   frontend-net:
   backend-net:
-
 ```
 
 ### Exposing Only What's Needed
@@ -191,7 +190,6 @@ services:
     ports:
       - "127.0.0.1:5432:5432"   # Only accessible from host, not network
     # Omit ports entirely in production -- accessible only within Docker network
-
 ```
 
 ## Volume Strategies
@@ -206,7 +204,6 @@ volumes:
 
   # Anonymous volume: preserves container-generated content from bind mount override
   # - /app/node_modules
-
 ```
 
 ### Common Patterns
@@ -223,7 +220,6 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data          # Persistent data
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql  # Init scripts
-
 ```
 
 ## Container Security
@@ -241,7 +237,6 @@ USER app
 # 3. Drop capabilities (in compose)
 # 4. Read-only root filesystem where possible
 # 5. No secrets in image layers
-
 ```
 
 ### Compose Security
@@ -259,7 +254,6 @@ services:
       - ALL
     cap_add:
       - NET_BIND_SERVICE          # Only if binding to ports < 1024
-
 ```
 
 ### Secret Management
@@ -285,12 +279,11 @@ services:
 
 # BAD: Hardcoded in image
 # ENV API_KEY=sk-proj-xxxxx      # NEVER DO THIS
-
 ```
 
 ## .dockerignore
 
-```text
+```
 node_modules
 .git
 .env
@@ -304,7 +297,6 @@ docker-compose*.yml
 Dockerfile*
 README.md
 tests/
-
 ```
 
 ## Debugging
@@ -333,7 +325,6 @@ docker compose build --no-cache app   # Force full rebuild
 docker compose down                   # Stop and remove containers
 docker compose down -v                # Also remove volumes (DESTRUCTIVE)
 docker system prune                   # Remove unused images/containers
-
 ```
 
 ### Debugging Network Issues
@@ -348,12 +339,11 @@ docker compose exec app wget -qO- http://api:3000/health
 # Inspect network
 docker network ls
 docker network inspect <project>_default
-
 ```
 
 ## Anti-Patterns
 
-```text
+```
 # BAD: Using docker compose in production without orchestration
 # Use Kubernetes, ECS, or Docker Swarm for production multi-container workloads
 
@@ -371,5 +361,4 @@ docker network inspect <project>_default
 
 # BAD: Putting secrets in docker-compose.yml
 # Use .env files (gitignored) or Docker secrets
-
 ```

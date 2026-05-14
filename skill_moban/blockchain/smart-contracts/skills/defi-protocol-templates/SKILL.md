@@ -1,15 +1,20 @@
+---
+name: defi-protocol-templates
+description: Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and lending systems. Use when building decentralized finance applications or smart contract protocols.
+---
+
 # DeFi Protocol Templates
 
 Production-ready templates for common DeFi protocols including staking, AMMs, governance, lending, and flash loans.
 
 ## When to Use This Skill
 
-* Building staking platforms with reward distribution
-* Implementing AMM (Automated Market Maker) protocols
-* Creating governance token systems
-* Developing lending/borrowing protocols
-* Integrating flash loan functionality
-* Launching yield farming platforms
+- Building staking platforms with reward distribution
+- Implementing AMM (Automated Market Maker) protocols
+- Creating governance token systems
+- Developing lending/borrowing protocols
+- Integrating flash loan functionality
+- Launching yield farming platforms
 
 ## Staking Contract
 
@@ -99,7 +104,6 @@ contract StakingRewards is ReentrancyGuard, Ownable {
         getReward();
     }
 }
-
 ```
 
 ## AMM (Automated Market Maker)
@@ -226,7 +230,6 @@ contract SimpleAMM {
         return x <= y ? x : y;
     }
 }
-
 ```
 
 ## Governance Token
@@ -340,7 +343,6 @@ contract Governor is Ownable {
         emit ProposalExecuted(proposalId);
     }
 }
-
 ```
 
 ## Flash Loan
@@ -419,5 +421,4 @@ contract FlashLoanReceiver is IFlashLoanReceiver {
         return true;
     }
 }
-
 ```

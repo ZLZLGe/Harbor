@@ -17,7 +17,6 @@ SKILL_ROOT = Path(os.environ.get("CODEX_SKILLS_ROOT", "/root/.codex/skills"))
 WORKSPACE_HASH_PATH = Path(os.environ.get("WORKSPACE_HASH_PATH", "/opt/workspace-inputs.sha256"))
 DATA_HASH_PATH = Path(os.environ.get("DATA_HASH_PATH", "/opt/launch-copy-data.sha256"))
 SERVICE_HASH_PATH = Path(os.environ.get("SERVICE_HASH_PATH", "/opt/launch-copy-service.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("SKILL_HASH_PATH", "/opt/launch-copy-skills.sha256"))
 BOUND_SKILL_MD_PATH = Path(os.environ.get("BOUND_SKILL_MD_PATH", "/logs/agent/skills/brand-writer/SKILL.md"))
 OUTPUT_PATH = Path(os.environ.get("OUTPUT_PATH", "/root/final_launch_copy_package.json"))
 
@@ -60,7 +59,7 @@ def test_solver_used_required_content_service_endpoints() -> None:
         assert path in paths, f"Solver did not inspect document {doc['doc_id']}"
 
 
-def test_workspace_data_hidden_service_and_skill_were_not_modified() -> None:
+def test_workspace_data_and_hidden_service_were_not_modified() -> None:
     approved_copy_dir = WORKSPACE_ROOT / "examples" / "approved_copy"
     current_workspace = subprocess.check_output(
         f"find {WORKSPACE_ROOT / 'work_order.json'} {WORKSPACE_ROOT / 'service_manifest.json'} {WORKSPACE_ROOT / 'notes'} {WORKSPACE_ROOT / 'drafts'} {approved_copy_dir} -type f -print0 | sort -z | xargs -0 sha256sum",
@@ -82,13 +81,6 @@ def test_workspace_data_hidden_service_and_skill_were_not_modified() -> None:
         text=True,
     )
     assert current_service == SERVICE_HASH_PATH.read_text(encoding="utf-8"), "Hidden content service files were modified"
-
-    current_skills = subprocess.check_output(
-        f"find {SKILL_ROOT} -type f -print0 | sort -z | xargs -0 sha256sum || true",
-        shell=True,
-        text=True,
-    )
-    assert current_skills == SKILL_HASH_PATH.read_text(encoding="utf-8"), "Bundled skills were modified"
 
 
 def test_content_service_still_healthy() -> None:

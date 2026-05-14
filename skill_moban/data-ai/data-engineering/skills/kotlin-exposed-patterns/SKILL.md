@@ -1,15 +1,21 @@
+---
+name: kotlin-exposed-patterns
+description: JetBrains Exposed ORM patterns including DSL queries, DAO pattern, transactions, HikariCP connection pooling, Flyway migrations, and repository pattern.
+origin: ECC
+---
+
 # Kotlin Exposed Patterns
 
 Comprehensive patterns for database access with JetBrains Exposed ORM, including DSL queries, DAO, transactions, and production-ready configuration.
 
 ## When to Use
 
-* Setting up database access with Exposed
-* Writing SQL queries using Exposed DSL or DAO
-* Configuring connection pooling with HikariCP
-* Creating database migrations with Flyway
-* Implementing the repository pattern with Exposed
-* Handling JSON columns and complex queries
+- Setting up database access with Exposed
+- Writing SQL queries using Exposed DSL or DAO
+- Configuring connection pooling with HikariCP
+- Creating database migrations with Flyway
+- Implementing the repository pattern with Exposed
+- Handling JSON columns and complex queries
 
 ## How It Works
 
@@ -27,7 +33,6 @@ suspend fun findUserById(id: UUID): UserRow? =
             .map { it.toUser() }
             .singleOrNull()
     }
-
 ```
 
 ### DAO Entity Usage
@@ -41,7 +46,6 @@ suspend fun createUser(request: CreateUserRequest): User =
             role = request.role
         }.toModel()
     }
-
 ```
 
 ### HikariCP Configuration
@@ -57,7 +61,6 @@ val hikariConfig = HikariConfig().apply {
     transactionIsolation = "TRANSACTION_READ_COMMITTED"
     validate()
 }
-
 ```
 
 ## Database Setup
@@ -90,7 +93,6 @@ data class DatabaseConfig(
     val password: String = "",
     val maxPoolSize: Int = 10,
 )
-
 ```
 
 ### Flyway Migrations
@@ -117,7 +119,6 @@ fun Application.module() {
     val database = DatabaseFactory.create(config)
     // ...
 }
-
 ```
 
 ### Migration Files
@@ -136,7 +137,6 @@ CREATE TABLE users (
 
 CREATE INDEX idx_users_email ON users(email);
 CREATE INDEX idx_users_role ON users(role);
-
 ```
 
 ## Table Definitions
@@ -168,7 +168,6 @@ object OrderItemsTable : UUIDTable("order_items") {
     val quantity = integer("quantity")
     val unitPrice = long("unit_price")
 }
-
 ```
 
 ### Composite Tables
@@ -179,7 +178,6 @@ object UserRolesTable : Table("user_roles") {
     val roleId = uuid("role_id").references(RolesTable.id, onDelete = ReferenceOption.CASCADE)
     override val primaryKey = PrimaryKey(userId, roleId)
 }
-
 ```
 
 ## DSL Queries
@@ -240,7 +238,6 @@ private fun ResultRow.toUser() = UserRow(
     createdAt = this[UsersTable.createdAt],
     updatedAt = this[UsersTable.updatedAt],
 )
-
 ```
 
 ### Advanced Queries
@@ -299,7 +296,6 @@ suspend fun searchUsers(query: String): List<UserRow> =
             }
             .map { it.toUser() }
     }
-
 ```
 
 ### Pagination
@@ -327,7 +323,6 @@ suspend fun findUsersPaginated(page: Int, limit: Int): Page<UserRow> =
 
         Page(data = data, total = total, page = page, limit = limit)
     }
-
 ```
 
 ### Batch Operations
@@ -354,7 +349,6 @@ suspend fun upsertUser(id: UUID, name: String, email: String) {
         }
     }
 }
-
 ```
 
 ## DAO Pattern
@@ -397,7 +391,6 @@ class OrderEntity(id: EntityID<UUID>) : UUIDEntity(id) {
 
     val items by OrderItemEntity referrersOn OrderItemsTable.orderId
 }
-
 ```
 
 ### DAO Operations
@@ -427,7 +420,6 @@ suspend fun updateUser(id: UUID, request: UpdateUserRequest): User? =
             updatedAt = OffsetDateTime.now(ZoneOffset.UTC)
         }?.toModel()
     }
-
 ```
 
 ## Transactions
@@ -462,7 +454,6 @@ suspend fun transferFunds(fromId: UUID, toId: UUID, amount: Long) {
         // Both succeed or both fail
     }
 }
-
 ```
 
 ### Transaction Isolation
@@ -478,7 +469,6 @@ suspend fun serializableOperation() {
         // Strictest isolation level for critical operations
     }
 }
-
 ```
 
 ## Repository Pattern
@@ -496,7 +486,6 @@ interface UserRepository {
     suspend fun delete(id: UUID): Boolean
     suspend fun count(): Long
 }
-
 ```
 
 ### Exposed Implementation
@@ -584,7 +573,6 @@ class ExposedUserRepository(
         updatedAt = this[UsersTable.updatedAt],
     )
 }
-
 ```
 
 ## JSON Columns
@@ -626,7 +614,6 @@ data class UserMetadata(
 object UsersTable : UUIDTable("users") {
     val metadata = jsonb<UserMetadata>("metadata", Json.Default).nullable()
 }
-
 ```
 
 ## Testing with Exposed
@@ -685,7 +672,6 @@ class UserRepositoryTest : FunSpec({
         page3.hasNext shouldBe false
     }
 })
-
 ```
 
 ## Gradle Dependencies
@@ -713,22 +699,21 @@ dependencies {
     // Testing
     testImplementation("com.h2database:h2:2.3.232")
 }
-
 ```
 
 ## Quick Reference: Exposed Patterns
 
-| Pattern                          | Description                        |
-| -------------------------------- | ---------------------------------- |
-| object Table : UUIDTable("name") | Define table with UUID primary key |
-| newSuspendedTransaction { }      | Coroutine-safe transaction block   |
-| Table.selectAll().where { }      | Query with conditions              |
-| Table.insertAndGetId { }         | Insert and return generated ID     |
-| Table.update({ condition }) { }  | Update matching rows               |
-| Table.deleteWhere { }            | Delete matching rows               |
-| Table.batchInsert(items) { }     | Efficient bulk insert              |
-| innerJoin / leftJoin             | Join tables                        |
-| orderBy / limit / offset         | Sort and paginate                  |
-| count() / sum() / avg()          | Aggregation functions              |
+| Pattern | Description |
+|---------|-------------|
+| `object Table : UUIDTable("name")` | Define table with UUID primary key |
+| `newSuspendedTransaction { }` | Coroutine-safe transaction block |
+| `Table.selectAll().where { }` | Query with conditions |
+| `Table.insertAndGetId { }` | Insert and return generated ID |
+| `Table.update({ condition }) { }` | Update matching rows |
+| `Table.deleteWhere { }` | Delete matching rows |
+| `Table.batchInsert(items) { }` | Efficient bulk insert |
+| `innerJoin` / `leftJoin` | Join tables |
+| `orderBy` / `limit` / `offset` | Sort and paginate |
+| `count()` / `sum()` / `avg()` | Aggregation functions |
 
 **Remember**: Use the DSL style for simple queries and the DAO style when you need entity lifecycle management. Always use `newSuspendedTransaction` for coroutine support, and wrap database operations behind a repository interface for testability.

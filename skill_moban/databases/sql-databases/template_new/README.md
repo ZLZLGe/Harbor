@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`sql-databases` 类 skill 的核心价值，在于帮助 Agent 先识别 schema、统一多源字段、建立可复用 SQL 层，再完成聚合、排序、索引和结果交付。题面不应直接泄露工作流，而应把“如何稳定走通数据库链路”的压力留给 skill 与 solver。
-* **Task 目标形态**：这类任务适合设计为本地数据库分析交付题。输入通常包含多批次事实表、维表、业务合同文件和少量字段参考材料；输出则是结构化结果文件、可执行 SQL 资产和简短分析说明。
 * **Verifier 设计重点**：Verifier 需要优先验证 solver 是否真的经过 PostgreSQL 链路完成 schema 识别、过滤、聚合、排序和结果回写，并验证交付物之间的一致性。对 `sql-databases` 类任务，还应明确拦截“只生成结果文件、不保留可执行 SQL”的作弊路径。
 
 ## 第二部分：示例任务
@@ -13,7 +12,6 @@
 ### 任务元数据
 - 任务 ID：`sql-databases__airport-zone-rolling-mart`
 - 类别：`sql-databases`
-- 难度：`hard`
 - 绑定 Skill：`postgres-patterns`
 - 主输出：`/root/output/airport_zone_snapshot_leaderboard.tsv`
 - 任务目标：构建机场相关 Manhattan zone 的滚动需求 mart，输出日级面板、滚动快照排行榜、可复跑 SQL query pack 和简短 benchmark 报告。
@@ -34,10 +32,7 @@
     【https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf】
 
 ### 验证与测试指标（Oracle & Verifier）
-- Oracle：
-  - `solution/fixed/` 提供固定参考解。
-  - 2026-05-08 对当前模板目录执行 `oracle__adhoc` 验证，作业 `sql-databases-template-current-oracle-20260508` 通过，平均 reward 为 `1.0`。
-  - 同日对先前未完成实验的运行时副本续跑，作业 `sql-databases-oracle-withalias-retry-20260508` 也通过，平均 reward 为 `1.0`。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier 策略：
 
 主测试
@@ -55,7 +50,6 @@
 | 合同变更重跑 | 修改 `analysis_contract.json` 后 rerun，排行榜必须变化 |
 | 静态答案拦截 | 禁止硬编码答案、跳过 PostgreSQL 链路、或只写死输出文件 |
 | 重复运行稳定性 | 相同输入重复执行时输出必须稳定一致 |
-| Skill 完整性 | 若绑定 skill 存在，校验其内容未被 solver 篡改 |
 
 ### Skill 相关性评估
 

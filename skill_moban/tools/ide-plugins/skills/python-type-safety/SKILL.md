@@ -1,31 +1,36 @@
+---
+name: python-type-safety
+description: Python type safety with type hints, generics, protocols, and strict type checking. Use when adding type annotations, implementing generic classes, defining structural interfaces, or configuring mypy/pyright.
+---
+
 # Python Type Safety
 
 Leverage Python's type system to catch errors at static analysis time. Type annotations serve as enforced documentation that tooling validates automatically.
 
 ## When to Use This Skill
 
-* Adding type hints to existing code
-* Creating generic, reusable classes
-* Defining structural interfaces with protocols
-* Configuring mypy or pyright for strict checking
-* Understanding type narrowing and guards
-* Building type-safe APIs and libraries
+- Adding type hints to existing code
+- Creating generic, reusable classes
+- Defining structural interfaces with protocols
+- Configuring mypy or pyright for strict checking
+- Understanding type narrowing and guards
+- Building type-safe APIs and libraries
 
 ## Core Concepts
 
-### 1\. Type Annotations
+### 1. Type Annotations
 
 Declare expected types for function parameters, return values, and variables.
 
-### 2\. Generics
+### 2. Generics
 
 Write reusable code that preserves type information across different types.
 
-### 3\. Protocols
+### 3. Protocols
 
 Define structural interfaces without inheritance (duck typing with type safety).
 
-### 4\. Type Narrowing
+### 4. Type Narrowing
 
 Use guards and conditionals to narrow types within code blocks.
 
@@ -41,7 +46,6 @@ user = get_user("123")
 if user is None:
     raise UserNotFoundError("123")
 print(user.name)  # Type checker knows user is User here
-
 ```
 
 ## Fundamental Patterns
@@ -76,7 +80,6 @@ class UserRepository:
     async def save(self, user: User) -> User:
         """Save and return user with generated ID."""
         ...
-
 ```
 
 Use `mypy --strict` or `pyright` in CI to catch type errors early. For existing projects, enable strict mode incrementally using per-module overrides.
@@ -98,7 +101,6 @@ from typing import Optional, Union
 
 def find_user(user_id: str) -> Optional[User]:
     ...
-
 ```
 
 ### Pattern 3: Type Narrowing with Guards
@@ -123,7 +125,6 @@ def process_items(items: list[Item | None]) -> list[ProcessedItem]:
     valid_items = [item for item in items if item is not None]
     # valid_items is now list[Item]
     return [process(item) for item in valid_items]
-
 ```
 
 ### Pattern 4: Generic Classes
@@ -179,7 +180,6 @@ def parse_config(path: str) -> Result[Config, ConfigError]:
 result = parse_config("config.yaml")
 if result.is_success:
     config = result.unwrap()  # Type: Config
-
 ```
 
 ## Advanced Patterns
@@ -227,7 +227,6 @@ class UserRepository(Repository[User, str]):
 
     async def delete(self, id: str) -> bool:
         ...
-
 ```
 
 ### Pattern 6: TypeVar with Bounds
@@ -254,7 +253,6 @@ user = validate_and_create(User, {"name": "Alice", "email": "a@b.com"})
 
 # Type error: str is not a BaseModel subclass
 result = validate_and_create(str, {"name": "Alice"})  # Error!
-
 ```
 
 ### Pattern 7: Protocols for Structural Typing
@@ -297,7 +295,6 @@ serialize(User("1", "Alice"))
 
 # Runtime checking with @runtime_checkable
 isinstance(User("1", "Alice"), Serializable)  # True
-
 ```
 
 ### Pattern 8: Common Protocol Patterns
@@ -328,14 +325,13 @@ class Comparable(Protocol):
     """Object that supports comparison."""
     def __lt__(self, other: "Comparable") -> bool: ...
     def __le__(self, other: "Comparable") -> bool: ...
-
 ```
 
 ### Pattern 9: Type Aliases
 
 Create meaningful type names.
 
-**Note:** The `type Alias = ...` statement syntax (PEP 695) was introduced in **Python 3.12**, not 3.10\. For projects targeting earlier versions (including 3.10/3.11), use the `TypeAlias` annotation (PEP 613, available since Python 3.10).
+**Note:** The `type Alias = ...` statement syntax (PEP 695) was introduced in **Python 3.12**, not 3.10. For projects targeting earlier versions (including 3.10/3.11), use the `TypeAlias` annotation (PEP 613, available since Python 3.10).
 
 ```python
 # Python 3.12+ type statement (PEP 695)
@@ -345,7 +341,6 @@ type UserDict = dict[str, Any]
 # Python 3.12+ type statement with generics (PEP 695)
 type Handler[T] = Callable[[Request], T]
 type AsyncHandler[T] = Callable[[Request], Awaitable[T]]
-
 ```
 
 ```python
@@ -355,14 +350,12 @@ from collections.abc import Callable, Awaitable
 
 UserId: TypeAlias = str
 Handler: TypeAlias = Callable[[Request], Response]
-
 ```
 
 ```python
 # Usage
 def register_handler(path: str, handler: Handler[Response]) -> None:
     ...
-
 ```
 
 ### Pattern 10: Callable Types
@@ -396,7 +389,6 @@ def process_items(
         if on_progress:
             on_progress(i, len(items))
         ...
-
 ```
 
 ## Configuration
@@ -415,28 +407,26 @@ warn_unused_ignores = true
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
 no_implicit_optional = true
-
 ```
 
 Incremental adoption goals:
-
-* All function parameters annotated
-* All return types annotated
-* Class attributes annotated
-* Minimize `Any` usage (acceptable for truly dynamic data)
-* Generic collections use type parameters (`list[str]` not `list`)
+- All function parameters annotated
+- All return types annotated
+- Class attributes annotated
+- Minimize `Any` usage (acceptable for truly dynamic data)
+- Generic collections use type parameters (`list[str]` not `list`)
 
 For existing codebases, enable strict mode per-module using `# mypy: strict` or configure per-module overrides in `pyproject.toml`.
 
 ## Best Practices Summary
 
-1. **Annotate all public APIs** \- Functions, methods, class attributes
-2. **Use `T | None`** \- Modern union syntax over `Optional[T]`
-3. **Run strict type checking** \- `mypy --strict` in CI
-4. **Use generics** \- Preserve type info in reusable code
-5. **Define protocols** \- Structural typing for interfaces
-6. **Narrow types** \- Use guards to help the type checker
-7. **Bound type vars** \- Restrict generics to meaningful types
-8. **Create type aliases** \- Meaningful names for complex types
-9. **Minimize `Any`** \- Use specific types or generics. `Any` is acceptable for truly dynamic data or when interfacing with untyped third-party code
-10. **Document with types** \- Types are enforceable documentation
+1. **Annotate all public APIs** - Functions, methods, class attributes
+2. **Use `T | None`** - Modern union syntax over `Optional[T]`
+3. **Run strict type checking** - `mypy --strict` in CI
+4. **Use generics** - Preserve type info in reusable code
+5. **Define protocols** - Structural typing for interfaces
+6. **Narrow types** - Use guards to help the type checker
+7. **Bound type vars** - Restrict generics to meaningful types
+8. **Create type aliases** - Meaningful names for complex types
+9. **Minimize `Any`** - Use specific types or generics. `Any` is acceptable for truly dynamic data or when interfacing with untyped third-party code
+10. **Document with types** - Types are enforceable documentation

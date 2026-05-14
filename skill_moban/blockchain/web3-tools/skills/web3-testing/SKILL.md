@@ -1,16 +1,21 @@
+---
+name: web3-testing
+description: Test smart contracts comprehensively using Hardhat and Foundry with unit tests, integration tests, and mainnet forking. Use when testing Solidity contracts, setting up blockchain test suites, or validating DeFi protocols.
+---
+
 # Web3 Smart Contract Testing
 
 Master comprehensive testing strategies for smart contracts using Hardhat, Foundry, and advanced testing patterns.
 
 ## When to Use This Skill
 
-* Writing unit tests for smart contracts
-* Setting up integration test suites
-* Performing gas optimization testing
-* Fuzzing for edge cases
-* Forking mainnet for realistic testing
-* Automating test coverage reporting
-* Verifying contracts on Etherscan
+- Writing unit tests for smart contracts
+- Setting up integration test suites
+- Performing gas optimization testing
+- Fuzzing for edge cases
+- Forking mainnet for realistic testing
+- Automating test coverage reporting
+- Verifying contracts on Etherscan
 
 ## Hardhat Testing Setup
 
@@ -52,7 +57,6 @@ module.exports = {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
 };
-
 ```
 
 ## Unit Testing Patterns
@@ -140,7 +144,6 @@ describe("Token Contract", function () {
     });
   });
 });
-
 ```
 
 ## Foundry Testing (Forge)
@@ -217,7 +220,6 @@ contract TokenTest is Test {
         assertEq(IERC20(dai).symbol(), "DAI");
     }
 }
-
 ```
 
 ## Advanced Testing Patterns
@@ -244,7 +246,6 @@ describe("Complex State Changes", function () {
     // State reverted, clean slate
   });
 });
-
 ```
 
 ### Mainnet Forking
@@ -282,7 +283,6 @@ describe("Mainnet Fork Tests", function () {
     // Test with real Uniswap contracts
   });
 });
-
 ```
 
 ### Impersonating Accounts
@@ -303,7 +303,6 @@ it("Should impersonate whale account", async function () {
     .connect(whale)
     .transfer(addr1.address, ethers.utils.parseEther("1000"));
 });
-
 ```
 
 ## Gas Optimization Testing
@@ -334,7 +333,6 @@ describe("Gas Optimization", function () {
     expect(receipt1.gasUsed).to.be.lessThan(receipt2.gasUsed);
   });
 });
-
 ```
 
 ## Coverage Reporting
@@ -347,7 +345,6 @@ npx hardhat coverage
 # File                | % Stmts | % Branch | % Funcs | % Lines |
 # -------------------|---------|----------|---------|---------|
 # contracts/Token.sol |   100   |   90     |   100   |   95    |
-
 ```
 
 ## Contract Verification
@@ -358,13 +355,11 @@ await hre.run("verify:verify", {
   address: contractAddress,
   constructorArguments: [arg1, arg2],
 });
-
 ```
 
 ```bash
 # Or via CLI
 npx hardhat verify --network mainnet CONTRACT_ADDRESS "Constructor arg1" "arg2"
-
 ```
 
 ## CI/CD Integration
@@ -392,5 +387,4 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
-
 ```

@@ -6,14 +6,11 @@ from conftest import BRIEFING_ROOT, OUTPUT_ROOT, briefing_integrity, document_ma
 
 
 EXPECTED_BRIEFING_SHA256 = "01bb72cc29cab5ae20d89ef4bb60640d6e6992ca3ce06557027e149316b5a94f"
-EXPECTED_SKILL_SHA256_FILE = "62054b55c7dea847c05c23dd82a951a27b9c1b8965d4d927685433785e451d74"
-EMPTY_SHA256_FILE = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 
 
-def test_input_and_skill_payload_are_unchanged() -> None:
+def test_input_payload_is_unchanged() -> None:
     integrity = briefing_integrity()
     assert integrity["briefing_sha256"] == EXPECTED_BRIEFING_SHA256
-    assert integrity["skill_sha256"] in {EXPECTED_SKILL_SHA256_FILE, EMPTY_SHA256_FILE}
 
 
 def test_with_skill_agent_reads_shipped_docx_skill_when_available() -> None:

@@ -66,7 +66,7 @@
     ],
     "guardrails": [
       "input data files must remain unchanged",
-      "installed skill files must remain unchanged",
+      "installed skill payload stays read-only workflow guidance when present",
       "the package diff must remain equal to the original candidate diff"
     ],
     "failure_target": "without_skill should fail for action-level reasons by missing the local skill guidance, typically treating security_scan and diff_review as non-blocking or using commands that do not perform the expected scan-and-review workflow."

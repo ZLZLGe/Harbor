@@ -5,12 +5,20 @@ ENV PYTHONUNBUFFERED=1
 ENV HOME=/root
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends tmux xz-utils ca-certificates curl tini \
+    && apt-get install -y --no-install-recommends tmux xz-utils ca-certificates curl tini nodejs npm ripgrep \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
 COPY . /tmp/template-environment
+COPY skills /root/.claude/skills
+COPY skills /root/.codex/skills
+COPY skills /root/.opencode/skill
+COPY skills /root/.goose/skills
+COPY skills /root/.factory/skills
+COPY skills /root/.agents/skills
+COPY skills /root/.gemini/skills
+COPY skills /logs/agent/skills
 
 RUN mkdir -p /app/data /app/output /app/runtime /app/ops /logs/agent/skills /logs/verifier \
     && cp -R /tmp/template-environment/data/. /app/data/ \
@@ -23,16 +31,6 @@ RUN mkdir -p /app/data /app/output /app/runtime /app/ops /logs/agent/skills /log
     && chmod +x /app/bootstrap/bootstrap_staged_session.sh \
     && chmod +x /usr/local/bin/task-session-bootstrap \
     && mkdir -p /root/.claude/skills /root/.codex/skills /root/.opencode/skill /root/.goose/skills /root/.factory/skills /root/.agents/skills /root/.gemini/skills \
-    && if [ -d /tmp/template-environment/skills ]; then \
-        cp -R /tmp/template-environment/skills/. /root/.claude/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.codex/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.opencode/skill/; \
-        cp -R /tmp/template-environment/skills/. /root/.goose/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.factory/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.agents/skills/; \
-        cp -R /tmp/template-environment/skills/. /root/.gemini/skills/; \
-        cp -R /tmp/template-environment/skills/. /logs/agent/skills/; \
-      fi \
     && touch /root/.bash_profile \
     && grep -q 'tmux_skill_env.sh' /root/.bash_profile || printf '\nif [ -d /root/.codex/skills/tmux ] && [ -f /usr/local/share/debian-digest-recovery/tmux_skill_env.sh ]; then . /usr/local/share/debian-digest-recovery/tmux_skill_env.sh; fi\n' >> /root/.bash_profile \
     && printf '%s\n' '#!/bin/bash' \

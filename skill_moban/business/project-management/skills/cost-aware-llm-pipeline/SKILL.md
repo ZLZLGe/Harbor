@@ -1,17 +1,23 @@
+---
+name: cost-aware-llm-pipeline
+description: Cost optimization patterns for LLM API usage — model routing by task complexity, budget tracking, retry logic, and prompt caching.
+origin: ECC
+---
+
 # Cost-Aware LLM Pipeline
 
 Patterns for controlling LLM API costs while maintaining quality. Combines model routing, budget tracking, retry logic, and prompt caching into a composable pipeline.
 
 ## When to Activate
 
-* Building applications that call LLM APIs (Claude, GPT, etc.)
-* Processing batches of items with varying complexity
-* Need to stay within a budget for API spend
-* Optimizing cost without sacrificing quality on complex tasks
+- Building applications that call LLM APIs (Claude, GPT, etc.)
+- Processing batches of items with varying complexity
+- Need to stay within a budget for API spend
+- Optimizing cost without sacrificing quality on complex tasks
 
 ## Core Concepts
 
-### 1\. Model Routing by Task Complexity
+### 1. Model Routing by Task Complexity
 
 Automatically select cheaper models for simple tasks, reserving expensive models for complex ones.
 
@@ -33,10 +39,9 @@ def select_model(
     if text_length >= _SONNET_TEXT_THRESHOLD or item_count >= _SONNET_ITEM_THRESHOLD:
         return MODEL_SONNET  # Complex task
     return MODEL_HAIKU  # Simple task (3-4x cheaper)
-
 ```
 
-### 2\. Immutable Cost Tracking
+### 2. Immutable Cost Tracking
 
 Track cumulative spend with frozen dataclasses. Each API call returns a new tracker — never mutates state.
 
@@ -69,10 +74,9 @@ class CostTracker:
     @property
     def over_budget(self) -> bool:
         return self.total_cost > self.budget_limit
-
 ```
 
-### 3\. Narrow Retry Logic
+### 3. Narrow Retry Logic
 
 Retry only on transient errors. Fail fast on authentication or bad request errors.
 
@@ -96,10 +100,9 @@ def call_with_retry(func, *, max_retries: int = _MAX_RETRIES):
                 raise
             time.sleep(2 ** attempt)  # Exponential backoff
     # AuthenticationError, BadRequestError etc. → raise immediately
-
 ```
 
-### 4\. Prompt Caching
+### 4. Prompt Caching
 
 Cache long system prompts to avoid resending them on every request.
 
@@ -120,7 +123,6 @@ messages = [
         ],
     }
 ]
-
 ```
 
 ## Composition
@@ -147,36 +149,35 @@ def process(text: str, config: Config, tracker: CostTracker) -> tuple[Result, Co
     tracker = tracker.add(record)
 
     return parse_result(response), tracker
-
 ```
 
 ## Pricing Reference (2025-2026)
 
-| Model      | Input ($/1M tokens) | Output ($/1M tokens) | Relative Cost |
-| ---------- | ------------------- | -------------------- | ------------- |
-| Haiku 4.5  | $0.80               | $4.00                | 1x            |
-| Sonnet 4.6 | $3.00               | $15.00               | \~4x          |
-| Opus 4.5   | $15.00              | $75.00               | \~19x         |
+| Model | Input ($/1M tokens) | Output ($/1M tokens) | Relative Cost |
+|-------|---------------------|----------------------|---------------|
+| Haiku 4.5 | $0.80 | $4.00 | 1x |
+| Sonnet 4.6 | $3.00 | $15.00 | ~4x |
+| Opus 4.5 | $15.00 | $75.00 | ~19x |
 
 ## Best Practices
 
-* **Start with the cheapest model** and only route to expensive models when complexity thresholds are met
-* **Set explicit budget limits** before processing batches — fail early rather than overspend
-* **Log model selection decisions** so you can tune thresholds based on real data
-* **Use prompt caching** for system prompts over 1024 tokens — saves both cost and latency
-* **Never retry on authentication or validation errors** — only transient failures (network, rate limit, server error)
+- **Start with the cheapest model** and only route to expensive models when complexity thresholds are met
+- **Set explicit budget limits** before processing batches — fail early rather than overspend
+- **Log model selection decisions** so you can tune thresholds based on real data
+- **Use prompt caching** for system prompts over 1024 tokens — saves both cost and latency
+- **Never retry on authentication or validation errors** — only transient failures (network, rate limit, server error)
 
 ## Anti-Patterns to Avoid
 
-* Using the most expensive model for all requests regardless of complexity
-* Retrying on all errors (wastes budget on permanent failures)
-* Mutating cost tracking state (makes debugging and auditing difficult)
-* Hardcoding model names throughout the codebase (use constants or config)
-* Ignoring prompt caching for repetitive system prompts
+- Using the most expensive model for all requests regardless of complexity
+- Retrying on all errors (wastes budget on permanent failures)
+- Mutating cost tracking state (makes debugging and auditing difficult)
+- Hardcoding model names throughout the codebase (use constants or config)
+- Ignoring prompt caching for repetitive system prompts
 
 ## When to Use
 
-* Any application calling Claude, OpenAI, or similar LLM APIs
-* Batch processing pipelines where cost adds up quickly
-* Multi-model architectures that need intelligent routing
-* Production systems that need budget guardrails
+- Any application calling Claude, OpenAI, or similar LLM APIs
+- Batch processing pipelines where cost adds up quickly
+- Multi-model architectures that need intelligent routing
+- Production systems that need budget guardrails

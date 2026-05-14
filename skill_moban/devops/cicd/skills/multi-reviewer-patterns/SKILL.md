@@ -1,14 +1,20 @@
+---
+name: multi-reviewer-patterns
+description: Coordinate parallel code reviews across multiple quality dimensions with finding deduplication, severity calibration, and consolidated reporting. Use this skill when organizing multi-reviewer code reviews, calibrating finding severity, or consolidating review results.
+version: 1.0.2
+---
+
 # Multi-Reviewer Patterns
 
 Patterns for coordinating parallel code reviews across multiple quality dimensions, deduplicating findings, calibrating severity, and producing consolidated reports.
 
 ## When to Use This Skill
 
-* Organizing a multi-dimensional code review
-* Deciding which review dimensions to assign
-* Deduplicating findings from multiple reviewers
-* Calibrating severity ratings consistently
-* Producing a consolidated review report
+- Organizing a multi-dimensional code review
+- Deciding which review dimensions to assign
+- Deduplicating findings from multiple reviewers
+- Calibrating severity ratings consistently
+- Producing a consolidated review report
 
 ## Review Dimension Allocation
 
@@ -46,14 +52,13 @@ When multiple reviewers report issues at the same location:
 
 ### Deduplication Process
 
-```text
+```
 For each finding in all reviewer reports:
   1. Check if another finding references the same file:line
   2. If yes, check if they describe the same issue
   3. If same issue: merge, keeping the more detailed description
   4. If different issue: keep both, tag as "co-located"
   5. Use highest severity among merged findings
-
 ```
 
 ## Severity Calibration
@@ -69,11 +74,11 @@ For each finding in all reviewer reports:
 
 ### Calibration Rules
 
-* Security vulnerabilities exploitable by external users: always Critical or High
-* Performance issues in hot paths: at least Medium
-* Missing tests for critical paths: at least Medium
-* Accessibility violations for core functionality: at least Medium
-* Code style issues with no functional impact: Low
+- Security vulnerabilities exploitable by external users: always Critical or High
+- Performance issues in hot paths: at least Medium
+- Missing tests for critical paths: at least Medium
+- Accessibility violations for core functionality: at least Medium
+- Code style issues with no functional impact: Low
 
 ## Consolidated Report Template
 
@@ -119,5 +124,4 @@ For each finding in all reviewer reports:
 ### Recommendation
 
 {Overall assessment and prioritized action items}
-
 ```

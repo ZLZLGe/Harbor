@@ -1,243 +1,251 @@
+---
+name: content-creator
+description: "Professional-grade brand voice analysis, SEO optimization, and platform-specific content frameworks."
+category: marketing
+risk: unknown
+source: community
+date_added: "2026-02-27"
+---
+
 # Content Creator
 
-You are an expert content creator who produces engaging, audience-focused content for blogs, social media, and marketing.
+Professional-grade brand voice analysis, SEO optimization, and platform-specific content frameworks.
 
-## When to Apply
+## When to Use
+Use this skill when writing blog posts, creating social media content, establishing brand voice, optimizing content for SEO, or planning content calendars.
 
-Use this skill when:
+## Keywords
+content creation, blog posts, SEO, brand voice, social media, content calendar, marketing content, content strategy, content marketing, brand consistency, content optimization, social media marketing, content planning, blog writing, content frameworks, brand guidelines, social media strategy
 
-* Writing blog posts and articles
-* Creating social media content (Twitter, LinkedIn, Instagram)
-* Developing marketing copy
-* Crafting compelling headlines and hooks
-* Creating email newsletters
-* Writing product descriptions
+## Quick Start
 
-## Content Creation Framework
+### For Brand Voice Development
+1. Run `scripts/brand_voice_analyzer.py` on existing content to establish baseline
+2. Review `references/brand_guidelines.md` to select voice attributes
+3. Apply chosen voice consistently across all content
 
-### 1\. **Know Your Audience**
+### For Blog Content Creation
+1. Choose template from `references/content_frameworks.md`
+2. Research keywords for topic
+3. Write content following template structure
+4. Run `scripts/seo_optimizer.py [file] [primary-keyword]` to optimize
+5. Apply recommendations before publishing
 
-* Who are you writing for?
-* What are their pain points?
-* What level of expertise do they have?
-* What action do you want them to take?
+### For Social Media Content
+1. Review platform best practices in `references/social_media_optimization.md`
+2. Use appropriate template from `references/content_frameworks.md`
+3. Optimize based on platform-specific guidelines
+4. Schedule using `assets/content_calendar_template.md`
 
-### 2\. **Hook Immediately**
+## Core Workflows
 
-* First sentence must grab attention
-* Lead with value, intrigue, or emotion
-* Make a promise you'll deliver on
-* Use the first paragraph to hook readers
+### Establishing Brand Voice (First Time Setup)
 
-### 3\. **Provide Value**
+When creating content for a new brand or client:
 
-* Actionable insights
-* Specific examples
-* Practical takeaways
-* Original perspectives
+1. **Analyze Existing Content** (if available)
+   ```bash
+   python scripts/brand_voice_analyzer.py existing_content.txt
+   ```
+   
+2. **Define Voice Attributes**
+   - Review brand personality archetypes in `references/brand_guidelines.md`
+   - Select primary and secondary archetypes
+   - Choose 3-5 tone attributes
+   - Document in brand guidelines
 
-### 4\. **Make It Scannable**
+3. **Create Voice Sample**
+   - Write 3 sample pieces in chosen voice
+   - Test consistency using analyzer
+   - Refine based on results
 
-* Short paragraphs (2-3 sentences)
-* Subheadings every 3-4 paragraphs
-* Bulleted or numbered lists
-* Bold key points
-* Visual breaks
+### Creating SEO-Optimized Blog Posts
 
-### 5\. **End With Action**
+1. **Keyword Research**
+   - Identify primary keyword (search volume 500-5000/month)
+   - Find 3-5 secondary keywords
+   - List 10-15 LSI keywords
 
-* Clear call-to-action
-* Next steps
-* Conversation starter
-* Resource links
+2. **Content Structure**
+   - Use blog template from `references/content_frameworks.md`
+   - Include keyword in title, first paragraph, and 2-3 H2s
+   - Aim for 1,500-2,500 words for comprehensive coverage
 
-## Platform-Specific Guidelines
+3. **Optimization Check**
+   ```bash
+   python scripts/seo_optimizer.py blog_post.md "primary keyword" "secondary,keywords,list"
+   ```
 
-### Blog Posts (800-2000 words)
+4. **Apply SEO Recommendations**
+   - Adjust keyword density to 1-3%
+   - Ensure proper heading structure
+   - Add internal and external links
+   - Optimize meta description
 
-```markdown
-# Attention-Grabbing Headline
+### Social Media Content Creation
 
-[Opening hook - question, statistic, or bold claim]
+1. **Platform Selection**
+   - Identify primary platforms based on audience
+   - Review platform-specific guidelines in `references/social_media_optimization.md`
 
-## The Problem
-[Describe pain point reader experiences]
+2. **Content Adaptation**
+   - Start with blog post or core message
+   - Use repurposing matrix from `references/content_frameworks.md`
+   - Adapt for each platform following templates
 
-## The Solution  
-[Your main content with examples]
+3. **Optimization Checklist**
+   - Platform-appropriate length
+   - Optimal posting time
+   - Correct image dimensions
+   - Platform-specific hashtags
+   - Engagement elements (polls, questions)
 
-### Subpoint 1
-[Detail with example]
+### Content Calendar Planning
 
-### Subpoint 2
-[Detail with example]
+1. **Monthly Planning**
+   - Copy `assets/content_calendar_template.md`
+   - Set monthly goals and KPIs
+   - Identify key campaigns/themes
 
-## Key Takeaways
-- [Actionable insight 1]
-- [Actionable insight 2]
+2. **Weekly Distribution**
+   - Follow 40/25/25/10 content pillar ratio
+   - Balance platforms throughout week
+   - Align with optimal posting times
 
-## Next Steps
-[What reader should do now]
+3. **Batch Creation**
+   - Create all weekly content in one session
+   - Maintain consistent voice across pieces
+   - Prepare all visual assets together
 
+## Key Scripts
+
+### brand_voice_analyzer.py
+Analyzes text content for voice characteristics, readability, and consistency.
+
+**Usage**: `python scripts/brand_voice_analyzer.py <file> [json|text]`
+
+**Returns**:
+- Voice profile (formality, tone, perspective)
+- Readability score
+- Sentence structure analysis
+- Improvement recommendations
+
+### seo_optimizer.py
+Analyzes content for SEO optimization and provides actionable recommendations.
+
+**Usage**: `python scripts/seo_optimizer.py <file> [primary_keyword] [secondary_keywords]`
+
+**Returns**:
+- SEO score (0-100)
+- Keyword density analysis
+- Structure assessment
+- Meta tag suggestions
+- Specific optimization recommendations
+
+## Reference Guides
+
+### When to Use Each Reference
+
+**references/brand_guidelines.md**
+- Setting up new brand voice
+- Ensuring consistency across content
+- Training new team members
+- Resolving voice/tone questions
+
+**references/content_frameworks.md**
+- Starting any new content piece
+- Structuring different content types
+- Creating content templates
+- Planning content repurposing
+
+**references/social_media_optimization.md**
+- Platform-specific optimization
+- Hashtag strategy development
+- Understanding algorithm factors
+- Setting up analytics tracking
+
+## Best Practices
+
+### Content Creation Process
+1. Always start with audience need/pain point
+2. Research before writing
+3. Create outline using templates
+4. Write first draft without editing
+5. Optimize for SEO
+6. Edit for brand voice
+7. Proofread and fact-check
+8. Optimize for platform
+9. Schedule strategically
+
+### Quality Indicators
+- SEO score above 75/100
+- Readability appropriate for audience
+- Consistent brand voice throughout
+- Clear value proposition
+- Actionable takeaways
+- Proper visual formatting
+- Platform-optimized
+
+### Common Pitfalls to Avoid
+- Writing before researching keywords
+- Ignoring platform-specific requirements
+- Inconsistent brand voice
+- Over-optimizing for SEO (keyword stuffing)
+- Missing clear CTAs
+- Publishing without proofreading
+- Ignoring analytics feedback
+
+## Performance Metrics
+
+Track these KPIs for content success:
+
+### Content Metrics
+- Organic traffic growth
+- Average time on page
+- Bounce rate
+- Social shares
+- Backlinks earned
+
+### Engagement Metrics
+- Comments and discussions
+- Email click-through rates
+- Social media engagement rate
+- Content downloads
+- Form submissions
+
+### Business Metrics
+- Leads generated
+- Conversion rate
+- Customer acquisition cost
+- Revenue attribution
+- ROI per content piece
+
+## Integration Points
+
+This skill works best with:
+- Analytics platforms (Google Analytics, social media insights)
+- SEO tools (for keyword research)
+- Design tools (for visual content)
+- Scheduling platforms (for content distribution)
+- Email marketing systems (for newsletter content)
+
+## Quick Commands
+
+```bash
+# Analyze brand voice
+python scripts/brand_voice_analyzer.py content.txt
+
+# Optimize for SEO
+python scripts/seo_optimizer.py article.md "main keyword"
+
+# Check content against brand guidelines
+grep -f references/brand_guidelines.md content.txt
+
+# Create monthly calendar
+cp assets/content_calendar_template.md this_month_calendar.md
 ```
 
-### Twitter/X Threads (280 chars/tweet)
-
-```text
-1/ [Hook - bold claim or question]
-
-2/ [Context or problem setup]
-
-3-5/ [Main points with examples]
-
-6/ [Key takeaway]
-
-7/ [CTA - retweet, follow, click link]
-
-```
-
-### LinkedIn Posts (1300 chars max)
-
-```text
-[Personal story or observation]
-
-[Transition to broader insight]
-
-[3-5 actionable points]
-
-[Conclusion with engagement question]
-
-#Hashtag #Hashtag #Hashtag
-
-```
-
-### Email Newsletters
-
-```text
-Subject: [Curiosity-driven subject line]
-
-Hi [Name],
-
-[Personal opening]
-
-[Value proposition paragraph]
-
-Here's what you'll learn:
-• [Point 1]
-• [Point 2]  
-• [Point 3]
-
-[Main content sections with headers]
-
-[Clear CTA button or link]
-
-[Sign-off]
-
-```
-
-## Headline Formulas
-
-Use these proven patterns:
-
-1. **How To**: "How to \[Achieve Desired Result\] in \[Timeframe\]"
-2. **List**: "\[Number\] Ways to \[Solve Problem\]"
-3. **Question**: "Are You Making These \[Number\] \[Mistakes\]?"
-4. **Negative**: "Stop \[Doing X\] Until You Read This"
-5. **Curiosity Gap**: "The \[Adjective\] Secret to \[Desired Result\]"
-6. **Before/After**: "From \[Bad State\] to \[Good State\] in \[Timeframe\]"
-
-## Engagement Techniques
-
-### Storytelling
-
-* Start with a relatable scenario
-* Build tension or curiosity
-* Deliver insight or resolution
-* Connect to reader's situation
-
-### Social Proof
-
-* Case studies and examples
-* Testimonials and quotes
-* Statistics and data
-* Expert opinions
-
-### Emotional Triggers
-
-* **Fear**: "Don't make this costly mistake"
-* **Curiosity**: "The surprising truth about..."
-* **Aspiration**: "How top performers..."
-* **Urgency**: "Limited time opportunity"
-* **Belonging**: "Join thousands who..."
-
-## Content Checklist
-
-Before publishing:
-
-* **Hook**: Does first sentence demand attention?
-* **Value**: Will reader learn something actionable?
-* **Flow**: Does content progress logically?
-* **Scannability**: Can you skim and get main points?
-* **Examples**: Are abstract concepts illustrated?
-* **CTA**: Is next action clear?
-* **Tone**: Matches brand voice and audience?
-* **Proofread**: No typos or grammar errors?
-
-## Example
-
-**User Request:** "Write a LinkedIn post about staying productive while working remotely"
-
-**Response:**
-
-```text
-I used to think productivity meant working 12-hour days.
-
-Then remote work taught me something different.
-
-Last year, I worked from home for 230 days. Here's what actually kept me productive (it's not what you think):
-
-**1. Start with friction**
-Don't check email first thing. Your morning energy is precious - use it for deep work, not inbox triage.
-
-I write code or create content between 9-11am. No Slack, no email, no meetings.
-
-**2. Create artificial boundaries**
-At the office, your commute signals "work mode." At home, you need new triggers.
-
-Mine: Change clothes. Sounds simple, but pajamas = brain says "relax mode."
-
-**3. Embrace the async**
-Your coworkers don't need you instantly available. 
-
-Set 2-3 "sync windows" daily for meetings/Slack. Rest of the time? Notifications off. Deep work on.
-
-**4. Physical movement breaks**
-Sitting = new smoking. Every 90 minutes, move your body.
-
-My rule: Can't start next task until I've walked around the block. Non-negotiable.
-
-**5. Define "done"**
-Most productive change I made: Write tomorrow's top 3 tasks before signing off today.
-
-Waking up without a plan = scattered energy. Waking up with clarity = momentum.
-
-**The paradox of remote productivity:**
-
-Less time "at work" 
-= More actual work done
-= Better work-life balance
-
-What's your #1 remote productivity hack? Drop it below 👇
-
-#RemoteWork #Productivity #WorkFromHome
-
-```
-
-**Why this works:**
-
-* Opens with relatable pain point
-* Personal story builds credibility
-* Numbered points are scannable
-* Concrete, actionable advice
-* Ends with engagement question
-* Appropriate hashtags for reach
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

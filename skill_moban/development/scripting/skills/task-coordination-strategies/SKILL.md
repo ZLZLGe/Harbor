@@ -1,14 +1,20 @@
+---
+name: task-coordination-strategies
+description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent work with proper task descriptions and workload balancing. Use this skill when breaking down work for agent teams, managing task dependencies, or monitoring team progress.
+version: 1.0.2
+---
+
 # Task Coordination Strategies
 
 Strategies for decomposing complex tasks into parallelizable units, designing dependency graphs, writing effective task descriptions, and monitoring workload across agent teams.
 
 ## When to Use This Skill
 
-* Breaking down a complex task for parallel execution
-* Designing task dependency relationships (blockedBy/blocks)
-* Writing task descriptions with clear acceptance criteria
-* Monitoring and rebalancing workload across teammates
-* Identifying the critical path in a multi-task workflow
+- Breaking down a complex task for parallel execution
+- Designing task dependency relationships (blockedBy/blocks)
+- Writing task descriptions with clear acceptance criteria
+- Monitoring and rebalancing workload across teammates
+- Identifying the critical path in a multi-task workflow
 
 ## Task Decomposition Strategies
 
@@ -16,10 +22,10 @@ Strategies for decomposing complex tasks into parallelizable units, designing de
 
 Split work by architectural layer:
 
-* Frontend components
-* Backend API endpoints
-* Database migrations/models
-* Test suites
+- Frontend components
+- Backend API endpoints
+- Database migrations/models
+- Test suites
 
 **Best for**: Full-stack features, vertical slices
 
@@ -27,9 +33,9 @@ Split work by architectural layer:
 
 Split work by functional component:
 
-* Authentication module
-* User profile module
-* Notification module
+- Authentication module
+- User profile module
+- Notification module
 
 **Best for**: Microservices, modular architectures
 
@@ -37,9 +43,9 @@ Split work by functional component:
 
 Split work by cross-cutting concern:
 
-* Security review
-* Performance review
-* Architecture review
+- Security review
+- Performance review
+- Architecture review
 
 **Best for**: Code reviews, audits
 
@@ -47,9 +53,9 @@ Split work by cross-cutting concern:
 
 Split work by file/directory boundaries:
 
-* `src/components/` — Implementer 1
-* `src/api/` — Implementer 2
-* `src/utils/` — Implementer 3
+- `src/components/` — Implementer 1
+- `src/api/` — Implementer 2
+- `src/utils/` — Implementer 3
 
 **Best for**: Parallel implementation, conflict avoidance
 
@@ -66,37 +72,33 @@ Split work by file/directory boundaries:
 
 **Independent (Best parallelism)**:
 
-```text
+```
 Task A ─┐
 Task B ─┼─→ Integration
 Task C ─┘
-
 ```
 
 **Sequential (Necessary dependencies)**:
 
-```text
+```
 Task A → Task B → Task C
-
 ```
 
 **Diamond (Mixed)**:
 
-```text
+```
         ┌→ Task B ─┐
 Task A ─┤          ├→ Task D
         └→ Task C ─┘
-
 ```
 
 ### Using blockedBy/blocks
 
-```text
+```
 TaskCreate: { subject: "Build API endpoints" }         → Task #1
 TaskCreate: { subject: "Build frontend components" }    → Task #2
 TaskCreate: { subject: "Integration testing" }          → Task #3
 TaskUpdate: { taskId: "3", addBlockedBy: ["1", "2"] }  → #3 waits for #1 and #2
-
 ```
 
 ## Task Description Best Practices
@@ -112,7 +114,7 @@ Every task should include:
 
 ### Template
 
-```text
+```
 ## Objective
 Build the user authentication API endpoints.
 
@@ -139,7 +141,6 @@ Build the user authentication API endpoints.
 - OAuth/social login
 - Password reset flow
 - Rate limiting
-
 ```
 
 ## Workload Monitoring

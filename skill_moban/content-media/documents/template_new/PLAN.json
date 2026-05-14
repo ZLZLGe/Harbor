@@ -54,7 +54,7 @@
     ],
     "guardrails": [
       "input briefing files remain unchanged",
-      "the shipped skill area remains unchanged, and an empty skill area remains empty",
+      "the shipped briefing input area remains unchanged",
       "top-level output inventory exactly matches the contract",
       "no placeholder-oriented or verifier-oriented strings remain in the formal outputs"
     ]

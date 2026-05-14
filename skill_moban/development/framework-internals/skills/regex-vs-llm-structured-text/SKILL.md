@@ -1,28 +1,33 @@
+---
+name: regex-vs-llm-structured-text
+description: Decision framework for choosing between regex and LLM when parsing structured text — start with regex, add LLM only for low-confidence edge cases.
+origin: ECC
+---
+
 # Regex vs LLM for Structured Text Parsing
 
 A practical decision framework for parsing structured text (quizzes, forms, invoices, documents). The key insight: regex handles 95-98% of cases cheaply and deterministically. Reserve expensive LLM calls for the remaining edge cases.
 
 ## When to Activate
 
-* Parsing structured text with repeating patterns (questions, forms, tables)
-* Deciding between regex and LLM for text extraction
-* Building hybrid pipelines that combine both approaches
-* Optimizing cost/accuracy tradeoffs in text processing
+- Parsing structured text with repeating patterns (questions, forms, tables)
+- Deciding between regex and LLM for text extraction
+- Building hybrid pipelines that combine both approaches
+- Optimizing cost/accuracy tradeoffs in text processing
 
 ## Decision Framework
 
-```text
+```
 Is the text format consistent and repeating?
 ├── Yes (>90% follows a pattern) → Start with Regex
 │   ├── Regex handles 95%+ → Done, no LLM needed
 │   └── Regex handles <95% → Add LLM for edge cases only
 └── No (free-form, highly variable) → Use LLM directly
-
 ```
 
 ## Architecture Pattern
 
-```text
+```
 Source Text
     │
     ▼
@@ -37,13 +42,13 @@ Source Text
     ├── High confidence (≥0.95) → Direct output
     │
     └── Low confidence (<0.95) → [LLM Validator] → Output
-
 ```
 
 ## Implementation
 
-### 1\. Regex Parser (Handles the Majority)
+### 1. Regex Parser (Handles the Majority)
 
+```python
 import re
 from dataclasses import dataclass
 
@@ -58,9 +63,9 @@ class ParsedItem:
 def parse_structured_text(content: str) -> list[ParsedItem]:
     """Parse structured text using regex patterns."""
     pattern = re.compile(
-        r"(?P\d+)\.\s*(?P.+?)\n"
-        r"(?P(?:[A-D]\..+?\n)+)"
-        r"Answer:\s*(?P[A-D])",
+        r"(?P<id>\d+)\.\s*(?P<text>.+?)\n"
+        r"(?P<choices>(?:[A-D]\..+?\n)+)"
+        r"Answer:\s*(?P<answer>[A-D])",
         re.MULTILINE | re.DOTALL,
     )
     items = []
@@ -75,12 +80,11 @@ def parse_structured_text(content: str) -> list[ParsedItem]:
             answer=match.group("answer"),
         ))
     return items
+```
 
 ### 2. Confidence Scoring
 
-
 Flag items that may need LLM review:
-
 
 ```python
 @dataclass(frozen=True)
@@ -119,12 +123,9 @@ def identify_low_confidence(
     """Return items below confidence threshold."""
     flags = [score_confidence(item) for item in items]
     return [f for f in flags if f.score < threshold]
-
 ```
 
-
 ### 3. LLM Validator (Edge Cases Only)
-
 
 ```python
 def validate_with_llm(
@@ -148,12 +149,9 @@ def validate_with_llm(
     )
     # Parse LLM response and return corrected item...
     return corrected_item
-
 ```
 
-
 ### 4. Hybrid Pipeline
-
 
 ```python
 def process_document(
@@ -182,76 +180,41 @@ def process_document(
             result.append(item)
 
     return result
-
 ```
-
 
 ## Real-World Metrics
 
-
 From a production quiz parsing pipeline (410 items):
 
-
-| |                       |
-| ----------------------- |
-| Metric                  |
-| Value                   |
-| |                       |
-| Regex success rate      |
-| 98.0%                   |
-| |                       |
-| Low confidence items    |
-| 8 (2.0%)                |
-| |                       |
-| LLM calls needed        |
-| ~5                      |
-| |                       |
-| Cost savings vs all-LLM |
-| ~95%                    |
-| |                       |
-| Test coverage           |
-| 93%                     |
-
+| Metric | Value |
+|--------|-------|
+| Regex success rate | 98.0% |
+| Low confidence items | 8 (2.0%) |
+| LLM calls needed | ~5 |
+| Cost savings vs all-LLM | ~95% |
+| Test coverage | 93% |
 
 ## Best Practices
 
-
-* **Start with regex** — even imperfect regex gives you a baseline to improve
-
-* **Use confidence scoring** to programmatically identify what needs LLM help
-
-* **Use the cheapest LLM** for validation (Haiku-class models are sufficient)
-
-* **Never mutate** parsed items — return new instances from cleaning/validation steps
-
-* **TDD works well** for parsers — write tests for known patterns first, then edge cases
-
-* **Log metrics** (regex success rate, LLM call count) to track pipeline health
-
+- **Start with regex** — even imperfect regex gives you a baseline to improve
+- **Use confidence scoring** to programmatically identify what needs LLM help
+- **Use the cheapest LLM** for validation (Haiku-class models are sufficient)
+- **Never mutate** parsed items — return new instances from cleaning/validation steps
+- **TDD works well** for parsers — write tests for known patterns first, then edge cases
+- **Log metrics** (regex success rate, LLM call count) to track pipeline health
 
 ## Anti-Patterns to Avoid
 
-
-* Sending all text to an LLM when regex handles 95%+ of cases (expensive and slow)
-
-* Using regex for free-form, highly variable text (LLM is better here)
-
-* Skipping confidence scoring and hoping regex "just works"
-
-* Mutating parsed objects during cleaning/validation steps
-
-* Not testing edge cases (malformed input, missing fields, encoding issues)
-
+- Sending all text to an LLM when regex handles 95%+ of cases (expensive and slow)
+- Using regex for free-form, highly variable text (LLM is better here)
+- Skipping confidence scoring and hoping regex "just works"
+- Mutating parsed objects during cleaning/validation steps
+- Not testing edge cases (malformed input, missing fields, encoding issues)
 
 ## When to Use
 
-
-* Quiz/exam question parsing
-
-* Form data extraction
-
-* Invoice/receipt processing
-
-* Document structure parsing (headers, sections, tables)
-
-* Any structured text with repeating patterns where cost matters
+- Quiz/exam question parsing
+- Form data extraction
+- Invoice/receipt processing
+- Document structure parsing (headers, sections, tables)
+- Any structured text with repeating patterns where cost matters

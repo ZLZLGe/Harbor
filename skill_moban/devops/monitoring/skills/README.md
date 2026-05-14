@@ -1,76 +1,42 @@
 # Monitoring Skills
 
-- 来源：先参考 `https://skillsmp.com/categories/monitoring`，再在 `skills.sh` 中补足相关 skills。
-- 过滤条件：GitHub stars `>= 1000`。
-- 安装量规则：优先保留 `skills.sh` installs `>= 1000`；不足 50 个时，放宽到 `>= 500`。
-- 最终结果：共 50 个 skills，其中 50 个 installs >= 1000，0 个 installs 在 500-999。
-
-## 放宽安装量阈值的 Skills
-
+- 来源：先参考 https://skillsmp.com/categories/monitoring，再在 skills.sh 中补足相关 skills。
+- 过滤条件：GitHub stars >= 1000，installs >= 1K。
+- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
+- 最终结果：共 24 个 skills，其中 19 个 installs >= 1000，5 个 installs 在 500-999。
 
 ## 技能清单
 
-1. systematic-debugging | 来源: https://skills.sh/obra/superpowers/systematic-debugging | installs: 86.3K | stars: 180100
-2. autonomous-loops | 来源: https://skills.sh/affaan-m/everything-claude-code/autonomous-loops | installs: 3.2K | stars: 175900
-3. compose-multiplatform-patterns | 来源: https://skills.sh/affaan-m/everything-claude-code/compose-multiplatform-patterns | installs: 2.9K | stars: 175900
-4. enterprise-agent-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/enterprise-agent-ops | installs: 2.9K | stars: 175900
-5. customer-billing-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/customer-billing-ops | installs: 1.8K | stars: 175900
-6. google-workspace-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/google-workspace-ops | installs: 1.8K | stars: 175900
-7. project-flow-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/project-flow-ops | installs: 1.8K | stars: 175900
-8. agent-introspection-debugging | 来源: https://skills.sh/affaan-m/everything-claude-code/agent-introspection-debugging | installs: 1.7K | stars: 175900
-9. dashboard-builder | 来源: https://skills.sh/affaan-m/everything-claude-code/dashboard-builder | installs: 1.7K | stars: 175900
-10. github-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/github-ops | installs: 1.7K | stars: 175900
-11. knowledge-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/knowledge-ops | installs: 1.7K | stars: 175900
-12. automation-audit-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/automation-audit-ops | installs: 1.6K | stars: 175900
-13. email-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/email-ops | installs: 1.6K | stars: 175900
-14. finance-billing-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/finance-billing-ops | installs: 1.6K | stars: 175900
-15. messages-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/messages-ops | installs: 1.6K | stars: 175900
-16. research-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/research-ops | installs: 1.6K | stars: 175900
-17. terminal-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/terminal-ops | installs: 1.6K | stars: 175900
-18. unified-notifications-ops | 来源: https://skills.sh/affaan-m/everything-claude-code/unified-notifications-ops | installs: 1.6K | stars: 175900
-19. cloud | 来源: https://skills.sh/browser-use/browser-use/cloud | installs: 1.1K | stars: 92400
-20. browser-automation | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/browser-automation | installs: 4.5K | stars: 36853
-21. web-performance-optimization | 来源: https://skills.sh/sickn33/antigravity-awesome-skills/web-performance-optimization | installs: 1.9K | stars: 36853
-22. kpi-dashboard-design | 来源: https://skills.sh/wshobson/agents/kpi-dashboard-design | installs: 7.9K | stars: 35018
-23. grafana-dashboards | 来源: https://skills.sh/wshobson/agents/grafana-dashboards | installs: 7.2K | stars: 35018
-24. python-observability | 来源: https://skills.sh/wshobson/agents/python-observability | installs: 5.9K | stars: 35018
-25. service-mesh-observability | 来源: https://skills.sh/wshobson/agents/service-mesh-observability | installs: 5.7K | stars: 35018
-26. istio-traffic-management | 来源: https://skills.sh/wshobson/agents/istio-traffic-management | installs: 5.6K | stars: 35018
-27. linkerd-patterns | 来源: https://skills.sh/wshobson/agents/linkerd-patterns | installs: 5.6K | stars: 35018
-28. parallel-debugging | 来源: https://skills.sh/wshobson/agents/parallel-debugging | installs: 5.1K | stars: 35018
-29. azure-devops-cli | 来源: https://skills.sh/github/awesome-copilot/azure-devops-cli | installs: 10.3K | stars: 32200
-30. playwright-automation-fill-in-form | 来源: https://skills.sh/github/awesome-copilot/playwright-automation-fill-in-form | installs: 9.6K | stars: 32200
-31. appinsights-instrumentation | 来源: https://skills.sh/github/awesome-copilot/appinsights-instrumentation | installs: 9.2K | stars: 32200
-32. breakdown-feature-prd | 来源: https://skills.sh/github/awesome-copilot/breakdown-feature-prd | installs: 9.2K | stars: 32200
-33. devops-rollout-plan | 来源: https://skills.sh/github/awesome-copilot/devops-rollout-plan | installs: 8.9K | stars: 32200
-34. copilot-usage-metrics | 来源: https://skills.sh/github/awesome-copilot/copilot-usage-metrics | installs: 8.4K | stars: 32200
-35. power-bi-performance-troubleshooting | 来源: https://skills.sh/github/awesome-copilot/power-bi-performance-troubleshooting | installs: 8.4K | stars: 32200
-36. power-platform-mcp-connector-suite | 来源: https://skills.sh/github/awesome-copilot/power-platform-mcp-connector-suite | installs: 8.3K | stars: 32200
-37. import-infrastructure-as-code | 来源: https://skills.sh/github/awesome-copilot/import-infrastructure-as-code | installs: 6.5K | stars: 32200
-38. cloud-design-patterns | 来源: https://skills.sh/github/awesome-copilot/cloud-design-patterns | installs: 1.7K | stars: 32200
-39. persona-sales-ops | 来源: https://skills.sh/googleworkspace/cli/persona-sales-ops | installs: 11.7K | stars: 25800
-40. build-dashboard | 来源: https://skills.sh/anthropics/knowledge-work-plugins/build-dashboard | installs: 2.7K | stars: 11800
-41. performance-review | 来源: https://skills.sh/anthropics/knowledge-work-plugins/performance-review | installs: 1.0K | stars: 11800
-42. monitoring-expert | 来源: https://skills.sh/jeffallan/claude-skills/monitoring-expert | installs: 2.3K | stars: 8800
-43. debugging-wizard | 来源: https://skills.sh/jeffallan/claude-skills/debugging-wizard | installs: 2.0K | stars: 8800
-44. sre-engineer | 来源: https://skills.sh/jeffallan/claude-skills/sre-engineer | installs: 2.0K | stars: 8800
-45. cloud-run-basics | 来源: https://skills.sh/google/skills/cloud-run-basics | installs: 2.5K | stars: 6700
-46. google-cloud-recipe-auth | 来源: https://skills.sh/google/skills/google-cloud-recipe-auth | installs: 2.2K | stars: 6700
-47. google-cloud-recipe-onboarding | 来源: https://skills.sh/google/skills/google-cloud-recipe-onboarding | installs: 2.0K | stars: 6700
-48. google-cloud-recipe-networking-observability | 来源: https://skills.sh/google/skills/google-cloud-recipe-networking-observability | installs: 1.9K | stars: 6700
-49. google-cloud-waf-reliability | 来源: https://skills.sh/google/skills/google-cloud-waf-reliability | installs: 1.8K | stars: 6700
-50. adk-observability-guide | 来源: https://skills.sh/google/adk-docs/adk-observability-guide | installs: 2.6K | stars: 1300
+### 严格入选：installs >= 1000
 
-## skills.sh 来源汇总
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 1 | kpi-dashboard-design | wshobson/agents | 35133 | 8226 | https://skills.sh/wshobson/agents/kpi-dashboard-design |
+| 2 | grafana-dashboards | wshobson/agents | 35133 | 7446 | https://skills.sh/wshobson/agents/grafana-dashboards |
+| 3 | prometheus-configuration | wshobson/agents | 35133 | 6366 | https://skills.sh/wshobson/agents/prometheus-configuration |
+| 4 | python-observability | wshobson/agents | 35133 | 6174 | https://skills.sh/wshobson/agents/python-observability |
+| 5 | distributed-tracing | wshobson/agents | 35133 | 6142 | https://skills.sh/wshobson/agents/distributed-tracing |
+| 6 | service-mesh-observability | wshobson/agents | 35133 | 5915 | https://skills.sh/wshobson/agents/service-mesh-observability |
+| 7 | istio-traffic-management | wshobson/agents | 35133 | 5870 | https://skills.sh/wshobson/agents/istio-traffic-management |
+| 8 | linkerd-patterns | wshobson/agents | 35133 | 5817 | https://skills.sh/wshobson/agents/linkerd-patterns |
+| 9 | breakdown-feature-prd | github/awesome-copilot | 32605 | 9220 | https://skills.sh/github/awesome-copilot/breakdown-feature-prd |
+| 10 | appinsights-instrumentation | github/awesome-copilot | 32605 | 9175 | https://skills.sh/github/awesome-copilot/appinsights-instrumentation |
+| 11 | sentry | openai/skills | 18740 | 1066 | https://skills.sh/openai/skills/sentry |
+| 12 | golang-pro | Jeffallan/claude-skills | 8935 | 12182 | https://skills.sh/Jeffallan/claude-skills/golang-pro |
+| 13 | kubernetes-specialist | Jeffallan/claude-skills | 8935 | 9146 | https://skills.sh/Jeffallan/claude-skills/kubernetes-specialist |
+| 14 | monitoring-expert | Jeffallan/claude-skills | 8935 | 2411 | https://skills.sh/Jeffallan/claude-skills/monitoring-expert |
+| 15 | microservices-architect | Jeffallan/claude-skills | 8935 | 2242 | https://skills.sh/Jeffallan/claude-skills/microservices-architect |
+| 16 | debugging-wizard | Jeffallan/claude-skills | 8935 | 2186 | https://skills.sh/Jeffallan/claude-skills/debugging-wizard |
+| 17 | sre-engineer | Jeffallan/claude-skills | 8935 | 2168 | https://skills.sh/Jeffallan/claude-skills/sre-engineer |
+| 18 | dbs-restore | dontbesilent2025/dbskill | 4550 | 1189 | https://skills.sh/dontbesilent2025/dbskill/dbs-restore |
+| 19 | flutter-setup-localization | flutter/skills | 1873 | 5934 | https://skills.sh/flutter/skills/flutter-setup-localization |
 
-- https://skills.sh/obra/superpowers
-- https://skills.sh/affaan-m/everything-claude-code
-- https://skills.sh/browser-use/browser-use
-- https://skills.sh/sickn33/antigravity-awesome-skills
-- https://skills.sh/wshobson/agents
-- https://skills.sh/github/awesome-copilot
-- https://skills.sh/googleworkspace/cli
-- https://skills.sh/anthropics/knowledge-work-plugins
-- https://skills.sh/jeffallan/claude-skills
-- https://skills.sh/google/skills
-- https://skills.sh/google/adk-docs
+### 放宽入选：installs 500-999
+
+| # | skill | repo | stars | installs | skills.sh |
+|---:|---|---|---:|---:|---|
+| 20 | analytics-events | metabase/metabase | 47258 | 545 | https://skills.sh/metabase/metabase/analytics-events |
+| 21 | add-expert | remotion-dev/remotion | 46451 | 642 | https://skills.sh/remotion-dev/remotion/add-expert |
+| 22 | neon-postgres | sickn33/antigravity-awesome-skills | 37047 | 511 | https://skills.sh/sickn33/antigravity-awesome-skills/neon-postgres |
+| 23 | create-evlog-adapter | HugoRCD/evlog | 1300 | 684 | https://skills.sh/HugoRCD/evlog/create-evlog-adapter |
+| 24 | create-evlog-enricher | HugoRCD/evlog | 1300 | 657 | https://skills.sh/HugoRCD/evlog/create-evlog-enricher |

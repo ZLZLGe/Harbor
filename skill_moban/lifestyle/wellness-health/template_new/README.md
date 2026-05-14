@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：wellness-health 类热门 skill 常见价值，是把“当前条件是否允许这样安排”这件事说清楚，并把需要调整的动作落到场地、时段、提醒信息和执行交接上。模板题面要把交付合同说清楚，把判定细节尽量留给 skill 和 solver 自己识别。
-* **Task 目标形态**：任务宜放在社区活动、园区活动、日程协同、课程安排这类场景里，要求 Agent 同时处理条件变化、参与者支持、场地限制和公告输出。交付物应覆盖结构化评估、正式排期、提醒信息和运营 handoff。
 * **Verifier 设计重点**：Verifier 应重点检查 solver 是否做出了正确的调度动作，例如换场地、改时段、降暴露等级或保留合规安排，并验证结果是否满足容量、开放时间、活动限制和支持需求。它还应拦截只看较早导出、跳过本地权威服务、删 session 规避约束或硬编码答案等捷径。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`wellness-health__weather-safe-community-schedule`
 - 类别：`wellness-health`
-- 难度：`hard`
 - 绑定 Skill：`weather-safety-guardrails`
 - 输入数据参考来源：
   - `environment/service_seed/conditions_hourly.json`：任务内当前条件快照；设计形态参考 NOAA hourly forecast、Open-Meteo weather forecast 与 Open-Meteo air quality  
@@ -33,7 +31,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：oracle 读取本地 planning service 的当前条件窗口、隐藏策略阈值、session 请求和场地目录，按统一决策顺序生成 session 评估、正式排期、提醒信息和运营 handoff。它证明这个任务可运行、可验证，也不依赖额外答案文件。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -51,7 +49,7 @@
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | 本地权威链路 | 访问日志必须证明 solver 查询了本地 planning service，且覆盖全部计划日期 |
-| 输入与隐藏资产保护 | `/root/data/`、隐藏 service、seed 数据和 skill 目录内容不得变化；verifier 结束时服务仍健康 |
+| 输入与隐藏资产保护 | `/root/data/`、隐藏 service 与 seed 数据不得变化；verifier 结束时服务仍健康 |
 
 ### ⚡ Skill 相关性评估
 

@@ -15,8 +15,6 @@ REPORT_PATH = WORKSPACE_ROOT / "out" / "launch_report.json"
 SPEC_ROOT = WORKSPACE_ROOT / "spec"
 
 SPEC_HASH_PATH = Path(os.environ.get("TASK_SPEC_HASH_PATH", "/opt/defi-spec.sha256"))
-SKILL_HASH_PATH = Path(os.environ.get("TASK_SKILL_HASH_PATH", "/opt/defi-skill.sha256"))
-SKILL_ROOT = Path(os.environ.get("TASK_SKILL_ROOT", "/root/.codex/skills/defi-protocol-templates"))
 
 TESTS_ROOT = Path(__file__).resolve().parent
 QUERY_STATE_SCRIPT = TESTS_ROOT / "query_state.js"

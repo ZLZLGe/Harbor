@@ -1,19 +1,24 @@
+---
+name: istio-traffic-management
+description: Configure Istio traffic management including routing, load balancing, circuit breakers, and canary deployments. Use when implementing service mesh traffic policies, progressive delivery, or resilience patterns.
+---
+
 # Istio Traffic Management
 
 Comprehensive guide to Istio traffic management for production service mesh deployments.
 
 ## When to Use This Skill
 
-* Configuring service-to-service routing
-* Implementing canary or blue-green deployments
-* Setting up circuit breakers and retries
-* Load balancing configuration
-* Traffic mirroring for testing
-* Fault injection for chaos engineering
+- Configuring service-to-service routing
+- Implementing canary or blue-green deployments
+- Setting up circuit breakers and retries
+- Load balancing configuration
+- Traffic mirroring for testing
+- Fault injection for chaos engineering
 
 ## Core Concepts
 
-### 1\. Traffic Management Resources
+### 1. Traffic Management Resources
 
 | Resource            | Purpose                       | Scope         |
 | ------------------- | ----------------------------- | ------------- |
@@ -22,12 +27,11 @@ Comprehensive guide to Istio traffic management for production service mesh depl
 | **Gateway**         | Configure ingress/egress      | Cluster edge  |
 | **ServiceEntry**    | Add external services         | Mesh-wide     |
 
-### 2\. Traffic Flow
+### 2. Traffic Flow
 
-```text
+```
 Client → Gateway → VirtualService → DestinationRule → Service
                    (routing)        (policies)        (pods)
-
 ```
 
 ## Templates
@@ -74,7 +78,6 @@ spec:
     - name: v3
       labels:
         version: v3
-
 ```
 
 ### Template 2: Canary Deployment
@@ -119,7 +122,6 @@ spec:
     - name: canary
       labels:
         version: canary
-
 ```
 
 ### Template 3: Circuit Breaker
@@ -146,7 +148,6 @@ spec:
       baseEjectionTime: 30s
       maxEjectionPercent: 50
       minHealthPercent: 30
-
 ```
 
 ### Template 4: Retry and Timeout
@@ -169,7 +170,6 @@ spec:
         perTryTimeout: 3s
         retryOn: connect-failure,refused-stream,unavailable,cancelled,retriable-4xx,503
         retryRemoteLocalities: true
-
 ```
 
 ### Template 5: Traffic Mirroring
@@ -192,7 +192,6 @@ spec:
         subset: v2
       mirrorPercentage:
         value: 100.0
-
 ```
 
 ### Template 6: Fault Injection
@@ -218,7 +217,6 @@ spec:
       route:
         - destination:
             host: ratings
-
 ```
 
 ### Template 7: Ingress Gateway
@@ -260,7 +258,6 @@ spec:
             host: api-service
             port:
               number: 8080
-
 ```
 
 ## Load Balancing Strategies
@@ -288,25 +285,24 @@ spec:
       consistentHash:
         httpHeaderName: x-user-id
         # or: httpCookie, useSourceIp, httpQueryParameterName
-
 ```
 
 ## Best Practices
 
 ### Do's
 
-* **Start simple** \- Add complexity incrementally
-* **Use subsets** \- Version your services clearly
-* **Set timeouts** \- Always configure reasonable timeouts
-* **Enable retries** \- But with backoff and limits
-* **Monitor** \- Use Kiali and Jaeger for visibility
+- **Start simple** - Add complexity incrementally
+- **Use subsets** - Version your services clearly
+- **Set timeouts** - Always configure reasonable timeouts
+- **Enable retries** - But with backoff and limits
+- **Monitor** - Use Kiali and Jaeger for visibility
 
 ### Don'ts
 
-* **Don't over-retry** \- Can cause cascading failures
-* **Don't ignore outlier detection** \- Enable circuit breakers
-* **Don't mirror to production** \- Mirror to test environments
-* **Don't skip canary** \- Test with small traffic percentage first
+- **Don't over-retry** - Can cause cascading failures
+- **Don't ignore outlier detection** - Enable circuit breakers
+- **Don't mirror to production** - Mirror to test environments
+- **Don't skip canary** - Test with small traffic percentage first
 
 ## Debugging Commands
 
@@ -322,5 +318,4 @@ istioctl proxy-config endpoints deploy/my-app
 
 # Debug traffic
 istioctl proxy-config log deploy/my-app --level debug
-
 ```

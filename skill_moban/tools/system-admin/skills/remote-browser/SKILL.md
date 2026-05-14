@@ -1,3 +1,9 @@
+---
+name: remote-browser
+description: Controls a local browser from a sandboxed remote machine. Use when the agent is running in a sandbox (no GUI) and needs to navigate websites, interact with web pages, fill forms, take screenshots, or expose local dev servers via tunnels.
+allowed-tools: Bash(browser-use:*)
+---
+
 # Browser Automation for Sandboxed Agents
 
 This skill is for agents running on **sandboxed remote machines** (cloud VMs, CI, coding agents) that need to control a headless browser.
@@ -6,19 +12,18 @@ This skill is for agents running on **sandboxed remote machines** (cloud VMs, CI
 
 ```bash
 browser-use doctor    # Verify installation
-
 ```
 
-For setup details, see <https://github.com/browser-use/browser-use/blob/main/browser%5Fuse/skill%5Fcli/README.md>
+For setup details, see https://github.com/browser-use/browser-use/blob/main/browser_use/skill_cli/README.md
 
 ## Core Workflow
 
-**Navigate**: browser-use open  — starts headless browser if needed 
-1. **Inspect**: `browser-use state` — returns clickable elements with indices
-2. **Interact**: use indices from state (`browser-use click 5`, `browser-use input 3 "text"`)
-3. **Verify**: `browser-use state` or `browser-use screenshot` to confirm
-4. **Repeat**: browser stays open between commands
-5. **Cleanup**: `browser-use close` when done
+1. **Navigate**: `browser-use open <url>` — starts headless browser if needed
+2. **Inspect**: `browser-use state` — returns clickable elements with indices
+3. **Interact**: use indices from state (`browser-use click 5`, `browser-use input 3 "text"`)
+4. **Verify**: `browser-use state` or `browser-use screenshot` to confirm
+5. **Repeat**: browser stays open between commands
+6. **Cleanup**: `browser-use close` when done
 
 ## Browser Modes
 
@@ -27,7 +32,6 @@ browser-use open <url>                                    # Default: headless Ch
 browser-use cloud connect                                 # Provision cloud browser and connect
 browser-use --connect open <url>                          # Auto-discover running Chrome via CDP
 browser-use --cdp-url ws://localhost:9222/... open <url>  # Connect via CDP URL
-
 ```
 
 ## Commands
@@ -89,7 +93,6 @@ browser-use python --reset                # Clear namespace
 browser-use close                         # Close browser and stop daemon
 browser-use sessions                      # List active sessions
 browser-use close --all                   # Close all sessions
-
 ```
 
 The Python `browser` object provides: `browser.url`, `browser.title`, `browser.html`, `browser.goto(url)`, `browser.back()`, `browser.click(index)`, `browser.type(text)`, `browser.input(index, text)`, `browser.keys(keys)`, `browser.upload(index, path)`, `browser.screenshot(path)`, `browser.scroll(direction, amount)`, `browser.wait(seconds)`.
@@ -103,7 +106,6 @@ browser-use tunnel <port>                 # Start tunnel (idempotent)
 browser-use tunnel list                   # Show active tunnels
 browser-use tunnel stop <port>            # Stop tunnel
 browser-use tunnel stop --all             # Stop all tunnels
-
 ```
 
 ## Command Chaining
@@ -113,7 +115,6 @@ Commands can be chained with `&&`. The browser persists via the daemon, so chain
 ```bash
 browser-use open https://example.com && browser-use state
 browser-use input 5 "user@example.com" && browser-use input 6 "password" && browser-use click 7
-
 ```
 
 Chain when you don't need intermediate output. Run separately when you need to parse `state` to discover indices first.
@@ -126,7 +127,6 @@ Chain when you don't need intermediate output. Run separately when you need to p
 python -m http.server 3000 &                      # Start dev server
 browser-use tunnel 3000                            # → https://abc.trycloudflare.com
 browser-use open https://abc.trycloudflare.com     # Browse the tunnel
-
 ```
 
 Tunnels are independent of browser sessions and persist across `browser-use close`.
@@ -142,56 +142,38 @@ INDEX=$(browser-use register)                    # → prints "1"
 browser-use --connect $INDEX open <url>          # Navigate in agent's own tab
 browser-use --connect $INDEX state               # Get state from agent's tab
 browser-use --connect $INDEX click <element>     # Click in agent's tab
-
 ```
 
-  * **Tab locking**: When an agent mutates a tab (click, type, navigate), that tab is locked to it. Other agents get an error if they try to mutate the same tab.
-  * **Read-only access**: `state`, `screenshot`, `get`, and `wait` commands work on any tab regardless of locks.
-  * **Agent sessions expire** after 5 minutes of inactivity. Run `browser-use register` again to get a new index.
+- **Tab locking**: When an agent mutates a tab (click, type, navigate), that tab is locked to it. Other agents get an error if they try to mutate the same tab.
+- **Read-only access**: `state`, `screenshot`, `get`, and `wait` commands work on any tab regardless of locks.
+- **Agent sessions expire** after 5 minutes of inactivity. Run `browser-use register` again to get a new index.
 
 ## Global Options
 
-Option
-
-Description
-
-`--headed`
-
-Show browser window
-
-`--connect`
-
-Auto-discover running Chrome via CDP
-
-\--cdp-url 
-
-Connect via CDP URL (`http://` or `ws://`)
-
-`--session NAME`
-
-Target a named session (default: "default")
-
-`--json`
-
-Output as JSON
+| Option | Description |
+|--------|-------------|
+| `--headed` | Show browser window |
+| `--connect` | Auto-discover running Chrome via CDP |
+| `--cdp-url <url>` | Connect via CDP URL (`http://` or `ws://`) |
+| `--session NAME` | Target a named session (default: "default") |
+| `--json` | Output as JSON |
 
 ## Tips
 
-  1. **Always run `state` first** to see available elements and their indices
-  2. **Sessions persist** — browser stays open between commands until you close it
-  3. **Tunnels are independent** — they persist across `browser-use close`
-  4. **`tunnel` is idempotent** — calling again for the same port returns the existing URL
+1. **Always run `state` first** to see available elements and their indices
+2. **Sessions persist** — browser stays open between commands until you close it
+3. **Tunnels are independent** — they persist across `browser-use close`
+4. **`tunnel` is idempotent** — calling again for the same port returns the existing URL
 
 ## Troubleshooting
 
-  * **Browser won't start?** `browser-use close` then retry. Run `browser-use doctor` to check.
-  * **Element not found?** `browser-use scroll down` then `browser-use state`
-  * **Tunnel not working?** `which cloudflared` to check, `browser-use tunnel list` to see active tunnels
+- **Browser won't start?** `browser-use close` then retry. Run `browser-use doctor` to check.
+- **Element not found?** `browser-use scroll down` then `browser-use state`
+- **Tunnel not working?** `which cloudflared` to check, `browser-use tunnel list` to see active tunnels
 
 ## Cleanup
 
 ```bash
 browser-use close                         # Close browser session
 browser-use tunnel stop --all             # Stop tunnels (if any)
-
 ```

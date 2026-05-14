@@ -1,17 +1,22 @@
+---
+name: nodejs-backend-patterns
+description: Build production-ready Node.js backend services with Express/Fastify, implementing middleware patterns, error handling, authentication, database integration, and API design best practices. Use when creating Node.js servers, REST APIs, GraphQL backends, or microservices architectures.
+---
+
 # Node.js Backend Patterns
 
 Comprehensive guidance for building scalable, maintainable, and production-ready Node.js backend applications with modern frameworks, architectural patterns, and best practices.
 
 ## When to Use This Skill
 
-* Building REST APIs or GraphQL servers
-* Creating microservices with Node.js
-* Implementing authentication and authorization
-* Designing scalable backend architectures
-* Setting up middleware and error handling
-* Integrating databases (SQL and NoSQL)
-* Building real-time applications with WebSockets
-* Implementing background job processing
+- Building REST APIs or GraphQL servers
+- Creating microservices with Node.js
+- Implementing authentication and authorization
+- Designing scalable backend architectures
+- Setting up middleware and error handling
+- Integrating databases (SQL and NoSQL)
+- Building real-time applications with WebSockets
+- Implementing background job processing
 
 ## Core Frameworks
 
@@ -46,7 +51,6 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
 ```
 
 ### Fastify - High Performance Framework
@@ -99,7 +103,6 @@ fastify.post<{
 );
 
 await fastify.listen({ port: 3000, host: "0.0.0.0" });
-
 ```
 
 ## Architectural Patterns
@@ -108,7 +111,7 @@ await fastify.listen({ port: 3000, host: "0.0.0.0" });
 
 **Structure:**
 
-```text
+```
 src/
 ├── controllers/     # Handle HTTP requests/responses
 ├── services/        # Business logic
@@ -119,7 +122,6 @@ src/
 ├── utils/           # Helper functions
 ├── config/          # Configuration
 └── types/           # TypeScript types
-
 ```
 
 **Controller Layer:**
@@ -174,7 +176,6 @@ export class UserController {
     }
   }
 }
-
 ```
 
 **Service Layer:**
@@ -235,7 +236,6 @@ export class UserService {
     }
   }
 }
-
 ```
 
 **Repository Layer:**
@@ -301,12 +301,11 @@ export class UserRepository {
     return rowCount > 0;
   }
 }
-
 ```
 
 ### Pattern 2: Dependency Injection
 
-Use a DI container to wire up repositories, services, and controllers. For a full container implementation, see [references/advanced-patterns.md](https://github.com/wshobson/agents/blob/HEAD/plugins/javascript-typescript/skills/nodejs-backend-patterns/references/advanced-patterns.md).
+Use a DI container to wire up repositories, services, and controllers. For a full container implementation, see [references/advanced-patterns.md](references/advanced-patterns.md).
 
 ## Middleware Patterns
 
@@ -368,7 +367,6 @@ export const authorize = (...roles: string[]) => {
     next();
   };
 };
-
 ```
 
 ### Validation Middleware
@@ -414,7 +412,6 @@ const createUserSchema = z.object({
 });
 
 router.post("/users", validate(createUserSchema), userController.createUser);
-
 ```
 
 ### Rate Limiting Middleware
@@ -451,7 +448,6 @@ export const authLimiter = rateLimit({
   max: 5, // Stricter limit for auth endpoints
   skipSuccessfulRequests: true,
 });
-
 ```
 
 ### Request Logging Middleware
@@ -493,7 +489,6 @@ export const requestLogger = (
 };
 
 export { logger };
-
 ```
 
 ## Error Handling
@@ -546,7 +541,6 @@ export class ConflictError extends AppError {
     super(message, 409);
   }
 }
-
 ```
 
 ### Global Error Handler
@@ -599,30 +593,28 @@ export const asyncHandler = (
     Promise.resolve(fn(req, res, next)).catch(next);
   };
 };
-
 ```
 
 ## Database Patterns
 
 Node.js supports both SQL and NoSQL databases. Use connection pooling for all production databases.
 
-Key patterns covered in [references/advanced-patterns.md](https://github.com/wshobson/agents/blob/HEAD/plugins/javascript-typescript/skills/nodejs-backend-patterns/references/advanced-patterns.md):
-
-* **PostgreSQL with connection pool** — `pg` Pool configuration and graceful shutdown
-* **MongoDB with Mongoose** — connection management and schema definition
-* **Transaction pattern** — `BEGIN`/`COMMIT`/`ROLLBACK` with `pg` client
+Key patterns covered in [references/advanced-patterns.md](references/advanced-patterns.md):
+- **PostgreSQL with connection pool** — `pg` Pool configuration and graceful shutdown
+- **MongoDB with Mongoose** — connection management and schema definition
+- **Transaction pattern** — `BEGIN`/`COMMIT`/`ROLLBACK` with `pg` client
 
 ## Authentication & Authorization
 
-JWT-based auth with access tokens (short-lived, 15m) and refresh tokens (7d). Full `AuthService` implementation with `bcrypt` password comparison in [references/advanced-patterns.md](https://github.com/wshobson/agents/blob/HEAD/plugins/javascript-typescript/skills/nodejs-backend-patterns/references/advanced-patterns.md).
+JWT-based auth with access tokens (short-lived, 15m) and refresh tokens (7d). Full `AuthService` implementation with `bcrypt` password comparison in [references/advanced-patterns.md](references/advanced-patterns.md).
 
 ## Caching Strategies
 
-Redis-backed `CacheService` with get/set/delete/invalidatePattern, plus a `@Cacheable` decorator for method-level caching. See [references/advanced-patterns.md](https://github.com/wshobson/agents/blob/HEAD/plugins/javascript-typescript/skills/nodejs-backend-patterns/references/advanced-patterns.md).
+Redis-backed `CacheService` with get/set/delete/invalidatePattern, plus a `@Cacheable` decorator for method-level caching. See [references/advanced-patterns.md](references/advanced-patterns.md).
 
 ## API Response Format
 
-Standardized `ApiResponse` helper with `success`, `error`, and `paginated` static methods. See [references/advanced-patterns.md](https://github.com/wshobson/agents/blob/HEAD/plugins/javascript-typescript/skills/nodejs-backend-patterns/references/advanced-patterns.md).
+Standardized `ApiResponse` helper with `success`, `error`, and `paginated` static methods. See [references/advanced-patterns.md](references/advanced-patterns.md).
 
 ## Best Practices
 

@@ -29,7 +29,6 @@ if not OUTPUT_ROOT.parent.exists():
     OUTPUT_ROOT = TASK_ROOT / ".tmp_test_output"
 
 BUILD_ENTRYPOINT = WORKSPACE_ROOT / "curate_resources.py"
-SKILL_ROOT = TASK_ROOT / "environment" / "skills" / "resource-curator"
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -124,13 +123,6 @@ def baseline_bundle_listing() -> str:
     if candidate.exists():
         return normalize_listing_text(candidate.read_text(encoding="utf-8"))
     return directory_listing(BUNDLE_ROOT)
-
-
-def baseline_skill_listing() -> str:
-    candidate = Path("/opt/task-baselines/resource-curator.sha256")
-    if candidate.exists():
-        return normalize_listing_text(candidate.read_text(encoding="utf-8"))
-    return directory_listing(SKILL_ROOT)
 
 
 def section_block(page_text: str, section_name: str) -> str:

@@ -1,48 +1,53 @@
+---
+name: uv-package-manager
+description: Master the uv package manager for fast Python dependency management, virtual environments, and modern Python project workflows. Use when setting up Python projects, managing dependencies, or optimizing Python development workflows with uv.
+---
+
 # UV Package Manager
 
 Comprehensive guide to using uv, an extremely fast Python package installer and resolver written in Rust, for modern Python project management and dependency workflows.
 
 ## When to Use This Skill
 
-* Setting up new Python projects quickly
-* Managing Python dependencies faster than pip
-* Creating and managing virtual environments
-* Installing Python interpreters
-* Resolving dependency conflicts efficiently
-* Migrating from pip/pip-tools/poetry
-* Speeding up CI/CD pipelines
-* Managing monorepo Python projects
-* Working with lockfiles for reproducible builds
-* Optimizing Docker builds with Python dependencies
+- Setting up new Python projects quickly
+- Managing Python dependencies faster than pip
+- Creating and managing virtual environments
+- Installing Python interpreters
+- Resolving dependency conflicts efficiently
+- Migrating from pip/pip-tools/poetry
+- Speeding up CI/CD pipelines
+- Managing monorepo Python projects
+- Working with lockfiles for reproducible builds
+- Optimizing Docker builds with Python dependencies
 
 ## Core Concepts
 
-### 1\. What is uv?
+### 1. What is uv?
 
-* **Ultra-fast package installer**: 10-100x faster than pip
-* **Written in Rust**: Leverages Rust's performance
-* **Drop-in pip replacement**: Compatible with pip workflows
-* **Virtual environment manager**: Create and manage venvs
-* **Python installer**: Download and manage Python versions
-* **Resolver**: Advanced dependency resolution
-* **Lockfile support**: Reproducible installations
+- **Ultra-fast package installer**: 10-100x faster than pip
+- **Written in Rust**: Leverages Rust's performance
+- **Drop-in pip replacement**: Compatible with pip workflows
+- **Virtual environment manager**: Create and manage venvs
+- **Python installer**: Download and manage Python versions
+- **Resolver**: Advanced dependency resolution
+- **Lockfile support**: Reproducible installations
 
-### 2\. Key Features
+### 2. Key Features
 
-* Blazing fast installation speeds
-* Disk space efficient with global cache
-* Compatible with pip, pip-tools, poetry
-* Comprehensive dependency resolution
-* Cross-platform support (Linux, macOS, Windows)
-* No Python required for installation
-* Built-in virtual environment support
+- Blazing fast installation speeds
+- Disk space efficient with global cache
+- Compatible with pip, pip-tools, poetry
+- Comprehensive dependency resolution
+- Cross-platform support (Linux, macOS, Windows)
+- No Python required for installation
+- Built-in virtual environment support
 
-### 3\. UV vs Traditional Tools
+### 3. UV vs Traditional Tools
 
-* **vs pip**: 10-100x faster, better resolver
-* **vs pip-tools**: Faster, simpler, better UX
-* **vs poetry**: Faster, less opinionated, lighter
-* **vs conda**: Faster, Python-focused
+- **vs pip**: 10-100x faster, better resolver
+- **vs pip-tools**: Faster, simpler, better UX
+- **vs poetry**: Faster, less opinionated, lighter
+- **vs conda**: Faster, Python-focused
 
 ## Installation
 
@@ -63,7 +68,6 @@ brew install uv
 
 # Using cargo (if you have Rust)
 cargo install --git https://github.com/astral-sh/uv uv
-
 ```
 
 ### Verify Installation
@@ -71,7 +75,6 @@ cargo install --git https://github.com/astral-sh/uv uv
 ```bash
 uv --version
 # uv 0.x.x
-
 ```
 
 ## Quick Start
@@ -91,7 +94,6 @@ uv init .
 # - pyproject.toml (project config)
 # - README.md
 # - .gitignore
-
 ```
 
 ### Install Dependencies
@@ -108,7 +110,6 @@ uv pip install -r requirements.txt
 
 # Install from pyproject.toml
 uv sync
-
 ```
 
 ## Virtual Environment Management
@@ -130,7 +131,6 @@ uv venv --system-site-packages
 
 # Specify location
 uv venv /path/to/venv
-
 ```
 
 ### Pattern 2: Activating Virtual Environments
@@ -148,7 +148,6 @@ source .venv/bin/activate
 # Or use uv run (no activation needed)
 uv run python script.py
 uv run pytest
-
 ```
 
 ### Pattern 3: Using uv run
@@ -166,7 +165,6 @@ uv run --python 3.11 python script.py
 
 # Pass arguments
 uv run python script.py --arg value
-
 ```
 
 ## Package Management
@@ -200,7 +198,6 @@ uv add ./local-package
 
 # Add editable local package
 uv add -e ./local-package
-
 ```
 
 ### Pattern 5: Removing Dependencies
@@ -214,7 +211,6 @@ uv remove --dev pytest
 
 # Remove multiple packages
 uv remove numpy pandas matplotlib
-
 ```
 
 ### Pattern 6: Upgrading Dependencies
@@ -231,7 +227,6 @@ uv add --upgrade requests
 
 # Show what would be upgraded
 uv tree --outdated
-
 ```
 
 ### Pattern 7: Locking Dependencies
@@ -248,7 +243,6 @@ uv lock --no-install
 
 # Lock specific package
 uv lock --upgrade-package requests
-
 ```
 
 ## Python Version Management
@@ -270,7 +264,6 @@ uv python list
 
 # Find available versions
 uv python list --all-versions
-
 ```
 
 ### Pattern 9: Setting Python Version
@@ -286,7 +279,6 @@ uv --python 3.11 run python script.py
 
 # Create venv with specific version
 uv venv --python 3.12
-
 ```
 
 ## Project Configuration
@@ -331,7 +323,6 @@ dev-dependencies = [
 [tool.uv.sources]
 # Custom package sources
 my-package = { git = "https://github.com/user/repo.git" }
-
 ```
 
 ### Pattern 11: Using uv with Existing Projects
@@ -349,7 +340,6 @@ uv pip freeze > requirements.txt
 
 # Export with hashes
 uv pip freeze --require-hashes > requirements.txt
-
 ```
 
-For advanced workflows including Docker integration, lockfile management, performance optimization, tool comparison, common workflows, tool integration, troubleshooting, best practices, migration guides, and command reference, see [references/advanced-patterns.md](https://github.com/wshobson/agents/blob/HEAD/plugins/python-development/skills/uv-package-manager/references/advanced-patterns.md)
+For advanced workflows including Docker integration, lockfile management, performance optimization, tool comparison, common workflows, tool integration, troubleshooting, best practices, migration guides, and command reference, see [references/advanced-patterns.md](references/advanced-patterns.md)

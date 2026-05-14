@@ -1,17 +1,23 @@
+---
+name: golang-patterns
+description: Idiomatic Go patterns, best practices, and conventions for building robust, efficient, and maintainable Go applications.
+origin: ECC
+---
+
 # Go Development Patterns
 
 Idiomatic Go patterns and best practices for building robust, efficient, and maintainable applications.
 
 ## When to Activate
 
-* Writing new Go code
-* Reviewing Go code
-* Refactoring existing Go code
-* Designing Go packages/modules
+- Writing new Go code
+- Reviewing Go code
+- Refactoring existing Go code
+- Designing Go packages/modules
 
 ## Core Principles
 
-### 1\. Simplicity and Clarity
+### 1. Simplicity and Clarity
 
 Go favors simplicity over cleverness. Code should be obvious and easy to read.
 
@@ -35,10 +41,9 @@ func GetUser(id string) (*User, error) {
         }
     }()
 }
-
 ```
 
-### 2\. Make the Zero Value Useful
+### 2. Make the Zero Value Useful
 
 Design types so their zero value is immediately usable without initialization.
 
@@ -63,10 +68,9 @@ buf.WriteString("hello")
 type BadCounter struct {
     counts map[string]int // nil map will panic
 }
-
 ```
 
-### 3\. Accept Interfaces, Return Structs
+### 3. Accept Interfaces, Return Structs
 
 Functions should accept interface parameters and return concrete types.
 
@@ -84,7 +88,6 @@ func ProcessData(r io.Reader) (*Result, error) {
 func ProcessData(r io.Reader) (io.Reader, error) {
     // ...
 }
-
 ```
 
 ## Error Handling Patterns
@@ -106,7 +109,6 @@ func LoadConfig(path string) (*Config, error) {
 
     return &cfg, nil
 }
-
 ```
 
 ### Custom Error Types
@@ -128,7 +130,6 @@ var (
     ErrUnauthorized = errors.New("unauthorized")
     ErrInvalidInput = errors.New("invalid input")
 )
-
 ```
 
 ### Error Checking with errors.Is and errors.As
@@ -152,7 +153,6 @@ func HandleError(err error) {
     // Unknown error
     log.Printf("Unexpected error: %v", err)
 }
-
 ```
 
 ### Never Ignore Errors
@@ -169,7 +169,6 @@ if err != nil {
 
 // Acceptable: When error truly doesn't matter (rare)
 _ = writer.Close() // Best-effort cleanup, error logged elsewhere
-
 ```
 
 ## Concurrency Patterns
@@ -193,7 +192,6 @@ func WorkerPool(jobs <-chan Job, results chan<- Result, numWorkers int) {
     wg.Wait()
     close(results)
 }
-
 ```
 
 ### Context for Cancellation and Timeouts
@@ -216,7 +214,6 @@ func FetchWithTimeout(ctx context.Context, url string) ([]byte, error) {
 
     return io.ReadAll(resp.Body)
 }
-
 ```
 
 ### Graceful Shutdown
@@ -238,7 +235,6 @@ func GracefulShutdown(server *http.Server) {
 
     log.Println("Server exited")
 }
-
 ```
 
 ### errgroup for Coordinated Goroutines
@@ -267,7 +263,6 @@ func FetchAll(ctx context.Context, urls []string) ([][]byte, error) {
     }
     return results, nil
 }
-
 ```
 
 ### Avoiding Goroutine Leaks
@@ -298,7 +293,6 @@ func safeFetch(ctx context.Context, url string) <-chan []byte {
     }()
     return ch
 }
-
 ```
 
 ## Interface Design
@@ -325,7 +319,6 @@ type ReadWriteCloser interface {
     Writer
     Closer
 }
-
 ```
 
 ### Define Interfaces Where They're Used
@@ -346,7 +339,6 @@ type Service struct {
 
 // Concrete implementation can be in another package
 // It doesn't need to know about this interface
-
 ```
 
 ### Optional Behavior with Type Assertions
@@ -367,7 +359,6 @@ func WriteAndFlush(w io.Writer, data []byte) error {
     }
     return nil
 }
-
 ```
 
 ## Package Organization
@@ -392,7 +383,6 @@ myproject/
 ├── go.mod
 ├── go.sum
 └── Makefile
-
 ```
 
 ### Package Naming
@@ -407,7 +397,6 @@ package user
 package httpHandler
 package json_parser
 package userService // Redundant 'Service' suffix
-
 ```
 
 ### Avoid Package-Level State
@@ -428,7 +417,6 @@ type Server struct {
 func NewServer(db *sql.DB) *Server {
     return &Server{db: db}
 }
-
 ```
 
 ## Struct Design
@@ -473,7 +461,6 @@ server := NewServer(":8080",
     WithTimeout(60*time.Second),
     WithLogger(customLogger),
 )
-
 ```
 
 ### Embedding for Composition
@@ -502,7 +489,6 @@ func NewServer(addr string) *Server {
 // Usage
 s := NewServer(":8080")
 s.Log("Starting...") // Calls embedded Logger.Log
-
 ```
 
 ## Memory and Performance
@@ -527,7 +513,6 @@ func processItems(items []Item) []Result {
     }
     return results
 }
-
 ```
 
 ### Use sync.Pool for Frequent Allocations
@@ -550,7 +535,6 @@ func ProcessRequest(data []byte) []byte {
     // Process...
     return buf.Bytes()
 }
-
 ```
 
 ### Avoid String Concatenation in Loops
@@ -581,7 +565,6 @@ func join(parts []string) string {
 func join(parts []string) string {
     return strings.Join(parts, ",")
 }
-
 ```
 
 ## Go Tooling Integration
@@ -610,7 +593,6 @@ go mod verify
 # Formatting
 gofmt -w .
 goimports -w .
-
 ```
 
 ### Recommended Linter Configuration (.golangci.yml)
@@ -638,21 +620,20 @@ linters-settings:
 
 issues:
   exclude-use-default: false
-
 ```
 
 ## Quick Reference: Go Idioms
 
-| Idiom                                               | Description                                              |
-| --------------------------------------------------- | -------------------------------------------------------- |
-| Accept interfaces, return structs                   | Functions accept interface params, return concrete types |
-| Errors are values                                   | Treat errors as first-class values, not exceptions       |
-| Don't communicate by sharing memory                 | Use channels for coordination between goroutines         |
-| Make the zero value useful                          | Types should work without explicit initialization        |
-| A little copying is better than a little dependency | Avoid unnecessary external dependencies                  |
-| Clear is better than clever                         | Prioritize readability over cleverness                   |
-| gofmt is no one's favorite but everyone's friend    | Always format with gofmt/goimports                       |
-| Return early                                        | Handle errors first, keep happy path unindented          |
+| Idiom | Description |
+|-------|-------------|
+| Accept interfaces, return structs | Functions accept interface params, return concrete types |
+| Errors are values | Treat errors as first-class values, not exceptions |
+| Don't communicate by sharing memory | Use channels for coordination between goroutines |
+| Make the zero value useful | Types should work without explicit initialization |
+| A little copying is better than a little dependency | Avoid unnecessary external dependencies |
+| Clear is better than clever | Prioritize readability over cleverness |
+| gofmt is no one's favorite but everyone's friend | Always format with gofmt/goimports |
+| Return early | Handle errors first, keep happy path unindented |
 
 ## Anti-Patterns to Avoid
 
@@ -688,7 +669,6 @@ type Counter struct{ n int }
 func (c Counter) Value() int { return c.n }    // Value receiver
 func (c *Counter) Increment() { c.n++ }        // Pointer receiver
 // Pick one style and be consistent
-
 ```
 
 **Remember**: Go code should be boring in the best way - predictable, consistent, and easy to understand. When in doubt, keep it simple.

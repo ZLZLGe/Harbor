@@ -21,7 +21,7 @@
   ],
   "design_goals": [
     "Keep the task as a meal-operations construction task rather than a repair prompt.",
-    "Bind official upstream skills unchanged under environment/skills.",
+    "Bind the official upstream skills under environment/skills so the runtime can expose their documented workflows.",
     "Make the Paprika workspace the operational authority while keeping the task deterministic and fully verifiable.",
     "Concentrate without-skill failures on action-level misses such as incomplete Paprika retrieval, skipped carryover review, or incorrect ingredient consolidation."
   ],
@@ -63,14 +63,14 @@
     ],
     "guardrails": [
       "visible inputs remain unchanged",
-      "shipped skills remain unchanged when present, and the no-skill variant stays empty",
+      "runtime skill area is present only in the with-skill variant, and the no-skill variant stays empty",
       "Paprika access logs show date-scoped meal retrieval, recipe-detail retrieval, and carryover review",
       "no extra top-level outputs are created"
     ]
   },
   "with_without_difference_policy": "Only environment/skills/ and the corresponding runtime skill-copy logic may differ between with_skill and without_skill variants.",
   "iteration_notes": [
-    "Do not modify the upstream skill payloads.",
+    "Do not rely on editing the bundled skill payloads to complete the task.",
     "Keep instruction business-facing and avoid documenting the Paprika command chain there.",
     "Treat without-skill failures as invalid unless at least one verifier check still fails for an action-level reason."
   ],

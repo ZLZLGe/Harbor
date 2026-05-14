@@ -5,7 +5,6 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：philosophy-ethics 类热门 skill 的共同价值，不在于给出漂亮观点，而在于帮助 Agent 把复杂判断拆回约束、前提、证据、利益相关方和后续动作。高质量模板应让 skill 在“怎样把一个模糊判断变成可交付决策包”上形成稳定帮助。
-* **Task 目标形态**：这类任务适合设计成治理决策包、政策备忘录、伦理审议材料、课程或公共服务方案取舍等交付。目标应强调本地输入、明确的允许结论集合、结构化 sidecar 产物，以及 recommendation、assumption audit 与 control plan 的一致性。
 * **Verifier 设计重点**：Verifier 应优先验证 solver 是否沿同一套本地材料完成选项判断、问题登记、假设优先级、控制映射、bundle 汇总和 memo 收口，并检查替代输入下结论是否重算。重点应放在决策链路是否闭合，而不是表层文风。
 
 ## 第二部分：示例任务
@@ -14,7 +13,6 @@
 
 - 任务 ID：`philosophy-ethics__k12-genai-decision-packet`
 - 类别：`philosophy-ethics`
-- 难度：`hard`
 - 绑定 Skill：`axiom`
 - 输入数据参考来源：
   - `environment/data/reference/unesco_guidance.md`：任务内教育治理约束摘要；设计形态参考 UNESCO《Guidance for generative AI in education and research》  
@@ -36,7 +34,7 @@
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 
-- Oracle：Oracle 从 committee brief、option matrix、decision contract、policy clauses 和 evidence pack 独立重算 blocked/eligible/fallback 判断、selected outcome、issue rows、required controls 和 final bundle，不依赖隐藏答案文件。
+- Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
 - Verifier策略：
 
 主测试
@@ -53,7 +51,7 @@
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | 输入不可变 | `/root/data` 哈希不变 |
-| Skill 载荷不可变 | `environment/skills/axiom` 哈希不变 |
+| Skill 可用性 | 运行时可发现 `axiom`，帮助组织假设审计、风险排序与决策收束 |
 | 输出白名单 | `/root/output` 顶层只保留规定产物 |
 | 临时文本清理 | 不允许出现 TODO、临时说明或测试痕迹 |
 
