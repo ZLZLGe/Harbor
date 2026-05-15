@@ -11,8 +11,8 @@
 
 - 正式大类：12 个
 - `skills`：63 个
-- `template_new`：63 个
-- 合计目录：126 个
+- `template_new`：62 个
+- 合计目录：125 个
 
 ## skills
 
@@ -86,7 +86,6 @@
 - `blockchain/smart-contracts/template_new`
 - `blockchain/web3-tools/template_new`
 - `business/business-apps/template_new`
-- `business/ecommerce/template_new`
 - `business/finance-investment/template_new`
 - `business/health-fitness/template_new`
 - `business/payment/template_new`

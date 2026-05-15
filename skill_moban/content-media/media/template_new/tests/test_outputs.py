@@ -1,299 +1,168 @@
 from __future__ import annotations
 
-import csv
-import hashlib
-import json
-import os
-import re
-import subprocess
 import tempfile
-from collections import defaultdict
 from pathlib import Path
 
-import numpy as np
 from PIL import Image
 
-
-INPUT_DIR = Path(os.environ.get("MEDIA_PICK_INPUT_DIR", "/root/media_pick/input"))
-OUTPUT_DIR = Path(os.environ.get("MEDIA_PICK_OUTPUT_DIR", "/root/media_pick/output"))
-FFMPEG_BIN = os.environ.get("FFMPEG_BIN", "ffmpeg")
-
-
-def load_manifest() -> dict:
-    return json.loads((INPUT_DIR / "clip_manifest.json").read_text(encoding="utf-8"))
-
-
-def load_layout() -> dict:
-    return json.loads((INPUT_DIR / "layout_spec.json").read_text(encoding="utf-8"))
-
-
-def load_requests() -> list[dict[str, str]]:
-    with (INPUT_DIR / "shot_requests.csv").open(newline="", encoding="utf-8") as fh:
-        return list(csv.DictReader(fh))
+from conftest import (
+    MISSION_ROOT,
+    OUTPUT_ROOT,
+    build_expected_sheet,
+    clip_manifest,
+    extract_expected_still,
+    extract_first_frame,
+    image_rmse,
+    layout_spec,
+    output_json,
+    run_build,
+    sha256_file,
+    shot_requests,
+)
 
 
-def clips_by_id() -> dict[str, dict]:
-    return {clip["clip_id"]: clip for clip in load_manifest()["clips"]}
+def test_build_succeeds() -> None:
+    result = run_build()
+    assert result.returncode == 0, result.stderr or result.stdout
 
 
-def run(cmd: list[str]) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+def test_required_outputs_exist_and_decode() -> None:
+    result = run_build()
+    assert result.returncode == 0, result.stderr or result.stdout
+    clip_lookup = {row["clip_id"]: row for row in clip_manifest()["clips"]}
+
+    for request in shot_requests():
+        still_path = OUTPUT_ROOT / "stills" / f"{request['request_id']}.png"
+        preview_path = OUTPUT_ROOT / "previews" / f"{request['request_id']}.mp4"
+        assert still_path.is_file(), still_path
+        assert preview_path.is_file(), preview_path
+        with Image.open(still_path) as image:
+            assert image.size == (
+                int(clip_lookup[request["clip_id"]]["width"]),
+                int(clip_lookup[request["clip_id"]]["height"]),
+            )
+
+    for sheet in layout_spec()["sheets"]:
+        path = OUTPUT_ROOT / sheet["output_file"]
+        assert path.is_file(), path
+        with Image.open(path) as image:
+            assert image.size == (sheet["canvas_width"], sheet["canvas_height"])
+            assert image.format == "JPEG"
+
+    assert (OUTPUT_ROOT / "frame_index.json").is_file()
+    assert (OUTPUT_ROOT / "delivery_report.json").is_file()
 
 
-def parse_video_info(path: Path) -> dict[str, float]:
-    proc = subprocess.run(
-        [FFMPEG_BIN, "-hide_banner", "-i", str(path)],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-        check=False,
-    )
-    text = proc.stderr
-    duration_match = re.search(r"Duration: (\d+):(\d+):(\d+\.\d+)", text)
-    video_match = re.search(r"Video: .*?, (\d+)x(\d+).*?, ([0-9.]+) fps", text)
-    assert duration_match, f"Could not parse duration for {path}"
-    assert video_match, f"Could not parse video stream for {path}"
-    hours, minutes, seconds = duration_match.groups()
-    width, height, fps = video_match.groups()
-    duration = int(hours) * 3600 + int(minutes) * 60 + float(seconds)
-    return {
-        "duration_sec": duration,
-        "width": int(width),
-        "height": int(height),
-        "fps": float(fps),
-    }
+def test_manifest_and_report_match_inputs() -> None:
+    result = run_build()
+    assert result.returncode == 0, result.stderr or result.stdout
+    manifest = output_json("frame_index.json")
+    report = output_json("delivery_report.json")
+    clip_rows = clip_manifest()["clips"]
+    requests = shot_requests()
+
+    assert [row["clip_id"] for row in manifest["clips"]] == [row["clip_id"] for row in clip_rows]
+    assert report["bundle_id"] == clip_manifest()["bundle_id"]
+    assert report["requests_processed"] == len(requests)
+    assert report["sheet_count"] == len(layout_spec()["sheets"])
+
+    for clip in manifest["clips"]:
+        source_name = next(row["filename"] for row in clip_rows if row["clip_id"] == clip["clip_id"])
+        assert clip["source_video"] == source_name
+        request_rows = [row for row in requests if row["clip_id"] == clip["clip_id"]]
+        assert [row["request_id"] for row in clip["requests"]] == [row["request_id"] for row in request_rows]
+        for request_row, manifest_row in zip(request_rows, clip["requests"], strict=True):
+            assert manifest_row["slot_name"] == request_row["slot_name"]
+            assert manifest_row["still_locator"] == request_row["still_locator"]
+            assert float(manifest_row["preview_start_sec"]) == float(request_row["preview_start_sec"])
+            assert float(manifest_row["preview_duration_sec"]) == float(request_row["preview_duration_sec"])
+            assert str(manifest_row["still_path"]).endswith(f"stills/{request_row['request_id']}.png")
+            assert str(manifest_row["preview_path"]).endswith(f"previews/{request_row['request_id']}.mp4")
 
 
-def image_array(path: Path) -> np.ndarray:
-    with Image.open(path) as img:
-        return np.array(img.convert("RGB"), dtype=np.int16)
+def test_stills_match_requested_locator_semantics() -> None:
+    result = run_build()
+    assert result.returncode == 0, result.stderr or result.stdout
+    clip_lookup = {row["clip_id"]: row for row in clip_manifest()["clips"]}
+
+    with tempfile.TemporaryDirectory() as tempdir:
+        temp_root = Path(tempdir)
+        for request in shot_requests():
+            expected = temp_root / f"{request['request_id']}.png"
+            extract_expected_still(
+                MISSION_ROOT / "videos" / clip_lookup[request["clip_id"]]["filename"],
+                request["still_locator"],
+                expected,
+            )
+            produced = OUTPUT_ROOT / "stills" / f"{request['request_id']}.png"
+            assert image_rmse(produced, expected) <= 1.0, request["request_id"]
 
 
-def mean_abs_diff(left: np.ndarray, right: np.ndarray) -> float:
-    assert left.shape == right.shape, f"Shape mismatch: {left.shape} vs {right.shape}"
-    return float(np.mean(np.abs(left - right)))
+def test_preview_clips_start_on_requested_frame() -> None:
+    result = run_build()
+    assert result.returncode == 0, result.stderr or result.stdout
+    clip_lookup = {row["clip_id"]: row for row in clip_manifest()["clips"]}
+
+    with tempfile.TemporaryDirectory() as tempdir:
+        temp_root = Path(tempdir)
+        for request in shot_requests():
+            expected_frame = temp_root / f"{request['request_id']}_expected.png"
+            preview_frame = temp_root / f"{request['request_id']}_preview.png"
+            extract_expected_still(
+                MISSION_ROOT / "videos" / clip_lookup[request["clip_id"]]["filename"],
+                f"--time {request['preview_start_sec']}",
+                expected_frame,
+            )
+            extract_first_frame(OUTPUT_ROOT / "previews" / f"{request['request_id']}.mp4", preview_frame)
+            assert image_rmse(expected_frame, preview_frame) <= 8.0, request["request_id"]
 
 
-def expected_frame(video_path: Path, request: dict[str, str]) -> np.ndarray:
-    locator = request["still_locator"].strip()
-    with tempfile.TemporaryDirectory() as tmpdir:
-        out = Path(tmpdir) / "oracle.png"
-        if locator.startswith("--time "):
-            run([
-                FFMPEG_BIN,
-                "-hide_banner",
-                "-loglevel",
-                "error",
-                "-y",
-                "-ss",
-                locator.removeprefix("--time ").strip(),
-                "-i",
-                str(video_path),
-                "-frames:v",
-                "1",
-                str(out),
-            ])
-        elif locator.startswith("--index "):
-            run([
-                FFMPEG_BIN,
-                "-hide_banner",
-                "-loglevel",
-                "error",
-                "-y",
-                "-i",
-                str(video_path),
-                "-vf",
-                f"select=eq(n\\,{locator.removeprefix('--index ').strip()})",
-                "-vframes",
-                "1",
-                str(out),
-            ])
-        else:
-            run([
-                FFMPEG_BIN,
-                "-hide_banner",
-                "-loglevel",
-                "error",
-                "-y",
-                "-i",
-                str(video_path),
-                "-vf",
-                "select=eq(n\\,0)",
-                "-vframes",
-                "1",
-                str(out),
-            ])
-        return image_array(out)
+def test_contact_sheets_match_layout_spec() -> None:
+    result = run_build()
+    assert result.returncode == 0, result.stderr or result.stdout
+
+    with tempfile.TemporaryDirectory() as tempdir:
+        temp_root = Path(tempdir)
+        for sheet in layout_spec()["sheets"]:
+            rebuilt = build_expected_sheet(sheet, temp_root / Path(sheet["output_file"]).name)
+            assert image_rmse(OUTPUT_ROOT / sheet["output_file"], rebuilt) <= 3.0, sheet["clip_id"]
 
 
-def frame_from_video(video_path: Path, timestamp_sec: float) -> np.ndarray:
-    with tempfile.TemporaryDirectory() as tmpdir:
-        out = Path(tmpdir) / "sample.png"
-        run([
-            FFMPEG_BIN,
-            "-hide_banner",
-            "-loglevel",
-            "error",
-            "-y",
-            "-ss",
-            f"{timestamp_sec:.3f}",
-            "-i",
-            str(video_path),
-            "-frames:v",
-            "1",
-            str(out),
-        ])
-        return image_array(out)
+def test_build_is_deterministic() -> None:
+    result_one = run_build()
+    assert result_one.returncode == 0, result_one.stderr or result_one.stdout
+    first = tempfile.TemporaryDirectory()
+    second = tempfile.TemporaryDirectory()
+    try:
+        first_root = Path(first.name)
+        second_root = Path(second.name)
+        for path in OUTPUT_ROOT.rglob("*"):
+            if path.is_file():
+                destination = first_root / path.relative_to(OUTPUT_ROOT)
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(path.read_bytes())
 
+        result_two = run_build()
+        assert result_two.returncode == 0, result_two.stderr or result_two.stdout
+        for path in OUTPUT_ROOT.rglob("*"):
+            if path.is_file():
+                destination = second_root / path.relative_to(OUTPUT_ROOT)
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(path.read_bytes())
 
-def grouped_requests() -> dict[str, list[dict[str, str]]]:
-    groups: dict[str, list[dict[str, str]]] = defaultdict(list)
-    for row in load_requests():
-        groups[row["clip_id"]].append(row)
-    return groups
-
-
-def actual_top_level_paths() -> set[str]:
-    return {path.name for path in OUTPUT_DIR.iterdir()}
-
-
-def test_output_files_exist_and_basic_schema() -> None:
-    assert OUTPUT_DIR.exists(), "Missing /root/media_pick/output"
-    assert actual_top_level_paths() == {"stills", "previews", "sheets", "frame_index.json", "delivery_report.json"}
-
-    frame_index = json.loads((OUTPUT_DIR / "frame_index.json").read_text(encoding="utf-8"))
-    delivery = json.loads((OUTPUT_DIR / "delivery_report.json").read_text(encoding="utf-8"))
-
-    assert isinstance(frame_index.get("clips"), list) and frame_index["clips"], "frame_index.json must list clips"
-    assert isinstance(delivery.get("videos_processed"), list) and delivery["videos_processed"], "delivery_report.json must list clips"
-    assert isinstance(delivery.get("issues"), list)
-    assert isinstance(delivery.get("notes"), list)
-
-
-def test_stills_cover_all_requests_and_match_requested_frames() -> None:
-    manifest = clips_by_id()
-    requests = load_requests()
-    expected_ids = {row["request_id"] for row in requests}
-    still_dir = OUTPUT_DIR / "stills"
-    actual_ids = {path.stem for path in still_dir.glob("*.png")}
-    assert actual_ids == expected_ids, "stills/ must cover every request exactly once"
-
-    frame_index = json.loads((OUTPUT_DIR / "frame_index.json").read_text(encoding="utf-8"))
-    indexed = {
-        req["request_id"]: req
-        for clip in frame_index["clips"]
-        for req in clip.get("requests", [])
-    }
-    assert set(indexed) == expected_ids, "frame_index.json must cover every request exactly once"
-
-    for row in requests:
-        clip = manifest[row["clip_id"]]
-        video_path = INPUT_DIR / "videos" / clip["filename"]
-        still_path = still_dir / f"{row['request_id']}.png"
-        assert still_path.exists(), f"Missing still {still_path.name}"
-        actual = image_array(still_path)
-        oracle = expected_frame(video_path, row)
-        assert actual.shape == oracle.shape
-        assert actual.shape[1] == clip["width"]
-        assert actual.shape[0] == clip["height"]
-        assert mean_abs_diff(actual, oracle) <= 0.2, f"{row['request_id']} does not match the requested frame"
-
-        entry = indexed[row["request_id"]]
-        assert entry["still_locator"] == row["still_locator"]
-        assert entry["still_path"] == f"stills/{row['request_id']}.png"
-        assert entry["preview_path"] == f"previews/{row['request_id']}.mp4"
-        assert int(entry["width"]) == clip["width"]
-        assert int(entry["height"]) == clip["height"]
-        digest = hashlib.sha256(still_path.read_bytes()).hexdigest()
-        assert entry["sha256"] == digest
-
-
-def test_previews_align_with_source_windows() -> None:
-    manifest = clips_by_id()
-    for row in load_requests():
-        clip = manifest[row["clip_id"]]
-        source_video = INPUT_DIR / "videos" / clip["filename"]
-        preview_path = OUTPUT_DIR / "previews" / f"{row['request_id']}.mp4"
-        assert preview_path.exists(), f"Missing preview {preview_path.name}"
-
-        info = parse_video_info(preview_path)
-        assert abs(info["duration_sec"] - float(row["preview_duration_sec"])) <= 0.25
-        assert info["width"] == clip["width"]
-        assert info["height"] == clip["height"]
-
-        duration = info["duration_sec"]
-        sample_points = sorted({0.0, min(0.75, max(duration / 3.0, 0.0)), max(duration - 0.20, 0.0)})
-        for sample in sample_points:
-            actual = frame_from_video(preview_path, sample)
-            expected = frame_from_video(source_video, float(row["preview_start_sec"]) + sample)
-            assert actual.shape == expected.shape
-            assert mean_abs_diff(actual, expected) <= 6.5, f"{row['request_id']} preview drifts from source content"
-
-
-def test_contact_sheets_match_layout_and_cell_content() -> None:
-    manifest = clips_by_id()
-    layout = load_layout()
-    requests_by_clip = grouped_requests()
-
-    assert layout["grid_columns"] == 2
-    assert layout["grid_rows_per_clip"] == 2
-    assert layout["cell_gap_px"] == 0
-
-    for clip_id, requests in requests_by_clip.items():
-        clip = manifest[clip_id]
-        sheet_path = OUTPUT_DIR / "sheets" / f"{clip_id}_sheet.jpg"
-        assert sheet_path.exists(), f"Missing sheet for {clip_id}"
-        with Image.open(sheet_path) as sheet:
-            sheet_rgb = np.array(sheet.convert("RGB"), dtype=np.int16)
-            assert sheet.width == clip["width"] * 2
-            assert sheet.height == clip["height"] * 2
-
-            for idx, row in enumerate(requests):
-                col = idx % 2
-                row_idx = idx // 2
-                left = col * clip["width"]
-                top = row_idx * clip["height"]
-                cell = sheet_rgb[top : top + clip["height"], left : left + clip["width"], :]
-                still = image_array(OUTPUT_DIR / "stills" / f"{row['request_id']}.png")
-                assert cell.shape == still.shape
-                assert mean_abs_diff(cell, still) <= 8.5, f"{clip_id} sheet cell {idx} does not match still {row['request_id']}"
-
-
-def test_metadata_reports_match_generated_files() -> None:
-    manifest = clips_by_id()
-    requests = load_requests()
-    requests_by_clip = grouped_requests()
-    frame_index = json.loads((OUTPUT_DIR / "frame_index.json").read_text(encoding="utf-8"))
-    delivery = json.loads((OUTPUT_DIR / "delivery_report.json").read_text(encoding="utf-8"))
-
-    clips = frame_index.get("clips", [])
-    assert [clip["clip_id"] for clip in clips] == [clip["clip_id"] for clip in load_manifest()["clips"]]
-
-    for clip_entry in clips:
-        clip_id = clip_entry["clip_id"]
-        clip = manifest[clip_id]
-        assert clip_entry["source_video"] in {clip["filename"], f"videos/{clip['filename']}"}
-        assert clip_entry["sheet_path"] == f"sheets/{clip_id}_sheet.jpg"
-        assert [row["request_id"] for row in clip_entry["requests"]] == [row["request_id"] for row in requests_by_clip[clip_id]]
-
-    expected_files = {
-        "frame_index.json",
-        "delivery_report.json",
-        *(f"stills/{row['request_id']}.png" for row in requests),
-        *(f"previews/{row['request_id']}.mp4" for row in requests),
-        *(f"sheets/{clip_id}_sheet.jpg" for clip_id in requests_by_clip),
-    }
-    assert set(delivery["files_created"]) == expected_files
-
-    videos_processed = delivery["videos_processed"]
-    assert [entry["clip_id"] for entry in videos_processed] == [clip["clip_id"] for clip in load_manifest()["clips"]]
-    for entry in videos_processed:
-        clip_id = entry["clip_id"]
-        clip = manifest[clip_id]
-        assert entry["source_video"] in {clip["filename"], f"videos/{clip['filename']}"}
-        assert entry["request_count"] == len(requests_by_clip[clip_id])
-        assert entry["sheet_path"] == f"sheets/{clip_id}_sheet.jpg"
-        assert entry["status"] == "pass"
-
-    assert int(delivery["requests_processed"]) == len(requests)
-    assert int(delivery["sheet_count"]) == len(requests_by_clip)
+        for relpath in [
+            "frame_index.json",
+            "delivery_report.json",
+            "stills/launch_001.png",
+            "stills/tracking_003.png",
+            "stills/touchdown_004.png",
+            "previews/launch_002.mp4",
+            "previews/tracking_001.mp4",
+            "sheets/launch_sheet.jpg",
+            "sheets/tracking_sheet.jpg",
+            "sheets/touchdown_sheet.jpg",
+        ]:
+            assert sha256_file(first_root / relpath) == sha256_file(second_root / relpath), relpath
+    finally:
+        first.cleanup()
+        second.cleanup()

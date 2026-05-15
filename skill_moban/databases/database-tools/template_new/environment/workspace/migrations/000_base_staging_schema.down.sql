@@ -1,7 +1,0 @@
-DROP TABLE IF EXISTS staging.links;
-DROP TABLE IF EXISTS staging.tags;
-DROP TABLE IF EXISTS staging.ratings;
-DROP TABLE IF EXISTS staging.movies;
-
-DROP SCHEMA IF EXISTS catalog CASCADE;
-DROP SCHEMA IF EXISTS staging CASCADE;

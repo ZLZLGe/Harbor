@@ -1,88 +1,112 @@
 {
-  "task_id": "astronomy-physics__m101-candidate-review",
-  "task_name": "m101-candidate-review",
+  "task_id": "astronomy-physics__ngc4993-followup-packet",
+  "task_name": "ngc4993-followup-packet",
   "template_category": "astronomy-physics",
-  "scenario": "building a reproducible candidate review bundle from public FITS cutouts, detector-space detections, a Gaia foreground slice, a multi-host galaxy slice, and observation metadata",
-  "user_visible_goal": "Turn detector-space candidate picks into a complete review bundle with sky coordinates, observation times, crossmatches, calibrated photometry, host-distance context, and a final report.",
-  "input_assets": [
-    "/root/environment/data/fits/m101_field_g.fits",
-    "/root/environment/data/fits/m101_field_r.fits",
-    "/root/environment/data/fits/m101_field_z.fits",
-    "/root/environment/data/detections/candidate_detections.csv",
-    "/root/environment/data/catalogs/gaia_m101_cone.ecsv",
-    "/root/environment/data/catalogs/host_galaxies.tsv",
-    "/root/environment/data/observations/visit_manifest.tsv",
-    "/root/environment/data/observations/review_rules.json",
-    "/root/environment/pipeline/build_m101_review.py"
-  ],
-  "required_outputs": [
-    "/root/answer/candidate_review.ecsv",
-    "/root/answer/photometry_summary.tsv",
-    "/root/answer/crossmatch_audit.tsv",
-    "/root/answer/triage_diagnostics.tsv",
-    "/root/answer/report.json"
-  ],
-  "shipped_skills": [
-    "astropy"
-  ],
-  "skill_assets": [
-    "/root/.codex/skills/astropy/SKILL.md"
-  ],
-  "skill_hypothesis": {
-    "with_skill": "The solver is more likely to organize the task around Astropy's FITS, WCS, SkyCoord, Time, Table, units, and cosmology workflow, then reconcile pixel-origin, time-normalization, and count-rate calibration details into a mutually consistent bundle.",
-    "without_skill": "The solver is more likely to leave a subtle FITS-origin or crossmatch inconsistency in place, or to stop after a partially corrected bundle, leaving at least one science-facing verifier check failing."
-  },
-  "verifier_strategy": {
-    "main_tests": [
-      "All required outputs exist, parse, and satisfy the declared column contracts.",
-      "Sky coordinates, Galactic coordinates, midpoint times, and MJD values match a reference reconstruction from the bundled FITS and observation metadata.",
-      "Gaia and host crossmatches use angular separations and the configured thresholds.",
-      "Photometric values, uncertainty propagation, nearest-host distance quantities, classifications, diagnostics, and report summaries are internally consistent."
+  "task_role": "template",
+  "difficulty": "hard",
+  "primary_output_file": "/root/answer/candidate_followup_packet.ecsv",
+  "selected_skill": {
+    "name": "astropy",
+    "skillsmp_category_url": "https://skillsmp.com/categories/astronomy-physics",
+    "github_repo": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "github_skill_dir": "https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/scientific-skills/astropy",
+    "skillsmp_stars_on_category_page": "20.6k",
+    "skillsmp_star_count_raw": 20566,
+    "github_stars_checked_2026_05_14": 21454,
+    "why_this_skill": [
+      "It directly targets the workflow pieces this task needs: FITS handling, WCS transforms, SkyCoord matching, time normalization, units, and cosmology.",
+      "It is a public local-computation skill with no account dependency, no external private service dependency, and no elevated privacy risk requirement.",
+      "Its stated use cases align with analysis and packet-building work rather than a repair-only scenario."
     ],
-    "guardrails": [
-      "Mutating the candidate detections changes the sky-coordinate outputs after rerun.",
-      "Mutating the review thresholds changes the final classifications after rerun.",
-      "Mutating a matched host redshift changes the distance-driven classification after rerun.",
-      "Static placeholder outputs or hard-coded summaries cannot satisfy the mutation checks and bundle-level consistency checks."
+    "key_workflow_points": [
+      "reconstruct sky positions from FITS WCS and detector-space pixels",
+      "use units-aware coordinate separations for catalog matching",
+      "normalize observation times with astropy.time",
+      "compute cosmology-backed distance context and projected offsets",
+      "keep tables and packet summary aligned across the final outputs"
     ]
   },
-  "data_provenance": {
-    "fits_source": "Public Legacy Survey DR10 FITS cutouts around the M101 field.",
-    "reference_catalog_source": "Public Gaia DR3 cone-search subset around the same field.",
-    "host_source": "Task-bundled host-galaxy slice built from the public M101 entry shape plus a nearby-galaxy review slice used for nearest-host and distance-context calculations."
-  },
-  "validation_results": {
-    "local_oracle": {
-      "tests_passed": "9/9",
-      "command": "python3 solution/fixed/build_m101_review.py --data environment/data --output /tmp/astro_answer && TASK_DATA_DIR=environment/data TASK_PIPELINE_FILE=solution/fixed/build_m101_review.py TASK_ANSWER_DIR=/tmp/astro_answer python3 -m pytest -q tests/test_outputs.py tests/test_guardrails.py"
+  "data_sources": [
+    {
+      "file": "environment/data/fits/ngc4993_g.fits",
+      "kind": "Legacy Survey DR10 FITS cutout",
+      "url": "https://www.legacysurvey.org/viewer/fits-cutout?ra=197.448711&dec=-23.383976&layer=ls-dr10&pixscale=0.262&bands=g&size=256"
     },
-    "e2b_oracle": {
-      "job": "astro-m101-mh-p9-with-20260507-1122/task_with_skills_e2b__WkdHNFy",
-      "reward": 1.0,
-      "tests_passed": "9/9"
+    {
+      "file": "environment/data/fits/ngc4993_r.fits",
+      "kind": "Legacy Survey DR10 FITS cutout",
+      "url": "https://www.legacysurvey.org/viewer/fits-cutout?ra=197.448711&dec=-23.383976&layer=ls-dr10&pixscale=0.262&bands=r&size=256"
     },
-    "e2b_comparison": {
-      "with_skill_jobs": [
-        "astro-m101-mh-p6-with-20260507-1110/task_with_skills_e2b__ZKTNHtN",
-        "astro-m101-mh-p8-with-20260507-1119/task_with_skills_e2b__PjZCRpp",
-        "astro-m101-mh-p9-with-20260507-1122/task_with_skills_e2b__WkdHNFy"
-      ],
-      "without_skill_jobs": [
-        "astro-m101-mh-p6-without-20260507-1110/task_without_skills_e2b__EczdWAg",
-        "astro-m101-mh-p8-without-20260507-1119/task_without_skills_e2b__mP6Hd6v",
-        "astro-m101-mh-p9-without-20260507-1133/task_without_skills_e2b__U8Ao2iT"
-      ],
-      "valid_trials": 3,
-      "with_skill_pass_at_n": "2/3",
-      "without_skill_pass_at_n": "0/3",
-      "with_skill_avg_agent_seconds": 319.6,
-      "without_skill_avg_agent_seconds": 287.2,
-      "with_skill_avg_total_tokens": 864466,
-      "without_skill_avg_total_tokens": 873535,
-      "with_skill_avg_input_tokens": 483360.3,
-      "without_skill_avg_input_tokens": 480330.0,
-      "with_skill_avg_output_tokens": 14854.7,
-      "without_skill_avg_output_tokens": 13301.0
+    {
+      "file": "environment/data/fits/ngc4993_z.fits",
+      "kind": "Legacy Survey DR10 FITS cutout",
+      "url": "https://www.legacysurvey.org/viewer/fits-cutout?ra=197.448711&dec=-23.383976&layer=ls-dr10&pixscale=0.262&bands=z&size=256"
+    },
+    {
+      "file": "environment/data/catalogs/gaia_foreground_slice.ecsv",
+      "kind": "Gaia DR3 cone-search slice filtered into a local foreground reference table",
+      "url": "https://gaia.aip.de/cms/services/cone-search/"
+    },
+    {
+      "file": "environment/data/catalogs/host_galaxies.tsv",
+      "kind": "Host-galaxy reference row for NGC 4993",
+      "url": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=NGC+4993"
     }
+  ],
+  "scenario": "Build a reproducible follow-up packet for a compact transient-candidate set in the NGC 4993 field from local FITS cutouts, detector-space picks, a foreground-star slice, and a host-galaxy table.",
+  "user_visible_goal": "Generate the final packet tables and briefing from the bundled local data so each candidate can be traced from pixels to sky coordinates, host context, and screening label.",
+  "environment_design": {
+    "shape": "single Docker container",
+    "live_services": [],
+    "hidden_services": [],
+    "workspace_design": [
+      "The environment ships a working analyst-style `/root/workspace` copy plus the formal `/root/environment/pipeline` entrypoint copy.",
+      "The initial script is a build scaffold, not a pre-fixed answer.",
+      "No browser app, database, or background service is required."
+    ],
+    "determinism": "All computation runs against bundled local files. Verifier-side checks recompute expected outputs from those same files and replay the pipeline against mutated local copies.",
+    "with_without_rule": "The with-skill and without-skill variants may differ only by the presence or absence of `environment/skills` and the established runtime copy logic that removes that directory for the without-skill run. Instruction, tests, data, dependencies, and the skill contents themselves stay identical across the comparison.",
+    "anti_toy_features": [
+      "public FITS cutouts with WCS headers instead of pre-expanded sky coordinates",
+      "separate visit manifest for time and photometric calibration metadata",
+      "foreground-star matching and host matching from separate local reference tables",
+      "projected host offsets that require cosmology-backed angular conversion",
+      "five linked deliverables whose values must stay mutually consistent",
+      "mutation checks that force output changes when positions, thresholds, redshifts, or visit metadata change"
+    ]
+  },
+  "verifier_design": {
+    "main_tests": [
+      "all five required outputs exist, parse cleanly, and satisfy the declared column contracts",
+      "candidate packet values match an oracle reconstruction from the bundled FITS, WCS, manifest, and local reference tables",
+      "photometry, host-association audit, diagnostics, and briefing summary stay numerically and logically aligned with the oracle bundle",
+      "the briefing summary keeps counts, high-priority shortlist, coordinate frame, time scale, and distance model aligned with the tables"
+    ],
+    "guardrails": [
+      "changing one candidate pixel position changes the reconstructed coordinates after rerun",
+      "changing screening thresholds changes labels and margins after rerun",
+      "changing the host redshift changes projected offsets after rerun",
+      "changing visit timing and exposure metadata changes timestamps and calibrated photometry after rerun",
+      "the input data tree remains unchanged",
+      "the output inventory is exact and repeated runs are deterministic"
+    ],
+    "anti_hardcoding_note": "The main protection target is static or canned outputs. The mutation suite checks that the submitted pipeline recomputes from local inputs instead of replaying fixed packet files."
+  },
+  "expected_skill_effect": {
+    "without_skill": "Without the bundled skill, agents are more likely to miss one of the coupled astronomy steps such as WCS origin handling, midpoint time normalization, exposure-normalized photometry, or angular-diameter-distance offset conversion. Those are action-level or analysis-level misses rather than narrow formatting misses.",
+    "with_skill": "With the bundled skill, agents get a compact workflow for FITS/WCS handling, SkyCoord matching, units-aware calculations, time normalization, and cosmology-backed distance context, which should improve end-to-end completion without changing the task surface."
+  },
+  "local_validation": {
+    "status": "passed",
+    "tests_passed": "11/11",
+    "command": "TASK_ANSWER_DIR=/tmp/astro4993_answer TASK_DATA_DIR=environment/data TASK_PIPELINE_ROOT=solution/fixed python3 -m pytest -q tests/test_outputs.py tests/test_guardrails.py"
+  },
+  "experiment_protocol": {
+    "status": "pending",
+    "notes": [
+      "Use fresh runtime copies for every E2B or Harbor comparison run.",
+      "The final README metrics must count only valid task-level runs with full trajectories.",
+      "Runtime-only with-skill hinting is allowed only in the copied with-skill instruction, and the hint may only tell the solver to use the skill."
+    ]
   }
 }

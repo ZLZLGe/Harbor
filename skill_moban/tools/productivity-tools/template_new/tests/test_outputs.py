@@ -12,6 +12,8 @@ from conftest import (
     read_digest,
     read_inventory,
     read_manifest,
+    read_reopen_state,
+    reopen_state_path,
     run_build,
     watch_db_rows,
 )
@@ -53,10 +55,25 @@ def assert_digest_matches_expected(digest: str, payload: dict, expected: dict) -
 
 def assert_build_audit_matches_first_run(expected: dict, payload: dict) -> None:
     events = [event for event in read_audit_events() if event["stage"] == "build"]
-    assert any(event["args"] == ["scan"] for event in events)
-    assert any(event["args"][:2] == ["remove", payload["legacy_blog_names"][0]] for event in events)
-    added_labels = {event["args"][1] for event in events if event["args"] and event["args"][0] == "add"}
+    assert any(event["args"] and event["args"][0] == "scan" for event in events)
+    added_labels: set[str] = set()
+    for event in events:
+        args = event["args"]
+        if not args or args[0] != "add":
+            continue
+        if "--name" in args:
+            name_index = args.index("--name") + 1
+            if name_index < len(args):
+                added_labels.add(args[name_index])
+        elif len(args) > 1:
+            added_labels.add(args[1])
     assert {"GitHub Changelog", "TypeScript Releases"}.issubset(added_labels)
+    unread_events = [
+        event
+        for event in events
+        if event["args"] and event["args"][0] in {"unread", "reopen-article", "mark-unread"}
+    ]
+    assert len(unread_events) == len(expected["reopened_urls"])
     read_events = [event for event in events if event["args"] and event["args"][0] == "read"]
     assert len(read_events) == len(expected["delivered_urls"])
     assert not any(event["args"] and event["args"][0] == "read-all" for event in events)
@@ -98,11 +115,14 @@ def test_inventory_manifest_and_watch_db_match_contract() -> None:
     assert manifest["digest_path"] == payload["output_file"]
     assert sorted(manifest["delivered_article_urls"]) == sorted(expected["delivered_urls"])
     assert sorted(manifest["read_marked_article_urls"]) == sorted(expected["delivered_urls"])
+    assert sorted(manifest["reopened_article_urls"]) == sorted(expected["reopened_urls"])
     assert manifest["tracked_source_ids"] == expected["tracked_source_ids"]
     assert manifest["removed_blog_names"] == expected["removed_blog_names"]
     assert manifest["source_files"] == expected["source_files"]
     assert manifest["state_db_path"] == payload["state_db_file"]
+    assert manifest["reopen_state_file"] == payload["reopen_state_file"]
     assert output_manifest().name == payload["manifest_file"]
+    assert reopen_state_path().name == payload["reopen_state_file"]
 
     blogs, articles = watch_db_rows()
     assert sorted(row["name"] for row in blogs) == sorted(payload["required_source_labels"])
@@ -113,8 +133,10 @@ def test_inventory_manifest_and_watch_db_match_contract() -> None:
     unread_urls = {row["url"] for row in articles if int(row["is_read"]) == 0}
     assert unread_urls == set(expected["remaining_unread_urls"])
     assert set(expected["seed_read_urls"]).issubset(read_urls)
+    assert set(expected["reopened_urls"]).issubset(read_urls)
     assert set(expected["delivered_urls"]).issubset(read_urls)
-    assert not any("Node.js 26.1.0" in url for url in manifest["delivered_article_urls"])
+    reopen_state = read_reopen_state()
+    assert sorted(reopen_state["applied_urls"]) == sorted(expected["reopened_urls"])
     assert_build_audit_matches_first_run(expected, payload)
 
 
@@ -134,14 +156,15 @@ def test_second_and_third_run_continue_backlog_then_emit_no_new_items() -> None:
     assert inventory["tracked_sources"] == second_expected["inventory_rows"]
     assert sorted(manifest["delivered_article_urls"]) == sorted(second_expected["delivered_urls"])
     assert sorted(manifest["read_marked_article_urls"]) == sorted(second_expected["delivered_urls"])
+    assert manifest["reopened_article_urls"] == []
 
     _, articles = watch_db_rows()
     unread_urls = {row["url"] for row in articles if int(row["is_read"]) == 0}
     assert unread_urls == set(second_expected["remaining_unread_urls"])
 
     events = [event for event in read_audit_events() if event["stage"] == "build"]
-    read_events = [event for event in events if event["args"] and event["args"][0] == "read"]
-    assert len(read_events) == len(second_expected["delivered_urls"])
+    unread_events = [event for event in events if event["args"] and event["args"][0] == "unread"]
+    assert unread_events == []
     assert not any(event["args"] and event["args"][0] == "read-all" for event in events)
 
     third = run_build(clear_state=False)
@@ -154,6 +177,7 @@ def test_second_and_third_run_continue_backlog_then_emit_no_new_items() -> None:
     assert all(row["unread_count"] == 0 for row in inventory["tracked_sources"])
     assert manifest["delivered_article_urls"] == []
     assert manifest["read_marked_article_urls"] == []
+    assert manifest["reopened_article_urls"] == []
 
 
 def test_alternate_bundle_changes_digest_and_inventory_dynamically() -> None:

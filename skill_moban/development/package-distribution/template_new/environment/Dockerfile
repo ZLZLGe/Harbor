@@ -12,6 +12,7 @@ RUN python -m pip install --no-cache-dir build mypy pytest virtualenv
 
 WORKDIR /workspace
 
+COPY skills /workspace/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 COPY workspace/ /workspace/

@@ -1,26 +1,19 @@
 #!/bin/bash
+set -u -o pipefail
 
-set -euo pipefail
+mkdir -p /logs/verifier
+REWARD_FILE="/logs/verifier/reward.txt"
+RESULT_FILE="/logs/verifier/result.json"
 
-apt-get update
-apt-get install -y curl
+/root/workspace/bin/init_rapid_transit_release.sh >/logs/verifier/postgres-init.log 2>&1
 
-curl -LsSf https://astral.sh/uv/0.9.7/install.sh | sh
-source "$HOME/.local/bin/env"
-
-set +e
-uvx \
-  --with pytest==8.4.1 \
-  --with pytest-json-ctrf==0.3.5 \
-  --with pandas==2.3.1 \
-  pytest --ctrf /logs/verifier/ctrf.json /tests/test_outputs.py -rA
-test_exit_code=$?
-set -e
-
-if [ "$test_exit_code" -eq 0 ]; then
-  echo 1 > /logs/verifier/reward.txt
+python3 -m pytest -q /tests/test_outputs.py 2>&1 | tee /logs/verifier/pytest-output.txt
+STATUS=${PIPESTATUS[0]}
+if [ "$STATUS" -eq 0 ]; then
+  printf '1.0\n' > "${REWARD_FILE}"
+  printf '{"reward": 1.0}\n' > "${RESULT_FILE}"
 else
-  echo 0 > /logs/verifier/reward.txt
+  printf '0.0\n' > "${REWARD_FILE}"
+  printf '{"reward": 0.0}\n' > "${RESULT_FILE}"
 fi
-
-exit "$test_exit_code"
+exit 0

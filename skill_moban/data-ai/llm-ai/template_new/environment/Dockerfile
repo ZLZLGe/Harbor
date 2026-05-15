@@ -14,6 +14,7 @@ RUN apt-get update \
 
 COPY workspace /app/workspace
 COPY provider-sim /services/provider-sim
+COPY skills /app/workspace/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

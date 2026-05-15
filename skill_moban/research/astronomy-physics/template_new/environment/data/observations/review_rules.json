@@ -1,20 +1,18 @@
 {
-  "field_id": "M101-LS-DR10",
-  "coordinate_frame": "ICRS",
-  "time_scale": "UTC",
-  "galactic_frame": "Galactic",
-  "gaia_reject_arcsec": 1.25,
+  "field_id": "ngc4993_followup",
+  "gaia_reject_arcsec": 1.2,
+  "min_snr": 6.0,
+  "max_mag_unc": 0.25,
   "host_match_arcsec": 18.0,
-  "min_snr": 2.2,
-  "max_mag_unc": 0.4,
-  "reportable_absolute_mag_max": -10.5,
-  "classification_priority": [
-    "reject_bad_measurement",
-    "reject_low_snr",
-    "reject_foreground_star",
-    "review_no_host",
-    "reject_uncertain_photometry",
-    "review_faint_host_association",
-    "extragalactic_candidate"
-  ]
+  "large_offset_kpc": 2.4,
+  "high_priority_offset_kpc": 1.0,
+  "high_priority_min_snr": 18.0,
+  "time_scale": "UTC",
+  "coordinate_frame": "ICRS",
+  "distance_model": {
+    "name": "FlatLambdaCDM",
+    "H0": 70.0,
+    "Om0": 0.3,
+    "Tcmb0": 2.725
+  }
 }

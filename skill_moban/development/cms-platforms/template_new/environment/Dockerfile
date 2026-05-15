@@ -22,6 +22,7 @@ RUN npm install --legacy-peer-deps
 
 COPY workspace /app/workspace
 COPY data /app/data
+COPY skills /app/workspace/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

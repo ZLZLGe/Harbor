@@ -1,27 +1,23 @@
-You need to complete an engineering release watch workspace for a terminal-based update digest. The workspace already includes a digest shell, a tracked-source registry, mirrored public source pages and feed snapshots, a local watch database with prior tracking state, and a delivery contract. Keep the existing build entrypoint, output paths, watch database path, and repeat-run workflow intact.
+You need to complete an engineering release watch workspace for a terminal-based update digest. The workspace already includes a digest shell, a tracked-source registry, bundled public source mirrors, a local watch database with prior history, and a delivery contract. Keep the existing build entrypoint, output paths, watch database path, and repeat-run workflow intact.
 
 Input data is in `/app/release-watch/`:
-- `drafts/engineering_release_digest.md`: the current digest shell. It already includes the title, section order, source-coverage shell, and review residue.
-- `contracts/digest_contract.json`: the delivery contract. It defines the required sections, output files, watch database path, audit log file, local mirror port, ranking rules, cleanup rules, legacy-blog handling, and repeat-run behavior.
-- `data/watch_targets.csv`: the tracked source registry with source ids, labels, priority tiers, public source URLs, local mirror snapshot paths, and optional feed override fields.
-- `data/mirror/`: mirrored public HTML pages and RSS/Atom snapshots for this task.
-- `seed/initial_watch_state.json`: the seeded watch-state reference used by the local workflow when the watch database needs to be restored.
+- `drafts/engineering_release_digest.md`: the current digest shell with the required title, section order, and source-coverage shell.
+- `contracts/digest_contract.json`: the delivery contract for output files, workspace state files, ranking rules, audit logging, and repeat-run behavior.
+- `data/watch_targets.csv`: the tracked-source registry with source ids, labels, priority tiers, public source URLs, mirror snapshot paths, and optional feed override fields.
+- `data/review_reopen_targets.csv`: the one-time review reopen list for this delivery.
+- `data/mirror/`: bundled HTML pages and RSS/Atom snapshots for this task.
+- `seed/initial_watch_state.json`: the seeded watch-state reference used when the local watch database must be restored.
 - `notes/editor_notes.md`: delivery reminders and copy constraints.
-- `/app/workspace/build_digest.py`: the formal local build entrypoint for this delivery. Keep it usable so the team can rerun the same workflow from the current inputs.
+- `/app/workspace/build_digest.py`: the formal local build entrypoint for this delivery.
 
 Your tasks
-1. Complete the local watch workflow and generate `/app/output/engineering_release_digest.md`.
-2. Use `digest_contract.json`, `watch_targets.csv`, the mirrored sources, and the existing watch database as the source of truth for source onboarding, scan scope, cleanup, prior read history, and repeat-run behavior.
-3. Keep the watch database aligned to the tracked-source registry: add missing tracked sources, keep the expected tracked sources, and remove tracked blogs that are no longer present in the registry.
-4. Resolve the applicable feed snapshot for each tracked source from the bundled mirrors, scan the tracked sources through the local watch workflow, and preserve the seeded read history that already exists in the watch database.
-5. Apply the contract-defined per-source delivery cap to the unread backlog for this run. Deliver only the highest-ranked unread items that fit within that cap for each tracked source.
-6. After a successful delivery, mark only the items delivered in this run as read in the same watch database. Leave lower-ranked unread backlog items unread so later reruns over unchanged inputs can continue the backlog until it is exhausted.
-7. Generate `/app/output/feed_inventory.json` with the tracked sources, resolved feed references, content format, total article counts, unread article counts before delivery, latest published timestamps, and removed legacy blog names required by the contract.
-8. Generate `/app/output/delivery_manifest.json` with the final delivered article URLs, read-marked article URLs, tracked source ids, removed legacy blog names, source-of-truth files used for watch-state restoration and feed resolution, watch database path, and delivery notes required by the contract.
-9. Maintain the contract-defined audit log during each build run. Record every local `blogwatcher add`, `remove`, the top-level `scan`, and each per-article `read` command executed for this run as a separate audit event. Use the exact stage value `build`, keep the recorded `args` list aligned to the CLI invocation after `blogwatcher`, and do not use `read-all` while unread backlog remains for later runs.
-10. Clean the final deliverables for review. Do not leave placeholder bullets, TODO text, scratch notes, raw XML fragments, or duplicate article entries in the final outputs.
-11. Treat bundled mirror files as delivery evidence: when you record a resolved feed reference or a source file from the bundle, use a bundle-relative path that keeps the `data/` prefix.
-12. In `## Source Coverage`, if this run removes any legacy blogs while reconciling the watch database, add a short `Removed legacy blogs for this run:` list and include each removed blog name once.
+1. Complete the local release-watch workflow and generate `/app/output/engineering_release_digest.md`.
+2. Use the delivery contract, the tracked-source registry, the review reopen list, the bundled mirrors, the seeded watch-state reference, and the existing local watch database as the source-of-truth inputs for this run.
+3. Keep the local tracker aligned to the tracked-source registry, remove any legacy blogs that remain only in the seeded local tracker but are no longer present in the tracked-source registry, preserve prior read history that already exists in the watch database, and keep unchanged reruns working from the same persisted workspace state.
+4. Before selecting the delivery set for this run, consume the one-time review reopen list through the local watch workflow, persist repeat-run reopen tracking in the contract-defined workspace state file, and do not consume the same review targets again on unchanged later reruns after they have already been applied once.
+5. Deliver only the contract-allowed unread backlog for this run, then persist the resulting watch state so unchanged reruns continue the remaining backlog instead of re-delivering it or collapsing it early.
+6. Maintain the contract-defined audit log during each build run. Record registry add/remove actions, the main scan action, per-article review reopen actions, and per-article delivered-item read actions as separate `build`-stage CLI audit events, with each `args` list matching the invoked CLI tokens after the binary.
+7. Keep bundle-relative mirror references bundle-relative in the inventory and manifest, and clean the final deliverables for review.
 
 Output
 - Update the formal delivery code under `/app/workspace/` and add only a very small helper there if it is strictly necessary for the build entrypoint.
@@ -36,7 +32,8 @@ Output
 - list delivered items as Markdown bullets under the applicable section
 - include the source label, article title, published date, and article URL in each delivery bullet
 - write `No new items.` under a required section when that section has no delivered items
-- keep `## Source Coverage` in the digest and list removed legacy blog names there when any were removed during this run
+- keep `## Source Coverage` in the digest
+- if any legacy blogs were removed during this run, add the exact lead-in line `Removed legacy blogs for this run:` there and then list each removed blog name once as a Markdown bullet
 
 `feed_inventory.json` must include:
 
@@ -60,6 +57,8 @@ Output
 }
 ```
 
+`feed_inventory.json` should report each `unread_count` from the watch database state before this run marks its delivered items as read.
+
 `delivery_manifest.json` must include:
 
 ```json
@@ -67,28 +66,29 @@ Output
   "digest_path": "engineering_release_digest.md",
   "delivered_article_urls": ["string"],
   "read_marked_article_urls": ["string"],
+  "reopened_article_urls": ["string"],
   "tracked_source_ids": ["string"],
   "removed_blog_names": ["string"],
   "source_files": ["bundle-relative source-of-truth path string"],
   "state_db_path": "string",
+  "reopen_state_file": "string",
   "notes": ["string"]
 }
 ```
 
 Notes
 - Do not modify the bundled inputs under `/app/release-watch/`.
-- Keep repeat-run tracking in the contract-defined watch database file; it is part of the required workflow even though it is not an `/app/output/` deliverable.
+- Keep the contract-defined watch database file in the workspace. It is part of the required workflow even though it is not an `/app/output/` deliverable.
 - Keep the contract-defined audit log file in the workspace. It is part of the required workflow even though it is not an `/app/output/` deliverable.
-- Preserve prior read history that is already present in the watch database. Do not re-deliver items that were already marked read before this run.
-- Leave undelivered unread backlog items unread so unchanged reruns can continue them in later batches.
-- Do not bulk-mark all unread items as read when the contract still leaves backlog for later reruns.
-- Do not change the required output paths or filenames.
+- Keep the contract-defined reopen state file in the workspace. It is part of the required workflow even though it is not an `/app/output/` deliverable.
+- The contract-defined reopen state file is a workspace JSON file for repeat-run tracking. It must keep an `applied_urls` array containing the review-target article URLs already consumed by the one-time reopen workflow on prior unchanged runs.
+- Use the local watch workflow for review reopen transitions and delivered-item read transitions. Do not update article read state by writing directly to the article rows.
+- Do not bulk-complete unread backlog that has not yet been delivered.
+- In both `feed_inventory.json` and `delivery_manifest.json`, `removed_blog_names` must report the legacy blogs removed while reconciling this run.
+- If the seeded local tracker still contains a legacy blog that is absent from the tracked-source registry, remove it during this run and report it through the required `removed_blog_names` fields and the Source Coverage section.
 - In `delivery_manifest.json`, write the contract-defined watch database file string in `state_db_path`. Do not expand it to an absolute path.
+- In `delivery_manifest.json`, write the contract-defined reopen state file string in `reopen_state_file`.
 - `resolved_feed_reference` values and bundled mirror entries in `source_files` should stay bundle-relative and keep their `data/` prefix.
+- `source_files` is an audit list of the source-of-truth files used for watch-state restoration, one-time review reopen processing, and feed resolution in this run. It must include `contracts/digest_contract.json`, `data/watch_targets.csv`, the bundle-relative reopen target file, the bundle-relative seeded watch-state file `seed/initial_watch_state.json`, and the bundled mirror files actually used to resolve each tracked feed. Do not add bundled implementation-side database snapshots or other derived runtime helper files there. Sort `source_files` lexicographically before writing `delivery_manifest.json`.
 - If a source uses its homepage mirror to discover a feed, include both the homepage snapshot path and the resolved feed snapshot path in `source_files`. If a source uses a feed override, include that feed snapshot path.
-- Sort `source_files` lexicographically before writing `delivery_manifest.json`.
-- `source_files` is an audit list of the source-of-truth files used for watch-state restoration and feed resolution in this run. Do not add presentation-only or reminder-only files there.
-- Do not modify the tests, validation logic, pinned dependencies, or environment configuration.
-- Do not replace the existing watch database workflow with a one-off parser, a hardcoded final output, or a manual submission that bypasses the formal build entrypoint.
-- Do not remove tracked sources from the registry, collapse them into a single source, or narrow the delivery to only one feed format.
 - The output directory is a delivery directory. When the task ends, it must contain only the required deliverables.

@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-source /app/workspace/bin/common.sh
+source /root/workspace/bin/common.sh
 
 if [ -x /usr/lib/postgresql/16/bin/initdb ]; then
     PG_BIN_DIR=/usr/lib/postgresql/16/bin
@@ -27,7 +27,7 @@ if [ ! -s "$PGDATA/PG_VERSION" ]; then
     rm -rf "$PGDATA"
     mkdir -p "$PGDATA"
     chown postgres:postgres "$PGDATA"
-    runuser -u postgres -- "$INITDB_BIN" -D "$PGDATA" >/tmp/database-tools-initdb.log
+    runuser -u postgres -- "$INITDB_BIN" -D "$PGDATA" >/tmp/rapid-transit-initdb.log
 fi
 
 if ! runuser -u postgres -- "$PG_CTL_BIN" -D "$PGDATA" status >/dev/null 2>&1; then

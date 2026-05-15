@@ -15,6 +15,7 @@ RUN apt-get update \
 
 COPY workspace /app/workspace
 COPY package_base /opt/task-base/package_base
+COPY skills /app/workspace/skills
 COPY skills /root/.codex/skills
 
 RUN mkdir -p /app/output /logs/agent /logs/verifier \

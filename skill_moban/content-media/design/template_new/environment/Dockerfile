@@ -56,6 +56,7 @@ RUN mkdir -p /root/.cache/ms-playwright \
 
 COPY power_brief /app/power_brief
 COPY workspace /app/workspace
+COPY skills /app/workspace/skills
 COPY skills /root/.codex/skills
 
 RUN mkdir -p \

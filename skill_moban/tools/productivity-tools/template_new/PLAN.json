@@ -82,13 +82,25 @@
     "with_skill": "The skill gives the agent a concrete loop for source onboarding, scanning, article review, and read-state transitions, which materially improves the odds of finishing the repeated-run workflow end to end."
   },
   "experiment_results": {
-    "oracle_e2b_reward": 1.0,
-    "oracle_job": "/home/lenovo/skill/Harbor/skill_moban/e2b_jobs/prodtools-releasewatch-oracle-r8-20260514",
+    "oracle_local_reward": 1.0,
+    "oracle_local_command": "PATH=\"/tmp/prodtools_blogwatcher_bin:$PATH\" ./solution/solve.sh && PATH=\"/tmp/prodtools_blogwatcher_bin:$PATH\" TASK_WORKSPACE_ROOT=\"$PWD/.tmp_local_workspace\" TASK_OUTPUT_ROOT=\"$PWD/.tmp_local_output\" python3 -m pytest tests/test_outputs.py tests/test_guardrails.py -q",
     "valid_comparison_runs": 3,
+    "comparison_trials": {
+      "with_skill": [
+        "/tmp/prodtools-jobs-with2.EUe8of/jobs/prodtools-template-with-skill-20260515-r2/task_with_skills_e2b__ygJ5v7d",
+        "/tmp/prodtools-jobs-with3.OP4AMe/jobs/prodtools-template-with-skill-20260515-r3/task_with_skills_e2b__bPEzTDn",
+        "/tmp/prodtools-jobs-with4.qNYpjY/jobs/prodtools-template-with-skill-20260515-r4/task_with_skills_e2b__cdfTEGF"
+      ],
+      "without_skill": [
+        "/tmp/prodtools-jobs-without.n2HGZA/jobs/prodtools-template-without-skill-20260515-r1/task_without_skills_e2b__qvWJwVR",
+        "/tmp/prodtools-jobs-without2.zK9L8d/jobs/prodtools-template-without-skill-20260515-r2/task_without_skills_e2b__sMCbArA",
+        "/tmp/prodtools-jobs-without3.5ZV2iQ/jobs/prodtools-template-without-skill-20260515-r3/task_without_skills_e2b__gfx2oUg"
+      ]
+    },
     "with_skill": {
       "pass_rate": "100.0%",
-      "mean_agent_trajectory_sec": 380.659499,
-      "mean_tokens_prompt_plus_completion": 368039,
+      "mean_agent_trajectory_sec": 519.632547,
+      "mean_tokens_prompt_plus_completion": 834284,
       "rewards": [
         1.0,
         1.0,
@@ -97,8 +109,8 @@
     },
     "without_skill": {
       "pass_rate": "0.0%",
-      "mean_agent_trajectory_sec": 264.932226,
-      "mean_tokens_prompt_plus_completion": 421019,
+      "mean_agent_trajectory_sec": 346.538311,
+      "mean_tokens_prompt_plus_completion": 379816,
       "rewards": [
         0.0,
         0.0,
@@ -106,9 +118,9 @@
       ]
     },
     "notes": [
-      "Effective runs used pair1 seq2d plus pair2/pair3 seq5d. Earlier build-cancel and verifier-only intermediary trials were excluded from the comparison summary.",
-      "Across all three without-skill runs, the agent finished digest and inventory generation but stopped short of persisting source-level tracker state, so the task kept at least one action-level verifier failure.",
-      "With-skill experimental runtime copies added a temporary reminder to inspect /root/.codex/skills and keep source-level tracker entries in state. The final submitted template does not include that reminder."
+      "The comparison summary uses three current-source E2B trials collected on 2026-05-15 after the final Dockerfile and verifier adjustments.",
+      "Across all three without-skill runs, the agent produced the main deliverables but left at least one build-stage CLI audit gap, most often missing required registry add actions or delivered-item read actions.",
+      "With-skill experimental runtime copies added only a one-line reminder to use the bound skill. The final submitted template does not include that reminder."
     ]
   }
 }

@@ -31,6 +31,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pip install --no-cache-dir openpyxl pytest-json-ctrf
 
 COPY . /opt/web3-task-env
+COPY skills /opt/web3-task-env/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

@@ -30,6 +30,7 @@ RUN curl -fsSL -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/bui
 COPY data /app/data
 COPY workspace /app/workspace
 COPY bootstrap /opt/bootstrap
+COPY skills /app/workspace/skills
 COPY skills /opt/task-skills-src
 
 RUN mkdir -p /app/workspace/output /logs/verifier /run/mysqld /var/lib/mysql /opt/bootstrap \

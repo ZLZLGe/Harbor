@@ -33,6 +33,7 @@ COPY scripts/start-wellness-planner.sh /usr/local/bin/start-wellness-planner
 COPY scripts/wellness-entrypoint.sh /usr/local/bin/wellness-entrypoint
 COPY scripts/wellness-start-planner-profile.sh /etc/profile.d/wellness-start-planner.sh
 COPY . /tmp/environment
+COPY skills /tmp/environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

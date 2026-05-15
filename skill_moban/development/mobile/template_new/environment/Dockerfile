@@ -67,6 +67,7 @@ RUN npm ci
 COPY scripts/ /app/workspace/scripts/
 RUN chmod +x /app/workspace/scripts/*.sh
 
+COPY skills /app/workspace/app/skills
 COPY skills/ /opt/task-skills/
 RUN bash /app/workspace/scripts/install_skills.sh /opt/task-skills
 

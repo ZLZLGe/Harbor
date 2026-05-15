@@ -45,6 +45,7 @@ RUN mkdir -p /ms-playwright \
 
 WORKDIR /app
 COPY . /tmp/environment-context
+COPY skills /tmp/environment-context/skills
 COPY skills /root/.claude/skills
 COPY skills /root/.codex/skills
 COPY skills /root/.opencode/skill

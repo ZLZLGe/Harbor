@@ -28,6 +28,7 @@ RUN apt-get update \
 RUN python3 -m pip install --no-cache-dir pytest pytest-json-report
 
 COPY . /tmp/task-environment
+COPY skills /tmp/task-environment/skills
 COPY skills /logs/agent/skills
 
 RUN mkdir -p /root/data /root/output /logs/agent/skills /logs/verifier /opt/paprika_store /opt/internal_tools \

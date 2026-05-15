@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY . /opt/health-fitness-task-env
+COPY skills /opt/health-fitness-task-env/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 COPY skills /tmp/codex-home/skills

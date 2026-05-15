@@ -30,6 +30,7 @@ RUN curl -fsSLo /tmp/terraform.zip https://releases.hashicorp.com/terraform/1.9.
 RUN pip install --no-cache-dir pytest python-hcl2
 
 COPY . /root/environment
+COPY skills /root/environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

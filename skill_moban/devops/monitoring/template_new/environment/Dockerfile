@@ -22,6 +22,7 @@ RUN curl -fsSL https://github.com/prometheus/prometheus/releases/download/v2.55.
 
 WORKDIR /app
 COPY . /tmp/template-environment
+COPY skills /tmp/template-environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

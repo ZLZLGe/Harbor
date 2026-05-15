@@ -21,6 +21,7 @@ RUN python3 -m pip install --no-cache-dir pandas==2.2.3 PyYAML==6.0.2
 RUN mkdir -p /root/data /root/output /root/.codex/skills /logs/agent/skills /logs/verifier
 
 COPY . /tmp/noticeflow-environment
+COPY skills /tmp/noticeflow-environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

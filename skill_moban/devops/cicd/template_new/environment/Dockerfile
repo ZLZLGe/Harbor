@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 COPY . /tmp/template-environment
+COPY skills /tmp/template-environment/skills
 COPY skills /logs/agent/skills
 COPY skills /root/.codex/skills
 

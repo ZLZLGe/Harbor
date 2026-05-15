@@ -20,6 +20,7 @@ RUN python3 -m pip install --no-cache-dir pandas==2.2.3 numpy==2.1.3 PyYAML==6.0
 RUN mkdir -p /root/input /root/output /root/.codex/skills /logs/agent/skills /logs/verifier
 
 COPY . /tmp/arkk-risk-environment
+COPY skills /tmp/arkk-risk-environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

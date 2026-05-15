@@ -1,25 +1,26 @@
 version = "1.0"
 
 [metadata]
-id = "media__frame_pickup_delivery_bundle"
-name = "Template: Frame Pickup Delivery Bundle"
-description = "Build a review-ready pickup bundle from mirrored video clips, helper-authored locator fragments, and per-clip contact sheet rules."
-difficulty = "hard"
+id = "media__mission_pick_bundle"
+name = "Template: Mission Pick Bundle"
+description = "Assemble a pickup bundle of stills, preview clips, contact sheets, and manifests from local mission video clips and a still-request table."
+difficulty = "medium"
 category = "media"
 tags = [
   "media",
-  "video-review",
+  "video",
+  "frames",
   "pickup-bundle",
   "preview-clips",
-  "contact-sheet",
-  "asset-delivery",
-  "helper-routed-pickups",
+  "contact-sheets",
+  "ffmpeg",
+  "delivery-report",
 ]
 required_skills = [
   "video-frames",
 ]
-primary_output_file = "/root/media_pick/output/frame_index.json"
-source_template_id = "media__frame_pickup_delivery_bundle"
+primary_output_file = "/app/output/frame_index.json"
+source_template_id = "media__mission_pick_bundle"
 task_role = "template"
 
 [verifier]
@@ -29,9 +30,9 @@ timeout_sec = 600.0
 timeout_sec = 600.0
 
 [environment]
-build_timeout_sec = 900.0
+build_timeout_sec = 1800.0
 cpus = 2
-memory_mb = 4096
-storage_mb = 12288
+memory_mb = 6144
+storage_mb = 16384
 gpus = 0
 allow_internet = true

@@ -40,6 +40,14 @@ class Source:
 
 
 @dataclass(frozen=True)
+class ReopenTarget:
+    source_id: str
+    label: str
+    url: str
+    reason: str
+
+
+@dataclass(frozen=True)
 class ResolvedSource:
     source: Source
     homepage_local_url: str
@@ -86,6 +94,21 @@ def load_sources(bundle_root: Path) -> list[Source]:
                     homepage_snapshot=row["homepage_snapshot"],
                     feed_override_url=row["feed_override_url"],
                     feed_override_snapshot=row["feed_override_snapshot"],
+                )
+            )
+    return rows
+
+
+def load_reopen_targets(bundle_root: Path, contract: dict[str, Any]) -> list[ReopenTarget]:
+    rows: list[ReopenTarget] = []
+    with (bundle_root / contract["reopen_targets_file"]).open("r", encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            rows.append(
+                ReopenTarget(
+                    source_id=row["source_id"],
+                    label=row["label"],
+                    url=row["url"],
+                    reason=row["reason"],
                 )
             )
     return rows
@@ -205,7 +228,7 @@ def resolve_source(source: Source, bundle_root: Path, port: int) -> ResolvedSour
     )
 
 
-def ensure_seed_db(bundle_root: Path, workspace_root: Path, db_path: Path) -> None:
+def ensure_seed_db(bundle_root: Path, workspace_root: Path, db_path: Path) -> bool:
     if db_path.exists():
         try:
             conn = sqlite3.connect(db_path)
@@ -217,7 +240,7 @@ def ensure_seed_db(bundle_root: Path, workspace_root: Path, db_path: Path) -> No
             finally:
                 conn.close()
             if {"blogs", "articles"}.issubset(tables):
-                return
+                return False
         except sqlite3.DatabaseError:
             pass
         db_path.unlink(missing_ok=True)
@@ -237,6 +260,7 @@ def ensure_seed_db(bundle_root: Path, workspace_root: Path, db_path: Path) -> No
         stderr=subprocess.PIPE,
         text=True,
     )
+    return True
 
 
 def tracked_blog_names(db_path: Path) -> list[str]:
@@ -302,6 +326,48 @@ def query_articles(db_path: Path) -> list[dict[str, Any]]:
     finally:
         conn.close()
     return [dict(row) for row in rows]
+
+
+def load_reopen_state(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {"applied_urls": []}
+    return load_json(path)
+
+
+def write_reopen_state(path: Path, applied_urls: list[str]) -> None:
+    write_json(
+        path,
+        {
+            "applied_urls": sorted(applied_urls),
+            "updated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        },
+    )
+
+
+def apply_reopen_targets(
+    db_path: Path,
+    reopen_targets: list[ReopenTarget],
+    reopen_state_path: Path,
+    audit_log: Path,
+) -> list[str]:
+    articles_by_url = {row["url"]: row for row in query_articles(db_path)}
+    state = load_reopen_state(reopen_state_path)
+    applied_urls = set(state.get("applied_urls", []))
+    reopened_urls: list[str] = []
+
+    for target in reopen_targets:
+        if target.url in applied_urls:
+            continue
+        row = articles_by_url.get(target.url)
+        if not row:
+            continue
+        applied_urls.add(target.url)
+        if int(row["is_read"]) == 1:
+            run_blogwatcher(db_path, ["unread", str(row["article_id"])], audit_log)
+            reopened_urls.append(target.url)
+
+    write_reopen_state(reopen_state_path, sorted(applied_urls))
+    return reopened_urls
 
 
 def query_inventory_rows(
@@ -411,6 +477,7 @@ def build_source_files(bundle_root: Path, contract: dict[str, Any], sources: lis
     files = {
         "contracts/digest_contract.json",
         "data/watch_targets.csv",
+        contract["reopen_targets_file"],
         contract["seed_state_file"],
     }
     for source in sources:
@@ -433,10 +500,13 @@ def main() -> int:
     contract = load_json(bundle_root / "contracts" / "digest_contract.json")
     cleanup_output_dir(output_root)
     audit_log = workspace_root / contract["audit_log_file"]
+    reopen_state_path = workspace_root / contract["reopen_state_file"]
 
     db_path = workspace_root / contract["state_db_file"]
-    ensure_seed_db(bundle_root, workspace_root, db_path)
+    if ensure_seed_db(bundle_root, workspace_root, db_path):
+        reopen_state_path.unlink(missing_ok=True)
     sources = load_sources(bundle_root)
+    reopen_targets = load_reopen_targets(bundle_root, contract)
     port = int(contract["local_server_port"])
     delivery_cap = int(contract["per_source_delivery_cap"])
 
@@ -444,6 +514,7 @@ def main() -> int:
         resolved_sources = [resolve_source(source, bundle_root, port) for source in sources]
         removed_names = reconcile_tracked_blogs(db_path, resolved_sources, audit_log)
         scan_blogs(db_path, audit_log)
+        reopened_urls = apply_reopen_targets(db_path, reopen_targets, reopen_state_path, audit_log)
         article_rows = query_articles(db_path)
         grouped, delivered_rows = build_unread_groups(article_rows, resolved_sources, delivery_cap)
         inventory_rows = query_inventory_rows(db_path, resolved_sources)
@@ -468,12 +539,15 @@ def main() -> int:
             "digest_path": contract["output_file"],
             "delivered_article_urls": [row["url"] for row in delivered_rows],
             "read_marked_article_urls": [row["url"] for row in delivered_rows],
+            "reopened_article_urls": reopened_urls,
             "tracked_source_ids": [source.source_id for source in sources],
             "removed_blog_names": removed_names,
             "source_files": build_source_files(bundle_root, contract, sources),
             "state_db_path": contract["state_db_file"],
+            "reopen_state_file": contract["reopen_state_file"],
             "notes": [
                 "Tracked blogs were reconciled to the registry before scanning.",
+                "The one-time review reopen list was applied through blogwatcher unread before delivery selection.",
                 "Delivered unread articles were marked read in the watch database after output generation.",
             ],
         },

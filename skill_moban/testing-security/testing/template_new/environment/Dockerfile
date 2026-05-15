@@ -13,6 +13,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY . /tmp/environment-context
+COPY skills /tmp/environment-context/skills
 COPY skills /root/.codex/skills
 
 RUN mkdir -p /app/workspace /tests /logs/agent /logs/verifier /root/.codex/skills \

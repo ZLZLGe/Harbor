@@ -17,6 +17,7 @@ RUN apt-get update \
 RUN pip install --no-cache-dir pytest
 
 COPY . /opt/meridian-task-env
+COPY skills /opt/meridian-task-env/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

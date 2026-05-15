@@ -23,6 +23,7 @@ RUN apt-get update \
 
 COPY data /root/data
 COPY workspace /root/workspace
+COPY skills /root/workspace/skills
 COPY skills /root/.codex/skills
 
 RUN mkdir -p /root/output \

@@ -16,6 +16,7 @@ COPY workspace /app/workspace
 WORKDIR /app/workspace
 
 # Copy skills to agent-specific locations
+COPY skills /app/workspace/skills
 COPY skills /root/.claude/skills
 COPY skills /root/.codex/skills
 COPY skills /root/.opencode/skill

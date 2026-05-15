@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN mkdir -p /root/workspace/data /root/output /root/.codex/skills
 
 COPY data /root/workspace/data
+COPY skills /root/workspace/skills
 COPY skills /root/.codex/skills
 
 RUN if [ -f /root/.codex/skills/domain-name-brainstormer/references/installed_procedure.md ]; then \

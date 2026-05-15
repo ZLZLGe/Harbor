@@ -58,6 +58,7 @@ COPY skills/frontend-patterns /app/.factory/skills/frontend-patterns
 COPY skills/frontend-patterns /app/.agents/skills/frontend-patterns
 COPY skills/frontend-patterns /app/.cursor/skills/frontend-patterns
 COPY skills/frontend-patterns /root/.gemini/skills/frontend-patterns
+COPY skills /app/skills
 
 ENV VITE_API_BASE_URL=http://localhost:3001
 ENV PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright

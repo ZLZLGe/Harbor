@@ -12,6 +12,7 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 COPY . /opt/task-env
+COPY skills /opt/task-env/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

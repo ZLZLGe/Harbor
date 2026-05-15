@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN mkdir -p /root/workspace/source_bundle /root/output /root/.codex/skills
 
 COPY source_bundle /root/workspace/source_bundle
+COPY skills /root/workspace/source_bundle/skills
 COPY skills /root/.codex/skills
 
 RUN find /root/workspace/source_bundle -type f -print0 | sort -z | xargs -0 sha256sum > /opt/education-source-bundle.sha256

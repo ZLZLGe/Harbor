@@ -13,6 +13,7 @@ RUN apt-get update \
 WORKDIR /root/environment
 
 COPY . /root/environment
+COPY skills /root/environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

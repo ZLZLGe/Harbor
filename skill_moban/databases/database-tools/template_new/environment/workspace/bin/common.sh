@@ -2,16 +2,16 @@
 
 set -euo pipefail
 
-export TASK_ROOT="${TASK_ROOT:-/app/workspace}"
-export DATA_DIR="${MOVIELENS_DATA_DIR:-$TASK_ROOT/data}"
-export OUTPUT_DIR="$TASK_ROOT/output"
+export TASK_ROOT="${TASK_ROOT:-/root/workspace}"
+export DATA_DIR="${TASK_DATA_DIR:-/root/data}"
+export OUTPUT_DIR="${TASK_OUTPUT_DIR:-/root/output}"
 
-export PGDATA="${PGDATA:-/tmp/database-tools-pgdata}"
-export PGHOST="${PGHOST:-/tmp/database-tools-pg}"
-export PGPORT="${PGPORT:-55432}"
+export PGDATA="${PGDATA:-/tmp/rapid-transit-pgdata}"
+export PGHOST="${PGHOST:-/tmp/rapid-transit-pg}"
+export PGPORT="${PGPORT:-55434}"
 export PGUSER="${PGUSER:-postgres}"
-export DB_NAME="${DB_NAME:-movielens_task}"
-export PGLOG="${PGLOG:-/tmp/database-tools-postgres.log}"
+export DB_NAME="${DB_NAME:-rapid_transit_release}"
+export PGLOG="${PGLOG:-/tmp/rapid-transit-postgres.log}"
 
 psql_db() {
     psql -v ON_ERROR_STOP=1 -h "$PGHOST" -p "$PGPORT" -U "$PGUSER" -d "$DB_NAME" "$@"

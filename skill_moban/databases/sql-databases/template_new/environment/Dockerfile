@@ -24,6 +24,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY . /tmp/task-environment
+COPY skills /tmp/task-environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

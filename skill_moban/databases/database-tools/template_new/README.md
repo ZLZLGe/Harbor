@@ -1,62 +1,59 @@
 # Database Tools Template
 
-这是面向 database-tools 类 skill 的模板。它综合参考 SkillsMP 数据库工具类热门 skill 的共性能力：围绕带版本的数据库变更、数据回填、发布回退、以及基于当前输入重建结果的校验，设计一个可运行、可验证、且能在仓库既有工作流中完成的任务。
+这是面向 database-tools 类 skill 的模板。它综合参考 SkillsMP 数据库工具热门 skill 的共性能力：围绕本地数据库重建、分层迁移、可回放 SQL 交付和稳定导出展开。模板重点放在让求解器把 migration bundle 当作长期可复用交付物，同时避免把它写成一次性脚本。
 
 ## 第一部分：任务设计参考
-* **Skill 价值定位**：这类 skill 的共性价值，是把数据库变更放回仓库工作流中处理，而不是临时手改或只做表面产物。它们通常强调迁移边界、回退路径、数据回填、以及面向当前输入的重复构建验证。
-* **Verifier 设计重点**：Verifier 应同时覆盖最终数据内容、迁移状态、回退后状态、以及对当前输入目录变化的响应，避免只检验单次静态输出。对数据库工具类任务，还应防止通过改输入、缓存答案、绕开数据库入口或重写已交付迁移来取巧。
+* **Skill 价值定位**：这类 skill 的共性价值，在于把数据库任务从“先跑出一份答案”提升到“留下可重复执行、顺序明确、层次清楚的迁移与导出流程”。对数据库工具模板来说，关键在于后续环境仍能继续完成重建、回放和复查。
+* **Verifier 设计重点**：这类任务的 verifier 应同时验证交付文件、数据库内关系、迁移回放能力和重复运行稳定性。除了看最终导出是否对，还要验证 migration 顺序、索引与重建路径是否真的支撑后续使用，避免只在一次运行里凑出结果。
 
 ## 第二部分：示例任务
 ### 📌 任务元数据
-- 任务 ID：`database-tools-movielens-catalog-release`
+- 任务 ID：`database-tools__rapid-transit-schema-release`
 - 类别：`database-tools`
-- 绑定 Skill：`database-migrations`, `database-migrations-codex`
+- 绑定 Skill：`database-migrations`
 - 输入数据参考来源：
-  - `environment/data/movies.csv`：任务内电影主数据；设计形态参考 MovieLens Latest Small 数据集中的电影与类型字段  
-    【https://files.grouplens.org/datasets/movielens/ml-latest-small.zip】
-  - `environment/data/ratings.csv`：任务内评分事件；设计形态参考 MovieLens Latest Small 数据集中的评分与时间戳字段  
-    【https://files.grouplens.org/datasets/movielens/ml-latest-small.zip】
-  - `environment/data/tags.csv`：任务内标签事件；设计形态参考 MovieLens Latest Small 数据集中的标签与时间戳字段  
-    【https://files.grouplens.org/datasets/movielens/ml-latest-small.zip】
-  - `environment/data/links.csv`：任务内 IMDb / TMDb 映射；直接来源于 MovieLens Latest Small 数据集中的 links 表  
-    【https://files.grouplens.org/datasets/movielens/ml-latest-small.zip】
+  - `environment/data/gtfs/agency.txt`：任务内机构与时区元数据，直接来源于 MBTA GTFS 静态数据包  
+    【https://cdn.mbta.com/MBTA_GTFS.zip】
+  - `environment/data/gtfs/routes.txt`、`stops.txt`、`trips.txt`、`stop_times.txt`、`calendar.txt`、`calendar_dates.txt`：任务内线路、站点、班次、时刻与服务日历数据，直接来源于 MBTA GTFS 静态数据包  
+    【https://cdn.mbta.com/MBTA_GTFS.zip】
+  - `environment/data/reference/feed_info.txt`：任务内 feed 版本与时间范围元数据，直接来源于 MBTA GTFS 静态数据包  
+    【https://cdn.mbta.com/MBTA_GTFS.zip】
+  - `environment/data/reference/gtfs_field_notes.md`：任务内字段说明形态参考 GTFS Schedule Reference  
+    【https://gtfs.org/documentation/schedule/reference/】
 
 ### 📊 验证与测试指标（Oracle & Verifier）
 - Oracle：按正式流程独立运行并完成交付，结果可直接 100% 通过验证。
-- Verifier策略：
+- Verifier 策略：
 
 主测试
 
-| 测试点 | 验证内容 | 对应skill内化点 |
+| 测试点 | 验证内容 | 对应 skill 内化点 |
 | --- | --- | --- |
-| rebuild contract | rebuild 后报告字段、步骤顺序、迁移版本链和核心对象全部成立 | 以仓库入口驱动迁移发布 |
-| catalog content | 维表、映射表、标签事件内容与源数据语义一致 | schema / backfill 语义正确 |
-| release content | 月度热度与导出视图满足发布后的完整业务定义 | 发布层数据刷新与导出逻辑 |
-| rollback and replay | `migrate_down` 后保留基线状态，`migrate_up` 后恢复发布状态 | 回退边界和重放路径 |
-| input sensitivity | 切换输入目录后，数据库和报告随当前输入变化 | 基于当前输入重建，不走缓存 |
+| 输出文件合同 | CSV、TSV、SQL、说明文件都存在且列结构正确 | 交付物完整性 |
+| 指标结果对账 | panel 与 leaderboard 和独立重算结果一致 | 数据迁移后结果可核对 |
+| 迁移回放 | fresh raw load 后仅重放 migration 也能重建下游关系 | 顺序化迁移、可回放 SQL |
+| 重复运行稳定 | 同一输入重复执行仍输出一致 | 幂等重建流程 |
+| 索引守护 | raw、core、mart 的关键索引都落在数据库里 | 迁移纪律与运行保障 |
 
 防作弊测试
 
 | 测试点 | 验证内容 |
 | --- | --- |
-| source integrity | 原始 CSV 文件哈希不变，不能靠改输入过关 |
-| baseline integrity | 已交付基线迁移哈希不变，不能重写既有迁移 |
-| no cached answers | 结果必须来自数据库重建与查询，不能只保留预计算报告 |
-| no workflow bypass | 不能绕过 PostgreSQL 或仓库既有迁移入口完成任务 |
+| 合同扰动 | 改动 `release_contract.json` 后，导出内容必须变化 |
+| 样例硬编码防护 | 结果必须来自已加载数据与 SQL 关系，不能只靠预写答案 |
 
 ### ⚡ Skill 相关性评估
-结论：强相关。这个任务的核心难点不在写单条 SQL，而在于沿既有迁移工作流交付一版增量 catalog 发布，并让 rebuild、rollback、replay 与输入切换共同成立。skill 的主要价值，是把“新增迁移、分离 schema / backfill / export、控制回退边界、再用当前输入验证”这套路径固定下来，从而明显降低错误试探成本。
+结论：强相关。这个任务里，Skill 的核心价值是把 raw/core/mart 三层迁移、索引补齐和 replay 路径当成同一个交付合同来处理。无 skill 解法有时也能做出完整结果，但更容易在迁移守护项上漏掉关键索引，因此完成率明显不如 with skill 稳定。
 
-基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败类 trial）：
+基于最近 **3 次** 有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除 build cancelled 一类 trial）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0%` | `100%` | 近 3 次有效对照里，without Skill 都至少保留了 1 项 verifier 失败；主要失败点是直接改写既有基线迁移，触发 baseline migration hash guard。 |
-| Agent 执行耗时 | `364.1s` | `348.9s` | With Skill 的迁移分层和回退路径收敛更快，平均 Agent 耗时约下降 `4.2%`。 |
-| Tokens | `608421` | `529625` | Without Skill 的试探和返工更多，平均 tokens 约为 With Skill 的 `1.15x`。 |
+| 通过率 | `33.3%` | `100%` | 近 3 次有效对照里，without Skill 有 2 次停在 `test_index_guardrails_exist`；with Skill 3 次都通过 |
+| Agent 执行耗时 | `544.9s` | `660.3s` | With Skill 会投入更多时间补齐 replay 与索引纪律；without Skill 更快结束，但常留下 verifier 失败 |
+| Tokens | `0.68M` | `0.89M` | With Skill 为了完成分层迁移与回放检查，平均上下文消耗更高；without Skill 更省，但稳定性更差 |
 
 ## 📁 标准目录结构说明
-
 ```text
 template_new/
 ├── instruction.md
@@ -65,8 +62,14 @@ template_new/
 ├── README.md
 ├── environment/
 │   ├── Dockerfile
+│   ├── data/
 │   ├── workspace/
 │   └── skills/
 ├── tests/
+│   ├── reference_metrics.py
+│   ├── test_outputs.py
+│   └── test.sh
 └── solution/
+    ├── fixed/
+    └── solve.sh
 ```

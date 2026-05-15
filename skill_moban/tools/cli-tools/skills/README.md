@@ -1,37 +1,33 @@
 # CLI Tools Skills
 
 - 来源：先参考 https://skillsmp.com/categories/cli-tools，再在 skills.sh 中补足相关 skills。
-- 过滤条件：GitHub stars >= 1000，installs >= 1K。
-- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
-- 最终结果：共 19 个 skills，其中 13 个 installs >= 1000，6 个 installs 在 500-999。
+- 过滤条件：GitHub stars >= 500，installs >= 500。
+- 安装量规则：只保留 skills.sh installs >= 500 的 skills。
+- 最终结果：共 20 个 skills，全部满足 installs >= 500。
 
 ## 技能清单
 
-### 严格入选：installs >= 1000
+### 入选：installs >= 500
 
 | # | skill | repo | stars | installs | skills.sh |
 |---:|---|---|---:|---:|---|
-| 1 | bun-development | sickn33/antigravity-awesome-skills | 37047 | 2049 | https://skills.sh/sickn33/antigravity-awesome-skills/bun-development |
-| 2 | cli-anything | HKUDS/CLI-Anything | 34142 | 1138 | https://skills.sh/HKUDS/CLI-Anything/cli-anything |
-| 3 | obsidian-cli | kepano/obsidian-skills | 29193 | 26779 | https://skills.sh/kepano/obsidian-skills/obsidian-cli |
-| 4 | opencli-usage | jackwener/OpenCLI | 19554 | 8600 | https://skills.sh/jackwener/OpenCLI/opencli-usage |
-| 5 | opencli-adapter-author | jackwener/OpenCLI | 19554 | 4589 | https://skills.sh/jackwener/OpenCLI/opencli-adapter-author |
-| 6 | command-development | anthropics/claude-plugins-official | 19038 | 2413 | https://skills.sh/anthropics/claude-plugins-official/command-development |
-| 7 | vercel-cli | vercel/vercel | 15456 | 2638 | https://skills.sh/vercel/vercel/vercel-cli |
-| 8 | cli-developer | Jeffallan/claude-skills | 8935 | 2174 | https://skills.sh/Jeffallan/claude-skills/cli-developer |
-| 9 | kakaotalk-mac | NomaDamas/k-skill | 4668 | 2008 | https://skills.sh/NomaDamas/k-skill/kakaotalk-mac |
-| 10 | playwriter | remorses/playwriter | 3487 | 3479 | https://skills.sh/remorses/playwriter/playwriter |
-| 11 | browser | browserbase/skills | 3052 | 3300 | https://skills.sh/browserbase/skills/browser |
-| 12 | browserbase-cli | browserbase/skills | 3052 | 1456 | https://skills.sh/browserbase/skills/browserbase-cli |
-| 13 | golang-cli | samber/cc-skills-golang | 1601 | 2251 | https://skills.sh/samber/cc-skills-golang/golang-cli |
-
-### 放宽入选：installs 500-999
-
-| # | skill | repo | stars | installs | skills.sh |
-|---:|---|---|---:|---:|---|
-| 14 | peekaboo | openclaw/openclaw | 370546 | 743 | https://skills.sh/openclaw/openclaw/peekaboo |
-| 15 | oracle | openclaw/openclaw | 370546 | 712 | https://skills.sh/openclaw/openclaw/oracle |
-| 16 | blucli | openclaw/openclaw | 370546 | 696 | https://skills.sh/openclaw/openclaw/blucli |
-| 17 | cmux-markdown | manaflow-ai/cmux | 16632 | 793 | https://skills.sh/manaflow-ai/cmux/cmux-markdown |
-| 18 | ink | vercel-labs/json-render | 14713 | 637 | https://skills.sh/vercel-labs/json-render/ink |
-| 19 | domain-cli | actionbook/rust-skills | 1104 | 585 | https://skills.sh/actionbook/rust-skills/domain-cli |
+| 1 | peekaboo | openclaw/openclaw | 370546 | 744 | https://skills.sh/openclaw/openclaw/peekaboo |
+| 2 | oracle | openclaw/openclaw | 370546 | 713 | https://skills.sh/openclaw/openclaw/oracle |
+| 3 | blucli | openclaw/openclaw | 370546 | 697 | https://skills.sh/openclaw/openclaw/blucli |
+| 4 | bun-development | sickn33/antigravity-awesome-skills | 37047 | 2052 | https://skills.sh/sickn33/antigravity-awesome-skills/bun-development |
+| 5 | cli-anything | HKUDS/CLI-Anything | 34142 | 1149 | https://skills.sh/HKUDS/CLI-Anything/cli-anything |
+| 6 | obsidian-cli | kepano/obsidian-skills | 29193 | 27113 | https://skills.sh/kepano/obsidian-skills/obsidian-cli |
+| 7 | opencli-usage | jackwener/OpenCLI | 19554 | 8742 | https://skills.sh/jackwener/OpenCLI/opencli-usage |
+| 8 | opencli-adapter-author | jackwener/OpenCLI | 19554 | 4754 | https://skills.sh/jackwener/OpenCLI/opencli-adapter-author |
+| 9 | command-development | anthropics/claude-plugins-official | 19038 | 2413 | https://skills.sh/anthropics/claude-plugins-official/command-development |
+| 10 | cmux-markdown | manaflow-ai/cmux | 16632 | 800 | https://skills.sh/manaflow-ai/cmux/cmux-markdown |
+| 11 | vercel-cli | vercel/vercel | 15456 | 2660 | https://skills.sh/vercel/vercel/vercel-cli |
+| 12 | ink | vercel-labs/json-render | 14713 | 645 | https://skills.sh/vercel-labs/json-render/ink |
+| 13 | cli-developer | Jeffallan/claude-skills | 8935 | 2182 | https://skills.sh/Jeffallan/claude-skills/cli-developer |
+| 14 | kakaotalk-mac | NomaDamas/k-skill | 4668 | 2042 | https://skills.sh/NomaDamas/k-skill/kakaotalk-mac |
+| 15 | playwriter | remorses/playwriter | 3487 | 3497 | https://skills.sh/remorses/playwriter/playwriter |
+| 16 | browser | browserbase/skills | 3052 | 3363 | https://skills.sh/browserbase/skills/browser |
+| 17 | browserbase-cli | browserbase/skills | 3052 | 1504 | https://skills.sh/browserbase/skills/browserbase-cli |
+| 18 | golang-cli | samber/cc-skills-golang | 1601 | 2290 | https://skills.sh/samber/cc-skills-golang/golang-cli |
+| 19 | domain-cli | actionbook/rust-skills | 1104 | 590 | https://skills.sh/actionbook/rust-skills/domain-cli |
+| 20 | manimgl-best-practices | adithya-s-k/manim_skill | 834 | 1129 | https://skills.sh/adithya-s-k/manim_skill/manimgl-best-practices |

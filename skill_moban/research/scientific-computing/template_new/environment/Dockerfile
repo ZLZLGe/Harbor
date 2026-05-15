@@ -28,6 +28,7 @@ RUN pip install --no-cache-dir \
 RUN mkdir -p /opt/task-env /root/data /root/workspace /root/output /root/.codex/skills /logs/agent/skills /logs/verifier
 
 COPY . /opt/task-env
+COPY skills /opt/task-env/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

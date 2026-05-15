@@ -25,6 +25,7 @@ RUN apt-get update \
 
 COPY workspace /app/workspace
 COPY . /tmp/task-environment
+COPY skills /tmp/task-environment/skills
 COPY skills /root/.claude/skills
 COPY skills /root/.codex/skills
 COPY skills /root/.opencode/skill

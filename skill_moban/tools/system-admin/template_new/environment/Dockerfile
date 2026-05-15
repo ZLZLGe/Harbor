@@ -11,6 +11,7 @@ RUN apt-get update \
 WORKDIR /app
 
 COPY . /tmp/template-environment
+COPY skills /tmp/template-environment/skills
 COPY skills /root/.claude/skills
 COPY skills /root/.codex/skills
 COPY skills /root/.opencode/skill

@@ -47,6 +47,14 @@ class Source:
     feed_override_snapshot: str
 
 
+@dataclass(frozen=True)
+class ReopenTarget:
+    source_id: str
+    label: str
+    url: str
+    reason: str
+
+
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -77,6 +85,21 @@ def load_sources(bundle_root: Path = BUNDLE_ROOT) -> list[Source]:
     return rows
 
 
+def load_reopen_targets(bundle_root: Path = BUNDLE_ROOT) -> list[ReopenTarget]:
+    rows: list[ReopenTarget] = []
+    with (bundle_root / contract(bundle_root)["reopen_targets_file"]).open("r", encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            rows.append(
+                ReopenTarget(
+                    source_id=row["source_id"],
+                    label=row["label"],
+                    url=row["url"],
+                    reason=row["reason"],
+                )
+            )
+    return rows
+
+
 def run_build(
     bundle_root: Path = BUNDLE_ROOT,
     workspace_root: Path = WORKSPACE_ROOT,
@@ -89,6 +112,7 @@ def run_build(
     audit_log_path(workspace_root, bundle_root).unlink(missing_ok=True)
     if clear_state:
         state_db_path(workspace_root, bundle_root).unlink(missing_ok=True)
+        reopen_state_path(workspace_root, bundle_root).unlink(missing_ok=True)
     return subprocess.run(
         [
             "python3",
@@ -116,11 +140,20 @@ def audit_log_path(workspace_root: Path = WORKSPACE_ROOT, bundle_root: Path = BU
     return workspace_root / contract(bundle_root)["audit_log_file"]
 
 
+def reopen_state_path(workspace_root: Path = WORKSPACE_ROOT, bundle_root: Path = BUNDLE_ROOT) -> Path:
+    return workspace_root / contract(bundle_root)["reopen_state_file"]
+
+
 def read_audit_events(workspace_root: Path = WORKSPACE_ROOT, bundle_root: Path = BUNDLE_ROOT) -> list[dict[str, Any]]:
     path = audit_log_path(workspace_root, bundle_root)
     if not path.exists():
         return []
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def read_reopen_state(workspace_root: Path = WORKSPACE_ROOT, bundle_root: Path = BUNDLE_ROOT) -> dict[str, Any]:
+    path = reopen_state_path(workspace_root, bundle_root)
+    return load_json(path) if path.exists() else {}
 
 
 def output_digest(output_root: Path = OUTPUT_ROOT, bundle_root: Path = BUNDLE_ROOT) -> Path:
@@ -238,8 +271,10 @@ def expected_runs(bundle_root: Path = BUNDLE_ROOT) -> list[dict[str, Any]]:
     payload = contract(bundle_root)
     delivery_cap = int(payload["per_source_delivery_cap"])
     sources = load_sources(bundle_root)
+    reopen_targets = load_reopen_targets(bundle_root)
     seed_read_urls = {url for urls in read_by_label.values() for url in urls}
     already_read_urls = set(seed_read_urls)
+    reopen_consumed = False
     current_blog_names = {
         blog["name"] for blog in seed_payload["seeded_blogs"]
     } | {
@@ -251,6 +286,13 @@ def expected_runs(bundle_root: Path = BUNDLE_ROOT) -> list[dict[str, Any]]:
     while True:
         removed_blog_names = sorted(current_blog_names - expected_blog_names)
         current_blog_names = set(expected_blog_names)
+        reopened_urls: list[str] = []
+        if not reopen_consumed:
+            for target in reopen_targets:
+                if target.url in already_read_urls:
+                    already_read_urls.remove(target.url)
+                    reopened_urls.append(target.url)
+            reopen_consumed = True
         grouped: dict[str, list[dict[str, str]]] = {"high": [], "standard": []}
         inventory_rows: list[dict[str, Any]] = []
         delivered_urls: list[str] = []
@@ -295,6 +337,7 @@ def expected_runs(bundle_root: Path = BUNDLE_ROOT) -> list[dict[str, Any]]:
                 "inventory_rows": inventory_rows,
                 "delivered_urls": delivered_urls,
                 "remaining_unread_urls": sorted(remaining_unread_urls),
+                "reopened_urls": reopened_urls,
                 "tracked_source_ids": [source.source_id for source in sources],
                 "removed_blog_names": removed_blog_names,
                 "source_files": expected_source_files(bundle_root),
@@ -316,6 +359,7 @@ def expected_source_files(bundle_root: Path = BUNDLE_ROOT) -> list[str]:
     files = {
         "contracts/digest_contract.json",
         "data/watch_targets.csv",
+        contract(bundle_root)["reopen_targets_file"],
         contract(bundle_root)["seed_state_file"],
     }
     for source in load_sources(bundle_root):

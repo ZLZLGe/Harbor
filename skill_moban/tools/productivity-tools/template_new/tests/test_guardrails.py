@@ -54,6 +54,7 @@ def test_manifest_shape_is_stable() -> None:
     assert isinstance(inventory["notes"], list)
     assert isinstance(manifest["delivered_article_urls"], list)
     assert isinstance(manifest["read_marked_article_urls"], list)
+    assert isinstance(manifest["reopened_article_urls"], list)
     assert isinstance(manifest["tracked_source_ids"], list)
     assert isinstance(manifest["removed_blog_names"], list)
     assert isinstance(manifest["source_files"], list)

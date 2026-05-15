@@ -1,13 +1,13 @@
 # Business Apps Skills
 
 - 来源：先参考 https://skillsmp.com/categories/business-apps，再在 skills.sh 中补足相关 skills。
-- 过滤条件：GitHub stars >= 1000，installs >= 1K。
-- 安装量规则：优先保留 skills.sh installs >= 1000；不足 80 个时，放宽到 >= 500。
-- 最终结果：共 10 个 skills，其中 9 个 installs >= 1000，1 个 installs 在 500-999。
+- 过滤条件：GitHub stars >= 500，installs >= 500。
+- 安装量规则：只保留 skills.sh installs >= 500 的 skills。
+- 最终结果：共 14 个 skills，全部满足 installs >= 500。
 
 ## 技能清单
 
-### 严格入选：installs >= 1000
+### 入选：installs >= 500
 
 | # | skill | repo | stars | installs | skills.sh |
 |---:|---|---|---:|---:|---|
@@ -20,9 +20,8 @@
 | 7 | journal-entry-prep | anthropics/knowledge-work-plugins | 12009 | 1163 | https://skills.sh/anthropics/knowledge-work-plugins/journal-entry-prep |
 | 8 | create-an-asset | anthropics/knowledge-work-plugins | 12009 | 1147 | https://skills.sh/anthropics/knowledge-work-plugins/create-an-asset |
 | 9 | roadmap-planning | deanpeters/Product-Manager-Skills | 4123 | 1489 | https://skills.sh/deanpeters/Product-Manager-Skills/roadmap-planning |
-
-### 放宽入选：installs 500-999
-
-| # | skill | repo | stars | installs | skills.sh |
-|---:|---|---|---:|---:|---|
 | 10 | ralph-tui-prd | subsy/ralph-tui | 2297 | 989 | https://skills.sh/subsy/ralph-tui/ralph-tui-prd |
+| 11 | technical-roadmaps | RefoundAI/lenny-skills | 828 | 1335 | https://skills.sh/RefoundAI/lenny-skills/technical-roadmaps |
+| 12 | enterprise-sales | RefoundAI/lenny-skills | 828 | 1279 | https://skills.sh/RefoundAI/lenny-skills/enterprise-sales |
+| 13 | product-led-sales | RefoundAI/lenny-skills | 828 | 1215 | https://skills.sh/RefoundAI/lenny-skills/product-led-sales |
+| 14 | sales-compensation | RefoundAI/lenny-skills | 828 | 1107 | https://skills.sh/RefoundAI/lenny-skills/sales-compensation |

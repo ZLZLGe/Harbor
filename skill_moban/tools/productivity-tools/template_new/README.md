@@ -55,9 +55,9 @@
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `0.0%` | `100.0%` | 近 3 次有效对照里，without Skill 都停在“只记录全局已读集合、没有形成来源级 tracker state”的中间态，因此至少保留 1 项 verifier 失败。 |
-| Agent 执行耗时 | `264.9s` | `380.7s` | With Skill 会更稳定地走完整个来源接入、扫描、交付和来源级状态留档流程，因此单次耗时更高，但完成度稳定。 |
-| Tokens | `421019` | `368039` | Without Skill 的试错与往返解释更多，平均上下文开销约为 With Skill 的 `1.14x`。 |
+| 通过率 | `0.0%` | `100.0%` | 近 3 次有效对照里，without Skill 都在 build 阶段 CLI 审计留档上留下缺口，常见缺项是新增来源 add 动作或 delivered-item read 动作，因此至少保留 1 项 verifier 失败。 |
+| Agent 执行耗时 | `346.5s` | `519.6s` | With Skill 更稳定地走完整个来源接入、review reopen、扫描、交付和审计链路；without Skill 往往更早停在局部完成态，所以耗时更短但仍失败。 |
+| Tokens | `379816` | `834284` | With Skill 在当前模板上会把完整工作流走完，token 开销更高；without Skill 常在审计动作补齐前结束，token 更低但完成度不足。 |
 
 ## 📁 标准目录结构说明
 

@@ -1,9 +1,9 @@
 version = "1.0"
 
 [metadata]
-id = "astronomy-physics__m101-candidate-review"
-name = "M101 Candidate Review Bundle"
-description = "Build a reproducible M101 candidate review bundle from FITS cutouts, detector-space candidates, catalog crossmatches, and observation metadata."
+id = "astronomy-physics__ngc4993-followup-packet"
+name = "NGC 4993 Follow-Up Packet"
+description = "Turn detector-space candidates, public field cutouts, a foreground-star slice, and host metadata into a reproducible astronomy follow-up packet with calibrated photometry, host offsets, and a briefing summary."
 difficulty = "hard"
 category = "astronomy-physics"
 tags = [
@@ -11,27 +11,26 @@ tags = [
   "astropy",
   "fits",
   "wcs",
-  "coordinates",
-  "time-series-metadata",
-  "catalog-crossmatch",
+  "gaia",
   "cosmology",
+  "time-series-metadata",
+  "scientific-workflow",
 ]
-required_skills = [
-  "astropy",
-]
-primary_output_file = "/root/answer/report.json"
-source_template_id = "astronomy-physics__m101-candidate-review"
+required_skills = ["astropy"]
+primary_output_file = "/root/answer/candidate_followup_packet.ecsv"
+source_template_id = "astronomy-physics__ngc4993-followup-packet"
 task_role = "template"
 
 [verifier]
-timeout_sec = 700.0
+timeout_sec = 900.0
 
 [agent]
-timeout_sec = 700.0
+timeout_sec = 1200.0
 
 [environment]
 build_timeout_sec = 1200.0
 cpus = 2
 memory_mb = 4096
-storage_mb = 8192
+storage_mb = 10240
 gpus = 0
+allow_internet = true

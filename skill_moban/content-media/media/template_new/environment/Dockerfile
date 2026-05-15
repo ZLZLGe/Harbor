@@ -1,42 +1,27 @@
-FROM python:3.12-slim
-
-ENV DEBIAN_FRONTEND=noninteractive
-ENV PYTHONUNBUFFERED=1
-ENV PIP_NO_CACHE_DIR=1
-ENV HOME=/root
-ENV MEDIA_PICK_FRAME_TOOL=/usr/local/bin/media-pick-frame
-
-WORKDIR /app
+FROM python:3.11-slim
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        bash \
-        ca-certificates \
-        coreutils \
-        curl \
         ffmpeg \
-        findutils \
-        gawk \
-        grep \
-        nodejs \
-        npm \
-        sed \
-        tini \
+        jq \
     && rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install --no-cache-dir pillow numpy
+RUN pip install --no-cache-dir pillow pytest imageio-ffmpeg
 
-RUN mkdir -p /root/media_pick/input /root/media_pick/output /root/.codex/skills /logs/verifier
+WORKDIR /app
 
-COPY data /root/media_pick/input
-COPY . /tmp/task-environment
+COPY mission_packet /app/mission_packet
+COPY workspace /app/workspace
+COPY skills /tmp/codex-home/skills
 COPY skills /root/.codex/skills
+COPY skills /app/skills
 
-RUN cd /root/media_pick/input \
-    && find . -type f -print0 | sort -z | xargs -0 sha256sum > /opt/media-pick-input.sha256 \
-    && if [ -f /root/.codex/skills/video-frames/scripts/frame.sh ]; then chmod 755 /root/.codex/skills/video-frames/scripts/frame.sh && ln -sf /root/.codex/skills/video-frames/scripts/frame.sh /usr/local/bin/media-pick-frame; fi \
-    && chmod 644 /opt/media-pick-input.sha256 \
-    && chmod 777 /root/media_pick/output
+RUN mkdir -p /app/output /app/workspace /tmp/codex-home/skills \
+    && cat >/usr/local/bin/media-pick-frame <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+exec bash /app/skills/video-frames/scripts/frame.sh "$@"
+EOF
+RUN chmod +x /usr/local/bin/media-pick-frame
 
-ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["/bin/bash"]
+ENV MEDIA_PICK_FRAME_TOOL=/usr/local/bin/media-pick-frame

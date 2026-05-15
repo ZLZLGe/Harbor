@@ -30,6 +30,7 @@ RUN mkdir -p /tmp/wheels \
     && rm -rf /tmp/wheels
 
 COPY . /root/environment
+COPY skills /root/environment/skills
 COPY skills /root/.codex/skills
 
 RUN python /root/environment/generate_seed_data.py \

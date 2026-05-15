@@ -49,6 +49,7 @@ WORKDIR /app
 COPY data /app/data
 COPY data_alt /app/data_alt
 COPY scripts /app/scripts
+COPY skills /app/skills
 COPY skills /root/.codex/skills
 
 RUN mkdir -p /app/workspace /logs/verifier \

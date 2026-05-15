@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY . /opt/divination-task-environment
+COPY skills /opt/divination-task-environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

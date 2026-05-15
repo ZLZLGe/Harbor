@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pip install --no-cache-dir pytest
 
 COPY . /opt/literature-writing-environment
+COPY skills /opt/literature-writing-environment/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

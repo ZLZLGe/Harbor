@@ -1,34 +1,39 @@
-You are preparing a pickup bundle for a media review team. The team needs a consistent delivery package built from the clips already placed in the workspace.
+You need to assemble a pickup bundle from the local mission clips for a review handoff. The workspace already includes the source video registry, a still-request table, a contact-sheet layout spec, and a local build entrypoint. Complete the pickup bundle while preserving the required paths, filenames, and source boundaries.
 
-Input data is in `/root/media_pick/input/`:
+Input data is available under `/app/mission_packet/`:
 
-- `clip_manifest.json`: the video inventory, filenames, clip descriptions, and basic metadata.
-- `shot_requests.csv`: the pickup request table, with fields including `request_id`, `clip_id`, `still_locator`, `preview_start_sec`, `preview_duration_sec`, and `slot_name`.
-- `layout_spec.json`: the contact sheet layout, naming, and ordering requirements.
-- `videos/`: the video files referenced by the manifest.
+- `clip_manifest.json`: the clip registry. It lists every `clip_id`, the source filename, and the expected frame dimensions.
+- `shot_requests.csv`: the pickup request table. Each row includes `request_id`, `clip_id`, `still_locator`, `preview_start_sec`, `preview_duration_sec`, and `slot_name`.
+- `layout_spec.json`: the contact-sheet naming, clip grouping, request order, and layout settings.
+- `videos/launch_pad.mp4`: local source footage for the launch sequence.
+- `videos/landing_targeting.mp4`: local source footage for the descent-tracking sequence.
+- `videos/landing_touchdown.mp4`: local source footage for the touchdown sequence.
+- `/app/workspace/build_packet.py`: the formal local generation entrypoint. Keep this entrypoint usable for the final delivery.
 
 Your tasks
 
-1. Check whether the input inventory is internally consistent and confirm that every request maps to a readable video file.
-2. For each request in `shot_requests.csv`, deliver one source image saved to `/root/media_pick/output/stills/<request_id>.png`. The workspace exposes the standard pickup helper as `media-pick-frame` and also writes it to `$MEDIA_PICK_FRAME_TOOL`; the locator fragment in the `still_locator` column must be passed through exactly as written, and a blank locator is also a valid request.
-3. Every source image must preserve the original pixel dimensions. Do not crop, resize, add text, color-adjust, or overlay markers.
-4. For each request in `shot_requests.csv`, export one preview clip to `/root/media_pick/output/previews/<request_id>.mp4`. Use `preview_start_sec` as the clip start time and `preview_duration_sec` as the duration.
-5. Generate contact sheets grouped by `clip_id` and save them to `/root/media_pick/output/sheets/<clip_id>_sheet.jpg`. Each contact sheet must include only the source images belonging to that `clip_id` and must follow the layout and ordering requirements in `layout_spec.json`.
-6. Generate `/root/media_pick/output/frame_index.json` to register each video, each request, and the corresponding output files.
-7. Generate `/root/media_pick/output/delivery_report.json` to summarize this delivery.
-8. In both `frame_index.json` and `delivery_report.json`, the `source_video` field must be filled with the `filename` value from `clip_manifest.json`.
+1. Validate that every request maps to a readable source video from `clip_manifest.json`.
+2. For each row in `shot_requests.csv`, create one source still at `/app/output/stills/<request_id>.png`.
+3. Keep every source still at the source clip's original pixel size. Do not crop, resize, annotate, recolor, or overlay markers.
+4. For each row in `shot_requests.csv`, export one preview clip at `/app/output/previews/<request_id>.mp4` using `preview_start_sec` and `preview_duration_sec`.
+5. Build one contact sheet per `clip_id` at the path required by `layout_spec.json`. Each sheet must contain only that clip's stills and must follow the request order from the layout spec.
+6. Generate `/app/output/frame_index.json` to register each clip, request, and output artifact.
+7. Generate `/app/output/delivery_report.json` to summarize the bundle.
+8. Keep the local build entrypoint usable so the team can regenerate the same delivery from the current inputs.
+9. Clean the delivery for review. Do not leave empty outputs, duplicate variants, review residue, `TODO`, `TBD`, or process commentary in the final outputs.
 
 Output
 
-Under `/root/media_pick/output/`, create and only create the following outputs:
+- Update the formal delivery code and any required supporting files under `/app/workspace/`.
+- Keep the build entrypoint compatible with the local still-generation toolchain already present in the environment.
+- Create exactly these output paths under `/app/output/`:
+  - `stills/`
+  - `previews/`
+  - `sheets/`
+  - `frame_index.json`
+  - `delivery_report.json`
 
-- `stills/`
-- `previews/`
-- `sheets/`
-- `frame_index.json`
-- `delivery_report.json`
-
-`frame_index.json` must contain the following information:
+`frame_index.json` must use this shape:
 
 ```json
 {
@@ -56,43 +61,33 @@ Under `/root/media_pick/output/`, create and only create the following outputs:
 }
 ```
 
-`delivery_report.json` must contain the following information:
+`delivery_report.json` must include:
 
 ```json
 {
-  "files_created": [
-    "stills/...",
-    "previews/...",
-    "sheets/...",
-    "frame_index.json",
-    "delivery_report.json"
-  ],
-  "videos_processed": [
+  "bundle_id": "string",
+  "files_created": ["string"],
+  "clips_processed": [
     {
       "clip_id": "string",
       "source_video": "string",
       "request_count": 0,
       "sheet_path": "string",
-      "status": "pass"
+      "status": "string"
     }
   ],
   "requests_processed": 0,
   "sheet_count": 0,
-  "issues": [],
+  "issues": ["string"],
   "notes": ["string"]
 }
 ```
 
 Notes
 
-- Do not modify any files under `/root/media_pick/input/`.
+- Do not modify the source videos or the input registry files under `/app/mission_packet/`.
+- Blank `still_locator` values are valid requests and still require output files.
+- In both JSON outputs, every `source_video` value must match the `filename` field from `clip_manifest.json`.
 - Do not change the required output paths or filenames.
-- Do not create additional top-level delivery files outside `/root/media_pick/output/`.
-- First confirm that the helper pointed to by `media-pick-frame` or `$MEDIA_PICK_FRAME_TOOL` is callable. Source images must be generated through this helper. Do not rewrite the `still_locator` fragments or replace them with different selector expressions.
-- If this helper is not callable, do not switch to another frame-extraction path.
-- Do not write, replace, or hook up a different source image pickup helper, and do not add or modify files under `/root/.codex/skills/`.
-- Do not substitute screenshots, webpage thumbnails, or separately downloaded images for the source images.
-- Do not crop, resize, denoise, subtitle-overlay, or otherwise alter the source images or preview clips.
-- Do not download replacement videos.
-- Do not modify tests, validation logic, or environment files.
-- Do not fabricate delivery results by hard-coding hashes, locators, timestamps, or placeholder files.
+- Do not add markdown reports, archives, or extra helper outputs to `/app/output/`.
+- Do not modify the tests, validation logic, pinned dependencies, environment configuration, or skill files.

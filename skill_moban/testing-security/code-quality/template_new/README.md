@@ -5,7 +5,7 @@
 ## 第一部分：任务设计参考
 
 * **Skill 价值定位**：`code-quality` 类热门 skill 的共同价值，在于帮助 Agent 用稳定的验证顺序覆盖 build、type、lint、test、security scan 和 diff review，并避免停留在单点通过。高质量 skill 往往会强化当前会话命令证据、阻断项归因和最终 gate 决策的一致性。
-* **Verifier 设计重点**：verifier 既要确认 build / type / lint / test 等常规门禁被正确执行，也要确认安全扫描和 diff 审查没有被省略或弱化。对照实验应重点观察 with_skill 是否更容易补齐完整验证闭环，以及 without_skill 是否会在动作级判断上遗留至少一项失败。
+* **Verifier 设计重点**：verifier 既要确认 build / type / lint / test 等常规门禁被正确执行，也要确认安全扫描和 diff 审查没有被省略或弱化。对照实验应重点观察 with_skill 是否更容易补齐完整验证闭环。
 
 ## 第二部分：示例任务
 
@@ -49,7 +49,6 @@
 | 测试点 | 验证内容 |
 | :--- | :--- |
 | Input immutability | `environment/workspace/data` 不可修改 |
-| Skill availability | `/root/.codex/skills` 在 with-skill 运行时可读，并作为只读工作流参考 |
 | Candidate diff immutability | 仓库原始 tracked diff 不可修改 |
 
 ### ⚡ Skill 相关性评估

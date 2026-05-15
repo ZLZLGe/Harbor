@@ -44,6 +44,7 @@ RUN pip install --no-cache-dir \
     requests
 
 COPY . /opt/documents-task-env
+COPY skills /opt/documents-task-env/skills
 COPY skills /root/.codex/skills
 COPY skills /root/.claude/skills
 COPY skills /etc/claude-code/.claude/skills

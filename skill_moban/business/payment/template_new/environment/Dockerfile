@@ -24,6 +24,7 @@ RUN mkdir -p /root/app /root/data /root/output /root/.codex/skills /logs/agent/s
 
 COPY app /root/app
 COPY data /root/data
+COPY skills /app/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

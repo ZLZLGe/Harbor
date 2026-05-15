@@ -21,6 +21,7 @@ RUN python -m pip install --no-cache-dir \
 WORKDIR /app
 
 COPY data /app/data
+COPY skills /app/skills
 COPY skills /opt/template-skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills

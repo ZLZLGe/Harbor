@@ -13,6 +13,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY workspace /app/workspace
+COPY skills /app/workspace/skills
 COPY skills /root/.codex/skills
 COPY skills /logs/agent/skills
 

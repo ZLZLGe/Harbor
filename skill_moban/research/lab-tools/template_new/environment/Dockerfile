@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY . /tmp/environment-context
+COPY skills /tmp/environment-context/skills
 COPY skills /root/.codex/skills
 COPY skills /home/user/.codex/skills
 COPY skills /logs/agent/skills
