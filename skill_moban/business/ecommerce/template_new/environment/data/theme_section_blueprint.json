@@ -1,0 +1,23 @@
+{
+  "layout": {
+    "title_suffix": "Harbor Theme Preview"
+  },
+  "collection_section": {
+    "name": "main-collection-product-grid",
+    "settings": {
+      "show_vendor": true,
+      "show_compare_at": true,
+      "show_filter_counts": true,
+      "show_badges": true,
+      "show_availability": true
+    }
+  },
+  "predictive_search_section": {
+    "name": "predictive-search",
+    "settings": {
+      "show_queries": true,
+      "show_collections": true,
+      "show_product_prices": true
+    }
+  }
+}

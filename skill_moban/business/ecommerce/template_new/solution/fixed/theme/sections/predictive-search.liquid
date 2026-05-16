@@ -1,0 +1,37 @@
+<section
+  class="predictive-search"
+  data-predictive-search
+  data-query="{{ query }}"
+>
+  <header class="predictive-search__header">
+    <p class="eyebrow">Predictive Search</p>
+    <h1>Search suggestions for "{{ query }}"</h1>
+  </header>
+
+  {% for group in groups %}
+    <section
+      class="predictive-search__group"
+      data-group="{{ group.key }}"
+      data-predictive-group="{{ group.key }}"
+    >
+      <h2>{{ group.label }}</h2>
+      <ul>
+        {% for item in group.items %}
+          <li>
+            {% if group.key == 'products' %}
+              <span data-search-product-handle="{{ item.handle }}">
+                {{ item.title }}{% if section.settings.show_product_prices %} · {{ item.price | money }}{% endif %}
+              </span>
+            {% elsif group.key == 'collections' %}
+              <span data-search-collection-handle="{{ item.handle }}">
+                {{ item.title }}
+              </span>
+            {% else %}
+              <span data-search-query>{{ item.text }}</span>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</section>

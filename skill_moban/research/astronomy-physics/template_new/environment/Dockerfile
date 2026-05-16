@@ -22,10 +22,12 @@ RUN pip install --no-cache-dir \
     astropy==6.1.7 \
     numpy==1.26.4 \
     pandas==2.2.3 \
+    scipy==1.14.1 \
     pytest==8.4.1
 
 RUN mkdir -p \
       /opt/task-env \
+      /root/environment/data \
       /root/environment/pipeline \
       /root/workspace \
       /root/answer \
@@ -48,6 +50,7 @@ RUN cp -R /opt/task-env/data/. /root/environment/data/ \
     && find /root/environment/data -type f -print0 | sort -z | xargs -0 sha256sum > /opt/task-data.sha256 \
     && chmod 755 /root \
     && chmod -R a+rX /root/environment /root/workspace /root/.agents/skills /root/.codex/skills /tmp/codex-home/skills /logs/agent/skills \
+    && chmod -R a+rwX /root/environment/pipeline /root/workspace \
     && chmod 777 /root/answer \
     && chmod +x /root/environment/pipeline/build_followup_packet.py /root/workspace/build_followup_packet.py
 

@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(180deg, #f7f3ea 0%, #f2efe8 100%);
+  color: #1f1b18;
+}
+
+.theme-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.collection-header,
+.predictive-search__header {
+  margin-bottom: 24px;
+}
+
+.collection-toolbar {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.collection-filters {
+  display: flex;
+  gap: 16px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-card,
+.filter-group,
+.predictive-search__group {
+  background: #fffdf9;
+  border: 1px solid #ddd4c7;
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  margin-bottom: 12px;
+}

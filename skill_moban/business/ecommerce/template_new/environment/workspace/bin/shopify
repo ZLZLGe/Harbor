@@ -1,0 +1,155 @@
+#!/bin/bash
+set -euo pipefail
+
+ROOT="${WORKSPACE_ROOT:-/app/workspace}"
+
+if [[ "${1:-}" == "theme" && "${2:-}" == "check" ]]; then
+  exec node - "$ROOT" <<'NODE'
+const { execFileSync } = require("child_process");
+const fs = require("fs");
+const path = require("path");
+
+const root = process.argv[2];
+const dataRoot = process.env.DATA_ROOT || "/app/data";
+const outRoot = path.join(root, "out");
+
+function readJson(name) {
+  return JSON.parse(fs.readFileSync(path.join(dataRoot, name), "utf8"));
+}
+
+function sumInventory(product) {
+  return (product.variants || []).reduce((sum, variant) => sum + Number(variant.inventory || 0), 0);
+}
+
+function availabilityLabel(product, lowStockThreshold) {
+  const total = sumInventory(product);
+  if (total <= 0) return "Sold out";
+  if (total <= lowStockThreshold) return "Low stock";
+  return "In stock";
+}
+
+function availabilityState(product, lowStockThreshold) {
+  const total = sumInventory(product);
+  if (total <= 0) return "out_of_stock";
+  return "in_stock";
+}
+
+function cardSlice(html, handle) {
+  const markers = [
+    `data-product-handle="${handle}"`,
+    `data-handle="${handle}"`
+  ];
+  const markerIndex = markers
+    .map((marker) => html.indexOf(marker))
+    .find((index) => index !== -1);
+  if (markerIndex === -1) return "";
+  const start = html.lastIndexOf("<article", markerIndex);
+  const end = html.indexOf("</article>", markerIndex);
+  if (start === -1 || end === -1) return "";
+  return html.slice(start, end);
+}
+
+function stripHtml(value) {
+  return value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function extractFirst(card, pattern) {
+  const match = card.match(pattern);
+  return match ? stripHtml(match[1]) : "";
+}
+
+function extractAll(card, pattern) {
+  return [...card.matchAll(pattern)].map((match) => stripHtml(match[1]));
+}
+
+function normalizedAvailabilityState(value) {
+  const mapping = {
+    sold_out: "out_of_stock",
+    out_of_stock: "out_of_stock",
+    low_stock: "in_stock",
+    in_stock: "in_stock"
+  };
+  return mapping[value] || value;
+}
+
+function extractAvailability(card) {
+  return (
+    extractFirst(card, /<[^>]*data-product-availability[^>]*>([\s\S]*?)<\/[^>]+>/i) ||
+    extractFirst(card, /<[^>]*class="[^"]*product-card__availability[^"]*"[^>]*>([\s\S]*?)<\/[^>]+>/i)
+  );
+}
+
+function extractBadges(card) {
+  const dataBadges = extractAll(card, /<[^>]*data-badge[^>]*>([\s\S]*?)<\/[^>]+>/gi);
+  if (dataBadges.length > 0) return dataBadges;
+  const badgeContainer = card.match(/<[^>]*class="[^"]*product-card__badges[^"]*"[^>]*>([\s\S]*?)<\/(?:div|ul)>/i);
+  if (!badgeContainer) return [];
+  return extractAll(badgeContainer[1], /<(?:(?:li)|(?:span))[^>]*>([\s\S]*?)<\/(?:(?:li)|(?:span))>/gi);
+}
+
+execFileSync("npm", ["run", "build-preview"], { cwd: root, stdio: "ignore" });
+
+const source = fs.readFileSync(path.join(root, "scripts", "lib", "catalog.mjs"), "utf8");
+const collectionContext = readJson("collection_context.json");
+const catalog = readJson("catalog_products.json");
+const html = fs.readFileSync(path.join(outRoot, "collection.html"), "utf8");
+const report = JSON.parse(fs.readFileSync(path.join(outRoot, "theme_preview_report.json"), "utf8"));
+const selectedHandles = new Set(collectionContext.product_order || []);
+const reportProducts = new Map((report.product_cards || []).map((item) => [item.handle, item]));
+const errors = [];
+
+if (source.includes("productBadges.push(badges.sale)")) {
+  errors.push("sale-badge");
+}
+
+for (const product of catalog) {
+  if (!selectedHandles.has(product.handle)) continue;
+  const card = cardSlice(html, product.handle);
+  const expectedAvailability = availabilityLabel(product, Number(collectionContext.low_stock_threshold));
+  const expectedAvailabilityState = availabilityState(product, Number(collectionContext.low_stock_threshold));
+  const expectedBadges = [];
+  if (!card) {
+    errors.push(`missing-card:${product.handle}`);
+    continue;
+  }
+  if (collectionContext.featured_handles.includes(product.handle)) {
+    expectedBadges.push(collectionContext.badge_labels.featured);
+  }
+  if (expectedAvailability === "Low stock") {
+    expectedBadges.push(collectionContext.badge_labels.low_stock);
+  }
+
+  const renderedAvailability = extractAvailability(card);
+  const renderedAvailabilityState = normalizedAvailabilityState(extractFirst(card, /data-availability="([^"]+)"/i));
+  const renderedBadges = extractBadges(card);
+  const reportProduct = reportProducts.get(product.handle);
+  const reportAvailability = normalizedAvailabilityState(String(reportProduct?.availability || ""));
+
+  if (renderedAvailability !== expectedAvailability) {
+    errors.push(`availability:${product.handle}`);
+  }
+  if (renderedAvailabilityState !== expectedAvailabilityState) {
+    errors.push(`availability-attr:${product.handle}`);
+  }
+  if (JSON.stringify(renderedBadges) !== JSON.stringify(expectedBadges)) {
+    errors.push(`badges:${product.handle}`);
+  }
+  if (!reportProduct || reportAvailability !== expectedAvailabilityState) {
+    errors.push(`report-availability:${product.handle}`);
+  }
+  if (card.includes(">Sale<")) {
+    errors.push(`sale-text:${product.handle}`);
+  }
+}
+
+if (errors.length > 0) {
+  console.error("theme-check: rendered availability or badge output is out of sync with the current collection state.");
+  process.exit(1);
+}
+
+console.log("theme-check: ok");
+NODE
+fi
+
+echo "Unsupported shopify command" >&2
+exit 1

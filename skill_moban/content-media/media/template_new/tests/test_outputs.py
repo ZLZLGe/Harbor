@@ -98,6 +98,77 @@ def test_stills_match_requested_locator_semantics() -> None:
             assert image_rmse(produced, expected) <= 1.0, request["request_id"]
 
 
+def test_still_generation_honors_local_helper_contract() -> None:
+    with tempfile.TemporaryDirectory() as tempdir:
+        temp_root = Path(tempdir)
+        helper_log = temp_root / "helper_calls.log"
+        helper_path = temp_root / "fake_media_pick_frame.sh"
+        output_root = temp_root / "output"
+
+        helper_path.write_text(
+            f"""#!/usr/bin/env bash
+set -euo pipefail
+printf '%s\\n' "$*" >> "{helper_log}"
+
+in="${{1:-}}"
+shift || true
+
+time=""
+index=""
+out=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --time)
+      time="${{2:-}}"
+      shift 2
+      ;;
+    --index)
+      index="${{2:-}}"
+      shift 2
+      ;;
+    --out)
+      out="${{2:-}}"
+      shift 2
+      ;;
+    *)
+      exit 3
+      ;;
+  esac
+done
+
+mkdir -p "$(dirname "$out")"
+
+if [[ "$index" != "" ]]; then
+  "$FFMPEG_BIN" -hide_banner -loglevel error -y -i "$in" -vf "select=eq(n\\,${{index}})" -vframes 1 "$out"
+elif [[ "$time" != "" ]]; then
+  "$FFMPEG_BIN" -hide_banner -loglevel error -y -ss "$time" -i "$in" -frames:v 1 "$out"
+else
+  "$FFMPEG_BIN" -hide_banner -loglevel error -y -i "$in" -vf "select=eq(n\\,0)" -vframes 1 "$out"
+fi
+""",
+            encoding="utf-8",
+        )
+        helper_path.chmod(0o755)
+
+        result = run_build(
+            output_root=output_root,
+            extra_env={"MEDIA_PICK_FRAME_TOOL": str(helper_path)},
+        )
+        assert result.returncode == 0, result.stderr or result.stdout
+        assert helper_log.exists(), "still generation bypassed MEDIA_PICK_FRAME_TOOL"
+
+        calls = helper_log.read_text(encoding="utf-8").splitlines()
+        assert len(calls) == 12
+        assert calls[0].endswith("--out " + str(output_root / "stills" / "launch_001.png"))
+        assert "--time 00:00:02.002 --out " in calls[1]
+        assert calls[1].endswith("stills/launch_002.png")
+        assert "--index 202 --out " in calls[2]
+        assert calls[2].endswith("stills/launch_003.png")
+        assert "--time 00:00:08.008 --out " in calls[7]
+        assert calls[7].endswith("stills/tracking_004.png")
+
+
 def test_preview_clips_start_on_requested_frame() -> None:
     result = run_build()
     assert result.returncode == 0, result.stderr or result.stdout

@@ -1,0 +1,60 @@
+{
+  "collection": {
+    "handle": "capsule-studio-edit",
+    "title": "Capsule Studio Edit",
+    "description": "A launch-week collection preview built from Shopify's public apparel sample and Dawn-inspired merchandising patterns."
+  },
+  "default_sort": "manual",
+  "sort_options": [
+    {"value": "manual", "label": "Featured"},
+    {"value": "price-ascending", "label": "Price: Low to High"},
+    {"value": "title-ascending", "label": "Alphabetical"}
+  ],
+  "product_order": [
+    "classic-varsity-top",
+    "ocean-blue-shirt",
+    "yellow-wool-jumper",
+    "classic-leather-jacket",
+    "black-leather-bag",
+    "navy-sport-jacket",
+    "striped-silk-blouse",
+    "floral-white-top"
+  ],
+  "featured_handles": [
+    "classic-varsity-top",
+    "classic-leather-jacket",
+    "black-leather-bag"
+  ],
+  "low_stock_threshold": 3,
+  "badge_labels": {
+    "featured": "Launch Pick",
+    "sale": "Sale",
+    "low_stock": "Low stock"
+  },
+  "filters": [
+    {
+      "id": "product_type",
+      "label": "Category",
+      "source": "product_type",
+      "order": ["Accessories", "Blouse", "Jacket", "Knitwear", "Shirt"]
+    },
+    {
+      "id": "material",
+      "label": "Material",
+      "source": "material",
+      "order": ["Cotton", "Leather", "Linen", "Silk", "Technical", "Wool"]
+    },
+    {
+      "id": "color",
+      "label": "Color",
+      "source": "color",
+      "order": ["Black", "Blue", "Cream", "Navy", "White", "Yellow"]
+    },
+    {
+      "id": "availability",
+      "label": "Availability",
+      "source": "availability",
+      "order": ["In stock", "Low stock", "Sold out"]
+    }
+  ]
+}

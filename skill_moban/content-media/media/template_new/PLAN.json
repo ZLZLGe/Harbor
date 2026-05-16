@@ -49,6 +49,7 @@
     "main_checks": [
       "Required stills, previews, sheets, and JSON outputs exist",
       "Each still matches the requested locator semantics",
+      "Still generation honors the provided local helper override",
       "Each preview starts on the requested source frame",
       "Contact sheets follow the declared grouping and order",
       "Manifest and report fields align with the input tables and outputs"

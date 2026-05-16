@@ -1,0 +1,37 @@
+version = "1.0"
+
+[metadata]
+id = "ecommerce__shopify_capsule_collection_preview"
+name = "Template: Shopify Capsule Collection Preview"
+description = "Complete a local Shopify-theme-style workspace that renders a collection preview, predictive search surface, and machine-readable report from bundled catalog snapshots."
+difficulty = "hard"
+category = "ecommerce"
+tags = [
+  "shopify",
+  "liquid",
+  "theme-development",
+  "predictive-search",
+  "catalog",
+  "filters",
+  "reporting",
+]
+required_skills = [
+  "shopify-expert",
+]
+primary_output_file = "/app/workspace/out/theme_preview_report.json"
+source_template_id = "ecommerce__shopify_capsule_collection_preview"
+task_role = "template"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1000.0
+
+[environment]
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true

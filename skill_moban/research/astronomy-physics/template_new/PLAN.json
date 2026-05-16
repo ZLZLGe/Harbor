@@ -48,9 +48,14 @@
       "url": "https://gaia.aip.de/cms/services/cone-search/"
     },
     {
-      "file": "environment/data/catalogs/host_galaxies.tsv",
-      "kind": "Host-galaxy reference row for NGC 4993",
+      "file": "environment/data/catalogs/host_coordinates.ecsv",
+      "kind": "Host-candidate coordinate slice for the NGC 4993 review set",
       "url": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=NGC+4993"
+    },
+    {
+      "file": "environment/data/catalogs/host_properties.fits",
+      "kind": "Host-candidate property slice carrying the redshift context used in packet review",
+      "url": "https://ned.ipac.caltech.edu/Documents/Guides/Searches"
     }
   ],
   "scenario": "Build a reproducible follow-up packet for a compact transient-candidate set in the NGC 4993 field from local FITS cutouts, detector-space picks, a foreground-star slice, and a host-galaxy table.",
@@ -102,11 +107,71 @@
     "command": "TASK_ANSWER_DIR=/tmp/astro4993_answer TASK_DATA_DIR=environment/data TASK_PIPELINE_ROOT=solution/fixed python3 -m pytest -q tests/test_outputs.py tests/test_guardrails.py"
   },
   "experiment_protocol": {
-    "status": "pending",
+    "status": "completed",
     "notes": [
       "Use fresh runtime copies for every E2B or Harbor comparison run.",
       "The final README metrics must count only valid task-level runs with full trajectories.",
       "Runtime-only with-skill hinting is allowed only in the copied with-skill instruction, and the hint may only tell the solver to use the skill."
-    ]
+    ],
+    "final_comparison_window_2026_05_15": {
+      "with_skill_runs": [
+        {
+          "run_name": "direct_with_skill_r10",
+          "solve_elapsed_sec": 375.9064426422119,
+          "verify_exit_code": 0,
+          "input_tokens": 390023,
+          "output_tokens": 17637
+        },
+        {
+          "run_name": "direct_with_skill_r11",
+          "solve_elapsed_sec": 411.9057197570801,
+          "verify_exit_code": 0,
+          "input_tokens": 585685,
+          "output_tokens": 19211
+        },
+        {
+          "run_name": "direct_with_skill_r12",
+          "solve_elapsed_sec": 280.0630030632019,
+          "verify_exit_code": 0,
+          "input_tokens": 317448,
+          "output_tokens": 13293
+        }
+      ],
+      "without_skill_runs": [
+        {
+          "run_name": "direct_without_skill_r09",
+          "solve_elapsed_sec": 662.0960531234741,
+          "verify_exit_code": 1,
+          "input_tokens": 1014443,
+          "output_tokens": 32009
+        },
+        {
+          "run_name": "direct_without_skill_r10",
+          "solve_elapsed_sec": 462.51909828186035,
+          "verify_exit_code": 1,
+          "input_tokens": 527443,
+          "output_tokens": 22676
+        },
+        {
+          "run_name": "direct_without_skill_r11",
+          "solve_elapsed_sec": 505.0416181087494,
+          "verify_exit_code": 1,
+          "input_tokens": 555262,
+          "output_tokens": 21908
+        }
+      ],
+      "aggregates": {
+        "with_skill_pass_rate": 1.0,
+        "without_skill_pass_rate": 0.0,
+        "with_skill_avg_solve_sec": 355.958388487498,
+        "without_skill_avg_solve_sec": 543.2189231713613,
+        "with_skill_avg_total_tokens": 447765.6666666667,
+        "without_skill_avg_total_tokens": 724580.3333333334
+      },
+      "observed_without_skill_failure_mode": [
+        "centroid reconstruction drift on several candidates",
+        "altitude and related downstream context drift caused by the reconstructed sky-position error"
+      ]
+    }
   }
 }

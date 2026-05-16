@@ -3,7 +3,7 @@ version = "1.0"
 [metadata]
 id = "astronomy-physics__ngc4993-followup-packet"
 name = "NGC 4993 Follow-Up Packet"
-description = "Turn detector-space candidates, public field cutouts, a foreground-star slice, and host metadata into a reproducible astronomy follow-up packet with calibrated photometry, host offsets, and a briefing summary."
+description = "Turn rough detector seeds, multi-extension FITS cutouts, split host catalogs, a foreground-star slice, and visit metadata into a reproducible astronomy follow-up packet with calibrated photometry, host offsets, and a briefing summary."
 difficulty = "hard"
 category = "astronomy-physics"
 tags = [
@@ -12,8 +12,11 @@ tags = [
   "fits",
   "wcs",
   "gaia",
+  "photometry",
   "cosmology",
+  "dq-mask",
   "time-series-metadata",
+  "catalog-join",
   "scientific-workflow",
 ]
 required_skills = ["astropy"]
@@ -25,7 +28,7 @@ task_role = "template"
 timeout_sec = 900.0
 
 [agent]
-timeout_sec = 1200.0
+timeout_sec = 900.0
 
 [environment]
 build_timeout_sec = 1200.0

@@ -36,6 +36,7 @@
 | :--- | :--- | :--- |
 | 输出文件与 schema | 检查 still、preview、sheet、`frame_index.json`、`delivery_report.json` 是否齐全且可解析 | 结构化交付与清单闭环 |
 | still 语义 | 逐条复算 still 截帧结果，检查尺寸与 locator 对应关系 | 帧级定位与素材核对 |
+| helper 接入 | 在覆写 `MEDIA_PICK_FRAME_TOOL` 时检查 still 生成是否逐条走本地 helper | 工具接入与动作路径收敛 |
 | preview 起点 | 逐条复算 preview 首帧，检查是否从指定时间点开始 | 时间点截取与导出一致性 |
 | sheet 顺序 | 检查每个 sheet 的分组、顺序、画布尺寸和拼接位置 | 批量整理与版式约束 |
 
@@ -60,7 +61,7 @@
 | Agent 执行耗时 | `345.1s` | `253.6s` | With Skill 的平均耗时降低约 `26.5%`。 |
 | Tokens | `1.12M` | `0.59M` | Without Skill 的 token 开销约为 With Skill 的 `1.88x`。 |
 
-本示例任务的当前对照中，with_skill 试验 `task_with_skills_e2b__vXUedVH` 通过；without_skill 试验 `task_without_skills_e2b__r5rDM26` 保留了 `test_build_honors_local_still_helper_contract` 这一项 verifier 失败，差异集中在 helper 对接与动作选择层面。
+本示例任务的当前对照中，with_skill 试验 `task_with_skills_e2b__vXUedVH` 通过；without_skill 试验 `task_without_skills_e2b__r5rDM26` 在主测试里的 helper 接入项失败，差异集中在 helper 对接与动作选择层面。
 
 ## 📁 标准目录结构说明
 

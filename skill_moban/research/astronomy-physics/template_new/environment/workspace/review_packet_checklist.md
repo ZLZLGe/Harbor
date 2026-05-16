@@ -1,8 +1,8 @@
 # Follow-Up Packet Checklist
 
-- Reconstruct each candidate from detector-space pixels into sky coordinates using the bundled FITS WCS.
-- Use the bundled visit manifest for observation times, exposure lengths, zeropoints, and extinction values.
-- Match every candidate against the bundled Gaia foreground slice and the host-galaxy table.
-- Use the bundled review rules for screening decisions and the reported distance-model metadata.
-- Produce all five deliverables under `/root/answer`.
+- Regenerate all five deliverables from the bundled inputs only.
+- Keep the centroid-refinement path the same for every candidate before any later screening decision.
+- Keep nearest-host context for every candidate even when the final label is a review or no-match outcome.
 - Keep the packet tables and `briefing.json` mutually consistent.
+- Treat the bundled visit metadata, FITS extensions, catalog tables, and review configuration as the authoritative packet inputs.
+- Write the final deliverables under `/root/answer`.

@@ -1,9 +1,0 @@
-field_id,candidate_id,fits_file,visit_id,filter,x_pixel,y_pixel,flux_aperture,flux_err,snr,quality_flags
-ngc4993_followup,cand_high_r,ngc4993_r.fits,visit_r,r,128.5,128.5,22000,500,24.0,none
-ngc4993_followup,cand_medium_g,ngc4993_g.fits,visit_g,g,128.5,152.0,15000,700,15.0,none
-ngc4993_followup,cand_large_z,ngc4993_z.fits,visit_z,z,80.0,129.5,14000,650,14.0,none
-ngc4993_followup,cand_nohost_r,ngc4993_r.fits,visit_r,r,223.0,131.0,13500,600,13.0,none
-ngc4993_followup,cand_star_g,ngc4993_g.fits,visit_g,g,95.6233680032741,74.45062313514374,16000,500,18.0,none
-ngc4993_followup,cand_lowsnr_z,ngc4993_z.fits,visit_z,z,145.0,115.0,9000,1100,4.8,none
-ngc4993_followup,cand_badflag_r,ngc4993_r.fits,visit_r,r,122.0,120.0,18000,500,19.0,saturated_core
-ngc4993_followup,cand_uncertain_g,ngc4993_g.fits,visit_g,g,146.0,111.0,2400,700,10.0,none

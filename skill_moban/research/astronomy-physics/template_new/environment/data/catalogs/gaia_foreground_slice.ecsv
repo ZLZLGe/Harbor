@@ -4,14 +4,17 @@
 # - {name: gaia_id, datatype: string}
 # - {name: ra_deg, datatype: float64}
 # - {name: dec_deg, datatype: float64}
+# - {name: pm_ra_cosdec_mas_per_yr, datatype: float64}
+# - {name: pm_dec_mas_per_yr, datatype: float64}
+# - {name: ref_epoch_jyear, datatype: float64}
 # - {name: parallax_mas, datatype: float64}
 # meta: !!omap
-# - {source: Gaia DR3 cone-search subset filtered to plausible foreground stars}
+# - {source: Gaia DR3 cone-search subset filtered to plausible foreground stars with local astrometric columns for visit-epoch propagation}
 # schema: astropy-2.0
-gaia_id ra_deg dec_deg parallax_mas
-gaia_fg_01 197.44859607986834 -23.36656195284085 2.986706312203786
-gaia_fg_02 197.4284794837256 -23.381136496579174 2.0440762699949526
-gaia_fg_03 197.45508422421548 -23.389116920329492 1.452062808499027
-gaia_fg_04 197.45131787304348 -23.387909571925352 2.2097930538514277
-gaia_fg_05 197.44407518332125 -23.392307291584558 2.73097452325531
-gaia_fg_06 197.4517754009852 -23.397257301384464 1.292006000462751
+gaia_id ra_deg dec_deg pm_ra_cosdec_mas_per_yr pm_dec_mas_per_yr ref_epoch_jyear parallax_mas
+gaia_fg_01 197.44859607986834 -23.36656195284085 1.5 -5.0 2016.0 2.986706312203786
+gaia_fg_02 197.4284794837256 -23.381136496579174 -12.0 8.0 2016.0 2.0440762699949526
+gaia_fg_03 197.45508422421548 -23.389116920329492 4.0 -22.0 2016.0 1.452062808499027
+gaia_fg_04 197.45176688246002 -23.38804543433916 -910.0 300.0 2016.0 2.2097930538514277
+gaia_fg_05 197.44407518332125 -23.392307291584558 6.0 11.0 2016.0 2.73097452325531
+gaia_fg_06 197.4517754009852 -23.397257301384464 -15.0 -18.0 2016.0 1.292006000462751

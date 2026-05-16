@@ -1,0 +1,55 @@
+<section
+  class="collection-surface"
+  data-collection-handle="{{ collection.handle }}"
+>
+  <header class="collection-header">
+    <p class="eyebrow">Collection Preview</p>
+    <h1 id="collection-title">{{ collection.title }}</h1>
+    <p>{{ collection.description }}</p>
+  </header>
+
+  <div class="collection-toolbar">
+    <div class="collection-filters">
+      {% for filter in filters %}
+        <section
+          class="filter-group"
+          data-filter-group
+          data-filter-id="{{ filter.id }}"
+        >
+          <h2>{{ filter.label }}</h2>
+          <ul>
+            {% for option in filter.options %}
+              <li data-filter-option data-filter-value="{{ option.label }}">
+                {{ option.label }}{% if section.settings.show_filter_counts %} ({{ option.count }}){% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endfor %}
+    </div>
+
+    <label class="collection-toolbar__sort-label">
+      <span>Sort</span>
+      <select
+        class="collection-toolbar__sort"
+        data-sort-control
+        aria-label="Collection sort"
+      >
+        {% for sort_option in sort_options %}
+          <option
+            value="{{ sort_option.value }}"
+            {% if sort_option.selected %}selected{% endif %}
+          >
+            {{ sort_option.label }}
+          </option>
+        {% endfor %}
+      </select>
+    </label>
+  </div>
+
+  <div class="product-grid" data-product-grid>
+    {% for product in products %}
+      {% render 'product-card', product: product, section: section, is_first: forloop.first %}
+    {% endfor %}
+  </div>
+</section>

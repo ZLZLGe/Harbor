@@ -1,0 +1,25 @@
+{
+  "required_collection_selectors": [
+    "[data-collection-handle]",
+    "[data-product-grid]",
+    "[data-filter-group]",
+    "[data-sort-control]",
+    "[data-product-card]"
+  ],
+  "required_predictive_selectors": [
+    "[data-predictive-search]",
+    "[data-predictive-group='queries']",
+    "[data-predictive-group='collections']",
+    "[data-predictive-group='products']"
+  ],
+  "required_image_attributes": {
+    "loading": "lazy",
+    "decoding": "async"
+  },
+  "required_report_checks": [
+    "product-card-count",
+    "filter-coverage",
+    "sort-coverage",
+    "predictive-group-coverage"
+  ]
+}

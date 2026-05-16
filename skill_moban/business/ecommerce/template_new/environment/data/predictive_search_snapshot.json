@@ -1,0 +1,26 @@
+{
+  "query": "capsule",
+  "queries": [
+    "capsule tee",
+    "capsule jacket",
+    "capsule bag"
+  ],
+  "collections": [
+    {
+      "handle": "capsule-studio-edit",
+      "title": "Capsule Studio Edit",
+      "description": "Launch-week assortment"
+    },
+    {
+      "handle": "outerwear-picks",
+      "title": "Outerwear Picks",
+      "description": "Jackets and layer-ready silhouettes"
+    }
+  ],
+  "products": [
+    "classic-varsity-top",
+    "black-leather-bag",
+    "navy-sport-jacket",
+    "yellow-wool-jumper"
+  ]
+}

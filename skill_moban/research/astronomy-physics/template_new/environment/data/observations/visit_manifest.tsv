@@ -1,4 +1,4 @@
-visit_id	fits_file	filter	obs_start_utc	exposure_seconds	zeropoint_ab	extinction_mag
-visit_g	ngc4993_g.fits	g	2017-08-18T23:41:10	90.0	26.62	0.16
-visit_r	ngc4993_r.fits	r	2017-08-19T00:03:40	120.0	26.74	0.11
-visit_z	ngc4993_z.fits	z	2017-08-19T00:25:55	150.0	26.15	0.08
+visit_id	fits_file	filter	obs_start_value	time_format	time_scale	exposure_seconds	zeropoint_ab	extinction_mag	site_name	site_lat_deg	site_lon_deg	site_height_m
+visit_g	ngc4993_g.fits	g	2017-08-18T23:41:10	isot	utc	90.0	26.62	0.16	Swope	-29.0154	-70.6920	2380.0
+visit_r	ngc4993_r.fits	r	57984.002974537034	mjd	tai	120.0	26.74	0.11	Swope	-29.0154	-70.6920	2380.0
+visit_z	ngc4993_z.fits	z	2457984.518798426	jd	tt	150.0	26.15	0.08	Swope	-29.0154	-70.6920	2380.0

@@ -1,0 +1,14 @@
+# %ECSV 1.0
+# ---
+# datatype:
+# - {name: host_id, datatype: string}
+# - {name: preferred_name, datatype: string}
+# - {name: coord_1, datatype: string}
+# - {name: coord_2, datatype: string}
+# - {name: frame, datatype: string}
+# - {name: unit_mode, datatype: string}
+# schema: astropy-2.0
+host_id preferred_name coord_1 coord_2 frame unit_mode
+host_ngc4993 "NGC 4993" 197.4486643479 -23.3840204969 icrs deg_deg
+host_companion "ESO 508-011" 13:09:47.120 -23:22:57.00 fk5 hourangle_deg
+host_outer "2MASX J1309" 308.38216951 39.28972575 galactic galactic_deg

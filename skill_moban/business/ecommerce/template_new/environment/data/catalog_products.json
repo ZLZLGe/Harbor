@@ -1,0 +1,246 @@
+[
+  {
+    "handle": "classic-varsity-top",
+    "title": "Classic Varsity Top",
+    "vendor": "partners-demo",
+    "product_type": "Shirt",
+    "material": "Cotton",
+    "color": "Cream",
+    "collections": ["capsule-studio-edit", "tops"],
+    "tags": ["women", "studio"],
+    "featured_image": "https://burst.shopifycdn.com/photos/casual-fashion-woman_925x.jpg",
+    "featured_image_alt": "Model wearing the classic varsity top",
+    "images": [
+      "https://burst.shopifycdn.com/photos/casual-fashion-woman_925x.jpg"
+    ],
+    "description": "A soft varsity-inspired top used in the launch edit.",
+    "variants": [
+      {
+        "id": "classic-varsity-top-s",
+        "title": "Small",
+        "sku": "APP-VARSITY-S",
+        "price": 60.0,
+        "compare_at_price": 72.0,
+        "inventory": 2,
+        "available": true,
+        "options": {"Size": "Small"}
+      },
+      {
+        "id": "classic-varsity-top-m",
+        "title": "Medium",
+        "sku": "APP-VARSITY-M",
+        "price": 60.0,
+        "compare_at_price": 72.0,
+        "inventory": 4,
+        "available": true,
+        "options": {"Size": "Medium"}
+      },
+      {
+        "id": "classic-varsity-top-l",
+        "title": "Large",
+        "sku": "APP-VARSITY-L",
+        "price": 60.0,
+        "compare_at_price": 72.0,
+        "inventory": 0,
+        "available": false,
+        "options": {"Size": "Large"}
+      }
+    ]
+  },
+  {
+    "handle": "ocean-blue-shirt",
+    "title": "Ocean Blue Shirt",
+    "vendor": "partners-demo",
+    "product_type": "Shirt",
+    "material": "Cotton",
+    "color": "Blue",
+    "collections": ["capsule-studio-edit", "tops"],
+    "tags": ["men", "studio"],
+    "featured_image": "https://burst.shopifycdn.com/photos/young-man-in-bright-fashion_925x.jpg",
+    "featured_image_alt": "Ocean blue shirt laid out for the campaign",
+    "images": [
+      "https://burst.shopifycdn.com/photos/young-man-in-bright-fashion_925x.jpg"
+    ],
+    "description": "A single-variant staple shirt from the public apparel sample.",
+    "variants": [
+      {
+        "id": "ocean-blue-shirt-default",
+        "title": "Default Title",
+        "sku": "APP-OCEAN-DEFAULT",
+        "price": 50.0,
+        "compare_at_price": 0.0,
+        "inventory": 12,
+        "available": true,
+        "options": {"Title": "Default Title"}
+      }
+    ]
+  },
+  {
+    "handle": "yellow-wool-jumper",
+    "title": "Yellow Wool Jumper",
+    "vendor": "partners-demo",
+    "product_type": "Knitwear",
+    "material": "Wool",
+    "color": "Yellow",
+    "collections": ["capsule-studio-edit", "knitwear"],
+    "tags": ["women", "outer-layer"],
+    "featured_image": "https://burst.shopifycdn.com/photos/autumn-photographer-taking-picture_925x.jpg",
+    "featured_image_alt": "Yellow wool jumper in the autumn lookbook",
+    "images": [
+      "https://burst.shopifycdn.com/photos/autumn-photographer-taking-picture_925x.jpg"
+    ],
+    "description": "A bright wool jumper positioned as a low-stock knitwear callout.",
+    "variants": [
+      {
+        "id": "yellow-wool-jumper-default",
+        "title": "Default Title",
+        "sku": "APP-YELLOW-DEFAULT",
+        "price": 80.0,
+        "compare_at_price": 0.0,
+        "inventory": 2,
+        "available": true,
+        "options": {"Title": "Default Title"}
+      }
+    ]
+  },
+  {
+    "handle": "classic-leather-jacket",
+    "title": "Classic Leather Jacket",
+    "vendor": "partners-demo",
+    "product_type": "Jacket",
+    "material": "Leather",
+    "color": "Black",
+    "collections": ["capsule-studio-edit", "outerwear-picks"],
+    "tags": ["women", "outerwear"],
+    "featured_image": "https://burst.shopifycdn.com/photos/leather-jacket-and-tea_925x.jpg",
+    "featured_image_alt": "Classic leather jacket styled with a tea cup",
+    "images": [
+      "https://burst.shopifycdn.com/photos/leather-jacket-and-tea_925x.jpg"
+    ],
+    "description": "A featured outerwear piece with compare-at pricing.",
+    "variants": [
+      {
+        "id": "classic-leather-jacket-default",
+        "title": "Default Title",
+        "sku": "APP-LEATHER-DEFAULT",
+        "price": 80.0,
+        "compare_at_price": 110.0,
+        "inventory": 4,
+        "available": true,
+        "options": {"Title": "Default Title"}
+      }
+    ]
+  },
+  {
+    "handle": "black-leather-bag",
+    "title": "Black Leather Bag",
+    "vendor": "partners-demo",
+    "product_type": "Accessories",
+    "material": "Leather",
+    "color": "Black",
+    "collections": ["capsule-studio-edit", "accessories"],
+    "tags": ["women", "accessory"],
+    "featured_image": "https://burst.shopifycdn.com/photos/black-bag-over-the-shoulder_925x.jpg",
+    "featured_image_alt": "Black leather bag over a shoulder",
+    "images": [
+      "https://burst.shopifycdn.com/photos/black-bag-over-the-shoulder_925x.jpg"
+    ],
+    "description": "A featured accessory with low remaining inventory.",
+    "variants": [
+      {
+        "id": "black-leather-bag-default",
+        "title": "Default Title",
+        "sku": "APP-BAG-DEFAULT",
+        "price": 30.0,
+        "compare_at_price": 0.0,
+        "inventory": 2,
+        "available": true,
+        "options": {"Title": "Default Title"}
+      }
+    ]
+  },
+  {
+    "handle": "navy-sport-jacket",
+    "title": "Navy Sports Jacket",
+    "vendor": "partners-demo",
+    "product_type": "Jacket",
+    "material": "Technical",
+    "color": "Navy",
+    "collections": ["capsule-studio-edit", "outerwear-picks"],
+    "tags": ["men", "outerwear"],
+    "featured_image": "https://burst.shopifycdn.com/photos/mens-fall-fashion-jacket_925x.jpg",
+    "featured_image_alt": "Navy sport jacket from the men's lookbook",
+    "images": [
+      "https://burst.shopifycdn.com/photos/mens-fall-fashion-jacket_925x.jpg"
+    ],
+    "description": "A structured jacket used to check collection and search rendering.",
+    "variants": [
+      {
+        "id": "navy-sport-jacket-default",
+        "title": "Default Title",
+        "sku": "APP-NAVY-DEFAULT",
+        "price": 60.0,
+        "compare_at_price": 0.0,
+        "inventory": 8,
+        "available": true,
+        "options": {"Title": "Default Title"}
+      }
+    ]
+  },
+  {
+    "handle": "striped-silk-blouse",
+    "title": "Striped Silk Blouse",
+    "vendor": "partners-demo",
+    "product_type": "Blouse",
+    "material": "Silk",
+    "color": "Navy",
+    "collections": ["capsule-studio-edit", "tops"],
+    "tags": ["women", "studio"],
+    "featured_image": "https://burst.shopifycdn.com/photos/striped-blouse-fashion_925x.jpg",
+    "featured_image_alt": "Striped silk blouse on a hanger",
+    "images": [
+      "https://burst.shopifycdn.com/photos/striped-blouse-fashion_925x.jpg"
+    ],
+    "description": "A sale-priced blouse included in the launch assortment.",
+    "variants": [
+      {
+        "id": "striped-silk-blouse-default",
+        "title": "Default Title",
+        "sku": "APP-SILK-DEFAULT",
+        "price": 50.0,
+        "compare_at_price": 65.0,
+        "inventory": 5,
+        "available": true,
+        "options": {"Title": "Default Title"}
+      }
+    ]
+  },
+  {
+    "handle": "floral-white-top",
+    "title": "Floral White Top",
+    "vendor": "partners-demo",
+    "product_type": "Blouse",
+    "material": "Linen",
+    "color": "White",
+    "collections": ["capsule-studio-edit", "tops"],
+    "tags": ["women", "studio"],
+    "featured_image": "https://burst.shopifycdn.com/photos/city-woman-fashion_925x@2x.jpg",
+    "featured_image_alt": "Floral white top in the city campaign",
+    "images": [
+      "https://burst.shopifycdn.com/photos/city-woman-fashion_925x@2x.jpg"
+    ],
+    "description": "A sold-out top that keeps the availability filter visible.",
+    "variants": [
+      {
+        "id": "floral-white-top-default",
+        "title": "Default Title",
+        "sku": "APP-FLORAL-DEFAULT",
+        "price": 75.0,
+        "compare_at_price": 0.0,
+        "inventory": 0,
+        "available": false,
+        "options": {"Title": "Default Title"}
+      }
+    ]
+  }
+]

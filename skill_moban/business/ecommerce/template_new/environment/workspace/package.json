@@ -1,0 +1,13 @@
+{
+  "name": "harbor-shopify-theme-preview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-preview": "node scripts/build-preview.mjs",
+    "export-report": "node scripts/export-report.mjs"
+  },
+  "dependencies": {
+    "liquidjs": "10.16.0"
+  }
+}

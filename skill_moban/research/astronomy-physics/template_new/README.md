@@ -22,8 +22,10 @@
     [https://www.legacysurvey.org/viewer/fits-cutout?ra=197.448711&dec=-23.383976&layer=ls-dr10&pixscale=0.262&bands=z&size=256](https://www.legacysurvey.org/viewer/fits-cutout?ra=197.448711&dec=-23.383976&layer=ls-dr10&pixscale=0.262&bands=z&size=256)
   - `environment/data/catalogs/gaia_foreground_slice.ecsv`：NGC 4993 同视场 Gaia DR3 cone-search 目录切片；设计形态参考 Gaia cone-search 工作流  
     [https://gaia.aip.de/cms/services/cone-search/](https://gaia.aip.de/cms/services/cone-search/)
-  - `environment/data/catalogs/host_galaxies.tsv`：宿主星系 review slice；主宿主条目形态参考 SIMBAD，邻近星系检索形态参考 NED  
+  - `environment/data/catalogs/host_coordinates.ecsv`：宿主候选坐标表；主宿主条目形态参考 SIMBAD，邻近星系检索形态参考 NED  
     [https://simbad.cds.unistra.fr/simbad/sim-id?Ident=NGC+4993](https://simbad.cds.unistra.fr/simbad/sim-id?Ident=NGC+4993)  
+    [https://ned.ipac.caltech.edu/Documents/Guides/Searches](https://ned.ipac.caltech.edu/Documents/Guides/Searches)
+  - `environment/data/catalogs/host_properties.fits`：宿主候选属性表；设计形态参考文献整理后的本地宿主属性切片  
     [https://ned.ipac.caltech.edu/Documents/Guides/Searches](https://ned.ipac.caltech.edu/Documents/Guides/Searches)
 
 ### 📊 验证与测试指标（Oracle & Verifier）
@@ -53,15 +55,15 @@
 
 ### ⚡ Skill 相关性评估
 
-结论：强相关。这个任务把 `astropy` 常见工作流压缩在同一条交付链里，solver 需要稳定处理 FITS/WCS、坐标匹配、时间系统、表格写出和距离模型。skill 的核心价值，在于把这些分析步骤连成一套更稳的实现路径，减少在坐标原点、距离口径、表间一致性上的试错。
+结论：强相关。这个任务把 `astropy` 常见工作流压缩在同一条交付链里，solver 需要稳定处理 FITS/WCS、坐标匹配、时间系统、表格写出和距离模型。skill 的核心价值，在于把这些分析步骤连成一套更稳的实现路径，减少在质心拟合、Gaia 传播、时间归一化和多表联动上的试错。
 
-基于最近 **3** 次有效对比实验（均为真正跑到 task-level、存在完整 agent 轨迹；已排除启动失败与构建失败类 trial）：
+基于最近 `3` 次有效对比实验（均为 fresh E2B task-level run，存在完整 agent 轨迹）：
 
 | 维度 | Without Skill | With Skill | 结果对比 |
 | :--- | :--- | :--- | :--- |
-| 通过率 | `TBD` | `TBD` | `TBD` |
-| Agent 执行耗时 | `TBD` | `TBD` | `TBD` |
-| Tokens | `TBD` | `TBD` | `TBD` |
+| 通过率 | `0%` | `100%` | `without_skill` 三轮都留下 verifier 失败，集中在质心重建精度和由此带出的高度角等下游数值；`with_skill` 三轮都稳定通过 |
+| Agent 执行耗时 | `543.2s` | `356.0s` | With Skill 的分析和收敛更快，平均 Agent 耗时降低约 `34.5%` |
+| Tokens | `724.6k` | `447.8k` | Without Skill 的上下文与试错开销约为 With Skill 的 `1.62x` |
 
 ## 📁 标准目录结构说明
 

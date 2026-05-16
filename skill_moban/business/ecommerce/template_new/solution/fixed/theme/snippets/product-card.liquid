@@ -1,0 +1,43 @@
+<article
+  class="product-card"
+  data-product-card
+  data-handle="{{ product.handle }}"
+  data-price="{{ product.price }}"
+  data-availability="{{ product.availability }}"
+>
+  <div class="product-card__media">
+    <img
+      src="{{ product.image }}"
+      alt="{{ product.image_alt }}"
+      loading="{% if is_first %}eager{% else %}lazy{% endif %}"
+      decoding="async"
+    >
+  </div>
+
+  <div class="product-card__body">
+    <ul class="product-card__badges">
+      {% for badge in product.badges %}
+        <li>{{ badge }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2 class="product-card__title">{{ product.title }}</h2>
+
+    {% if section.settings.show_vendor %}
+      <p class="product-card__vendor">{{ product.vendor }}</p>
+    {% endif %}
+
+    <p class="product-card__material">{{ product.material }}</p>
+
+    <p class="product-card__price">
+      {{ product.price | money }}
+      {% if section.settings.show_compare_at and product.compare_at_price > product.price %}
+        <span class="compare-at">{{ product.compare_at_price | money }}</span>
+      {% endif %}
+    </p>
+
+    {% if section.settings.show_availability %}
+      <p class="product-card__availability">{{ product.availability_label }}</p>
+    {% endif %}
+  </div>
+</article>

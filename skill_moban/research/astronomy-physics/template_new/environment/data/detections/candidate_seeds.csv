@@ -1,0 +1,9 @@
+field_id,candidate_id,fits_file,visit_id,filter,x_seed,y_seed,snr,quality_flags
+ngc4993_followup,cand_high_r,ngc4993_r.fits,visit_r,r,127.4,129.6,24.0,none
+ngc4993_followup,cand_medium_g,ngc4993_g.fits,visit_g,g,160.0,147.2,15.0,none
+ngc4993_followup,cand_large_z,ngc4993_z.fits,visit_z,z,116.9,167.1,14.0,none
+ngc4993_followup,cand_nohost_r,ngc4993_r.fits,visit_r,r,221.8,132.8,13.0,none
+ngc4993_followup,cand_star_g,ngc4993_g.fits,visit_g,g,96.8,73.4,18.0,none
+ngc4993_followup,cand_lowsnr_z,ngc4993_z.fits,visit_z,z,144.1,116.0,4.8,none
+ngc4993_followup,cand_badflag_r,ngc4993_r.fits,visit_r,r,123.0,121.1,19.0,saturated_core
+ngc4993_followup,cand_uncertain_g,ngc4993_g.fits,visit_g,g,147.5,110.0,10.0,none
