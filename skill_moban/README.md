@@ -11,11 +11,9 @@
 把下面提示词发给负责构建模板的 Codex：
 
 （示例输入：）
-
-```bash
+```text
 TEMPLATE_PATH=/home/lenovo/skill/Harbor/skill_moban/business/ecommerce
 SKILL_PATH=https://skillsmp.com/categories/ecommerce
-```
 
 约束：
 
@@ -39,8 +37,6 @@ SKILL_PATH=https://skillsmp.com/categories/ecommerce
     - 除非 skill 的 “when to use” 明确只提到或重点提到修复场景，否则不要设计修复类任务。
     - Skill 的 “when to use”、核心工作流、输入输出习惯必须和 instruction 的任务类型匹配。
 
-
-```text
 先不要做实验！
 
 先完成以下设计并给我看：
@@ -126,7 +122,6 @@ Output:
 
 Notes:
 ...
-```
 
 设计要点：
 
@@ -221,7 +216,6 @@ README 应在模板任务设计完成、并综合 SkillsMP 对应分类热门 sk
 | Tokens | `...` | `...` | ... |
 
 ## 📁 标准目录结构说明
-```
 
 README 约束：
 
