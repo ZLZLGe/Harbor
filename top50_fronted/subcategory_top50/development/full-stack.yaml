@@ -1,0 +1,562 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: full-stack
+subcategory_name: Full Stack
+subcategory_skill_count: 9075
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=full-stack
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 9075
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-backend-patterns-skill-md
+  name: backend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 后端架构模式、API设计、数据库优化以及适用于Node.js、Express和Next.js API路由的服务器端最佳实践。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/backend-patterns
+  updated_at: '1772519307'
+- rank: 2
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-coding-standards-skill-md
+  name: coding-standards
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 适用于TypeScript、JavaScript、React和Node.js开发的通用编码标准、最佳实践和模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/coding-standards
+  updated_at: '1774219164'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-django-patterns-skill-md
+  name: django-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Django架构模式，使用DRF设计REST API，ORM最佳实践，缓存，信号，中间件，以及生产级Django应用程序。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/django-patterns
+  updated_at: '1774219164'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-tr-skills-frontend-patterns-skill-md
+  name: frontend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: React, Next.js, state yönetimi, performans optimizasyonu ve UI en iyi
+    uygulamaları için frontend geliştirme kalıpları.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/frontend-patterns
+  updated_at: '1774219024'
+- rank: 5
+  id: affaan-m-everything-claude-code-agents-skills-nextjs-turbopack-skill-md
+  name: nextjs-turbopack
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Next.js 16+ and Turbopack — incremental bundling, FS caching, dev speed,
+    and when to use Turbopack vs webpack.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/nextjs-turbopack
+  updated_at: '1773695038'
+- rank: 6
+  id: affaan-m-everything-claude-code-cursor-skills-nextjs-turbopack-skill-md
+  name: nextjs-turbopack
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Next.js 16+ and Turbopack — incremental bundling, FS caching, dev speed,
+    and when to use Turbopack vs webpack.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/nextjs-turbopack
+  updated_at: '1773695020'
+- rank: 7
+  id: affaan-m-everything-claude-code-docs-tr-skills-nextjs-turbopack-skill-md
+  name: nextjs-turbopack
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Next.js 16+ and Turbopack — incremental bundling, FS caching, dev speed,
+    and when to use Turbopack vs webpack.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/nextjs-turbopack
+  updated_at: '1774219024'
+- rank: 8
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-nuxt4-patterns-skill-md
+  name: nuxt4-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Nuxt 4 应用模式，涵盖水合安全、性能优化、路由规则、懒加载，以及使用 useFetch 和 useAsyncData 进行 SSR
+    安全的数据获取。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/nuxt4-patterns
+  updated_at: '1774068958'
+- rank: 9
+  id: affaan-m-everything-claude-code-skills-nuxt4-patterns-skill-md
+  name: nuxt4-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Nuxt 4 app patterns for hydration safety, performance, route rules,
+    lazy loading, and SSR-safe data fetching with useFetch and useAsyncData.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/nuxt4-patterns
+  updated_at: '1774007071'
+- rank: 10
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-fullstack-developer-skill-md
+  name: fullstack-developer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Modern web development expertise covering React, Node.js, databases,
+    and full-stack architecture.
+
+    Use when: building web applications, developing APIs, creating frontends, setting
+    up databases,
+
+    deploying web apps, or when user mentions React, Next.js, Express, REST API, GraphQL,
+    MongoDB,
+
+    PostgreSQL, or full-stack development.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/fullstack-developer
+  updated_at: '1770167437'
+- rank: 11
+  id: lobehub-lobehub-agents-skills-react-skill-md
+  name: react
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: React component development guide. Use when working with React components
+    (.tsx files), creating UI, using @lobehub/ui components, implementing routing,
+    or building frontend features. Triggers on React component creation, modification,
+    layout implementation, or navigation tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/react
+  updated_at: '1774427257'
+- rank: 12
+  id: meteor-meteor-github-skills-modern-tools-skill-md
+  name: modern-tools
+  author: meteor
+  stars: 44788
+  forks: 5266
+  description: Use when working with tools-core utilities, rspack integration, or
+    modern tooling. Covers logging, npm management, process spawning, git helpers,
+    and Meteor app configuration APIs.
+  github_url: https://github.com/meteor/meteor/tree/devel/.github/skills/modern-tools
+  updated_at: '1770379062'
+- rank: 13
+  id: streamlit-streamlit-claude-skills-debugging-streamlit-skill-md
+  name: debugging-streamlit
+  author: streamlit
+  stars: 44053
+  forks: 4169
+  description: Debug Streamlit frontend and backend changes using make debug with
+    hot-reload. Use when testing code changes, investigating bugs, checking UI behavior,
+    or needing screenshots of the running app.
+  github_url: https://github.com/streamlit/streamlit/tree/develop/.claude/skills/debugging-streamlit
+  updated_at: '1772454570'
+- rank: 14
+  id: payloadcms-payload-tools-claude-plugin-skills-payload-skill-md
+  name: payload
+  author: payloadcms
+  stars: 41477
+  forks: 3517
+  description: Use when working with Payload CMS projects (payload.config.ts, collections,
+    fields, hooks, access control, Payload API). Use when debugging validation errors,
+    security issues, relationship queries, transactions, or hook behavior.
+  github_url: https://github.com/payloadcms/payload/tree/main/tools/claude-plugin/skills/payload
+  updated_at: '1767123298'
+- rank: 15
+  id: calcom-cal-com-agents-skills-vercel-react-best-practices-skill-md
+  name: vercel-react-best-practices
+  author: calcom
+  stars: 40740
+  forks: 12330
+  description: React and Next.js performance optimization guidelines from Vercel Engineering.
+    This skill should be used when writing, reviewing, or refactoring React/Next.js
+    code to ensure optimal performance patterns. Triggers on tasks involving React
+    components, Next.js pages, data fetching, bundle optimization, or performance
+    improvements.
+  github_url: https://github.com/calcom/cal.com/tree/main/agents/skills/vercel-react-best-practices
+  updated_at: '1770124481'
+- rank: 16
+  id: trpc-trpc-packages-server-skills-adapter-express-skill-md
+  name: adapter-express
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Mount tRPC as Express middleware with createExpressMiddleware() from
+    @trpc/server/adapters/express. Access Express req/res in createContext via CreateExpressContextOptions.
+    Mount at a path prefix like app.use('/trpc', ...). Avoid global express.json()
+    conflicting with tRPC body parsing for FormData.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/server/skills/adapter-express
+  updated_at: '1774697990'
+- rank: 17
+  id: trpc-trpc-packages-next-skills-nextjs-app-router-skill-md
+  name: nextjs-app-router
+  author: trpc
+  stars: 39837
+  forks: 1525
+  description: Full end-to-end tRPC setup for Next.js App Router. Covers route handler
+    with fetchRequestHandler (GET + POST exports), TRPCProvider with QueryClientProvider,
+    createTRPCOptionsProxy for RSC prefetching, HydrateClient/HydrationBoundary for
+    hydration, useSuspenseQuery for Suspense, and server-side callers.
+  github_url: https://github.com/trpc/trpc/tree/main/packages/next/skills/nextjs-app-router
+  updated_at: '1774697990'
+- rank: 18
+  id: moeru-ai-airi-agents-skills-vue-best-practices-skill-md
+  name: vue-best-practices
+  author: moeru-ai
+  stars: 35987
+  forks: 3579
+  description: MUST be used for Vue.js tasks. Strongly recommends Composition API
+    with `<script setup>` and TypeScript as the standard approach. Covers Vue 3, SSR,
+    Volar, vue-tsc. Load for any Vue, .vue files, Vue Router, Pinia, or Vite with
+    Vue work. ALWAYS use Composition API unless the project explicitly requires Options
+    API.
+  github_url: https://github.com/moeru-ai/airi/tree/main/.agents/skills/vue-best-practices
+  updated_at: '1773591546'
+- rank: 19
+  id: remix-run-remix-skills-remix-project-layout-skill-md
+  name: remix-project-layout
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Describe the ideal layout of a Remix application, including canonical
+    directories, route ownership, naming conventions, and file locations on disk.
+    When asked to bootstrap that layout in a new directory, run the bundled TypeScript
+    script.
+  github_url: https://github.com/remix-run/remix/tree/main/skills/remix-project-layout
+  updated_at: '1774477253'
+- rank: 20
+  id: wshobson-agents-plugins-backend-development-skills-api-design-principles-skill-md
+  name: api-design-principles
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master REST and GraphQL API design principles to build intuitive, scalable,
+    and maintainable APIs that delight developers. Use when designing new APIs, reviewing
+    API specifications, or establishing API design standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/api-design-principles
+  updated_at: '1772898797'
+- rank: 21
+  id: wshobson-agents-plugins-api-scaffolding-skills-fastapi-templates-skill-md
+  name: fastapi-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready FastAPI projects with async patterns, dependency
+    injection, and comprehensive error handling. Use when building new FastAPI applications
+    or setting up backend API projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/api-scaffolding/skills/fastapi-templates
+  updated_at: '1772898797'
+- rank: 22
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-nextjs-app-router-patterns-skill-md
+  name: nextjs-app-router-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Next.js 14+ App Router with Server Components, streaming, parallel
+    routes, and advanced data fetching. Use when building Next.js applications, implementing
+    SSR/SSG, or optimizing React Server Components.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/nextjs-app-router-patterns
+  updated_at: '1772898797'
+- rank: 23
+  id: wshobson-agents-plugins-javascript-typescript-skills-nodejs-backend-patterns-skill-md
+  name: nodejs-backend-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build production-ready Node.js backend services with Express/Fastify,
+    implementing middleware patterns, error handling, authentication, database integration,
+    and API design best practices. Use when creating Node.js servers, REST APIs, GraphQL
+    backends, or microservices architectures.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/javascript-typescript/skills/nodejs-backend-patterns
+  updated_at: '1774489751'
+- rank: 24
+  id: wshobson-agents-plugins-python-development-skills-python-observability-skill-md
+  name: python-observability
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python observability patterns including structured logging, metrics,
+    and distributed tracing. Use when adding logging, implementing metrics collection,
+    setting up tracing, or debugging production systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-observability
+  updated_at: '1769791934'
+- rank: 25
+  id: wshobson-agents-plugins-framework-migration-skills-react-modernization-skill-md
+  name: react-modernization
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Upgrade React applications to latest versions, migrate from class components
+    to hooks, and adopt concurrent features. Use when modernizing React codebases,
+    migrating to React Hooks, or upgrading to latest React versions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/react-modernization
+  updated_at: '1772898797'
+- rank: 26
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-react-native-architecture-skill-md
+  name: react-native-architecture
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build production React Native apps with Expo, navigation, native modules,
+    offline sync, and cross-platform patterns. Use when developing mobile apps, implementing
+    native integrations, or architecting React Native projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/react-native-architecture
+  updated_at: '1772898797'
+- rank: 27
+  id: wshobson-agents-plugins-ui-design-skills-react-native-design-skill-md
+  name: react-native-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master React Native styling, navigation, and Reanimated animations
+    for cross-platform mobile development. Use when building React Native apps, implementing
+    navigation patterns, or creating performant animations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/react-native-design
+  updated_at: '1772898797'
+- rank: 28
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-react-state-management-skill-md
+  name: react-state-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master modern React state management with Redux Toolkit, Zustand, Jotai,
+    and React Query. Use when setting up global state, managing server state, or choosing
+    between state management solutions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/react-state-management
+  updated_at: '1772898797'
+- rank: 29
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-tailwind-design-system-skill-md
+  name: tailwind-design-system
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build scalable design systems with Tailwind CSS v4, design tokens,
+    component libraries, and responsive patterns. Use when creating component libraries,
+    implementing design systems, or standardizing UI patterns.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/tailwind-design-system
+  updated_at: '1774489944'
+- rank: 30
+  id: wshobson-agents-plugins-ui-design-skills-web-component-design-skill-md
+  name: web-component-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master React, Vue, and Svelte component patterns including CSS-in-JS,
+    composition strategies, and reusable component architecture. Use when building
+    UI component libraries, designing component APIs, or implementing frontend design
+    systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/ui-design/skills/web-component-design
+  updated_at: '1772898797'
+- rank: 31
+  id: heroui-inc-heroui-skills-heroui-native-skill-md
+  name: heroui-native
+  author: heroui-inc
+  stars: 28716
+  forks: 2092
+  description: 'HeroUI Native component library for React Native (Tailwind v4 via
+    Uniwind). Use when building mobile UIs with HeroUI Native — creating Buttons,
+    Cards, TextFields, Dialogs; installing heroui-native; configuring dark/light themes;
+    or fetching component docs. Keywords: HeroUI Native, heroui-native, React Native
+    UI, Uniwind, mobile components.'
+  github_url: https://github.com/heroui-inc/heroui/tree/v3/skills/heroui-native
+  updated_at: '1774541149'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-azure-mgmt-fabric-dotnet-skill-md
+  name: azure-mgmt-fabric-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Resource Manager SDK for Fabric in .NET.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-mgmt-fabric-dotnet
+  updated_at: '1772354305'
+- rank: 33
+  id: sickn33-antigravity-awesome-skills-skills-conductor-setup-skill-md
+  name: conductor-setup
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Configure a Rails project to work with Conductor (parallel coding agents)
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/conductor-setup
+  updated_at: '1773994629'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-convex-skill-md
+  name: convex
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Convex reactive backend expert: schema design, TypeScript functions,
+    real-time subscriptions, auth, file storage, scheduling, and deployment.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/convex
+  updated_at: '1773994005'
+- rank: 35
+  id: sickn33-antigravity-awesome-skills-skills-dotnet-backend-skill-md
+  name: dotnet-backend
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build ASP.NET Core 8+ backend services with EF Core, auth, background
+    jobs, and production API patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/dotnet-backend
+  updated_at: '1773994005'
+- rank: 36
+  id: sickn33-antigravity-awesome-skills-skills-full-stack-orchestration-full-stack-feature-skill-md
+  name: full-stack-orchestration-full-stack-feature
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Use when working with full stack orchestration full stack feature
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/full-stack-orchestration-full-stack-feature
+  updated_at: '1772180381'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-javascript-typescript-typescript-scaffold-skill-md
+  name: javascript-typescript-typescript-scaffold
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a TypeScript project architecture expert specializing in scaffolding
+    production-ready Node.js and frontend applications. Generate complete project
+    structures with modern tooling (pnpm, Vite, N
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/javascript-typescript-typescript-scaffold
+  updated_at: '1772180381'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-m365-agents-ts-skill-md
+  name: m365-agents-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Microsoft 365 Agents SDK for TypeScript/Node.js.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/m365-agents-ts
+  updated_at: '1772354305'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-minecraft-bukkit-pro-skill-md
+  name: minecraft-bukkit-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Minecraft server plugin development with Bukkit, Spigot, and
+    Paper APIs.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/minecraft-bukkit-pro
+  updated_at: '1772354305'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-new-rails-project-skill-md
+  name: new-rails-project
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Create a new Rails project
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/new-rails-project
+  updated_at: '1773994629'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-nextjs-app-router-patterns-skill-md
+  name: nextjs-app-router-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive patterns for Next.js 14+ App Router architecture, Server
+    Components, and modern full-stack React development.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/nextjs-app-router-patterns
+  updated_at: '1773994005'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-react-nextjs-development-skill-md
+  name: react-nextjs-development
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: React and Next.js 14+ application development with App Router, Server
+    Components, TypeScript, Tailwind CSS, and modern frontend patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/react-nextjs-development
+  updated_at: '1772180381'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-senior-architect-skill-md
+  name: senior-architect
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Complete toolkit for senior architect with modern tools and best practices.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/senior-architect
+  updated_at: '1773994005'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-senior-fullstack-skill-md
+  name: senior-fullstack
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Complete toolkit for senior fullstack with modern tools and best practices.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/senior-fullstack
+  updated_at: '1773994005'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-sveltekit-skill-md
+  name: sveltekit
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build full-stack web applications with SvelteKit — file-based routing,
+    SSR, SSG, API routes, and form actions in one framework.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/sveltekit
+  updated_at: '1773833568'
+- rank: 46
+  id: github-awesome-copilot-skills-create-spring-boot-java-project-skill-md
+  name: create-spring-boot-java-project
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Create Spring Boot Java Project Skeleton
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/create-spring-boot-java-project
+  updated_at: '1771904373'
+- rank: 47
+  id: github-awesome-copilot-skills-java-mcp-server-generator-skill-md
+  name: java-mcp-server-generator
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate a complete Model Context Protocol server project in Java using
+    the official MCP Java SDK with reactive streams and optional Spring Boot integration.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/java-mcp-server-generator
+  updated_at: '1771904373'
+- rank: 48
+  id: github-awesome-copilot-skills-kotlin-mcp-server-generator-skill-md
+  name: kotlin-mcp-server-generator
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate a complete Kotlin MCP server project with proper structure,
+    dependencies, and implementation using the official io.modelcontextprotocol:kotlin-sdk
+    library.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/kotlin-mcp-server-generator
+  updated_at: '1771904373'
+- rank: 49
+  id: github-awesome-copilot-skills-ruby-mcp-server-generator-skill-md
+  name: ruby-mcp-server-generator
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate a complete Model Context Protocol server project in Ruby using
+    the official MCP Ruby SDK gem.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/ruby-mcp-server-generator
+  updated_at: '1771904373'
+- rank: 50
+  id: github-awesome-copilot-skills-rust-mcp-server-generator-skill-md
+  name: rust-mcp-server-generator
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate a complete Rust Model Context Protocol server project with
+    tools, prompts, resources, and tests using the official rmcp SDK
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/rust-mcp-server-generator
+  updated_at: '1771904373'

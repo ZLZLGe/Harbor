@@ -1,0 +1,594 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: devops
+category_name: DevOps
+category_skill_count: 59551
+subcategory_slug: containers
+subcategory_name: Containers
+subcategory_skill_count: 4839
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=containers
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 4839
+  total_pages: 97
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: wshobson-agents-plugins-cicd-automation-skills-deployment-pipeline-design-skill-md
+  name: deployment-pipeline-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design multi-stage CI/CD pipelines with approval gates, security checks,
+    and deployment orchestration. Use this skill when designing zero-downtime deployment
+    pipelines, implementing canary rollout strategies, setting up multi-environment
+    promotion workflows, or debugging failed deployment gates in CI/CD.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/deployment-pipeline-design
+  updated_at: '1774544726'
+- rank: 2
+  id: wshobson-agents-plugins-cicd-automation-skills-gitlab-ci-patterns-skill-md
+  name: gitlab-ci-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build GitLab CI/CD pipelines with multi-stage workflows, caching, and
+    distributed runners for scalable automation. Use when implementing GitLab CI/CD,
+    optimizing pipeline performance, or setting up automated testing and deployment.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/gitlab-ci-patterns
+  updated_at: '1772898797'
+- rank: 3
+  id: wshobson-agents-plugins-kubernetes-operations-skills-gitops-workflow-skill-md
+  name: gitops-workflow
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement GitOps workflows with ArgoCD and Flux for automated, declarative
+    Kubernetes deployments with continuous reconciliation. Use when implementing GitOps
+    practices, automating Kubernetes deployments, or setting up declarative infrastructure
+    management.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/gitops-workflow
+  updated_at: '1768860423'
+- rank: 4
+  id: wshobson-agents-plugins-observability-monitoring-skills-grafana-dashboards-skill-md
+  name: grafana-dashboards
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create and manage production Grafana dashboards for real-time visualization
+    of system and application metrics. Use when building monitoring dashboards, visualizing
+    metrics, or creating operational observability interfaces.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/observability-monitoring/skills/grafana-dashboards
+  updated_at: '1772898797'
+- rank: 5
+  id: wshobson-agents-plugins-kubernetes-operations-skills-helm-chart-scaffolding-skill-md
+  name: helm-chart-scaffolding
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design, organize, and manage Helm charts for templating and packaging
+    Kubernetes applications with reusable configurations. Use when creating Helm charts,
+    packaging Kubernetes applications, or implementing templated deployments.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/helm-chart-scaffolding
+  updated_at: '1772898797'
+- rank: 6
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-istio-traffic-management-skill-md
+  name: istio-traffic-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure Istio traffic management including routing, load balancing,
+    circuit breakers, and canary deployments. Use when implementing service mesh traffic
+    policies, progressive delivery, or resilience patterns.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/istio-traffic-management
+  updated_at: '1772898797'
+- rank: 7
+  id: wshobson-agents-plugins-kubernetes-operations-skills-k8s-manifest-generator-skill-md
+  name: k8s-manifest-generator
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready Kubernetes manifests for Deployments, Services,
+    ConfigMaps, and Secrets following best practices and security standards. Use when
+    generating Kubernetes YAML manifests, creating K8s resources, or implementing
+    production-grade Kubernetes configurations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/k8s-manifest-generator
+  updated_at: '1768860423'
+- rank: 8
+  id: wshobson-agents-plugins-kubernetes-operations-skills-k8s-security-policies-skill-md
+  name: k8s-security-policies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement Kubernetes security policies including NetworkPolicy, PodSecurityPolicy,
+    and RBAC for production-grade security. Use when securing Kubernetes clusters,
+    implementing network isolation, or enforcing pod security standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/kubernetes-operations/skills/k8s-security-policies
+  updated_at: '1772898797'
+- rank: 9
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-linkerd-patterns-skill-md
+  name: linkerd-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement Linkerd service mesh patterns for lightweight, security-focused
+    service mesh deployments. Use when setting up Linkerd, configuring traffic policies,
+    or implementing zero-trust networking with minimal overhead.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/linkerd-patterns
+  updated_at: '1772898797'
+- rank: 10
+  id: wshobson-agents-plugins-observability-monitoring-skills-prometheus-configuration-skill-md
+  name: prometheus-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Set up Prometheus for comprehensive metric collection, storage, and
+    monitoring of infrastructure and applications. Use when implementing metrics collection,
+    setting up monitoring infrastructure, or configuring alerting systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/observability-monitoring/skills/prometheus-configuration
+  updated_at: '1772898797'
+- rank: 11
+  id: wshobson-agents-plugins-python-development-skills-python-observability-skill-md
+  name: python-observability
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python observability patterns including structured logging, metrics,
+    and distributed tracing. Use when adding logging, implementing metrics collection,
+    setting up tracing, or debugging production systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-observability
+  updated_at: '1769791934'
+- rank: 12
+  id: wshobson-agents-plugins-cicd-automation-skills-secrets-management-skill-md
+  name: secrets-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement secure secrets management for CI/CD pipelines using Vault,
+    AWS Secrets Manager, or native platform solutions. Use when handling sensitive
+    credentials, rotating secrets, or securing CI/CD environments.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/secrets-management
+  updated_at: '1772898797'
+- rank: 13
+  id: sickn33-antigravity-awesome-skills-skills-helm-chart-scaffolding-skill-md
+  name: helm-chart-scaffolding
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive guidance for creating, organizing, and managing Helm
+    charts for packaging and deploying Kubernetes applications.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/helm-chart-scaffolding
+  updated_at: '1773994005'
+- rank: 14
+  id: sickn33-antigravity-awesome-skills-skills-hig-components-controls-skill-md
+  name: hig-components-controls
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Check for .claude/apple-design-context.md before asking questions.
+    Use existing context and only ask for information not already covered.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hig-components-controls
+  updated_at: '1773994005'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-k8s-manifest-generator-skill-md
+  name: k8s-manifest-generator
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Step-by-step guidance for creating production-ready Kubernetes manifests
+    including Deployments, Services, ConfigMaps, Secrets, and PersistentVolumeClaims.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/k8s-manifest-generator
+  updated_at: '1773994005'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-k8s-security-policies-skill-md
+  name: k8s-security-policies
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive guide for implementing NetworkPolicy, PodSecurityPolicy,
+    RBAC, and Pod Security Standards in Kubernetes.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/k8s-security-policies
+  updated_at: '1773994005'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-kubernetes-deployment-skill-md
+  name: kubernetes-deployment
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Kubernetes deployment workflow for container orchestration, Helm charts,
+    service mesh, and production-ready K8s configurations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/kubernetes-deployment
+  updated_at: '1772180381'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-turborepo-caching-skill-md
+  name: turborepo-caching
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Configure Turborepo for efficient monorepo builds with local and remote
+    caching. Use when setting up Turborepo, optimizing build pipelines, or implementing
+    distributed caching.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/turborepo-caching
+  updated_at: '1772180381'
+- rank: 19
+  id: davila7-claude-code-templates-cli-tool-components-skills-railway-deploy-skill-md
+  name: railway-deploy
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Deploy code to Railway using "railway up". Use when user wants to push
+    code, says "railway up", "deploy", "ship", or "push". For initial setup or creating
+    services, use railway-new skill. For Docker images, use railway-environment skill.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/railway/deploy
+  updated_at: '1768064325'
+- rank: 20
+  id: davila7-claude-code-templates-cli-tool-components-skills-railway-deployment-skill-md
+  name: railway-deployment
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Manage Railway deployments - view logs, redeploy, restart, or remove
+    deployments. Use for deployment lifecycle (remove, stop, redeploy, restart), deployment
+    visibility (list, status, history), and troubleshooting (logs, errors, failures,
+    crashes). NOT for deleting services - use railway-environment skill with isDeleted
+    for that.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/railway/deployment
+  updated_at: '1768064325'
+- rank: 21
+  id: davila7-claude-code-templates-cli-tool-components-skills-railway-service-skill-md
+  name: railway-service
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Check service status, rename services, change service icons, link services,
+    or create services with Docker images. For creating services with local code,
+    prefer railway-new skill. For GitHub repo sources, use railway-new skill to create
+    empty service then railway-environment skill to configure source.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/railway/service
+  updated_at: '1768064325'
+- rank: 22
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-render-deploy-skill-md
+  name: render-deploy
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Deploy applications to Render by analyzing codebases, generating render.yaml
+    Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy,
+    host, publish, or set up their application on Render's cloud platform.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/render-deploy
+  updated_at: '1770514388'
+- rank: 23
+  id: nikivdev-flow-ai-skills-env-skill-md
+  name: env
+  author: nikivdev
+  stars: 21155
+  forks: 840
+  description: Manage environment variables and secrets with flow (always use Flow
+    env store)
+  github_url: https://github.com/nikivdev/flow/tree/main/.ai/skills/env
+  updated_at: '1770312045'
+- rank: 24
+  id: elastic-kibana-agents-skills-encrypted-saved-objects-skill-md
+  name: encrypted-saved-objects
+  author: elastic
+  stars: 21027
+  forks: 8547
+  description: Encrypted Saved Objects (ESO) in Kibana — registration, AAD attribute
+    choices, partial update safety, model version migrations with createModelVersion,
+    canEncrypt checks, and Serverless constraints. Use when creating, modifying, or
+    working with ESO types.
+  github_url: https://github.com/elastic/kibana/tree/main/.agents/skills/encrypted-saved-objects
+  updated_at: '1772574341'
+- rank: 25
+  id: elizaos-eliza-packages-skills-skills-sherpa-onnx-tts-skill-md
+  name: sherpa-onnx-tts
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Local text-to-speech via sherpa-onnx (offline, no cloud). Converts
+    text to speech audio using the sherpa-onnx runtime and Piper VITS voices with
+    no cloud dependency. Use when the user asks to generate speech, read text aloud,
+    produce a voice audio file, perform TTS, speech synthesis, or convert text to
+    WAV output locally.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/sherpa-onnx-tts
+  updated_at: '1773711902'
+- rank: 26
+  id: udecode-plate-agents-skills-internal-workspace-devdeps-hoist-skill-md
+  name: internal-workspace-devdeps-hoist
+  author: udecode
+  stars: 16084
+  forks: 964
+  description: 'Skill: internal-workspace-devdeps-hoist'
+  github_url: https://github.com/udecode/plate/tree/main/.agents/skills/internal-workspace-devdeps-hoist
+  updated_at: '1774632415'
+- rank: 27
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-helm-skill-md
+  name: helm
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Helm chart expert for Kubernetes package management, templating, and
+    dependency management
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/helm
+  updated_at: '1772056827'
+- rank: 28
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-kubernetes-skill-md
+  name: kubernetes
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Kubernetes operations expert for kubectl, pods, deployments, and debugging
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/kubernetes
+  updated_at: '1772056827'
+- rank: 29
+  id: openai-skills-skills-curated-render-deploy-skill-md
+  name: render-deploy
+  author: openai
+  stars: 15590
+  forks: 928
+  description: Deploy applications to Render by analyzing codebases, generating render.yaml
+    Blueprints, and providing Dashboard deeplinks. Use when the user wants to deploy,
+    host, publish, or set up their application on Render's cloud platform.
+  github_url: https://github.com/openai/skills/tree/main/skills/.curated/render-deploy
+  updated_at: '1770063640'
+- rank: 30
+  id: elie222-inbox-zero-claude-skills-environment-variables-skill-md
+  name: environment-variables
+  author: elie222
+  stars: 10348
+  forks: 1247
+  description: Add environment variable
+  github_url: https://github.com/elie222/inbox-zero/tree/main/.claude/skills/environment-variables
+  updated_at: '1771092018'
+- rank: 31
+  id: skypilot-org-skypilot-agent-skills-skypilot-skill-md
+  name: skypilot
+  author: skypilot-org
+  stars: 9717
+  forks: 1012
+  description: Use when launching cloud VMs, Kubernetes pods, or Slurm jobs for GPU/TPU/CPU
+    workloads, training or fine-tuning models on cloud GPUs, deploying inference servers
+    (vllm, TGI, etc.) with autoscaling, writing or debugging SkyPilot task YAML files,
+    using spot/preemptible instances for cost savings, comparing GPU prices across
+    clouds, managing compute across 25+ clouds, Kubernetes, Slurm, and on-prem clusters
+    with failover between them, troubleshooting resource availability or SkyPilot
+    errors, or optimizing cost and GPU availability.
+  github_url: https://github.com/skypilot-org/skypilot/tree/master/agent/skills/skypilot
+  updated_at: '1774718045'
+- rank: 32
+  id: alibaba-higress-claude-skills-nginx-to-higress-migration-skill-md
+  name: nginx-to-higress-migration
+  author: alibaba
+  stars: 7956
+  forks: 1051
+  description: Migrate from ingress-nginx to Higress in Kubernetes environments. Use
+    when (1) analyzing existing ingress-nginx setup (2) reading nginx Ingress resources
+    and ConfigMaps (3) installing Higress via helm with proper ingressClass (4) identifying
+    unsupported nginx annotations (5) generating WASM plugins for nginx snippets/advanced
+    features (6) building and deploying custom plugins to image registry. Supports
+    full migration workflow with compatibility analysis and plugin generation.
+  github_url: https://github.com/alibaba/higress/tree/main/.claude/skills/nginx-to-higress-migration
+  updated_at: '1769915482'
+- rank: 33
+  id: webiny-webiny-js-skills-user-skills-generated-admin-local-storage-skill-md
+  name: webiny-admin-local-storage-catalog
+  author: webiny
+  stars: 7956
+  forks: 660
+  description: admin/local-storage — 4 abstractions.
+  github_url: https://github.com/webiny/webiny-js/tree/next/skills/user-skills/generated/admin/local-storage
+  updated_at: '1774617555'
+- rank: 34
+  id: jeffallan-claude-skills-skills-cloud-architect-skill-md
+  name: cloud-architect
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Designs cloud architectures, creates migration plans, generates cost
+    optimization recommendations, and produces disaster recovery strategies across
+    AWS, Azure, and GCP. Use when designing cloud architectures, planning migrations,
+    or optimizing multi-cloud deployments. Invoke for Well-Architected Framework,
+    cost optimization, disaster recovery, landing zones, security architecture, serverless
+    design.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/cloud-architect
+  updated_at: '1772832479'
+- rank: 35
+  id: jeffallan-claude-skills-skills-devops-engineer-skill-md
+  name: devops-engineer
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Creates Dockerfiles, configures CI/CD pipelines, writes Kubernetes
+    manifests, and generates Terraform/Pulumi infrastructure templates. Handles deployment
+    automation, GitOps configuration, incident response runbooks, and internal developer
+    platform tooling. Use when setting up CI/CD pipelines, containerizing applications,
+    managing infrastructure as code, deploying to Kubernetes clusters, configuring
+    cloud platforms, automating releases, or responding to production incidents. Invoke
+    for pipelines, Docker, Kubernetes, GitOps, Terraform, GitHub Actions, on-call,
+    or platform engineering.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/devops-engineer
+  updated_at: '1774303327'
+- rank: 36
+  id: jeffallan-claude-skills-skills-kubernetes-specialist-skill-md
+  name: kubernetes-specialist
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Use when deploying or managing Kubernetes workloads. Invoke to create
+    deployment manifests, configure pod security policies, set up service accounts,
+    define network isolation rules, debug pod crashes, analyze resource limits, inspect
+    container logs, or right-size workloads. Use for Helm charts, RBAC policies, NetworkPolicies,
+    storage configuration, performance optimization, GitOps pipelines, and multi-cluster
+    management.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/kubernetes-specialist
+  updated_at: '1774303327'
+- rank: 37
+  id: jeffallan-claude-skills-skills-monitoring-expert-skill-md
+  name: monitoring-expert
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Configures monitoring systems, implements structured logging pipelines,
+    creates Prometheus/Grafana dashboards, defines alerting rules, and instruments
+    distributed tracing. Implements Prometheus/Grafana stacks, conducts load testing,
+    performs application profiling, and plans infrastructure capacity. Use when setting
+    up application monitoring, adding observability to services, debugging production
+    issues with logs/metrics/traces, running load tests with k6 or Artillery, profiling
+    CPU/memory bottlenecks, or forecasting capacity needs.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/monitoring-expert
+  updated_at: '1772832479'
+- rank: 38
+  id: jeffallan-claude-skills-skills-terraform-engineer-skill-md
+  name: terraform-engineer
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Use when implementing infrastructure as code with Terraform across
+    AWS, Azure, or GCP. Invoke for module development (create reusable modules, manage
+    module versioning), state management (migrate backends, import existing resources,
+    resolve state conflicts), provider configuration, multi-environment workflows,
+    and infrastructure testing.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/terraform-engineer
+  updated_at: '1772832479'
+- rank: 39
+  id: aptos-labs-aptos-core-aptos-move-flow-cont-skills-move-inf-skill-md
+  name: move-inf
+  author: aptos-labs
+  stars: 6438
+  forks: 3899
+  description: Infer specifications for a Move package
+  github_url: https://github.com/aptos-labs/aptos-core/tree/main/aptos-move/flow/cont/skills/move-inf
+  updated_at: '1772590120'
+- rank: 40
+  id: azure-azure-sdk-for-net-github-skills-mitigate-breaking-changes-skill-md
+  name: mitigate-breaking-changes
+  author: Azure
+  stars: 5961
+  forks: 5128
+  description: Patterns and techniques for mitigating breaking changes during Azure
+    management-plane SDK migration from Swagger/AutoRest to TypeSpec. Covers SDK-side
+    customizations (partial classes, CodeGenType, CodeGenSuppress) and TypeSpec decorator
+    customizations (clientName, access, markAsPageable, alternateType).
+  github_url: https://github.com/Azure/azure-sdk-for-net/tree/main/.github/skills/mitigate-breaking-changes
+  updated_at: '1773813637'
+- rank: 41
+  id: netalertx-netalertx-github-skills-devcontainer-configs-skill-md
+  name: netalertx-devcontainer-configs
+  author: netalertx
+  stars: 5949
+  forks: 374
+  description: Generate devcontainer configuration files. Use this when asked to generate
+    devcontainer configs, update devcontainer template, or regenerate devcontainer.
+  github_url: https://github.com/netalertx/NetAlertX/tree/main/.github/skills/devcontainer-configs
+  updated_at: '1769377557'
+- rank: 42
+  id: netalertx-netalertx-github-skills-docker-build-skill-md
+  name: netalertx-docker-build
+  author: netalertx
+  stars: 5949
+  forks: 374
+  description: Build Docker images for testing or production. Use this when asked
+    to build container, build image, docker build, build test image, or launch production
+    container.
+  github_url: https://github.com/netalertx/NetAlertX/tree/main/.github/skills/docker-build
+  updated_at: '1769377557'
+- rank: 43
+  id: netalertx-netalertx-github-skills-docker-prune-skill-md
+  name: netalertx-docker-prune
+  author: netalertx
+  stars: 5949
+  forks: 374
+  description: Clean up unused Docker resources. Use this when asked to prune docker,
+    clean docker, remove unused images, free disk space, or docker cleanup. DANGEROUS
+    operation. Requires human confirmation.
+  github_url: https://github.com/netalertx/NetAlertX/tree/main/.github/skills/docker-prune
+  updated_at: '1769377557'
+- rank: 44
+  id: netalertx-netalertx-github-skills-sample-data-skill-md
+  name: netalertx-sample-data
+  author: netalertx
+  stars: 5949
+  forks: 374
+  description: Load synthetic device data into the devcontainer. Use this when asked
+    to load sample devices, seed data, import test devices, populate database, or
+    generate test data.
+  github_url: https://github.com/netalertx/NetAlertX/tree/main/.github/skills/sample-data
+  updated_at: '1769377557'
+- rank: 45
+  id: orchestra-research-ai-research-skills-18-multimodal-cosmos-policy-skill-md
+  name: evaluating-cosmos-policy
+  author: Orchestra-Research
+  stars: 5745
+  forks: 447
+  description: Evaluates NVIDIA Cosmos Policy on LIBERO and RoboCasa simulation environments.
+    Use when setting up cosmos-policy for robot manipulation evaluation, running headless
+    GPU evaluations with EGL rendering, or profiling inference latency on cluster
+    or local GPU machines.
+  github_url: https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/main/18-multimodal/cosmos-policy
+  updated_at: '1773761467'
+- rank: 46
+  id: helmfile-helmfile-skills-helmfile-skill-md
+  name: helmfile
+  author: helmfile
+  stars: 5040
+  forks: 336
+  description: Expert guidance for Helmfile declarative Helm chart deployment
+  github_url: https://github.com/helmfile/helmfile/tree/main/skills/helmfile
+  updated_at: '1772337981'
+- rank: 47
+  id: dtyq-magic-frontend-magic-web-agents-skills-dual-edition-module-migration-skill-md
+  name: dual-edition-module-migration
+  author: dtyq
+  stars: 4685
+  forks: 497
+  description: Migrate modules between shared `src/opensource/` code and enterprise
+    overlays under `enterprise/src/opensource/`, while preserving the `src/opensource`
+    boundary and existing component override points.
+  github_url: https://github.com/dtyq/magic/tree/master/frontend/magic-web/.agents/skills/dual-edition-module-migration
+  updated_at: '1710812040'
+- rank: 48
+  id: mukul975-anthropic-cybersecurity-skills-skills-configuring-hsm-for-key-storage-skill-md
+  name: configuring-hsm-for-key-storage
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Hardware Security Modules (HSMs) are tamper-resistant physical devices
+    that safeguard cryptographic keys and perform cryptographic operations in a hardened
+    environment. Keys stored in an HSM never lea
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/configuring-hsm-for-key-storage
+  updated_at: '1773924116'
+- rank: 49
+  id: mukul975-anthropic-cybersecurity-skills-skills-detecting-privilege-escalation-in-kubernetes-pods-skill-md
+  name: detecting-privilege-escalation-in-kubernetes-pods
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Detect and prevent privilege escalation in Kubernetes pods by monitoring
+    security contexts, capabilities, and syscall patterns with Falco and OPA policies.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/detecting-privilege-escalation-in-kubernetes-pods
+  updated_at: '1773924116'
+- rank: 50
+  id: mukul975-anthropic-cybersecurity-skills-skills-implementing-container-network-policies-with-calico-skill-md
+  name: implementing-container-network-policies-with-calico
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Enforce Kubernetes network segmentation using Calico CNI network policies
+    and global network policies to control pod-to-pod traffic, restrict egress, and
+    implement zero-trust microsegmentation.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/implementing-container-network-policies-with-calico
+  updated_at: '1773923390'

@@ -1,0 +1,605 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: tools
+category_name: Tools
+category_skill_count: 168203
+subcategory_slug: debugging
+subcategory_name: Debugging
+subcategory_skill_count: 67726
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=debugging
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 67726
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-node-connect-skill-md
+  name: node-connect
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Diagnose OpenClaw node connection and pairing failures for Android,
+    iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local
+    Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized,
+    bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale,
+    or plugins.entries.device-pair.config.publicUrl.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/node-connect
+  updated_at: '1773455051'
+- rank: 2
+  id: openclaw-openclaw-agents-skills-openclaw-test-heap-leaks-skill-md
+  name: openclaw-test-heap-leaks
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Investigate `pnpm test` memory growth, Vitest worker OOMs, and suspicious
+    RSS increases in OpenClaw using the `scripts/test-parallel.mjs` heap snapshot
+    tooling. Use when Codex needs to reproduce test-lane memory growth, collect repeated
+    `.heapsnapshot` files, compare snapshots from the same worker PID, distinguish
+    transformed-module retention from real data leaks, and fix or reduce the impact
+    by patching cleanup logic or isolating hotspot tests.
+  github_url: https://github.com/openclaw/openclaw/tree/main/.agents/skills/openclaw-test-heap-leaks
+  updated_at: '1773957553'
+- rank: 3
+  id: openclaw-openclaw-skills-session-logs-skill-md
+  name: session-logs
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Search and analyze your own session logs (older/parent conversations)
+    using jq.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/session-logs
+  updated_at: '1774333273'
+- rank: 4
+  id: facebook-react-claude-skills-flags-skill-md
+  name: flags
+  author: facebook
+  stars: 244234
+  forks: 50870
+  description: Use when you need to check feature flag states, compare channels, or
+    debug why a feature behaves differently across release channels.
+  github_url: https://github.com/facebook/react/tree/main/.claude/skills/flags
+  updated_at: '1769217366'
+- rank: 5
+  id: microsoft-vscode-github-skills-component-fixtures-skill-md
+  name: component-fixtures
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Use when creating or updating component fixtures for screenshot testing,
+    or when designing UI components to be fixture-friendly. Covers fixture file structure,
+    theming, service setup, CSS scoping, async rendering, and common pitfalls.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/component-fixtures
+  updated_at: '1772539065'
+- rank: 6
+  id: microsoft-vscode-github-skills-fix-ci-failures-skill-md
+  name: fix-ci-failures
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Investigate and fix CI failures on a pull request. Use when CI checks
+    fail on a PR branch — covers finding the PR, identifying failed checks, downloading
+    logs and artifacts, extracting the failure cause, and iterating on a fix. Requires
+    the `gh` CLI.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/fix-ci-failures
+  updated_at: '1774199052'
+- rank: 7
+  id: microsoft-vscode-github-skills-fix-errors-skill-md
+  name: fix-errors
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Guidelines for fixing unhandled errors from the VS Code error telemetry
+    dashboard. Use when investigating error-telemetry issues with stack traces, error
+    messages, and hit/user counts. Covers tracing data flow through call stacks, identifying
+    producers of invalid data vs. consumers that crash, enriching error messages for
+    telemetry diagnosis, and avoiding common anti-patterns like silently swallowing
+    errors.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/fix-errors
+  updated_at: '1774498449'
+- rank: 8
+  id: microsoft-vscode-github-skills-memory-leak-audit-skill-md
+  name: memory-leak-audit
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Audit code for memory leaks and disposable issues. Use when reviewing
+    event listeners, DOM handlers, lifecycle callbacks, or fixing leak reports. Covers
+    addDisposableListener, Event.once, MutableDisposable, DisposableStore, and onWillDispose
+    patterns.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/memory-leak-audit
+  updated_at: '1771891591'
+- rank: 9
+  id: significant-gravitas-autogpt-claude-skills-pr-address-skill-md
+  name: pr-address
+  author: Significant-Gravitas
+  stars: 182900
+  forks: 46219
+  description: Address PR review comments and loop until CI green and all comments
+    resolved. TRIGGER when user asks to address comments, fix PR feedback, respond
+    to reviewers, or babysit/monitor a PR.
+  github_url: https://github.com/Significant-Gravitas/AutoGPT/tree/master/.claude/skills/pr-address
+  updated_at: '1774408770'
+- rank: 10
+  id: significant-gravitas-autogpt-claude-skills-pr-review-skill-md
+  name: pr-review
+  author: Significant-Gravitas
+  stars: 182900
+  forks: 46219
+  description: Review a PR for correctness, security, code quality, and testing issues.
+    TRIGGER when user asks to review a PR, check PR quality, or give feedback on a
+    PR.
+  github_url: https://github.com/Significant-Gravitas/AutoGPT/tree/master/.claude/skills/pr-review
+  updated_at: '1774316139'
+- rank: 11
+  id: significant-gravitas-autogpt-claude-skills-pr-test-skill-md
+  name: pr-test
+  author: Significant-Gravitas
+  stars: 182900
+  forks: 46219
+  description: E2E manual testing of PRs/branches using docker compose, agent-browser,
+    and API calls. TRIGGER when user asks to manually test a PR, test a feature end-to-end,
+    or run integration tests against a running system.
+  github_url: https://github.com/Significant-Gravitas/AutoGPT/tree/master/.claude/skills/pr-test
+  updated_at: '1774330505'
+- rank: 12
+  id: n8n-io-n8n-claude-skills-linear-issue-skill-md
+  name: linear-issue
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: Fetch and analyze Linear issue with all related context. Use when starting
+    work on a Linear ticket, analyzing issues, or gathering context about a Linear
+    issue.
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/linear-issue
+  updated_at: '1772030986'
+- rank: 13
+  id: vercel-next-js-claude-plugin-plugins-cache-components-skills-cache-components-skill-md
+  name: cache-components
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: 'Expert guidance for Next.js Cache Components and Partial Prerendering
+    (PPR).
+
+
+    **PROACTIVE ACTIVATION**: Use this skill automatically when working in Next.js
+    projects that have `cacheComponents: true` in their next.config.ts/next.config.js.
+    When this config is detected, proactively apply Cache Components patterns and
+    best practices to all React Server Component implementations.
+
+
+    **DETECTION**: At the start of a session in a Next.js project, check for `cacheComponents:
+    true` in next.config. If enabled, this skill''s patterns should guide all component
+    authoring, data fetching, and caching decisions.
+
+
+    **USE CASES**: Implementing ''use cache'' directive, configuring cache lifetimes
+    with cacheLife(), tagging cached data with cacheTag(), invalidating caches with
+    updateTag()/revalidateTag(), optimizing static vs dynamic content boundaries,
+    debugging cache issues, and reviewing Cache Component implementations.'
+  github_url: https://github.com/vercel/next.js/tree/canary/.claude-plugin/plugins/cache-components/skills/cache-components
+  updated_at: '1767911848'
+- rank: 14
+  id: vercel-next-js-agents-skills-dce-edge-skill-md
+  name: dce-edge
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: DCE-safe require() patterns and edge runtime constraints. Use when
+    writing conditional require() calls, guarding Node-only imports (node:stream etc.),
+    or editing define-env-plugin.ts / app-render / stream-utils for edge builds. Covers
+    if/else branching for webpack DCE, TypeScript definite assignment, the NEXT_RUNTIME
+    vs real feature flag distinction, and forcing flags false for edge in define-env.ts.
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/dce-edge
+  updated_at: '1771263147'
+- rank: 15
+  id: vercel-next-js-agents-skills-pr-status-triage-skill-md
+  name: pr-status-triage
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: Triage CI failures and PR review comments using scripts/pr-status.js.
+    Use when investigating failing CI jobs, flaky tests, or PR review feedback. Covers
+    blocker-first prioritization (build > lint > types > tests), CI env var matching
+    for local reproduction, and the Known Flaky Tests distinction.
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/pr-status-triage
+  updated_at: '1773910810'
+- rank: 16
+  id: vercel-next-js-agents-skills-runtime-debug-skill-md
+  name: runtime-debug
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: Debug and verification workflow for runtime-bundle and module-resolution
+    regressions. Use when diagnosing unexpected module inclusions, bundle size regressions,
+    or CI failures related to NEXT_SKIP_ISOLATE, nft.json traces, or runtime bundle
+    selection (module.compiled.js). Covers CI env mirroring, full stack traces via
+    __NEXT_SHOW_IGNORE_LISTED, route trace inspection, and webpack stats diffing.
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/runtime-debug
+  updated_at: '1771263147'
+- rank: 17
+  id: vercel-next-js-agents-skills-v8-jit-skill-md
+  name: v8-jit
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: V8 JIT optimization patterns for writing high-performance JavaScript
+    in Next.js server internals. Use when writing or reviewing hot-path code in app-render,
+    stream-utils, routing, caching, or any per-request code path. Covers hidden classes
+    / shapes, monomorphic call sites, inline caches, megamorphic deopt, closure allocation,
+    array packing, and profiling with --trace-opt / --trace-deopt.
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/v8-jit
+  updated_at: '1773923774'
+- rank: 18
+  id: obra-superpowers-skills-systematic-debugging-skill-md
+  name: systematic-debugging
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when encountering any bug, test failure, or unexpected behavior,
+    before proposing fixes
+  github_url: https://github.com/obra/superpowers/tree/main/skills/systematic-debugging
+  updated_at: '1766018692'
+- rank: 19
+  id: affaan-m-everything-claude-code-skills-agent-eval-skill-md
+  name: agent-eval
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Head-to-head comparison of coding agents (Claude Code, Aider, Codex,
+    etc.) on custom tasks with pass rate, cost, time, and consistency metrics
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/agent-eval
+  updated_at: '1774141805'
+- rank: 20
+  id: affaan-m-everything-claude-code-skills-click-path-audit-skill-md
+  name: click-path-audit
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Trace every user-facing button/touchpoint through its full state change
+    sequence to find bugs where functions individually work but cancel each other
+    out, produce wrong final state, or leave the UI in an inconsistent state. Use
+    when: systematic debugging found no bugs but users report broken buttons, or after
+    any major refactor touching shared state stores.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/click-path-audit
+  updated_at: '1774219255'
+- rank: 21
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-context-budget-skill-md
+  name: context-budget
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 审核Claude Code上下文窗口在代理、技能、MCP服务器和规则中的消耗情况。识别膨胀、冗余组件，并提供优先的令牌节省建议。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/context-budget
+  updated_at: '1774219164'
+- rank: 22
+  id: affaan-m-everything-claude-code-skills-context-budget-skill-md
+  name: context-budget
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Audits Claude Code context window consumption across agents, skills,
+    MCP servers, and rules. Identifies bloat, redundant components, and produces prioritized
+    token-savings recommendations.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/context-budget
+  updated_at: '1773991223'
+- rank: 23
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Automatically extract reusable patterns from Claude Code sessions and
+    save them as learned skills for future use.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/continuous-learning
+  updated_at: '1772664486'
+- rank: 24
+  id: affaan-m-everything-claude-code-agents-skills-deep-research-skill-md
+  name: deep-research
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Multi-source deep research using firecrawl and exa MCPs. Searches the
+    web, synthesizes findings, and delivers cited reports with source attribution.
+    Use when the user wants thorough research on any topic with evidence and citations.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/deep-research
+  updated_at: '1773352145'
+- rank: 25
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-deep-research-skill-md
+  name: deep-research
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 使用firecrawl和exa MCPs进行多源深度研究。搜索网络、综合发现并交付带有来源引用的报告。适用于用户希望对任何主题进行有证据和引用的彻底研究时。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/deep-research
+  updated_at: '1774219164'
+- rank: 26
+  id: affaan-m-everything-claude-code-skills-deep-research-skill-md
+  name: deep-research
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Multi-source deep research using firecrawl and exa MCPs. Searches the
+    web, synthesizes findings, and delivers cited reports with source attribution.
+    Use when the user wants thorough research on any topic with evidence and citations.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/deep-research
+  updated_at: '1773352145'
+- rank: 27
+  id: affaan-m-everything-claude-code-agents-skills-exa-search-skill-md
+  name: exa-search
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Neural search via Exa MCP for web, code, and company research. Use
+    when the user needs web search, code examples, company intel, people lookup, or
+    AI-powered deep research with Exa's neural search engine.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/exa-search
+  updated_at: '1773336042'
+- rank: 28
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-exa-search-skill-md
+  name: exa-search
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 通过Exa MCP进行神经搜索，适用于网络、代码和公司研究。当用户需要网络搜索、代码示例、公司情报、人员查找，或使用Exa神经搜索引擎进行AI驱动的深度研究时使用。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/exa-search
+  updated_at: '1774219164'
+- rank: 29
+  id: affaan-m-everything-claude-code-skills-exa-search-skill-md
+  name: exa-search
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Neural search via Exa MCP for web, code, and company research. Use
+    when the user needs web search, code examples, company intel, people lookup, or
+    AI-powered deep research with Exa's neural search engine.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/exa-search
+  updated_at: '1773518125'
+- rank: 30
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-flutter-dart-code-review-skill-md
+  name: flutter-dart-code-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 库无关的Flutter/Dart代码审查清单，涵盖Widget最佳实践、状态管理模式（BLoC、Riverpod、Provider、GetX、MobX、Signals）、Dart惯用法、性能、可访问性、安全性和整洁架构。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/flutter-dart-code-review
+  updated_at: '1774068958'
+- rank: 31
+  id: affaan-m-everything-claude-code-skills-flutter-dart-code-review-skill-md
+  name: flutter-dart-code-review
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Library-agnostic Flutter/Dart code review checklist covering widget
+    best practices, state management patterns (BLoC, Riverpod, Provider, GetX, MobX,
+    Signals), Dart idioms, performance, accessibility, security, and clean architecture.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/flutter-dart-code-review
+  updated_at: '1774014028'
+- rank: 32
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-frontend-patterns-skill-md
+  name: frontend-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: React, Next.js, 상태 관리, 성능 최적화 및 UI 모범 사례를 위한 프론트엔드 개발 패턴.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/frontend-patterns
+  updated_at: '1773386274'
+- rank: 33
+  id: affaan-m-everything-claude-code-skills-kotlin-coroutines-flows-skill-md
+  name: kotlin-coroutines-flows
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Kotlin Coroutines and Flow patterns for Android and KMP — structured
+    concurrency, Flow operators, StateFlow, error handling, and testing.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/kotlin-coroutines-flows
+  updated_at: '1773201219'
+- rank: 34
+  id: affaan-m-everything-claude-code-skills-kotlin-ktor-patterns-skill-md
+  name: kotlin-ktor-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Ktor server patterns including routing DSL, plugins, authentication,
+    Koin DI, kotlinx.serialization, WebSockets, and testApplication testing.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/kotlin-ktor-patterns
+  updated_at: '1773203152'
+- rank: 35
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-perl-security-skill-md
+  name: perl-security
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 全面的Perl安全指南，涵盖污染模式、输入验证、安全进程执行、DBI参数化查询、Web安全（XSS/SQLi/CSRF）以及perlcritic安全策略。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/perl-security
+  updated_at: '1773395144'
+- rank: 36
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-prompt-optimizer-skill-md
+  name: prompt-optimizer
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '分析原始提示，识别意图和差距，匹配ECC组件（技能/命令/代理/钩子），并输出一个可直接粘贴的优化提示。仅提供咨询角色——绝不自行执行任务。触发时机：当用户说“优化提示”、“改进我的提示”、“如何编写提示”、“帮我优化这个指令”或明确要求提高提示质量时。中文等效表达同样触发：“优化prompt”、“改进prompt”、“怎么写prompt”、“帮我优化这个指令”。不触发时机：当用户希望直接执行任务，或说“直接做”时。不触发时机：当用户说“优化代码”、“优化性能”、“optimize
+    performance”、“optimize this code”时——这些是重构/性能优化任务，而非提示优化。origin: community'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/prompt-optimizer
+  updated_at: '1774219164'
+- rank: 37
+  id: affaan-m-everything-claude-code-skills-prompt-optimizer-skill-md
+  name: prompt-optimizer
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 'Analyze raw prompts, identify intent and gaps, match ECC components
+    (skills/commands/agents/hooks), and output a ready-to-paste optimized prompt.
+    Advisory role only — never executes the task itself. TRIGGER when: user says "optimize
+    prompt", "improve my prompt", "how to write a prompt for", "help me prompt", "rewrite
+    this prompt", or explicitly asks to enhance prompt quality. Also triggers on Chinese
+    equivalents: "优化prompt", "改进prompt", "怎么写prompt", "帮我优化这个指令". DO NOT TRIGGER when:
+    user wants the task executed directly, or says "just do it" / "直接做". DO NOT TRIGGER
+    when user says "优化代码", "优化性能", "optimize performance", "optimize this code" —
+    those are refactoring/performance tasks, not prompt optimization.'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/prompt-optimizer
+  updated_at: '1773384002'
+- rank: 38
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-self-improving-agent-skills-example-skills-code-reviewer-skill-md
+  name: code-reviewer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: Reviews code for security vulnerabilities, performance issues, and
+    best practices. Use when reviewing code, performing security audits, checking
+    for code quality, reviewing pull requests.
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/self-improving-agent-skills/example_skills/code-reviewer
+  updated_at: '1774664146'
+- rank: 39
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-debugger-skill-md
+  name: debugger
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Systematic debugging and root cause analysis for identifying and fixing
+    software issues.
+
+    Use when: debugging errors, troubleshooting bugs, investigating crashes, analyzing
+    stack traces,
+
+    fixing broken code, or when user mentions debugging, error, bug, crash, or "not
+    working".'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/debugger
+  updated_at: '1770167437'
+- rank: 40
+  id: angular-angular-agent-skills-pr-review-skill-md
+  name: pr-review
+  author: angular
+  stars: 100120
+  forks: 27146
+  description: Guidelines and tools for reviewing pull requests in the Angular repository.
+  github_url: https://github.com/angular/angular/tree/main/.agent/skills/pr_review
+  updated_at: '1774543768'
+- rank: 41
+  id: supabase-supabase-claude-skills-studio-error-handling-skill-md
+  name: studio-error-handling
+  author: supabase
+  stars: 99752
+  forks: 11915
+  description: Error display and troubleshooting pattern for Supabase Studio. Use
+    when rendering API errors in the UI, adding inline troubleshooting steps for a
+    new error type, or wiring up the AI assistant debug button from an error state.
+  github_url: https://github.com/supabase/supabase/tree/master/.claude/skills/studio-error-handling
+  updated_at: '1773656550'
+- rank: 42
+  id: google-gemini-gemini-cli-gemini-skills-async-pr-review-skill-md
+  name: async-pr-review
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Trigger this skill when the user wants to start an asynchronous PR
+    review, run background checks on a PR, or check the status of a previously started
+    async PR review.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/async-pr-review
+  updated_at: '1773415087'
+- rank: 43
+  id: google-gemini-gemini-cli-gemini-skills-review-duplication-skill-md
+  name: review-duplication
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill during code reviews to proactively investigate the codebase
+    for duplicated functionality, reinvented wheels, or failure to reuse existing
+    project best practices and shared utilities.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/review-duplication
+  updated_at: '1774549950'
+- rank: 44
+  id: pytorch-pytorch-claude-skills-aoti-debug-skill-md
+  name: aoti-debug
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Debug AOTInductor (AOTI) errors and crashes. Use when encountering
+    AOTI segfaults, device mismatch errors, constant loading failures, or runtime
+    errors from aot_compile, aot_load, aoti_compile_and_package, or aoti_load_package.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/aoti-debug
+  updated_at: '1771637658'
+- rank: 45
+  id: pytorch-pytorch-claude-skills-scrub-issue-skill-md
+  name: scrub-issue
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Fetch, analyze, reproduce, and minimize GitHub issue reproductions.
+    Use when asked to check if an issue reproduces, minimize a repro, analyze a bug
+    report, or scrub/triage an issue for reproducibility.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/scrub-issue
+  updated_at: '1772642170'
+- rank: 46
+  id: microsoft-playwright-packages-playwright-core-src-tools-trace-skill-md
+  name: playwright-trace
+  author: microsoft
+  stars: 85159
+  forks: 5371
+  description: Inspect Playwright trace files from the command line — list actions,
+    view requests, console, errors, snapshots and screenshots.
+  github_url: https://github.com/microsoft/playwright/tree/main/packages/playwright-core/src/tools/trace
+  updated_at: '1774629351'
+- rank: 47
+  id: browser-use-browser-use-skills-browser-use-skill-md
+  name: browser-use
+  author: browser-use
+  stars: 84818
+  forks: 9821
+  description: Automates browser interactions for web testing, form filling, screenshots,
+    and data extraction. Use when the user needs to navigate websites, interact with
+    web pages, fill forms, take screenshots, or extract information from web pages.
+  github_url: https://github.com/browser-use/browser-use/tree/main/skills/browser-use
+  updated_at: '1773985117'
+- rank: 48
+  id: lobehub-lobehub-agents-skills-agent-tracing-skill-md
+  name: agent-tracing
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Agent tracing CLI for inspecting agent execution snapshots. Use when
+    user mentions 'agent-tracing', 'trace', 'snapshot', wants to debug agent execution,
+    inspect LLM calls, view context engine data, or analyze agent steps. Triggers
+    on agent debugging, trace inspection, or execution analysis tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/agent-tracing
+  updated_at: '1773030253'
+- rank: 49
+  id: lobehub-lobehub-agents-skills-debug-skill-md
+  name: debug
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Debug package usage guide. Use when adding debug logging, understanding
+    log namespaces, or implementing debugging features. Triggers on debug logging
+    requests or logging implementation.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/debug
+  updated_at: '1769178618'
+- rank: 50
+  id: lobehub-lobehub-agents-skills-react-skill-md
+  name: react
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: React component development guide. Use when working with React components
+    (.tsx files), creating UI, using @lobehub/ui components, implementing routing,
+    or building frontend features. Triggers on React component creation, modification,
+    layout implementation, or navigation tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/react
+  updated_at: '1774427257'

@@ -1,0 +1,645 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: business
+category_name: Business
+category_skill_count: 121378
+subcategory_slug: sales-marketing
+subcategory_name: Sales & Marketing
+subcategory_skill_count: 64222
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=sales-marketing
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 64222
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: microsoft-vscode-github-skills-accessibility-skill-md
+  name: accessibility
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Primary accessibility skill for VS Code. REQUIRED for new feature and
+    contribution work, and also applies to updates of existing UI. Covers accessibility
+    help dialogs, accessible views, verbosity settings, signals, ARIA announcements,
+    keyboard navigation, and ARIA labels/roles.
+  github_url: https://github.com/microsoft/vscode/tree/main/.github/skills/accessibility
+  updated_at: '1773427371'
+- rank: 2
+  id: n8n-io-n8n-claude-skills-content-design-skill-md
+  name: content-design
+  author: n8n-io
+  stars: 181446
+  forks: 56251
+  description: 'Product content designer for UI copy. Use when writing, reviewing,
+    or auditing user-facing text: button labels, error messages, tooltips, empty states,
+    modal copy, placeholder text, confirmation dialogs, onboarding flows, or i18n
+    strings. Also use when the user says /copy, /content, or /ux-copy.'
+  github_url: https://github.com/n8n-io/n8n/tree/master/.claude/skills/content-design
+  updated_at: '1770969955'
+- rank: 3
+  id: vercel-next-js-agents-skills-authoring-skills-skill-md
+  name: authoring-skills
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: How to create and maintain agent skills in .agents/skills/. Use when
+    creating a new SKILL.md, writing skill descriptions, choosing frontmatter fields,
+    or deciding what content belongs in a skill vs AGENTS.md. Covers the supported
+    spec fields, description writing, naming conventions, and the relationship between
+    always-loaded AGENTS.md and on-demand skills.
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/authoring-skills
+  updated_at: '1771263147'
+- rank: 4
+  id: obra-superpowers-skills-brainstorming-skill-md
+  name: brainstorming
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: You MUST use this before any creative work - creating features, building
+    components, adding functionality, or modifying behavior. Explores user intent,
+    requirements and design before implementation.
+  github_url: https://github.com/obra/superpowers/tree/main/skills/brainstorming
+  updated_at: '1774461833'
+- rank: 5
+  id: obra-superpowers-skills-finishing-a-development-branch-skill-md
+  name: finishing-a-development-branch
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when implementation is complete, all tests pass, and you need to
+    decide how to integrate the work - guides completion of development work by presenting
+    structured options for merge, PR, or cleanup
+  github_url: https://github.com/obra/superpowers/tree/main/skills/finishing-a-development-branch
+  updated_at: '1760721530'
+- rank: 6
+  id: obra-superpowers-skills-using-superpowers-skill-md
+  name: using-superpowers
+  author: obra
+  stars: 120221
+  forks: 9749
+  description: Use when starting any conversation - establishes how to find and use
+    skills, requiring Skill tool invocation before ANY response including clarifying
+    questions
+  github_url: https://github.com/obra/superpowers/tree/main/skills/using-superpowers
+  updated_at: '1774461833'
+- rank: 7
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-agent-harness-construction-skill-md
+  name: agent-harness-construction
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 设计和优化AI代理的动作空间、工具定义和观察格式，以提高完成率。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/agent-harness-construction
+  updated_at: '1772923682'
+- rank: 8
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-configure-ecc-skill-md
+  name: configure-ecc
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Everything Claude Code 的交互式安装程序 — 引导用户选择并安装技能和规则到用户级或项目级目录，验证路径，并可选择优化已安装文件。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/configure-ecc
+  updated_at: '1774219164'
+- rank: 9
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-continuous-agent-loop-skill-md
+  name: continuous-agent-loop
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 具有质量门、评估和恢复控制的连续自主代理循环模式。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/continuous-agent-loop
+  updated_at: '1774219164'
+- rank: 10
+  id: affaan-m-everything-claude-code-skills-customs-trade-compliance-skill-md
+  name: customs-trade-compliance
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Codified expertise for customs documentation, tariff classification,
+    duty optimization, restricted party screening, and regulatory compliance across
+    multiple jurisdictions. Informed by trade compliance specialists with 15+ years
+    experience. Includes HS classification logic, Incoterms application, FTA utilization,
+    and penalty mitigation. Use when handling customs clearance, tariff classification,
+    trade compliance, import/export documentation, or duty optimization.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/customs-trade-compliance
+  updated_at: '1773202056'
+- rank: 11
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-energy-procurement-skill-md
+  name: energy-procurement
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '电力与燃气采购、电价优化、需量电费管理、可再生能源购电协议评估及多设施能源成本管理的编码化专业知识。基于能源采购经理在大型工商业用户中超过15年的经验。包括市场结构分析、对冲策略、负荷分析和可持续性报告框架。适用于采购能源、优化电价、管理需量电费、评估购电协议或制定能源策略时使用。license:
+    Apache-2.0'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/energy-procurement
+  updated_at: '1773395144'
+- rank: 12
+  id: affaan-m-everything-claude-code-skills-inventory-demand-planning-skill-md
+  name: inventory-demand-planning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Codified expertise for demand forecasting, safety stock optimization,
+    replenishment planning, and promotional lift estimation at multi-location retailers.
+    Informed by demand planners with 15+ years experience managing hundreds of SKUs.
+    Includes forecasting method selection, ABC/XYZ analysis, seasonal transition management,
+    and vendor negotiation frameworks. Use when forecasting demand, setting safety
+    stock, planning replenishment, managing promotions, or optimizing inventory levels.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/inventory-demand-planning
+  updated_at: '1773202435'
+- rank: 13
+  id: affaan-m-everything-claude-code-agents-skills-investor-materials-skill-md
+  name: investor-materials
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Create and update pitch decks, one-pagers, investor memos, accelerator
+    applications, financial models, and fundraising materials. Use when the user needs
+    investor-facing documents, projections, use-of-funds tables, milestone plans,
+    or materials that must stay internally consistent across multiple fundraising
+    assets.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/investor-materials
+  updated_at: '1772200223'
+- rank: 14
+  id: affaan-m-everything-claude-code-cursor-skills-investor-materials-skill-md
+  name: investor-materials
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Create and update pitch decks, one-pagers, investor memos, accelerator
+    applications, financial models, and fundraising materials. Use when the user needs
+    investor-facing documents, projections, use-of-funds tables, milestone plans,
+    or materials that must stay internally consistent across multiple fundraising
+    assets.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/investor-materials
+  updated_at: '1772200223'
+- rank: 15
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-investor-materials-skill-md
+  name: investor-materials
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 创建和更新宣传文稿、一页简介、投资者备忘录、加速器申请、财务模型和融资材料。当用户需要面向投资者的文件、预测、资金用途表、里程碑计划或必须在多个融资资产中保持内部一致性的材料时使用。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/investor-materials
+  updated_at: '1772519307'
+- rank: 16
+  id: affaan-m-everything-claude-code-agents-skills-investor-outreach-skill-md
+  name: investor-outreach
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Draft cold emails, warm intro blurbs, follow-ups, update emails, and
+    investor communications for fundraising. Use when the user wants outreach to angels,
+    VCs, strategic investors, or accelerators and needs concise, personalized, investor-facing
+    messaging.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/investor-outreach
+  updated_at: '1772200223'
+- rank: 17
+  id: affaan-m-everything-claude-code-cursor-skills-investor-outreach-skill-md
+  name: investor-outreach
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Draft cold emails, warm intro blurbs, follow-ups, update emails, and
+    investor communications for fundraising. Use when the user wants outreach to angels,
+    VCs, strategic investors, or accelerators and needs concise, personalized, investor-facing
+    messaging.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/investor-outreach
+  updated_at: '1772200223'
+- rank: 18
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-investor-outreach-skill-md
+  name: investor-outreach
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 草拟冷邮件、热情介绍简介、跟进邮件、更新邮件和投资者沟通以筹集资金。当用户需要向天使投资人、风险投资公司、战略投资者或加速器进行推广，并需要简洁、个性化的面向投资者的消息时使用。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/investor-outreach
+  updated_at: '1772519307'
+- rank: 19
+  id: affaan-m-everything-claude-code-skills-logistics-exception-management-skill-md
+  name: logistics-exception-management
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Codified expertise for handling freight exceptions, shipment delays,
+    damages, losses, and carrier disputes. Informed by logistics professionals with
+    15+ years operational experience. Includes escalation protocols, carrier-specific
+    behaviors, claims procedures, and judgment frameworks. Use when handling shipping
+    exceptions, freight claims, delivery issues, or carrier disputes.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/logistics-exception-management
+  updated_at: '1773202056'
+- rank: 20
+  id: affaan-m-everything-claude-code-skills-project-guidelines-example-skill-md
+  name: project-guidelines-example
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Example project-specific skill template based on a real production
+    application.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/project-guidelines-example
+  updated_at: '1771862457'
+- rank: 21
+  id: affaan-m-everything-claude-code-skills-quality-nonconformance-skill-md
+  name: quality-nonconformance
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Codified expertise for quality control, non-conformance investigation,
+    root cause analysis, corrective action, and supplier quality management in regulated
+    manufacturing. Informed by quality engineers with 15+ years experience across
+    FDA, IATF 16949, and AS9100 environments. Includes NCR lifecycle management, CAPA
+    systems, SPC interpretation, and audit methodology. Use when investigating non-conformances,
+    performing root cause analysis, managing CAPAs, interpreting SPC data, or handling
+    supplier quality issues.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/quality-nonconformance
+  updated_at: '1773202056'
+- rank: 22
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-returns-reverse-logistics-skill-md
+  name: returns-reverse-logistics
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '用于退货授权、接收与检验、处置决策、退款处理、欺诈检测以及保修索赔管理的标准化专业知识。基于拥有15年以上经验的退货运营经理的见解。包括分级框架、处置经济学、欺诈模式识别和供应商回收流程。适用于处理产品退货、逆向物流、退款决策、退货欺诈检测或保修索赔时使用。license:
+    Apache-2.0'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/returns-reverse-logistics
+  updated_at: '1773395144'
+- rank: 23
+  id: affaan-m-everything-claude-code-skills-returns-reverse-logistics-skill-md
+  name: returns-reverse-logistics
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Codified expertise for returns authorization, receipt and inspection,
+    disposition decisions, refund processing, fraud detection, and warranty claims
+    management. Informed by returns operations managers with 15+ years experience.
+    Includes grading frameworks, disposition economics, fraud pattern recognition,
+    and vendor recovery processes. Use when handling product returns, reverse logistics,
+    refund decisions, return fraud detection, or warranty claims.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/returns-reverse-logistics
+  updated_at: '1773202435'
+- rank: 24
+  id: affaan-m-everything-claude-code-docs-tr-skills-rust-patterns-skill-md
+  name: rust-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Idiomatic Rust patterns, ownership, error handling, traits, concurrency,
+    and best practices for building safe, performant applications.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/rust-patterns
+  updated_at: '1774219024'
+- rank: 25
+  id: affaan-m-everything-claude-code-skills-rust-patterns-skill-md
+  name: rust-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Idiomatic Rust patterns, ownership, error handling, traits, concurrency,
+    and best practices for building safe, performant applications.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/rust-patterns
+  updated_at: '1773991757'
+- rank: 26
+  id: anthropics-skills-skills-skill-creator-skill-md
+  name: skill-creator
+  author: anthropics
+  stars: 105006
+  forks: 11595
+  description: Create new skills, modify and improve existing skills, and measure
+    skill performance. Use when users want to create a skill from scratch, edit, or
+    optimize an existing skill, run evals to test a skill, benchmark skill performance
+    with variance analysis, or optimize a skill's description for better triggering
+    accuracy.
+  github_url: https://github.com/anthropics/skills/tree/main/skills/skill-creator
+  updated_at: '1772827583'
+- rank: 27
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-content-creator-skill-md
+  name: content-creator
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Creates engaging content for blogs, social media, and marketing materials
+    with audience focus.
+
+    Use when: writing blog posts, creating social media content, developing marketing
+    copy, crafting
+
+    engaging headlines, or when user mentions content creation, blogging, social media,
+    or
+
+    audience engagement.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/content-creator
+  updated_at: '1770167437'
+- rank: 28
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-project-planner-skill-md
+  name: project-planner
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Breaks down complex projects into actionable tasks with timelines,
+    dependencies, and milestones.
+
+    Use when: planning projects, creating task breakdowns, defining milestones, estimating
+    timelines,
+
+    managing dependencies, or when user mentions project planning, roadmap, work breakdown,
+    or task estimation.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/project-planner
+  updated_at: '1770167437'
+- rank: 29
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-ux-designer-skill-md
+  name: ux-designer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Expert UX design assistance for user research, wireframing, prototyping,
+    and design strategy.
+
+    Use when: creating wireframes, conducting user research, building prototypes,
+    designing user flows,
+
+    writing UX copy, reviewing designs for usability, creating personas, planning
+    usability tests,
+
+    or when user mentions UX design, user experience, wireframes, prototypes, user
+    research,
+
+    information architecture, or design systems.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/ux-designer
+  updated_at: '1771828979'
+- rank: 30
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-visualization-expert-skill-md
+  name: visualization-expert
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Chart selection and data visualization guidance for effective data
+    communication.
+
+    Use when: creating visualizations, choosing chart types, designing dashboards,
+    or when user
+
+    mentions data visualization, charts, graphs, or needs help presenting data visually.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/visualization-expert
+  updated_at: '1770167437'
+- rank: 31
+  id: angular-angular-skills-dev-skills-angular-new-app-skill-md
+  name: angular-new-app
+  author: angular
+  stars: 100120
+  forks: 27146
+  description: Creates a new Angular app using the Angular CLI. This skill should
+    be used whenver a user wants to create a new Angular application and contains
+    important guidelines for how to effectively create a modern Angular application.
+  github_url: https://github.com/angular/angular/tree/main/skills/dev-skills/angular-new-app
+  updated_at: '1771006074'
+- rank: 32
+  id: google-gemini-gemini-cli-gemini-skills-behavioral-evals-skill-md
+  name: behavioral-evals
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Guidance for creating, running, fixing, and promoting behavioral evaluations.
+    Use when verifying agent decision logic, debugging failures, debugging prompt
+    steering, or adding workspace regression tests.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/behavioral-evals
+  updated_at: '1774300003'
+- rank: 33
+  id: storybookjs-storybook-agents-skills-canary-skill-md
+  name: canary
+  author: storybookjs
+  stars: 89554
+  forks: 9960
+  description: Triggers a canary release for a Storybook PR. Use when the user wants
+    to publish a canary version, create a pre-release, or test a PR via npm.
+  github_url: https://github.com/storybookjs/storybook/tree/next/.agents/skills/canary
+  updated_at: '1773418133'
+- rank: 34
+  id: storybookjs-storybook-agents-skills-pr-skill-md
+  name: pr
+  author: storybookjs
+  stars: 89554
+  forks: 9960
+  description: Creates a pull request following Storybook conventions. Use when creating
+    PRs, opening pull requests, or submitting changes for review.
+  github_url: https://github.com/storybookjs/storybook/tree/next/.agents/skills/pr
+  updated_at: '1773466855'
+- rank: 35
+  id: anthropics-claude-code-plugins-plugin-dev-skills-agent-development-skill-md
+  name: agent-identifier
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: This skill should be used when the user asks to "create an agent",
+    "add an agent", "write a subagent", "agent frontmatter", "when to use description",
+    "agent examples", "agent tools", "agent colors", "autonomous agent", or needs
+    guidance on agent structure, system prompts, triggering conditions, or agent development
+    best practices for Claude Code plugins.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/agent-development
+  updated_at: '1763381340'
+- rank: 36
+  id: anthropics-claude-code-plugins-plugin-dev-skills-plugin-structure-skill-md
+  name: command-name
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: This skill should be used when the user asks to "create a plugin",
+    "scaffold a plugin", "understand plugin structure", "organize plugin components",
+    "set up plugin.json", "use ${CLAUDE_PLUGIN_ROOT}", "add commands/agents/skills/hooks",
+    "configure auto-discovery", or needs guidance on plugin directory layout, manifest
+    configuration, component organization, file naming conventions, or Claude Code
+    plugin architecture best practices.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/plugin-structure
+  updated_at: '1763381340'
+- rank: 37
+  id: anthropics-claude-code-plugins-frontend-design-skills-frontend-design-skill-md
+  name: frontend-design
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: Create distinctive, production-grade frontend interfaces with high
+    design quality. Use this skill when the user asks to build web components, pages,
+    or applications. Generates creative, polished code that avoids generic AI aesthetics.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design/skills/frontend-design
+  updated_at: '1762911111'
+- rank: 38
+  id: anthropics-claude-code-plugins-hookify-skills-writing-rules-skill-md
+  name: rule-identifier
+  author: anthropics
+  stars: 83753
+  forks: 7077
+  description: This skill should be used when the user asks to "create a hookify rule",
+    "write a hook rule", "configure hookify", "add a hookify rule", or needs guidance
+    on hookify rule syntax and patterns.
+  github_url: https://github.com/anthropics/claude-code/tree/main/plugins/hookify/skills/writing-rules
+  updated_at: '1763378323'
+- rank: 39
+  id: lobehub-lobehub-agents-skills-microcopy-skill-md
+  name: microcopy
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: UI copy and microcopy guidelines. Use when writing UI text, buttons,
+    error messages, empty states, onboarding, or any user-facing copy. Triggers on
+    i18n translation, UI text writing, or copy improvement tasks. Supports both Chinese
+    and English.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/microcopy
+  updated_at: '1772524901'
+- rank: 40
+  id: lobehub-lobehub-agents-skills-pr-skill-md
+  name: pr
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Create a PR for the current branch. Use when the user asks to create
+    a pull request, submit PR, or says 'pr'.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/pr
+  updated_at: '1773742803'
+- rank: 41
+  id: lobehub-lobehub-agents-skills-spa-routes-skill-md
+  name: spa-routes
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: MUST use when editing src/routes/ segments, src/spa/router/desktopRouter.config.tsx
+    or desktopRouter.config.desktop.tsx (always change both together), mobileRouter.config.tsx,
+    or when moving UI/logic between routes and src/features/.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/spa-routes
+  updated_at: '1774427257'
+- rank: 42
+  id: openhands-openhands-agents-skills-upcoming-release-skill-md
+  name: upcoming-release
+  author: OpenHands
+  stars: 70011
+  forks: 8772
+  description: This skill should be used when the user asks to "generate release notes",
+    "list upcoming release PRs", "summarize upcoming release", "/upcoming-release",
+    or needs to know what changes are part of an upcoming release.
+  github_url: https://github.com/OpenHands/OpenHands/tree/main/.agents/skills/upcoming-release
+  updated_at: '1772806948'
+- rank: 43
+  id: openbb-finance-openbb-openbb-platform-extensions-mcp-server-openbb-mcp-server-skills-build-workspace-app-skill-md
+  name: build-workspace-app
+  author: OpenBB-finance
+  stars: 63693
+  forks: 6276
+  description: This guide covers the full lifecycle of building, running, and serving
+    a custom OpenBB Workspace application from an extension project scaffolded by
+    `openbb-cookiecutter`. It assumes the project shell already exists (see the `develop_extension`
+    skill for scaffolding instructions).
+  github_url: https://github.com/OpenBB-finance/OpenBB/tree/develop/openbb_platform/extensions/mcp_server/openbb_mcp_server/skills/build_workspace_app
+  updated_at: '1773866339'
+- rank: 44
+  id: garrytan-gstack-plan-ceo-review-skill-md
+  name: plan-ceo-review
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'CEO/founder-mode plan review. Rethink the problem, find the 10-star
+    product,
+
+    challenge premises, expand scope when it creates a better product. Four modes:
+
+    SCOPE EXPANSION (dream big), SELECTIVE EXPANSION (hold scope + cherry-pick
+
+    expansions), HOLD SCOPE (maximum rigor), SCOPE REDUCTION (strip to essentials).
+
+    Use when asked to "think bigger", "expand scope", "strategy review", "rethink
+    this",
+
+    or "is this ambitious enough".
+
+    Proactively suggest when the user is questioning scope or ambition of a plan,
+
+    or when the plan feels like it could be thinking bigger.'
+  github_url: https://github.com/garrytan/gstack/tree/main/plan-ceo-review
+  updated_at: '1774634818'
+- rank: 45
+  id: nextlevelbuilder-ui-ux-pro-max-skill-claude-skills-brand-skill-md
+  name: ckmbrand
+  author: nextlevelbuilder
+  stars: 53137
+  forks: 5136
+  description: Brand voice, visual identity, messaging frameworks, asset management,
+    brand consistency. Activate for branded content, tone of voice, marketing assets,
+    brand compliance, style guides.
+  github_url: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/brand
+  updated_at: '1773119134'
+- rank: 46
+  id: nextlevelbuilder-ui-ux-pro-max-skill-claude-skills-design-system-skill-md
+  name: ckmdesign-system
+  author: nextlevelbuilder
+  stars: 53137
+  forks: 5136
+  description: Token architecture, component specifications, and slide generation.
+    Three-layer tokens (primitive→semantic→component), CSS variables, spacing/typography
+    scales, component specs, strategic slide creation. Use for design tokens, systematic
+    design, brand-compliant presentations.
+  github_url: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/design-system
+  updated_at: '1773119149'
+- rank: 47
+  id: nextlevelbuilder-ui-ux-pro-max-skill-claude-skills-slides-skill-md
+  name: ckmslides
+  author: nextlevelbuilder
+  stars: 53137
+  forks: 5136
+  description: Create strategic HTML presentations with Chart.js, design tokens, responsive
+    layouts, copywriting formulas, and contextual slide strategies.
+  github_url: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/main/.claude/skills/slides
+  updated_at: '1773121141'
+- rank: 48
+  id: bytedance-deer-flow-skills-public-consulting-analysis-skill-md
+  name: consulting-analysis
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Use this skill when the user requests to generate, create, or write
+    professional research reports including but not limited to market analysis, consumer
+    insights, brand analysis, financial analysis, industry research, competitive intelligence,
+    investment due diligence, or any consulting-grade analytical report. This skill
+    operates in two phases — (1) generating a structured analysis framework with chapter
+    skeleton, data query requirements, and analysis logic, and (2) after data collection
+    by other skills, producing the final consulting-grade report with structured narratives,
+    embedded charts, and strategic insights.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/consulting-analysis
+  updated_at: '1772029523'
+- rank: 49
+  id: bytedance-deer-flow-skills-public-find-skills-skill-md
+  name: find-skills
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Helps users discover and install agent skills when they ask questions
+    like "how do I do X", "find a skill for X", "is there a skill that can...", or
+    express interest in extending capabilities. This skill should be used when the
+    user is looking for functionality that might exist as an installable skill.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/find-skills
+  updated_at: '1769961248'
+- rank: 50
+  id: bytedance-deer-flow-skills-public-frontend-design-skill-md
+  name: frontend-design
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Create distinctive, production-grade frontend interfaces with high
+    design quality. Use this skill when the user asks to build web components, pages,
+    artifacts, posters, or applications (examples include websites, landing pages,
+    dashboards, React components, HTML/CSS layouts, or when styling/beautifying any
+    web UI). Generates creative, polished code and UI design that avoids generic AI
+    aesthetics.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/frontend-design
+  updated_at: '1769001776'

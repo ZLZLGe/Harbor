@@ -1,0 +1,587 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: business
+category_name: Business
+category_skill_count: 121378
+subcategory_slug: real-estate-legal
+subcategory_name: Real Estate & Legal
+subcategory_skill_count: 4847
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=real-estate-legal
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 4847
+  total_pages: 97
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: openclaw-openclaw-extensions-feishu-skills-feishu-perm-skill-md
+  name: feishu-perm
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Feishu permission management for documents and files. Activate when
+    user mentions sharing, permissions, collaborators.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-perm
+  updated_at: '1770337930'
+- rank: 2
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-logistics-exception-management-skill-md
+  name: logistics-exception-management
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '针对货运异常、货物延误、损坏、丢失和承运商纠纷的编码化专业知识，由拥有15年以上运营经验的物流专业人士提供。包括升级协议、承运商特定行为、索赔程序和判断框架。在处理运输异常、货运索赔、交付问题或承运商纠纷时使用。license:
+    Apache-2.0'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/logistics-exception-management
+  updated_at: '1773395144'
+- rank: 3
+  id: garrytan-gstack-review-skill-md
+  name: review
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Pre-landing PR review. Analyzes diff against the base branch for SQL
+    safety, LLM trust
+
+    boundary violations, conditional side effects, and other structural issues. Use
+    when
+
+    asked to "review this PR", "code review", "pre-landing review", or "check my diff".
+
+    Proactively suggest when the user is about to merge or land code changes.'
+  github_url: https://github.com/garrytan/gstack/tree/main/review
+  updated_at: '1774634818'
+- rank: 4
+  id: wshobson-agents-plugins-hr-legal-compliance-skills-employment-contract-templates-skill-md
+  name: employment-contract-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create employment contracts, offer letters, and HR policy documents
+    following legal best practices. Use when drafting employment agreements, creating
+    HR policies, or standardizing employment documentation.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/hr-legal-compliance/skills/employment-contract-templates
+  updated_at: '1772898797'
+- rank: 5
+  id: wshobson-agents-plugins-incident-response-skills-on-call-handoff-patterns-skill-md
+  name: on-call-handoff-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master on-call shift handoffs with context transfer, escalation procedures,
+    and documentation. Use this skill when transitioning on-call responsibilities
+    between engineers and ensuring the incoming responder has full situational awareness,
+    when writing a shift summary that captures active incidents, ongoing investigations,
+    and recent changes, when handing off mid-incident so a fresh engineer can take
+    over the incident commander role without losing context, when onboarding a new
+    engineer to the on-call rotation for the first time, or when auditing and improving
+    the quality of existing handoff processes across teams.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/incident-response/skills/on-call-handoff-patterns
+  updated_at: '1774541117'
+- rank: 6
+  id: sickn33-antigravity-awesome-skills-skills-advogado-criminal-skill-md
+  name: advogado-criminal
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Advogado criminalista especializado em Maria da Penha, violencia domestica,
+    feminicidio, direito penal brasileiro, medidas protetivas, inquerito policial
+    e acao penal.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/advogado-criminal
+  updated_at: '1772874247'
+- rank: 7
+  id: sickn33-antigravity-awesome-skills-skills-advogado-especialista-skill-md
+  name: advogado-especialista
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Advogado especialista em todas as areas do Direito brasileiro: familia,
+    criminal, trabalhista, tributario, consumidor, imobiliario, empresarial, civil
+    e constitucional.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/advogado-especialista
+  updated_at: '1772874247'
+- rank: 8
+  id: sickn33-antigravity-awesome-skills-skills-ask-questions-if-underspecified-skill-md
+  name: ask-questions-if-underspecified
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Clarify requirements before implementing. Use when serious doubts arise.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ask-questions-if-underspecified
+  updated_at: '1773994629'
+- rank: 9
+  id: sickn33-antigravity-awesome-skills-skills-security-aws-iam-best-practices-skill-md
+  name: aws-iam-best-practices
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: IAM policy review, hardening, and least privilege implementation
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/security/aws-iam-best-practices
+  updated_at: '1773994005'
+- rank: 10
+  id: sickn33-antigravity-awesome-skills-skills-employment-contract-templates-skill-md
+  name: employment-contract-templates
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Templates and patterns for creating legally sound employment documentation
+    including contracts, offer letters, and HR policies.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/employment-contract-templates
+  updated_at: '1773994005'
+- rank: 11
+  id: sickn33-antigravity-awesome-skills-skills-legal-advisor-skill-md
+  name: legal-advisor
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Draft privacy policies, terms of service, disclaimers, and legal notices.
+    Creates GDPR-compliant texts, cookie policies, and data processing agreements.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/legal-advisor
+  updated_at: '1772354305'
+- rank: 12
+  id: sickn33-antigravity-awesome-skills-skills-leiloeiro-avaliacao-skill-md
+  name: leiloeiro-avaliacao
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Avaliacao pericial de imoveis em leilao. Valor de mercado, liquidacao
+    forcada, ABNT NBR 14653, metodos comparativo/renda/custo, CUB e margem de seguranca.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/leiloeiro-avaliacao
+  updated_at: '1772874247'
+- rank: 13
+  id: sickn33-antigravity-awesome-skills-skills-leiloeiro-edital-skill-md
+  name: leiloeiro-edital
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Analise e auditoria de editais de leilao judicial e extrajudicial.
+    Riscos ocultos, clausulas perigosas, debitos, ocupante e classificacao da oportunidade.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/leiloeiro-edital
+  updated_at: '1772874247'
+- rank: 14
+  id: sickn33-antigravity-awesome-skills-skills-leiloeiro-juridico-skill-md
+  name: leiloeiro-juridico
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Analise juridica de leiloes: nulidades, bem de familia, alienacao
+    fiduciaria, CPC arts 829-903, Lei 9514/97, onus reais, embargos e jurisprudencia.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/leiloeiro-juridico
+  updated_at: '1772874247'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-odoo-hr-payroll-setup-skill-md
+  name: odoo-hr-payroll-setup
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Expert guide for Odoo HR and Payroll: salary structures, payslip rules,
+    leave policies, employee contracts, and payroll journal entries.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/odoo-hr-payroll-setup
+  updated_at: '1772656832'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-swift-concurrency-expert-skill-md
+  name: swift-concurrency-expert
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Review and fix Swift concurrency issues such as actor isolation and
+    Sendable violations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/swift-concurrency-expert
+  updated_at: '1774435988'
+- rank: 17
+  id: github-awesome-copilot-skills-prd-skill-md
+  name: prd
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Generate high-quality Product Requirements Documents (PRDs) for software
+    systems and AI-powered features. Includes executive summaries, user stories, technical
+    specifications, and risk analysis.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/prd
+  updated_at: '1769103412'
+- rank: 18
+  id: davila7-claude-code-templates-cli-tool-components-skills-enterprise-communication-data-privacy-compliance-skill-md
+  name: data-privacy-compliance
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Data privacy and regulatory compliance specialist for GDPR, CCPA, HIPAA,
+    and international data protection laws. Use when implementing privacy controls,
+    conducting data protection impact assessments, ensuring regulatory compliance,
+    or managing data subject rights. Expert in consent management, data minimization,
+    and privacy-by-design principles.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/enterprise-communication/data-privacy-compliance
+  updated_at: '1766196856'
+- rank: 19
+  id: elastic-kibana-agents-skills-branch-readiness-checks-skill-md
+  name: branch-readiness-checks
+  author: elastic
+  stars: 21027
+  forks: 8547
+  description: Validate branch readiness before push or PR using base-diff and local-change
+    checks.
+  github_url: https://github.com/elastic/kibana/tree/main/.agents/skills/branch-readiness-checks
+  updated_at: '1772764951'
+- rank: 20
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-iso-13485-certification-skill-md
+  name: iso-13485-certification
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive toolkit for preparing ISO 13485 certification documentation
+    for medical device Quality Management Systems. Use when users need help with ISO
+    13485 QMS documentation, including (1) conducting gap analysis of existing documentation,
+    (2) creating Quality Manuals, (3) developing required procedures and work instructions,
+    (4) preparing Medical Device Files, (5) understanding ISO 13485 requirements,
+    or (6) identifying missing documentation for medical device certification. Also
+    use when users mention medical device regulations, QMS certification, FDA QMSR,
+    EU MDR, or need help with quality system documentation.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/iso-13485-certification
+  updated_at: '1772554803'
+- rank: 21
+  id: udecode-plate-agents-skills-adversarial-document-reviewer-skill-md
+  name: adversarial-document-reviewer
+  author: udecode
+  stars: 16084
+  forks: 964
+  description: Conditional document-review persona, selected when the document has
+    >5 requirements or implementation units, makes significant architectural decisions,
+    covers high-stakes domains, or proposes new abstractions. Challenges premises,
+    surfaces unstated assumptions, and stress-tests decisions rather than evaluating
+    document quality.
+  github_url: https://github.com/udecode/plate/tree/main/.agents/skills/adversarial-document-reviewer
+  updated_at: '1774632415'
+- rank: 22
+  id: udecode-plate-agents-skills-api-contract-reviewer-skill-md
+  name: api-contract-reviewer
+  author: udecode
+  stars: 16084
+  forks: 964
+  description: Conditional code-review persona, selected when the diff touches API
+    routes, request/response types, serialization, versioning, or exported type signatures.
+    Reviews code for breaking contract changes.
+  github_url: https://github.com/udecode/plate/tree/main/.agents/skills/api-contract-reviewer
+  updated_at: '1774632415'
+- rank: 23
+  id: udecode-plate-agents-skills-data-migrations-reviewer-skill-md
+  name: data-migrations-reviewer
+  author: udecode
+  stars: 16084
+  forks: 964
+  description: Conditional code-review persona, selected when the diff touches migration
+    files, schema changes, data transformations, or backfill scripts. Reviews code
+    for data integrity and migration safety.
+  github_url: https://github.com/udecode/plate/tree/main/.agents/skills/data-migrations-reviewer
+  updated_at: '1774632415'
+- rank: 24
+  id: udecode-plate-agents-skills-feasibility-reviewer-skill-md
+  name: feasibility-reviewer
+  author: udecode
+  stars: 16084
+  forks: 964
+  description: Evaluates whether proposed technical approaches in planning documents
+    will survive contact with reality -- architecture conflicts, dependency gaps,
+    migration risks, and implementability. Spawned by the document-review skill.
+  github_url: https://github.com/udecode/plate/tree/main/.agents/skills/feasibility-reviewer
+  updated_at: '1774632415'
+- rank: 25
+  id: abpframework-abp-claude-skills-abp-multi-tenancy-skill-md
+  name: abp-multi-tenancy
+  author: abpframework
+  stars: 14190
+  forks: 3682
+  description: ABP Multi-Tenancy - IMultiTenant interface, CurrentTenant, CurrentTenant.Change(),
+    DataFilter.Disable(IMultiTenant), tenant resolution order, database-per-tenant.
+    Use when working with multi-tenant features, tenant-specific data isolation, or
+    switching tenant context.
+  github_url: https://github.com/abpframework/abp/tree/dev/.claude/skills/abp-multi-tenancy
+  updated_at: '1773051302'
+- rank: 26
+  id: anthropics-knowledge-work-plugins-sales-skills-create-an-asset-skill-md
+  name: create-an-asset
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Generate tailored sales assets (landing pages, decks, one-pagers, workflow
+    demos) from your deal context. Describe your prospect, audience, and goal — get
+    a polished, branded asset ready to share with customers.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/sales/skills/create-an-asset
+  updated_at: '1769726177'
+- rank: 27
+  id: anthropics-knowledge-work-plugins-human-resources-skills-draft-offer-skill-md
+  name: draft-offer
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Draft an offer letter with comp details and terms. Use when a candidate
+    is ready for an offer, assembling a total comp package (base, equity, signing
+    bonus), writing the offer letter text itself, or prepping negotiation guidance
+    for the hiring manager.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/human-resources/skills/draft-offer
+  updated_at: '1773417477'
+- rank: 28
+  id: anthropics-knowledge-work-plugins-legal-skills-review-contract-skill-md
+  name: review-contract
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Review a contract against your organization's negotiation playbook
+    — flag deviations, generate redlines, provide business impact analysis. Use when
+    reviewing vendor or customer agreements, when you need clause-by-clause analysis
+    against standard positions, or when preparing a negotiation strategy with prioritized
+    redlines and fallback positions.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/legal/skills/review-contract
+  updated_at: '1773417477'
+- rank: 29
+  id: anthropics-knowledge-work-plugins-legal-skills-triage-nda-skill-md
+  name: triage-nda
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Rapidly triage an incoming NDA and classify it as GREEN (standard approval),
+    YELLOW (counsel review), or RED (full legal review). Use when a new NDA arrives
+    from sales or business development, when screening for embedded non-solicits,
+    non-competes, or missing carveouts, or when deciding whether an NDA can be signed
+    under standard delegation.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/legal/skills/triage-nda
+  updated_at: '1773417477'
+- rank: 30
+  id: anthropics-knowledge-work-plugins-legal-skills-vendor-check-skill-md
+  name: vendor-check
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Check the status of existing agreements with a vendor across all connected
+    systems — CLM, CRM, email, and document storage — with gap analysis and upcoming
+    deadlines. Use when onboarding or renewing a vendor, when you need a consolidated
+    view of what's signed and what's missing (MSA, DPA, SOW), or when checking for
+    approaching expirations and surviving obligations.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/legal/skills/vendor-check
+  updated_at: '1773417477'
+- rank: 31
+  id: elie222-inbox-zero-claude-skills-explain-changes-skill-md
+  name: explain-changes
+  author: elie222
+  stars: 10348
+  forks: 1247
+  description: Explain recent changes and provide a structured summary with security
+    checks
+  github_url: https://github.com/elie222/inbox-zero/tree/main/.claude/skills/explain-changes
+  updated_at: '1771929489'
+- rank: 32
+  id: gitkraken-vscode-gitlens-claude-skills-audit-commits-skill-md
+  name: audit-commits
+  author: gitkraken
+  stars: 9753
+  forks: 1693
+  description: Audit commits for issues and CHANGELOG entries
+  github_url: https://github.com/gitkraken/vscode-gitlens/tree/main/.claude/skills/audit-commits
+  updated_at: '1771644505'
+- rank: 33
+  id: antiwork-gumroad-claude-skills-commit-skill-md
+  name: commit
+  author: antiwork
+  stars: 8760
+  forks: 1833
+  description: Stage and commit changes with a clear, concise commit message.
+  github_url: https://github.com/antiwork/gumroad/tree/main/.claude/skills/commit
+  updated_at: '1771385666'
+- rank: 34
+  id: bitwarden-android-claude-skills-labeling-android-changes-skill-md
+  name: labeling-android-changes
+  author: bitwarden
+  stars: 8619
+  forks: 948
+  description: 'Conventional commit type keywords for PR titles and commit messages.
+    Use when determining the change type for commits or PRs. Triggered by "what type",
+    "label", "change type", "conventional commit", "t: label".'
+  github_url: https://github.com/bitwarden/android/tree/main/.claude/skills/labeling-android-changes
+  updated_at: '1772521077'
+- rank: 35
+  id: phuryn-pm-skills-pm-toolkit-skills-draft-nda-skill-md
+  name: draft-nda
+  author: phuryn
+  stars: 8299
+  forks: 855
+  description: Draft a detailed Non-Disclosure Agreement between two parties covering
+    information types, jurisdiction, and clauses needing legal review. Use when creating
+    confidentiality agreements or preparing an NDA for a partnership.
+  github_url: https://github.com/phuryn/pm-skills/tree/main/pm-toolkit/skills/draft-nda
+  updated_at: '1772523522'
+- rank: 36
+  id: webiny-webiny-js-skills-user-skills-generated-api-tenancy-skill-md
+  name: webiny-api-tenancy-catalog
+  author: webiny
+  stars: 7956
+  forks: 660
+  description: API — Tenancy — 17 abstractions. Tenant lifecycle and installation
+    event handlers and use cases.
+  github_url: https://github.com/webiny/webiny-js/tree/next/skills/user-skills/generated/api/tenancy
+  updated_at: '1774617555'
+- rank: 37
+  id: webiny-webiny-js-skills-user-skills-generated-api-tenant-manager-skill-md
+  name: webiny-api-tenant-manager-catalog
+  author: webiny
+  stars: 7956
+  forks: 660
+  description: API — Tenant Manager — 2 abstractions. Tenant management event handlers
+    and use cases.
+  github_url: https://github.com/webiny/webiny-js/tree/next/skills/user-skills/generated/api/tenant-manager
+  updated_at: '1774617555'
+- rank: 38
+  id: alirezarezvani-claude-skills-business-growth-contract-and-proposal-writer-skill-md
+  name: contract-and-proposal-writer
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Contract & Proposal Writer
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/business-growth/contract-and-proposal-writer
+  updated_at: '1773068065'
+- rank: 39
+  id: alirezarezvani-claude-skills-engineering-dependency-auditor-skill-md
+  name: dependency-auditor
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Dependency Auditor
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering/dependency-auditor
+  updated_at: '1773068065'
+- rank: 40
+  id: alirezarezvani-claude-skills-ra-qm-team-mdr-745-specialist-skill-md
+  name: mdr-745-specialist
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: EU MDR 2017/745 compliance specialist for medical device classification,
+    technical documentation, clinical evidence, and post-market surveillance. Covers
+    Annex VIII classification rules, Annex II/III technical files, Annex XIV clinical
+    evaluation, and EUDAMED integration.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/mdr-745-specialist
+  updated_at: '1773068065'
+- rank: 41
+  id: alirezarezvani-claude-skills-ra-qm-team-quality-documentation-manager-skill-md
+  name: quality-documentation-manager
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Document control system management for medical device QMS. Covers document
+    numbering, version control, change management, and 21 CFR Part 11 compliance.
+    Use for document control procedures, change control workflow, document numbering,
+    version management, electronic signature compliance, or regulatory documentation
+    review.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-documentation-manager
+  updated_at: '1773411963'
+- rank: 42
+  id: alirezarezvani-claude-skills-ra-qm-team-quality-manager-qms-iso13485-skill-md
+  name: quality-manager-qms-iso13485
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: ISO 13485 Quality Management System implementation and maintenance
+    for medical device organizations. Provides QMS design, documentation control,
+    internal auditing, CAPA management, and certification support. Use when working
+    with medical device quality systems, preparing for ISO 13485 audits, managing
+    regulatory compliance documentation, setting up corrective actions, or building
+    audit preparation programs. Useful for quality management, audit preparation,
+    regulatory compliance, medical device documentation, and corrective action workflows.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/quality-manager-qms-iso13485
+  updated_at: '1773068065'
+- rank: 43
+  id: azure-azure-sdk-for-net-github-skills-azure-sdk-mgmt-pr-review-skill-md
+  name: azure-sdk-mgmt-pr-review
+  author: Azure
+  stars: 5961
+  forks: 5128
+  description: Review Azure SDK management-plane pull requests, check naming conventions,
+    API compatibility, and code quality.
+  github_url: https://github.com/Azure/azure-sdk-for-net/tree/main/.github/skills/azure-sdk-mgmt-pr-review
+  updated_at: '1774415130'
+- rank: 44
+  id: azure-azure-sdk-for-net-github-skills-mgmt-review-comment-resolution-skill-md
+  name: mgmt-review-comment-resolution
+  author: Azure
+  stars: 5961
+  forks: 5128
+  description: Resolve review comments on Azure management-plane .NET SDK PRs. Handles
+    renaming types/properties, changing property types, and other API surface adjustments
+    by updating TypeSpec client.tsp and regenerating.
+  github_url: https://github.com/Azure/azure-sdk-for-net/tree/main/.github/skills/mgmt-review-comment-resolution
+  updated_at: '1773220030'
+- rank: 45
+  id: umbraco-umbraco-cms-src-umbraco-web-ui-client-claude-skills-general-create-condition-skill-md
+  name: general-create-condition
+  author: umbraco
+  stars: 5152
+  forks: 2870
+  description: Create a new extension condition that controls when extensions are
+    active. Use when you need to conditionally show or hide extensions based on application
+    state (e.g., current section, user permissions, entity state, workspace context).
+    Conditions are registered as extensions and referenced in manifest condition arrays.
+  github_url: https://github.com/umbraco/Umbraco-CMS/tree/main/src/Umbraco.Web.UI.Client/.claude/skills/general-create-condition
+  updated_at: '1774611353'
+- rank: 46
+  id: m1heng-clawdbot-feishu-skills-feishu-perm-skill-md
+  name: feishu-perm
+  author: m1heng
+  stars: 4315
+  forks: 462
+  description: Feishu permission management for documents and files. Activate when
+    user mentions sharing, permissions, collaborators.
+  github_url: https://github.com/m1heng/clawdbot-feishu/tree/main/skills/feishu-perm
+  updated_at: '1769968609'
+- rank: 47
+  id: trailofbits-skills-plugins-ask-questions-if-underspecified-skills-ask-questions-if-underspecified-skill-md
+  name: ask-questions-if-underspecified
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Clarify requirements before implementing. Use when serious doubts arise.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/ask-questions-if-underspecified/skills/ask-questions-if-underspecified
+  updated_at: '1769715444'
+- rank: 48
+  id: donchitos-claude-code-game-studios-claude-skills-asset-audit-skill-md
+  name: asset-audit
+  author: Donchitos
+  stars: 3983
+  forks: 536
+  description: Audits game assets for compliance with naming conventions, file size
+    budgets, format standards, and pipeline requirements. Identifies orphaned assets,
+    missing references, and standard violations.
+  github_url: https://github.com/Donchitos/Claude-Code-Game-Studios/tree/main/.claude/skills/asset-audit
+  updated_at: '1770977064'
+- rank: 49
+  id: mukul975-anthropic-cybersecurity-skills-skills-conducting-social-engineering-pretext-call-skill-md
+  name: conducting-social-engineering-pretext-call
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Plan and execute authorized vishing (voice phishing) pretext calls
+    to assess employee susceptibility to social engineering and evaluate security
+    awareness controls.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/conducting-social-engineering-pretext-call
+  updated_at: '1773924116'
+- rank: 50
+  id: mukul975-anthropic-cybersecurity-skills-skills-implementing-vulnerability-remediation-sla-skill-md
+  name: implementing-vulnerability-remediation-sla
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Vulnerability remediation SLAs define mandatory timeframes for patching
+    or mitigating identified vulnerabilities based on severity, asset criticality,
+    and exploit availability. Effective SLA programs
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/implementing-vulnerability-remediation-sla
+  updated_at: '1773923981'

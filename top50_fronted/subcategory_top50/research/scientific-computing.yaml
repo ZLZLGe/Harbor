@@ -1,0 +1,661 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: research
+category_name: Research
+category_skill_count: 23700
+subcategory_slug: scientific-computing
+subcategory_name: Scientific Computing
+subcategory_skill_count: 2745
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=scientific-computing
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 2745
+  total_pages: 55
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-academic-researcher-skill-md
+  name: academic-researcher
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Academic research assistant for literature reviews, paper analysis,
+    and scholarly writing.
+
+    Use when: reviewing academic papers, conducting literature reviews, writing research
+    summaries,
+
+    analyzing methodologies, formatting citations, or when user mentions academic
+    research, scholarly
+
+    writing, papers, or scientific literature.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/academic-researcher
+  updated_at: '1770167437'
+- rank: 2
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-data-analyst-skill-md
+  name: data-analyst
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'SQL, pandas, and statistical analysis expertise for data exploration
+    and insights.
+
+    Use when: analyzing data, writing SQL queries, using pandas, performing statistical
+    analysis,
+
+    or when user mentions data analysis, SQL, pandas, statistics, or needs help exploring
+    datasets.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/data-analyst
+  updated_at: '1770167437'
+- rank: 3
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-deep-research-skill-md
+  name: deep-research
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Comprehensive research assistant that synthesizes information from
+    multiple sources with citations.
+
+    Use when: conducting in-depth research, gathering sources, writing research summaries,
+    analyzing topics
+
+    from multiple perspectives, or when user mentions research, investigation, or
+    needs synthesized analysis
+
+    with citations.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/deep-research
+  updated_at: '1770167437'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-biopython-skill-md
+  name: biopython
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Biopython is a comprehensive set of freely available Python tools for
+    biological computation. It provides functionality for sequence manipulation, file
+    I/O, database access, structural bioinformatics, phylogenetics, and many other
+    bioinformatics tasks.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/biopython
+  updated_at: '1773994629'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-data-scientist-skill-md
+  name: data-scientist
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert data scientist for advanced analytics, machine learning, and
+    statistical modeling. Handles complex data analysis, predictive modeling, and
+    business intelligence.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/data-scientist
+  updated_at: '1773746310'
+- rank: 6
+  id: assafelovic-gpt-researcher-claude-skill-md
+  name: gpt-researcher
+  author: assafelovic
+  stars: 26040
+  forks: 3475
+  description: GPT Researcher is an autonomous deep research agent that conducts web
+    and local research, producing detailed reports with citations. Use this skill
+    when helping developers understand, extend, debug, or integrate with GPT Researcher
+    - including adding features, understanding the architecture, working with the
+    API, customizing research workflows, adding new retrievers, integrating MCP data
+    sources, or troubleshooting research pipelines.
+  github_url: https://github.com/assafelovic/gpt-researcher/tree/main/.claude
+  updated_at: '1769879249'
+- rank: 7
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-brenda-database-skill-md
+  name: brenda-database
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Access BRENDA enzyme database via SOAP API. Retrieve kinetic parameters
+    (Km, kcat), reaction equations, organism data, and substrate-specific enzyme information
+    for biochemical research and metabolic pathway analysis.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/brenda-database
+  updated_at: '1766265230'
+- rank: 8
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-clinical-decision-support-skill-md
+  name: clinical-decision-support
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Generate professional clinical decision support (CDS) documents for
+    pharmaceutical and clinical research settings, including patient cohort analyses
+    (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based
+    guidelines with decision algorithms). Supports GRADE evidence grading, statistical
+    analysis (hazard ratios, survival curves, waterfall plots), biomarker integration,
+    and regulatory compliance. Outputs publication-ready LaTeX/PDF format optimized
+    for drug development, clinical research, and evidence synthesis.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/clinical-decision-support
+  updated_at: '1766265230'
+- rank: 9
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-hypothesis-generation-skill-md
+  name: hypothesis-generation
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Generate testable hypotheses. Formulate from observations, design experiments,
+    explore competing explanations, develop predictions, propose mechanisms, for scientific
+    inquiry across domains.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/hypothesis-generation
+  updated_at: '1766265230'
+- rank: 10
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-research-lookup-skill-md
+  name: research-lookup
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Look up current research information using Perplexity's Sonar Pro Search
+    or Sonar Reasoning Pro models through OpenRouter. Automatically selects the best
+    model based on query complexity. Search academic papers, recent studies, technical
+    documentation, and general research information with citations.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/research-lookup
+  updated_at: '1766265230'
+- rank: 11
+  id: davila7-claude-code-templates-cli-tool-components-skills-scientific-scientific-writing-skill-md
+  name: scientific-writing
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: 'Core skill for the deep research and writing tool. Write scientific
+    manuscripts in full paragraphs (never bullet points). Use two-stage process: (1)
+    create section outlines with key points using research-lookup, (2) convert to
+    flowing prose. IMRAD structure, citations (APA/AMA/Vancouver), figures/tables,
+    reporting guidelines (CONSORT/STROBE/PRISMA), for research papers and journal
+    submissions.'
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/scientific/scientific-writing
+  updated_at: '1766265230'
+- rank: 12
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-adaptyv-skill-md
+  name: adaptyv
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Cloud laboratory platform for automated protein testing and validation.
+    Use when designing proteins and needing experimental validation including binding
+    assays, expression testing, thermostability measurements, enzyme activity assays,
+    or protein sequence optimization. Also use for submitting experiments via API,
+    tracking experiment status, downloading results, optimizing protein sequences
+    for better expression using computational tools (NetSolP, SoluProt, SolubleMPNN,
+    ESM), or managing protein design workflows with wet-lab validation.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/adaptyv
+  updated_at: '1772554803'
+- rank: 13
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-alphafold-database-skill-md
+  name: alphafold-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Access AlphaFold 200M+ AI-predicted protein structures. Retrieve structures
+    by UniProt ID, download PDB/mmCIF files, analyze confidence metrics (pLDDT, PAE),
+    for drug discovery and structural biology.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/alphafold-database
+  updated_at: '1772554803'
+- rank: 14
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-benchling-integration-skill-md
+  name: benchling-integration
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Benchling R&D platform integration. Access registry (DNA, proteins),
+    inventory, ELN entries, workflows via API, build Benchling Apps, query Data Warehouse,
+    for lab data management automation.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/benchling-integration
+  updated_at: '1772554803'
+- rank: 15
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-biopython-skill-md
+  name: biopython
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive molecular biology toolkit. Use for sequence manipulation,
+    file parsing (FASTA/GenBank/PDB), phylogenetics, and programmatic NCBI/PubMed
+    access (Bio.Entrez). Best for batch processing, custom bioinformatics pipelines,
+    BLAST automation. For quick lookups use gget; for multi-service integration use
+    bioservices.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/biopython
+  updated_at: '1772554803'
+- rank: 16
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-bioservices-skill-md
+  name: bioservices
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Unified Python interface to 40+ bioinformatics services. Use when querying
+    multiple databases (UniProt, KEGG, ChEMBL, Reactome) in a single workflow with
+    consistent API. Best for cross-database analysis, ID mapping across services.
+    For quick single-database lookups use gget; for sequence/file manipulation use
+    biopython.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/bioservices
+  updated_at: '1772554803'
+- rank: 17
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-brenda-database-skill-md
+  name: brenda-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Access BRENDA enzyme database via SOAP API. Retrieve kinetic parameters
+    (Km, kcat), reaction equations, organism data, and substrate-specific enzyme information
+    for biochemical research and metabolic pathway analysis.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/brenda-database
+  updated_at: '1772554803'
+- rank: 18
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-cellxgene-census-skill-md
+  name: cellxgene-census
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query the CELLxGENE Census (61M+ cells) programmatically. Use when
+    you need expression data across tissues, diseases, or cell types from the largest
+    curated single-cell atlas. Best for population-scale queries, reference atlas
+    comparisons. For analyzing your own data use scanpy or scvi-tools.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/cellxgene-census
+  updated_at: '1772554803'
+- rank: 19
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-chembl-database-skill-md
+  name: chembl-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query ChEMBL bioactive molecules and drug discovery data. Search compounds
+    by structure/properties, retrieve bioactivity data (IC50, Ki), find inhibitors,
+    perform SAR studies, for medicinal chemistry.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/chembl-database
+  updated_at: '1772554803'
+- rank: 20
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-cirq-skill-md
+  name: cirq
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Google quantum computing framework. Use when targeting Google Quantum
+    AI hardware, designing noise-aware circuits, or running quantum characterization
+    experiments. Best for Google hardware, noise modeling, and low-level circuit design.
+    For IBM hardware use qiskit; for quantum ML with autodiff use pennylane; for physics
+    simulations use qutip.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/cirq
+  updated_at: '1772554803'
+- rank: 21
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-clinical-decision-support-skill-md
+  name: clinical-decision-support
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Generate professional clinical decision support (CDS) documents for
+    pharmaceutical and clinical research settings, including patient cohort analyses
+    (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based
+    guidelines with decision algorithms). Supports GRADE evidence grading, statistical
+    analysis (hazard ratios, survival curves, waterfall plots), biomarker integration,
+    and regulatory compliance. Outputs publication-ready LaTeX/PDF format optimized
+    for drug development, clinical research, and evidence synthesis.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/clinical-decision-support
+  updated_at: '1772554803'
+- rank: 22
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-clinpgx-database-skill-md
+  name: clinpgx-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Access ClinPGx pharmacogenomics data (successor to PharmGKB). Query
+    gene-drug interactions, CPIC guidelines, allele functions, for precision medicine
+    and genotype-guided dosing decisions.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/clinpgx-database
+  updated_at: '1772554803'
+- rank: 23
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-clinvar-database-skill-md
+  name: clinvar-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query NCBI ClinVar for variant clinical significance. Search by gene/position,
+    interpret pathogenicity classifications, access via E-utilities API or FTP, annotate
+    VCFs, for genomic medicine.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/clinvar-database
+  updated_at: '1772554803'
+- rank: 24
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-cosmic-database-skill-md
+  name: cosmic-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Access COSMIC cancer mutation database. Query somatic mutations, Cancer
+    Gene Census, mutational signatures, gene fusions, for cancer research and precision
+    oncology. Requires authentication.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/cosmic-database
+  updated_at: '1772554803'
+- rank: 25
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-deepchem-skill-md
+  name: deepchem
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Molecular ML with diverse featurizers and pre-built datasets. Use for
+    property prediction (ADMET, toxicity) with traditional ML or GNNs when you want
+    extensive featurization options and MoleculeNet benchmarks. Best for quick experiments
+    with pre-trained models, diverse molecular representations. For graph-first PyTorch
+    workflows use torchdrug; for benchmark datasets use pytdc.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/deepchem
+  updated_at: '1772554803'
+- rank: 26
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-deeptools-skill-md
+  name: deeptools
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA,
+    fingerprints), heatmaps/profiles (TSS, peaks), for ChIP-seq, RNA-seq, ATAC-seq
+    visualization.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/deeptools
+  updated_at: '1772554803'
+- rank: 27
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-denario-skill-md
+  name: denario
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Multiagent AI system for scientific research assistance that automates
+    research workflows from data analysis to publication. This skill should be used
+    when generating research ideas from datasets, developing research methodologies,
+    executing computational experiments, performing literature searches, or generating
+    publication-ready papers in LaTeX format. Supports end-to-end research pipelines
+    with customizable agent orchestration.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/denario
+  updated_at: '1772554803'
+- rank: 28
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-diffdock-skill-md
+  name: diffdock
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Diffusion-based molecular docking. Predict protein-ligand binding poses
+    from PDB/SMILES, confidence scores, virtual screening, for structure-based drug
+    design. Not for affinity prediction.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/diffdock
+  updated_at: '1772554803'
+- rank: 29
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-dnanexus-integration-skill-md
+  name: dnanexus-integration
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download),
+    dxpy Python SDK, run workflows, FASTQ/BAM/VCF, for genomics pipeline development
+    and execution.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/dnanexus-integration
+  updated_at: '1772554803'
+- rank: 30
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-drugbank-database-skill-md
+  name: drugbank-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Access and analyze comprehensive drug information from the DrugBank
+    database including drug properties, interactions, targets, pathways, chemical
+    structures, and pharmacology data. This skill should be used when working with
+    pharmaceutical data, drug discovery research, pharmacology studies, drug-drug
+    interaction analysis, target identification, chemical similarity searches, ADMET
+    predictions, or any task requiring detailed drug and drug target information from
+    DrugBank.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/drugbank-database
+  updated_at: '1772554803'
+- rank: 31
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-ena-database-skill-md
+  name: ena-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Access European Nucleotide Archive via API/FTP. Retrieve DNA/RNA sequences,
+    raw reads (FASTQ), genome assemblies by accession, for genomics and bioinformatics
+    pipelines. Supports multiple formats.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/ena-database
+  updated_at: '1772554803'
+- rank: 32
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-ensembl-database-skill-md
+  name: ensembl-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query Ensembl genome database REST API for 250+ species. Gene lookups,
+    sequence retrieval, variant analysis, comparative genomics, orthologs, VEP predictions,
+    for genomic research.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/ensembl-database
+  updated_at: '1772554803'
+- rank: 33
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-esm-skill-md
+  name: esm
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive toolkit for protein language models including ESM3 (generative
+    multimodal protein design across sequence, structure, and function) and ESM C
+    (efficient protein embeddings and representations). Use this skill when working
+    with protein sequences, structures, or function prediction; designing novel proteins;
+    generating protein embeddings; performing inverse folding; or conducting protein
+    engineering tasks. Supports both local model usage and cloud-based Forge API for
+    scalable inference.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/esm
+  updated_at: '1772554803'
+- rank: 34
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-exploratory-data-analysis-skill-md
+  name: exploratory-data-analysis
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Perform comprehensive exploratory data analysis on scientific data
+    files across 200+ file formats. This skill should be used when analyzing any scientific
+    data file to understand its structure, content, quality, and characteristics.
+    Automatically detects file type and generates detailed markdown reports with format-specific
+    analysis, quality metrics, and downstream analysis recommendations. Covers chemistry,
+    bioinformatics, microscopy, spectroscopy, proteomics, metabolomics, and general
+    scientific data formats.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/exploratory-data-analysis
+  updated_at: '1772554803'
+- rank: 35
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-fluidsim-skill-md
+  name: fluidsim
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Framework for computational fluid dynamics simulations using Python.
+    Use when running fluid dynamics simulations including Navier-Stokes equations
+    (2D/3D), shallow water equations, stratified flows, or when analyzing turbulence,
+    vortex dynamics, or geophysical flows. Provides pseudospectral methods with FFT,
+    HPC support, and comprehensive output analysis.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/fluidsim
+  updated_at: '1772554803'
+- rank: 36
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-gene-database-skill-md
+  name: gene-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query NCBI Gene via E-utilities/Datasets API. Search by symbol/ID,
+    retrieve gene info (RefSeqs, GO, locations, phenotypes), batch lookups, for gene
+    annotation and functional analysis.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/gene-database
+  updated_at: '1772554803'
+- rank: 37
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-geniml-skill-md
+  name: geniml
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: This skill should be used when working with genomic interval data (BED
+    files) for machine learning tasks. Use for training region embeddings (Region2Vec,
+    BEDspace), single-cell ATAC-seq analysis (scEmbed), building consensus peaks (universes),
+    or any ML-based analysis of genomic regions. Applies to BED file collections,
+    scATAC-seq data, chromatin accessibility datasets, and region-based genomic feature
+    learning.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/geniml
+  updated_at: '1772554803'
+- rank: 38
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-geo-database-skill-md
+  name: geo-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Access NCBI GEO for gene expression/genomics data. Search/download
+    microarray and RNA-seq datasets (GSE, GSM, GPL), retrieve SOFT/Matrix files, for
+    transcriptomics and expression analysis.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/geo-database
+  updated_at: '1772554803'
+- rank: 39
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-gget-skill-md
+  name: gget
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: 'Fast CLI/Python queries to 20+ bioinformatics databases. Use for quick
+    lookups: gene info, BLAST searches, AlphaFold structures, enrichment analysis.
+    Best for interactive exploration, simple queries. For batch processing or advanced
+    BLAST use biopython; for multi-database Python workflows use bioservices.'
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/gget
+  updated_at: '1772554803'
+- rank: 40
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-glycoengineering-skill-md
+  name: glycoengineering
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Analyze and engineer protein glycosylation. Scan sequences for N-glycosylation
+    sequons (N-X-S/T), predict O-glycosylation hotspots, and access curated glycoengineering
+    tools (NetOGlyc, GlycoShield, GlycoWorkbench). For glycoprotein engineering, therapeutic
+    antibody optimization, and vaccine design.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/glycoengineering
+  updated_at: '1772540136'
+- rank: 41
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-gtars-skill-md
+  name: gtars
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: High-performance toolkit for genomic interval analysis in Rust with
+    Python bindings. Use when working with genomic regions, BED files, coverage tracks,
+    overlap detection, tokenization for ML models, or fragment analysis in computational
+    genomics and machine learning applications.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/gtars
+  updated_at: '1772554803'
+- rank: 42
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-hmdb-database-skill-md
+  name: hmdb-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Access Human Metabolome Database (220K+ metabolites). Search by name/ID/structure,
+    retrieve chemical properties, biomarker data, NMR/MS spectra, pathways, for metabolomics
+    and identification.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/hmdb-database
+  updated_at: '1772554803'
+- rank: 43
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-hypogenic-skill-md
+  name: hypogenic
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Automated LLM-driven hypothesis generation and testing on tabular datasets.
+    Use when you want to systematically explore hypotheses about patterns in empirical
+    data (e.g., deception detection, content analysis). Combines literature insights
+    with data-driven hypothesis testing. For manual hypothesis formulation use hypothesis-generation;
+    for creative ideation use scientific-brainstorming.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/hypogenic
+  updated_at: '1772554803'
+- rank: 44
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-hypothesis-generation-skill-md
+  name: hypothesis-generation
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Structured hypothesis formulation from observations. Use when you have
+    experimental observations or data and need to formulate testable hypotheses with
+    predictions, propose mechanisms, and design experiments to test them. Follows
+    scientific method framework. For open-ended ideation use scientific-brainstorming;
+    for automated LLM-driven hypothesis testing on datasets use hypogenic.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/hypothesis-generation
+  updated_at: '1772554803'
+- rank: 45
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-imaging-data-commons-skill-md
+  name: imaging-data-commons
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Query and download public cancer imaging data from NCI Imaging Data
+    Commons using idc-index. Use for accessing large-scale radiology (CT, MR, PET)
+    and pathology datasets for AI training or research. No authentication required.
+    Query by metadata, visualize in browser, check licenses.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/imaging-data-commons
+  updated_at: '1772663217'
+- rank: 46
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-kegg-database-skill-md
+  name: kegg-database
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Direct REST API access to KEGG (academic use only). Pathway analysis,
+    gene-pathway mapping, metabolic pathways, drug interactions, ID conversion. For
+    Python workflows with multiple databases, prefer bioservices. Use this for direct
+    HTTP/REST work or KEGG-specific control.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/kegg-database
+  updated_at: '1772554803'
+- rank: 47
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-matchms-skill-md
+  name: matchms
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Spectral similarity and compound identification for metabolomics. Use
+    for comparing mass spectra, computing similarity scores (cosine, modified cosine),
+    and identifying unknown compounds from spectral libraries. Best for metabolite
+    identification, spectral matching, library searching. For full LC-MS/MS proteomics
+    pipelines use pyopenms.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/matchms
+  updated_at: '1772554803'
+- rank: 48
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-pyopenms-skill-md
+  name: pyopenms
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Complete mass spectrometry analysis platform. Use for proteomics workflows
+    feature detection, peptide identification, protein quantification, and complex
+    LC-MS/MS pipelines. Supports extensive file formats and algorithms. Best for proteomics,
+    comprehensive MS data processing. For simple spectral comparison and metabolite
+    ID use matchms.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pyopenms
+  updated_at: '1772554803'
+- rank: 49
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-pysam-skill-md
+  name: pysam
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Genomic file toolkit. Read/write SAM/BAM/CRAM alignments, VCF/BCF variants,
+    FASTA/FASTQ sequences, extract regions, calculate coverage, for NGS data processing
+    pipelines.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pysam
+  updated_at: '1772554803'
+- rank: 50
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-pytdc-skill-md
+  name: pytdc
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Therapeutics Data Commons. AI-ready drug discovery datasets (ADME,
+    toxicity, DTI), benchmarks, scaffold splits, molecular oracles, for therapeutic
+    ML and pharmacological prediction.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pytdc
+  updated_at: '1772554803'

@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "municipal-transit-data-reconciliation-similar-budget-recovery",
+  "taskRole": "similar",
+  "title": "Similar | 城市轨道运营预算缺失值恢复",
+  "goal": "恢复 Excel 文件 `transit_budget_incomplete.xlsx` 中标记为 `???` 的缺失数值。需要综合多个工作表里的年度总额、部门占比、同比变化和五年增长分析来推导正确结果，并将所有缺失值替换为计算出的数值，保存为 `transit_budget_recovered.xlsx`。",
+  "primaryOutputFile": "transit_budget_recovered.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet",
+  "skillBenefitRationale": "该任务保持预算类多工作表缺失值恢复的典型结构，但将场景迁移到城市轨道交通运营预算；核心仍是利用合计、占比、同比和跨表增长约束进行链式求解，能直接检验 data-reconciliation 的代表性用法。",
+  "targetSkillDirName": "data-reconciliation",
+  "targetSkillName": "data-reconciliation"
+}

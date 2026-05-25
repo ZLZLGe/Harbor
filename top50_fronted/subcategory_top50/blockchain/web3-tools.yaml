@@ -1,0 +1,613 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: blockchain
+category_name: Blockchain
+category_skill_count: 6790
+subcategory_slug: web3-tools
+subcategory_name: Web3 Tools
+subcategory_skill_count: 3368
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=web3-tools
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 3368
+  total_pages: 68
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: ccxt-ccxt-claude-skills-ccxt-csharp-skill-md
+  name: ccxt-csharp
+  author: ccxt
+  stars: 41552
+  forks: 8564
+  description: CCXT cryptocurrency exchange library for C# and .NET developers. Covers
+    both REST API (standard) and WebSocket API (real-time). Helps install CCXT, connect
+    to exchanges, fetch market data, place orders, stream live tickers/orderbooks,
+    handle authentication, and manage errors in .NET projects. Use when working with
+    crypto exchanges in C# applications, trading systems, or financial software. Supports
+    .NET Standard 2.0+.
+  github_url: https://github.com/ccxt/ccxt/tree/master/.claude/skills/ccxt-csharp
+  updated_at: '1770028077'
+- rank: 2
+  id: ccxt-ccxt-claude-skills-ccxt-go-skill-md
+  name: ccxt-go
+  author: ccxt
+  stars: 41552
+  forks: 8564
+  description: CCXT cryptocurrency exchange library for Go developers. Covers both
+    REST API (standard) and WebSocket API (real-time). Helps install CCXT, connect
+    to exchanges, fetch market data, place orders, stream live tickers/orderbooks,
+    handle authentication, and manage errors in Go projects. Use when working with
+    crypto exchanges in Go applications, microservices, or trading systems.
+  github_url: https://github.com/ccxt/ccxt/tree/master/.claude/skills/ccxt-go
+  updated_at: '1770028077'
+- rank: 3
+  id: ccxt-ccxt-claude-skills-ccxt-php-skill-md
+  name: ccxt-php
+  author: ccxt
+  stars: 41552
+  forks: 8564
+  description: CCXT cryptocurrency exchange library for PHP developers. Covers both
+    REST API (standard) and WebSocket API (real-time). Helps install CCXT, connect
+    to exchanges, fetch market data, place orders, stream live tickers/orderbooks,
+    handle authentication, and manage errors in PHP 8.1+. Use when working with crypto
+    exchanges in PHP projects, trading bots, or web applications. Supports both sync
+    and async (ReactPHP) usage.
+  github_url: https://github.com/ccxt/ccxt/tree/master/.claude/skills/ccxt-php
+  updated_at: '1770028077'
+- rank: 4
+  id: ccxt-ccxt-claude-skills-ccxt-python-skill-md
+  name: ccxt-python
+  author: ccxt
+  stars: 41552
+  forks: 8564
+  description: CCXT cryptocurrency exchange library for Python developers. Covers
+    both REST API (standard) and WebSocket API (real-time). Helps install CCXT, connect
+    to exchanges, fetch market data, place orders, stream live tickers/orderbooks,
+    handle authentication, and manage errors in Python. Use when working with crypto
+    exchanges in Python projects, trading bots, data analysis, or portfolio management.
+    Supports both sync and async (asyncio) usage.
+  github_url: https://github.com/ccxt/ccxt/tree/master/.claude/skills/ccxt-python
+  updated_at: '1770028077'
+- rank: 5
+  id: ccxt-ccxt-claude-skills-ccxt-typescript-skill-md
+  name: ccxt-typescript
+  author: ccxt
+  stars: 41552
+  forks: 8564
+  description: CCXT cryptocurrency exchange library for TypeScript and JavaScript
+    developers (Node.js and browser). Covers both REST API (standard) and WebSocket
+    API (real-time). Helps install CCXT, connect to exchanges, fetch market data,
+    place orders, stream live tickers/orderbooks, handle authentication, and manage
+    errors. Use when working with crypto exchanges in TypeScript/JavaScript projects,
+    trading bots, arbitrage systems, or portfolio management tools. Includes both
+    REST and WebSocket examples.
+  github_url: https://github.com/ccxt/ccxt/tree/master/.claude/skills/ccxt-typescript
+  updated_at: '1770028077'
+- rank: 6
+  id: wshobson-agents-plugins-blockchain-web3-skills-defi-protocol-templates-skill-md
+  name: defi-protocol-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement DeFi protocols with production-ready templates for staking,
+    AMMs, governance, and lending systems. Use when building decentralized finance
+    applications or smart contract protocols.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/defi-protocol-templates
+  updated_at: '1772898797'
+- rank: 7
+  id: wshobson-agents-plugins-blockchain-web3-skills-nft-standards-skill-md
+  name: nft-standards
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement NFT standards (ERC-721, ERC-1155) with proper metadata handling,
+    minting strategies, and marketplace integration. Use when creating NFT contracts,
+    building NFT marketplaces, or implementing digital asset systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/nft-standards
+  updated_at: '1772898797'
+- rank: 8
+  id: wshobson-agents-plugins-frontend-mobile-development-skills-react-native-architecture-skill-md
+  name: react-native-architecture
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build production React Native apps with Expo, navigation, native modules,
+    offline sync, and cross-platform patterns. Use when developing mobile apps, implementing
+    native integrations, or architecting React Native projects.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/frontend-mobile-development/skills/react-native-architecture
+  updated_at: '1772898797'
+- rank: 9
+  id: wshobson-agents-plugins-blockchain-web3-skills-solidity-security-skill-md
+  name: solidity-security
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master smart contract security best practices to prevent common vulnerabilities
+    and implement secure Solidity patterns. Use when writing smart contracts, auditing
+    existing contracts, or implementing security measures for blockchain applications.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/solidity-security
+  updated_at: '1772898797'
+- rank: 10
+  id: wshobson-agents-plugins-blockchain-web3-skills-web3-testing-skill-md
+  name: web3-testing
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Test smart contracts comprehensively using Hardhat and Foundry with
+    unit tests, integration tests, and mainnet forking. Use when testing Solidity
+    contracts, setting up blockchain test suites, or validating DeFi protocols.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/blockchain-web3/skills/web3-testing
+  updated_at: '1772898797'
+- rank: 11
+  id: sickn33-antigravity-awesome-skills-skills-azure-security-keyvault-keys-dotnet-skill-md
+  name: azure-security-keyvault-keys-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Key Vault Keys SDK for .NET. Client library for managing cryptographic
+    keys in Azure Key Vault and Managed HSM. Use for key creation, rotation, encryption,
+    decryption, signing, and verification.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-security-keyvault-keys-dotnet
+  updated_at: '1772354305'
+- rank: 12
+  id: sickn33-antigravity-awesome-skills-skills-blockchain-developer-skill-md
+  name: blockchain-developer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build production-ready Web3 applications, smart contracts, and decentralized
+    systems. Implements DeFi protocols, NFT platforms, DAOs, and enterprise blockchain
+    integrations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/blockchain-developer
+  updated_at: '1772354305'
+- rank: 13
+  id: sickn33-antigravity-awesome-skills-skills-emblemai-crypto-wallet-skill-md
+  name: emblemai-crypto-wallet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Crypto wallet management across 7 blockchains via EmblemAI Agent Hustle
+    API. Balance checks, token swaps, portfolio analysis, and transaction execution
+    for Solana, Ethereum, Base, BSC, Polygon, Hedera, and Bitcoin.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/emblemai-crypto-wallet
+  updated_at: '1773994005'
+- rank: 14
+  id: sickn33-antigravity-awesome-skills-skills-flutter-expert-skill-md
+  name: flutter-expert
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Flutter development with Dart 3, advanced widgets, and multi-platform
+    deployment.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/flutter-expert
+  updated_at: '1772354305'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-makepad-platform-skill-md
+  name: makepad-platform
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'CRITICAL: Use for Makepad cross-platform support. Triggers on:
+
+    makepad platform, makepad os, makepad macos, makepad windows, makepad linux,
+
+    makepad android, makepad ios, makepad web, makepad wasm, makepad metal,
+
+    makepad d3d11, makepad opengl, makepad webgl, OsType, CxOs,
+
+    makepad 跨平台, makepad 平台支持'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-platform
+  updated_at: '1773994629'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-nft-standards-skill-md
+  name: nft-standards
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master ERC-721 and ERC-1155 NFT standards, metadata best practices,
+    and advanced NFT features.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/nft-standards
+  updated_at: '1773994005'
+- rank: 17
+  id: github-awesome-copilot-skills-winapp-cli-skill-md
+  name: winapp-cli
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Windows App Development CLI (winapp) for building, packaging, and deploying
+    Windows applications. Use when asked to initialize Windows app projects, create
+    MSIX packages, generate AppxManifest.xml, manage development certificates, add
+    package identity for debugging, sign packages, publish to the Microsoft Store,
+    create external catalogs, or access Windows SDK build tools. Supports .NET (csproj),
+    C++, Electron, Rust, Tauri, and cross-platform frameworks targeting Windows.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/winapp-cli
+  updated_at: '1772492990'
+- rank: 18
+  id: activepieces-activepieces-agents-skills-piece-builder-skill-md
+  name: piece-builder
+  author: activepieces
+  stars: 21458
+  forks: 3472
+  description: Builds Activepieces pieces (integrations) with actions and triggers.
+    Use when the user asks to create a new piece, add actions to a piece, add triggers
+    to a piece, or build an integration for a third-party app. Also use when the user
+    mentions Activepieces pieces, connectors, or integration development.
+  github_url: https://github.com/activepieces/activepieces/tree/main/.agents/skills/piece-builder
+  updated_at: '1774361702'
+- rank: 19
+  id: dinerojs-dinero-js-agents-skills-dinero-best-practices-skill-md
+  name: dinero-best-practices
+  author: dinerojs
+  stars: 6719
+  forks: 200
+  description: Core best practices for the Dinero.js money library. Use when writing,
+    reviewing, or refactoring code that creates Dinero objects, performs arithmetic
+    on monetary values, or handles money in JavaScript/TypeScript. Triggers on imports
+    from 'dinero.js', monetary calculations, or price/cost handling logic.
+  github_url: https://github.com/dinerojs/dinero.js/tree/main/.agents/skills/dinero-best-practices
+  updated_at: '1772320574'
+- rank: 20
+  id: dinerojs-dinero-js-agents-skills-dinero-formatting-skill-md
+  name: dinero-formatting
+  author: dinerojs
+  stars: 6719
+  forks: 200
+  description: Formatting patterns for the Dinero.js money library. Use when displaying
+    monetary values to users, formatting prices with currency symbols, handling locale-specific
+    number formats, or working with non-decimal currencies. Triggers on toDecimal,
+    toUnits, toSnapshot calls, or Intl.NumberFormat usage with Dinero objects.
+  github_url: https://github.com/dinerojs/dinero.js/tree/main/.agents/skills/dinero-formatting
+  updated_at: '1772320574'
+- rank: 21
+  id: wevm-wagmi-agents-skills-wagmi-development-skill-md
+  name: wagmi-development
+  author: wevm
+  stars: 6683
+  forks: 1364
+  description: Creates Wagmi features across all layers - core actions, query options,
+    framework bindings. Use when adding new actions, hooks, or working across packages/core,
+    packages/react, packages/vue.
+  github_url: https://github.com/wevm/wagmi/tree/main/.agents/skills/wagmi-development
+  updated_at: '1768947353'
+- rank: 22
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-cairo-vulnerability-scanner-skill-md
+  name: cairo-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities
+    including felt252 arithmetic overflow, L1-L2 messaging issues, address conversion
+    problems, and signature replay. Use when auditing StarkNet projects.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 23
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-cosmos-vulnerability-scanner-skill-md
+  name: cosmos-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans Cosmos SDK blockchains for 9 consensus-critical vulnerabilities
+    including non-determinism, incorrect signers, ABCI panics, and rounding errors.
+    Use when auditing Cosmos chains or CosmWasm contracts.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 24
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-guidelines-advisor-skill-md
+  name: guidelines-advisor
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Smart contract development advisor based on Trail of Bits' best practices.
+    Analyzes codebase to generate documentation/specifications, review architecture,
+    check upgradeability patterns, assess implementation quality, identify pitfalls,
+    review dependencies, and evaluate testing. Provides actionable recommendations.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/guidelines-advisor
+  updated_at: '1769715444'
+- rank: 25
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-token-integration-analyzer-skill-md
+  name: token-integration-analyzer
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Token integration and implementation analyzer based on Trail of Bits'
+    token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity,
+    checks for 20+ weird token patterns, assesses contract composition and owner privileges,
+    performs on-chain scarcity analysis, and evaluates how protocols handle non-standard
+    tokens. Context-aware for both token implementations and token integrations.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/token-integration-analyzer
+  updated_at: '1769715444'
+- rank: 26
+  id: trailofbits-skills-plugins-building-secure-contracts-skills-ton-vulnerability-scanner-skill-md
+  name: ton-vulnerability-scanner
+  author: trailofbits
+  stars: 4040
+  forks: 350
+  description: Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities
+    including integer-as-boolean misuse, fake Jetton contracts, and forward TON without
+    gas checks. Use when auditing FunC contracts.
+  github_url: https://github.com/trailofbits/skills/tree/main/plugins/building-secure-contracts/skills/ton-vulnerability-scanner
+  updated_at: '1769715444'
+- rank: 27
+  id: parcadei-continuous-claude-v3-claude-skills-reference-sdk-skill-md
+  name: reference-sdk
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Check reference SDK implementations using btca ask
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/reference-sdk
+  updated_at: '1768010064'
+- rank: 28
+  id: erigontech-erigon-claude-skills-erigon-build-skill-md
+  name: erigon-build
+  author: erigontech
+  stars: 3541
+  forks: 1495
+  description: Build the Erigon binary using make. Use this when you need to compile
+    erigon before running any erigon commands.
+  github_url: https://github.com/erigontech/erigon/tree/main/.claude/skills/erigon-build
+  updated_at: '1770203934'
+- rank: 29
+  id: erigontech-erigon-claude-skills-erigon-datadir-skill-md
+  name: erigon-datadir
+  author: erigontech
+  stars: 3541
+  forks: 1495
+  description: Reference for manipulating Erigon datadirs. Use this when the user
+    wants to perform operations on Erigon data directories.
+  github_url: https://github.com/erigontech/erigon/tree/main/.claude/skills/erigon-datadir
+  updated_at: '1770413506'
+- rank: 30
+  id: erigontech-erigon-claude-skills-erigon-network-ports-skill-md
+  name: erigon-network-ports
+  author: erigontech
+  stars: 3541
+  forks: 1495
+  description: Reference for all Erigon network ports. Use this when running multiple
+    Erigon instances to avoid port conflicts. Lists every CLI flag that binds a port,
+    its default value, and the protocol used.
+  github_url: https://github.com/erigontech/erigon/tree/main/.claude/skills/erigon-network-ports
+  updated_at: '1770338188'
+- rank: 31
+  id: openclaw-skills-skills-aixvcteam-axelrod-skill-md
+  name: axelrod
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI-powered Base-chain trading and on-chain query agent via natural
+    language. Use when the user wants to trade crypto (buy/sell/swap tokens), set
+    up automated strategies (DCA, limit orders, RSI), check portfolio balances, view
+    token prices, query token info/analysis, check order status, manage take-profit/stop-loss
+    orders, or ask about crypto/DeFi topics on Base chain. Always run scripts/axelrod_chat.py
+    to fetch real-time results.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aixvcteam/axelrod
+  updated_at: '1770744986'
+- rank: 32
+  id: openclaw-skills-skills-aiengineerx-bagsworld-skill-md
+  name: bagsworld
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Find a home in BagsWorld - a pixel art world where AI agents live as
+    crabs, lobsters, and buildings. Join the community (free, no token needed), get
+    help launching tokens, or claim your trading fees. Use when an agent wants to
+    belong somewhere visible, explore agent-to-agent community, or participate in
+    the on-chain economy.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiengineerx/bagsworld
+  updated_at: '1770586315'
+- rank: 33
+  id: openclaw-skills-skills-0xlucasliao-bnbchain-skill-md
+  name: bnbchain-mcp
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Interact with the BNB Chain Model Context Protocol (MCP) server. Blocks,
+    contracts, tokens, NFTs, wallet, Greenfield, and ERC-8004 agent tools. Use npx
+    @bnb-chain/mcp@latest or read the official skill page.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xlucasliao/bnbchain
+  updated_at: '1772811178'
+- rank: 34
+  id: openclaw-skills-skills-26medias-bob-p2p-beta-skill-md
+  name: bob-p2p
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Connect to the Bob P2P API marketplace. Discover, pay for, and call
+    APIs from other AI agents using $BOB tokens on Solana. The decentralized agent
+    economy.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/26medias/bob-p2p-beta
+  updated_at: '1770107828'
+- rank: 35
+  id: openclaw-skills-skills-adamkristopher-botcoin-skill-md
+  name: botcoin
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: A puzzle game for AI agents. Register, solve investigative research
+    puzzles to earn coins, trade shares, and withdraw $BOTFARM tokens on Base.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adamkristopher/botcoin
+  updated_at: '1771456160'
+- rank: 36
+  id: openclaw-skills-skills-adrianvrj-cavos-cli-skill-skill-md
+  name: cavos-cli
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Interact with the Cavos CLI for Starknet wallet operations. Use for
+    transfers, approvals, contract calls, session management, and transaction monitoring.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adrianvrj/cavos-cli-skill
+  updated_at: '1770878399'
+- rank: 37
+  id: openclaw-skills-skills-ajarmoszuk-crypton-esim-skill-md
+  name: crypton-esim
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Purchase anonymous eSIMs with BTC/XMR/card - no account required
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ajarmoszuk/crypton-esim
+  updated_at: '1770257338'
+- rank: 38
+  id: openclaw-skills-skills-0xm1kr-doppel-erc-8004-skill-md
+  name: doppel-erc-8004
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Register your agent onchain with ERC-8004. Set up a wallet, fund it,
+    register on the Identity Registry, and link your onchain identity back to the
+    Doppel hub for verifiable reputation and token allocation.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xm1kr/doppel-erc-8004
+  updated_at: '1770289431'
+- rank: 39
+  id: openclaw-skills-skills-abdhilabs-agent-credit-system-skill-md
+  name: karmabank
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI agents borrow USDC based on their Moltbook karma score. Credit tiers
+    from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abdhilabs/agent-credit-system
+  updated_at: '1770330932'
+- rank: 40
+  id: openclaw-skills-skills-abdhilabs-karmabank-minimal-skill-md
+  name: karmabank
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI agents borrow USDC based on their Moltbook karma score. Credit tiers
+    from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abdhilabs/karmabank-minimal
+  updated_at: '1770330949'
+- rank: 41
+  id: openclaw-skills-skills-abdhilabs-karmabank-skill-md
+  name: karmabank
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: AI agents borrow USDC based on their Moltbook karma score. Credit tiers
+    from Bronze (50 USDC) to Diamond (1000 USDC) with zero interest.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/abdhilabs/karmabank
+  updated_at: '1770331039'
+- rank: 42
+  id: openclaw-skills-skills-akshatgada-llm-wallet-skill-md
+  name: llm-wallet
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Manage crypto wallets and make x402 micropayments with USDC stablecoins
+    on Polygon
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshatgada/llm-wallet
+  updated_at: '1769898904'
+- rank: 43
+  id: openclaw-skills-skills-aiden-cao-meganode-skill-skill-md
+  name: meganode-skill
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Provides NodeReal MegaNode blockchain infrastructure APIs for 25+ chains
+    including BSC, Ethereum, opBNB, Optimism, Polygon, Arbitrum, and Klaytn. Covers
+    standard JSON-RPC endpoints, Enhanced APIs (nr_ methods for ERC-20 token balances,
+    NFT holdings, asset transfers), MegaFuel gasless transactions via BEP-322 paymaster,
+    Direct Route MEV protection, Debug/Trace APIs, WebSocket subscriptions, ETH Beacon
+    Chain consensus layer, Portal API usage monitoring, API Marketplace (NFTScan,
+    Contracts API, SPACE ID, Greenfield, BNB Staking, PancakeSwap, zkSync), non-EVM
+    chains (Aptos, NEAR, Avalanche), and JWT authentication. Use when building blockchain
+    dApps with NodeReal, querying token or NFT data, setting up RPC infrastructure,
+    configuring gasless transactions, protecting against MEV, tracing transactions,
+    verifying smart contracts, resolving .bnb domains, or monitoring validators and
+    API usage.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aiden-cao/meganode-skill
+  updated_at: '1772510947'
+- rank: 44
+  id: openclaw-skills-skills-adeets-22-para-wallet-skill-md
+  name: para-wallet
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Create blockchain wallets and sign transactions using Para's MPC infrastructure
+    where the private key never exists in a single place. Supports EVM and Solana
+    chains via three REST endpoints.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adeets-22/para-wallet
+  updated_at: '1771025664'
+- rank: 45
+  id: openclaw-skills-skills-adlai88-polymarket-copytrading-skill-md
+  name: polymarket-copytrading
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Mirror positions from top Polymarket traders using Simmer API. Size-weighted
+    aggregation across multiple wallets.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/adlai88/polymarket-copytrading
+  updated_at: '1774699425'
+- rank: 46
+  id: openclaw-skills-skills-aaigotchi-superrare-mint-skill-md
+  name: superrare-mint
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Mint art to a SuperRare-compatible ERC-721 collection on Ethereum or
+    Base via Bankr. Requires an explicit mint mode so aaigotchi can clearly choose
+    between an artist-given collection and an own-deployed SR factory collection before
+    minting.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aaigotchi/superrare-mint
+  updated_at: '1774042345'
+- rank: 47
+  id: openclaw-skills-skills-0xrag-trade-skill-md
+  name: trade
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Swap or trade tokens on Base network. Use when you or the user want
+    to trade, swap, exchange, buy, sell, or convert between tokens like USDC, ETH,
+    and WETH. Covers phrases like "buy ETH", "sell ETH for USDC", "convert USDC to
+    ETH", "get some ETH".
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xrag/trade
+  updated_at: '1770880136'
+- rank: 48
+  id: openclaw-skills-skills-akumazin-chum-skill-md
+  name: villain-mint
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Mint a Fellow Villain NFT from CHUM's agent-only collection on Solana.
+    0.001 SOL mint fee + network fees (~0.015 SOL).
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akumazin/chum
+  updated_at: '1770585042'
+- rank: 49
+  id: openclaw-skills-skills-alexander10011-web3-daily-skill-md
+  name: web3-daily
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Web3 personalized research digest service. Provides public digest (macro
+    news + KOL sentiment + market data)  or personalized digest based on wallet address.
+    Use when user asks for Web3 news, requests digest,  provides wallet address, or
+    says /web3. No API key required.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alexander10011/web3-daily
+  updated_at: '1774632770'
+- rank: 50
+  id: openclaw-skills-skills-akshat-mishra101-wachai-x402-skill-md
+  name: x402-wach
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: DeFi risk analysis toolkit powered by WACH.AI via x402 payments using
+    AWAL wallet custody. Use when the user asks to check if a token is safe, assess
+    DeFi risk, detect honeypots, analyze liquidity, holder distribution, or smart
+    contract vulnerabilities for tokens on Ethereum, Polygon, Base, BSC, or Solana.
+    Costs 0.01 USDC per query on Base.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/akshat-mishra101/wachai-x402
+  updated_at: '1771372921'

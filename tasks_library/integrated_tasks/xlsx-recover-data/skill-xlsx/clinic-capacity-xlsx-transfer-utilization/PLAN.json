@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "clinic-capacity-xlsx-transfer-utilization",
+  "taskRole": "transfer",
+  "title": "Transfer | 门诊容量工作簿恢复",
+  "goal": "恢复 Excel 文件 `clinic_capacity_gaps.xlsx` 中所有标记为 `???` 的缺失数值。需要利用服务容量、年度利用率变化、科室占比和接诊复盘等多个工作表之间的约束，推导正确的数值并保存为 `clinic_capacity_restored.xlsx`。",
+  "primaryOutputFile": "clinic_capacity_restored.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet",
+  "skillBenefitRationale": "该任务把 xlsx 能力迁移到医疗运营场景，核心仍然是读取多表 workbook、追踪跨表依赖、恢复缺失单元格并输出新的 Excel 文件，不依赖其他 shipped skill。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

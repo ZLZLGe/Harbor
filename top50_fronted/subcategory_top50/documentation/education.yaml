@@ -1,0 +1,634 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: documentation
+category_name: Documentation
+category_skill_count: 48837
+subcategory_slug: education
+subcategory_name: Education
+subcategory_skill_count: 14065
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=education
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 14065
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: microsoft-vscode-src-vs-sessions-skills-update-skills-skill-md
+  name: update-skills
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Create or update repository skills and instructions when major learnings
+    are discovered during a session. Use when the user says "learn!", when a significant
+    pattern or pitfall is identified, or when reusable domain knowledge should be
+    captured for future sessions.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/update-skills
+  updated_at: '1773443017'
+- rank: 2
+  id: affaan-m-everything-claude-code-docs-tr-skills-eval-harness-skill-md
+  name: eval-harness
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Eval-driven development (EDD) ilkelerini uygulayan Claude Code oturumları
+    için formal değerlendirme çerçevesi
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/eval-harness
+  updated_at: '1774219024'
+- rank: 3
+  id: affaan-m-everything-claude-code-skills-rules-distill-skill-md
+  name: rules-distill
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Scan skills to extract cross-cutting principles and distill them into
+    rules — append, revise, or create new rule files
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/rules-distill
+  updated_at: '1773996295'
+- rank: 4
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-technical-writer-skill-md
+  name: technical-writer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Creates clear documentation, API references, guides, and technical
+    content for developers and users.
+
+    Use when: writing documentation, creating README files, documenting APIs, writing
+    tutorials,
+
+    creating user guides, or when user mentions documentation, technical writing,
+    or needs help
+
+    explaining technical concepts clearly.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/technical-writer
+  updated_at: '1770167437'
+- rank: 5
+  id: pytorch-pytorch-claude-skills-skill-writer-skill-md
+  name: skill-writer
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Guide users through creating Agent Skills for Claude Code. Use when
+    the user wants to create, write, author, or design a new Skill, or needs help
+    with SKILL.md files, frontmatter, or skill structure.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/skill-writer
+  updated_at: '1761670167'
+- rank: 6
+  id: microsoft-ai-agents-for-beginners-translations-bg-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Използвайте, когато потребителят иска да създаде, да изгради основна
+    структура за или да редактира Jupyter тетрадки (`.ipynb`) за експерименти, изследвания
+    или уроци; предпочитайте вградените шаблони и стартирайте помощния скрипт `new_notebook.py`,
+    за да генерирате чист начален файл на тетрадка.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/bg/.agents/skills/jupyter-notebook
+  updated_at: '1771510784'
+- rank: 7
+  id: microsoft-ai-agents-for-beginners-translations-de-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Verwenden Sie, wenn der Benutzer darum bittet, Jupyter-Notebooks (`.ipynb`)
+    für Experimente, Erkundungen oder Tutorials zu erstellen, aufzusetzen oder zu
+    bearbeiten; bevorzugen Sie die mitgelieferten Vorlagen und führen Sie das Hilfsskript
+    `new_notebook.py` aus, um ein sauberes Start-Notebook zu erzeugen.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/de/.agents/skills/jupyter-notebook
+  updated_at: '1771502747'
+- rank: 8
+  id: microsoft-ai-agents-for-beginners-translations-el-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Χρησιμοποιήστε όταν ο χρήστης ζητά να δημιουργήσει, να δομήσει ή να
+    επεξεργαστεί σημειωματάρια Jupyter (`.ipynb`) για πειράματα, εξερευνήσεις ή σεμινάρια;
+    προτιμήστε τα συνημμένα πρότυπα και εκτελέστε το βοηθητικό σκριπτ `new_notebook.py`
+    για να δημιουργήσετε ένα καθαρό αρχικό σημειωματάριο.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/el/.agents/skills/jupyter-notebook
+  updated_at: '1771548375'
+- rank: 9
+  id: microsoft-ai-agents-for-beginners-translations-es-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Usar cuando el usuario solicita crear, estructurar o editar cuadernos
+    Jupyter (`.ipynb`) para experimentos, exploraciones o tutoriales; preferir las
+    plantillas incluidas y ejecutar el script auxiliar `new_notebook.py` para generar
+    un cuaderno inicial limpio.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/es/.agents/skills/jupyter-notebook
+  updated_at: '1771447586'
+- rank: 10
+  id: microsoft-ai-agents-for-beginners-translations-fi-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Käytetään, kun käyttäjä pyytää luomaan, alustamaan tai muokkaamaan
+    Jupyter-muistikirjoja (`.ipynb`) kokeita, tutkimuksia tai opetusohjelmia varten;
+    käytä mieluummin mukana olevia mallipohjia ja suorita apuohjelmaskripti `new_notebook.py`
+    luodaksesi puhtaan aloitusmuistikirjan.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/fi/.agents/skills/jupyter-notebook
+  updated_at: '1771575305'
+- rank: 11
+  id: microsoft-ai-agents-for-beginners-translations-fr-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: À utiliser lorsque l'utilisateur demande de créer, structurer ou modifier
+    des notebooks Jupyter (`.ipynb`) pour des expériences, explorations ou tutoriels
+    ; privilégiez les modèles fournis et exécutez le script d'aide `new_notebook.py`
+    pour générer un notebook de départ propre.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/fr/.agents/skills/jupyter-notebook
+  updated_at: '1771447586'
+- rank: 12
+  id: microsoft-ai-agents-for-beginners-translations-hu-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Használható, amikor a felhasználó Jupyter notebookok (`.ipynb`) létrehozását,
+    felépítését vagy szerkesztését kéri kísérletekhez, felfedezésekhez vagy oktatóanyagokhoz;
+    részesítse előnyben a csomagolt sablonokat, és futtassa a segédprogramot `new_notebook.py`,
+    hogy egy tiszta kezdő notebookot generáljon.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/hu/.agents/skills/jupyter-notebook
+  updated_at: '1771519725'
+- rank: 13
+  id: microsoft-ai-agents-for-beginners-translations-id-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Gunakan saat pengguna meminta untuk membuat, membangun kerangka, atau
+    mengedit notebook Jupyter (`.ipynb`) untuk eksperimen, eksplorasi, atau tutorial;
+    utamakan templat bawaan dan jalankan skrip pembantu `new_notebook.py` untuk menghasilkan
+    notebook awal yang bersih.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/id/.agents/skills/jupyter-notebook
+  updated_at: '1771541208'
+- rank: 14
+  id: microsoft-ai-agents-for-beginners-translations-it-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Usa quando l'utente chiede di creare, strutturare o modificare notebook
+    Jupyter (`.ipynb`) per esperimenti, esplorazioni o tutorial; privilegia i modelli
+    inclusi ed esegui lo script di supporto `new_notebook.py` per generare un notebook
+    di partenza pulito.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/it/.agents/skills/jupyter-notebook
+  updated_at: '1771474489'
+- rank: 15
+  id: microsoft-ai-agents-for-beginners-translations-ko-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 사용자가 실험, 탐색 또는 튜토리얼을 위한 Jupyter 노트북(`.ipynb`)을 생성, 스캐폴딩하거나 편집해 달라고
+    요청할 때 사용합니다; 번들로 제공되는 템플릿을 우선 사용하고 깨끗한 시작 노트북을 생성하기 위해 헬퍼 스크립트 `new_notebook.py`를
+    실행하는 것을 권장합니다.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ko/.agents/skills/jupyter-notebook
+  updated_at: '1771582575'
+- rank: 16
+  id: microsoft-ai-agents-for-beginners-translations-ml-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: ഉപയോക്താവ് പരീക്ഷണങ്ങൾ, അന്വേഷണങ്ങൾ, അല്ലെങ്കിൽ ട്യൂട്ടോറിയലുകൾക്കുള്ള
+    Jupyter നോട്ട്ബുക്കുകൾ (`.ipynb`) സൃഷ്ടിക്കാൻ, സ്‌കാഫോൾഡ് ചെയ്യാൻ, അല്ലെങ്കിൽ
+    തിരുത്താൻ ആവശ്യപ്പെടുമ്പോൾ ഉപയോഗിക്കുക; ബണ്ടിൽ ചെയ്ത ടെംപ്ലേറ്റുകൾ പ്രാഥമ്യം നൽകുക,
+    കൂടാതെ ശുദ്ധമായ ആരംഭ നോട്ട്ബുക്ക് സൃഷ്ടിക്കാൻ സഹായി സ്ക്രിപ്റ്റ് `new_notebook.py`
+    ഓടിക്കുക.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ml/.agents/skills/jupyter-notebook
+  updated_at: '1772897589'
+- rank: 17
+  id: microsoft-ai-agents-for-beginners-translations-ms-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Gunakan apabila pengguna meminta untuk membuat, membina kerangka, atau
+    mengedit notebook Jupyter (`.ipynb`) untuk eksperimen, penerokaan, atau tutorial;
+    utamakan templat yang disertakan dan jalankan skrip pembantu `new_notebook.py`
+    untuk menjana notebook permulaan yang bersih.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ms/.agents/skills/jupyter-notebook
+  updated_at: '1771541208'
+- rank: 18
+  id: microsoft-ai-agents-for-beginners-translations-my-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: အသုံးပြုပါသည်။ အသုံးပြုသူက စမ်းသပ်မှုများ၊ ရှာဖွေမှုများ သို့မဟုတ်
+    သင်ခန်းစာများအတွက် Jupyter notebook (`.ipynb`) များကို ဖန်တီးရန်၊ အခြေခံဖွဲ့စည်းရန်
+    သို့မဟုတ် တည်းဖြတ်ရန် တောင်းဆိုသောအခါ အသုံးပြုပါ။ ပါထည့်ထားသော ပုံစံများကို ဦးစားပေးအသုံးပြု၍
+    သန့်ရှင်းစင်ကြယ်သော စတင်အသုံးပြုနိုင်သော notebook တစ်ခုဖန်တီးရန် helper script
+    `new_notebook.py` ကို လည်ပတ်ပါ။
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/my/.agents/skills/jupyter-notebook
+  updated_at: '1771489000'
+- rank: 19
+  id: microsoft-ai-agents-for-beginners-translations-nl-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Gebruik dit wanneer de gebruiker vraagt om Jupyter-notebooks (`.ipynb`)
+    te maken, op te zetten of te bewerken voor experimenten, verkenningen of tutorials;
+    geef de voorkeur aan de meegeleverde sjablonen en voer het hulpscript `new_notebook.py`
+    uit om een schoon startnotebook te genereren.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/nl/.agents/skills/jupyter-notebook
+  updated_at: '1771562196'
+- rank: 20
+  id: microsoft-ai-agents-for-beginners-translations-pt-pt-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Usado quando o utilizador pede para criar, estruturar ou editar Jupyter
+    notebooks (`.ipynb`) para experiências, explorações ou tutoriais; prefira os modelos
+    incluídos e execute o script auxiliar `new_notebook.py` para gerar um notebook
+    inicial limpo.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/pt-PT/.agents/skills/jupyter-notebook
+  updated_at: '1771527606'
+- rank: 21
+  id: microsoft-ai-agents-for-beginners-translations-ro-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Se folosește atunci când utilizatorul solicită crearea, structurarea
+    sau editarea notebook-urilor Jupyter (`.ipynb`) pentru experimente, explorări
+    sau tutoriale; se recomandă utilizarea șabloanelor incluse și rularea scriptului
+    de asistență `new_notebook.py` pentru a genera un notebook de pornire curat.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ro/.agents/skills/jupyter-notebook
+  updated_at: '1771510784'
+- rank: 22
+  id: microsoft-ai-agents-for-beginners-translations-ru-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Используйте, когда пользователь просит создать, сгенерировать каркас
+    или отредактировать Jupyter ноутбуки (`.ipynb`) для экспериментов, исследований
+    или учебных материалов; предпочитайте встроенные шаблоны и запустите вспомогательный
+    скрипт `new_notebook.py`, чтобы сгенерировать чистый начальный ноутбук.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ru/.agents/skills/jupyter-notebook
+  updated_at: '1771502747'
+- rank: 23
+  id: microsoft-ai-agents-for-beginners-translations-sk-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Použite, keď používateľ požiada o vytvorenie, vygenerovanie kostry
+    alebo úpravu Jupyter notebookov (`.ipynb`) pre experimenty, prieskumy alebo tutoriály;
+    uprednostnite zabudované šablóny a spustite pomocný skript `new_notebook.py` na
+    vygenerovanie čistého východiskového notebooku.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/sk/.agents/skills/jupyter-notebook
+  updated_at: '1771510784'
+- rank: 24
+  id: microsoft-ai-agents-for-beginners-translations-sw-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Tumia wakati mtumiaji anapoomba kuunda, kupanga muundo (scaffold),
+    au kuhariri daftari za Jupyter (`.ipynb`) kwa majaribio, uchunguzi, au mafunzo;
+    pendelea violezo vinavyokuja pamoja na uendeshe skripti ya msaidizi `new_notebook.py`
+    ili kuunda daftari safi la kuanzia.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/sw/.agents/skills/jupyter-notebook
+  updated_at: '1771519725'
+- rank: 25
+  id: microsoft-ai-agents-for-beginners-translations-tr-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Kullanıcı deneyler, keşifler veya öğreticiler için Jupyter not defterleri
+    (`.ipynb`) oluşturmasını, iskeletini hazırlamasını veya düzenlemesini istediğinde
+    kullanın; birlikte gelen şablonları tercih edin ve temiz bir başlangıç not defteri
+    oluşturmak için yardımcı betik `new_notebook.py`'yi çalıştırın.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/tr/.agents/skills/jupyter-notebook
+  updated_at: '1771474489'
+- rank: 26
+  id: microsoft-ai-agents-for-beginners-translations-uk-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Використовуйте, коли користувач просить створити, підготувати або редагувати
+    Jupyter-ноутбуки (`.ipynb`) для експериментів, досліджень або підручників; надавайте
+    перевагу вбудованим шаблонам і запустіть допоміжний скрипт `new_notebook.py`,
+    щоб згенерувати чистий початковий ноутбук.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/uk/.agents/skills/jupyter-notebook
+  updated_at: '1771489000'
+- rank: 27
+  id: microsoft-ai-agents-for-beginners-translations-zh-hk-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 當使用者要求建立、搭建或編輯 Jupyter 筆記本（`.ipynb`）以進行實驗、探索或教學範例時使用；優先使用隨附的範本，並執行輔助腳本
+    `new_notebook.py` 來產生一個乾淨的起始筆記本。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/zh-HK/.agents/skills/jupyter-notebook
+  updated_at: '1771534474'
+- rank: 28
+  id: microsoft-ai-agents-for-beginners-translations-zh-tw-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 當使用者要求建立、搭建或編輯 Jupyter 筆記本（`.ipynb`）用於實驗、探索或教學時使用；優先使用隨附範本並執行輔助腳本 `new_notebook.py`
+    來產生一個乾淨的起始筆記本。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/zh-TW/.agents/skills/jupyter-notebook
+  updated_at: '1771534474'
+- rank: 29
+  id: garrytan-gstack-design-consultation-skill-md
+  name: design-consultation
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Design consultation: understands your product, researches the landscape,
+    proposes a
+
+    complete design system (aesthetic, typography, color, layout, spacing, motion),
+    and
+
+    generates font+color preview pages. Creates DESIGN.md as your project''s design
+    source
+
+    of truth. For existing sites, use /plan-design-review to infer the system instead.
+
+    Use when asked to "design system", "brand guidelines", or "create DESIGN.md".
+
+    Proactively suggest when starting a new project''s UI with no existing
+
+    design system or DESIGN.md.'
+  github_url: https://github.com/garrytan/gstack/tree/main/design-consultation
+  updated_at: '1774665179'
+- rank: 30
+  id: garrytan-gstack-design-shotgun-skill-md
+  name: design-shotgun
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Design shotgun: generate multiple AI design variants, open a comparison
+    board,
+
+    collect structured feedback, and iterate. Standalone design exploration you can
+
+    run anytime. Use when: "explore designs", "show me options", "design variants",
+
+    "visual brainstorm", or "I don''t like how this looks".
+
+    Proactively suggest when the user describes a UI feature but hasn''t seen
+
+    what it could look like.'
+  github_url: https://github.com/garrytan/gstack/tree/main/design-shotgun
+  updated_at: '1774665179'
+- rank: 31
+  id: garrytan-gstack-office-hours-skill-md
+  name: office-hours
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'YC Office Hours — two modes. Startup mode: six forcing questions that
+    expose
+
+    demand reality, status quo, desperate specificity, narrowest wedge, observation,
+
+    and future-fit. Builder mode: design thinking brainstorming for side projects,
+
+    hackathons, learning, and open source. Saves a design doc.
+
+    Use when asked to "brainstorm this", "I have an idea", "help me think through
+
+    this", "office hours", or "is this worth building".
+
+    Proactively suggest when the user describes a new product idea or is exploring
+
+    whether something is worth building — before any code is written.
+
+    Use before /plan-ceo-review or /plan-eng-review.'
+  github_url: https://github.com/garrytan/gstack/tree/main/office-hours
+  updated_at: '1774665179'
+- rank: 32
+  id: composiohq-awesome-claude-skills-skill-share-skill-md
+  name: skill-share
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: A skill that creates new Claude skills and automatically shares them
+    on Slack using Rube for seamless team collaboration and skill discovery.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/skill-share
+  updated_at: '1762521158'
+- rank: 33
+  id: bmad-code-org-bmad-method-src-bmm-skills-1-analysis-research-bmad-technical-research-skill-md
+  name: bmad-technical-research
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Conduct technical research on technologies and architecture. Use when
+    the user says they would like to do or produce a technical research report
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/bmm-skills/1-analysis/research/bmad-technical-research
+  updated_at: '1774073483'
+- rank: 34
+  id: zhayujie-chatgpt-on-wechat-skills-skill-creator-skill-md
+  name: skill-creator
+  author: zhayujie
+  stars: 42603
+  forks: 9863
+  description: Create, install, or update skills in the workspace. Use when (1) installing
+    a skill from a URL or remote source, (2) creating a new skill from scratch, (3)
+    updating or restructuring existing skills. Always use this skill for any skill
+    installation or creation task.
+  github_url: https://github.com/zhayujie/chatgpt-on-wechat/tree/master/skills/skill-creator
+  updated_at: '1773053008'
+- rank: 35
+  id: gradio-app-gradio-agents-skills-gradio-skill-md
+  name: gradio
+  author: gradio-app
+  stars: 42188
+  forks: 3357
+  description: Build Gradio web UIs and demos in Python. Use when creating or editing
+    Gradio apps, components, event listeners, layouts, or chatbots.
+  github_url: https://github.com/gradio-app/gradio/tree/main/.agents/skills/gradio
+  updated_at: '1774374794'
+- rank: 36
+  id: berriai-litellm-tests-llm-translation-test-skills-data-slack-gif-creator-skill-md
+  name: slack-gif-creator
+  author: BerriAI
+  stars: 41291
+  forks: 6806
+  description: Knowledge and utilities for creating animated GIFs optimized for Slack.
+    Provides constraints, validation tools, and animation concepts. Use when users
+    request animated GIFs for Slack like "make me a GIF of X doing Y for Slack."
+  github_url: https://github.com/BerriAI/litellm/tree/main/tests/llm_translation/test_skills_data/slack-gif-creator
+  updated_at: '1772249635'
+- rank: 37
+  id: paperclipai-paperclip-claude-skills-design-guide-skill-md
+  name: design-guide
+  author: paperclipai
+  stars: 36317
+  forks: 5256
+  description: 'Paperclip UI design system guide for building consistent, reusable
+    frontend components. Use when creating new UI components, modifying existing ones,
+    adding pages or features to the frontend, styling UI elements, or when you need
+    to understand the design language and conventions. Covers: component creation,
+    design tokens, typography, status/priority systems, composition patterns, and
+    the /design-guide showcase page. Always use this skill alongside the frontend-design
+    skill (for visual quality) and the web-design-guidelines skill (for web best practices).'
+  github_url: https://github.com/paperclipai/paperclip/tree/master/.claude/skills/design-guide
+  updated_at: '1771513807'
+- rank: 38
+  id: carbon-language-carbon-lang-agents-skills-code-style-skill-md
+  name: code-style
+  author: carbon-language
+  stars: 33658
+  forks: 1532
+  description: Instructions for code formatting and style guidelines in the Carbon
+    toolchain.
+  github_url: https://github.com/carbon-language/carbon-lang/tree/trunk/.agents/skills/code_style
+  updated_at: '1773068201'
+- rank: 39
+  id: carbon-language-carbon-lang-agents-skills-toolchain-development-skill-md
+  name: toolchain-development
+  author: carbon-language
+  stars: 33658
+  forks: 1532
+  description: Instructions for checking, building, debugging, and understanding the
+    Carbon toolchain.
+  github_url: https://github.com/carbon-language/carbon-lang/tree/trunk/.agents/skills/toolchain_development
+  updated_at: '1774658888'
+- rank: 40
+  id: remix-run-remix-agents-skills-make-demo-skill-md
+  name: make-demo
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Create or revise demos in the Remix repository. Use when adding a new
+    demo under demos/, updating an existing demo, or reviewing demo code to ensure
+    it showcases Remix packages, strong code hygiene, and production-quality patterns.
+  github_url: https://github.com/remix-run/remix/tree/main/.agents/skills/make-demo
+  updated_at: '1774045499'
+- rank: 41
+  id: remix-run-remix-skills-remix-ui-skill-md
+  name: remix-ui
+  author: remix-run
+  stars: 32490
+  forks: 2730
+  description: Build the UI of a Remix app. Use when creating pages, layouts, client
+    entries, interactions, stateful UI, navigation, hydration, styling, animations,
+    reusable mixins, or UI tests.
+  github_url: https://github.com/remix-run/remix/tree/main/skills/remix-ui
+  updated_at: '1774465393'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-animejs-animation-skill-md
+  name: animejs-animation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Advanced JavaScript animation library skill for creating complex, high-performance
+    web animations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/animejs-animation
+  updated_at: '1773994005'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-build-skill-md
+  name: build
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: build
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/build
+  updated_at: '1773994629'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-cc-skill-continuous-learning-skill-md
+  name: cc-skill-continuous-learning
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Development skill from everything-claude-code
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cc-skill-continuous-learning
+  updated_at: '1772180381'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-cc-skill-strategic-compact-skill-md
+  name: cc-skill-strategic-compact
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Development skill from everything-claude-code
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cc-skill-strategic-compact
+  updated_at: '1773560569'
+- rank: 46
+  id: sickn33-antigravity-awesome-skills-skills-claude-code-guide-skill-md
+  name: claude-code-guide
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: To provide a comprehensive reference for configuring and using Claude
+    Code (the agentic coding tool) to its full potential. This skill synthesizes best
+    practices, configuration templates, and advanced usage patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/claude-code-guide
+  updated_at: '1773994005'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-code-review-excellence-skill-md
+  name: code-review-excellence
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Transform code reviews from gatekeeping to knowledge sharing through
+    constructive feedback, systematic analysis, and collaborative improvement.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/code-review-excellence
+  updated_at: '1773994005'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-deployment-procedures-skill-md
+  name: deployment-procedures
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Production deployment principles and decision-making. Safe deployment
+    workflows, rollback strategies, and verification. Teaches thinking, not scripts.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deployment-procedures
+  updated_at: '1772180381'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-expo-cicd-workflows-skill-md
+  name: expo-cicd-workflows
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Helps understand and write EAS workflow YAML files for Expo projects.
+    Use this skill when the user asks about CI/CD or workflows in an Expo or EAS context,
+    mentions .eas/workflows/, or wants help with EAS build pipelines or deployment
+    automation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-cicd-workflows
+  updated_at: '1773994629'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-app-builder-templates-skill-md
+  name: templates
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Project scaffolding templates for new applications. Use when creating
+    new projects from scratch. Contains 12 templates for various tech stacks.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/app-builder/templates
+  updated_at: '1772180381'

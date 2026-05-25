@@ -1,0 +1,575 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: tools
+category_name: Tools
+category_skill_count: 168203
+subcategory_slug: ide-plugins
+subcategory_name: IDE Plugins
+subcategory_skill_count: 8470
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=ide-plugins
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 8470
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-coding-agent-skill-md
+  name: coding-agent
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'Delegate coding tasks to Codex, Claude Code, or Pi agents via background
+    process. Use when: (1) building/creating new features or apps, (2) reviewing PRs
+    (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that
+    needs file exploration. NOT for: simple one-liner fixes (just edit), reading code
+    (use read tool), thread-bound ACP harness requests in chat (for example spawn/run
+    Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:"acp"),
+    or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print
+    --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/coding-agent
+  updated_at: '1774333273'
+- rank: 2
+  id: microsoft-vscode-agents-skills-launch-skill-md
+  name: launch
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Launch and automate VS Code (Code OSS) using agent-browser via Chrome
+    DevTools Protocol. Use when you need to interact with the VS Code UI, automate
+    the chat panel, test UI features, or take screenshots of VS Code. Triggers include
+    'automate VS Code', 'interact with chat', 'test the UI', 'take a screenshot',
+    'launch Code OSS with debugging'.
+  github_url: https://github.com/microsoft/vscode/tree/main/.agents/skills/launch
+  updated_at: '1773375554'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Automatically extract reusable patterns from Claude Code sessions and
+    save them as learned skills for future use.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/continuous-learning
+  updated_at: '1772664486'
+- rank: 4
+  id: lobehub-lobehub-agents-skills-hotkey-skill-md
+  name: hotkey
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Guide for adding keyboard shortcuts. Use when implementing new hotkeys,
+    registering shortcuts, or working with keyboard interactions. Triggers on hotkey
+    implementation or keyboard shortcut tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/hotkey
+  updated_at: '1770786288'
+- rank: 5
+  id: lobehub-lobehub-agents-skills-typescript-skill-md
+  name: typescript
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: TypeScript code style and optimization guidelines. MUST READ before
+    writing or modifying any TypeScript code (.ts, .tsx, .mts files). Also use when
+    reviewing code quality or implementing type-safe patterns. Triggers on any TypeScript
+    file edit, code style discussions, or type safety questions.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/typescript
+  updated_at: '1773752068'
+- rank: 6
+  id: microsoft-ai-agents-for-beginners-translations-sr-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Користити када корисник затражи да се креира, структурира или уреди
+    Jupyter бележнице (`.ipynb`) за експерименте, истраживања или туторијале; преферирати
+    приложене шаблоне и покренути помоћни скрипт `new_notebook.py` да би се генерисао
+    чист почетни бележник.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/sr/.agents/skills/jupyter-notebook
+  updated_at: '1771496114'
+- rank: 7
+  id: tryghost-ghost-claude-skills-add-private-feature-flag-skill-md
+  name: add-private-feature-flag
+  author: TryGhost
+  stars: 52172
+  forks: 11396
+  description: Use when adding a new private (developer experiments) feature flag
+    to Ghost, including the backend registration and settings UI toggle.
+  github_url: https://github.com/TryGhost/Ghost/tree/main/.claude/skills/add-private-feature-flag
+  updated_at: '1772572591'
+- rank: 8
+  id: tryghost-ghost-claude-skills-format-number-skill-md
+  name: format-numbers
+  author: TryGhost
+  stars: 52172
+  forks: 11396
+  description: Format numbers using the formatNumber function from Shade whenever
+    someone edits a TSX file.
+  github_url: https://github.com/TryGhost/Ghost/tree/main/.claude/skills/format-number
+  updated_at: '1770721104'
+- rank: 9
+  id: discourse-discourse-skills-discourse-upcoming-changes-skill-md
+  name: discourse-upcoming-changes
+  author: discourse
+  stars: 46649
+  forks: 8858
+  description: Use when adding a new upcoming change feature flag to Discourse - handles
+    site settings, translations, images, and code access patterns
+  github_url: https://github.com/discourse/discourse/tree/main/.skills/discourse-upcoming-changes
+  updated_at: '1771281323'
+- rank: 10
+  id: metabase-metabase-claude-skills-clojure-review-skill-md
+  name: clojure-review
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Review Clojure and ClojureScript code changes for compliance with Metabase
+    coding standards, style violations, and code quality issues. Use when reviewing
+    pull requests or diffs containing Clojure/ClojureScript code.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/clojure-review
+  updated_at: '1769166810'
+- rank: 11
+  id: metabase-metabase-claude-skills-clojure-write-skill-md
+  name: clojure-write
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Guide Clojure and ClojureScript development using REPL-driven workflow,
+    coding conventions, and best practices. Use when writing, developing, or refactoring
+    Clojure/ClojureScript code.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/clojure-write
+  updated_at: '1765497930'
+- rank: 12
+  id: metabase-metabase-claude-skills-docs-review-skill-md
+  name: docs-review
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Review documentation changes for compliance with the Metabase writing
+    style guide. Use when reviewing pull requests, files, or diffs containing documentation
+    markdown files.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/docs-review
+  updated_at: '1766090567'
+- rank: 13
+  id: metabase-metabase-claude-skills-typescript-review-skill-md
+  name: typescript-review
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Review TypeScript and JavaScript code changes for compliance with Metabase
+    coding standards, style violations, and code quality issues. Use when reviewing
+    pull requests or diffs containing TypeScript/JavaScript code.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/typescript-review
+  updated_at: '1771496094'
+- rank: 14
+  id: metabase-metabase-claude-skills-typescript-write-skill-md
+  name: typescript-write
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Write TypeScript and JavaScript code following Metabase coding standards
+    and best practices. Use when developing or refactoring TypeScript/JavaScript code.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/typescript-write
+  updated_at: '1763571245'
+- rank: 15
+  id: slidevjs-slidev-skills-slidev-skill-md
+  name: slidev
+  author: slidevjs
+  stars: 45236
+  forks: 1985
+  description: Create and present web-based slidedecks for developers using Slidev
+    with Markdown, Vue components, code highlighting, animations, and interactive
+    features. Use when building technical presentations, conference talks, code walkthroughs,
+    teaching materials, or developer decks.
+  github_url: https://github.com/slidevjs/slidev/tree/main/skills/slidev
+  updated_at: '1773273298'
+- rank: 16
+  id: payloadcms-payload-claude-skills-generate-translations-skill-md
+  name: generate-translations
+  author: payloadcms
+  stars: 41477
+  forks: 3517
+  description: Use when new translation keys are added to packages to generate new
+    translations strings
+  github_url: https://github.com/payloadcms/payload/tree/main/.claude/skills/generate-translations
+  updated_at: '1768504094'
+- rank: 17
+  id: ueberdosis-tiptap-skills-tiptap-skill-md
+  name: tiptap
+  author: ueberdosis
+  stars: 35915
+  forks: 2929
+  description: Helps coding agents integrate and work with the Tiptap rich text editor.
+    Use when building or modifying a rich text editor with Tiptap, installing Tiptap
+    extensions, or implementing features like collaboration, comments, AI, or document
+    conversion.
+  github_url: https://github.com/ueberdosis/tiptap/tree/main/skills/tiptap
+  updated_at: '1774622667'
+- rank: 18
+  id: wshobson-agents-plugins-python-development-skills-python-code-style-skill-md
+  name: python-code-style
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python code style, linting, formatting, naming conventions, and documentation
+    standards. Use when writing new code, reviewing style, configuring linters, writing
+    docstrings, or establishing project standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-code-style
+  updated_at: '1769791934'
+- rank: 19
+  id: wshobson-agents-plugins-python-development-skills-python-type-safety-skill-md
+  name: python-type-safety
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python type safety with type hints, generics, protocols, and strict
+    type checking. Use when adding type annotations, implementing generic classes,
+    defining structural interfaces, or configuring mypy/pyright.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-type-safety
+  updated_at: '1769791934'
+- rank: 20
+  id: wshobson-agents-plugins-shell-scripting-skills-shellcheck-configuration-skill-md
+  name: shellcheck-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master ShellCheck static analysis configuration and usage for shell
+    script quality. Use when setting up linting infrastructure, fixing code issues,
+    or ensuring script portability.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/shell-scripting/skills/shellcheck-configuration
+  updated_at: '1772898797'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-azure-ai-contentsafety-java-skill-md
+  name: azure-ai-contentsafety-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build content moderation applications using the Azure AI Content Safety
+    SDK for Java.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-contentsafety-java
+  updated_at: '1773994005'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-azure-ai-vision-imageanalysis-java-skill-md
+  name: azure-ai-vision-imageanalysis-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build image analysis applications with Azure AI Vision SDK for Java.
+    Use when implementing image captioning, OCR text extraction, object detection,
+    tagging, or smart cropping.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-vision-imageanalysis-java
+  updated_at: '1772180381'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-cpp-pro-skill-md
+  name: cpp-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Write idiomatic C++ code with modern features, RAII, smart pointers,
+    and STL algorithms. Handles templates, move semantics, and performance optimization.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cpp-pro
+  updated_at: '1774288553'
+- rank: 24
+  id: sickn33-antigravity-awesome-skills-skills-design-md-skill-md
+  name: design-md
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Analyze Stitch projects and synthesize a semantic design system into
+    DESIGN.md files
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/design-md
+  updated_at: '1772180381'
+- rank: 25
+  id: sickn33-antigravity-awesome-skills-skills-elixir-pro-skill-md
+  name: elixir-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Write idiomatic Elixir code with OTP patterns, supervision trees, and
+    Phoenix LiveView. Masters concurrency, fault tolerance, and distributed systems.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/elixir-pro
+  updated_at: '1772354305'
+- rank: 26
+  id: sickn33-antigravity-awesome-skills-skills-expo-ui-swift-ui-skill-md
+  name: expo-ui-swift-ui
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: expo-ui-swift-ui
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/expo-ui-swift-ui
+  updated_at: '1773994629'
+- rank: 27
+  id: sickn33-antigravity-awesome-skills-skills-fp-refactor-skill-md
+  name: fp-refactor
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive guide for refactoring imperative TypeScript code to fp-ts
+    functional patterns
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fp-refactor
+  updated_at: '1773994629'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-makepad-font-skill-md
+  name: makepad-font
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'CRITICAL: Use for Makepad font and text rendering. Triggers on:
+
+    makepad font, makepad text, makepad glyph, makepad typography,
+
+    font atlas, text layout, font family, font size, text shaping,
+
+    makepad 字体, makepad 文字, makepad 排版, makepad 字形'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/makepad-font
+  updated_at: '1773994005'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-obsidian-markdown-skill-md
+  name: obsidian-markdown
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Create and edit Obsidian Flavored Markdown with wikilinks, embeds,
+    callouts, properties, and other Obsidian-specific syntax. Use when working with
+    .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter,
+    tags, embeds, or Obsidian notes.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/obsidian-markdown
+  updated_at: '1774083913'
+- rank: 30
+  id: sickn33-antigravity-awesome-skills-skills-speed-skill-md
+  name: speed
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Launch RSVP speed reader for text
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/speed
+  updated_at: '1773994629'
+- rank: 31
+  id: sickn33-antigravity-awesome-skills-skills-threejs-postprocessing-skill-md
+  name: threejs-postprocessing
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Three.js post-processing - EffectComposer, bloom, DOF, screen effects.
+    Use when adding visual effects, color grading, blur, glow, or creating custom
+    screen-space shaders.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/threejs-postprocessing
+  updated_at: '1773994629'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-upgrading-expo-skill-md
+  name: upgrading-expo
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Upgrade Expo SDK versions
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/upgrading-expo
+  updated_at: '1772180381'
+- rank: 33
+  id: github-awesome-copilot-skills-finnish-humanizer-skill-md
+  name: finnish-humanizer
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Detect and remove AI-generated markers from Finnish text, making it
+    sound like a native Finnish speaker wrote it. Use when asked to "humanize", "naturalize",
+    or "remove AI feel" from Finnish text, or when editing .md/.txt files containing
+    Finnish content. Identifies 26 patterns (12 Finnish-specific + 14 universal) and
+    4 style markers.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/finnish-humanizer
+  updated_at: '1771254072'
+- rank: 34
+  id: github-awesome-copilot-skills-next-intl-add-language-skill-md
+  name: next-intl-add-language
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Add new language to a Next.js + next-intl application
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/next-intl-add-language
+  updated_at: '1771904373'
+- rank: 35
+  id: github-awesome-copilot-skills-technology-stack-blueprint-generator-skill-md
+  name: technology-stack-blueprint-generator
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Comprehensive technology stack blueprint generator that analyzes codebases
+    to create detailed architectural documentation. Automatically detects technology
+    stacks, programming languages, and implementation patterns across multiple platforms
+    (.NET, Java, JavaScript, React, Python). Generates configurable blueprints with
+    version information, licensing details, usage patterns, coding conventions, and
+    visual diagrams. Provides implementation-ready templates and maintains architectural
+    consistency for guided development.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/technology-stack-blueprint-generator
+  updated_at: '1771904373'
+- rank: 36
+  id: github-awesome-copilot-skills-vscode-ext-commands-skill-md
+  name: vscode-ext-commands
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Guidelines for contributing commands in VS Code extensions. Indicates
+    naming convention, visibility, localization and other relevant attributes, following
+    VS Code extension development guidelines, libraries and good practices
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/vscode-ext-commands
+  updated_at: '1768148316'
+- rank: 37
+  id: github-awesome-copilot-skills-vscode-ext-localization-skill-md
+  name: vscode-ext-localization
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Guidelines for proper localization of VS Code extensions, following
+    VS Code extension development guidelines, libraries and good practices
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/vscode-ext-localization
+  updated_at: '1768148156'
+- rank: 38
+  id: srbhr-resume-matcher-github-skills-design-principles-skill-md
+  name: design-principles
+  author: srbhr
+  stars: 26438
+  forks: 4757
+  description: Swiss International Style for Resume Matcher. Invoke ONLY when designing
+    new UI components or modifying existing component styles. Provides colors, typography,
+    borders, shadows, and component patterns.
+  github_url: https://github.com/srbhr/Resume-Matcher/tree/main/.github/skills/design-principles
+  updated_at: '1770838192'
+- rank: 39
+  id: qwibitai-nanoclaw-claude-skills-channel-formatting-skill-md
+  name: channel-formatting
+  author: qwibitai
+  stars: 25783
+  forks: 9335
+  description: Convert Claude's Markdown output to each channel's native text syntax
+    before delivery. Adds zero-dependency formatting for WhatsApp, Telegram, and Slack
+    (marker substitution). Also ships a Signal rich-text helper (parseSignalStyles)
+    used by the Signal skill.
+  github_url: https://github.com/qwibitai/nanoclaw/tree/main/.claude/skills/channel-formatting
+  updated_at: '1774471949'
+- rank: 40
+  id: mlflow-mlflow-claude-skills-copilot-skill-md
+  name: copilot
+  author: mlflow
+  stars: 24966
+  forks: 5490
+  description: Hand off a task to GitHub Copilot.
+  github_url: https://github.com/mlflow/mlflow/tree/master/.claude/skills/copilot
+  updated_at: '1774676009'
+- rank: 41
+  id: biomejs-biome-claude-skills-formatter-development-skill-md
+  name: formatter-development
+  author: biomejs
+  stars: 24155
+  forks: 919
+  description: Guide for implementing formatting rules using Biome's IR-based formatter
+    infrastructure. Use when implementing formatting for new syntax nodes, handling
+    comments in formatted output, or comparing Biome's formatting against Prettier
+    for JavaScript, CSS, JSON, HTML, or other languages.
+  github_url: https://github.com/biomejs/biome/tree/main/.claude/skills/formatter-development
+  updated_at: '1772789604'
+- rank: 42
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-feature-design-assistant-skill-md
+  name: feature-design-assistant
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Turn ideas into fully formed designs and specs through natural collaborative
+    dialogue. Use when planning new features, designing architecture, or making significant
+    changes to the codebase.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/feature-design-assistant
+  updated_at: '1767959780'
+- rank: 43
+  id: shanraisshan-claude-code-best-practice-claude-skills-presentation-presentation-styling-skill-md
+  name: presentation-styling
+  author: shanraisshan
+  stars: 22909
+  forks: 1970
+  description: Knowledge about CSS classes, component patterns, and syntax highlighting
+    in the presentation
+  github_url: https://github.com/shanraisshan/claude-code-best-practice/tree/main/.claude/skills/presentation/presentation-styling
+  updated_at: '1770915758'
+- rank: 44
+  id: googleworkspace-cli-skills-gws-modelarmor-sanitize-prompt-skill-md
+  name: gws-modelarmor-sanitize-prompt
+  author: googleworkspace
+  stars: 22843
+  forks: 1108
+  description: 'Google Model Armor: Sanitize a user prompt through a Model Armor template.'
+  github_url: https://github.com/googleworkspace/cli/tree/main/skills/gws-modelarmor-sanitize-prompt
+  updated_at: '1774550706'
+- rank: 45
+  id: yamadashy-repomix-browser-claude-skills-browser-extension-developer-skill-md
+  name: browser-extension-developer
+  author: yamadashy
+  stars: 22691
+  forks: 1056
+  description: Use this skill when developing or maintaining browser extension code
+    in the `browser/` directory, including Chrome/Firefox/Edge compatibility, content
+    scripts, background scripts, or i18n updates.
+  github_url: https://github.com/yamadashy/repomix/tree/main/browser/.claude/skills/browser-extension-developer
+  updated_at: '1769183590'
+- rank: 46
+  id: mastra-ai-mastra-examples-unified-workspace-docs-skills-brand-guidelines-skill-md
+  name: brand-guidelines
+  author: mastra-ai
+  stars: 22413
+  forks: 1805
+  description: Applies Mastra's brand colors, typography, and writing style to documentation,
+    code examples, or artifacts. Use when brand colors, style guidelines, visual formatting,
+    or company design standards apply.
+  github_url: https://github.com/mastra-ai/mastra/tree/main/examples/unified-workspace/docs-skills/brand-guidelines
+  updated_at: '1771505133'
+- rank: 47
+  id: mastra-ai-mastra-examples-unified-workspace-skills-code-review-skill-md
+  name: code-review
+  author: mastra-ai
+  stars: 22413
+  forks: 1805
+  description: Provides structured code review guidelines for TypeScript projects.
+    Use when reviewing pull requests, analyzing code quality, or suggesting improvements.
+  github_url: https://github.com/mastra-ai/mastra/tree/main/examples/unified-workspace/skills/code-review
+  updated_at: '1769718852'
+- rank: 48
+  id: qwenlm-qwen-code-qwen-skills-qwen-code-claw-skill-md
+  name: qwen-code-claw
+  author: QwenLM
+  stars: 21168
+  forks: 1898
+  description: Use Qwen Code as a Code Agent for code understanding, project generation,
+    features, bug fixes, refactoring, and various programming tasks
+  github_url: https://github.com/QwenLM/qwen-code/tree/main/.qwen/skills/qwen-code-claw
+  updated_at: '1773835031'
+- rank: 49
+  id: jetbrains-intellij-community-agents-skills-actions-skill-md
+  name: actions
+  author: JetBrains
+  stars: 19882
+  forks: 5707
+  description: Guidelines for implementing IntelliJ actions (AnAction). Use those
+    rules when you need to create or change an action in the intellij platform.
+  github_url: https://github.com/JetBrains/intellij-community/tree/master/.agents/skills/actions
+  updated_at: '1773608975'
+- rank: 50
+  id: jetbrains-intellij-community-agents-skills-code-style-skill-md
+  name: code-style
+  author: JetBrains
+  stars: 19882
+  forks: 5707
+  description: Code style rules for IntelliJ codebase. Use when writing or reviewing
+    code for style compliance.
+  github_url: https://github.com/JetBrains/intellij-community/tree/master/.agents/skills/code-style
+  updated_at: '1773608975'

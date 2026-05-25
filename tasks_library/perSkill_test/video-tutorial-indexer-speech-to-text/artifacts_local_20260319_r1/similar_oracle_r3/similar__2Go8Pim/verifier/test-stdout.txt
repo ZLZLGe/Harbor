@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tests/test_outputs.py", line 75, in <module>
+    main()
+  File "/tests/test_outputs.py", line 41, in main
+    assert PRED_FILE.exists(), f"missing output: {PRED_FILE}"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: missing output: /root/tutorial_index_similar.json

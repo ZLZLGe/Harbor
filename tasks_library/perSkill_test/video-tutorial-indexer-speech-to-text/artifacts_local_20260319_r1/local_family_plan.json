@@ -1,0 +1,35 @@
+{
+  "sourceTaskId": "video-tutorial-indexer",
+  "skillMode": "per-skill",
+  "targetSkill": {
+    "name": "speech-to-text",
+    "dirName": "speech-to-text"
+  },
+  "familyTheme": "Tutorial narration indexing and temporal analytics",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - Tutorial Chapter Index Reconstruction",
+      "primaryOutputFile": "/root/tutorial_index_similar.json"
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Tutorial Phase Timeline",
+      "primaryOutputFile": "/root/tutorial_phase_timeline.json"
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Tutorial Minute Cards",
+      "primaryOutputFile": "/root/tutorial_minute_cards.csv"
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Chapter Duration Leaderboard",
+      "primaryOutputFile": "/root/chapter_duration_leaderboard.json"
+    }
+  ]
+}

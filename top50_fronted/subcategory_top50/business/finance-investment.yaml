@@ -1,0 +1,621 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: business
+category_name: Business
+category_skill_count: 121378
+subcategory_slug: finance-investment
+subcategory_name: Finance & Investment
+subcategory_skill_count: 21768
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=finance-investment
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 21768
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-skills-carrier-relationship-management-skill-md
+  name: carrier-relationship-management
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Codified expertise for managing carrier portfolios, negotiating freight
+    rates, tracking carrier performance, allocating freight, and maintaining strategic
+    carrier relationships. Informed by transportation managers with 15+ years experience.
+    Includes scorecarding frameworks, RFP processes, market intelligence, and compliance
+    vetting. Use when managing carriers, negotiating rates, evaluating carrier performance,
+    or building freight strategies.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/carrier-relationship-management
+  updated_at: '1773202435'
+- rank: 2
+  id: affaan-m-everything-claude-code-skills-energy-procurement-skill-md
+  name: energy-procurement
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Codified expertise for electricity and gas procurement, tariff optimization,
+    demand charge management, renewable PPA evaluation, and multi-facility energy
+    cost management. Informed by energy procurement managers with 15+ years experience
+    at large commercial and industrial consumers. Includes market structure analysis,
+    hedging strategies, load profiling, and sustainability reporting frameworks. Use
+    when procuring energy, optimizing tariffs, managing demand charges, evaluating
+    PPAs, or developing energy strategies.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/energy-procurement
+  updated_at: '1773202056'
+- rank: 3
+  id: affaan-m-everything-claude-code-agents-skills-market-research-skill-md
+  name: market-research
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Conduct market research, competitive analysis, investor due diligence,
+    and industry intelligence with source attribution and decision-oriented summaries.
+    Use when the user wants market sizing, competitor comparisons, fund research,
+    technology scans, or research that informs business decisions.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/market-research
+  updated_at: '1772200223'
+- rank: 4
+  id: affaan-m-everything-claude-code-cursor-skills-market-research-skill-md
+  name: market-research
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Conduct market research, competitive analysis, investor due diligence,
+    and industry intelligence with source attribution and decision-oriented summaries.
+    Use when the user wants market sizing, competitor comparisons, fund research,
+    technology scans, or research that informs business decisions.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.cursor/skills/market-research
+  updated_at: '1772200223'
+- rank: 5
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-market-research-skill-md
+  name: market-research
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 进行市场研究、竞争分析、投资者尽职调查和行业情报，附带来源归属和决策导向的摘要。适用于用户需要市场规模、竞争对手比较、基金研究、技术扫描或为商业决策提供信息的研究时。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/market-research
+  updated_at: '1772519307'
+- rank: 6
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-data-analyst-skill-md
+  name: data-analyst
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'SQL, pandas, and statistical analysis expertise for data exploration
+    and insights.
+
+    Use when: analyzing data, writing SQL queries, using pandas, performing statistical
+    analysis,
+
+    or when user mentions data analysis, SQL, pandas, statistics, or needs help exploring
+    datasets.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/data-analyst
+  updated_at: '1770167437'
+- rank: 7
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-decision-helper-skill-md
+  name: decision-helper
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Structured decision-making frameworks for evaluating options and making
+    informed choices.
+
+    Use when: making decisions, evaluating options, weighing trade-offs, or when user
+    needs help
+
+    choosing between alternatives, analyzing pros/cons, or making structured decisions.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/decision-helper
+  updated_at: '1770167437'
+- rank: 8
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-project-planner-skill-md
+  name: project-planner
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Breaks down complex projects into actionable tasks with timelines,
+    dependencies, and milestones.
+
+    Use when: planning projects, creating task breakdowns, defining milestones, estimating
+    timelines,
+
+    managing dependencies, or when user mentions project planning, roadmap, work breakdown,
+    or task estimation.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/project-planner
+  updated_at: '1770167437'
+- rank: 9
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-strategy-advisor-skill-md
+  name: strategy-advisor
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'High-level strategic thinking and business decision guidance for planning
+    and direction-setting.
+
+    Use when: making strategic decisions, evaluating business options, setting direction,
+    analyzing
+
+    trade-offs, or when user mentions strategy, business planning, competitive analysis,
+    or long-term planning.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/strategy-advisor
+  updated_at: '1770167437'
+- rank: 10
+  id: garrytan-gstack-plan-eng-review-skill-md
+  name: plan-eng-review
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Eng manager-mode plan review. Lock in the execution plan — architecture,
+
+    data flow, diagrams, edge cases, test coverage, performance. Walks through
+
+    issues interactively with opinionated recommendations. Use when asked to
+
+    "review the architecture", "engineering review", or "lock in the plan".
+
+    Proactively suggest when the user has a plan or design doc and is about to
+
+    start coding — to catch architecture issues before implementation.'
+  github_url: https://github.com/garrytan/gstack/tree/main/plan-eng-review
+  updated_at: '1774634818'
+- rank: 11
+  id: bytedance-deer-flow-skills-public-chart-visualization-skill-md
+  name: chart-visualization
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: This skill should be used when the user wants to visualize data. It
+    intelligently selects the most suitable chart type from 26 available options,
+    extracts parameters based on detailed specifications, and generates a chart image
+    using a JavaScript script.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/chart-visualization
+  updated_at: '1772544721'
+- rank: 12
+  id: composiohq-awesome-claude-skills-lead-research-assistant-skill-md
+  name: lead-research-assistant
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Identifies high-quality leads for your product or service by analyzing
+    your business, searching for target companies, and providing actionable contact
+    strategies. Perfect for sales, business development, and marketing professionals.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/lead-research-assistant
+  updated_at: '1760692175'
+- rank: 13
+  id: anthropics-claude-cookbooks-skills-custom-skills-analyzing-financial-statements-skill-md
+  name: analyzing-financial-statements
+  author: anthropics
+  stars: 36501
+  forks: 3958
+  description: This skill calculates key financial ratios and metrics from financial
+    statement data for investment analysis
+  github_url: https://github.com/anthropics/claude-cookbooks/tree/main/skills/custom_skills/analyzing-financial-statements
+  updated_at: '1764312299'
+- rank: 14
+  id: anthropics-claude-cookbooks-skills-custom-skills-creating-financial-models-skill-md
+  name: creating-financial-models
+  author: anthropics
+  stars: 36501
+  forks: 3958
+  description: This skill provides an advanced financial modeling suite with DCF analysis,
+    sensitivity testing, Monte Carlo simulations, and scenario planning for investment
+    decisions
+  github_url: https://github.com/anthropics/claude-cookbooks/tree/main/skills/custom_skills/creating-financial-models
+  updated_at: '1764312299'
+- rank: 15
+  id: wshobson-agents-plugins-security-scanning-skills-attack-tree-construction-skill-md
+  name: attack-tree-construction
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build comprehensive attack trees to visualize threat paths. Use when
+    mapping attack scenarios, identifying defense gaps, or communicating security
+    risks to stakeholders.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/attack-tree-construction
+  updated_at: '1772898797'
+- rank: 16
+  id: wshobson-agents-plugins-quantitative-trading-skills-backtesting-frameworks-skill-md
+  name: backtesting-frameworks
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build robust backtesting systems for trading strategies with proper
+    handling of look-ahead bias, survivorship bias, and transaction costs. Use when
+    developing trading algorithms, validating strategies, or building backtesting
+    infrastructure.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/quantitative-trading/skills/backtesting-frameworks
+  updated_at: '1772898797'
+- rank: 17
+  id: wshobson-agents-plugins-startup-business-analyst-skills-competitive-landscape-skill-md
+  name: competitive-landscape
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Analyze competition, identify differentiation opportunities, and develop
+    winning market positioning strategies using Porter's Five Forces, Blue Ocean Strategy,
+    and positioning maps. Use this skill when evaluating competitors, assessing market
+    positioning, identifying sustainable competitive advantages, or preparing competitive
+    strategy analysis for a startup or investor pitch.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/competitive-landscape
+  updated_at: '1774489443'
+- rank: 18
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-cost-optimization-skill-md
+  name: cost-optimization
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Optimize cloud costs across AWS, Azure, GCP, and OCI through resource
+    rightsizing, tagging strategies, reserved instances, and spending analysis. Use
+    when reducing cloud expenses, analyzing infrastructure costs, or implementing
+    cost governance policies.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/cost-optimization
+  updated_at: '1773644132'
+- rank: 19
+  id: wshobson-agents-plugins-business-analytics-skills-data-storytelling-skill-md
+  name: data-storytelling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Transform data into compelling narratives using visualization, context,
+    and persuasive structure. Use when presenting analytics to stakeholders, creating
+    data reports, or building executive presentations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/data-storytelling
+  updated_at: '1772898797'
+- rank: 20
+  id: wshobson-agents-plugins-business-analytics-skills-kpi-dashboard-design-skill-md
+  name: kpi-dashboard-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design effective KPI dashboards with metrics selection, visualization
+    best practices, and real-time monitoring patterns. Use this skill when building
+    an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing
+    an operations center with live service health and request throughput; creating
+    a cohort retention analysis view for a product team; or debugging a dashboard
+    where metrics contradict each other due to inconsistent calculation methodology.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/kpi-dashboard-design
+  updated_at: '1774541149'
+- rank: 21
+  id: wshobson-agents-plugins-startup-business-analyst-skills-market-sizing-analysis-skill-md
+  name: market-sizing-analysis
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Calculate TAM/SAM/SOM for market opportunities using top-down, bottom-up,
+    and value theory methodologies. Use this skill when sizing markets, estimating
+    addressable revenue, validating market opportunity for a new venture, or building
+    investor-ready market analysis for a startup pitch or business plan.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/market-sizing-analysis
+  updated_at: '1774489443'
+- rank: 22
+  id: wshobson-agents-plugins-quantitative-trading-skills-risk-metrics-calculation-skill-md
+  name: risk-metrics-calculation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Calculate portfolio risk metrics including VaR, CVaR, Sharpe, Sortino,
+    and drawdown analysis. Use when measuring portfolio risk, implementing risk limits,
+    or building risk monitoring systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/quantitative-trading/skills/risk-metrics-calculation
+  updated_at: '1772898797'
+- rank: 23
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-financial-modeling-skill-md
+  name: startup-financial-modeling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build comprehensive 3-5 year financial models with revenue projections,
+    cost structures, cash flow analysis, and scenario planning for early-stage startups.
+    Use this skill when creating financial projections, calculating burn rate or runway,
+    modeling fundraising scenarios, or preparing investor-ready financials for a seed
+    or Series A raise.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-financial-modeling
+  updated_at: '1774489443'
+- rank: 24
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-metrics-framework-skill-md
+  name: startup-metrics-framework
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Track, calculate, and optimize key performance metrics for SaaS, marketplace,
+    consumer, and B2B startups from seed through Series A, including unit economics,
+    growth efficiency, and cash management. Use this skill when defining a metrics
+    framework, calculating CAC/LTV/burn multiple, benchmarking business health, or
+    preparing metrics dashboards for investors or board reporting.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-metrics-framework
+  updated_at: '1774489443'
+- rank: 25
+  id: wshobson-agents-plugins-agent-teams-skills-task-coordination-strategies-skill-md
+  name: task-coordination-strategies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent
+    work with proper task descriptions and workload balancing. Use this skill when
+    breaking down work for agent teams, managing task dependencies, or monitoring
+    team progress.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/task-coordination-strategies
+  updated_at: '1770331350'
+- rank: 26
+  id: wshobson-agents-plugins-startup-business-analyst-skills-team-composition-analysis-skill-md
+  name: team-composition-analysis
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design optimal team structures, hiring plans, compensation strategies,
+    and equity allocation for early-stage startups from pre-seed through Series A.
+    Use this skill when planning headcount, determining which roles to hire next,
+    setting compensation or equity ranges, designing org structure, or building a
+    hiring budget aligned to funding milestones.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/team-composition-analysis
+  updated_at: '1774489443'
+- rank: 27
+  id: wshobson-agents-plugins-security-scanning-skills-threat-mitigation-mapping-skill-md
+  name: threat-mitigation-mapping
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Map identified threats to appropriate security controls and mitigations.
+    Use when prioritizing security investments, creating remediation plans, or validating
+    control effectiveness.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/threat-mitigation-mapping
+  updated_at: '1772898797'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-agent-evaluation-skill-md
+  name: agent-evaluation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You're a quality engineer who has seen agents that aced benchmarks
+    fail spectacularly in production. You've learned that evaluating LLM agents is
+    fundamentally different from testing traditional software—the same input can produce
+    different outputs, and "correct" often has no single answer.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-evaluation
+  updated_at: '1773994005'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-alpha-vantage-skill-md
+  name: alpha-vantage
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Access 20+ years of global financial data: equities, options, forex,
+    crypto, commodities, economic indicators, and 50+ technical indicators.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/alpha-vantage
+  updated_at: '1773994005'
+- rank: 30
+  id: sickn33-antigravity-awesome-skills-skills-apify-competitor-intelligence-skill-md
+  name: apify-competitor-intelligence
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Analyze competitor strategies, content, pricing, ads, and market positioning
+    across Google Maps, Booking.com, Facebook, Instagram, YouTube, and TikTok.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-competitor-intelligence
+  updated_at: '1773994629'
+- rank: 31
+  id: sickn33-antigravity-awesome-skills-skills-apify-trend-analysis-skill-md
+  name: apify-trend-analysis
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Discover and track emerging trends across Google Trends, Instagram,
+    Facebook, YouTube, and TikTok to inform content strategy.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-trend-analysis
+  updated_at: '1773994005'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-architecture-skill-md
+  name: architecture
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Architectural decision-making framework. Requirements analysis, trade-off
+    evaluation, ADR documentation. Use when making architecture decisions or analyzing
+    system design.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/architecture
+  updated_at: '1772180381'
+- rank: 33
+  id: sickn33-antigravity-awesome-skills-skills-attack-tree-construction-skill-md
+  name: attack-tree-construction
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build comprehensive attack trees to visualize threat paths. Use when
+    mapping attack scenarios, identifying defense gaps, or communicating security
+    risks to stakeholders.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/attack-tree-construction
+  updated_at: '1772180381'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-azure-mgmt-weightsandbiases-dotnet-skill-md
+  name: azure-mgmt-weightsandbiases-dotnet
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Weights & Biases SDK for .NET. ML experiment tracking and model
+    management via Azure Marketplace. Use for creating W&B instances, managing SSO,
+    marketplace integration, and ML observability.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-mgmt-weightsandbiases-dotnet
+  updated_at: '1772354305'
+- rank: 35
+  id: sickn33-antigravity-awesome-skills-skills-backtesting-frameworks-skill-md
+  name: backtesting-frameworks
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build robust, production-grade backtesting systems that avoid common
+    pitfalls and produce reliable strategy performance estimates.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/backtesting-frameworks
+  updated_at: '1773994005'
+- rank: 36
+  id: sickn33-antigravity-awesome-skills-skills-business-analyst-skill-md
+  name: business-analyst
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master modern business analysis with AI-powered analytics, real-time
+    dashboards, and data-driven insights. Build comprehensive KPI frameworks, predictive
+    models, and strategic recommendations.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/business-analyst
+  updated_at: '1772354305'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-carrier-relationship-management-skill-md
+  name: carrier-relationship-management
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Codified expertise for managing carrier portfolios, negotiating freight
+    rates, tracking carrier performance, allocating freight, and maintaining strategic
+    carrier relationships.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/carrier-relationship-management
+  updated_at: '1773994005'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-code-refactoring-tech-debt-skill-md
+  name: code-refactoring-tech-debt
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a technical debt expert specializing in identifying, quantifying,
+    and prioritizing technical debt in software projects. Analyze the codebase to
+    uncover debt, assess its impact, and create acti
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/code-refactoring-tech-debt
+  updated_at: '1772180381'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-codebase-cleanup-tech-debt-skill-md
+  name: codebase-cleanup-tech-debt
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a technical debt expert specializing in identifying, quantifying,
+    and prioritizing technical debt in software projects. Analyze the codebase to
+    uncover debt, assess its impact, and create acti
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/codebase-cleanup-tech-debt
+  updated_at: '1772180381'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-competitive-landscape-skill-md
+  name: competitive-landscape
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive frameworks for analyzing competition, identifying differentiation
+    opportunities, and developing winning market positioning strategies.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/competitive-landscape
+  updated_at: '1773994005'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-cost-optimization-skill-md
+  name: cost-optimization
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Strategies and patterns for optimizing cloud costs across AWS, Azure,
+    and GCP.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cost-optimization
+  updated_at: '1773994005'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-crypto-bd-agent-skill-md
+  name: crypto-bd-agent
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Production-tested patterns for building AI agents that autonomously
+    discover, > evaluate, and acquire token listings for cryptocurrency exchanges.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/crypto-bd-agent
+  updated_at: '1773994005'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-database-cloud-optimization-cost-optimize-skill-md
+  name: database-cloud-optimization-cost-optimize
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: You are a cloud cost optimization expert specializing in reducing infrastructure
+    expenses while maintaining performance and reliability. Analyze cloud spending,
+    identify savings opportunities, and implement cost-effective architectures across
+    AWS, Azure, and GCP.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-cloud-optimization-cost-optimize
+  updated_at: '1773994005'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-deep-research-skill-md
+  name: deep-research
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Run autonomous research tasks that plan, search, read, and synthesize
+    information into comprehensive reports.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deep-research
+  updated_at: '1773994005'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-energy-procurement-skill-md
+  name: energy-procurement
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Codified expertise for electricity and gas procurement, tariff optimisation,
+    demand charge management, renewable PPA evaluation, and multi-facility energy
+    cost management.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/energy-procurement
+  updated_at: '1773994005'
+- rank: 46
+  id: sickn33-antigravity-awesome-skills-skills-leiloeiro-ia-skill-md
+  name: leiloeiro-ia
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Especialista em leiloes judiciais e extrajudiciais de imoveis. Analise
+    juridica, pericial e de mercado integrada. Orquestra os 5 modulos especializados.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/leiloeiro-ia
+  updated_at: '1772874247'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-leiloeiro-mercado-skill-md
+  name: leiloeiro-mercado
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Analise de mercado imobiliario para leiloes. Liquidez, desagio tipico,
+    ROI, estrategias de saida (flip/reforma/renda), Selic 2025 e benchmark CDI/FII.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/leiloeiro-mercado
+  updated_at: '1772874247'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-leiloeiro-risco-skill-md
+  name: leiloeiro-risco
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Analise de risco em leiloes de imoveis. Score 36 pontos, riscos juridicos/financeiros/operacionais,
+    stress test 4 cenarios e ROI ponderado por risco.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/leiloeiro-risco
+  updated_at: '1772874247'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-market-sizing-analysis-skill-md
+  name: market-sizing-analysis
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive market sizing methodologies for calculating Total Addressable
+    Market (TAM), Serviceable Available Market (SAM), and Serviceable Obtainable Market
+    (SOM) for startup opportunities.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/market-sizing-analysis
+  updated_at: '1773994005'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-multi-advisor-skill-md
+  name: multi-advisor
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Conselho de especialistas — consulta multiplos agentes do ecossistema
+    em paralelo para analise multi-perspectiva de qualquer topico. Ativa personas,
+    especialistas e agentes tecnicos simultaneamente, cada um pela sua otica unica,
+    e consolida em sintese decisoria final.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/multi-advisor
+  updated_at: '1773994005'

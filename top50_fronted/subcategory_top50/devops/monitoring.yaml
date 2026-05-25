@@ -1,0 +1,560 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: devops
+category_name: DevOps
+category_skill_count: 59551
+subcategory_slug: monitoring
+subcategory_name: Monitoring
+subcategory_skill_count: 3184
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=monitoring
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 3184
+  total_pages: 64
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-bluebubbles-skill-md
+  name: bluebubbles
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Use when you need to send or manage iMessages via BlueBubbles (recommended
+    iMessage integration). Calls go through the generic message tool with channel="bluebubbles".
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/bluebubbles
+  updated_at: '1770170814'
+- rank: 2
+  id: metabase-metabase-claude-skills-add-tracing-skill-md
+  name: add-tracing
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Add OpenTelemetry tracing spans to Clojure code following Metabase
+    tracing conventions. Use when instrumenting backend code with trace coverage.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/add-tracing
+  updated_at: '1774514296'
+- rank: 3
+  id: metabase-metabase-claude-skills-analytics-events-skill-md
+  name: analytics-events
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Add product analytics events to track user interactions in the Metabase
+    frontend
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/analytics-events
+  updated_at: '1769071002'
+- rank: 4
+  id: remotion-dev-remotion-claude-skills-add-expert-skill-md
+  name: add-expert
+  author: remotion-dev
+  stars: 41027
+  forks: 2624
+  description: Add a new expert to the Remotion experts page
+  github_url: https://github.com/remotion-dev/remotion/tree/main/.claude/skills/add-expert
+  updated_at: '1770997015'
+- rank: 5
+  id: alibaba-arthas-skills-skill-md
+  name: arthas
+  author: alibaba
+  stars: 37215
+  forks: 7635
+  description: arthas 诊断 java应用，jvm问题 skill
+  github_url: https://github.com/alibaba/arthas/tree/master/skills
+  updated_at: '1773036881'
+- rank: 6
+  id: alibaba-arthas-skills-eagleeye-traceid-skill-md
+  name: arthas-eagleeye-traceid
+  author: alibaba
+  stars: 37215
+  forks: 7635
+  description: 使用 Arthas 的 watch/trace 获取 EagleEye traceId / 获取请求的 traceId
+  github_url: https://github.com/alibaba/arthas/tree/master/skills/eagleeye-traceid
+  updated_at: '1773036881'
+- rank: 7
+  id: wshobson-agents-plugins-observability-monitoring-skills-distributed-tracing-skill-md
+  name: distributed-tracing
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement distributed tracing with Jaeger and Tempo to track requests
+    across microservices and identify performance bottlenecks. Use when debugging
+    microservices, analyzing request flows, or implementing observability for distributed
+    systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/observability-monitoring/skills/distributed-tracing
+  updated_at: '1772898797'
+- rank: 8
+  id: wshobson-agents-plugins-observability-monitoring-skills-grafana-dashboards-skill-md
+  name: grafana-dashboards
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create and manage production Grafana dashboards for real-time visualization
+    of system and application metrics. Use when building monitoring dashboards, visualizing
+    metrics, or creating operational observability interfaces.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/observability-monitoring/skills/grafana-dashboards
+  updated_at: '1772898797'
+- rank: 9
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-istio-traffic-management-skill-md
+  name: istio-traffic-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure Istio traffic management including routing, load balancing,
+    circuit breakers, and canary deployments. Use when implementing service mesh traffic
+    policies, progressive delivery, or resilience patterns.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/istio-traffic-management
+  updated_at: '1772898797'
+- rank: 10
+  id: wshobson-agents-plugins-business-analytics-skills-kpi-dashboard-design-skill-md
+  name: kpi-dashboard-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design effective KPI dashboards with metrics selection, visualization
+    best practices, and real-time monitoring patterns. Use this skill when building
+    an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing
+    an operations center with live service health and request throughput; creating
+    a cohort retention analysis view for a product team; or debugging a dashboard
+    where metrics contradict each other due to inconsistent calculation methodology.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/kpi-dashboard-design
+  updated_at: '1774541149'
+- rank: 11
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-linkerd-patterns-skill-md
+  name: linkerd-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement Linkerd service mesh patterns for lightweight, security-focused
+    service mesh deployments. Use when setting up Linkerd, configuring traffic policies,
+    or implementing zero-trust networking with minimal overhead.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/linkerd-patterns
+  updated_at: '1772898797'
+- rank: 12
+  id: wshobson-agents-plugins-observability-monitoring-skills-prometheus-configuration-skill-md
+  name: prometheus-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Set up Prometheus for comprehensive metric collection, storage, and
+    monitoring of infrastructure and applications. Use when implementing metrics collection,
+    setting up monitoring infrastructure, or configuring alerting systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/observability-monitoring/skills/prometheus-configuration
+  updated_at: '1772898797'
+- rank: 13
+  id: wshobson-agents-plugins-python-development-skills-python-observability-skill-md
+  name: python-observability
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python observability patterns including structured logging, metrics,
+    and distributed tracing. Use when adding logging, implementing metrics collection,
+    setting up tracing, or debugging production systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-observability
+  updated_at: '1769791934'
+- rank: 14
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-service-mesh-observability-skill-md
+  name: service-mesh-observability
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement comprehensive observability for service meshes including
+    distributed tracing, metrics, and visualization. Use when setting up mesh monitoring,
+    debugging latency issues, or implementing SLOs for service communication.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/service-mesh-observability
+  updated_at: '1772898797'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-azure-monitor-opentelemetry-exporter-java-skill-md
+  name: azure-monitor-opentelemetry-exporter-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Monitor OpenTelemetry Exporter for Java. Export OpenTelemetry
+    traces, metrics, and logs to Azure Monitor/Application Insights.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-monitor-opentelemetry-exporter-java
+  updated_at: '1772354305'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-azure-monitor-opentelemetry-exporter-py-skill-md
+  name: azure-monitor-opentelemetry-exporter-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Monitor OpenTelemetry Exporter for Python. Use for low-level
+    OpenTelemetry export to Application Insights.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-monitor-opentelemetry-exporter-py
+  updated_at: '1773994005'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-azure-monitor-opentelemetry-py-skill-md
+  name: azure-monitor-opentelemetry-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Monitor OpenTelemetry Distro for Python. Use for one-line Application
+    Insights setup with auto-instrumentation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-monitor-opentelemetry-py
+  updated_at: '1772354305'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-azure-monitor-opentelemetry-ts-skill-md
+  name: azure-monitor-opentelemetry-ts
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Auto-instrument Node.js applications with distributed tracing, metrics,
+    and logs.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-monitor-opentelemetry-ts
+  updated_at: '1773994005'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-conductor-new-track-skill-md
+  name: conductor-new-track
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Create a new track with specification and phased implementation plan
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/conductor-new-track
+  updated_at: '1772180381'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-manifest-skill-md
+  name: manifest
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Install and configure the Manifest observability plugin for your agents.
+    Use when setting up telemetry, configuring API keys, or troubleshooting the plugin.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/manifest
+  updated_at: '1772180381'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-prometheus-configuration-skill-md
+  name: prometheus-configuration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Complete guide to Prometheus setup, metric collection, scrape configuration,
+    and recording rules.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/prometheus-configuration
+  updated_at: '1773994005'
+- rank: 22
+  id: github-awesome-copilot-skills-appinsights-instrumentation-skill-md
+  name: appinsights-instrumentation
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Instrument a webapp to send useful telemetry data to Azure App Insights
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/appinsights-instrumentation
+  updated_at: '1767986732'
+- rank: 23
+  id: github-awesome-copilot-skills-breakdown-feature-prd-skill-md
+  name: breakdown-feature-prd
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Prompt for creating Product Requirements Documents (PRDs) for new features,
+    based on an Epic.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/breakdown-feature-prd
+  updated_at: '1771904373'
+- rank: 24
+  id: sgl-project-sglang-python-sglang-multimodal-gen-claude-skills-sglang-diffusion-add-model-skill-md
+  name: sglang-diffusion-add-model
+  author: sgl-project
+  stars: 25043
+  forks: 5037
+  description: Use when adding a new diffusion model or Diffusers pipeline to SGLang.
+  github_url: https://github.com/sgl-project/sglang/tree/main/python/sglang/multimodal_gen/.claude/skills/sglang-diffusion-add-model
+  updated_at: '1774334316'
+- rank: 25
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-manifest-skill-md
+  name: manifest
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Install and configure the Manifest observability plugin for your agents.
+    Use when setting up telemetry, configuring API keys or endpoints, troubleshooting
+    plugin connection issues, or verifying the observability pipeline is running.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/manifest
+  updated_at: '1771823691'
+- rank: 26
+  id: airbytehq-airbyte-claude-skills-my-prs-skill-md
+  name: my-prs
+  author: airbytehq
+  stars: 20963
+  forks: 5113
+  description: List PRs opened today that are assigned to me or the move-destinations
+    team, excluding external contributors
+  github_url: https://github.com/airbytehq/airbyte/tree/master/.claude/skills/my-prs
+  updated_at: '1769462626'
+- rank: 27
+  id: dyad-sh-dyad-claude-skills-debug-minified-error-skill-md
+  name: dyaddebug-minified-error
+  author: dyad-sh
+  stars: 20007
+  forks: 2304
+  description: Map a minified error stack trace from a production Dyad build back
+    to original source locations using source maps.
+  github_url: https://github.com/dyad-sh/dyad/tree/main/.claude/skills/debug-minified-error
+  updated_at: '1772747612'
+- rank: 28
+  id: windmill-labs-windmill-system-prompts-auto-generated-skills-triggers-skill-md
+  name: triggers
+  author: windmill-labs
+  stars: 16091
+  forks: 901
+  description: MUST use when configuring triggers.
+  github_url: https://github.com/windmill-labs/windmill/tree/main/system_prompts/auto-generated/skills/triggers
+  updated_at: '1773310683'
+- rank: 29
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-prometheus-skill-md
+  name: prometheus
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Prometheus monitoring expert for PromQL, alerting rules, Grafana dashboards,
+    and observability
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/prometheus
+  updated_at: '1772056827'
+- rank: 30
+  id: openai-skills-skills-curated-sentry-skill-md
+  name: sentry
+  author: openai
+  stars: 15590
+  forks: 928
+  description: Use when the user asks to inspect Sentry issues or events, summarize
+    recent production errors, or pull basic Sentry health data via the Sentry API;
+    perform read-only queries with the bundled script and require `SENTRY_AUTH_TOKEN`.
+  github_url: https://github.com/openai/skills/tree/main/skills/.curated/sentry
+  updated_at: '1770047998'
+- rank: 31
+  id: prowler-cloud-prowler-skills-prowler-skill-md
+  name: prowler
+  author: prowler-cloud
+  stars: 13422
+  forks: 2059
+  description: 'Main entry point for Prowler development - quick reference for all
+    components. Trigger: General Prowler development questions, project overview,
+    component navigation (NOT PR CI gates or GitHub Actions workflows).'
+  github_url: https://github.com/prowler-cloud/prowler/tree/master/skills/prowler
+  updated_at: '1774613616'
+- rank: 32
+  id: prowler-cloud-prowler-skills-prowler-compliance-skill-md
+  name: prowler-compliance
+  author: prowler-cloud
+  stars: 13422
+  forks: 2059
+  description: 'Creates and manages Prowler compliance frameworks. Trigger: When working
+    with compliance frameworks (CIS, NIST, PCI-DSS, SOC2, GDPR, ISO27001, ENS, MITRE
+    ATT&CK).'
+  github_url: https://github.com/prowler-cloud/prowler/tree/master/skills/prowler-compliance
+  updated_at: '1769500506'
+- rank: 33
+  id: automattic-wp-calypso-claude-skills-dashboard-create-screen-skill-md
+  name: dashboard-create-screen
+  author: Automattic
+  stars: 12634
+  forks: 2004
+  description: Create a new screen in the Multi-site Dashboard with automatic route
+    registration
+  github_url: https://github.com/Automattic/wp-calypso/tree/trunk/.claude/skills/dashboard-create-screen
+  updated_at: '1768431938'
+- rank: 34
+  id: elie222-inbox-zero-claude-skills-prisma-skill-md
+  name: prisma
+  author: elie222
+  stars: 10348
+  forks: 1247
+  description: How to use Prisma
+  github_url: https://github.com/elie222/inbox-zero/tree/main/.claude/skills/prisma
+  updated_at: '1773401474'
+- rank: 35
+  id: arize-ai-phoenix-docs-phoenix-skill-md
+  name: arize-phoenix
+  author: Arize-ai
+  stars: 9071
+  forks: 779
+  description: Open-source AI observability platform for tracing, evaluating, and
+    improving LLM applications with OpenTelemetry integration
+  github_url: https://github.com/Arize-ai/phoenix/tree/main/docs/phoenix
+  updated_at: '1774553364'
+- rank: 36
+  id: getsentry-sentry-javascript-agents-skills-upgrade-otel-skill-md
+  name: upgrade-otel
+  author: getsentry
+  stars: 8615
+  forks: 1760
+  description: Upgrade OpenTelemetry instrumentations across the Sentry JavaScript
+    SDK. Use when bumping OTel instrumentation packages to their latest versions.
+  github_url: https://github.com/getsentry/sentry-javascript/tree/develop/.agents/skills/upgrade-otel
+  updated_at: '1772183511'
+- rank: 37
+  id: internlm-lmdeploy-claude-skills-check-env-skill-md
+  name: check-env
+  author: InternLM
+  stars: 7730
+  forks: 674
+  description: Check if the LMDeploy dev environment is properly set up.
+  github_url: https://github.com/InternLM/lmdeploy/tree/main/.claude/skills/check-env
+  updated_at: '1773902435'
+- rank: 38
+  id: internlm-lmdeploy-claude-skills-code-navigation-skill-md
+  name: code-navigation
+  author: InternLM
+  stars: 7730
+  forks: 674
+  description: LMDeploy codebase directory map for fast orientation.
+  github_url: https://github.com/InternLM/lmdeploy/tree/main/.claude/skills/code-navigation
+  updated_at: '1773902435'
+- rank: 39
+  id: jeffallan-claude-skills-skills-debugging-wizard-skill-md
+  name: debugging-wizard
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Parses error messages, traces execution flow through stack traces,
+    correlates log entries to identify failure points, and applies systematic hypothesis-driven
+    methodology to isolate and resolve bugs. Use when investigating errors, analyzing
+    stack traces, finding root causes of unexpected behavior, troubleshooting crashes,
+    or performing log analysis, error investigation, or root cause analysis.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/debugging-wizard
+  updated_at: '1772832479'
+- rank: 40
+  id: jeffallan-claude-skills-skills-golang-pro-skill-md
+  name: golang-pro
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Implements concurrent Go patterns using goroutines and channels, designs
+    and builds microservices with gRPC or REST, optimizes Go application performance
+    with pprof, and enforces idiomatic Go with generics, interfaces, and robust error
+    handling. Use when building Go applications requiring concurrent programming,
+    microservices architecture, or high-performance systems. Invoke for goroutines,
+    channels, Go generics, gRPC integration, CLI tools, benchmarks, or table-driven
+    testing.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/golang-pro
+  updated_at: '1772832479'
+- rank: 41
+  id: jeffallan-claude-skills-skills-kubernetes-specialist-skill-md
+  name: kubernetes-specialist
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Use when deploying or managing Kubernetes workloads. Invoke to create
+    deployment manifests, configure pod security policies, set up service accounts,
+    define network isolation rules, debug pod crashes, analyze resource limits, inspect
+    container logs, or right-size workloads. Use for Helm charts, RBAC policies, NetworkPolicies,
+    storage configuration, performance optimization, GitOps pipelines, and multi-cluster
+    management.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/kubernetes-specialist
+  updated_at: '1774303327'
+- rank: 42
+  id: jeffallan-claude-skills-skills-microservices-architect-skill-md
+  name: microservices-architect
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Designs distributed system architectures, decomposes monoliths into
+    bounded-context services, recommends communication patterns, and produces service
+    boundary diagrams and resilience strategies. Use when designing distributed systems,
+    decomposing monoliths, or implementing microservices patterns — including service
+    boundaries, DDD, saga patterns, event sourcing, CQRS, service mesh, or distributed
+    tracing.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/microservices-architect
+  updated_at: '1772832479'
+- rank: 43
+  id: jeffallan-claude-skills-skills-monitoring-expert-skill-md
+  name: monitoring-expert
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Configures monitoring systems, implements structured logging pipelines,
+    creates Prometheus/Grafana dashboards, defines alerting rules, and instruments
+    distributed tracing. Implements Prometheus/Grafana stacks, conducts load testing,
+    performs application profiling, and plans infrastructure capacity. Use when setting
+    up application monitoring, adding observability to services, debugging production
+    issues with logs/metrics/traces, running load tests with k6 or Artillery, profiling
+    CPU/memory bottlenecks, or forecasting capacity needs.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/monitoring-expert
+  updated_at: '1772832479'
+- rank: 44
+  id: jeffallan-claude-skills-skills-sre-engineer-skill-md
+  name: sre-engineer
+  author: Jeffallan
+  stars: 7412
+  forks: 522
+  description: Defines service level objectives, creates error budget policies, designs
+    incident response procedures, develops capacity models, and produces monitoring
+    configurations and automation scripts for production systems. Use when defining
+    SLIs/SLOs, managing error budgets, building reliable systems at scale, incident
+    management, chaos engineering, toil reduction, or capacity planning.
+  github_url: https://github.com/Jeffallan/claude-skills/tree/main/skills/sre-engineer
+  updated_at: '1772832479'
+- rank: 45
+  id: katanemo-plano-claude-skills-new-provider-skill-md
+  name: new-provider
+  author: katanemo
+  stars: 6114
+  forks: 373
+  description: Add a new LLM provider to hermesllm. Use when integrating a new AI
+    provider.
+  github_url: https://github.com/katanemo/plano/tree/main/.claude/skills/new-provider
+  updated_at: '1773386321'
+- rank: 46
+  id: inclusionai-areal-agents-skills-add-dataset-skill-md
+  name: add-dataset
+  author: inclusionAI
+  stars: 4930
+  forks: 437
+  description: Guide for adding a new dataset loader to AReaL. Use when user wants
+    to add a new dataset.
+  github_url: https://github.com/inclusionAI/AReaL/tree/main/.agents/skills/add-dataset
+  updated_at: '1774396243'
+- rank: 47
+  id: inclusionai-areal-opencode-skills-add-dataset-skill-md
+  name: add-dataset
+  author: inclusionAI
+  stars: 4930
+  forks: 437
+  description: Guide for adding a new dataset loader to AReaL. Use when user wants
+    to add a new dataset.
+  github_url: https://github.com/inclusionAI/AReaL/tree/main/.opencode/skills/add-dataset
+  updated_at: '1772280791'
+- rank: 48
+  id: pollinations-pollinations-claude-skills-tinybird-deploy-skill-md
+  name: tinybird-deploy
+  author: pollinations
+  stars: 4246
+  forks: 711
+  description: Deploy Tinybird pipes and datasources for enter.pollinations.ai observability.
+    Validates and pushes changes to Tinybird Cloud.
+  github_url: https://github.com/pollinations/pollinations/tree/main/.claude/skills/tinybird-deploy
+  updated_at: '1770396713'
+- rank: 49
+  id: mnfst-manifest-skills-manifest-skill-md
+  name: manifest
+  author: mnfst
+  stars: 4118
+  forks: 208
+  description: Model Router for OpenClaw. Save up to 70% by routing requests to the
+    right model. Choose LLM fallback to avoid API rate limits, set thresholds and
+    reduce token consumption.
+  github_url: https://github.com/mnfst/manifest/tree/main/skills/manifest
+  updated_at: '1774584532'
+- rank: 50
+  id: graphif-project-graph-cursor-skills-create-setting-item-skill-md
+  name: create-setting-item
+  author: graphif
+  stars: 3845
+  forks: 233
+  description: 指导如何在 Project Graph 项目中创建新的设置项。当用户需要添加新的设置项、配置选项或需要了解设置系统的实现方式时使用此技能。
+  github_url: https://github.com/graphif/project-graph/tree/master/.cursor/skills/create-setting-item
+  updated_at: '1772020718'

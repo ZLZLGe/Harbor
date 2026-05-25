@@ -1,0 +1,582 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: research
+category_name: Research
+category_skill_count: 23700
+subcategory_slug: astronomy-physics
+subcategory_name: Astronomy & Physics
+subcategory_skill_count: 1744
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=astronomy-physics
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 1744
+  total_pages: 35
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: sickn33-antigravity-awesome-skills-skills-ai-studio-image-skill-md
+  name: ai-studio-image
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Geracao de imagens humanizadas via Google AI Studio (Gemini). Fotos
+    realistas estilo influencer ou educacional com iluminacao natural e imperfeicoes
+    sutis.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ai-studio-image
+  updated_at: '1772874247'
+- rank: 2
+  id: sickn33-antigravity-awesome-skills-skills-astropy-skill-md
+  name: astropy
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Astropy is the core Python package for astronomy, providing essential
+    functionality for astronomical research and data analysis.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/astropy
+  updated_at: '1773994629'
+- rank: 3
+  id: sickn33-antigravity-awesome-skills-skills-computer-vision-expert-skill-md
+  name: computer-vision-expert
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: SOTA Computer Vision Expert (2026). Specialized in YOLO26, Segment
+    Anything 3 (SAM 3), Vision Language Models, and real-time spatial analysis.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/computer-vision-expert
+  updated_at: '1772180381'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-database-migrations-migration-observability-skill-md
+  name: database-migrations-migration-observability
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Migration monitoring, CDC, and observability infrastructure
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-migrations-migration-observability
+  updated_at: '1772180381'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-performance-engineer-skill-md
+  name: performance-engineer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert performance engineer specializing in modern observability,
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/performance-engineer
+  updated_at: '1772180381'
+- rank: 6
+  id: github-awesome-copilot-skills-cosmosdb-datamodeling-skill-md
+  name: cosmosdb-datamodeling
+  author: github
+  stars: 27427
+  forks: 3175
+  description: 'Step-by-step guide for capturing key application requirements for
+    NoSQL use-case and produce Azure Cosmos DB Data NoSQL Model design using best
+    practices and common patterns, artifacts_produced: "cosmosdb_requirements.md"
+    file and "cosmosdb_data_model.md" file'
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/cosmosdb-datamodeling
+  updated_at: '1771904373'
+- rank: 7
+  id: google-adk-python-contributing-samples-skills-agent-skills-weather-skill-skill-md
+  name: weather-skill
+  author: google
+  stars: 18635
+  forks: 3139
+  description: A skill that provides weather information based on reference data.
+  github_url: https://github.com/google/adk-python/tree/main/contributing/samples/skills_agent/skills/weather_skill
+  updated_at: '1772747566'
+- rank: 8
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-astropy-skill-md
+  name: astropy
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive Python library for astronomy and astrophysics. This skill
+    should be used when working with astronomical data including celestial coordinates,
+    physical units, FITS files, cosmological calculations, time systems, tables, world
+    coordinate systems (WCS), and astronomical data analysis. Use when tasks involve
+    coordinate transformations, unit conversions, FITS file manipulation, cosmological
+    distance calculations, time scale conversions, or astronomical data processing.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/astropy
+  updated_at: '1772554803'
+- rank: 9
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-exploratory-data-analysis-skill-md
+  name: exploratory-data-analysis
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Perform comprehensive exploratory data analysis on scientific data
+    files across 200+ file formats. This skill should be used when analyzing any scientific
+    data file to understand its structure, content, quality, and characteristics.
+    Automatically detects file type and generates detailed markdown reports with format-specific
+    analysis, quality metrics, and downstream analysis recommendations. Covers chemistry,
+    bioinformatics, microscopy, spectroscopy, proteomics, metabolomics, and general
+    scientific data formats.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/exploratory-data-analysis
+  updated_at: '1772554803'
+- rank: 10
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-geomaster-skill-md
+  name: geomaster
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Comprehensive geospatial science skill covering remote sensing, GIS,
+    spatial analysis, machine learning for earth observation, and 30+ scientific domains.
+    Supports satellite imagery processing (Sentinel, Landsat, MODIS, SAR, hyperspectral),
+    vector and raster data operations, spatial statistics, point cloud processing,
+    network analysis, cloud-native workflows (STAC, COG, Planetary Computer), and
+    8 programming languages (Python, R, Julia, JavaScript, C++, Java, Go, Rust) with
+    500+ code examples. Use for remote sensing workflows, GIS analysis, spatial ML,
+    Earth observation data processing, terrain analysis, hydrological modeling, marine
+    spatial analysis, atmospheric science, and any geospatial computation task.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/geomaster
+  updated_at: '1772775703'
+- rank: 11
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-omero-integration-skill-md
+  name: omero-integration
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Microscopy data management platform. Access images via Python, retrieve
+    datasets, analyze pixels, manage ROIs/annotations, batch processing, for high-content
+    screening and microscopy workflows.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/omero-integration
+  updated_at: '1772554803'
+- rank: 12
+  id: nix-community-home-manager-tests-modules-programs-claude-code-skill-subdir-skill-md
+  name: data-processing
+  author: nix-community
+  stars: 9540
+  forks: 2328
+  description: Process and transform structured data files.
+  github_url: https://github.com/nix-community/home-manager/tree/master/tests/modules/programs/claude-code/skill-subdir
+  updated_at: '1771531206'
+- rank: 13
+  id: aiming-lab-autoresearchclaw-researchclaw-skills-builtin-domain-cv-classification-skill-md
+  name: cv-classification
+  author: aiming-lab
+  stars: 9233
+  forks: 995
+  description: Best practices for image classification tasks. Use when working on
+    CIFAR, ImageNet, or other classification benchmarks.
+  github_url: https://github.com/aiming-lab/AutoResearchClaw/tree/main/researchclaw/skills/builtin/domain/cv-classification
+  updated_at: '1774230377'
+- rank: 14
+  id: nvidia-generativeaiexamples-industries-energy-simulation-workflow-agent-sim-agent-src-simulator-agent-skills-results-skill-skill-md
+  name: results-skill
+  author: NVIDIA
+  stars: 3884
+  forks: 1014
+  description: Read and analyze simulation binary output files. Use when extracting
+    summary data, grid properties, or running flow diagnostics (time-of-flight, tracer,
+    allocation, F-Phi, Lorenz) from completed simulations.
+  github_url: https://github.com/NVIDIA/GenerativeAIExamples/tree/main/industries/energy/simulation-workflow-agent/sim_agent/src/simulator_agent/skills/results_skill
+  updated_at: '1774283212'
+- rank: 15
+  id: mukul975-anthropic-cybersecurity-skills-skills-analyzing-slack-space-and-file-system-artifacts-skill-md
+  name: analyzing-slack-space-and-file-system-artifacts
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Examine file system slack space, MFT entries, USN journal, and alternate
+    data streams to recover hidden data and reconstruct file activity on NTFS volumes.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/analyzing-slack-space-and-file-system-artifacts
+  updated_at: '1773923209'
+- rank: 16
+  id: openclaw-skills-skills-assistant-design-clawflight-skill-md
+  name: clawflight
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Find flights with Starlink satellite WiFi. Filters to Starlink-equipped
+    airlines only, ranks by WiFi score/price/jet lag, returns affiliate booking links.
+    Use when searching for flights where you need to work on the plane.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/assistant-design/clawflight
+  updated_at: '1772322752'
+- rank: 17
+  id: openclaw-skills-skills-aipoch-ai-date-calculator-skill-md
+  name: date-calculator
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Calculates gestational age and follow-up date windows.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aipoch-ai/date-calculator
+  updated_at: '1774089332'
+- rank: 18
+  id: openclaw-skills-skills-bytesagain3-epoch-skill-md
+  name: epoch
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Convert Unix timestamps, compare epochs, and do time arithmetic. Use
+    when converting dates, debugging timestamps, or checking timezone offsets.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain3/epoch
+  updated_at: '1773916638'
+- rank: 19
+  id: openclaw-skills-skills-brianppetty-farmos-weather-skill-md
+  name: farmos-weather
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Query weather data and forecasts for farm fields via the Agronomy module.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/brianppetty/farmos-weather
+  updated_at: '1772618543'
+- rank: 20
+  id: openclaw-skills-skills-bytesagain1-lidar-skill-md
+  name: lidar
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: LiDAR technology reference — point cloud processing, scan types, coordinate
+    systems, and applications. Use when working with LiDAR data, configuring scanners,
+    or processing 3D point clouds.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bytesagain1/lidar
+  updated_at: '1774152539'
+- rank: 21
+  id: openclaw-skills-skills-alexissan-marine-forecast-skill-md
+  name: marine-forecast
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Marine and sailing weather via Open-Meteo. Waves, swell, sea temperature,
+    wind, tides, ocean currents, and sailing assessments. Free, no API key, global
+    coverage.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/alexissan/marine-forecast
+  updated_at: '1773032798'
+- rank: 22
+  id: openclaw-skills-skills-capt-marbles-solar-weather-skill-md
+  name: solar-weather
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Monitor solar weather conditions including geomagnetic storms, solar
+    flares, aurora forecasts, and solar wind data. Uses NOAA Space Weather Prediction
+    Center real-time data.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/capt-marbles/solar-weather
+  updated_at: '1771254119'
+- rank: 23
+  id: openclaw-skills-skills-barancaki-turkiye-afad-deprem-skill-md
+  name: turkiye-afad-deprem
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Turkiye AFAD deprem verisini kullanarak zaman, buyukluk ve bolge filtreli
+    deprem ozeti uretir.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/barancaki/turkiye-afad-deprem
+  updated_at: '1772373809'
+- rank: 24
+  id: openclaw-skills-skills-asleep123-units-skill-md
+  name: units
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Perform unit conversions and calculations using GNU Units.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/asleep123/units
+  updated_at: '1767816423'
+- rank: 25
+  id: openclaw-skills-skills-aadipapp-wavelet-worldmodel-skill-skill-md
+  name: wavelet-world-model
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Generates a world model representation from state inputs using discrete
+    wavelet transforms (DWT) to capture multi-resolution temporal and spatial features.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aadipapp/wavelet-worldmodel-skill
+  updated_at: '1772372214'
+- rank: 26
+  id: openclaw-skills-skills-anmu14641-anmu-weather-skill-md
+  name: weather-plus
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 获取全球城市天气信息和预报。使用场景包括查询当前天气、未来7天预报、空气质量、穿衣建议等。适用于用户问天气、温度、预报等。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anmu14641/anmu-weather
+  updated_at: '1773794021'
+- rank: 27
+  id: stellar-stellar-core-claude-skills-summarizing-the-codebase-skill-md
+  name: regenerating-a-technical-summary-of-stellar-core
+  author: stellar
+  stars: 3275
+  forks: 1052
+  description: Instructions for regenerating the full set of subsystem and whole-system
+    technical summary skill documents for stellar-core
+  github_url: https://github.com/stellar/stellar-core/tree/master/.claude/skills/summarizing-the-codebase
+  updated_at: '1770774275'
+- rank: 28
+  id: timescale-pg-aiguide-skills-design-postgis-tables-skill-md
+  name: design-postgis-tables
+  author: timescale
+  stars: 1658
+  forks: 82
+  description: Comprehensive PostGIS spatial table design reference covering geometry
+    types, coordinate systems, spatial indexing, and performance patterns for location-based
+    applications
+  github_url: https://github.com/timescale/pg-aiguide/tree/main/skills/design-postgis-tables
+  updated_at: '1772039426'
+- rank: 29
+  id: sky-map-team-stardroid-claude-skills-celestial-image-skill-md
+  name: celestial-image
+  author: sky-map-team
+  stars: 1631
+  forks: 263
+  description: 'Process and size an image for a Sky Map celestial info card. Prompts
+    for an image (URL or local path), optional crop, and output filename, then converts
+    to 480×800 WebP and saves to the correct assets directory. Trigger on "process
+    celestial image", "add image for info card", "convert image for Sky Map", etc.
+    ARGUMENTS: "[source_url_or_path] [category/output_name] [crop x1,y1,x2,y2]"'
+  github_url: https://github.com/sky-map-team/stardroid/tree/master/.claude/skills/celestial-image
+  updated_at: '1773169806'
+- rank: 30
+  id: shinyorg-shiny-skills-shiny-bluetoothle-skill-md
+  name: shiny-bluetoothle
+  author: shinyorg
+  stars: 1547
+  forks: 243
+  description: Shiny BluetoothLE client/central operations for scanning, connecting,
+    and communicating with BLE peripherals
+  github_url: https://github.com/shinyorg/shiny/tree/v4.0/skills/shiny-bluetoothle
+  updated_at: '1774578852'
+- rank: 31
+  id: skforecast-skforecast-skills-statistical-models-skill-md
+  name: statistical-models
+  author: skforecast
+  stars: 1470
+  forks: 186
+  description: Forecasts time series using classical statistical models (ARIMA, SARIMAX,
+    ETS, ARAR) wrapped in ForecasterStats. Covers model selection, Auto-ARIMA, backtesting
+    statistical models, and parameter tuning. Use when the user wants traditional
+    statistical forecasting methods.
+  github_url: https://github.com/skforecast/skforecast/tree/master/skills/statistical-models
+  updated_at: '1773084265'
+- rank: 32
+  id: cloudposse-atmos-agent-skills-skills-atmos-gitops-skill-md
+  name: atmos-gitops
+  author: cloudposse
+  stars: 1277
+  forks: 151
+  description: 'CI/CD: GitHub Actions, Spacelift, Atlantis, `atmos describe affected`
+    for change detection'
+  github_url: https://github.com/cloudposse/atmos/tree/main/agent-skills/skills/atmos-gitops
+  updated_at: '1772555325'
+- rank: 33
+  id: cloudposse-atmos-agent-skills-skills-atmos-templates-skill-md
+  name: atmos-templates
+  author: cloudposse
+  stars: 1277
+  forks: 151
+  description: 'Go templates: Sprig/Gomplate functions, atmos.Component, atmos.GomplateDatasource,
+    atmos.Store, template configuration, evaluations'
+  github_url: https://github.com/cloudposse/atmos/tree/main/agent-skills/skills/atmos-templates
+  updated_at: '1772555325'
+- rank: 34
+  id: starlitnightly-omicverse-claude-skills-data-stats-analysis-skill-md
+  name: data-stats-analysis
+  author: Starlitnightly
+  stars: 930
+  forks: 110
+  description: Perform statistical tests, hypothesis testing, correlation analysis,
+    and multiple testing corrections using scipy and statsmodels. Works with ANY LLM
+    provider (GPT, Gemini, Claude, etc.).
+  github_url: https://github.com/Starlitnightly/omicverse/tree/master/.claude/skills/data-stats-analysis
+  updated_at: '1762112108'
+- rank: 35
+  id: wu-yc-labclaw-skills-general-geopandas-skill-md
+  name: geopandas
+  author: wu-yc
+  stars: 887
+  forks: 127
+  description: Python library for working with geospatial vector data including shapefiles,
+    GeoJSON, and GeoPackage files. Use when working with geographic data for spatial
+    analysis, geometric operations, coordinate transformations, spatial joins, overlay
+    operations, choropleth mapping, or any task involving reading/writing/analyzing
+    vector geographic data. Supports PostGIS databases, interactive maps, and integration
+    with matplotlib/folium/cartopy. Use for tasks like buffer analysis, spatial joins
+    between datasets, dissolving boundaries, clipping data, calculating areas/distances,
+    reprojecting coordinate systems, creating maps, or converting between spatial
+    file formats.
+  github_url: https://github.com/wu-yc/LabClaw/tree/main/skills/general/geopandas
+  updated_at: '1772760903'
+- rank: 36
+  id: wu-yc-labclaw-skills-bio-omero-integration-skill-md
+  name: omero-integration
+  author: wu-yc
+  stars: 887
+  forks: 127
+  description: Microscopy data management platform. Access images via Python, retrieve
+    datasets, analyze pixels, manage ROIs/annotations, batch processing, for high-content
+    screening and microscopy workflows.
+  github_url: https://github.com/wu-yc/LabClaw/tree/main/skills/bio/omero-integration
+  updated_at: '1772760903'
+- rank: 37
+  id: benchflow-ai-skillsbench-tasks-exoplanet-detection-period-environment-skills-box-least-squares-skill-md
+  name: box-least-squares
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Box Least Squares (BLS) periodogram for detecting transiting exoplanets
+    and eclipsing binaries. Use when searching for periodic box-shaped dips in light
+    curves. Alternative to Transit Least Squares, available in astropy.timeseries.
+    Based on Kovács et al. (2002).
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/exoplanet-detection-period/environment/skills/box-least-squares
+  updated_at: '1768357686'
+- rank: 38
+  id: benchflow-ai-skillsbench-tasks-gravitational-wave-detection-environment-skills-conditioning-skill-md
+  name: conditioning
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Data conditioning techniques for gravitational wave detector data.
+    Use when preprocessing raw detector strain data before matched filtering, including
+    high-pass filtering, resampling, removing filter wraparound artifacts, and estimating
+    power spectral density (PSD). Works with PyCBC TimeSeries data.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/gravitational-wave-detection/environment/skills/conditioning
+  updated_at: '1769064220'
+- rank: 39
+  id: benchflow-ai-skillsbench-tasks-exoplanet-detection-period-environment-skills-exoplanet-workflows-skill-md
+  name: exoplanet-workflows
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: General workflows and best practices for exoplanet detection and characterization
+    from light curve data. Use when planning an exoplanet analysis pipeline, understanding
+    when to use different methods, or troubleshooting detection issues.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/exoplanet-detection-period/environment/skills/exoplanet-workflows
+  updated_at: '1768357686'
+- rank: 40
+  id: benchflow-ai-skillsbench-tasks-earthquake-phase-association-environment-skills-gamma-phase-associator-skill-md
+  name: gamma-phase-associator
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: An overview of the python package for running the GaMMA earthquake
+    phase association algorithm. The algorithm expects phase picks data and station
+    data as input and produces (through unsupervised clustering) earthquake events
+    with source information like earthquake location, origin time and magnitude. The
+    skill explains commonly used functions and the expected input/output format.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/earthquake-phase-association/environment/skills/gamma-phase-associator
+  updated_at: '1769117623'
+- rank: 41
+  id: benchflow-ai-skillsbench-tasks-earthquake-plate-calculation-environment-skills-geospatial-analysis-skill-md
+  name: geospatial-analysis
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Analyze geospatial data using geopandas with proper coordinate projections.
+    Use when calculating distances between geographic features, performing spatial
+    filtering, or working with plate boundaries and earthquake data.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/earthquake-plate-calculation/environment/skills/geospatial-analysis
+  updated_at: '1769241727'
+- rank: 42
+  id: benchflow-ai-skillsbench-tasks-glm-lake-mendota-environment-skills-glm-output-skill-md
+  name: glm-output
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Read and process GLM output files. Use when you need to extract temperature
+    data from NetCDF output, convert depth coordinates, or calculate RMSE against
+    observations.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/glm-lake-mendota/environment/skills/glm-output
+  updated_at: '1769119073'
+- rank: 43
+  id: benchflow-ai-skillsbench-tasks-civ6-adjacency-optimizer-environment-skills-hex-grid-spatial-skill-md
+  name: hex-grid-spatial
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Hex grid spatial utilities for offset coordinate systems. Use when
+    working with hexagonal grids, calculating distances, finding neighbors, or spatial
+    queries on hex maps.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/civ6-adjacency-optimizer/environment/skills/hex-grid-spatial
+  updated_at: '1769209278'
+- rank: 44
+  id: benchflow-ai-skillsbench-tasks-exoplanet-detection-period-environment-skills-light-curve-preprocessing-skill-md
+  name: light-curve-preprocessing
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Preprocessing and cleaning techniques for astronomical light curves.
+    Use when preparing light curve data for period analysis, including outlier removal,
+    trend removal, flattening, and handling data quality flags. Works with lightkurve
+    and general time series data.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/exoplanet-detection-period/environment/skills/light-curve-preprocessing
+  updated_at: '1768357686'
+- rank: 45
+  id: benchflow-ai-skillsbench-tasks-exoplanet-detection-period-environment-skills-lomb-scargle-periodogram-skill-md
+  name: lomb-scargle-periodogram
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Lomb-Scargle periodogram for finding periodic signals in unevenly sampled
+    time series data. Use when analyzing light curves, radial velocity data, or any
+    astronomical time series to detect periodic variations. Works for stellar rotation,
+    pulsation, eclipsing binaries, and general periodic phenomena. Based on lightkurve
+    library.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/exoplanet-detection-period/environment/skills/lomb-scargle-periodogram
+  updated_at: '1768357686'
+- rank: 46
+  id: benchflow-ai-skillsbench-tasks-gravitational-wave-detection-environment-skills-matched-filtering-skill-md
+  name: matched-filtering
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Matched filtering techniques for gravitational wave detection. Use
+    when searching for signals in detector data using template waveforms, including
+    both time-domain and frequency-domain approaches. Works with PyCBC for generating
+    templates and performing matched filtering.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/gravitational-wave-detection/environment/skills/matched-filtering
+  updated_at: '1769064220'
+- rank: 47
+  id: benchflow-ai-skillsbench-tasks-3d-scan-calc-environment-skills-mesh-analysis-skill-md
+  name: mesh-analysis
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Analyzes 3D mesh files (STL) to calculate geometric properties (volume,
+    components) and extract attribute data. Use this skill to process noisy 3D scan
+    data and filter debris.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/3d-scan-calc/environment/skills/mesh-analysis
+  updated_at: '1768981293'
+- rank: 48
+  id: benchflow-ai-skillsbench-tasks-exoplanet-detection-period-environment-skills-transit-least-squares-skill-md
+  name: transit-least-squares
+  author: benchflow-ai
+  stars: 867
+  forks: 226
+  description: Transit Least Squares (TLS) algorithm for detecting exoplanet transits
+    in light curves. Use when searching for transiting exoplanets specifically, as
+    TLS is more sensitive than Lomb-Scargle for transit-shaped signals. Based on the
+    transitleastsquares Python package.
+  github_url: https://github.com/benchflow-ai/skillsbench/tree/main/tasks/exoplanet-detection-period/environment/skills/transit-least-squares
+  updated_at: '1768357686'
+- rank: 49
+  id: pockebot-openpocket-skills-human-auth-location-skill-md
+  name: human-auth-location
+  author: pockebot
+  stars: 773
+  forks: 6
+  description: Handle GPS location delegation from Human Phone. Covers coordinate
+    injection on emulators and manual coordinate usage on real devices.
+  github_url: https://github.com/pockebot/openpocket/tree/main/skills/human-auth-location
+  updated_at: '1772345274'
+- rank: 50
+  id: go-kratos-blades-examples-skills-skills-weather-skill-skill-md
+  name: weather-skill
+  author: go-kratos
+  stars: 745
+  forks: 87
+  description: A skill that provides weather information based on reference data.
+  github_url: https://github.com/go-kratos/blades/tree/main/examples/skills/skills/weather-skill
+  updated_at: '1772260150'

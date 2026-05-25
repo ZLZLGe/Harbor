@@ -1,0 +1,11 @@
+{
+  "source_task_id": "video-tutorial-indexer",
+  "derived_task_id": "transfer3",
+  "task_role": "transfer",
+  "title": "Transfer - Chapter Duration Leaderboard",
+  "goal": "Rank the longest tutorial chapters by duration and output a top-10 leaderboard JSON.",
+  "primary_output_file": "/root/chapter_duration_leaderboard.json",
+  "difficulty": "medium",
+  "category": "analytics",
+  "skill_benefit_rationale": "Requires speech-derived chapter boundaries but evaluates downstream duration analytics quality."
+}

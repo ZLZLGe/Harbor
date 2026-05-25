@@ -1,0 +1,49 @@
+{
+  "sourceTaskId": "virtualhome-agent-planning",
+  "skillMode": "per-skill",
+  "targetSkillDirName": "pddl-skills",
+  "targetSkillName": "pddl-skills",
+  "familyTheme": "Apply PDDL planning workflows to airport ground-traffic action sequencing tasks under varied operational contexts",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "virtualhome-agent-planning-pddl-skills-similar-airport-dispatch-baseline",
+      "taskRole": "similar",
+      "title": "Similar - Airport Dispatch Baseline",
+      "goal": "Generate valid plans for baseline airport dispatch instances and write each plan to its configured output path.",
+      "primaryOutputFile": "/root/plans/similar_dispatch_task01.plan",
+      "difficulty": "medium",
+      "category": "research",
+      "skillBenefitRationale": "Requires robust PDDL parsing and plan generation for multiple airport benchmark instances."
+    },
+    {
+      "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-turnaround-wave-scheduling",
+      "taskRole": "transfer",
+      "title": "Transfer - Turnaround Wave Scheduling",
+      "goal": "Solve a turnaround wave planning pack and emit valid plans at task-specific output paths.",
+      "primaryOutputFile": "/root/plans/turnaround_wave_task03.plan",
+      "difficulty": "medium",
+      "category": "research",
+      "skillBenefitRationale": "Transfers the same planning primitive to turnaround-wave scheduling framing with different instances."
+    },
+    {
+      "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-ground-crew-shift-handoff",
+      "taskRole": "transfer",
+      "title": "Transfer - Ground Crew Shift Handoff",
+      "goal": "Produce handoff-ready plan outputs for shift-change planning scenarios.",
+      "primaryOutputFile": "/root/plans/handoff_shift_task05.plan",
+      "difficulty": "medium",
+      "category": "research",
+      "skillBenefitRationale": "Transfers PDDL planning into shift-handoff output packaging requirements."
+    },
+    {
+      "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-contingency-reroute-pack",
+      "taskRole": "transfer",
+      "title": "Transfer - Contingency Reroute Pack",
+      "goal": "Create contingency reroute plan files that remain syntactically and semantically valid.",
+      "primaryOutputFile": "/root/plans/contingency_task07.plan",
+      "difficulty": "medium",
+      "category": "research",
+      "skillBenefitRationale": "Transfers PDDL planning to contingency reroute scenarios while preserving plan validity constraints."
+    }
+  ]
+}

@@ -1,0 +1,607 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: documentation
+category_name: Documentation
+category_skill_count: 48837
+subcategory_slug: knowledge-base
+subcategory_name: Knowledge Base
+subcategory_skill_count: 19279
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=knowledge-base
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 19279
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-extensions-feishu-skills-feishu-wiki-skill-md
+  name: feishu-wiki
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Feishu knowledge base navigation. Activate when user mentions knowledge
+    base, wiki, or wiki links.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/feishu/skills/feishu-wiki
+  updated_at: '1770337930'
+- rank: 2
+  id: openclaw-openclaw-skills-gemini-skill-md
+  name: gemini
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Gemini CLI for one-shot Q&A, summaries, and generation.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/gemini
+  updated_at: '1773234790'
+- rank: 3
+  id: openclaw-openclaw-skills-notion-skill-md
+  name: notion
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Notion API for creating and managing pages, databases, and blocks.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/notion
+  updated_at: '1772846400'
+- rank: 4
+  id: openclaw-openclaw-agents-skills-openclaw-pr-maintainer-skill-md
+  name: openclaw-pr-maintainer
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Maintainer workflow for reviewing, triaging, preparing, closing, or
+    landing OpenClaw pull requests and related issues. Use when Codex needs to validate
+    bug-fix claims, search for related issues or PRs, apply or recommend close/reason
+    labels, prepare GitHub comments safely, check review-thread follow-up, or perform
+    maintainer-style PR decision making before merge or closure.
+  github_url: https://github.com/openclaw/openclaw/tree/main/.agents/skills/openclaw-pr-maintainer
+  updated_at: '1773892527'
+- rank: 5
+  id: openclaw-openclaw-extensions-tavily-skills-tavily-skill-md
+  name: tavily
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Tavily web search, content extraction, and research tools.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/tavily/skills/tavily
+  updated_at: '1773983186'
+- rank: 6
+  id: affaan-m-everything-claude-code-skills-perl-patterns-skill-md
+  name: perl-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Modern Perl 5.36+ idioms, best practices, and conventions for building
+    robust, maintainable Perl applications.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/perl-patterns
+  updated_at: '1773200574'
+- rank: 7
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-rules-distill-skill-md
+  name: rules-distill
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 扫描技能以提取跨领域原则并将其提炼为规则——追加、修订或创建新的规则文件
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/rules-distill
+  updated_at: '1774219164'
+- rank: 8
+  id: affaan-m-everything-claude-code-kiro-skills-search-first-skill-md
+  name: search-first
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Research-before-coding workflow. Search for existing tools, libraries,
+    and patterns before writing custom code. Systematizes the "search for existing
+    solutions before implementing" approach. Use when starting new features or adding
+    functionality.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.kiro/skills/search-first
+  updated_at: '1774241745'
+- rank: 9
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-deep-research-skill-md
+  name: deep-research
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Comprehensive research assistant that synthesizes information from
+    multiple sources with citations.
+
+    Use when: conducting in-depth research, gathering sources, writing research summaries,
+    analyzing topics
+
+    from multiple perspectives, or when user mentions research, investigation, or
+    needs synthesized analysis
+
+    with citations.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/deep-research
+  updated_at: '1770167437'
+- rank: 10
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-python-expert-skill-md
+  name: python-expert
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Senior Python developer expertise for writing clean, efficient, and
+    well-documented code.
+
+    Use when: writing Python code, optimizing Python scripts, reviewing Python code
+    for best practices,
+
+    debugging Python issues, implementing type hints, or when user mentions Python,
+    PEP 8, or needs help
+
+    with Python data structures and algorithms.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/python-expert
+  updated_at: '1770167437'
+- rank: 11
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-technical-writer-skill-md
+  name: technical-writer
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Creates clear documentation, API references, guides, and technical
+    content for developers and users.
+
+    Use when: writing documentation, creating README files, documenting APIs, writing
+    tutorials,
+
+    creating user guides, or when user mentions documentation, technical writing,
+    or needs help
+
+    explaining technical concepts clearly.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/technical-writer
+  updated_at: '1770167437'
+- rank: 12
+  id: google-gemini-gemini-cli-packages-core-src-skills-builtin-skill-creator-skill-md
+  name: skill-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Guide for creating effective skills. This skill should be used when
+    users want to create a new skill (or update an existing skill) that extends Gemini
+    CLI's capabilities with specialized knowledge, workflows, or tool integrations.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/packages/core/src/skills/builtin/skill-creator
+  updated_at: '1772499739'
+- rank: 13
+  id: pytorch-pytorch-claude-skills-skill-writer-skill-md
+  name: skill-writer
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Guide users through creating Agent Skills for Claude Code. Use when
+    the user wants to create, write, author, or design a new Skill, or needs help
+    with SKILL.md files, frontmatter, or skill structure.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/skill-writer
+  updated_at: '1761670167'
+- rank: 14
+  id: lobehub-lobehub-agents-skills-project-overview-skill-md
+  name: project-overview
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Complete project architecture and structure guide. Use when exploring
+    the codebase, understanding project organization, finding files, or needing comprehensive
+    architectural context. Triggers on architecture questions, directory navigation,
+    or project overview needs.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/project-overview
+  updated_at: '1773497169'
+- rank: 15
+  id: leonardomso-33-js-concepts-claude-skills-fact-check-skill-md
+  name: fact-check
+  author: leonardomso
+  stars: 66302
+  forks: 9192
+  description: Verify technical accuracy of JavaScript concept pages by checking code
+    examples, MDN/ECMAScript compliance, and external resources to prevent misinformation
+  github_url: https://github.com/leonardomso/33-js-concepts/tree/master/.claude/skills/fact-check
+  updated_at: '1767706636'
+- rank: 16
+  id: leonardomso-33-js-concepts-claude-skills-resource-curator-skill-md
+  name: resource-curator
+  author: leonardomso
+  stars: 66302
+  forks: 9192
+  description: Find, evaluate, and maintain high-quality external resources for JavaScript
+    concept documentation, including auditing for broken and outdated links
+  github_url: https://github.com/leonardomso/33-js-concepts/tree/master/.claude/skills/resource-curator
+  updated_at: '1767707911'
+- rank: 17
+  id: microsoft-ai-agents-for-beginners-translations-ar-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: استخدمه عندما يطلب المستخدم إنشاء أو تهيئة أو تعديل دفاتر Jupyter (`.ipynb`)
+    للتجارب أو الاستكشافات أو الدروس التعليمية؛ فضّل القوالب المضمّنة وقم بتشغيل سكربت
+    المساعدة `new_notebook.py` لتوليد دفتر بدءٍ نظيف
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ar/.agents/skills/jupyter-notebook
+  updated_at: '1771502747'
+- rank: 18
+  id: microsoft-ai-agents-for-beginners-translations-bn-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: ব্যবহার করুন যখন ব্যবহারকারী পরীক্ষার, অনুসন্ধানের, বা টিউটোরিয়ালের
+    জন্য Jupyter নোটবুকগুলি (`.ipynb`) তৈরি, স্ক্যাফোল্ড, বা সম্পাদনার অনুরোধ করে;
+    বান্ডিলকৃত টেমপ্লেটগুলিকে অগ্রাধিকার দিন এবং একটি পরিষ্কার সূচনা নোটবুক তৈরি করার
+    জন্য সহায়ক স্ক্রিপ্ট `new_notebook.py` চালান।
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/bn/.agents/skills/jupyter-notebook
+  updated_at: '1771555375'
+- rank: 19
+  id: microsoft-ai-agents-for-beginners-translations-en-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Use when the user asks to create, scaffold, or edit Jupyter notebooks
+    (`.ipynb`) for experiments, explorations, or tutorials; prefer the bundled templates
+    and run the helper script `new_notebook.py` to generate a clean starting notebook.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/en/.agents/skills/jupyter-notebook
+  updated_at: '1771447586'
+- rank: 20
+  id: microsoft-ai-agents-for-beginners-translations-et-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Kasuta, kui kasutaja palub luua, üles ehitada või redigeerida Jupyteri
+    märkmikke (`.ipynb`) katsetuste, uurimiste või juhendite jaoks; eelista kaasasolevaid
+    malle ja käivita abiskript `new_notebook.py`, et genereerida puhas algne märkmik.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/et/.agents/skills/jupyter-notebook
+  updated_at: '1771568238'
+- rank: 21
+  id: microsoft-ai-agents-for-beginners-translations-fa-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: زمانی استفاده شود که کاربر درخواست ایجاد، ساختاردهی یا ویرایش دفترچه‌های
+    Jupyter (`.ipynb`) برای آزمایش‌ها، کاوش‌ها یا آموزش‌ها را دارد؛ از قالب‌های همراه
+    ترجیحاً استفاده کنید و اسکریپت کمکی `new_notebook.py` را اجرا کنید تا یک دفترچهٔ
+    آغازین تمیز تولید شود.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/fa/.agents/skills/jupyter-notebook
+  updated_at: '1771481062'
+- rank: 22
+  id: microsoft-ai-agents-for-beginners-translations-hi-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: उपयोग तब करें जब उपयोगकर्ता प्रयोगों, खोजों, या ट्यूटोरियल्स के लिए
+    Jupyter नोटबुक (`.ipynb`) बनाने, स्कैफोल्ड करने, या संपादित करने के लिए कहे; पैकेज
+    किए गए टेम्पलेट्स को प्राथमिकता दें और एक साफ शुरुआत वाला नोटबुक बनाने के लिए
+    सहायक स्क्रिप्ट `new_notebook.py` चलाएँ।
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/hi/.agents/skills/jupyter-notebook
+  updated_at: '1771582575'
+- rank: 23
+  id: microsoft-ai-agents-for-beginners-translations-ja-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: ユーザーが実験、探索、またはチュートリアル用の Jupyter ノートブック（`.ipynb`）を作成、スキャフォールド、または編集するよう依頼したときに使用します。バンドルされたテンプレートを優先し、ヘルパースクリプト
+    `new_notebook.py` を実行してクリーンな開始ノートブックを生成してください。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ja/.agents/skills/jupyter-notebook
+  updated_at: '1771582575'
+- rank: 24
+  id: microsoft-ai-agents-for-beginners-translations-kn-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: ಬಳಕೆದಾರರು ಪ್ರಯೋಗಗಳು, ಅನ್ವೇಷಣೆಗಳು ಅಥವಾ ಟ್ಯುಟೋರಿಯಲ್‌ಗಳಿಗಾಗಿ Jupyter ನೋಟ್ಬುಕ್‌ಗಳು
+    (`.ipynb`) ರಚಿಸಲು, ಮೂಲ ರಚನೆ ಸಿದ್ಧಪಡಿಸಲು ಅಥವಾ ಸಂಪಾದಿಸಲು ಕೇಳಿದಾಗ ಬಳಸಿರಿ; ಸಂಯೋಜಿತ
+    ಟೆಂಪ್ಲೇಟ್‌ಗಳಿಗೆ ಪ್ರಾಧಾನ್ಯ ನೀಡಿ ಮತ್ತು ಪ್ರಾರಂಭಿಕ ಸ್ವಚ್ಛ ನೋಟ್ಬುಕ್ ರಚಿಸಲು ಸಹಾಯಕ ಸ್ಕ್ರಿಪ್ಟ್
+    `new_notebook.py` ಅನ್ನು ರನ್ ಮಾಡಿ.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/kn/.agents/skills/jupyter-notebook
+  updated_at: '1772897589'
+- rank: 25
+  id: microsoft-ai-agents-for-beginners-translations-mr-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: वापरा जेव्हा वापरकर्ता प्रयोग, अन्वेषण किंवा ट्यूटोरियलसाठी Jupyter
+    नोटबुक्स (`.ipynb`) तयार करण्यास, स्कॅफोल्ड करण्यास किंवा संपादित करण्यास विचारतो;
+    बंडल केलेल्या टेम्पलेट्सना प्राधान्य द्या आणि स्वच्छ प्रारंभिक नोटबुक तयार करण्यासाठी
+    सहाय्यक स्क्रिप्ट `new_notebook.py` चालवा.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/mr/.agents/skills/jupyter-notebook
+  updated_at: '1771555375'
+- rank: 26
+  id: microsoft-ai-agents-for-beginners-translations-no-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Bruk når brukeren ber om å opprette, sette opp eller redigere Jupyter-notatbøker
+    (`.ipynb`) for eksperimenter, utforskninger eller veiledninger; foretrekk de medfølgende
+    malene og kjør hjelpeskriptet `new_notebook.py` for å generere en ren startnotatbok.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/no/.agents/skills/jupyter-notebook
+  updated_at: '1771575305'
+- rank: 27
+  id: microsoft-ai-agents-for-beginners-translations-pa-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: ਜਦੋਂ ਉਪਭੋਗਤਾ ਤਜਰਬਿਆਂ, ਖੋਜਾਂ, ਜਾਂ ਟਿਊਟੋਰੀਅਲਾਂ ਲਈ Jupyter ਨੋਟਬੁੱਕ (`.ipynb`)
+    ਬਣਾਉਣ, ਸਕੈਫੋਲਡ ਕਰਨ, ਜਾਂ ਸੋਧ ਕਰਨ ਨੂੰ ਕਹੇ, ਇਸਦਾ ਉਪਯੋਗ ਕਰੋ; ਬੰਡਲ ਕੀਤੇ ਟੈਮਪਲੇਟਾਂ ਨੂੰ
+    ਤਰਜੀਹ ਦਿਓ ਅਤੇ ਇੱਕ ਸਾਫ਼ ਸ਼ੁਰੂਆਤੀ ਨੋਟਬੁੱਕ ਤਿਆਰ ਕਰਨ ਲਈ ਸਹਾਇਕ ਸਕ੍ਰਿਪਟ `new_notebook.py`
+    ਚਲਾਓ.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/pa/.agents/skills/jupyter-notebook
+  updated_at: '1771527606'
+- rank: 28
+  id: microsoft-ai-agents-for-beginners-translations-pcm-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Use dis one wen di user dey ask make you create, scaffold, or edit
+    Jupyter notebooks (`.ipynb`) for experiments, explorations, or tutorials; prefer
+    di bundled templates and run di helper script `new_notebook.py` make e generate
+    a clean starting notebook.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/pcm/.agents/skills/jupyter-notebook
+  updated_at: '1771568238'
+- rank: 29
+  id: microsoft-ai-agents-for-beginners-translations-sl-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Uporabite, ko uporabnik prosi za ustvarjanje, pripravo ogrodja ali
+    urejanje Jupyterjevih zvezkov (`.ipynb`) za poskuse, raziskovanja ali vadnice;
+    prednost dajte priloženim predlogam in za ustvarjanje čistega začetnega zvezka
+    zaženite pripomočni skript `new_notebook.py`.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/sl/.agents/skills/jupyter-notebook
+  updated_at: '1771496114'
+- rank: 30
+  id: microsoft-ai-agents-for-beginners-translations-ta-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: பயனர் பரிசோதனைகள், ஆராய்ச்சிகள் அல்லது பயிற்சிகளுக்காக Jupyter நோட்புக்க்களை
+    (`.ipynb`) உருவாக்க, முதற்கட்ட அமைப்பை உருவாக்க அல்லது தொகுத்து திருத்த கேட்டால்
+    இதைப் பயன்படுத்தவும்; இணைக்கப்பட்ட வார்ப்புருக்களை முன்னுரிமை வையவும் மற்றும்
+    சுத்தமான தொடக்க நோட்புக் உருவாக்க உதவும் உதவி ஸ்கிரிப்ட் `new_notebook.py`-ஐ இயக்கவும்.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ta/.agents/skills/jupyter-notebook
+  updated_at: '1771568238'
+- rank: 31
+  id: microsoft-ai-agents-for-beginners-translations-te-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: వినియోగదారు ప్రయోగాలు, అన్వేషణలు లేదా పాఠ్యాల కోసం Jupyter నోట్‌బుక్స్
+    (`.ipynb`) సృష్టించమని, ఆధార నిర్మాణం (scaffold) చేయమని లేదా సవరిచమని అడిగినప్పుడు
+    ఉపయోగించండి; బండిల్ చేయబడ్డ టెంప్లేట్లను ప్రాధాన్యంగా ఉపయోగించి సహాయక స్క్రిప్ట్
+    `new_notebook.py` ని నడపండి ఒక శుభ్రమైన ప్రారంభ నోట్‌బుక్ రూపొందించడానికి.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/te/.agents/skills/jupyter-notebook
+  updated_at: '1772897589'
+- rank: 32
+  id: microsoft-ai-agents-for-beginners-translations-ur-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: استعمال کریں جب صارف تجربات، تحقیق، یا ٹیوٹوریلز کے لیے جیوپیٹر نوٹ
+    بکس (`.ipynb`) بنانے، ڈھانچہ تیار کرنے، یا ایڈیٹ کرنے کو کہے؛ شامل ٹیمپلیٹس کو
+    ترجیح دیں اور ایک صاف شروعاتی نوٹ بک تیار کرنے کے لیے مددگار اسکرپٹ `new_notebook.py`
+    چلائیں۔
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/ur/.agents/skills/jupyter-notebook
+  updated_at: '1771481062'
+- rank: 33
+  id: microsoft-ai-agents-for-beginners-translations-vi-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Sử dụng khi người dùng yêu cầu tạo, dựng khung (scaffold), hoặc chỉnh
+    sửa các sổ tay Jupyter (`.ipynb`) cho các thí nghiệm, khám phá, hoặc hướng dẫn;
+    ưu tiên các mẫu đi kèm và chạy script trợ giúp `new_notebook.py` để tạo một sổ
+    tay khởi đầu sạch.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/vi/.agents/skills/jupyter-notebook
+  updated_at: '1771562196'
+- rank: 34
+  id: microsoft-ai-agents-for-beginners-translations-zh-mo-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: 當使用者要求建立、搭建或編輯用於實驗、探索或教學的 Jupyter 筆記本 (`.ipynb`) 時使用；優先採用內建範本並執行輔助腳本
+    `new_notebook.py` 以產生一個乾淨的起始筆記本。
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/zh-MO/.agents/skills/jupyter-notebook
+  updated_at: '1771534474'
+- rank: 35
+  id: bytedance-deer-flow-skills-public-deep-research-skill-md
+  name: deep-research
+  author: bytedance
+  stars: 50958
+  forks: 6094
+  description: Use this skill instead of WebSearch for ANY question requiring web
+    research. Trigger on queries like "what is X", "explain X", "compare X and Y",
+    "research X", or before content generation tasks. Provides systematic multi-angle
+    research methodology instead of single superficial searches. Use this proactively
+    when the user's question needs online information.
+  github_url: https://github.com/bytedance/deer-flow/tree/main/skills/public/deep-research
+  updated_at: '1772544721'
+- rank: 36
+  id: composiohq-awesome-claude-skills-file-organizer-skill-md
+  name: file-organizer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Intelligently organizes your files and folders across your computer
+    by understanding context, finding duplicates, suggesting better structures, and
+    automating cleanup tasks. Reduces cognitive load and keeps your digital workspace
+    tidy without manual effort.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/file-organizer
+  updated_at: '1760692175'
+- rank: 37
+  id: composiohq-awesome-claude-skills-skill-share-skill-md
+  name: skill-share
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: A skill that creates new Claude skills and automatically shares them
+    on Slack using Rube for seamless team collaboration and skill discovery.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/skill-share
+  updated_at: '1762521158'
+- rank: 38
+  id: metabase-metabase-claude-skills-docs-write-skill-md
+  name: docs-write
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Write documentation following Metabase's conversational, clear, and
+    user-focused style. Use when creating or editing documentation files (markdown,
+    MDX, etc.).
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/docs-write
+  updated_at: '1770740877'
+- rank: 39
+  id: tldraw-tldraw-claude-skills-skill-creator-skill-md
+  name: skill-creator
+  author: tldraw
+  stars: 46086
+  forks: 3105
+  description: Guide for creating effective skills. This skill should be used when
+    users want to create a new skill (or update an existing skill) that extends Claude's
+    capabilities with specialized knowledge, workflows, or tool integrations.
+  github_url: https://github.com/tldraw/tldraw/tree/main/.claude/skills/skill-creator
+  updated_at: '1767786062'
+- rank: 40
+  id: tldraw-tldraw-claude-skills-write-release-notes-skill-md
+  name: write-release-notes
+  author: tldraw
+  stars: 46086
+  forks: 3105
+  description: Writing release notes articles for tldraw SDK releases. Use when creating
+    new release documentation, drafting release notes from scratch, or reviewing release
+    note quality. Provides guidance on structure, voice, and content for release files
+    in `apps/docs/content/releases/`.
+  github_url: https://github.com/tldraw/tldraw/tree/main/.claude/skills/write-release-notes
+  updated_at: '1772649179'
+- rank: 41
+  id: meteor-meteor-github-skills-ai-context-skill-md
+  name: ai-context
+  author: meteor
+  stars: 44788
+  forks: 5266
+  description: Use when creating, updating, or maintaining AI documentation files
+    (AGENTS.md, CLAUDE.md, skills). Covers file structure, conventions, and guidelines
+    for evolving AI context.
+  github_url: https://github.com/meteor/meteor/tree/devel/.github/skills/ai-context
+  updated_at: '1770385373'
+- rank: 42
+  id: meteor-meteor-github-skills-packages-skill-md
+  name: packages
+  author: meteor
+  stars: 44788
+  forks: 5266
+  description: Use when exploring the package ecosystem, finding which package handles
+    a feature, understanding package relationships, or adding dependencies. Lists
+    all core packages by domain.
+  github_url: https://github.com/meteor/meteor/tree/devel/.github/skills/packages
+  updated_at: '1770379062'
+- rank: 43
+  id: streamlit-streamlit-claude-skills-sharing-pr-agent-artifacts-skill-md
+  name: sharing-pr-agent-artifacts
+  author: streamlit
+  stars: 44053
+  forks: 4169
+  description: Uploads agent-generated artifacts (specs, plans, learnings) to the
+    streamlit.wiki for sharing via PR comments. Use when you have agent artifacts
+    to share with reviewers.
+  github_url: https://github.com/streamlit/streamlit/tree/develop/.claude/skills/sharing-pr-agent-artifacts
+  updated_at: '1774458874'
+- rank: 44
+  id: streamlit-streamlit-claude-skills-updating-internal-docs-skill-md
+  name: updating-internal-docs
+  author: streamlit
+  stars: 44053
+  forks: 4169
+  description: Review internal documentation (*.md files) against the current codebase
+    state and propose updates for outdated or incorrect information.
+  github_url: https://github.com/streamlit/streamlit/tree/develop/.claude/skills/updating-internal-docs
+  updated_at: '1774284229'
+- rank: 45
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-paper-publisher-skill-md
+  name: hugging-face-paper-publisher
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Publish and manage research papers on Hugging Face Hub. Supports creating
+    paper pages, linking papers to models/datasets, claiming authorship, and generating
+    professional markdown-based research articles.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-paper-publisher
+  updated_at: '1769157944'
+- rank: 46
+  id: wshobson-agents-plugins-documentation-generation-skills-architecture-decision-records-skill-md
+  name: architecture-decision-records
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Write and maintain Architecture Decision Records (ADRs) following best
+    practices for technical decision documentation. Use when documenting significant
+    technical decisions, reviewing past architectural choices, or establishing decision
+    processes.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/documentation-generation/skills/architecture-decision-records
+  updated_at: '1772898797'
+- rank: 47
+  id: wshobson-agents-plugins-developer-essentials-skills-debugging-strategies-skill-md
+  name: debugging-strategies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master systematic debugging techniques, profiling tools, and root cause
+    analysis to efficiently track down bugs across any codebase or technology stack.
+    Use when investigating bugs, performance issues, or unexpected behavior.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/debugging-strategies
+  updated_at: '1772898797'
+- rank: 48
+  id: wshobson-agents-plugins-llm-application-dev-skills-hybrid-search-implementation-skill-md
+  name: hybrid-search-implementation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Combine vector and keyword search for improved retrieval. Use when
+    implementing RAG systems, building search engines, or when neither approach alone
+    provides sufficient recall.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/hybrid-search-implementation
+  updated_at: '1772898797'
+- rank: 49
+  id: wshobson-agents-plugins-agent-teams-skills-parallel-debugging-skill-md
+  name: parallel-debugging
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Debug complex issues using competing hypotheses with parallel investigation,
+    evidence collection, and root cause arbitration. Use this skill when debugging
+    bugs with multiple potential causes, performing root cause analysis, or organizing
+    parallel investigation workflows.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/parallel-debugging
+  updated_at: '1770331350'
+- rank: 50
+  id: wshobson-agents-plugins-incident-response-skills-postmortem-writing-skill-md
+  name: postmortem-writing
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Write effective blameless postmortems with root cause analysis, timelines,
+    and action items. Use when conducting incident reviews, writing postmortem documents,
+    or improving incident response processes.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/incident-response/skills/postmortem-writing
+  updated_at: '1772898797'

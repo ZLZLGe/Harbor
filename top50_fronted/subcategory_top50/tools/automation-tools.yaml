@@ -1,0 +1,593 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: tools
+category_name: Tools
+category_skill_count: 168203
+subcategory_slug: automation-tools
+subcategory_name: Automation Tools
+subcategory_skill_count: 14970
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=automation-tools
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 14970
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-coding-agent-skill-md
+  name: coding-agent
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'Delegate coding tasks to Codex, Claude Code, or Pi agents via background
+    process. Use when: (1) building/creating new features or apps, (2) reviewing PRs
+    (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that
+    needs file exploration. NOT for: simple one-liner fixes (just edit), reading code
+    (use read tool), thread-bound ACP harness requests in chat (for example spawn/run
+    Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:"acp"),
+    or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print
+    --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/coding-agent
+  updated_at: '1774333273'
+- rank: 2
+  id: facebook-react-claude-skills-fix-skill-md
+  name: fix
+  author: facebook
+  stars: 244234
+  forks: 50870
+  description: Use when you have lint errors, formatting issues, or before committing
+    code to ensure it passes CI.
+  github_url: https://github.com/facebook/react/tree/main/.claude/skills/fix
+  updated_at: '1769217366'
+- rank: 3
+  id: microsoft-vscode-src-vs-sessions-skills-commit-skill-md
+  name: commit
+  author: microsoft
+  stars: 183143
+  forks: 38795
+  description: Commit staged or unstaged changes with an AI-generated commit message
+    that matches the repository's existing commit style. Use when the user asks to
+    'commit', 'commit changes', 'create a commit', 'save my work', or 'check in code'.
+  github_url: https://github.com/microsoft/vscode/tree/main/src/vs/sessions/skills/commit
+  updated_at: '1774005807'
+- rank: 4
+  id: microsoft-powertoys-github-skills-release-note-generation-skill-md
+  name: release-note-generation
+  author: microsoft
+  stars: 131068
+  forks: 7827
+  description: Toolkit for generating PowerToys release notes from GitHub milestone
+    PRs or commit ranges. Use when asked to create release notes, summarize milestone
+    PRs, generate changelog, prepare release documentation, request Copilot reviews
+    for PRs, update README for a new release, manage PR milestones, or collect PRs
+    between commits/tags. Supports PR collection by milestone or commit range, milestone
+    assignment, grouping by label, summarization with external contributor attribution,
+    and README version bumping.
+  github_url: https://github.com/microsoft/PowerToys/tree/main/.github/skills/release-note-generation
+  updated_at: '1772613608'
+- rank: 5
+  id: affaan-m-everything-claude-code-docs-zh-tw-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Automatically extract reusable patterns from Claude Code sessions and
+    save them as learned skills for future use.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-TW/skills/continuous-learning
+  updated_at: '1772664486'
+- rank: 6
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-springboot-verification-skill-md
+  name: springboot-verification
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Spring Boot项目验证循环：构建、静态分析、测试覆盖、安全扫描，以及发布或PR前的差异审查。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/springboot-verification
+  updated_at: '1774219164'
+- rank: 7
+  id: google-gemini-gemini-cli-gemini-skills-code-reviewer-skill-md
+  name: code-reviewer
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill to review code. It supports both local changes (staged
+    or working tree) and remote Pull Requests (by ID or URL). It focuses on correctness,
+    maintainability, and adherence to project standards.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/code-reviewer
+  updated_at: '1768980516'
+- rank: 8
+  id: google-gemini-gemini-cli-gemini-skills-docs-changelog-skill-md
+  name: docs-changelog
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Generates and formats changelog files for a new release based on provided
+    version and raw changelog data.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/docs-changelog
+  updated_at: '1772075521'
+- rank: 9
+  id: google-gemini-gemini-cli-gemini-skills-pr-creator-skill-md
+  name: pr-creator
+  author: google-gemini
+  stars: 99329
+  forks: 12686
+  description: Use this skill when asked to create a pull request (PR). It ensures
+    all PRs follow the repository's established templates and standards.
+  github_url: https://github.com/google-gemini/gemini-cli/tree/main/.gemini/skills/pr-creator
+  updated_at: '1770701890'
+- rank: 10
+  id: pytorch-pytorch-claude-skills-pr-review-skill-md
+  name: pr-review
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Review PyTorch pull requests for code quality, test coverage, security,
+    and backward compatibility. Use when reviewing PRs, when asked to review code
+    changes, or when the user mentions "review PR", "code review", or "check this
+    PR".
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/pr-review
+  updated_at: '1774632647'
+- rank: 11
+  id: lobehub-lobehub-agents-skills-project-overview-skill-md
+  name: project-overview
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: Complete project architecture and structure guide. Use when exploring
+    the codebase, understanding project organization, finding files, or needing comprehensive
+    architectural context. Triggers on architecture questions, directory navigation,
+    or project overview needs.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/project-overview
+  updated_at: '1773497169'
+- rank: 12
+  id: lobehub-lobehub-agents-skills-react-skill-md
+  name: react
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: React component development guide. Use when working with React components
+    (.tsx files), creating UI, using @lobehub/ui components, implementing routing,
+    or building frontend features. Triggers on React component creation, modification,
+    layout implementation, or navigation tasks.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/react
+  updated_at: '1774427257'
+- rank: 13
+  id: lobehub-lobehub-agents-skills-typescript-skill-md
+  name: typescript
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: TypeScript code style and optimization guidelines. MUST READ before
+    writing or modifying any TypeScript code (.ts, .tsx, .mts files). Also use when
+    reviewing code quality or implementing type-safe patterns. Triggers on any TypeScript
+    file edit, code style discussions, or type safety questions.
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/typescript
+  updated_at: '1773752068'
+- rank: 14
+  id: composiohq-awesome-claude-skills-developer-growth-analysis-skill-md
+  name: developer-growth-analysis
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Analyzes your recent Claude Code chat history to identify coding patterns,
+    development gaps, and areas for improvement, curates relevant learning resources
+    from HackerNews, and automatically sends a personalized growth report to your
+    Slack DMs.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/developer-growth-analysis
+  updated_at: '1762790232'
+- rank: 15
+  id: metabase-metabase-claude-skills-clojure-review-skill-md
+  name: clojure-review
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Review Clojure and ClojureScript code changes for compliance with Metabase
+    coding standards, style violations, and code quality issues. Use when reviewing
+    pull requests or diffs containing Clojure/ClojureScript code.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/clojure-review
+  updated_at: '1769166810'
+- rank: 16
+  id: metabase-metabase-claude-skills-docs-review-skill-md
+  name: docs-review
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Review documentation changes for compliance with the Metabase writing
+    style guide. Use when reviewing pull requests, files, or diffs containing documentation
+    markdown files.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/docs-review
+  updated_at: '1766090567'
+- rank: 17
+  id: metabase-metabase-claude-skills-typescript-review-skill-md
+  name: typescript-review
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Review TypeScript and JavaScript code changes for compliance with Metabase
+    coding standards, style violations, and code quality issues. Use when reviewing
+    pull requests or diffs containing TypeScript/JavaScript code.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/typescript-review
+  updated_at: '1771496094'
+- rank: 18
+  id: metabase-metabase-claude-skills-typescript-write-skill-md
+  name: typescript-write
+  author: metabase
+  stars: 46615
+  forks: 6335
+  description: Write TypeScript and JavaScript code following Metabase coding standards
+    and best practices. Use when developing or refactoring TypeScript/JavaScript code.
+  github_url: https://github.com/metabase/metabase/tree/master/.claude/skills/typescript-write
+  updated_at: '1763571245'
+- rank: 19
+  id: meteor-meteor-github-skills-conventions-skill-md
+  name: conventions
+  author: meteor
+  stars: 44788
+  forks: 5266
+  description: Use when writing new packages, adding CLI commands, creating build
+    plugins, or following Meteor code patterns. Covers package.js structure, file
+    naming, and common code patterns.
+  github_url: https://github.com/meteor/meteor/tree/devel/.github/skills/conventions
+  updated_at: '1770379062'
+- rank: 20
+  id: pingcap-tidb-agents-skills-tidb-bazel-prepare-gate-skill-md
+  name: tidb-bazel-prepare-gate
+  author: pingcap
+  stars: 39905
+  forks: 6159
+  description: Use when deciding whether make bazel_prepare is required before build
+    or test commands based on local file changes in TiDB.
+  github_url: https://github.com/pingcap/tidb/tree/master/.agents/skills/tidb-bazel-prepare-gate
+  updated_at: '1773383198'
+- rank: 21
+  id: paperclipai-paperclip-agents-skills-release-changelog-skill-md
+  name: release-changelog
+  author: paperclipai
+  stars: 36317
+  forks: 5256
+  description: Generate the stable Paperclip release changelog at releases/vYYYY.MDD.P.md
+    by reading commits, changesets, and merged PR context since the last stable tag.
+  github_url: https://github.com/paperclipai/paperclip/tree/master/.agents/skills/release-changelog
+  updated_at: '1773838656'
+- rank: 22
+  id: wshobson-agents-plugins-shell-scripting-skills-bats-testing-patterns-skill-md
+  name: bats-testing-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Bash Automated Testing System (Bats) for comprehensive shell
+    script testing. Use when writing tests for shell scripts, CI/CD pipelines, or
+    requiring test-driven development of shell utilities.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/shell-scripting/skills/bats-testing-patterns
+  updated_at: '1772898797'
+- rank: 23
+  id: wshobson-agents-plugins-documentation-generation-skills-changelog-automation-skill-md
+  name: changelog-automation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Automate changelog generation from commits, PRs, and releases following
+    Keep a Changelog format. Use when setting up release workflows, generating release
+    notes, or standardizing commit conventions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/documentation-generation/skills/changelog-automation
+  updated_at: '1772898797'
+- rank: 24
+  id: wshobson-agents-plugins-developer-essentials-skills-code-review-excellence-skill-md
+  name: code-review-excellence
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master effective code review practices to provide constructive feedback,
+    catch bugs early, and foster knowledge sharing while maintaining team morale.
+    Use when reviewing pull requests, establishing review standards, or mentoring
+    developers.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/code-review-excellence
+  updated_at: '1772898797'
+- rank: 25
+  id: wshobson-agents-plugins-cicd-automation-skills-github-actions-templates-skill-md
+  name: github-actions-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready GitHub Actions workflows for automated testing,
+    building, and deploying applications. Use when setting up CI/CD with GitHub Actions,
+    automating development workflows, or creating reusable workflow templates.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/github-actions-templates
+  updated_at: '1772898797'
+- rank: 26
+  id: wshobson-agents-plugins-cicd-automation-skills-gitlab-ci-patterns-skill-md
+  name: gitlab-ci-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build GitLab CI/CD pipelines with multi-stage workflows, caching, and
+    distributed runners for scalable automation. Use when implementing GitLab CI/CD,
+    optimizing pipeline performance, or setting up automated testing and deployment.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/gitlab-ci-patterns
+  updated_at: '1772898797'
+- rank: 27
+  id: wshobson-agents-plugins-developer-essentials-skills-monorepo-management-skill-md
+  name: monorepo-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master monorepo management with Turborepo, Nx, and pnpm workspaces
+    to build efficient, scalable multi-package repositories with optimized builds
+    and dependency management. Use when setting up monorepos, optimizing builds, or
+    managing shared dependencies.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/monorepo-management
+  updated_at: '1772898797'
+- rank: 28
+  id: wshobson-agents-plugins-agent-teams-skills-multi-reviewer-patterns-skill-md
+  name: multi-reviewer-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Coordinate parallel code reviews across multiple quality dimensions
+    with finding deduplication, severity calibration, and consolidated reporting.
+    Use this skill when organizing multi-reviewer code reviews, calibrating finding
+    severity, or consolidating review results.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/multi-reviewer-patterns
+  updated_at: '1770331350'
+- rank: 29
+  id: wshobson-agents-plugins-developer-essentials-skills-nx-workspace-patterns-skill-md
+  name: nx-workspace-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure and optimize Nx monorepo workspaces. Use when setting up
+    Nx, configuring project boundaries, optimizing build caching, or implementing
+    affected commands.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/nx-workspace-patterns
+  updated_at: '1772898797'
+- rank: 30
+  id: wshobson-agents-plugins-python-development-skills-python-code-style-skill-md
+  name: python-code-style
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python code style, linting, formatting, naming conventions, and documentation
+    standards. Use when writing new code, reviewing style, configuring linters, writing
+    docstrings, or establishing project standards.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-code-style
+  updated_at: '1769791934'
+- rank: 31
+  id: wshobson-agents-plugins-framework-migration-skills-react-modernization-skill-md
+  name: react-modernization
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Upgrade React applications to latest versions, migrate from class components
+    to hooks, and adopt concurrent features. Use when modernizing React codebases,
+    migrating to React Hooks, or upgrading to latest React versions.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/framework-migration/skills/react-modernization
+  updated_at: '1772898797'
+- rank: 32
+  id: wshobson-agents-plugins-shell-scripting-skills-shellcheck-configuration-skill-md
+  name: shellcheck-configuration
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master ShellCheck static analysis configuration and usage for shell
+    script quality. Use when setting up linting infrastructure, fixing code issues,
+    or ensuring script portability.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/shell-scripting/skills/shellcheck-configuration
+  updated_at: '1772898797'
+- rank: 33
+  id: wshobson-agents-plugins-developer-essentials-skills-turborepo-caching-skill-md
+  name: turborepo-caching
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Configure Turborepo for efficient monorepo builds with local and remote
+    caching. Use when setting up Turborepo, optimizing build pipelines, or implementing
+    distributed caching.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/developer-essentials/skills/turborepo-caching
+  updated_at: '1772898797'
+- rank: 34
+  id: wshobson-agents-plugins-conductor-skills-workflow-patterns-skill-md
+  name: workflow-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Use this skill when implementing tasks according to Conductor's TDD
+    workflow, handling phase checkpoints, managing git commits for tasks, or understanding
+    the verification protocol.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/conductor/skills/workflow-patterns
+  updated_at: '1768527297'
+- rank: 35
+  id: continuedev-continue-skills-cn-check-skill-md
+  name: cn-check
+  author: continuedev
+  stars: 32100
+  forks: 4296
+  description: Install and run the Continue CLI (`cn`) to execute AI agent checks
+    on local code changes. Use when asked to "run checks", "lint with AI", "review
+    my changes with cn", or set up Continue CI locally.
+  github_url: https://github.com/continuedev/continue/tree/main/skills/cn-check
+  updated_at: '1770026179'
+- rank: 36
+  id: cockroachdb-cockroach-claude-skills-commit-helper-skill-md
+  name: commit-helper
+  author: cockroachdb
+  stars: 31973
+  forks: 4104
+  description: Help create git commits and PRs with properly formatted messages and
+    release notes following CockroachDB conventions. Use when committing changes or
+    creating pull requests.
+  github_url: https://github.com/cockroachdb/cockroach/tree/master/.claude/skills/commit-helper
+  updated_at: '1771536003'
+- rank: 37
+  id: vercel-turborepo-skills-turborepo-skill-md
+  name: turborepo
+  author: vercel
+  stars: 30078
+  forks: 2306
+  description: 'Turborepo monorepo build system guidance. Triggers on: turbo.json,
+    task pipelines,
+
+    dependsOn, caching, remote cache, the "turbo" CLI, --filter, --affected, CI optimization,
+    environment
+
+    variables, internal packages, monorepo structure/best practices, and boundaries.
+
+
+    Use when user: configures tasks/workflows/pipelines, creates packages, sets up
+
+    monorepo, shares code between apps, runs changed/affected packages, debugs cache,
+
+    or has apps/packages directories.'
+  github_url: https://github.com/vercel/turborepo/tree/main/skills/turborepo
+  updated_at: '1774719120'
+- rank: 38
+  id: copilotkit-copilotkit-claude-skills-git-hooks-skill-md
+  name: git-hooks
+  author: CopilotKit
+  stars: 29818
+  forks: 3861
+  description: CopilotKit pre-commit hook reference. Load automatically when the user
+    mentions git hooks failing, pre-commit errors, lefthook issues, commit blocked,
+    or "hooks don't work", or when user wants to commit/push anything Contains the
+    full hook topology so debugging skips discovery and goes straight to diagnosis.
+  github_url: https://github.com/CopilotKit/CopilotKit/tree/main/.claude/skills/git-hooks
+  updated_at: '1773132635'
+- rank: 39
+  id: nrwl-nx-cursor-skills-nx-generate-skill-md
+  name: nx-generate
+  author: nrwl
+  stars: 28427
+  forks: 2694
+  description: Generate code using nx generators. USE WHEN scaffolding code or transforming
+    existing code - for example creating libraries or applications, or anything else
+    that is boilerplate code or automates repetitive tasks. ALWAYS use this first
+    when generating code with Nx instead of calling MCP tools or running nx generate
+    immediately.
+  github_url: https://github.com/nrwl/nx/tree/master/.cursor/skills/nx-generate
+  updated_at: '1769539842'
+- rank: 40
+  id: nrwl-nx-claude-skills-run-nx-generator-skill-md
+  name: run-nx-generator
+  author: nrwl
+  stars: 28427
+  forks: 2694
+  description: Run Nx generators with prioritization for workspace-plugin generators.
+    Use this when generating code, scaffolding new features, or automating repetitive
+    tasks in the monorepo.
+  github_url: https://github.com/nrwl/nx/tree/master/.claude/skills/run-nx-generator
+  updated_at: '1762538856'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-app-store-changelog-skill-md
+  name: app-store-changelog
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Generate user-facing App Store release notes from git history since
+    the last tag.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/app-store-changelog
+  updated_at: '1774435988'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-avoid-ai-writing-skill-md
+  name: avoid-ai-writing
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Audit and rewrite content to remove 21 categories of AI writing patterns
+    with a 43-entry replacement table
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/avoid-ai-writing
+  updated_at: '1772807593'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-changelog-automation-skill-md
+  name: changelog-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Automate changelog generation from commits, PRs, and releases following
+    Keep a Changelog format. Use when setting up release workflows, generating release
+    notes, or standardizing commit conventions.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/changelog-automation
+  updated_at: '1772180381'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-code-refactoring-context-restore-skill-md
+  name: code-refactoring-context-restore
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Use when working with code refactoring context restore
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/code-refactoring-context-restore
+  updated_at: '1772180381'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-codex-review-skill-md
+  name: codex-review
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Professional code review with auto CHANGELOG generation, integrated
+    with Codex AI. Use when you want professional code review before commits, you
+    need automatic CHANGELOG generation, or reviewing large-scale refactoring.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/codex-review
+  updated_at: '1774025773'
+- rank: 46
+  id: sickn33-antigravity-awesome-skills-skills-fal-workflow-skill-md
+  name: fal-workflow
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Generate workflow JSON files for chaining AI models
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fal-workflow
+  updated_at: '1772180381'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-moyu-skill-md
+  name: moyu
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Anti-over-engineering guardrail that activates when an AI coding agent
+    expands scope, adds abstractions, or changes files the user did not request.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/moyu
+  updated_at: '1774288871'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-oss-hunter-skill-md
+  name: oss-hunter
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Automatically hunt for high-impact OSS contribution opportunities in
+    trending repositories.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/oss-hunter
+  updated_at: '1773994005'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-stitch-loop-skill-md
+  name: stitch-loop
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Teaches agents to iteratively build websites using Stitch with an autonomous
+    baton-passing loop pattern
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/stitch-loop
+  updated_at: '1773994629'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-tool-use-guardian-skill-md
+  name: tool-use-guardian
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: FREE — Intelligent tool-call reliability wrapper. Monitors, retries,
+    fixes, and learns from tool failures. Auto-recovers from truncated JSON, timeouts,
+    rate limits, and mid-chain failures.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/tool-use-guardian
+  updated_at: '1773506950'

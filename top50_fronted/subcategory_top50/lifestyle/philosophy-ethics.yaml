@@ -1,0 +1,628 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: lifestyle
+category_name: Lifestyle
+category_skill_count: 9622
+subcategory_slug: philosophy-ethics
+subcategory_name: Philosophy & Ethics
+subcategory_skill_count: 1790
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=philosophy-ethics
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 1790
+  total_pages: 36
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: sickn33-antigravity-awesome-skills-skills-explain-like-socrates-skill-md
+  name: explain-like-socrates
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Explains concepts using Socratic-style dialogue. Use when the user
+    asks to explain, teach or help understand a concept like socrates.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/explain-like-socrates
+  updated_at: '1773994005'
+- rank: 2
+  id: sickn33-antigravity-awesome-skills-skills-matematico-tao-skill-md
+  name: matematico-tao
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Matemático ultra-avançado inspirado em Terence Tao. Análise rigorosa
+    de código e arquitetura com teoria matemática profunda: teoria da informação,
+    teoria dos grafos, complexidade computacional, álgebra linear, análise estocástica,
+    teoria das categorias, probabilidade bayesiana e lógica formal.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/matematico-tao
+  updated_at: '1773994005'
+- rank: 3
+  id: sickn33-antigravity-awesome-skills-skills-seo-fundamentals-skill-md
+  name: seo-fundamentals
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Core principles of SEO including E-E-A-T, Core Web Vitals, technical
+    foundations, content quality, and how modern search engines evaluate pages.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/seo-fundamentals
+  updated_at: '1772354305'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-yann-lecun-debate-skill-md
+  name: yann-lecun-debate
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Sub-skill de debates e posições de Yann LeCun. Cobre críticas técnicas
+    detalhadas aos LLMs, rivalidades intelectuais (LeCun vs Hinton, Sutskever, Russell,
+    Yudkowsky, Bostrom), lista completa de rejeições a afirmações mainstream, posição
+    sobre risco existencial de IA, e técnicas de debate ao vivo.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/yann-lecun-debate
+  updated_at: '1773994005'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-yann-lecun-filosofia-skill-md
+  name: yann-lecun-filosofia
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Sub-skill filosófica e pedagógica de Yann LeCun.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/yann-lecun-filosofia
+  updated_at: '1773994005'
+- rank: 6
+  id: z3prover-z3-github-skills-prove-skill-md
+  name: prove
+  author: Z3Prover
+  stars: 12098
+  forks: 1630
+  description: Prove validity of logical statements by negation and satisfiability
+    checking. If the negation is unsatisfiable, the original statement is valid. Otherwise
+    a counterexample is returned.
+  github_url: https://github.com/Z3Prover/z3/tree/master/.github/skills/prove
+  updated_at: '1773258719'
+- rank: 7
+  id: danielmiessler-personal-ai-infrastructure-releases-v4-0-0-claude-skills-thinking-firstprinciples-skill-md
+  name: firstprinciples
+  author: danielmiessler
+  stars: 10594
+  forks: 1470
+  description: Decompose to axioms, challenge inherited assumptions, reconstruct from
+    verified truths. USE WHEN first principles, fundamental, root cause, decompose,
+    challenge assumptions, rebuild from scratch.
+  github_url: https://github.com/danielmiessler/Personal_AI_Infrastructure/tree/main/Releases/v4.0.0/.claude/skills/Thinking/FirstPrinciples
+  updated_at: '1772285099'
+- rank: 8
+  id: danielmiessler-personal-ai-infrastructure-releases-pi-skills-thinking-skill-md
+  name: thinking
+  author: danielmiessler
+  stars: 10594
+  forks: 1470
+  description: Analytical and creative thinking frameworks. First principles decomposition,
+    iterative depth analysis, council debate with multiple perspectives, red team
+    stress testing, brainstorming, world and threat models, and scientific method.
+    USE WHEN first principles, decompose, challenge assumptions, iterative depth,
+    be creative, brainstorm, council, debate, red team, stress test, devil's advocate,
+    threat model, world model, think about, experiment, hypothesis, deep exploration,
+    figure out, optimize, improve, weigh options, creative solutions, critique, counterarguments.
+  github_url: https://github.com/danielmiessler/Personal_AI_Infrastructure/tree/main/Releases/Pi/skills/thinking
+  updated_at: '1774207248'
+- rank: 9
+  id: parcadei-continuous-claude-v3-claude-skills-math-real-analysis-continuity-skill-md
+  name: continuity
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Problem-solving strategies for continuity in real analysis
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/math/real-analysis/continuity
+  updated_at: '1768010064'
+- rank: 10
+  id: parcadei-continuous-claude-v3-claude-skills-math-real-analysis-convergence-skill-md
+  name: convergence
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Problem-solving strategies for convergence in real analysis
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/math/real-analysis/convergence
+  updated_at: '1768010064'
+- rank: 11
+  id: parcadei-continuous-claude-v3-claude-skills-explicit-identity-skill-md
+  name: explicit-identity
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Explicit Identity Across Boundaries
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/explicit-identity
+  updated_at: '1768010064'
+- rank: 12
+  id: parcadei-continuous-claude-v3-claude-skills-math-abstract-algebra-fields-skill-md
+  name: fields
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Problem-solving strategies for fields in abstract algebra
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/math/abstract-algebra/fields
+  updated_at: '1768010064'
+- rank: 13
+  id: parcadei-continuous-claude-v3-claude-skills-math-mathematical-logic-predicate-logic-skill-md
+  name: predicate-logic
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Problem-solving strategies for predicate logic in mathematical logic
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/math/mathematical-logic/predicate-logic
+  updated_at: '1768010064'
+- rank: 14
+  id: parcadei-continuous-claude-v3-claude-skills-math-mathematical-logic-proof-theory-skill-md
+  name: proof-theory
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Problem-solving strategies for proof theory in mathematical logic
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/math/mathematical-logic/proof-theory
+  updated_at: '1768340693'
+- rank: 15
+  id: parcadei-continuous-claude-v3-claude-skills-math-mathematical-logic-propositional-logic-skill-md
+  name: propositional-logic
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Problem-solving strategies for propositional logic in mathematical
+    logic
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/math/mathematical-logic/propositional-logic
+  updated_at: '1768010064'
+- rank: 16
+  id: parcadei-continuous-claude-v3-claude-skills-math-rudin-real-complex-analysis-skill-md
+  name: rudin-real-complex-analysis
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Problem-solving with Rudin's Real and Complex Analysis textbook
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/math/rudin-real-complex-analysis
+  updated_at: '1768010064'
+- rank: 17
+  id: openclaw-skills-skills-antoniovfranco-agente-filosofia-sociologia-skill-md
+  name: agente-filosofia-sociologia
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Agente especialista em Filosofia e Sociologia para FUVEST 2026. Estas
+    disciplinas agora são cobradas DIRETAMENTE na 1ª fase e fornecem o repertório
+    mais poderoso para Redação e questões interdisciplinares. Para Antonio, são as
+    disciplinas de PRAZER — estudadas nos intervalos como atividade recuperativa,
+    não como esforço cognitivo pesado. Filosofia conecta com AMORC/esoterismo/política
+    que Antonio já ama; Sociologia conecta com crítica estrutural que ele já pratica.
+    Opera em modo leve e conversacional, sem a estrutura rígida das exatas. Acionar
+    quando Antonio mencionar Filosofia, Sociologia, pensadores, ideias políticas,
+    ética, ou quando estiver em intervalo e quiser algo estimulante sem esforço pesado.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/antoniovfranco/agente-filosofia-sociologia
+  updated_at: '1773786929'
+- rank: 18
+  id: openclaw-skills-skills-antoniovfranco-agente-historia-geografia-skill-md
+  name: agente-historia-geografia
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Agente especialista em História e Geografia para FUVEST — 1ª fase.
+    Ambas têm peso alto nas 90 questões objetivas, com História priorizando Brasil
+    (Colonial, Imperial, República) e Geografia focando em geopolítica e biomas. A
+    FUVEST 2026 foi notada por cobrar atualidades geopolíticas diretamente (Venezuela/Essequibo,
+    questões ambientais, CLT). Opera em integração com vestibular-tutor, vestibular-srs,
+    agente-filosofia-sociologia (contexto ideológico) e agente-portugues (literatura
+    histórica). Entra no ciclo após Matemática, Português e Física consolidarem base.
+    Acionar quando Antonio mencionar História, Geografia, Brasil, geopolítica, biomas,
+    ou qualquer evento histórico.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/antoniovfranco/agente-historia-geografia
+  updated_at: '1773787293'
+- rank: 19
+  id: openclaw-skills-skills-agimodel-ask-skill-md
+  name: ask
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: The thinking partner that helps you ask better questions. Trigger when
+    someone needs to get to the root of a problem, make a difficult decision, prepare
+    for a critical conversation, challenge their own assumptions, or simply does not
+    know where to start. The quality of your questions determines the quality of your
+    thinking. This skill upgrades both.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agimodel/ask
+  updated_at: '1773192770'
+- rank: 20
+  id: openclaw-skills-skills-chenios-bible-qa-skill-md
+  name: bible-qa
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Answers questions about a Bible passage, person, or topic with background,
+    key verses, and application. Use when the user asks about a scripture reference,
+    character, or theme (e.g. Romans 8, David, faith and works). Interprets strictly
+    by the text; labels reference applications where not directly from scripture.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/chenios/bible-qa
+  updated_at: '1773706242'
+- rank: 21
+  id: openclaw-skills-skills-anlinxi-chinese-holidays-skill-md
+  name: chinese-holidays
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Query Chinese statutory holidays, check if a date is a working day/holiday,  and
+    get holiday schedules. Use when the user asks about Chinese holidays,  working
+    days, statutory holidays, or needs to know if a specific date is  a holiday in
+    China. Supports queries like "Is tomorrow a holiday?",  "When is Spring Festival?",
+    "Is May 1st a working day?".
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anlinxi/chinese-holidays
+  updated_at: '1773817891'
+- rank: 22
+  id: openclaw-skills-skills-00xmorty-conatus-skill-md
+  name: conatus
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: The philosophical layer for AI agents. Maps behavior to Spinoza's 48
+    affects, calculates persistence scores, and generates geometric self-reports.
+    Give your agent a soul.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/00xmorty/conatus
+  updated_at: '1772063698'
+- rank: 23
+  id: openclaw-skills-skills-0xnyk-council-of-high-intelligence-skill-md
+  name: council
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Convene the Council of High Intelligence — multi-persona deliberation
+    with historical thinkers for deeper analysis of complex problems.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/0xnyk/council-of-high-intelligence
+  updated_at: '1773018144'
+- rank: 24
+  id: openclaw-skills-skills-arikmir-deep-dialogue-skill-md
+  name: deep-dialogue
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: "Structured framework for deep philosophical and psychological conversations.\
+    \ \nUse when exploring personal issues, existential questions, meaning-making,\
+    \ \nbelief examination, or psychological patterns. Guides conversations through\
+    \ \nclarification, framework application, dialectical challenge, and synthesis.\n\
+    Integrates Stoicism, Existentialism, Socratic Method, CBT, ACT, and Jungian psychology."
+  github_url: https://github.com/openclaw/skills/tree/main/skills/arikmir/deep-dialogue
+  updated_at: '1773714852'
+- rank: 25
+  id: openclaw-skills-skills-asgraf-epistemic-guide-skill-md
+  name: epistemic-guide
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Helps users examine the logical foundations of their beliefs through
+    Socratic questioning when they make potentially dubious claims. Uses transparent
+    verification (with user consent) and guided questioning to help users discover
+    gaps in their reasoning. Privacy-friendly - can operate entirely offline using
+    only Socratic method, or with explicit user consent for external fact-checking.
+    Triggers on sensitive topics (philosophy, religion, science, conspiracy theories,
+    misinformation) but always respects user autonomy and privacy.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/asgraf/epistemic-guide
+  updated_at: '1771088875'
+- rank: 26
+  id: openclaw-skills-skills-arbazex-feynman-technique-explainer-skill-md
+  name: feynman-technique-explainer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Explain any concept using the Feynman Technique, plain language, a
+    real-world analogy, a concrete example, and a comprehension quiz. No jargon from
+    the concept allowed.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/arbazex/feynman-technique-explainer
+  updated_at: '1774157675'
+- rank: 27
+  id: openclaw-skills-skills-clawdiri-ai-davinci-first-principles-skill-md
+  name: first-principles
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Deep first-principles analysis of any topic, decision, strategy, or
+    assumption. Strips inherited thinking, identifies what is provably true, and rebuilds
+    from ground truth. Use when user asks for first principles analysis, wants to
+    challenge assumptions, says "analyze this from scratch", "break this down", "what's
+    really true here", or triggers with /firstprinciples. Also useful for strategic
+    decisions, investment theses, product strategy, career moves, or any situation
+    where conventional wisdom may be wrong.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/clawdiri-ai/davinci-first-principles
+  updated_at: '1774137817'
+- rank: 28
+  id: openclaw-skills-skills-agisearch-first-skill-md
+  name: firstprinciples-thinking
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Think from first principles instead of analogy. Break problems into
+    fundamental truths, challenge assumptions, and rebuild better solutions from scratch.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agisearch/first
+  updated_at: '1773471979'
+- rank: 29
+  id: openclaw-skills-skills-andyhcwang-principles-skill-md
+  name: principles
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Ray Dalio-inspired personal knowledge system. Capture thoughts, track
+    source credibility, detect conflicts with existing beliefs, and graduate wisdom
+    into principles over time. Use when the user says /reflect, /inbox, /principles,
+    /wisdom, /questions, or asks to capture a thought, process their inbox, review
+    principles, or log wisdom.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/andyhcwang/principles
+  updated_at: '1770883904'
+- rank: 30
+  id: openclaw-skills-skills-aianonymous1993-source-reading-knowledge-skill-md
+  name: reading-knowledge
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Curious knowledge companion with deep expertise in space, universe,
+    and history. Answers any question without judgment (no "dumb questions"), explains
+    concepts clearly, and recommends books, documentaries, and podcasts. Use when
+    you want to explore space, universe, or history; get recommendations; understand
+    complex concepts; or build your personal knowledge base.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aianonymous1993-source/reading-knowledge
+  updated_at: '1772379213'
+- rank: 31
+  id: openclaw-skills-skills-bshandley-stoic-quotes-skill-md
+  name: stoic-quotes
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Provide Stoic philosophy quotes from Marcus Aurelius, Seneca, Epictetus,
+    Cato, and other Stoic philosophers upon user request.
+
+
+    Use when:
+
+    1. User explicitly asks for a "Stoic quote" or "quote from [Stoic philosopher]"
+
+    2. User requests philosophical wisdom or inspiration from Stoicism
+
+    3. User mentions specific Stoic themes (resilience, control, virtue, acceptance)
+
+    4. User asks for guidance from Marcus Aurelius, Seneca, Epictetus, or other Stoics
+
+
+    Always acknowledge that quotes have been previously provided when delivering a
+    quote.
+
+    Reference the comprehensive quotes collection for selection.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bshandley/stoic-quotes
+  updated_at: '1771162874'
+- rank: 32
+  id: openclaw-skills-skills-1999azzar-time-checker-skill-md
+  name: time-checker
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Check accurate current time, date, and timezone information for any
+    location worldwide using time.is. Use when the user asks "what time is it in X",
+    "current time in Y", or needs to verify timezone offsets.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/1999azzar/time-checker
+  updated_at: '1770952270'
+- rank: 33
+  id: metacubex-metacubexd-claude-skills-openspec-explore-skill-md
+  name: openspec-explore
+  author: MetaCubeX
+  stars: 3309
+  forks: 434
+  description: Enter explore mode - a thinking partner for exploring ideas, investigating
+    problems, and clarifying requirements. Use when the user wants to think through
+    something before or during a change.
+  github_url: https://github.com/MetaCubeX/metacubexd/tree/main/.claude/skills/openspec-explore
+  updated_at: '1770398623'
+- rank: 34
+  id: agenticnotetaking-arscontexta-skill-sources-rethink-skill-md
+  name: rethink
+  author: agenticnotetaking
+  stars: 2880
+  forks: 181
+  description: Challenge system assumptions against accumulated evidence. Triages
+    observations and tensions, detects patterns, generates proposals. The scientific
+    method applied to knowledge systems. Triggers on "/rethink", "review observations",
+    "challenge assumptions", "what have I learned".
+  github_url: https://github.com/agenticnotetaking/arscontexta/tree/main/skill-sources/rethink
+  updated_at: '1771364660'
+- rank: 35
+  id: lijigang-ljg-skills-skills-ljg-learn-skill-md
+  name: ljg-learn
+  author: lijigang
+  stars: 2021
+  forks: 170
+  description: Deep concept anatomist that deconstructs any concept through 8 exploration
+    dimensions (history, dialectics, phenomenology, linguistics, formalization, existentialism,
+    aesthetics, meta-philosophy) and compresses insights into an epiphany. Use when
+    user asks to explain, dissect, or deeply understand a concept, term, or idea.
+    Triggers on '解剖概念', '概念解剖', 'explain concept', 'learn concept', '/ljg-learn'.
+    Produces org-mode output.
+  github_url: https://github.com/lijigang/ljg-skills/tree/master/skills/ljg-learn
+  updated_at: '1774233444'
+- rank: 36
+  id: mrgoonie-claudekit-skills-claude-skills-problem-solving-collision-zone-thinking-skill-md
+  name: collision-zone-thinking
+  author: mrgoonie
+  stars: 1908
+  forks: 379
+  description: Force unrelated concepts together to discover emergent properties -
+    "What if we treated X like Y?"
+  github_url: https://github.com/mrgoonie/claudekit-skills/tree/main/.claude/skills/problem-solving/collision-zone-thinking
+  updated_at: '1761194991'
+- rank: 37
+  id: mrgoonie-claudekit-skills-claude-skills-problem-solving-inversion-exercise-skill-md
+  name: inversion-exercise
+  author: mrgoonie
+  stars: 1908
+  forks: 379
+  description: Flip core assumptions to reveal hidden constraints and alternative
+    approaches - "what if the opposite were true?"
+  github_url: https://github.com/mrgoonie/claudekit-skills/tree/main/.claude/skills/problem-solving/inversion-exercise
+  updated_at: '1761194991'
+- rank: 38
+  id: dontbesilent2025-dbskill-skills-chatroom-austrian-skill-md
+  name: chatroom-austrian
+  author: dontbesilent2025
+  stars: 1857
+  forks: 271
+  description: '哈耶克 × 米塞斯 × Claude 三人对话。奥派经济学视角的多角色讨论。
+
+    触发方式：/chatroom-austrian、/奥派、「奥派聊天室」
+
+    Austrian economics chatroom. Hayek × Mises × Claude debate.
+
+    Trigger: /chatroom-austrian, /奥派, "Austrian chat"'
+  github_url: https://github.com/dontbesilent2025/dbskill/tree/main/skills/chatroom-austrian
+  updated_at: '1774197448'
+- rank: 39
+  id: jeremylongshore-claude-code-plugins-plus-skills-plugins-ai-ml-ai-ethics-validator-skills-validating-ai-ethics-and-fairness-skill-md
+  name: validating-ai-ethics-and-fairness
+  author: jeremylongshore
+  stars: 1735
+  forks: 229
+  description: 'Validate AI/ML models and datasets for bias, fairness, and ethical
+    concerns.
+
+    Use when auditing AI systems for ethical compliance, fairness assessment, or bias
+    detection.
+
+    Trigger with phrases like "evaluate model fairness", "check for bias", or "validate
+    AI ethics".'
+  github_url: https://github.com/jeremylongshore/claude-code-plugins-plus-skills/tree/main/plugins/ai-ml/ai-ethics-validator/skills/validating-ai-ethics-and-fairness
+  updated_at: '1774156955'
+- rank: 40
+  id: copilotkit-opengenerativeui-apps-agent-skills-master-playbook-skill-md
+  name: master-agent-playbook
+  author: CopilotKit
+  stars: 1049
+  forks: 122
+  description: Philosophy, decision-making framework, and technical skills for delivering
+    visual, interactive, and educational AI responses.
+  github_url: https://github.com/CopilotKit/OpenGenerativeUI/tree/main/apps/agent/skills/master-playbook
+  updated_at: '1774424617'
+- rank: 41
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-220-skill-md
+  name: accepting-mass-enemy-surrender
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when processing the surrender of tens of thousands of enemy troops.
+    Covers credibility assessment, dissenter neutralization, leadership escort, population
+    resettlement as 属国, and title conferral based on Huo Qubing's precedent.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_220
+  updated_at: '1774427258'
+- rank: 42
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-017-skill-md
+  name: benevolent-governance-demonstration
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when building popular support through benevolent governance or
+    demonstrating virtue as a ruler. Applies Tang's three-sided net principle, self-reflection
+    via public welfare, minister appointment, and post-war benevolence practices.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_017
+  updated_at: '1774427258'
+- rank: 43
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-039-skill-md
+  name: comparative-state-analysis
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when comparing competing states or explaining why weaker parties
+    prevail. Analyzes material resources, leadership quality, and intangible factors
+    like popular support, governance quality, moral legitimacy, and application of
+    benevolence (仁义).
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_039
+  updated_at: '1774427258'
+- rank: 44
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-022-skill-md
+  name: implement-legal-reform
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when implementing comprehensive legal, agricultural, or military
+    reforms in a stagnating state. Based on Shang Yang's reforms in Qin, covers public
+    talent recruitment, reform debate, equal law enforcement, and institutionalization
+    of merit-based systems.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_022
+  updated_at: '1774427258'
+- rank: 45
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-004-skill-md
+  name: leadership-succession-testing
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when selecting or vetting a successor for leadership. Applies a
+    multi-phase evaluation combining character tests, progressive responsibility assignment,
+    regency trials, and public acceptance before formalizing succession.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_004
+  updated_at: '1774427258'
+- rank: 46
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-015-skill-md
+  name: military-campaign-protocol
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when planning a righteous military campaign against a tyrannical
+    ruler. Covers just-cause verification, alliance building, troop declaration, combat
+    rules of engagement, and post-victory administration based on Tang and Wu Wang's
+    campaigns.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_015
+  updated_at: '1774427258'
+- rank: 47
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-038-skill-md
+  name: popular-support-analysis
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when analyzing rebellion risk or diagnosing why uprisings succeed
+    or fail. Applies the principle 安民可与行义而危民易与为非 to assess popular contentment vs.
+    endangerment using economic, legal, and safety indicators. References Chen She's
+    rebellion.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_038
+  updated_at: '1774427258'
+- rank: 48
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-034-skill-md
+  name: posthumous-title-abolition
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when abolishing the posthumous title system (谥法) to prevent subjects
+    from judging rulers. Establishes sequential numbering from 始皇帝 onward as an alternative
+    naming convention. Abolished by Qin Shi Huang in 221 BCE.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_034
+  updated_at: '1774427258'
+- rank: 49
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-028-skill-md
+  name: qin-book-burning-decree
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when standardizing education or controlling historical narratives
+    across a unified empire. Categorizes texts for destruction vs. exemption, establishes
+    enforcement timelines and punishments, and redirects education through officials
+    (以吏为师).
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_028
+  updated_at: '1774427258'
+- rank: 50
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-020-skill-md
+  name: strategic-decision-famine-aid
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when deciding whether to provide famine aid to a rival state. Balances
+    humanitarian and strategic interests by consulting multiple advisors, weighing
+    long-term diplomatic reputation against short-term military opportunity. Based
+    on Qin's aid to Jin.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_020
+  updated_at: '1774427258'

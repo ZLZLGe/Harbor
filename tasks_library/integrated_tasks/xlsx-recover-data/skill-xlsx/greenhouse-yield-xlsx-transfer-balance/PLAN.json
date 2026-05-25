@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "greenhouse-yield-xlsx-transfer-balance",
+  "taskRole": "transfer",
+  "title": "Transfer | 温室产量规划工作簿恢复",
+  "goal": "恢复 Excel 文件 `greenhouse_harvest_incomplete.xlsx` 中所有标记为 `???` 的缺失数值。需要利用分区产量规划、季节变化率、各分区占比和产量复盘等多个工作表之间的约束，推导正确的数值并保存为 `greenhouse_harvest_rebuilt.xlsx`。",
+  "primaryOutputFile": "greenhouse_harvest_rebuilt.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet",
+  "skillBenefitRationale": "该任务把 xlsx 能力迁移到农业计划场景，仍然要求读取多工作表结构、恢复缺失单元格并保持 workbook 内部的一致性。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

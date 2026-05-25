@@ -1,0 +1,10 @@
+telemetry:
+  sampling:
+    hz: 10
+control:
+  pid:
+    lateral:
+      kp: 0.65
+safety:
+  fallback:
+    mode: manual

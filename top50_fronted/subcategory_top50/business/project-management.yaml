@@ -1,0 +1,627 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: business
+category_name: Business
+category_skill_count: 121378
+subcategory_slug: project-management
+subcategory_name: Project Management
+subcategory_skill_count: 29406
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=project-management
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 29406
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-things-mac-skill-md
+  name: things-mac
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Manage Things 3 via the `things` CLI on macOS (add/update projects+todos
+    via URL scheme; read/search/list from the local Things database). Use when a user
+    asks OpenClaw to add a task to Things, list inbox/today/upcoming, search tasks,
+    or inspect projects/areas/tags.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/things-mac
+  updated_at: '1769862085'
+- rank: 2
+  id: openclaw-openclaw-skills-trello-skill-md
+  name: trello
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Manage Trello boards, lists, and cards via the Trello REST API.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/trello
+  updated_at: '1774333273'
+- rank: 3
+  id: affaan-m-everything-claude-code-skills-cost-aware-llm-pipeline-skill-md
+  name: cost-aware-llm-pipeline
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Cost optimization patterns for LLM API usage — model routing by task
+    complexity, budget tracking, retry logic, and prompt caching.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/cost-aware-llm-pipeline
+  updated_at: '1771862457'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-nextjs-turbopack-skill-md
+  name: nextjs-turbopack
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Next.js 16+ 和 Turbopack — 增量打包、文件系统缓存、开发速度，以及何时使用 Turbopack 与 webpack。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/nextjs-turbopack
+  updated_at: '1774068958'
+- rank: 5
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-production-scheduling-skill-md
+  name: production-scheduling
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: '为离散和批量制造中的生产调度、作业排序、产线平衡、换模优化和瓶颈解决提供编码化专业知识。基于拥有15年以上经验的生产调度师的知识。包括约束理论/鼓-缓冲-绳、快速换模、设备综合效率分析、中断响应框架以及企业资源计划/制造执行系统交互模式。适用于调度生产、解决瓶颈、优化换模、应对中断或平衡制造产线时。license:
+    Apache-2.0'
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/production-scheduling
+  updated_at: '1773395144'
+- rank: 6
+  id: affaan-m-everything-claude-code-skills-production-scheduling-skill-md
+  name: production-scheduling
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Codified expertise for production scheduling, job sequencing, line
+    balancing, changeover optimization, and bottleneck resolution in discrete and
+    batch manufacturing. Informed by production schedulers with 15+ years experience.
+    Includes TOC/drum-buffer-rope, SMED, OEE analysis, disruption response frameworks,
+    and ERP/MES interaction patterns. Use when scheduling production, resolving bottlenecks,
+    optimizing changeovers, responding to disruptions, or balancing manufacturing
+    lines.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/production-scheduling
+  updated_at: '1773202056'
+- rank: 7
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-meeting-notes-skill-md
+  name: meeting-notes
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Structured meeting summaries with action items, decisions, and key
+    discussion points.
+
+    Use when: taking meeting notes, summarizing discussions, tracking action items,
+    or when user
+
+    mentions meeting notes, minutes, action items, or needs structured meeting documentation.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/meeting-notes
+  updated_at: '1770167437'
+- rank: 8
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-project-planner-skill-md
+  name: project-planner
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Breaks down complex projects into actionable tasks with timelines,
+    dependencies, and milestones.
+
+    Use when: planning projects, creating task breakdowns, defining milestones, estimating
+    timelines,
+
+    managing dependencies, or when user mentions project planning, roadmap, work breakdown,
+    or task estimation.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/project-planner
+  updated_at: '1770167437'
+- rank: 9
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-sprint-planner-skill-md
+  name: sprint-planner
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Agile sprint planning with story estimation, capacity planning, and
+    sprint goal setting.
+
+    Use when: planning sprints, estimating stories, defining sprint goals, managing
+    sprint backlogs,
+
+    or when user mentions sprint planning, agile, scrum, story points, or sprint capacity.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/sprint-planner
+  updated_at: '1770167437'
+- rank: 10
+  id: shubhamsaboo-awesome-llm-apps-awesome-agent-skills-visualization-expert-skill-md
+  name: visualization-expert
+  author: Shubhamsaboo
+  stars: 103835
+  forks: 15152
+  description: 'Chart selection and data visualization guidance for effective data
+    communication.
+
+    Use when: creating visualizations, choosing chart types, designing dashboards,
+    or when user
+
+    mentions data visualization, charts, graphs, or needs help presenting data visually.'
+  github_url: https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/visualization-expert
+  updated_at: '1770167437'
+- rank: 11
+  id: supabase-supabase-claude-skills-telemetry-standards-skill-md
+  name: telemetry-standards
+  author: supabase
+  stars: 99752
+  forks: 11915
+  description: PostHog event tracking standards for Supabase Studio. Use when reviewing
+    PRs for telemetry compliance or implementing new event tracking. Covers event
+    naming, property conventions, approved patterns, and implementation guide.
+  github_url: https://github.com/supabase/supabase/tree/master/.claude/skills/telemetry-standards
+  updated_at: '1773863967'
+- rank: 12
+  id: pytorch-pytorch-claude-skills-triaging-issues-skill-md
+  name: triaging-issues
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Triages GitHub issues by routing to oncall teams, applying labels,
+    and closing questions. Use when processing new PyTorch issues or when asked to
+    triage an issue.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/triaging-issues
+  updated_at: '1773783253'
+- rank: 13
+  id: lobehub-lobehub-agents-skills-linear-skill-md
+  name: linear
+  author: lobehub
+  stars: 74435
+  forks: 14840
+  description: 'Linear issue management. MUST USE when: (1) user mentions LOBE-xxx
+    issue IDs (e.g. LOBE-4540), (2) user says ''linear'', ''linear issue'', ''link
+    linear'', (3) creating PRs that reference Linear issues. Provides workflows for
+    retrieving issues, updating status, and adding comments.'
+  github_url: https://github.com/lobehub/lobehub/tree/canary/.agents/skills/linear
+  updated_at: '1770785925'
+- rank: 14
+  id: composiohq-awesome-claude-skills-file-organizer-skill-md
+  name: file-organizer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Intelligently organizes your files and folders across your computer
+    by understanding context, finding duplicates, suggesting better structures, and
+    automating cleanup tasks. Reduces cognitive load and keeps your digital workspace
+    tidy without manual effort.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/file-organizer
+  updated_at: '1760692175'
+- rank: 15
+  id: composiohq-awesome-claude-skills-meeting-insights-analyzer-skill-md
+  name: meeting-insights-analyzer
+  author: ComposioHQ
+  stars: 48707
+  forks: 5018
+  description: Analyzes meeting transcripts and recordings to uncover behavioral patterns,
+    communication insights, and actionable feedback. Identifies when you avoid conflict,
+    use filler words, dominate conversations, or miss opportunities to listen. Perfect
+    for professionals seeking to improve their communication and leadership skills.
+  github_url: https://github.com/ComposioHQ/awesome-claude-skills/tree/master/meeting-insights-analyzer
+  updated_at: '1760692175'
+- rank: 16
+  id: bmad-code-org-bmad-method-src-bmm-skills-4-implementation-bmad-correct-course-skill-md
+  name: bmad-correct-course
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Manage significant changes during sprint execution. Use when the user
+    says "correct course" or "propose sprint change"
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/bmm-skills/4-implementation/bmad-correct-course
+  updated_at: '1774246145'
+- rank: 17
+  id: bmad-code-org-bmad-method-src-bmm-skills-4-implementation-bmad-sprint-planning-skill-md
+  name: bmad-sprint-planning
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Generate sprint status tracking from epics. Use when the user says
+    "run sprint planning" or "generate sprint plan"
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/bmm-skills/4-implementation/bmad-sprint-planning
+  updated_at: '1774073483'
+- rank: 18
+  id: bmad-code-org-bmad-method-src-bmm-skills-4-implementation-bmad-sprint-status-skill-md
+  name: bmad-sprint-status
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Summarize sprint status and surface risks. Use when the user says "check
+    sprint status" or "show sprint status"
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/bmm-skills/4-implementation/bmad-sprint-status
+  updated_at: '1774073483'
+- rank: 19
+  id: calcom-cal-com-agents-skills-calcom-api-skill-md
+  name: calcom-api
+  author: calcom
+  stars: 40740
+  forks: 12330
+  description: Interact with the Cal.com API v2 to manage scheduling, bookings, event
+    types, availability, and calendars. Use this skill when building integrations
+    that need to create or manage bookings, check availability, configure event types,
+    or sync calendars with Cal.com's scheduling infrastructure.
+  github_url: https://github.com/calcom/cal.com/tree/main/agents/skills/calcom-api
+  updated_at: '1771511561'
+- rank: 20
+  id: hkuds-nanobot-nanobot-skills-cron-skill-md
+  name: cron
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Schedule reminders and recurring tasks.
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/cron
+  updated_at: '1771317052'
+- rank: 21
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-trackio-skill-md
+  name: hugging-face-trackio
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Track and visualize ML training experiments with Trackio. Use when
+    logging metrics during training (Python API) or retrieving/analyzing logged metrics
+    (CLI). Supports real-time dashboard visualization, HF Space syncing, and JSON
+    output for automation.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-trackio
+  updated_at: '1769157944'
+- rank: 22
+  id: wshobson-agents-plugins-security-scanning-skills-attack-tree-construction-skill-md
+  name: attack-tree-construction
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build comprehensive attack trees to visualize threat paths. Use when
+    mapping attack scenarios, identifying defense gaps, or communicating security
+    risks to stakeholders.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/attack-tree-construction
+  updated_at: '1772898797'
+- rank: 23
+  id: wshobson-agents-plugins-payment-processing-skills-billing-automation-skill-md
+  name: billing-automation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build automated billing systems for recurring payments, invoicing,
+    subscription lifecycle, and dunning management. Use when implementing subscription
+    billing, automating invoicing, or managing recurring payment systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/billing-automation
+  updated_at: '1772898797'
+- rank: 24
+  id: wshobson-agents-plugins-startup-business-analyst-skills-competitive-landscape-skill-md
+  name: competitive-landscape
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Analyze competition, identify differentiation opportunities, and develop
+    winning market positioning strategies using Porter's Five Forces, Blue Ocean Strategy,
+    and positioning maps. Use this skill when evaluating competitors, assessing market
+    positioning, identifying sustainable competitive advantages, or preparing competitive
+    strategy analysis for a startup or investor pitch.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/competitive-landscape
+  updated_at: '1774489443'
+- rank: 25
+  id: wshobson-agents-plugins-conductor-skills-context-driven-development-skill-md
+  name: context-driven-development
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Creates and maintains project context artifacts (product.md, tech-stack.md,
+    workflow.md, tracks.md) in a `conductor/` directory. Scaffolds new projects from
+    scratch, extracts context from existing codebases, validates artifact consistency
+    before implementation, and synchronizes documents as the project evolves. Use
+    when setting up a project, creating or updating product docs, managing a tech
+    stack file, defining development workflows, tracking work units, onboarding to
+    an existing codebase, or running project scaffolding.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/conductor/skills/context-driven-development
+  updated_at: '1771636079'
+- rank: 26
+  id: wshobson-agents-plugins-cloud-infrastructure-skills-cost-optimization-skill-md
+  name: cost-optimization
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Optimize cloud costs across AWS, Azure, GCP, and OCI through resource
+    rightsizing, tagging strategies, reserved instances, and spending analysis. Use
+    when reducing cloud expenses, analyzing infrastructure costs, or implementing
+    cost governance policies.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cloud-infrastructure/skills/cost-optimization
+  updated_at: '1773644132'
+- rank: 27
+  id: wshobson-agents-plugins-business-analytics-skills-data-storytelling-skill-md
+  name: data-storytelling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Transform data into compelling narratives using visualization, context,
+    and persuasive structure. Use when presenting analytics to stakeholders, creating
+    data reports, or building executive presentations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/data-storytelling
+  updated_at: '1772898797'
+- rank: 28
+  id: wshobson-agents-plugins-business-analytics-skills-kpi-dashboard-design-skill-md
+  name: kpi-dashboard-design
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design effective KPI dashboards with metrics selection, visualization
+    best practices, and real-time monitoring patterns. Use this skill when building
+    an executive SaaS metrics dashboard tracking MRR, churn, and LTV/CAC ratios; designing
+    an operations center with live service health and request throughput; creating
+    a cohort retention analysis view for a product team; or debugging a dashboard
+    where metrics contradict each other due to inconsistent calculation methodology.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/business-analytics/skills/kpi-dashboard-design
+  updated_at: '1774541149'
+- rank: 29
+  id: wshobson-agents-plugins-startup-business-analyst-skills-market-sizing-analysis-skill-md
+  name: market-sizing-analysis
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Calculate TAM/SAM/SOM for market opportunities using top-down, bottom-up,
+    and value theory methodologies. Use this skill when sizing markets, estimating
+    addressable revenue, validating market opportunity for a new venture, or building
+    investor-ready market analysis for a startup pitch or business plan.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/market-sizing-analysis
+  updated_at: '1774489443'
+- rank: 30
+  id: wshobson-agents-plugins-incident-response-skills-on-call-handoff-patterns-skill-md
+  name: on-call-handoff-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master on-call shift handoffs with context transfer, escalation procedures,
+    and documentation. Use this skill when transitioning on-call responsibilities
+    between engineers and ensuring the incoming responder has full situational awareness,
+    when writing a shift summary that captures active incidents, ongoing investigations,
+    and recent changes, when handing off mid-incident so a fresh engineer can take
+    over the incident commander role without losing context, when onboarding a new
+    engineer to the on-call rotation for the first time, or when auditing and improving
+    the quality of existing handoff processes across teams.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/incident-response/skills/on-call-handoff-patterns
+  updated_at: '1774541117'
+- rank: 31
+  id: wshobson-agents-plugins-agent-teams-skills-parallel-feature-development-skill-md
+  name: parallel-feature-development
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Coordinate parallel feature development with file ownership strategies,
+    conflict avoidance rules, and integration patterns for multi-agent implementation.
+    Use this skill when decomposing a large feature into independent work streams,
+    when two or more agents need to implement different layers of the same system
+    simultaneously, when establishing file ownership to prevent merge conflicts in
+    a shared codebase, when designing interface contracts so parallel implementers
+    can build against each other's APIs before they are ready, or when deciding whether
+    to use vertical slices versus horizontal layers for a full-stack feature.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/parallel-feature-development
+  updated_at: '1774541117'
+- rank: 32
+  id: wshobson-agents-plugins-incident-response-skills-postmortem-writing-skill-md
+  name: postmortem-writing
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Write effective blameless postmortems with root cause analysis, timelines,
+    and action items. Use when conducting incident reviews, writing postmortem documents,
+    or improving incident response processes.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/incident-response/skills/postmortem-writing
+  updated_at: '1772898797'
+- rank: 33
+  id: wshobson-agents-plugins-observability-monitoring-skills-slo-implementation-skill-md
+  name: slo-implementation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Define and implement Service Level Indicators (SLIs) and Service Level
+    Objectives (SLOs) with error budgets and alerting. Use when establishing reliability
+    targets, implementing SRE practices, or measuring service performance.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/observability-monitoring/skills/slo-implementation
+  updated_at: '1772898797'
+- rank: 34
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-financial-modeling-skill-md
+  name: startup-financial-modeling
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build comprehensive 3-5 year financial models with revenue projections,
+    cost structures, cash flow analysis, and scenario planning for early-stage startups.
+    Use this skill when creating financial projections, calculating burn rate or runway,
+    modeling fundraising scenarios, or preparing investor-ready financials for a seed
+    or Series A raise.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-financial-modeling
+  updated_at: '1774489443'
+- rank: 35
+  id: wshobson-agents-plugins-startup-business-analyst-skills-startup-metrics-framework-skill-md
+  name: startup-metrics-framework
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Track, calculate, and optimize key performance metrics for SaaS, marketplace,
+    consumer, and B2B startups from seed through Series A, including unit economics,
+    growth efficiency, and cash management. Use this skill when defining a metrics
+    framework, calculating CAC/LTV/burn multiple, benchmarking business health, or
+    preparing metrics dashboards for investors or board reporting.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/startup-metrics-framework
+  updated_at: '1774489443'
+- rank: 36
+  id: wshobson-agents-plugins-security-scanning-skills-stride-analysis-patterns-skill-md
+  name: stride-analysis-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Apply STRIDE methodology to systematically identify threats. Use when
+    analyzing system security, conducting threat modeling sessions, or creating security
+    documentation.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/stride-analysis-patterns
+  updated_at: '1772898797'
+- rank: 37
+  id: wshobson-agents-plugins-agent-teams-skills-task-coordination-strategies-skill-md
+  name: task-coordination-strategies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent
+    work with proper task descriptions and workload balancing. Use this skill when
+    breaking down work for agent teams, managing task dependencies, or monitoring
+    team progress.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/task-coordination-strategies
+  updated_at: '1770331350'
+- rank: 38
+  id: wshobson-agents-plugins-startup-business-analyst-skills-team-composition-analysis-skill-md
+  name: team-composition-analysis
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design optimal team structures, hiring plans, compensation strategies,
+    and equity allocation for early-stage startups from pre-seed through Series A.
+    Use this skill when planning headcount, determining which roles to hire next,
+    setting compensation or equity ranges, designing org structure, or building a
+    hiring budget aligned to funding milestones.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/startup-business-analyst/skills/team-composition-analysis
+  updated_at: '1774489443'
+- rank: 39
+  id: wshobson-agents-plugins-agent-teams-skills-team-composition-patterns-skill-md
+  name: team-composition-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design optimal agent team compositions with sizing heuristics, preset
+    configurations, and agent type selection. Use this skill when deciding how many
+    agents to spawn for a task, when choosing between a review team versus a feature
+    team versus a debug team, when selecting the correct subagent_type for each role
+    to ensure agents have the tools they need, when configuring display modes (tmux,
+    iTerm2, in-process) for a CI or local environment, or when building a custom team
+    composition for a non-standard workflow such as a migration or security audit.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/team-composition-patterns
+  updated_at: '1774541117'
+- rank: 40
+  id: wshobson-agents-plugins-security-scanning-skills-threat-mitigation-mapping-skill-md
+  name: threat-mitigation-mapping
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Map identified threats to appropriate security controls and mitigations.
+    Use when prioritizing security investments, creating remediation plans, or validating
+    control effectiveness.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/security-scanning/skills/threat-mitigation-mapping
+  updated_at: '1772898797'
+- rank: 41
+  id: wshobson-agents-plugins-conductor-skills-track-management-skill-md
+  name: track-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Use this skill when creating, managing, or working with Conductor tracks
+    - the logical work units for features, bugs, and refactors. Applies to spec.md,
+    plan.md, and track lifecycle operations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/conductor/skills/track-management
+  updated_at: '1768527297'
+- rank: 42
+  id: wshobson-agents-plugins-game-development-skills-unity-ecs-patterns-skill-md
+  name: unity-ecs-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Unity ECS (Entity Component System) with DOTS, Jobs, and Burst
+    for high-performance game development. Use when building data-oriented games,
+    optimizing performance, or working with large entity counts.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/game-development/skills/unity-ecs-patterns
+  updated_at: '1772898797'
+- rank: 43
+  id: wshobson-agents-plugins-backend-development-skills-workflow-orchestration-patterns-skill-md
+  name: workflow-orchestration-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Design durable workflows with Temporal for distributed systems. Covers
+    workflow vs activity separation, saga patterns, state management, and determinism
+    constraints. Use when building long-running processes, distributed transactions,
+    or microservice orchestration.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/backend-development/skills/workflow-orchestration-patterns
+  updated_at: '1768516701'
+- rank: 44
+  id: wshobson-agents-plugins-conductor-skills-workflow-patterns-skill-md
+  name: workflow-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Use this skill when implementing tasks according to Conductor's TDD
+    workflow, handling phase checkpoints, managing git commits for tasks, or understanding
+    the verification protocol.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/conductor/skills/workflow-patterns
+  updated_at: '1768527297'
+- rank: 45
+  id: alpinejs-alpine-claude-skills-summarize-activity-skill-md
+  name: summarize-activity
+  author: alpinejs
+  stars: 31379
+  forks: 1359
+  description: Summarize recent GitHub activity — discussions, PRs, issues, events,
+    traffic — into an actionable report so you can stay on top of the project without
+    reading everything.
+  github_url: https://github.com/alpinejs/alpine/tree/main/.claude/skills/summarize-activity
+  updated_at: '1770601100'
+- rank: 46
+  id: nrwl-nx-cursor-skills-nx-workspace-skill-md
+  name: nx-workspace
+  author: nrwl
+  stars: 28427
+  forks: 2694
+  description: 'Explore and understand Nx workspaces. USE WHEN answering any questions
+    about the nx workspace, the projects in it or tasks to run. EXAMPLES: ''What projects
+    are in this workspace?'', ''How is project X configured?'', ''What targets can
+    I run?'', ''What''s affected by my changes?'', ''Which projects depend on library
+    Y?'', or any questions about Nx workspace structure, project configuration, or
+    available tasks.'
+  github_url: https://github.com/nrwl/nx/tree/master/.cursor/skills/nx-workspace
+  updated_at: '1769539842'
+- rank: 47
+  id: sickn33-antigravity-awesome-skills-skills-analytics-tracking-skill-md
+  name: analytics-tracking
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Design, audit, and improve analytics tracking systems that produce
+    reliable, decision-ready data.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/analytics-tracking
+  updated_at: '1772354305'
+- rank: 48
+  id: sickn33-antigravity-awesome-skills-skills-cc-skill-project-guidelines-example-skill-md
+  name: cc-skill-project-guidelines-example
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Project Guidelines Skill (Example)
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cc-skill-project-guidelines-example
+  updated_at: '1773994005'
+- rank: 49
+  id: sickn33-antigravity-awesome-skills-skills-design-orchestration-skill-md
+  name: design-orchestration
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Orchestrates design workflows by routing work through brainstorming,
+    multi-agent review, and execution readiness in the correct order.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/design-orchestration
+  updated_at: '1772355244'
+- rank: 50
+  id: sickn33-antigravity-awesome-skills-skills-diary-skill-md
+  name: diary
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Unified Diary System: A context-preserving automated logger for multi-project
+    development.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/diary
+  updated_at: '1773053529'

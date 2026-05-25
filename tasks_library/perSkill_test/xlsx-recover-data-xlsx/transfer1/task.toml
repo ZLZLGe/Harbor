@@ -1,0 +1,32 @@
+version = "1.0"
+
+[metadata]
+id = "transfer1"
+name = "Transfer - Operations Variance Pack"
+description = "Produce an operations-focused recovered workbook from a partially missing planning file."
+author_name = "Local Codex"
+author_email = "local.codex@harbor.test"
+difficulty = "medium"
+category = "spreadsheet"
+tags = ["excel", "budget", "variance", "operations"]
+primary_output_file = "/root/ops_transfer_recovered.xlsx"
+source_task_id = "xlsx-recover-data"
+task_role = "transfer"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]

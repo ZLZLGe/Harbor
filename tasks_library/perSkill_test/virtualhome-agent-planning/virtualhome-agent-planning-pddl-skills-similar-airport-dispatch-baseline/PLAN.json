@@ -1,0 +1,8 @@
+{
+  "derivedTaskId": "virtualhome-agent-planning-pddl-skills-similar-airport-dispatch-baseline",
+  "taskRole": "similar",
+  "title": "Similar - Airport Dispatch Baseline",
+  "goal": "Generate valid PDDL plans for all listed airport planning cases.",
+  "primaryOutputFile": "/root/plans/similar_dispatch_task01.plan",
+  "skillScope": "pddl-skills"
+}

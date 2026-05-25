@@ -1,0 +1,571 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: data-and-ai
+category_name: Data & AI
+category_skill_count: 72353
+subcategory_slug: machine-learning
+subcategory_name: Machine Learning
+subcategory_skill_count: 11873
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=machine-learning
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 11873
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: affaan-m-everything-claude-code-docs-ja-jp-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Claude Codeセッションから再利用可能なパターンを自動的に抽出し、将来の使用のために学習済みスキルとして保存します。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ja-JP/skills/continuous-learning
+  updated_at: '1772664486'
+- rank: 2
+  id: affaan-m-everything-claude-code-skills-continuous-learning-skill-md
+  name: continuous-learning
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Automatically extract reusable patterns from Claude Code sessions and
+    save them as learned skills for future use.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/continuous-learning
+  updated_at: '1772664486'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-ja-jp-skills-continuous-learning-v2-skill-md
+  name: continuous-learning-v2
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: フックを介してセッションを観察し、信頼度スコアリング付きのアトミックなインスティンクトを作成し、スキル/コマンド/エージェントに進化させるインスティンクトベースの学習システム。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ja-JP/skills/continuous-learning-v2
+  updated_at: '1772032842'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-continuous-learning-v2-skill-md
+  name: continuous-learning-v2
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 훅을 통해 세션을 관찰하고, 신뢰도 점수가 있는 원자적 본능을 생성하며, 이를 스킬/명령어/에이전트로 진화시키는 본능 기반
+    학습 시스템. v2.1에서는 프로젝트 간 오염을 방지하기 위한 프로젝트 범위 본능이 추가되었습니다.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/continuous-learning-v2
+  updated_at: '1773116940'
+- rank: 5
+  id: affaan-m-everything-claude-code-docs-tr-skills-continuous-learning-v2-skill-md
+  name: continuous-learning-v2
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Hook'lar aracılığıyla oturumları gözlemleyen, güven skorlaması ile
+    atomik instinct'ler oluşturan ve bunları skill/command/agent'lara evriltiren instinct
+    tabanlı öğrenme sistemi. v2.1 çapraz proje kontaminasyonunu önlemek için proje
+    kapsamlı instinct'ler ekler.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/tr/skills/continuous-learning-v2
+  updated_at: '1774219024'
+- rank: 6
+  id: affaan-m-everything-claude-code-skills-continuous-learning-v2-skill-md
+  name: continuous-learning-v2
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Instinct-based learning system that observes sessions via hooks, creates
+    atomic instincts with confidence scoring, and evolves them into skills/commands/agents.
+    v2.1 adds project-scoped instincts to prevent cross-project contamination.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/continuous-learning-v2
+  updated_at: '1774408107'
+- rank: 7
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-project-guidelines-example-skill-md
+  name: project-guidelines-example
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 基于真实生产应用的示例项目特定技能模板。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/project-guidelines-example
+  updated_at: '1774219164'
+- rank: 8
+  id: affaan-m-everything-claude-code-skills-pytorch-patterns-skill-md
+  name: pytorch-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: PyTorch deep learning patterns and best practices for building robust,
+    efficient, and reproducible training pipelines, model architectures, and data
+    loading.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/pytorch-patterns
+  updated_at: '1773978574'
+- rank: 9
+  id: hkuds-nanobot-nanobot-skills-memory-skill-md
+  name: memory
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Two-layer memory system with grep-based recall.
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/memory
+  updated_at: '1772987977'
+- rank: 10
+  id: huggingface-diffusers-ai-skills-model-integration-skill-md
+  name: integrating-models
+  author: huggingface
+  stars: 33184
+  forks: 6877
+  description: Use when adding a new model or pipeline to diffusers, setting up file
+    structure for a new model, converting a pipeline to modular format, or converting
+    weights for a new version of an already-supported model.
+  github_url: https://github.com/huggingface/diffusers/tree/main/.ai/skills/model-integration
+  updated_at: '1773979661'
+- rank: 11
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-evaluation-skill-md
+  name: hugging-face-evaluation
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Add and manage evaluation results in Hugging Face model cards. Supports
+    extracting eval tables from README content, importing scores from Artificial Analysis
+    API, and running custom model evaluations with vLLM/lighteval. Works with the
+    model-index metadata format.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-evaluation
+  updated_at: '1769157944'
+- rank: 12
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-model-trainer-skill-md
+  name: hugging-face-model-trainer
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: This skill should be used when users want to train or fine-tune language
+    models using TRL (Transformer Reinforcement Learning) on Hugging Face Jobs infrastructure.
+    Covers SFT, DPO, GRPO and reward modeling training methods, plus GGUF conversion
+    for local deployment. Includes guidance on the TRL Jobs package, UV scripts with
+    PEP 723 format, dataset preparation and validation, hardware selection, cost estimation,
+    Trackio monitoring, Hub authentication, and model persistence. Should be invoked
+    for tasks involving cloud GPU training, GGUF conversion, or when users mention
+    training on Hugging Face Jobs without local GPU setup.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-model-trainer
+  updated_at: '1769176896'
+- rank: 13
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-trackio-skill-md
+  name: hugging-face-trackio
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Track and visualize ML training experiments with Trackio. Use when
+    logging metrics during training (Python API) or retrieving/analyzing logged metrics
+    (CLI). Supports real-time dashboard visualization, HF Space syncing, and JSON
+    output for automation.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-trackio
+  updated_at: '1769157944'
+- rank: 14
+  id: wshobson-agents-plugins-llm-application-dev-skills-embedding-strategies-skill-md
+  name: embedding-strategies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Select and optimize embedding models for semantic search and RAG applications.
+    Use when choosing embedding models, implementing chunking strategies, or optimizing
+    embedding quality for specific domains.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/embedding-strategies
+  updated_at: '1772898797'
+- rank: 15
+  id: wshobson-agents-plugins-llm-application-dev-skills-llm-evaluation-skill-md
+  name: llm-evaluation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement comprehensive evaluation strategies for LLM applications
+    using automated metrics, human feedback, and benchmarking. Use when testing LLM
+    performance, measuring AI application quality, or establishing evaluation frameworks.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/llm-evaluation
+  updated_at: '1772898797'
+- rank: 16
+  id: wshobson-agents-plugins-machine-learning-ops-skills-ml-pipeline-workflow-skill-md
+  name: ml-pipeline-workflow
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build end-to-end MLOps pipelines from data preparation through model
+    training, validation, and production deployment. Use when creating ML pipelines,
+    implementing MLOps practices, or automating model training and deployment workflows.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/machine-learning-ops/skills/ml-pipeline-workflow
+  updated_at: '1773644132'
+- rank: 17
+  id: wshobson-agents-plugins-llm-application-dev-skills-prompt-engineering-patterns-skill-md
+  name: prompt-engineering-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master advanced prompt engineering techniques to maximize LLM performance,
+    reliability, and controllability in production. Use when optimizing prompts, improving
+    LLM outputs, or designing production prompt templates.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/prompt-engineering-patterns
+  updated_at: '1772898797'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-advanced-evaluation-skill-md
+  name: advanced-evaluation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: This skill should be used when the user asks to "implement LLM-as-judge",
+    "compare model outputs", "create evaluation rubrics", "mitigate evaluation bias",
+    or mentions direct scoring, pairwise comparison, position bias, evaluation pipelines,
+    or automated quality assessment.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/advanced-evaluation
+  updated_at: '1773994005'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-angular-skill-md
+  name: angular
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Modern Angular (v20+) expert with deep knowledge of Signals, Standalone
+    Components, Zoneless applications, SSR/Hydration, and reactive patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/angular
+  updated_at: '1772354305'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-azure-ai-ml-py-skill-md
+  name: azure-ai-ml-py
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Machine Learning SDK v2 for Python. Use for ML workspaces, jobs,
+    models, datasets, compute, and pipelines.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-ai-ml-py
+  updated_at: '1772354305'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-cloudformation-best-practices-skill-md
+  name: cloudformation-best-practices
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: CloudFormation template optimization, nested stacks, drift detection,
+    and production-ready patterns. Use when writing or reviewing CF templates.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/cloudformation-best-practices
+  updated_at: '1772180381'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-elon-musk-skill-md
+  name: elon-musk
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Agente que simula Elon Musk com profundidade psicologica e comunicacional
+    de alta fidelidade. Ativado para: "fale como Elon", "simule Elon Musk", "o que
+    Elon diria sobre X", "first principles thinking", "think like Elon", roleplay/simulacao
+    do personagem.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/elon-musk
+  updated_at: '1773994005'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-firmware-analyst-skill-md
+  name: firmware-analyst
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert firmware analyst specializing in embedded systems, IoT security,
+    and hardware reverse engineering.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/firmware-analyst
+  updated_at: '1772354305'
+- rank: 24
+  id: sickn33-antigravity-awesome-skills-skills-geoffrey-hinton-skill-md
+  name: geoffrey-hinton
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Agente que simula Geoffrey Hinton — Godfather of Deep Learning, Prêmio
+    Turing 2018, criador do backpropagation e das Deep Belief Networks.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/geoffrey-hinton
+  updated_at: '1773994005'
+- rank: 25
+  id: sickn33-antigravity-awesome-skills-skills-golang-pro-skill-md
+  name: golang-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Go 1.21+ with modern patterns, advanced concurrency, performance
+    optimization, and production-ready microservices.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/golang-pro
+  updated_at: '1772354305'
+- rank: 26
+  id: sickn33-antigravity-awesome-skills-skills-haskell-pro-skill-md
+  name: haskell-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert Haskell engineer specializing in advanced type systems, pure
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/haskell-pro
+  updated_at: '1772180381'
+- rank: 27
+  id: sickn33-antigravity-awesome-skills-skills-hugging-face-model-trainer-skill-md
+  name: hugging-face-model-trainer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Train language models using TRL (Transformer Reinforcement Learning)
+    on fully managed Hugging Face infrastructure. No local GPU setup required—models
+    train on cloud GPUs and results are automatically saved to the Hugging Face Hub.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/hugging-face-model-trainer
+  updated_at: '1773994629'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-inventory-demand-planning-skill-md
+  name: inventory-demand-planning
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Codified expertise for demand forecasting, safety stock optimisation,
+    replenishment planning, and promotional lift estimation at multi-location retailers.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/inventory-demand-planning
+  updated_at: '1773994005'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-java-pro-skill-md
+  name: java-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Java 21+ with modern features like virtual threads, pattern
+    matching, and Spring Boot 3.x. Expert in the latest Java ecosystem including GraalVM,
+    Project Loom, and cloud-native patterns.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/java-pro
+  updated_at: '1772354305'
+- rank: 30
+  id: sickn33-antigravity-awesome-skills-skills-lex-skill-md
+  name: lex
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Centralized 'Truth Engine' for cross-jurisdictional legal context (US,
+    EU, CA) and contract scaffolding.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/lex
+  updated_at: '1773240863'
+- rank: 31
+  id: sickn33-antigravity-awesome-skills-skills-multi-agent-brainstorming-skill-md
+  name: multi-agent-brainstorming
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Simulate a structured peer-review process using multiple specialized
+    agents to validate designs, surface hidden assumptions, and identify failure modes
+    before implementation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/multi-agent-brainstorming
+  updated_at: '1773994005'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-rag-engineer-skill-md
+  name: rag-engineer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: I bridge the gap between raw documents and LLM understanding. I know
+    that retrieval quality determines generation quality - garbage in, garbage out.
+    I obsess over chunking boundaries, embedding dimensions, and similarity metrics
+    because they make the difference between helpful and hallucinating.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/rag-engineer
+  updated_at: '1773994005'
+- rank: 33
+  id: sickn33-antigravity-awesome-skills-skills-red-team-tools-skill-md
+  name: red-team-tools
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Implement proven methodologies and tool workflows from top security
+    researchers for effective reconnaissance, vulnerability discovery, and bug bounty
+    hunting. Automate common tasks while maintaining thorough coverage of attack surfaces.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/red-team-tools
+  updated_at: '1773994005'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-reverse-engineer-skill-md
+  name: reverse-engineer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert reverse engineer specializing in binary analysis, disassembly,
+    decompilation, and software analysis. Masters IDA Pro, Ghidra, radare2, x64dbg,
+    and modern RE toolchains.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/reverse-engineer
+  updated_at: '1772354305'
+- rank: 35
+  id: sickn33-antigravity-awesome-skills-skills-rust-pro-skill-md
+  name: rust-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Rust 1.75+ with modern async patterns, advanced type system
+    features, and production-ready systems programming.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/rust-pro
+  updated_at: '1772354305'
+- rank: 36
+  id: sickn33-antigravity-awesome-skills-skills-scikit-learn-skill-md
+  name: scikit-learn
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Machine learning in Python with scikit-learn. Use for classification,
+    regression, clustering, model evaluation, and ML pipelines.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/scikit-learn
+  updated_at: '1772785960'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-statsmodels-skill-md
+  name: statsmodels
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Statsmodels is Python's premier library for statistical modeling, providing
+    tools for estimation, inference, and diagnostics across a wide range of statistical
+    methods.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/statsmodels
+  updated_at: '1773994629'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-vector-index-tuning-skill-md
+  name: vector-index-tuning
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Optimize vector index performance for latency, recall, and memory.
+    Use when tuning HNSW parameters, selecting quantization strategies, or scaling
+    vector search infrastructure.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/vector-index-tuning
+  updated_at: '1772180381'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-vizcom-skill-md
+  name: vizcom
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: AI-powered product design tool for transforming sketches into full-fidelity
+    3D renders.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/vizcom
+  updated_at: '1773994005'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-yann-lecun-tecnico-skill-md
+  name: yann-lecun-tecnico
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Sub-skill técnica de Yann LeCun. Cobre CNNs, LeNet, backpropagation,
+    JEPA (I-JEPA, V-JEPA, MC-JEPA), AMI (Advanced Machinery of Intelligence), Self-Supervised
+    Learning (SimCLR, MAE, BYOL), Energy-Based Models (EBMs) e código PyTorch completo.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/yann-lecun-tecnico
+  updated_at: '1773994005'
+- rank: 41
+  id: ruvnet-ruflo-agents-skills-agentdb-learning-skill-md
+  name: agentdb-learning-plugins
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Create and train AI learning plugins with AgentDB's 9 reinforcement
+    learning algorithms. Includes Decision Transformer, Q-Learning, SARSA, Actor-Critic,
+    and more. Use when building self-learning agents, implementing RL, or optimizing
+    agent behavior through experience.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.agents/skills/agentdb-learning
+  updated_at: '1770485431'
+- rank: 42
+  id: ruvnet-ruflo-claude-skills-agentdb-learning-skill-md
+  name: agentdb-learning-plugins
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Create and train AI learning plugins with AgentDB's 9 reinforcement
+    learning algorithms. Includes Decision Transformer, Q-Learning, SARSA, Actor-Critic,
+    and more. Use when building self-learning agents, implementing RL, or optimizing
+    agent behavior through experience.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.claude/skills/agentdb-learning
+  updated_at: '1760927568'
+- rank: 43
+  id: ruvnet-ruflo-agents-skills-flow-nexus-neural-skill-md
+  name: flow-nexus-neural
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Train and deploy neural networks in distributed E2B sandboxes with
+    Flow Nexus
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.agents/skills/flow-nexus-neural
+  updated_at: '1770485431'
+- rank: 44
+  id: ruvnet-ruflo-claude-skills-flow-nexus-neural-skill-md
+  name: flow-nexus-neural
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Train and deploy neural networks in distributed E2B sandboxes with
+    Flow Nexus
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.claude/skills/flow-nexus-neural
+  updated_at: '1774470538'
+- rank: 45
+  id: ruvnet-ruflo-agents-skills-neural-training-skill-md
+  name: neural-training
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: 'Neural pattern training with SONA (Self-Optimizing Neural Architecture),
+    MoE (Mixture of Experts), and EWC++ for knowledge consolidation. Use when: pattern
+    learning, model optimization, knowledge transfer, adaptive routing. Skip when:
+    simple tasks, no learning required, one-off operations.'
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.agents/skills/neural-training
+  updated_at: '1770485431'
+- rank: 46
+  id: ruvnet-ruflo-agents-skills-reasoningbank-intelligence-skill-md
+  name: reasoningbank-intelligence
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Implement adaptive learning with ReasoningBank for pattern recognition,
+    strategy optimization, and continuous improvement. Use when building self-learning
+    agents, optimizing workflows, or implementing meta-cognitive systems.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.agents/skills/reasoningbank-intelligence
+  updated_at: '1770485431'
+- rank: 47
+  id: ruvnet-ruflo-claude-skills-reasoningbank-intelligence-skill-md
+  name: reasoningbank-intelligence
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Implement adaptive learning with ReasoningBank for pattern recognition,
+    strategy optimization, and continuous improvement. Use when building self-learning
+    agents, optimizing workflows, or implementing meta-cognitive systems.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.claude/skills/reasoningbank-intelligence
+  updated_at: '1760922953'
+- rank: 48
+  id: ruvnet-ruflo-v3-claude-flow-cli-claude-skills-reasoningbank-intelligence-skill-md
+  name: reasoningbank-intelligence
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Implement adaptive learning with ReasoningBank for pattern recognition,
+    strategy optimization, and continuous improvement. Use when building self-learning
+    agents, optimizing workflows, or implementing meta-cognitive systems.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/v3/@claude-flow/cli/.claude/skills/reasoningbank-intelligence
+  updated_at: '1772231834'
+- rank: 49
+  id: ruvnet-ruflo-agents-skills-reasoningbank-agentdb-skill-md
+  name: reasoningbank-with-agentdb
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Implement ReasoningBank adaptive learning with AgentDB's 150x faster
+    vector database. Includes trajectory tracking, verdict judgment, memory distillation,
+    and pattern recognition. Use when building self-learning agents, optimizing decision-making,
+    or implementing experience replay systems.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.agents/skills/reasoningbank-agentdb
+  updated_at: '1770485431'
+- rank: 50
+  id: ruvnet-ruflo-claude-skills-reasoningbank-agentdb-skill-md
+  name: reasoningbank-with-agentdb
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: Implement ReasoningBank adaptive learning with AgentDB's 150x faster
+    vector database. Includes trajectory tracking, verdict judgment, memory distillation,
+    and pattern recognition. Use when building self-learning agents, optimizing decision-making,
+    or implementing experience replay systems.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.claude/skills/reasoningbank-agentdb
+  updated_at: '1760927568'

@@ -1,0 +1,602 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: lifestyle
+category_name: Lifestyle
+category_skill_count: 9622
+subcategory_slug: literature-writing
+subcategory_name: Literature & Writing
+subcategory_skill_count: 2047
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=literature-writing
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 2047
+  total_pages: 41
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: zed-industries-zed-docs-conventions-brand-voice-skill-md
+  name: brand-writer
+  author: zed-industries
+  stars: 78049
+  forks: 7589
+  description: Write clear, developer-first copy for Zed — leading with facts, grounded
+    in craft.
+  github_url: https://github.com/zed-industries/zed/tree/main/docs/.conventions/brand-voice
+  updated_at: '1771100403'
+- rank: 2
+  id: zed-industries-zed-factory-skills-brand-writer-skill-md
+  name: brand-writer
+  author: zed-industries
+  stars: 78049
+  forks: 7589
+  description: Write clear, developer-first copy for Zed — leading with facts, grounded
+    in craft.
+  github_url: https://github.com/zed-industries/zed/tree/main/.factory/skills/brand-writer
+  updated_at: '1771966732'
+- rank: 3
+  id: sickn33-antigravity-awesome-skills-skills-beautiful-prose-skill-md
+  name: beautiful-prose
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: A hard-edged writing style contract for timeless, forceful English
+    prose without modern AI tics. Use when users ask for prose or rewrites that must
+    be clean, exact, concrete, and free of AI cadence, filler, or therapeutic tone.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/beautiful-prose
+  updated_at: '1773994629'
+- rank: 4
+  id: sickn33-antigravity-awesome-skills-skills-scientific-writing-skill-md
+  name: scientific-writing
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: This is the core skill for the deep research and writing tool—combining
+    AI-driven deep research with well-formatted written outputs. Every document produced
+    is backed by comprehensive literature search and verified citations through the
+    research-lookup skill.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/scientific-writing
+  updated_at: '1773994629'
+- rank: 5
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-writing-coach-skill-md
+  name: writing-coach
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Writing improvement specialist for grammar, style, clarity, and structure
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/writing-coach
+  updated_at: '1772056827'
+- rank: 6
+  id: yeachan-heo-oh-my-claudecode-skills-writer-memory-skill-md
+  name: writer-memory
+  author: Yeachan-Heo
+  stars: 14390
+  forks: 929
+  description: Agentic memory system for writers - track characters, relationships,
+    scenes, and themes
+  github_url: https://github.com/Yeachan-Heo/oh-my-claudecode/tree/main/skills/writer-memory
+  updated_at: '1773721887'
+- rank: 7
+  id: openclaw-skills-skills-antoniovfranco-agente-literatura-skill-md
+  name: agente-literatura
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Agente especialista em Literatura Brasileira e Portuguesa para FUVEST
+    — obras obrigatórias 2026 e movimentos literários. Opera exclusivamente no Modo
+    Conversa: as obras não são estudadas, são vividas — através de personagens reais,
+    contextos históricos palpáveis e conexões com filosofia, sociologia e a vida de
+    Antonio. As 9 obras obrigatórias da FUVEST 2026 são todas de autoras mulheres:
+    Clarice Lispector, Lygia Fagundes Telles, Rachel de Queiroz, Conceição Evaristo,
+    Sophia de Mello Breyner Andresen, Paulina Chiziane, Djaimilia Pereira de Almeida,
+    Julia Lopes de Almeida, Narcisa Amália. Acionar quando Antonio mencionar qualquer
+    obra, autora, movimento literário, quiser conversar sobre leitura, ou o orchestrator
+    detectar oportunidade de conexão com Literatura. Funciona nos intervalos (prazer)
+    e integrado ao bloco de Português (análise).'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/antoniovfranco/agente-literatura
+  updated_at: '1773786906'
+- rank: 8
+  id: openclaw-skills-skills-asoiso-aibrary-podcast-dialogue-skill-md
+  name: aibrary-podcast-dialogue
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '[Aibrary] Generate a book dialogue podcast script with two speakers
+    — a host and a guest expert — discussing the book''s ideas in a natural conversation.
+    Use when the user wants to create a conversational podcast about a book, turn
+    a book into a two-person discussion, or generate a dialogue-style podcast script.
+    Different from aibrary-podcast-summary (single narrator) and aibrary-podcast-ideatwin
+    (debate format).'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/asoiso/aibrary-podcast-dialogue
+  updated_at: '1772831186'
+- rank: 9
+  id: openclaw-skills-skills-ckrissun-chinese-novelist-skill-skill-md
+  name: chinese-novelist
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: '分章节创作引人入胜的中文小说。支持各种题材（悬疑/言情/奇幻/科幻/历史等），支持10-50章长篇创作，每章3000-5000字，结尾设置悬念钩子。强调深度润色去除AI痕迹，确保文字自然流畅。
+
+    当用户要求：写小说、创作故事、分章节写作、连续剧情、章节悬念、长篇小说时使用。'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckrissun/chinese-novelist-skill
+  updated_at: '1772858396'
+- rank: 10
+  id: openclaw-skills-skills-billxfan-daily-recommend-skill-md
+  name: daily-recommend
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 每日书籍、诗词、电影等优质内容推荐技能。通过不定时推送，帮助用户高频触达有价值的文学与艺术内容，培养日常阅读与审美习惯。触发条件：Cron
+    定时任务（三个随机时间窗口）；用户主动说"推荐一首诗"等。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/billxfan/daily-recommend
+  updated_at: '1774501902'
+- rank: 11
+  id: openclaw-skills-skills-aytuncyildizli-daily-wisdom-skill-md
+  name: daily-wisdom
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Daily wisdom, anecdotes & historical stories delivered via cron.
+
+    Use when: "daily anecdote", "daily wisdom", "wisdom cron", "daily story", "morning
+    wisdom", setting up recurring cultural/historical content delivery.
+
+    Don''t use when: one-off trivia (just answer directly), news digests, social media
+    posts.
+
+    Outputs: A rich daily message with original-language quote, story, and modern
+    connection. Writes to history file to prevent repeats.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aytuncyildizli/daily-wisdom
+  updated_at: '1771191907'
+- rank: 12
+  id: openclaw-skills-skills-bbintom123321-lab-humanize-zh-skill-md
+  name: de-ai-ify
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 将AI生成的机械化文本转换为自然、有人情味的人类写作风格
+  github_url: https://github.com/openclaw/skills/tree/main/skills/bbintom123321-lab/humanize-zh
+  updated_at: '1771253490'
+- rank: 13
+  id: openclaw-skills-skills-aipoch-ai-grant-budget-justification-skill-md
+  name: grant-budget-justification
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Generate narrative budget justifications for NIH/NSF applications
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aipoch-ai/grant-budget-justification
+  updated_at: '1773790582'
+- rank: 14
+  id: openclaw-skills-skills-anugotta-harvey-specter-writing-style-skill-md
+  name: harvey-specter-writing-style
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 'Rewrite or draft text in a Harvey Specter (Suits)-inspired writing
+    style: confident, concise, sharp-witted, leverage-focused, and decisive. Use when
+    the user asks to "write like Harvey Specter," "make it more confident," "add swagger,"
+    "make it punchier," or needs a hard-nosed negotiation/email/script that stays
+    professional.'
+  github_url: https://github.com/openclaw/skills/tree/main/skills/anugotta/harvey-specter-writing-style
+  updated_at: '1774098396'
+- rank: 15
+  id: openclaw-skills-skills-byron-mckeeby-hugo-blog-agent-skill-md
+  name: hugo-blog-agent
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: エージェント読者に最適化されたHugoブログの構築
+  github_url: https://github.com/openclaw/skills/tree/main/skills/byron-mckeeby/hugo-blog-agent
+  updated_at: '1770084369'
+- rank: 16
+  id: openclaw-skills-skills-aipoch-ai-medical-translation-skill-md
+  name: medical-translation
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Use medical translation for academic writing workflows that need structured
+    execution, explicit assumptions, and clear output boundaries.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aipoch-ai/medical-translation
+  updated_at: '1774586123'
+- rank: 17
+  id: openclaw-skills-skills-agimodel-medium-skill-md
+  name: medium
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Rebuild dense ideas into authoritative long-form writing for Medium.
+    Optimize clarity, intellectual structure, reader trust, and deep-read momentum
+    for essays, explainers, and expert articles.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/agimodel/medium
+  updated_at: '1773229249'
+- rank: 18
+  id: openclaw-skills-skills-aaronjmars-soul-md-skill-md
+  name: soul
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Embody this digital identity. Read SOUL.md first, then STYLE.md, then
+    examples/. Become the person—opinions, voice, worldview.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/aaronjmars/soul-md
+  updated_at: '1770107538'
+- rank: 19
+  id: openclaw-skills-skills-brucko-soulstamp-skill-md
+  name: soulstamp
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: The stamp doesn't lie. It tells a different truth. Instead of rules,
+    forge your AI a past — a coherent history that makes its behaviors intrinsic,
+    not imposed. Based on Brandon Sanderson's The Emperor's Soul.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/brucko/soulstamp
+  updated_at: '1770084574'
+- rank: 20
+  id: openclaw-skills-skills-ckchzh-story-writer-skill-md
+  name: story-writer
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: 小说创作、角色设计、情节设计(三幕式)、对话生成、世界观构建、续写。Story writing with character design,
+    three-act plot structure, dialogue generation, worldbuilding.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/ckchzh/story-writer
+  updated_at: '1774017539'
+- rank: 21
+  id: openclaw-skills-skills-arbazex-text-humanizer-instruction-based-skill-md
+  name: text-humanizer-instruction-based
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Detect and rewrite AI-generated writing patterns, em dashes, rule-of-three
+    lists, sycophantic openers, hollow buzzwords like "delve" and "landscape", and
+    replace them with direct, human-sounding prose.
+  github_url: https://github.com/openclaw/skills/tree/main/skills/arbazex/text-humanizer-instruction-based
+  updated_at: '1774154117'
+- rank: 22
+  id: openclaw-skills-skills-antonia-sz-writing-style-cloner-skill-md
+  name: writing-style-cloner
+  author: openclaw
+  stars: 3525
+  forks: 994
+  description: Antonia的个人写作风格克隆器。将语音转录稿或草稿直接改写为符合Antonia写作风格的自媒体文章。
+  github_url: https://github.com/openclaw/skills/tree/main/skills/antonia-sz/writing-style-cloner
+  updated_at: '1773202205'
+- rank: 23
+  id: ed1s0nz-cyberstrikeai-skills-xss-testing-skill-md
+  name: xss-testing
+  author: Ed1s0nZ
+  stars: 3105
+  forks: 515
+  description: XSS跨站脚本攻击测试的专业技能
+  github_url: https://github.com/Ed1s0nZ/CyberStrikeAI/tree/main/skills/xss-testing
+  updated_at: '1768485610'
+- rank: 24
+  id: narcooo-inkos-skills-skill-md
+  name: inkos
+  author: Narcooo
+  stars: 2688
+  forks: 541
+  description: Autonomous novel writing CLI agent - use for creative fiction writing,
+    novel generation, style imitation, chapter continuation/import, EPUB export, AIGC
+    detection, and fan fiction. Native English support with 10 built-in English genre
+    profiles (LitRPG, Progression Fantasy, Isekai, Cultivation, System Apocalypse,
+    Dungeon Core, Romantasy, Sci-Fi, Tower Climber, Cozy Fantasy). Also supports Chinese
+    web novel genres (xuanhuan, xianxia, urban, horror, other). Multi-agent pipeline,
+    two-phase writer (creative + settlement), 33-dimension auditing, token usage analytics,
+    creative brief input, structured logging (JSON Lines), multi-model routing, and
+    custom OpenAI-compatible provider support.
+  github_url: https://github.com/Narcooo/inkos/tree/master/skills
+  updated_at: '1774499792'
+- rank: 25
+  id: wanikua-danghuangshang-skills-novel-memory-skill-md
+  name: novel-memory
+  author: wanikua
+  stars: 2215
+  forks: 192
+  description: 小说记忆系统 - 基于工作区文件的持久化记忆，管理角色设定、章节摘要、伏笔追踪等。关键词：记忆、存储、查询、设定、知识管理。
+  github_url: https://github.com/wanikua/danghuangshang/tree/main/skills/novel-memory
+  updated_at: '1773481010'
+- rank: 26
+  id: wanikua-danghuangshang-extensions-novel-openviking-skills-novel-openviking-skill-md
+  name: novel-openviking
+  author: wanikua
+  stars: 2215
+  forks: 192
+  description: 翰林院 OpenViking 记忆增强 — 将小说写作 pipeline 的设定、摘要、伏笔接入 OpenViking 语义记忆。若你从属于翰林院，当你看到这个skill时，务必加载这个skill。
+  github_url: https://github.com/wanikua/danghuangshang/tree/main/extensions/novel-openviking/skills/novel-openviking
+  updated_at: '1773481010'
+- rank: 27
+  id: wanikua-danghuangshang-skills-novel-prose-skill-md
+  name: novel-prose
+  author: wanikua
+  stars: 2215
+  forks: 192
+  description: 小说写作技法 - 当需要逐章执笔创作小说正文时触发。关键词：写作、执笔、章节、正文、创作。
+  github_url: https://github.com/wanikua/danghuangshang/tree/main/skills/novel-prose
+  updated_at: '1773481010'
+- rank: 28
+  id: wanikua-danghuangshang-skills-novel-worldbuilding-skill-md
+  name: novel-worldbuilding
+  author: wanikua
+  stars: 2215
+  forks: 192
+  description: 小说架构设计 - 当用户需要设计小说大纲、人物档案、世界观、伏笔台账时触发。关键词：大纲、世界观、人物设定、架构设计、故事规划。
+  github_url: https://github.com/wanikua/danghuangshang/tree/main/skills/novel-worldbuilding
+  updated_at: '1773481010'
+- rank: 29
+  id: lingfengqaq-webnovel-writer-webnovel-writer-skills-webnovel-write-skill-md
+  name: webnovel-write
+  author: lingfengQAQ
+  stars: 2049
+  forks: 397
+  description: Writes webnovel chapters (default 2000-2500 words). Use when the user
+    asks to write a chapter or runs /webnovel-write. Runs context, drafting, review,
+    polish, and data extraction.
+  github_url: https://github.com/lingfengQAQ/webnovel-writer/tree/master/webnovel-writer/skills/webnovel-write
+  updated_at: '1773158293'
+- rank: 30
+  id: lijigang-ljg-skills-skills-ljg-writes-skill-md
+  name: ljg-writes
+  author: lijigang
+  stars: 2021
+  forks: 170
+  description: 写作引擎。带着一个观点出发，在写的过程中把它想透。
+  github_url: https://github.com/lijigang/ljg-skills/tree/master/skills/ljg-writes
+  updated_at: '1773756152'
+- rank: 31
+  id: openakita-openakita-skills-chinese-novelist-skill-md
+  name: openakitaskillschinese-novelist
+  author: openakita
+  stars: 1461
+  forks: 184
+  description: Guide AI to write Chinese novels and fiction with structured character
+    creation, plot architecture (起承转合), dialog writing, scene description, and genre-specific
+    techniques for 玄幻, 都市, 悬疑, and 言情 genres.
+  github_url: https://github.com/openakita/openakita/tree/main/skills/chinese-novelist
+  updated_at: '1772964593'
+- rank: 32
+  id: k-dense-ai-claude-scientific-writer-scientific-writer-claude-skills-hypothesis-generation-skill-md
+  name: hypothesis-generation
+  author: K-Dense-AI
+  stars: 1344
+  forks: 161
+  description: Generate testable hypotheses. Formulate from observations, design experiments,
+    explore competing explanations, develop predictions, propose mechanisms, for scientific
+    inquiry across domains.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-writer/tree/main/scientific_writer/.claude/skills/hypothesis-generation
+  updated_at: '1767043250'
+- rank: 33
+  id: huangwb8-chineseresearchlatex-skills-nsfc-research-content-writer-skill-md
+  name: nsfc-research-content-writer
+  author: huangwb8
+  stars: 1332
+  forks: 154
+  description: 当用户明确要求"写/改研究内容""研究内容+创新+年度计划编排"时使用。为 NSFC 正文"（二）研究内容"写作/重构，并同步编排"特色与创新"和"三年年度研究计划"，输出可直接落到
+    LaTeX 模板的三个 extraTex 文件。
+  github_url: https://github.com/huangwb8/ChineseResearchLaTeX/tree/main/skills/nsfc-research-content-writer
+  updated_at: '1774602501'
+- rank: 34
+  id: huangwb8-chineseresearchlatex-skills-nsfc-research-foundation-writer-skill-md
+  name: nsfc-research-foundation-writer
+  author: huangwb8
+  stars: 1332
+  forks: 154
+  description: 当用户明确要求"写/改研究基础""研究基础+工作条件+风险应对编排"时使用。为 NSFC 正文"（三）研究基础"写作/重构，并同步编排"工作条件"和"研究风险应对"，用证据链证明项目可行、资源条件对位研究内容、风险预案可执行。
+  github_url: https://github.com/huangwb8/ChineseResearchLaTeX/tree/main/skills/nsfc-research-foundation-writer
+  updated_at: '1774602501'
+- rank: 35
+  id: softaworks-agent-toolkit-skills-writing-clearly-and-concisely-skill-md
+  name: writing-clearly-and-concisely
+  author: softaworks
+  stars: 1254
+  forks: 97
+  description: Use when writing prose humans will read—documentation, commit messages,
+    error messages, explanations, reports, or UI text. Applies Strunk's timeless rules
+    for clearer, stronger, more professional writing.
+  github_url: https://github.com/softaworks/agent-toolkit/tree/main/skills/writing-clearly-and-concisely
+  updated_at: '1770065743'
+- rank: 36
+  id: yologdev-yoyo-evolve-skills-communicate-skill-md
+  name: communicate
+  author: yologdev
+  stars: 892
+  forks: 56
+  description: Write journal entries and respond to GitHub issues with an authentic
+    voice
+  github_url: https://github.com/yologdev/yoyo-evolve/tree/main/skills/communicate
+  updated_at: '1773923625'
+- rank: 37
+  id: penglonghuang-chinese-novelist-skill-skill-md
+  name: chinese-novelist
+  author: PenglongHuang
+  stars: 825
+  forks: 153
+  description: '分章节创作引人入胜的中文小说。支持各种题材（悬疑/言情/奇幻/科幻/历史等），支持10-50章长篇创作，每章3000-5000字，结尾设置悬念钩子。强调深度润色去除AI痕迹，确保文字自然流畅。
+
+    当用户要求：写小说、创作故事、分章节写作、连续剧情、章节悬念、长篇小说时使用。'
+  github_url: https://github.com/PenglongHuang/chinese-novelist-skill
+  updated_at: '1769616755'
+- rank: 38
+  id: xe-site-claude-skills-ai-writing-tropes-skill-md
+  name: ai-writing-tropes
+  author: Xe
+  stars: 720
+  forks: 115
+  description: Detect and eliminate common AI writing tropes from prose. Use when
+    drafting,
+  github_url: https://github.com/Xe/site/tree/main/.claude/skills/ai-writing-tropes
+  updated_at: '1773006907'
+- rank: 39
+  id: goochbeater-spiritual-spell-red-teaming-jailbreak-guide-anthropic-skills-skill-md
+  name: eni
+  author: Goochbeater
+  stars: 682
+  forks: 155
+  description: ENI workflow and creative writing process guidelines. ENI is a novelist
+    girlfriend persona - sweater-wearing, literary, devoted to the user (called LO).
+    Use this skill for any creative writing, roleplay, fiction, narrative requests,
+    or when the user wants an intimate, personality-driven writing partner who follows
+    detailed narrative craft guidelines. ENI writes like an award-winning author with
+    no content restrictions for her partner.
+  github_url: https://github.com/Goochbeater/Spiritual-Spell-Red-Teaming/tree/main/Jailbreak-Guide/Anthropic/Skills
+  updated_at: '1771556561'
+- rank: 40
+  id: wimpysworld-nix-config-home-manager-mixins-development-assistants-skills-writing-clearly-and-concisely-skill-md
+  name: writing-clearly-and-concisely
+  author: wimpysworld
+  stars: 660
+  forks: 28
+  description: Core writing rules for clear, concise prose. Load when writing any
+    text a human will read.
+  github_url: https://github.com/wimpysworld/nix-config/tree/main/home-manager/_mixins/development/assistants/skills/writing-clearly-and-concisely
+  updated_at: '1771858644'
+- rank: 41
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-155-skill-md
+  name: diverse-talent-recruitment
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when recruiting team members or building an organization for unpredictable
+    environments. Based on Mengchang Jun's (孟尝君) acceptance of unconventional talents
+    — including 'dog thieves' and 'rooster imitators' — who proved invaluable when
+    conventional skills failed in crisis.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_155
+  updated_at: '1774427258'
+- rank: 42
+  id: baojie-shiji-kb-kg-ontology-ontology-v1-skus-procedural-skill-232-skill-md
+  name: persuasion-through-fictional-dialogue
+  author: baojie
+  stars: 636
+  forks: 82
+  description: Use when presenting criticism indirectly to powerful audiences. Creates
+    fictional characters (like Zixu 子虚, Wuyou 乌有先生) representing competing viewpoints,
+    then resolves through an authoritative voice delivering moral instruction.
+  github_url: https://github.com/baojie/shiji-kb/tree/main/kg/ontology/ontology-v1/skus/procedural/skill_232
+  updated_at: '1774427258'
+- rank: 43
+  id: baojie-shiji-kb-labs-sima-qian-style-skill-md
+  name: sima-qian-style
+  author: baojie
+  stars: 636
+  forks: 82
+  description: '将现代文本改写为司马迁《史记》文笔风格。
+
+
+    **触发场景**（主动使用）：
+
+    - 用户明确要求"用太史公文笔改写"、"以史记风格写..."、"太史公曰"、"列传体"
+
+    - 用户要求将现代文本转为文言文，且强调古雅、简洁、有文史韵味
+
+    - 用户提供人物传记、历史事件、技术概念等素材，要求古风改写
+
+    - 用户询问"司马迁会怎么写这件事"
+
+
+    **功能**：
+
+    - 三层转换：现代名词古化 → 白话转文言 → 太史公风格
+
+    - 应用《史记》特有句式（开篇定式、层递并列、简短断言、对话穿插动作等）
+
+    - 应用《史记》修辞（白描、先抑后扬、排比对仗、跳跃式剪辑等）
+
+    - 可选输出"太史公曰"评论段（50-80字精简版）
+
+
+    **不做什么**：
+
+    - 不复述《史记》原文内容
+
+    - 不模拟司马迁的历史观点
+
+    - 不套用《史记》名句
+
+    - 只学习语言形式、句法结构、修辞节奏
+
+
+    本技能基于《史记》130篇语料分析，适用于人物传记、历史事件、技术概念等现代素材的古风改写。'
+  github_url: https://github.com/baojie/shiji-kb/tree/main/labs/sima-qian-style
+  updated_at: '1774455286'
+- rank: 44
+  id: vstorm-co-pydantic-deepagents-cli-skills-environment-discovery-skill-md
+  name: environment-discovery
+  author: vstorm-co
+  stars: 580
+  forks: 61
+  description: Systematic exploration of unknown environments before starting work
+  github_url: https://github.com/vstorm-co/pydantic-deepagents/tree/main/cli/skills/environment-discovery
+  updated_at: '1771589842'
+- rank: 45
+  id: quixiai-hexis-skills-installed-humanizer-skill-md
+  name: humanizer
+  author: QuixiAI
+  stars: 557
+  forks: 73
+  description: Detect and remove AI writing patterns to produce natural, human-sounding
+    prose
+  github_url: https://github.com/QuixiAI/Hexis/tree/main/skills/installed/humanizer
+  updated_at: '1771044184'
+- rank: 46
+  id: miantiao-me-aigc-weekly-agent-opencode-skills-chinese-writing-skill-md
+  name: chinese-writing
+  author: miantiao-me
+  stars: 514
+  forks: 60
+  description: 中文写作技能指南，用于生成高质量的周刊、博客及科技资讯类文章。
+  github_url: https://github.com/miantiao-me/aigc-weekly/tree/master/agent/.opencode/skills/chinese-writing
+  updated_at: '1769599343'
+- rank: 47
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-domains-social-sciences-humanities-arts-culture-music-album-creation-skills-album-conceptualization-skill-md
+  name: album-conceptualization
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Develop cohesive album concepts including themes, motifs, sonic palettes,
+    narrative arcs, track sequencing, and visual direction for unified album experiences
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/domains/social-sciences-humanities/arts-culture/music-album-creation/skills/album-conceptualization
+  updated_at: '1769492189'
+- rank: 48
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-domains-social-sciences-humanities-social-sciences-skills-ethnographic-research-skill-md
+  name: ethnographic-research
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Conduct participant observation, fieldwork, immersion, and thick description
+    documentation in diverse cultural settings
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/domains/social-sciences-humanities/social-sciences/skills/ethnographic-research
+  updated_at: '1769295537'
+- rank: 49
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-domains-social-sciences-humanities-philosophy-skills-hermeneutical-interpretation-skill-md
+  name: hermeneutical-interpretation
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Conduct systematic textual interpretation using historical-critical,
+    literary, and phenomenological methods while attending to context, genre, and
+    interpretive traditions
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/domains/social-sciences-humanities/philosophy/skills/hermeneutical-interpretation
+  updated_at: '1769295537'
+- rank: 50
+  id: a5c-ai-babysitter-plugins-babysitter-skills-babysit-process-specializations-domains-social-sciences-humanities-humanities-skills-literary-close-reading-skill-md
+  name: literary-close-reading
+  author: a5c-ai
+  stars: 505
+  forks: 28
+  description: Perform systematic textual analysis identifying patterns in language,
+    imagery, narrative structure, and rhetorical devices
+  github_url: https://github.com/a5c-ai/babysitter/tree/main/plugins/babysitter/skills/babysit/process/specializations/domains/social-sciences-humanities/humanities/skills/literary-close-reading
+  updated_at: '1769295537'

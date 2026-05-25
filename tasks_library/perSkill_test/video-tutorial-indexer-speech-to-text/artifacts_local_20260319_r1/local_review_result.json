@@ -1,0 +1,47 @@
+{
+  "taskResults": [
+    {
+      "derivedTaskId": "similar",
+      "pass": true,
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true,
+      "issues": []
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "pass": true,
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true,
+      "issues": []
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "pass": true,
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true,
+      "issues": []
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "pass": true,
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true,
+      "issues": []
+    }
+  ],
+  "familyObservations": {
+    "issues": [],
+    "roleLayoutPass": true,
+    "diversityPass": true,
+    "oracleRuns": {
+      "similar": "similar_oracle_r4",
+      "transfer1": "transfer1_oracle_r1",
+      "transfer2": "transfer2_oracle_r1",
+      "transfer3": "transfer3_oracle_r1"
+    }
+  }
+}

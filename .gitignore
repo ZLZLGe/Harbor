@@ -30,6 +30,7 @@ jobs/
 
 # Codex task builder
 codex_task_builder/node_modules/
+codex_task_builder_syt/node_modules/
 codex_task_builder/dist/
 codex_task_builder_runs/
 

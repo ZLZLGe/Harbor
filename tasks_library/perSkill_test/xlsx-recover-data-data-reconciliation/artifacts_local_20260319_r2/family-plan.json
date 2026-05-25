@@ -1,0 +1,49 @@
+{
+  "sourceTaskId": "xlsx-recover-data",
+  "skillMode": "per-skill",
+  "targetSkillDirName": "data-reconciliation",
+  "targetSkillName": "Data Reconciliation for Spreadsheets",
+  "familyTheme": "Constraint-driven spreadsheet data reconciliation tasks with row totals, YoY links, and percentage shares",
+  "derivedTasks": [
+    {
+      "derivedTaskId": "similar",
+      "taskRole": "similar",
+      "title": "Similar - Reconciliation Baseline",
+      "goal": "Reconcile missing workbook cells using arithmetic and cross-sheet constraints.",
+      "primaryOutputFile": "/root/reconcile_similar_recovered.xlsx",
+      "difficulty": "medium",
+      "category": "spreadsheet",
+      "skillBenefitRationale": "Reconcile missing workbook cells using arithmetic and cross-sheet constraints."
+    },
+    {
+      "derivedTaskId": "transfer1",
+      "taskRole": "transfer",
+      "title": "Transfer - Totals and Delta Reconciliation",
+      "goal": "Resolve missing cells for totals and period deltas in a reconciliation workbook.",
+      "primaryOutputFile": "/root/reconcile_transfer1_recovered.xlsx",
+      "difficulty": "medium",
+      "category": "spreadsheet",
+      "skillBenefitRationale": "Resolve missing cells for totals and period deltas in a reconciliation workbook."
+    },
+    {
+      "derivedTaskId": "transfer2",
+      "taskRole": "transfer",
+      "title": "Transfer - Share and CAGR Reconciliation",
+      "goal": "Recover missing values tied to percentage-share and CAGR constraints.",
+      "primaryOutputFile": "/root/reconcile_transfer2_recovered.xlsx",
+      "difficulty": "medium",
+      "category": "spreadsheet",
+      "skillBenefitRationale": "Recover missing values tied to percentage-share and CAGR constraints."
+    },
+    {
+      "derivedTaskId": "transfer3",
+      "taskRole": "transfer",
+      "title": "Transfer - Chain Dependency Reconciliation",
+      "goal": "Solve chain-dependent missing values and output a reconciled workbook.",
+      "primaryOutputFile": "/root/reconcile_transfer3_recovered.xlsx",
+      "difficulty": "medium",
+      "category": "spreadsheet",
+      "skillBenefitRationale": "Solve chain-dependent missing values and output a reconciled workbook."
+    }
+  ]
+}

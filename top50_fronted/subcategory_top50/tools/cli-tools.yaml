@@ -1,0 +1,607 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: tools
+category_name: Tools
+category_skill_count: 168203
+subcategory_slug: cli-tools
+subcategory_name: CLI Tools
+subcategory_skill_count: 4565
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=cli-tools
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 4565
+  total_pages: 92
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-blucli-skill-md
+  name: blucli
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: BluOS CLI (blu) for discovery, playback, grouping, and volume.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/blucli
+  updated_at: '1769862085'
+- rank: 2
+  id: openclaw-openclaw-skills-oracle-skill-md
+  name: oracle
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Best practices for using the oracle CLI (prompt + file bundling, engines,
+    sessions, and file attachment patterns).
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/oracle
+  updated_at: '1769862085'
+- rank: 3
+  id: openclaw-openclaw-skills-peekaboo-skill-md
+  name: peekaboo
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: Capture and automate macOS UI with the Peekaboo CLI.
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/peekaboo
+  updated_at: '1769862085'
+- rank: 4
+  id: garrytan-gstack-connect-chrome-skill-md
+  name: connect-chrome
+  author: garrytan
+  stars: 53393
+  forks: 6889
+  description: 'Launch real Chrome controlled by gstack with the Side Panel extension
+    auto-loaded.
+
+    One command: connects Claude to a visible Chrome window where you can watch every
+
+    action in real time. The extension shows a live activity feed in the Side Panel.
+
+    Use when asked to "connect chrome", "open chrome", "real browser", "launch chrome",
+
+    "side panel", or "control my browser".'
+  github_url: https://github.com/garrytan/gstack/tree/main/connect-chrome
+  updated_at: '1774634818'
+- rank: 5
+  id: streamlit-streamlit-claude-skills-discovering-make-commands-skill-md
+  name: discovering-make-commands
+  author: streamlit
+  stars: 44053
+  forks: 4169
+  description: Lists available make commands for Streamlit development. Use for build,
+    test, lint, or format tasks.
+  github_url: https://github.com/streamlit/streamlit/tree/develop/.claude/skills/discovering-make-commands
+  updated_at: '1773186335'
+- rank: 6
+  id: fabricjs-fabric-js-agents-skills-fabricjs-open-pr-skill-md
+  name: fabricjs-open-pr
+  author: fabricjs
+  stars: 31034
+  forks: 3629
+  description: Use when opening a Fabric.js pull request. Generates a conventional-commit
+    style PR title, writes a concise PR description, includes `close
+  github_url: https://github.com/fabricjs/fabric.js/tree/master/.agents/skills/fabricjs-open-pr
+  updated_at: '1774181785'
+- rank: 7
+  id: sickn33-antigravity-awesome-skills-skills-busybox-on-windows-skill-md
+  name: busybox-on-windows
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: How to use a Win32 build of BusyBox to run many of the standard UNIX
+    command line tools on Windows.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/busybox-on-windows
+  updated_at: '1772180381'
+- rank: 8
+  id: sickn33-antigravity-awesome-skills-skills-chrome-extension-developer-skill-md
+  name: chrome-extension-developer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert in building Chrome Extensions using Manifest V3. Covers background
+    scripts, service workers, content scripts, and cross-context communication.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/chrome-extension-developer
+  updated_at: '1772180381'
+- rank: 9
+  id: sickn33-antigravity-awesome-skills-skills-obsidian-cli-skill-md
+  name: obsidian-cli
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Use the Obsidian CLI to read, create, search, and manage vault content,
+    or to develop and debug Obsidian plugins and themes from the command line.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/obsidian-cli
+  updated_at: '1774083913'
+- rank: 10
+  id: ruvnet-ruflo-agents-skills-v3-cli-modernization-skill-md
+  name: v3-cli-modernization
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: CLI modernization and hooks system enhancement for claude-flow v3.
+    Implements interactive prompts, command decomposition, enhanced hooks integration,
+    and intelligent workflow automation.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.agents/skills/v3-cli-modernization
+  updated_at: '1770485431'
+- rank: 11
+  id: ruvnet-ruflo-claude-skills-v3-cli-modernization-skill-md
+  name: v3-cli-modernization
+  author: ruvnet
+  stars: 27744
+  forks: 3013
+  description: CLI modernization and hooks system enhancement for claude-flow v3.
+    Implements interactive prompts, command decomposition, enhanced hooks integration,
+    and intelligent workflow automation.
+  github_url: https://github.com/ruvnet/ruflo/tree/main/.claude/skills/v3-cli-modernization
+  updated_at: '1767545804'
+- rank: 12
+  id: composiohq-composio-ts-packages-cli-skills-composio-cli-skill-md
+  name: composio-cli
+  author: ComposioHQ
+  stars: 27559
+  forks: 4497
+  description: Help users operate the published Composio CLI to find the right tool,
+    connect accounts, inspect schemas, execute tools, script workflows with `composio
+    run`, and call authenticated app APIs with `composio proxy`. Use when the user
+    asks how to do something with `composio`, wants to run a known tool slug, needs
+    to discover a slug with `composio search`, fix a missing connection with `composio
+    link`, inspect tool inputs with `--get-schema` or `--dry-run`, troubleshoot top-level
+    CLI flows, or explicitly needs `composio dev` guidance.
+  github_url: https://github.com/ComposioHQ/composio/tree/next/ts/packages/cli/skills/composio-cli
+  updated_at: '1774631529'
+- rank: 13
+  id: qwibitai-nanoclaw-claude-skills-claw-skill-md
+  name: claw
+  author: qwibitai
+  stars: 25783
+  forks: 9335
+  description: Install the claw CLI tool — run NanoClaw agent containers from the
+    command line without opening a chat app.
+  github_url: https://github.com/qwibitai/nanoclaw/tree/main/.claude/skills/claw
+  updated_at: '1774312565'
+- rank: 14
+  id: hkuds-cli-anything-openclaw-skill-skill-md
+  name: cli-anything
+  author: HKUDS
+  stars: 24158
+  forks: 2147
+  description: Use when the user wants OpenClaw to build, refine, test, or validate
+    a CLI-Anything harness for a GUI application or source repository. Adapts the
+    CLI-Anything methodology to OpenClaw without changing the generated Python harness
+    format.
+  github_url: https://github.com/HKUDS/CLI-Anything/tree/main/openclaw-skill
+  updated_at: '1773562156'
+- rank: 15
+  id: hkuds-cli-anything-browser-agent-harness-cli-anything-browser-skills-skill-md
+  name: cli-anything-browser
+  author: HKUDS
+  stars: 24158
+  forks: 2147
+  description: Browser automation CLI using DOMShell MCP server. Maps Chrome's Accessibility
+    Tree to a virtual filesystem for agent-native navigation.
+  github_url: https://github.com/HKUDS/CLI-Anything/tree/main/browser/agent-harness/cli_anything/browser/skills
+  updated_at: '1774119338'
+- rank: 16
+  id: hkuds-cli-anything-freecad-agent-harness-cli-anything-freecad-skills-skill-md
+  name: cli-anything-freecad
+  author: HKUDS
+  stars: 24158
+  forks: 2147
+  description: 'Complete CLI harness for FreeCAD parametric 3D CAD modeler (258 commands).
+    Covers ALL workbenches: Part (29 primitives + boolean + mirror + loft + sweep),
+    Sketcher (26 cmds: geometry + constraints + editing), PartDesign (38 cmds: pad/pocket/groove/fillet/chamfer/patterns/hole/datum),
+    Assembly (11 cmds), Mesh (16 cmds), TechDraw (15 cmds: views + dimensions + PDF/SVG),
+    Draft (33 cmds: 2D shapes + arrays + transforms), FEM (12 cmds), CAM/CNC (10 cmds),
+    Surface (6 cmds), Spreadsheet (7 cmds), Import (13 formats), Export (17 formats),
+    Measure (12 cmds), Materials (21 presets). Headless FreeCAD export to STEP/IGES/STL/OBJ/DXF/PDF/glTF/3MF.'
+  github_url: https://github.com/HKUDS/CLI-Anything/tree/main/freecad/agent-harness/cli_anything/freecad/skills
+  updated_at: '1774347769'
+- rank: 17
+  id: hkuds-cli-anything-docs-hub-skill-md
+  name: cli-anything-hub
+  author: HKUDS
+  stars: 24158
+  forks: 2147
+  description: Browse and install 21+ agent-native CLI tools for GUI software. Covers
+    image editing, 3D, video, audio, office, diagrams, AI, and more.
+  github_url: https://github.com/HKUDS/CLI-Anything/tree/main/docs/hub
+  updated_at: '1774351921'
+- rank: 18
+  id: hkuds-cli-anything-krita-agent-harness-cli-anything-krita-skills-skill-md
+  name: cli-anything-krita
+  author: HKUDS
+  stars: 24158
+  forks: 2147
+  description: CLI harness for Krita digital painting — manage projects, layers, filters,
+    and export via command line. Use when automating Krita workflows, batch processing
+    images, or operating Krita without a GUI.
+  github_url: https://github.com/HKUDS/CLI-Anything/tree/main/krita/agent-harness/cli_anything/krita/skills
+  updated_at: '1774285129'
+- rank: 19
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-rust-cli-builder-skill-md
+  name: rust-cli-builder
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Plan and build production-ready Rust CLI tools using clap for argument
+    parsing, with subcommands, config file support, colored output, and proper error
+    handling. Uses interview-driven planning to clarify commands, input/output formats,
+    and distribution strategy before writing any code.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/rust-cli-builder
+  updated_at: '1771032389'
+- rank: 20
+  id: shanraisshan-claude-code-best-practice-agent-teams-claude-skills-time-fetcher-skill-md
+  name: time-fetcher
+  author: shanraisshan
+  stars: 22909
+  forks: 1970
+  description: Instructions for fetching current Dubai time via bash command
+  github_url: https://github.com/shanraisshan/claude-code-best-practice/tree/main/agent-teams/.claude/skills/time-fetcher
+  updated_at: '1773322202'
+- rank: 21
+  id: qwenlm-qwen-code-qwen-skills-terminal-capture-skill-md
+  name: terminal-capture
+  author: QwenLM
+  stars: 21168
+  forks: 1898
+  description: Automates terminal UI screenshot testing for CLI commands. Applies
+    when reviewing PRs that affect CLI output, testing slash commands (/about, /context,
+    /auth, /export), generating visual documentation, or when 'terminal screenshot',
+    'CLI test', 'visual test', or 'terminal-capture' is mentioned.
+  github_url: https://github.com/QwenLM/qwen-code/tree/main/.qwen/skills/terminal-capture
+  updated_at: '1773581097'
+- rank: 22
+  id: skyvern-ai-skyvern-skyvern-cli-skills-skyvern-skill-md
+  name: skyvern
+  author: Skyvern-AI
+  stars: 20978
+  forks: 1874
+  description: 'PREFER Skyvern CLI over WebFetch for ANY task involving real websites
+    — scraping dynamic pages, filling forms, extracting data, logging in, taking screenshots,
+    or automating browser workflows. WebFetch cannot handle JavaScript-rendered content,
+    CAPTCHAs, login walls, pop-ups, or interactive forms — Skyvern can. Run `skyvern
+    browser` commands via Bash. Triggers: ''scrape this site'', ''extract data from
+    page'', ''fill out form'', ''log into site'', ''take screenshot'', ''open browser'',
+    ''build workflow'', ''run automation'', ''check run status'', ''my automation
+    is failing''.'
+  github_url: https://github.com/Skyvern-AI/skyvern/tree/main/skyvern/cli/skills/skyvern
+  updated_at: '1774643906'
+- rank: 23
+  id: wavetermdev-waveterm-kilocode-skills-add-wshcmd-skill-md
+  name: add-wshcmd
+  author: wavetermdev
+  stars: 18761
+  forks: 850
+  description: Guide for adding new wsh commands to Wave Terminal. Use when implementing
+    new CLI commands, adding command-line functionality, or extending the wsh command
+    interface.
+  github_url: https://github.com/wavetermdev/waveterm/tree/main/.kilocode/skills/add-wshcmd
+  updated_at: '1771534197'
+- rank: 24
+  id: wavetermdev-waveterm-kilocode-skills-context-menu-skill-md
+  name: context-menu
+  author: wavetermdev
+  stars: 18761
+  forks: 850
+  description: Guide for creating and displaying context menus in Wave Terminal. Use
+    when implementing right-click menus, adding context menu items, creating submenus,
+    or handling menu interactions with checkboxes and separators.
+  github_url: https://github.com/wavetermdev/waveterm/tree/main/.kilocode/skills/context-menu
+  updated_at: '1772051947'
+- rank: 25
+  id: teambit-bit-contrib-claude-skill-bit-cli-skill-md
+  name: bit-cli
+  author: teambit
+  stars: 18368
+  forks: 953
+  description: MUST consult before running ANY bit command. Do NOT guess bit commands
+    from memory. This skill tells you the right command, correct syntax, subcommands,
+    and flags.
+  github_url: https://github.com/teambit/bit/tree/master/contrib/claude-skill-bit-cli
+  updated_at: '1774637317'
+- rank: 26
+  id: elizaos-eliza-packages-skills-skills-bear-notes-skill-md
+  name: bear-notes
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Create, search, read, tag, and append to Bear app notes on macOS via
+    the grizzly CLI. Use when the user wants to create a new note in Bear, search
+    Bear notes by tag, read or open a Bear note by ID, append text to an existing
+    Bear note, list Bear tags, or automate note-taking in Bear. Requires the grizzly
+    binary and Bear app running on macOS.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/bear-notes
+  updated_at: '1773711902'
+- rank: 27
+  id: elizaos-eliza-packages-skills-skills-bird-skill-md
+  name: bird
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: X/Twitter CLI for reading, searching, posting, and engagement via cookies.
+    Provides direct access to tweets, timelines, social media feeds, bookmarks, lists,
+    and trending topics through GraphQL and cookie-based authentication. Use when
+    the user wants to tweet, read a tweet, search Twitter, check their timeline, browse
+    social media, view replies, follow or unfollow accounts, manage bookmarks, or
+    interact with X/Twitter from the command line.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/bird
+  updated_at: '1773711902'
+- rank: 28
+  id: elizaos-eliza-packages-skills-skills-blucli-skill-md
+  name: blucli
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: BluOS CLI (blu) for discovery, playback, grouping, and volume control
+    of Bluesound and NAD speakers. Use when the user wants to play music, stream audio,
+    control speakers, adjust volume, group or ungroup Bluesound players, search TuneIn
+    radio, or manage multi-room streaming setups.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/blucli
+  updated_at: '1773711902'
+- rank: 29
+  id: elizaos-eliza-packages-skills-skills-imsg-skill-md
+  name: imsg
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: iMessage/SMS CLI for listing chats, fetching history, watching conversations,
+    and sending messages on macOS via the Messages app. Use when the user wants to
+    send a text message, read iMessages, check recent texts, reply to a conversation,
+    send an SMS, or interact with the Messages app from the terminal. Supports texting
+    contacts by phone number or email, attaching files, and streaming incoming messages
+    in real time.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/imsg
+  updated_at: '1773711902'
+- rank: 30
+  id: elizaos-eliza-packages-skills-skills-openhue-skill-md
+  name: openhue
+  author: elizaOS
+  stars: 17951
+  forks: 5469
+  description: Controls Philips Hue smart lights, rooms, and scenes via the OpenHue
+    CLI and a Hue Bridge. Use when the user asks to turn lights on or off, change
+    brightness or color, activate a scene, list rooms, discover bridges, or manage
+    smart lighting. Handles setup, querying light state, and adjusting individual
+    or grouped lights by name or ID.
+  github_url: https://github.com/elizaOS/eliza/tree/develop/packages/skills/skills/openhue
+  updated_at: '1773711902'
+- rank: 31
+  id: kepano-obsidian-skills-skills-obsidian-cli-skill-md
+  name: obsidian-cli
+  author: kepano
+  stars: 17820
+  forks: 1039
+  description: Interact with Obsidian vaults using the Obsidian CLI to read, create,
+    search, and manage notes, tasks, properties, and more. Also supports plugin and
+    theme development with commands to reload plugins, run JavaScript, capture errors,
+    take screenshots, and inspect the DOM. Use when the user asks to interact with
+    their Obsidian vault, manage notes, search vault content, perform vault operations
+    from the command line, or develop and debug Obsidian plugins and themes.
+  github_url: https://github.com/kepano/obsidian-skills/tree/main/skills/obsidian-cli
+  updated_at: '1772019179'
+- rank: 32
+  id: slopus-happy-claude-skills-agent-browser-skill-md
+  name: agent-browser
+  author: slopus
+  stars: 16505
+  forks: 1314
+  description: Browser automation CLI for AI agents. Use this when asked to test something
+    in a real browser.
+  github_url: https://github.com/slopus/happy/tree/main/.claude/skills/agent-browser
+  updated_at: '1772089541'
+- rank: 33
+  id: slopus-happy-claude-skills-terminal-emulator-skill-md
+  name: terminal-emulator
+  author: slopus
+  stars: 16505
+  forks: 1314
+  description: Test interactive CLI/TUI applications using @microsoft/tui-test. Use
+    when you need to test CLI tools with interactive prompts, TUI rendering, arrow
+    key navigation, or any command that requires a TTY. Triggers include "test CLI",
+    "test TUI", "run interactively", "automate terminal input", "simulate user input
+    in terminal".
+  github_url: https://github.com/slopus/happy/tree/main/.claude/skills/terminal-emulator
+  updated_at: '1772089541'
+- rank: 34
+  id: windmill-labs-windmill-system-prompts-auto-generated-skills-cli-commands-skill-md
+  name: cli-commands
+  author: windmill-labs
+  stars: 16091
+  forks: 901
+  description: MUST use when using the CLI.
+  github_url: https://github.com/windmill-labs/windmill/tree/main/system_prompts/auto-generated/skills/cli-commands
+  updated_at: '1774689535'
+- rank: 35
+  id: vercel-vercel-skills-vercel-cli-skill-md
+  name: vercel-cli
+  author: vercel
+  stars: 15154
+  forks: 3473
+  description: Deploy, manage, and develop projects on Vercel from the command line
+  github_url: https://github.com/vercel/vercel/tree/main/skills/vercel-cli
+  updated_at: '1773244196'
+- rank: 36
+  id: anthropics-claude-plugins-official-plugins-plugin-dev-skills-command-development-skill-md
+  name: command-development
+  author: anthropics
+  stars: 15087
+  forks: 1619
+  description: This skill should be used when the user asks to "create a slash command",
+    "add a command", "write a custom command", "define command arguments", "use command
+    frontmatter", "organize commands", "create command with file references", "interactive
+    command", "use AskUserQuestion in command", or needs guidance on slash command
+    structure, YAML frontmatter fields, dynamic arguments, bash execution in commands,
+    user interaction patterns, or command development best practices for Claude Code.
+  github_url: https://github.com/anthropics/claude-plugins-official/tree/main/plugins/plugin-dev/skills/command-development
+  updated_at: '1773787525'
+- rank: 37
+  id: nousresearch-hermes-agent-skills-apple-apple-notes-skill-md
+  name: apple-notes
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Manage Apple Notes via the memo CLI on macOS (create, view, search,
+    edit).
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/apple/apple-notes
+  updated_at: '1773396844'
+- rank: 38
+  id: nousresearch-hermes-agent-skills-inference-sh-cli-skill-md
+  name: inference-sh-cli
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: 'Run 150+ AI apps via inference.sh CLI (infsh) — image generation,
+    video creation, LLMs, search, 3D, social automation. Uses the terminal tool. Triggers:
+    inference.sh, infsh, ai apps, flux, veo, image generation, video generation, seedream,
+    seedance, tavily'
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/inference-sh/cli
+  updated_at: '1773742013'
+- rank: 39
+  id: nousresearch-hermes-agent-skills-data-science-jupyter-live-kernel-skill-md
+  name: jupyter-live-kernel
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Use a live Jupyter kernel for stateful, iterative Python execution
+    via hamelnb. Load this skill when the task involves exploration, iteration, or
+    inspecting intermediate results — data science, ML experimentation, API exploration,
+    or building up complex code step-by-step. Uses terminal to run CLI commands against
+    a live Jupyter kernel. No new tools required.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/data-science/jupyter-live-kernel
+  updated_at: '1773472145'
+- rank: 40
+  id: nousresearch-hermes-agent-skills-social-media-xitter-skill-md
+  name: xitter
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Interact with X/Twitter via the x-cli terminal client using official
+    X API credentials. Use for posting, reading timelines, searching tweets, liking,
+    retweeting, bookmarks, mentions, and user lookups.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/social-media/xitter
+  updated_at: '1773486027'
+- rank: 41
+  id: yeachan-heo-oh-my-claudecode-skills-omc-setup-skill-md
+  name: omc-setup
+  author: Yeachan-Heo
+  stars: 14390
+  forks: 929
+  description: Setup and configure oh-my-claudecode (the ONLY command you need to
+    learn)
+  github_url: https://github.com/Yeachan-Heo/oh-my-claudecode/tree/main/skills/omc-setup
+  updated_at: '1773876554'
+- rank: 42
+  id: abpframework-abp-claude-skills-abp-cli-skill-md
+  name: abp-cli
+  author: abpframework
+  stars: 14190
+  forks: 3682
+  description: ABP CLI commands - generate-proxy, install-libs, add-package-ref, new-module,
+    install-module, abp update, abp clean, abp suite generate. Use when the user asks
+    how to run ABP CLI commands, generate proxies, install libraries, or use ABP Suite.
+  github_url: https://github.com/abpframework/abp/tree/dev/.claude/skills/abp-cli
+  updated_at: '1773049965'
+- rank: 43
+  id: vercel-labs-json-render-skills-ink-skill-md
+  name: ink
+  author: vercel-labs
+  stars: 13589
+  forks: 729
+  description: Ink terminal renderer for json-render that turns JSON specs into interactive
+    terminal UIs. Use when working with @json-render/ink, building terminal UIs from
+    JSON, creating terminal component catalogs, or rendering AI-generated specs in
+    the terminal.
+  github_url: https://github.com/vercel-labs/json-render/tree/main/skills/ink
+  updated_at: '1774284456'
+- rank: 44
+  id: ryoppippi-ccusage-claude-skills-use-gunshi-cli-skill-md
+  name: use-gunshi-cli
+  author: ryoppippi
+  stars: 12049
+  forks: 440
+  description: Use the Gunshi library to create command-line interfaces in JavaScript/TypeScript.
+  github_url: https://github.com/ryoppippi/ccusage/tree/main/.claude/skills/use-gunshi-cli
+  updated_at: '1767962420'
+- rank: 45
+  id: manaflow-ai-cmux-skills-cmux-markdown-skill-md
+  name: cmux-markdown
+  author: manaflow-ai
+  stars: 11063
+  forks: 761
+  description: Open markdown files in a formatted viewer panel with live reload. Use
+    when you need to display plans, documentation, or notes alongside the terminal
+    with rich rendering (headings, code blocks, tables, lists).
+  github_url: https://github.com/manaflow-ai/cmux/tree/main/skills/cmux-markdown
+  updated_at: '1772675308'
+- rank: 46
+  id: nearai-ironclaw-skills-local-test-skill-md
+  name: local-test
+  author: nearai
+  stars: 11028
+  forks: 1250
+  description: Build, run, and test IronClaw locally using Docker containers and Chrome
+    MCP browser automation.
+  github_url: https://github.com/nearai/ironclaw/tree/staging/skills/local-test
+  updated_at: '1772603615'
+- rank: 47
+  id: danielmiessler-personal-ai-infrastructure-releases-v4-0-0-claude-skills-utilities-createcli-skill-md
+  name: createcli
+  author: danielmiessler
+  stars: 10594
+  forks: 1470
+  description: Generate production-ready TypeScript CLIs with 3-tier template system
+    (simple argv, yargs, oclif), type safety, error handling, and documentation. USE
+    WHEN create CLI, build CLI, command-line tool, wrap API, add command, upgrade
+    tier, TypeScript CLI.
+  github_url: https://github.com/danielmiessler/Personal_AI_Infrastructure/tree/main/Releases/v4.0.0/.claude/skills/Utilities/CreateCLI
+  updated_at: '1772285099'
+- rank: 48
+  id: browseros-ai-browseros-packages-browseros-agent-claude-skills-test-ui-skill-md
+  name: test-ui
+  author: browseros-ai
+  stars: 10164
+  forks: 977
+  description: Test the BrowserOS agent extension UI by starting the dev environment
+    and visually verifying changes via CDP. Covers the new tab page (left sidebar
+    — Home, Scheduled Tasks, Settings, etc.) and the right side panel (chat interface).
+    Use after making UI changes to apps/agent/.
+  github_url: https://github.com/browseros-ai/BrowserOS/tree/main/packages/browseros-agent/.claude/skills/test-ui
+  updated_at: '1773740880'
+- rank: 49
+  id: accomplish-ai-accomplish-packages-agent-core-mcp-tools-ask-user-question-skill-md
+  name: ask-user-question
+  author: accomplish-ai
+  stars: 9945
+  forks: 1112
+  description: Ask users questions via the UI. Use when you need clarification, user
+    preferences, or confirmation before proceeding. The user CANNOT see CLI output
+    - this tool is the ONLY way to communicate with them.
+  github_url: https://github.com/accomplish-ai/accomplish/tree/main/packages/agent-core/mcp-tools/ask-user-question
+  updated_at: '1774254480'
+- rank: 50
+  id: arize-ai-phoenix-js-packages-phoenix-cli-agents-skills-phoenix-cli-development-skill-md
+  name: phoenix-cli-development
+  author: Arize-ai
+  stars: 9071
+  forks: 779
+  description: Design and implementation guide for the Phoenix CLI (`px`). Covers
+    the noun-verb command structure, dual-audience design (humans and coding agents),
+    Commander.js patterns, configuration resolution, output formats, exit codes, and
+    conventions for adding or modifying commands. Triggers when working on phoenix-cli
+    commands — adding new commands, modifying existing ones, refactoring command structure,
+    or reviewing CLI code. Also triggers on mentions of `px` commands, CLI design,
+    or adding a new resource to the CLI.
+  github_url: https://github.com/Arize-ai/phoenix/tree/main/js/packages/phoenix-cli/.agents/skills/phoenix-cli-development
+  updated_at: '1774543399'

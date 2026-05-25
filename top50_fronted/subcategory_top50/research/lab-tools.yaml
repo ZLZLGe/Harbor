@@ -1,0 +1,589 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: research
+category_name: Research
+category_skill_count: 23700
+subcategory_slug: lab-tools
+subcategory_name: Lab Tools
+subcategory_skill_count: 3725
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=lab-tools
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 3725
+  total_pages: 75
+  has_next: true
+  has_prev: false
+  total_all: null
+  is_capped: null
+  max_results: null
+skills:
+- rank: 1
+  id: storybookjs-storybook-agents-skills-github-qa-labels-skill-md
+  name: github-qa-labels
+  author: storybookjs
+  stars: 89554
+  forks: 9960
+  description: Label GitHub issues and PRs found during QA testing. Use when organizing
+    QA findings with proper labels.
+  github_url: https://github.com/storybookjs/storybook/tree/next/.agents/skills/github-qa-labels
+  updated_at: '1773417581'
+- rank: 2
+  id: microsoft-ai-agents-for-beginners-translations-tl-agents-skills-jupyter-notebook-skill-md
+  name: jupyter-notebook
+  author: microsoft
+  stars: 55204
+  forks: 19065
+  description: Gamitin kapag humihiling ang gumagamit na gumawa, mag-scaffold, o mag-edit
+    ng mga Jupyter notebook (`.ipynb`) para sa mga eksperimento, eksplorasyon, o tutorial;
+    mas piliin ang mga naka-bundle na template at patakbuhin ang helper script na
+    `new_notebook.py` upang makabuo ng malinis na panimulang notebook.
+  github_url: https://github.com/microsoft/ai-agents-for-beginners/tree/main/translations/tl/.agents/skills/jupyter-notebook
+  updated_at: '1771541208'
+- rank: 3
+  id: pingcap-tidb-agents-skills-tidb-integrationtest-recorder-skill-md
+  name: tidb-integrationtest-recorder
+  author: pingcap
+  stars: 39905
+  forks: 6159
+  description: Use when recording TiDB integration tests under tests/integrationtest
+    and verifying regenerated result files stay minimal and correct.
+  github_url: https://github.com/pingcap/tidb/tree/master/.agents/skills/tidb-integrationtest-recorder
+  updated_at: '1773316520'
+- rank: 4
+  id: posthog-posthog-products-experiments-skills-analyzing-experiment-session-replays-skill-md
+  name: analyzing-experiment-session-replays
+  author: PostHog
+  stars: 32259
+  forks: 2440
+  description: Analyze session replay patterns across experiment variants to understand
+    user behavior differences. Use when the user wants to see how users interact with
+    different experiment variants, identify usability issues, compare behavior patterns
+    between control and test groups, or get qualitative insights to complement quantitative
+    experiment results.
+  github_url: https://github.com/PostHog/posthog/tree/master/products/experiments/skills/analyzing-experiment-session-replays
+  updated_at: '1773849194'
+- rank: 5
+  id: sickn33-antigravity-awesome-skills-skills-conductor-validator-skill-md
+  name: conductor-validator
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Validates Conductor project artifacts for completeness,
+
+    consistency, and correctness. Use after setup, when diagnosing issues, or
+
+    before implementation to verify project context.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/conductor-validator
+  updated_at: '1772354305'
+- rank: 6
+  id: sickn33-antigravity-awesome-skills-skills-fda-medtech-compliance-auditor-skill-md
+  name: fda-medtech-compliance-auditor
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert AI auditor for Medical Device (SaMD) compliance, IEC 62304,
+    and 21 CFR Part 820. Reviews DHFs, technical files, and software validation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fda-medtech-compliance-auditor
+  updated_at: '1773994629'
+- rank: 7
+  id: sickn33-antigravity-awesome-skills-skills-memory-forensics-skill-md
+  name: memory-forensics
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive techniques for acquiring, analyzing, and extracting artifacts
+    from memory dumps for incident response and malware analysis.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/memory-forensics
+  updated_at: '1773994005'
+- rank: 8
+  id: sickn33-antigravity-awesome-skills-skills-mlops-engineer-skill-md
+  name: mlops-engineer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build comprehensive ML pipelines, experiment tracking, and model registries
+    with MLflow, Kubeflow, and modern MLOps tools.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/mlops-engineer
+  updated_at: '1772354305'
+- rank: 9
+  id: sickn33-antigravity-awesome-skills-skills-quality-nonconformance-skill-md
+  name: quality-nonconformance
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Codified expertise for quality control, non-conformance investigation,
+    root cause analysis, corrective action, and supplier quality management in regulated
+    manufacturing.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/quality-nonconformance
+  updated_at: '1773994005'
+- rank: 10
+  id: github-awesome-copilot-skills-autoresearch-skill-md
+  name: autoresearch
+  author: github
+  stars: 27427
+  forks: 3175
+  description: 'Autonomous iterative experimentation loop for any programming task.
+    Guides the user through defining goals, measurable metrics, and scope constraints,
+    then runs an autonomous loop of code changes, testing, measuring, and keeping/discarding
+    results. Inspired by Karpathy''s autoresearch. USE FOR: autonomous improvement,
+    iterative optimization, experiment loop, auto research, performance tuning, automated
+    experimentation, hill climbing, try things automatically, optimize code, run experiments,
+    autonomous coding loop. DO NOT USE FOR: one-shot tasks, simple bug fixes, code
+    review, or tasks without a measurable metric.'
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/autoresearch
+  updated_at: '1773876541'
+- rank: 11
+  id: github-awesome-copilot-skills-eval-driven-dev-skill-md
+  name: eval-driven-dev
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Add instrumentation, build golden datasets, write eval-based tests,
+    run them, root-cause failures, and iterate — Ensure your Python LLM application
+    works correctly. Make sure to use this skill whenever a user is developing, testing,
+    QA-ing, evaluating, or benchmarking a Python project that calls an LLM. Use for
+    making sure an LLM application works correctly, catching regressions after prompt
+    changes, fixing unexpected behavior, or validating output quality before shipping.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/eval-driven-dev
+  updated_at: '1774222734'
+- rank: 12
+  id: hkuds-cli-anything-notebooklm-agent-harness-cli-anything-notebooklm-skills-skill-md
+  name: cli-anything-notebooklm
+  author: HKUDS
+  stars: 24158
+  forks: 2147
+  description: Experimental NotebookLM harness for listing notebooks, managing sources,
+    asking questions, generating artifacts, and downloading outputs through an installed
+    notebooklm CLI.
+  github_url: https://github.com/HKUDS/CLI-Anything/tree/main/notebooklm/agent-harness/cli_anything/notebooklm/skills
+  updated_at: '1773751771'
+- rank: 13
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-benchling-integration-skill-md
+  name: benchling-integration
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Benchling R&D platform integration. Access registry (DNA, proteins),
+    inventory, ELN entries, workflows via API, build Benchling Apps, query Data Warehouse,
+    for lab data management automation.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/benchling-integration
+  updated_at: '1772554803'
+- rank: 14
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-opentrons-integration-skill-md
+  name: opentrons-integration
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Official Opentrons Protocol API for OT-2 and Flex robots. Use when
+    writing protocols specifically for Opentrons hardware with full access to Protocol
+    API v2 features. Best for production Opentrons protocols, official API compatibility.
+    For multi-vendor automation or broader equipment control use pylabrobot.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/opentrons-integration
+  updated_at: '1772554803'
+- rank: 15
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-protocolsio-integration-skill-md
+  name: protocolsio-integration
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Integration with protocols.io API for managing scientific protocols.
+    This skill should be used when working with protocols.io to search, create, update,
+    or publish protocols; manage protocol steps and materials; handle discussions
+    and comments; organize workspaces; upload and manage files; or integrate protocols.io
+    functionality into workflows. Applicable for protocol discovery, collaborative
+    protocol development, experiment tracking, lab protocol management, and scientific
+    documentation.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/protocolsio-integration
+  updated_at: '1772554803'
+- rank: 16
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-pylabrobot-skill-md
+  name: pylabrobot
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Vendor-agnostic lab automation framework. Use when controlling multiple
+    equipment types (Hamilton, Tecan, Opentrons, plate readers, pumps) or needing
+    unified programming across different vendors. Best for complex workflows, multi-vendor
+    setups, simulation. For Opentrons-only protocols with official API, opentrons-integration
+    may be simpler.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pylabrobot
+  updated_at: '1772554803'
+- rank: 17
+  id: udecode-plate-agents-skills-testing-skill-md
+  name: testing
+  author: udecode
+  stars: 16084
+  forks: 964
+  description: 'Skill: testing'
+  github_url: https://github.com/udecode/plate/tree/main/.agents/skills/testing
+  updated_at: '1774632415'
+- rank: 18
+  id: udecode-plate-claude-skills-testing-skill-md
+  name: testing
+  author: udecode
+  stars: 16084
+  forks: 964
+  description: 'Skill: testing'
+  github_url: https://github.com/udecode/plate/tree/main/.claude/skills/testing
+  updated_at: '1774443002'
+- rank: 19
+  id: yeachan-heo-oh-my-claudecode-skills-cancel-skill-md
+  name: cancel
+  author: Yeachan-Heo
+  stars: 14390
+  forks: 929
+  description: Cancel any active OMC mode (autopilot, ralph, ultrawork, ultraqa, swarm,
+    ultrapilot, pipeline, team)
+  github_url: https://github.com/Yeachan-Heo/oh-my-claudecode/tree/main/skills/cancel
+  updated_at: '1773721887'
+- rank: 20
+  id: facebook-hermes-claude-skills-binary-size-analysis-skill-md
+  name: binary-size-analysis
+  author: facebook
+  stars: 10853
+  forks: 751
+  description: This skill should be used when the user wants to analyze hermesvm binary
+    size changes across a range of commits. Use when the user mentions "binary size",
+    "size analysis", "size regression", "size increase", or asks to measure how commits
+    affect the hermesvm library size.
+  github_url: https://github.com/facebook/hermes/tree/static_h/.claude/skills/binary-size-analysis
+  updated_at: '1773266999'
+- rank: 21
+  id: anthropics-knowledge-work-plugins-finance-skills-audit-support-skill-md
+  name: audit-support
+  author: anthropics
+  stars: 10557
+  forks: 1176
+  description: Support SOX 404 compliance with control testing methodology, sample
+    selection, and documentation standards. Use when generating testing workpapers,
+    selecting audit samples, classifying control deficiencies, or preparing for internal
+    or external audits.
+  github_url: https://github.com/anthropics/knowledge-work-plugins/tree/main/finance/skills/audit-support
+  updated_at: '1773417477'
+- rank: 22
+  id: huggingface-skills-skills-huggingface-trackio-skill-md
+  name: huggingface-trackio
+  author: huggingface
+  stars: 9949
+  forks: 606
+  description: Track and visualize ML training experiments with Trackio. Use when
+    logging metrics during training (Python API), firing alerts for training diagnostics,
+    or retrieving/analyzing logged metrics (CLI). Supports real-time dashboard visualization,
+    alerts with webhooks, HF Space syncing, and JSON output for automation.
+  github_url: https://github.com/huggingface/skills/tree/main/skills/huggingface-trackio
+  updated_at: '1774279474'
+- rank: 23
+  id: aden-hive-hive-core-framework-skills-default-skills-batch-ledger-skill-md
+  name: hivebatch-ledger
+  author: aden-hive
+  stars: 9877
+  forks: 5594
+  description: Track per-item status when processing collections to prevent skipped
+    or duplicated items.
+  github_url: https://github.com/aden-hive/hive/tree/main/core/framework/skills/_default_skills/batch-ledger
+  updated_at: '1773453394'
+- rank: 24
+  id: aiming-lab-autoresearchclaw-researchclaw-skills-builtin-experiment-experimental-design-skill-md
+  name: experimental-design
+  author: aiming-lab
+  stars: 9233
+  forks: 995
+  description: Best practices for designing reproducible ML experiments. Use when
+    planning ablations, baselines, or controlled experiments.
+  github_url: https://github.com/aiming-lab/AutoResearchClaw/tree/main/researchclaw/skills/builtin/experiment/experimental-design
+  updated_at: '1774230377'
+- rank: 25
+  id: phuryn-pm-skills-pm-data-analytics-skills-ab-test-analysis-skill-md
+  name: ab-test-analysis
+  author: phuryn
+  stars: 8299
+  forks: 855
+  description: Analyze A/B test results with statistical significance, sample size
+    validation, confidence intervals, and ship/extend/stop recommendations. Use when
+    evaluating experiment results, checking if a test reached significance, interpreting
+    split test data, or deciding whether to ship a variant.
+  github_url: https://github.com/phuryn/pm-skills/tree/main/pm-data-analytics/skills/ab-test-analysis
+  updated_at: '1772523522'
+- rank: 26
+  id: alirezarezvani-claude-skills-marketing-skill-ab-test-setup-skill-md
+  name: ab-test-setup
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: When the user wants to plan, design, or implement an A/B test or experiment.
+    Also use when the user mentions "A/B test," "split test," "experiment," "test
+    this change," "variant copy," "multivariate test," "hypothesis," "conversion experiment,"
+    "statistical significance," or "test this." For tracking implementation, see analytics-tracking.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/marketing-skill/ab-test-setup
+  updated_at: '1773068065'
+- rank: 27
+  id: alirezarezvani-claude-skills-product-team-experiment-designer-skill-md
+  name: experiment-designer
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Use when planning product experiments, writing testable hypotheses,
+    estimating sample size, prioritizing tests, or interpreting A/B outcomes with
+    practical statistical rigor.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/product-team/experiment-designer
+  updated_at: '1773237507'
+- rank: 28
+  id: alirezarezvani-claude-skills-ra-qm-team-qms-audit-expert-skill-md
+  name: qms-audit-expert
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: ISO 13485 internal audit expertise for medical device QMS. Covers audit
+    planning, execution, nonconformity classification, and CAPA verification. Use
+    for internal audit planning, audit execution, finding classification, external
+    audit preparation, or audit program management.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/ra-qm-team/qms-audit-expert
+  updated_at: '1773068065'
+- rank: 29
+  id: alirezarezvani-claude-skills-engineering-autoresearch-agent-skills-resume-skill-md
+  name: resume
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Resume a paused experiment. Checkout the experiment branch, read results
+    history, continue iterating.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent/skills/resume
+  updated_at: '1773409139'
+- rank: 30
+  id: alirezarezvani-claude-skills-engineering-autoresearch-agent-skills-run-skill-md
+  name: run
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Run a single experiment iteration. Edit the target file, evaluate,
+    keep or discard.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent/skills/run
+  updated_at: '1773409139'
+- rank: 31
+  id: alirezarezvani-claude-skills-engineering-autoresearch-agent-skills-status-skill-md
+  name: status
+  author: alirezarezvani
+  stars: 7564
+  forks: 909
+  description: Show experiment dashboard with results, active loops, and progress.
+  github_url: https://github.com/alirezarezvani/claude-skills/tree/main/engineering/autoresearch-agent/skills/status
+  updated_at: '1773409139'
+- rank: 32
+  id: kreuzberg-dev-kreuzberg-ai-rulez-domains-document-extraction-skills-extraction-quality-testing-skill-md
+  name: extraction-quality-testing
+  author: kreuzberg-dev
+  stars: 7147
+  forks: 343
+  description: extraction quality testing
+  github_url: https://github.com/kreuzberg-dev/kreuzberg/tree/main/.ai-rulez/domains/document-extraction/skills/extraction-quality-testing
+  updated_at: '1774432188'
+- rank: 33
+  id: orchestra-research-ai-research-skills-13-mlops-swanlab-skill-md
+  name: experiment-tracking-swanlab
+  author: Orchestra-Research
+  stars: 5745
+  forks: 447
+  description: Provides guidance for experiment tracking with SwanLab. Use when you
+    need open-source run tracking, local or self-hosted dashboards, and lightweight
+    media logging for ML workflows.
+  github_url: https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/main/13-mlops/swanlab
+  updated_at: '1773659591'
+- rank: 34
+  id: orchestra-research-ai-research-skills-13-mlops-mlflow-skill-md
+  name: mlflow
+  author: Orchestra-Research
+  stars: 5745
+  forks: 447
+  description: Track ML experiments, manage model registry with versioning, deploy
+    models to production, and reproduce experiments with MLflow - framework-agnostic
+    ML lifecycle platform
+  github_url: https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/main/13-mlops/mlflow
+  updated_at: '1763679098'
+- rank: 35
+  id: orchestra-research-ai-research-skills-13-mlops-weights-and-biases-skill-md
+  name: weights-and-biases
+  author: Orchestra-Research
+  stars: 5745
+  forks: 447
+  description: Track ML experiments with automatic logging, visualize training in
+    real-time, optimize hyperparameters with sweeps, and manage model registry with
+    W&B - collaborative MLOps platform
+  github_url: https://github.com/Orchestra-Research/AI-Research-SKILLs/tree/main/13-mlops/weights-and-biases
+  updated_at: '1763679098'
+- rank: 36
+  id: thudm-slime-claude-skills-add-tests-and-ci-skill-md
+  name: add-tests-and-ci
+  author: THUDM
+  stars: 5012
+  forks: 673
+  description: Guide for adding or updating slime tests and CI wiring. Use when tasks
+    require new test cases, CI registration, test matrix updates, or workflow template
+    changes.
+  github_url: https://github.com/THUDM/slime/tree/main/.claude/skills/add-tests-and-ci
+  updated_at: '1772420503'
+- rank: 37
+  id: wanshuiyin-auto-claude-code-research-in-sleep-skills-analyze-results-skill-md
+  name: analyze-results
+  author: wanshuiyin
+  stars: 4472
+  forks: 356
+  description: Analyze ML experiment results, compute statistics, generate comparison
+    tables and insights. Use when user says "analyze results", "compare", or needs
+    to interpret experimental data.
+  github_url: https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/analyze-results
+  updated_at: '1773134437'
+- rank: 38
+  id: wanshuiyin-auto-claude-code-research-in-sleep-skills-skills-codex-analyze-results-skill-md
+  name: analyze-results
+  author: wanshuiyin
+  stars: 4472
+  forks: 356
+  description: Analyze ML experiment results, compute statistics, generate comparison
+    tables and insights. Use when user says "analyze results", "compare", or needs
+    to interpret experimental data.
+  github_url: https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/skills-codex/analyze-results
+  updated_at: '1773796523'
+- rank: 39
+  id: wanshuiyin-auto-claude-code-research-in-sleep-skills-monitor-experiment-skill-md
+  name: monitor-experiment
+  author: wanshuiyin
+  stars: 4472
+  forks: 356
+  description: Monitor running experiments, check progress, collect results. Use when
+    user says "check results", "is it done", "monitor", or wants experiment output.
+  github_url: https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/monitor-experiment
+  updated_at: '1773852675'
+- rank: 40
+  id: wanshuiyin-auto-claude-code-research-in-sleep-skills-skills-codex-monitor-experiment-skill-md
+  name: monitor-experiment
+  author: wanshuiyin
+  stars: 4472
+  forks: 356
+  description: Monitor running experiments, check progress, collect results. Use when
+    user says "check results", "is it done", "monitor", or wants experiment output.
+  github_url: https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/skills-codex/monitor-experiment
+  updated_at: '1773796523'
+- rank: 41
+  id: wanshuiyin-auto-claude-code-research-in-sleep-skills-result-to-claim-skill-md
+  name: result-to-claim
+  author: wanshuiyin
+  stars: 4472
+  forks: 356
+  description: Use when experiments complete to judge what claims the results support,
+    what they don't, and what evidence is still missing. Codex MCP evaluates results
+    against intended claims and routes to next action (pivot, supplement, or confirm).
+    Use after experiments finish — before writing the paper or running ablations.
+  github_url: https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/result-to-claim
+  updated_at: '1774199265'
+- rank: 42
+  id: wanshuiyin-auto-claude-code-research-in-sleep-skills-skills-codex-result-to-claim-skill-md
+  name: result-to-claim
+  author: wanshuiyin
+  stars: 4472
+  forks: 356
+  description: Use when experiments complete to judge what claims the results support,
+    what they do not, and what evidence is still missing. A secondary Codex agent
+    evaluates results against intended claims and routes to the next action (pivot,
+    supplement, or confirm). Use after experiments finish - before writing the paper
+    or running ablations.
+  github_url: https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/tree/main/skills/skills-codex/result-to-claim
+  updated_at: '1774428359'
+- rank: 43
+  id: mindfold-ai-trellis-packages-cli-src-templates-codex-skills-record-session-skill-md
+  name: record-session
+  author: mindfold-ai
+  stars: 4321
+  forks: 222
+  description: Records completed work progress to .trellis/workspace/ journal files
+    after human testing and commit. Captures session summaries, commit hashes, and
+    updates developer index files for future session context. Use when a coding session
+    is complete, after the human has committed code, or to persist session knowledge
+    for future AI sessions.
+  github_url: https://github.com/mindfold-ai/Trellis/tree/main/packages/cli/src/templates/codex/skills/record-session
+  updated_at: '1774229523'
+- rank: 44
+  id: mindfold-ai-trellis-packages-cli-src-templates-qoder-skills-record-session-skill-md
+  name: record-session
+  author: mindfold-ai
+  stars: 4321
+  forks: 222
+  description: Records completed work progress to .trellis/workspace/ journal files
+    after human testing and commit. Captures session summaries, commit hashes, and
+    updates developer index files for future session context. Use when a coding session
+    is complete, after the human has committed code, or to persist session knowledge
+    for future AI sessions.
+  github_url: https://github.com/mindfold-ai/Trellis/tree/main/packages/cli/src/templates/qoder/skills/record-session
+  updated_at: '1774229523'
+- rank: 45
+  id: donchitos-claude-code-game-studios-claude-skills-team-polish-skill-md
+  name: team-polish
+  author: Donchitos
+  stars: 3983
+  forks: 536
+  description: 'Orchestrate the polish team: coordinates performance-analyst, technical-artist,
+    sound-designer, and qa-tester to optimize, polish, and harden a feature or area
+    for release quality.'
+  github_url: https://github.com/Donchitos/Claude-Code-Game-Studios/tree/main/.claude/skills/team-polish
+  updated_at: '1771581155'
+- rank: 46
+  id: mukul975-anthropic-cybersecurity-skills-skills-collecting-volatile-evidence-from-compromised-host-skill-md
+  name: collecting-volatile-evidence-from-compromised-host
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Collect volatile forensic evidence from a compromised system following
+    order of volatility, preserving memory, network connections, processes, and system
+    state before they are lost.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/collecting-volatile-evidence-from-compromised-host
+  updated_at: '1773923209'
+- rank: 47
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-indicator-lifecycle-management-skill-md
+  name: performing-indicator-lifecycle-management
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Indicator lifecycle management tracks IOCs from initial discovery through
+    validation, enrichment, deployment, monitoring, and eventual retirement. This
+    skill covers implementing systematic processes f
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-indicator-lifecycle-management
+  updated_at: '1773923390'
+- rank: 48
+  id: mukul975-anthropic-cybersecurity-skills-skills-performing-mobile-device-forensics-with-cellebrite-skill-md
+  name: performing-mobile-device-forensics-with-cellebrite
+  author: mukul975
+  stars: 3788
+  forks: 388
+  description: Acquire and analyze mobile device data using Cellebrite UFED and open-source
+    tools to extract communications, location data, and application artifacts.
+  github_url: https://github.com/mukul975/Anthropic-Cybersecurity-Skills/tree/main/skills/performing-mobile-device-forensics-with-cellebrite
+  updated_at: '1773923209'
+- rank: 49
+  id: allenai-open-instruct-claude-skills-monitor-experiment-skill-md
+  name: monitor-experiment
+  author: allenai
+  stars: 3659
+  forks: 517
+  description: Monitor Beaker experiments until completion. Use when the user asks
+    to monitor, check, or track a Beaker experiment.
+  github_url: https://github.com/allenai/open-instruct/tree/main/.claude/skills/monitor-experiment
+  updated_at: '1768435335'
+- rank: 50
+  id: parcadei-continuous-claude-v3-claude-skills-wiring-skill-md
+  name: wiring
+  author: parcadei
+  stars: 3632
+  forks: 281
+  description: Wiring Verification
+  github_url: https://github.com/parcadei/Continuous-Claude-v3/tree/main/.claude/skills/wiring
+  updated_at: '1768010064'

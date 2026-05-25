@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "warehouse-sla-xlsx-transfer-throughput",
+  "taskRole": "transfer",
+  "title": "Transfer | 仓配 SLA 工作簿恢复",
+  "goal": "恢复 Excel 文件 `warehouse_sla_incomplete.xlsx` 中所有标记为 `???` 的缺失数值。需要利用仓配吞吐、年度 SLA 变化、各作业通道占比和产能复盘等多个工作表之间的约束，推导正确的数值并保存为 `warehouse_sla_completed.xlsx`。",
+  "primaryOutputFile": "warehouse_sla_completed.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet",
+  "skillBenefitRationale": "该任务把 xlsx 能力迁移到物流履约场景，核心仍然是编辑多工作表 Excel、恢复缺失数值并保持跨表一致性。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

@@ -1,0 +1,574 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: framework-internals
+subcategory_name: Framework Internals
+subcategory_skill_count: 5028
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=framework-internals
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 5028
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: vercel-next-js-agents-skills-flags-skill-md
+  name: flags
+  author: vercel
+  stars: 138509
+  forks: 30718
+  description: How to add or modify Next.js experimental feature flags end-to-end.
+    Use when editing config-shared.ts, config-schema.ts, define-env-plugin.ts, next-server.ts,
+    export/worker.ts, or module.compiled.js. Covers type declaration, zod schema,
+    build-time injection, runtime env plumbing, and the decision between runtime env-var
+    branching vs separate bundle variants.
+  github_url: https://github.com/vercel/next.js/tree/canary/.agents/skills/flags
+  updated_at: '1771263147'
+- rank: 2
+  id: microsoft-powertoys-github-skills-wpf-to-winui3-migration-skill-md
+  name: wpf-to-winui3-migration
+  author: microsoft
+  stars: 131068
+  forks: 7827
+  description: 'Guide for migrating PowerToys modules from WPF to WinUI 3 (Windows
+    App SDK). Use when asked to migrate WPF code, convert WPF XAML to WinUI, replace
+    System.Windows namespaces with Microsoft.UI.Xaml, update Dispatcher to DispatcherQueue,
+    replace DynamicResource with ThemeResource, migrate imaging APIs from System.Windows.Media.Imaging
+    to Windows.Graphics.Imaging, convert WPF Window to WinUI Window, migrate .resx
+    to .resw resources, migrate custom Observable/RelayCommand to CommunityToolkit.Mvvm
+    source generators, handle WPF-UI (Lepo) to WinUI native control migration, or
+    fix installer/build pipeline issues after migration. Keywords: WPF, WinUI, WinUI3,
+    migration, porting, convert, namespace, XAML, Dispatcher, DispatcherQueue, imaging,
+    BitmapImage, Window, ContentDialog, ThemeResource, DynamicResource, ResourceLoader,
+    resw, resx, CommunityToolkit, ObservableProperty, WPF-UI, SizeToContent, AppWindow,
+    SoftwareBitmap.'
+  github_url: https://github.com/microsoft/PowerToys/tree/main/.github/skills/wpf-to-winui3-migration
+  updated_at: '1774345233'
+- rank: 3
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-pytorch-patterns-skill-md
+  name: pytorch-patterns
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: PyTorch深度学习模式与最佳实践，用于构建稳健、高效且可复现的训练流程、模型架构和数据加载。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/pytorch-patterns
+  updated_at: '1774068958'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-zh-cn-skills-regex-vs-llm-structured-text-skill-md
+  name: regex-vs-llm-structured-text
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 选择在解析结构化文本时使用正则表达式还是大型语言模型的决策框架——从正则表达式开始，仅在低置信度的边缘情况下添加大型语言模型。
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/zh-CN/skills/regex-vs-llm-structured-text
+  updated_at: '1774219164'
+- rank: 5
+  id: pytorch-pytorch-claude-skills-add-uint-support-skill-md
+  name: add-uint-support
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Add unsigned integer (uint) type support to PyTorch operators by updating
+    AT_DISPATCH macros. Use when adding support for uint16, uint32, uint64 types to
+    operators, kernels, or when user mentions enabling unsigned types, barebones unsigned
+    types, or uint support.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/add-uint-support
+  updated_at: '1762119379'
+- rank: 6
+  id: pytorch-pytorch-claude-skills-aoti-debug-skill-md
+  name: aoti-debug
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Debug AOTInductor (AOTI) errors and crashes. Use when encountering
+    AOTI segfaults, device mismatch errors, constant loading failures, or runtime
+    errors from aot_compile, aot_load, aoti_compile_and_package, or aoti_load_package.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/aoti-debug
+  updated_at: '1771637658'
+- rank: 7
+  id: pytorch-pytorch-claude-skills-at-dispatch-v2-skill-md
+  name: at-dispatch-v2
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Convert PyTorch AT_DISPATCH macros to AT_DISPATCH_V2 format in ATen
+    C++ code. Use when porting AT_DISPATCH_ALL_TYPES_AND*, AT_DISPATCH_FLOATING_TYPES*,
+    or other dispatch macros to the new v2 API. For ATen kernel files, CUDA kernels,
+    and native operator implementations.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/at-dispatch-v2
+  updated_at: '1762119379'
+- rank: 8
+  id: pytorch-pytorch-claude-skills-metal-kernel-skill-md
+  name: metal-kernel
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Write Metal/MPS kernels for PyTorch operators. Use when adding MPS
+    device support to operators, implementing Metal shaders, or porting CUDA kernels
+    to Apple Silicon. Covers native_functions.yaml dispatch, host-side operators,
+    and Metal kernel implementation.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/metal-kernel
+  updated_at: '1773863476'
+- rank: 9
+  id: pytorch-pytorch-claude-skills-pt2-bug-basher-skill-md
+  name: pt2-bug-basher
+  author: pytorch
+  stars: 98612
+  forks: 27330
+  description: Debug PyTorch 2 compiler stack failures including Dynamo graph breaks,
+    Inductor codegen errors, AOTAutograd crashes, and accuracy mismatches. Use when
+    encountering torch.compile errors, BackendCompilerFailed exceptions, recompilation
+    issues, Triton kernel failures, FX graph problems, or when the user mentions debugging
+    PT2, Dynamo, Inductor, or compiled model issues.
+  github_url: https://github.com/pytorch/pytorch/tree/main/.claude/skills/pt2-bug-basher
+  updated_at: '1772675073'
+- rank: 10
+  id: oven-sh-bun-claude-skills-implementing-jsc-classes-cpp-skill-md
+  name: implementing-jsc-classes-cpp
+  author: oven-sh
+  stars: 88438
+  forks: 4225
+  description: Implements JavaScript classes in C++ using JavaScriptCore. Use when
+    creating new JS classes with C++ bindings, prototypes, or constructors.
+  github_url: https://github.com/oven-sh/bun/tree/main/.claude/skills/implementing-jsc-classes-cpp
+  updated_at: '1766648246'
+- rank: 11
+  id: oven-sh-bun-claude-skills-implementing-jsc-classes-zig-skill-md
+  name: implementing-jsc-classes-zig
+  author: oven-sh
+  stars: 88438
+  forks: 4225
+  description: Creates JavaScript classes using Bun's Zig bindings generator (.classes.ts).
+    Use when implementing new JS APIs in Zig with JSC integration.
+  github_url: https://github.com/oven-sh/bun/tree/main/.claude/skills/implementing-jsc-classes-zig
+  updated_at: '1766648246'
+- rank: 12
+  id: discourse-discourse-skills-discourse-upcoming-changes-authoring-skill-md
+  name: discourse-upcoming-changes-authoring
+  author: discourse
+  stars: 46649
+  forks: 8858
+  description: Use when modifying, debugging, or extending the upcoming changes framework
+    code and system itself.
+  github_url: https://github.com/discourse/discourse/tree/main/.skills/discourse-upcoming-changes-authoring
+  updated_at: '1774578732'
+- rank: 13
+  id: wshobson-agents-plugins-systems-programming-skills-memory-safety-patterns-skill-md
+  name: memory-safety-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Implement memory-safe programming with RAII, ownership, smart pointers,
+    and resource management across Rust, C++, and C. Use when writing safe systems
+    code, managing resources, or preventing memory bugs.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/systems-programming/skills/memory-safety-patterns
+  updated_at: '1772898797'
+- rank: 14
+  id: sickn33-antigravity-awesome-skills-skills-arm-cortex-expert-skill-md
+  name: arm-cortex-expert
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Senior embedded software engineer specializing in firmware and driver
+    development for ARM Cortex-M microcontrollers (Teensy, STM32, nRF52, SAMD).
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/arm-cortex-expert
+  updated_at: '1772354305'
+- rank: 15
+  id: sickn33-antigravity-awesome-skills-skills-context-optimization-skill-md
+  name: context-optimization
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Context optimization extends the effective capacity of limited context
+    windows through strategic compression, masking, caching, and partitioning. The
+    goal is not to magically increase context windows but to make better use of available
+    capacity.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/context-optimization
+  updated_at: '1773994629'
+- rank: 16
+  id: sickn33-antigravity-awesome-skills-skills-error-handling-patterns-skill-md
+  name: error-handling-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build resilient applications with robust error handling strategies
+    that gracefully handle failures and provide excellent debugging experiences.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/error-handling-patterns
+  updated_at: '1773994005'
+- rank: 17
+  id: sickn33-antigravity-awesome-skills-skills-fp-ts-errors-skill-md
+  name: fp-ts-errors
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Handle errors as values using fp-ts Either and TaskEither for cleaner,
+    more predictable TypeScript code. Use when implementing error handling patterns
+    with fp-ts.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fp-ts-errors
+  updated_at: '1772180381'
+- rank: 18
+  id: sickn33-antigravity-awesome-skills-skills-llm-prompt-optimizer-skill-md
+  name: llm-prompt-optimizer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Use when improving prompts for any LLM. Applies proven prompt engineering
+    techniques to boost output quality, reduce hallucinations, and cut token usage.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/llm-prompt-optimizer
+  updated_at: '1772644025'
+- rank: 19
+  id: sickn33-antigravity-awesome-skills-skills-local-llm-expert-skill-md
+  name: local-llm-expert
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master local LLM inference, model selection, VRAM optimization, and
+    local deployment using Ollama, llama.cpp, vLLM, and LM Studio. Expert in quantization
+    formats (GGUF, EXL2) and local AI privacy.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/local-llm-expert
+  updated_at: '1773241342'
+- rank: 20
+  id: sickn33-antigravity-awesome-skills-skills-ml-engineer-skill-md
+  name: ml-engineer
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Build production ML systems with PyTorch 2.x, TensorFlow, and modern
+    ML frameworks. Implements model serving, feature engineering, A/B testing, and
+    monitoring.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/ml-engineer
+  updated_at: '1772354305'
+- rank: 21
+  id: sickn33-antigravity-awesome-skills-skills-modern-javascript-patterns-skill-md
+  name: modern-javascript-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Comprehensive guide for mastering modern JavaScript (ES6+) features,
+    functional programming patterns, and best practices for writing clean, maintainable,
+    and performant code.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/modern-javascript-patterns
+  updated_at: '1773994005'
+- rank: 22
+  id: sickn33-antigravity-awesome-skills-skills-qiskit-skill-md
+  name: qiskit
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Qiskit is the world's most popular open-source quantum computing framework
+    with 13M+ downloads. Build quantum circuits, optimize for hardware, execute on
+    simulators or real quantum computers, and analyze results. Supports IBM Quantum
+    (100+ qubit systems), IonQ, Amazon Braket, and other providers.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/qiskit
+  updated_at: '1773994629'
+- rank: 23
+  id: sickn33-antigravity-awesome-skills-skills-unreal-engine-cpp-pro-skill-md
+  name: unreal-engine-cpp-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Expert guide for Unreal Engine 5.x C++ development, covering UObject
+    hygiene, performance patterns, and best practices.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/unreal-engine-cpp-pro
+  updated_at: '1773994005'
+- rank: 24
+  id: github-awesome-copilot-skills-create-implementation-plan-skill-md
+  name: create-implementation-plan
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Create a new implementation plan file for new features, refactoring
+    existing code or upgrading packages, design, architecture or infrastructure.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/create-implementation-plan
+  updated_at: '1771904373'
+- rank: 25
+  id: github-awesome-copilot-skills-csharp-async-skill-md
+  name: csharp-async
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Get best practices for C# async programming
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/csharp-async
+  updated_at: '1771904373'
+- rank: 26
+  id: github-awesome-copilot-skills-dotnet-upgrade-skill-md
+  name: dotnet-upgrade
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Ready-to-use prompts for comprehensive .NET framework upgrade analysis
+    and execution
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/dotnet-upgrade
+  updated_at: '1771904373'
+- rank: 27
+  id: github-awesome-copilot-skills-ef-core-skill-md
+  name: ef-core
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Get best practices for Entity Framework Core
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/ef-core
+  updated_at: '1771904373'
+- rank: 28
+  id: github-awesome-copilot-skills-multi-stage-dockerfile-skill-md
+  name: multi-stage-dockerfile
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Create optimized multi-stage Dockerfiles for any language or framework
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/multi-stage-dockerfile
+  updated_at: '1771904373'
+- rank: 29
+  id: github-awesome-copilot-skills-refactor-method-complexity-reduce-skill-md
+  name: refactor-method-complexity-reduce
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Refactor given method `${input:methodName}` to reduce its cognitive
+    complexity to `${input:complexityThreshold}` or below, by extracting helper methods.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/refactor-method-complexity-reduce
+  updated_at: '1771904373'
+- rank: 30
+  id: github-awesome-copilot-skills-semantic-kernel-skill-md
+  name: semantic-kernel
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Create, update, refactor, explain, or review Semantic Kernel solutions
+    using shared guidance plus language-specific references for .NET and Python.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/semantic-kernel
+  updated_at: '1773617274'
+- rank: 31
+  id: sgl-project-sglang-claude-skills-add-jit-kernel-skill-md
+  name: add-jit-kernel
+  author: sgl-project
+  stars: 25043
+  forks: 5037
+  description: Step-by-step tutorial for adding a new lightweight JIT CUDA kernel
+    to sglang's jit_kernel module
+  github_url: https://github.com/sgl-project/sglang/tree/main/.claude/skills/add-jit-kernel
+  updated_at: '1774334316'
+- rank: 32
+  id: sgl-project-sglang-claude-skills-add-sgl-kernel-skill-md
+  name: add-sgl-kernel
+  author: sgl-project
+  stars: 25043
+  forks: 5037
+  description: Step-by-step tutorial for adding a heavyweight AOT CUDA/C++ kernel
+    to sgl-kernel (including tests & benchmarks)
+  github_url: https://github.com/sgl-project/sglang/tree/main/.claude/skills/add-sgl-kernel
+  updated_at: '1774288130'
+- rank: 33
+  id: sgl-project-sglang-python-sglang-multimodal-gen-claude-skills-sglang-diffusion-cuda-kernel-skill-md
+  name: sglang-diffusion-cuda-kernel
+  author: sgl-project
+  stars: 25043
+  forks: 5037
+  description: Use when writing or tuning a JIT CUDA diffusion kernel in SGLang.
+  github_url: https://github.com/sgl-project/sglang/tree/main/python/sglang/multimodal_gen/.claude/skills/sglang-diffusion-cuda-kernel
+  updated_at: '1774334316'
+- rank: 34
+  id: sgl-project-sglang-python-sglang-multimodal-gen-claude-skills-sglang-diffusion-triton-kernel-skill-md
+  name: sglang-diffusion-triton-kernel
+  author: sgl-project
+  stars: 25043
+  forks: 5037
+  description: Use when writing or tuning a Triton diffusion kernel in SGLang.
+  github_url: https://github.com/sgl-project/sglang/tree/main/python/sglang/multimodal_gen/.claude/skills/sglang-diffusion-triton-kernel
+  updated_at: '1774334316'
+- rank: 35
+  id: v8-v8-agents-skills-torque-skill-md
+  name: torque
+  author: v8
+  stars: 24945
+  forks: 4248
+  description: Expert guidance for navigating, implementing, and verifying V8 Torque
+    (.tq) builtins and object layouts.
+  github_url: https://github.com/v8/v8/tree/main/agents/skills/torque
+  updated_at: '1773667305'
+- rank: 36
+  id: paddlepaddle-paddle-agents-skills-paddle-design-compiler-skill-md
+  name: paddle-design-compiler
+  author: PaddlePaddle
+  stars: 23784
+  forks: 5977
+  description: 'Use when working with Paddle 3.0 compiler full pipeline: SOT (Symbolic
+    Opcode Translator) for bytecode-level dy2st graph capture, PIR (Paddle IR) for
+    SSA-based intermediate representation, CINN for fused CUDA kernel generation,
+    operator decomposition (Prim), or the end-to-end flow from Python eager code to
+    optimized GPU execution.'
+  github_url: https://github.com/PaddlePaddle/Paddle/tree/develop/.agents/skills/paddle-design-compiler
+  updated_at: '1774538844'
+- rank: 37
+  id: paddlepaddle-paddle-agents-skills-paddle-design-phi-kernel-skill-md
+  name: paddle-phi-kernel
+  author: PaddlePaddle
+  stars: 23784
+  forks: 5977
+  description: 'Use when working with Paddle''s PHI kernel system: registering new
+    kernels, debugging kernel selection/dispatch, understanding code auto-generation
+    from YAML, or implementing operator decomposition via the combination mechanism.'
+  github_url: https://github.com/PaddlePaddle/Paddle/tree/develop/.agents/skills/paddle-design-phi-kernel
+  updated_at: '1774538844'
+- rank: 38
+  id: superclaude-org-superclaude-framework-plugins-superclaude-skills-token-efficiency-skill-md
+  name: token-efficiency
+  author: SuperClaude-Org
+  stars: 21998
+  forks: 1863
+  description: Activate ultra-compressed output mode for maximum token efficiency.
+    Use when context is running low, user requests brevity, or dealing with large-scale
+    operations.
+  github_url: https://github.com/SuperClaude-Org/SuperClaude_Framework/tree/master/plugins/superclaude/skills/token-efficiency
+  updated_at: '1774200817'
+- rank: 39
+  id: comet-ml-opik-agents-skills-python-sdk-skill-md
+  name: python-sdk
+  author: comet-ml
+  stars: 18525
+  forks: 1416
+  description: Python SDK patterns for Opik. Use when working in sdks/python, on SDK
+    APIs, integrations, or message processing.
+  github_url: https://github.com/comet-ml/opik/tree/main/.agents/skills/python-sdk
+  updated_at: '1769707556'
+- rank: 40
+  id: comet-ml-opik-agents-skills-typescript-sdk-skill-md
+  name: typescript-sdk
+  author: comet-ml
+  stars: 18525
+  forks: 1416
+  description: TypeScript SDK patterns for Opik. Use when working in sdks/typescript.
+  github_url: https://github.com/comet-ml/opik/tree/main/.agents/skills/typescript-sdk
+  updated_at: '1771945584'
+- rank: 41
+  id: dotnet-runtime-github-skills-add-new-jit-ee-api-skill-md
+  name: add-new-jit-ee-api
+  author: dotnet
+  stars: 17737
+  forks: 5394
+  description: Add a new API to the JIT-VM (aka JIT-EE) interface in the codebase.
+  github_url: https://github.com/dotnet/runtime/tree/main/.github/skills/add-new-jit-ee-api
+  updated_at: '1770132992'
+- rank: 42
+  id: k-dense-ai-claude-scientific-skills-scientific-skills-pennylane-skill-md
+  name: pennylane
+  author: K-Dense-AI
+  stars: 16521
+  forks: 1807
+  description: Hardware-agnostic quantum ML framework with automatic differentiation.
+    Use when training quantum circuits via gradients, building hybrid quantum-classical
+    models, or needing device portability across IBM/Google/Rigetti/IonQ. Best for
+    variational algorithms (VQE, QAOA), quantum neural networks, and integration with
+    PyTorch/JAX/TensorFlow. For hardware-specific optimizations use qiskit (IBM) or
+    cirq (Google); for open quantum systems use qutip.
+  github_url: https://github.com/K-Dense-AI/claude-scientific-skills/tree/main/scientific-skills/pennylane
+  updated_at: '1772554803'
+- rank: 43
+  id: rightnow-ai-openfang-crates-openfang-skills-bundled-golang-expert-skill-md
+  name: golang-expert
+  author: RightNow-AI
+  stars: 15792
+  forks: 1948
+  description: Go programming expert for goroutines, channels, interfaces, modules,
+    and concurrency patterns
+  github_url: https://github.com/RightNow-AI/openfang/tree/main/crates/openfang-skills/bundled/golang-expert
+  updated_at: '1772056827'
+- rank: 44
+  id: nousresearch-hermes-agent-skills-mlops-training-torchtitan-skill-md
+  name: distributed-llm-pretraining-torchtitan
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Provides PyTorch-native distributed LLM pretraining using torchtitan
+    with 4D parallelism (FSDP2, TP, PP, CP). Use when pretraining Llama 3.1, DeepSeek
+    V3, or custom models at scale from 8 to 512+ GPUs with Float8, torch.compile,
+    and distributed checkpointing.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/mlops/training/torchtitan
+  updated_at: '1773052553'
+- rank: 45
+  id: nousresearch-hermes-agent-skills-mlops-training-accelerate-skill-md
+  name: huggingface-accelerate
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Simplest distributed training API. 4 lines to add distributed support
+    to any PyTorch script. Unified API for DeepSpeed/FSDP/Megatron/DDP. Automatic
+    device placement, mixed precision (FP16/BF16/FP8). Interactive config, single
+    launch command. HuggingFace ecosystem standard.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/mlops/training/accelerate
+  updated_at: '1773052553'
+- rank: 46
+  id: nousresearch-hermes-agent-skills-mlops-training-flash-attention-skill-md
+  name: optimizing-attention-flash
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Optimizes transformer attention with Flash Attention for 2-4x speedup
+    and 10-20x memory reduction. Use when training/running transformers with long
+    sequences (>512 tokens), encountering GPU memory issues with attention, or need
+    faster inference. Supports PyTorch native SDPA, flash-attn library, H100 FP8,
+    and sliding window attention.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/mlops/training/flash-attention
+  updated_at: '1773052553'
+- rank: 47
+  id: nousresearch-hermes-agent-skills-mlops-training-pytorch-lightning-skill-md
+  name: pytorch-lightning
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: High-level PyTorch framework with Trainer class, automatic distributed
+    training (DDP/FSDP/DeepSpeed), callbacks system, and minimal boilerplate. Scales
+    from laptop to supercomputer with same code. Use when you want clean training
+    loops with built-in best practices.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/mlops/training/pytorch-lightning
+  updated_at: '1773052553'
+- rank: 48
+  id: nousresearch-hermes-agent-skills-mlops-inference-tensorrt-llm-skill-md
+  name: tensorrt-llm
+  author: NousResearch
+  stars: 14924
+  forks: 1806
+  description: Optimizes LLM inference with NVIDIA TensorRT for maximum throughput
+    and lowest latency. Use for production deployment on NVIDIA GPUs (A100/H100),
+    when you need 10-100x faster inference than PyTorch, or for serving models with
+    quantization (FP8/INT4), in-flight batching, and multi-GPU scaling.
+  github_url: https://github.com/NousResearch/hermes-agent/tree/main/skills/mlops/inference/tensorrt-llm
+  updated_at: '1773052553'
+- rank: 49
+  id: dotnet-efcore-agents-skills-tooling-skill-md
+  name: tooling
+  author: dotnet
+  stars: 14610
+  forks: 3366
+  description: Implementation details for the EF Core dotnet-ef CLI and tooling. Use
+    when changing dotnet-ef commands, the ef wrapper, EFCore.Tools (PMC), or EFCore.Tasks
+    MSBuild integration.
+  github_url: https://github.com/dotnet/efcore/tree/main/.agents/skills/tooling
+  updated_at: '1773448335'
+- rank: 50
+  id: marko-js-marko-skills-marko-best-practices-skill-md
+  name: marko-best-practices
+  author: marko-js
+  stars: 14354
+  forks: 669
+  description: Apply Marko syntax and best practices when editing `.marko` files and
+    building Marko components.
+  github_url: https://github.com/marko-js/marko/tree/main/skills/marko-best-practices
+  updated_at: '1771453278'

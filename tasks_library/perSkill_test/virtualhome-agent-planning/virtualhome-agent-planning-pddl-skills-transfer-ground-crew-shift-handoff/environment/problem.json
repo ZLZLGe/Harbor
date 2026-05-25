@@ -1,0 +1,14 @@
+[
+  {
+    "id": "handoff_task05",
+    "domain": "airport/domain05.pddl",
+    "problem": "airport/task05.pddl",
+    "plan_output": "/root/plans/handoff_shift_task05.plan"
+  },
+  {
+    "id": "handoff_task06",
+    "domain": "airport/domain06.pddl",
+    "problem": "airport/task06.pddl",
+    "plan_output": "/root/plans/handoff_shift_task06.plan"
+  }
+]

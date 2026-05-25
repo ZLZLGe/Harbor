@@ -1,0 +1,41 @@
+{
+  "taskResults": [
+    {
+      "derivedTaskId": "virtualhome-agent-planning-pddl-skills-similar-airport-dispatch-baseline",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true
+    },
+    {
+      "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-turnaround-wave-scheduling",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true
+    },
+    {
+      "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-ground-crew-shift-handoff",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true
+    },
+    {
+      "derivedTaskId": "virtualhome-agent-planning-pddl-skills-transfer-contingency-reroute-pack",
+      "pass": true,
+      "issues": [],
+      "visibilityPass": true,
+      "skillBenefitPass": true,
+      "testabilityPass": true
+    }
+  ],
+  "familyObservations": {
+    "issues": [],
+    "diversityPass": true,
+    "roleLayoutPass": true
+  }
+}

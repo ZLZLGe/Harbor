@@ -1,0 +1,12 @@
+{
+  "derivedTaskId": "transit-budget-xlsx-similar-recovery",
+  "taskRole": "similar",
+  "title": "Similar | 城市公交预算工作簿恢复",
+  "goal": "恢复 Excel 文件 `city_transit_budget_incomplete.xlsx` 中所有标记为 `???` 的缺失数值。需要利用线路预算、年度变化率、项目占比和资本复盘等多个工作表之间的约束，推导正确的数值并保存为 `city_transit_budget_recovered.xlsx`。",
+  "primaryOutputFile": "city_transit_budget_recovered.xlsx",
+  "difficulty": "medium",
+  "category": "spreadsheet",
+  "skillBenefitRationale": "该任务保留了源任务最典型的 xlsx 使用方式：分析多工作表之间的数值链路，恢复缺失单元格，并输出新的 Excel 文件。完成任务只依赖 workbook 读取、编辑与校验能力。",
+  "targetSkillDirName": "xlsx",
+  "targetSkillName": "xlsx"
+}

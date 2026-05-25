@@ -1,0 +1,574 @@
+generated_at: '2026-03-30T10:16:00+00:00'
+source:
+  marketplace: skillsmp
+  categories_url: https://skillsmp.com/categories
+  skills_api_url: https://skillsmp.com/api/skills
+  sort: stars_desc
+  tie_breaker: forks_desc_then_name_asc_then_id_asc
+  requested_limit_per_subcategory: 50
+category_slug: development
+category_name: Development
+category_skill_count: 115116
+subcategory_slug: scripting
+subcategory_name: Scripting
+subcategory_skill_count: 9874
+source_url: https://skillsmp.com/api/skills?page=1&limit=50&sortBy=stars&category=scripting
+sort: stars_desc
+tie_breaker: forks_desc_then_name_asc_then_id_asc
+requested_limit: 50
+fetched_count: 50
+pagination:
+  page: 1
+  limit: 50
+  total: 5000
+  total_pages: 100
+  has_next: true
+  has_prev: false
+  total_all: 9874
+  is_capped: true
+  max_results: 5000
+skills:
+- rank: 1
+  id: openclaw-openclaw-skills-coding-agent-skill-md
+  name: coding-agent
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: 'Delegate coding tasks to Codex, Claude Code, or Pi agents via background
+    process. Use when: (1) building/creating new features or apps, (2) reviewing PRs
+    (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that
+    needs file exploration. NOT for: simple one-liner fixes (just edit), reading code
+    (use read tool), thread-bound ACP harness requests in chat (for example spawn/run
+    Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:"acp"),
+    or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print
+    --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.'
+  github_url: https://github.com/openclaw/openclaw/tree/main/skills/coding-agent
+  updated_at: '1774333273'
+- rank: 2
+  id: openclaw-openclaw-extensions-open-prose-skills-prose-skill-md
+  name: prose
+  author: openclaw
+  stars: 339131
+  forks: 66739
+  description: OpenProse VM skill pack. Activate on any `prose` command, .prose files,
+    or OpenProse mentions; orchestrates multi-agent workflows.
+  github_url: https://github.com/openclaw/openclaw/tree/main/extensions/open-prose/skills/prose
+  updated_at: '1773433179'
+- rank: 3
+  id: affaan-m-everything-claude-code-agents-skills-strategic-compact-skill-md
+  name: strategic-compact
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Suggests manual context compaction at logical intervals to preserve
+    context through task phases rather than arbitrary auto-compaction.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/.agents/skills/strategic-compact
+  updated_at: '1772045129'
+- rank: 4
+  id: affaan-m-everything-claude-code-docs-ko-kr-skills-strategic-compact-skill-md
+  name: strategic-compact
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: 임의의 자동 컴팩션 대신 논리적 간격에서 수동 컨텍스트 압축을 제안하여 작업 단계를 통해 컨텍스트를 보존합니다.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/docs/ko-KR/skills/strategic-compact
+  updated_at: '1773386274'
+- rank: 5
+  id: affaan-m-everything-claude-code-skills-strategic-compact-skill-md
+  name: strategic-compact
+  author: affaan-m
+  stars: 113714
+  forks: 14798
+  description: Suggests manual context compaction at logical intervals to preserve
+    context through task phases rather than arbitrary auto-compaction.
+  github_url: https://github.com/affaan-m/everything-claude-code/tree/main/skills/strategic-compact
+  updated_at: '1773352145'
+- rank: 6
+  id: oven-sh-bun-claude-skills-zig-system-calls-skill-md
+  name: zig-system-calls
+  author: oven-sh
+  stars: 88438
+  forks: 4225
+  description: Guides using bun.sys for system calls and file I/O in Zig. Use when
+    implementing file operations instead of std.fs or std.posix.
+  github_url: https://github.com/oven-sh/bun/tree/main/.claude/skills/zig-system-calls
+  updated_at: '1766648246'
+- rank: 7
+  id: openai-codex-codex-skills-remote-tests-skill-md
+  name: remote-tests
+  author: openai
+  stars: 68113
+  forks: 9132
+  description: How to run tests using remote executor.
+  github_url: https://github.com/openai/codex/tree/main/.codex/skills/remote-tests
+  updated_at: '1774028277'
+- rank: 8
+  id: code-yeongyu-oh-my-openagent-src-features-builtin-skills-dev-browser-skill-md
+  name: dev-browser
+  author: code-yeongyu
+  stars: 44356
+  forks: 3299
+  description: Browser automation with persistent page state. Use when users ask to
+    navigate websites, fill forms, take screenshots, extract web data, test web apps,
+    or automate browser workflows. Trigger phrases include "go to [url]", "click on",
+    "fill out the form", "take a screenshot", "scrape", "automate", "test the website",
+    "log into", or any browser interaction request.
+  github_url: https://github.com/code-yeongyu/oh-my-openagent/tree/dev/src/features/builtin-skills/dev-browser
+  updated_at: '1769322847'
+- rank: 9
+  id: bmad-code-org-bmad-method-src-bmm-skills-4-implementation-bmad-dev-story-skill-md
+  name: bmad-dev-story
+  author: bmad-code-org
+  stars: 42650
+  forks: 5128
+  description: Execute story implementation following a context filled story spec
+    file. Use when the user says "dev this story [story file]" or "implement the next
+    story in the sprint plan"
+  github_url: https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/bmm-skills/4-implementation/bmad-dev-story
+  updated_at: '1774073483'
+- rank: 10
+  id: zhayujie-chatgpt-on-wechat-skills-linkai-agent-skill-md
+  name: linkai-agent
+  author: zhayujie
+  stars: 42603
+  forks: 9863
+  description: Call LinkAI applications and workflows. Use bash with curl to invoke
+    the chat completions API.
+  github_url: https://github.com/zhayujie/chatgpt-on-wechat/tree/master/skills/linkai-agent
+  updated_at: '1774514982'
+- rank: 11
+  id: thedotmack-claude-mem-plugin-skills-do-skill-md
+  name: do
+  author: thedotmack
+  stars: 41826
+  forks: 3110
+  description: Execute a phased implementation plan using subagents. Use when asked
+    to execute, run, or carry out a plan — especially one created by make-plan.
+  github_url: https://github.com/thedotmack/claude-mem/tree/main/plugin/skills/do
+  updated_at: '1771902501'
+- rank: 12
+  id: hkuds-nanobot-nanobot-skills-cron-skill-md
+  name: cron
+  author: HKUDS
+  stars: 36735
+  forks: 6314
+  description: Schedule reminders and recurring tasks.
+  github_url: https://github.com/HKUDS/nanobot/tree/main/nanobot/skills/cron
+  updated_at: '1771317052'
+- rank: 13
+  id: patchy631-ai-engineering-hub-hugging-face-skills-skills-hugging-face-tool-builder-skill-md
+  name: hugging-face-tool-builder
+  author: patchy631
+  stars: 32771
+  forks: 5433
+  description: Use this skill when the user wants to build tool/scripts or achieve
+    a task where using data from the Hugging Face API would help. This is especially
+    useful when chaining or combining API calls or the task will be repeated/automated.
+    This Skill creates a reusable script to fetch, enrich or process data.
+  github_url: https://github.com/patchy631/ai-engineering-hub/tree/main/hugging-face-skills/skills/hugging-face-tool-builder
+  updated_at: '1769157944'
+- rank: 14
+  id: wshobson-agents-plugins-data-engineering-skills-airflow-dag-patterns-skill-md
+  name: airflow-dag-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build production Apache Airflow DAGs with best practices for operators,
+    sensors, testing, and deployment. Use when creating data pipelines, orchestrating
+    workflows, or scheduling batch jobs.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/data-engineering/skills/airflow-dag-patterns
+  updated_at: '1772898797'
+- rank: 15
+  id: wshobson-agents-plugins-python-development-skills-async-python-patterns-skill-md
+  name: async-python-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Python asyncio, concurrent programming, and async/await patterns
+    for high-performance applications. Use when building async APIs, concurrent systems,
+    or I/O-bound applications requiring non-blocking operations.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/async-python-patterns
+  updated_at: '1772898797'
+- rank: 16
+  id: wshobson-agents-plugins-shell-scripting-skills-bash-defensive-patterns-skill-md
+  name: bash-defensive-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master defensive Bash programming techniques for production-grade scripts.
+    Use when writing robust shell scripts, CI/CD pipelines, or system utilities requiring
+    fault tolerance and safety.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/shell-scripting/skills/bash-defensive-patterns
+  updated_at: '1772898797'
+- rank: 17
+  id: wshobson-agents-plugins-shell-scripting-skills-bats-testing-patterns-skill-md
+  name: bats-testing-patterns
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master Bash Automated Testing System (Bats) for comprehensive shell
+    script testing. Use when writing tests for shell scripts, CI/CD pipelines, or
+    requiring test-driven development of shell utilities.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/shell-scripting/skills/bats-testing-patterns
+  updated_at: '1772898797'
+- rank: 18
+  id: wshobson-agents-plugins-payment-processing-skills-billing-automation-skill-md
+  name: billing-automation
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Build automated billing systems for recurring payments, invoicing,
+    subscription lifecycle, and dunning management. Use when implementing subscription
+    billing, automating invoicing, or managing recurring payment systems.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/payment-processing/skills/billing-automation
+  updated_at: '1772898797'
+- rank: 19
+  id: wshobson-agents-plugins-cicd-automation-skills-github-actions-templates-skill-md
+  name: github-actions-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create production-ready GitHub Actions workflows for automated testing,
+    building, and deploying applications. Use when setting up CI/CD with GitHub Actions,
+    automating development workflows, or creating reusable workflow templates.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/cicd-automation/skills/github-actions-templates
+  updated_at: '1772898797'
+- rank: 20
+  id: wshobson-agents-plugins-incident-response-skills-incident-runbook-templates-skill-md
+  name: incident-runbook-templates
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Create structured incident response runbooks with step-by-step procedures,
+    escalation paths, and recovery actions. Use this skill when building a service
+    outage runbook for a payment processing system; creating database incident procedures
+    covering connection pool exhaustion, replication lag, and disk space alerts; onboarding
+    new on-call engineers who need step-by-step recovery guides written for a 3 AM
+    brain; or standardizing escalation matrices across multiple engineering teams.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/incident-response/skills/incident-runbook-templates
+  updated_at: '1774541149'
+- rank: 21
+  id: wshobson-agents-plugins-python-development-skills-python-background-jobs-skill-md
+  name: python-background-jobs
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python background job patterns including task queues, workers, and
+    event-driven architecture. Use when implementing async task processing, job queues,
+    long-running operations, or decoupling work from request/response cycles.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-background-jobs
+  updated_at: '1769791934'
+- rank: 22
+  id: wshobson-agents-plugins-python-development-skills-python-resource-management-skill-md
+  name: python-resource-management
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Python resource management with context managers, cleanup patterns,
+    and streaming. Use when managing connections, file handles, implementing cleanup
+    logic, or building streaming responses with accumulated state.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/python-resource-management
+  updated_at: '1769791934'
+- rank: 23
+  id: wshobson-agents-plugins-agent-teams-skills-task-coordination-strategies-skill-md
+  name: task-coordination-strategies
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Decompose complex tasks, design dependency graphs, and coordinate multi-agent
+    work with proper task descriptions and workload balancing. Use this skill when
+    breaking down work for agent teams, managing task dependencies, or monitoring
+    team progress.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/agent-teams/skills/task-coordination-strategies
+  updated_at: '1770331350'
+- rank: 24
+  id: wshobson-agents-plugins-python-development-skills-uv-package-manager-skill-md
+  name: uv-package-manager
+  author: wshobson
+  stars: 32441
+  forks: 3535
+  description: Master the uv package manager for fast Python dependency management,
+    virtual environments, and modern Python project workflows. Use when setting up
+    Python projects, managing dependencies, or optimizing Python development workflows
+    with uv.
+  github_url: https://github.com/wshobson/agents/tree/main/plugins/python-development/skills/uv-package-manager
+  updated_at: '1774489751'
+- rank: 25
+  id: chromedevtools-chrome-devtools-mcp-skills-chrome-devtools-cli-skill-md
+  name: chrome-devtools-cli
+  author: ChromeDevTools
+  stars: 32039
+  forks: 1896
+  description: Use this to skill to write shell scripts or run shell commands to automate
+    tasks in the browser or otherwise use Chrome DevTools via CLI.
+  github_url: https://github.com/ChromeDevTools/chrome-devtools-mcp/tree/main/skills/chrome-devtools-cli
+  updated_at: '1773218532'
+- rank: 26
+  id: openbmb-chatdev-agents-skills-python-scratchpad-skill-md
+  name: python-scratchpad
+  author: OpenBMB
+  stars: 31903
+  forks: 3944
+  description: Use the existing Python execution tools as a scratchpad for calculations,
+    data transformation, and quick script-based validation.
+  github_url: https://github.com/OpenBMB/ChatDev/tree/main/.agents/skills/python-scratchpad
+  updated_at: '1773167894'
+- rank: 27
+  id: telegramdesktop-tdesktop-agents-skills-task-think-skill-md
+  name: task-think
+  author: telegramdesktop
+  stars: 30336
+  forks: 6446
+  description: Orchestrate a multi-phase implementation workflow for this repository
+    with artifact files under .ai/<project-name>/<letter>/ and fresh codex exec child
+    runs per phase. Use when the user wants one prompt to drive context gathering,
+    planning, plan assessment, implementation, build verification, and review iterations
+    while keeping the main session context clean.
+  github_url: https://github.com/telegramdesktop/tdesktop/tree/dev/.agents/skills/task-think
+  updated_at: '1773652221'
+- rank: 28
+  id: sickn33-antigravity-awesome-skills-skills-apify-actorization-skill-md
+  name: apify-actorization
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Actorization converts existing software into reusable serverless applications
+    compatible with the Apify platform. Actors are programs packaged as Docker images
+    that accept well-defined JSON input, perform an action, and optionally produce
+    structured JSON output.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/apify-actorization
+  updated_at: '1773994629'
+- rank: 29
+  id: sickn33-antigravity-awesome-skills-skills-asana-automation-skill-md
+  name: asana-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Automate Asana tasks via Rube MCP (Composio): tasks, projects, sections,
+    teams, workspaces. Always search tools first for current schemas.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/asana-automation
+  updated_at: '1772180381'
+- rank: 30
+  id: sickn33-antigravity-awesome-skills-skills-azure-compute-batch-java-skill-md
+  name: azure-compute-batch-java
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Azure Batch SDK for Java. Run large-scale parallel and HPC batch jobs
+    with pools, jobs, tasks, and compute nodes.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/azure-compute-batch-java
+  updated_at: '1772354305'
+- rank: 31
+  id: sickn33-antigravity-awesome-skills-skills-bash-defensive-patterns-skill-md
+  name: bash-defensive-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master defensive Bash programming techniques for production-grade scripts.
+    Use when writing robust shell scripts, CI/CD pipelines, or system utilities requiring
+    fault tolerance and safety.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bash-defensive-patterns
+  updated_at: '1772180381'
+- rank: 32
+  id: sickn33-antigravity-awesome-skills-skills-bash-pro-skill-md
+  name: bash-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Master of defensive Bash scripting for production automation, CI/CD
+
+    pipelines, and system utilities. Expert in safe, portable, and testable shell
+
+    scripts.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bash-pro
+  updated_at: '1772354305'
+- rank: 33
+  id: sickn33-antigravity-awesome-skills-skills-bash-scripting-skill-md
+  name: bash-scripting
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Bash scripting workflow for creating production-ready shell scripts
+    with defensive patterns, error handling, and testing.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bash-scripting
+  updated_at: '1772180381'
+- rank: 34
+  id: sickn33-antigravity-awesome-skills-skills-bats-testing-patterns-skill-md
+  name: bats-testing-patterns
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Bash Automated Testing System (Bats) for comprehensive shell
+    script testing. Use when writing tests for shell scripts, CI/CD pipelines, or
+    requiring test-driven development of shell utilities.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bats-testing-patterns
+  updated_at: '1772180381'
+- rank: 35
+  id: sickn33-antigravity-awesome-skills-skills-c-pro-skill-md
+  name: c-pro
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Write efficient C code with proper memory management, pointer
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/c-pro
+  updated_at: '1772180381'
+- rank: 36
+  id: sickn33-antigravity-awesome-skills-skills-coda-automation-skill-md
+  name: coda-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables,
+    rows, formulas, permissions, and publishing. Always search tools first for current
+    schemas.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/coda-automation
+  updated_at: '1772180381'
+- rank: 37
+  id: sickn33-antigravity-awesome-skills-skills-electron-development-skill-md
+  name: electron-development
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Master Electron desktop app development with secure IPC, contextIsolation,
+    preload scripts, multi-process architecture, electron-builder packaging, code
+    signing, and auto-update.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/electron-development
+  updated_at: '1773390849'
+- rank: 38
+  id: sickn33-antigravity-awesome-skills-skills-figma-automation-skill-md
+  name: figma-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Automate Figma tasks via Rube MCP (Composio): files, components, design
+    tokens, comments, exports. Always search tools first for current schemas.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/figma-automation
+  updated_at: '1772180381'
+- rank: 39
+  id: sickn33-antigravity-awesome-skills-skills-linear-automation-skill-md
+  name: linear-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Automate Linear tasks via Rube MCP (Composio): issues, projects, cycles,
+    teams, labels. Always search tools first for current schemas.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/linear-automation
+  updated_at: '1772180381'
+- rank: 40
+  id: sickn33-antigravity-awesome-skills-skills-linux-shell-scripting-skill-md
+  name: linux-shell-scripting
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Provide production-ready shell script templates for common Linux system
+    administration tasks including backups, monitoring, user management, log analysis,
+    and automation. These scripts serve as building blocks for security operations
+    and penetration testing environments.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/linux-shell-scripting
+  updated_at: '1773994005'
+- rank: 41
+  id: sickn33-antigravity-awesome-skills-skills-os-scripting-skill-md
+  name: os-scripting
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Operating system and shell scripting troubleshooting workflow for Linux,
+    macOS, and Windows. Covers bash scripting, system administration, debugging, and
+    automation.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/os-scripting
+  updated_at: '1772180381'
+- rank: 42
+  id: sickn33-antigravity-awesome-skills-skills-posthog-automation-skill-md
+  name: posthog-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Automate PostHog tasks via Rube MCP (Composio): events, feature flags,
+    projects, user profiles, annotations. Always search tools first for current schemas.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/posthog-automation
+  updated_at: '1772180381'
+- rank: 43
+  id: sickn33-antigravity-awesome-skills-skills-powershell-windows-skill-md
+  name: powershell-windows
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: PowerShell Windows patterns. Critical pitfalls, operator syntax, error
+    handling.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/powershell-windows
+  updated_at: '1772180381'
+- rank: 44
+  id: sickn33-antigravity-awesome-skills-skills-supabase-automation-skill-md
+  name: supabase-automation
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: Automate Supabase database queries, table management, project administration,
+    storage, edge functions, and SQL execution via Rube MCP (Composio). Always search
+    tools first for current schemas.
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/supabase-automation
+  updated_at: '1773994005'
+- rank: 45
+  id: sickn33-antigravity-awesome-skills-skills-windows-shell-reliability-skill-md
+  name: windows-shell-reliability
+  author: sickn33
+  stars: 28019
+  forks: 4703
+  description: 'Reliable command execution on Windows: paths, encoding, and common
+    binary pitfalls.'
+  github_url: https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/windows-shell-reliability
+  updated_at: '1774288560'
+- rank: 46
+  id: github-awesome-copilot-skills-automate-this-skill-md
+  name: automate-this
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Analyze a screen recording of a manual process and produce targeted,
+    working automation scripts. Extracts frames and audio narration from video files,
+    reconstructs the step-by-step workflow, and proposes automation at multiple complexity
+    levels using tools already installed on the user machine.
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/automate-this
+  updated_at: '1773027992'
+- rank: 47
+  id: github-awesome-copilot-skills-playwright-automation-fill-in-form-skill-md
+  name: playwright-automation-fill-in-form
+  author: github
+  stars: 27427
+  forks: 3175
+  description: Automate filling in a form using Playwright MCP
+  github_url: https://github.com/github/awesome-copilot/tree/main/skills/playwright-automation-fill-in-form
+  updated_at: '1771904373'
+- rank: 48
+  id: apache-skywalking-claude-skills-generate-classes-skill-md
+  name: generate-classes
+  author: apache
+  stars: 24767
+  forks: 6639
+  description: Generate bytecode classes from DSL scripts (MAL, OAL, LAL, Hierarchy).
+    Runs the compiler and dumps .class files for inspection.
+  github_url: https://github.com/apache/skywalking/tree/master/.claude/skills/generate-classes
+  updated_at: '1772767019'
+- rank: 49
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-feature-design-assistant-skill-md
+  name: feature-design-assistant
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Turn ideas into fully formed designs and specs through natural collaborative
+    dialogue. Use when planning new features, designing architecture, or making significant
+    changes to the codebase.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/feature-design-assistant
+  updated_at: '1767959780'
+- rank: 50
+  id: davila7-claude-code-templates-cli-tool-components-skills-development-github-actions-creator-skill-md
+  name: github-actions-creator
+  author: davila7
+  stars: 23724
+  forks: 2286
+  description: Use when the user wants to create, generate, or set up a GitHub Actions
+    workflow. Handles CI/CD pipelines, testing, deployment, linting, security scanning,
+    release automation, Docker builds, scheduled tasks, and any custom workflow for
+    any language or framework.
+  github_url: https://github.com/davila7/claude-code-templates/tree/main/cli-tool/components/skills/development/github-actions-creator
+  updated_at: '1770689189'

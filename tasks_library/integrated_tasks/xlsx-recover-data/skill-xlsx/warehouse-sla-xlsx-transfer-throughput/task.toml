@@ -1,0 +1,29 @@
+version = "1.0"
+
+[metadata]
+id = "warehouse-sla-xlsx-transfer-throughput"
+name = "Transfer | 仓配 SLA 工作簿恢复"
+primaryOutputFile = "warehouse_sla_completed.xlsx"
+author_name = "OpenAI Codex"
+author_email = "codex@example.com"
+difficulty = "medium"
+category = "spreadsheet"
+tags = ["excel", "warehouse-sla", "throughput-planning", "cross-sheet-dependencies", "xlsx-recovery"]
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 600.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+
+[verifier.env]
+
+[solution.env]
